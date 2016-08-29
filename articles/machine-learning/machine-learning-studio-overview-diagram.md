@@ -35,9 +35,9 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 
 **U kunt het overzichtsdiagram hier downloaden: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf) (Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio)**
 
-![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][studio-overview]
+![Microsoft Azure Machine Learning Studio Capabilities Overview][studio-overview]
 
-[studio-overzicht]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
+[studio-overview]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
 
 
 ## Meer hulp bij Machine Learning Studio
