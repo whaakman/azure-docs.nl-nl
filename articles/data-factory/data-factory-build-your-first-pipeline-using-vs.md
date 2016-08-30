@@ -279,7 +279,10 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
     2. Voer **FirstDataFactoryUsingVS** in bij **Name**. 
     
         > [AZURE.IMPORTANT] De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-3. Selecteer het juiste abonnement voor het veld **Subscription**. 4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken. 5. Selecteer de **regio** voor de gegevensfactory. 6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
+	3. Selecteer het juiste abonnement voor het veld **Subscription**.
+	4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken.
+	5. Selecteer de **regio** voor de gegevensfactory.
+	6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
 23. Op de pagina **Publish Items** controleert u of alle Data Factory-entiteiten zijn geselecteerd en klikt u op **Next** om over te schakelen naar de pagina **Summary**.     
 24. Controleer de samenvatting en klik op **Next** om te beginnen met het implementatieproces en om de **implementatiestatus** te bekijken.
 25. Op de pagina **Deployment Status** ziet u de status van het implementatieproces. Klik op Finish wanneer de implementatie is uitgevoerd. 
@@ -486,6 +489,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
