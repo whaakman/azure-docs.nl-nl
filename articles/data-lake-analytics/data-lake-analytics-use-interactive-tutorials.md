@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -63,7 +63,7 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store](.
     - **Resourcegroep**. Selecteer een bestaande Azure-resourcegroep of maak een nieuwe. Toepassingen bestaan in het algemeen uit meerdere onderdelen, bijvoorbeeld een web-app, database, databaseserver, opslag en services van derden. Met Azure Resource Manager (ARM) kunt u de resources in uw toepassing gebruiken als groep, die we een Azure-resourcegroep noemen. U kunt alle resources voor uw toepassing implementeren, bijwerken, bewaken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. U kunt facturering voor uw organisatie verduidelijken door de samengevoegde kosten voor de hele groep weer te geven. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor meer informatie. 
     - **Locatie**. Selecteer een Azure-datacenter voor het Data Lake Analytics-account. 
 7. Selecteer **vastmaken aan Startboard**. Dit is vereist voor het volgen van deze zelfstudie.
-8. Klik op **Maken**. U gaat naar het Startboard van de portal. Er is een nieuwe tegel toegevoegd aan de startpagina met het label ‘Deploying Azure Data Lake Analytics’. Het duurt enkele minuten om een Data Lake Analytics-account te maken. Wanneer het account is gemaakt, wordt het in een nieuwe blade geopend.
+8. Klik op **Create**. U gaat naar het Startboard van de portal. Er is een nieuwe tegel toegevoegd aan de startpagina met het label ‘Deploying Azure Data Lake Analytics’. Het duurt enkele minuten om een Data Lake Analytics-account te maken. Wanneer het account is gemaakt, wordt het in een nieuwe blade geopend.
 
     ![Azure Data Lake Analytics-portalblade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -91,6 +91,6 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store](.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

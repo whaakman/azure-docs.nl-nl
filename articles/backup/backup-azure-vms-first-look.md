@@ -1,10 +1,10 @@
 <properties
-    pageTitle="VM's in Azure beveiligen met Azure Backup | Microsoft Azure"
-    description="U kunt Azure VM's beveiligen met de Azure Backup-service. In deze zelfstudie wordt uitgelegd hoe u een kluis maakt, VM's registreert, beleid maakt en VM's in Azure beveiligt."
+    pageTitle="Eerste blik: virtuele machines van Azure beveiligen met een back-upkluis | Microsoft Azure"
+    description="Beveilig virtuele machines van Azure met Back-upkluis. In deze zelfstudie wordt uitgelegd hoe u een kluis maakt, VM's registreert, beleid maakt en VM's in Azure beveiligt."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
-    manager="jwhit"
+    manager="cfreeman"
     editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/22/2016"
+    ms.date="07/29/2016"
     ms.author="markgal; jimpark"/>
 
 
 # Eerste blik: een back-up maken van virtuele machines van Azure
 
 > [AZURE.SELECTOR]
-- [Back-ups maken van ARM VM's](backup-azure-vms-first-look-arm.md)
-- [Back-ups maken van VM's in de klassieke modus](backup-azure-vms-first-look.md)
+- [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
+- [Eerste blik: virtuele machines van Azure beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
 
-In deze zelfstudie leert u hoe u back-ups naar Azure maakt van een Azure virtuele machine (VM). Voor deze zelfstudie gelden de volgende vereisten:
+In deze zelfstudie leert u hoe u een back-up maakt van een virtuele machine (VM) van Azure naar een back-upkluis in Azure. In dit artikel wordt het klassieke en Service Manager-implementatiemodel voor back-ups van virtuele machines beschreven. Zie [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over back-ups van een virtuele machine naar een Recovery Services-kluis die deel uitmaakt van een resourcegroep. Voor deze zelfstudie gelden de volgende vereisten:
 
 - U hebt een VM gemaakt in uw Azure-abonnement.
 - De VM heeft verbinding met openbare IP-adressen in Azure. Zie [Netwerkverbinding](./backup-azure-vms-prepare.md#network-connectivity) voor meer informatie.
@@ -38,7 +38,7 @@ Het maken van een back-up van een VM bestaat uit vijf belangrijke stappen:
 
 ![Globaal overzicht van het back-upproces van VM's](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Deze zelfstudie behandelt VM's die in de klassieke Azure-portal kunnen worden gemaakt. De Azure Backup-service ondersteunt VM's op basis van Azure Resource Manager (ARM), ook wel IaaS V2 VM's genoemd. Zie [Eerste blik: Back-ups maken van ARM VM's naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over het maken van back-ups van ARM VM's.
+>[AZURE.NOTE] Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Deze zelfstudie behandelt VM's die in de klassieke Azure-portal kunnen worden gemaakt. De Azure Backup-service biedt ondersteuning voor virtuele machines op basis van Resource Manager. Zie [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over back-ups van virtuele machines naar een Recovery Services-kluis.
 
 
 
@@ -145,7 +145,7 @@ Voordat u de VM met een kluis registreert, moet u het detectieproces uitvoeren o
 
 ## Stap 3 - De VM-agent op de virtuele machine installeren
 
-De Azure VM-agent moet worden geïnstalleerd op de Azure virtuele machine om de Backup-extensie te kunnen gebruiken. Als uw VM is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de VM. U kunt dan doorgaan met [Uw VM's beveiligen](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+De Azure VM-agent moet worden geïnstalleerd op de Azure virtuele machine om de Backup-extensie te kunnen gebruiken. Als uw VM is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de VM. U kunt dan meteen [uw VM’s beveiligen](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 Als uw VM is gemigreerd van een on-premises datacenter, is de VM-agent waarschijnlijk niet op de VM geïnstalleerd. U moet de VM-agent op de virtuele machine installeren voordat u doorgaat met het beveiligen van de VM. Zie de [sectie VM-agent van het artikel Back-ups van VM's maken](backup-azure-vms-prepare.md#vm-agent) voor gedetailleerde stappen voor het installeren van de VM-agent.
 
@@ -225,6 +225,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

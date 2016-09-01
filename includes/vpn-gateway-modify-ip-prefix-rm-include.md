@@ -1,40 +1,55 @@
-### Voorvoegsels toevoegen of verwijderen als u nog geen VPN-gatewayverbinding hebt aangemaakt
+### <a name="noconnection"></a>Voorvoegsels toevoegen of verwijderen - geen gatewayverbinding
 
-- Gebruik het onderstaande voorbeeld om aanvullende adresvoorvoegsels **toe te voegen** aan een lokale netwerkgateway die u hebt aangemaakt, maar die nog geen VPN-gatewayverbinding heeft.
+- Gebruik het onderstaande voorbeeld om aanvullende adresvoorvoegsels **toe te voegen** aan een lokale netwerkgateway die u hebt gemaakt, maar die nog geen gatewayverbinding heeft. Wijzig de waarden in die van uzelf.
 
-        $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-
+        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+        -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 - Gebruik het onderstaande voorbeeld om een adresvoorvoegsel **te verwijderen** uit een lokale netwerkgateway die geen VPN-verbinding heeft. Laat de voorvoegsels weg die u niet langer nodig hebt. In dit voorbeeld hebben we voorvoegsel 20.0.0.0/24 (van het vorige voorbeeld) niet langer nodig, dus werken we de lokale netwerkgateway bij zonder dit voorvoegsel.
 
-        $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+        -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Voorvoegsels toevoegen of verwijderen als u al een VPN-gatewayverbinding hebt aangemaakt
+### <a name="withconnection"></a>Voorvoegsels toevoegen of verwijderen - bestaande gatewayverbinding
 
-Als u uw VPN-verbinding hebt aangemaakt en u wilt IP-adresvoorvoegsels toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding.
+Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Wanneer u uw voorvoegsels bijwerkt, moet u eerst de verbinding verwijderen, de voorvoegsels wijzigen, en vervolgens een nieuwe verbinding maken. Zorg dat u de waarden in de onderstaande voorbeelden door uw eigen waarden vervangt.
 
 >[AZURE.IMPORTANT] Verwijder de VPN-gateway niet. Als u dat doet, moet u de stappen herhalen om hem opnieuw tot stand te brengen. Bovendien moet u uw on-premises router opnieuw configureren met de nieuwe instellingen.
  
-1. Verwijder de IPsec-verbinding. 
-2. Wijzig de voorvoegsels voor uw lokale netwerkgateway. 
-3. Maak een nieuwe IPsec-verbinding aan. 
+1. Verwijder de verbinding.
 
-U kunt het volgende voorbeeld als richtlijn gebruiken.
+        Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
 
-    $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+2. Wijzig de adresvoorvoegsels voor uw lokale netwerkgateway.
 
-    Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+    Stel de variabele in voor LocalNetworkGateway.
 
-    $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-    Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-    
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+        $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
+
+    Wijzig de voorvoegsels.
+
+        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+        -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+4. Maak de verbinding. In dit voorbeeld configureren we een IPsec-verbindingstype. Wanneer u uw verbinding opnieuw maakt, gebruikt u het verbindingstype dat is opgegeven voor uw configuratie. Zie de pagina [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) voor aanvullende verbindingstypen.
+
+    Stel de variabele in voor VirtualNetworkGateway.
+
+        $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
+
+    Maak de verbinding. Houd er rekening mee dat in dit voorbeeld de variabele $local wordt gebruikt die u in de vorige stap hebt ingesteld.
+
+
+        New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
+        -ResourceGroupName MyRGName -Location 'West US' `
+        -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+        -ConnectionType IPsec `
+        -RoutingWeight 10 -SharedKey 'abc123'
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

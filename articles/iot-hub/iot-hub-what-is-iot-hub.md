@@ -96,13 +96,14 @@ De mobiele industrie heeft op zeer grote schaal het service-ondersteunde communi
 
 ## Volgende stappen
 
-Voor meer informatie over Azure IoT Hub klikt u op de volgende links:
+Zie [Overview of Azure IoT Hub device management (overzicht van apparaatbeheer via Azure IoT Hub)][lnk-device-management] voor meer informatie over hoe Azure IoT-Hub op standaarden gebaseerd IoT-apparaatbeheer voor u mogelijk maakt om uw apparaten op afstand te beheren, te configureren en bij te werken.
 
-* [Aan de slag met IoT Hub][lnk-get-started]
-* [Uw apparaat verbinden][lnk-connect-device]
-* [Apparaat-naar-cloud-berichten verwerken][lnk-d2c]
+U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT-hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit een aantal netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-apparaat-SDK's].
+
+Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wilt leren schrijven en een aantal voorbeelden wilt uitvoeren.
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,9 +121,10 @@ Voor meer informatie over Azure IoT Hub klikt u op de volgende links:
 [lnk-apparaat-SDK‘s]: https://github.com/Azure/azure-iot-sdks
 [lnk refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

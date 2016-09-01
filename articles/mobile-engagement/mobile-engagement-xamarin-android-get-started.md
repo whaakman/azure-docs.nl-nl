@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="06/16/2016"
     ms.author="piyushjo" />
 
 # Aan de slag met Azure Mobile Engagement voor Xamarin.Android-apps
@@ -28,7 +28,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 + [Xamarin Studio](http://xamarin.com/studio). U kunt ook Visual Studio gebruiken met Xamarin, maar deze zelfstudie gebruikt Xamarin Studio. Zie [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installatie voor Visual Studio en Xamarin) voor installatie-instructies.
 + [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started) voor meer informatie.
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw Android-app
 
@@ -36,7 +36,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ##<a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 
-Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. 
+Deze zelfstudie toont een 'basisintegratie', de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. 
 
 We gaan een eenvoudige app maken met Xamarin Studio ter illustratie van de integratie.
 
@@ -109,6 +109,20 @@ Xamarin Studio maakt de app waarin we Mobile Engagement gaan integreren.
 Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm naar de back-end van Mobile Engagement sturen. Om dit te doen zorgt u ervoor dat de `MainActivity` overneemt van `EngagementActivity` in plaats van `Activity`.
 
     public class MainActivity : EngagementActivity
+    
+Als u niet kunt overnemen van `EngagementActivity`, moet u vervolgens de methode `.StartActivity` en `.EndActivity` toevoegen in respectievelijk `OnResume` en `OnPause`.  
+
+        protected override void OnResume()
+            {
+                EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+                base.OnResume();             
+            }
+    
+            protected override void OnPause()
+            {
+                EngagementAgent.EndActivity();
+                base.OnPause();            
+            }
 
 ##<a id="monitor"></a>App verbinden met realtime-bewaking
 
@@ -134,6 +148,7 @@ In de volgende secties stelt u de app in om die te ontvangen.
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
 # Application Insights voor webpagina’s
@@ -29,7 +29,7 @@ U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig. Als uw team
 
 ## Application Insights instellen voor uw webpagina
 
-Mogelijk hebt u dit al gedaan. Als uw app een nieuw ASP.NET-project is en u ervoor hebt gekozen Application Insights toe te voegen in het dialoogvenster New Project in Visual Studio, is het script al toegevoegd en bent u klaar.
+De eerste vraag is of u Application Insights aan uw webpagina's moet toevoegen. Mogelijk hebt u dit al gedaan. Als u ervoor hebt gekozen om Application Insights toe te voegen aan uw web-app in het dialoogvenster Nieuw Project in Visual Studio, is het script toen al toegevoegd. In dat geval hoeft u dat nu niet meer te doen.
 
 Anders gaat u als volgt te werk om een codefragment aan uw webpagina's toe te voegen.
 
@@ -39,7 +39,7 @@ In de Application Insights-resource worden gegevens over de prestaties en het ge
 
 Meld u aan bij de [Azure Portal](https://portal.azure.com).
 
-Als u bewaking voor de serverkant van uw app hebt ingesteld, hebt u al een resource:
+Als u bewaking voor de serverkant van uw app al hebt ingesteld, hebt u al een resource:
 
 ![Kies Bladeren, Ontwikkelaarsservices, Application Insights.](./media/app-insights-javascript/01-find.png)
 
@@ -71,7 +71,7 @@ Het script bevat de instrumentatiesleutel die de gegevens naar uw Application In
 
 ## Gedetailleerde configuratie
 
-U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld het aantal gemelde AJAX-aanroepen per paginaweergave uitschakelen of beperken (om verkeer te beperken), of u kunt de foutopsporingsmodus zo instellen dat telemetrie sneller wordt verzameld door deze niet in een batch op te nemen.
+U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld het aantal Ajax-aanroepen dat per paginaweergave wordt gerapporteerd beperken of deze rapportering uitschakelen (om verkeer te beperken). Of u kunt de foutopsporingsmodus zo instellen dat telemetrie snel via de pijplijn wordt verzameld zonder deze telemetrie in een batch op te nemen.
 
 Voor het instellen van deze parameters zoekt u deze regel in het codefragment en voegt u hierna meer items toe, gescheiden door komma's:
 
@@ -120,7 +120,7 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 *Zijn er nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
 
-De blade Browsers is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
+De blade Browsers is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
 ## Laadprestaties van de pagina
 
@@ -136,7 +136,7 @@ De *netwerkverbindingstijd* is vaak lager dan u verwacht, omdat het een gemiddel
 
 Het traag laden van pagina is voor uw gebruikers een belangrijke bron van ergernis. Als de grafiek aangeeft dat pagina’s traag worden geladen, is het eenvoudig om wat diagnostisch onderzoek uit te voeren.
 
-De grafiek toont de gemiddelde paginalaadtijd in uw app. Als u wilt weten of het probleem zich beperkt tot bepaalde pagina's, kijkt u een stukje lager op de blade. Daar ziet u een raster gesegmenteerd op pagina-URL:
+De grafiek toont de gemiddelde paginalaadtijd in uw app. Als u wilt weten of het probleem zich beperkt tot bepaalde pagina's, kijkt u een stukje lager op de blade. Daar ziet u een raster dat gesegmenteerd is op pagina-URL:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
@@ -205,9 +205,9 @@ Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Pagina
 
 Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina met details op '...' om nog meer details weer te geven.
 
-> [AZURE.NOTE] Als u [Zoeken](app-insights-diagnostic-search.md) gebruikt, zorg er dan voor dat u zoekt op volledige woorden. 'About' vindt u bijvoorbeeld niet met 'Abou' of met 'bout', maar wel met 'Abou*'. U kunt een zoekterm niet laten beginnen met een jokerteken. Met '*bou' zoekt u tevergeefs naar 'About'.
+> [AZURE.NOTE] Als u [Zoeken](app-insights-diagnostic-search.md) gebruikt, zorg er dan voor dat u zoekt op volledige woorden. 'About' vindt u bijvoorbeeld niet met 'Abou' of met 'bout'.
 
-> [Meer informatie over diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)
+U kunt ook de krachtige [querytaal van Analytics](app-insights-analytics-tour.md) gebruiken om paginaweergaven te doorzoeken.
 
 ### Eigenschappen van paginaweergaven
 
@@ -253,6 +253,6 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

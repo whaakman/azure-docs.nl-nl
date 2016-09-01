@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="markusvi"
     writer="markvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 # Uw Azure AD-directory beheren
@@ -40,7 +40,8 @@ Azure AD levert de kerndirectory en identiteitsbeheermogelijkheden voor de meest
 
 U krijgt een Azure AD-directory wanneer u zich aanmeldt voor een van deze Microsoft Cloud Services. U kunt naar behoefte aanvullende directory’s maken. Zo kunt u bijvoorbeeld uw eerste directory gebruiken als productiedirectory en nog een tweede directory maken voor testen en fasering.
 
-> [AZURE.NOTE] Nadat u zich voor uw eerste service hebt aangemeld, doet u er verstandig aan het organisatiespecifieke beheerdersaccount dat u hebt gemaakt, ook te gebruiken wanneer u zich aanmeldt voor andere Microsoft-cloudservices.
+> [AZURE.NOTE]
+> Nadat u zich voor uw eerste service hebt aangemeld, doet u er verstandig aan het organisatiespecifieke beheerdersaccount dat u hebt gemaakt, ook te gebruiken wanneer u zich aanmeldt voor andere Microsoft-cloudservices.
 
 De eerste keer dat u zich voor een Microsoft-cloudservice aanmeldt, moet u gegevens opgeven over uw organisatie en over de internetdomeinnaam die voor uw organisatie is geregistreerd. Deze gegevens worden vervolgens gebruikt voor het maken van een nieuw exemplaar van de Azure AD-directory voor uw organisatie. Wanneer u zich abonneert op meerdere Microsoft-cloudservices, wordt dezelfde directory gebruikt om aanmeldpogingen te verifiëren.
 
@@ -101,8 +102,8 @@ U kunt elke directory als volledig onafhankelijke resource beheren: elke directo
 
 - **Resourceonafhankelijkheid**. Wanneer u een resource maakt in of verwijdert uit de ene directory, heeft dat geen gevolgen voor de resources in andere directory’s. Externe gebruikers vormen hier een gedeeltelijke uitzondering op, zoals verderop wordt beschreven. Als u voor een bepaalde directory het aangepaste domein contoso.com gebruikt, kan dit domein niet meer voor andere directory’s worden gebruikt.
 - **Beheeronafhankelijkheid**.  Als een gebruiker (geen beheerder) van de directory Contoso de testdirectory Test maakt:
-    - ◦ Het hulpprogramma voor directorysynchronisatie synchroniseert de gegevens met één AD-forest.
-    - ◦ De beheerders van de directory Contoso hebben geen directe beheerdersrechten voor de directory Test, tenzij de beheerder van Test hun deze rechten verleent. Beheerders van Contoso kunnen de toegang tot de directory Test beheren doordat ze het gebruikersaccount beheren waarmee Test is gemaakt.
+    - Het hulpprogramma voor directorysynchronisatie, om de gegevens met één AD-forest te synchroniseren.
+    - De beheerders van de directory Contoso hebben geen directe beheerdersrechten voor de directory Test, tenzij de beheerder van Test hun deze rechten verleent. Beheerders van Contoso kunnen de toegang tot de directory Test beheren doordat ze het gebruikersaccount beheren waarmee Test is gemaakt.
 
     Wanneer u in één directory de beheerdersrol van een gebruiker wijzigt (toevoegt of verwijdert), heeft deze wijziging geen gevolgen voor de beheerdersrollen die de betreffende gebruiker mogelijk heeft in andere directory’s.
 
@@ -129,13 +130,13 @@ Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 - Er mogen in de directory geen toepassingen aanwezig zijn. Alle toepassingen moeten worden verwijderd om de directory te kunnen verwijderen.
 - Aan de directory mogen geen abonnementen op Microsoft Online Services zijn gekoppeld, zoals een abonnement op Microsoft Azure, Office 365 of Azure AD Premium. Als er bijvoorbeeld een standaarddirectory voor u is gemaakt in Azure, kunt u deze directory niet verwijderen als uw Azure-abonnement deze directory gebruikt voor verificatie. Het is evenmin mogelijk om een directory te verwijderen als een andere gebruiker er een abonnement aan heeft gekoppeld. Als u uw abonnement wilt koppelen aan een andere directory, meldt u zich aan bij de Azure-beheerportal en klikt u in de navigatiebalk aan de linkerkant op **Instellingen**. Klik vervolgens onder aan de pagina **Abonnementen** op **Directory bewerken**. Voor meer informatie over Azure-abonnementen raadpleegt u [Hoe Azure-abonnementen worden gekoppeld aan Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > Een gebruiker die is aangemeld met een werk- of schoolaccount, kan zijn of haar basisdirectory niet verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan hij of zij niet de directory verwijderen die contoso.onmicrosoft.com gebruikt als standaarddomein.
+> [AZURE.NOTE]
+> Een gebruiker die is aangemeld met een werk- of schoolaccount, kan zijn of haar basisdirectory niet verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan hij of zij niet de directory verwijderen die contoso.onmicrosoft.com gebruikt als standaarddomein.
 
 - Aan de directory kunnen geen Multi-Factor Authentication-providers worden gekoppeld.
 
 
-## Aanvullende bronnen
+## Aanvullende resources
 
 - [Azure AD-forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
@@ -150,6 +151,6 @@ Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

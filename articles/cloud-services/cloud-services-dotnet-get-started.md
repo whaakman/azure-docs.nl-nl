@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Aan de slag met Azure Cloud Services en ASP.NET
@@ -60,7 +60,7 @@ De instructies in de zelfstudie zijn van toepassing op een van de volgende produ
 * Visual Studio 2013
 * Visual Studio 2015
 
-Als u deze niet hebt, wordt Visual Studio 2015 automatisch geïnstalleerd wanneer u de Azure SDK installeert. 
+Als u deze niet hebt, wordt Visual Studio 2015 automatisch geïnstalleerd wanneer u de Azure SDK installeert.
 
 ## Toepassingsarchitectuur
 
@@ -229,7 +229,7 @@ U gebruikt een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deplo
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Laat het bestand open, zodat u het kunt bewerken.
 
 2. Klik in het linkerdeelvenster van de [klassieke Azure Portal](http://manage.windowsazure.com) op **SQL-databases** en klik daarna achtereenvolgens op de database die u voor deze zelfstudie hebt gemaakt, op het tabblad **Dashboard** en op **Verbindingsreeksen weergeven**.
@@ -314,10 +314,10 @@ Het bestand *ServiceConfiguration.Cloud.cscfg* bevat de waarden die u in Visual 
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Als u Visual Studio 2015 gebruikt, vervangt u "v11.0" door "MSSQLLocalDB".
 
 2. Sla uw wijzigingen op.
@@ -868,9 +868,10 @@ Zie de volgende bronnen voor meer informatie:
 * [Deel 1 Azure Cloud Services: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloudservices beheren](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

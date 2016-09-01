@@ -4,9 +4,9 @@ Als u een cache wilt maken, meldt u zich eerst aan bij de [Azure-portal](https:/
 
 ![Nieuwe cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] U kunt caches niet alleen maken in de Azure-portal, maar u kunt deze ook maken met ARM-sjablonen, PowerShell of Azure CLI.
+>[AZURE.NOTE] U kunt caches niet alleen in de Azure-portal maken. U kunt ze ook maken met Resource Manager-sjablonen, PowerShell of Azure CLI.
 >
->-  Zie [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md) (Een Redis-cache maken met een ARM-sjabloon) als u een cache wilt maken met ARM-sjablonen.
+>-  Zie [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md) (Een Redis-cache maken met een sjabloon) als u een cache wilt maken met Resource Manager-sjablonen.
 >-  Zie [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md) (Azure Redis-cache beheren met Azure PowerShell) als u een cache wilt maken met Azure PowerShell.
 >-  Zie [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md) (Azure Redis-cache maken en beheren met de Azure-opdrachtregelinterface (Azure CLI)) als u een cache wilt maken met Azure CLI.
 
@@ -23,13 +23,13 @@ Geef in de blade **Nieuwe Redis-cache** de gewenste configuratie voor de cache o
 -   **Redis-persistentie** biedt de mogelijkheid om de cache vast te leggen in een Azure Storage-account. Zie [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md) (Persistentie voor een Premium Azure Redis-cache configureren) voor instructies over het configureren van persistentie.
 -   **Virtueel netwerk** biedt verbeterde beveiliging en isolatie door de toegang tot uw cache te beperken tot alleen de clients binnen het opgegeven Azure Virtual Network. U kunt alle functies van VNet, zoals subnetten, toegangscontrolebeleid en andere functies, gebruiken om de toegang tot Redis verder te beperken. Zie [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md) (Virtual Network-ondersteuning voor een Premium Azure Redis-cache configureren) voor meer informatie.
 
-Klik op **Maken** wanneer de opties voor de nieuwe cache zijn geconfigureerd. Het kan enkele minuten duren voordat de cache is gemaakt. Als u de status wilt zien, kunt u de voortgang bekijken via het startboard. Nadat de cache is gemaakt, heeft de nieuwe cache de status **Wordt uitgevoerd** en is deze gereed voor gebruik met de standaardinstellingen.
+Klik op **Maken** wanneer de opties voor de nieuwe cache zijn geconfigureerd. Het kan enkele minuten duren voordat de cache is gemaakt. Als u de status wilt zien, kunt u de voortgang bekijken via het startboard. Nadat de cache is gemaakt, heeft uw nieuwe cache de status **Wordt uitgevoerd** en is deze gereed voor gebruik met de [standaardinstellingen](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
 ![Cache gemaakt](media/redis-cache-create/redis-cache-cache-created.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

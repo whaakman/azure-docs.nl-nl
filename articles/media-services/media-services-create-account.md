@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -108,6 +108,6 @@ Daarnaast kunt u code weergeven die gebruikmaakt van de Azure Media Services SDK
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

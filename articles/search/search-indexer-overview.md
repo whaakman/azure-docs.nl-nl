@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="mblythe"
+    manager="paulettm"
     editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="04/14/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Indexeerfuncties in Azure Search
@@ -30,26 +30,55 @@ Een **indexeerfunctie** in Azure Search is een verkenner die doorzoekbare gegeve
 
 U kunt een indexeerfunctie gebruiken voor de opname van gegevens of een combinatie van technieken gebruiken, waaronder een indexeerfunctie voor het laden van slechts enkele velden in de index.
 
-Indexeerfuncties kunnen op aanvraag worden uitgevoerd of volgens een terugkerend schema, waarbij gegevens wel om de vijftien minuten kunnen worden vernieuwd. Als u vaker updates wilt uitvoeren, hebt u een pushmodel nodig dat tegelijkertijd gegevens in Azure Search en uw externe gegevensbron bijwerkt.
+U kunt indexeerfuncties op verzoek uitvoeren of op basis van een terugkerend schema voor gegevensvernieuwing, dat zo vaak als elke 15 minuten kan worden uitgevoerd. Als u vaker updates wilt uitvoeren, hebt u een pushmodel nodig dat tegelijkertijd gegevens in Azure Search en uw externe gegevensbron bijwerkt.
+
+## Strategieën voor het maken en beheren van indexeerfuncties
+
+U kunt voor algemeen beschikbare indexeerfuncties zoals Azure SQL of DocumentDB met behulp van deze methoden indexeerfuncties maken en beheren:
+
+- [Portal > Wizard Gegevens importeren ](search-get-started-portal.md)
+- [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
+- [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
+
+Voor previewindexeerfuncties, zoals Azure Blob of Table Storage, zijn code en preview-API's vereist zoals [Azure Search Preview REST API voor indexeerfuncties](search-api-indexers-2015-02-28-preview.md). Portal-tools zijn doorgaans niet beschikbaar voor preview-functies.
+
+## Basisconfiguratiestappen
+
+Indexeerfuncties kunnen functies bieden die uniek voor de gegevensbron zijn. In dit opzicht variëren bepaalde aspecten van de configuratie van de indexeerfunctie of de gegevensbron al naar gelang het type indexeerfunctie. Alle indexeerfuncties hebben echter dezelfde basissamenstelling en voor alle indexeerfuncties gelden dezelfde vereisten. Hieronder vindt u de stappen die voor alle indexeerfuncties gemeenschappelijk zijn.
+
+### Stap 1: een index maken
+
+Een indexeerfunctie automatiseert bepaalde taken met betrekking tot de opname van gegevens, maar het maken van een index behoort hier niet toe. Een vereiste is dat u een vooraf gedefinieerde index moet hebben met velden die overeenkomen met de velden in uw externe gegevensbron. Zie [Create an Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Een index maken (Azure Search REST API)) voor meer informatie over het structureren van een index.
+
+### Stap 2: een gegevensbron maken
 
 Een indexeerfunctie haalt gegevens op uit een **gegevensbron** die informatie, zoals een verbindingsreeks, bevat. Momenteel worden de volgende gegevensbronnen ondersteund:
 
-- [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (of SQL Server in een virtuele machine van Azure)
+- [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) (momenteel in de preview-versie) Haalt tekst op uit pdf-bestanden, Office-documenten en HTML- en XML-bestanden).
-- [Azure Table Storage](search-howto-indexing-azure-tables.md) (momenteel in de preview-versie)
+- [Azure Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF’s, Office-documenten, HTML of XML
+- [Azure Table Storage (preview)](search-howto-indexing-azure-tables.md)
 
 Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties beheerd die gebruikmaken van de gegevensbronnen. Dit betekent dat een gegevensbron door meerdere indexeerfuncties kan worden gebruikt om tegelijkertijd meer dan één index te laden. 
 
-Zowel de [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) als de [REST-API van de service](https://msdn.microsoft.com/library/azure/dn946891.aspx) bieden ondersteuning voor het beheer van indexeerfuncties en gegevensbronnen. 
+### Stap 3: de indexeerfunctie maken en plannen
 
-U kunt ook een indexeerfunctie configureren in de portal met behulp van de wizard **Gegevens importeren**. Zie [Aan de slag met Azure Search in de portal](search-get-started-portal) voor een snelle zelfstudie waarin gebruik wordt gemaakt van voorbeeldgegevens en de DocumentDB-indexeerfunctie om een index te maken en te laden met behulp van de wizard.
+De definitie van de indexeerfunctie is een constructie die de index, gegevensbron en een planning specificeert. Een indexeerfunctie kan verwijzen naar een gegevensbron van een andere service, zolang die gegevensbron maar uit hetzelfde abonnement komt. Zie [Create Indexer (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Een indexeerfunctie maken (Azure Search REST API)) voor meer informatie over het structureren van een indexeerfunctie.
+
+## Volgende stappen
+
+Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken te bekijken die specifiek zijn voor elk gegevensbrontype.
+
+- [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Azure Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF’s, Office-documenten, HTML of XML
+- [Azure Table Storage (preview)](search-howto-indexing-azure-tables.md)
+- [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob (preview)](search-howto-index-csv-blobs.md)
+- [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob (preview)](search-howto-index-json-blobs.md)
 
 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

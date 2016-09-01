@@ -14,6 +14,8 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
 
 3. Voer een naam voor het DNS-label in. Deze naam is een A-Record die kan worden gebruikt om verbinding maken met uw SQL Server VM met uw naam in plaats van rechtstreeks met het IP-adres.
 
+4. Klik op de knop **Opslaan**.
+
     ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Verbinding maken met de Database-engine vanaf een andere computer
@@ -34,6 +36,6 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

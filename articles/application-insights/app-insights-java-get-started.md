@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/17/2016"
     ms.author="awills"/>
 
 # Aan de slag met Application Insights in een Java-webproject
@@ -25,9 +25,9 @@
 
 ![voorbeeldgegevens](./media/app-insights-java-get-started/5-results.png)
 
-Application Insights biedt ondersteuning voor Java-apps die op Linux, Unix of Windows worden uitgevoerd.
+Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Windows worden uitgevoerd.
 
-U hebt het volgende nodig:
+U hebt de volgende zaken nodig:
 
 * Oracle JRE 1.6 of hoger, of Zulu JRE 1.6 of hoger
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/). (U zou kunnen beginnen met de [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).)
@@ -38,13 +38,10 @@ U hebt het volgende nodig:
 ## 1. Een Application Insights-instrumentatiesleutel ophalen
 
 1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
-2. Maak een nieuwe Application Insights-resource.
-
-    ![Op + klikken en Application Insights kiezen](./media/app-insights-java-get-started/01-create.png)
-3. Stel het toepassingstype in op Java-webtoepassing.
+2. Maak een Application Insights-resource. Stel het toepassingstype in op Java-webtoepassing.
 
     ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/app-insights-java-get-started/02-create.png)
-4. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze zo dadelijk in de code van uw project plakken.
+4. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze sleutel zo dadelijk in de code van uw project plakken.
 
     ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/app-insights-java-get-started/03-key.png)
 
@@ -106,7 +103,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
 
 Voeg de SDK handmatig toe:
 
-1. Download de [Application Insights-SDK voor Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Download de [Application Insights-SDK voor Java](https://aka.ms/aijavasdk).
 2. Pak het zip-bestand uit en voeg de binaire bestanden toe aan uw project.
 
 ### Vragen...
@@ -117,7 +114,7 @@ Voeg de SDK handmatig toe:
  * `applicationinsights-web` geeft u metrische gegevens die het aantal HTTP-aanvragen en -reactietijden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
 
 * *De SDK bijwerken wanneer we wijzigingen publiceren*
- * Download de meest recente [Application Insights-SDK voor Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) en vervang de oude versie.
+ * Download de meest recente [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang de oude versie.
  * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
@@ -161,7 +158,21 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
 * Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
-* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostics].
+* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostics].
+* De Application Insights-sleutel kan vanuit de Azure Portal dynamisch worden doorgegeven als een systeemeigenschap (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Als er geen eigenschap is gedefinieerd, wordt gecontroleerd op omgevingsvariabelen (APPLICATION_INSIGHTS_IKEY) in de Azure App-instellingen. Als beide eigenschappen niet zijn gedefinieerd, wordt de standaardwaarde van InstrumentationKey uit ApplicationInsights.xml gebruikt. Met deze reeks kunt u verschillende instrumentatiesleutels voor verschillende omgevingen dynamisch beheren.
+
+### Andere manieren om de instrumentatiesleutel in te stellen
+
+De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
+
+1. Systeemeigenschap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
+2. Omgevingsvariabele: APPLICATION_INSIGHTS_IKEY
+3. Configuratiebestand: ApplicationInsights.xml
+
+U kunt de instrumentatiesleutel ook [instellen in code](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4. Een HTTP-filter toevoegen
 
@@ -182,7 +193,7 @@ Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters word
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### Als u MVC 3.1 of hoger gebruikt
+#### Als u Spring Web MVC 3.1 of hoger gebruikt
 
 Bewerk deze elementen zodanig dat het Application Insights-pakket is opgenomen:
 
@@ -227,7 +238,7 @@ Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden bijvoorbeeld gegroepeerd in `GET Home/Product`. Op deze manier kunnen er zinvolle sets aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
+> Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
 
 
 ### Gegevens van exemplaren 
@@ -248,29 +259,27 @@ Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het same
 ![Voorbeeld van het hulpprogramma Analyse](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Uw app installeren op de server
+## 7. Uw app installeren op de server
 
 Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de telemetrische gegevens die in de portal binnenkomen.
 
 * Controleer of de firewall het verzenden van telemetrie door uw app naar deze poorten toestaat:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Installeer op Windows-servers:
 
  * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (Hiermee kunt u prestatiemeteritems instellen.)
+    (Dit onderdeel schakelt prestatiemeteritems in.)
 
 ## Uitzonderingen en mislukte aanvragen
 
 Onverwerkte uitzonderingen worden automatisch verzameld:
 
-![Schuif naar beneden en klik op de tegel Fouten](./media/app-insights-java-get-started/21-exceptions.png)
+![Open Instellingen, Fouten](./media/app-insights-java-get-started/21-exceptions.png)
 
 Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
@@ -285,7 +294,7 @@ Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
 ## Prestatiemeteritems
 
-Klik op de tegel **Servers**. U ziet nu een groot aantal prestatiemeteritems.
+Open **Instellingen**, **Servers** om een aantal prestatiemeteritems weer te geven.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -367,17 +376,15 @@ Nu u de SDK hebt geïnstalleerd, kunt u de API gebruiken voor het verzenden van 
 
 ## Webtests voor beschikbaarheid
 
-Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. Als u deze functie wilt [instellen][availability], schuift u omlaag en klikt u op Beschikbaarheid.
+Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen van][availability], klikt u op Webtests.
 
-![Omlaag schuiven, op Beschikbaarheid klikken en vervolgens op Webtest toevoegen klikken](./media/app-insights-java-get-started/31-config-web-test.png)
+![Klik op webtests en vervolgens op Webtest toevoegen.](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen als uw site uitvalt.
 
 ![Voorbeeld van een webtest](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Meer informatie over de webtests voor beschikbaarheid][availability]. 
-
-
 
 
 
@@ -403,6 +410,6 @@ Raadpleeg het [Java Developer Center](/develop/java/) voor meer informatie.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

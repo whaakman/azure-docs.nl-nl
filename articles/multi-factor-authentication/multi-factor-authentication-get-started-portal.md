@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
@@ -42,7 +42,7 @@ Als u de gebruikersportal op dezelfde server als de Azure Multi-Factor Authentic
 1. Klik op Volgende.
 1. Klik op Volgende.
 1. Klik op Sluiten.
-1. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Zorg ervoor dat er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+1. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
@@ -71,7 +71,7 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 
 ### De webservice-SDK installeren
 
-Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram van de webservice-SDK, klik op de knop Webservice-SDK installeren  en volg de aanwijzingen op het scherm. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht. 
+Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram voor de webservice-SDK, en klik op de knop Install Web Service SDK (Webservice-SDK installeren)... en volg de aanwijzingen die worden gegeven. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht. 
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -91,7 +91,7 @@ Voordat u de gebruikersportal op een aparte server installeert, houdt u rekening
 5. Zoek de sleutel USE_WEB_SERVICE_SDK en wijzig de waarde van false (onwaar) in true (waar). Zoek de sleutels WEB_SERVICE_SDK_AUTHENTICATION_USERNAME en WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD en stel de waarden in op de gebruikersnaam en het wachtwoord van het serviceaccount dat lid is van de beveiligingsgroep PhoneFactor Admins (zie de sectie Vereisten hierboven). Zorg ervoor dat u de gebruikersnaam en het wachtwoord invoert tussen de aanhalingstekens aan het einde van de regel (value=””/>). Het is raadzaam om een gekwalificeerde gebruikersnaam (bijvoorbeeld domein\gebruikersnaam of computer\gebruikersnaam) te gebruiken.
 6. Zoek de instelling pfup_pfwssdk_PfWsSdk en wijzig de waarde van http://localhost:4898/PfWsSdk.asmx in de URL van de webservice-SDK die wordt uitgevoerd op de Azure Multi-Factor Authentication-server (bijvoorbeeld https://computer1.domein.lokaal/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Omdat voor deze verbinding SSL wordt gebruikt, moet u naar de webservice-SDK verwijzen met de servernaam en niet met het IP-adres omdat het SSL-certificaat wordt uitgegeven voor de servernaam. Hierdoor moet de gebruikte URL overeenkomen met de naam op het certificaat. Als de naam van de server niet wordt omgezet in een IP-adres van de internetgerichte server, kunt u een vermelding toevoegen aan het hostbestand op die server, om de naam van de Azure Multi-Factor Authentication-server toe te wijzen aan het IP-adres ervan. Sla het bestand web.config op nadat de wijzigingen zijn aangebracht.
 7. Als de website waaronder de gebruikersportal is geïnstalleerd (bijvoorbeeld Standaardwebsite) nog niet is verbonden met een openbaar ondertekend certificaat, installeert u het certificaat op de server als dit nog niet is gebeurd, opent u IIS-beheer en verbindt u het certificaat aan de website.
-8. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Zorg ervoor dat er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+8. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
 
 
@@ -190,6 +190,7 @@ De zelfregistratie van de gebruiker is nu voltooid en de gebruiker is aangemeld 
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

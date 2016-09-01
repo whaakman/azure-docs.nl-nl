@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="sethm"/>
 
 
 # Service Bus-berichtenservice: flexibele levering van gegevens in de cloud
 
-De Azure Service Bus-berichtenservice is een betrouwbare service voor de levering van informatie. Het doel van deze service is om communicatie te vergemakkelijken. Wanneer twee of meer partijen informatie willen uitwisselen, hebben ze een communicatiemechanisme nodig. De Service Bus-berichtenservice is een brokered communicatiemechanisme, of een communicatiemechanisme van derden. Het is vergelijkbaar met een postservice in de fysieke wereld. Postservices maken het gemakkelijk om verschillende soorten brieven en pakketten met tal van verschillende leveringsgaranties overal ter wereld te leveren.
+De Microsoft Azure Service Bus-berichtenservice is een betrouwbare service voor de levering van informatie. Het doel van deze service is om communicatie te vergemakkelijken. Wanneer twee of meer partijen informatie willen uitwisselen, hebben ze een communicatiemechanisme nodig. De Service Bus-berichtenservice is een brokered communicatiemechanisme, of een communicatiemechanisme van derden. Het is vergelijkbaar met een postservice in de fysieke wereld. Postservices maken het gemakkelijk om verschillende soorten brieven en pakketten met tal van verschillende leveringsgaranties overal ter wereld te leveren.
 
 Net zoals een postservice die brieven levert, is de Service Bus-berichtenservice een flexibele leverancier van informatie voor zowel de afzender als de ontvanger. De berichtenservice zorgt ervoor dat de informatie wordt afgeleverd, zelfs als de twee partijen nooit allebei op hetzelfde moment online zijn of als ze niet op precies hetzelfde moment beschikbaar zijn. In die zin is het verzenden van berichten vergelijkbaar met het verzenden van een brief, terwijl niet-brokered communicatie vergelijkbaar is met een telefonische oproep (uit de tijd dat er nog geen wachtstand en beller-id was, want die services komen meer in de richting van Brokered Messaging).
 
@@ -39,7 +39,7 @@ Relayed Messaging biedt veel voordelen. Hiervoor is echter wel vereist dat de se
 
 ## Brokered Messaging
 
-In tegenstelling tot het schema voor Relayed Messaging, kan [Brokered Messaging](service-bus-fundamentals-hybrid-solutions.md) worden beschouwd als asynchroon of 'tijdelijk ontkoppeld'. Producenten (afzenders) en consumenten (ontvangers) hoeven niet gelijktijdig online te zijn. De berichteninfrastructuur slaat berichten veilig op in een 'broker' (zoals een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen. Hierdoor kunnen de onderdelen van de gedistribueerde toepassing worden losgekoppeld - hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van een onderdeel - zonder dat dit van invloed is op het hele systeem. Bovendien hoeft de ontvangende toepassing slechts op bepaalde tijdstippen gedurende de dag online te zijn. Denk bijvoorbeeld aan een systeem voor voorraadbeheer, dat alleen aan het einde van de dag hoeft te worden uitgevoerd.
+In tegenstelling tot het schema voor Relayed Messaging, kan [Brokered Messaging](service-bus-queues-topics-subscriptions.md) worden beschouwd als asynchroon, of 'tijdelijk losgekoppeld'. Producenten (afzenders) en consumenten (ontvangers) hoeven niet gelijktijdig online te zijn. De berichteninfrastructuur slaat berichten veilig op in een 'broker' (zoals een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen. Hierdoor kunnen de onderdelen van de gedistribueerde toepassing worden losgekoppeld - hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van een onderdeel - zonder dat dit van invloed is op het hele systeem. Bovendien hoeft de ontvangende toepassing slechts op bepaalde tijdstippen gedurende de dag online te zijn. Denk bijvoorbeeld aan een systeem voor voorraadbeheer, dat alleen aan het einde van de dag hoeft te worden uitgevoerd.
 
 De belangrijkste onderdelen van de Brokered Messaging-infrastructuur van Service Bus zijn wachtrijen, onderwerpen en abonnementen.  Het belangrijkste verschil is dat onderwerpen mogelijkheden voor publiceren/abonneren ondersteunen die kunnen worden gebruikt voor geavanceerde, op inhoud gebaseerde routering en logica voor aflevering, met inbegrip van verzending naar meerdere ontvangers. Deze onderdelen faciliteren nieuwe scenario’s voor asynchrone berichtverzending, zoals tijdelijke ontkoppeling, publiceren/abonneren en taakverdeling. Zie [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md) voor meer informatie over deze berichtentiteiten.
 
@@ -49,15 +49,15 @@ Net als bij de Relayed Messaging-infrastructuur wordt de Brokered Messaging-func
 
 Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtenservice
 
-- [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 - [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 - [Service Bus-architectuur](service-bus-architecture.md)
-- [Service Bus-wachtrijen gebruiken](service-bus-dotnet-how-to-use-queues.md)
-- [Service Bus-onderwerpen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
+- [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Inleiding tot DocumentDB, een JSON-database | Microsoft Azure" 
     description="Meer informatie over Azure DocumentDB, een NoSQL JSON-database. Deze documentdatabase is gebouwd voor big data, een elastische schaalbaarheid en een hoge beschikbaarheid." 
-    keywords="json database, document database"
+    keywords="json-database, documentdatabase"
     services="documentdb" 
     authors="mimig1" 
     manager="jhubbard" 
@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/30/2016" 
+    ms.date="07/01/2016" 
     ms.author="mimig"/>
 
 # Inleiding tot DocumentDB: een NoSQL JSON-database
 
-Azure DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd voor snelle en voorspelbare prestaties, een hoge beschikbaarheid, automatisch schalen en een gebruiksvriendelijke manier van ontwikkelen. Dankzij het flexibele gegevensmodel, de consistente lage latenties en geavanceerde querymogelijkheden is DocumentDB uitermate geschikt voor webtoepassingen, mobiele toepassingen, IoT-toepassingen en vele andere toepassingen die u probleemloos moet kunnen schalen.
+Azure DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd voor snelle en voorspelbare prestaties, hoge beschikbaarheid, automatisch schalen, globale distributie en een gebruiksvriendelijke manier van ontwikkelen. Dankzij het flexibele gegevensmodel, de consistente lage latenties en geavanceerde querymogelijkheden is DocumentDB uitermate geschikt voor webtoepassingen, mobiele toepassingen, IoT-toepassingen en vele andere toepassingen die u probleemloos moet kunnen schalen.
 
 Als u snel meer over deze JSON-database wilt leren en een demonstratie wilt bekijken, volgt u de volgende drie stappen: 
 
@@ -38,13 +38,15 @@ Keer vervolgens terug naar dit artikel om uw kennis te verdiepen en waarin de vo
 
 Moderne toepassingen kunnen snel zeer grote hoeveelheden gegevens produceren, gebruiken en verwerken. De ontwikkeling van deze toepassingen verloopt razendsnel en dat geldt ook voor het onderliggende gegevensschema. Als reactie hierop kiezen ontwikkelaars steeds vaker voor NoSQL-documentdatabases zonder schema. Hiermee beschikken ze over een eenvoudige, snelle, schaalbare oplossing voor de opslag en verwerking van gegevens, terwijl ze tegelijkertijd snel herhalingen voor toepassingsgegevensmodellen en ongestructureerde gegevensfeeds kunnen uitvoeren. Veel van de databases zonder schema bieden echter geen ondersteuning voor complexe query's en transactionele verwerking, waardoor het lastig is om geavanceeerd gegevensbeheer te realiseren. Dit is waar DocumentDB van pas komt. Microsoft heeft DocumentDB ontwikkeld om aan deze vereisten te voldoen met betrekking tot het beheren van gegevens voor moderne toepassingen.
 
-DocumentDB is een echte NoSQL-databaseservice zonder schema die is ontwikkeld voor moderne mobiele toepassingen en web-, gaming- en IoT-toepassingen. DocumentDB biedt consistent snelle lees- en schrijfbewerkingen, schemaflexibiliteit en de mogelijkheid om een database naar wens eenvoudig omhoog of omlaag te schalen. Voor DocumentDB is geen schema vereist voor de JSON-documenten die worden geïndexeerd. Alle documenten in de database worden standaard automatisch geïndexeerd, er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. DocumentDB is geschikt voor complexe ad-hocquery's die gebruikmaken van een SQL-taal, ondersteunt goed gedefinieerde consistentieniveaus, heeft de JavaScript-taal geïntegreerd en kan meerdere documenttransacties verwerken door gebruik te maken van het vertrouwde programmeermodel met opgeslagen procedures, triggers en UDF's. 
+DocumentDB is een echte NoSQL-databaseservice zonder schema die is ontwikkeld voor moderne mobiele toepassingen en web-, gaming- en IoT-toepassingen. DocumentDB zorgt ervoor dat 99% van uw leesbewerkingen binnen 10 milliseconden worden behandeld en dat 99% van uw schrijfbewerkingen binnen 15 milliseconden worden behandeld. DocumentDB biedt ook schemaflexibiliteit en de mogelijkheid om een database naar wens eenvoudig omhoog of omlaag te schalen. Voor DocumentDB is geen schema vereist voor de JSON-documenten die worden geïndexeerd. Alle documenten in de database worden standaard automatisch geïndexeerd, er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. DocumentDB is geschikt voor complexe ad-hocquery's die gebruikmaken van een SQL-taal, ondersteunt goed gedefinieerde consistentieniveaus, heeft de JavaScript-taal geïntegreerd en kan meerdere documenttransacties verwerken door gebruik te maken van het vertrouwde programmeermodel met opgeslagen procedures, triggers en UDF's. 
 
 Als JSON-database biedt DocumentDB automatisch ondersteuning voor JSON-documenten, waardoor een toepassingsschema eenvoudig kan worden herhaald. Daarnaast biedt DocumentDB ondersteuning voor toepassingen die gegevensmodellen met sleutel-waardeparen, documenten of tabellen nodig hebben. DocumentDB omarmt de alomtegenwoordigheid van JSON en JavaScript, waardoor onjuiste overeenkomsten tussen de door de toepassing gedefinieerde objecten en de databaseschema worden geëlimineerd. Door de diepe integratie van JavaScript kunnen ontwikkelaars de toepassingslogica op efficiënte wijze en rechtstreeks binnen de database-engine in een databasetransactie uitvoeren. 
 
 Azure DocumentDB biedt de volgende belangrijke mogelijkheden en voordelen:
 
 -   **Elastische schaalbare doorvoer en opslag:** U kunt uw DocumentDB JSON-database eenvoudig omhoog of omlaag schalen om te voldoen aan de behoeften van uw toepassing. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. DocumentDB ondersteunt containers voor het opslaan van de JSON-gegevens die verzamelingen worden genoemd, waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Wanneer uw toepassing groeit, kunt u DocumentDB probleemloos schalen met voorspelbare prestaties. 
+
+-   **Replicatie voor meerdere regio's:** DocumentDB repliceert uw gegevens transparant naar alle regio's die u aan uw DocumentDB-account hebt gekoppeld, zodat u toepassingen kunt ontwikkelen waarvoor globale toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. DocumentDB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) (Gegevens globaal distribueren met DocumentDB) voor meer informatie.
 
 -   **Ad-hocquery's met bekende SQL-syntaxis:** U kunt heterogene JSON-documenten in DocumentDB opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. DocumentDB maakt gebruik van een uiterst gelijktijdige, vergrendelingsvrije, indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query's in DocumentDB uitvoeren](documentdb-sql-query.md) voor meer informatie. 
 
@@ -102,7 +104,7 @@ Als u al een Azure-account hebt, kunt u aan de slag met DocumentDB in [Azure Por
 
 Als u geen Azure-account hebt, kunt u het volgende doen:
 
-- Aanmelden voor een [gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/). U hebt dan 30 dagen en € 170 om alle Azure-services te proberen. 
+- Meld u aan voor een [gratis proefversie van Azure](https://azure.microsoft.com/free/). U hebt dan 30 dagen en €170 om alle Azure-services te proberen. 
 - Als u een MSDN-abonnement hebt, komt u in aanmerking voor [$ 150 aan gratis Azure-tegoed per maand](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dit tegoed kunt u gebruiken voor elke willekeurige Azure-service. 
 
 Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/) bezoeken om door alle beschikbare leerresources te bladeren. 
@@ -113,6 +115,6 @@ Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microso
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

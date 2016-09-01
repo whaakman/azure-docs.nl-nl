@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 #SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows
@@ -237,6 +237,6 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

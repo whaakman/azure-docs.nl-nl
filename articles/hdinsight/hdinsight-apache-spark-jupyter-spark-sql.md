@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
 
 
@@ -37,6 +37,8 @@ Leer hoe u een Apache Spark-cluster in HDInsight maakt en vervolgens een [Jupyte
     -  Voor een Linux-computer: [SSH gebruiken met HDInsight (Hadoop) op basis van Linux via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     -  Voor een Windows-computer: [SSH gebruiken met HDInsight (Hadoop) op basis van Linux via Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+>[AZURE.NOTE] In dit artikel wordt een ARM-sjabloon gebruikt om een Spark-cluster te maken dat gebruikmaakt van [Azure Storage-blobs als de clusteropslag](hdinsight-hadoop-use-blob-storage.md). U kunt ook een Spark-cluster maken dat gebruikmaakt van [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) als een extra opslag, naast de Azure Storage-blobs als de standaardopslag. Zie [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Een HDInsight-cluster maken met Data Lake Store) voor instructies.
 
 
 ## Een Spark-cluster maken
@@ -121,7 +123,7 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
     Plak het volgende codevoorbeeld in een lege cel en druk op **SHIFT + ENTER**. Dit codevoorbeeld registreert de gegevens in een tijdelijke tabel genaamd **hvac**.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -173,6 +175,8 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
 
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [Analyse van Application Insights-telemetriegegevens met behulp van Spark in HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Toepassingen maken en uitvoeren
 
 * [Een zelfstandige toepassing maken met behulp van Scala](hdinsight-apache-spark-create-standalone-application.md)
@@ -202,16 +206,16 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
 
 [hdinsight-versies]: hdinsight-component-versioning.md
 [hdinsight-uploaden-gegevens]: hdinsight-upload-data.md
-[hdinsight-opslag]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-aankoop-opties]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-lid-aanbiedingen]: http://azure.microsoft.com/pricing/member-offers/
-[Azure-gratis-proefversie]: http://azure.microsoft.com/pricing/free-trial/
-[Azure-beheerportal]: https://manage.windowsazure.com/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-management-portal]: https://manage.windowsazure.com/
 [Azure-maken-opslagaccount]: storage-create-storage-account.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

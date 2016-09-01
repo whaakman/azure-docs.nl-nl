@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/16/2016"
     ms.author="spelluru"/>
 
 # Uw eerste Azure-gegevensfactory bouwen met Azure PowerShell
@@ -24,6 +24,7 @@
 - [PowerShell gebruiken](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Visual Studio gebruiken](data-factory-build-your-first-pipeline-using-vs.md)
 - [Een Resource Manager-sjabloon gebruiken](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API gebruiken](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 In dit artikel leert u hoe u Azure PowerShell gebruikt voor het maken van uw eerste Azure-gegevensfactory. 
@@ -39,12 +40,10 @@ Naast de vereisten die worden vermeld in het onderwerp Overzicht van de zelfstud
 Als u **versie <1.0** van Azure PowerShell gebruikt, moet u de cmdlets gebruiken die [hier](https://msdn.microsoft.com/library/azure/dn820234.aspx) worden beschreven. U moet ook de volgende opdrachten uitvoeren voordat u de Data Factory-cmdlets gebruikt: 
  
 1. Open Azure PowerShell en voer de volgende opdrachten uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u deze opdrachten opnieuw uitvoeren.
-    1. Voer **Add-AzureAccount** uit en voer de gebruikersnaam en het wachtwoord in die u gebruikt om u aan te melden bij de Azure Portal.
+    1. Voer **Add-AzureAccount** uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij de Azure Portal.
     2. Voer **Get-AzureSubscription** uit om alle abonnementen voor dit account weer te geven.
-    3. Voer **Select-AzureSubscription** uit om het abonnement te selecteren waar u mee wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
-4. Schakel over naar de AzureResourceManager-modus (de Azure Data Factory-cmdlets zijn in deze modus beschikbaar): **Switch-AzureMode AzureResourceManager**.
-
-Zie [Afschaffing van Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) voor meer informatie. 
+    3. Voer **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set AzureRmContext** uit om het abonnement te selecteren waarmee u wilt werken. Vervang **NameOfAzureSubscription** door de naam van uw Azure-abonnement.
+4. Schakel over naar de Azure Resource Manager-modus omdat in die modus de Azure Data Factory-cmdlets beschikbaar zijn: **Switch-AzureMode AzureResourceManager**.
 
 
 ## Een gegevensfactory maken
@@ -52,14 +51,14 @@ Zie [Afschaffing van Switch AzureMode in Azure PowerShell](https://github.com/Az
 In deze stap gebruikt u Azure PowerShell om een Azure-gegevensfactory met de naam **FirstDataFactoryPSH** te maken. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. U begint in deze stap met het maken van de gegevensfactory. 
 
 1. Open Azure PowerShell en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u deze opdrachten opnieuw uitvoeren.
-    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.  
+    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.  
     - Voer **Get-AzureRmSubscription** uit om alle abonnementen voor dit account weer te geven.
     - Voer **Select-AzureRmSubscription<Name of the subscription>** uit om het abonnement te selecteren waar u mee wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
 3. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren.
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-    Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam ADFTutorialResourceGroup gebruikt. Als u een andere resourcegroep gebruikt, moet u in plaats van ADFTutorialResourceGroup die groep gebruiken voor deze zelfstudie.
+    Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam ADFTutorialResourceGroup gebruikt. Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie die groep gebruiken in plaats van ADFTutorialResourceGroup.
 4. Voer de cmdlet **New-AzureRmDataFactory** uit om een gegevensfactory met de naam **FirstDataFactoryPSH** te maken.  
 
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
@@ -152,7 +151,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
     - U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
     - Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
     
-        Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**- datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+        Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
     Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
 2. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde service met de naam HDInsightOnDemandLinkedService te maken.
@@ -198,7 +197,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
   	| linkedServiceName | Deze eigenschap verwijst naar de StorageLinkedService die u eerder hebt gemaakt. |
   	| fileName | Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In dit geval wordt alleen input.log verwerkt. |
   	| type | Omdat de logboekbestanden tekstbestanden zijn, gebruiken we TextFormat. | 
-  	| columnDelimiter | De kolommen in de logboekbestanden worden gescheiden door middel van komma’s |
+  	| columnDelimiter | Kolommen in de logboekbestanden worden gescheiden door een komma (,). |
   	| frequency/interval | Als frequency wordt ingesteld op Month en de interval 1 is, betekent dat dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. | 
   	| external | Deze eigenschap wordt ingesteld op true als de invoergegevens niet worden gegenereerd door de Data Factory-service. | 
 
@@ -237,7 +236,7 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
         New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
 ## Pijplijn maken
-In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequency: Month, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld (zie hieronder). De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. De eigenschappen die in de volgende JSON worden gebruikt, worden aan het einde van dit gedeelte beschreven. 
+In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld (zie hieronder). De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. De eigenschappen die in de volgende JSON worden gebruikt, worden aan het einde van dit gedeelte beschreven. 
 
 
 1. Maak een JSON-bestand met de naam MyFirstPipelinePSH.json in de map C:\ADFGetStarted. Geef dit bestand de volgende inhoud:
@@ -366,11 +365,11 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken v
 2.  U hebt twee **gekoppelde services** gemaakt:
     1.  Een gekoppelde **Azure Storage**-service om te koppelen aan de Azure-blobopslag die de invoer-/uitvoerbestanden van de gegevensfactory bevat.
     2.  Een gekoppelde on-demand **Azure HDInsight**-service om te koppelen aan een on-demand HDInsight Hadoop-cluster van de gegevensfactory. Azure Data Factory maakt op tijd een HDInsight Hadoop-cluster om invoergegevens te verwerken en uitvoergegevens te produceren. 
-3.  U hebt twee **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven. 
+3.  U hebt twee **gegevenssets** gemaakt, waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven. 
 4.  U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit. 
 
 ## Volgende stappen
-In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand Azure HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](./data-factory-get-started.md) voor meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
+In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand Azure HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
 
 ## Zie ook
 | Onderwerp | Beschrijving |
@@ -386,6 +385,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

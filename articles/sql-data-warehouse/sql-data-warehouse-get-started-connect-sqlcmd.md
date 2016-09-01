@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aan de slag: Verbinding maken met Azure SQL Data Warehouse | Microsoft Azure"
-   description="Ga aan de slag door verbinding te maken met SQL Data Warehouse en enkele query's uit te voeren."
+   pageTitle="Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Query’s uitvoeren bij Azure SQL Data Warehouse met het opdrachtregelhulpprogramma sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,41 +13,28 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Verbinding maken en query's uitvoeren met SQLCMD
+# Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-
-In deze procedure wordt beschreven hoe u met het hulpprogramma sqlcmd.exe in slechts enkele minuten verbinding maakt met een Azure SQL Data Warehouse-database en query’s uitvoert. In deze procedure gaat u het volgende doen:
-
-+ Vereiste software installeren
-+ Verbinding maken met een database die de voorbeelddatabase AdventureWorksDW bevat
-+ Een query op de database uitvoeren  
+In dit scenario maakt u gebruik van het opdrachtregelhulpprogramma sqlcmd om een query uit te voeren bij een Azure SQL Data Warehouse.  
 
 ## Vereisten
 
-+ Raadpleeg [Microsoft Command Line Utilities 11 voor SQL Server][] voor het downloaden van [sqlcmd.exe][].
+Voor deze zelfstudie hebt u het volgende nodig:
 
-## De volledig gekwalificeerde naam van de Azure SQL-server ophalen
+-  [sqlcmd.exe][]. Zie [Microsoft Command Line Utilities 11 voor SQL Server][] om dit opdrachtregelhulpprogramma te downloaden. Mogelijk is hiervoor ook [Microsoft ODBC-stuurprogramma 11 voor SQL Server Windows][] vereist.
 
-Om verbinding te maken met de database hebt u de volledige naam nodig van de server (***servernaam**.database.windows.net*) die de database bevat waarmee u verbinding wilt maken.
+## 1. Verbinding maken
 
-1. Ga naar de [Azure Portal][].
-2. Blader naar de database waarmee u verbinding wil maken.
-3. Zoek de volledige servernaam (die gaan we in de onderstaande stappen gebruiken):
-
-![][1]
-
-
-## Verbinding maken met SQL Data Warehouse met sqlcmd
-
-Als u een specifiek exemplaar van SQL Data Warehouse wilt verbinden wanneer u sqlcmd gebruikt, moet u de opdrachtprompt openen en **sqlcmd** invoeren, gevolgd door de verbindingsreeks voor de SQL Data Warehouse-database. De verbindingsreeks heeft de volgende parameters nodig:
+Open om te beginnen de opdrachtregel met sqlcmd en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingsreeks heeft de volgende parameters nodig:
 
 + **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
 + **Database (-d):** databasenaam.
@@ -55,48 +42,53 @@ Als u een specifiek exemplaar van SQL Data Warehouse wilt verbinden wanneer u sq
 + **Wachtwoord (-P):** wachtwoord dat is gekoppeld aan de gebruiker.
 + **ID's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.
 
-Als u verbinding wilt maken met een exemplaar van SQL Data Warehouse, zou u dus het volgende invoeren:
+Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Voorbeeldquery's uitvoeren
+> [AZURE.NOTE] De optie -I waarmee u id’s tussen aanhalingstekens kunt opgeven, is momenteel vereist om verbinding te maken met SQL Data Warehouse.
 
-Wanneer verbinding is gemaakt, kunt u elke ondersteunde Transact-SQL-instructie voor het exemplaar uitvoeren.
+## 2. Query’s uitvoeren
+
+Wanneer verbinding is gemaakt, kunt u elke ondersteunde Transact-SQL-instructie voor het exemplaar uitvoeren.  In dit voorbeeld worden query's in de interactieve modus verzonden.
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-Raadpleeg de [sqlcmd-documentatie][sqlcmd.exe] voor meer informatie over sqlcmd.
+In de volgende voorbeelden ziet u hoe u uw query's in de batchmodus uitvoert met behulp van de optie -Q of door uw SQL naar sqlcmd te sluizen.
 
+```sql
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Volgende stappen
 
-Nu u weet hoe u verbinding maakt en een query uitvoert, kunt u proberen [verbinding te maken met Power BI][].
-
-Als u uw omgeving wilt configureren voor Windows-verificatie raadpleegt u [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie][].
-
-<!--Articles-->
-[Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[verbinding te maken met Power BI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
-
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/en-us/library/ms162773.aspx
-[Microsoft Command Line Utilities 11 voor SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure Portal]: https://portal.azure.com
+Zie [sqlcmd-documentatie][sqlcmd.exe] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[Microsoft ODBC-stuurprogramma 11 voor SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
+[Microsoft Command Line Utilities 11 voor SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[Azure-portal]: https://portal.azure.com
+
+<!--Other Web references-->
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

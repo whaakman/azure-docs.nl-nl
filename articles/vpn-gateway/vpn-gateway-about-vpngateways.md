@@ -13,33 +13,35 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="07/20/2016"
    ms.author="cherylmc" />
 
 # Informatie over VPN-gateway
 
-VPN-gateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken en on-premises locaties. Het wordt ook gebruikt om verkeer tussen meerdere virtuele netwerken in Azure (VNet naar VNet) te verzenden. In de volgende secties worden de items besproken die zijn gerelateerd aan VPN-gateway.
+VPN-gateway is een verzameling instellingen die wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken en on-premises locaties. In de gedeelten in dit artikel worden instellingen besproken die betrekking hebben op VPN-gateway. VPN-gateway wordt gebruikt voor site-naar-site-, punt-naar-site- en ExpressRoute-verbindingen. VPN-gateway wordt ook gebruikt om verkeer tussen meerdere virtuele netwerken in Azure (VNet-naar-VNet) te verzenden. 
 
-De instructies die u gebruikt voor het maken van uw VPN-gateway zijn afhankelijk van het implementatiemodel waarmee u uw virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om uw VPN-gateway te maken en te configureren. Het is niet mogelijk om een Resource Manager-VPN-gateway te maken voor een virtueel netwerk van een klassiek implementatiemodel. 
+VPN-gateway kan worden toegevoegd aan een virtueel netwerk om een verbinding te maken. Elk virtueel netwerk kan slechts één VPN-gateway hebben en voor elke verbinding zijn er specifieke configuratiestappen. Zie [VPN Gateway connection topologies](vpn-gateway-topology.md) (Verbindingstopologieën voor VPN-gateways) voor verbindingsdiagrammen. 
 
-Zie [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) (Het Resource Manager-implementatie en klassieke implementatie begrijpen) voor meer informatie over de implementatiemodellen.
+## <a name="gwsku"></a>Gateway-SKU's
+
+Wanneer u een VPN-gateway maakt, moet u de gewenste gateway-SKU opgeven. Gateway-SKU's zijn van toepassing op zowel ExpressRoute- als VPN-gatewaytypen. De prijzen zijn afhankelijk van de gateway-SKU's. Zie [Prijzen voor VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie over prijzen. Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
+
+Er zijn drie VPN-gateway-SKU's:
+
+- Basic
+- Standard
+- HighPerformance
+
+In onderstaand voorbeeld is de `-GatewaySku` *Standard* opgegeven.
+
+    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
+
+###  <a name="aggthroughput"></a>Geschatte geaggregeerde doorvoer per SKU en gatewaytype
 
 
-## <a name="gwsub"></a>Gatewaysubnet
+In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen.
 
-Als u een VPN-gateway wilt configureren, moet u eerst een gatewaysubnet voor het VNet maken. Voor een goede werking moet het gatewaysubnet de naam *GatewaySubnet* krijgen. Aan de hand van deze naam weet Azure dat dit subnet voor de gateway moet worden gebruikt.<BR>Als u de klassieke portal gebruikt, krijgt het gatewaysubnet in de interface van de portal automatisch de naam *Gateway*. Dit is alleen het geval wanneer het gatewaysubnet in de klassieke portal wordt weergegeven. In dit geval wordt het subnet in feite in Azure gemaakt als *GatewaySubnet* en kan het op deze manier worden weergegeven in de Azure Portal en in PowerShell.
-
-De minimale grootte van het gatewaysubnet is volledig afhankelijk van de configuratie die u wilt maken. Hoewel u voor bepaalde configuraties een gatewaysubnet kunt maken dat zo klein is als /29, raden wij aan om een gatewaysubnet van /28 of groter (/28, /27, /26 enzovoort) te maken. 
-
-Door grotere gateways te maken, voorkomt u dat u later tegen gatewaybeperkingen aanloopt. Als u bijvoorbeeld een gateway maakt met een gatewaysubnetgrootte van /29 en u een configuratie wilt maken waarbij Site-naar-Site en ExpressRoute naast elkaar worden gebruikt, moet u de gateway verwijderen, het gatewaysubnet verwijderen, het gatewaysubnet maken als een /28 of groter en vervolgens de gateway opnieuw maken. 
-
-Door direct al een groter gatewaysubnet te maken, bespaart u later tijd wanneer u nieuwe configuratiefuncties aan uw netwerkomgeving toevoegt. 
-
-In het volgende voorbeeld ziet u een gatewaysubnet met de naam GatewaySubnet. U ziet dat de CIDR-notatie een /27 opgeeft. Dit biedt voldoende IP-adressen voor de meeste configuraties die er op dit moment zijn.
-
-    Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
-
->[AZURE.IMPORTANT] Zorg dat er op het GatewaySubnet geen netwerkbeveiligingsgroep (NSG) is toegepast, aangezien dit tot verbindingsproblemen kan leiden.
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## <a name="gwtype"></a>Gatewaytypen
 
@@ -53,24 +55,18 @@ In dit voorbeeld voor het Resource Manager-implementatiemodel is het GatewayType
 
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## <a name="gwsku"></a>Gateway-SKU's
+## <a name="connectiontype"></a>Verbindingstypen
 
-Wanneer u een VPN-gateway maakt, moet u de gewenste gateway-SKU opgeven. Er zijn drie VPN-gateway-SKU's:
+Elke configuratie vereist een specifiek verbindingstype. De beschikbare Resource Manager PowerShell-waarden voor `-ConnectionType` zijn:
 
-- Basic
-- Standard
-- HighPerformance
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
 
-In onderstaand voorbeeld is de `-GatewaySku` *Standard* opgegeven.
+In het volgende voorbeeld wordt een site-naar-site-verbinding gemaakt die het verbindingstype IPsec vereist.
 
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
-
-###  <a name="aggthroughput"></a>Geschatte geaggregeerde doorvoer per SKU en gatewaytype
-
-
-In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer. De prijzen zijn afhankelijk van de gateway-SKU's. Zie [Prijzen voor VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie over prijzen. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen.
-
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
+    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 ## <a name="vpntype"></a>VPN-typen
 
@@ -88,24 +84,32 @@ In dit voorbeeld voor het Resource Manager-implementatiemodel is het `-VpnType` 
 
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## <a name="connectiontype"></a>Verbindingstypen
+##  <a name="requirements"></a>Gatewayvereisten
 
-Elke configuratie vereist een specifiek verbindingstype. De beschikbare Resource Manager PowerShell-waarden voor `-ConnectionType` zijn:
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
 
-In het volgende voorbeeld wordt een site-naar-site-verbinding gemaakt die het verbindingstype IPsec vereist.
+## <a name="gwsub"></a>Gatewaysubnet
 
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+Als u een VPN-gateway wilt configureren, moet u eerst een gatewaysubnet voor het VNet maken. Voor een goede werking moet het gatewaysubnet de naam *GatewaySubnet* krijgen. Aan de hand van deze naam weet Azure dat dit subnet voor de gateway moet worden gebruikt.<BR>Als u de klassieke portal gebruikt, krijgt het gatewaysubnet in de interface van de portal automatisch de naam *Gateway*. Dit is alleen het geval wanneer het gatewaysubnet in de klassieke portal wordt weergegeven. In dit geval wordt het subnet in feite in Azure gemaakt als *GatewaySubnet* en kan het op deze manier worden weergegeven in de Azure-portal en in PowerShell.
+
+De minimale grootte van het gatewaysubnet is volledig afhankelijk van de configuratie die u wilt maken. Hoewel u voor bepaalde configuraties een gatewaysubnet kunt maken dat zo klein is als /29, raden wij aan om een gatewaysubnet van /28 of groter (/28, /27, /26 enzovoort) te maken. 
+
+Door grotere gateways te maken, voorkomt u dat u later tegen gatewaybeperkingen aanloopt. Als u bijvoorbeeld een gateway maakt met een gatewaysubnetgrootte van /29 en u een configuratie wilt maken waarbij Site-naar-Site en ExpressRoute naast elkaar worden gebruikt, moet u de gateway verwijderen, het gatewaysubnet verwijderen, het gatewaysubnet maken als een /28 of groter en vervolgens de gateway opnieuw maken. 
+
+Door direct al een groter gatewaysubnet te maken, bespaart u later tijd wanneer u nieuwe configuratiefuncties aan uw netwerkomgeving toevoegt. 
+
+In het volgende voorbeeld ziet u een gatewaysubnet met de naam GatewaySubnet. U ziet dat de CIDR-notatie een /27 opgeeft. Dit biedt voldoende IP-adressen voor de meeste configuraties die er op dit moment zijn.
+
+    Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+
+>[AZURE.IMPORTANT] Zorg dat er op het GatewaySubnet geen netwerkbeveiligingsgroep (NSG) is toegepast, aangezien dit tot verbindingsproblemen kan leiden.
+
 
 
 ## <a name="lng"></a>Lokale netwerkgateways
 
 De lokale netwerkgateway verwijst doorgaans naar uw on-premises locatie. In het klassieke implementatiemodel werd de lokale gateway een lokale site genoemd. U gaat de lokale netwerkgateway een naam geven, het openbare IP-adres van het on-premises VPN-apparaat, en de adresvoorvoegsels opgeven die zich op de on-premises-locatie bevinden. Azure kijkt naar de voorvoegsels voor de bestemmingsadressen voor netwerkverkeer, raadpleegt de configuratie die u voor uw lokale netwerkgateway hebt opgegeven en routeert pakketten dienovereenkomstig. U kunt deze adresvoorvoegsels zo nodig wijzigen.
-
 
 
 ### Adresvoorvoegsels wijzigen - Resource Manager
@@ -121,15 +125,6 @@ In het volgende voorbeeld ziet u een lokale netwerkgateway met de naam MyOnPremi
 Als u uw lokale sites moet wijzigen wanneer u het klassieke implementatiemodel gebruikt, kunt u de configuratiepagina Lokale netwerken in de klassieke portal gebruiken of het netwerkconfiguratiebestand NETCFG.XML rechtstreeks wijzigen.
 
 
-##  <a name="devices"></a> VPN-apparaten
-
-Zorg ervoor dat het VPN-apparaat dat u wilt gaan gebruiken ondersteuning biedt voor het VPN-type dat voor uw configuratie is vereist. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten.
-
-##  <a name="requirements"></a>Gatewayvereisten
-
-
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
-
 
 ## Volgende stappen
 
@@ -143,6 +138,6 @@ Zie het artikel [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) (Veelgestelde vragen o
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

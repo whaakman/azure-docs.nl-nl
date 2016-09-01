@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Aan de slag met Azure AD Privileged Identity Management
@@ -29,15 +29,16 @@ Voordat u Azure AD Privileged Identity Management gebruikt, moet u de toepassing
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw directory.
 2. Als uw organisatie meerdere directory's heeft, klikt u op uw gebruikersnaam rechtsboven in de Azure-portal en selecteert u de directory waarin u PIM gebruikt.
-3. Selecteer het pictogram **Nieuw** in de linkernavigatiebalk.
-4. Selecteer **Beveiliging en identiteit**.
-5. Selecteer **Azure AD Privileged Identity Management**.
-6. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
+3. Selecteer **Nieuw** > **Beveiliging en identiteit** > **Azure AD Privileged Identity Management**.
+
+    ![PIM inschakelen in de portal][1]
+
+4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
 
 
 Als u de eerste persoon bent die Azure AD Privileged Identity Management in uw directory gebruikt, wordt u via de [wizard Beveiliging](active-directory-privileged-identity-management-security-wizard.md) stapsgewijs begeleid bij de eerste toewijzing. Hierna wordt u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de directory. Alleen een beheerder met bevoorrechte rol heeft toegang tot deze toepassing om de toegang voor andere beheerders te beheren.  
 
-Anders, als u aan een of meer rollen bent toegewezen door een andere beheerder met bevoorrechte rol, kunt u kiezen welke rol u wilt activeren. Als u zelf een beheerder met bevoorrechte rol bent, is ook de optie **Identiteiten beheren** beschikbaar.  
+Als u een of meer rollen toegewezen hebt gekregen, beschikt u over de optie **Mijn rollen activeren**. Als u een beheerder met bevoorrechte rol bent, ziet u ook een optie **Bevoorrechte rollen beheren**.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,8 +48,12 @@ Het [overzicht van Azure AD Privileged Identity Management](active-directory-pri
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # LDAP-verificatie en Azure Multi-Factor Authentication-server 
@@ -36,7 +36,7 @@ Als u LDAP-verificatie wilt configureren, moet u de Azure Multi-Factor Authentic
 2. Schakel het selectievakje LDAP-verificatie in.![LDAP-verificatie](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png) 
 3. Wijzig op het tabblad Clients de TCP-poort en de SSL-poort als de LDAP-service van Azure Multi-Factor Authentication verbinding moet maken met niet-standaardpoorten om te luisteren naar LDAP-aanvragen van clients die geconfigureerd gaan worden.
 4. Als u van plan bent LDAPS te gebruiken van de client naar de Azure Multi-Factor Authentication-server, moet er een SSL-certificaat worden geïnstalleerd op de server waarop de Azure Multi-Factor Authentication-server wordt uitgevoerd. Klik op de knop Bladeren... naast het vak SSL-certificaat en selecteer het geïnstalleerde certificaat dat voor de beveiligde verbinding wordt gebruikt. 
-5. Klik op de knop Toevoegen...
+5. Klik op de knop Bewerken....
 6. Voer in het dialoogvenster LDAP-client het IP-adres in van het toestel, de server of de toepassing die moet worden geverifieerd bij de Azure Multi-Factor Authentication-server, en voeg (optioneel) een toepassingsnaam toe. De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 7. Schakel het selectievakje Overeenkomende Azure Multi-Factor Authentication-gebruiker vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Azure Multi-Factor Authentication-server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie. 
 8. U moet stap 5 tot en met 7 mogelijk herhalen om extra LDAP-clients toe te voegen.
@@ -67,6 +67,6 @@ Als u de LDAP-client wilt configureren, gebruikt u de volgende richtlijnen:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

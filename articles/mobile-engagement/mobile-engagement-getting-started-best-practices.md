@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="03/28/2016"
-    ms.author="wesmc"/>
+    ms.date="07/07/2016"
+    ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
 
@@ -409,6 +409,6 @@ Hebt u eenmaal wat ervaring opgedaan, dan kunt u overwegen het volgende aan uw b
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

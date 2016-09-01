@@ -1,7 +1,7 @@
 <properties
     pageTitle="HBase-zelfstudie: aan de slag met HBase-clusters op basis van Linux in Hadoop | Microsoft Azure"
     description="Volg deze HBase-zelfstudie om Apache HBase met Hadoop te gebruiken in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query's uit te voeren op de tabellen."
-    keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+    keywords="apache hbase,hbase,hbase-shell,hbase-zelfstudie"
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/04/2016"
+    ms.date="07/25/2016"
     ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ Voor de volgende procedure wordt een Azure ARM-sjabloon gebruikt om een HBase-cl
 
     - **Clusternaam**: voer een naam in voor het HBase-cluster dat u maakt.
     - **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
-    - **SSH-gebruikersnaam en - wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
+    - **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
      
     Andere parameters zijn optioneel.  
     
@@ -58,10 +58,10 @@ Voor de volgende procedure wordt een Azure ARM-sjabloon gebruikt om een HBase-cl
 3. Klik op **OK** om de parameters op te slaan.
 4. Klik vanuit de blade **Aangepaste implementatie** op de vervolgkeuzelijst **Resourcegroep** en klik op **Nieuw** om een nieuwe resourcegroep te maken.  De resourcegroep is een container waarin het cluster, het afhankelijke opslagaccount en andere gekoppelde resources zijn gegroepeerd.
 5. Klik op **Juridische voorwaarden** en klik vervolgens op **Maken**.
-6. Klik op **Maken**. Het duurt ongeveer 20 minuten om een cluster te maken.
+6. Klik op **Create**. Het duurt ongeveer 20 minuten om een cluster te maken.
 
 
->[AZURE.NOTE] Nadat een HBase-cluster is verwijderd, kunt u een ander HBase-cluster maken met de dezelfde standaard blob-container. Het nieuwe cluster haalt de HBase-tabellen op die u hebt gemaakt in het oorspronkelijke cluster.
+>[AZURE.NOTE] Nadat een HBase-cluster is verwijderd, kunt u een ander HBase-cluster maken met de dezelfde standaard blob-container. Het nieuwe cluster haalt de HBase-tabellen op die u hebt gemaakt in het oorspronkelijke cluster. Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.
 
 ## Tabellen maken en gegevens invoegen
 
@@ -111,12 +111,14 @@ Alles wordt waarschijnlijk duidelijker zodra u de volgende procedure hebt voltoo
 
         exit
 
+
+
 **Gegevens bulksgewijs laden in de HBase-tabel met contacten**
 
 U kunt in HBase verschillende methoden gebruiken om gegevens in tabellen te laden.  Zie [Bulk loading](http://hbase.apache.org/book.html#arch.bulk.load) (Bulkgsgewijs laden) voor meer informatie.
 
 
-Er is een voorbeeld van een gegevensbestanden geüpload naar een openbare blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  De inhoud van het gegevensbestand is:
+Er is een voorbeeld van een gegevensbestand geüpload naar een openbare blob-container, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  De inhoud van het gegevensbestand is:
 
     8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -135,7 +137,7 @@ U kunt een tekstbestand maken en het bestand desgewenst uploaden naar uw eigen o
 
 1. Voer de volgende opdracht vanuit SSH uit om het gegevensbestand te transformeren naar StoreFiles en op te slaan naar een relatief pad dat is opgegeven door Dimporttsv.bulk.output:.  Als u zich in HBase Shell bevindt, gebruikt u de afsluitopdracht om af te sluiten.
 
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Voer de volgende opdracht uit om de gegevens uit /example/data/storeDataFileOutput naar de HBase-tabel te uploaden:
 
@@ -174,34 +176,59 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
 
 1. Gebruik een opdrachtregel met de volgende opdracht om te controleren of u verbinding met uw HDInsight-cluster kunt maken:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
     Het antwoord dat u ontvangt, is vergelijkbaar met het volgende antwoord:
 
-    {"status":"ok","version":"v1"}
+        {"status":"ok","version":"v1"}
 
-  In deze opdracht worden de volgende parameters gebruikt:
+    In deze opdracht worden de volgende parameters gebruikt:
 
     * **-u**: de gebruikersnaam en het wachtwoord voor het verifiëren van de aanvraag.
     * **-G**: hiermee wordt aangegeven dat dit een GET-aanvraag is.
 
 2. Gebruik de volgende opdracht om een lijst met bestaande HBase-tabellen weer te geven:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Gebruik de volgende opdracht om een nieuwe HBase-tabel met twee kolomfamilies te maken:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+        -v
 
     Het schema wordt opgegeven in de JSON-indeling.
 
 4. Gebruik de volgende opdracht om enkele gegevens in te voegen:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -v
+
+    U moet de waarden die in de schakeloptie -d zijn opgegeven, met Base64 coderen.  In het voorbeeld:
+
+    - MTAwMA==: 1000
+    - UGVyc29uYWw6TmFtZQ==: Persoonlijk:Naam
+    - Sm9obiBEb2xl: Joep Davids
+
+    [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) maakt het mogelijk om meerdere waarden (in batch) in te voegen.
 
 5. Gebruik de volgende opdracht om een rij te verkrijgen:
 
-        curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+        curl -u <UserName>:<Password> \
+        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+        -H "Accept: application/json" \
+        -v
+
+Zie [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Snelzoekgids voor Apache HBase) voor meer informatie over HBase REST.
 
 ## De clusterstatus controleren
 
@@ -252,15 +279,18 @@ SSH kan ook worden gebruikt voor tunneling van lokale aanvragen, zoals webaanvra
     - **SOCKS v5**: (geselecteerd)
     - **Externe DNS**: (geselecteerd)
 7. Klik op **OK** om de wijzigingen op te slaan.
-8. Blader naar http://<TheFQDN of a ZooKeeper>: 60010/master-status.
+8. Blader naar http://&lt;de FQDN van een ZooKeeper>:60010/master-status.
 
 In een cluster met hoge beschikbaarheid ziet u een koppeling naar het huidige actieve HBase-hoofdknooppunt dat de webgebruikersinterface host.
 
 ##Het cluster verwijderen
 
+Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Volgende stappen
+
 In deze HBase-zelfstudie voor HDInsight hebt u geleerd hoe u een HBase-cluster maakt en hoe u tabellen maakt en de gegevens in deze tabellen vanuit de HBase-shell weergeeft. U hebt ook geleerd hoe u een Hive-query op gegevens in HBase-tabellen uitvoert en hoe u de HBase C# REST API's gebruikt om een HBase-tabel te maken en gegevens op te halen uit de tabel.
 
 Voor meer informatie zie:
@@ -297,6 +327,6 @@ Voor meer informatie zie:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

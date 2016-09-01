@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met .NET SDK
@@ -528,6 +528,6 @@ Als laatste moet u ervoor zorgen dat het lokale pad en de bestandsnaam die u hie
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

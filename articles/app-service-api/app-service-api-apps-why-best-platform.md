@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="05/03/2016" 
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Overzicht van API Apps
 
@@ -65,6 +65,6 @@ Begin een thread in het [API Apps-forum](https://social.msdn.microsoft.com/Forum
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

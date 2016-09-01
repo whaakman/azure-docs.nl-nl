@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
-# Azure AD Connect Health gebruiken voor synchronisatie
-De volgende documentatie is specifiek voor het controleren van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health.
+# Azure AD Connect Health for Sync gebruiken
+De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
 
 ![Azure AD Connect Health voor synchroniseren](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -60,16 +60,17 @@ Deze functie biedt een grafisch weergegeven trend van het aantal wijzigingen dat
 
 ## Verwante koppelingen
 
-* [Azure AD Connect Health (Engelstalig artikel)](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation (Engelstalig)](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations (Engelstalig)](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS (Engelstalig)](active-directory-aadconnect-health-adfs.md)
-* [Azure AD Connect Health FAQ (Engelstalig)](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History (Engelstalig)](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)
+* [De Azure AD Connect Health-agent installeren](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect Health gebruiken met AD FS](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
+* [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -3,10 +3,10 @@
     description="Door gebruik te maken van Azure Backup en Recovery Services kunt u back-ups maken en herstellen van Windows-servers, Windows-clientcomputers, System Center DPM-servers en van virtuele machines van Azure."
     services="backup"
     documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
+    authors="markgalioto"
+    manager="cfreeman"
     editor="tysonn"
-    keywords="backup and restore; recovery services; backup solutions"/>
+    keywords="back-up en herstel; Recovery Services; back-upoplossingen"/>
 
 <tags
     ms.service="backup"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
 # Wat is Azure Backup?
@@ -80,7 +80,7 @@ Omdat Backup een hybride back-upoplossing is, bestaat Backup uit verschillende o
 | Azure Backup-agent (MARS) | Ja | Nee (alleen Windows-agent) |
 | System Center Data Protection Manager | Ja (agent in gast) | Alleen Hyper-V (geen Azure VM), alleen bestandsconsistente back-ups mogelijk |
 | Azure Backup-server (MABS) | Ja (agent in gast) | Alleen Hyper-V (geen Azure VM), alleen bestandsconsistente back-ups mogelijk (hetzelfde als DPM) |
-| Back-up van virtuele machines van Azure IaaS | Openbare preview | Openbare preview - Implementatiemodel met Linux VM's in Resource Manager <br>(consistentie op bestandssysteemniveau)<br><br>Ja voor Linux VM's in het klassieke implementatiemodel |
+| Back-up van virtuele machines van Azure IaaS | Ja | Ja |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -99,7 +99,7 @@ Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opsla
 
 ### VM's voor Premium-opslag herstellen
 
-De gebruikelijke herstelprocedure voor een VM voor Premium-opslag is om het herstelpunt te herstellen naar Premium-opslag. Het kan echter rendabel zijn om een herstelpunt voor een VM voor Premium-opslag te herstellen naar de standaardopslag. Dit type herstel kan worden gebruikt als u een subset bestanden van de VM nodig hebt.
+VM's voor Premium-opslag kunnen worden hersteld naar de Premium-opslag of de normale opslag. De gebruikelijke herstelprocedure voor een VM voor Premium-opslag is om het herstelpunt te herstellen naar Premium-opslag. Het kan echter rendabel zijn om een herstelpunt voor een VM voor Premium-opslag te herstellen naar de standaardopslag. Dit type herstel kan worden gebruikt als u een subset bestanden van de VM nodig hebt.
 
 ## Functionaliteit
 In deze vijf tabellen kunt u zien hoe de back-functionaliteit in elk onderdeel wordt verwerkt.
@@ -225,12 +225,12 @@ Omdat in deze zelfstudies wordt uitgelegd hoe u snel een back-up kunt maken, wor
 
 
 
-[groen]: ./media/backup-introduction-to-azure-backup/green.png
-[geel]: ./media/backup-introduction-to-azure-backup/yellow.png
-[rood]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

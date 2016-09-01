@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
@@ -70,6 +70,7 @@ Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor 
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Gegevens importeren in Azure Search met de indexeerfuncties in de Azure Portal | Microsoft Azure | Gehoste service voor zoeken in de cloud"
-    description="Het gebruik van indexeerfuncties in de Azure Portal."
+    pageTitle="Gegevens importeren in Azure Search met de indexeerfuncties in de Azure-portal | Microsoft Azure | Gehoste service voor zoeken in de cloud"
+    description="Het gebruik van indexeerfuncties in de Azure-portal."
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
@@ -14,14 +14,14 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Gegevens importeren in Azure Search via de portal
 
-Azure Portal bevat de opdracht **Gegevens importeren** op het Azure Search-dashboard, waarmee u gegevens in Azure Search kunt opnemen. De opdracht is afhankelijk van de ingebouwde indexeerfuncties in een bestaande gegevensbron. Met deze opdracht maakt en uploadt u documenten op basis van de rijenset in de gegevensbron.
+De Azure-portal bevat de opdracht **Gegevens importeren** op het Azure-dashboard Zoeken om gegevens in een index te laden. De opdracht is afhankelijk van de ingebouwde indexeerfuncties die een bestaande gegevensbron verkennen en documenten maakt en uploadt op basis van een rijenset die uit de gegevensbron is opgehaald.
 
-Met de wizard bestaat het importeren van gegevens uit drie delen:
+Gegevens importeren in de wizard bestaat uit 3 delen:
 
 - een gegevensbronverbinding
 - een doelindex waarin gegevens worden geüpload (in de meeste gevallen kan deze door de wizard worden gegenereerd)
@@ -31,11 +31,11 @@ Als u een indexeerfunctie of de opdracht **Gegevens importeren** wilt gebruiken,
 
 U kunt slechts importeren uit één tabel, weergave of gelijkwaardige gegevensstructuur. Mogelijk moet u deze gegevensstructuur eerst in uw toepassingsgegevensbron maken om de juiste metagegevens en gegevensinvoer in uw zoekindex te verkrijgen.
 
-U kunt deze werkstroom met voorbeeldgegevens uitproberen. Ga naar [Aan de slag met Azure Search in de Azure Portal](search-get-started-portal.md) om te beginnen.
+U kunt deze werkstroom met voorbeeldgegevens uitproberen. Ga naar [Aan de slag met Azure Search in de Azure-portal](search-get-started-portal.md) om te beginnen.
 
 ##Gegevensimport configureren
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Open het servicedashboard van uw Azure Search-service. U kunt het dashboard op verschillende manieren vinden.
     - Klik in de snelbalk op **Start**. De startpagina heeft tegels voor alle services in uw abonnement. Klik op de tegel om het servicedashboard te openen.
@@ -68,10 +68,16 @@ Tijdens het uitvoeren van de gegevensimportbewerking is op de achtergrond een in
 
 ##Een bestaande indexeerfunctie bewerken
 
-Dubbelklik in het servicedashboard op de tegel Indexeerfunctie om een lijst met alle indexeerfuncties voor uw abonnement weer te geven. Dubbelklik op een van de indexeerfuncties om deze uit te voeren, te bewerken of te verwijderen.
+Dubbelklik in het servicedashboard op de tegel Indexeerfunctie om een lijst met alle indexeerfuncties voor uw abonnement weer te geven. Dubbelklik op een van de indexeerfuncties om deze uit te voeren, te bewerken of te verwijderen. U kunt de index vervangen door een andere bestaande index, de gegevensbron wijzigen en opties instellen voor de drempelwaarden van fouten tijdens het indexeren.
+
+##Een bestaande index bewerken
+
+In Azure Search moet de index opnieuw worden gemaakt bij structurele updates voor de index. Het opnieuw maken van de index bestaat uit het verwijderen van de index, het opnieuw samenstellen van de index en het opnieuw laden van de gegevens. Structurele updates zijn onder andere het wijzigen van een gegevenstype en het wijzigen van de naam of verwijderen van een veld.
+
+Bewerkingen waarvoor de index niet opnieuw hoeft te worden gemaakt, zijn onder andere het toevoegen van een nieuw veld, wijzigen van scoringsprofielen, wijziging van de suggestiefunctie en wijzigen van de taalanalysefunctie. Zie [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) (Index bijwerken) voor meer informatie.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

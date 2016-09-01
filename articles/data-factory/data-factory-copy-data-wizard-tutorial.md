@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Zelfstudie: een pijplijn maken met de wizard Kopiëren" 
-    description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory" 
+    description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory." 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,20 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-get-started.md)
-- [De Data Factory-editor gebruiken](data-factory-get-started-using-editor.md)
-- [PowerShell gebruiken](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-get-started-using-vs.md)
+- [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [De Data Factory-editor gebruiken](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie gebruikt u de Data Factory-wizard Kopiëren om een pijplijn te maken. Dit doet u middels een kopieeractiviteit in een gegevensfactory. U maakt eerst een gegevensfactory met Azure Portal en daarna gebruikt u de wizard Kopiëren om gekoppelde Data Factory-services, gegevenssets en een pijplijn te maken. Dit doet u met een kopieeractiviteit waarmee gegevens uit Azure Blob Storage naar een Azure SQL Database worden gekopieerd.
 
-> [AZURE.IMPORTANT] Lees het [Overzicht van de zelfstudie](data-factory-get-started.md) en voltooi de vereiste stappen voordat u deze zelfstudie volgt.
+> [AZURE.IMPORTANT] Lees het [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de vereiste stappen voordat u deze zelfstudie volgt.
 
 ## Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
@@ -120,6 +121,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

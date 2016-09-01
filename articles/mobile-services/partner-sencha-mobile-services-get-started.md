@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-sencha"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services en Sencha Touch
@@ -58,7 +58,7 @@ Hieronder ziet u een schermafbeelding van de voltooide app:
 
 Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een eenvoudige Quick Start volgen om een nieuwe databasetabel te maken voor gebruik in uw mobiele service.
 
-1. Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **HTML** onder **Platform kiezen** en vouw **Een nieuwe HTML-app maken** uit.
 
@@ -199,7 +199,7 @@ De Azure-extensie is nu gedownload en geïnstalleerd in uw toepassingsmap. De vo
     Raadpleeg de Ext.Azure API-documentatie voor meer informatie over de configuratieopties van Azure.
 
 
-Gefeliciteerd! Uw toepassing heeft nu toegang tot uw mobiele service.
+Gefeliciteerd. Uw toepassing heeft nu toegang tot uw mobiele service.
 
 ##De taken-app bouwen
 
@@ -684,7 +684,7 @@ De laatste fase van deze zelfstudie is het hosten en uitvoeren van uw nieuwe app
 
     Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel.
 
-  5. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de takentabel.
+  5. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de takentabel.
 
     ![Takentabel](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -705,7 +705,7 @@ Hier vindt u meer informatie over de Sencha Touch-extensies voor Azure:
   * Sencha gebruiken met Azure Mobile Services: [(video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
 
-##Aanvullende bronnen
+##Aanvullende resources
 
   * [Sencha Touch downloaden](http://pages.sencha.com/touch-for-azure.html)
   * [Sencha Touch-extensies voor Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
@@ -723,9 +723,9 @@ Voor meer informatie over hoe u aan de slag kunt gaan met Sencha Touch, raadplee
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

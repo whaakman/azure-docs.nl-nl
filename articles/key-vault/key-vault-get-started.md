@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Aan de slag met Azure Sleutelkluis #
@@ -247,6 +247,6 @@ Zie de [Ontwikkelaarshandleiding voor Azure Sleutelkluis](key-vault-developers-g
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

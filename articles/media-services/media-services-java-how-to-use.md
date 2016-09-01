@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="08/11/2016"   
     ms.author="robmcm"/>
 
 #Media Services gebruiken met Java
@@ -278,6 +278,6 @@ Zie [Azure-bibliotheken voor Java-documentatie][] voor Javadoc-documentatie voor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

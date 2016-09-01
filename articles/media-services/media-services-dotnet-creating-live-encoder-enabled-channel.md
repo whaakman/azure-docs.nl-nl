@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -532,6 +532,6 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

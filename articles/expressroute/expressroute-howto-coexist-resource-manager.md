@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het Resource Manager-implementatiemodel
@@ -196,6 +196,6 @@ Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Zelfstudie voor Apache Storm: aan de slag met Storm op basis van Linux in HDInsight | Microsoft Azure"
     description="Aan de slag met big data-analyses met Apache Storm en de Storm Starter-voorbeelden in HDInsight op basis van Linux. Informatie over het gebruik van Storm om gegevens in realtime te verwerken."
-    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    keywords="apache storm, zelfstudie apache storm, big data-analyse, storm starter"
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Om deze Apache Storm-zelfstudie te voltooien, moet u beschikken over het volgend
 
 ## Een Storm-cluster maken
 
-In deze sectie maakt u een HDInsight versie 3.2-cluster (Storm versie 0.9.3) met behulp van een Azure ARM-sjabloon. Zie [Versiebeheer van HDInsight-onderdelen](hdinsight-component-versioning.md) voor meer informatie over de versies van HDInsight en de bijbehorende SLA’s. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
+In deze sectie maakt u een HDInsight versie 3.2-cluster (Storm versie 0.9.3) met behulp van een Azure Resource Manager-sjabloon. Zie [Versiebeheer van HDInsight-onderdelen](hdinsight-component-versioning.md) voor meer informatie over de versies van HDInsight en de bijbehorende SLA’s. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
 
-1. Klik op de volgende afbeelding om in de Azure Portal een ARM-sjabloon te openen.         
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    De ARM-sjabloon bevindt zich in een openbare blobcontainer, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
+    De sjabloon bevindt zich in een openbare blobcontainer, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
    
 2. Voer op de blade Parameters het volgende in:
 
@@ -93,9 +93,9 @@ De [Storm-starter](https://github.com/apache/storm/tree/master/examples/storm-st
 
 2. Gebruik de volgende opdracht om een voorbeeldtopologie te starten:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] Het `0.9.3.2.2.4.9-1`-gedeelte van de bestandsnaam verschilt mogelijk als HDinsight is bijgewerkt met een nieuwere versie van Storm.
+    > [AZURE.NOTE] Het `0.10.0.2.4.2.4-5`-gedeelte van de bestandsnaam verschilt mogelijk als HDInsight is bijgewerkt met een nieuwere versie van Storm.
 
     Hiermee wordt de WordCount-voorbeeldtopologie gestart op het cluster, met een beschrijvende naam voor 'wordcount'. Er worden willekeurig zinnen gegenereerd en het aantal keer dat elk woord in deze zinnen voorkomt, wordt geteld.
 
@@ -141,7 +141,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
 3. Selecteer op deze pagina een item in de sectie **Spouts** of **Bolts**. Hiermee wordt informatie over het geselecteerde onderdeel weergegeven.
 
-    ![Storm-dashboard met informatie over de geselecteerde onderdelen](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
+    ![Storm-dashboard met informatie over de geselecteerde onderdelen.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
     Deze pagina geeft de volgende informatie weer:
 
@@ -193,6 +193,6 @@ Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en 
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

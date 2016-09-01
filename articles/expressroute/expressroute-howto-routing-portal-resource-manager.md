@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Routering voor een ExpressRoute-circuit maken en wijzigen
@@ -240,6 +240,6 @@ Volgende stap, [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-how
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

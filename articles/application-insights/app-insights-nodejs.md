@@ -54,7 +54,7 @@ De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin i
 ## <a name="sdk"></a> De SDK installeren in uw toepassing
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Gebruik
@@ -63,7 +63,7 @@ Hiermee schakelt u de bewaking van aanvragen, het bijhouden van onverwerkte uitz
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

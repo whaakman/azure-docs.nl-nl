@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Uw eerste gegevensfactory bouwen (ARM-sjabloon) | Microsoft Azure"
+    pageTitle="Uw eerste gegevensfactory bouwen (Resource Manager-sjabloon) | Microsoft Azure"
     description="In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn op basis van een Azure Resource Manager-sjabloon."
     services="data-factory"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Zelfstudie: bouw uw eerste Azure-gegevensfactory op basis van een Azure Resource Manager-sjabloon
@@ -23,22 +23,24 @@
 - [PowerShell gebruiken](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Visual Studio gebruiken](data-factory-build-your-first-pipeline-using-vs.md)
 - [Een Resource Manager-sjabloon gebruiken](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API gebruiken](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In dit artikel leert u hoe u een Azure Resource Manager-sjabloon (ARM) gebruikt voor het maken van uw eerste Azure-gegevensfactory. 
+In dit artikel leert u hoe u een Azure Resource Manager-sjabloon gebruikt om uw eerste Azure-gegevensfactory te maken. 
 
 
 ## Vereisten
 Naast de vereisten die worden vermeld in het onderwerp Overzicht van de zelfstudie, moet u de volgende zaken installeren:
 
-- U **moet** het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) lezen en de vereiste stappen volgen voordat u doorgaat. 
+- Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de vereiste stappen uit voordat u doorgaat. 
 - **Installeer Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
 - Dit artikel biedt geen conceptueel overzicht van de Azure Data Factory-service. Lees voor een gedetailleerd overzicht van de service het artikel [Inleiding tot Azure Data Factory](data-factory-introduction.md). 
-- Zie [Azure Resource Manager-sjablonen samenstellen](../resource-group-authoring-templates.md) voor meer informatie over Azure Resource Manager-sjablonen (ARM). 
+- Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
 
-> [AZURE.IMPORTANT] U moet de vereiste stappen uit [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) voltooien om de procedures in dit artikel te kunnen volgen. 
+> [AZURE.IMPORTANT]
+> Voer de vereiste stappen in [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) uit om de procedures in dit artikel te kunnen volgen. 
 
-## Een ARM-sjabloon maken
+## Resource Manager-sjabloon maken
 
 Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud: 
 
@@ -221,21 +223,21 @@ Houd rekening met het volgende:
 
 - Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
 - U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
-- Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
+- Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
 
-    Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**- datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+    Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
 Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
 
-> [AZURE.NOTE] Een ander voorbeeld van een ARM-sjabloon voor het maken van een Azure-gegevensfactory vindt u op [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
+> [AZURE.NOTE] Een ander voorbeeld van een Resource Manager-sjabloon voor het maken van een Azure-gegevensfactory vindt u op [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).  
 
 ## Een gegevensfactory maken
 
 1. Open **Azure PowerShell** en voer de volgende opdracht uit. 
-    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.  
+    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.  
     - Voer de volgende opdracht uit om het abonnement te selecteren waarin u de gegevensfactory wilt maken.
             Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-1. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het ARM-sjabloon dat u in stap 1 hebt gemaakt. 
+1. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
@@ -263,8 +265,8 @@ U kunt ook de app voor bewaking en beheer gebruiken om uw gegevenspijplijnen te 
 
 > [AZURE.IMPORTANT] Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
 
-## ARM-sjabloon voor het maken van een gateway
-Hier volgt een ARM-voorbeeldsjabloon voor het op de achtergrond maken van een logische gateway. U moet een gateway installeren op uw on-premises computer of virtuele Azure IaaS-machine en de gateway met een sleutel registreren bij de Data Factory-service. Zie [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md) voor meer informatie.
+## Resource Manager-sjabloon voor het maken van een gateway
+Hier volgt een Resource Manager-voorbeeldsjabloon voor het op de achtergrond maken van een logische gateway. U moet een gateway installeren op uw on-premises computer of virtuele Azure IaaS-machine en de gateway met een sleutel registreren bij de Data Factory-service. Zie [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md) voor meer informatie.
 
     {
         "contentVersion": "1.0.0.0",
@@ -313,6 +315,6 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

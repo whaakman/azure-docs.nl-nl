@@ -3,17 +3,17 @@
    description="Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. In dit artikel wordt beschreven hoe u RBAC instelt in Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn"
-   keywords="automation rbac, role based access control, azure rbac" />
+   keywords="automatisering rbac, rolgebaseerde toegangscontrole, azure rbac" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/20/2016"
    ms.author="magoedte;sngun"/>
 
 # Op rollen gebaseerd toegangsbeheer in Azure Automation
@@ -28,13 +28,102 @@ In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen
 
 |**Rol** | **Beschrijving** |
 |:--- |:---|
-| Eigenaar | De rol Eigenaar geeft toegang tot alle resources en acties binnen een Automation-account, inclusief het bieden van toegang aan andere gebruikers, groepen en toepassingen om het Automation-account te beheren. |
-| Inzender | Met de rol Inzender kunt u alles beheren. U kunt alleen geen toegangsmachtigingen van andere gebruikers voor een Automation-account wijzigen. |
-| Lezer | Met de rol Lezer kunt u alle resources in een Automation-account weergeven, maar kunt u geen wijzigingen aanbrengen. |
-| Automation-operator | Met de rol Automation-operator kunt u operationele taken uitvoeren, zoals het starten, stoppen, onderbreken, hervatten en plannen van taken. Deze rol is handig als u niet wilt dat uw Automation-accountresources zoals referentieassets en runbooks worden weergegeven of gewijzigd, maar u wel wilt toestaan dat leden van uw organisatie deze runbooks uitvoeren. In [Automation-operatoracties](../active-directory/role-based-access-built-in-roles.md#automation-operator) worden de acties weergegeven die worden ondersteund met de rol Automation-operator voor het Automation-account en de bijbehorende resources. |
-| Beheerder gebruikerstoegang | Met de rol Beheerder gebruikerstoegang kunt u gebruikerstoegang tot Azure Automation-accounts beheren. |
+| Eigenaar | De rol van Eigenaar maakt het mogelijk om alle resources en acties binnen een Automation-account te openen, inclusief toegang tot andere gebruikers, groepen en toepassingen om het Automation-account te beheren. |
+| Inzender | De rol van Bijdrager maakt het mogelijk om alles te beheren, behalve de toegangsrechten van andere gebruikers te wijzigen naar een Automation-account. |
+| Lezer | Met de rol van Lezer kunt u alle resources in een Automation-account bekijken, maar niets wijzigen.|
+| Automation-operator | De rol van Automation-operator geeft u de mogelijkheid om bijkomende taken, zoals starten, stoppen, opschorten, hernemen en plannen van taken uit te voeren. Deze rol is handig als u niet wilt dat uw Automation-accountresources zoals referentieassets en runbooks worden weergegeven of gewijzigd, maar u wel wilt toestaan dat leden van uw organisatie deze runbooks uitvoeren. |
+| Beheerder van gebruikerstoegang | De beheerdersrol gebruiker toegang kunt u gebruikerstoegang tot Azure Automation-accounts beheren. |
 
-In dit artikel wordt een stapsgewijze beschrijving gegeven van het instellen van RBAC in Azure Automation. 
+>[AZURE.NOTE] U kunt geen toegangsrechten verlenen aan een specifiek runbook of specifieke runbooks, alleen de resources en acties binnen het Automation-account.  
+
+In dit artikel wordt een stapsgewijze beschrijving gegeven van het instellen van RBAC in Azure Automation. Maar laten we eerst ingaan op de individuele machtigingen verleend aan de Bijdrager, Lezer, Automation-operator en Beheerder van gebruikerstoegang, zodat we dit beter begrijpen alvorens rechten toe te kennen aan het Automation-account.  Anders kan dit leiden tot onverwachte of ongewenste consequenties.     
+
+## Machtigingen voor de rol van Bijdrager
+
+De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol Bijdrager in Automatisering.
+
+| **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation Account | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation Certificate Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation Connection Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation Connection Type Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Automation Credential Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation Schedule Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation Variable Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation Desired State Configuration | | | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
+| Hybrid Runbook Worker Resource Type | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Azure Automation Job | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation Job Stream | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Job Schedule | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Automation Module | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |
+| Azure Automation Runbook | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
+| Automation Runbook Draft | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
+| Automation Runbook Draft Test Job | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation Webhook | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
+
+## Machtigingen voor de rol van Lezer
+
+De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol van lezer in Automation.
+
+| **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
+|:--- |:---|:--- |:---|:--- |
+| Klassiek abonnement beheerder | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Vergrendeling voor beheer | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Machtiging | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Provider-bewerkingen | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Nieuwe roltoewijzing | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Roldefinitie ophalen | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+
+## Rolmachtigingen Automation-operator
+
+De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door de rol van operator in Automation.
+
+| **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation Account | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
+| Automation Certificate Asset | | | |
+| Automation Connection Asset | | | |
+| Automation Connection Type Asset | | | |
+| Automation Credential Asset | | | |
+| Automation Schedule Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Automation Variable Asset | | | |
+| Automation Desired State Configuration | | | | |
+| Hybrid Runbook Worker Resource Type | | | | | 
+| Azure Automation Job | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | 
+| Automation Job Stream | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | |  
+| Automation Job Schedule | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | |
+| Automation Module | | | |
+| Azure Automation Runbook | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Runbook Draft | | | |
+| Automation Runbook Draft Test Job | | | |  
+| Automation Webhook | | | |
+
+Voor meer details geeft [Acties Automation-operator](../active-directory/role-based-access-built-in-roles.md#automation-operator) de acties ondersteund door de rol van Automation-operator op het Automation-account en zijn resources.
+
+## Machtigingen van de rol Beheerder van de Gebruikerstoegang
+
+De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door de rol van operator in Automation.
+
+| **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation Account | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Certificate Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Connection Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Connection Type Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Credential Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Schedule Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Variable Asset | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Desired State Configuration | | | | |
+| Hybrid Runbook Worker Resource Type | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Azure Automation Job | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Job Stream | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Job Schedule | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Module | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Azure Automation Runbook | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Runbook Draft | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Runbook Draft Test Job | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Webhook | ![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | |
 
 ## RBAC configureren voor uw Automation-account met Azure Portal
 
@@ -44,7 +133,7 @@ In dit artikel wordt een stapsgewijze beschrijving gegeven van het instellen van
 
     ![De knop Toegang](media/automation-role-based-access-control/automation-01-access-button.png)  
 
->[AZURE.NOTE]  **Abonnementsbeheerders** bestaat al als de standaardgebruiker. De Active Directory-groep Abonnementsbeheerders bevat de servicebeheerder(s) en medebeheerder(s) voor uw Azure-abonnement. De servicebeheerder is de eigenaar van uw Azure-abonnement en de bijhorende resources en neemt ook de eigenaarsrol over voor de Automation-accounts. Dit betekent dat de toegang wordt **overgenomen** voor **servicebeheerders en medebeheerders** van een abonnement en dat deze wordt **toegewezen** voor alle andere gebruikers. Klik op **Abonnementsbeheerders** om meer details over hun machtigingen weer te geven.  
+>[AZURE.NOTE] **Abonnementsbeheerders** bestaat al als de standaardgebruiker. De Active Directory-groep Abonnementsbeheerders bevat de servicebeheerder(s) en medebeheerder(s) voor uw Azure-abonnement. De servicebeheerder is de eigenaar van uw Azure-abonnement en de bijhorende resources en neemt ook de eigenaarsrol over voor de Automation-accounts. Dit betekent dat de toegang wordt **overgenomen** voor **servicebeheerders en medebeheerders** van een abonnement en dat deze wordt **toegewezen** voor alle andere gebruikers. Klik op **Abonnementsbeheerders** om meer details over hun machtigingen weer te geven.  
 
 ### Een nieuwe gebruiker toevoegen en een rol toewijzen
 
@@ -60,19 +149,21 @@ In dit artikel wordt een stapsgewijze beschrijving gegeven van het instellen van
 
     ![Gebruikers toevoegen](media/automation-role-based-access-control/automation-04-add-users.png)  
  
-Nu moet u zien dat de gebruiker is toegevoegd aan de blade **Gebruikers** en dat de rol **Lezer** is toegewezen.  
+    Nu moet u zien dat de gebruiker is toegevoegd aan de blade **Gebruikers** en dat de rol **Lezer** is toegewezen.  
 
-![Gebruikers weergeven](media/automation-role-based-access-control/automation-05-list-users.png)  
+    ![Gebruikers weergeven](media/automation-role-based-access-control/automation-05-list-users.png)  
 
-U kunt ook een rol aan de gebruiker toewijzen via de blade **Rollen**. Klik op **Rollen** op de blade Gebruikers om de blade **Rollen** te openen. Via deze blade kunt u het volgende bekijken: de naam van de rol, het aantal gebruikers en de groepen die aan die rol zijn toegewezen.
+    U kunt ook een rol aan de gebruiker toewijzen via de blade **Rollen**. 
 
-![Rol vanuit blade Gebruikers toewijzen](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+1. Klik op **Rollen** op de blade Gebruikers om de blade **Rollen** te openen. Via deze blade kunt u het volgende bekijken: de naam van de rol, het aantal gebruikers en de groepen die aan die rol zijn toegewezen.
+
+    ![Rol vanuit blade Gebruikers toewijzen](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
->[AZURE.NOTE] Op rollen gebaseerd toegangsbeheer kan alleen worden ingesteld op het niveau van het Automation-account en niet op een resource onder het Automation-account.
+    >[AZURE.NOTE] Op rollen gebaseerd toegangsbeheer kan alleen worden ingesteld op het niveau van het Automation-account en niet op een resource onder het Automation-account.
 
-U kunt meer dan één rol toewijzen aan een gebruiker, groep of toepassing. Als we bijvoorbeeld de rol **Automation-operator** samen met de rol **Lezer** toevoegen aan de gebruiker, dan kan deze alle Automation-resources bekijken, en ook de runbooktaken uitvoeren. U kunt de vervolgkeuzelijst uitvouwen om een lijst met rollen weer te geven die aan de gebruiker zijn toegewezen.  
+    U kunt meer dan één rol toewijzen aan een gebruiker, groep of toepassing. Als we bijvoorbeeld de rol **Automation-operator** samen met de rol **Lezer** toevoegen aan de gebruiker, dan kan deze alle Automation-resources bekijken, en ook de runbooktaken uitvoeren. U kunt de vervolgkeuzelijst uitvouwen om een lijst met rollen weer te geven die aan de gebruiker zijn toegewezen.  
 
-![Meerdere rollen weergeven](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
+    ![Meerdere rollen weergeven](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
  
 ### Een gebruiker verwijderen
 
@@ -114,11 +205,11 @@ Deze gebruiker heeft ook geen toegang tot de weergave van de webhooks die aan ee
 
 Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-Account met de volgende [Azure PowerShell-cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md).
 
-• Met [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) wordt een lijst weergegeven van alle rollen die beschikbaar zijn in Azure Active Directory RBAC. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle gebruikers met een specifieke rol weer te geven.  
+• Met [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) wordt een lijst weergegeven van alle RBAC-rollen die beschikbaar zijn in Azure Active Directory. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.  
     **Voorbeeld:**  
     ![Roldefinitie ophalen](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
-• Met [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) worden Azure RBAC-roltoewijzingen weergegeven bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.  
+• Met [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) worden Azure AD RBAC-roltoewijzingen weergegeven bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.  
     **Voorbeeld:** gebruik de volgende opdracht om alle gebruikers en de bijbehorende rollen binnen een Automation-account weer te geven.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
@@ -126,28 +217,28 @@ Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-A
 ![Roltoewijzing ophalen](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
 • [New AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) om toegang te verlenen aan gebruikers, groepen en toepassingen bij een bepaald bereik.  
-    **Voorbeeld:** gebruik de volgende opdracht om een nieuwe rol 'Automation-operator' te maken voor een gebruiker bij het Automation-accountbereik.
+    **Voorbeeld:** gebruik de volgende opdracht om een nieuwe rol 'Automation-operator' toe te wijzen voor een gebruiker bij het Automation-accountbereik.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Nieuwe roltoewijzing](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• Gebruik [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) om toegang tot de opgegeven gebruiker, groep of toepassing te verwijderen bij een bepaald bereik.
-    **Voorbeeld:** gebruik de volgende opdracht om een nieuwe rol 'Automation-operator' te maken voor een gebruiker bij het Automation-accountbereik.
+• Gebruik [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) om toegang van de opgegeven gebruiker, groep of toepassing te verwijderen uit een bepaald bereik.  
+    **Voorbeeld:** gebruik de volgende opdracht om een de gebruiker te verwijderen uit de rol van “Automation Operator” in het bereik Automation Account.
 
-    Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Vervang in de bovenstaande cmdlets de aanmeldnaam, de abonnements-id, de resourcegroepnaam en de Automation-accountnaam door uw accountgegevens. Kies **Ja** bij de vraag of u wilt doorgaan met het verwijderen van de roltoewijzing.   
+Vervang in de bovenstaande voorbeelden de **aanmeldnaam**, de **abonnements-id**, de **resourcegroepnaam** en de **Automation-accountnaam** door uw accountgegevens. Kies **Ja** om te bevestigen voordat u verdergaat met het verwijderen van de roltoewijzing voor de gebruiker.   
 
 
 ## Volgende stappen
 -  Raadpleeg [RBAC met Azure PowerShell beheren](../active-directory/role-based-access-control-manage-access-powershell.md) voor informatie over verschillende manieren om RBAC voor Azure Automation te configureren.
 - Zie [Een runbook starten](automation-starting-a-runbook.md) voor informatie over verschillende manieren om een runbook te starten.
-- Raadpleeg [Azure Automation-runbooktypen](automation-runbook-types.md) voor informatie over verschillende typen.
+- Raadpleeg [Azure Automation-runbooktypen](automation-runbook-types.md) voor informatie over verschillende typen runbooks
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

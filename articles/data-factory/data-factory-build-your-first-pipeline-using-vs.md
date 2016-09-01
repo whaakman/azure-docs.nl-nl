@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Uw eerste Azure-gegevensfactory bouwen met Microsoft Visual Studio
@@ -23,6 +23,7 @@
 - [PowerShell gebruiken](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Visual Studio gebruiken](data-factory-build-your-first-pipeline-using-vs.md)
 - [Een Resource Manager-sjabloon gebruiken](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API gebruiken](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 In dit artikel leert u hoe u Microsoft Visual Studio gebruikt voor het maken van uw eerste Azure-gegevensfactory. 
@@ -30,19 +31,13 @@ In dit artikel leert u hoe u Microsoft Visual Studio gebruikt voor het maken van
 ## Vereisten
 
 1. U **moet** het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) lezen en de vereiste stappen volgen voordat u doorgaat.
-2. Dit artikel biedt geen conceptueel overzicht van de Azure Data Factory-service. Lees voor een gedetailleerd overzicht van de service het artikel [Inleiding tot Azure Data Factory](data-factory-introduction.md).  
-
-## Data Factory-entiteiten maken en implementeren  
-
-### Vereisten
-
-De volgende zaken moeten op uw computer zijn geïnstalleerd: 
-
-- Visual Studio 2013 of Visual Studio 2015
-- Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
-- Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Als u gebruikmaakt van Visual Studio 2013, kunt u de invoegtoepassing ook bijwerken met behulp van de volgende handelingen: klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**. 
-    
-    
+2. U moet een **beheerder van het Azure-abonnement** zijn om Data Factory-entiteiten te kunnen publiceren naar Azure Data Factory. Dat is op dit moment een beperking.  
+3. De volgende zaken moeten op uw computer zijn geïnstalleerd: 
+    - Visual Studio 2013 of Visual Studio 2015
+    - Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
+    - Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Als u gebruikmaakt van Visual Studio 2013, kunt u de invoegtoepassing ook bijwerken met behulp van de volgende handelingen: klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**. 
+ 
+In de volgende procedures kunt u zien hoe u Data Factory-entiteiten maakt en implementeert.
 
 ## Een Visual Studio-project maken 
 1. Open **Visual Studio 2013** of **Visual Studio 2015**. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**. Het dialoogvenster **New Project** wordt weergegeven.  
@@ -71,7 +66,7 @@ In deze stap koppelt u uw Azure-opslagaccount aan uw gegevensfactory. Voor deze 
 4. Sla het bestand **AzureStorageLinkedService1.json** op.
 
 #### Een gekoppelde HDInsight-service maken
-In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie. . 
+In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie. 
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Linked Services**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
 2. Selecteer **HDInsight On Demand Linked Service** en klik op **Add**. 
@@ -94,20 +89,20 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
     
     Eigenschap | Beschrijving
     -------- | -----------
-    Version | Hiermee wordt aangegeven dat de versie van het gemaakte HDInsight-cluster 3.2 is. 
-    ClusterSize | Hiermee maakt u een HDInsight-cluster met één knooppunt. 
-    TimeToLive | Hiermee wordt aangegeven hoelang het HDInsight-cluster niet actief moet zijn voordat het wordt verwijderd.
-    linkedServiceName | Hiermee geeft u het opslagaccount op dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd.
+    Version | Geeft aan dat de versie van het gemaakte HDInsight-cluster 3.2 zal zijn. 
+    ClusterSize | Geeft de grootte van het HDInsight-cluster aan. 
+    TimeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd.
+    linkedServiceName | Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd.
 
     Houd rekening met het volgende: 
     
     - Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
     - U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
     - Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
-	
-		Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**- datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+    
+        Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
-	Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
+    Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
 4. Sla het bestand **HDInsightOnDemandLinkedService1.json** op.
 
 ## Gegevenssets maken
@@ -151,7 +146,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
   	| linkedServiceName | Deze eigenschap verwijst naar de AzureStorageLinkedService1 die u eerder hebt gemaakt. |
   	| fileName | Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In dit geval wordt alleen input.log verwerkt. |
   	| type | Omdat de logboekbestanden tekstbestanden zijn, gebruiken we TextFormat. | 
-  	| columnDelimiter | De kolommen in de logboekbestanden worden gescheiden door middel van komma’s |
+  	| columnDelimiter | Kolommen in de logboekbestanden worden gescheiden door een komma (,). |
   	| frequency/interval | Als frequency wordt ingesteld op Month en de interval 1 is, betekent dat dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. | 
   	| external | Deze eigenschap wordt ingesteld op true als de invoergegevens niet worden gegenereerd door de Data Factory-service. | 
       
@@ -279,10 +274,7 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
     2. Voer **FirstDataFactoryUsingVS** in bij **Name**. 
     
         > [AZURE.IMPORTANT] De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-	3. Selecteer het juiste abonnement voor het veld **Subscription**.
-	4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken.
-	5. Selecteer de **regio** voor de gegevensfactory.
-	6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
+3. Selecteer het juiste abonnement voor het veld **Subscription**. 4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken. 5. Selecteer de **regio** voor de gegevensfactory. 6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
 23. Op de pagina **Publish Items** controleert u of alle Data Factory-entiteiten zijn geselecteerd en klikt u op **Next** om over te schakelen naar de pagina **Summary**.     
 24. Controleer de samenvatting en klik op **Next** om te beginnen met het implementatieproces en om de **implementatiestatus** te bekijken.
 25. Op de pagina **Deployment Status** ziet u de status van het implementatieproces. Klik op Finish wanneer de implementatie is uitgevoerd. 
@@ -322,7 +314,7 @@ Houd rekening met het volgende:
   
     ![Pijplijnweergave openen](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
-    Als u terug wilt keren naar de vorige weergave, klikt u op **Gegevensfactory** in het koppelingenmenu bovenaan. 
+    Als u naar de vorige weergave wilt terugkeren, klikt u op **Gegevensfactory** in het koppelingenmenu bovenaan. 
 10. Dubbelklik in de **diagramweergave** op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status Gereed heeft. Als dit niet is gebeurd nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (input.log) in de juiste container (adfgetstarted) en in de juiste map (inputdata) staat.
 
     ![Invoersegment met de status Gereed](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
@@ -472,12 +464,12 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken v
 2.  U hebt twee **gekoppelde services** gemaakt:
     1.  Een gekoppelde **Azure Storage**-service om te koppelen aan de Azure-blobopslag die de invoer-/uitvoerbestanden van de gegevensfactory bevat.
     2.  Een gekoppelde on-demand **Azure HDInsight**-service om te koppelen aan een on-demand HDInsight Hadoop-cluster van de gegevensfactory. Azure Data Factory maakt op tijd een HDInsight Hadoop-cluster om invoergegevens te verwerken en uitvoergegevens te produceren. 
-3.  U hebt twee **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven. 
+3.  U hebt twee **gegevenssets** gemaakt, waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven. 
 4.  U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit.  
 
 
 ## Volgende stappen
-In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-get-started.md) voor meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
+In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruik van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
   
 ## Zie ook
 | Onderwerp | Beschrijving |
@@ -489,6 +481,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

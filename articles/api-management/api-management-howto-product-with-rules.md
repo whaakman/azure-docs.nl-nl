@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Uw API beveiligen met frequentielimieten met behulp van Azure API Management
@@ -296,6 +296,6 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

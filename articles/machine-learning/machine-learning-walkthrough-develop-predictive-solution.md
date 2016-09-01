@@ -1,7 +1,7 @@
 <properties
     pageTitle="Een predictive analytics-oplossing voor kredietrisico met Machine Learning | Microsoft Azure"
     description="Een gedetailleerde procedure voor het maken van een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio."
-    keywords="credit risk, predictive analytics solution,risk assessment"
+    keywords="kredietrisico, predictive analytics-oplossing, risico-evaluatie"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Kredietrisicobeoordeling is natuurlijk complexe materie, maar we zullen de param
 In deze gedetailleerde procedure volgt u het proces voor het opzetten van een predictive analytics-model in Machine Learning Studio en vervolgens implementeert u het model als een Azure Machine Learning-webservice. U begint met openbaar beschikbare kredietrisicogegevens. Vervolgens ontwikkelt en traint u een voorspellend model op basis van die gegevens en tot slot implementeert u het model als een webservice die door anderen kan worden gebruikt voor kredietrisicobeoordeling.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
 
@@ -43,6 +45,6 @@ Deze procedure is gebaseerd op een vereenvoudigde versie van het voorbeeldexperi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

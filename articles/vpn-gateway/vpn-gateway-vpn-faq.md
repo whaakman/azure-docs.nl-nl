@@ -88,13 +88,17 @@ Andere VPN-softwareoplossingen zouden in principe met onze gateway moeten werken
 
 De volgende besturingssystemen worden ondersteund:
 
-- Windows 7 (alleen 64-bits-versie)
+- Windows 7 (32-bits en 64-bits)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (alleen 64-bits)
 
-- Windows 8 (alleen 64-bits-versie)
+- Windows 8 (32-bits en 64-bits)
 
-- Windows Server 2012
+- Windows 8.1 (32-bits en 64-bits)
+
+- Windows Server 2012 (alleen 64-bits)
+
+- Windows Server 2012 R2 (alleen 64-bits)
 
 - Windows 10
 
@@ -215,7 +219,7 @@ Ja.
 
 ### Met hoeveel on-premises sites en virtuele netwerken kan één virtueel netwerk verbinding maken?
 
-Met max. 10 gecombineerde sites/netwerken voor de gateways met Basic en Standard dynamische routering, en met max. 30 voor VPN-gateways met hoge prestaties.
+Met maximaal 10 gecombineerde sites/netwerken voor de gateways met Basic en Standard dynamische routering, en met max. 30 voor VPN-gateways met hoge prestaties.
 
 ### Kan ik punt-naar-site-VPN-verbindingen met het virtuele netwerk gebruiken met meerdere VPN-tunnels?
 
@@ -260,7 +264,7 @@ Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en si
 
 ### Als de virtuele machine zich in een virtueel netwerk bevindt en ik een cross-premises-verbinding heb, hoe moet ik dan verbinding maken met de virtuele machine?
 
-U hebt een aantal opties. Als u RDP hebt ingeschakeld en een eindpunt hebt gemaakt, kunt u het VIP gebruiken om verbinding te maken met uw virtuele machine. In dat geval geeft u het VIP op en de poort waarmee u verbinding wilt maken. U moet de poort op de virtuele machine configureren voor het verkeer. Gewoonlijk gaat u naar de klassieke Azure Portal en slaat u de instellingen voor de RDP-verbinding op uw computer op. De instellingen bevatten de noodzakelijke verbindingsgegevens.
+U hebt een aantal opties. Als u RDP hebt ingeschakeld en een eindpunt hebt gemaakt, kunt u het VIP gebruiken om verbinding te maken met uw virtuele machine. In dat geval geeft u het VIP op en de poort waarmee u verbinding wilt maken. U moet de poort op de virtuele machine configureren voor het verkeer. Gewoonlijk gaat u naar de klassieke Azure-portal en slaat u de instellingen voor de RDP-verbinding op uw computer op. De instellingen bevatten de noodzakelijke verbindingsgegevens.
 
 Als u een virtueel netwerk met cross-premises-connectiviteit hebt geconfigureerd, kunt u het DIP of particuliere IP-adres gebruiken om verbinding te maken met uw virtuele machine. U kunt uw virtuele machine ook verbinden met behulp van het interne DIP van een andere virtuele machine die zich in hetzelfde virtuele netwerk bevindt. Het is niet mogelijk om met het DIP een RDP-verbinding met de virtuele machine te maken als u verbinding maakt vanaf een locatie buiten het virtuele netwerk. Als u bijvoorbeeld een virtueel punt-naar-site-netwerk hebt geconfigureerd en u geen verbinding maakt vanaf uw computer, dan kunt u DIP niet gebruiken om verbinding te maken met de virtuele machine.
 
@@ -281,6 +285,6 @@ Meer informatie over VPN-gateways vindt u op de [pagina met VPN-gatewaydocumenta
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

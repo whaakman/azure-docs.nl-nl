@@ -14,7 +14,7 @@
     ms.devlang="node"
     ms.topic="get-started-article"
     ms.date="05/26/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
 
@@ -193,7 +193,7 @@ In deze sectie gebruikt u de Azure Portal voor het maken van een nieuwe API-app 
 
 6. Klik in de vervolgkeuzelijst **Resourcegroep** op **Nieuw** en voer vervolgens bij **Nieuwe naam resourcegroep** 'NodejsAPIAppGroup' of desgewenst een andere naam in. 
 
-    Een [resourcegroep](../azure-portal/resource-group-portal.md) is een verzameling Azure-resources, zoals API-apps, databases en virtuele machines. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
+    Een [resourcegroep](../resource-group-overview.md) is een verzameling Azure-resources, zoals API-apps, databases en virtuele machines. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
 
 4. Klik op **App Service-plan/Locatie** en vervolgens op **Nieuw**.
 
@@ -203,7 +203,7 @@ In deze sectie gebruikt u de Azure Portal voor het maken van een nieuwe API-app 
 
 5. Voer op de blade **App Service-plan** 'NodejsAPIAppPlan' of desgewenst een andere naam in.
 
-5. Kies in de vervolgkeuzelijst **Locatie** de locatie die het dichtst bij u ligt.
+5. Kies in de vervolgkeuzelijst **Location** de locatie die het dichtst bij u ligt.
 
     Met deze instelling bepaalt u in welk Azure-datacentrum uw app wordt uitgevoerd. Voor deze zelfstudie kunt u een willekeurige regio selecteren. Dit maakt geen merkbaar verschil. Bij een productie-app moet de server echter zo dicht mogelijk bij de clients staan die de app gebruiken. Zo minimaliseert u de [latentie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
@@ -314,6 +314,6 @@ U hebt nu een API-app gemaakt en er Node.js-API-code in geïmplementeerd. In de 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

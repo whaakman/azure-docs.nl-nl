@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Een Azure DNS-zone maken met CLI
@@ -153,7 +153,7 @@ Als u de NS-records wilt weergeven die u met deze zone hebt gemaakt, gebruikt u 
 
 >[AZURE.NOTE] Recordsets in de hoofdmap (of *apex*) van een DNS-zone gebruiken **@** als recordsetnaam.
 
-## Testen
+## Test
 
 U kunt uw DNS-zone testen door gebruik te maken van DNS-hulpprogramma's, zoals nslookup, DIG of de PowerShell-cmdlet `Resolve-DnsName`.
 
@@ -189,6 +189,6 @@ Nadat u een DNS-zone hebt gemaakt, maakt u [recordsets en records](dns-getstarte
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

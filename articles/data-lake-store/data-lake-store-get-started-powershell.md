@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met Azure PowerShell
@@ -43,7 +43,7 @@ Zie de sectie Vereisten van [Azure PowerShell gebruiken met Azure Resource Manag
 
 ## Een Azure Data Lake Store-account maken
 
-1. Open vanaf het bureaublad een nieuw Azure PowerShell-venster en voer het volgende fragment in om u aan te melden bij uw Azure-account, het abonnement in te stellen en de Data Lake Store-provider te registreren. Wanneer u wordt gevraagd om u aan te melden, zorg dan dat u zich aanmeldt als een van de beheerders/eigenaars van het abonnement:
+1. Open vanaf het bureaublad een nieuw Windows PowerShell-venster en voer het volgende fragment in om u aan te melden bij uw Azure-account, het abonnement in te stellen en de Data Lake Store-provider te registreren. Wanneer u wordt gevraagd om u aan te melden, zorg dan dat u zich aanmeldt als een van de beheerders/eigenaars van het abonnement:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -143,6 +143,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
@@ -165,6 +165,6 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

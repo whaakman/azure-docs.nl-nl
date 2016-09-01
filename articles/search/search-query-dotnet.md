@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/15/2016"
     ms.author="brjohnst"/>
 
 # Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
@@ -31,9 +31,9 @@ Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige bron
 ## I. De query api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-index hebt gemaakt, bent u bijna zover om query's uit te geven met behulp van de .NET SDK. Eerst moet u een van de query api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-1. Om de api-sleutels van uw service te vinden, moet u inloggen op de [Azure Portal](https://portal.azure.com/)
+1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
 2. Ga naar de blade van uw Azure Search-service
-3. Klik op het pictogram "Sleutels"
+3. Klik op het pictogram Sleutels
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
@@ -164,6 +164,6 @@ De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

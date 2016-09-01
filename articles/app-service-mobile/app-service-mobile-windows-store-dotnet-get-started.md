@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Een Universal Windows-platform (UWP)-app maken in Azure App Service - Mobile Apps | Microsoft Azure"
+    pageTitle="Een Universal Windows Platform (UWP)-app maken die gebruikmaakt van Mobile Apps | Microsoft Azure"
     description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Universal Windows Platform (UWP)-app-ontwikkeling in C#, Visual Basic of JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Een Windows-app maken
@@ -80,13 +80,13 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 
 ##Volgende stappen
 
-* [Verificatie toevoegen aan uw app ](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
 
 * [Pushmeldingen toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
 
-* [Offlinesynchronisatie voor uw Windows-app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
 
 <!-- Anchors. -->
@@ -98,6 +98,6 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Aan de slag met Azure IoT Hub voor .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Inleiding
-
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen Internet of Things-apparaten en de back-end van een oplossing mogelijk maakt. Een van de grootste uitdagingen van IoT-projecten is het op stabiele en veilige wijze verbinden van apparaten met de back-end van een oplossing. Als oplossing voor deze uitdaging biedt IoT Hub het volgende:
-
-- Stabiele verzending van berichten op hyperschaal tussen apparaat en cloud en tussen cloud en apparaat.
-- Veilige communicatie met behulp van beveiligingsreferenties en toegangscontrole.
-- Apparaatbibliotheken voor de meest populaire talen en platforms.
-
-In deze handleiding ontdekt u hoe u:
-
-- Met de Azure Portal een IoT-hub kunt maken.
-- Een apparaat-id maakt in uw IoT-hub.
-- Een gesimuleerd apparaat kunt maken dat telemetrie verzendt naar de back-end van uw cloud en daarvan opdrachten ontvangt.
 
 Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Windows-consoletoepassingen:
 
@@ -243,11 +229,11 @@ In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-appara
 
 U kunt nu de toepassingen gaan uitvoeren.
 
-1.  Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Klik op **Multiple startup projects**, en klik vervolgens op **Start** voor zowel het project **ProcessDeviceToCloudMessages** als **SimulatedDevice**.
+1.  Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Klik op **Multiple startup projects** (Meerdere opstartprojecten) en klik vervolgens op **Start** als de actie voor beide projecten **ProcessDeviceToCloudMessages** en **SimulatedDevice**.
 
     ![Eigenschappen van opstartprojecten][41]
 
-2.  Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw gesimuleerde apparaat verzendt naar uw IoT-hub. De console-uitvoer van de **ProcessDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
+2.  Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw gesimuleerde apparaat verzendt naar uw IoT-hub. De console-uitvoer van de **ReadDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
 
     ![Console-uitvoer van apps][42]
 
@@ -258,11 +244,15 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 ## Volgende stappen
 
-In deze handleiding, hebt u een nieuwe IoT-hub geconfigureerd in de portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. U kunt nog andere functies van de IoT-hub en andere IoT-scenario’s bekijken in de volgende handleidingen:
+In deze handleiding, hebt u een nieuwe IoT-hub geconfigureerd in de portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. 
 
-- In de handleiding [Cloud-naar-apparaat-berichten verzenden met IoT Hub][lnk-c2d-tutorial] leert u hoe u berichten moet verzenden naar apparaten en hoe u de leveringsfeedback verwerkt die door de IoT Hub is gegenereerd.
-- In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op betrouwbare wijze telemetriegegevens en interactieve berichten kunt verwerken die afkomstig zijn van apparaten.
-- In de handleiding [Bestanden van apparaten uploaden][lnk-upload-tutorial] wordt een patroon beschreven dat cloud-naar-apparaat-berichten gebruikt om bestanden van apparaten te kunnen uploaden.
+Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+
+- [Connecting your device (Uw apparaat verbinden)][lnk-connect-device]
+- [Getting started with device management (Aan de slag met apparaatbeheer)][lnk-device-management]
+- [Getting started with the Gateway SDK (Aan de slag met de Gateway-SDK)][lnk-gateway-SDK]
+
+Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-berichten verwerken)][lnk-process-d2c-tutorial] voor meer informatie over het uitbreiden van uw IoT-oplossing en het op schaal verwerken van apparaat-naar-cloud-berichten.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -273,9 +263,7 @@ In deze handleiding, hebt u een nieuwe IoT-hub geconfigureerd in de portal en ve
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -290,9 +278,11 @@ In deze handleiding, hebt u een nieuwe IoT-hub geconfigureerd in de portal en ve
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

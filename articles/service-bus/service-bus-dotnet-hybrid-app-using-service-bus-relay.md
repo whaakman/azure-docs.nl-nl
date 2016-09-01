@@ -81,13 +81,13 @@ Als u Service Bus-functies in Azure wilt gebruiken, moet u eerst een servicenaam
 
 5.  Nadat u hebt gecontroleerd of de naam voor de naamruimte beschikbaar is, kiest u het land of de regio waarin uw naamruimte moet worden gehost. Zorg er daarbij voor dat u hetzelfde land of dezelfde regio gebruikt waarin u uw rekenresources implementeert.
 
-    > [AZURE.IMPORTANT] Kies *dezelfde regio* die u van plan bent te kiezen voor het implementeren van uw toepassing. Hiermee krijgt u de beste prestaties.
+    > [AZURE.IMPORTANT] Kies *dezelfde regio* die u van plan bent te kiezen voor het implementeren van uw toepassing. Dat geeft de beste prestaties.
 
 6.  Laat de standaardwaarden van de andere velden ongewijzigd en klik vervolgens op het vinkje OK. Uw naamruimte wordt gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
 De naamruimte die u hebt gemaakt, wordt weergegeven in de portal, maar het duurt even voordat deze is geactiveerd. Wacht totdat de status **Actief** is voordat u doorgaat.
 
-## De standaardbeheerreferenties voor de naamruimte verkrijgen
+## De standaardbeheerreferenties voor de naamruimte ophalen
 
 Als u beheerbewerkingen voor de nieuwe naamruimte wilt uitvoeren, zoals het maken van berichtentiteiten, moet u referenties voor de naamruimte verkrijgen.
 
@@ -409,7 +409,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
 2.  Vergelijkbaar met de stap in de sectie 'Een on-premises server maken' voegt u het NuGet-pakket aan de projectverwijzingen toe. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik vervolgens op **NuGet-pakketten beheren**.
 
-3.  Zoek Service Bus en selecteer het item **Microsoft Azure Service Bus**. Vervolgens voltooit u de installatie en sluit u dit dialoogvenster.
+3.  Zoek ‘Service Bus’ en selecteer het item **Microsoft Azure Service Bus**. Vervolgens voltooit u de installatie en sluit u dit dialoogvenster.
 
 4.  Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik achtereenvolgens op **Toevoegen** en **Bestaand item**.
 
@@ -571,11 +571,11 @@ Zie de volgende resources voor meer informatie over Service Bus:
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

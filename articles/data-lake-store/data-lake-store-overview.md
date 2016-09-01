@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Overzicht van Azure Data Lake Store
@@ -64,8 +64,8 @@ Azure Data Lake Store maakt gebruik van Azure Active Directory voor verificatie 
 
 | Functie                                 | Beschrijving                              |
 |-----------------------------------------|------------------------------------------|
-| Verificatie | Azure Data Lake Store integreert met Azure Active Directory (AAD) voor identiteits- en toegangsbeheer voor alle gegevens die zijn opgeslagen in Azure Data Lake Store. Als gevolg van de integratie profiteert Azure Data Lake van alle AAD-functies, zoals Multi-Factor Authentication, voorwaardelijke toegang, op rollen gebaseerd toegangsbeheer, bewaking van het gebruik van toepassingen, beveiligingsbewaking en waarschuwingen, enzovoort. Azure Data Lake Store ondersteunt het OAuth 2.0-protocol voor verificatie in de REST-interface. |
-| Toegangsbeheer                          | Azure Data Lake Store biedt toegangsbeheer door ondersteuning te bieden voor POSIX-machtigingen die beschikbaar worden gemaakt door het protocol WebHDFS. In de huidige release kunnen machtigingen worden opgegeven op het niveau van Data Lakes en gelden de machtigingen voor alle bestanden en mappen in de Data Lake. In toekomstige updates wordt verfijnd toegangsbeheer mogelijk door het instellen van machtigingen voor afzonderlijke bestanden en mappen.|
+| Authentication | Azure Data Lake Store integreert met Azure Active Directory (AAD) voor identiteits- en toegangsbeheer voor alle gegevens die zijn opgeslagen in Azure Data Lake Store. Als gevolg van de integratie profiteert Azure Data Lake van alle AAD-functies, zoals Multi-Factor Authentication, voorwaardelijke toegang, op rollen gebaseerd toegangsbeheer, bewaking van het gebruik van toepassingen, beveiligingsbewaking en waarschuwingen, enzovoort. Azure Data Lake Store ondersteunt het OAuth 2.0-protocol voor verificatie in de REST-interface. |
+| Toegangsbeheer                          | Azure Data Lake Store biedt toegangsbeheer door ondersteuning te bieden voor POSIX-machtigingen die beschikbaar worden gemaakt door het protocol WebHDFS. In de huidige release kunnen ACL's worden ingeschakeld in de hoofdmap, submappen en afzonderlijke bestanden. De ACL's die u op de hoofdmap toepast, worden ook van toepassing op alle onderliggende mappen/bestanden.|
 
 Wilt u meer informatie over het beveiligen van gegevens in Data Lake Store? Volg dan de onderstaande links.
 
@@ -115,6 +115,6 @@ Als u liever video's bekijkt voor meer informatie, biedt Data Lake Store video's
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

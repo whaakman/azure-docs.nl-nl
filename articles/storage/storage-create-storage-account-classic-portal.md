@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/26/2016"
     ms.author="robinsh"/>
 
 
 # Over Azure-opslagaccounts
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Overzicht
 
@@ -177,6 +179,6 @@ Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"></a>Aan de slag met Mobile Services
@@ -49,11 +49,11 @@ Het gedownloade Quick Start-project bevat het Azure Mobile Services-onderdeel vo
 
 ## Een nieuwe app voor Xamarin.Android maken
 
-Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een eenvoudige Quick Start volgen om een nieuwe app te maken of een bestaande app zodanig te wijzigen dat deze verbinding maakt met uw mobiele service.
+Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure-portal een eenvoudige Quick Start volgen om een nieuwe app te maken of een bestaande app zodanig te wijzigen dat deze verbinding maakt met uw mobiele service.
 
 In deze sectie maakt u een nieuwe Xamarin.Android-app die is verbonden met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **Xamarin.Android** onder **Platform kiezen** en vouw **Een nieuwe Android-app maken** uit.
 
@@ -87,9 +87,10 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
 
     Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. De items die in de tabel zijn opgeslagen, worden geretourneerd door de mobiele service en de gegevens worden weergegeven in de lijst.
 
-    > [AZURE.NOTE] U kunt de code die toegang heeft tot uw mobiele service, bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > U kunt de code die toegang heeft tot uw mobiele service, bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
 
-6. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
+6. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
 
     ![][11]
 
@@ -139,11 +140,11 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Aan de slag met pushmeldingen]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Android SDK voor Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

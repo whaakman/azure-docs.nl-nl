@@ -1,12 +1,12 @@
 ## Een IoT Hub maken
 
-Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volgende stappen laten zien hoe u deze taak kunt uitvoeren met behulp van de Azure Portal.
+Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volgende stappen laten zien hoe u deze taak kunt uitvoeren met behulp van de Azure-portal.
 
-1. Meld u aan bij [Azure Portal][lnk portal].
+1. Meld u aan bij de [Azure-portal][lnk portal].
 
 2. Klik in de snelbalk op **Nieuw** > **Internet van dingen** > **Azure IoT Hub**.
 
-    ![Snelbalk Azure Portal][1]
+    ![Snelbalk Azure-portal][1]
 
 3. In de blade **IoT Hub** kiest u de configuratie voor uw IoT Hub.
 
@@ -21,7 +21,7 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volg
 
     ![Status Nieuwe IoT Hub][3]
 
-5. Wanneer de IoT Hub is gemaakt, klikt u op de nieuwe tegel voor uw IoT Hub in de portal. De blade voor de nieuwe IoT Hub wordt dan geopend. Noteer de **hostnaam** en klik vervolgens op het pictogram **Sleutels**.
+5. Wanneer de IoT Hub is gemaakt, klikt u op de nieuwe tegel voor uw IoT Hub in de portal. De blade voor de nieuwe IoT Hub wordt dan geopend. Noteer de **Hostname** (Hostnaam) en klik vervolgens op **Shared access policies** (Gedeeld toegangsbeleid).
 
     ![Blade Nieuwe IoT Hub][4]
 
@@ -45,6 +45,6 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volg
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

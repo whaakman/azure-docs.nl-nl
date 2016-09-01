@@ -1,10 +1,10 @@
 <properties
     pageTitle="Zelfstudie over het ontwikkelen van Java-toepassingen met DocumentDB | Microsoft Azure"
     description="In deze zelfstudie over Java-webtoepassingen wordt uitgelegd hoe u de Azure DocumentDB-service gebruikt voor het opslaan van en de toegang tot een Java-toepassing die wordt gehost op Azure Websites."
-    keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+    keywords="Toepassingsontwikkeling, databasezelfstudie, java-toepassing, java-webtoepassing zelfstudie, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,8 +14,8 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/10/2016"
-    ms.author="andrl"/>
+    ms.date="08/11/2016"
+    ms.author="anhoh"/>
 
 # Een Java-webtoepassing met DocumentDB bouwen
 
@@ -39,7 +39,7 @@ In deze zelfstudie over het maken van een Java-toepassing wordt uitgelegd hoe u 
 ##<a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
 Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag gaat, moet u beschikken over het volgende:
 
-- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE voor Java EE-ontwikkelaars.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [Een Azure-website waarvoor een Java Runtime Environment (bijvoorbeeld Tomcat of Jetty) is ingeschakeld.](../app-service-web/web-sites-java-get-started.md)
@@ -786,6 +786,6 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

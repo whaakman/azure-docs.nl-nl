@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Vergelijking van hulpprogramma’s voor directory-integratie voor hybride identiteit
@@ -24,7 +24,7 @@ In de afgelopen jaren hebben de hulpprogramma's voor directory-integratie zich e
 
 >[AZURE.NOTE] Azure AD Connect bevat de onderdelen en functionaliteit die eerder zijn uitgebracht als Dirsync en AAD Sync. Deze hulpprogramma's worden niet meer afzonderlijk uitgebracht en alle toekomstige verbeteringen worden opgenomen in updates voor Azure AD Connect, zodat u altijd weet waar u de meest recente functionaliteit kunt ophalen.
 >
->DirSync en Azure AD Sync zijn afgeschaft. U vindt meer informatie in [Windows Azure Active Directory Sync (DirSync) en Azure Active Directory Sync (Azure AD Sync) upgraden](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync en Azure AD Sync zijn afgeschaft. Meer informatie vindt u [hier](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Gebruik de volgende sleutel voor elk van de tabellen.
@@ -98,6 +98,6 @@ Lees meer over het [integreren van uw on-premises identiteiten met Azure Active 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

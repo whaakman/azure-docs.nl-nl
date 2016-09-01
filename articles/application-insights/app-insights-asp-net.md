@@ -3,7 +3,7 @@
     description="Configureer prestaties, beschikbaarheid en gebruiksanalyse voor uw ASP.NET-website die on-premises of in Azure wordt gehost." 
     services="application-insights" 
     documentationCenter=".net"
-    authors="alancameronwills" 
+    authors="NumberByColors" 
     manager="douge"/>
 
 <tags 
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
-    ms.author="awills"/>
+    ms.date="08/09/2016" 
+    ms.author="daviste"/>
 
 
 # Application Insights instellen voor ASP.NET
@@ -31,7 +31,6 @@ U hebt de volgende zaken nodig:
 Er zijn ook andere artikelen die u kunt bekijken als u geïnteresseerd bent in:
 
 * [Een web-app instrumenteren tijdens runtime](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. De Application Insights-SDK toevoegen
@@ -47,10 +46,11 @@ Wanneer u in Visual Studio een nieuw project maakt, controleert u of Application
 
 ### ...of als het een bestaand project is
 
-Klik in Solution Explorer met de rechtermuisknop op het project. Klik vervolgens op **Add Application Insights Telemetry** of op **Configure Application Insights**.
+Klik in Solution Explorer met de rechtermuisknop op het project. Klik vervolgens op **Application Insights Telemetry toevoegen** of op **Application Insights configureren**.
 
 ![Add Application Insights kiezen](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* ASP.NET Core-project? - [Volg deze instructies voor het corrigeren van enkele coderegels](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -89,10 +89,22 @@ Open uw Application Insights-resource in de [Azure Portal](https://portal.azure.
 De portal wordt geopend met een weergave van de telemetrie van uw app:
 ![](./media/app-insights-asp-net/66.png)
 
-* Afzonderlijke gebeurtenissen worden weergegeven in **Zoeken** (1). Gegevens worden eerst hier weergegeven (en in de livegegevensstroom). Klik op een gebeurtenis om de eigenschappen ervan weer te geven. 
+* De eerste telemetrie wordt weergegeven in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
+* Afzonderlijke gebeurtenissen worden weergegeven in **Zoeken** (1). Het kan een paar minuten duren voordat gegevens worden weergegeven. Klik op een gebeurtenis om de eigenschappen ervan weer te geven. 
 * Samengevoegde metrische gegevens worden weergegeven in de grafieken (2). Het kan een paar minuten duren voordat hier gegevens worden weergegeven. Klik op een grafiek om een blade te openen met gedetailleerdere informatie.
 
 [Meer informatie over het gebruik van Application Insights in de Azure Portal](app-insights-dashboards.md).
+
+## 4. Uw app publiceren
+
+Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrische gegevens in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) om te controleren of alles goed werkt.
+
+U kunt de opbouw van uw telemetrie volgen in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt zoeken en [dashboards](app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [querytaal van Analytics](app-insights-analytics.md) gebruiken om het gebruik en de prestaties te analyseren of om specifieke gebeurtenissen te zoeken. 
+
+U kunt uw telemetrie ook blijven analyseren in [Visual Studio](app-insights-visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](app-insights-visual-studio-trends.md).
+
+> [AZURE.NOTE] Als uw app zoveel telemetrie verzendt dat de[beperkingslimieten](app-insights-pricing.md#limits-summary) worden benaderd, worden automatisch [steekproeven](app-insights-sampling.md) ingeschakeld. Met steekproeven vermindert u de hoeveelheid telemetrie die vanuit uw app wordt verzonden, maar behoudt u gecorreleerde gegevens voor diagnostische doeleinden.
+
 
 ##<a name="land"></a> Wat doet de opdracht Application Insights toevoegen?
 
@@ -106,7 +118,14 @@ De opdracht doet dus drie dingen:
 2. Er wordt een Application Insights-resource gemaakt in de [Azure Portal](https://portal.azure.com/). Hier ziet u de gegevens. De *instrumentatiesleutel*, die de resource definieert, wordt opgehaald.
 3. De instrumentatiesleutel wordt in `ApplicationInsights.config` ingevoegd, zodat de SDK telemetrie naar de portal kan verzenden.
 
-Als u wilt, kunt u [deze stappen handmatig uitvoeren](app-insights-asp-net-manual.md).
+Als u wilt, kunt u deze stappen handmatig uitvoeren voor [ASP.NET 4](app-insights-asp-net-manual.md) of [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+
+### Upgraden naar toekomstige SDK-versies
+
+Als u wilt upgraden naar een [nieuwe release van de SDK](app-insights-release-notes-dotnet.md), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer Microsoft.ApplicationInsights.Web en kies Upgraden.
+
+Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
+
 
 
 ## Volgende stappen
@@ -125,6 +144,6 @@ Als u wilt, kunt u [deze stappen handmatig uitvoeren](app-insights-asp-net-manua
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

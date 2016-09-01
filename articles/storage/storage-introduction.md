@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Inleiding tot Microsoft Azure Storage
@@ -132,7 +132,11 @@ Zie [Shared Access Signatures: inzicht in het SAS-model](storage-dotnet-shared-a
 
 ## Replicatie voor duurzaamheid en maximale beschikbaarheid
 
-De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en maximale beschikbaarheid te garanderen en te voldoen aan de [SLA voor Storage](https://azure.microsoft.com/support/legal/sla/storage/), zelfs met betrekking tot tijdelijke hardwarefouten. Wanneer u een opslagaccount maakt, moet u een van de volgende replicatieopties selecteren:  
+De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en maximale beschikbaarheid te garanderen en te voldoen aan de [SLA voor Storage](https://azure.microsoft.com/support/legal/sla/storage/), zelfs met betrekking tot tijdelijke hardwarefouten. 
+
+Zie [Azure-regio’s](https://azure.microsoft.com/regions/#services) voor meer informatie over welke services beschikbaar zijn in elke regio.
+
+Wanneer u een opslagaccount maakt, moet u een van de volgende replicatieopties selecteren:  
 
 - **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één faciliteit in één regio driemaal gerepliceerd. LRS beschermt u uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één faciliteit.  
   
@@ -147,10 +151,11 @@ De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om 
     > 
     > Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het niet omzetten naar ander type replicatie. Ook kunt u niet meer overstappen naar ZRS als u al een ander type hebt geselecteerd. 
 
-- **Geografisch redundante opslag (GRS)**. Wanneer u een account maakt, is geografisch redundante opslag standaard ingeschakeld. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio en driemaal in een secundaire regio op honderden kilometers afstand van de primaire regio. Zo biedt deze service het hoogste duurzaamheidsniveau. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover naar de secundaire regio uitgevoerd. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
+- **Geografisch redundante opslag (GRS)**. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio en driemaal in een secundaire regio op honderden kilometers afstand van de primaire regio. Zo biedt deze service het hoogste duurzaamheidsniveau. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover naar de secundaire regio uitgevoerd. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
 
+    Zie [Azure-regio’s](https://azure.microsoft.com/regions/) voor meer informatie over de primaire en secundaire koppelingen per regio.
 
-- **Geografisch redundante opslag met leestoegang (RA-GRS)**. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is.
+- **Geografisch redundante opslag met leestoegang (RA-GRS)**. Wanneer u een opslagaccount maakt, wordt standaard leestoegang ingeschakeld voor uw geografisch redundante opslag. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is.
 
     > [AZURE.IMPORTANT] U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.
  
@@ -203,7 +208,9 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 
 ### Hulpprogramma's
 
-- [Azure-SDK's en -hulpprogramma's](https://azure.microsoft.com/downloads/)
+- [Azure Opslagverkenner](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure Storage Client Tools](storage-explorers.md)
+- [Azure-SDK's en -hulpprogramma's](https://azure.microsoft.com/tools/)
 - [Azure-opslagemulator](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [AzCopy-opdrachtregelprogramma](http://aka.ms/downloadazcopy)
@@ -262,6 +269,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

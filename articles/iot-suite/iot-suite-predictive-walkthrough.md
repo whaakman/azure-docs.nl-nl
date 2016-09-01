@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
 ## Inleiding
 
-De vooraf geconfigureerde IoT-Suite-oplossing voor voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt van deze vooraf geconfigureerde oplossing proactief gebruikmaken voor activiteiten zoals de optimalisering van onderhoud. De oplossing combineert belangrijke Azure IoT Suite-services, waaronder een [Azure Machine Learning][lnk_machine_learning]-werkruimte met experimenten voor het voorspellen van de resterende levensduur van een vliegtuigmotor op basis van een verzameling openbare voorbeeldgegevens. De oplossing biedt een volledige implementatie van het bedrijfsscenario als een beginpunt voor het plannen en implementeren van dit type IoT-oplossing om aan uw eigen specifieke zakelijke vereisten te voldoen.
+De vooraf geconfigureerde IoT-Suite-oplossing voor voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. De oplossing combineert belangrijke Azure IoT Suite-services, waaronder een [Azure Machine Learning][lnk_machine_learning]-werkruimte. Deze werkruimte bevat experimenten, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
 
 ## Logische architectuur
 
@@ -33,17 +33,17 @@ De blauwe items zijn Azure-services die zijn ingericht op de locatie die u selec
 
 Sommige resources zijn niet beschikbaar in de regio's waar u de vooraf geconfigureerde oplossing inricht. De oranje items in het diagram vertegenwoordigen de Azure-services die ingericht zijn in de dichtstbijzijnde beschikbare regio (Zuid-centraal VS, EU West of Zuidoost-Azië), afhankelijk van de geselecteerde regio.
 
-Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Hieronder vindt u meer informatie over deze gesimuleerde apparaten.
+Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het volgende gedeelte.
 
 De grijze items vertegenwoordigen onderdelen die mogelijkheden voor *apparaatbeheer* implementeren. In de huidige release van de vooraf geconfigureerde oplossing voor voorspeld onderhoud worden deze resources niet ingericht. Voor meer informatie over het beheer van apparaten leest u het artikel over de [vooraf geconfigureerde oplossing voor externe controle][lnk-remote-monitoring].
 
 ## Gesimuleerde apparaten
 
-In de vooraf geconfigureerde oplossing vertegenwoordigt een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt 4 typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15, die de benodigde gegevens leveren waarmee het Machine Learning-model de resterende levensduur voor die motor berekent. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
+In de vooraf geconfigureerde oplossing vertegenwoordigt een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15 leveren de benodigde gegevens waarmee het Machine Learning-model de resterende levensduur voor de motor berekent. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
 
-*Aantal maal gebruikt*. Eén cyclus vertegenwoordigt een uitgevoerde vlucht met een variabele lengte van 2 tot 10 uur waarbij tijdens de vlucht elk half uur telemetriegegevens worden vastgelegd.
+*Aantal maal gebruikt*. Een cyclus vertegenwoordigt een uitgevoerde vlucht met een variabele lengte van 2 tot 10 uur, waarbij tijdens de vlucht elk half uur telemetriegegevens worden vastgelegd.
 
-*Telemetrie*. Er zijn 4 sensoren die motorkenmerken vertegenwoordigen. Deze sensoren worden doorgaans Sensor 9, Sensor 11 Sensor 14 en Sensor 15 genoemd. Deze 4 sensoren vertegenwoordigen voldoende telemetrie om bruikbare resultaten voor de resterende levensduur op te halen uit het Machine Learning-model. Dit model wordt gemaakt op basis van een openbare gegevensset die echte motorsensorgegevens bevat. Zie [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Cortana Intelligence Gallery-sjabloon voor voorspeld onderhoud) voor meer informatie over hoe het model wordt gemaakt op basis van de oorspronkelijke gegevensset.
+*Telemetrie*. Er zijn vier sensoren die motorkenmerken vertegenwoordigen. Deze sensoren worden doorgaans Sensor 9, Sensor 11 Sensor 14 en Sensor 15 genoemd. Deze 4 sensoren vertegenwoordigen voldoende telemetrie om bruikbare resultaten voor de resterende levensduur op te halen uit het Machine Learning-model. Dit model wordt gemaakt op basis van een openbare gegevensset die echte motorsensorgegevens bevat. Zie [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Cortana Intelligence Gallery-sjabloon voor voorspeld onderhoud) voor meer informatie over hoe het model wordt gemaakt op basis van de oorspronkelijke gegevensset.
 
 De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die vanaf een IoT Hub worden verzonden:
 
@@ -60,7 +60,7 @@ IoT Hub biedt een bevestiging van apparaatopdrachten.
 
 ## Gebeurtenisprocessor
 
-De **gebeurtenisprocessor** neemt de gemiddelde sensorwaarden voor een voltooide cyclus en geeft deze waarden door aan een API die het getrainde Machine Learning-model beschikbaar maakt om de resterende levensduur van een motor te berekenen.
+De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven aan een API die het getrainde Machine Learning-model de resterende levensduur voor een motor laat berekenen.
 
 ## Azure Machine Learning
 
@@ -79,23 +79,23 @@ Deze pagina in de webtoepassing maakt gebruik van PowerBI JavaScript-besturingse
 
 ### Het gedrag van de cloudoplossing observeren
 
-U kunt uw ingerichte resources weergeven door eerst naar Azure Portal te navigeren en daarna naar de resourcegroep met de naam van de oplossing die u hebt gekozen.
+Navigeer in de Azure-portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
 
 ![][img-resource-group]
 
-Wanneer u de vooraf geconfigureerde oplossing inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook naar deze Machine Learning-werkruimte navigeren vanaf de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de ingerichte oplossing wanneer deze de status **Gereed** heeft.
+Wanneer u de vooraf geconfigureerde oplossing inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook naar de Machine Learning-werkruimte navigeren vanaf de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de ingerichte oplossing wanneer deze de status **Gereed** heeft.
 
 ![][img-machine-learning]
 
-In de oplossingsportal kunt u zien dat het voorbeeld is ingericht met vier gesimuleerde apparaten die 2 vliegtuigen vertegenwoordigen, met 2 motoren per vliegtuig en 4 sensoren per motor. Wanneer u voor het eerst naar de oplossingsportal navigeert, wordt de simulatie gestopt.
+In de oplossingsportal kunt u zien dat het voorbeeld is ingericht met vier gesimuleerde apparaten die twee vliegtuigen met twee motoren per vliegtuig vertegenwoordigen, elk met vier sensoren. Wanneer u voor het eerst naar de oplossingsportal navigeert, wordt de simulatie gestopt.
 
 ![][img-simulation-stopped]
 
-Klik op **Simulatie starten** om de simulatie te starten waarbij u de geschiedenis van de sensor, de resterende levensduur, het aantal cycli en de geschiedenis van de resterende levensduur in het dashboard ziet verschijnen.
+Klik op **Simulatie starten** om de simulatie te starten, waarbij u de sensorgeschiedenis, de resterende levensduur, het aantal cycli en de geschiedenis van de resterende levensduur in het dashboard ziet verschijnen.
 
 ![][img-simulation-running]
 
-Wanneer de resterende levensduur minder dan 160 is (een willekeurige drempel gekozen ter illustratie), verschijnt in de oplossingsportal een waarschuwingssymbool naast de weergegeven resterende levensduur en wordt de vliegtuigmotor in de afbeelding geel gekleurd. Zoals u merkt, vertonen de waarden van de resterende levensduur een algemene neerwaartse trend, maar stijgen en dalen die waarden vaak. Dit wordt veroorzaakt door de verschillende lengten van  de cycli en de nauwkeurigheid van het model.
+Wanneer de resterende levensduur minder dan 160 is (een willekeurige drempel gekozen ter illustratie), verschijnt in de oplossingsportal een waarschuwingssymbool naast de weergegeven resterende levensduur en wordt de vliegtuigmotor geel gemarkeerd. Zoals u merkt, vertonen de waarden van de resterende levensduur een algemene neerwaartse trend, maar stijgen en dalen die waarden vaak. Dit gedrag wordt veroorzaakt door de verschillende lengten van de cycli en de nauwkeurigheid van het model.
 
 ![][img-simulation-warning]
 
@@ -111,7 +111,12 @@ Nu dat u de vooraf geconfigureerde oplossing voor voorspeld onderhoud hebt uitge
 
 Het TechNet-blogbericht [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (IoT Suite - Achter de schermen - Voorspeld onderhoud) biedt aanvullende informatie over de vooraf geconfigureerde oplossing voor voorspeld onderhoud.
 
-  
+U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
+
+- [Veelgestelde vragen over IoT Suite][lnk-faq]
+- [Compleet nieuwe IoT-beveiliging][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -125,9 +130,11 @@ Het TechNet-blogbericht [IoT Suite - Under The Hood - Predictive Maintenance](ht
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

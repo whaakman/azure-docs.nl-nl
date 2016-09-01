@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services
@@ -49,7 +49,7 @@ In deze sectie downloadt u een nieuwe Xamarin iOS-app en een serviceproject voor
 
 1. Installeer Visual Studio met Xamarin, als u dat nog niet hebt gedaan. Instructies hiervoor vindt u in [Installatie voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). U kunt Xamarin Studio ook gebruiken op een Mac OS X-machine. Zie [Installatie en verificaties voor Mac-gebruikers](https://msdn.microsoft.com/library/mt488770.aspx).
 
-2. Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+2. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 3. Klik op het tabblad Quick Start op **Xamarin** onder **Platform kiezen** en vouw **Een nieuwe Xamarin-app maken** uit.
 
@@ -133,11 +133,11 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript en HTML]: mobile-services-win8-javascript/
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [JavaScript back-endversie]: mobile-services-ios-get-started.md
 [Problemen met een Mobile Services .NET-back-end oplossen]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

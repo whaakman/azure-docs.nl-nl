@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="06/03/2016"
+    ms.date="08/17/2016"
     ms.author="marsma"/>
 
 # Aan de slag met de Azure Batch-client voor Python
@@ -40,7 +40,7 @@ In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Python en 
 
 ### Codevoorbeeld
 
-Het Python-codevoorbeeld in de zelfstudie is een van de vele Batch-codevoorbeelden die beschikbaar zijn in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt alle voorbeelden downloaden door te klikken op **Clone or download > Download ZIP** (Klonen of downloaden > ZIP downloaden) op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de twee scripts voor deze zelfstudie in de map `article_samples`:
+Het Python-[codevoorbeeld][github_article_samples] in de zelfstudie is een van de vele Batch-codevoorbeelden die beschikbaar zijn in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt alle voorbeelden downloaden door te klikken op **Clone or download > Download ZIP** (Klonen of downloaden > ZIP downloaden) op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de twee scripts voor deze zelfstudie in de map `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -49,7 +49,7 @@ Het Python-codevoorbeeld in de zelfstudie is een van de vele Batch-codevoorbeeld
 
 Als u het voorbeeldscript *python_tutorial_client.py* op uw lokale werkstation wilt uitvoeren, hebt u een **Python-interpreter** nodig die compatibel is met versie **2.7** of **3.3-3.5**. Het script is getest op Linux en Windows.
 
-U moet ook de **Azure Batch**- en **Azure Storage**-pakketten voor Python installeren. U kunt dit doen met behulp van het bestand *requirements.txt*, dat u hier vindt:
+U moet ook de **Azure Batch**- en **Azure Storage**-pakketten voor Python installeren. U kunt dit doen met **pip** en de *requirements.txt* die u hier vindt:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -59,11 +59,10 @@ Geef de volgende **pip**-opdracht om de Batch- en Storage-pakketten te installer
 
 U kunt de [azure batch][pypi_batch]- en [azure-opslag][pypi_storage]-pakketten voor Python ook handmatig installeren.
 
-> [AZURE.TIP] Mogelijk moet u aan uw opdrachten het voorvoegsel `sudo` toevoegen, bijvoorbeeld `sudo pip install -r requirements.txt`, als u een niet-gemachtigd account gebruikt (aanbevolen). Zie [Installing Packages][pypi_install] (Pakketten installeren) op readthedocs.io voor meer informatie over het installeren van Python-pakketten.
+`pip install azure-batch==0.30.0rc4`<br/>
+`pip install azure-storage==0.30.0`
 
-### Azure Batch Explorer (optioneel)
-
-[Azure Batch Explorer][github_batchexplorer] is een gratis hulpprogramma dat is opgenomen in de opslagplaats [azure-batch-samples][github_samples] in GitHub. Hoewel het niet is vereist om deze zelfstudie te voltooien, kan het nuttig zijn bij de ontwikkeling en foutopsporing van uw Batch-oplossingen.
+> [AZURE.TIP] Mogelijk moet u aan uw opdrachten het voorvoegsel `sudo` toevoegen als u een niet-gemachtigd account gebruikt. Bijvoorbeeld `sudo pip install -r requirements.txt`. Zie [Installing Packages][pypi_install] (Pakketten installeren) op readthedocs.io voor meer informatie over het installeren van Python-pakketten.
 
 ## Batch-zelfstudiecodevoorbeeld voor Python
 
@@ -75,7 +74,7 @@ Het batch-zelfstudiecodevoorbeeld voor Python bestaat uit twee Python-scripts en
 
 - **./data/taskdata\*.txt**: deze drie tekstbestanden leveren de invoer voor de taken die op de rekenknooppunten worden uitgevoerd.
 
-Het volgende diagram illustreert de primaire bewerkingen die door de client- en taakscripts worden uitgevoerd. Deze basiswerkstroom is typerend voor vele rekenoplossingen die met Batch worden gemaakt. Hoewel hierin niet elke beschikbare functie in de Batch-service wordt getoond, zal vrijwel elk Batch-scenario gedeelten van deze werkstroom bevatten.
+Het volgende diagram illustreert de primaire bewerkingen die door de client- en taakscripts worden uitgevoerd. Deze basiswerkstroom is typerend voor vele rekenoplossingen die met Batch worden gemaakt. Hoewel het niet elke functie beschikbaar in de Batch-service aantoont, omvat vrijwel elk Batch-scenario delen van deze werkstroom.
 
 ![Batch-voorbeeldwerkstroom][8]<br/>
 
@@ -91,7 +90,7 @@ Het volgende diagram illustreert de primaire bewerkingen die door de client- en 
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Nadat taken zijn voltooid, uploaden zij hun uitvoergegevens naar Azure Storage.<br/>
 [**Stap 7.**](#step-7-download-task-output) Download taakuitvoer uit Storage.
 
-Zoals al is vermeld, zal niet elke Batch-oplossing exact deze stappen uitvoeren, en kan een oplossing ook veel meer stappen bevatten. Dit voorbeeld demonstreert echter algemene processen die u in een Batch-oplossing terugvindt.
+Zoals vermeld voert niet elke Batch-oplossing deze exacte stappen uit en kunnen veel meer stappen nodig zijn, maar deze sjabloon toont gebruikelijke processen gevonden in een Batch-oplossing.
 
 ## Clientscripts voorbereiden
 
@@ -117,7 +116,7 @@ U vindt uw Batch- en Storage-accountreferenties op de accountblade van elke serv
 ![Batch-referenties in de portal][9]
 ![Storage-referenties in de portal][10]<br/>
 
-In de volgende secties analyseren we de stappen die door de scripts worden gebruikt voor het verwerken van een werklast in de Batch-service. We raden u aan regelmatig te verwijzen naar de scripts in uw editor wanneer u zich door de rest van het artikel heen werkt.
+In de volgende secties analyseren we de stappen die wordt gebruikt door de scripts voor het verwerken van een workload die in de Batch-service. We raden u aan regelmatig te verwijzen naar de scripts in uw editor wanneer u zich door de rest van het artikel heen werkt.
 
 Navigeer naar de volgende regel in **python_tutorial_client.py** om bij stap 1 te starten:
 
@@ -265,9 +264,8 @@ Nadat het het taakscript en gegevensbestanden naar het Storage-account heeft ge�
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Daarna wordt een pool van rekenknooppunten gemaakt in het Batch-account met een aanroep naar `create_pool`.
@@ -339,7 +337,7 @@ Wanneer u een pool maakt, definieert u een [PoolAddParameter][py_pooladdparam] d
 
 - **Aantal rekenknooppunten** (*target_dedicated* - vereist)<p/>Hiermee geeft u op hoeveel virtuele machines in de pool moeten worden geïmplementeerd. Houd er rekening mee dat alle Batch-accounts een standaard**quotum** hebben dat het aantal **kernen** (en dus rekenknooppunten) in een Batch-account beperkt. U vindt de standaardquota en instructies over het [verhogen van een quotum](batch-quota-limit.md#increase-a-quota) (zoals het maximum aantal kernen in uw Batch-account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Quota en limieten voor de Azure Batch-service). Rijzen er vragen zoals "Waarom kan mijn pool niet meer dan X knooppunten bevatten?", dan is dit quotum voor kernen mogelijk de oorzaak.
 
-- **Besturingssysteem** voor knooppunten (*virtual_machine_configuration* **of** *cloud_service_configuration* - vereist)<p/>In *python_tutorial_client.py* maken we een pool van Linux-knooppunten met behulp van een [VirtualMachineConfiguration][py_vm_config], verkregen met onze Help-functie `get_vm_config_for_distro`. Deze Help-functie maakt gebruik van [list_node_agent_skus][py_list_skus] om een installatiekopie te verkrijgen en te selecteren in een lijst met compatibele [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën. U hebt de mogelijkheid om in plaats hiervan een [CloudServiceConfiguration][py_cs_config] op te geven en een pool van Windows-knooppunten te maken vanuit Cloud Services. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie over de twee configuraties.
+- **Besturingssysteem** voor knooppunten (*virtual_machine_configuration* **of** *cloud_service_configuration* - vereist)<p/>In *python_tutorial_client.py* maken we een pool van Linux-knooppunten met behulp van een [VirtualMachineConfiguration][py_vm_config], verkregen met onze Help-functie `get_vm_config_for_distro`. Deze Help-functie maakt gebruik van [list_node_agent_skus][py_list_skus] om een installatiekopie te verkrijgen en te selecteren in een lijst met compatibele [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën. U kunt in plaats hiervan een [CloudServiceConfiguration][py_cs_config] op te geven en een pool van Windows-knooppunten te maken vanuit Cloud Services. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie over de twee configuraties.
 
 - **Grootte van rekenknooppunten** (*vm_size* - vereist)<p/>Omdat we bij Linux-knooppunten opgeven voor onze [VirtualMachineConfiguration][py_vm_config], geven we een VM-grootte op (in dit voorbeeld `STANDARD_A1`) uit [Grootten voor virtuele machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Zie opnieuw [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
 
@@ -359,7 +357,7 @@ Een Batch-**job** is een verzameling taken en is gekoppeld aan een pool van reke
 
 U kunt een job niet alleen gebruiken om taken in gerelateerde workloads te organiseren en te volgen, maar ook om bepaalde beperkingen op te leggen, zoals de maximale runtime voor de job (en, bij uitbreiding, dus ook voor de taken ervan) en de prioriteit van de job in verhouding tot andere jobs in de Batch-account. In dit voorbeeld wordt de job echter alleen gekoppeld aan de pool die in stap 3 is gemaakt. Er worden geen aanvullende eigenschappen geconfigureerd.
 
-Alle Batch-jobs worden gekoppeld aan een specifieke pool. Deze koppeling geeft aan op welke knooppunten de taken van de job worden uitgevoerd. U geeft dit op met behulp van de eigenschap [PoolInformation][py_poolinfo], zoals in het onderstaande codefragment wordt getoond.
+Alle Batch-jobs worden gekoppeld aan een specifieke pool. Deze koppeling geeft aan op welke knooppunten de taken van de job worden uitgevoerd. U geeft de pool op met behulp van de eigenschap [PoolInformation][py_poolinfo], zoals in het onderstaande codefragment wordt getoond.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -437,7 +435,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] Wanneer ze toegang krijgen tot omgevingsvariabelen zoals `$AZ_BATCH_NODE_SHARED_DIR` of een toepassing uitvoeren die niet op het `PATH` van het knooppunt wordt gevonden, moeten taakopdrachtregels het voorvoegsel `/bin/bash` (Linux) of `cmd /c` (Windows) krijgen. Hiermee wordt de opdrachtshell expliciet uitgevoerd en krijgt deze de instructie om te beëindigen nadat uw opdracht is uitgevoerd. Deze vereiste is niet nodig als uw taken een toepassing uitvoeren in het `PATH` van het knooppunt (zoals *python* in het bovenstaande fragment).
+> [AZURE.IMPORTANT] Wanneer ze toegang krijgen tot omgevingsvariabelen zoals `$AZ_BATCH_NODE_SHARED_DIR` of een toepassing uitvoeren die niet op het `PATH` van het knooppunt wordt gevonden, moeten taakopdrachtregels de shell expliciet aanroepen, zoals bij `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Deze vereiste is niet nodig als uw taken een toepassing uitvoeren in het `PATH` van het knooppunt en verwijzen niet naar omgevingsvariabelen.
 
 In de `for`-lus in het bovenstaande codefragment kunt u zien dat de opdrachtregel voor de taak vijf opdrachtregelargumenten bevat die worden doorgegeven aan *python_tutorial_task.py*:
 
@@ -543,7 +541,7 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] De aanroep naar `download_blobs_from_container` in *python_tutorial_client.py* geeft aan dat de bestanden naar de basismap van uw gebruiker moeten worden gedownload. U kunt eventueel deze uitvoerlocatie wijzigen.
+> [AZURE.NOTE] De aanroep naar `download_blobs_from_container` in *python_tutorial_client.py* geeft aan dat de bestanden naar de basismap moeten worden gedownload. U kunt eventueel deze uitvoerlocatie wijzigen.
 
 ## Stap 8: containers verwijderen
 
@@ -559,9 +557,9 @@ blob_client.delete_container(output_container_name)
 
 ## Stap 9: de job en de pool verwijderen
 
-In de laatste stap wordt de gebruiker gevraagd de job en de pool te verwijderen die door het script *python_tutorial_client.py* zijn gemaakt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten *wel* in rekening gebracht. Daarom is het raadzaam om knooppunten alleen toe te wijzen als dat nodig is. Het verwijderen van ongebruikte pools kan een onderdeel zijn van uw onderhoudsprocedure.
+In de laatste stap wordt u gevraagd de job en de pool te verwijderen die door het script *python_tutorial_client.py* zijn gemaakt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten *wel* in rekening gebracht. Daarom is het raadzaam om knooppunten alleen toe te wijzen als dat nodig is. Het verwijderen van ongebruikte pools kan een onderdeel zijn van uw onderhoudsprocedure.
 
-[JobOperations][py_job] en [PoolOperations][py_pool] van BatchServiceClient hebben beide overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer de gebruiker de verwijdering bevestigt:
+[JobOperations][py_job] en [PoolOperations][py_pool] van BatchServiceClient hebben beide overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer u de verwijdering bevestigt:
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -576,7 +574,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Het voorbeeldscript uitvoeren
 
-Wanneer u het script *python_tutorial_client.py* uitvoert, lijkt de uitvoer van de console op die hieronder. Bij `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` wordt gewacht wanneer de rekenknooppunten van de pool worden gemaakt en opgestart, en wanneer de opdrachten in de begintaak van de pool worden uitgevoerd. Gebruik [Azure Portal][azure_portal] of [Batch Explorer][github_batchexplorer] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Microsoft Azure Storage Explorer][storage_explorer] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
+Bij het uitvoeren van het *python_tutorial_client.py*-script uit de zelfstudie [voorbeeldcode][github_article_samples], lijkt de output van de console op het volgende. Bij `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` wordt gewacht wanneer de rekenknooppunten van de pool worden gemaakt en opgestart, en wanneer de opdrachten in de begintaak van de pool worden uitgevoerd. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Microsoft Azure Storage Explorer][storage_explorer] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
 
 Wanneer u de toepassing uitvoert in de standaardconfiguratie, bedraagt de uitvoeringstijd doorgaans **ongeveer 5-7 minuten**.
 
@@ -610,7 +608,7 @@ Press ENTER to exit...
 
 ## Volgende stappen
 
-Breng gerust wijzigingen aan in *python_tutorial_client.py* en *python_tutorial_task.py* om met verschillende rekenscenario's te experimenteren. Probeer bijvoorbeeld een uitvoeringsvertraging toe te voegen aan *python_tutorial_task.py* om langlopende taken te simuleren en ze te controleren met de Batch Explorer-functie *Heat Map*. Probeer meer taken toe te voegen of het aantal rekenknooppunten aan te passen. Voeg logica toe om te controleren op een bestaande pool en het gebruik ervan toe te staan om de uitvoeringssnelheid te verhogen.
+Breng gerust wijzigingen aan in *python_tutorial_client.py* en *python_tutorial_task.py* om met verschillende rekenscenario's te experimenteren. Probeer bijvoorbeeld een uitvoeringsvertraging toe te voegen aan *python_tutorial_task.py* om langlopende taken te simuleren en ze te controleren in de portal. Probeer meer taken toe te voegen of het aantal rekenknooppunten aan te passen. Voeg logica toe om te controleren op een bestaande pool en het gebruik ervan toe te staan om de uitvoeringssnelheid te verhogen.
 
 Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd om kennis te maken met de aanvullende functies van de Batch-service.
 
@@ -621,14 +619,12 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
+[github_article_samples]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples
 
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
@@ -670,20 +666,20 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-[1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Containers maken in Azure Storage"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Taaktoepassings-en invoer(gegevens)bestanden uploaden naar containers"
-[3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Batch-pool maken"
-[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Batch-job maken"
-[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Taken toevoegen aan job"
-[6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Taken controleren"
-[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Taakuitvoer downloaden uit Storage"
-[8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Werkstroom van de Batch-oplossing (volledige diagram)"
-[9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Batch-referenties in Portal"
-[10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Storage-referenties in Portal"
-[11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Werkstroom van de Batch-oplossing (minimaal diagram)"
+[1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Containers maken in Azure Storage"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Taaktoepassings-en invoer(gegevens)bestanden uploaden naar containers"
+[3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Batch-pool maken"
+[4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Batch-job maken"
+[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Taken toevoegen aan job"
+[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Taken controleren"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Taakuitvoer downloaden uit Storage"
+[8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Werkstroom van de Batch-oplossing (volledige diagram)"
+[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Batch-referenties in Portal"
+[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Storage-referenties in Portal"
+[11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Werkstroom van de Batch-oplossing (minimaal diagram)"
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

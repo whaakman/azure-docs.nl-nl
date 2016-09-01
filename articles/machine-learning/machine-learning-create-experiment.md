@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Een eenvoudige experiment maken in Machine Learning Studio | Microsoft Azure"
-    description="Een eerste machine learning-zelfstudie waarin u een eenvoudig experiment maakt om een lineair regressiemodel in Azure Machine Learning Studio te trainen en te testen."
-    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+    pageTitle="Een eenvoudig experiment in Machine Learning Studio | Microsoft Azure"
+    description="Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme."
+    keywords="experiment,lineaire regressie,machine learning-algoritmen,zelfstudie over machine learning,voorspellende modelleringstechnieken,gegevenswetenschapexperiment"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,23 +14,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/14/2016"
     ms.author="garye"/>
 
-# Zelfstudie over machine learning: uw eerste experiment maken in Azure Machine Learning Studio
+# Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
 
-In deze eerste machine learning-zelfstudie maakt u een lineair regressiemodel waarmee de prijs van een auto kan worden voorspeld op basis van verschillende variabelen, zoals het merk en de technische specificaties. Hiervoor maken we gebruik van Azure Machine Learning Studio om eenvoudige predictive analytics-experimenten te ontwikkelen en te herhalen.
+Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. Wij maken een lineair regressiemodel waarmee de prijs van een auto kan worden voorspeld op basis van verschillende variabelen, zoals het merk en de technische specificaties. Hiervoor maken we gebruik van Azure Machine Learning Studio om eenvoudige predictive analytics-experimenten te ontwikkelen en te herhalen.
+
+*Predictive analytics* is een tak in de gegevenswetenschap waarbij gebruik wordt gemaakt van huidige gegevens om toekomstige resultaten te voorspellen. Bekijk video 4 van Data Science for Beginners (Gegevenswetenschap voor beginners): [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (Een antwoord voorspellen met een eenvoudig model, speelduur 7:42) voor een uiterst eenvoudig voorbeeld van predictive analytics.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Als u een Machine Learning Studio-experiment wilt maken, sleept u onderdelen naar een canvas. Door de onderdelen met elkaar te verbinden kunt u *een model maken*, *het model trainen* en *het model beoordelen en testen*. Voor het experiment wordt gebruikgemaakt van voorspellende modelleringstechnieken in de vorm van Machine Learning Studio-modules die gegevens opnemen, het model trainen aan de hand van die gegeven en het model toepassen op nieuwe gegevens. U kunt ook modules toevoegen om de gegevens voor te verwerken en kenmerken te selecteren, trainings- en testsets op te splitsen en om de kwaliteit van uw model te evalueren of gekruist te valideren.  
+## Op welke wijze is Machine Learning Studio nuttig?
 
-Ga naar Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net) en klik op de knop **Get started** (Aan de slag). U kunt zich aanmelden als gast of met uw Microsoft-account.
+Met Machine Learning Studio kunt u gemakkelijk een experiment opzetten met behulp van modules die vooraf zijn geprogrammeerd met voorspellende modelleringstechnieken die u met slepen-en-neerzetten kunt gebruiken. Om uw experiment uit te voeren en een antwoord te voorspellen, gebruikt u Machine Learning Studio om *een model te maken*, *het model te trainen*, en *het model te scoren en testen*.
 
-Zie [Wat is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) voor meer algemene informatie over Machine Learning Studio.
+Ga naar Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Als u zich eerder hebt aangemeld bij Machine Learning Studio, klikt u op **Sign in here** (Hier aanmelden). Klik anders op **Sign Up** (Registreren) en kies tussen gratis en betaalde opties.
 
->[AZURE.TIP] Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-
+Zie [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) (Wat is Machine Learning Studio?) voor meer algemene informatie over Machine Learning Studio.
 
 ## In vijf stappen een experiment maken
 
@@ -67,7 +68,11 @@ Deze gegevensset bevat vermeldingen voor een aantal afzonderlijke auto’s, incl
 
     ![Gegevensset][screen1]
 
-Als u wilt zien hoe deze gegeven eruitzien, klikt u op de uitvoerpoort onder aan de gegevensset automobile en selecteert u vervolgens **Visualize** (Visualiseren). De variabelen in de gegevensset worden weergegeven als kolommen en elk exemplaar van een auto wordt weergegeven als een rij. De meest rechtse kolom (kolom 26, genaamd 'price') is de doelvariabele die we proberen te voorspellen.
+Als u wilt zien hoe deze gegeven eruitzien, klikt u op de uitvoerpoort onder aan de gegevensset automobile en selecteert u vervolgens **Visualize** (Visualiseren).
+
+![Module-uitvoerpoort][screen1c]
+
+De variabelen in de gegevensset worden weergegeven als kolommen en elk exemplaar van een auto wordt weergegeven als een rij. De meest rechtse kolom (kolom 26, genaamd 'price') is de doelvariabele die we proberen te voorspellen.
 
 ![Visualisatie van de gegevensset][screen1b]
 
@@ -85,8 +90,9 @@ Eerst verwijderen we de kolom **normalized-losses**. Vervolgens worden de rijen 
 
 2. Selecteer de module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren) en klik in het deelvenster **Properties** (Eigenschappen) op **Launch column selector** (Kolomselector starten).
 
-    - Zorg ervoor dat in de vervolgkeuzelijst **Begin With** (Beginnen met) het filter **All columns** (Alle kolommen) is geselecteerd. Zodoende zorgt u ervoor dat [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren) alle kolommen doorgeeft (met uitzondering van de kolommen die we dadelijk zullen uitsluiten).
-    - Selecteer in de volgende rij **Exclude** (Uitsluiten) en **column names** (kolomnamen) en klik in het tekstvak. Er wordt een lijst met kolommen weergegeven. Selecteer **normalized-losses** om aan het tekstvak toe te voegen.
+    - Klik links op **With rules** (Met regels)
+    - Klik onder **Begin With** (Beginnen met) op **All columns** (Alle kolommen). Zodoende zorgt u ervoor dat [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren) alle kolommen doorgeeft (met uitzondering van de kolommen die we dadelijk zullen uitsluiten).
+    - Selecteer in de vervolgkeuzelijsten **Exclude** (Uitsluiten) en **column names** (kolomnamen) en klik in het tekstvak. Er wordt een lijst met kolommen weergegeven. Selecteer **normalized-losses** om aan het tekstvak toe te voegen.
     - Klik op de knop met het vinkje (OK) om de kolomkiezer te sluiten.
 
     ![Kolommen selecteren][screen3]
@@ -113,21 +119,26 @@ Nu de gegevens zijn opgeschoond, kunt u opgeven welke functies u wilt gebruiken 
 
 ## Stap 3: functies definiëren
 
-In machine learning zijn *functies* afzonderlijke meetbare eigenschappen van iets waarin u geïnteresseerd bent. In onze gegevensset staat elke rij voor één auto en elke kolom bevat een kenmerk van die auto. Voor een goede set kenmerken voor het maken van een voorspellend model, moet u experimenteren en beschikken over kennis van het probleem dat u wilt oplossen. Bepaalde kenmerken zijn beter voor het voorspellen van het doel dan andere. Bovendien bestaat er tussen sommige kenmerken een nauwe correlatie (bijvoorbeeld tussen city-mpg en highway-mpg), waardoor ze weinig nieuwe informatie aan het model toevoegen en ze kunnen worden verwijderd.
+In machine learning zijn *functies* afzonderlijke meetbare eigenschappen van iets waarin u geïnteresseerd bent. In onze gegevensset staat elke rij voor één auto en elke kolom bevat een kenmerk van die auto.
 
-Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegevensset. U kunt terugkeren en andere kenmerken selecteren om het experiment vervolgens opnieuw uit te voeren en te zien of u betere resultaten krijgt. In eerste instantie selecteren we de volgende kenmerken (kolommen) met de module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren). Om het model te trainen, moeten we de waarde *price* opnemen die we willen voorspellen.
+Voor een goede set kenmerken voor het maken van een voorspellend model, moet u experimenteren en beschikken over kennis van het probleem dat u wilt oplossen. Bepaalde kenmerken zijn beter voor het voorspellen van het doel dan andere. Bovendien bestaat er tussen sommige kenmerken een nauwe correlatie (bijvoorbeeld tussen city-mpg en highway-mpg), waardoor ze weinig nieuwe informatie aan het model toevoegen en ze kunnen worden verwijderd.
+
+Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegevensset. U kunt terugkeren en andere kenmerken selecteren om het experiment vervolgens opnieuw uit te voeren en te zien of u betere resultaten krijgt. Maar probeer om te beginnen de volgende functies:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Sleep nog een module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren) naar het experimentcanvas en koppel de module aan de linkeruitvoerpoort van de module [Clean Missing Data][clean-missing-data] (Ontbrekende gegevens opschonen). Dubbelklik op de module en typ 'Select features for prediction' (Kenmerken voor de voorspelling selecteren).
 
 2. Klik in het deelvenster **Properties** (Eigenschappen) op **Launch column selector** (Kolomselector starten).
 
-3. Selecteer in de kolomselector de optie **No columns** (Geen kolommen) voor **Begin With** (Beginnen met) en selecteer in de filterrij vervolgens **Include** (Opnemen) en **column names** (kolomnamen). Geef onze lijst met kolomnamen op. Dit zorgt ervoor dat de module alleen die kolommen doorgeeft die wij opgeven.
+3. Klik op **With rules** (Met regels).
 
-    > [AZURE.TIP] Omdat we het experiment hebben uitgevoerd, zijn de kolomdefinities voor onze gegevens vanuit de oorspronkelijke gegevensset doorgegeven aan de module [Clean Missing Data][clean-missing-data] (Ontbrekende gegevens opschonen). Wanneer u de module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren) koppelt aan de module [Clean Missing Data][clean-missing-data] (Ontbrekende gegevens opschonen), wordt de module [Select Columns in Dataset][select-columns] zich bewust van de kolomdefinities in onze gegevens. Wanneer u op het vak **column names** (kolomnamen) klikt, wordt er een lijst met kolommen weergegeven en kunt u de kolommen selecteren die u wilt toevoegen aan de lijst.
+4. Klik onder **Begin With** (Beginnen met) op **No columns** (Geen kolommen) en selecteer **Include** (Inclusief) en **column names** (Kolomnamen) in de filterrij. Geef onze lijst met kolomnamen op. Dit zorgt ervoor dat de module alleen die kolommen doorgeeft die wij opgeven.
 
-4. Klik op de knop met het vinkje (OK).
+    > [AZURE.TIP] Door het uitvoeren van het experiment hebben we ervoor gezorgd dat de kolomdefinities voor onze gegevens van de gegevensset via de module [Clean Missing Data][clean-missing-data] (Schone, ontbrekende gegevens) worden doorgegeven. Dit betekent dat andere modules waarmee u verbinding maakt, ook informatie uit de gegevensset hebben.
+
+5. Klik op de knop met het vinkje (OK).
 
 ![Kolommen selecteren][screen6]
 
@@ -135,13 +146,13 @@ Hiermee produceert u de gegevensset die wordt gebruikt in het leeralgoritme in d
 
 ## Stap 4: een leeralgoritme kiezen en toepassen
 
-Nu de gegevens klaar zijn, kunt u een voorspellend model bouwen door het model te trainen en te testen. We gebruiken onze gegevens om het model te trainen. Vervolgens testen we het model om te controleren in hoeverre de prijzen met dit model kunnen worden voorspeld.
+Nu de gegevens klaar zijn, kunt u een voorspellend model bouwen door het model te trainen en te testen. We gebruiken onze gegevens om het model te trainen. Vervolgens testen we het model om te controleren in hoeverre de prijzen met dit model kunnen worden voorspeld. U hoeft zich in op dit moment nog niet af te vragen waarom we een model trainen en vervolgens testen.
 
-*Classificatie* en *regressie* zijn twee soorten beheerde machine learning-technieken. Classificatie wordt gebruikt om een voorspelling te maken voor een gedefinieerde set waarden, zoals een kleur (rood, blauw of groen). Regressie wordt gebruikt om een voorspelling te maken voor een continue reeks waarden, zoals de leeftijd van een persoon.
+*Classificatie* en *regressie* zijn twee soorten beheerde machine learning-technieken. Classificatie voorspelt een antwoord uit een gedefinieerde set categorieën, zoals een kleur (rood, blauw of groen). Regressie wordt gebruikt om een getal te voorspellen.
 
-Aangezien we prijs van een auto willen voorspellen en deze elke waarde kan hebben, gebruiken we een regressiemodel. Voor dit voorbeeld trainen we een eenvoudig *lineair regressiemodel* dat we in de volgende stap zullen testen.
+Omdat we de prijs willen voorspellen, wat een getal is, gebruiken we een regressiemodel. Voor dit voorbeeld trainen we een eenvoudig *lineair regressiemodel* dat we in de volgende stap zullen testen.
 
-1. We kunnen onze gegevens zowel voor trainings- als testdoeleinden gebruiken door ze op te splitsen in twee afzonderlijke trainings- en testsets. Selecteer de module [Split Data][split] (Gegevens splitsen), sleep deze naar het experimentcanvas en koppel de module aan de uitvoer van de laatste module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren). Stel **Fraction of rows in the first output dataset** (Fractie van rijen in de eerste uitvoergegevensset) in op 0,75. Zodoende gebruiken we 75 procent van de gegevens om het model te trainen en gebruiken we 25 procent van de gegevens om het model te testen.
+1. We gebruiken onze gegevens zowel voor trainings- als testdoeleinden door ze op te splitsen in twee afzonderlijke trainings- en testsets. Selecteer de module [Split Data][split] (Gegevens splitsen), sleep deze naar het experimentcanvas en koppel de module aan de uitvoer van de laatste module [Select Columns in Dataset][select-columns] (Kolommen in gegevensset selecteren). Stel **Fraction of rows in the first output dataset** (Fractie van rijen in de eerste uitvoergegevensset) in op 0,75. Zodoende gebruiken we 75 procent van de gegevens om het model te trainen en gebruiken we 25 procent van de gegevens om het model te testen.
 
     > [AZURE.TIP] Door de parameter **Random seed** (Willekeurige seed) te wijzigen, kunt u verschillende willekeurig samples voor trainings- en testdoeleinden gebruiken. Deze parameter bepaalt de seeding van de pseudo-willekeurige nummergenerator.
 
@@ -213,6 +224,7 @@ Zie [Een voorspellende oplossing met Azure Machine Learning ontwikkelen][walkthr
 [scherm1]:./media/machine-learning-create-experiment/screen1.png
 [scherm2]:./media/machine-learning-create-experiment/screen1a.png
 [scherm1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [scherm2]:./media/machine-learning-create-experiment/screen2.png
 [scherm3]:./media/machine-learning-create-experiment/screen3.png
 [scherm4]:./media/machine-learning-create-experiment/screen4.png
@@ -237,6 +249,6 @@ Zie [Een voorspellende oplossing met Azure Machine Learning ontwikkelen][walkthr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

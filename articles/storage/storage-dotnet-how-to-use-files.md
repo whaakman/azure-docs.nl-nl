@@ -1,23 +1,25 @@
 <properties
-            pageTitle="Aan de slag met Azure File Storage in Windows | Microsoft Azure"
-            description="Sla bestandsgegevens met Azure File Storage op in de cloud en koppel de bestandsshare in de cloud vanuit een virtuele machine van Azure of vanuit een on-premises toepassing waarop Windows wordt uitgevoerd."
-            services="storage"
-            documentationCenter=".net"
-            authors="mine-msft"
-            manager="aungoo"
-            editor="tysonn" />
+    pageTitle="Aan de slag met Azure File Storage in Windows | Microsoft Azure"
+    description="Sla bestandsgegevens met Azure File Storage op in de cloud en koppel de bestandsshare in de cloud vanuit een virtuele machine van Azure of vanuit een on-premises toepassing waarop Windows wordt uitgevoerd."
+    services="storage"
+    documentationCenter=".net"
+    authors="mine-msft"
+    manager="aungoo"
+    editor="tysonn" />
 
 <tags ms.service="storage"
-      ms.workload="storage"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="hero-article"
-      ms.date="04/11/2016"
-      ms.author="minet" />
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="07/26/2016"
+    ms.author="minet" />
 
 # Aan de slag met Azure File Storage in Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Overzicht
 
@@ -669,6 +671,6 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -15,109 +15,132 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="07/11/2016"
    ms.author="rogardle"/>
 
 # Taakverdelingen maken voor een Azure Container Service-cluster
 
-In dit artikel wordt er een web-front-end ingesteld die omhoog kan worden geschaald om services te bieden achter Azure LB.
-
+In dit artikel stellen we een webfront-end in op DC/OS beheerde Azure Container Service. We configureren ook een Marathon-LB om u de mogelijkheid te bieden de toepassing omhoog te schalen.
 
 ## Vereisten
 
-[Implementeer een exemplaar van Azure Container Service](container-service-deployment.md) met orchestrator-type DCOS, [zorg dat de client verbinding kan maken met uw cluster](container-service-connect.md), en [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
-
+[Implementeer een exemplaar van Azure Container Service](container-service-deployment.md) met orchestrator-type DC/OS en [zorg dat de client verbinding kan maken met uw cluster](container-service-connect.md). 
 
 ## Taakverdeling
 
-Een Container Service-cluster bevat twee taakverdelingslagen: Azure LB voor openbare invoerpunten (die door de gebruikers wordt gebruikt) en de onderliggende Marathon-taakverdeling die inkomende aanvragen doorstuurt naar containerexemplaren die aanvragen onderhouden. De Marathon-taakverdeling wordt dynamisch aangepast naarmate de containers die de service bieden worden geschaald.
+Er zijn twee taakverdelingslagen in de Container Service-cluster die we gaan bouwen: 
 
-## Marathon-taakverdeling 
+  1. de Azure Load Balancer biedt openbare toegangspunten (voor de eindgebruikers). Dit wordt automatisch aangeboden door de Azure Container Service en is standaard geconfigureerd om poorten 80 en 443 van 8080 open te stellen.
+  2. De Marathon Load Balancer (marathon-lb) routeert binnenkomende aanvragen naar de containerinstanties die deze aanvragen bedienen. Als we de containers schalen met onze webservice, past marathon-lb zich dynamisch aan. Deze taakverdeling is geen standaardvoorziening in uw Container Service, maar is heel gemakkelijk te installeren.
 
-De Marathon-taakverdeling wordt dynamisch opnieuw geconfigureerd op basis van de containers die zijn geïmplementeerd. De Marathon-taakverdeling past zich ook aan het verlies van een container of agent aan. Als dit gebeurt, wordt de container door Mesos elders opnieuw gestart en wordt de Marathon-taakverdeling opnieuw geconfigureerd. 
+## Marathon Load Balancer
 
-Voer de volgende opdracht vanaf de clientcomputer uit om de Marathon-taakverdeling te installeren.
+Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de containers die u hebt geïmplementeerd. De Marathon-taakverdeling past zich ook aan het verlies van een container of agent aan. Als dit gebeurt, wordt de container door Apache Mesos elders opnieuw gestart en marathon-lb wordt aangepast.
+
+Om de Marathon Load Balancer te installeren kunt u de DC/OS web UI of de opdrachtregel gebruiken.
+
+### Installeer Marathon-LB met DC/OS Web UI
+
+  1. Klik op “Universe”
+  2. Zoek naar “Marathon-LB”
+  3. Klik op “Installeren”
+
+![marathon-lb via the DC/OS Web Interface installeren](./media/dcos/marathon-lb-install.png)
+
+### Marathon-LB met de DC/OS CLI installeren
+
+Na de installatie van de DC/OS CLI en ervoor te hebben gezorgd dat u verbinding kunt maken met uw cluster, voert u de volgende opdrcht uit op uw clientcomputer:
 
 ```bash
-dcos package install marathon-lb 
-``` 
+dcos package install marathon-lb
+```
+
+## Een webtoepassing met taakverdeling implementeren
 
 Met het Marathon-taakverdelingspakket kan er een eenvoudige webserver worden geïmplementeerd volgens deze configuratie:
 
-
 ```json
-{ 
-  "id": "web", 
-  "container": { 
-    "type": "DOCKER", 
-    "docker": { 
-      "image": "tutum/hello-world", 
-      "network": "BRIDGE", 
-      "portMappings": [ 
-        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 } 
-      ], 
-      "forcePullImage":true 
-    } 
-  }, 
-  "instances": 3, 
-  "cpus": 0.1, 
-  "mem": 65, 
-  "healthChecks": [{ 
-      "protocol": "HTTP", 
-      "path": "/", 
-      "portIndex": 0, 
-      "timeoutSeconds": 10, 
-      "gracePeriodSeconds": 10, 
-      "intervalSeconds": 2, 
-      "maxConsecutiveFailures": 10 
-  }], 
-  "labels":{ 
+{
+  "id": "web",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "yeasy/simple-web",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+      ],
+      "forcePullImage":true
+    }
+  },
+  "instances": 3,
+  "cpus": 0.1,
+  "mem": 65,
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+  }],
+  "labels":{
     "HAPROXY_GROUP":"external",
     "HAPROXY_0_VHOST":"YOUR FQDN",
-    "HAPROXY_0_MODE":"http" 
-  } 
+    "HAPROXY_0_MODE":"http"
+  }
 }
 
 ```
 
-De belangrijkste onderdelen hiervan zijn: 
-  * Stel de waarde voor HAProxy_0_VHOST in op de FQDN van de taakverdeling voor uw agenten. Deze heeft de vorm `<acsName>agents.<region>.cloudapp.azure.com`. Als ik bijvoorbeeld een Container Service-cluster maak met naam `myacs` in regio `West US`, dan krijgt de FQDN de waarde `myacsagents.westus.cloudapp.azure.com`. U kunt deze ook vinden door te zoeken naar de taakverdeling met 'agent' in de naam in de resources in de resourcegroep die u hebt gemaakt voor uw containerservice in de [Azure Portal](https://portal.azure.com).
-  * Stel servicePort in voor een poort >= 10.000. Hiermee wordt aangegeven dat de service in deze container wordt uitgevoerd. De marathontaakverdeling gebruikt dit om services te identificeren die moeten worden verdeeld.
-  * Stel het label HAPROXY_GROUP in op extern.
-  * Stel hostPort in op 0. Hierdoor wordt een willekeurige poort toegewezen.
+  * Stel de waarde van `HAProxy_0_VHOST` in op de FQDN van de taakverdeling voor uw agents. Dit heeft de vorm `<acsName>agents.<region>.cloudapp.azure.com`. Als u bijvoorbeeld een Container Service-cluster maakt met naam `myacs` in regio `West US`, dan krijgt de FQDN de waarde `myacsagents.westus.cloudapp.azure.com`. U kunt deze ook vinden door te zoeken naar de taakverdeling met 'agent' in de naam in de resources in de resourcegroep die u hebt gemaakt voor uw Containerservice in de [Azure Portal](https://portal.azure.com).
+  * Stel servicePort in voor een poort >= 10.000. Zo wordt aangegeven dat de service in deze container wordt uitgevoerd. marathon-lb gebruikt dit om services te identificeren die moeten worden verdeeld.
+  * Stel het `HAPROXY_GROUP` label op “extern”.
+  * Stel `hostPort` op 0. Zo zal Marathon een willekeurige poort toewijzen.
+  * Stel `instances` in op het aantal exemplaren dat u wilt maken. U kunt deze altijd omhoog en omlaag schalen.
 
-Kopieer deze JSON naar bestand `hello-web.json` en gebruik het om een container te implementeren: 
+### Implementeren met de DC/OS Web UI
+
+  1. Ga naar de Marathon-pagina op http://localhost/marathon (na instelling van uw [SSH-tunnel](container-service-connect.md) en klik `Create Appliction`
+  2. Klik in het dialoogvenster `New Application` op `JSON Mode` in de rechterbovenhoek
+  3. Plak bovenstaande JSON in de editor
+  4. Klik `Create Appliction`
+
+### Implementeren met de DC/OS CLI
+
+Om deze toepassing te implementeren met de DC/OS CLI moet u gewoon de bovenstaande JSON kopiëren in een bestand met de naam `hello-web.json` en uitvoeren:
 
 ```bash
-dcos marathon app add hello-web.json 
-``` 
+dcos marathon app add hello-web.json
+```
 
-## Azure Load Balancer 
+## Azure Load Balancer
 
-Azure Load Balancer heeft standaard de beschikking over poorten 80, 8080 en 443. Als u een van deze drie poorten gebruikt (zoals in het bovenstaande voorbeeld), dan hoeft u niets te doen. U zou de FQDN van de taakverdeling van uw agent moeten bereiken en bij elke vernieuwing bereikt u een van de drie webservers op een round-robinmanier. Als u echter een andere poort gebruikt, dient u een round-robinregel en een probe aan de Azure LB toe te voegen. Dit kunt u doen vanaf [Azure XPLAT CLI](../xplat-cli-azure-resource-manager.md) met de opdrachten `azure lb rule create` en `azure lb probe create`.
+Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet de FQDN van de taakverdeling van uw agent kunnen bereiken en telkens u vernieuwt bereikt u één van de drie webservers volgens round-robin. Als u echter een andere poort gebruikt, dient u een round-robinregel en een probe toevoegen aan de taakverdeling voor de gebruikte poort. Dit kan vanuit de [Azure CLI](../xplat-cli-azure-resource-manager.md), met de opdrachten `azure lb rule create` en `azure lb probe create`. Dit kan ook met de Azure Portal.
 
 
 ## Overige scenario's
 
-U hebt een scenario nodig waarbij u gebruikmaakt van verschillende domeinen om over verschillende services te kunnen beschikken. Bijvoorbeeld: 
+U hebt een scenario nodig waarbij u gebruikmaakt van verschillende domeinen om over verschillende services te kunnen beschikken. Bijvoorbeeld:
 
 mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
-mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321 
+mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
 
-Kijk hier voor op de Engelstalige website [Virtual Hosts](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/). Hier vindt u een methode waarmee u domeinen aan specifieke Marathon-taakverdelingspaden kunt koppelen.
+Kijk hier voor op de Engelstalige website [virtual hosts](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/). Hier vindt u een methode waarmee u domeinen aan specifieke Marathon-taakverdelingspaden kunt koppelen.
 
-U kunt ook verschillende poorten ter beschikking stellen en deze opnieuw toewijzen aan de juiste service achter de Marathon-taakverdeling. Bijvoorbeeld:
+U kunt ook verschillende poorten ter beschikking stellen en deze opnieuw toewijzen aan de juiste service achter de marathon-lb. Bijvoorbeeld:
 
 Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
-Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432 
- 
+Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
+
 
 ## Volgende stappen
 
-Kijk op [dit blogbericht](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/) voor meer informatie over Marathon-taakverdeling.
+Zie de DC/OS-documentatie voor meer informatie over [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

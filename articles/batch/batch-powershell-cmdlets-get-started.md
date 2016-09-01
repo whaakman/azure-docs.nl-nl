@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Aan de slag met PowerShell-cmdlets voor Azure Batch
-Dit is een korte inleiding in de Azure PowerShell-cmdlets die u kunt gebruiken om uw Batch-accounts te beheren en te werken met uw Batch-resources, zoals pools en taken. Veel van de taken die u uitvoert met de Batch-API's, Azure Portal en de Azure-opdrachtregelinterface (CLI), kunt u ook met Batch-cmdlets uitvoeren. Dit artikel is gebaseerd op cmdlets in Azure PowerShell-versie 1.3.2 of nieuwer.
+Met de PowerShell-cmdlets voor Azure Batch kunt u veel dezelfde taken die u uitvoert met de Batch-API's, Azure Portal en de Azure-opdrachtregelinterface (CLI), uitvoeren en er scripts voor uitvoeren. Dit is een korte inleiding in de cmdlets die u kunt gebruiken om uw Batch-accounts te beheren en te werken met uw Batch-resources, zoals pools en taken. Dit artikel is gebaseerd op cmdlets in Azure PowerShell versie 1.6.0.
 
 Zie [Naslaginformatie over Azure Batch-cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) voor een volledige lijst met Batch-cmdlets en gedetailleerde cmdlet-syntaxis. 
 
@@ -45,7 +45,7 @@ Met **New-AzureRmBatchAccount** wordt een nieuw Batch-account in een opgegeven r
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Maak vervolgens een nieuw Batch-account in de resourcegroep, waarbij u ook een accountnaam opgeeft voor <*account_name*> en een locatie waar de Batch-service beschikbaar is. Het kan enkele minuten duren om het account te maken. Bijvoorbeeld:
+Maak een nieuw account van de Batch-account in de resourcegroep, waarbij u een naam voor het account in <*accountnaam*> opgeeft, evenals voor de locatie en de naam van uw resourcegroep. Het kan even duren voordat het Batch-account is gemaakt. Bijvoorbeeld:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,16 +94,22 @@ U geeft het BatchAccountContext-object door aan cmdlets waarvoor de parameter **
 ## Batch-resources maken en wijzigen
 Gebruik cmdlets zoals **New-AzureBatchPool**, **New-AzureBatchJob** en **New-AzureBatchTask** om resources onder een Batch-account te maken. Er zijn overeenkomende **Get-**- en **Set-**-cmdlets voor het bijwerken van de eigenschappen van bestaande resources en **Remove-**-cmdlets om resources onder een Batch-account te verwijderen. 
 
+Wanneer u veel van deze cmdlets gebruikt, moet u niet alleen een BatchContext-object doorgeven, maar ook objecten maken of doorgeven die gedetailleerde resource-instellingen bevatten, zoals weergegeven in het volgende voorbeeld. Raadpleeg de gedetailleerde Help-informatie voor elke cmdlet voor meer voorbeelden.
+
 ### Batch-pool maken
 
-Met de volgende cmdlet wordt bijvoorbeeld een nieuwe Batch-pool gemaakt, geconfigureerd voor gebruik van virtuele machines met de grootte Klein, met een kopie van de nieuwste besturingssysteemversie van type 3 (Windows Server 2012), met het doelgetal van rekenknooppunten dat is bepaald met een formule voor automatisch schalen. In dit geval is de formule gewoon **$TargetDedicated=3**, waarmee wordt aangegeven dat het aantal rekenknooppunten in de pool maximaal 3 is. Met de parameter **BatchContext** wordt een eerder gedefinieerde variabele *$context* opgegeven als het BatchAccountContext-object.
+Wanneer u een Batch-pool maakt of bijwerkt, selecteert u een cloud-serviceconfiguratie of een virtuele-machineconfiguratie voor het besturingssysteem op de rekenknooppunten (zie [Batch feature overview](batch-api-basics.md#pool) (Overzicht van Batch-functies)). Uw keuze bepaalt of van de rekenknooppunten een installatiekopie wordt gemaakt met een van de [Azure-gastbesturingssysteemreleases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) of met een van de ondersteunde VM-images voor Linux of Windows in de Azure Marketplace. 
+
+Bij het uitvoeren van **New-AzureBatchPool** geeft u de instellingen van het besturingssysteem door in een PSCloudServiceConfiguration- of PSVirtualMachineConfiguration-object. Met de volgende cmdlet wordt bijvoorbeeld een nieuwe Batch-pool gemaakt met rekenknooppunten met de grootte Klein in de cloudserviceconfiguratie, met een installatiekopie van de meest recente versie van het besturingssysteem van type 3 (Windows Server 2012). Hier geeft de parameter **CloudServiceConfiguration** de variabele *$configuration* op als het PSCloudServiceConfiguration-object. Met de parameter **BatchContext** wordt een eerder gedefinieerde variabele *$context* opgegeven als het BatchAccountContext-object.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Momenteel wordt met de Batch PowerShell-cmdlets alleen de cloudservicesconfiguratie voor rekenknooppunten ondersteund. Hierdoor kunt u een van de Azure-gastbesturingssysteemreleases van het Windows Server-besturingssysteem kiezen om uit te voeren op de rekenknooppunten. Voor andere configuratieopties voor rekenknooppunten voor Batch-pools gebruikt u de Batch-SDK's of Azure CLI.
+Het doelaantal rekenknooppunten in de nieuwe pool wordt bepaald met een formule voor automatisch schalen. In dit geval is de formule gewoon **$TargetDedicated=4**, waarmee wordt aangegeven dat het aantal rekenknooppunten in de pool maximaal 4 is. 
 
-## Query voor pool, jobs, taken en andere details
+## Query voor pools, jobs, taken en andere details
 
 Gebruik cmdlets zoals **Get-AzureBatchPool**, **Get-AzureBatchJob** en **Get-AzureBatchTask** om een query uit te voeren voor entiteiten die zijn gemaakt onder een Batch-account.
 
@@ -163,6 +169,6 @@ Met Batch-cmdlets kunt u gebruikmaken van de PowerShell-pijplijn om gegevens tus
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

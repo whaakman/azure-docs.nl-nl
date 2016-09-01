@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Binnen vijf minuten aan de slag met Azure Storage 
@@ -103,6 +103,7 @@ Vervolgens voert u de voorbeeldtoepassing uit in de Azure-opslagemulator:
 Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 * [Inleiding tot Microsoft Azure Storage](storage-introduction.md)
+* [Aan de slag met Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Aan de slag met Azure Blob Storage met .NET](storage-dotnet-how-to-use-blobs.md)
 * [Aan de slag met Azure Table Storage met .NET](storage-dotnet-how-to-use-tables.md)
 * [Aan de slag met Azure Queue Storage met .NET](storage-dotnet-how-to-use-queues.md)
@@ -117,6 +118,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

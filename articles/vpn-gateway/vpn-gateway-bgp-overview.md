@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Overzicht van BGP met Azure VPN-gateways
@@ -35,7 +35,9 @@ Het gebruik van BGP heeft een aantal voordelen en nieuwe mogelijkheden:
 
 Met BGP hoeft u alleen via de IPSec S2S VPN-tunnel een minimaal voorvoegsel te declareren op een specifieke BGP-peer. Dit hoeft niet groter te zijn dan een hostvoorvoegsel (/32) van het IP-adres van de BGP-peer van uw on-premises VPN-apparaat. U bepaalt zelf welke on-premises netwerkvoorvoegsels u wilt adverteren naar Azure opdat uw Azure Virtual Network toegang heeft.
     
-U kunt ook grotere voorvoegsels adverteren, die bijvoorbeeld enkele van uw VNet-adresvoorvoegsels bevatten, zoals de standaardroute (0.0.0.0/0), of een grote privé-IP-adresruimte (bijvoorbeeld 10.0.0.0/8). De voorvoegsels mogen echter niet identiek zijn met uw VNet-voorvoegsels. Routes die identiek zijn aan uw VNet-voorvoegsels worden geweigerd.
+U kunt ook grotere voorvoegsels adverteren die bijvoorbeeld enkele van uw VNet-adresvoorvoegsels bevatten, zoals een grote privé-IP-adresruimte (bijvoorbeeld 10.0.0.0/8). De voorvoegsels mogen echter niet identiek zijn met uw VNet-voorvoegsels. Routes die identiek zijn aan uw VNet-voorvoegsels worden geweigerd.
+
+>[AZURE.IMPORTANT] Op dit moment wordt het adverteren van de standaardroute (0.0.0.0/0) naar Azure VPN-gateways geblokkeerd. Zodra deze mogelijkheid is ingeschakeld, volgt er meer informatie.
 
 #### Ondersteuning van meerdere tunnels tussen een VNet en een on-premises site met automatische failover op basis van BGP
 
@@ -68,6 +70,6 @@ Zie [Aan de slag met BGP op Azure VPN-gateways](./vpn-gateway-bgp-resource-manag
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -93,7 +93,7 @@ De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-s
 
 5.  Nadat u hebt gecontroleerd of de naam voor de naamruimte beschikbaar is, kiest u het land of de regio waarin uw naamruimte moet worden gehost. Zorg er daarbij voor dat u hetzelfde land of dezelfde regio gebruikt waarin u uw rekenresources implementeert. Zorg er ook voor dat u **Berichten** selecteert in het naamruimteveld **Type** en **Standaard** in het veld **Berichtenlaag**.
 
-    > [AZURE.IMPORTANT] Kies **dezelfde regio** die u van plan bent te kiezen voor het implementeren van uw toepassing. Hiermee krijgt u de beste prestaties.
+    > [AZURE.IMPORTANT] Kies **dezelfde regio** die u van plan bent te kiezen voor het implementeren van uw toepassing. Dat geeft de beste prestaties.
 
 6.  Klik op het vinkje OK. Uw servicenaamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
@@ -244,7 +244,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
 
     ![][15]
 
-7.  Klik op **Toevoegen**.
+7.  Klik op **Add**.
 
 8.  Wijzig nu de weergegeven naam van uw toepassing. Dubbelklik in **Solution Explorer** op het bestand **Views\Shared\\_Layout.cshtml** om dit te openen in de Visual Studio-editor.
 
@@ -498,11 +498,11 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

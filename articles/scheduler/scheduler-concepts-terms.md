@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Schedulerconcepten, -terminologie en -entiteitenhiërarchie
@@ -148,7 +148,7 @@ De actie in het bovenstaande voorbeeld is een HTTP-actie. Hieronder volgt een vo
 Hieronder volgt een voorbeeld van een Service Bus-onderwerpactie.
 
   "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Kan netMessaging of AMQP zijn "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Een bericht", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
 Hieronder volgt een voorbeeld van een Service Bus-wachtrijactie:
 
@@ -202,7 +202,7 @@ Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt 
 
  [Wat is Scheduler?](scheduler-intro.md)
 
- [Aan de slag met behulp van Scheduler in de Azure Portal](scheduler-get-started-portal.md)
+ [Aan de slag met behulp van Scheduler in de Azure-portal](scheduler-get-started-portal.md)
 
  [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
 
@@ -220,6 +220,6 @@ Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

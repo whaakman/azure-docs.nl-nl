@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="03/09/2016"
+    ms.date="07/21/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services
@@ -39,7 +39,7 @@ In deze zelfstudie maakt u een nieuwe mobiele service en een eenvoudige _takenli
 
 U kunt een eenvoudig Quick Start volgen in de klassieke Azure Portal voor het maken van een nieuwe app die is verbonden met uw mobiele service:
 
-1. Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **iOS** onder **Een platform kiezen** en vouw **Een nieuwe iOS-app maken** uit. U ziet nu de stappen om een iOS-app te maken die is verbonden met uw mobiele service.
 
@@ -52,7 +52,7 @@ U kunt een eenvoudig Quick Start volgen in de klassieke Azure Portal voor het ma
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**. U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.<p></li></ol></p>
+<li><p>Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**. U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Volgende stappen
 Ontdek hoe u aanvullende belangrijke taken uitvoert in Mobile Services:
@@ -92,12 +92,12 @@ Ontdek hoe u aanvullende belangrijke taken uitvoert in Mobile Services:
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET-back-endversie]: mobile-services-dotnet-backend-ios-get-started.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

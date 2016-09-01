@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Service Bus-architectuur | Microsoft Azure"
-    description="Beschrijft de berichtverwerkingsarchitectuur van Azure Service Bus."
+    description="Beschrijft de bericht- en relayverwerkingsarchitectuur van Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Service Bus-architectuur
 
-Dit artikel beschrijft de berichtverwerkingsarchitectuur van Azure Service Bus.
+In dit artikel wordt de bericht- en relayverwerkingsarchitectuur van Azure Service Bus beschreven.
 
 ## Service Bus-schaaleenheden
 
@@ -53,7 +53,7 @@ Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten u
 
 ## Volgende stappen
 
-Nu dat u een overzicht heeft van de werking van Service Bus, kunt u via de volgende koppelingen aan de slag:
+Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken om aan de slag gaan:
 
 - [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
 - [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -61,6 +61,6 @@ Nu dat u een overzicht heeft van de werking van Service Bus, kunt u via de volge
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

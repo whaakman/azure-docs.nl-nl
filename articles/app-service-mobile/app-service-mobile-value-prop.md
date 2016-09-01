@@ -18,7 +18,7 @@
 
 # <a name="getting-started"> </a>Wat zijn Mobile Apps?
 
-Azure App Service is een volledig beheerd PaaS (Platform as a Service) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor web-, mobiele en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor mobiele, web- en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -105,6 +105,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

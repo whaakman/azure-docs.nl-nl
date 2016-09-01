@@ -1,7 +1,7 @@
 <properties
   pageTitle="NoSQL Node.js-zelfstudie voor DocumentDB | Microsoft Azure"
   description="Een NoSQL Node.js-zelfstudie waarmee u een knooppuntdatabase en een consoletoepassing maakt met de DocumentDB Node.js-SDK. DocumentDB is een NoSQL-database voor JSON."
-    keywords="node.js tutorial, node database"
+    keywords="node.js zelfstudie, knooppuntdatabase"
   services="documentdb"
   documentationCenter="node.js"
   authors="AndrewHoh"
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # NoSQL Node.js-zelfstudie: DocumentDB Node.js-consoletoepassing  
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Welkom bij de Node.js-zelfstudie over de DocumentDB Node.js-SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u DocumentDB-resources kunt maken en er query’s op kunt uitvoeren. Een van deze resources is een knooppuntdatabase.
+Welkom bij de Node.js-zelfstudie over de Azure DocumentDB Node.js-SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u DocumentDB-resources kunt maken en er query’s op kunt uitvoeren. Een van deze resources is een knooppuntdatabase.
 
 De volgende onderwerpen komen aan bod:
 
@@ -56,7 +56,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Stap 2: uw Node.js-toepassing instellen
+## <a id="SetupNode"></a>Stap 2: uw Node.js-toepassing instellen
 
 1. Open uw favoriete terminal.
 2. Ga naar de map of directory waarin u de Node.js-toepassing wilt opslaan.
@@ -72,7 +72,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 Goed gedaan. U bent klaar met het instellen. U gaat nu aan de slag met het schrijven van code.
 
-##<a id="Config"></a> Stap 3: de configuratie van de app instellen
+## <a id="Config"></a>Stap 3: de configuratie van de app instellen
 
 Open ```config.js``` in uw favoriete teksteditor.
 
@@ -598,7 +598,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
 
 Gefeliciteerd. U hebt de Node.js-zelfstudie voltooid en u beschikt nu over uw eerste DocumentDB-consoletoepassing!
 
-##<a id="GetSolution"></a> De volledige Node.js-zelfstudieoplossing gebruiken
+## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
 Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel bevat, hebt u het volgende nodig:
 
 -   [DocumentDB-account][documentdb-create-account].
@@ -623,6 +623,6 @@ Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en c
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

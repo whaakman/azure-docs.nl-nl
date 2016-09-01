@@ -43,6 +43,6 @@ De meest voorkomende oorzaak van verbindingsfouten zijn fouten in de servernaam 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

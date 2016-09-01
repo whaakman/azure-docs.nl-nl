@@ -13,16 +13,16 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="05/24/2016"
+    ms.date="06/21/2016"
     ms.author="jroth" />
 
-# Een virtuele SQL Server-machine inrichten in de Azure Portal
+# Een virtuele SQL Server-machine inrichten in de Azure-portal
 
 > [AZURE.SELECTOR]
 - [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 - [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
-In deze end-to-end zelfstudie wordt getoond hoe u de Azure Portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
+In deze end-to-end zelfstudie wordt getoond hoe u de Azure-portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
 
 De galerie met virtuele machines van Azure bevat diverse installatiekopieën met Microsoft SQL Server. Met een paar klikken kunt u in de galerie een van de installatiekopieën voor een virtuele SQL-machine selecteren en inrichten in uw Azure-omgeving.
 
@@ -35,11 +35,11 @@ In deze zelfstudie leert u het volgende:
 
 ## Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 
-1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u met uw account aan bij de [Azure-portal](https://portal.azure.com).
 
     >[AZURE.NOTE] Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Klik in de Azure Portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
+1. Klik in de Azure-portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
 
 1. Klik op de blade **Nieuw** op de optie **Virtuele machines**.
 
@@ -53,7 +53,9 @@ In deze zelfstudie leert u het volgende:
 
 1. Elke sjabloon correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem. Selecteer een van de installatiekopieën in de lijst. Bekijk vervolgens de blade met details. Hierop vindt u een beschrijving van de installatiekopie voor de virtuele machine.
 
-1. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik vervolgens op **Maken**.
+    >[AZURE.NOTE] SQL VM-installatiekopieën bevatten de licentiekosten voor SQL Server als prijzen per minuut van de virtuele machine die u maakt. Er is nog een andere mogelijkheid en dat is BYOL (bring-your-own-license). U betaalt dan alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. Zie [Aan de slag met SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) voor meer informatie over deze optie.
+
+1. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Resource Manager is het aanbevolen implementatiemodel voor nieuwe virtuele machines. Klik op **Create**.
 
     ![Virtuele SQL-machines maken met Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -118,7 +120,7 @@ Op de blade **SQL Server-instellingen** configureert u specifieke instellingen e
 | Instelling               |
 |---------------------|
 | [Connectiviteit](#connectivity)              |
-| [Verificatie](#authentication)                |
+| [Authentication](#authentication)                |
 | [Opslagconfiguratie](#storage-configuration)            |
 | [Automatisch patchen](#automated-patching) |
 | [Automatische back-up](#automated-backup)             |
@@ -214,7 +216,7 @@ Wanneer u klaar bent met het configureren van de SQL Server-instellingen, klikt 
 ## 5. De samenvatting bekijken
 Op de blade **Samenvatting** controleert u de samenvatting en klikt u op **OK** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze virtuele machine.
 
-U kunt de implementatie bewaken vanaf de Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
+U kunt de implementatie bewaken vanaf de Azure-portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 >[AZURE.NOTE] Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal 26 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
 
@@ -251,8 +253,10 @@ Zie voor meer informatie over het gebruik van SQL Server in Azure [SQL Server in
 
 Bekijk voor een video-overzicht van SQL Server in Azure Virtual Machines [Azure VM is het beste platform voor SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
+[Bekijk het leertraject](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) voor virtuele SQL Server-machines in Azure.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

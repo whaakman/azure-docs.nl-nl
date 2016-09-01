@@ -3,7 +3,7 @@
    description="Op deze pagina vindt u instructies voor het maken van een toepassingsgateway met SSL-offload met behulp van Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,14 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Een toepassingsgateway configureren voor SSL-offload met Azure Resource Manager
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure Portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
  Azure Application Gateway kan zodanig worden geconfigureerd dat de Secure Sockets Layer-sessie (SSL) wordt beëindigd bij de gateway om kostbare SSL-ontsleutelingstaken te voorkomen die worden uitgevoerd in de webfarm. Met SSL-offload worden ook het instellen van de front-endserver en het beheer van de webtoepassing eenvoudiger.
 
@@ -27,7 +28,7 @@
 ## Voordat u begint
 
 1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
-2. U gaat een virtueel netwerk en een subnet voor de toepassingsgateway maken. Zorg ervoor dat er geen virtuele machines en cloudimplementaties zijn die gebruikmaken van het subnet. De toepassingsgateway moet afzonderlijk in een subnet van een virtueel netwerk staan.
+2. Maak een virtueel netwerk en een subnet voor de toepassingsgateway. Zorg ervoor dat er geen virtuele machines en cloudimplementaties zijn die gebruikmaken van het subnet. De toepassingsgateway moet afzonderlijk in een subnet van een virtueel netwerk staan.
 3. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
 ## Wat is er vereist om een toepassingsgateway te maken?
@@ -36,21 +37,21 @@
 - **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel openbare IP-/VIP-adressen zijn.
 - **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
 - **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze instellingen zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
 - **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
 
 **Aanvullende configuratieopmerkingen**
 
-Voor het configureren van SSL-certificaten moet het protocol in **HttpListener** worden gewijzigd in *Https* (hoofdlettergevoelig). Het element **SslCertificate** moet worden toegevoegd aan **HttpListener**, waarbij de waarde van de variabele moet worden geconfigureerd voor het SSL-certificaat. De front-endpoort moet worden bijgewerkt naar 443.
+Voor het configureren van SSL-certificaten moet het protocol in **HttpListener** worden gewijzigd in *Https* (hoofdlettergevoelig). Het element **SslCertificate** wordt toegevoegd aan **HttpListener**, waarbij de waarde van de variabele moet worden geconfigureerd voor het SSL-certificaat. De front-endpoort moet worden bijgewerkt naar 443.
 
 **Op cookies gebaseerde affiniteit inschakelen**: u kunt een toepassingsgateway zodanig configureren dat u zeker weet dat aanvragen vanuit clientsessies altijd worden omgeleid naar dezelfde virtuele machine in de webfarm. Dit wordt gedaan door het injecteren van een sessiecookie waarmee de gateway het verkeer correct kan omleiden. Als u op cookies gebaseerde affiniteit wilt inschakelen, stelt u **CookieBasedAffinity** in op *Enabled* in het element **BackendHttpSettings**.
 
 
-## Een nieuwe toepassingsgateway maken
+## Een toepassingsgateway maken
 
 Het verschil tussen het gebruik van het klassieke Azure-implementatiemodel en Azure Resource Manager zit hem in de volgorde waarin u een Application Gateway maakt en in de items die u moet configureren.
 
-Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om de toepassingsgatewayresource te maken.
+Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om een toepassingsgatewayresource te maken.
 
 
 Dit zijn de stappen voor het maken van een toepassingsgateway:
@@ -67,7 +68,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 
 ### Stap 1
 
-        PS C:\> Login-AzureRmAccount
+    Login-AzureRmAccount
 
 
 
@@ -75,7 +76,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 
 Controleer de abonnementen voor het account.
 
-        PS C:\> get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 
@@ -89,11 +90,11 @@ Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 ### Stap 4
 
-Maak een nieuwe resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
+Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
+Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze instelling wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
 
 In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam appgw-RG en de locatie VS - west.
 
@@ -131,13 +132,13 @@ Hiermee maakt u voor de regio VS - west een openbare IP-resource publicIP01 in d
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Hiermee maakt u voor de toepassingsgateway een IP-configuratie met de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Elk exemplaar gebruikt één IP-adres.
+Hiermee maakt u voor de toepassingsgateway een IP-configuratie met de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 ### Stap 2
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Hiervoor worden de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50 gebruikt. Dit zijn de IP-adressen waardoor het netwerkverkeer van het frond-end-IP-eindpunt binnenkomt. Vervang de IP-adressen uit het bovenstaande voorbeeld door de IP-adressen van de eindpunten van uw webtoepassing.
+Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Hiervoor worden de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50 gebruikt. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. Vervang de IP-adressen uit het bovenstaande voorbeeld door de IP-adressen van de eindpunten van uw webtoepassing.
 
 ### Stap 3
 
@@ -201,6 +202,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 
