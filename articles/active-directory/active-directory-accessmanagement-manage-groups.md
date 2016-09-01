@@ -1,12 +1,11 @@
-<eigenschappen
-
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+<properties
+	pageTitle="Groepen beheren in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure users using Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
     ms.service="active-directory"
