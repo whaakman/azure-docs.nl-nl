@@ -2,10 +2,10 @@
     pageTitle="Aan de slag met de Azure Multi-Factor Authentication-server" 
     description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan." 
     services="multi-factor-authentication"
-    keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
+    keywords="verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Aan de slag met de Azure Multi-Factor Authentication-server
@@ -31,13 +31,13 @@ Nu dat we hebben bepaald of we gebruikmaken van on-premises meervoudige verifica
 
 
 
-U kunt de Azure Multi-Factor Authentication-server op twee verschillende manieren downloaden. Beide downloads verlopen via Azure Portal. Bij de eerste manier beheert u rechtstreeks de Multi-Factor Authentication-provider. De tweede manier verloopt via de service-instellingen. Voor de tweede manier is een Multi-Factor Authentication-provider of een Azure MFA-, Azure AD Premium- of Enterprise Mobility Suite-licentie vereist.
+U kunt de Azure Multi-Factor Authentication-server op twee verschillende manieren downloaden. Beide downloads verlopen via de Azure-portal. Bij de eerste manier beheert u rechtstreeks de Multi-Factor Authentication-provider. De tweede manier verloopt via de service-instellingen. Voor de tweede manier is een Multi-Factor Authentication-provider of een Azure MFA-, Azure AD Premium- of Enterprise Mobility Suite-licentie vereist.
 
 
-### De Azure Multi-Factor Authentication-server downloaden via Azure Portal
+### De Azure Multi-Factor Authentication-server downloaden via de Azure-portal
 --------------------------------------------------------------------------------
 
-1. Meld u als beheerder aan bij Azure Portal.
+1. Meld u als beheerder aan bij de Azure-portal.
 2. Selecteer links Active Directory.
 3. Klik op de Active Directory-pagina bovenaan op **Providers voor Multi-Factor Authentication**.
 4. Klik onderaan op **Beheren**.
@@ -52,14 +52,14 @@ U kunt de Azure Multi-Factor Authentication-server op twee verschillende maniere
 ### De Azure Multi-Factor Authentication-server downloaden via de service-instellingen
 
 
-1. Meld u als beheerder aan bij Azure Portal.
+1. Meld u als beheerder aan bij de Azure-portal.
 2. Selecteer links Active Directory.
 3. Dubbelklik op uw exemplaar van Azure AD.
 4. Klik bovenaan op **Configureren.**
 ![Downloaden](./media/multi-factor-authentication-sdk/download2.png)
 5. Selecteer onder Multi-Factor Authentication de optie **Service-instellingen beheren**.
 6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**.
-![Downloaden](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. Hierdoor opent u een nieuwe pagina. Klik op **Downloads**.
 8. Klik boven **Activeringsreferenties genereren** op **Downloaden**.
 9. Sla de download op.
@@ -192,6 +192,6 @@ Methode|Beschrijving
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

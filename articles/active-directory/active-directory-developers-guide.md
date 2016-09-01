@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Ontwikkelaarshandleiding voor Azure Active Directory
 
 ## Overzicht
-Azure Active Directory is een IDMaaS-platform (Identity Management as a Service) waarop ontwikkelaars efficiënt identiteitsbeheer kunnen integreren in hun toepassingen. De volgende artikelen bevatten overzichten van de implementatie en belangrijke functies van Azure Active Directory. We raden u aan deze in de juiste volgorde te lezen. Ga naar [Aan de slag](#getting-started) als u direct aan de slag wilt gaan.
+Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Service) waarop ontwikkelaars efficiënt identiteitsbeheer kunnen integreren in hun toepassingen. De volgende artikelen bevatten overzichten van de implementatie en belangrijke functies van Azure AD. We raden u aan deze in de juiste volgorde te lezen. Ga naar [Aan de slag](#getting-started) als u direct aan de slag wilt gaan.
 
 
-1. [De voordelen van Azure Active Directory-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure Active Directory de beste oplossing is voor beveiligde aanmelding en autorisatie.
+1. [De voordelen van Azure Active Directory-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
 
-1. [Scenario's voor Active Directory-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure Active Directory om eenmalige aanmelding voor uw toepassing te bieden.
+1. [Scenario's voor Active Directory-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure AD om eenmalige aanmelding voor uw toepassing te bieden.
 
-1. [Toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure Active Directory en de huisstijlrichtlijnen voor geïntegreerde apps.
+1. [Toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure AD en de huisstijlrichtlijnen voor geïntegreerde apps.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): gebruik de Azure Active Directory Graph API om via een programma toegang te krijgen tot Azure Active Directory via REST API-eindpunten. Azure AD Graph API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/), een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md): gebruik de Azure AD Graph API om via een programma toegang te krijgen tot Azure AD via REST API-eindpunten. Azure AD Graph API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/), een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
 
 1. [Azure Active Directory-verificatiebibliotheken](active-directory-authentication-libraries.md): u kunt eenvoudig gebruikers verifiëren om toegangstokens te verkrijgen met Azure AD-verificatiebibliotheken voor .NET, JavaScript, Objective-C, Android en meer.
 
@@ -40,15 +40,15 @@ Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel le
 
 ### Snelstartgidsen voor mobiele toepassingen en pc-toepassingen
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:
-|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Universal](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[Rechtstreeks integreren met OAuth 2.0](active-directory-protocols-oauth-code.md)|
 
 ### Snelstartgidsen voor webtoepassingen
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
-|:--:|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)|[Rechtstreeks integreren met OpenID Connect](active-directory-protocols-openid-connect-code.md)|
 
 ### Snelstartgidsen voor web-API's
 
@@ -66,12 +66,14 @@ Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel le
 
 In deze artikelen wordt beschreven hoe u bepaalde taken uitvoert met Azure Active Directory:
 
-- [Een Azure Active Directory-tenant ophalen](active-directory-howto-tenant.md)
-- [Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](active-directory-app-gallery-listing.md)
-- [Het Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md)
-- [Een app maken met Office 365-API's](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
+- [Een Azure AD-gebruiker aanmelden met behulp van het patroon voor multitenant-toepassingen](active-directory-devhowto-multi-tenant-overview.md) 
+- Inschakelen van eenmalige aanmelding in verschillende apps met ADAL op [Android](active-directory-sso-android.md)- en [iOS](active-directory-sso-ios.md)-apparaten
+- [Uw toepassing AppSource-gecertificeerd maken voor Azure AD](active-directory-devhowto-appsource-certified.md)
+- [Uw toepassing weergeven in de Azure AD-toepassingsgalerie](active-directory-app-gallery-listing.md)
 - [Web-apps voor Office 365 verzenden naar het verkoperdashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Informatie over het inschakelen van eenmalige aanmelding in verschillende apps met ADAL op [Android](active-directory-sso-android.md)- en [iOS](active-directory-sso-ios.md)-apparaten
+- [Het Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md)
+- [Inzicht krijgen in de huisstijlrichtlijnen voor de knoppen voor aanmelding en aankoop van apps in een clienttoepassing](active-directory-branding-guidelines.md)
 - [Voorbeeld: apps maken waarmee gebruikers zich aanmelden met persoonlijke accounts en werk- of schoolaccounts](active-directory-appmodel-v2-overview.md)
 - [Voorbeeld: apps maken waarmee gebruikers zich registreren en aanmelden](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -97,17 +99,21 @@ Deze artikelen bevatten naslaginformatie over REST API's en API's voor verificat
 
 - [Graph API-machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0-machtigingsbereiken waarmee de toegang van een app tot directorygegevens in een tenant wordt beheerd.
 
-### Verificatieprotocollen
+### Verificatie- en autorisatieprotocollen
 
-- [Azure Active Directory-verificatieprotocollen](active-directory-protocols.md): meer informatie over de verschillende verificatie- en autorisatieprotocollen die worden ondersteund door Azure Active Directory.
+- [Ondertekening van sleutelrollover in Azure AD](active-directory-signing-key-rollover.md): meer informatie over het proces voor ondertekening van de sleutelrollover in Azure AD en het bijwerken van de sleutel voor de meest voorkomende toepassingsscenario's.
+
+- [OAuth 2.0-protocol: werken met de autorisatiecodetoekenning](active-directory-protocols-oauth-code.md): u kunt de autorisatiecodetoekenning van het OAuth 2.0-protocol gebruiken om toegang te verlenen aan webtoepassingen en web-API’s in uw Azure Active Directory-tenant.
+
+- [OAuth 2.0-protocol: inzicht in de impliciete toekenning](active-directory-dev-understanding-oauth2-implicit-grant.md): meer informatie over de impliciete autorisatietoekenning en of deze geschikt is voor uw toepassing.
+
+- [OAuth 2.0-protocol: service-naar-serviceaanroepen met behulp van referenties Client-Service](active-directory-protocols-oauth-service-to-service.md): de stroom van de toekenning van OAuth 2.0-clientreferenties maakt het voor een webservice (een vertrouwelijke client) mogelijk om eigen referenties te gebruiken voor het verifiëren bij het aanroepen van een andere webservice, in plaats van een gebruiker te imiteren. In dit scenario is de client doorgaans een webservice in de middelste laag , een daemon-service of website.
+
+- [OpenID Connect 1.0-protocol: aanmelding en verificatie](active-directory-protocols-openid-connect-code.md): met het OpenID Connect 1.0-protocol kunt u OAuth 2.0 uitbreiden voor gebruik als verificatieprotocol. Een clienttoepassing kan een id_token ontvangen voor het beheer van het aanmeldingsproces of de stroom van de autorisatiecode uitbreiden om zowel een id_token als autorisatiecode te ontvangen.
 
 - [Naslaginformatie over het SAML 2.0-protocol](active-directory-saml-protocol-reference.md): met het SAML 2.0-protocol beschikken gebruikers in toepassingen over eenmalige aanmelding.
 
-- [Naslaginformatie over het OAuth 2.0-protocol](active-directory-protocols-oauth-code.md): met het OAuth 2.0-protocol kunt u toegang verlenen tot webtoepassingen en web-API's in uw Azure Active Directory-tenant.
-
-- [Naslaginformatie over het OpenID Connect 1.0-protocol](active-directory-protocols-openid-connect-code.md): met het OpenID Connect 1.0-protocol kunt u OAuth 2.0 uitbreiden voor gebruik als verificatieprotocol.
-
-- [WS-Federation 1.2-protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory ondersteunt WS-Federation 1.2 vanaf de specificatie Webservices-federatie versie 1.2.
+- [WS-Federation 1.2-protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory ondersteunt WS-Federation 1.2 vanaf de specificatie Webservices-federatie versie 1.2. Zie [Federation Metadata](active-directory-federation-metadata.md) (Federatieve metagegevens) voor meer informatie over het document met federatieve metagegevens.
 
 - [Ondersteund token en ondersteunde claimtypen](active-directory-token-and-claims.md): in deze handleiding worden de claims in de tokens SAML 2.0 en JSON Web Tokens (JWT) beschreven en geëvalueerd.
 
@@ -141,6 +147,6 @@ In deze overzichtspresentaties over het ontwikkelen van apps met behulp van Azur
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

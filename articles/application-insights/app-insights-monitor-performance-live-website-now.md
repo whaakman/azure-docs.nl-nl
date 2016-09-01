@@ -12,45 +12,47 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="07/28/2016"
     ms.author="awills"/>
 
 
-# Application Insights Status Monitor installeren om de prestaties van uw website te bewaken
+# Web-apps tijdens runtime instrumenteren met Application Insights
 
 *Application Insights verkeert momenteel in de preview-fase.*
 
-Met de Status Monitor van Visual Studio Application Insights kunt u uitzonderingen en prestatieproblemen in ASP.NET-toepassingen analyseren. 
+U kunt een live web-app instrumenteren met Visual Studio Application Insights, zonder dat u uw code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost door een on-premises IIS-server, installeert u Status Monitor; als het Azure web-apps zijn of de apps in een virtuele Azure-machine worden uitgevoerd, kunt u de extensie Application Insights installeren. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![voorbeeldgrafieken](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] Er zijn afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).
+U kunt kiezen uit drie methoden voor het toepassen van Application Insights voor uw .NET-webtoepassingen:
+
+* **Tijdens het bouwen:** [voeg de Application Insights-SDK][greenbrown] toe aan uw web-app-code. 
+* **Tijdens het gebruik:** Instrumenteer uw web-app op de server, zoals hieronder wordt beschreven, zonder deze opnieuw op te bouwen en de code opnieuw te implementeren.
+* **Beide:** bouw de SDK in de code van uw web-app in en pas ook de runtime-extensies toe. Zo profiteert u van het beste van beide opties. 
+
+Hier volgt een samenvatting van wat elke manier u biedt:
+
+||Tijdens het bouwen|Tijdens het gebruik|
+|---|---|---|
+|Aanvragen en uitzonderingen|Ja|Ja|
+|[Meer gedetailleerde uitzonderingen](app-insights-asp-net-exceptions.md)||Ja|
+|[Diagnostische gegevens over afhankelijkheid](app-insights-asp-net-dependencies.md)|Op .NET 4.6+|Ja|
+|[Systeemprestatiemeteritems](app-insights-web-monitor-performance.md#system-performance-counters)||IIS- of Azure-cloudservice, niet Azure-web-app|
+|[API voor aangepaste telemetrie][api]|Ja||
+|[Integratie traceerlogboeken](app-insights-asp-net-trace-logs.md)|Ja||
+|[Paginaweergave en gebruikersgegevens](app-insights-javascript.md)|Ja||
+|Opnieuw opbouwen van code is niet nodig|Nee||
 
 
-U kunt kiezen uit drie methoden voor het toepassen van Application Insights voor uw IIS-webtoepassingen:
-
-* **Tijdens het bouwen:** [voeg de Application Insights-SDK][greenbrown] toe aan uw web-app-code. Hierdoor beschikt u over:
- * Een set standaardtelemetrie voor diagnostiek en gebruiksgegevens.
- * Met de [Application Insights-API][api] kunt u uw eigen telemetrie schrijven voor het gedetailleerd bijhouden van gebruik of het analyseren van problemen.
-* **Tijdens het gebruik:** gebruik Status Monitor om uw web-app op de server te instrumenteren.
- * Bewaak web-apps die al worden uitgevoerd: u hoeft deze niet opnieuw te bouwen of te publiceren.
- * Een set standaardtelemetrie voor diagnostiek en gebruiksgegevens.
- * Met diagnostische gegevens over afhankelijkheid lokaliseert u fouten of slechte prestaties wanneer uw app gebruikmaakt van andere onderdelen, zoals databases, REST-API's of andere services.
- * Los eventuele problemen met de telemetrie op.
-* **Beide:** compileer de SDK in uw web-app-code en voer Status Monitor uit op uw webserver.  Het beste van beide werelden:
- * Standaardtelemetrie voor diagnostiek en gebruiksgegevens.
- * Diagnostische gegevens over afhankelijkheid.
- * Met de API kunt u aangepaste telemetrie schrijven.
- * Los eventuele problemen met de SDK en telemetrie op.
 
 
-## Application Insights Status Monitor installeren
+## Uw web-app tijdens het gebruik instrumenteren
 
 U hebt een [Microsoft Azure](http://azure.com)-abonnement nodig.
 
-### Als uw app wordt uitgevoerd op uw IIS-server
+### Als uw app op uw IIS-server wordt gehost
 
-1. Meld u op de IIS-webserver aan met beheerdersreferenties.
+1. Meld u op uw IIS-webserver aan met beheerdersreferenties.
 2. Download het [Status Monitor-installatieprogramma](http://go.microsoft.com/fwlink/?LinkId=506648) en voer het uit.
 4. Meld u in de installatiewizard aan bij Microsoft Azure.
 
@@ -87,9 +89,15 @@ Nadat u de wizard hebt voltooid, kunt u de agent op elk gewenst moment opnieuw c
 
 ### Als uw app wordt uitgevoerd als Azure-web-app
 
-Voeg in het bedieningspaneel van uw Azure-web-app de extensie Application Insights toe.
+1. Maak in de [Azure Portal](https://portal.azure.com) een Application Insights-resource met type ASP.NET. Dit is waar uw toepassingstelemetrie wordt opgeslagen, geanalyseerd en weergegeven.
 
-![In uw web-app: Settings, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Toevoegen, Application Insights. Selecteer het type ASP.NET.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Open de besturingselementblade van uw Azure Web-app, open **Hulpmiddelen > Prestatiebewaking** en voeg de Application Insights-extensie toe.
+
+    ![In uw web-app: Hulpmiddelen, Extensies, Toevoegen, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Selecteer de Application Insights-resource die u zojuist hebt gemaakt.
 
 
 ### Als het een Azure-cloudserviceproject betreft
@@ -107,26 +115,28 @@ Open de blade Performance om aanvragen, reactietijden, afhankelijkheden en ander
 
 ![Prestaties](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Klik om de details aan te passen van wat er wordt weergegeven of voeg een nieuwe grafiek toe.
+Klik op een grafiek om een gedetailleerde weergave te openen.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+U kunt grafieken [bewerken, rangschikken, opslaan](app-insights-metrics-explorer.md) en grafieken of de hele blade vastmaken aan een [dashboard](app-insights-dashboards.md).
 
 ## Afhankelijkheden
 
 De grafiek Dependency Duration laat zien hoelang aanroepen van uw app aan externe onderdelen (zoals databases, REST-API's of Azure-blobopslag) duren.
 
-Als u de grafiek wilt segmenteren op aanroepen naar verschillende afhankelijkheden, selecteert u de grafiek, schakelt u Grouping in en kiest u vervolgens Dependency, Dependency Type of Dependency Performance.
+Als u de grafiek wilt segmenteren op aanroepen naar verschillende afhankelijkheden, bewerkt u de grafiek, schakelt u Groeperen in en groepeert u vervolgens op Afhankelijkheid, Type afhankelijkheid of Prestaties voor afhankelijkheden.
 
-U kunt ook de grafiek filteren om te kijken naar een specifieke afhankelijkheid, een specifiek type of een specifieke prestatiebucket. Klik op Filters.
+![Afhankelijkheid](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Prestatiemeteritems
+## Prestatiemeteritems 
 
 (Niet voor Azure-web-apps.) Klik op de overzichtsblade op Servers om grafieken van serverprestatiemeters weer te geven, zoals CPU-bezetting en geheugengebruik.
 
-Voeg een nieuwe grafiek toe of klik op een grafiek om te wijzigen wat er wordt weergegeven. 
+Als u meerdere serverexemplaren hebt, is het een goed idee om de grafieken te bewerken door ze te groeperen op rolinstantie.
+
+![Servers](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 U kunt ook [de set prestatiemeteritems wijzigen die door de SDK worden gerapporteerd](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
+
 
 ## Uitzonderingen
 
@@ -143,24 +153,7 @@ Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insig
 
 ### Verbindingsfouten
 
-Als u gebruik wilt maken van Status Monitor, moet u een aantal uitgaande poorten in de firewall van uw server openen:
-
-+ Telemetrie - deze zijn altijd nodig:
- +  `dc.services.visualstudio.com:80`
- +  `dc.services.visualstudio.com:443`
- +  `dc.applicationinsights.microsoft.com`
-+ Configuratie - deze zijn alleen nodig voor het doorvoeren van wijzigingen:
- -  `management.core.windows.net:443`
- -  `management.azure.com:443`
- -  `login.windows.net:443`
- -  `login.microsoftonline.com:443`
- -  `secure.aadcdn.microsoftonline-p.com:443`
- -  `auth.gfx.ms:443`
- -  `login.live.com:443`
-+ Installatie:
- +  `packages.nuget.org:443`
-
-Deze lijst kan van tijd tot tijd worden gewijzigd.
+Als u gebruik wilt maken van Status Monitor, moet u [een aantal uitgaande poorten](app-insights-ip-addresses.md#outgoing-ports) in de firewall van uw server openen.
 
 ### Geen telemetrie?
 
@@ -196,6 +189,12 @@ Ondersteuning voor IIS is: IIS 7, 7.5, 8, 8.5 (IIS is vereist)
 ## Automatisering met PowerShell
 
 Met behulp van PowerShell kunt u de bewaking starten en stoppen.
+
+Importeer eerst de module Application Insights:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Controleer welke apps worden bewaakt:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
@@ -303,6 +302,6 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

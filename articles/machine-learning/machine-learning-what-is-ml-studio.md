@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 # Wat is Azure Machine Learning Studio?
@@ -47,6 +47,7 @@ Bovenaan ziet u drie tabbladen: **Start** (waar u begint), **Studio** en **Galle
 
 Als u op het tabblad **Studio** klikt, wordt u gevraagd om u aan te melden met uw Microsoft-account of met uw werk- of schoolaccount. Wanneer u bent aangemeld, ziet u links de volgende tabbladen:
 
+- **PROJECTS**: verzamelingen van experimenten, gegevenssets, kladblokken en andere resources die één project vertegenwoordigen
 - **EXPERIMENTS**: experimenten die zijn gemaakt, uitgevoerd en als concept zijn opgeslagen
 - **WEB SERVICES**: webservices die u hebt geïmplementeerd vanuit uw experimenten
 - **NOTEBOOKS**: Jupyter-notitieblokken die u hebt gemaakt
@@ -107,7 +108,7 @@ Voor hulp bij het navigeren door het uitgebreide scala aan machine learning-algo
 
 Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine Learning Studio implementeren als webservice. Voor meer informatie over dit proces raadpleegt u [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) (Een Azure Machine Learning-webservice implementeren).
 
-[ml-studio-overzicht]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
+[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
@@ -117,6 +118,6 @@ Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

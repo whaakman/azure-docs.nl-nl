@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="runbook, runbook template, runbook automation, azure runbook"/>
+    keywords="runbook, runbook-sjabloon, runbook-automatisering, azure-runbook"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # Mijn eerste grafische runbook
@@ -115,7 +115,7 @@ Nu we een variabele hebben die onze abonnements-id kan bevatten, kunnen we ons r
 10.  **Add-AzureRmAccount** bevat meerdere parametersets, dus moeten we er een selecteren voordat we parameterwaarden kunnen opgeven.  Klik op **Parameterset** en selecteer vervolgens de parameterset **ServicePrincipalCertificate**. 
 11.  Zodra u de parameterset hebt geselecteerd, worden de parameters weergegeven op de blade Parameterconfiguratie van activiteit.  Klik op **APPLICATIONID**.<br> ![Parameters voor Azure RM-account toevoegen](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  Selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron** en selecteer **Uitvoeren als-verbinding ophalen** in de lijst. In het tekstvak **Pad naar veld** typt u **ApplicationId** en vervolgens klikt u op **OK**.  We geven de naam van de eigenschap voor het pad naar het veld op omdat de uitvoer van de activiteit een object met meerdere eigenschappen bevat.
-13.  Klik op **CERTIFICATETHUMBPRINT** en selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron**.  Selecteer **Uitvoeren als-verbinding ophalen** in de lijst, typ in het tekstvak **Pad naar veld** **CertificateThumbrprint** en klik vervolgens op **OK**. 
+13.  Klik op **CERTIFICATETHUMBPRINT** en selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron**.  Selecteer **Uitvoeren als-verbinding ophalen** in de lijst, typ in het tekstvak **Pad naar veld** **CertificateThumbprint** en klik vervolgens op **OK**. 
 14.  Klik op **SERVICEPRINCIPAL** en selecteer op de blade Parameterwaarde **ConstantValue** voor de **gegevensbron**, klik op de optie **Waar** en klik vervolgens op **OK**.
 15.  Klik op **TENANTID** en selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron**.  Selecteer **Uitvoeren als-verbinding ophalen** in de lijst, typ in het tekstvak **Pad naar veld** **TenantId** en klik vervolgens tweemaal op **OK**.  
 16.  Typ in het besturingselement Bibliotheek **Set-AzureRmContext** in het zoektekstvak.
@@ -135,7 +135,7 @@ Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbo
 We voegen nu een activiteit **Start-AzureRmVM** toe om een virtuele machine te starten.  U kunt elke virtuele machine in uw Azure-abonnement selecteren en voorlopig hardcoderen we deze naam in de cmdlet.
 
 1. Typ in het besturingselement Bibliotheek **Start-AzureRm** in het zoektekstvak.
-2. Voeg **Start-AzureRmVM** toe aan het papier, klik erop en sleep het onder **Abonnements-id opgeven**.
+2. Voeg **Start-AzureRmVM** toe aan het papier, klik erop en sleep het onder **Verbinding maken met Azure**.
 3. Beweeg de muisaanwijzer over **Abonnements-id opgeven** totdat een cirkel wordt weergegeven aan de onderkant van de vorm.  Klik op de cirkel en sleep de pijl naar **Start-AzureRmVM**. 
 4.  Selecteer **Start-AzureRmVM**.  Klik op **Parameters** en vervolgens op **Parameterset** om de sets voor **Start-AzureRmVM** weer te geven.  Selecteer de parameterset **ResourceGroupNameParameterSetName**. Naast **ResourceGroupName** en **Name** staan uitroeptekens.  Hiermee wordt aangegeven dat dit vereiste parameters zijn.  Voor beide parameters worden tekenreekswaarden verwacht.
 5.  Selecteer **Name**.  Selecteer **PowerShell-expressie** voor de **gegevensbron** en typ de naam van de virtuele machine tussen dubbele aanhalingstekens die we met dit runbook gaan starten.  Klik op **OK**.<br>![Parameterwaarde naam Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -198,15 +198,15 @@ We zullen het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele mach
 17. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Get Status'] -eq "Stopped"*.  **Start-AzureRmVM** wordt nu alleen uitgevoerd als de virtuele machine is gestopt.
 18. Vouw in het besturingselement Bibliotheek **Cmdlets** uit en vervolgens **Microsoft.PowerShell.Utility**.
 19. Voeg **Write-Output** tweemaal aan het papier toe.<br> ![Runbook met Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. In het eerste besturingselement **Write-Output** wijzigt u de waarde voor **Label** in *VM gestart melden*.
+20. In het eerste besturingselement **Write-Output** klikt u op **Parameters** en wijzigt u de waarde voor **Label** in *VM gestart melden*.
 21. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName successfully started."*.
-22. In het tweede besturingselement **Write-Output** wijzigt u de waarde voor **Label** in *Starten VM mislukt melden*.
+22. In het tweede besturingselement **Write-Output** klikt u op **Parameters** en wijzigt u de waarde voor **Label** in *Starten VM mislukt melden*.
 23. Voor **InputObject** wijzigt u **Gegevensbron** in **PowerShell-expressie** en typt u de expressie *"$VMName could not start."*.
 24. Maak een koppeling van **Start-AzureRmVM** naar **VM gestart melden** en **Starten VM mislukt melden**.
 25. Selecteer de koppeling naar **VM gestart melden** en wijzig **Voorwaarde toepassen** in **Waar**.
 26. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  Dit besturingselement Write-Output wordt nu alleen uitgevoerd als de virtuele machine is gestart.
 27. Selecteer de koppeling naar **Starten VM mislukt melden** en wijzig **Voorwaarde toepassen** in **Waar**.
-28. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Dit besturingselement Write-Output wordt nu alleen uitgevoerd als de virtuele machine niet is gestart. 
+28. Voor **Expressie van voorwaarde** typt u *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  Dit besturingselement Write-Output wordt nu alleen uitgevoerd als de virtuele machine niet is gestart.
 29. Sla het runbook op en open het testvenster.
 30. Start het runbook als de virtuele machine is gestopt; deze zou moeten starten.
 
@@ -218,6 +218,6 @@ We zullen het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele mach
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

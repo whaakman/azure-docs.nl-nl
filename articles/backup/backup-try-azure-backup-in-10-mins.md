@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""
-   keywords="how to backup; how to back up"/>
+   keywords="hoe een back-up maken; back-up maken"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# Eerste kennismaking: maak een back-up van bestanden en mappen op de Windows Server of client in Azure met Azure Backup aan de hand van het Resource Manager-implementatiemodel
+# Eerste blik: een back-up maken van bestanden en mappen in Azure Backup met behulp van het Resource Manager-implementatiemodel
 
 In dit artikel wordt uitgelegd hoe u een back-up maakt van bestanden en mappen op uw Windows Server (of Windows-client) in Azure met behulp van de Resource Manager van Azure Backup. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt. Als u met Azure Backup wilt leren werken, bent u hier op de goede plek.
 
@@ -65,7 +65,7 @@ Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Ser
 
 7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. Deze keuze bepaalt de geografische regio waar uw back-upgegevens naartoe worden verzonden.
 
-8. Klik op **Maken**.
+8. Klik op **Create**.
 
     Als u uw kluis niet in de lijst ziet nadat u deze hebt gemaakt, klik dan op **Vernieuwen**. Wanneer de lijst is vernieuwd, klikt u op de naam van de kluis.
 
@@ -209,6 +209,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [s
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

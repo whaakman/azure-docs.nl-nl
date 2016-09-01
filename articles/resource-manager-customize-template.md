@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
 # Een geëxporteerde Azure Resource Manager-sjabloon aanpassen
@@ -236,6 +236,6 @@ Beide opties worden in dit artikel getoond.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

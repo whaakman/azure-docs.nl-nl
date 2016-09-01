@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # Vereisten en controlelijst voor ExpressRoute  
 
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services moet u controleren of aan de vereisten die in de onderstaande secties worden genoemd, is voldaan.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure-account
 
@@ -66,6 +68,6 @@ Als u CRM Online op ExpressRoute wilt gaan inschakelen, raadpleeg dan de volgend
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

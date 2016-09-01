@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - wachtwoordsynchronisatie met Azure AD Domain Services inschakelen
@@ -40,7 +40,7 @@ U moet de meest recente, aanbevolen versie van Azure AD Connect installeren op e
 
 **[Azure AD Connect downloaden](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Aanbevolen versie: **1.1.130.0** - gepubliceerd op 12 April 2016.
+Aanbevolen versie: **1.1.189.0** - gepubliceerd op 3 juni 2016.
 
   > [AZURE.WARNING] U MOET de meest recente, aanbevolen versie van Azure AD Connect installeren om ervoor te zorgen dat oudere wachtwoordreferenties (die zijn vereist voor NTLM- en Kerberos-verificatie) kunnen worden gesynchroniseerd met uw Azure AD-tenant. Deze functionaliteit is niet beschikbaar in eerdere versies van Azure AD Connect of in het oudere DirSync-hulpprogramma.
 
@@ -82,6 +82,6 @@ Afhankelijk van de grootte van de directory (aantal gebruikers, groepen enzovoor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

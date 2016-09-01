@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Windows-verificatie en Azure Multi-Factor Authentication-server
@@ -42,15 +42,16 @@ In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakele
 2. Schakel het selectievakje Windows-verificatie in. Dit selectievakje is standaard uitgeschakeld.
 3. Op het tabblad Toepassingen kan de beheerder een of meer toepassingen configureren voor Windows-verificatie.
 4. Selecteer een server of toepassing. Geef op of de server/toepassing is ingeschakeld. Klik op OK.
-5. Klik op de knop Toevoegen… .
+5. Klik op de knop Bewerken....
 6. Op het tabblad Goedgekeurde IP-adressen kunt u Azure Multi-Factor Authentication voor Windows-sessies die afkomstig zijn van specifieke IP-adressen overslaan. Als werknemers bijvoorbeeld de toepassing zowel op kantoor als thuis gebruiken, kunt u instellen dat hun telefoons voor Azure Multi-Factor Authentication niet overgaan wanneer ze op kantoor zijn. Hiervoor geeft u het subnet van de werkplek op als een van de goedgekeurde IP-adressen.
-7. Klik op de knop Toevoegen… .
+7. Klik op de knop Bewerken....
 8. Selecteer Eén IP-adres als u één IP-adres wilt overslaan.
 9. Selecteer IP-bereik als u een heel IP-adresbereik wilt overslaan. Voorbeeld 10.63.193.1-10.63.193.100.
 10. Selecteer Subnet als u een bereik van IP-adressen wilt opgeven met subnetnotatie. Voer het IP-adres in waarop het subnet begint en kies het juiste IP-masker uit de vervolgkeuzelijst. 
 11. Klik op de knop OK.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

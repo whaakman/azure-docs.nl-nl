@@ -4,7 +4,7 @@
 
     De blade met het nieuwe CDN-profiel wordt weergegeven.
 
-    ![Nieuw CDN-profiel](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Nieuw CDN-profiel](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Voer een naam in voor uw CDN-profiel.
 
@@ -14,13 +14,13 @@
 
 5. Selecteer een **prijscategorie**.  Zie het [CDN Overview](cdn-overview.md#azure-cdn-features) (CDN-overzicht) voor een vergelijking van prijscategorieën.
     
-    ![Het selecteren van een CDN-prijscategorie](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Het selecteren van een CDN-prijscategorie](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Selecteer het **abonnement** voor dit CDN-profiel.
 
 7. Klik op de knop **Maken** om het nieuwe profiel te maken. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

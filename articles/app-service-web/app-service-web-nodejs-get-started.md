@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
 
 # Aan de slag met Node.js-web-apps in Azure App Service
@@ -70,7 +70,7 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Volg de aanwijzing om een Azure-regio voor de implementatie te selecteren. Als u nog niet eerder Git-/FTP-implementatiereferenties voor uw Azure-abonnement hebt ingesteld, wordt u gevraagd om deze te maken.
 
-3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. Uw JSON-productieobject moet eruitzien als in het volgende voorbeeld. Als deze map of dit bestandspad niet voorkomt in de hoofdmap van uw toepassing, maakt u een map met de naam **config** in de hoofdmap van de toepassing en kopieert u de volgende JSON naar de map.
+3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. De eigenschap `production` in het object `config` moet eruitzien als in het volgende voorbeeld.
 
         production: {
             root: rootPath,
@@ -96,7 +96,7 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     U ziet nu hoe uw node.js-web-app live in Azure App Service wordt uitgevoerd.
     
-    ![Example of browsing to the deployed application.][deployed-express-app]
+    ![Voorbeeld van het bladeren naar de geïmplementeerde toepassing.][deployed-express-app]
 
 ## De Node.js-web-app bijwerken
 
@@ -170,15 +170,15 @@ Voer de volgende stappen uit om iisnode-logboeken te lezen.
 
 5. Navigeer naar D:\home\site\wwwroot\iisnode
 
-    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-zoeken]
+    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-find]
 
 6. Klik op het pictogram **Bewerken** voor het logboek dat u wilt lezen. U kunt desgewenst ook op **Downloaden** of **Verwijderen** klikken.
 
-    ![Een iisnode-logboekbestand openen][iislog-kudu-console-openen]
+    ![Een iisnode-logboekbestand openen][iislog-kudu-console-open]
 
     Nu kunt u het logboek bekijken om u te helpen bij het opsporen van fouten in uw App Service-implementatie.
     
-    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-lezen]
+    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-read]
 
 ## Fouten in een app opsporen met Node-Inspector
 
@@ -208,6 +208,7 @@ Volg deze stappen om Node-Inspector in te schakelen:
 ## Meer bronnen
 
 - [Een Node.js-versie opgeven in een Azure-toepassing](../nodejs-specify-node-version-azure-apps.md)
+- [Aanbevolen procedures en gids voor probleemoplossing voor Node.js-toepassingen in Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Fouten opsporen in een Node.js web-app in Azure App Service](web-sites-nodejs-debug.md)
 - [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
 - [Web-apps van Azure App Service: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -238,12 +239,12 @@ Volg deze stappen om Node-Inspector in te schakelen:
 <!-- IMG List -->
 
 [deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
-[iislog-kudu-console-zoeken]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
-[iislog-kudu-console-openen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
-[iislog-kudu-console-lezen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
+[iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
+[iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
+[iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="06/07/2016"
     ms.author="davidmu"/>
 
 # Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
@@ -33,34 +33,36 @@ Eerst maakt u een resourcegroep.
 
 1. Haal een lijst op met beschikbare locaties waar resources kunnen worden gemaakt.
 
-        Get-AzureLocation | sort Name | Select Name
+        Get-AzureRmLocation | sort Location | Select Location
         
     Deze lijst ziet er ongeveer zo uit:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. Vervang de waarde van **$locName** door een locatie in de lijst. Maak de variabele.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. Vervang de waarde van **$rgName** door de gewenste naam voor de nieuwe resourcegroep. Maak de variabele en de resourcegroep.
 
@@ -74,13 +76,13 @@ Een [opslagaccount](../storage/storage-introduction.md) is nodig voor het opslaa
 1. Vervang de waarde van **$stName** door de gewenste naam voor het opslagaccount. Test of de naam uniek is.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Als deze opdracht **onwaar** retourneert, is de voorgestelde naam uniek in Azure. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
+    Als deze opdracht **Waar** retourneert, is de voorgestelde naam uniek in Azure. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
     
 2. Voer nu de opdracht uit voor het maken van het opslagaccount.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## Stap 4: Een virtueel netwerk maken
 
@@ -120,7 +122,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Het wachtwoord moet tussen 8 en 123 tekens lang zijn en ten minste 3 van de volgende waarden bevatten: één kleine letter, één hoofdletter, één cijfer en één speciaal teken. 
+    Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
         
 2. Vervang de waarde van **$vmName** door de gewenste naam voor de virtuele machine. Maak de variabele en de configuratie voor de virtuele machine.
 
@@ -158,7 +160,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
         New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-    U ziet de resourcegroep en alle resources in de Azure Portal en de status Geslaagd in het PowerShell-venster:
+    U ziet de resourcegroep en alle resources in de Azure-portal en de status Geslaagd in het PowerShell-venster:
 
         RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
         ---------  -------------------  ----------  ------------
@@ -166,12 +168,12 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
                                   
 ## Volgende stappen
 
-- Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in Azure Portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
+- Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in de Azure-portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
 - Informatie over het beheren van de virtuele machine die u zojuist hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md).
 - Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

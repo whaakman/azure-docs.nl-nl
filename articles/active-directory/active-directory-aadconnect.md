@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure AD Connect: uw on-premises identiteiten integreren met Azure Active Directory. | Microsoft Azure"
     description="Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
+    keywords="inleiding tot Azure AD Connect, overzicht Azure AD Connect, wat is Azure AD Connect, Active Directory installeren"
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
@@ -14,10 +14,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/19/2016"
+    ms.date="07/14/2016"
     ms.author="andkjell;billmath"/>
 
-# Uw on-premises identiteiten integreren met Azure Active Directory
+# Integrating your on-premises identities with Azure Active Directory (Engelstalig)
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -68,7 +68,7 @@ Onderwerp |
 --------- | ---------
 Azure AD Connect downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771)
 Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Installeren met behulp van aangepaste instellingen | [Aangepaste installatie van Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Installeren met behulp van aangepaste instellingen | [Custom installation of Azure AD Connect (Engelstalig)](active-directory-aadconnect-get-started-custom.md)
 Upgraden van DirSync | [Upgrade van Azure AD-synchronisatiehulpprogramma (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Na installatie | [Controleer de installatie en wijs licenties toe ](active-directory-aadconnect-whats-next.md)
 
@@ -139,6 +139,7 @@ Als uw ADFS-server niet is geconfigureerd voor het automatisch bijwerken van cer
 
 Onderwerp |  
 --------- | ---------
+Alle AD FS-artikelen | [Azure AD Connect en federatie](active-directory-aadconnectfed-whatis.md)
 ADFS configureren met subdomeinen | [Ondersteuning voor meerdere domeinen voor federatie met Azure AD](active-directory-aadconnect-multiple-domains.md)
 AD FS-farm beheren | [AD FS-beheer en aanpassingen met Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Handmatig bijwerken van de federatiecertificaten | [Federatiecertificaten vernieuwen voor Office 365 en Azure AD](active-directory-aadconnect-o365-certs.md)
@@ -164,6 +165,6 @@ Ignite 2015-presentatie over het uitbreiden van uw on-premises directory’s in 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -14,14 +14,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Azure AD Connect Health gebruiken met AD FS
-De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health.
+De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health. 
 
 ## Waarschuwingen voor AD FS
-In de sectie Waarschuwingen van Azure AD Connect Health vindt u een lijst met actieve waarschuwingen. Elke waarschuwing bevat relevante informatie, stappen voor het oplossen van het probleem en koppelingen naar gerelateerde documentatie. Als u een actieve of opgeloste waarschuwing selecteert, ziet u een nieuwe blade met aanvullende informatie. Ook ziet u stappen die u kunt nemen voor het oplossen van de waarschuwing en koppelingen naar aanvullende documentatie. Ook kunt u historische gegevens zien voor waarschuwingen die in het verleden zijn opgelost.
+In de sectie Waarschuwingen van Azure AD Connect Health vindt u een lijst met actieve waarschuwingen. Elke waarschuwing bevat relevante informatie, stappen voor het oplossen van het probleem en koppelingen naar gerelateerde documentatie. Als u een actieve of opgeloste waarschuwing selecteert, ziet u een nieuwe blade met aanvullende informatie. Ook ziet u stappen die u kunt nemen voor het oplossen van het probleem en koppelingen naar aanvullende documentatie. U kunt ook u historische gegevens bekijken voor waarschuwingen die in het verleden zijn opgelost.
 
 Als u een waarschuwing selecteert, ziet u aanvullende informatie. Ook ziet u stappen die u kunt nemen voor het oplossen van de waarschuwing en links naar aanvullende documentatie.
 
@@ -107,14 +107,15 @@ Het rapport bevat het volgende:
 ## Verwante koppelingen
 
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation (Engelstalig)](active-directory-aadconnect-health-agent-install.md)
+* [De Azure AD Connect Health-agent installeren](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations (Engelstalig)](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health for sync (Engelstalig)](active-directory-aadconnect-health-sync.md)
-* [Azure AD Connect Health FAQ (Engelstalig)](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History (Engelstalig)](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health for Sync gebruiken](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
+* [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

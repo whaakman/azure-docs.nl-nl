@@ -1,7 +1,7 @@
 <properties
     pageTitle="Wat is SQL Database? Inleiding tot SQL Database | Microsoft Azure"
     description="Maak kennis met SQL-Database: technische informatie en mogelijkheden van het relationele database beheersysteem (RDBMS) in de cloud van Microsoft."
-    keywords="introduction to sql,intro to sql,what is sql database"
+    keywords="inleiding in sql,intro in sql,wat is sql-database"
     services="sql-database"
     documentationCenter=""
     authors="shontnew"
@@ -14,14 +14,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # Wat is SQL Database? Inleiding tot SQL Database
 
 SQL Database is een relationele database-service in de cloud op basis van de toonaangevende Microsoft SQL Server-engine met bedrijfskritieke mogelijkheden. SQL Database biedt voorspelbare prestaties, schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging, allemaal praktisch zonder beheer. U kunt zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van het beheer van virtuele machines en infrastructuur. Omdat SQL Database is gebaseerd op de [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-engine, worden bestaande SQL Server-hulpprogramma's, -bibliotheken en -API's ondersteund voor een soepele verplaatsing en uitbreiding naar de cloud.
 
-Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u zover bent, kunt u in een paar minuten [uw eerste SQL-database maken](sql-database-get-started.md) of [een pool voor een elastische database maken](sql-database-elastic-pool-create-portal.md). Zie voor meer informatie deze video van 30 minuten.
+Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u zover bent, kunt u in een paar minuten [uw eerste SQL-database maken](sql-database-get-started.md) of [een groep voor een elastische database maken](sql-database-elastic-pool-create-portal.md). Zie voor meer informatie deze video van 30 minuten.
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
 
@@ -31,11 +31,11 @@ SQL-databases zijn beschikbaar in verschillende *servicelagen*: Basic, Standard 
 
 Voor veel bedrijven en apps is het kunnen maken van databases en het naar wens omhoog of omlaag schalen van de prestaties van één database al voldoende, vooral als de gebruikspatronen redelijk voorspelbaar zijn. Bij onvoorspelbare gebruikspatronen kan het echter lastig zijn uw kosten en bedrijfsmodel effectief te beheren.
 
-[Elastische pools](sql-database-elastic-pool.md) in SQL Database vormen de oplossing voor dit probleem. Het concept is eenvoudig. U wijst prestaties aan een pool toe en betaalt voor de collectieve prestaties van de groep in plaats van voor de prestaties van één database. U hoeft de prestaties van de database niet omhoog of omlaag te schalen. De databases in de pool, de *elastische databases*, worden automatisch omhoog of omlaag geschaald om aan de vraag te voldoen. Elastische databases tellen mee voor het verbruik tot het maximum voor de pool is bereikt. Zo blijven uw kosten voorspelbaar, ook al is uw databasegebruik dat niet. Bovendien kunt u [databases aan de pool toevoegen of eruit verwijderen](sql-database-elastic-pool-manage-portal.md). Zo kan uw app kan worden opgeschaald van een handjevol databases naar duizenden databases, allemaal binnen het budget dat u zelf bepaalt. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische pools.
+[Elastische groepen](sql-database-elastic-pool.md) in SQL Database vormen de oplossing voor dit probleem. Het concept is eenvoudig. U wijst prestaties aan een groep toe en betaalt voor de collectieve prestaties van de groep in plaats van voor de prestaties van één database. U hoeft de prestaties van de database niet omhoog of omlaag te schalen. De databases in de groep, de *elastische databases*, worden automatisch omhoog of omlaag geschaald om aan de vraag te voldoen. Elastische databases tellen mee voor het verbruik tot het maximum voor de groep is bereikt. Zo blijven uw kosten voorspelbaar, ook al is uw databasegebruik dat niet. Bovendien kunt u [databases aan de groep toevoegen of eruit verwijderen](sql-database-elastic-pool-manage-portal.md). Zo kan uw app kan worden opgeschaald van een handjevol databases naar duizenden databases, allemaal binnen het budget dat u zelf bepaalt. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 
-Welke oplossing u ook kiest, individuele of elastische databases, u kunt altijd nog switchen. U kunt individuele databases combineren met pools voor elastische databases, en de servicelagen van individuele databases en pools wijzigen om innovatieve ontwerpen te maken. Bovendien kunt u, dankzij de kracht en het bereik van Azure, Azure-services combineren en integreren met SQL Database om te voldoen aan de behoeften voor uw unieke moderne app-ontwerp, kosten besparen en resources efficiënt beheren, en nieuwe zakelijke verkoopkansen creëren.
+Welke oplossing u ook kiest, individuele of elastische databases, u kunt altijd nog switchen. U kunt individuele databases combineren met groep voor elastische databases, en de servicelagen van individuele databases en groepen wijzigen om innovatieve ontwerpen te maken. Bovendien kunt u, dankzij de kracht en het bereik van Azure, Azure-services combineren en integreren met SQL Database om te voldoen aan de behoeften voor uw unieke moderne app-ontwerp, kosten besparen en resources efficiënt beheren, en nieuwe zakelijke verkoopkansen creëren.
 
-Maar hoe kunt u de relatieve prestaties van databases en databasepools vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? Het antwoord is de DTU (Database Transaction Unit, databasetransactie-eenheid) voor individuele databases en de elastische DTU (eDTU) voor elastische databases en databasepools. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
+Maar hoe kunt u de relatieve prestaties van databases en databasegroepen vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? Het antwoord is de DTU (Database Transaction Unit, databasetransactie-eenheid) voor individuele databases en de elastische DTU (eDTU) voor elastische databases en databasegroepen. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
 
 ## Continuïteit van uw app en uw bedrijf
 
@@ -53,7 +53,7 @@ SQL Server heeft traditiegetrouw een uitstekende gegevensbeveiliging. Deze tradi
 Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, bent u klaar voor de volgende stappen:
 
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/) voor hulpprogramma's voor berekening en een vergelijking van de kosten voor individuele en elastische databases.
-- Lees meer over [elastische pools](sql-database-elastic-pool.md).
+- Lees meer over [elastische groepen](sql-database-elastic-pool.md).
 - Ga aan de slag met het [maken van uw eerste database](sql-database-get-started.md).
 - [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
 - Bouw uw eerste app in C#, Java, Node.js, PHP, Python of Ruby: [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
@@ -61,6 +61,6 @@ Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, ben
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

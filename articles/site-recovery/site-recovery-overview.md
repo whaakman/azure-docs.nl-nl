@@ -20,13 +20,20 @@
 
 Welkom bij Azure Site Recovery! Begin met dit artikel om snel een beeld te krijgen van de Site Recovery-service en hoe deze kan bijdragen aan uw zakelijke continuïteit en noodherstelplan (BCDR).
 
-Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Dit artikel is van toepassing op beide modellen. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
-
 ## Overzicht
 
-Ervoor zorgen dat zakelijke workloads en apps actief blijven tijdens geplande en niet-geplande uitval is een belangrijk onderdeel van de BCDR-strategie van uw organisatie.
+Organisaties hebben een BCDR-strategie nodig die bepaalt op welke wijze toepassingen, workloads en gegevens beschikbaar blijven tijdens geplande en ongeplande uitval, en ervoor zorgt dat deze zo snel mogelijk worden hersteld naar een normale manier van functioneren. In uw BCDR-strategie moeten bedrijfsgegevens veilig en herstelbaar blijven. Ook moet ervoor worden gezorgd dat workloads continu beschikbaar blijven wanneer zich een noodsituatie voordoet. 
 
-Dankzij Site Recovery kunt u dit doen door replicatie, failovers en herstel van workloads en apps te organiseren, zodat ze vanaf een secundaire locatie beschikbaar zijn als uw primaire locatie uitvalt. 
+Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md)
+
+## Site Recovery in de Azure-portal
+
+Azure heeft twee verschillende [implementatiemodellen](../resource-manager-deployment-model.md) voor het maken van en werken met resources: het Azure Resource Manager-model (ARM) en het klassieke model voor het beheren van services. Azure heeft ook twee portals: de [klassieke Azure-portal](https://manage.windowsazure.com/), die ondersteuning biedt voor het klassieke implementatiemodel, en de [Azure-portal](https://portal.azure.com), die ondersteuning biedt voor beide implementatiemodellen.
+
+Site Recovery is zowel beschikbaar in de klassieke portal als in de Azure-portal. In de klassieke Azure-portal kunt u Site Recovery ondersteunen met het klassieke model voor het beheren van services. In de Azure-portal kunt u implementaties volgens het klassieke model of volgens Resource Manager ondersteunen. [Lees meer informatie](site-recovery-overview.md#site-recovery-in-the-azure-portal) over implementeren via de Azure-portal.
+
+De informatie in dit artikel is van toepassing op zowel klassieke als Azure-portal-implementaties. Verschillen worden vermeld, indien van toepassing.
+
 
 ## Waarom u Site Recovery moet gebruiken 
 
@@ -40,20 +47,20 @@ Dit kan Site Recovery voor uw bedrijf betekenen:
 
 ## Wat kan ik repliceren?
 
-Hier volgt een overzicht van wat u met Site Recovery kunt repliceren.
+Nu volgt een samenvatting van wat u met Site Recovery kunt repliceren.
 
 ![On-premises naar on-premises](./media/site-recovery-overview/asr-overview-graphic.png)
 
-**REPLICEREN** | **REPLICEREN VANAF** | **REPLICEREN NAAR** | **ARTIKEL**
+**REPLICEREN** | **REPLICEREN VANAF (ON-PREMISES)** | **REPLICEREN NAAR** | **ARTIKEL**
 ---|---|---|---
-Workloads die worden uitgevoerd op virtuele VMware-machines | On-premises VMware-server | Azure-opslag | [Implementeren](site-recovery-vmware-to-azure-classic.md)
-Workloads die worden uitgevoerd op virtuele VMware-machines | On-premises VMware-server | Secundaire VMware-site | [Implementeren](site-recovery-vmware-to-vmware.md) 
-Workloads die worden uitgevoerd op virtuele Hyper-V-machines | On-premises Hyper-V-hostserver in de VMM-cloud | Azure-opslag | [Implementeren](site-recovery-vmm-to-azure.md)
-Workloads die worden uitgevoerd op virtuele Hyper-V-machines | On-premises Hyper-V-hostserver in de VMM-cloud | Secundaire VMM-site | [Implementeren](site-recovery-vmm-to-vmm.md)
-Workloads die worden uitgevoerd op virtuele Hyper-V-machines | On-premises Hyper-V-hostserver in de VMM-cloud met SAN-opslag| Secundaire VMM-site met SAN-opslag | [Implementeren](site-recovery-vmm-san.md)
-Workloads die worden uitgevoerd op virtuele Hyper-V-machines | On-premises Hyper-V-site (geen VMM) | Azure-opslag | [Implementeren](site-recovery-hyper-v-site-to-azure.md)
-Workloads die worden uitgevoerd op fysieke Windows-/Linux-servers | On-premises fysieke server | Azure-opslag | [Implementeren](site-recovery-vmware-to-azure-classic.md)
-Workloads die worden uitgevoerd op fysieke Windows-/Linux-servers | On-premises fysieke server | Secundair datacenter | [Implementeren](site-recovery-vmware-to-vmware.md) 
+Virtuele VMware-machines | VMware-server | Azure | [Meer informatie](site-recovery-vmware-to-azure-classic.md)
+Virtuele VMware-machines | VMware-server | Secundaire VMware-site | [Meer informatie](site-recovery-vmware-to-vmware.md) 
+Virtuele Hyper-V-machines | Hyper-V-host in VMM-cloud | Azure | [Meer informatie](site-recovery-vmm-to-azure.md) 
+Virtuele Hyper-V-machines | Hyper-V-host in VMM-cloud | Secundaire VMM-site | [Meer informatie](site-recovery-vmm-to-vmm.md)
+Virtuele Hyper-V-machines | Hyper-V-host in VMM-cloud met SAN-opslag| Secundaire VMM-site met SAN-opslag | [Meer informatie](site-recovery-vmm-san.md)
+Virtuele Hyper-V-machines | Hyper-V-host (geen VMM) | Azure | [Meer informatie](site-recovery-hyper-v-site-to-azure.md)
+Fysieke Windows/Linux-servers | Fysieke server | Azure | [Meer informatie](site-recovery-vmware-to-azure-classic.md)
+Workloads die worden uitgevoerd op fysieke Windows-/Linux-servers | Fysieke server | Secundair datacenter | [Meer informatie](site-recovery-vmware-to-vmware.md) 
 
 
 ## Welke workloads kan ik beveiligen?
@@ -61,11 +68,11 @@ Workloads die worden uitgevoerd op fysieke Windows-/Linux-servers | On-premises 
 Site Recovery kan helpen bij toepassingsgevoelige BCDR, zodat workloads en apps consistent blijven werken wanneer er uitval optreedt. Site Recovery biedt: 
 
 - **Toepassingsconsistente momentopnamen**: replicatie met toepassingsconsistente momentopnamen voor apps met één of meer lagen.
-**Bijna-synchrone replicatie**: een replicatiefrequentie van 30 seconden voor Hyper-V en continue replicatie voor VMware.
-**Integratie met SQL Server AlwaysOn**: u kunt de failovers van beschikbaarheidsgroepen beheren in Site Recovery-herstelplannen. 
+- **Bijna-synchrone replicatie**: een replicatiefrequentie van 30 seconden voor Hyper-V en continue replicatie voor VMware.
+- **Integratie met SQL Server AlwaysOn**: u kunt de failovers van beschikbaarheidsgroepen beheren in Site Recovery-herstelplannen. 
 - **Flexibele herstelplannen**: u kunt herstelplannen maken en aanpassen met externe scripts, handmatige acties en Azure Automation-runbooks. Op die manier kunt u een volledige reeks toepassingen met één klik herstellen.
-- **Automation-bibliotheek**: een uitgebreide Azure Automation-bibliotheek met toepassingsspecifieke scripts die klaar zijn voor gebruik, en kunnen worden gedownload en geïntegreerd met Site Recovery. 
--**Eenvoudig netwerkbeheer**: dankzij geavanceerd netwerkbeheer in Site Recovery en Azure gelden er minder complexe vereisten voor het toepassingsnetwerk. Dit heeft onder andere invloed op het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor efficiënt schakelen tussen netwerken.
+- **Automation-bibliotheek**: een uitgebreide Azure Automation-bibliotheek met toepassingsspecifieke scripts die klaar zijn voor gebruik, en kunnen worden gedownload en geïntegreerd met Site Recovery.
+- **Eenvoudig netwerkbeheer**: dankzij geavanceerd netwerkbeheer in Site Recovery en Azure gelden er minder complexe vereisten voor het toepassingsnetwerk. Dit heeft onder andere invloed op het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor het efficiënt schakelen tussen netwerken.
 
 
 ## Volgende stappen
@@ -76,6 +83,6 @@ Site Recovery kan helpen bij toepassingsgevoelige BCDR, zodat workloads en apps 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

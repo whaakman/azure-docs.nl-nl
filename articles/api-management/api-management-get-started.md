@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Uw eerste API beheren in Azure API Management
@@ -133,11 +133,11 @@ Voor het maken van aanroepen naar een API moeten ontwikkelaars zich eerst abonne
 
 Bewerkingen kunnen rechtstreeks vanuit de ontwikkelaarsportal worden aangeroepen. Deze biedt een gemakkelijke manier om de bewerkingen van een API te bekijken en te testen. In deze zelfstudiestap roept u de bewerking **Twee gehele getallen toevoegen** van de basisrekenmachine-API aan. Klik op **ontwikkelaarsportal** in het menu rechtsboven in de publicatieportal.
 
-![Ontwikkelaarsportal][api-management-developer-portal-menu]
+![ontwikkelaarsportal][api-management-developer-portal-menu]
 
 Klik op **API's** in het bovenste menu en klik vervolgens op **Basisrekenmachine** om de beschikbare bewerkingen te bekijken.
 
-![Ontwikkelaarsportal][api-management-developer-portal-calc-api]
+![ontwikkelaarsportal][api-management-developer-portal-calc-api]
 
 Noteer de voorbeeldbeschrijvingen en -parameters die samen met de API en de bewerkingen zijn geïmporteerd, om documentatie te bieden voor de ontwikkelaars die deze bewerking gaan gebruiken. Deze beschrijvingen kunnen ook worden toegevoegd wanneer bewerkingen handmatig worden toegevoegd.
 
@@ -247,6 +247,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

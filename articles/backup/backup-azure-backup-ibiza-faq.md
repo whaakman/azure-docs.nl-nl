@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="back-upoplossing; Backup-service"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="03/30/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
 # De openbare evaluatieversie van de Azure Backup-service - Veelgestelde vragen
@@ -49,6 +49,6 @@ A1. De PowerShell-cmdlets voor ARM zijn momenteel niet beschikbaar. U moet de ge
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

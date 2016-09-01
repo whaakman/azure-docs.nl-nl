@@ -5,38 +5,34 @@
 
 1. Navigeer naar [Google Cloud Console](https://console.developers.google.com/project) en meld u aan met de referenties voor uw Google-account.
 
-2. Klik op **Ga naar project** en klik vervolgens op **Project maken**.
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+2. Ga naar **Alle projecten** en klik vervolgens op **Project maken**.
 
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
--->
-3. Typ een naam van het project.
+3. Voer een **Projectnaam** in en klik op **Maken**
 
-4. Noteer het projectnummer dat wordt weergegeven onder het tekstvak **Projectnaam**. U hebt dit verderop in de zelfstudie nodig om het in het manifestbestand van Android in te vullen.
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Klik op **Maken**.
+4. Wanneer het project is gemaakt, moet u ervoor zorgen dat u het **Projectnummer** noteert. Dit is een lange numerieke waarde. U vindt dit nummer onder het gedeelte **IAM & Admin** (IAM en beheer) in de **Settings** (Instellingen) van uw project. U hebt dit nummer later nodig. 
+ 
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
 
-6. Controleer of in de linkerkolom **Overzicht** is geselecteerd en klik onder mobiele API's op **Google Cloud Messaging**. Klik op de volgende pagina op **Inschakelen**.
+5. We maken nu een sleutel voor het Google Cloud Messaging Platform. De sleutel wordt gebruikt door ons platform om meldingen naar de Android-apparaten te verzenden. Ga naar het gedeelte **API Manager** (API-beheer) en klik op **Google Cloud Messaging** onder **Mobile API's** (Mobiele API’s). 
+
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
+
+6. Klik op de volgende pagina op de knop **Enable** (Inschakelen). In het dashboard wordt u gevraagd referenties te maken. Klik dus op de knop **Go to Credentials** (Ga naar referenties). 
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
--->
-7. Klik op de volgende pagina op **Ga naar referenties** en selecteer op de volgende pagina **Google Cloud Messaging** in de eerste vervolgkeuzelijst en **Webserver** in de tweede, klik vervolgens op **Welke referenties heb ik nodig?**
+
+6. Selecteer **Google Cloud Messaging** in de eerste vervolgkeuzelijst en **Web server** (Webserver) in de tweede waarde, en klik vervolgens op **What credentials do I need?** (Welke referenties heb ik nodig?)
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. Op de pagina **Referenties aan uw project toevoegen** klikt u op **API-sleutel maken**.
+7. Op de pagina **Referenties aan uw project toevoegen** klikt u op **API-sleutel maken**.
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
--->
-9. Noteer de waarde van de **API-SLEUTEL**. Deze API-sleutelwaarde gaat u later gebruiken voor de configuratie in de sectie Native pushbericht. Klik nu op **Gereed**.
+
+8. Noteer de waarde van de **API-SLEUTEL**. Deze API-sleutelwaarde gaat u later gebruiken voor de configuratie in de sectie Native pushbericht. Klik nu op **Gereed**.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

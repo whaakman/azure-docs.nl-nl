@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/18/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
@@ -47,33 +47,33 @@ U hebt een Azure Search-service en `api-key` nodig om deze stappen te kunnen vol
 
     De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
 
-         https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
 4.  Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 5.  Plak de velden waaruit de indexdefinitie bestaat in de aanvraagtekst.
-
-         {
-        "name": "hotels",  
-        "fields": [
-          {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-          {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-          {"name": "hotelName", "type": "Edm.String"},
-          {"name": "category", "type": "Edm.String"},
-          {"name": "tags", "type": "Collection(Edm.String)"},
-          {"name": "parkingIncluded", "type": "Edm.Boolean"},
-          {"name": "smokingAllowed", "type": "Edm.Boolean"},
-          {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-          {"name": "rating", "type": "Edm.Int32"},
-          {"name": "location", "type": "Edm.GeographyPoint"}
-         ]
-        }
+            
+             {
+            "name": "hotels",  
+            "fields": [
+              {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
+              {"name": "baseRate", "type": "Edm.Double"},
+              {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+              {"name": "hotelName", "type": "Edm.String"},
+              {"name": "category", "type": "Edm.String"},
+              {"name": "tags", "type": "Collection(Edm.String)"},
+              {"name": "parkingIncluded", "type": "Edm.Boolean"},
+              {"name": "smokingAllowed", "type": "Edm.Boolean"},
+              {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+              {"name": "rating", "type": "Edm.Int32"},
+              {"name": "location", "type": "Edm.GeographyPoint"}
+             ]
+            }
 
 6.  Klik op **Execute** (Uitvoeren).
 
@@ -91,77 +91,77 @@ Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, z
 
 2.  Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?api-version=2015-02-28'. De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
 
-        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
 3.  De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index hotels.
 
-        {
-        "value": [
-        {
-            "@search.action": "upload",
-            "hotelId": "1",
-            "baseRate": 199.0,
-            "description": "Best hotel in town",
-            "hotelName": "Fancy Stay",
-            "category": "Luxury",
-            "tags": ["pool", "view", "wifi", "concierge"],
-            "parkingIncluded": false,
-            "smokingAllowed": false,
-            "lastRenovationDate": "2010-06-27T00:00:00Z",
-            "rating": 5,
-            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "2",
-            "baseRate": 79.99,
-            "description": "Cheapest hotel in town",
-            "hotelName": "Roach Motel",
-            "category": "Budget",
-            "tags": ["motel", "budget"],
-            "parkingIncluded": true,
-            "smokingAllowed": true,
-            "lastRenovationDate": "1982-04-28T00:00:00Z",
-            "rating": 1,
-            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "3",
-            "baseRate": 279.99,
-            "description": "Surprisingly expensive",
-            "hotelName": "Dew Drop Inn",
-            "category": "Bed and Breakfast",
-            "tags": ["charming", "quaint"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "4",
-            "baseRate": 220.00,
-            "description": "This could be the one",
-            "hotelName": "A Hotel for Everyone",
-            "category": "Basic hotel",
-            "tags": ["pool", "wifi"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-          }
-         ]
-        }
+            {
+            "value": [
+            {
+                "@search.action": "upload",
+                "hotelId": "1",
+                "baseRate": 199.0,
+                "description": "Best hotel in town",
+                "hotelName": "Fancy Stay",
+                "category": "Luxury",
+                "tags": ["pool", "view", "wifi", "concierge"],
+                "parkingIncluded": false,
+                "smokingAllowed": false,
+                "lastRenovationDate": "2010-06-27T00:00:00Z",
+                "rating": 5,
+                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "2",
+                "baseRate": 79.99,
+                "description": "Cheapest hotel in town",
+                "hotelName": "Roach Motel",
+                "category": "Budget",
+                "tags": ["motel", "budget"],
+                "parkingIncluded": true,
+                "smokingAllowed": true,
+                "lastRenovationDate": "1982-04-28T00:00:00Z",
+                "rating": 1,
+                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "3",
+                "baseRate": 279.99,
+                "description": "Surprisingly expensive",
+                "hotelName": "Dew Drop Inn",
+                "category": "Bed and Breakfast",
+                "tags": ["charming", "quaint"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "4",
+                "baseRate": 220.00,
+                "description": "This could be the one",
+                "hotelName": "A Hotel for Everyone",
+                "category": "Basic hotel",
+                "tags": ["pool", "wifi"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+              }
+             ]
+            }
 
 8.  Klik op **Execute** (Uitvoeren).
 
@@ -176,17 +176,17 @@ Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren.  E
 1.  Selecteer **GET**.
 
 2.  Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?', gevolgd door queryparameters. Gebruik als bijvoorbeeld de volgende URL en vervang de naam van de voorbeeldhost door een geldige naam voor uw service.
-
-        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
+    
+            https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     Met deze query wordt naar de term 'motel' en worden er facetcategorieën voor beoordelingen opgehaald.
 
 3.  De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 De responscode moet 200 zijn en de responsuitvoer moet er ongeveer hetzelfde uitzien als in de volgende schermopname.
 
@@ -212,14 +212,14 @@ U kunt ook een query op het systeem uitvoeren om het aantal documenten en opslag
 
 2.  Geef een URL op die uw service-URL bevat, gevolgd door '/indexes/hotels/stats?api-version=2015-02-28':
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.  Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  Laat de aanvraagtekst leeg.
 
@@ -241,6 +241,6 @@ Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azur
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,10 +1,10 @@
 <properties 
     pageTitle="Node.js leren - Zelfstudie over DocumentDB Node.js | Microsoft Azure" 
     description="Node.js leren In deze zelfstudie wordt uitgelegd hoe u Microsoft Azure DocumentDB gebruikt voor het opslaan van en de toegang tot gegevens van een Node.js Express-webtoepassing die wordt gehost Azure Websites." 
-    keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+    keywords="Toepassingsontwikkeling, databasezelfstudie, node.js leren, node.js zelfstudie, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="04/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/15/2016" 
+    ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met DocumentDB
 
@@ -48,7 +48,7 @@ Hebt u geen tijd om de zelfstudie te voltooien en wilt u gewoon de volledige opl
 
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
 
-- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 - [Node.js][] versie v0.10.29 of hoger.
 - [Express generator](http://www.expressjs.com/starter/generator.html) (te installeren via `npm install express-generator -g`)
 - [Git][].
@@ -165,11 +165,7 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
                                 id: collectionId
                             };
                             
-                            var requestOptions = {
-                                offerType: 'S1'
-                            };
-                            
-                            client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
                                 callback(null, created);
                             });
         
@@ -183,8 +179,9 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
                 
         module.exports = DocDBUtils;
 
-> [AZURE.TIP] Voor createCollection is een optionele requestOptions-parameter gebruikt die kan worden gebruikt om het aanbiedingstype (OfferType) voor de verzameling (Collection) te specificeren. Als er geen waarde voor requestOptions.offerType is opgegeven, wordt het standaard-OfferType gebruikt om de verzameling te maken.
-> Raadpleeg [Prestatieniveaus in DocumentDB](documentdb-performance-levels.md) voor meer informatie over DocumentDB-OfferTypes 
+    > [AZURE.TIP] Voor createCollection is een optionele requestOptions-parameter gebruikt die kan worden gebruikt om het aanbiedingstype (OfferType) voor de verzameling (Collection) te specificeren. Als er geen waarde voor requestOptions.offerType is opgegeven, wordt het standaard-OfferType gebruikt om de verzameling te maken.
+    >
+    > Raadpleeg [Prestatieniveaus in DocumentDB](documentdb-performance-levels.md) voor meer informatie over DocumentDB-OfferTypes 
         
 3. Sla het bestand **docdbUtils.js** op en sluit het bestand.
 
@@ -549,7 +546,7 @@ U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebr
 
 ## <a name="_Toc395783182"></a>Stap 7: uw project voor de ontwikkeling van een toepassing implementeren op Azure Websites
 
-1. Als dit nog niet hebt gedaan, schakelt u een git-opslagplaats voor uw Azure-website in. In het onderwerp [Continue implementatie met Git in Azure App Service](../app-service-web/web-sites-publish-source-control.md) vindt u hiervoor de instructies.
+1. Als dit nog niet hebt gedaan, schakelt u een git-opslagplaats voor uw Azure-website in. In het onderwerp [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) vindt u hiervoor de instructies.
 
 2. Voeg uw Azure-website toe als een externe git.
 
@@ -576,6 +573,6 @@ Zie het [Node.js-ontwikkelaarscentrum](https://azure.microsoft.com/develop/nodej
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/02/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
-# Application Insights: talen, platforms en integraties
+# Analyses voor ontwikkelaars: talen, platforms en integraties
 
-Dit zijn de implementaties die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
+Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
 
 ## Talen
 
@@ -38,23 +38,22 @@ Dit zijn de implementaties die tot nu toe bij ons bekend zijn (inclusief impleme
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET - voor apps die al live zijn](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
-+ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Azure-web-apps en virtuele Azure-machines](../azure-portal/insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) met inbegrip van web- en werkrollen
 + [CRM Online van Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
 + [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-+ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - voor apps die al live zijn](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md)
-+ [Windows Store C++](app-insights-windows-cpp.md)
++ [Windows Store C#|VB](app-insights-windows-get-started.md) (HockeyApp)
++ [Windows Store C++](app-insights-windows-cpp.md) (HockeyApp)
 + [Windows-bureaubladtoepassingen, -services en -werkrollen](app-insights-windows-desktop.md)
-+ [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [Overige](#projects)
 
 
@@ -88,6 +87,6 @@ Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

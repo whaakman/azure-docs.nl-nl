@@ -3,7 +3,7 @@
    description="Informatie over PolyBase en het gebruik van PolyBase voor datawarehousescenario's."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/18/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # Gegevens laden met PolyBase in SQL Data Warehouse
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-In deze zelfstudie ziet u hoe u met AzCopy en PolyBase gegevens laadt in SQL Data Warehouse. Als u klaar bent, weet u hoe u:
+In deze zelfstudie ziet u hoe u met AzCopy en PolyBase gegevens laadt in SQL Data Warehouse. Aan het einde kunt u:
 
 - AzCopy gebruikt om gegevens te kopiëren naar Azure Blob-opslag;
 - databaseobjecten maakt om de gegevens te definiëren;
@@ -37,19 +37,19 @@ In deze zelfstudie ziet u hoe u met AzCopy en PolyBase gegevens laadt in SQL Dat
 Voor deze zelfstudie hebt u het volgende nodig:
 
 - Een SQL Data Warehouse-database.
-- Een Azure-opslagaccount van het type Standard-LRS (lokaal redundante opslag), Standard-GRS (geografisch redundante opslag) of Standard-RAGRS (alleen-lezen geografisch redundante opslag).
-- AzCopy-opdrachtregelprogramma Download en installeer de [meest recente versie van AzCopy][] die is geïnstalleerd met de hulpprogramma's van Microsoft Azure Storage.
+- Een Azure-opslagaccount van het type standaard lokaal redundante opslag (Standard Locally Redundant Storage (Standard-LRS)), standaard geografisch redundante opslag (Standard Geo-Redundant Storage (Standard-GRS)) of standaard geografisch redundante opslag met leestoegang (Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)).
+- AzCopy-opdrachtregelprogramma. Download en installeer de [meest recente versie van AzCopy][] die is geïnstalleerd met de hulpprogramma's van Microsoft Azure Storage.
 
     ![Hulpprogramma's van Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Stap 1: voorbeeldgegevens toevoegen aan Azure Blob-opslag
+## Stap 1: voorbeeldgegevens toevoegen aan Azure Blob Storage
 
-Om gegevens te kunnen laden, moet u voorbeeldgegevens in een Azure Blob-opslag plaatsen. In deze stap vult u een Azure Storage-blob met voorbeeldgegevens. Later gaat u PolyBase gebruiken om deze voorbeeldgegevens in de SQL Data Warehouse-database te laden.
+Als u gegevens wilt laden, moet u voorbeeldgegevens in een Azure Blob Storage plaatsen. In deze stap vult u een Azure Storage Blob met voorbeeldgegevens. Later gaat u PolyBase gebruiken om deze voorbeeldgegevens in de SQL Data Warehouse-database te laden.
 
 ### A. Een voorbeeldtekstbestand voorbereiden
 
-Ga als volgt te werk om een voorbeeldtekstbestand voor te bereiden:
+Bereid als volgt een voorbeeldtekstbestand voor:
 
 1. Open Kladblok en kopieer de volgende regels met gegevens naar een nieuw bestand. Sla dit in uw lokale tijdelijke map op als %temp%\DimDate2.txt.
 
@@ -68,28 +68,28 @@ Ga als volgt te werk om een voorbeeldtekstbestand voor te bereiden:
 20150101,1,3
 ```
 
-### B. Het eindpunt van blob-service zoeken
+### B. Het eindpunt van de blob-service zoeken
 
-Ga als volgt te werk om het eindpunt van blob-service te zoeken:
+Zoek als volgt het eindpunt van de blob-service:
 
-1. Selecteer in de Azure Portal **Bladeren** > **Opslagaccounts**.
+1. Selecteer in Azure Portal **Bladeren** > **Opslagaccounts**.
 2. Klik op het opslagaccount dat u wilt gebruiken.
-3. Klik in de blade Opslagaccount op Blobs
+3. Klik op de blade Opslagaccount op Blobs.
 
-    ![Klik op Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
+    ![Klik op Blobs.](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 
-1. Sla de URL van het eindpunt van blob-service op voor later.
+1. Sla de URL van het eindpunt van de blob-service op voor later gebruik.
 
     ![Eindpunt van blob-service](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### C. Uw Azure-opslagsleutel zoeken
 
-Ga als volgt te werk om uw Azure-opslagsleutel te zoeken:
+Zoek als volgt uw Azure-opslagsleutel:
 
-1. Selecteer in de Azure Portal **Bladeren** > **Opslagaccounts**.
+1. Selecteer in Azure Portal **Bladeren** > **Opslagaccounts**.
 2. Klik op het opslagaccount dat u wilt gebruiken.
 3. Selecteer **Alle instellingen** > **Toegangssleutels**.
-4. Klik op Kopiëren om de toegangssleutels naar het Klembord te kopiëren.
+4. Klik op Kopiëren om een van de toegangssleutels naar het Klembord te kopiëren.
 
     ![Azure-opslagsleutel kopiëren](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
@@ -97,13 +97,13 @@ Ga als volgt te werk om uw Azure-opslagsleutel te zoeken:
 
 Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
 
-1. Open een opdrachtprompt en wijzig de mappen in de installatiemap van de AzCopy. Met deze opdracht schakelt u naar de standaardinstallatiemap op een 64-bits Windows-client.
+1. Open een opdrachtprompt en wijzig de mappen in de installatiemap van AzCopy. Met deze opdracht schakelt u naar de standaardinstallatiemap op een 64-bits Windows-client.
 
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Voer de volgende opdracht uit om het bestand te uploaden. Geef de URL van het eindpunt voor blob-service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
+1. Voer de volgende opdracht uit om het bestand te uploaden. Geef de URL van het eindpunt van de blob-service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -111,20 +111,20 @@ Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
 
 Zie ook [Aan de slag met het AzCopy-opdrachtregelprogramma][].
 
-### E. De blob-opslagcontainer verkennen
+### E. De Blob Storage-container verkennen
 
-Ga als volgt te werk om te zien dat het bestand is geüpload naar blob-opslag:
+Controleer als volgt het bestand dat naar Blob Storage is geüpload:
 
 1. Ga terug naar de blade Blob-service.
-2. Dubbelklik onder Containers op **DataContainer**.
+2. Dubbelklik onder Containers op **datacontainer**.
 3. Als u het pad naar uw gegevens wilt verkennen, klikt u op de map **datedimension**. Nu ziet u het geüploade bestand **DimDate2.txt**.
 4. Klik op **DimDate2.txt** als u eigenschappen wilt weergeven.
-5. In de blade met blob-eigenschappen kunt u het bestand ook downloaden of verwijderen.
+5. Op de blade Blobeigenschappen kunt u het bestand downloaden of verwijderen.
 
     ![Azure Storage-blob weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Stap 2: een externe tabel maken voor de voorbeeldgegevens
+## Stap 2: een externe tabel voor de voorbeeldgegevens maken
 
 In deze sectie maakt u een externe tabel waarin de voorbeeldgegevens worden gedefinieerd.
 
@@ -138,7 +138,7 @@ In het voorbeeld in deze stap worden de volgende Transact-SQL-instructies gebrui
 - [Create External File Format (Transact-SQL)][] om de indeling van uw gegevens op te geven.
 - [Create External Table (Transact-SQL)][] om de tabeldefinitie en locatie van de gegevens op te geven.
 
-Voer deze query uit voor uw SQL Data Warehouse-database. Hiermee wordt een externe tabel DimDate2External gemaakt in het dbo-schema dat wijst naar de voorbeeldgegevens in DimDate2.txt in de Azure Blob-opslag.
+Voer deze query uit voor uw SQL Data Warehouse-database. Hiermee wordt een externe tabel DimDate2External gemaakt in het DBO-schema dat wijst naar de voorbeeldgegevens in DimDate2.txt in de Azure Blob Storage.
 
 
 ```sql
@@ -214,11 +214,11 @@ In SQL Server-objectverkenner in Visual Studio ziet u de externe bestandsindelin
 
 ![Externe tabel weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Stap 3: Gegevens laden in SQL Data Warehouse
+## Stap 3: gegevens laden in SQL Data Warehouse
 
-Wanneer de externe tabel is gemaakt, kunt u de gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
+Nadat de externe tabel is gemaakt, kunt u de gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
 
-- Als u de gegevens wilt laden in een nieuwe tabel, voert u de instructie [CREATE TABLE AS SELECT (Transact-SQL)][] uit. De kolommen in de nieuwe tabel hebben in de query een naam gekregen. De gegevenstypen van de kolommen komen overeen met de gegevenstypen in de definitie van de externe tabel.
+- Als u de gegevens in een nieuwe tabel wilt laden, voert u de instructie [CREATE TABLE AS SELECT (Transact-SQL)][] uit. De kolommen in de nieuwe tabel hebben in de query een naam gekregen. De gegevenstypen van de kolommen komen overeen met de gegevenstypen in de definitie van de externe tabel.
 - Als u de gegevens wilt laden in een bestaande tabel, gebruikt u de instructie [INSERT…SELECT (Transact-SQL)][].
 
 ```sql
@@ -234,7 +234,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Stap 4: Statistieken maken voor uw zojuist geladen gegevens
+## Stap 4: statistieken maken voor uw zojuist geladen gegevens
 
 SQL Data Warehouse bevat geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor hoge queryprestaties is het dan ook belangrijk dat u voor elke kolom in elke tabel statistieken maakt nadat de tabel de eerste keer is geladen. Het is ook belangrijk dat de statistieken worden bijgewerkt wanneer gegevens substantieel zijn gewijzigd.
 
@@ -250,18 +250,16 @@ Zie [Statistieken][] voor meer informatie.
 
 
 ## Volgende stappen
-Raadpleeg de [PolyBase-handleiding][] voor alles wat u moet weten wanneer u een oplossing ontwikkelt die gebruikmaakt van PolyBase.
+Raadpleeg de [PolyBase-handleiding][] voor meer informatie over het ontwikkelen van een oplossing die gebruikmaakt van PolyBase.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Zelfstudie: PolyBase in SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
-[Gegevens laden met BCP]: sql-data-warehouse-load-with-bcp.md
-[oplossingspartners]: sql-data-warehouse-solution-partners.md
-[overzicht voor ontwikkelaars]: sql-data-warehouse-overview-develop.md
-[Statistieken]: sql-data-warehouse-develop-statistics.md
-[PolyBase-handleiding]: sql-data-warehouse-load-polybase-guide.md
+[Zelfstudie: PolyBase in SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Gegevens laden met bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistieken]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase-handleiding]: ./sql-data-warehouse-load-polybase-guide.md
 [Aan de slag met het AzCopy-opdrachtregelprogramma]: ../storage/storage-use-azcopy.md
 [meest recente versie van AzCopy]: ../storage/storage-use-azcopy.md
 
@@ -289,6 +287,6 @@ Raadpleeg de [PolyBase-handleiding][] voor alles wat u moet weten wanneer u een 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

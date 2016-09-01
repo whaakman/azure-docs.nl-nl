@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Aan de slag met API-apps, ASP.NET en Swagger in Azure App Service
 
@@ -233,13 +233,13 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     Als u een naam opgeeft die iemand anders al gebruikt, ziet u aan de rechterkant een rood uitroepteken.
 
-    De URL van de API-app wordt `{APi app name}.azurewebsites.net`.
+    De URL van de API-app wordt `{API app name}.azurewebsites.net`.
 
 6. Klik in de vervolgkeuzelijst **Resource Group** op **New** en voer vervolgens ToDoListGroup of desgewenst een andere naam in. 
 
     Een resourcegroep is een verzameling Azure-resources, zoals web-apps, databases, virtuele machines, enzovoort. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
 
-    In dit vak kunt u een bestaande [resourcegroep](../azure-portal/resource-group-portal.md) selecteren of een nieuwe maken door een naam te typen die anders is dan alle bestaande resourcegroepen in uw abonnement.
+    In dit vak kunt u een bestaande [resourcegroep](../resource-group-overview.md) selecteren of een nieuwe maken door een naam te typen die anders is dan alle bestaande resourcegroepen in uw abonnement.
 
 4. Klik naast de vervolgkeuzelijst **App Service Plan** op de knop **New**.
 
@@ -285,7 +285,7 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     Voor deze zelfstudie hebt u geen van deze opties nodig. Zie [Procedure: een webproject implementeren met behulp van publicatie met één klik in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) voor gedetailleerde uitleg over deze opties.
 
-14. Klik op **Next**.
+14. Klik op **Volgende**.
 
     ![Klikken op Next op het tabblad Settings van de wizard Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
@@ -391,7 +391,7 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
 
     De constructorparameter haalt de eindpunt-URL uit de `toDoListDataAPIURL`-appinstelling. Deze waarde is in het bestand Web.config ingesteld op de lokale IIS Express URL van het API-project, zodat u de toepassing lokaal kunt uitvoeren. Als u de constructorparameter weglaat, wordt het standaardeindpunt de URL waaruit u de code hebt gegenereerd.
 
-6. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van de API-app; wijzig de code in *Controllers\ToDoListController.cs*, zodat de typenaam overeenkomt met wat er in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI0121 is, zou u deze code wijzigen:
+6. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van de API-app; wijzig de code in *Controllers\ToDoListController.cs*, zodat de typenaam overeenkomt met wat er in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI071316 is, zou u deze code wijzigen:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -399,9 +399,9 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
 
 in deze:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Een API-app maken voor het hosten van de middelste laag
@@ -445,7 +445,7 @@ Als u de API-app voor de middelste laag nu aanroept, probeert deze de gegevensla
   	| **Sleutel** | toDoListDataAPIURL |
   	|---|---|
   	| **Waarde** | https://{de naam van uw API-app voor de gegevenslaag}.azurewebsites.net |
-  	| **Voorbeeld** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Voorbeeld** | https://todolistdataapi.azurewebsites.net |
 
 4. Klik op **Opslaan**.
 
@@ -493,6 +493,6 @@ Gebruik van de **Azure-API-app**-projectsjabloon geeft hetzelfde resultaat als w
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

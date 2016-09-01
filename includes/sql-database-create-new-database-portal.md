@@ -10,9 +10,9 @@ articles/sql-database/sql-database-get-started-tutorial.md
 -->
 ## Een nieuwe Azure SQL-database maken
 
-Voer de volgende stappen uit in Azure Portal als u een nieuwe Azure SQL-database wilt maken op een nieuwe of bestaande logische server met Azure SQL Database.
+Voer de volgende stappen uit in de Azure-portal als u een nieuwe Azure SQL-database wilt maken op een nieuwe of bestaande logische server met Azure SQL Database.
 
-1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
+1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met de [Azure-portal](http://portal.azure.com).
 2. Klik op **Nieuw** , typ **SQL Database** en klik op **SQL Database (nieuwe database)**
 
      ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
@@ -30,7 +30,7 @@ Voer de volgende stappen uit in Azure Portal als u een nieuwe Azure SQL-database
  - Databasenaam
  - Abonnement (alleen als u meerdere abonnementen hebt)
  - Resourcegroep (als u nog maar net begint, gebruik dan de resourcegroep van de logische server)
- - Bron selecteren (u kunt een lege database, voorbeeldgegevens of een databaseback-up selecteren)
+ - Selecteer de bron (u kunt een lege database, voorbeeldgegevens of een back-up van een Azure database kiezen om een on-premisis SQL Server-database te migreren of gegevens met behulp van BCP te laden. Zie de koppelingen aan het einde van dit artikel)
  - Server (een nieuwe of bestaande logische server)
  - Beheerderswachtwoord server
  - Wachtwoord
@@ -48,6 +48,7 @@ Voer de volgende stappen uit in Azure Portal als u een nieuwe Azure SQL-database
      ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

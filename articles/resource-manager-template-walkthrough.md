@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Walkthrough voor het Resource Manager-sjabloon
@@ -583,6 +583,6 @@ U kunt het sjabloon opnieuw implementeren met behulp van dezelfde opdrachten die
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

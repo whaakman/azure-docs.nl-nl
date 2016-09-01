@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure Service Bus | Microsoft Azure" 
-    description="Een inleiding tot verschillende manieren waarop u Service Bus kunt gebruiken om Azure-toepassingen te verbinden met andere software." 
+    description="Een inleiding in het gebruik van Service Bus om Azure-toepassingen te verbinden met andere software." 
     services="service-bus" 
     documentationCenter=".net" 
     authors="sethmanheim" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/09/2016" 
+    ms.date="06/20/2016" 
     ms.author="sethm"/>
 
 # Azure Service Bus
@@ -39,7 +39,7 @@ Binnen een naamruimte kunt u een of meer exemplaren van vier verschillende commu
 
 Wanneer u een wachtrij, onderwerp, Relay of Event Hub maakt, geeft u deze een naam. In combinatie met de naam van uw naamruimte wordt aan de hand van deze naam een unieke id voor het object gemaakt. Toepassingen kunnen deze naam verstrekken aan Service Bus en vervolgens de wachtrij, het onderwerp, de Relay of de Event Hub gebruiken om met elkaar te communiceren. 
 
-Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten te gebruiken. Voor wachtrijen, onderwerpen en Event Hubs kunnen Windows-toepassingen ook door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen, onderwerpen en Event Hubs met behulp van REST-API's via HTTP. 
+Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Voor wachtrijen, onderwerpen en Event Hubs kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen, onderwerpen en Event Hubs met behulp van REST-API's via HTTP. 
 
 Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een algemeen communicatiemechanisme in de cloud, dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
 
@@ -63,9 +63,9 @@ De tweede optie, *PeekLock*, is bedoeld om dit probleem te ondervangen. Net zoal
 - Als de ontvanger het bericht niet naar behoren kan verwerken, ontvangt de wachtrij de melding **Afbreken**. De vergrendeling van het bericht in de wachtrij wordt ongedaan gemaakt en het bericht is beschikbaar voor andere ontvangers.
 - Als de ontvanger binnen de geconfigureerde tijd (standaard 60 seconden) geen van beide meldingen afgeeft, wordt ervan uitgegaan dat het ontvangen is mislukt. In dit geval gedraagt de wachtrij zich alsof de ontvanger de melding **Afbreken** heeft afgegeven en wordt het bericht beschikbaar gesteld aan andere ontvangers.
 
-Hetzelfde bericht kan dus tweemaal worden geleverd, mogelijk aan twee verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. Om detectie van duplicaten gemakkelijker te maken, heeft elk bericht een unieke **MessageID**. Deze eigenschap blijft standaard hetzelfde, ongeacht hoe vaak het bericht in een wachtrij is gelezen. 
+Ziet u wat er hier kan gebeuren? Hetzelfde bericht kan dus tweemaal worden bezorgd, mogelijk bij twee verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. Om detectie van duplicaten gemakkelijker te maken, heeft elk bericht een unieke **MessageID**. Deze eigenschap blijft standaard hetzelfde, ongeacht hoe vaak het bericht in een wachtrij is gelezen. 
 
-Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen toepassingen zelfs communiceren wanneer ze niet tegelijkertijd worden uitgevoerd. Dit is met name handig in het geval van batchtoepassingen en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
+Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen toepassingen zelfs communiceren wanneer ze niet tegelijkertijd worden uitgevoerd. Dit is met name handig bij batchtoepassingen en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
 
 ## Onderwerpen
 
@@ -75,27 +75,27 @@ Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing. Service 
  
 **Afbeelding 3: Op basis van het filter dat door een geabonneerde toepassing wordt opgegeven, kan de toepassing enkele of alle berichten ontvangen die naar een Service Bus-onderwerp zijn verzonden.**
 
-Een onderwerp lijkt op veel manieren op een wachtrij. Afzenders verzenden berichten op dezelfde manier naar een onderwerp als naar een wachtrij en de berichten zien er hetzelfde uit als bij een wachtrij. Het grote verschil is dat wanneer onderwerpen worden gebruikt, elke ontvangende toepassing een eigen abonnement kan maken door een *filter* te definiëren. Een abonnee ziet vervolgens alleen de berichten die overeenkomen met het filter. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
+Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden berichten op dezelfde manier naar een onderwerp als naar een wachtrij en de berichten zien er hetzelfde uit als bij een wachtrij. Het grote verschil is dat het bij onderwerpen mogelijk is dat elke ontvangende toepassing zijn eigen *abonnement* maakt door een *filter* te definiëren. Een abonnee ziet vervolgens alleen de berichten die overeenkomen met het filter. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
 
 - Abonnee 1 ontvangt alleen berichten met de eigenschap *Verkoper =Ava*.
 - Abonnee 2 ontvangt berichten met de eigenschap *Verkoper = Ruby* en/of een eigenschap *Bedrag* met een waarde van meer dan 100.000. Wellicht is Ruby de verkoopmanager en wil ze zowel haar eigen verkopen als alle omvangrijke verkopen zien, ongeacht wie ze tot stand brengt.
 - Abonnee 3 heeft het filter ingesteld op *Waar*, hetgeen betekent dat alle berichten worden ontvangen. Wellicht is deze toepassing bijvoorbeeld verantwoordelijk voor het onderhouden van een audittrail en moet deze alle berichten zien.
 
-Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met **ReceiveAndDelete** of **PeekLock**. In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden, worden ontvangen door meerdere abonnees. Deze benadering, doorgaans aangeduid met *publiceren en abonneren*, is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
+Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met **ReceiveAndDelete** of **PeekLock**. In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden door meerdere abonnementen worden ontvangen. Deze benadering, doorgaans aangeduid met *publiceren en abonneren* (of *pub/sub*), is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
 
 ## Relays
 
-Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus Relays, zoals weergegeven in afbeelding 4.
+Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals weergegeven in afbeelding 4.
 
 ![][4]
  
 **Afbeelding 4: Service Bus Relay biedt synchrone communicatie in twee richtingen tussen toepassingen.**
 
-De voor de hand liggende vraag is: waarom zou u een Relay gebruiken? Zelfs als u geen wachtrijen nodig hebt, waarom zouden toepassingen dan moeten communiceren via een cloudservice in plaats van dat ze rechtstreeks communiceren? Het antwoord is dat rechtstreeks communiceren lastiger kan zijn dan u denkt.
+De voor de hand liggende vraag over relays is: waarom zou u een relay gebruiken? Zelfs als u geen wachtrijen nodig hebt, waarom zouden toepassingen dan moeten communiceren via een cloudservice in plaats van dat ze rechtstreeks communiceren? Het antwoord is dat rechtstreeks communiceren lastiger kan zijn dan u denkt.
 
-Stel dat u twee on-premises toepassingen wilt verbinden, die allebei worden uitgevoerd binnen bedrijfsdatacenters. Elk van deze toepassingen bevindt zich achter een firewall en elk datacenter maakt waarschijnlijk gebruik van NAT (netwerkadresomzetting). De firewall blokkeert binnenkomende gegevens op bijna alle poorten en NAT impliceert dat de computer waarop de toepassingen worden uitgevoerd, geen vast IP-adres heeft dat u rechtstreeks kunt bereiken buiten het datacenter. Zonder extra hulp is het lastig om deze toepassingen met elkaar te verbinden via openbaar internet.
+Stel dat u twee on-premises toepassingen wilt verbinden, die allebei worden uitgevoerd binnen bedrijfsdatacenters. Elk van deze toepassingen bevindt zich achter een firewall en elk datacenter maakt waarschijnlijk gebruik van NAT (netwerkadresomzetting). De firewall blokkeert binnenkomende gegevens op bijna alle poorten en NAT impliceert dat de computer waarop de toepassingen worden uitgevoerd, geen vast IP-adres heeft dat u rechtstreeks kunt bereiken buiten het datacenter. Zonder extra hulp is het lastig om deze toepassingen via het openbare internet met elkaar te verbinden.
 
-Een Service Bus Relay biedt de benodigde hulp. Voor communicatie in twee richtingen via een Relay, brengt elke toepassing een uitgaande TCP-verbinding tot stand met Service Bus. Deze verbinding blijft geopend. Alle communicatie tussen de twee toepassingen verloopt via deze verbindingen. Omdat elke verbinding vanuit het datacenter tot stand is gebracht, staat de firewall inkomend verkeer naar elke toepassing toe zonder nieuwe poorten te openen. Via deze benadering wordt ook het NAT-probleem opgelost, omdat elke toepassing tijdens de communicatie een consistent eindpunt in de cloud heeft. Door gegevens uit te wisselen via de Relay kunnen de toepassingen problemen voorkomen die de communicatie anders zouden bemoeilijken. 
+Een Service Bus-relay biedt uitkomst. Voor communicatie in twee richtingen via een Relay, brengt elke toepassing een uitgaande TCP-verbinding tot stand met Service Bus. Deze verbinding blijft geopend. Alle communicatie tussen de twee toepassingen verloopt via deze verbindingen. Omdat elke verbinding vanuit het datacenter tot stand is gebracht, staat de firewall inkomend verkeer naar elke toepassing toe zonder nieuwe poorten te openen. Via deze benadering wordt ook het NAT-probleem opgelost, omdat elke toepassing tijdens de communicatie een consistent eindpunt in de cloud heeft. Door gegevens uit te wisselen via de Relay kunnen de toepassingen problemen voorkomen die de communicatie anders zouden bemoeilijken. 
 
 Voor het gebruik van Service Bus Relays zijn toepassingen afhankelijk van WCF (Windows Communication Foundation). Service Bus biedt WCF-bindingen waarmee Windows-toepassingen eenvoudig kunnen communiceren via Relays. Toepassingen die al gebruikmaken van WCF hoeven doorgaans slechts een van deze bindingen op te geven en kunnen vervolgens met elkaar communiceren via een Relay. Relays kunnen worden gebruikt vanuit niet-Windows-toepassingen, maar in tegenstelling tot wachtrijen en onderwerpen vereist dit enige programmering. Er worden geen standaardbibliotheken geleverd.
 
@@ -105,7 +105,7 @@ Relays zijn de juiste oplossing wanneer rechtstreekse communicatie tussen toepas
 
 ## Event Hubs
 
-Event Hubs is een zeer schaalbaar systeem voor inkomende gegevens dat miljoenen gebeurtenissen per seconde kan verwerken. Uw toepassing kan hiermee de enorme hoeveelheden gegevens verwerken en analyseren die worden geproduceerd door uw verbonden apparaten en toepassingen. U kunt bijvoorbeeld een Event Hub gebruiken voor het verzamelen van live gegevens over motorprestaties van een wagenpark. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster. Zie [Overzicht van Event Hubs](../event-hubs/event-hubs-overview.md) voor meer informatie over Event Hubs.
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/) is een zeer schaalbaar systeem voor inkomende gegevens dat miljoenen gebeurtenissen per seconde kan verwerken. Uw toepassing kan hiermee de enorme hoeveelheden gegevens verwerken en analyseren die worden geproduceerd door uw verbonden apparaten en toepassingen. U kunt bijvoorbeeld een Event Hub gebruiken voor het verzamelen van live gegevens over motorprestaties van een wagenpark. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster. Zie [Overzicht van Event Hubs](../event-hubs/event-hubs-overview.md) voor meer informatie over Event Hubs.
 
 ## Samenvatting
 
@@ -115,7 +115,7 @@ Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen v
 
 U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de volgende koppelingen voor meer informatie.
 
-- [Service Bus-wachtrijen](service-bus-dotnet-how-to-use-queues.md) gebruiken
+- [Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md) gebruiken
 - [Service Bus-onderwerpen](service-bus-dotnet-how-to-use-topics-subscriptions.md) gebruiken
 - [Service Bus Relay](service-bus-dotnet-how-to-use-relay.md) gebruiken
 - [Voorbeelden van Service Bus](service-bus-samples.md)
@@ -127,6 +127,6 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

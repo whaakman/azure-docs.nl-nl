@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
@@ -53,6 +53,6 @@ Voor de volgende configuratietaak moet u [wachtwoordsynchronisatie inschakelen v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

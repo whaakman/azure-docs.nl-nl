@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 # Aan de slag met Mobile Services voor Android (back-end JavaScript)
@@ -39,7 +39,7 @@ Voltooiing van deze zelfstudie vereist de [Android-hulpprogramma's voor ontwikke
 
 Het gedownloade Quick Start-project bevat de Azure Mobile Services SDK voor Android.
 
-> [AZURE.IMPORTANT] U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28) voor meer informatie.
+> [AZURE.IMPORTANT] U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28) voor meer informatie.
 
 
 ## Een nieuwe mobiele service maken
@@ -81,7 +81,7 @@ Nu u de Quick Start hebt voltooid, kunt u ontdekken hoe u aanvullende belangrijk
   <br/>Ontdek hoe u gegevens opslaat en gegevensquery‘s maakt met behulp van Mobile Services.
 
 * [Aan de slag met authenticatie]
-  <br/>Ontdek hoe u gebruikers van uw app authenticeert met een id-provider.
+  <br/>Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
 
 * [Aan de slag met pushmeldingen]
   <br/>Ontdek hoe u een zeer eenvoudige pushmelding verzendt naar uw app.
@@ -93,13 +93,13 @@ Nu u de Quick Start hebt voltooid, kunt u ontdekken hoe u aanvullende belangrijk
 <!-- URLs. -->
 [Aan de slag (Eclipse)]: mobile-services-android-get-started-ec.md
 [Aan de slag met gegevens]: mobile-services-android-get-started-data.md
-[Aan de slag met authenticatie]: mobile-services-android-get-started-users.md
+[Aan de slag met verificatie]: mobile-services-android-get-started-users.md
 [Aan de slag met pushmeldingen]: mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

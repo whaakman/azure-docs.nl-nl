@@ -26,63 +26,63 @@ In dit document vindt u instructies voor het implementeren van een Azure Contain
 
 ## Een service maken met behulp van Azure Portal
 
-Meld u aan bij Azure Portal, selecteer Nieuw en zoek op de Azure-marktplaats naar **Azure Container Service**.
+Meld u aan bij Azure Portal, selecteer **Nieuw** en zoek in Azure Marketplace naar **Azure Container Service**.
 
-![Implementatie maken](media/acs-portal1.png)  <br /> 
+![Implementatie maken - 1](media/acs-portal1.png)  <br />
 
 Selecteer **Azure Container Service** en klik op **Maken**.
 
-![Implementatie maken](media/acs-portal2.png)  <br /> 
+![Implementatie maken - 2](media/acs-portal2.png)  <br />
 
 Voer de volgende informatie in:
 
-- Gebruikersnaam: dit is de naam van de gebruiker die wordt gebruikt voor een account op elk van de virtuele machines en virtuele-machineschaalsets in het Azure Container Service-cluster.
-- Abonnement: selecteer een Azure-abonnement.
-- Resourcegroep: selecteer een bestaande resourcegroep of creëer een nieuwe.
-- Locatie: selecteer een Azure-regio voor de Azure Container Service-implementatie.
-- Openbare SSH-sleutel: voeg de openbare sleutel toe die wordt gebruikt voor verificatie op basis van de virtuele machines voor Azure Container Service. Het is heel belangrijk dat deze sleutel geen regeleinden bevat, maar wel de prefix 'ssh-rsa' en de postfix 'gebruikersnaam@domein'. De sleutel moet er ongeveer als volgt uitzien: **ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**’. Zie de artikelen voor [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) en [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) voor informatie over het maken van SSH-sleutels.
+- **Gebruikersnaam**: dit is de naam van de gebruiker die wordt gebruikt voor een account op elk van de virtuele machines en virtuele-machineschaalsets in het Azure Container Service-cluster.
+- **Abonnement**: selecteer een Azure-abonnement.
+- **Resourcegroep**: selecteer een bestaande resourcegroep of maak een nieuwe.
+- **Locatie**: selecteer een Azure-regio voor de Azure Container Service-implementatie.
+- **Openbare SSH-sleutel**: voeg de openbare sleutel toe die wordt gebruikt voor verificatie op basis van de virtuele machines voor Azure Container Service. Het is heel belangrijk dat deze sleutel geen regeleinden bevat, maar wel de prefix 'ssh-rsa' en de postfix 'gebruikersnaam@domein'. Deze moet er ongeveer als volgt uitzien: **ssh-rsa AAAAB3Nz…<…>…UcyupgH azureuser@linuxvm**. Zie de artikelen voor [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) en [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) voor informatie over het maken van SSH-sleutels.
 
-Klik op **OK** wanneer u klaar bent om door te gaan.
+Klik op **OK** wanneer u gereed bent om door te gaan.
 
-![Implementatie maken](media/acs-portal3.png)  <br /> 
+![Implementatie maken - 3](media/acs-portal3.png)  <br />
 
 Selecteer een Orchestration-type. De opties zijn:
 
-- DC/OS: implementeert een DC/OS-cluster.
-- Swarm: implementeert een Docker Swarm-cluster.
+- **DC/OS**: implementeert een DC/OS-cluster.
+- **Swarm**: implementeert een Docker Swarm-cluster.
 
-Klik op **OK** wanneer u klaar bent om door te gaan.
+Klik op **OK** wanneer u gereed bent om door te gaan.
 
-![Implementatie maken](media/acs-portal4.png)  <br /> 
+![Implementatie maken - 4](media/acs-portal4.png)  <br />
 
 Voer de volgende informatie in:
 
-- Aantal masters: het aantal masters in het cluster.
-- Aantal agents: Voor Docker Swarm dit is het oorspronkelijke aantal agents in de agentschaalset. Voor DC/OS is dit het oorspronkelijke aantal agents in een persoonlijke schaalset. Bovendien wordt een openbare schaalset gemaakt met een vooraf bepaald aantal agents. Het aantal agents in deze openbare schaalsets is afhankelijk van hoeveel masters in het cluster zijn gemaakt: 1 openbare agent voor 1 master en 2 openbare agents voor 3 of 5 masters.
-- Grootte van virtuele machines van agent: de grootte van de virtuele machines van de agent.
-- DNS-voorvoegsel: een wereldwijd unieke naam die wordt gebruikt voor het toevoegen van belangrijke delen van de volledig gekwalificeerde domeinnamen voor de service. 
+- **Aantal masters**: het aantal masters in het cluster.
+- **Aantal agents**: voor Docker Swarm is dit het oorspronkelijke aantal agents in de agentschaalset. Voor DC/OS is dit het oorspronkelijke aantal agents in een persoonlijke schaalset. Bovendien wordt een openbare schaalset gemaakt, die een vooraf bepaald aantal agents bevat. Het aantal agents in deze openbare schaalset wordt bepaald door het aantal masters dat in het cluster is gemaakt: één openbare agent voor één master en twee openbare agents voor drie of vijf masters.
+- **Grootte van virtuele machines van agent**: de grootte van de virtuele machines van de agent.
+- **DNS-voorvoegsel**: een wereldwijd unieke naam die wordt gebruikt voor het toevoegen van belangrijke delen van de volledig gekwalificeerde domeinnamen voor de service.
 
-Klik op **OK** wanneer u klaar bent om door te gaan.
+Klik op **OK** wanneer u gereed bent om door te gaan.
 
-![Implementatie maken](media/acs-portal5.png)  <br /> 
+![Implementatie maken - 5](media/acs-portal5.png)  <br />
 
-Klik op **OK** wanneer servicevalidatie is voltooid.
+Klik op **OK** nadat de servicevalidatie is voltooid.
 
-![Implementatie maken](media/acs-portal6.png)  <br /> 
+![Implementatie maken - 6](media/acs-portal6.png)  <br />
 
 Klik op **Maken** om het implementatieproces te starten.
 
-![Implementatie maken](media/acs-portal7.png)  <br /> 
+![Implementatie maken - 7](media/acs-portal7.png)  <br />
 
-Als u ervoor gekozen hebt om de implementatie aan de Azure Portal vast te maken, is de status van de implementatie zichtbaar.
+Als u ervoor gekozen hebt om de implementatie aan de Azure Portal vast te maken, kunt u de status van de implementatie zien.
 
-![Implementatie maken](media/acs-portal8.png)  <br /> 
+![Implementatie maken - 8](media/acs-portal8.png)  <br />
 
 Wanneer de implementatie is voltooid, is het Azure Container Service-cluster klaar voor gebruik.
 
 ## Een service maken met behulp van de Azure CLI
 
-Wanneer u een Azure Container Service-exemplaar wilt maken met behulp van de opdrachtregel, hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ook moet de Azure CLI geconfigureerd en geïnstalleerd zijn.
+Wanneer u een Azure Container Service-exemplaar wilt maken met behulp van de opdrachtregel, hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ook moet de Azure CLI [geïnstalleerd](../xplat-cli-install.md) en [geconfigureerd](../xplat-cli-connect.md) zijn.
 
 Selecteer een van de volgende sjablonen van GitHub wanneer u een DC/OS- of Docker Swarm-cluster wilt implementeren. Houd er rekening mee deze sjablonen hetzelfde zijn, met uitzondering van de standaardselectie voor orchestrator.
 
@@ -106,14 +106,14 @@ Vervolgens configureert u de Azure CLI-hulpprogramma's voor het gebruik van Azur
 azure config mode arm
 ```
 
-Maak een Azure Resource Group- en Container Service-cluster met de volgende opdracht, waarbij:
+Maak een Azure-resourcegroep- en Container Service-cluster met de volgende opdracht, waarbij:
 
 - **RESOURCE_GROUP** de naam is van de resourcegroep die u wilt gebruiken voor deze service.
 - **LOCATION** de Azure-regio is waar de resourcegroep en Azure Container Service-implementatie wordt gemaakt.
-- **TEMPLATE_URI** de locatie is van het implementatiebestand. **Opmerking** Dit moet het RAW-bestand zijn, niet een verwijzing naar de GitHub-gebruikersinterface. U vindt deze URL door het bestand azuredeploy.json te selecteren in GitHub en te klikken op de knop RAW:
+- **TEMPLATE_URI** de locatie is van het implementatiebestand. Dit moet het Raw-bestand zijn, niet een verwijzing naar de GitHub-gebruikersinterface. U vindt deze URL door het bestand azuredeploy.json te selecteren in GitHub en te klikken op de knop **Raw**.
 
-> Opmerking: wanneer u deze opdracht uitvoert, vraagt de shell u om implementatieparameterwaarden.
- 
+> [AZURE.NOTE] Wanneer u deze opdracht uitvoert, vraagt de shell u de implementatieparameterwaarden op te geven.
+
 ```bash
 # sample deployment
 
@@ -161,7 +161,7 @@ Als u zich bij Azure wilt aanmelden, gebruikt u de opdracht `Login-AzureRMAccoun
 Login-AzureRmAccount
 ```
 
-Als u naar een nieuwe resourcegroep implementeert, moet u eerst de resourcegroep maken. Voor het maken van een nieuwe resourcegroep gebruikt u de opdracht `New-AzureRmResourceGroup`, waarbij u een resourcegroep en een bestemmingsregio opgeeft:
+Als u naar een nieuwe resourcegroep implementeert, moet u eerst de resourcegroep maken. Voor het maken van een nieuwe resourcegroep gebruikt u de opdracht `New-AzureRmResourceGroup` en geeft u een resourcegroep en bestemmingsregio op:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -188,15 +188,15 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Volgende stappen
- 
-Nu u een werkend cluster hebt, gaat u naar deze documenten voor meer informatie over verbinding en beheer.
- 
-[Verbinding maken met een Azure Container Service-cluster](container-service-connect.md)
-[Werken met Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
-[Werken met Azure Container Service en Docker Swarm](container-service-docker-swarm.md) 
+
+Nu u een werkend cluster hebt, leest u deze documenten voor meer informatie over verbinding en beheer:
+
+- [Verbinding maken met een Azure Container Service-cluster](container-service-connect.md)
+- [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
+- [Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

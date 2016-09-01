@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/20/2016"
+    ms.date="08/16/2016"
     ms.author="markusvi"/>
 
 # Veelgestelde vragen over Azure Active Directory
@@ -207,6 +207,6 @@ Zie [Automate User Provisioning and Deprovisioning to SaaS Applications with Azu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

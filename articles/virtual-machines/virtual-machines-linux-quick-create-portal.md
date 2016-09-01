@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Een virtuele Linux-machine maken met behulp van de Azure Portal | Microsoft Azure"
-    description="Een virtuele Linux-machine maken met behulp van de Azure Portal."
+    pageTitle="Een virtuele Linux-machine maken met behulp van de Azure-portal | Microsoft Azure"
+    description="Een virtuele Linux-machine maken met behulp van de Azure-portal."
     services="virtual-machines-linux"
     documentationCenter=""
     authors="vlivech"
@@ -21,10 +21,14 @@
 
 # Een virtuele Linux-machine in Azure maken met behulp van de portal
 
-Dit artikel laat zien hoe u de [Azure Portal](https://portal.azure.com/) gebruikt om snel een virtuele Linux-machine te maken. De enige vereisten zijn [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) en [openbare en persoonlijke SSH-sleutelbestanden](virtual-machines-linux-mac-create-ssh-keys.md).
+> [AZURE.NOTE] Als u even de tijd hebt, helpt u ons dan bij het verbeteren van de documentatie over de virtuele Linux-machine van Azure door deel te nemen aan een [korte enquête](https://aka.ms/linuxdocsurvey) over uw ervaringen. Met elk antwoord helpt u ons op weg om u beter van dienst te zijn bij de uitvoering van uw werk.
+
+Dit artikel laat zien hoe u de [Azure-portal](https://portal.azure.com/) gebruikt om snel een virtuele Linux-machine te maken. De enige vereisten zijn [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) en [openbare en persoonlijke SSH-sleutelbestanden](virtual-machines-linux-mac-create-ssh-keys.md).
+
+> [AZURE.NOTE] Als u ervoor kiest een wachtwoord te gebruiken om de toegang tot uw virtuele machine te beveiligen, mag het wachtwoord uit niet meer dan 12 tekens bestaan en moet het uit ten minste één hoofdletter, ten minste één kleine letter, ten minste één speciaal teken en ten minste één cijfer bestaan. 
 
 
-1. Meld u bij de Azure Portal aan met uw Azure-account en klik in de linkerbovenhoek op **+ Nieuw**:
+1. Meld u bij de Azure-portal aan met uw Azure-account en klik in de linkerbovenhoek op **+ Nieuw**:
 
     ![scherm1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
@@ -81,6 +85,6 @@ Aan de hand van deze artikelen kunt u aan de slag met het maken van uw Azure-inf
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

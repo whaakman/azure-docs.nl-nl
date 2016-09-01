@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 U kunt een Windows-toepassing overal en op elk apparaat uitvoeren, gewoon met Azure RemoteApp. Of het nu gaat om een aangepaste toepassing die tien jaar geleden is geschreven of een Office-app, uw gebruikers zijn voor die paar toepassingen niet langer gebonden aan een specifiek besturingssysteem (zoals Windows XP).
 
@@ -28,14 +31,16 @@ In dit artikel gaan we Access delen met al uw gebruikers. U kunt echter ELKE wil
 
 Aangezien Access een database is en we willen dat die database nuttig is, gaan we enkele extra stappen uitvoeren om gebruikers toegang te geven tot de Access-gegevensshare. Als uw app geen database is of uw gebruikers geen toegang hoeven te hebben tot een bestandsshare, kunt u die stappen in deze zelfstudie overslaan.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>U hebt een Azure-account nodig om deze zelfstudie te voltooien.
+> - U kunt [gratis een Azure-account openen](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): u ontvangt tegoeden die u kunt gebruiken om betaalde Azure-services uit te proberen, en zelfs nadat u alle tegoeden hebt gebruikt, kunt u het account houden en gratis Azure-services zoals Websites gebruiken. Er wordt nooit iets op uw creditcard in rekening gebracht, tenzij u expliciet de instellingen wijzigt en vraagt of de kosten op uw creditcard in rekening kunnen worden gebracht.
+> - U kunt [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
 
 
 ## Een verzameling maken in RemoteApp
 
 Eerst maakt u een verzameling. De verzameling fungeert als een container voor uw apps en gebruikers. Elke verzameling is gebaseerd op een installatiekopie: u kunt uw eigen installatiekopie maken of de installatiekopie gebruiken die deel uitmaakt van uw abonnement. In deze zelfstudie gebruiken we de installatiekopie van het Office 2013-proefabonnement, omdat deze de app bevat die we willen delen.
 
-1. Schuif in de Azure Portal omlaag in de navigatiestructuur aan de linkerkant tot u RemoteApp ziet. Open die pagina.
+1. Schuif in de Azure-portal omlaag in de navigatiestructuur aan de linkerkant tot u RemoteApp ziet. Open die pagina.
 2. Klik op **Een RemoteApp-verzameling maken**.
 3. Klik op **Snelle invoer** en voer een naam in voor uw verzameling.
 4. Selecteer de regio die u wilt gebruiken om de verzameling te maken. Selecteer de regio die het geografisch het dichtst bij de locatie ligt waar uw gebruikers de app gaan gebruiken. Zo krijgen ze de best mogelijke ervaring. In deze zelfstudie bevinden de gebruikers zich bijvoorbeeld in Redmond, Washington. De dichtstbijzijnde Azure-regio is **VS - west**.
@@ -120,6 +125,6 @@ Nu u hebt geleerd hoe een verzameling maakt, kunt u proberen een [verzameling te
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

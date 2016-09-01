@@ -1,7 +1,7 @@
 <properties
     pageTitle="Uw eerste virtuele Windows-machine maken | Microsoft Azure"
-    description="Informatie over het maken van uw eerste virtuele Windows-machine met behulp van Azure Portal."
-    keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
+    description="Informatie over het maken van uw eerste virtuele Windows-machine met behulp van de Azure-portal."
+    keywords="Virtuele Windows-machine,een virtuele machine maken,virtuele computer,een virtuele machine instellen"
     services="virtual-machines-windows"
     documentationCenter=""
     authors="cynthn"
@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/05/2016"
+    ms.date="06/07/2016"
     ms.author="cynthn"/>
 
-# Uw eerste virtuele Windows-machine maken met behulp van Azure Portal
+# Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
 
-Deze zelfstudie leert u hoe eenvoudig het is om in enkele minuten een virtuele Windows-machine te maken met behulp van de Azure Portal.  
+Deze zelfstudie leert u hoe eenvoudig het is om in enkele minuten een virtuele Windows-machine te maken met behulp van de Azure-portal.  
 
 Als u geen Azure-abonnement hebt, kunt u binnen een paar minuten een [gratis account](https://azure.microsoft.com/free/) maken.
 
@@ -30,14 +30,14 @@ Hier volgt een [video-overzicht](https://channel9.msdn.com/Blogs/Azure-Documenta
 
 Als voorbeeld gebruiken we een installatiekopie voor Windows Server 2012 R2 Datacenter, maar dat is slechts een van de vele installatiekopieën die Azure biedt. Uw opties voor installatiekopieën zijn afhankelijk van uw abonnement. Bureaubladinstallatiekopieën zijn bijvoorbeeld mogelijk beschikbaar voor [MSDN-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Klik in het menu Hub op **Nieuw** > **Virtuele machines** > **Windows Server 2012 R2 Datacenter**.
 
     ![Schermafbeelding van de installatiekopieën voor virtuele machines in Azure die in de portal beschikbaar zijn](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. Controleer op de pagina **Windows Server 2012 R2 Datacenter** onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik op **Maken**.
+3. Controleer op de pagina **Windows Server 2012 R2 Datacenter** onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik op **Create**.
 
     ![Schermafbeelding van het implementatiemodel dat voor de virtuele machine moet worden geselecteerd](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -49,7 +49,7 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u voor het grootste deel van
 
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de virtuele machine. 
 
-    Het wachtwoord moet tussen 8 en 123 tekens lang zijn en ten minste 3 van de volgende waarden bevatten: één kleine letter, één hoofdletter, één cijfer en één speciaal teken. 
+    Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
 
 
 3. Selecteer een bestaande [Resourcegroep](../resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. Typ een Azure-datacenter**locatie**, zoals **VS - west**. 
@@ -82,13 +82,13 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u voor het grootste deel van
 
 3. Klik op de blade voor de virtuele machine op **Verbinden**. Er wordt nu een Remote Desktop Protocol-bestand (RDP-bestand) gemaakt en gedownload. Een RDP-bestand is een soort snelkoppeling om verbinding te maken met uw computer. Uit oogpunt van gemak is het mogelijk een goed idee om het bestand op uw bureaublad op te slaan. **Open** dit bestand om verbinding te maken met de virtuele machine.
 
-    ![Schermafbeelding van de Azure Portal waarin wordt getoond hoe u verbinding maakt met uw virtuele machine.](./media/virtual-machines-windows-hero-tutorial/connect.png)
+    ![Schermafbeelding van de Azure-portal waarin wordt getoond hoe u verbinding maakt met uw virtuele machine.](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
 4. U ontvangt een waarschuwing dat het RDP-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
 
     ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
-5. Typ in het venster Windows-beveiliging de gebruikersnaam en het wachtwoord voor het lokale account dat u hebt gemaakt tijdens het maken van de virtuele machine. U voert de gebruikersnaam in als *naam_van_virtuele_machine*& #92;*gebruikersnaam*. Klik vervolgens op **OK**.
+5. Typ in het venster Windows-beveiliging de gebruikersnaam en het wachtwoord voor het lokale account dat u hebt gemaakt tijdens het maken van de virtuele machine. U voert de gebruikersnaam in als *naam_van_virtuele_machine*&#92;*gebruikersnaam*. Klik vervolgens op **OK**.
 
     ![Schermafbeelding van het invoeren van de naam van de virtuele machine, de gebruikersnaam en het wachtwoord](./media/virtual-machines-windows-hero-tutorial/credentials.png)
     
@@ -118,6 +118,6 @@ Als u de virtuele machine opnieuw wilt opstarten of weer in gebruik wilt nemen, 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

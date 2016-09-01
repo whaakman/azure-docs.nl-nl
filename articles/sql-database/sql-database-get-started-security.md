@@ -4,7 +4,7 @@
     keywords=""
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,12 +15,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="07/19/2016"
     ms.author="carlrab"/>
 
-# SQL Database-zelfstudie: SQL Database-gebruikersaccounts maken voor toegang tot en beheer van een database met de Azure Portal
+# SQL Database-zelfstudie: SQL Database-gebruikersaccounts maken voor toegang tot en beheer van een database met de Azure-portal
 
-In deze zelfstudie leert u hoe u de Azure Portal gebruikt voor het volgende:
+
+> [AZURE.SELECTOR]
+- [Zelfstudie Aan de slag](sql-database-get-started-security.md)
+- [Toegang verlenen](sql-database-manage-logins.md)
+
+In deze zelfstudie leert u hoe u de Azure-portal gebruikt voor het volgende:
 
 - Aanmelden bij SQL Database met een principal-aanmelding op serverniveau
 - Een SQL Database-gebruikersaccount maken
@@ -49,6 +54,6 @@ Nu u deze zelfstudie voor SQL Database hebt voltooid, een gebruikersaccount hebt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

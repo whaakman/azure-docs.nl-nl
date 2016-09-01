@@ -1,10 +1,10 @@
 <properties
     pageTitle="De ontwikkeling van een Python Flask-webtoepassing met DocumentDB | Microsoft Azure"
     description="Bekijk een databasezelfstudie over het gebruik van DocumentDB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Toepassingsontwikkeling, databasezelfstudie, python flask, python-webtoepassing, python-webontwikkeling, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/11/2016"
+    ms.author="anhoh"/>
 
 # De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
 
@@ -43,7 +43,7 @@ In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
 
 Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnstalleerd:
 
-- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 - [Visual Studio 2013](http://www.visualstudio.com/) of hoger, of [Visual Studio Express]() (de gratis versie). De instructies in deze zelfstudie zijn specifiek geschreven voor Visual Studio 2015. 
 - Python Tools for Visual Studio van [GitHub](http://microsoft.github.io/PTVS/). In deze zelfstudie wordt gebruikgemaakt van Python Tools for VS 2015. 
 - Versie 2.4 of hoger van de Azure Python SDK voor Visual Studio is beschikbaar via [azure.com](https://azure.microsoft.com/downloads/). Wij hebben de Microsoft Azure SDK voor Python 2.7 gebruikt
@@ -436,6 +436,6 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

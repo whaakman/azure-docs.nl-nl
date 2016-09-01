@@ -1,30 +1,30 @@
 <properties
     pageTitle="Lijst met beschikbare connectors en API Apps | Microsoft Azure App Service"
     description="Meer informatie over connectors en API Apps in Azure App Service"
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MandiOhlinger"
     manager="erikre"
     editor="cgronlun"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/11/2016"
+    ms.date="07/28/2016"
     ms.author="mandia"/>
 
 
 # Lijst met connectors en API Apps voor gebruik in Logic Apps
->[AZURE.NOTE] Deze versie van het artikel is van toepassing Logic Apps-previewschemaversie 2014-12-01. Klik voor de previewschemaversie 2015-08-01 op [New Connectors List](../connectors/apis-list.md) (Lijst met nieuwe connectors).
+>[AZURE.NOTE] Deze versie van het artikel is van toepassing Logic Apps-previewschemaversie 2014-12-01. Zie [New Connectors List](../connectors/apis-list.md) (Lijst met nieuwe connectors) voor de General Availability (GA)-versie van Logic Apps.
 
 Lees meer over de beschikbare connectors en API Apps die door Microsoft zijn gemaakt en die u kunt gebruiken in Logic Apps.
 
-Zie [Prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/) voor informatie over prijzen en een overzicht van wat is opgenomen in elke servicecategorie.
+Zie [Prijzen van Azure App Service](https://azure.microsoft.com/pricing/details/app-service/) voor informatie over prijzen en een overzicht van wat is opgenomen in elke servicecategorie.
 
-> [AZURE.NOTE] Als u aan de slag wilt met Azure Logic Apps en u zich nog niet hebt aangemeld voor een Azure-account, gaat u naar [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Logic Apps uitproberen). U kunt onmiddellijk een tijdelijke logische app in App Service maken. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> [AZURE.NOTE] Als u aan de slag wilt met Logic Apps en u zich nog niet hebt aangemeld voor een Azure-account, gaat u naar [Logic Apps uitproberen](https://tryappservice.azure.com/?appservice=logic). U kunt onmiddellijk een tijdelijke logische app in App Service maken. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
 ## Basisconnectors
 In de volgende tabel ziet u de beschikbare connectors en API Apps die zijn gemaakt door Microsoft en die beschikbaar zijn als basisconnectors.
@@ -32,7 +32,7 @@ In de volgende tabel ziet u de beschikbare connectors en API Apps die zijn gemaa
 Naam | Beschrijving
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Hiermee kunnen berichten vanuit de Service Bus-wachtrijen en -onderwerpen worden verzonden en kunnen berichten vanuit de Service Bus-wachtrijen en abonnementen worden ontvangen.
-[Bing Vertalen](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Gebruik Bing om tekst in een andere taal te vertalen.
+[Bing Vertalen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Gebruik Bing om tekst in een andere taal te vertalen.
 [HTTP](app-service-logic-connector-http.md) | De HTTP-listener opent een eindpunt dat als een HTTP-server fungeert en luistert naar inkomende HTTP- of HTTPS-aanvragen. Voor de HTTP-actie is geen API App vereist en de actie wordt op systeemeigen wijze ondersteund in Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Met de Office 365-connector kunt u e-mails verzenden en ontvangen, uw agenda beheren en uw contactpersonen beheren met uw Office 365-account.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | U kunt verschillende taken uitvoeren, zoals het maken, bijwerken en het uitvoeren van query's op verschillende entiteiten van Intuit QuickBooks, zoals klanten, artikelen en facturen.
@@ -86,6 +86,6 @@ Connectors kunnen ook worden gebruikt als acties in uw logische app. Acties zijn
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="python"
     ms.topic="get-started-article" 
-    ms.date="06/01/2016"
+    ms.date="07/07/2016"
     ms.author="huvalo"/>
 
 # Django en MySQL in Azure met Python Tools 2.2 for Visual Studio 
@@ -26,16 +26,16 @@ In deze zelfstudie gebruikt u [Python Tools for Visual Studio] (PTVS) om een een
 > 
 > [PTVS 2.1: Django-app met MySQL][video]
 
-Raadpleeg het [Python Developer Center] voor meer artikelen over het ontwikkelen van Azure App Service-web-apps met PTVS met behulp van Bottle-, Flask- en Django-webframeworks, met MongoDB-, Azure Table Storage-, MySQL- en SQL Database-services. Dit artikel is gericht op App Service, maar voor het ontwikkelen van [Azure Cloud Services] volgt u soortgelijk stappen.
+Raadpleeg het [Python Developer Center] voor meer artikelen over het ontwikkelen van Azure App Service-web-apps met PTVS met behulp van Bottle-, Flask- en Django-webframeworks, met Azure Table Storage-, MySQL- en SQL Database-services. Dit artikel is gericht op App Service, maar voor het ontwikkelen van [Azure Cloud Services] volgt u soortgelijk stappen.
 
 ## Vereisten
 
- - Visual Studio 2013 of 2015
- - [Python 2.7 32-bits]
+ - Visual Studio 2015
+ - [Python 2.7 32-bits] of [Python 3.4 32-bits]
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
- - [Azure SDK-tools voor VS 2013] of [Azure SDK-tools voor VS 2015]
- - Django 1.6 of eerder
+ - [Azure SDK-tools voor VS 2015]
+ - Django 1.9 of hoger
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -49,7 +49,7 @@ In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsja
 
 1. Selecteer in Visual Studio **File**, **New Project**.
 
-1. De projectsjablonen uit PTVS Samples VSIX zijn beschikbaar onder **Python**, **Samples**. Selecteer **Polls Django Web Project** en klik op OK om het project te maken.
+1. De projectsjablonen uit de [Python Tools 2.2 for Visual Studio Samples VSIX] zijn beschikbaar onder **Python**, **Samples**. Selecteer **Polls Django Web Project** en klik op OK om het project te maken.
 
     ![Het dialoogvenster New Project](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
@@ -57,17 +57,13 @@ In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsja
 
     ![Het dialoogvenster External Packages](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
-1. Selecteer **Python 2.7** als basisinterpreter.
+1. Selecteer **Python 2.7** of **Python 3.4** als basisinterpreter.
 
     ![Het dialoogvenster Add Virtual Environment](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Sync DB**.
-
-    ![De opdracht Django Sync DB](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSyncDB.png)
+1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Migrate**.  Selecteer vervolgens **Django Create Superuser**.
 
 1. Hiermee wordt in de projectmap een Django-beheerconsole en een sqlite-database gemaakt. Volg de aanwijzingen voor het maken van een gebruiker.
-
-    ![Het venster van de Django-beheerconsole](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Controleer of de toepassing werkt, door te drukken op `F5`.
 
@@ -99,13 +95,7 @@ U kunt een database maken met een gratis abonnement. Ga hiervoor als volgt te we
 
 1. Klik boven in het navigatiedeelvenster achtereenvolgens op **NIEUW**, **Gegevens en opslag** en **MySQL-database**. 
 
-1. Typ **mysql** in het zoekvak en klik op **MySQL-database**. Klik vervolgens op **Maken**.
-
-    <!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
-
 1. Configureer de nieuwe MySQL-database door een nieuwe resourcegroep te maken en hiervoor de juiste locatie te selecteren.
-
-    <!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png) -->
 
 1. Nadat de MySQL-database is gemaakt, klikt u op de databaseblade op **Eigenschappen**.
 
@@ -135,15 +125,13 @@ In deze sectie configureert u de web-app voor het gebruik van de MySQL-database 
 
 1. Klik onder **Python-omgevingen** in Solution Explorer met de rechtermuisknop op de virtuele omgeving en selecteer **Install Python Package**.
 
-1. Installeer het pakket `mysql-python` met **easy_install**.
+1. Installeer het pakket `mysqlclient` met behulp van **pip**.
 
     ![Het dialoogvenster Install Package](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Sync DB**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Migrate**.  Selecteer vervolgens **Django Create Superuser**.
 
     Hiermee maakt u de tabellen voor de MySQL-database die u in de vorige sectie hebt gemaakt. Volg de aanwijzingen voor het maken van een gebruiker. De gebruiker hoeft niet dezelfde te zijn als de gebruiker in de sqlite-database die in de eerste sectie van dit artikel is gemaakt.
-
-    ![Het venster van de Django-beheerconsole](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
 1. Voer de toepassing uit met `F5`. Polls die zijn gemaakt met **Create Sample Polls** en de gegevens die zijn ingediend via stemmen, worden geserialiseerd in de MySQL-database.
 
@@ -155,7 +143,7 @@ De Azure SDK voor .NET biedt een eenvoudige manier om uw web-app in Azure App Se
 
     ![Het dialoogvenster Publish Web](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
-1. Klik op **Microsoft Azure-web-apps**.
+1. Klik op **Microsoft Azure App Service**.
 
 1. Klik op **Nieuw** om een nieuwe web-app te maken.
 
@@ -166,15 +154,13 @@ De Azure SDK voor .NET biedt een eenvoudige manier om uw web-app in Azure App Se
     - **Regio**
     - Laat **Databaseserver** ingesteld op **Geen database**.
 
-    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
-
 1. Accepteer alle overige standaardwaarden en klik op **Publiceren**.
 
 1. De gepubliceerde web-app wordt automatisch geopend in uw webbrowser. De web-app hoort nu correct te werken met behulp van de **MySQL**-database gehost in Azure.
 
     ![Webbrowser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
 
-    Gefeliciteerd! U hebt uw op MySQL gebaseerde web-app gepubliceerd naar Azure.
+    Gefeliciteerd. U hebt uw op MySQL gebaseerde web-app gepubliceerd naar Azure.
 
 ## Volgende stappen
 
@@ -200,9 +186,9 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure SDK-tools voor VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK-tools voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentatie bij Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
 [Foutopsporing op afstand in Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Webprojecten]: http://go.microsoft.com/fwlink/?LinkId=624027
@@ -213,6 +199,6 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

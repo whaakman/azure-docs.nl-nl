@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Zie [Tabelontwerp][] of [Syntaxis voor CREATE TABLE][] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
+>[AZURE.NOTE] Zie [Tabeloverzicht][] of [Syntaxis voor CREATE TABLE][] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
 
 ### Stap 2: een brongegevensbestand maken
 
@@ -160,13 +160,13 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 
 <!--Article references-->
 
-[Gegevens laden in SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Overzicht van SQL Data Warehouse voor ontwikkelaars]: sql-data-warehouse-overview-develop.md
-[Tabelontwerp]: sql-data-warehouse-develop-table-design.md
-[Statistieken]: sql-data-warehouse-develop-statistics.md
+[Gegevens laden in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Overzicht van SQL Data Warehouse voor ontwikkelaars]: ./sql-data-warehouse-overview-develop.md
+[Tabeloverzicht]: ./sql-data-warehouse-tables-overview.md
+[Statistieken]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[BCP]: https://msdn.microsoft.com/library/ms162802.aspx
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [Syntaxis voor CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
@@ -174,6 +174,6 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

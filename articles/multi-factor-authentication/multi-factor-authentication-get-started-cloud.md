@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Aan de slag met Azure Multi-Factor Authentication in de cloud
@@ -63,7 +63,7 @@ Gebruik de volgende procedure om MFA in te schakelen voor uw gebruikers.
 
 ## Inschakelen van Multi-Factor Authentication automatiseren met PowerShell 
 
-Als u de [status](multi-factor-authentication-whats-next.md) wilt wijzigen met [Azure AD PowerShell](powershell-install-configuremd), kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
+Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](../powershell-install-configure.md) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
 
 
 - Ingeschakeld
@@ -98,6 +98,6 @@ Nu dat u Multi-Factor Authentication in de cloud hebt ingesteld, kunt u uw imple
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

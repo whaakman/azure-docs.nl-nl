@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
+    ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
 # De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
@@ -46,9 +46,7 @@ Wanneer u een service gebruikt met niet-tenantspecifieke URL’s (bijvoorbeeld h
 
 > [AZURE.NOTE]
 >
-
 - Uw domeinnaam moet als Actief worden weergegeven in het gedeelte **Active Directory** > **Directory** > **Domeinen** van de klassieke Azure Portal waarin u de huisstijl hebt geconfigureerd.
-
 - De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de Microsoft-aanmeldingspagina voor klanten. Als u zich met een persoonlijk Microsoft-account aanmeldt, wordt er door Azure AD een reeks gebruikerstegels met huisstijl weergegeven, maar de huisstijl van uw organisatie wordt niet toegepast op de aanmeldingspagina voor Microsoft-accounts.
 
 
@@ -107,7 +105,7 @@ U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aan
 
 ## De pagina met het toegangspaneel aanpassen
 
-De pagina met het toegangspaneel is als het ware een portalpagina voor snelle toegang tot de cloud-apps waar de beheerder u toegang toe heeft verleend. Op deze pagina worden uw apps weergegeven als toepassingstegels waarop kan worden geklikt. 
+De pagina met het toegangspaneel is als het ware een portalpagina voor snelle toegang tot de cloud-apps waar de beheerder u toegang toe heeft verleend. Op deze pagina worden uw apps weergegeven als toepassingstegels waarop kan worden geklikt.
 
 
 In de volgende schermafbeelding ziet u een voorbeeld van een pagina met een toegangspaneel nadat deze is aangepast.
@@ -118,14 +116,14 @@ In de volgende schermafbeelding ziet u een voorbeeld van een pagina met een toeg
 
 In de klassieke Azure Portal kunt u per directory één standaardset aanpasbare elementen configureren. Wanneer de standaardset is opgeslagen, kan een beheerder vertaalde versies van elk element toevoegen voor gebruik in andere taalgebieden. Alle aanpasbare elementen zijn optioneel.
 
-Als u bijvoorbeeld een standaardlogo voor in de banner configureert, maar geen grote afbeelding, wordt in de rechterbovenhoek van de aanmeldingspagina uw logo weergegeven. Daarbij wordt de standaardafbeelding van de site weergegeven. 
+Als u bijvoorbeeld een standaardlogo voor in de banner configureert, maar geen grote afbeelding, wordt in de rechterbovenhoek van de aanmeldingspagina uw logo weergegeven. Daarbij wordt de standaardafbeelding van de site weergegeven.
 
 Stel dat de volgende configuratie wordt gebruikt:
 
-- Een standaardlogo voor in de banner en aanmeldingspaginatekst in het Engels 
-- Een taalspecifieke aanmeldingspaginatekst in het Duits 
+- Een standaardlogo voor in de banner en aanmeldingspaginatekst in het Engels
+- Een taalspecifieke aanmeldingspaginatekst in het Duits
 
-Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, maar de Duitse tekst. 
+Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, maar de Duitse tekst.
 
 Hoewel u technisch gezien een afzonderlijke set zou kunnen configureren voor elke taal die door Azure AD wordt ondersteund, doet u er verstandig aan om het aantal variaties klein te houden. Dit vereenvoudigt het onderhoud en houdt de prestaties goed.
 
@@ -180,8 +178,8 @@ U doet er verstandig aan om te experimenteren met een testtenant voordat u wijzi
 
 **Controleren of uw huisstijl is toegepast:**
 
-1. Open een InPrivate- of Incognito-browsersessie. 
-2. Ga naar https://outlook.com/contoso.com en vervang contoso.com door het domein dat u hebt aangepast. 
+1. Open een InPrivate- of Incognito-browsersessie.
+2. Ga naar https://outlook.com/contoso.com en vervang contoso.com door het domein dat u hebt aangepast.
 
 Dit geldt ook voor domeinen met de volgende indeling: contoso.onmicrosoft.com.
 
@@ -224,6 +222,6 @@ Achtergrondkleur van de aanmeldingspagina | De achtergrondkleur van de aanmeldin
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

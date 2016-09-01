@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio
@@ -77,7 +77,7 @@ Als u uw eigen gegevens wilt gebruiken, volgt u de onderstaande procedure voor h
 
 ## U-SQL-scripts ontwikkelen
 
-De Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
+Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
 
 **Een Data Lake Analytics-taak maken en verzenden**
 
@@ -139,7 +139,7 @@ De Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de sla
 
     - **Auto Format**
 
-        U kunt de inspringing van het Scope-script wijzigen op basis van de codestructuur onder Edit->Advanced:
+        U kunt de inspringing van het U-SQL-script wijzigen op basis van de codestructuur onder Edit->Advanced:
 
         - Format Document (Ctrl + E, D): het hele document wordt opgemaakt.   
         - Format Selection (Ctrl + K, Ctrl + F): de selectie wordt opgemaakt. Als u geen selectie hebt gemaakt, wordt met deze sneltoets de regel opgemaakt waarin de cursor staat.  
@@ -175,8 +175,8 @@ De Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de sla
 
     * Job Summary. De samenvattende informatie over de huidige taak wordt weergeven: State, Progress, Execution Time, Runtime Name, Submitter, enzovoort.   
     * Job Details. Gedetailleerde informatie over deze taak wordt weergegeven, waaronder Script, Resource, Vertex Execution View.
-    * Job Graph. Er worden vier grafieken weergegeven die de informatie over de taak visualiseren: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-    * MetaData Operations. Alle bewerkingen voor metagegevens worden weergegeven.
+    * Job Graph. Er worden vier grafieken weergegeven die de informatie over de taak visualiseren: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+    * Bewerkingen voor metagegevens. Alle bewerkingen voor metagegevens worden weergegeven.
     * State History.
     * Diagnostics. Data Lake Tools voor Visual Studio onderzoekt automatisch de taakuitvoering. U ontvangt waarschuwingen wanneer er fouten of prestatieproblemen in taken optreden. Zie het gedeelte Job Diagnostics (koppeling nog te bepalen) voor meer informatie.
 
@@ -236,7 +236,7 @@ In de volgende video wordt de functie voor het lokaal uitvoeren van U-SQL getoon
 
     - In de scriptinvoer (EXTRACT * FROM “/path/abc”) wordt zowel in het pad DataRoot als het scriptpad gezocht.
     - In de scriptuitvoer (OUTPUT TO “path/abc”) wordt het pad DataRoot als uitvoermap gebruikt.
-    - In de assembly-registratie (CRREATE ASSEMBLY xyz FROM “/path/abc”) wordt gezocht in het scriptpad, maar niet in de DataRoot.
+    - In de assembly-registratie (CREATE ASSEMBLY xyz FROM “/path/abc”) wordt gezocht in het scriptpad, maar niet in de DataRoot.
     - In de geregistreerde TVF/View of andere metagegevensentiteiten wordt in het pad DataRoot gezocht, maar niet in het scriptpad.
 
     Voor scripts die worden uitgevoerd op de Data Lake-service wordt het standaardopslagaccount gebruikt als hoofdmap en doorzocht.
@@ -364,6 +364,6 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

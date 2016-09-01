@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: upgraden van DirSync
@@ -203,20 +203,20 @@ Kom meer te weten over deze functies, die tijdens de installatie zijn ingeschake
 
 Kom meer te weten over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](active-directory-aadconnectsync-feature-scheduler.md).
 
-Kom meer te weten over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
+Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 
 ## Verwante documentatie
 
 Onderwerp |  
 --------- | ---------
-Overzicht Azure AD Connect | [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
+Overzicht Azure AD Connect | [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 Upgraden van een vorige versie van Connect | [Upgraden van een vorige versie van Connect](active-directory-aadconnect-upgrade-previous-version.md)
 Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Installeren met behulp van aangepaste instellingen | [Aangepaste installatie van Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Accounts die worden gebruikt voor installatie | [Meer informatie over accounts en machtigingen van Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Installeren met behulp van aangepaste instellingen | [Custom installation of Azure AD Connect (Engelstalig)](active-directory-aadconnect-get-started-custom.md)
+Accounts die worden gebruikt voor installatie | [Meer informatie over accounts en machtigingen van Azure AD Connect (Engelstalig artikel)](active-directory-aadconnect-accounts-permissions.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

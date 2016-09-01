@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/16/2016"
+    ms.date="07/21/2016"
     ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services
@@ -49,7 +49,7 @@ Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een
 
 In deze sectie maakt u een nieuwe Xamarin.iOS-app die is verbonden met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **Xamarin.iOS** onder **Platform kiezen** en vouw **Een nieuwe app voor Xamarin.iOS maken** uit.
 
@@ -87,7 +87,7 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
 
     > [AZURE.NOTE] U kunt de code die toegang heeft tot uw mobiele service, bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand TodoService.cs.
 
-4. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
+4. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
 
     ![][11]
 
@@ -133,12 +133,12 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Aan de slag met pushmeldingen]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[iOS SDK voor Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

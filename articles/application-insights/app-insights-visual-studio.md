@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
+    ms.date="06/21/2016" 
     ms.author="awills"/>
 
 
@@ -65,7 +65,11 @@ Als u [uitzonderingencontrole hebt ingesteld](app-insights-asp-net-exceptions.md
 Klik op een uitzondering voor een stack-trace. Als de code van de app in Visual Studio is geopend, kunt u via de stack-trace doorklikken naar de relevante coderegel.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Uitzondering voor stack-trace](./media/app-insights-visual-studio/17.png)
+
+Bovendien ziet u, in de Code Lens-regel boven elke methode, het aantal uitzonderingen dat door Application Insights in de afgelopen 24 uur is geregistreerd.
+
+![Uitzondering voor stack-trace](./media/app-insights-visual-studio/21.png)
 
 
 ## Lokale bewaking
@@ -84,17 +88,17 @@ Ook als u beschikt over [aangepaste telemetrie](app-insights-api-custom-events-m
  * De instellingen van het venster Zoeken bevat een optie om lokale diagnostische gegevens te doorzoeken, zelfs als uw app telemetrie verzendt naar de portal.
  * Als u geen telemetrie meer naar de portal wilt verzenden, moet u de regel `<instrumentationkey>...` in ApplicationInsights.config uitcommentariëren. Als u weer telemetrie naar de portal wilt verzenden, verwijdert u het commentaarteken.
 
+## Trends
 
+Trends is een hulpprogramma waarmee u de werking van uw app gedurende een bepaalde periode kunt visualiseren. 
 
+Kies **Telemetrietrends verkennen** op de Application Insights-werkbalkknop of in het Application Insights-zoekvenster. Kies een van de vijf algemene query's om te beginnen. U kunt verschillende gegevenssets analyseren op basis van telemetrietypen, tijdsbereik en andere eigenschappen. 
 
+Als u wilt zoeken naar afwijkingen in uw gegevens, kiest u een van de afwijkingsopties onder de vervolgkeuzelijst Type weergave. Met de filteropties aan de onderkant van het venster kunt u eenvoudig specifieke subreeksen van uw telemetrie selecteren.
 
-## Upgraden naar toekomstige SDK-versies
+![Trends](./media/app-insights-visual-studio/51.png)
 
-Als u wilt upgraden naar een [nieuwe release van de SDK](app-insights-release-notes-dotnet.md), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer Microsoft.ApplicationInsights.Web en kies Upgraden.
-
-Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
-
-
+[Meer informatie over Trends](app-insights-visual-studio-trends.md).
 
 ## Volgende stappen
 
@@ -108,6 +112,6 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Een WordPress-web-app maken in Azure App Service
@@ -65,7 +65,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 
 5. Selecteer een **Resourcegroep** of maak een nieuwe.
 
-    Zie [De Azure Portal gebruiken om Azure-resources te beheren](../resource-group-portal.md) voor meer informatie over resourcegroepen.
+    Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
 
 5. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
 
@@ -130,6 +130,6 @@ Voor meer informatie over werken met App Service-web-apps klikt u op de koppelin
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

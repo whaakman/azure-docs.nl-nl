@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/31/2016"
+    ms.date="06/06/2016"
     ms.author="awills"/>
 
 # Aan de slag met Visual Studio Application Insights
@@ -52,8 +52,6 @@ Wat u wilt | Wat u moet doen | Wat u krijgt
  * [Probleemoplossing][qna]
  * [MSDN-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Fouten:
- * [Verbinding maken](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggesties:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Codevoorbeelden
@@ -61,8 +59,9 @@ Wat u wilt | Wat u moet doen | Wat u krijgt
 
 
 
-## <a name="video"></a>Video's
+## <a name="video"></a>Video
 
+[![AInleiding met animatie](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -78,6 +77,6 @@ Wat u wilt | Wat u moet doen | Wat u krijgt
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

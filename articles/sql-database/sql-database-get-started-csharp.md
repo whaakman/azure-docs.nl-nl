@@ -1,7 +1,7 @@
 <properties
     pageTitle="SQL Database uitproberen: een SQL-database maken met C# | Microsoft Azure"
     description="Probeer SQL Database om SQL- en C#-apps te ontwikkelen en om een Azure SQL Database te maken met C# met behulp van de SQL Database-bibliotheek voor .NET."
-    keywords="try sql, sql c#"   
+    keywords="sql, sql c proberen#"   
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -21,11 +21,11 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-get-started.md)
+- [Azure-portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Lees hoe u C#-opdrachten gebruikt om een Azure SQL-database te maken met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). U gaat SQL Database uitproberen door een individuele database te maken met SQL en C#. Zie [Een pool voor elastische database maken](sql-database-elastic-pool-create-portal.md) als u een pool voor elastische database wilt maken. Voor de duidelijkheid zijn afzonderlijke codefragmenten uitgelicht. In een voorbeeld van een console-toepassing in de sectie onder aan dit artikel worden alle opdrachten samengevoegd.
+Lees hoe u C#-opdrachten gebruikt om een Azure SQL-database te maken met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). U gaat SQL Database uitproberen door een individuele database te maken met SQL en C#. Zie [Een groep voor elastische database maken](sql-database-elastic-pool-create-portal.md) als u een groep voor elastische database wilt maken. Voor de duidelijkheid zijn afzonderlijke codefragmenten uitgelicht. In een voorbeeld van een console-toepassing in de sectie onder aan dit artikel worden alle opdrachten samengevoegd.
 
 De Azure SQL Database-bibliotheek voor .NET biedt een op [Azure Resource Manager](../resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat. Deze clientbibliotheek volgt het algemene patroon voor op Resource Manager gebaseerde clientbibliotheken. Resource Manager vereist resourcegroepen en verificatie met [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -46,7 +46,7 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 Als u een SQL-database wilt instellen met C#, zorgt u eerst voor de vereiste managementbibliotheken door de volgende pakketten te installeren met behulp van de [pakketbeheerconsole](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -58,7 +58,7 @@ Als u de clienttoepassing wilt verifiëren op basis van de huidige gebruiker, mo
 
 Ga als volgt te werk om een nieuwe toepassing te maken en deze te registreren in de juiste Active Directory:
 
-1. Ga naar de [klassieke Azure Portal](https://manage.windowsazure.com/).
+1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com/).
 1. Selecteer links de **Active Directory**-service en selecteer vervolgens de directory voor de verificatie van uw toepassing en klik op de **naam** ervan.
 
     ![SQL Database uitproberen: Azure Active Directory (AAD) instellen.][1]
@@ -99,7 +99,7 @@ Ga als volgt te werk om een nieuwe toepassing te maken en deze te registreren in
 
 De domeinnaam is vereist voor uw code. Er is een eenvoudige manier om de juiste domeinnaam te identificeren:
 
-1. Ga naar de [Azure Portal](http://portal.azure.com).
+1. Ga naar de [Azure-portal](http://portal.azure.com).
 2. Houd de muisaanwijzer boven uw naam in de rechterbovenhoek en noteer het domein dat in het pop-upvenster wordt weergegeven.
 
     ![Identificeer de domeinnaam.][3]
@@ -437,7 +437,7 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 - [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld-T-SQL-query uitvoeren](sql-database-connect-query-ssms.md)
 
-## Aanvullende bronnen
+## Aanvullende resources
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -458,6 +458,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

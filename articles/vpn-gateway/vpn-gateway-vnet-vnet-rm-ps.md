@@ -14,16 +14,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Een VNet-naar-VNet-verbinding configureren met behulp van Azure Resource Manager en PowerShell
 
 > [AZURE.SELECTOR]
-- [Klassieke Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Klassieke Azure-portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Dit artikel helpt u met de stappen voor het maken van een verbinding tussen virtuele netwerken met behulp van het Resource Manager-implementatiemodel en PowerShell. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **Over Azure-implementatiemodellen**
@@ -58,27 +60,7 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
 ### Veelgestelde vragen over VNet-naar-VNet
 
-- De virtuele netwerken kunnen zich in dezelfde of verschillende Azure-regio's (locaties) bevinden.
-
-- Een cloudservice of een load balancing-eindpunt kan GEEN virtuele netwerken overbruggen, zelfs niet als ze met elkaar zijn verbonden.
-
-- Om meerdere virtuele netwerken van Azure met elkaar te verbinden, hebt u geen on-premises VPN-gateways nodig, tenzij cross-premises connectiviteit vereist is.
-
-- VNet naar VNet ondersteunt het verbinden van virtuele netwerken. Het biedt geen ondersteuning voor het verbinden van virtuele machines of cloudservices die GEEN deel uitmaken van een virtueel netwerk.
-
-- VNet-naar-VNet vereist Azure VPN-gateways met op route gebaseerde VPN-typen (voorheen dynamische routering genoemd). 
-
-- Virtuele-netwerkconnectiviteit kan tegelijkertijd worden gebruikt met multi-site-VPN's, met maximaal 10 (standaard/standaardgateways) of 30 (gateways met hoge prestaties) VPN-tunnels voor een VPN-gateway van een virtueel netwerk die verbinding maakt met andere virtuele netwerken of on-premises-sites.
-
-- De adresruimten van de virtuele netwerken en on-premises lokale netwerksites mogen elkaar niet overlappen. Als adresruimten elkaar overlappen, kunnen de VNet-naar-VNet-verbindingen niet worden gemaakt.
-
-- Redundante tunnels tussen een paar virtuele netwerken worden niet ondersteund.
-
-- Alle VPN-tunnels van het virtuele netwerk delen de beschikbare bandbreedte op de Azure VPN-gateway en dezelfde SLA voor VPN-gatewaybedrijfstijd in Azure.
-
-- VNet-naar-VNet-verkeer verplaatst zich via het Microsoft-netwerk, niet via internet.
-
-- VNet-naar-VNet-verkeer in dezelfde regio is gratis voor beide richtingen; voor uitgaand VNet-naar-VNet-verkeer tussen regio's gelden de tarieven voor uitgaande gegevensoverdracht tussen VNets op basis van de bronregio's. Raadpleeg de [pagina met prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie.
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)] 
 
 
 ## Welke stappen moet ik gebruiken?
@@ -140,7 +122,7 @@ Voor deze oefening gebruikt u de volgende waarden voor de VNets:
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Resourcegroep: TestRG4
 - Locatie: VS - west
 - DNS-server: 8.8.8.8
@@ -316,9 +298,9 @@ Wanneer u TestVNet1 hebt geconfigureerd, moet u de stappen herhalen om TestVNet4
 
 In de volgende voorbeelden ziet u hoe u de verbinding kunt controleren. Zorg dat de waarden zijn afgestemd op uw omgeving.
 
-### Uw verbinding controleren met behulp van de Azure Portal
+### Uw verbinding controleren met behulp van de Azure-portal
 
-U kunt een VPN-verbinding in de Azure Portal controleren door te navigeren naar **Gateways voor virtueel netwerk** -> ** en op de naam van uw gateway** -> **Instellingen** -> **Verbindingen** te klikken. Als u de naam van de verbinding selecteert, kunt u meer informatie bekijken in de blade **Verbinding**. 
+U kunt een VPN-verbinding in de Azure-portal controleren door te navigeren naar **Gateways voor virtueel netwerk** -> ** en op de naam van uw gateway** -> **Instellingen** -> **Verbindingen** te klikken. Als u de naam van de verbinding selecteert, kunt u meer informatie bekijken in de blade **Verbinding**. 
 
 
 ### Uw verbinding controleren met behulp van PowerShell
@@ -534,6 +516,6 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

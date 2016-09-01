@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Overzicht van Azure Event Hubs
@@ -21,9 +21,9 @@ Bij veel moderne oplossingen is het de bedoeling dat deze adaptieve gebruikerser
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Azure Event Hubs is een gebeurtenisverwerkingsservice die in de cloud zeer grote hoeveelheden gebeurtenissen en telemetriegegevens kan verzamelen, met een lage latentie en een hoge mate van betrouwbaarheid. In combinatie met andere downstreamservices is deze service bijzonder nuttig voor toepassingsinstrumentatie, verwerking van de gebruikerservaring of werkstroom en scenario's met betrekking tot het internet der dingen (IoT). Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom. Hoewel een Event Hub als entiteit vergelijkbaar is met wachtrijen en onderwerpen, wijken de kenmerken ervan sterk af van wat u gewend bent bij traditionele berichtenverzending voor bedrijven. Berichtenverzendingsscenario's voor bedrijven vereisen meestal diverse geavanceerde mogelijkheden, zoals sequentiëren, verwerking van onbestelbare berichten, transactieondersteuning en sterke leveringsgaranties, terwijl de belangrijkste zorg voor gebeurtenisopname hoge doorvoer en verwerkingsflexibiliteit voor gebeurtenisstromen is. De mogelijkheden van Event Hubs verschillen dan ook van de Service Bus-onderwerpen doordat ze sterk zijn gericht op scenario's met hoge doorvoer en de verwerking van gebeurtenissen. Om die reden biedt Event Hubs niet alle berichtenmogelijkheden die voor onderwerpen beschikbaar zijn. Als u deze mogelijkheden nodig hebt, blijven onderwerpen voor u de beste keuze.
+Azure Event Hubs is een gebeurtenisverwerkingsservice die in de cloud zeer grote hoeveelheden gebeurtenissen en telemetriegegevens kan verzamelen, met een lage latentie en een hoge mate van betrouwbaarheid. In combinatie met andere downstreamservices is deze service bijzonder nuttig voor toepassingsinstrumentatie, verwerking van de gebruikerservaring of werkstroom en scenario's met betrekking tot het internet der dingen (IoT). Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom. Hoewel een Event Hub als entiteit vergelijkbaar is met wachtrijen en onderwerpen, wijken de kenmerken ervan sterk af van wat u gewend bent bij traditionele berichtenverzending voor bedrijven. Berichtenverzendingsscenario's voor bedrijven vereisen meestal geavanceerde mogelijkheden, zoals sequentiëren, verwerking van onbestelbare berichten, transactieondersteuning en sterke leveringsgaranties, terwijl de belangrijkste zorg voor gebeurtenisopname hoge doorvoer en verwerkingsflexibiliteit voor gebeurtenisstromen is. De mogelijkheden van Event Hubs verschillen dan ook van de Service Bus-onderwerpen doordat ze sterk zijn gericht op scenario's met hoge doorvoer en de verwerking van gebeurtenissen. Om die reden biedt Event Hubs niet alle berichtenmogelijkheden die voor onderwerpen beschikbaar zijn. Als u deze mogelijkheden nodig hebt, blijven onderwerpen voor u de beste keuze.
 
-Een Event Hub wordt gemaakt op het niveau van de naamruimte in de Service Bus en is vergelijkbaar met wachtrijen en onderwerpen. Event Hubs maakt gebruikt van AMQP en HTTP als primaire API-interfaces. Het volgende diagram geeft de relatie tussen Event Hubs en Service Bus weer.
+Een Event Hub wordt gemaakt op het niveau van de Event Hubs-naamruimte en is vergelijkbaar met Service Bus-wachtrijen en -onderwerpen. Event Hubs maakt gebruikt van AMQP en HTTP als primaire API-interfaces. Het volgende diagram geeft de relatie tussen Event Hubs en Service Bus weer.
 
 ![Event Hubs](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Partities bewaren gegevens voor een geconfigureerde bewaartijd die is ingesteld 
 
 Het aantal partities wordt opgegeven tijdens de aanmaaktijd van de Event Hub en moet tussen 2 en 32 liggen (het standaardaantal is 4). Partities zijn een mechanisme voor gegevensordening. Ze hebben meer betrekking op de mate van downstreamparallelheid die is vereist in de betrokken toepassingen, dan op de doorvoer van Event Hubs. Hierdoor houdt de keuze van het aantal partities in een Event Hub rechtstreeks verband met het aantal verwachte gelijktijdige lezers. Nadat de Event Hub is gemaakt, kan het aantal partities niet meer worden gewijzigd. Stel het benodigde aantal partities daarom vast op basis van het verwachte gebruik op de lange termijn. Als u meer dan 32 partities nodig hebt, neemt u contact op met het Service Bus-team.
 
-Hoewel partities te herkennen zijn en gegevens er rechtstreeks naartoe kunnen worden verzonden, is het doorgaans beter om het verzenden van gegevens naar specifieke partities te voorkomen. In plaats daarvan kunt u constructies op een hoger niveau gebruiken. Deze vindt u in de secties [Gebeurtenisuitgever](#event-publisher) en [Uitgeversbeleid](#capacity-and-security).
+Hoewel partities te herkennen zijn en gegevens er rechtstreeks naartoe kunnen worden verzonden, is het beter om het verzenden van gegevens naar specifieke partities te voorkomen. In plaats daarvan kunt u constructies op een hoger niveau gebruiken. Deze vindt u in de secties [Gebeurtenisuitgever](#event-publisher) en [Uitgeversbeleid](#capacity-and-security).
 
 In de context van Event Hubs worden berichten aangeduid als *gebeurtenisgegevens*. Gebeurtenisgegevens bevatten de hoofdtekst van de gebeurtenis, een door de gebruiker gedefinieerde eigenschappenverzameling en verschillende metagegevens van de gebeurtenis, zoals de offset in de partitie en het nummer in de stroomreeks. Partities worden gevuld met een reeks gebeurtenisgegevens.
 
@@ -118,7 +118,7 @@ Nadat er voor een specifieke partitie een AMQP 1.0-sessie en -koppeling zijn geo
 
 ![Event Hubs](./media/event-hubs-overview/IC759862.png)
 
-Het is de verantwoordelijkheid van de gebruiker om deze offset zodanig te beheren dat de stroom op optimale wijze wordt verwerkt.
+Het is uw verantwoordelijkheid om deze offset zodanig te beheren dat de stroom op optimale wijze wordt verwerkt.
 
 ## Capaciteit en beveiliging
 
@@ -130,13 +130,13 @@ De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare d
 
 - Inkomende gegevens: maximaal 1 MB per seconde of 1000 gebeurtenissen per seconde.
 
-- Uitgaande gegevens: tot 2 MB per seconde.
+- Uitgaande gegevens: maximaal 2 MB per seconde.
 
 De inkomende gegevens worden beperkt door de capaciteit die door het aantal aangeschafte doorvoereenheden wordt geleverd. Als u meer gegevens verzendt, resulteert dit in de uitzondering 'quotum overschreden'. Het quotum is 1 MB per seconde of 1000 gebeurtenissen per seconde, afhankelijk van wat het eerst wordt bereikt. Bij de uitgaande gegevens doen zich geen quotumgerelateerde uitzonderingen voor, maar de gegevensoverdracht is beperkt tot de capaciteit van de aangeschafte doorvoereenheden: 2 MB per seconde per doorvoereenheid. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte waarin de Event Hub is gemaakt. Als u meer doorvoereenheden wilt, past u de betreffende instelling in de [klassieke Azure Portal][] aan op de pagina **Naamruimten** op het tabblad **Schaal**. U kunt deze instelling ook wijzigen met de Azure-API's.
 
-Partities zijn een concept voor gegevensordening. Doorvoereenheden zijn uitsluitend een capaciteitsconcept. Doorvoereenheden worden per uur in rekening gebracht en zijn vooraf aangeschaft. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. U kunt voor een Service Bus-naamruimte maximaal 20 doorvoereenheden aanschaffen. Per Azure-account geldt een limiet van 20 doorvoereenheden. Deze doorvoereenheden worden verdeeld over alle Event Hubs in een bepaalde naamruimte.
+Partities zijn een concept voor gegevensordening. Doorvoereenheden zijn uitsluitend een capaciteitsconcept. Doorvoereenheden worden per uur in rekening gebracht en zijn vooraf aangeschaft. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. U kunt voor een Event Hubs-naamruimte maximaal 20 doorvoereenheden aanschaffen. Per Azure-account geldt een limiet van 20 doorvoereenheden. Deze doorvoereenheden worden verdeeld over alle Event Hubs in een bepaalde naamruimte.
 
-Doorvoereenheden worden ingericht op basis van 'best effort' en zijn mogelijk niet altijd beschikbaar voor onmiddellijke aankoop. Als u een specifieke capaciteit nodig hebt, doet u er verstandig aan de benodigde doorvoereenheden van tevoren aan te schaffen. Als u meer dan 20 doorvoereenheden nodig hebt, neemt u contact op met de Service Bus-ondersteuning om aanvullende doorvoereenheden aan te schaffen. Tot de eerste 100 extra doorvoereenheden vindt aanschaf plaats in blokken van 20. Daarna kunt u ook blokken van 100 doorvoereenheden aanschaffen.
+Doorvoereenheden worden ingericht op basis van 'best effort' en zijn mogelijk niet altijd beschikbaar voor onmiddellijke aankoop. Als u een specifieke capaciteit nodig hebt, doet u er verstandig aan de benodigde doorvoereenheden van tevoren aan te schaffen. Als u meer dan 20 doorvoereenheden nodig hebt, neemt u contact op met de Azure-ondersteuning om aanvullende doorvoereenheden aan te schaffen. Tot de eerste 100 extra doorvoereenheden vindt aanschaf plaats in blokken van 20. Daarna kunt u ook blokken van 100 doorvoereenheden aanschaffen.
 
 We raden u aan het aantal doorvoereenheden en partities zorgvuldig op elkaar af te stemmen, zodat u met Event Hubs een optimale schaal bereikt. Per partitie is maximaal één doorvoereenheid mogelijk. Het aantal doorvoereenheden moet daarom kleiner zijn dan of gelijk zijn aan het aantal partities in een Event Hub.
 
@@ -170,6 +170,6 @@ Nu u bekend bent met de concepten van Event Hubs, kunt u verdergaan met de volge
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

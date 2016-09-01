@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Aan de slag met de webservice voor mobiele apps voor de MFA-server
@@ -44,7 +44,7 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 
 ## De webservice-SDK installeren
 
-Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram van de webservice-SDK, klik op de knop Webservice-SDK installeren en volg de aanwijzingen op het scherm. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht. 
+Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram voor de webservice-SDK, en klik op de knop Install Web Service SDK (Webservice-SDK installeren)... en volg de aanwijzingen die worden gegeven. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht. 
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
@@ -91,6 +91,7 @@ Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Fact
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

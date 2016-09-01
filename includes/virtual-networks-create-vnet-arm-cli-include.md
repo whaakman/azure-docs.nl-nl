@@ -11,7 +11,7 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
 
         info:    New mode is arm
 
-3. Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+3. Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/virtual-network/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
 
         azure group create -n TestRG -l centralus
 
@@ -51,10 +51,10 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
         data:      192.168.0.0/16
         info:    network vnet create command OK
 
-    - **-g (of --resourcegroep)**. Naam van de resourcegroep waar de VNet wordt gemaakt. In ons scenario *TestRG*.
-    - **-n (of --naam)**. Naam van de VNet die moet worden gemaakt. In ons scenario *TestVNet*
+    - **-g (of --resource-group)**. Naam van de resourcegroep waar de VNet wordt gemaakt. In ons scenario *TestRG*.
+    - **-n (of --name)**. Naam van de VNet die moet worden gemaakt. In ons scenario *TestVNet*
     - **-a (of--adresvoorvoegsels)**. Lijst met gebruikte CIDR-blokken voor de VNet-adresruimte. In ons scenario *192.168.0.0/16*
-    - **-l (of --locatie)**. De Azure-regio waar de VNet wordt gemaakt. In ons scenario *centralus*.
+    - **-l (of --location)**. De Azure-regio waar de VNet wordt gemaakt. In ons scenario *centralus*.
 
 5. Voer de opdracht **azure network vnet subnet create** om een subnet te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
@@ -75,7 +75,7 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
         info:    network vnet subnet create command OK
 
     - **-e (of --vnet naam**. Naam van de VNet waar het subnet wordt gemaakt. In ons scenario *TestVNet*.
-    - **-n (of --naam)**. Naam van het nieuwe subnet. In ons scenario *FrontEnd*.
+    - **-n (of --name)**. Naam van het nieuwe subnet. In ons scenario *FrontEnd*.
     - **-a (of --adresvoorvoegsel)**. Subnet CIDR-blok. In ons scenario *192.168.1.0/24*.
 
 6. Herhaal stap 5 hierboven als u meer subnetten wilt maken. In ons scenario voert u de onderstaande opdracht maken om het *BackEnd*-subnet te maken.
@@ -108,6 +108,6 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

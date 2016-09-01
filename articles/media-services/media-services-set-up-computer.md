@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"  
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 # Uw omgeving instellen
@@ -56,6 +56,6 @@ Kies .NET of de REST API om via een programma verbinding te maken met Azure Medi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

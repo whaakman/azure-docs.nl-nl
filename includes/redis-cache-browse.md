@@ -13,6 +13,6 @@ Klik op **Instellingen** of **Alle instellingen** als u de cache wilt weergeven 
 ![Alle instellingen in Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

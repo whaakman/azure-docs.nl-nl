@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="05/09/2016"
+    ms.date="07/25/2016"
     ms.author="spelluru"/>
 
 # Overstappen op Azure Data Catalog
@@ -175,6 +175,6 @@ In dit artikel is beschreven hoe u aan de slag kunt met **Azure Data Catalog** i
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -14,14 +14,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met PowerShell en Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassieke Azure Portal](vpn-gateway-site-to-site-create.md)
+- [Azure-portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Klassieke Azure-portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt met behulp van het Azure Resource Manager-implementatiemodel. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. 
@@ -183,28 +183,31 @@ Vervolgens maakt u de site-naar-site-VPN-verbinding tussen de gateway van uw vir
 
 Na een korte tijd wordt de verbinding tot stand gebracht. 
 
-## 9. Een VPN-verbinding controleren
+## <a name="toverify"></a>Een VPN-verbinding controleren
 
-Er zijn een aantal verschillende manieren om uw VPN-verbinding te controleren. Hierna wordt uitgelegd hoe u eenvoudige verificatie uitvoert met behulp van de Azure Portal en met PowerShell.
+Er zijn een aantal verschillende manieren om uw VPN-verbinding te controleren. Hierna wordt uitgelegd hoe u eenvoudige verificatie uitvoert met behulp van de Azure-portal en met PowerShell.
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="modify"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk
 
-Volg onderstaande instructies als u de voorvoegsels voor de gateway van een lokaal netwerk wilt wijzigen.  Er zijn twee sets met instructies. Welke instructies u kiest, is afhankelijk van of u uw VPN-gatewayverbinding al hebt gemaakt. 
+Volg onderstaande instructies als u de voorvoegsels voor de gateway van een lokaal netwerk wilt wijzigen. Er zijn twee sets met instructies. Welke instructies u kiest, is afhankelijk van de vraag of u uw gatewayverbinding al hebt gemaakt. 
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>Het IP-adres van de gateway wijzigen in dat van een lokale netwerkgateway
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Volgende stappen
 
-- Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor de stappen.
+- U kunt virtuele machines toevoegen aan uw virtuele netwerken. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor de stappen.
 
 - Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

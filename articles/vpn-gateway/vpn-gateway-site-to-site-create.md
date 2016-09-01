@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Een virtueel netwerk maken met een site-naar-site-VPN-gatewayverbinding met de klassieke Azure Portal | Microsoft Azure"
+   pageTitle="Een virtueel netwerk met een site-naar-site-VPN-gatewayverbinding maken met behulp van de klassieke Azure-portal| Microsoft Azure"
    description="Maak een VNet met een S2S-VPN-gatewayverbinding voor cross-premises en hybride configuraties met behulp van het klassieke implementatiemodel."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,18 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
-# Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met de klassieke Azure Portal
+# Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met de klassieke Azure-portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassieke Azure Portal](vpn-gateway-site-to-site-create.md)
+- [Azure-portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Klassieke Azure-portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding maakt met uw on-premises netwerk. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. Dit artikel is van toepassing op het klassieke implementatiemodel en maakt gebruik van de klassieke Azure Portal. 
+In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. Dit artikel is van toepassing op het klassieke implementatiemodel en maakt gebruik van de klassieke Azure-portal. Het is op dit moment niet mogelijk een end-to-end/site-naar-site-configuratie voor het klassieke implementatiemodel te maken met behulp van de Azure-portal.
 
 
 **Over Azure-implementatiemodellen**
@@ -56,7 +56,7 @@ Controleer op voorhand of u de volgende items hebt.
 
 ## Het virtuele netwerk maken
 
-1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com/).
+1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com/).
 
 2. Klik linksonder in het scherm op **Nieuw**. Klik in het navigatievenster op **Netwerkservices** en vervolgens op **Virtueel netwerk**. Klik op **Aangepast maken** om de configuratiewizard te starten.
 
@@ -73,7 +73,7 @@ Voer de volgende informatie in.
 
 Voer de volgende informatie in en klik rechtsonder op de pijl Volgende.
 
-- **DNS-servers**: geef de naam en het IP-adres van de DNS-server op of selecteer een eerder geregistreerde DNS-server in het snelmenu. Met deze instelling wordt geen DNS-server gemaakt. U kunt geeft hiermee alleen de DNS-servers op die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk.
+- **DNS-servers**: geef de naam en het IP-adres van de DNS-server op of selecteer een eerder geregistreerde DNS-server in het snelmenu. Met deze instelling wordt geen DNS-server gemaakt. U kunt hiermee de DNS-servers opgeven die u wilt gebruiken voor naamomzetting voor dit virtuele netwerk.
 - **Site-naar-site-VPN configureren**: schakel het selectievakje **Site-naar-site-VPN configureren** in.
 - **Lokaal netwerk**: een lokaal netwerk vertegenwoordigt uw fysieke on-premises locatie. U kunt een lokaal netwerk selecteren dat u eerder hebt gemaakt of u kunt een nieuw lokaal netwerk maken. Als u echter kiest voor het gebruik van een lokaal netwerk dat u eerder hebt gemaakt, wilt u misschien op de configuratiepagina **Lokale netwerken** controleren of het IP-adres van het VPN-apparaat (openbaar IPv4-adres) voor het VPN-apparaat dat u voor deze verbinding gebruikt juist is.
 
@@ -85,7 +85,7 @@ Voer de volgende informatie in en klik op de pijl Volgende.
 
 -   **Naam**: de naam voor de lokale (on-premises) netwerksite.
 -   **IP-adres van VPN-apparaat**: dit is het openbare IPv4-adres van het on-premises VPN-apparaat dat u gebruikt om verbinding te maken met Azure. Het VPN-apparaat kan zich niet achter een NAT bevinden.
--   **Adresruimte**: neem het IP-beginadres en de CIDR (aantal adressen) op. Hier geeft u de adresbereiken op die u via de gateway van het virtuele netwerk naar uw lokale on-premises locatie wilt laten verzenden. Als het IP-adres van een bestemming binnen de bereiken valt die u hier opgeeft, wordt het via de gateway van het virtuele netwerk gerouteerd.
+-   **Adresruimte**: neem het IP-beginadres en de CIDR (aantal adressen) op. Hier geeft u de adresbereiken op die u via de gateway van het virtuele netwerk naar uw lokale on-premises locatie wilt laten verzenden. Als een IP-doeladres binnen de bereiken valt die u hier opgeeft, wordt het verkeer via de gateway van het virtuele netwerk gerouteerd.
 -   **Adresruimte toevoegen**: als u meerdere-adresbereiken via de gateway van het virtuele netwerk wilt laten verzenden, kunt u hier aanvullende adresbereiken opgeven. U kunt later op de pagina **Lokaal netwerk** bereiken toevoegen of verwijderen.
 
 ## Pagina Adresruimten voor virtueel netwerk
@@ -100,13 +100,13 @@ Voer de volgende informatie in en klik linksonder op het vinkje om het netwerk t
 - **Subnet toevoegen**: neem het IP-beginadres en het Aantal adressen op. U hebt geen aanvullende subnetten nodig, maar misschien wilt u een apart subnet maken voor virtuele machines die statische DIPS krijgen. Of misschien wilt u uw virtuele machines in een subnet plaatsen dat is gescheiden van uw andere rolinstanties.
 - **Gatewaysubnet toevoegen**: klik om het gatewaysubnet toe te voegen. Het gatewaysubnet wordt alleen gebruikt voor de gateway van het virtuele netwerk. Het is vereist voor deze configuratie.
 
-Wanneer u onder aan de pagina op het vinkje klikt, wordt het virtuele netwerk gemaakt. Als dit is voltooid, wordt op de pagina **Netwerken** in de klassieke Azure Portal **Gemaakt** vermeld onder **Status**. Wanneer het VNet is gemaakt, kunt u de gateway van het virtuele netwerk configureren.
+Wanneer u onder aan de pagina op het vinkje klikt, wordt het virtuele netwerk gemaakt. Als dit is voltooid, wordt op de pagina **Netwerken** in de klassieke Azure-portal **Gemaakt** vermeld onder **Status**. Wanneer het VNet is gemaakt, kunt u de gateway van het virtuele netwerk configureren.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## De gateway van het virtuele netwerk configureren
 
-Vervolgens configureert u de gateway van het virtuele netwerk om een beveiligde site-naar-site-verbinding te maken. Zie [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md) (De gateway van een virtueel netwerk configureren in de klassieke Azure Portal).
+Vervolgens configureert u de gateway van het virtuele netwerk om een beveiligde site-naar-site-verbinding te maken. Zie [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md) (De gateway van een virtueel netwerk configureren in de klassieke Azure-portal).
 
 ## Volgende stappen
 
@@ -114,6 +114,6 @@ Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netw
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga" />
 
 #Een Xamarin.Android-app maken
@@ -24,7 +24,7 @@
 
 Deze zelfstudie laat zien hoe u een back-endservice toevoegt aan een Xamarin.Android-app in de cloud. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie.
 
-Hieronder staat een schermafbeelding van de voltooide app:
+Hieronder ziet u een schermafbeelding van de voltooide app:
 
 ![][0]
 
@@ -38,7 +38,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Visual Studio met Xamarin. Zie [Installeren en instellen voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) voor instructies.  
  
->[AZURE.NOTE] Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+>[AZURE.NOTE] Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
 ## Een nieuwe back-end voor mobiele apps van Azure maken
 
@@ -91,6 +91,6 @@ Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

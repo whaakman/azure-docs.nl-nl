@@ -1,0 +1,13 @@
+VNet-peering is een mechanisme om twee virtuele netwerken in dezelfde regio via het backbone-netwerk van Azure met elkaar te verbinden. Nadat de twee virtuele netwerken zijn gekoppeld, worden ze voor alle connectiviteitsdoeleinden als één virtueel netwerk weergegeven. Lees [VNet Peering overview](../articles/virtual-network/virtual-network-peering-overview.md) (Overzicht van VNet-peering) als u niet met VNet-peering bekend bent.
+
+VNet-peering verkeert in de openbare previewfase. Als u hiervan gebruik wilt maken, moet u zich registreren met de onderstaande opdrachten:
+
+    Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+ 
+
+
+<!--HONumber=ago16_HO4-->
+
+

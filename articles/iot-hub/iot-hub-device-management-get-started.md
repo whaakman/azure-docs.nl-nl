@@ -3,38 +3,43 @@
     description="Handleiding voor apparaatbeheer met C# via Azure IoT Hub. Implementeer apparaatbeheer met behulp van Azure IoT Hub en C# in combinatie met de Microsoft Azure IoT SDK's."
     services="iot-hub"
     documentationCenter=".net"
-    authors="ellenfosborne"
+    authors="juanjperez"
     manager="timlt"
     editor=""/>
 
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.date="08/11/2016"
+ ms.author="juanpere"/>
 
 # Aan de slag met apparaatbeheer met C# via Azure IoT Hub (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Inleiding
-Als u apparaten wilt gaan beheren met Azure IoT Hub, moet u een Azure IoT Hub maken, apparaten in de IoT-Hub invoeren en meerdere gesimuleerde apparaten starten. In deze handleiding ontdekt u stapsgewijs hoe u dit moet doen.
+Als u apparaten wilt gaan beheren met apparaatbeheer via Azure IoT Hub, moet u een Azure IoT Hub maken, apparaten in de IoT-Hub inrichten, meerdere gesimuleerde apparaten starten en deze apparaten weergeven in de voorbeeldgebruikersinterface voor apparaatbeheer. In deze handleiding ontdekt u stapsgewijs hoe u dit moet doen.
 
-> [AZURE.NOTE]  U moet een nieuwe IoT Hub maken om apparaatbeheerfuncties in te kunnen schakelen, zelfs als u al een IoT Hub hebt. Dit is omdat bestaande IoT Hubs nog geen apparaatbeheerfuncties hebben. Zodra apparaatbeheer algemeen beschikbaar is, worden alle bestaande IoT Hubs bijgewerkt met apparaatbeheerfuncties.
+> [AZURE.NOTE]  U moet een nieuwe IoT Hub maken om apparaatbeheerfuncties te kunnen inschakelen, zelfs als u al een IoT Hub hebt. De reden hiervoor is dat bestaande IoT Hubs nog geen apparaatbeheerfuncties hebben. Zodra apparaatbeheer algemeen beschikbaar is, worden alle bestaande IoT Hubs bijgewerkt met apparaatbeheerfuncties.
 
 ## Vereisten
+
+In deze zelfstudie wordt ervan uitgegaan dat u een Windows-ontwikkelcomputer gebruikt.
 
 De volgende programma’s moeten geïnstalleerd zijn om de verschillende stappen te kunnen doorlopen:
 
 - Microsoft Visual Studio 2015
-- Git
-- CMake (versie 2.8 of hoger). Om CMake te kunnen installeren, dient u het programma eerst te downloaden van <https://cmake.org/download/>. Kies voor een Windows-pc de optie Windows Installer (.msi). Controleer of het selectievakje voor het toevoegen van CMake aan de huidige gebruikerspadvariabele is aangevinkt.
-- Een actief Azure-abonnement.
 
-    Als u geen account hebt, kunt u binnen enkele minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
+- Git
+
+- CMake (versie 2.8 of hoger). Om CMake te kunnen installeren, dient u het programma eerst te downloaden van <https://cmake.org/download/>. Kies voor een Windows-pc de optie Windows Installer (.msi). Controleer of het selectievakje voor het toevoegen van CMake aan de huidige gebruikerspadvariabele is aangevinkt.
+
+- Node.js 6.1.0 of hoger.  Installeer Node.js voor uw platform vanaf <https://nodejs.org/>.
+
+- Een actief Azure-abonnement. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
 
 ## Een IoT Hub met apparaatbeheerfunctie maken
 
@@ -55,17 +60,17 @@ U moet een IoT Hub met apparaatbeheerfunctie maken waarmee uw gesimuleerde appar
   -   Vink het selectievakje **Enable Device Management** aan.
   -   Bij **Location** selecteert u de locatie waar uw IoT Hub gehost wordt. Apparaatbeheer via IoT Hub is alleen beschikbaar in het oostelijk deel van de VS, Noord-Europa en Oost-Azië tijdens de openbare previewfase. In de toekomst zal de functie beschikbaar zijn voor alle regio's.
 
-    > [AZURE.NOTE]  Als u het selectievakje **Enable Device Management** niet aanvinkt, werken de voorbeelden niet.
+    > [AZURE.NOTE]  Als u het selectievakje **Enable Device Management** niet inschakelt, werken de voorbeelden niet.<br/>Als u **Enable Device Management** inschakelt, maakt u een preview van een IoT Hub die alleen wordt ondersteund in het oostelijk deel van de VS, Noord-Europa en Oost-Azië en die niet is bedoeld voor productiescenario‘s. U kunt apparaten niet migreren naar en uit hubs waarvoor apparaatbeheer is ingeschakeld.
 
 4.  Wanneer u de configuratieopties voor uw IoT Hub hebt gekozen, klikt u op **Create**. Het kan enkele minuten duren voordat Azure uw IoT Hub heeft gemaakt. Als u de status wilt zien, kunt u de voortgang bekijken via het **Startboard** of in het venster **Notifications**.
 
     ![][img-monitor]
 
-5.  Wanneer het gelukt is om een IoT Hub te maken, opent u de blade van de nieuwe IoT Hub. Noteer de **hostnaam** en klik vervolgens op het pictogram **Keys**.
+5.  Wanneer het gelukt is om een IoT Hub te maken, opent u de blade van de nieuwe IoT Hub. Noteer de **hostnaam** en klik vervolgens op **Gedeeld toegangsbeleid**.
 
     ![][img-keys]
 
-6.  Klik op het beleid **iothubowner**. Kopieer en noteer de verbindingsreeks in de blade **iothubowner**. Kopieer de verbindingsreeks naar een locatie die u later terug kunt vinden. U hebt deze nodig voor de rest van deze handleiding.
+6.  Klik op het beleid **iothubowner**. Kopieer en noteer de verbindingsreeks in de blade **iothubowner**. Kopieer de verbindingsreeks naar een locatie die u later kunt terugvinden. U hebt deze nodig voor de rest van deze handleiding.
 
     > [AZURE.NOTE] Zorg ervoor dat u in productiescenario's de **iothubowner**-referenties niet gebruikt.
 
@@ -75,9 +80,9 @@ U hebt nu een IoT Hub met apparaatbeheerfunctie gemaakt. U hebt een verbindingsr
 
 ## Voorbeelden bouwen en apparaten invoeren in uw IoT Hub
 
-In dit gedeelte gaat u een script uitvoeren dat het gesimuleerde apparaat en de voorbeelden bouwt en een aantal nieuwe apparaat-id’s invoert in het apparatenregister van uw IoT Hub. Een apparaat kan geen verbinding met IoT Hub maken, tenzij het vermeld staat in het apparatenregister.
+In dit gedeelte voert u een script uit dat het gesimuleerde apparaat en de voorbeelden bouwt en een aantal nieuwe apparaat-id’s inricht in het apparatenregister van de IoT Hub. Een apparaat kan geen verbinding met IoT Hub maken, tenzij het vermeld staat in het apparatenregister.
 
-Volg de onderstaande stappen om de voorbeelden te bouwen en apparaten in te voeren in uw IoT Hub:
+Volg deze stappen om de voorbeelden te bouwen en apparaten in te richten in de IoT Hub:
 
 1.  Open de **Opdrachtprompt voor ontwikkelaars voor VS2015**.
 
@@ -113,29 +118,68 @@ Uitvoeren met behulp van de opdrachtprompt voor de ontwikkelaar in de map **\\az
   simulate.bat
   ```
 
-Dit script voert één voorbeeld van  **iotdm\_simple\_sample.exe** uit per apparaat dat staat vermeld in het bestand **devicecreds.txt**. Het gesimuleerde apparaat blijft actief totdat u het opdrachtvenster sluit.
+Dit script voert één voorbeeld van  **iotdm\_simple\_sample.exe** uit per apparaat dat staat vermeld in het bestand **devicecreds.txt**. Het gesimuleerde apparaat wordt uitgevoerd tot u het opdrachtvenster sluit.
 
 De voorbeeldtoepassing **iotdm\_simple\_sample** is gemaakt met de apparaatbeheerclientbibliotheek voor C van de Azure IoT Hub. Hiermee kunnen IoT-apparaten worden gemaakt die beheerd kunnen worden door de Azure IoT Hub. Apparatenmakers kunnen met behulp van deze bibliotheek apparaateigenschappen melden en de uitgevoerde acties implementeren die vereist zijn door apparaattaken. Deze bibliotheek is een component dat wordt geleverd als onderdeel van de open source Azure IoT Hub SDK's.
 
-Wanneer u **simulate.bat** uitvoert, ziet u een stream met gegevens in het uitvoervenster. Deze uitvoer toont het binnenkomende en uitgaande verkeer, evenals **printf**-instructies in de callback-functies die specifiek zijn voor de toepassing. Hiermee kunt u binnenkomend en uitgaand verkeer bekijken en ziet u hoe de voorbeeldtoepassing de gedecodeerde pakketten verwerkt. Als het apparaat verbinding maakt met de IoT Hub, wordt de service automatisch gestart om resources op het apparaat te observeren. De DM-clientbibliotheek van IoT Hub roept vervolgens de callbacks van het apparaat op om de meest recente waarden van het apparaat op te halen.
+Wanneer u **simulate.bat** uitvoert, ziet u een stream met gegevens in het uitvoervenster. Deze uitvoer toont het binnenkomende en uitgaande verkeer, en de **printf**-instructies in de callback-functies die specifiek zijn voor de toepassing. Met deze uitvoer kunt u binnenkomend en uitgaand verkeer bekijken en ziet u hoe de voorbeeldtoepassing de gedecodeerde pakketten verwerkt. Als het apparaat verbinding maakt met de IoT Hub, wordt de service automatisch gestart om resources op het apparaat te observeren. De DM-clientbibliotheek van IoT Hub roept vervolgens de callbacks van het apparaat op om de meest recente waarden van het apparaat op te halen.
 
-Hieronder vindt u de uitvoer van de voorbeeldtoepassing **iotdm\_simple\_sample**. Bovenaan ziet u het bericht dat de **REGISTRATIE** geslaagd is. In dit bericht wordt tevens het apparaat met id **Device11 7ce4a850** getoond dat verbinding maakt met IoT Hub.
+Hierna volgt de uitvoer van de voorbeeldtoepassing **iotdm\_simple\_sample**. Bovenaan ziet u het bericht dat de **REGISTRATIE** geslaagd is. In dit bericht wordt tevens het apparaat met id **Device11 7ce4a850** getoond dat verbinding maakt met IoT Hub.
 
 > [AZURE.NOTE]  Voor een minder uitgebreide uitvoer maakt u de retailconfiguratie en voert u deze uit.
 
 ![][img-output]
 
-Zorg ervoor dat alle gesimuleerde apparaten actief blijven wanneer u 'Volgende stappen' in deze handleiding volgt.
+Zorg ervoor dat alle gesimuleerde apparaten actief blijven wanneer u de volgende secties voltooit.
+
+## Voorbeeld-UI voor apparaatbeheer uitvoeren
+
+Nu u een IoT hub hebt ingericht en er verschillende gesimuleerde apparaten worden uitgevoerd en voor beheer zijn geregistreerd, kunt u de voorbeeldgebruikersinterface voor apparaatbeheer implementeren. De voorbeeldgebruikersinterface voor apparaatbeheer biedt een werkend voorbeeld van hoe u de apparaatbeheer-API‘s kunt gebruiken om een interactieve gebruikersinterface te bouwen.  Zie de GitHub-opslagplaats voor de [Azure IoT device management UI (Gebruikersinterface van Azure loT-apparaatbeheer)][lnk-dm-github] voor meer informatie over de voorbeeldgebruikersinterface voor apparaatbeheer, inclusief [bekende problemen](https://github.com/Azure/azure-iot-device-management#knownissues).
+
+Als u de voorbeeldgebruikersinterface voor apparaatbeheer wilt ophalen, ontwikkelen en uitvoeren, volgt u deze stappen:
+
+1. Open een **opdrachtprompt**.
+
+2. Bevestig dat u Node.js 6.1.0 of hoger hebt geïnstalleerd overeenkomstig de sectie Vereisten door `node --version` te typen.
+
+3. Kloon de GitHub-opslagplaats voor de gebruikersinterface van Azure loT-apparaatbeheer door de volgende opdracht uit te voeren:
+
+    ```
+    git clone https://github.com/Azure/azure-iot-device-management.git
+    ```
+    
+4. Voer in de hoofdmap van de gekloonde kopie van de opslagplaats voor de gebruikersinterface van Azure loT-apparaatbeheer de volgende opdracht uit om de afhankelijke pakketten op te halen:
+
+    ```
+    npm install
+    ```
+
+5. Wanneer de installatieopdracht nmp is voltooid, voert u de volgende opdracht uit om de code te bouwen:
+
+    ```
+    npm run build
+    ```
+
+6. Gebruik een teksteditor om het bestand user-config.json te openen in de hoofdmap van de gekloonde map. Vervang de tekst &lt;HIER UW VERBINDINGSREEKS&gt; door de loT Hub-verbindingsreeks uit de vorige sectie en sla het bestand op.
+
+7. Voer in de opdrachtprompt de volgende opdracht uit om de UX-app voor apparaatbeheer te starten:
+
+    ```
+    npm run start
+    ```
+
+8. Als de opdrachtprompt ‘Services zijn gestart’ heeft gerapporteerd, opent u een webbrowser (Edge/IE 11+/Safari/Chrome worden momenteel ondersteund) en navigeert u naar de app voor apparaatbeheer op de volgende URL om de gesimuleerde apparaten te bekijken: <http://127.0.0.1:3003>.
+
+    ![][img-dm-ui]
+
+Laat de gesimuleerde apparaten en de app voor apparaatbeheer actief terwijl u verdergaat naar de volgende zelfstudie voor apparaatbeheer.
+
 
 ## Volgende stappen
 
-Voor meer informatie over apparaatbeheerfuncties van de Azure IoTHub, kunt u de volgende handleidingen raadplegen:
+Zie [Getting started with the Gateway SDK (Aan de slag met de Gateway-SDK)][lnk-gateway-SDK] om verder te gaan met IoT Hub.
 
-- [Bij elkaar horende apparaten gebruiken][lnk-tutorial-twin]
-
-- [Bij elkaar horende apparaten zoeken aan de hand van query’s][lnk-tutorial-queries]
-
-- [Apparaattaken gebruiken om firmware voor apparaten bij te werken][lnk-tutorial-jobs]
+Zie de zelfstudie [Explore Azure IoT Hub device management using the sample UI (Apparaatbeheer via Azure IoT Hub verkennen met behulp van de voorbeeld-UI)][lnk-sample-ui] voor meer informatie over de functies voor apparaatbeheer via Azure IoT Hub.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -144,16 +188,17 @@ Voor meer informatie over apparaatbeheerfuncties van de Azure IoTHub, kunt u de 
 [img-keys]: media/iot-hub-device-management-get-started/image4.png
 [img-connection]: media/iot-hub-device-management-get-started/image5.png
 [img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure Portal]: https://portal.azure.com/
 [Resourcegroepen gebruiken om Azure-resources te beheren]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,10 +1,10 @@
 <properties 
     pageTitle="ASP.NET MVC-zelfstudie voor DocumentDB: webtoepassingsontwikkeling | Microsoft Azure" 
     description="Zelfstudie voor ASP.NET MVC om een MVC-webtoepassing met DocumentDB te maken. JSON opslaan en gegevens benaderen via een takenlijst-app die wordt gehost op Azure Websites - Stapsgewijze zelfstudie voor ASP NET MVC." 
-    keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
+    keywords="asp.net mvc-zelfstudie, ontwikkelen van webtoepassingen, mvc-webtoepassing, asp net mvc zelfstudie stapsgewijs"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,10 +15,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/11/2016" 
+    ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
+# <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -38,8 +38,8 @@ In dit overzicht kunt u zien hoe u de DocumentDB-service van Azure kunt gebruike
 
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
 
-- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-- [Visual Studio 2013](http://www.visualstudio.com/) update 4 of hoger.
+- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+- [Visual Studio 2015](http://www.visualstudio.com/) of Visual Studio 2013 Update 4 of hoger. Als u Visual Studio 2013 gebruikt, moet u het [Microsoft.Net.Compilers NuGet-pakket](https://www.nuget.org/packages/Microsoft.Net.Compilers/) installeren om ondersteuning voor C# 6.0 toe te voegen. 
 - Azure SDK voor .NET versie 2.5.1 of hoger, beschikbaar via het [webplatforminstallatieprogramma van Microsoft][].
 
 Alle schermopnamen in dit artikel zijn gemaakt in Visual Studio 2013 met update 4 en de Azure SDK voor .NET versie 2.5.1. Als uw systeem is geconfigureerd met verschillende versies, is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
@@ -242,7 +242,7 @@ Tot slot voegt u op dezelfde manier als hiervoor een weergave toe waarin u **ite
     - Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
     - Laat het vak **Data context class** (Gegevenscontextklasse) leeg. 
     - Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
-    - Klik op **Toevoegen**.
+    - Klik op **Add**.
 
 Zodra dit is gebeurd, sluit u alle cshtml-documenten in Visual Studio. We komen later op deze weergaven terug.
 
@@ -546,7 +546,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
     ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/image24.png)
 
-    Als er op dit moment fouten worden aangetroffen, vergelijkt u de code met het voorbeeldproject op [GitHub][].
+    Als u Visual Studio 2013 gebruikt en het foutbericht ‘Kan niet afwachten in de hoofdcode van een catch-component’ verschijnt,  moet u het [Microsoft.Net.Compilers NuGet-pakket](https://www.nuget.org/packages/Microsoft.Net.Compilers/) installeren. U kunt de code ook vergelijken met het voorbeeldproject op [GitHub][]. 
 
 2. Klik op de koppeling **Nieuw maken** en voeg waarden toe aan de velden **Naam** en **Beschrijving**. Schakel het selectievakje **Voltooid** niet in, anders wordt het nieuwe **Item** toegevoegd met een onvoltooide status en wordt het niet weergegeven in de aanvankelijke lijst.
 
@@ -564,7 +564,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
 4. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-##<a name="_Toc395637774"></a>Stap 7: de toepassing implementeren naar Azure Websites
+## <a name="_Toc395637774"></a>Stap 7: de toepassing implementeren naar Azure Websites
 
 Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app implementeren naar Azure Websites. Als u **Host in the cloud** (In de cloud hosten) hebt geselecteerd toen u het lege ASP.NET MVC-project hebt gemaakt, kunt u de web-app vrij eenvoudig met Visual Studio implementeren en doet Visual Studio het meeste werk voor u. 
 
@@ -578,11 +578,11 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app im
 
 Over een paar seconden zal Visual Studio de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-##<a name="_Toc395637775"></a>Volgende stappen
+## <a name="_Toc395637775"></a>Volgende stappen
 
 Gefeliciteerd. U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gebouwd met Azure DocumentDB en deze gepubliceerd naar Azure Websites. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet zijn opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
 
-Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [Document DB .NET-bibliotheek](https://msdn.microsoft.com/library/azure/dn948556.aspx). U bent tevens van harte welkom om een bijdrage te leveren aan de DocumentDB .NET-bibliotheek op [GitHub][]. 
+Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [DocumentDB .NET-bibliotheek](https://msdn.microsoft.com/library/azure/dn948556.aspx). U bent tevens van harte welkom om een bijdrage te leveren aan de DocumentDB .NET-bibliotheek op [GitHub][]. 
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -594,6 +594,6 @@ Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschik
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

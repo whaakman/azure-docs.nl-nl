@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
+    ms.date="06/21/2016"
     ms.author="curtand;viviali"/>
 
 # Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
@@ -31,7 +31,7 @@ Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd h
     - **Gebruiker met een bestaand Microsoft-account**: hiermee voegt u een bestaand Microsoft-consumentenaccount toe aan uw directory (bijvoorbeeld een Outlook-account)
 
 5. Afhankelijk van de waarde van **Type gebruiker** voert u een gebruikersnaam in (voor de nieuwe gebruiker) of een e-mailadres (voor een gebruiker met een Microsoft-account).
-6. Geef op de **profielpagina** van de gebruiker een voor- en achternaam op, een gebruiksvriendelijke naam en een gebruikersrol uit de lijst **Rollen**. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen. Activeer desgewenst de optie **Meervoudige verificatie inschakelen** in voor de gebruiker.
+6. Geef op de **profielpagina** van de gebruiker een voor- en achternaam op, een gebruiksvriendelijke naam en een gebruikersrol uit de lijst **Rollen**. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen. Activeer desgewenst de optie **Meervoudige verificatie inschakelen** voor de gebruiker.
 7. Selecteer op de pagina **Tijdelijk wachtwoord instellen** de optie **Maken**.
 
 > [AZURE.IMPORTANT] Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
@@ -75,7 +75,7 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 ![Opties voor het beheren van toegang voor gastgebruikers][2]
 
 
-## Wat er volgt
+## Volgend onderwerp
 
 - [Add users from other directories or partner companies in Azure Active Directory (Engelstalig)](active-directory-create-users-external.md)
 - [Azure AD beheren (Engelstalig artikel)](active-directory-administer.md)
@@ -88,6 +88,6 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

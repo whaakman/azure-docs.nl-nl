@@ -3,7 +3,7 @@
    description="Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway met een interne load balancer (ILB) voor Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Een toepassingsgateway met een interne load balancer (ILB) maken met behulp van Azure Resource Manager
@@ -63,13 +63,13 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 
 ### Stap 1
 
-        PS C:\> Login-AzureRmAccount
+        Login-AzureRmAccount
 
 ### Stap 2
 
 Controleer de abonnementen voor het account.
 
-        PS C:\> get-AzureRmSubscription
+        get-AzureRmSubscription
 
 U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 
@@ -78,7 +78,7 @@ U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Stap 4
@@ -240,6 +240,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Azure AD Domain Services inschakelen
@@ -21,7 +21,7 @@
 ## Taak 3: Azure AD Domain Services inschakelen
 In deze taak schakelt u Azure AD Domain Services in voor uw directory. Voer de volgende configuratiestappen uit om Azure AD Domain Services in te schakelen voor uw directory.
 
-1. Navigeer naar de **klassieke Azure-portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+1. Ga naar de **klassieke Azure-portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
 2. Selecteer het knooppunt **Active Directory** in het linkerdeelvenster.
 
@@ -96,6 +96,6 @@ De volgende configuratietaak bestaat uit het [bijwerken van de DNS-instellingen 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

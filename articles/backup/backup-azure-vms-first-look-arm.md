@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Met Resource Manager geïmplementeerde VM's beveiligen met Azure Backup | Microsoft Azure"
-    description="Beveilig VM's die met Resource Manager zijn geïmplementeerd met de Azure Backup-service Gebruik back-ups van VM's die met Resource Manager zijn geïmplementeerd en Premium Storage-VM's om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM's, maak beleid en beveilig VM's in Azure."
+    pageTitle="Eerste blik: virtuele machines van Azure beveiligen met een Recovery Services-kluis | Microsoft Azure"
+    description="Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd en virtuele machines voor Premium-opslag om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM's, maak beleid en beveilig VM's in Azure."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
@@ -18,18 +18,19 @@
     ms.author="markgal; jimpark"/>
 
 
-# Eerste kennismaking: Van VM's die zijn geïmplementeerd met Resource Manager een back-up in een Recovery Services-kluis maken
+# Eerste blik: virtuele machines van Azure beveiligen met een Recovery Services-kluis
 
 > [AZURE.SELECTOR]
-- [Back-ups maken van VM's die zijn geïmplementeerd met Resource Manager](backup-azure-vms-first-look-arm.md)
-- [Back-ups maken van VM's in de klassieke modus](backup-azure-vms-first-look.md)
+- [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
+- [Eerste blik: virtuele machines van Azure beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
 
-In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups maakt van een Azure-VM (virtuele machine). Recovery Services-kluizen beveiligen:
+In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups maakt van een virtuele machine (VM) van Azure. Recovery Services-kluizen beveiligen:
 
 - VM's die zijn geïmplementeerd met Azure Resource Manager
 - Klassieke VM's
 - Standaardopslag-VM's
 - Premium Storage-VM's
+- Virtuele machines die met Azure Disk Encryption zijn versleuteld, met BitLocker-versleutelingssleutels (BEK) en Key Encryption Keys (KEK) (ondersteund met behulp van Powershell)
 
 Zie [Back-ups van VM's voor Premium-opslag maken en herstellen](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms) voor meer informatie.
 
@@ -47,7 +48,7 @@ U voert hierbij de volgende basisstappen uit.
 
 Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De Recovery Services-kluis bevat ook het back-upbeleid dat wordt toegepast op de beveiligde VM's.
 
->[AZURE.NOTE] Het maken van back-ups van VM's is een lokaal proces. Het is niet mogelijk van VM's op de ene locatie een back-up in een Recovery Services-kluis op een andere locatie te maken. Daarom moet er voor elke Azure-locatie met VM's waarvoor u een back-up wilt maken, ten minste één Recovery Services-kluis op die locatie bestaan.
+>[AZURE.NOTE] Het maken van back-ups van VM's is een lokaal proces. Het is niet mogelijk om van VM's op de ene locatie een back-up in een Recovery Services-kluis op een andere locatie te maken. Daarom moet er voor elke Azure-locatie met VM's waarvoor u een back-up wilt maken, ten minste één Recovery Services-kluis op die locatie bestaan.
 
 
 Een Recovery Services-kluis maken:
@@ -64,21 +65,21 @@ Een Recovery Services-kluis maken:
 
     ![Een Recovery Services-kluis maken, stap 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    De blade Recovery Services-kluis wordt geopend, waarbij u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** op te geven.
+    De blade Recovery Services-kluis wordt geopend en u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** in te voeren.
 
     ![Een Recovery Services-kluis maken, stap 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. Voer voor **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
+4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
 
 5. Klik op **Abonnement** om de beschikbare lijst met abonnementen te bekijken. Als u niet zeker weet welk abonnement u moet gebruiken, gebruikt u het standaard- (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
 
-6. Klik op **Resourcegroep** om de beschikbare lijst met resourcegroepen te bekijken of klik op **Nieuw** om een nieuwe resourcegroep te maken. Zie [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md) (Azure Portal gebruiken om uw Azure-resources te implementeren en te beheren) voor de volledig informatie over resourcegroepen.
+6. Klik op **Resourcegroep** om de lijst met beschikbare resourcegroepen te bekijken of klik op **Nieuw** om een nieuwe resourcegroep te maken. Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
 
 7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. De kluis **moet** zich in dezelfde regio bevinden als de virtuele machines die u wilt beveiligen.
 
     >[AZURE.IMPORTANT] Als u niet zeker weet op welke locatie uw VM zich bevindt, sluit u het dialoogvenster voor het maken van de kluis en gaat u naar de lijst met virtuele machines in de portal. Als u virtuele machines in meerdere regio's hebt, moet u in elke regio een Recovery Services-kluis maken. Maak de kluis op de eerste locatie voordat u verdergaat met de volgende locatie. U hoeft geen opslagaccounts voor het opslaan van de back-upgegevens op te geven: dit wordt automatisch door de Recovery Services-kluis en de Azure Backup-service afgehandeld.
 
-8. Klik op **Maken**. Het kan even duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
+8. Klik op **Create**. Het kan even duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
 
     ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -222,6 +223,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

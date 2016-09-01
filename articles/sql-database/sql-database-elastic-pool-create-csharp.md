@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Een pool voor elastische database maken met C# | Microsoft Azure"
-    description="Gebruik C# databaseontwikkelingstechnieken om een schaalbare pool voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases."
+    pageTitle="Een groep voor elastische database maken met C# | Microsoft Azure"
+    description="Gebruik C# databaseontwikkelingstechnieken om een schaalbare groep voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,30 +13,28 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
-# Een nieuwe pool voor elastische database maken met C&#x23;
+# Een nieuwe groep voor elastische database maken met C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-create-portal.md)
+- [Azure-portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Meer informatie over het maken van een [pool voor elastische database](sql-database-elastic-pool.md) met C&#x23;. 
+Meer informatie over het maken van een [elastische databasegroep](sql-database-elastic-pool.md) met C#;. 
 
 Raadpleeg voor algemene foutcodes [SQL-foutcodes voor SQL Database-clienttoepassingen: Databaseverbindingsfout en andere problemen](sql-database-develop-error-messages.md).
 
-Pools voor elastische database zijn momenteel in preview en alleen beschikbaar in SQL Database V12-servers. Als u een SQL Database V11-server hebt, kunt u [PowerShell gebruiken om te upgraden naar V12 en in één stap een pool te maken](sql-database-upgrade-server-portal.md).
+In de onderstaande voorbeelden wordt de [SQL-databasebibliotheek voor .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) gebruikt, dus voordat u doorgaat dient u deze bibliotheek te installeren als deze nog niet is geïnstalleerd. U kunt deze bibliotheek installeren door de volgende opdracht in te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
-De voorbeelden gebruiken de [SQL Database-bibliotheek voor .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), dus u dient de bibliotheek te installeren. U kunt deze installeren door de volgende opdracht in te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+## Een nieuwe groep maken
 
-## Een nieuwe pool maken
-
-Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instantie met waarden uit [Azure Active Directory](sql-database-client-id-keys.md). Maak een [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instantie en roep de [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-methode aan. De waarden voor eDTU per pool, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instantie met waarden uit [Azure Active Directory](sql-database-client-id-keys.md). Maak een [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instantie en roep de [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-methode aan. De waarden voor eDTU per groep, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische groepen en elastische databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -54,7 +52,7 @@ Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azur
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Een nieuwe database in een pool maken
+## Een nieuwe database in een groep maken
 
 Maak een [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties)-instantie en stel de eigenschappen van de nieuwe database in. Roep vervolgens de CreateOrUpdate-methode aan met de resourcegroep, servernaam en nieuwe databasenaam.
 
@@ -74,18 +72,17 @@ Maak een [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/m
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
-Zie [Een database in een elastische pool plaatsen ](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool) om een bestaande database in een elastische pool te plaatsen.
+Zie [Een database in een elastische groep plaatsen ](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool) om een bestaande database in een elastische groep te plaatsen.
 
-## Voorbeeld: Een pool maken met C&#x23
+## Een voorbeeld: maak een groep met C&#x23;
 
-
-In dit voorbeeld worden een nieuwe Azure-resourcegroep, een nieuwe Azure SQL Server-instantie en een nieuwe elastische pool gemaakt. 
+In dit voorbeeld worden een nieuwe Azure-resourcegroep, een nieuwe Azure SQL Server-instantie en een nieuwe elastische groep gemaakt. 
  
 
 Om dit voorbeeld uit te voeren, heeft u de volgende bibliotheken nodig. U kunt installeren door de volgende opdrachten uit te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de vereiste client-id en bijbehorende waarden te verkrijgen, raadpleegt u [uw app registreren en de vereiste clientwaarden ophalen voor het verbinden van uw app met SQL Database](sql-database-client-id-keys.md). Gebruik de [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx)-cmdlet om de waarde van de abonnements-ID op te halen.
@@ -243,16 +240,17 @@ Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de
 
 ## Volgende stappen
 
-- [Uw pool beheren](sql-database-elastic-pool-manage-csharp.md)
-- [Elastische taken maken](sql-database-elastic-jobs-overview.md): Met elastische taken kunt u de T-SQL-scripts uitvoeren op een willekeurig aantal databases in de pool.
+- [Uw groep beheren](sql-database-elastic-pool-manage-csharp.md)
+- [Elastische taken maken](sql-database-elastic-jobs-overview.md): Met elastische taken kunt u de T-SQL-scripts uitvoeren op een willekeurig aantal databases in de groep.
 - [Uitschalen met Azure SQL Database](sql-database-elastic-scale-introduction.md): Gebruik elastische database-hulpmiddelen om uit te schalen.
 
-## Aanvullende bronnen
+## Aanvullende resources
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure Resource Management API's](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

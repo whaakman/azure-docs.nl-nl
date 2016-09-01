@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
@@ -30,7 +30,7 @@ Deze zelfstudie laat zien hoe u met Azure Mobile Services een cloudgebaseerde ba
 
 In deze zelfstudie maakt u een nieuwe mobiele service en een eenvoudige *takenlijst*-app die app-gegevens opslaat in de nieuwe mobiele service. De mobiele service die u gaat maken, gebruikt de ondersteunde .NET-talen met behulp van Visual Studio voor bedrijfslogica op de server en voor het beheren van de mobiele service. Voor het maken van een mobiele service waarmee u uw bedrijfslogica op de server in JavaScript kunt schrijven, raadpleegt u de JavaScript back-endversie van dit onderwerp.
 
->[AZURE.NOTE]In dit onderwerp wordt beschreven hoe u een nieuw mobiele-serviceproject-app en universele Windows-app maakt met behulp van de klassieke Azure Portal. Met behulp van Visual Studio 2013 Update 3 kunt u ook een nieuw mobiele-serviceproject toevoegen aan een bestaande Visual Studio-oplossing. Zie voor meer informatie [Mobile Services toevoegen aan een bestaande app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+>[AZURE.NOTE]In dit onderwerp wordt beschreven hoe u een nieuw mobiele-serviceproject-app en universele Windows-app maakt met behulp van de klassieke Azure-portal. Met behulp van Visual Studio 2013 Update 3 kunt u ook een nieuw mobiele-serviceproject toevoegen aan een bestaande Visual Studio-oplossing. Zie voor meer informatie [Mobile Services toevoegen aan een bestaande app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 >Zie voor informatie over het toevoegen van een mobiele service aan een app-project voor Windows Phone 8.0 of Windows Phone Silverlight 8.1, [Mobile Services toevoegen aan een bestaande Windows Phone-app](mobile-services-windows-phone-get-started-data.md).
 
@@ -47,11 +47,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## Een nieuwe universele Windows-app maken
 
-Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een eenvoudige Quick Start volgen om een nieuwe app te maken of een bestaande app zodanig te wijzigen dat deze verbinding maakt met uw mobiele service.
+Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure-portal een eenvoudige Quick Start volgen om een nieuwe app te maken of een bestaande app zodanig te wijzigen dat deze verbinding maakt met uw mobiele service.
 
 In deze sectie maakt u een nieuwe universele Windows-app die is verbonden met uw mobiele service.
 
-1. Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **Windows** onder **Platform kiezen** en vouw **Een nieuwe Windows Store-app maken** uit.
 
@@ -84,7 +84,7 @@ In deze sectie maakt u een nieuwe universele Windows-app die is verbonden met uw
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    <p>The client will now access the mobile service published to Azure.</p></li>
+    <p>De client heeft nu toegang tot de mobiele service die in Azure is gepubliceerd.</p></li>
 </ol>
 
 ## De app testen op de mobiele service die wordt gehost in Azure
@@ -131,11 +131,11 @@ Zie voor meer informatie over universele Windows-apps [Ondersteuning van meerder
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript en HTML]: mobile-services-win8-javascript/
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [Problemen met een Mobile Services .NET-back-end oplossen]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

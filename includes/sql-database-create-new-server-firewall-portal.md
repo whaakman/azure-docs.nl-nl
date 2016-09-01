@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-04-11 , carlrab.
+Latest Freshness check:  2016-08-01 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
@@ -11,9 +11,9 @@ articles/sql-database/sql-database-configure-firewall-settings
 -->
 ## Een nieuwe Azure SQL-firewall op serverniveau maken
 
-Voer de volgende stappen uit in Azure Portal om een firewallregel op serverniveau te maken die verbindingen van een afzonderlijk IP-adres (de clientcomputer) of een IP-adresbereik naar een logische SQL-server toestaat. 
+Voer de volgende stappen uit in de Azure-portal om een firewallregel op serverniveau te maken die verbindingen van een afzonderlijk IP-adres (de clientcomputer) of een IP-adresbereik naar een logische SQL-server toestaat. 
 
-1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
+1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met de [Azure-portal](http://portal.azure.com).
 2. Klik in de standaardblade op **SQL Server**.
 
     ![nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
@@ -31,11 +31,11 @@ Voer de volgende stappen uit in Azure Portal om een firewallregel op servernivea
     ![nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
 
-    > [AZURE.IMPORTANT] Als u de optie **Firewall** niet ziet, gaat u terug en controleert u of u de blade hebt gekozen voor de logische SQL Database-server en niet de blade voor een SQL-database.
+    > [AZURE.NOTE] U kunt via de werkbalk van de blade Database ook toegang krijgen tot de blade **Firewall-instellingen** op serverniveau.
 
 5. Klik op **Client-IP toevoegen** om in Azure een regel voor het IP-adres van de client te maken.
 
-      ![nieuwe serverfirewall]    (./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+      ![nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
 6. Klik desgewenst op het IP-adres dat is toegevoegd om het firewalladres zo te bewerken dat toegang is toegestaan tot een bereik van IP-adressen.
 
@@ -49,6 +49,6 @@ Voer de volgende stappen uit in Azure Portal om een firewallregel op servernivea
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

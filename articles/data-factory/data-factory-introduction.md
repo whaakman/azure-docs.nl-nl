@@ -1,6 +1,7 @@
 <properties 
-    pageTitle="Inleiding tot Azure Data Factory" 
-    description="Ontdek hoe u de Azure Data Factory-service kunt gebruiken voor het samenstellen van services voor gegevensverwerking, gegevensopslag en gegevensverplaatsing zodat u pijplijnen kunt maken voor het produceren van vertrouwde informatie." 
+    pageTitle="Wat is Data Factory? Gegevensintegratieservice | Microsoft Azure" 
+    description="Leer wat een Data Factory is: een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd." 
+    keywords="gegevensintegratie, cloudgegevensintegratie, wat is Azure Data Factory"
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,17 +14,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/26/2016" 
+    ms.date="07/12/2016" 
     ms.author="spelluru"/>
 
-# Inleiding tot de Azure Data Factory-service
+# Inleiding tot de Azure Data Factory-service, een service voor gegevensintegratie in de cloud
 
-## Overzicht
+## Wat is Azure Data Factory? 
 Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Net als bij een productiefabriek waarin apparatuur wordt gebruikt om grondstoffen te transformeren in eindproducten, beheert Data Factory bestaande services die onbewerkte gegevens verzamelen en transformeren in kant-en-klare informatie. 
 
 Data Factory werkt met on-premises gegevensbronnen, gegevensbronnen in de cloud en SaaS om uw gegevens op te nemen, voor te bereiden, te transformeren, te analyseren en te publiceren.  Gebruik Data Factory om services samen te stellen voor uw beheerde gegevensstroompijplijnen om uw gegevens te transformeren. Dit doet u met services zoals [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) en [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) voor uw grote gegevensberekeningsbehoeften en met services zoals [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) om uw analyseoplossingen in werking te stellen.  Profiteer van méér dan slechts een bewakingsweergave in tabelvorm en maak gebruik van de uitgebreide afbeeldingen van Data Factory om snel inzicht te krijgen in de afkomstinformatie en afhankelijkheden tussen uw gegevenspijplijnen. Bewaak al uw gegevensstroompijplijnen in één centrale weergave zodat u snel problemen kunt herkennen en bewakingswaarschuwingen kunt instellen.
 
-![Overzicht](./media/data-factory-introduction/data-factory-overview.png)
+![Diagram: Data Factory-overzicht, een service voor gegevensintegratie](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Afbeelding 1.** Verzamel gegevens van veel verschillende on-premises gegevensbronnen, neem ze op en bereid ze voor, orden en analyseer ze met verschillende transformaties en publiceer daarna kant-en-klare gegevens die geschikt zijn voor gebruik.
 
@@ -35,7 +36,7 @@ U kunt Data Factory te allen tijde gebruiken om verschillende soorten gegevens t
 
 Azure Data Factory heeft enkele belangrijke entiteiten die samenwerken om de in- en uitvoergegevens, verwerkingsgebeurtenissen en planning en resources te definiëren die nodig zijn om de gewenste gegevensstroom uit te voeren.
 
-![Belangrijkste concepten](./media/data-factory-introduction/key-concepts.png)
+![Diagram: Data Factory, een service voor gegevensintegratie in de cloud - Belangrijkste concepten](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Afbeelding 2.** Relaties tussen de gegevensset, de activiteit, de pijplijn en de gekoppelde service
 
@@ -68,10 +69,16 @@ Voorbeeld: uw berekeningsomgeving(en), zoals een Azure HDInsight-cluster en Azur
 
 Het plan bestaat om ervoor te zorgen dat in de toekomst Azure Data Factory in alle regio’s wordt ondersteund door Azure.
   
+## Volgende stappen
+Volg stapsgewijze instructies in de onderstaande zelfstudies voor informatie over het bouwen van gegevensfactory’s met gegevenspijplijnen. 
+
+Zelfstudie | Beschrijving
+-------- | -----------
+[Een gegevenspijplijn maken die gegevens verwerkt met behulp van Hadoop-cluster](data-factory-build-your-first-pipeline.md) | In deze zelfstudie bouwt u uw eerste Azure-gegevensfactory met een gegevenspijplijn die **gegevens verwerkt** door Hive-script uit te voeren op een Azure HDInsight (Hadoop)-cluster. |
+[Een gegevenspijplijn maken voor het verplaatsen van gegevens tussen twee gegevensarchieven in de cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van Blob-opslag naar SQL Database.
+[Een gegevenspijplijn maken voor het verplaatsen van gegevens tussen een on-premises gegevensopslag en een gegevensarchief in de cloud met behulp van Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |  In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van een **on-premises** SQL Server-database naar een Azure-blob. Als onderdeel van de procedure installeert en configureert u de Data Management Gateway op uw computer. 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

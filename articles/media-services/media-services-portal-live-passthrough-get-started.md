@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="06/22/2016" 
     ms.author="juliako"/>
 
 
@@ -177,6 +177,6 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

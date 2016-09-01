@@ -2,10 +2,10 @@
     pageTitle="Overzicht van Azure Active Directory-apparaatregistratie | Microsoft Azure"
     description="Azure Active Directory-apparaatregistratie vormt de basis voor apparaatgebaseerde scenario's voor voorwaardelijke toegang. Als een apparaat is geregistreerd, richt Azure Active Directory-apparaatregistratie het apparaat in met een identiteit die wordt gebruikt om het apparaat te verifiëren wanneer de gebruiker zich aanmeldt."
     services="active-directory"
-    keywords="device registration, enable device registration, device registration and MDM"
+    keywords="apparaatregistratie, apparaatregistratie inschakelen, apparaatregistratie en MDM"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Aan de slag met Azure Active Directory-apparaatregistratie
@@ -90,6 +90,6 @@ U kunt uw Windows 7- en Windows 8.1-apparaten die deelnemen aan een domein regis
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Een DocumentDB-account maken met Azure Portal | Microsoft Azure"
     description="Bouw een NoSQL-database met Azure DocumentDB. Volg deze instructies om een DocumentDB-account te maken en bouw uw razendsnelle, wereldwijde NoSQL-database." 
-    keywords="build a database"
+    keywords="een database maken"
     services="documentdb"
     documentationCenter=""
     authors="mimig1"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/11/2016"
     ms.author="mimig"/>
 
 # Een DocumentDB-account maken met Azure Portal
@@ -55,6 +55,6 @@ Raadpleeg de volgende resources voor meer informatie over DocumentDB:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

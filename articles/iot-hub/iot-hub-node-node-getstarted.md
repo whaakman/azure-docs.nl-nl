@@ -1,6 +1,6 @@
 <properties
     pageTitle="Aan de slag met Azure IoT Hub voor Node.js | Microsoft Azure"
-    description="Instructiehandleiding voor Azure IoT Hub met Node.js. Gebruik Azure IoT Hub en Node.js in combinatie met de Microsoft Azure IoT SDK's voor het implementeren van een Internet of Things-oplossing."
+    description="Instructiehandleiding voor Azure IoT Hub met Node.js. Gebruik Azure IoT Hub en Node.js in combinatie met de Microsoft Azure IoT SDK's voor het implementeren van een Internet of Things (IoT)-oplossing."
     services="iot-hub"
     documentationCenter="nodejs"
     authors="dominicbetts"
@@ -13,31 +13,17 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Aan de slag met Azure IoT Hub voor Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-## Inleiding
-
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen Internet of Things-apparaten en de back-end van een oplossing mogelijk maakt. Een van de grootste uitdagingen van IoT-projecten is het op stabiele en veilige wijze verbinden van apparaten met de back-end van een oplossing. Als oplossing voor deze uitdaging biedt IoT Hub het volgende:
-
-- Stabiele verzending van berichten op hyperschaal tussen apparaat en cloud en tussen cloud en apparaat.
-- Veilige communicatie met behulp van beveiligingsreferenties en toegangscontrole.
-- Apparaatbibliotheken voor de meest populaire talen en platforms.
-
-In deze handleiding ontdekt u hoe u:
-
-- Met de Azure Portal een IoT-hub kunt maken.
-- Een apparaat-id maakt in uw IoT-hub.
-- Een gesimuleerd apparaat maakt dat telemetrie naar de back-end van uw cloud verzendt.
-
 Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Node.js-consoletoepassingen:
 
 * **CreateDeviceIdentity.js**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat verbonden kan worden.
-* **ReadDEviceToCloudMessages.js**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat.
+* **ReadDeviceToCloudMessages.js**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat.
 * **SimulatedDevice.js**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt, en verzendt iedere seconde een telemetriebericht via het AMQPS-protocol.
 
 > [AZURE.NOTE] Het artikel [IoT-Hub SDK's][lnk-hub-sdks] bevat informatie over de verschillende SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
@@ -46,19 +32,15 @@ Voor deze handleiding hebt u het volgende nodig:
 
 + Node.js-versie 0.12.x of hoger. <br/> In het gedeelte [Uw ontwikkelingsomgeving voorbereiden][lnk-dev-setup] staat beschreven hoe u Node.js voor deze handleiding moet installeren op Windows of Linux.
 
-+ Een actief Azure-account. <br/>Als u geen account hebt, kunt u binnen enkele minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
++ Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount aanmaken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Klik ten slotte op **Instellingen** op de blade IoT Hub en klik vervolgens op **Messaging** op de blade **Instellingen**. Noteer in de blade **Messaging** de **Event Hub-compatibele naam** en het **Event Hub-compatibele eindpunt**. U hebt deze waarden nodig wanneer u uw **read-d2c-messages**-toepassing maakt.
-
-![][6]
-
-U hebt nu uw IoT-hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT Hub, de Event Hub-compatibele naam en de Event Hub- compatibele eindpuntwaarden. Hiermee kunt u de rest van deze handleiding doorlopen.
+U hebt nu uw IoT-hub gemaakt. U hebt de IoT-Hub-hostnaam en -verbindingsreeks die u nodig hebt voor de rest van deze zelfstudie.
 
 ## Een apparaat-id maken
 
-In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe apparaat-id kan maken in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het registers met apparaat-id’s. Raadpleeg het gedeelte **Register met apparaat-id’s** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identiteit] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren wanneer het apparaat-naar-cloud-berichten naar IoT Hub verzendt.
+In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe apparaat-id kan maken in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het registers met apparaat-id’s. Raadpleeg het gedeelte **Register met apparaat-id’s** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identiteit] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
 1. Maak een nieuwe lege map met de naam **createdeviceidentity**. In de map **createdeviceidentity** maakt u een nieuw package.json-bestand met de volgende opdracht bij de opdrachtprompt. Accepteer alle standaardwaarden:
 
@@ -82,7 +64,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe appar
     var iothub = require('azure-iothub');
     ```
 
-5. Voeg de code toe aan het bestand **CreateDeviceIdentity.js** en vervang de aanduidingswaarde door de verbindingsreeks voor de  IoT-hub die u hebt gemaakt in het vorige gedeelte: 
+5. Voeg de volgende code toe aan het bestand **CreateDeviceIdentity.js** en vervang de waarde van de tijdelijke aanduiding door de verbindingsreeks voor de IoT-hub die u in het vorige gedeelte hebt gemaakt: 
 
     ```
     var connectionString = '{iothub connection string}';
@@ -94,7 +76,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe appar
 
     ```
     var device = new iothub.Device(null);
-    device.deviceId = 'myFirstDevice';
+    device.deviceId = 'myFirstNodeDevice';
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -126,7 +108,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe appar
 
 ## Apparaat-naar-cloud-berichten ontvangen
 
-In dit gedeelte gaat u een Node.js-consoletoepassing maken die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub toont een [Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. In de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] leest u meer over het verwerken van berichten van Event Hubs. Deze handleiding is van toepassing op de Event Hub-compatibele eindpunten van IoT Hub.
+In dit gedeelte gaat u een Node.js-consoletoepassing maken die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub toont een [Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. In de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] leest u meer over het verwerken van berichten van Event Hubs. Deze zelfstudie is van toepassing op de Event Hubs-compatibele eindpunten van IoT Hub.
 
 > [AZURE.NOTE] Het met Event Hubs compatibele eindpunt voor het lezen van apparaat-naar-cloud-bericht maakt altijd gebruik van het AMQPS-protocol.
 
@@ -136,10 +118,10 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die apparaat-naar-clo
     npm init
     ```
 
-2. Voer bij de opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om de pakketten **amqp10** en **bluebird** te installeren:
+2. Voer bij de opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om het pakket **azure-event-hubs** te installeren:
 
     ```
-    npm install amqp10 bluebird --save
+    npm install azure-event-hubs --save
     ```
 
 3. Maak met een tekstverwerker een nieuw bestand **ReadDeviceToCloudMessages.js** in de map **readdevicetocloudmessages**.
@@ -149,91 +131,48 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die apparaat-naar-clo
     ```
     'use strict';
 
-    var AMQPClient = require('amqp10').Client;
-    var Policy = require('amqp10').Policy;
-    var translator = require('amqp10').translator;
-    var Promise = require('bluebird');
+    var EventHubClient = require('azure-event-hubs').Client;
     ```
 
-5. Voeg de volgende variabelendeclaraties toe en vervang de aanduidingen door de waarden die u al eerder hebt genoteerd. De aanduidingswaarde **{uw event hub-compatibele naamruimte}** is afkomstig uit het veld **Event Hub-compatibel eindpunt** in de portal - deze krijgt de volgende vorm: **namespace.servicebus.windows.net** (zonder het voorvoegsel *sb: / /*).
+5. Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de verbindingsreeks voor uw IoT-hub:
 
     ```
-    var protocol = 'amqps';
-    var eventHubHost = '{your event hub-compatible namespace}';
-    var sasName = 'iothubowner';
-    var sasKey = '{your iot hub key}';
-    var eventHubName = '{your event hub-compatible name}';
-    var numPartitions = 2;
+    var connectionString = '{iothub connection string}';
     ```
 
-    > [AZURE.NOTE] Voor deze code wordt ervan uitgegaan dat u uw IoT-hub in de (gratis) F1-categorie hebt gemaakt. Een gratis IoT-hub heeft twee partities, genaamd "0" en "1". Als u uw IoT-hub hebt gemaakt met een van de andere prijscategorieën, moet u de code aanpassen om een **MessageReceiver** te maken voor elke partitie.
-
-6. Voeg de volgende filterdefinitie toe. Deze toepassing gebruikt een filter bij het maken van een ontvanger, zodat de ontvanger alleen berichten leest die naar IoT Hub worden verzonden wanneer de ontvanger is geactiveerd. Dit is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet uw code er echter voor zorgen dat alle berichten worden verwerkt. Zie de handleiding [IoT Hub apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie.
+6. Voeg de volgende twee functies toe die de uitvoer naar de console afdrukken:
 
     ```
-    var filterOffset = new Date().getTime();
-    var filterOption;
-    if (filterOffset) {
-      filterOption = {
-      attach: { source: { filter: {
-      'apache.org:selector-filter:string': translator(
-        ['described', ['symbol', 'apache.org:selector-filter:string'], ['string', "amqp.annotation.x-opt-enqueuedtimeutc > " + filterOffset + ""]])
-        } } }
-      };
-    }
-    ```
-
-7. Voeg de volgende code toe om het adres voor het ontvangen en een AMQP-client te maken:
-
-    ```
-    var uri = protocol + '://' + encodeURIComponent(sasName) + ':' + encodeURIComponent(sasKey) + '@' + eventHubHost;
-    var recvAddr = eventHubName + '/ConsumerGroups/$default/Partitions/';
-    
-    var client = new AMQPClient(Policy.EventHub);
-    ```
-
-8. Voeg de volgende twee functies toe die de uitvoer naar de console afdrukken:
-
-    ```
-    var messageHandler = function (partitionId, message) {
-      console.log('Received(' + partitionId + '): ', message.body);
+    var printError = function (err) {
+      console.log(err.message);
     };
-    
-    var errorHandler = function(partitionId, err) {
-      console.warn('** Receive error: ', err);
+
+    var printMessage = function (message) {
+      console.log('Message received: ');
+      console.log(JSON.stringify(message.body));
+      console.log('');
     };
     ```
 
-9. Voeg de volgende functie toe die fungeert als ontvanger voor een bepaalde partitie met behulp van het filter:
+7. Voeg de volgende code toe om de **EventHubClient** te maken, open de verbinding met uw IoT-Hub en maak voor elke partitie een ontvanger. Deze toepassing gebruikt een filter bij het maken van een ontvanger, zodat de ontvanger alleen berichten leest die naar IoT Hub worden verzonden wanneer de ontvanger is geactiveerd. Dit is handig in een testomgeving, omdat u zo uitsluitend de huidige reeks berichten kunt zien. In een productieomgeving moet uw code er echter voor zorgen dat alle berichten worden verwerkt. Zie de handleiding [IoT Hub apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie:
 
     ```
-    var createPartitionReceiver = function(partitionId, receiveAddress, filterOption) {
-      return client.createReceiver(receiveAddress, filterOption)
-        .then(function (receiver) {
-          console.log('Listening on partition: ' + partitionId);
-          receiver.on('message', messageHandler.bind(null, partitionId));
-          receiver.on('errorReceived', errorHandler.bind(null, partitionId));
-        });
-    };
+    var client = EventHubClient.fromConnectionString(connectionString);
+    client.open()
+        .then(client.getPartitionIds.bind(client))
+        .then(function (partitionIds) {
+            return partitionIds.map(function (partitionId) {
+                return client.createReceiver('$Default', partitionId, { 'startAfterTime' : Date.now()}).then(function(receiver) {
+                    console.log('Created partition receiver: ' + partitionId)
+                    receiver.on('errorReceived', printError);
+                    receiver.on('message', printMessage);
+                });
+            });
+        })
+        .catch(printError);
     ```
 
-10. Voeg de volgende code toe om verbinding te maken met het Event Hub-compatibele eindpunt en de ontvangers te starten:
-
-    ```
-    client.connect(uri)
-      .then(function () {
-        var partitions = [];
-        for (var i = 0; i < numPartitions; ++i) {
-          partitions.push(createPartitionReceiver(i, recvAddr + i, filterOption));
-        }
-        return Promise.all(partitions);
-    })
-    .error(function (e) {
-        console.warn('Connection error: ', e);
-    });
-    ```
-
-11. Sla het bestand **ReadDeviceToCloudMessages.js** op en sluit het.
+8. Sla het bestand **ReadDeviceToCloudMessages.js** op en sluit het.
 
 ## Een gesimuleerde apparaattoepassing maken
 
@@ -262,10 +201,10 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat simu
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Voeg een **connectionString**-variabele toe en gebruik deze om een apparaat-client te maken. Vervang **{youriothubname}** door de naam van uw IoT-hub en **{yourdeviceid}** en **{yourdevicekey}** door waarden van het apparaat die u hebt gegenereerd tijdens het gedeelte *Een apparaat-id maken*:
+5. Voeg een **connectionString**-variabele toe en gebruik deze om een apparaat-client te maken. Vervang **{youriothostname}** door de naam van de IoT-hub die u hebt gemaakt in het gedeelte *Een IoT-hub maken* en vervang **{yourdevicekey}** door de waarde voor de apparaatsleutel die u in het gedeelte *Een apparaat-id maken* hebt gegenereerd:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -293,11 +232,11 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat simu
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
             var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```
@@ -339,11 +278,15 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 ## Volgende stappen
 
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in de portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub en u hebt een toepassing gemaakt die de berichten toont die de hub heeft ontvangen. U kunt nog andere functies van de IoT-hub en andere IoT-scenario’s bekijken in de volgende handleidingen:
+In deze handleiding, hebt u een nieuwe IoT-hub geconfigureerd in de portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. 
 
-- In de handleiding [Cloud-naar-apparaat-berichten verzenden met IoT Hub][lnk-c2d-tutorial] leert u hoe u berichten moet verzenden naar apparaten en hoe u de leveringsfeedback verwerkt die door de IoT Hub is gegenereerd.
-- In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op betrouwbare wijze telemetriegegevens en interactieve berichten kunt verwerken die afkomstig zijn van apparaten.
-- In de handleiding [Bestanden van apparaten uploaden][lnk-upload-tutorial] wordt een patroon beschreven dat cloud-naar-apparaat-berichten gebruikt om bestanden van apparaten te kunnen uploaden.
+Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+
+- [Connecting your device (Uw apparaat verbinden)][lnk-connect-device]
+- [Getting started with device management (Aan de slag met apparaatbeheer)][lnk-device-management]
+- [Getting started with the Gateway SDK (Aan de slag met de Gateway-SDK)][lnk-gateway-SDK]
+
+Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-berichten verwerken)][lnk-process-d2c-tutorial] voor meer informatie over het uitbreiden van uw IoT-oplossing en het op schaal verwerken van apparaat-naar-cloud-berichten.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -358,17 +301,18 @@ In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in de portal en ver
 [lnk-devguide-identiteit]: iot-hub-devguide.md#identityregistry
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 
@@ -37,7 +37,7 @@ Installeer de Azure Multi-Factor Authentication-server op een Windows-server als
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram RADIUS-authenticatie.
 2. Schakel het selectievakje RADIUS-verificatie inschakelen in.
 3. Ga naar het tabblad Clients en verander de verificatie- en accountingpoort(en) als de RADIUS-service van Azure Multi-Factor Authentication verbinding moet maken met niet-standaardpoorten om te luisteren naar RADIUS-aanvragen van de te configureren clients.
-4. Klik op de knop Toevoegen… .
+4. Klik op de knop Bewerken....
 5. Voer in het dialoogvenster RADIUS-client toevoegen het IP-adres in van het toestel of de server die moet worden geverifieerd bij de Azure Multi-Factor Authentication-server, en voeg (optioneel) een toepassingsnaam toe en een gedeeld geheim toe. Het gedeeld geheim moet op de Azure Multi-Factor Authentication-server en het toestel/de server hetzelfde zijn. De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 6. Schakel het selectievakje Overeenkomende Multi-Factor Authentication-gebruiker vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication moeten worden onderworpen. Als een groot aantal gebruikers nog niet is geïmporteerd in de server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie.
 7. Schakel het selectievakje Alternatief OATH-token inschakelen in als gebruikers de Azure Multi-Factor Authentication-verificatie voor mobiele apps gaan gebruiken en u OATH-toegangscodes wil gebruiken als een alternatieve verificatie voor telefoongesprekken, SMS of pushmeldingen buiten de band.
@@ -65,6 +65,6 @@ Als u de RADIUS-client wilt configureren, gebruikt u de volgende richtlijnen:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

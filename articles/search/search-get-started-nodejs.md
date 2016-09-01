@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Aan de slag met Azure Search in NodeJS
@@ -25,7 +25,7 @@ Informatie over het bouwen van een aangepaste NodeJS-zoektoepassing die voor de 
 
 We hebben [NodeJS](https://nodejs.org), NPM, [Sublime Text 3](http://www.sublimetext.com/3) en Windows PowerShell op Windows 8.1 gebruikt om deze code te ontwikkelen en te testen.
 
-Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in [Azure Portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
+Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in de [Azure-portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
 
 ## Over de gegevens
 
@@ -41,7 +41,7 @@ In deze toepassing zorgt het programma **DataIndexer** er met een [indexeerfunct
 
 Zodra u de service hebt gemaakt, keert u terug naar de portal om de URL of `api-key` op te halen. Verbindingen met uw Search-service vereisen dat u zowel over de URL als een `api-key` beschikt om de aanroep te verifiëren.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 2. Klik in de snelbalk op de **Search-service** om alle Azure Search-services weer te geven die zijn ingericht voor uw abonnement.
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
@@ -54,12 +54,11 @@ Zodra u de service hebt gemaakt, keert u terug naar de portal om de URL of `api-
 
 Gebruik een van de volgende methoden om het voorbeeld te downloaden.
 
-1. Ga naar [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+1. Ga naar [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
 2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op en pak vervolgens alle bestanden in het zip-bestand uit.
 
 Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor de bestanden in deze map.
 
-Als u GIT in uw padinstructie hebt staan, kunt u een PowerShell-venster openen en typt u `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ## Werk het bestand config.js bij met de URL van de Search-service en uw API-sleutel.
 
@@ -123,6 +122,6 @@ Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekij
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

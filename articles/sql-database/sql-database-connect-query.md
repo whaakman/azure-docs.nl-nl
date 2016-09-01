@@ -2,7 +2,7 @@
     pageTitle="Verbinding maken met SQL Database met een C#-query | Microsoft Azure"
     description="Schrijf een programma in C# om een SQL Database op te vragen en hiermee verbinding te maken. Informatie over IP-adressen, verbindingsreeksen, beveiligde aanmelding en gratis Visual Studio."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="c#-databasequery, c#-query, verbinding maken met database, SQL C#"
     documentationCenter=""
     authors="MightyPen"
     manager="jhubbard"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="08/17/2016"
     ms.author="annemill"/>
 
 
@@ -43,7 +43,7 @@ Voor verbinding met SQL Database met Visual Studio, heeft u het volgende nodig:
 - Visual Studio 2013 update 4 (of hoger). Microsoft biedt de Visual Studio Community nu *gratis* aan.
  - [Visual Studio Community downloaden](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Meer opties voor gratis Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Verderop in dit onderwerp wordt ook [uitgelegd](#InstallVSForFree) hoe het [Azure Portal](https://portal.azure.com/) u helpt bij het installeren van Visual Studio.
+ - Verderop in dit onderwerp wordt ook [uitgelegd](#InstallVSForFree) hoe de [Azure-portal](https://portal.azure.com/) u helpt bij het installeren van Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -56,13 +56,13 @@ Voor verbinding met SQL Database met Visual Studio, heeft u het volgende nodig:
 Als u Visual Studio wilt installeren, kunt u:
 
 - Visual Studio Community gratis installeren door in uw browser te zoeken naar webpagina’s met gratis downloads en andere opties voor Visual Studio-producten; of
-- via de [Azure Portal](https://portal.azure.com/) navigeren naar de webpagina met de download, zoals hieronder staat uitgelegd.
+- via de [Azure-portal](https://portal.azure.com/) navigeren naar de webpagina met de download, zoals hieronder staat uitgelegd.
 
 
-### Visual Studio via de Azure Portal
+### Visual Studio via de Azure-portal
 
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/), http://portal.azure.com/.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Klik op **BLADEREN* ALLE** > **SQL databases**. Er wordt een blade geopend waarin wordt gezocht naar databases.
 
@@ -82,7 +82,7 @@ Als u Visual Studio wilt installeren, kunt u:
 
 9. Nadat Visual Studio is geïnstalleerd, klikt u op de knop  **Openen in Visual Studio** in de blade **Openen in Visual Studio** Visual Studio wordt geopend.
 
-10. Omwille van het venster **SQL Server Object Explorer**, vraagt Visual Studio u om de velden voor de verbindingsreeks in te vullen in een dialoogvenster.
+10. Visual Studio vraagt u een verbindingstekenreeks in een dialoogvenster in te vullen.
  - Kies voor **SQL Server-verificatie**, niet voor **Windows-verificatie**.
  - Geef uw **AdventureWorksLT** database op (**Opties** > **Verbindingseigenschappen** in het dialoogvenster).
 
@@ -124,6 +124,6 @@ Nadat u verbinding hebt gemaakt met uw logische server, kunt u verbinding maken 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -2,7 +2,7 @@
     pageTitle="Azure AD Connect: Aangepaste installatie | Microsoft Azure"
     description="In dit document worden de opties voor een aangepaste installatie van Azure AD Connect beschreven. Volg deze instructies om Active Directory met Azure AD Connect te installeren."
     services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
+    keywords="wat is Azure AD Connect, Active Directory installeren, vereiste onderdelen voor Azure AD"
     documentationCenter=""
     authors="andkjell"
     manager="stevenpo"
@@ -14,10 +14,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
-# Aangepaste installatie van Azure AD Connect
+# Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
 
 Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) voltooit. Zorg er ook voor dat de benodigde accounts beschikbaar zijn, zoals beschreven in [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md).
@@ -253,19 +253,19 @@ Meer informatie over deze functies, die tijdens de installatie zijn ingeschakeld
 
 Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
 
-Meer informatie over [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 
 ## Verwante documentatie
 
 Onderwerp |  
 --------- | ---------
-Overzicht Azure AD Connect | [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
+Overzicht Azure AD Connect | [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 Installeren met de snelle instellingen | [Snelle installatie van Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Upgrade van DirSync | [Upgrade van Azure AD-synchronisatiehulpprogramma (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Accounts die worden gebruikt voor installatie | [Meer over accounts en machtigingen van Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Upgrade van DirSync | [Upgrade van Azure AD-synchronisatiehulpprogramma (DirSync) (Engelstalig artikel)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Accounts die worden gebruikt voor installatie | [Meer informatie over accounts en machtigingen van Azure AD Connect (Engelstalig artikel)](active-directory-aadconnect-accounts-permissions.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

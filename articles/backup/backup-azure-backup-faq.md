@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup and disaster recovery; backup service"/>
+   keywords="back-up en herstel na noodgeval; Backup-service"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="04/04/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Veelgestelde vragen over de Azure Backup-service
@@ -275,6 +275,6 @@ U kunt de bovenstaande kenmerken beter niet in de cachemap of op de VHD met meta
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologieën voor Azure VPN-gatewayverbindingen
+# Azure VPN-gatewayverbindingen
 
 In dit artikel worden de topologieën voor eenvoudige VPN-gatewayverbindingen beschreven. U kunt de afbeeldingen en beschrijvingen gebruiken als hulp bij het selecteren van de juiste configuratietopologie voor uw vereisten. Hoewel dit een artikel is over de belangrijkste basistopologieën, is het mogelijk om met de diagrammen als richtlijn complexere topologieën te bouwen.
 
 Elke topologie bevat een tabel met het implementatiemodel waarvoor de topologie beschikbaar is, de implementatiehulpmiddelen die u kunt gebruiken om elke topologie te configureren en een koppeling naar een artikel, indien van toepassing. De tabellen worden regelmatig bijgewerkt als er nieuwe artikelen en implementatiehulpmiddelen beschikbaar komen.
 
-Voor meer informatie over VPN-gateways raadpleegt u [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Over VPN-gateways).
-
-
+Nadat u hebt gekozen welke verbinding u wilt maken, zijn de instructies die u volgt om uw VPN-gateway te maken afhankelijk van het implementatiemodel waarmee u uw virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om uw VPN-gateway te maken en te configureren. Het is niet mogelijk om een Resource Manager-VPN-gateway te maken voor een virtueel netwerk van een klassiek implementatiemodel. Zie [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) (Het Resource Manager-implementatie en klassieke implementatie begrijpen) voor meer informatie over de implementatiemodellen.
 
 ## Site-naar-site en multi-site
 
@@ -64,6 +62,28 @@ Azure heeft momenteel twee implementatiemodellen: Azure Service Management (klas
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Punt-naar-site
+
+Met een punt-naar-site-configuratie kunt u vanaf elke clientcomputer afzonderlijk een beveiligde verbinding met het virtuele netwerk maken. Er wordt een VPN-verbinding tot stand gebracht door de verbinding te starten vanaf de clientcomputer. Dit is een uitstekende oplossing als u uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, wilt verbinden, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. 
+
+Een punt-naar-site-verbinding is een VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres nodig. 
+
+**P2S-diagram**
+
+![Punt-naar-site-verbinding](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Beschikbare implementatiemodellen en -methoden**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
+
+
 
 ## Site-naar-site- en ExpressRoute-verbindingen naast elkaar
 
@@ -80,23 +100,11 @@ ExpressRoute is een directe, exclusieve verbinding van uw WAN met Microsoft-Serv
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
-## Punt-naar-site
 
-Met een punt-naar-site-configuratie kunt u vanaf elke clientcomputer afzonderlijk een beveiligde verbinding met het virtuele netwerk maken. Er wordt een VPN-verbinding tot stand gebracht door de verbinding te starten vanaf de clientcomputer. Dit is een uitstekende oplossing als u uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, wilt verbinden, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. 
-
-Een punt-naar-site-verbinding is een VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres nodig. 
-
-**P2S-diagram**
-
-![Punt-naar-site-verbinding](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Beschikbare implementatiemodellen en -methoden**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Volgende stappen
 
-In de artikelen [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Over VPN-gateways) en [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) (Veelgestelde vragen over VPN-gateways) vindt u meer informatie over de items en krijgt u meer inzicht in VPN-gateways, voordat u verder gaat met het plannen en ontwerpen van uw verbinding.
+Voor een beter inzicht in de instellingen voor de VPN-gateway, raden wij u aan meer vertrouwd raken met de informatie in de artikelen [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Over VPN-gateways) en [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) (Veelgestelde vragen over de VPN-gateway).
 
 
 
@@ -106,6 +114,6 @@ In de artikelen [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Over VPN
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

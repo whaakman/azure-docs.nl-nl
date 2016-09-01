@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met de Azure Portal
@@ -68,7 +68,7 @@ Bekijk dan de volgende video's om aan de slag te gaan met Data Lake Store.
 
 4. Selecteer **Vastmaken aan Startboard** als u wilt dat het Data Lake Store-account toegankelijk is vanaf het Startboard.
 
-5. Klik op **Maken**. Als u ervoor kiest om het account vast te maken aan het startboard, gaat u terug naar het startboard en ziet u de voortgang van de inrichting van uw Data Lake Store-account. Wanneer het Data Lake Store-account is ingericht, wordt de accountblade weergegeven.
+5. Klik op **Create**. Als u ervoor kiest om het account vast te maken aan het startboard, gaat u terug naar het startboard en ziet u de voortgang van de inrichting van uw Data Lake Store-account. Wanneer het Data Lake Store-account is ingericht, wordt de accountblade weergegeven.
 
 6. Vouw de vervolgkeuzelijst **Essentials** uit om de informatie over uw Data Lake Store-account te bekijken, zoals de resourcegroep waarvan het deel uitmaakt, de locatie enzovoort. Klik op het pictogram **Snel starten** om koppelingen naar andere informatie over Data Lake Store weer te geven.
 
@@ -136,9 +136,10 @@ Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lak
 - [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 - [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Diagnostische logboeken openen voor Data Lake Store](data-lake-store-diagnostic-logs.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

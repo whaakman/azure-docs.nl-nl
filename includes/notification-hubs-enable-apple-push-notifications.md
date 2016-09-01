@@ -43,13 +43,9 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Nu wordt uw app-id gegenereerd en wordt u gevraagd de gegevens te bevestigen. Klik op **Verzenden**
+    Hiermee wordt uw app-id gegenereerd en wordt u gevraagd de gegevens te bevestigen. Klik op **Registreren** om de nieuwe app-id te bevestigen.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-    Nadat u op **Verzenden** hebt gedrukt, verschijnt het scherm **Registratie is voltooid** zoals hieronder wordt weergegeven. Klik op **Gereed**.
+    Nadat u op **Registreren** hebt geklikt, wordt het scherm **Registratie voltooid** weergegeven, zoals u hieronder ziet. Klik op **Gereed**.
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -139,6 +135,6 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

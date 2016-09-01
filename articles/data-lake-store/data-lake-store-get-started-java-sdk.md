@@ -95,7 +95,17 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-client-authentication</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.0-20160513.000802-24</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-client-runtime</artifactId>
+                <version>1.0.0-20160513.000812-28</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.rest</groupId>
+                <artifactId>client-runtime</artifactId>
+                <version>1.0.0-20160513.000825-29</version>
             </dependency>
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
@@ -312,6 +322,6 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

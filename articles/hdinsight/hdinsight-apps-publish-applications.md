@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/01/2016"
+    ms.date="06/29/2016"
     ms.author="jgao"/>
 
 # HDInsight-toepassingen publiceren in Azure Marketplace
@@ -25,6 +25,7 @@ HDInsight-toepassingen maken gebruik van het *BYOL-model (Bring Your Own License
 
 Ander artikel over HDInsight-toepassingen:
 
+- [HDInsight-toepassingen installeren](hdinsight-apps-install-applications.md): informatie over het installeren van een HDInsight-toepassing op uw clusters.
 - [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het installeren en testen van aangepaste HDInsight-toepassingen.
 
  
@@ -64,7 +65,7 @@ Maak een ZIP-bestand met alle vereiste bestanden voor het installeren van de HDI
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. Bekijk een voorbeeld bij [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
-    >[AZURE.IMPORTANT] De naam van het installatiescript voor de toepassing moet uniek zijn voor een bepaald cluster en gebruikmaken van onderstaande notatie. 
+    >[AZURE.IMPORTANT] De naam van het installatiescript voor de toepassing moet uniek zijn voor een bepaald cluster en gebruikmaken van onderstaande notatie. Bovendien moeten alle scriptacties voor installeren en verwijderen idempotent zijn (de scripts kunnen herhaaldelijk worden aangeroepen en geven steeds hetzelfde resultaat).
     
     >   name": "[concat('hue-install-v0','-' ,uniekestring(‘toepassingsnaam’)]"
         
@@ -94,11 +95,12 @@ Volg de volgende stappen om een HDInsight- toepassing te publiceren:
 
 ## Volgende stappen
 
+- [HDInsight-toepassingen installeren](hdinsight-apps-install-applications.md): informatie over het installeren van een HDInsight-toepassing op uw clusters.
 - [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
 - [Op Linux gebaseerde HDInsight-clusters aanpassen met behulp van een scriptactie](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik van een scriptactie om extra toepassingen te installeren.
-- [Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van ARM-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informatie over het aanroepen van ARM-sjablonen om HDInsight-clusters te maken.
+- [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) (Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van Azure Resource Manager-sjablonen): informatie over het aanroepen van Resource Manager-sjablonen om HDInsight-clusters te maken.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,7 +1,7 @@
-1.  Meld u online aan bij [Microsoft Azure Portal](https://portal.azure.com/).
+1.  Meld u online aan bij de [Microsoft Azure-portal](https://portal.azure.com/).
 2.  Klik in de snelbalk op **Nieuw**, klik vervolgens op **Gegevens en opslag**, en klik vervolgens op **Azure DocumentDB**.
 
-    ![Schermopname van de Azure Portal voor het maken van een database, waarbij de knop Nieuw, Gegevens en opslag in de blade Maken en Azure DocumentDB in de blade Gegevens zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Schermopname van de Azure-portal voor het maken van een database, waarbij de knop Nieuw, Gegevens en opslag in de blade Maken en Azure DocumentDB in de blade Gegevens zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
 3. In de blade **Nieuw DocumentDB-account** geeft u de gewenste configuratie op voor het DocumentDB-account.
 
@@ -12,11 +12,13 @@
 
     - Selecteer als **Abonnement** het Azure-abonnement dat u voor het DocumentDB-account wilt gebruiken. Als uw account slechts één abonnement heeft, wordt dit account standaard geselecteerd.
 
-    - In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een bestaande resourcegroep onder het Azure-abonnement gekozen.  U kunt er echter voor kiezen om een nieuwe resourcegroep te maken waaraan u uw DocumentDB-account wilt toevoegen. Zie [De Azure Portal gebruiken om uw Azure-resources te beheren](resource-group-portal.md) voor meer informatie.
+    - In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een nieuwe resourcegroep gemaakt. Zie [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md) (De Azure-portal gebruiken om uw Azure-resources te beheren) voor meer informatie.
 
-    - Gebruik **Locatie** om de geografische locatie op te geven waar uw DocumentDB-account moet worden gehost.   
+    - Gebruik **Locatie** om de geografische locatie op te geven waar uw DocumentDB-account moet worden gehost. 
+    
+    - Schakel **Aan dashboard vastmaken** in, zodat u gemakkelijk toegang krijgt tot uw account en resources die u in de toekomst maakt.  
 
-4.  Zodra de opties voor het nieuwe DocumentDB-account zijn geconfigureerd, klikt u op **Maken**.  Het kan een paar minuten duren voordat het DocumentDB-account is gemaakt.  Als u de status wilt zien, kunt u de voortgang via het startboard bekijken.  
+4.  Zodra de opties voor het nieuwe DocumentDB-account zijn geconfigureerd, klikt u op **Maken**. U kunt de voortgang op het startboard volgen als u de status van de implementatie wilt controleren.  
     ![Schermopname van de tegel Maken op het startboard - Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
     Of u kunt de voortgang via Notification Hubs bekijken.  
@@ -25,7 +27,7 @@
 
     ![Schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account is gemaakt en naar een resourcegroep is geïmplementeerd - melding van Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  Nadat het DocumentDB-account is gemaakt, kan het meteen met de standaardinstellingen in de onlineportal worden gebruikt. Merk op dat de standaardconsistentie van de DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardinstelling voor consistentie aanpassen door op het pictogram **Instellingen** op de bovenste opdrachtbalk te klikken, klik vervolgens op het item **Standaardconsistentie** onder **Functie** in de blade **Alle instellingen**.
+5.  Nadat het DocumentDB-account is gemaakt, kan het meteen met de standaardinstellingen in de onlineportal worden gebruikt. Merk op dat de standaardconsistentie van de DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardinstelling voor consistentie aanpassen door te klikken op **Standaardconsistentie** in het menu. Zie [Consistency levels in DocumentDB](../articles/azure-portal/resource-group-portal.md) (Consistentieniveaus in DocumentDB) voor meer informatie over de consistentieniveaus die worden aangeboden door DocumentDB.
 
     ![Schermopname van de blade Resourcegroep - begin met het ontwikkelen van de toepassing](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -37,6 +39,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

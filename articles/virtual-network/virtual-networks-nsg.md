@@ -3,7 +3,7 @@
    description="Meer informatie over de gedistribueerde firewall in Azure met netwerkbeveiligingsgroepen (NSG's) en hoe u NSGs gebruikt om verkeer binnen uw virtuele netwerken (VNET'S) te isoleren en beheren."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Wat is een netwerkbeveiligingsgroep (NSG)?
 
@@ -115,7 +115,7 @@ U kunt verschillende NSG's koppelen aan een VM (of NIC, afhankelijk van het impl
        
            If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![ACL's voor NSG](./media/virtual-network-nsg-overview/figure2.png)
+    ![ACL's voor NSG](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] U kunt slechts één NSG aan een subnet, VM of NIC koppelen, maar u kunt wel dezelfde NSG aan zo veel resources koppelen als u wilt.
 
@@ -125,10 +125,10 @@ U kunt NSG's implementeren in het klassieke implementatiemodel of het implementa
 |Implementatieprogramma|Klassiek|Resource Manager|
 |---|---|---|
 |Klassieke portal|![Nee][red]|![Nee][red]|
-|Azure Portal|![Ja][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Ja][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Ja][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Ja][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Ja][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Ja][green]</a>|
-|ARM-sjabloon|![Nee][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Ja][green]</a>|
+|Azure-portal|![Ja][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ja][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ja][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ja][green]|
+|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ja][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ja][green]|
+|ARM-sjabloon|![Nee][red]|[](virtual-networks-create-nsg-arm-template.md)![Ja][green]|
 
 |**Sleutel**|![Ja][green] Ondersteund. Klikken voor artikel.|![Nee][red] Niet ondersteund.|
 |---|---|---|
@@ -183,8 +183,8 @@ In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund
 
 ### Load balancers
 
-- Overweeg de taakverdelingsregels en NAT-regels voor elke load balancer die wordt gebruikt door elk van de workloads. Deze regels zijn gebonden aan een back-end-pool met NIC's (implementaties van Resource Manager) of VM's/rolexemplaren (klassieke implementaties). Overweeg om een NSG voor elke back-end-pool te maken zodat alleen verkeer wordt toegestaan dat is gedefinieerd in de regels die zijn geïmplementeerd in de load balancers. Dit garandeert dat verkeer dat rechtstreeks afkomstig is van de back-end-pool, in plaats van via de load balancer, ook gefilterd is.
-- In klassieke implementaties maakt u eindpunten waarop poorten van een load balancer worden afgestemd met poorten van uw VM's of rolexemplaren. U kunt ook uw eigen individuele openbare load balancer maken in een implementatie van Resource Manager. Als u verkeer beperkt tot VM's en rolexemplaren die deel uitmaken van een back-end-pool in een load balancer met behulp van NSGs, houd er dan rekening mee dat de doelpoort voor het binnenkomende verkeer de werkelijke poort van de VM of het rolexemplaar is, en niet de poort die beschikbaar is gemaakt door de load balancer. Houd er ook rekening mee dat de bronpoort en het bronadres voor de verbinding met de VM een poort en adres zijn op de externe computer op internet, en niet de poort die en het adres dat beschikbaar is gemaakt door de load balancer.
+- Overweeg de taakverdelingsregels en NAT-regels voor elke load balancer die wordt gebruikt door elk van de workloads. Deze regels zijn gebonden aan een back-end-groep met NIC's (implementaties van Resource Manager) of VM's/rolexemplaren (klassieke implementaties). Overweeg om een NSG voor elke back-end-groep te maken zodat alleen verkeer wordt toegestaan dat is gedefinieerd in de regels die zijn geïmplementeerd in de load balancers. Dit garandeert dat verkeer dat rechtstreeks afkomstig is van de back-end-groep, in plaats van via de load balancer, ook gefilterd is.
+- In klassieke implementaties maakt u eindpunten waarop poorten van een load balancer worden afgestemd met poorten van uw VM's of rolexemplaren. U kunt ook uw eigen individuele openbare load balancer maken in een implementatie van Resource Manager. Als u verkeer beperkt tot VM's en rolexemplaren die deel uitmaken van een back-end-groep in een load balancer met behulp van NSGs, houd er dan rekening mee dat de doelpoort voor het binnenkomende verkeer de werkelijke poort van de VM of het rolexemplaar is, en niet de poort die beschikbaar is gemaakt door de load balancer. Houd er ook rekening mee dat de bronpoort en het bronadres voor de verbinding met de VM een poort en adres zijn op de externe computer op internet, en niet de poort die en het adres dat beschikbaar is gemaakt door de load balancer.
 - Net als bij openbare load balancers geldt: wanneer u NSG's maakt voor het filteren van verkeer dat afkomstig is van een interne load balancer (ILB), worden de bronpoort en het bronadresbereik gebruikt van de computer waarvan de oproep afkomstig is, en niet die van de load balancer. Bovendien zijn de doelpoort en het doeladresbereik gerelateerd aan de computer waarop het verkeer binnenkomt, niet aan de load balancer.
 
 ### Overige
@@ -284,6 +284,6 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

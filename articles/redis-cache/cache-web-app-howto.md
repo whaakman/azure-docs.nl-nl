@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
 # Een web-app maken met Redis-Cache
@@ -688,7 +688,7 @@ De knop **Deploy to Azure** gebruikt de sjabloon voor de [Azure-snelstartgids](h
 
 >[AZURE.NOTE] Als u geen Azure-account hebt, kunt u binnen een paar minuten [een gratis Azure-account maken](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
-Als u op de knop **Deploy to Azure** klikt, wordt u naar de Azure Portal geleid en start het proces voor het maken van de resources die in de sjabloon worden beschreven.
+Als u op de knop **Deploy to Azure** klikt, wordt u naar de Azure-portal geleid en start het proces voor het maken van de resources die in de sjabloon worden beschreven.
 
 ![Implementeren in Azure][cache-deploy-to-azure-step-1]
 
@@ -760,7 +760,7 @@ Klik op een aantal acties en experimenteer met het ophalen van de gegevens vanui
 
 Wanneer u klaar bent met de voorbeeldtoepassing uit de zelfstudie, kunt u de Azure-resources die u hebt gebruikt, verwijderen om kosten en resources te besparen. Als u de knop **Implementeren in Azure** in de sectie [De Azure-resources inrichten](#provision-the-azure-resources) hebt gebruikt en alle resources zich in dezelfde resourcegroep bevinden, kunt u deze in één keer verwijderen door de resourcegroep te verwijderen.
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 2. Typ de naam van de resourcegroep in het tekstvak **Items filteren...**.
 3. Klik op **...** aan de rechterkant van de resourcegroep.
 4. Klik op **Verwijderen**.
@@ -783,7 +783,7 @@ Als u de toepassing lokaal wilt uitvoeren op uw computer, hebt u een exemplaar v
 -   Als u een ander bestaand exemplaar van Azure Redis-cache hebt, kunt u dit gebruiken om het voorbeeld lokaal uit te voeren.
 -   Als u een exemplaar van Azure Redis-cache moet maken, kunt u de stappen volgen in [Een cache maken](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar de cache in de Azure Portal bladeren en de [hostnaam](cache-configure.md#properties) en de [toegangssleutels](cache-configure.md#access-keys) voor uw cache ophalen. Zie [Redis-cache-instellingen configureren](cache-configure.md#configure-redis-cache-settings) voor instructies.
+Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar de cache in de Azure-portal bladeren en de [hostnaam](cache-configure.md#properties) en de [toegangssleutels](cache-configure.md#access-keys) voor uw cache ophalen. Zie [Redis-cache-instellingen configureren](cache-configure.md#configure-redis-cache-settings) voor instructies.
 
 1. Open het bestand `WebAppPlusCacheAppSecrets.config` dat u hebt gemaakt tijdens de stap [De toepassing configureren voor het gebruik van Redis-cache](#configure-the-application-to-use-redis-cache) in deze zelfstudie. Gebruik hiervoor een editor naar keuze.
 
@@ -802,15 +802,18 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 ## Volgende stappen
 
 -   Meer informatie over [hoe u aan de slag gaat met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) vindt u op de website van [ASP.NET](http://asp.net/).
+-   Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET-web-app maken en implementeren in Azure App Service) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect[-demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) voor meer voorbeelden van het maken van een ASP.NET Web-App in de App Service.
+    -   Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -   Meer informatie over de Entity Framework-werkwijze [Code First voor een nieuwe database](https://msdn.microsoft.com/data/jj193542) die in deze zelfstudie wordt gebruikt.
 -   Meer informatie over [web-apps in Azure App Service](../app-service-web/app-service-web-overview.md).
--   Meer informatie over het [controleren](cache-how-to-monitor.md) van uw cache in de Azure Portal.
+-   Meer informatie over het [controleren](cache-how-to-monitor.md) van uw cache in de Azure-portal.
 
 -   De premiumfuncties van de Azure Redis-cache verkennen
     -   [Persistentie configureren voor een Premium Azure Redis-cache](cache-how-to-premium-persistence.md)
     -   [Clustering configureren voor een Premium Azure Redis-cache](cache-how-to-premium-clustering.md)
     -   [Virtual Network-ondersteuning configureren voor een Premium Azure Redis-cache](cache-how-to-premium-vnet.md)
     -   Raadpleeg [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) (Veelgestelde vragen over Azure Redis-caches) voor meer informatie over de grootte, doorvoer en bandbreedte van premiumcaches.
+
 
 
 <!-- IMAGES -->
@@ -849,6 +852,6 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

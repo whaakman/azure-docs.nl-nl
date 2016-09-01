@@ -14,7 +14,7 @@
     ms.devlang="java"
     ms.topic="get-started-article"
     ms.date="06/01/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Een Java API-app bouwen en implementeren in Azure App Service
 
@@ -329,7 +329,7 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 [open-contact-model-file]: ./media/app-service-api-java-api-app/open-contact-model-file.png
 [open-contact-service-code-file]: ./media/app-service-api-java-api-app/open-contact-service-code-file.png
 [run-jetty-war]: ./media/app-service-api-java-api-app/run-jetty-war.png
-[calling-contacts-api]: ./media/app-service-api-java-api-app/calling-contacts-api.png
+[contactpersonen-api-aanroepen]: ./media/app-service-api-java-api-app/calling-contacts-api.png
 [calling-specific-contact-api]: ./media/app-service-api-java-api-app/calling-specific-contact-api.png
 [create-api-app]: ./media/app-service-api-java-api-app/create-api-app.png
 [set-up-java]: ./media/app-service-api-java-api-app/set-up-java.png
@@ -340,6 +340,6 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

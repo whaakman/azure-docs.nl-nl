@@ -4,7 +4,7 @@
    description="Op deze pagina staan instructies voor het maken van een toepassingsgateway met de Azure Resource Manager-sjabloon"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
@@ -22,8 +22,9 @@
 Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway biedt de volgende functies voor de levering van toepassingen: HTTP load balancing, op cookies gebaseerde sessieaffiniteit en offloading van Secure Sockets Layer (SSL).
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 
 <BR>
@@ -42,7 +43,7 @@ In dit scenario:
 - Maakt u een subnet met de naam Appgatewaysubnet dat gebruikmaakt van 10.0.0.0/28 als CIDR-blok.
 - Stelt u twee eerder geconfigureerde back-end-IP-adressen in voor de webservers die load balancing moeten verzorgen voor het verkeer. In deze voorbeeldsjabloon worden de back-end-IP-adressen 10.0.1.10 en 10.0.1.11 gebruikt.
 
->[AZURE.NOTE] Dit zijn de parameters voor deze sjabloon. U kunt regels, de listener en de SSL waarmee de azuredeploy.json wordt geopend, wijzigen om de sjabloon aan te passen.
+>[AZURE.NOTE] Deze instellingen zijn de parameters voor deze sjabloon. U kunt regels, de listener en de SSL waarmee de azuredeploy.json wordt geopend, wijzigen om de sjabloon aan te passen.
 
 
 
@@ -58,11 +59,11 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 2. Klik op **azuredeploy.json** en vervolgens op **RAW**.
 3. Sla het bestand op in een lokale map op uw computer.
 4. Als u bekend bent met Azure Resource Manager-sjablonen, kunt u doorgaan naar stap 7.
-5. Open het bestand dat u zojuist hebt opgeslagen en bekijk de inhoud onder **parameters** in regel 5. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
+5. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel 5. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
 
   	| Parameter | Beschrijving |
   	|---|---|
-  	| **location** | Azure-regio waarin u de toepassingsgateway maakt |
+  	| **location** | Azure-regio waarin de toepassingsgateway is gemaakt |
   	| **VirtualNetwork1** | Naam voor het nieuwe virtuele netwerk |
   	| **addressPrefix** | Adresruimte voor het virtuele netwerk, in CIDR-indeling |
   	| **ApplicationGatewaysubnet** | Naam voor het subnet van de toepassingsgateway |
@@ -78,13 +79,13 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 6. Controleer de inhoud onder **Resources** en let op het volgende:
 
     - **type**. Het type resource dat door de sjabloon wordt gemaakt. In dit geval is het type **Microsoft.Network/applicationGateways**. Dit is een toepassingsgateway.
-    - **name**. Naam voor de resource. Let op het gebruik van **[parameters('applicationGatewayName')]**. Dit geeft aan of de naam wordt geleverd als invoer door de gebruiker of door een parameterbestand tijdens de implementatie.
+    - **name**. Naam voor de resource. Let op het gebruik van **[parameters('applicationGatewayName')]**. Dit geeft aan of de naam wordt geleverd als invoer door u of door een parameterbestand tijdens de implementatie.
     - **properties**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres.
 
-7. Navigeer naar https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
+7. Navigeer terug naar [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Klik op **azuredeploy-parameters.json** en vervolgens op **RAW**.
 9. Sla het bestand op in een lokale map op uw computer.
-10. Open het bestand dat u zojuist hebt opgeslagen en bewerk de waarden voor de parameters. Gebruik de onderstaande waarden voor het implementeren van de toepassingsgateway die in ons scenario wordt beschreven.
+10. Open het bestand dat u hebt opgeslagen en bewerk de waarden voor de parameters. Gebruik de volgende waarden voor het implementeren van de toepassingsgateway die in ons scenario wordt beschreven.
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -116,7 +117,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 
 ## De Azure Resource Manager-sjabloon implementeren met PowerShell
 
-Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) en volgt u de instructies helemaal tot aan het einde om u aan te melden bij Azure en uw abonnement te selecteren.
+Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) en volgt u de instructies om u aan te melden bij Azure en uw abonnement te selecteren.
 
 ### Stap 1
 
@@ -143,7 +144,7 @@ Kies welk Azure-abonnement u wilt gebruiken. <BR>
 ### Stap 4
 
 
-Indien nodig kunt u een nieuwe resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een nieuwe resourcegroep met de naam AppgatewayRG op de locatie VS - oost.
+Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een nieuwe resourcegroep met de naam AppgatewayRG op de locatie VS - oost.
 
      New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
         VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -160,7 +161,7 @@ Indien nodig kunt u een nieuwe resourcegroep maken met de cmdlet **New-AzureReso
 
         ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit om het nieuwe virtuele netwerk te implementeren met de sjabloon en de parameterbestanden die u hebt gedownload en hierboven hebt gewijzigd.
+Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit om het nieuwe virtuele netwerk te implementeren met de vorige sjabloon en parameterbestanden die u hebt gedownload en gewijzigd.
 
         New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
            -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -191,52 +192,60 @@ De volgende uitvoer wordt gegenereerd door de opdrachtregel:
 
 Volg de onderstaande stappen voor het implementeren van de Azure Resource Manager-sjabloon die u hebt gedownload met Azure CLI.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
-2. Voer de opdracht **azure config mode** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
+### Stap 1
 
-        azure config mode arm
+Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+### Stap 2
+
+Voer de opdracht **azure config mode** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
+
+    azure config mode arm
 
 Dit is de verwachte uitvoer voor de bovenstaande opdracht:
 
-        info:   New mode is arm
+    info:   New mode is arm
 
-3. Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../resource-group-overview.md).
+### Stap 3
 
-        azure group create -n appgatewayRG -l eastus
+Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../resource-group-overview.md).
+
+    azure group create -n appgatewayRG -l eastus
 
 **-n (of --name)**. Naam voor de nieuwe resourcegroep. In ons scenario is dit *appgatewayRG*.
 
 **-l (of --location)**. De Azure-regio waar de nieuwe resourcegroep wordt gemaakt. In ons scenario is dit *eastus*.
 
-4. Voer de cmdlet **azure group deployment create** uit om het nieuwe virtuele netwerk te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven hebt gewijzigd. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+### Stap 4
 
-        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+Voer de cmdlet **azure group deployment create** uit om het nieuwe virtuele netwerk te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven hebt gewijzigd. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+
+    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
 Dit is de verwachte uitvoer voor de bovenstaande opdracht:
 
-        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-        info:    Executing command group deployment create
-        + Initializing template configurations and parameters
-        + Creating a deployment
-        info:    Created template deployment "TestAppgatewayDeployment"
-        + Waiting for deployment to complete
-        data:    DeploymentName     : TestAppgatewayDeployment
-        data:    ResourceGroupName  : appgatewayRG
-        data:    ProvisioningState  : Succeeded
-        data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-        data:    Mode               : Incremental
-        data:    Name               Type    Value
-        data:    -----------------  ------  --------------
-        data:    location           String  East US
-        data:    addressPrefix      String  10.0.0.0/16
-        data:    subnetPrefix       String  10.0.0.0/24
-        data:    skuName            String  Standard_Small
-        data:    capacity           Int     2
-        data:    backendIpAddress1  String  10.0.1.10
-        data:    backendIpAddress2  String  10.0.1.11
-        info:    group deployment create command OK
+    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "TestAppgatewayDeployment"
+    + Waiting for deployment to complete
+    data:    DeploymentName     : TestAppgatewayDeployment
+    data:    ResourceGroupName  : appgatewayRG
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
+    data:    Mode               : Incremental
+    data:    Name               Type    Value
+    data:    -----------------  ------  --------------
+    data:    location           String  East US
+    data:    addressPrefix      String  10.0.0.0/16
+    data:    subnetPrefix       String  10.0.0.0/24
+    data:    skuName            String  Standard_Small
+    data:    capacity           Int     2
+    data:    backendIpAddress1  String  10.0.1.10
+    data:    backendIpAddress2  String  10.0.1.11
+    info:    group deployment create command OK
 
-**-g (of --resource-group)**. Naam van de resourcegroep waar het nieuwe virtuele netwerk in wordt gemaakt.
+**-g (of --resource-group)**. Naam van de resourcegroep waarin het nieuwe virtuele netwerk wordt gemaakt.
 
 **-f (of --template-file)**. Pad naar uw Azure Resource Manager-sjabloonbestand
 
@@ -286,6 +295,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

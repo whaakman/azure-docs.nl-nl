@@ -72,7 +72,7 @@ App Service biedt een kant-en-klare oplossing voor een aantal algemene verificat
 
 ## Uw app automatisch schalen op basis van de vraag
 
-Nu gaan we de app automatisch schalen, zodat de capaciteit automatisch wordt aangepast aan de behoeften van de gebruiker (lees hier meer over in [Prijscategorie schalen in Azure App Service](app-service-scale) en [Aantal exemplaren handmatig of automatisch schalen](../azure-portal/insights-how-to-scale.md)). 
+Nu gaan we de app automatisch schalen, zodat de capaciteit automatisch wordt aangepast aan de behoeften van de gebruiker. (Lees hier meer over in [Scale up your app in Azure](web-sites-scale.md) (Uw app omhoog schalen in Azure) en in [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) (Aantal exemplaren handmatig of automatisch schalen)). 
 
 Kort samengevat kunt u een web-app op twee manieren schalen:
 
@@ -112,7 +112,7 @@ Misschien hebt u op de blade **Schaalinstellingen** al opgemerkt dat u veel meer
 - Automatisch schalen volgens een schema
 - Gedrag van automatisch schalen instellen voor een toekomstige gebeurtenis
 
-Zie [Prijscategorie schalen in Azure App Service](../app-service/app-service-scale.md) voor meer informatie over het omhoog schalen van uw app. Zie [Aantal exemplaren handmatig of automatisch schalen](../azure-portal/insights-how-to-scale.md) voor meer informatie over uitschalen.
+Zie [Scale up your app in Azure](../app-service-web/web-sites-scale.md) (Uw app omhoog schalen in Azure) voor meer informatie over het omhoog schalen van uw app. Zie [Aantal exemplaren handmatig of automatisch schalen](../azure-portal/insights-how-to-scale.md) voor meer informatie over uitschalen.
 
 ## Waarschuwingen voor uw app ontvangen
 
@@ -147,7 +147,7 @@ Ontdek hoe u meer kunt doen met uw geïmplementeerde app. Dit zijn slechts enkel
 
 - [Een aangepaste domeinnaam kopen en configureren](custom-dns-web-site-buydomains-web-app.md): koop een aantrekkelijke domeinnaam voor uw web-app in plaats van het domein *.azurewebsites.net. Of gebruik een domein dat u al hebt.
 - [Faseringsomgevingen instellen](web-sites-staged-publishing.md): implementeer uw app op een tijdelijke URL voordat u de app in productie neemt. Werk uw live web-app probleemloos bij. Stel een uitgebreide DevOps-oplossing in met meerdere implementatiesites. 
-- [Continue implementatie instellen](web-sites-publish-source-control.md): integreer app-implementatie in uw bronbeheersysteem. Implementeer naar Azure met elke doorvoer.
+- [Continue implementatie instellen](app-service-continuous-deployment.md): integreer app-implementatie in uw bronbeheersysteem. Implementeer naar Azure met elke doorvoer.
 - [Toegang tot on-premises resources](web-sites-hybrid-connection-get-started.md): maak gebruik van een bestaande on-premises database of een bestaand CRM-systeem.
 - [Een back-up maken van uw app](web-sites-backup.md): stel voor uw web-app back-up- en herstelfunctionaliteit in. Bereid u voor op onverwachte problemen en het herstel daarvan.
 - [Schakel diagnostische logboeken in](web-sites-enable-diagnostic-log.md): lees de IIS-logboeken vanuit Azure of toepassingstraceringen. Lees ze in een stream, download ze of plaats ze in [Application Insights](../application-insights/app-insights-overview.md) voor directe analyse.
@@ -157,6 +157,6 @@ Scan uw web-app op actieve bedreigingen met behulp van de service die wordt gele
 - [Ontdek hoe App Service werkt](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

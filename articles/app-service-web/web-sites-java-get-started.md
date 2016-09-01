@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Een Java web-app maken in Azure App Service
@@ -71,7 +71,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
 
     Zie [Overzicht van Azure App Service-plannen] voor meer informatie over App Service-plannen.
 
-7. Klik op **Maken**.
+7. Klik op **Create**.
 
     ![Web-app maken][newwebapp2]
  
@@ -89,7 +89,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
 
 12. Kies de gewenste **Webcontainer**. Als u een containernaam selecteert die begint met **Nieuwste**, zal uw app altijd de nieuwste versie blijven gebruiken van de primaire versie van de webcontainer die beschikbaar is in de App Service. 
 
-    ![Webcontainerversies][versies]
+    ![Webcontainerversies][versions]
 
 13. Klik op **Opslaan**.
 
@@ -137,7 +137,7 @@ In deze sectie wordt beschreven hoe u Azure Marketplace gebruikt om een Java-web
 
     Zie [Overzicht van Azure App Service-plannen] voor meer informatie over App Service-plannen.
 
-10. Klik op **Maken**.
+10. Klik op **Create**.
 
     ![Maken in Jetty-portal][jettyportalcreate2]
 
@@ -171,7 +171,7 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 [Overzicht van Azure App Service-plannen]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal]: https://portal.azure.com/
 [uw voordelen als Visual Studio-abonnee activeren]: http://go.microsoft.com/fwlink/?LinkId=623901
-[aanmelden voor een gratis proefversie]: http://go.microsoft.com/fwlink/?LinkId=623901
+[zich aanmelden voor een gratis proefversie]: http://go.microsoft.com/fwlink/?LinkId=623901
 [App Service uitproberen]: http://go.microsoft.com/fwlink/?LinkId=523751
 [web-app maakt in Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
@@ -183,7 +183,7 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
 [selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
-[versies]: ./media/web-sites-java-get-started/versions.png
+[versions]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
@@ -194,6 +194,6 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

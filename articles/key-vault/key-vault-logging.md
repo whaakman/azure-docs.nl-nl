@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Logboekregistratie van Azure Sleutelkluis #
@@ -32,7 +32,9 @@ Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis,
 
 >[AZURE.NOTE]  Deze zelfstudie bevat geen instructies voor het maken van sleutelkluizen, sleutels of geheimen. Zie [Aan de slag met Azure Sleutelkluis](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
 >
->Het is momenteel niet mogelijk om Azure Sleutelkluis in Azure Portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
+>Het is momenteel niet mogelijk om Azure Sleutelkluis in de Azure-portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
+
+De logboeken die u verzamelt, kunnen met behulp van de logboekanalyse van de Operations Management Suite worden gevisualiseerd. Zie [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (Azure Sleutelkluis-oplossing (preview) in loganalyse) voor meer informatie.
 
 Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
 
@@ -269,12 +271,10 @@ Zie [Azure Sleutelkluis in een webtoepassing gebruiken](key-vault-use-from-web-a
 Zie [de gids voor ontwikkelaars voor Azure Sleutelkluis](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
 
 Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met Azure PowerShell 1.0- cmdlets voor Azure Sleutelkluis. 
- 
+
+Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Sleutelkluis instellen met end-to-endsleutelrotatie en -controle) voor een zelfstudie over sleutelrotatie en logboekcontrole met Azure Sleutelkluis.
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

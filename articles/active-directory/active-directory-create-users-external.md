@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="08/02/2016"
+    ms.author="curtand"/>
 
 # Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 
-Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
+In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
 ## Een gebruiker toevoegen
 
@@ -56,7 +56,8 @@ Wanneer u een gebruiker vanuit een andere directory toevoegt aan uw directory, w
 
 De enige connectie tussen de twee accounts is dat de gebruiker altijd wordt geverifieerd met de oorspronkelijke directory of met een Microsoft-account. Daarom wordt er voor een externe gebruiker geen optie weergegeven voor het herstellen van het wachtwoord of voor het inschakelen van meervoudige verificatie. Op dit moment is het verificatiebeleid van de oorspronkelijke directory of het Microsoft-account het enige dat wordt geëvalueerd wanneer de gebruiker zich aanmeldt.
 
-> [AZURE.NOTE] U kunt de externe gebruiker nog steeds uitschakelen in de directory. Op deze manier blokkeert u de toegang tot uw directory.
+> [AZURE.NOTE]
+> U kunt de externe gebruiker nog steeds uitschakelen in de directory. Op deze manier blokkeert u de toegang tot uw directory.
 
 Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of zij het Microsoft-account opzegt, bestaat de externe gebruiker nog steeds in uw directory. De gebruiker in uw directory heeft echter geen toegang meer tot resources, omdat hij of zij zich niet kan aanmelden met een oorspronkelijke directory of een Microsoft-account.
 
@@ -76,7 +77,7 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 - Wat betreft Azure AD PowerShell zijn externe gebruikers aangemeld via hun oorspronkelijke directory en kunnen ze geen directory's beheren waarin zij externe gebruikers zijn
 
 
-## Wat er volgt
+## Volgend onderwerp
 
 - [Nieuwe gebruikers toevoegen aan Azure Active Directory (Engelstalig artikel)](active-directory-create-users.md)
 - [Azure AD beheren (Engelstalig artikel)](active-directory-administer.md)
@@ -85,6 +86,6 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

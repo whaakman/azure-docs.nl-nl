@@ -4,7 +4,7 @@
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
-    manager="mbaldwin" 
+    manager="swadhwa" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/08/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Veelgestelde vragen over Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+
 De volgende vragen zijn gesteld over Azure RemoteApp. Hebt u nog andere vragen? Ga naar de [RemoteApp-forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) en laat ons weten wat u wilt weten of laat hieronder een opmerking achter.
+
+## Kunt u niet vinden wat u zoekt? Hebt u een vraag die we niet hebben beantwoord?
+Als u de informatie die u nodig hebt niet kunt vinden of een aanvullende vraag hebt die we hier niet behandelen, ga dan naar het [Azure RemoteApp-forum](http://aka.ms/araforum) en stel daar uw vraag. We kunnen hier altijd meer antwoorden toevoegen.
 
 ## Wat is Azure RemoteApp? ##
 
@@ -33,7 +40,7 @@ De volgende vragen zijn gesteld over Azure RemoteApp. Hebt u nog andere vragen? 
 - **Wat zijn de servicebeperkingen?** In [Limieten, quota’s en beperkingen voor Azure-abonnementen en services](../azure-subscription-service-limits.md) vindt u meer informatie over de standaardinstellingen en servicelimieten van Azure RemoteApp. Laat het ons weten als u meer vragen hebt.
 - **Hoeveel gebruikers moet ik hebben?** Er is een minimum van 20 gebruikers. Ik herhaal: het MINIMUM is 20. U wordt gefactureerd voor 20 gebruikers. 
 - **Wat kost RemoteApp?** Deze informatie vindt u in [Azure RemoteApp-prijsinformatie](https://azure.microsoft.com/pricing/details/remoteapp/).
-- **Is het ene type verzameling duurder dan het andere?** Ja, dat is mogelijk, maar dat is afhankelijk van de vereisten van de verzameling. Een hybride verzameling vereist een verbinding tussen Azure RemoteApp en uw on-premises netwerk. Als u een bestaande VNET/Expresss Route gebruikt, zijn er geen extra kosten. Maar als u een nieuwe Azure VNET en een gateway of Express Route gebruikt, wordt u gefactureerd voor de [VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) of [Express Route](../../../pricing/details/expressroute/). Deze kosten (gespecificeerd in de koppelingen) komen bij uw maandelijkse kosten voor Azure RemoteApp.
+- **Is het ene type verzameling duurder dan het andere?** Ja, dat is mogelijk, maar dat is afhankelijk van de vereisten van de verzameling. Een hybride verzameling vereist een verbinding tussen Azure RemoteApp en uw on-premises netwerk. Als u een bestaande VNET/Expresss Route gebruikt, zijn er geen extra kosten. Maar als u een nieuwe Azure VNET en een gateway of Express Route gebruikt, wordt u gefactureerd voor de [VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) of [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Deze kosten (gespecificeerd in de koppelingen) komen bij uw maandelijkse kosten voor Azure RemoteApp.
 
 ## Verzamelingen: wat er wordt ondersteund, welke u moet gebruiken en andere informatie
 - **Worden aangepaste LOB-toepassingen (Line-of-business) ondersteund?** Ja. Als u een aangepaste toepassing in Azure RemoteApp wilt gebruiken, maakt u een [aangepaste sjablooninstallatiekopie](remoteapp-create-custom-image.md) en uploadt u deze naar de RemoteApp-verzameling.
@@ -86,13 +93,13 @@ Eerst de computers en tablets:
 
 - **Welke versie van Windows Server wordt ondersteund voor de Remote Desktop Session Host (RDSH)?** Windows Server 2012 R2.
 
-##Ondersteuning en feedback
+## Ondersteuning en feedback
 
 
 - **Wat is het ondersteuningsplan voor RemoteApp?** Ondersteuning voor factuur- en abonnementbeheer wordt gratis aangeboden. Technische ondersteuning is beschikbaar via de [Azure-serviceplannen](https://azure.microsoft.com/support/plans/). U kunt ook gratis communityondersteuning krijgen via ons [Azure-discussieforum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
 - **Hoe geef ik feedback?** Daarvoor gaat u naar het [Feedbackforum](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 - **Waar kan ik meer vragen stellen als ik meer wil weten over Azure RemoteApp?** Naast ons [discussieforum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), dat een goede plaats is om vragen te stellen, kunt u deelnemen aan het wekelijkse webinar [Vraag het de expert](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), waar allerlei zaken over RemoteApp aan bod komen.
-- **Is er ook RemoteApp-documentatie?** We zijn blij dat u dat vraagt. Naast de Help-inhoud in de Help-sectie van de portal (klik daarvoor op het **?** op een pagina in de portal), zijn de volgende artikelen beschikbaar waarin u alles kunt leren over RemoteApp:
+- **Is er ook RemoteApp-documentatie?** We zijn blij dat u dat vraagt. Naast de Help-inhoud in de Help-sectie van de portal (klik op het **?** op een willekeurige pagina in de portal), zijn de volgende artikelen beschikbaar waarin u alles wordt verteld over RemoteApp:
     - **Aan de slag:**
         - [What is Azure RemoteApp? (Wat is Azure RemoteApp?)](remoteapp-whatis.md)
         - [What is in the RemoteApp template images? (Wat bevatten de sjablooninstallatiekopieën van RemoteApp?)](remoteapp-images.md)
@@ -117,6 +124,6 @@ Wist u dat u niet alleen dit artikel kunt beoordelen en opmerkingen kunt toevoeg
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 
