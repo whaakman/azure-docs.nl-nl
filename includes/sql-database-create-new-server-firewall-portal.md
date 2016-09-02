@@ -49,6 +49,6 @@ Voer de volgende stappen uit in de Azure-portal om een firewallregel op serverni
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

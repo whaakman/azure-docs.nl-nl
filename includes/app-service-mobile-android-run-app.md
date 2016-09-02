@@ -1,5 +1,5 @@
 
-1. Ga naar [Azure Portal]. Klik op **Door alles bladeren** > **Mobile Apps** > de back-end die u zojuist hebt gemaakt. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Android**. Onder **Uw clienttoepassing configureren** klikt u op **Downloaden**. Er wordt dan voor een app een volledig Android-project gedownload dat vooraf is geconfigureerd om verbinding te maken met uw back-end. 
+1. Ga naar de [Azure-portal]. Klik op **Door alles bladeren** > **Mobile Apps** > de back-end die u zojuist hebt gemaakt. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Android**. Onder **Uw clienttoepassing configureren** klikt u op **Downloaden**. Er wordt dan voor een app een volledig Android-project gedownload dat vooraf is geconfigureerd om verbinding te maken met uw back-end. 
 
 2. Open het project met **Android Studio** via **Project importeren (Eclipse ADT, Gradle enzovoort)**. Zorg ervoor dat u deze importselectie maakt om eventuele JDK-fouten te voorkomen.
 
@@ -9,10 +9,10 @@
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

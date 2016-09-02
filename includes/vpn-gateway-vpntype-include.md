@@ -3,6 +3,6 @@
 - **VPN-type op basis van een route**: VPN-verbindingen op basis van een route werden voorheen dynamische routeringsgateways genoemd in het klassieke implementatiemodel. VPN-verbindingen op basis van een route gebruiken "routes" in de IP-doorstuurtabel of routeringstabel om pakketten naar de bijbehorende tunnelinterfaces te sturen. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid (of de verkeersselector) voor VPN-verbindingen op basis van een route is geconfigureerd als alles-naar-alles (of jokertekens). De waarde voor een VPN-type op basis van een route is *RouteBased*.
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

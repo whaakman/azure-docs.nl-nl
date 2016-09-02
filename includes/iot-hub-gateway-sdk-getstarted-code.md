@@ -206,6 +206,6 @@ Zie voor meer informatie over het gebruik van de Gateway SDK:
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

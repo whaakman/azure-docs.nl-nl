@@ -8,6 +8,6 @@ VNet-peering verkeert in de openbare previewfase. Als u hiervan gebruik wilt mak
  
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

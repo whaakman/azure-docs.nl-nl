@@ -41,6 +41,6 @@ U kunt de app uitvoeren met behulp van de emulator of met een daadwerkelijk appa
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

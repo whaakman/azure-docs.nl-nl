@@ -1,4 +1,4 @@
-| Mobiele en systeemeigen apps | Web-apps en web-API's | Rechtstreeks integreren met protocollen |
+| Mobiele en systeemeigen apps | Web Apps en web-API's | Rechtstreeks integreren met protocollen |
 | ----------------------- | ------------------------------- | --------------------- |
 | [Registreren en aanmelden toevoegen aan een iOS-app](active-directory-b2c-devquickstarts-ios.md) | [Registreren en aanmelden toevoegen aan een .NET MVC-app](active-directory-b2c-devquickstarts-web-dotnet.md) | [Een toepassing registreren](active-directory-b2c-app-registration.md) |
 | [Aanmelden en registreren toevoegen aan een Windows-bureaublad-app](active-directory-b2c-devquickstarts-native-dotnet.md) | [Registratie-/aanmeldingsbeleid in een .NET MVC-app gebruiken](active-directory-b2c-devquickstarts-web-dotnet-susi.md) | [Mobiele apps met OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
@@ -7,6 +7,6 @@
 | | [Registratie en aanmelden toevoegen aan een ASP.NET Core-app](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | |
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

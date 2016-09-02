@@ -6,13 +6,13 @@ Klik op **Bladeren > Redis-caches** om uw caches weer te geven. Als u onlangs na
 
 Selecteer de gewenste cache om de eigenschappen voor die cache weer te geven.
 
-![Lijst met caches voor Bladeren in Azure Redis-cache](media/redis-cache-browse/redis-caches.png)
+![Lijst met caches voor Bladeren in Azure Redis Cache](media/redis-cache-browse/redis-caches.png)
 
 Klik op **Instellingen** of **Alle instellingen** als u de cache wilt weergeven en configureren.
 
 ![Alle instellingen in Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

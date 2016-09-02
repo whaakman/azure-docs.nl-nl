@@ -56,6 +56,6 @@ Als u een SRV-record in de zonebasis maakt, kunt u '_service' en '_protocol' in 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

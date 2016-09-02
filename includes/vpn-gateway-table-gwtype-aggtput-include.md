@@ -9,6 +9,6 @@
 - (3) De High Performance SKU wordt niet ondersteund voor het op beleid gebaseerde VPN-type.
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -40,6 +40,6 @@ Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwij
 [bestanden-concepten]: ./media/storage-file-concepts-include/files-concepts.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

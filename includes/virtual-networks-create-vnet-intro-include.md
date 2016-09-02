@@ -3,6 +3,6 @@ Een virtueel Azure-netwerk (VNet) is een weergave van uw eigen netwerk in de clo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

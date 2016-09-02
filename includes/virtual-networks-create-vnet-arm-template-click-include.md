@@ -18,8 +18,8 @@ U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naa
 
 5. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet.
 6. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit.
-5. Klik op **Juridische voorwaarden**, lees de voorwaarden en klik op **Kopen** om akkoord te gaan.  
-6. Klik op **Maken** om het VNet aan te maken.
+5. Klik op **Juridische voorwaarden**, lees de voorwaarden en klik op **Kopen** om akkoord te gaan. 
+6. Klik op **Maken** om het VNet te maken.
 
     ![Tegel implementatie in Preview Portal verzenden](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
@@ -28,6 +28,6 @@ U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naa
     ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

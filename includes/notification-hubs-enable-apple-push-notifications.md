@@ -135,6 +135,6 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

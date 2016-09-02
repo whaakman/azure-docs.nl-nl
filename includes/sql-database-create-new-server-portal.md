@@ -45,6 +45,6 @@ Voer de volgende stappen uit in Azure Portal om een logische server met Azure SQ
        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

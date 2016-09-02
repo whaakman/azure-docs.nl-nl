@@ -26,6 +26,6 @@ Uw Event Hub is nu gemaakt en u hebt de verbindingsreeksen die u nodig hebt om g
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

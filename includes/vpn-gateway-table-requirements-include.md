@@ -13,6 +13,6 @@ De volgende tabel bevat de vereisten voor VPN-gateways op basis van beleid en ro
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

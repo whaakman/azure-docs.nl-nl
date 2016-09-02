@@ -37,6 +37,6 @@ Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Pr
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

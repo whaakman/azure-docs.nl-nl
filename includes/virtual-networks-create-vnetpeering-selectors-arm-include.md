@@ -4,6 +4,6 @@
 - [ARM-sjabloon](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

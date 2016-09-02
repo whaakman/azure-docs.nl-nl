@@ -8,6 +8,6 @@ Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 
