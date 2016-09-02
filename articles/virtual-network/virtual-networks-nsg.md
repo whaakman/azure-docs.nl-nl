@@ -278,9 +278,9 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 - [NSG's implementeren in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [NSG-logboeken beheren](virtual-network-nsg-manage-log.md).
 
-[groen]: ./media/virtual-network-nsg-overview/green.png
-[geel]: ./media/virtual-network-nsg-overview/yellow.png
-[rood]: ./media/virtual-network-nsg-overview/red.png
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
 
 
 

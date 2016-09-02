@@ -95,7 +95,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
       // or applicationinsights-core for bare API
     }
 
-* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld: * `version:'1.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'1.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Bijwerken naar een nieuwe SDK*
  * Vernieuw de afhankelijkheden van uw project.
 

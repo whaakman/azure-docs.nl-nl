@@ -132,8 +132,8 @@ if __name__ == '__main__':
 Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat het script *python_tutorial_client.py* doet, is drie containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage) maken:
 
 - **application**: deze container slaat het Python-script op dat door de taken wordt uitgevoerd, *python_tutorial_task.py*.
-- **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer*container.
-- **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer*container.
+- **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer* container.
+- **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer* container.
 
 Om te communiceren met een opslagaccount en containers te maken, gebruiken we het pakket [azure-storage][pypi_storage] om een [BlockBlobService][py_blockblobservice]-object te maken, de 'blob-client'. Daarna maken we drie containers in het opslagaccount met behulp van de blob-client.
 
@@ -244,7 +244,7 @@ Shared Access Signatures zijn tekenreeksen die beveiligde toegang bieden tot con
 
 - **Shared Access Signatures voor blobs**: StartTask van de pool gebruikt Shared Access Signatures voor blobs wanneer deze het taakscript en de invoergegevensbestanden uit Storage downloadt (zie [Stap 3](#step-3-create-batch-pool) hieronder). De functie `upload_file_to_container` in *python_tutorial_client.py* bevat de code die de Shared Access Signature van elke blob verkrijgt. Dit gebeurt door het aanroepen van [BlockBlobService.make_blob_url][py_make_blob_url] in de Storage-module.
 
-- **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer*container in Azure Storage. Hiervoor maakt *python_tutorial_task.py* gebruik van een Shared Access Signature voor containers die schrijftoegang tot de container biedt. De functie `get_container_sas_token` in *python_tutorial_client.py* verkrijgt de Shared Access Signature van de container, die vervolgens als een opdrachtregelargument wordt doorgegeven aan de taken. In stap 5, [Taken toevoegen aan job](#step-5-add-tasks-to-job), wordt het gebruik van de Shared Access Signature voor containers besproken.
+- **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer* container in Azure Storage. Hiervoor maakt *python_tutorial_task.py* gebruik van een Shared Access Signature voor containers die schrijftoegang tot de container biedt. De functie `get_container_sas_token` in *python_tutorial_client.py* verkrijgt de Shared Access Signature van de container, die vervolgens als een opdrachtregelargument wordt doorgegeven aan de taken. In stap 5, [Taken toevoegen aan job](#step-5-add-tasks-to-job), wordt het gebruik van de Shared Access Signature voor containers besproken.
 
 > [AZURE.TIP] Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met de Blob-service), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw Storage-account.
 
