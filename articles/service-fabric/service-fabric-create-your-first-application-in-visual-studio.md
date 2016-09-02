@@ -133,8 +133,8 @@ Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 [5]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer.png
 [6]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail.png
 [7]: ./media/service-fabric-create-your-first-application-in-visual-studio/runasync-breakpoint.png
-[sfx-stop-knooppunt]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
-[systray-starten-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
+[sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
+[systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [toepassing van sfe verwijderen]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 

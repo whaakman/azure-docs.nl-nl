@@ -55,7 +55,7 @@ IoT Suite bevat vooraf geconfigureerde oplossingen zodat u snel aan de slag kunt
 
 Nu u een overzicht hebt van wat IoT Suite kan doen en wat de belangrijkste onderdelen zijn, raadpleegt u [What are the Azure IoT preconfigured solutions? (Wat zijn de vooraf geconfigureerde oplossingen in Azure IoT)][lnk-what-are-preconfig] voor meer informatie over de vooraf geconfigureerde oplossingen in IoT Suite.
 
-[lnk-SDK‘s]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-SDK's]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Ink-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-azure-storage]: https://azure.microsoft.com/documentation/services/storage/
