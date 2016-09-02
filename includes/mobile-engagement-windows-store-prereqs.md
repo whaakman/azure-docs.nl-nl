@@ -13,6 +13,6 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -20,6 +20,6 @@ In deze sectie gaat u uw nieuwe app testen in combinatie met de mobiele service 
     Er wordt nu een POST-aanvraag verzonden naar de lokale mobiele service. De gegevens van de aanvraag worden opgenomen in de takentabel. De items die in de tabel zijn opgeslagen, worden door de mobiele service geretourneerd. Vervolgens worden de gegevens weergegeven in de tweede kolom in de app.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

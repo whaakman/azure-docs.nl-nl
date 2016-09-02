@@ -10,6 +10,6 @@ Hier volgen enkele schermopnamen van een voltooide app:
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Services-zelfstudies voor Windows Store- en Windows Phone Store-apps. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

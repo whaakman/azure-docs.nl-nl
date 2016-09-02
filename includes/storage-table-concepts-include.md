@@ -1,6 +1,6 @@
-## Wat is Tabelservice
+## Wat is Table Service
 
-Met de service Azure Table Storage kunnen grote hoeveelheden gestructureerde gegevens worden opgeslagen. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen in en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Veelvoorkomende toepassingen van Tabelservice zijn:
+Met de service Azure Table Storage kunnen grote hoeveelheden gestructureerde gegevens worden opgeslagen. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen in en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Veelvoorkomende toepassingen van de Tabelservice zijn:
 
 -   Opslaan van terabytes aan gestructureerde gegevens die kunnen worden geleverd aan webschaaltoepassingen
 -   Opslaan van gegevenssets die geen complexe joins, refererende sleutels of opgeslagen procedures vereisen en die kunnen worden gedenormaliseerd voor snelle toegang
@@ -9,9 +9,9 @@ Met de service Azure Table Storage kunnen grote hoeveelheden gestructureerde geg
 
 U kunt Tabelservice gebruiken om grote sets gestructureerde, niet-relationele gegevens op te slaan en query’s op de gegevens uit te voeren. En wanneer de vraag toeneemt, worden uw tabellen opgeschaald.
 
-## Concepten van Tabelservice
+## Concepten van Table Service
 
-Tabelservice bevat de volgende onderdelen:
+De Tabelservice bevat de volgende onderdelen:
 
 ![Table1][Table1]
 
@@ -28,13 +28,13 @@ Tabelservice bevat de volgende onderdelen:
 
 -   **Eigenschappen**: een eigenschap is een naamwaardepaar. Elke entiteit kan maximaal 252 eigenschappen voor het opslaan van gegevens bevatten. Elke entiteit heeft ook drie systeemeigenschappen waarmee een partitiesleutel, een rijsleutel en een timestamp worden opgegeven. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd en in atomische bewerkingen worden ingevoegd/bijgewerkt. De rijsleutel van een entiteit is de unieke id in een partitie.
 
-Zie [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Inzicht krijgen in het Tabelservice-gegevensmodel) voor meer informatie over de naamgeving van tabellen en eigenschappen.
+Zie [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Inzicht krijgen in het Table Service-gegevensmodel) voor meer informatie over de naamgeving van tabellen en eigenschappen.
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

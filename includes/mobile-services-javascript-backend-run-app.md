@@ -20,6 +20,6 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
     ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

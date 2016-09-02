@@ -13,6 +13,6 @@ VNet-peering, momenteel in previewfase, is beschikbaar voor bepaalde implementat
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

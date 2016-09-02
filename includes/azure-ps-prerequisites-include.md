@@ -4,6 +4,6 @@ Om de stappen in dit artikel uit te kunnen voeren, moet u [Azure PowerShell inst
 > [AZURE.NOTE] Als u geen Azure-account hebt, moet u er een maken. U kunt zich [hier aanmelden voor een gratis proefversie](../articles/active-directory/sign-up-organization.md). 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

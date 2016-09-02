@@ -81,6 +81,6 @@ U moet een hostroute van het Azure BGP-peer-IP-adres toevoegen aan uw VPN-appara
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

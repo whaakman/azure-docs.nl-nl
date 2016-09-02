@@ -26,6 +26,6 @@ Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer met SSMS bent ve
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

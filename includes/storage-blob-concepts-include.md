@@ -10,9 +10,9 @@ Veelvoorkomende toepassingen van Blob Storage zijn onder andere:
 - De opslag van gegevens voor back-up en herstel, herstel na noodgevallen en archivering
 - De opslag van gegevens voor analyse door een on-premises in Azure gehoste service
 
-## Concepten van Blob-service
+## Concepten van Blob service
 
-De Blob-service bevat de volgende onderdelen:
+De Blob service bevat de volgende onderdelen:
 
 ![Blob1][Blob1]
 
@@ -33,6 +33,6 @@ De Blob-service bevat de volgende onderdelen:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

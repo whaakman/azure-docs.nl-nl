@@ -4,6 +4,6 @@ De Azure Storage-services worden regelmatig bijgewerkt met ondersteuning voor ni
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

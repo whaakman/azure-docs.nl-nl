@@ -5,6 +5,6 @@
 - [ARM-sjabloon](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

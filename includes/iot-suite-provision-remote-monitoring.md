@@ -30,6 +30,6 @@ Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had 
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

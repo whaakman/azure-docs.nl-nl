@@ -108,6 +108,6 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

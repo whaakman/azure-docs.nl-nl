@@ -36,6 +36,6 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

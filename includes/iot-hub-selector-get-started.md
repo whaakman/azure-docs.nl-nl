@@ -18,6 +18,6 @@ In deze handleiding ontdekt u hoe u:
 - Een gesimuleerd apparaat kunt maken dat telemetrie verzendt naar de back-end van uw cloud en daarvan opdrachten ontvangt.
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 
