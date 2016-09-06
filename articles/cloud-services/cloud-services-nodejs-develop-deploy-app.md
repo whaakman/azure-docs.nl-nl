@@ -56,7 +56,7 @@ Voer de volgende taken uit om een nieuw Azure Cloud Services-project te maken, s
 
         New-AzureServiceProject helloworld
 
-    ![Het resultaat van de helloworld-opdracht van New-AzureService][The result of the New-AzureService helloworld command]
+    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
 
     De **New-AzureServiceProject**-cmdlet genereert een basisstructuur voor het publiceren van een Node.js-toepassing naar een cloudservice. Deze bevat configuratiebestanden die nodig zijn voor publicatie naar Azure. De cmdlet wijzigt ook uw werkmap naar de map voor de service.
 
@@ -70,7 +70,7 @@ Voer de volgende taken uit om een nieuw Azure Cloud Services-project te maken, s
 
         Add-AzureNodeWebRole
 
-    ![De uitvoer van de opdracht Add-AzureNodeWebRole][The output of the Add-AzureNodeWebRole command]
+    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
 
     De **Add-AzureNodeWebRole**-cmdlet maakt een eenvoudige Node.js-toepassing. Ook worden de **.csfg**- en **.csdef**-bestanden aangepast met configuratie-items voor de nieuwe rol.
 
@@ -125,14 +125,14 @@ Voer de volgende opdrachten uit om de toepassing te publiceren:
 
 Nadat de publicatie is uitgevoerd, ziet u een reactie vergelijkbaar met de volgende:
 
-![De uitvoer van de opdracht Publish-AzureService][The output of the Publish-AzureService command]
+![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
 
 > [AZURE.NOTE]
 > Het kan enkele minuten duren voordat de toepassing is geïmplementeerd en beschikbaar is wanneer dit de eerste keer is dat de toepassing wordt gepubliceerd.
 
 Zodra de implementatie is voltooid, wordt een browservenster geopend waarin naar de cloudservice wordt genavigeerd.
 
-![Een browservenster met de Hallo wereld-pagina. De URL geeft aan dat de pagina wordt gehost in Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
+![A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
 Uw toepassing wordt nu uitgevoerd in Azure.
 
@@ -157,7 +157,7 @@ Nadat u uw toepassing hebt geïmplementeerd, wilt u deze mogelijk uitschakelen o
 
     Het kan enkele minuten duren voordat de service is gestopt. Als de service is gestopt, krijgt u een bericht waarin dit wordt aangegeven.
 
-    ![De status van de opdracht Stop-AzureService][The status of the Stop-AzureService command]
+    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 
 2.  Als u de service wilt verwijderen, roept u de volgende cmdlet aan:
 
@@ -167,7 +167,7 @@ Nadat u uw toepassing hebt geïmplementeerd, wilt u deze mogelijk uitschakelen o
 
     Het kan enkele minuten duren voordat de service is verwijderd. Als de service is verwijderd, krijgt u een bericht waarin dit wordt aangegeven.
 
-    ![De status van de opdracht Remove-AzureService][The status of the Remove-AzureService command]
+    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
     > [AZURE.NOTE] Als u de service verwijdert, wordt niet het opslagaccount verwijderd dat is gemaakt toen de service voor de eerste keer werd gepubliceerd, en de kosten voor gebruikte opslag worden nog wel in rekening gebracht. Zie [Een opslagaccount verwijderen uit een Azure-abonnement] voor meer informatie over het verwijderen van een opslagaccount.
 
@@ -189,17 +189,17 @@ Zie het [Node.js Developer Center] voor meer informatie.
 
 <!-- IMG List -->
 
-[Het resultaat van de helloworld-opdracht van New-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[De uitvoer van de opdracht Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[De uitvoer van de opdracht Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
 [De volledige statusuitvoer van de opdracht Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Een browservenster met de Hallo wereld-pagina. De URL geeft aan dat de pagina wordt gehost in Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[De status van de opdracht Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[De status van de opdracht Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=ago16_HO4-->
+<!---HONumber=ago16_HO4-->
 
 
