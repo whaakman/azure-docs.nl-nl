@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # De ontwikkelaarsportal aanpassen in Azure API Management.
@@ -78,7 +78,7 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 
 ## <a name="next-steps"> </a>Volgende stappen
 
--   Bekijk de andere onderwerpen in de zelfstudie [Aan de slag met geavanceerde API-configuratie][].
+-   Meer informatie over het aanpassen van de inhoud van ontwikkelaarsportalpagina's met [Sjablonen voor ontwikkelaarsportals](api-management-developer-portal-templates.md).
 
 [De tekst/het logo in de paginaheaders wijzigen]: #change-page-headers
 [De stijl van de headers wijzigen]: #change-headers-styling
@@ -95,12 +95,11 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Aan de slag met geavanceerde API-configuratie]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS-variabelen]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

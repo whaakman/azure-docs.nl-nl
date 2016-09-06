@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows
@@ -26,6 +26,8 @@
 Met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kunt u een opdrachtregelinterface gebruiken om op afstand bewerkingen uit te voeren op uw HDInsight-clusters die zijn gebaseerd op Linux. Dit document bevat informatie over het gebruik van de PuTTY SSH-client om verbinding met HDInsight te maken vanaf Windows-clients.
 
 > [AZURE.NOTE] Voor de stappen in dit artikel wordt ervan uitgegaan dat u een Windows-client gebruikt. Zie [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md) als u een Linux-, Unix- of OS X-client gebruikt.
+>
+> Als u over Windows 10 beschikt en [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) gebruikt, kunt u de stappen volgen in het document [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Vereisten
 
@@ -237,6 +239,6 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

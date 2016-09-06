@@ -3,7 +3,7 @@
    description="Leer hoe u een virtueel netwerk maakt met de Azure-portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -203,6 +203,6 @@ Volg de onderstaande stappen als u VNet-peering met behulp van PowerShell voor m
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -12,9 +12,9 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 
     ![][8]
 
-    Hiermee wordt een verwijzing naar het <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/"> NuGet-pakket Azure Service Bus-bibliotheek</a> gedownload, geïnstalleerd en toegevoegd.
+    Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
 
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using`-instructies toe:
+4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
 
     ```
     using System.Threading;
@@ -54,7 +54,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     }
     ```
 
-    Deze methode verzendt continu gebeurtenissen naar uw Event Hub, met een interval van 200 ms.
+    Met deze methode worden continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
 
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
 
@@ -71,6 +71,6 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

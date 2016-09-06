@@ -4,7 +4,7 @@
    description="Meer informatie over VNet-peering in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor="tysonn" />
 <tags
@@ -90,6 +90,6 @@ VNet-peering is tijdens de controleperiode gratis. Na de release wordt er een no
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

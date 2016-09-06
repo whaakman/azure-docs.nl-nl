@@ -39,42 +39,7 @@ Als u Service Bus Relay in Azure wilt gebruiken, moet u eerst een naamruimte mak
 
 Een servicenaamruimte maken:
 
-1.  Meld u aan bij de [klassieke Azure-portal][].
-
-2.  Klik in het linkernavigatievenster van de portal op **Service Bus**.
-
-3.  Klik in het onderste deelvenster van de portal op **Maken**.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  Voer in het dialoogvenster **Een nieuwe naamruimte toevoegen** een naamruimtenaam in.
-    In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Nadat u hebt gecontroleerd of de naam voor de naamruimte beschikbaar is, kiest u het land of de regio waarin uw naamruimte moet worden gehost. Zorg er daarbij voor dat u hetzelfde land of dezelfde regio gebruikt waarin u uw rekenresources implementeert.
-
-    > [AZURE.IMPORTANT] Kies *dezelfde regio* die u van plan bent te kiezen voor het implementeren van uw toepassing. Hiermee krijgt u de beste prestaties.
-
-6.  Laat de standaardwaarden van de andere velden in het dialoogvenster ongewijzigd (de lagen **Berichten** en **Standard**) en klik vervolgens op het vinkje. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-    De naamruimte die u hebt gemaakt, wordt vervolgens weergegeven in de portal en het duurt even voordat deze wordt geactiveerd. Wacht totdat de status **Actief** is voordat u doorgaat.
-
-## De standaardbeheerreferenties voor de naamruimte verkrijgen
-
-Als u in de nieuwe naamruimte beheerbewerkingen wilt uitvoeren, zoals het maken van een relayverbinding, moet u de SAS-autorisatieregel (Shared Access Signature) voor de naamruimte configureren. Zie [Shared Access Signature-verificatie met Service Bus][] voor meer informatie over SAS.
-
-1.  Klik in het linkernavigatievenster op het knooppunt **Service Bus** om de lijst met beschikbare naamruimten weer te geven.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Dubbelklik in de weergegeven lijst op de naam van de naamruimte die u zojuist hebt gemaakt.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Klik op het tabblad **Configureren** boven aan de pagina.
-
-4.  Wanneer een Service Bus-naamruimte is ingericht, wordt standaard een **SharedAccessAuthorizationRule** gemaakt waarbij **KeyName** is ingesteld op **RootManageSharedAccessKey**. Op deze pagina worden die sleutel en de primaire en secundaire sleutel voor de standaardregel weergegeven.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Het Service Bus NuGet-pakket ophalen
 
@@ -271,12 +236,11 @@ Nu u de basisprincipes van de Service Bus Relay-service hebt geleerd, volgt u de
 - [Overzicht van Azure Service Bus-architectuur](service-bus-fundamentals-hybrid-solutions.md)
 - Download Service Bus-voorbeelden van [Azure-voorbeelden][] of raadpleeg het [overzicht van Service Bus-voorbeelden][].
 
-  [klassieke Azure-portal]: http://manage.windowsazure.com
   [Shared Access Signature-verificatie met Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure-voorbeelden]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [overzicht van Service Bus-voorbeelden]: service-bus-samples.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

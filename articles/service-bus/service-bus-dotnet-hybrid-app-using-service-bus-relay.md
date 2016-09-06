@@ -67,45 +67,7 @@ Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen
 
 Als u Service Bus-functies in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
-1.  Meld u aan bij de [klassieke Azure-portal][].
-
-2.  Klik in het linkernavigatievenster van de portal op **Service Bus**.
-
-3.  Klik in het onderste deelvenster van de portal op **Maken**.
-
-    ![][5]
-
-4.  Voer in het dialoogvenster **Een nieuwe naamruimte toevoegen** een naamruimtenaam in.
-    In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-    ![][6]
-
-5.  Nadat u hebt gecontroleerd of de naam voor de naamruimte beschikbaar is, kiest u het land of de regio waarin uw naamruimte moet worden gehost. Zorg er daarbij voor dat u hetzelfde land of dezelfde regio gebruikt waarin u uw rekenresources implementeert.
-
-    > [AZURE.IMPORTANT] Kies *dezelfde regio* die u van plan bent te kiezen voor het implementeren van uw toepassing. Dat geeft de beste prestaties.
-
-6.  Laat de standaardwaarden van de andere velden ongewijzigd en klik vervolgens op het vinkje OK. Uw naamruimte wordt gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
-
-De naamruimte die u hebt gemaakt, wordt weergegeven in de portal, maar het duurt even voordat deze is geactiveerd. Wacht totdat de status **Actief** is voordat u doorgaat.
-
-## De standaardbeheerreferenties voor de naamruimte ophalen
-
-Als u beheerbewerkingen voor de nieuwe naamruimte wilt uitvoeren, zoals het maken van berichtentiteiten, moet u referenties voor de naamruimte verkrijgen.
-
-1.  Klik in het hoofdvenster op de naamruimte die u in de vorige stap hebt gemaakt.
-
-2.  Klik onder aan de pagina op **Verbindingsgegevens**.
-
-3.  Zoek in het deelvenster **Toegang tot verbindingsgegevens** de verbindingsreeks die de SAS-sleutel en de naam van de sleutel bevat.
-
-    ![][45]
-
-4.  Kopieer de verbindingsreeks en plak deze ergens. U hebt de verbindingsreeks later in deze zelfstudie nodig.
-
-5. Klik op dezelfde portalpagina op het tabblad **Configureren** boven aan de pagina.
-
-6. Kopieer de primaire sleutel voor het beleid **RootManageSharedAccessKey** naar het klembord of plak deze in Kladblok. U gebruikt deze waarde verderop in deze zelfstudie.
-
-    ![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Een on-premises server maken
 
@@ -541,11 +503,6 @@ Zie de volgende resources voor meer informatie over Service Bus:
   [Hulpprogramma's en SDK ophalen]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [klassieke Azure-portal]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -567,8 +524,7 @@ Zie de volgende resources voor meer informatie over Service Bus:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
@@ -576,6 +532,6 @@ Zie de volgende resources voor meer informatie over Service Bus:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

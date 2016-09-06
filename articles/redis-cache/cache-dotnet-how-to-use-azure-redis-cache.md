@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="06/09/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Azure Redis-cache gebruiken
@@ -290,6 +290,6 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

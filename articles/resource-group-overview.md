@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Overzicht van Azure Resource Manager
@@ -133,7 +133,7 @@ Zie voor meer informatie over het gebruik van de portal [Resources implementeren
 
 Azure Resource Manager biedt ondersteuning voor het delen van cross-origin-resources (CORS). Met CORS kunt u de REST-API van Resource Manager of een REST-API van een Azure-service aanroepen vanuit een webtoepassing die zich in een ander domein bevindt. Zonder CORS-ondersteuning zou de webbrowser voorkomen dat een app in één domein toegang zou krijgen tot resources in een ander domein. Resource Manager gebruikt CORS voor alle aanvragen met geldige verificatiereferenties.
 
-## SDK's en voorbeelden
+## SDK's
 
 Azure SDK's zijn beschikbaar voor meerdere talen en platforms.
 Elk van deze taalimplementaties is beschikbaar via zijn ecosystem package manager en GitHub.
@@ -144,25 +144,44 @@ De SDK-code wordt gegenereerd via een open source-project met de naam AutoRest.
 AutoRest transformeert deze RESTful-API-specificaties in clientbibliotheken in meerdere talen.
 Als u aspecten van de gegenereerde code in de SDK’s wilt verbeteren, is er een open, gratis beschikbare set hulpprogramma’s om SDK’s te maken, gebaseerd op een algemeen aangenomen API-specificatieformaat.
 
-**Voorbeelden**: snel aan de slag in de taal van uw keuze.
+Hier vindt u onze Open Source SDK-opslagplaatsen. We ontvangen graag uw feedback, vragen bij problemen en pull-aanvragen.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *binnenkort beschikbaar*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
-
-**Open Source SDK-opslagplaatsen**: we verwelkomen feedback, problemen en Pull-aanvragen.
-
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] Als de SDK niet de vereiste functionaliteit biedt, kunt u ook de [Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) ook rechtstreeks aanroepen.
+
+## Voorbeelden
+
+### .NET
+
+- [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Een VM waarvoor SSH is ingeschakeld met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Azure-resources beheren](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Azure-resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Een VM waarvoor SSH is ingeschakeld met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Een VM waarvoor SSH is ingeschakeld met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Een VM waarvoor SSH is ingeschakeld met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Een VM waarvoor SSH is ingeschakeld met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Naast deze voorbeelden kunt u in de galerievoorbeelden zoeken.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Volgende stappen
 
@@ -178,6 +197,6 @@ Hier volgt een videodemonstratie van dit overzicht:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/22/2016"
+    ms.date="08/30/2016"
     ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B
 2. Klik op **+Toevoegen** boven aan de blade.
 3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld Contoso B2C-app opgeven.
 4. Als u een webtoepassing schrijft, stelt u de schakeloptie **Web-app/web-API opnemen** in op **Ja**. De **Antwoord-URL's** zijn eindpunten waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. Geef bijvoorbeeld `https://localhost:44321/` op. Als uw webtoepassing ook web-API’s aanroept die beveiligd zijn door Azure AD B2C, kunt het best **toepassingsgeheim** maken door te klikken op de knop **Sleutel genereren**.
+
+    > [AZURE.NOTE] Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
+
 5. Als u een mobiele toepassing maakt, stelt u de schakeloptie **Systeemeigen client opnemen** in op **Ja**. Noteer de standaard**omleidings-URI** die automatisch wordt gemaakt.
 6. Klik op **Maken** om uw toepassing te registreren.
 7. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
 
-> [AZURE.NOTE] Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
+> [AZURE.IMPORTANT] Toepassingen die zijn gemaakt in de blade B2C-functies moeten op dezelfde locatie worden beheerd. Als u B2C-toepassingen bewerkt met PowerShell of een andere portal, leidt dat ertoe dat ze niet meer worden ondersteund en ze waarschijnlijk niet kunnen worden gebruikt met Azure AD B2C.
 
 ## Een snelstarttoepassing maken
 
@@ -53,6 +56,6 @@ Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -78,15 +78,15 @@ Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden t
 
 ## Autonome systeemnummers
 
-Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
+Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Aan de peeringzijde (klant of provider) kan de ASN een openbare ASN zijn, als gecontroleerd kan worden dat het van u is, of een privé-ASN voor de privépeering. Daarnaast is er voor de openbare peerings en Microsoft-peerings een openbare ASN vereist. 
 
-Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
+Er zijn geen vereisten met betrekking tot de symmetrie van de gegevensoverdracht in de primaire en secundaire paden van circuits. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd aan de primaire of secundaire zijde van circuitparen die van u zijn. Route metrics hoeven niet identiek te zijn.
 
 ## Limieten voor route-aggregatie en voorvoegsel
 
 Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door middel van de persoonlijke Azure-peering. Dit aantal kan worden verhoogd tot 10.000 voorvoegsels als de Premium-invoegtoepassing voor ExpressRoute wordt ingeschakeld. We accepteren maximaal 200 voorvoegsels per BGP-sessie voor openbare Azure-peering en Microsoft-peering. 
 
-De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. Provider moet standaardroute- en privé IP-adressen (RFC 1918) uit de paden voor openbare Azure- en Microsoft-peering filteren. 
+De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. De provider of de klant moet de standaardroute en privé-IP-adressen (RFC 1918) uit de BGP-aankondigingen voor het openbare peeringpad van Azure en het Microsoft-peeringpad filteren. 
 
 ## Transitroutering en regio-overschrijdende routering
 
@@ -179,6 +179,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

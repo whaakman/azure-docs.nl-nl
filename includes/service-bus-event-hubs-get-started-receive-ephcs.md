@@ -2,7 +2,7 @@
 
 [EventProcessorHost][] is een .NET-klasse die de het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met [EventProcessorHost][] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van [EventProcessorHost][] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][] ziet u hoe u [EventProcessorHost][] gebruikt met meerdere ontvangers.
 
-U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen gebruiken:
+U moet over een [Azure Storage-account][] beschikken om [EventProcessorHost][] te gebruiken:
 
 1. Meld u aan bij de [Klassieke Azure-portal][] en klik onder aan het scherm op **NIEUW**.
 
@@ -26,7 +26,7 @@ U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen
 
     ![][13]
 
-    Hiermee wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle afhankelijkheden ervan, gedownload, geïnstalleerd en toegevoegd.
+    Door Visual Studio wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle bijbehorende afhankelijkheden, gedownload, geïnstalleerd en toegevoegd.
 
 7. Klik met de rechtermuisknop op het project **Ontvanger**, klik op **Toevoegen** en op **Klasse**. Noem de nieuwe klasse **SimpleEventProcessor** en klik op **Toevoegen** om de klasse te maken.
 
@@ -115,13 +115,13 @@ U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen
     }
     ```
 
-> [AZURE.NOTE] In deze zelfstudie wordt één exemplaar van [EventProcessorHost][] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][]. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer gebeurtenissen van andere computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost][]-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Voor meer informatie over deze onderwerpen raadpleegt u het [Overzicht van Event Hubs][] en de [Event Hubs-programmeergids][].
+> [AZURE.NOTE] In deze zelfstudie wordt één exemplaar van [EventProcessorHost][] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][]. In die gevallen werken de verschillende instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer gebeurtenissen van andere computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost][]-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Voor meer informatie over deze onderwerpen raadpleegt u het [Overzicht van Event Hubs][] en de [Event Hubs-programmeergids][].
 
 <!-- Links -->
 [Overzicht van Event Hubs]: event-hubs-overview.md
 [Event Hubs-programmeergids]: event-hubs-programming-guide.md
 [Uitgeschaalde gebeurtenisverwerking]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-account]: ../storage/storage-create-storage-account.md
+[Azure Storage-account]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Klassieke Azure-portal]: http://manage.windowsazure.com
 
@@ -136,6 +136,6 @@ U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

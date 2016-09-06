@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Zelfstudie: een pijplijn maken met de kopieeractiviteit in REST API" 
+    pageTitle="Zelfstudie: een pijplijn maken met de kopieeractiviteit in REST API | Microsoft Azure" 
     description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u REST API." 
     services="data-factory" 
     documentationCenter="" 
@@ -23,11 +23,12 @@
 - [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET-API gebruiken](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met een REST API. In de pijplijn in de gegevensfactory wordt gebruikgemaakt van een kopieeractiviteit om gegevens van Azure-blobopslag te kopiëren naar Azure SQL Database.
 
-Met de kopieerbewerking wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.   
+Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.   
 
 > [AZURE.NOTE] 
 > Dit artikel omvat niet alle Data Factory-REST API. Zie [Naslaginformatie voor Data Factory-REST API](https://msdn.microsoft.com/library/azure/dn906738.aspx) voor uitgebreide documentatie over Data Factory-cmdlets.
@@ -38,10 +39,10 @@ Met de kopieerbewerking wordt de gegevensverplaatsing in Azure Data Factory uitg
 - Lees [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma Curl REST-opdrachten gebruiken om een gegevensfactory te maken. 
 - Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) voor het volgende: 
-    1. Maak een webtoepassing met de naam **ADFCopyTutotiralApp** in Azure Active Directory.
+    1. Maak een webtoepassing met de naam **ADFCopyTutorialApp** in Azure Active Directory.
     2. Haal de **client-id** en **geheime sleutel** op. 
     3. Haal de **tenant-id** op. 
-    4. Wijs de **ADFCopyTutotiralApp**-toepassing toe aan de rol **Inzender Data Factory**.  
+    4. Wijs de toepassing **ADFCopyTutorialApp** toe aan de rol **Inzender Data Factory**.  
 - Installeer [Azure PowerShell](../powershell-install-configure.md).  
 - Start **PowerShell** en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
     1. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.
@@ -142,11 +143,11 @@ Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureBlob
 - **folderPath** is ingesteld op de **adftutorial**-container en **fileName** is ingesteld op **emp.txt**.  
 - De indeling **type** wordt ingesteld op **TextFormat**
 - Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een kommateken (**columnDelimiter**) 
-- De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op elk uur en het interval wordt ingesteld op 1). De Data Factory-service zoekt dan elk uur naar gegevens in de hoofdmap van de blobcontainer (**adftutorial**) die u hebt opgegeven. 
+- De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op uur en het interval wordt ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (**adftutorial**). 
 
 Als u geen **fileName** opgeeft voor een invoergegevensset, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
 
-Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid\&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv. 
 
@@ -196,7 +197,7 @@ Houd rekening met het volgende:
 - De gegevensset **type** wordt ingesteld op **AzureSQLTable**.
 - **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService**.
 - **tablename** wordt ingesteld op **emp**.
-- Er zijn drie kolommen (**ID**, **FirstName** en **LastName**) in de emp-tabel in de database, maar ID is een identiteitskolom, dus u hoeft hier alleen **FirstName** en **LastName** in te voeren.
+- De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
 - De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 
 ### pipeline.json
@@ -238,8 +239,8 @@ Houd rekening met het volgende:
             }
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "start": "2016-08-12T00:00:00Z",
+        "end": "2016-08-13T00:00:00Z"
       }
     }
 
@@ -252,13 +253,13 @@ Houd rekening met het volgende:
 
 Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2015-02-03, wat gelijk staat aan 2015-02-03T00:00:00Z
 
-Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2014-10-14T16:32:41Z. De tijd voor **end** is optioneel, maar wordt wel gebruikt voor deze zelfstudie. 
+Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2014-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
 
 Als u geen waarde opgeeft voor de eigenschap **end**, wordt automatisch **start + 48 uur** gebruikt. Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**.
 
-Met het bovenstaande voorbeeld zijn er 24 gegevenssegmenten omdat er elk uur één gegevenssegment wordt gemaakt.
+In het bovenstaande voorbeeld zijn er 24 gegevenssegmenten, omdat er elk uur één gegevenssegment wordt gemaakt.
     
-> [AZURE.NOTE] Zie [Anatomie van een pijplijn](data-factory-create-pipelines.md#anatomy-of-a-pipeline) voor meer informatie over de JSON-eigenschappen die in het bovenstaande voorbeeld worden gebruikt.
+> [AZURE.NOTE] Zie [Anatomie van een pijplijn](data-factory-create-pipelines.md#anatomy-of-a-pipeline) voor meer informatie over de JSON-eigenschappen die in het voorgaande voorbeeld worden gebruikt.
 
 ## Globale variabelen instellen
 
@@ -285,7 +286,7 @@ Voer de volgende opdracht uit om te verifiëren met Azure Active Directory (AAD)
 
 ## Een gegevensfactory maken
 
-In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. Voer de volgende opdracht uit om de gegevensfactory te maken: 
+In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens te kopiëren van een brongegevensarchief naar een doelgegevensarchief. Een HDInsight Hive-activiteit om een Hive-script uit te voeren dat invoergegevens omzet in productuitvoergegevens. Voer de volgende opdracht uit om de gegevensfactory te maken: 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
 
@@ -297,7 +298,7 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensfactory is gemaakt, ziet u de JSON voor de gegevensfactory in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
 
-        $results
+        Write-Host $results
 
 Houd rekening met het volgende:
  
@@ -320,7 +321,7 @@ Houd rekening met het volgende:
             Get-AzureRmResourceProvider
     - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 
-Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om bron- en bestemmingsgegevensopslag te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de gegevens in de gekoppelde gegevensopslag vertegenwoordigen en daarna maakt u de pijplijn met een activiteit waarvoor gebruik wordt gemaakt van die gegevenssets.
+Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om de bron- en doelgegevensarchieven te koppelen aan uw gegevensarchief. Vervolgens definieert u in- en uitvoergegevenssets die de gegevens in de gekoppelde gegevensarchieven vertegenwoordigen. Ten slotte maakt u de pijplijn met een activiteit die deze gegevenssets gebruikt.
 
 ## Gekoppelde services maken
 Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Een gegevensarchief kan Azure Storage, een Azure SQL Database of een on-premises SQL Server-database zijn die invoergegevens bevat of de uitvoergegevens opslaat van een Data Factory-pijplijn. Een compute-service is een service die invoergegevens verwerkt en die uitvoergegevens produceert. 
@@ -338,7 +339,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Bij deze
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results
+        Write-Host $results
 
 ### Gekoppelde Azure SQL-service maken
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory. In deze zelfstudie gebruikt u dezelfde Azure SQL Database voor het opslaan van de uitvoergegevens.
@@ -351,13 +352,13 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory. In deze zel
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results
+        Write-Host $results
 
 ## Gegevenssets maken
 
 In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService** en **AzureSqlLinkedService** gemaakt om een Azure Storage-account en een Azure SQL Database te koppelen aan de gegevensfactory **ADFCopyTutorialDF**. In deze stap maakt u gegevenssets die staan voor de invoer- en uitvoergegevens voor de kopieeractiviteit in de pijplijn die u tijdens de volgende stap maakt. 
 
-De invoergegevensset in deze zelfstudie verwijst naar een blobcontainer in de Azure-opslag waar AzureStorageLinkedService naar verwijst en de uitvoergegevensset verwijst naar een SQL-tabel in de Azure SQL-database waarnaar AzureSqlLinkedService verwijst.  
+De invoergegevensset in deze zelfstudie verwijst naar een blobcontainer in Azure Storage waarnaar AzureStorageLinkedService wijst. De uitvoergegevensset verwijst naar een SQL-tabel in de Azure SQL-database waarnaar AzureSqlLinkedService wijst.  
 
 ### Azure Blob Storage en Azure SQL Database voorbereiden voor de zelfstudie
 Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor te bereiden voor gebruik in deze zelfstudie. 
@@ -390,7 +391,7 @@ Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor
 
     Als u SQL Server 2014 op uw computer hebt geïnstalleerd: volg de instructies uit [Stap 2: verbinding maken met de SQL Database van de beherende Azure SQL Database met SQL Server Management Studio][sql-management-studio] om verbinding te maken met uw Azure SQL-server en om het SQL-script uit te voeren.
 
-    Als u Visual Studio 2013 hebt geïnstalleerd op uw computer: klik in Azure Portal ([http://portal.azure.com](http://portal.sazure.com)) op de hub **BLADEREN** aan de linkerkant, klik op **SQL-servers**, selecteer uw database en klik op **Openen in Visual Studio** op de werkbalk om verbinding te maken met uw Azure SQL-server en om het script uit te voeren. Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Zie het bovenstaande artikel voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
+    Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Raadpleeg [dit artikel](../sql-database/sql-database-configure-firewall-settings.md) voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
         
 ### Invoergegevensset maken 
 In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service. Deze blobcontainer (**adftutorial**) plaatst de invoergegevens in het bestand **emp.txt**. 
@@ -403,10 +404,10 @@ In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results
+        Write-Host $results
 
 ### Uitvoergegevensset maken
-In dit gedeelte van de stap maakt u een uitvoertabel met de naam **AzureSqlOutput** die verwijst naar een SQL-tabel (**emp**) in de Azure SQL Database die wordt vertegenwoordigd door de gekoppelde **AzureSqlLinkedService**-service. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**. 
+In deze stap maakt u een uitvoertabel met de naam **AzureSqlOutput**. Deze gegevensset wijst naar een SQL-tabel (**emp**) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
  
@@ -416,7 +417,7 @@ In dit gedeelte van de stap maakt u een uitvoertabel met de naam **AzureSqlOutpu
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results 
+        Write-Host $results 
 
 ## Pijplijn maken
 In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **AzureBlobInput** als invoer en **AzureSqlOutput** als uitvoer.
@@ -429,7 +430,7 @@ In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
 
-        $results
+        Write-Host $results
 
 **Gefeliciteerd.** U hebt een Azure-gegevensfactory gemaakt met een pijplijn die gegevens van Azure-blobopslag kopieert naar de Azure SQL Database.
 
@@ -493,6 +494,6 @@ In deze zelfstudie hebt u REST API gebruikt om een Azure-gegevensfactory te make
  
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

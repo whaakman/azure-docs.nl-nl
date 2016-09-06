@@ -1,48 +1,51 @@
 
 
-## Verbinding maken met SQL Database met behulp van een principal-aanmelding op serverniveau
+## Verbinding maken met Azure SQL Database met behulp van SQL Server-verificatie
 
-Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database met SSMS met behulp van een principal-aanmelding op serverniveau.
+In de volgende stappen wordt uitgelegd hoe u verbinding maakt met een Azure SQL-server en -database met behulp van SSMS. Als u geen server en database hebt, raadpleegt u [Een SQL-database maken in enkele minuten](../articles/sql-database/sql-database-get-started.md) om er een te maken.
 
-1. Typ 'Microsoft SQL Server Management Studio' in het zoekvak van Windows en klik vervolgens op de bureaublad-app om SSMS te starten.
 
-2. Voer in het venster Verbinding maken met server de volgende informatie in:
+1. Start SSMS door **Microsoft SQL Server Management Studio** in het zoekvak van Windows te typen en vervolgens op de bureaublad-app te klikken.
+
+2. Voer in het venster **Verbinding maken met server** de volgende gegevens in (als SSMS al wordt uitgevoerd, klikt u op **Verbinding maken > Database-engine** om het venster **Verbinding maken met server** te openen):
 
  - **Servertype**: de standaardwaarde is database-engine; verander deze waarde niet.
- - **Servernaam**: voer in de volgende notatie de naam in van de server die als host fungeert voor de SQL-database: *&lt;servernaam>*.**database.Windows.NET**
- - **Verificatietype**: Als u nog maar net begint, selecteer dan SQL-verificatie. Als u Active Directory voor de logische SQL Database-server hebt ingeschakeld, kunt u Active Directory-wachtwoordverificatie of geïntegreerde Active Directory-verificatie selecteren.
- - **Gebruikersnaam**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u de naam in van een gebruiker die toegang heeft tot een database op de server.
- - **Wachtwoord**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u het wachtwoord in van de opgegeven gebruiker.
+ - **Servernaam**: voer de volledig gekwalificeerde naam van de Azure SQL Database-server in met de volgende notatie: *&lt;servernaam>*.**database.windows.net**
+ - **Verificatietype**: in dit artikel wordt uitgelegd hoe u verbinding maakt via **SQL Server-verificatie**. Voor meer informatie over het maken van een verbinding met Azure Active Directory raadpleegt u [Verbinding maken met behulp van geïntegreerde Active Directory-verificatie](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Verbinding maken met behulp van Active Directory-wachtwoordverificatie](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication) en [Verbinding maken met behulp van universele Active Directory-verificatie](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **Gebruikersnaam**: voer de naam in van een gebruiker die toegang heeft tot een database op de server (zoals de *serverbeheerder* die u hebt ingesteld toen u de server maakte). 
+ - **Wachtwoord**: voer het wachtwoord voor de opgegeven gebruiker in (zoals het *wachtwoord* dat u hebt ingesteld toen u de server maakte).
    
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
 3. Klik op **Verbinden**.
  
-4. Als het IP-adres van de client geen toegang nodig heeft tot de logische SQL Database-server, wordt u gevraagd om u aan te melden bij een Azure-account en een firewallregel op serverniveau te maken. Als u de beheerder van een Azure-abonnement bent, klikt u op **Aanmelden** om een firewallregel op serverniveau te maken. Als dat niet het geval is, vraagt u een Azure-beheerder om een firewallregel op serverniveau te maken.
- 
-      ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
- 
-1. Als u de beheerder bent van een Azure-abonnement en u zich moet aanmelden, geef dan op de aanmeldingspagina de referenties op voor uw abonnement en meld u aan.
+4. Voor nieuwe servers zijn standaard geen [firewallregels](../articles/sql-database/sql-database-firewall-configure.md) gedefinieerd, zodat clients in eerste instantie worden geblokkeerd en geen verbinding kunnen maken. Als voor uw server nog geen firewallregel is ingesteld die toestaat dat uw specifieke IP-adres verbinding maakt, wordt door SSMS gevraagd of u een firewallregel op serverniveau wilt maken.
 
-      ![aanmelden](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+    Klik op **Aanmelden** en maak een firewallregel op serverniveau. U moet een Azure-beheerder zijn om een firewallregel op serverniveau te kunnen maken.
  
-1. Wanneer uw aanmelding bij Azure is geslaagd, controleert u de voorgestelde firewallregel op serverniveau (u kunt deze wijzigen om een bereik van IP-adressen toe te staan). Klik vervolgens op **OK** om de firewallregel te maken en de verbinding met SQL Database te voltooien.
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
-      ![nieuwe firewall op serverniveau](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
- 
-5. Als uw referenties u toegang verlenen, wordt Object Explorer geopend en kunt u administratieve taken uitvoeren of gegevens opvragen. 
+
+5. Nadat de verbinding met uw Azure SQL-database tot stand is gebracht, wordt **Objectverkenner** geopend en hebt u toegang tot de database om [administratieve taken uit te voeren of query’s toe te passen op gegevens](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
      ![nieuwe firewall op serverniveau](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
 ## Verbindingsfouten oplossen
 
-De meest voorkomende oorzaak van verbindingsfouten zijn fouten in de servernaam (onthoud, <*servernaam*> is de naam van de logische server, niet van de database), de gebruikersnaam of het wachtwoord, plus het feit dat de server om veiligheidsoverwegingen geen verbinding toestaat. 
+De meest voorkomende oorzaken van verbindingsfouten zijn fouten in de servernaam en problemen met de netwerkverbinding. Onthoud dat <*servernaam*> de naam is van de server en niet van de database en dat u de volledig gekwalificeerde servernaam moet opgeven: `<servername>.database.windows.net`
+
+Controleer ook of de gebruikersnaam en het wachtwoord geen typefouten of extra spaties bevatten (gebruikersnamen zijn niet hoofdlettergevoelig, maar wachtwoorden wel). 
+
+U kunt het protocol en het poortnummer ook expliciet instellen met de servernaam: `tcp:servername.database.windows.net,1433`
+
+Problemen met de netwerkverbinding kunnen ook leiden tot verbindingsfouten en time-outs. Soms volstaat het om opnieuw verbinding proberen te maken (als u weet dat de servernaam, referenties en firewallregels correct zijn).
 
 
 
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

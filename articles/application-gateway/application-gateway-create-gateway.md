@@ -24,7 +24,7 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -41,7 +41,7 @@ In dit artikel vindt u meer informatie over de stappen voor het maken, configure
 ## Wat is er vereist om een toepassingsgateway te maken?
 
 
-Als u de opdracht **New-AzureApplicationGateway** gebruikt om de toepassingsgateway te maken, is er op dit moment nog geen configuratie ingesteld en moet de zojuist gemaakte resource met XML of met een configuratieobject worden geconfigureerd.
+Als u de opdracht **New-AzureApplicationGateway** gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
 
 
 De waarden zijn:
@@ -49,11 +49,11 @@ De waarden zijn:
 - **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel openbare IP-/VIP-adressen zijn.
 - **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
 - **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
 - **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
 
 
-## Een nieuwe toepassingsgateway maken
+## Een toepassingsgateway maken
 
 Ga als volgt te werk om een toepassingsgateway te maken:
 
@@ -66,7 +66,7 @@ Ga als volgt te werk om een toepassingsgateway te maken:
 
 ### Een toepassingsgatewayresource maken
 
-Gebruik de cmdlet **New-AzureApplicationGateway** en vervang de waarden door uw eigen waarden. Er worden op dit moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
+Gebruik de cmdlet **New-AzureApplicationGateway** en vervang de waarden door uw eigen waarden. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
 
 In het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
 
@@ -110,7 +110,7 @@ U kunt de toepassingsgateway configureren met XML of een configuratieobject.
 
 ## De toepassingsgateway configureren met XML
 
-In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren in de toepassingsgatewayresource.  
+In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
 
 ### Stap 1  
 
@@ -163,7 +163,7 @@ Bewerk de waarden tussen de haakjes voor de configuratie-items. Sla het bestand 
 
 >[AZURE.IMPORTANT] Het protocolitem Http of Https is hoofdlettergevoelig.
 
-In het volgende voorbeeld ziet u hoe u een configuratiebestand gebruikt om de toepassingsgateway zo in te stellen dat er load balancing plaatsvindt voor HTTP-verkeer via de openbare poort 80 en dat het netwerkverkeer naar de back-endpoort 80 tussen twee IP-adressen wordt gestuurd.
+In het volgende voorbeeld ziet u hoe u de toepassingsgateway instelt met een configuratiebestand. De voorbeeldbelasting verdeelt het HTTP-verkeer op openbare poort 80 en stuurt netwerkverkeer naar back-endpoort 80 tussen twee IP-adressen.
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -224,9 +224,9 @@ Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet **Set-AzureApplic
 
 ## De toepassingsgateway configureren met een configuratieobject
 
-In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht **Set-AzureApplicationGateway** om de configuratie door te voeren in de eerder gemaakte toepassingsgatewayresource.
+In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht **Set-AzureApplicationGateway** om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
 
->[AZURE.NOTE] Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van de afzonderlijke items wordt gedefinieerd welke objectnaam (Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model) er wordt gebruikt.
+>[AZURE.NOTE] Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van de afzonderlijke items wordt gedefinieerd welk Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (objectnaam) wordt gebruikt.
 
 ### Stap 1
 
@@ -247,7 +247,7 @@ Maak de front-endpoort zoals in het volgende voorbeeld wordt weergegeven.
 
 Maak de back-endserverpool.
 
- Geef op welke IP-adressen er aan de back-endserverpool moeten worden toegevoegd, zoals in het volgende voorbeeld wordt weergegeven.
+ Geef op welke IP-adressen er aan de back-endservergroep moeten worden toegevoegd, zoals in het volgende voorbeeld wordt weergegeven.
 
 
     PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -417,6 +417,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

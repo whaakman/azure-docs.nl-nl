@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Aan de slag met Service Bus-wachtrijen
@@ -54,7 +54,7 @@ Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berich
 
 ## 3. Berichten naar de wachtrij verzenden
 
-Om berichten naar de wachtrij te verzenden, schrijven we een C#-consoletoepassing met Visual Studio.
+We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
 ### Een consoletoepassing maken
 
@@ -111,13 +111,13 @@ Om berichten naar de wachtrij te verzenden, schrijven we een C#-consoletoepassin
     }
     ```
   
-3. Voer het programma uit en controleer de klassieke Azure-portal. Merk op dat de waarde voor **Wachtrijlengte** nu 1 moet zijn.
+3. Voer het programma uit en ga naar Azure Portal. Klik op de naam van uw wachtrij in de blade **Overzicht** voor de naamruimte. De waarde voor **Aantal actieve berichten** moet nu 1 zijn.
     
-      ![Wachtrijlengte][queue-length-send]
+      ![Aantal berichten][queue-message]
     
 ## 4. Berichten ontvangen uit de wachtrij
 
-1. Maak een nieuwe consoletoepassing en voeg een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de bovenstaande verzendtoepassing is gedaan.
+1. Maak een nieuwe consoletoepassing en voeg een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande verzendtoepassing is gedaan.
 
 2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
   
@@ -173,7 +173,7 @@ Om berichten naar de wachtrij te verzenden, schrijven we een C#-consoletoepassin
   
 4. Voer het programma uit en controleer de portal. Merk op dat de waarde voor **Wachtrijlengte** nu 0 moet zijn.
 
-    ![Wachtrijlengte][queue-length-receive]
+    ![Wachtrijlengte][queue-message-receive]
   
 Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden en een bericht ontvangen.
 
@@ -184,8 +184,8 @@ Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure-Sampl
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -193,6 +193,6 @@ Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure-Sampl
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

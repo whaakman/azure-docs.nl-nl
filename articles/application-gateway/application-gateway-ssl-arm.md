@@ -85,14 +85,14 @@ U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Stap 4
 
 Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze instelling wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
 
@@ -115,7 +115,7 @@ Hiermee maakt u voor de regio VS - west een virtueel netwerk met de naam appgwvn
 
 ### Stap 3
 
-    $subnet=$vnet.Subnets[0]
+    $subnet = $vnet.Subnets[0]
 
 Hiermee wijst u het subnetobject toe aan de variabele $subnet voor gebruik in de volgende stappen.
 
@@ -202,6 +202,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

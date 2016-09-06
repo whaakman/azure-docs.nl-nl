@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Wat is Azure Scheduler?
@@ -21,7 +21,7 @@ Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten 
 
 Scheduler maakt, onderhoudt en roept gepland werk aan.  Scheduler host geen workloads en voert geen programmacode uit. Scheduler _roept_ programmacode aan die elders wordt gehost, in Azure, on-premises of bij een andere provider. Dit aanroepen gebeurt via HTTP, HTTPS, een opslagwachtrij, een Service Bus-wachtrij of een Service Bus-onderwerp.
 
-Met Scheduler worden [taken](scheduler-concepts-terms.md) gepland, de resultaten van taken in het verleden bijgehouden die men kan bekijken, en daarbij gaat Scheduler heel deterministisch en betrouwbaar te werk bij het plannen van workloads die moeten worden uitgevoerd. Azure WebJobs (onderdeel van de functie Web-apps in Azure App Service) en andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler. De [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) helpt met het beheer van de communicatie voor deze acties. Als zodanig ondersteunt Scheduler met gemak [complexe schema's en geavanceerde terugkeerpatronen](scheduler-advanced-complexity.md).
+Met Scheduler worden [taken](scheduler-concepts-terms.md) gepland, de resultaten van taken in het verleden bijgehouden die men kan bekijken, en daarbij gaat Scheduler heel deterministisch en betrouwbaar te werk bij het plannen van workloads die moeten worden uitgevoerd. Azure WebJobs (onderdeel van de functie Web Apps in Azure App Service) en andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler. De [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) helpt met het beheer van de communicatie voor deze acties. Als zodanig ondersteunt Scheduler met gemak [complexe schema's en geavanceerde terugkeerpatronen](scheduler-advanced-complexity.md).
 
 Er zijn verschillende scenario's die zich goed lenen voor het gebruik van Scheduler. Bijvoorbeeld:
 
@@ -52,6 +52,6 @@ Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](sch
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -26,6 +26,7 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,12 +75,12 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
   	| **backendaddress2** | IP-adres van de tweede webserver |
 
 
->[AZURE.IMPORTANT] Azure Resource Manager-sjablonen die in GitHub worden bewaard, kunnen in de loop van de tijd veranderen. Zorg ervoor dat u de sjabloon controleert voordat u deze gebruikt.
+    >[AZURE.IMPORTANT] Azure Resource Manager-sjablonen die in GitHub worden bewaard, kunnen in de loop van de tijd veranderen. Zorg ervoor dat u de sjabloon controleert voordat u deze gebruikt.
 
 6. Controleer de inhoud onder **Resources** en let op het volgende:
 
     - **type**. Het type resource dat door de sjabloon wordt gemaakt. In dit geval is het type **Microsoft.Network/applicationGateways**. Dit is een toepassingsgateway.
-    - **name**. Naam voor de resource. Let op het gebruik van **[parameters('applicationGatewayName')]**. Dit geeft aan of de naam wordt geleverd als invoer door u of door een parameterbestand tijdens de implementatie.
+    - **name**. Naam voor de resource. Let op het gebruik van **[parameters('applicationGatewayName')]**. Dit geeft aan dat de naam door u of door een parameterbestand als invoer wordt opgegeven tijdens de implementatie.
     - **properties**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres.
 
 7. Navigeer terug naar [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
@@ -121,7 +122,7 @@ Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerS
 
 ### Stap 1
 
-        Login-AzureRmAccount
+    Login-AzureRmAccount
 
 
 
@@ -129,7 +130,7 @@ Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerS
 
 Controleer de abonnementen voor het account.
 
-        get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 
@@ -138,7 +139,7 @@ U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 
-        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Stap 4
@@ -146,9 +147,7 @@ Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een nieuwe resourcegroep met de naam AppgatewayRG op de locatie VS - oost.
 
-     New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-        VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 
         ResourceGroupName : AppgatewayRG
         Location          : eastus
@@ -163,29 +162,29 @@ Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGro
 
 Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit om het nieuwe virtuele netwerk te implementeren met de vorige sjabloon en parameterbestanden die u hebt gedownload en gewijzigd.
 
-        New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
-           -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+        -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 De volgende uitvoer wordt gegenereerd door de opdrachtregel:
 
-        DeploymentName    : testappgatewaydeployment
-        ResourceGroupName : appgatewayRG
-        ProvisioningState : Succeeded
-        Timestamp         : 9/19/2015 1:49:41 AM
-        Mode              : Incremental
-        TemplateLink      :
-        Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+    DeploymentName    : testappgatewaydeployment
+    ResourceGroupName : appgatewayRG
+    ProvisioningState : Succeeded
+    Timestamp         : 9/19/2015 1:49:41 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                Name             Type                       Value
+                ===============  =========================  ==========
+                location         String                     East US
+                addressPrefix    String                     10.0.0.0/16
+                subnetPrefix     String                     10.0.0.0/24
+                skuName          String                     Standard_Small
+                capacity         Int                        2
+                backendIpAddress1  String                     10.0.1.10
+                backendIpAddress2  String                     10.0.1.11
 
-        Outputs           :
+    Outputs           :
 
 
 ## De Azure Resource Manager-sjabloon implementeren met de Azure CLI
@@ -295,6 +294,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

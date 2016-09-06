@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="08/22/2016"
     ms.author="marsma"/>
 
 # Basisbeginselen van Azure Batch
@@ -58,7 +58,7 @@ Wanneer u Batch-oplossingen ontwikkelt, gebruikt u de volgende accounts in Micro
 
 - **Azure-account en -abonnement** - Als u nog geen Azure-abonnement hebt, kunt u uw [voordelen als MSDN-abonnee][msdn_benefits] activeren of u aanmelden voor een [gratis Azure-account][free_account]. Wanneer u een account maakt, wordt voor u een standaardabonnement gemaakt.
 
-- **Batch-account** - Wanneer uw toepassingen met de Batch-service communiceren, worden de accountnaam, de URL van het account en een toegangssleutel als referenties gebruikt. Al uw Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Batch-account gekoppeld. U kunt [een Batch-account maken en beheren](batch-account-create-portal.md) in Azure Portal.
+- **Batch-account** - Wanneer uw toepassingen met de Batch-service communiceren, worden de accountnaam, de URL van het account en een toegangssleutel als referenties gebruikt. Al uw Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Batch-account gekoppeld. U kunt een [Batch-account maken](batch-account-create-portal.md) in Azure Portal.
 
 - **Storage-account** - Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Storage; voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die zij verwerken, en voor de opslag van uitvoergegevens die zij genereren. Zie [Over Azure-opslagaccounts](./../storage/storage-create-storage-account.md) voor het maken van een opslagaccount.
 
@@ -126,7 +126,7 @@ Houd er rekening mee dat dit slechts één manier is om Batch te gebruiken en da
 
 Nu u een gedetailleerd overzicht van de Batch-service hebt gezien, is het tijd om dieper in te gaan op hoe u dit kunt gebruiken om uw rekenintensieve parallelle workloads te verwerken.
 
-- Lees [Overzicht van Azure Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer gedetailleerde informatie over de API-functies van Batch voor de verwerking van uw workloads. Dit artikel is essentiële lectuur voor iedereen die zich voorbereidt op het gebruik van Batch.
+- Bekijk het [overzicht met Batch-functies voor ontwikkelaars](batch-api-basics.md), essentiële informatie voor iedereen die Batch wil gaan gebruiken. Het artikel bevat meer gedetailleerde informatie over de Batch-serviceresources zoals groepen, knooppunten, jobs en taken, en de vele API-functies die u tijdens het maken van de Batch-toepassing kunt gebruiken.
 
 - Lees [Aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md) voor informatie over het gebruik van C# en de Batch .NET-bibliotheek om een eenvoudige workload uit te voeren met een gebruikelijke Batch-werkstroom. Als u de Batch-service wilt leren gebruiken, is dit artikel een van de eerste artikelen die u zeker moet lezen. Er is ook een [Python-versie](batch-python-tutorial.md) van de zelfstudie.
 
@@ -163,6 +163,6 @@ Nu u een gedetailleerd overzicht van de Batch-service hebt gezien, is het tijd o
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

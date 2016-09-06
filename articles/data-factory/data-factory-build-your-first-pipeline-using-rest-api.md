@@ -32,7 +32,7 @@ In dit artikel leert u hoe u de Data Factory-REST API gebruikt voor het maken va
 
 - Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md). Op basis van dit artikel krijgt u inzicht in de basisconcepten van Azure Data Factory. 
 - Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma CURL REST-opdrachten gebruiken om een gegevensfactory te maken. 
-- Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) om het volgende te doen: 
+- Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) voor het volgende: 
     1. Maak een webtoepassing met de naam **ADFGetStartedApp** in Azure Active Directory.
     2. Haal de **client-id** en **geheime sleutel** op. 
     3. Haal de **tenant-id** op. 
@@ -52,6 +52,7 @@ In dit artikel leert u hoe u de Data Factory-REST API gebruikt voor het maken va
 Maak de volgende JSON-bestanden in de map waar curl.exe staat. 
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] Naam moet uniek zijn, dus het is raadzaam om voor- en/of achtervoegsels te gebruiken bij ADFCopyTutorialDF, zodat het een unieke naam wordt. 
 
     {  
         "name": "FirstDataFactoryREST",  
@@ -100,7 +101,7 @@ Houd rekening met het volgende:
 
 - Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
 - U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
-- Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
+- Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
 
     Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
@@ -213,13 +214,13 @@ In het JSON-fragment maakt u een pijplijn die bestaat uit een enkele activiteit 
 
 Het Hive-scriptbestand **partitionweblogs.hql** wordt opgeslagen in het Azure-opslagaccount (opgegeven door de scriptLinkedService met de naam **StorageLinkedService**) en in de map **script** van de container **adfgetstarted**.
 
-Het gedeelte **defines** wordt gebruikt om de runtime-instellingen die worden doorgegeven aan het Hive-script op te geven als Hive-configuratiewaarden (bijvoorbeeld ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+In het gedeelte **defines** worden de runtime-instellingen aangegeven die als Hive-configuratiewaarden worden doorgegeven aan het Hive-script (bijvoorbeeld ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
 Met de eigenschappen **start** en **end** van de pijplijn wordt opgegeven in welke periode de pijplijn actief is.
 
 In de activiteits-JSON geeft u op dat het Hive-script wordt uitgevoerd in de berekening die is opgegeven door de **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-> [AZURE.NOTE] Zie [Anatomie van een pijplijn](data-factory-create-pipelines.md#anatomy-of-a-pipeline) voor meer informatie over de JSON-eigenschappen die in het bovenstaande voorbeeld worden gebruikt. 
+> [AZURE.NOTE] Zie [Anatomie van een pijplijn](data-factory-create-pipelines.md#anatomy-of-a-pipeline) voor meer informatie over de JSON-eigenschappen die in het voorgaande voorbeeld worden gebruikt. 
 
 ## Globale variabelen instellen
 
@@ -249,9 +250,11 @@ Voer in Azure PowerShell de volgende opdrachten uit nadat u de waarden hebt verv
 
 ## Een gegevensfactory maken
 
-In deze stap maakt u een Azure-gegevensfactory met de naam **FirstDataFactoryREST**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. Voer de volgende opdracht uit om de gegevensfactory te maken: 
+In deze stap maakt u een Azure-gegevensfactory met de naam **FirstDataFactoryREST**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van gegevens. Voer de volgende opdracht uit om de gegevensfactory te maken: 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
+
+    Bevestig dat de naam van de gegevensfactory die u hier opgeeft (ADFCopyTutorialDF) overeenkomt met de naam die is opgegeven in de **datafactory.json**. 
 
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. Voer de opdracht uit via **Invoke-Command**.
@@ -259,11 +262,14 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **FirstDataFactoryRES
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensfactory is gemaakt, ziet u de JSON voor de gegevensfactory in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
 
-        $results
+        Write-Host $results
 
 Houd rekening met het volgende:
  
-- De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u deze fout in de resultaten ziet: **Naam gegevensfactory "FirstDataFactoryREST" is niet beschikbaar**, wijzigt u de naam (bijvoorbeeld uwnaamFirstDataFactoryREST) in het JSON-bestand en in de bovenstaande opdracht. Gebruik deze naam in plaats van **FirstDataFactoryREST** tijdens het uitvoeren van de stappen in de zelfstudie. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+- De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de fout **Naam gegevensfactory FirstDataFactoryREST is niet beschikbaar** in de resultaten ziet, doet u het volgende:  
+    1. Wijzig de naam (bijvoorbeeld uwnaamFirstDataFactoryREST) in het bestand **datafactory.json**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+    2. In de eerste opdracht waar aan de **$cmd**-variabele een waarde is toegewezen, vervangt u FirstDataFactoryREST door de nieuwe naam en voert u de opdracht uit. 
+    3. Voer de volgende twee opdrachten uit voor het aanroepen van de REST API om de gegevensfactory te maken en de resultaten van de bewerking af te drukken. 
 - Als u Data Factory-exemplaren wilt maken, moet u bijdrager/beheerder zijn van het Azure-abonnement
 - De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
 - Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren: 
@@ -277,7 +283,7 @@ Houd rekening met het volgende:
             Get-AzureRmResourceProvider
     - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 
-Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om gegevensopslag/berekeningen te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de gegevens in de gekoppelde gegevensopslag vertegenwoordigen en daarna maakt u de pijplijn met een activiteit waarvoor gebruik wordt gemaakt van die gegevenssets. 
+Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om gegevensopslag/berekeningen te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de gegevens in de gekoppelde gegevensopslag vertegenwoordigen. 
 
 ## Gekoppelde services maken 
 In deze stap koppelt u uw Azure Storage-account en een on-demand Azure HDInsight-cluster aan uw gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om het Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. 
@@ -293,7 +299,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Bij deze
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results
+        Write-Host $results
 
 ### Een gekoppelde HDInsight-service maken
 In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie.  
@@ -306,7 +312,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
 
-        $results
+        Write-Host $results
 
 ## Gegevenssets maken
 In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-verwerking vertegenwoordigen. Deze gegevenssets verwijzen naar de **StorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.   
@@ -322,7 +328,7 @@ In deze stap maakt u de invoergegevensset die staat voor invoergegevens die word
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results
+        Write-Host $results
 ### Uitvoergegevensset maken
 In deze stap maakt u de uitvoergegevensset die staat voor uitvoergegevens die worden opgeslagen in de Azure-blobopslag.
 
@@ -334,10 +340,10 @@ In deze stap maakt u de uitvoergegevensset die staat voor uitvoergegevens die wo
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
   
-        $results 
+        Write-Host $results 
 
 ## Pijplijn maken
-In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld (zie hieronder). De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.  
+In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.  
 
 Controleer of u het bestand **input.log** ziet in de map **adfgetstarted/inputdata** in de Azure-blobopslag en voer de volgende opdracht uit om de pijplijn te implementeren. Aangezien de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op false, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd. 
 
@@ -349,7 +355,7 @@ Controleer of u het bestand **input.log** ziet in de map **adfgetstarted/inputda
         $results = Invoke-Command -scriptblock $cmd;
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
 
-        $results
+        Write-Host $results
 5. U hebt uw eerste pijplijn gemaakt met Azure PowerShell!
 
 ## De pijplijn bewaken
@@ -402,6 +408,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

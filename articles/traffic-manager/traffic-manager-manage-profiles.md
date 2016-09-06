@@ -3,7 +3,7 @@
    description="In dit artikel wordt uitgelegd hoe u de geschiedenis van een Azure Traffic Manager-profiel maakt, uitschakelt, inschakelt, verwijdert en weergeeft."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Een Azure Traffic Manager-profiel beheren
 
@@ -86,6 +86,6 @@ U kunt de wijzigingsgeschiedenis voor uw Traffic Manager-profiel in de klassieke
 [Problemen met de gedegradeerde status van Traffic Manager oplossen](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

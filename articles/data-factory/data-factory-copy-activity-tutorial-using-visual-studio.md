@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Zelfstudie: een pijplijn maken met de kopieeractiviteit in Visual Studio" 
+    pageTitle="Zelfstudie: een pijplijn maken met de kopieeractiviteit in Visual Studio | Microsoft Azure" 
     description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u Visual Studio." 
     services="data-factory" 
     documentationCenter="" 
@@ -23,19 +23,22 @@
 - [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API gebruiken](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie doet u het volgende met behulp van Visual Studio 2013:
 
 1. Twee gekoppelde services maken: **AzureStorageLinkedService1** en **AzureSqlinkedService1**. Met de AzureStorageLinkedService1 wordt een Azure-opslag gekoppeld en met AzureSqlLinkedService1 wordt een Azure SQL Database gekoppeld aan de gegevensfactory **ADFTutorialDataFactoryVS**. De invoergegevens van de pijplijn staan in een blobcontainer in Azure Blob Storage en de uitvoergegevens worden opgeslagen in een tabel in de Azure SQL Database. Daarom voegt u deze twee gegevensarchieven als gekoppelde services toe aan de gegevensfactory.
-2. Twee gegevensfactorytabellen maken (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven. In EmpTableFromBlob geeft u op welke blobcontainer een blob bevat met de brongegevens en voor EmpSQLTable geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen. U geeft ook andere eigenschappen op, zoals de structuur en beschikbaarheid van de gegevens.
-3. Maak een pijplijn met de naam **ADFTutorialPipeline** in ADFTutorialDataFactoryVS. De pijplijn heeft een **kopieeractiviteit** waarmee invoergegevens van de Azure-blob naar de uitvoer-Azure SQL-tabel worden gekopieerd. Met de kopieerbewerking wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
+2. Twee gegevensfactorytabellen maken (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven. Voor EmpTableFromBlob geeft u de blobcontainer op die een blob bevat met de brongegevens. Voor EmpSQLTable geeft u de SQL-tabel op waarin de uitvoergegevens zijn opgeslagen. U geeft ook andere eigenschappen op, zoals de structuur, beschikbaarheid, enzovoort.
+3. Maak een pijplijn met de naam **ADFTutorialPipeline** in ADFTutorialDataFactoryVS. De pijplijn heeft een **kopieeractiviteit** waarmee invoergegevens van de Azure-blob naar de uitvoer-Azure SQL-tabel worden gekopieerd. Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 4. Maak een gegevensfactory en implementeer gekoppelde services, tabellen en de pijplijn.    
 
 ## Vereisten
 
-1. U **moet** het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) lezen en de vereiste stappen volgen voordat u doorgaat.
-2. U moet een **beheerder van het Azure-abonnement** zijn om Data Factory-entiteiten te kunnen publiceren naar Azure Data Factory. Dat is op dit moment een beperking.  
+1. Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+    
+    > [AZURE.IMPORTANT] Voldoe aan de vereisten voordat u verdergaat. 
+2. U moet een **beheerder van het Azure-abonnement** zijn om Data Factory-entiteiten te kunnen publiceren naar Azure Data Factory.  
 3. De volgende zaken moeten op uw computer zijn geïnstalleerd: 
     - Visual Studio 2013 of Visual Studio 2015
     - Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
@@ -54,7 +57,7 @@ In deze zelfstudie doet u het volgende met behulp van Visual Studio 2013:
     ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
 
 ## Gekoppelde services maken
-Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Een gegevensarchief kan een Azure Storage-, Azure SQL Database of een on-premises SQL Server-database zijn.
+Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Een gegevensarchief kan een Azure Storage-, Azure SQL-database of een on-premises SQL Server-database zijn.
 
 In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService1** en **AzureSqlLinkedService1**. Met de gekoppelde AzureStorageLinkedService1-service wordt een Azure-opslagaccount gekoppeld en met AzureSqlLinkedService wordt een Azure SQL Database gekoppeld aan de gegevensfactory **ADFTutorialDataFactory**. 
 
@@ -75,12 +78,12 @@ In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService1** en
 
 5. Klik met de rechtermuisknop opnieuw op het knooppunt **Linked Services** in **Solution Explorer**. Houd de muisaanwijzer op **Add** en klik op **New Item**. 
 6. Selecteer deze keer **Azure SQL Linked Service** en klik op **Add**. 
-7. In het bestand **AzureSqlLinkedService1.json** vervangt u **servername**, **databasename**, **username@servername** en **password** door de namen van uw Azure SQL-server, database en gebruikersaccount en voert u uw wachtwoord in.    
+7. In het bestand **AzureSqlLinkedService1.json** vervangt u **servername**, **databasename**, **username@servername** en **password** door de namen van uw Azure SQL-server, -database en -gebruikersaccount en voert u uw wachtwoord in.    
 8.  Sla het bestand **AzureSqlLinkedService1.json** op. 
 
 
 ## Gegevenssets maken
-In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService1** en **AzureSqlLinkedService1** gemaakt om een Azure-opslagaccount en een Azure SQL Database te koppelen aan de gegevensfactory **ADFTutorialDataFactory**. In deze stap definieert u twee gegevensfactorytabellen (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk AzureStorageLinkedService1 en AzureSqlLinkedService1. In EmpTableFromBlob geeft u op welke blobcontainer een blob bevat met de brongegevens en voor EmpSQLTable geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen.
+In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService1** en **AzureSqlLinkedService1** gemaakt om een Azure-opslagaccount en een Azure SQL Database te koppelen aan de gegevensfactory **ADFTutorialDataFactory**. In deze stap definieert u twee gegevensfactorytabellen (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk AzureStorageLinkedService1 en AzureSqlLinkedService1. Voor EmpTableFromBlob geeft u de blobcontainer op die een blob bevat met de brongegevens. Voor EmpSQLTable geeft u de SQL-tabel op waarin de uitvoergegevens zijn opgeslagen.
 
 ### Invoergegevensset maken
 
@@ -235,7 +238,7 @@ Houd rekening met het volgende:
         U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd. 
     
             Get-AzureRmResourceProvider
-    - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. De provider wordt dan automatisch voor u geregistreerd.
+    - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 -   De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
 -   Als u Data Factory-exemplaren wilt maken, moet u bijdrager/beheerder zijn van het Azure-abonnement
 
@@ -272,12 +275,12 @@ Zie [Gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using
 | :---- | :---- |
 | [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) | Dit artikel biedt gedetailleerde informatie over de kopieeractiviteit die u tijdens deze zelfstudie hebt gemaakt. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) | In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
-| [Pijplijnen](data-factory-create-pipelines.md) | Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
+| [Pijplijnen](data-factory-create-pipelines.md) | In dit artikel worden pijplijnen en activiteiten in Azure Data Factory nader uitgelegd |
 | [Gegevenssets](data-factory-create-datasets.md) | Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory.
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

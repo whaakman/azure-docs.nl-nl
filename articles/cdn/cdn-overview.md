@@ -68,6 +68,7 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 | [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Geavanceerde HTTP-rapporten](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Realtime statistieken](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Realtime waarschuwingen](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Is er een functie die u graag zou willen zien in Azure CDN?  [Geef ons feedback](https://feedback.azure.com/forums/169397-cdn). 
 
@@ -85,6 +86,6 @@ Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor inf
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/11/2016"
+    ms.date="08/25/2016"
     ms.author="mimig"/>
 
 # Een DocumentDB-account maken met Azure Portal
@@ -28,7 +28,7 @@ Als u een database met Microsoft Azure DocumentDB wilt maken, moet u:
 - Een Azure-account hebben. Als u nog geen account hebt, kunt u een [gratis Azure-account](https://azure.microsoft.com/free) krijgen. 
 - Een DocumentDB-account maken.  
 
-U kunt een DocumentDB-account maken met Azure Portal, Azure Resource Manager-sjablonen of Azure CLI (Command-Line Interface; opdrachtregelinterface). In dit artikel wordt uitgelegd hoe u een databaseaccount maakt met Azure Portal. Zie [Het maken van een DocumentDB-databaseaccount automatiseren](documentdb-automation-resource-manager-cli.md) voor informatie over het maken van een account met Azure Resource Manager of Azure CLI.
+U kunt een DocumentDB-account maken met Azure Portal, Azure Resource Manager-sjablonen of Azure CLI (Command-Line Interface; opdrachtregelinterface). In dit artikel wordt uitgelegd hoe u een DocumentDB-account maakt met Azure Portal. Zie [Het maken van een DocumentDB-databaseaccount automatiseren](documentdb-automation-resource-manager-cli.md) voor informatie over het maken van een account met Azure Resource Manager of Azure CLI.
 
 Bent u niet bekend met DocumentDB? Bekijk [deze](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vier minuten durende video van Scott Hanselman om te zien hoe u de meest algemene taken in de online portal uitvoert.
 
@@ -55,6 +55,6 @@ Raadpleeg de volgende resources voor meer informatie over DocumentDB:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

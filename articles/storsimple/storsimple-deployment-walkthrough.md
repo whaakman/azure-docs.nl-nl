@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Een StorSimple-apparaat implementeren
@@ -75,7 +75,7 @@ In de volgende controlelijst voor de implementatie-configuratie wordt beschreven
 | **Apparaat configureren en registreren**          | Netwerkinstellingen Data 0                           | IP-adres Data 0:</br>Subnetmasker:</br>Gateway:</br>Primaire DNS-server:</br>Primaire NTP-server:</br> IP/FQDN van webproxyserver (optioneel):</br>Webproxypoort:|        |
 |                                        | Wachtwoord apparaatbeheerder                     | Wachtwoord moet tussen 8 en 15 tekens lang zijn en kleine letters, hoofdletters, numerieke en speciale tekens bevatten. |        |
 |                                        | Wachtwoord StorSimple Snapshot Manager              | Wachtwoord moet 14 of 15 tekens lang zijn en kleine letters, hoofdletters, numerieke en speciale tekens bevatten.|        |
-|                                        | Serviceregistratiesleutel                          | Deze sleutel wordt gegenereerd via de klassieke Azure-portal.    |        |
+|                                        | Serviceregistratiesleutel                          | Deze sleutel wordt gegenereerd via de klassieke Azure Portal.    |        |
 |                                        | Gegevensversleutelingssleutel van service                       | Deze sleutel wordt gemaakt wanneer het apparaat via de Windows PowerShell voor StorSimple wordt geregistreerd bij de managementservice. Kopieer deze sleutel en bewaar deze op een veilige plaats.|  |
 |   |   |  |  |
 | **Minimale apparaatconfiguratie voltooien**          | Beschrijvende naam voor uw apparaat                     | Dit is een beschrijvende naam voor het apparaat. |        |
@@ -174,7 +174,7 @@ Voer de volgende stappen uit om een nieuw exemplaar van de StorSimple Manager-se
 
 Wanneer de StorSimple Manager-service bedrijfsklaar is, moet u de serviceregistratiesleutel ophalen. Deze sleutel wordt gebruikt om het StorSimple-apparaat te registreren en te verbinden met de service.
 
-Voer de volgende stappen uit in de klassieke Azure-portal.
+Voer de volgende stappen uit in de klassieke Azure Portal.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -206,13 +206,13 @@ Wanneer de configuratie van het apparaat is voltooid, moet u scannen op updates 
 
 Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. U moet een volumecontainer maken voordat u de volumes op uw StorSimple-apparaat kunt gaan inrichten.
 
-Voer de volgende stappen uit in de klassieke Azure-portal om een volumecontainer te maken.
+Voer de volgende stappen uit in de klassieke Azure Portal om een volumecontainer te maken.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Stap 6: een volume maken
 
-Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume op het StorSimple-apparaat voor uw servers inrichten. Voer de volgende stappen uit in de klassieke Azure-portal om een volume te maken.
+Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume inrichten op het StorSimple-apparaat voor uw servers. Voer de volgende stappen uit in de klassieke Azure-portal om een volume te maken.
 
 > [AZURE.IMPORTANT] Met StorSimple Manager kunt u alleen thin ingerichte volumes maken.  U kunt geen volledig of gedeeltelijk ingerichte volumes maken.
 
@@ -234,7 +234,7 @@ Als u besluit geen MPIO te configureren, voer dan de volgende stappen uit om uw 
 
 Back-ups bieden tijdgebonden bescherming van volumes en verbeteren de herstelmogelijkheden met minimale hersteltijden. U kunt twee soorten back-ups uitvoeren op een StorSimple-apparaat: lokale momentopnamen en cloudmomentopnamen. Beide back-uptypen kunnen **gepland** of **handmatig** zijn.
 
-Voer de volgende stappen uit in de klassieke Azure-portal om een geplande back-up te maken.
+Voer de volgende stappen uit in de klassieke Azure Portal om een geplande back-up te maken.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -246,7 +246,7 @@ Dit is een optionele stap die u alleen hoeft uit te voeren als u het automatisch
 
 Als u een Azure Storage-account in een andere regio wilt maken, raadpleeg dan [Over Azure Storage-accounts](../storage/storage-create-storage-account.md) voor stapsgewijze instructies.
 
-Voer de volgende stappen uit op de pagina **StorSimple Manager-service** van de klassieke Azure-portal.
+Voer de volgende stappen uit op de pagina **StorSimple Manager-service** van de klassieke Azure Portal.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -296,6 +296,6 @@ Voer de volgende stappen uit in de klassieke Azure-portal als u voor één volum
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

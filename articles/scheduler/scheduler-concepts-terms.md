@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Schedulerconcepten, -terminologie en -entiteitenhiërarchie
@@ -220,6 +220,6 @@ Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

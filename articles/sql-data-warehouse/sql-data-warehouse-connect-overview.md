@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/20/2016"
+   ms.date="08/27/2016"
    ms.author="sonyama;barbkess"/>
 
 # Verbinding maken met Azure SQL Data Warehouse
@@ -27,103 +27,55 @@ Overzicht van verbinding maken met Azure SQL Data Warehouse.
 
 ## Verbindingstekenreeks voor ontdekken in de portal
 
-De SQL Data Warehouse wordt gekoppeld aan een Azure SQL Server. Om verbinding te maken hebt u de volledig gekwalificeerde naam van de server (**servernaam**.database.windows.net*) nodig.
+De SQL Data Warehouse wordt gekoppeld aan een Azure SQL Server. Als u verbinding wilt maken, hebt u de volledig gekwalificeerde naam van de server nodig.  Bijvoorbeeld: **mijnserver**.database.windows.net.
 
 Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
 
-1. Ga naar de [Azure-portal][].
+1. Ga naar de [Azure Portal][].
 2. Klik op **SQL-databases** en vervolgens op de database waarmee u verbinding wilt maken. In dit voorbeeld wordt de voorbeelddatabase AdventureWorksDW gebruikt.
 3. Zoek de volledige servernaam.
 
     ![Volledige servernaam][1]
 
 ## Verbindingsinstellingen
+
 SQL Data Warehouse standaardiseert enkele instellingen tijdens het maken van de verbinding en het maken van objecten. Deze instellingen kunnen niet worden genegeerd.
 
-| Database-instelling   | Waarde                        |
-| :----------------- | :--------------------------- |
-| ANSI_NULLS         | AAN                           |
-| QUOTED_IDENTIFIERS | AAN                           |
-| NO_COUNT           | UIT                          |
-| DATEFORMAT         | mdy                          |
-| DATEFIRST          | 7                            |
-| Sortering van de database | SQL_Latin1_General_CP1_CI_AS |
+| Database-instelling       | Waarde                        |
+| :--------------------- | :--------------------------- |
+| [ANSI_NULLS][]         | AAN                           |
+| [QUOTED_IDENTIFIERS][] | AAN                           |
+| [DATEFORMAT][]         | mdy                          |
+| [DATEFIRST][]          | 7                            |
 
-## Sessies en aanvragen
-Als er verbinding is gemaakt en er een sessie tot stand is gebracht, bent u klaar om query’s te schrijven naar en in te dienen bij SQL Data Warehouse.
+## Verbindingen en query's bewaken
 
-Elke query wordt vertegenwoordigd door een of meer aanvraag-id’s. Alle query's die via die verbinding zijn ingediend, maken deel uit van één sessie en worden daarom vertegenwoordigd door een enkele sessie-id.
-
-Aangezien SQL Data Warehouse een gedistribueerd MPP-systeem (Massively Parallel Processing) is, worden zowel de sessie-id’s als de aanvraag-id’s enigszins anders weergegeven in vergelijking tot SQL Server.
-
-Sessies en aanvragen worden logisch vertegenwoordigd door de desbetreffende id’s.
-
-| Id | Voorbeeldwaarde |
-| :--------- | :------------ |
-| Sessie-id | SID123456     |
-| Aanvraag-id | QID123456     |
-
-Merk op dat de sessie-id vooraf wordt gegaan door SID (de korte benaming voor sessie-id) en dat de aanvragen vooraf worden gegaan door QID (de korte benaming voor query-id).
-
-U hebt deze informatie nodig om uw query te identificeren wanneer u de prestaties van uw query's controleert. U kunt de prestaties van uw query’s controleren met de [Azure-portal] en de dynamische beheerweergaven.
-
-Deze query geeft uw huidige sessie aan.
-
-```sql
-SELECT SESSION_ID()
-;
-```
-
-Als u alle query's wilt weergeven die worden uitgevoerd of onlangs zijn uitgevoerd bij uw datawarehouse, kunt u het volgende voorbeeld gebruiken. Hiermee wordt een weergave gemaakt en deze wordt vervolgens weergegeven.
-
-```sql
-CREATE VIEW dbo.vSessionRequests
-AS
-SELECT   s.[session_id]                                 AS Session_ID
-        ,s.[status]                                     AS Session_Status
-        ,s.[login_name]                                 AS Session_LoginName
-        ,s.[login_time]                                 AS Session_LoginTime
-        ,r.[request_id]                                 AS Request_ID
-        ,r.[status]                                     AS Request_Status
-        ,r.[submit_time]                                AS Request_SubmitTime
-        ,r.[start_time]                                 AS Request_StartTime
-        ,r.[end_compile_time]                           AS Request_EndCompileTime
-        ,r.[end_time]                                   AS Request_EndTime
-        ,r.[total_elapsed_time]                         AS Request_TotalElapsedDuration_ms
-        ,DATEDIFF(ms,[submit_time],[start_time])        AS Request_InitiateDuration_ms
-        ,DATEDIFF(ms,[start_time],[end_compile_time])   AS Request_CompileDuration_ms
-        ,DATEDIFF(ms,[end_compile_time],[end_time])     AS Request_ExecDuration_ms
-        ,[label]                                        AS Request_QueryLabel
-        ,[command]                                      AS Request_Command
-        ,[database_id]                                  AS Request_Database_ID
-FROM    sys.dm_pdw_exec_requests r
-JOIN    sys.dm_pdw_exec_sessions s  ON  r.[session_id] = s.[session_id]
-WHERE   s.[session_id] <> SESSION_ID()
-;
-
-SELECT * FROM dbo.vSessionRequests;
-```
+Als er verbinding is gemaakt en er een sessie tot stand is gebracht, bent u klaar om query’s op te stellen en deze te verzenden naar SQL Data Warehouse.  Zie [Monitor your workload using DMVs][] (Uw werkbelasting bewaken met behulp van DMV's) voor meer informatie over het bewaken van sessies en query's.
 
 ## Volgende stappen
 
-Zie [Query’s uitvoeren bij Visual Studio][] als u wilt beginnen met het uitvoeren van query’s bij uw datawarehouse met Visual Studio en andere toepassingen.
+Zie [Query’s uitvoeren bij Visual Studio][] als u wilt beginnen met het uitvoeren van query’s bij uw datawarehouse met Visual Studio en andere toepassingen. 
 
-
-<!--Arcticles-->
-
+<!--Articles-->
 [Query’s uitvoeren bij Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+
+<!--MSDN references-->
+[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
+[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
+[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
-
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

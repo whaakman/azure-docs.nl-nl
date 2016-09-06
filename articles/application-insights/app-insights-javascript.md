@@ -57,7 +57,7 @@ Haal het script voor webpagina's op in Snel starten:
 
 ![Kies op de overzichtsblade van uw app de optie Snel starten, Code ophalen voor het bewaken van mijn webpagina’s. Kopieer het script.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Voeg het script in vlak vóór de `<head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
+Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
 
 * In een ASP.NET-MVC-project plaatst u het in `View\Shared\_Layout.cshtml`
 * Op een SharePoint-site opent u in het Configuratiescherm [Site-instellingen / basispagina](app-insights-sharepoint.md).
@@ -85,10 +85,10 @@ De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
@@ -253,6 +253,6 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

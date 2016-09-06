@@ -97,8 +97,12 @@ Nadat de bewerking voor het aanpassen van de schaal is voltooid, ziet u meerdere
 
 - [Werken met DC/OS en de Marathon API](container-service-mesos-marathon-rest.md)
 
+Gedetailleerde uitleg over Azure Container Service met Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

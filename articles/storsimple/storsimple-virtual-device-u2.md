@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Een virtueel StorSimple-apparaat implementeren en beheren in Azure
@@ -33,7 +33,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Azure VM**              | Standard_A3 (4 kerngeheugens, 7 GB geheugen)                                                                      | Standard_DS3 (4 kerngeheugens, 14 GB geheugen)                                                                                                                          |
 | **Versiecompatibiliteit** | Versies met Update 2 of oudere of nieuwere software                                             | Versies met Update 2 of nieuwere software                                                                                                  |
 | **Beschikbaarheid in regio’s**   | Alle Azure-regio's                                                         | Azure-regio’s waar ondersteuning wordt geboden voor Premium-opslag<br></br>Zie [Ondersteunde regio's voor 8020](#supported-regions-for-8020) voor een lijst met regio’s |
-| **Opslagtype**          | Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt]() | Maakt gebruik van Azure Premium-opslag voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium-opslagaccount maakt](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
+| **Opslagtype**          | Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt]() | Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
 | **Richtlijnen voor de workload**     | Bestanden ophalen uit back-ups op itemniveau                                              | Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen                                                                                            |
  
 <sup>1</sup> *Voorheen bekend als de 1100*.
@@ -116,7 +116,7 @@ Breng de volgende updates aan in uw Azure StorSimple-service voordat u een virtu
 
 - Voeg [Access Control Records](storsimple-manage-acrs.md) toe voor de virtuele machines die gebruikt gaan worden als hostservers voor uw virtuele apparaat.
 
-- Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount]() of een [Premium-opslagaccount](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+- Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount]() of een [Premium Storage-account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
 - Gebruik een ander opslagaccount voor het maken van het virtuele apparaat dan voor het apparaat dat u gebruikt voor uw gegevens. Als u hetzelfde opslagaccount gebruikt, kan dat leiden tot slechte prestaties.
 
@@ -283,6 +283,6 @@ Als u het virtuele apparaat verwijdert of uitschakelt, wordt het als **Offline**
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

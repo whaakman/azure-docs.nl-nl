@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="06/16/2016"
-    ms.author="jtaubensee"/>
+    ms.author="jotaub"/>
 
 # Aan de slag met Event Hubs
 
@@ -26,7 +26,7 @@ Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie
 
 In deze zelfstudie kunt u zien hoe u de klassieke Azure-portal gebruikt om een Event Hub te maken. U ziet ook hoe u berichten in een Event Hub verzamelt met een consoletoepassing die is geschreven in C# en hoe u deze berichten parallel ophaalt met de Java Event Processor Host-bibliotheek.
 
-Voor deze zelfstudie hebt u het volgende nodig:
+Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
@@ -73,6 +73,6 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

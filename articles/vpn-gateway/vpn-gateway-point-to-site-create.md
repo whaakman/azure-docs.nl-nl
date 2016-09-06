@@ -14,20 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Een punt-naar-site-VPN-verbinding met een VNet configureren met behulp van de klassieke portal
+# Een punt-naar-site-verbinding met een VNet configureren met de klassieke portal
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - klassiek](vpn-gateway-point-to-site-create.md)
 
-Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. 
+Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk.
+
+In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het **klassieke implementatiemodel** met de klassieke portal. U kunt deze configuratie momenteel niet end-to-end maken in Azure Portal en voor het klassieke implementatiemodel.
 
 Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres nodig. Er wordt een VPN-verbinding tot stand gebracht door de verbinding te starten vanaf de clientcomputer. Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over VPN Gateways](vpn-gateway-vpn-faq.md#point-to-site-connections) en [Planning en ontwerp](vpn-gateway-plan-design.md).
 
-Dit artikel geldt voor punt-naar-site-verbindingen naar een virtueel netwerk dat is gemaakt met behulp van het klassieke implementatiemodel. De stappen in dit artikel gebruiken de klassieke portal. U kunt deze configuratie op dit moment niet maken met behulp van de Azure Portal.
 
 **Implementatiemodellen en hulpmiddelen voor punt-naar-site-verbindingen**
 
@@ -37,7 +38,7 @@ Dit artikel geldt voor punt-naar-site-verbindingen naar een virtueel netwerk dat
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Punt-naar-site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+![Punt-naar-site-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 ## Over het maken van een punt-naar-site-verbinding
  
@@ -63,7 +64,7 @@ De configuratie van een punt-naar-site-verbinding is onderverdeeld in vier secti
     - **Locatie**: de locatie is direct gerelateerd aan de fysieke locatie (regio) waar u wilt dat de resources (VM's) zich bevinden. Selecteer bijvoorbeeld VS - oost als u wilt dat de virtuele machines die u in dit virtuele netwerk implementeert zich fysiek bevinden in VS - oost. U kunt de regio die aan het virtuele netwerk is gekoppeld niet meer wijzigen wanneer het netwerk is gemaakt.
 
 4. Op de pagina **DNS-servers en VPN-connectiviteit** voert u de volgende informatie in en klikt u op de pijl Volgende in de rechterbenedenhoek.
-    - **DNS-servers**: geef de naam en het IP-adres van de DNS-server op of selecteer een eerder geregistreerde DNS-server in het snelmenu. Met deze instelling wordt geen DNS-server aangemaakt. U kunt hiermee de DNS-servers opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Laat deze sectie leeg als u de standaardservice voor naamomzetting van Azure wilt gebruiken.
+    - **DNS-servers**: geef de naam en het IP-adres van de DNS-server op of selecteer een eerder geregistreerde DNS-server in het snelmenu. Met deze instelling wordt geen DNS-server gemaakt. U kunt hiermee de DNS-servers opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Laat deze sectie leeg als u de standaardservice voor naamomzetting van Azure wilt gebruiken.
     - **Punt-naar-site-VPN configureren**: schakel het selectievakje in.
 
 5. Geef op de pagina **Punt-naar-site-connectiviteit** op uit welk IP-adresbereik uw VPN-clients een IP-adres ontvangen wanneer ze worden verbonden. Er zijn een paar regels met betrekking tot de adresbereiken die u kunt opgeven. Het is belangrijk dat u controleert of het bereik dat u opgeeft geen bereiken in het on-premises netwerk overlapt.
@@ -135,13 +136,13 @@ U moet ook een VPN-client configureren om verbinding te maken met het virtuele n
 
 ### Deel 1: Het configuratiepakket voor de VPN-client maken
 
-1. Navigeer in de Klassieke Azure Portal op de **Dashboard**-pagina voor het virtuele netwerk naar het menu snelle weergave in de rechterhoek. Zie voor de lijst met ondersteunde client-besturingssystemen de sectie [Punt-naar-site-verbindingen](vpn-gateway-vpn-faq.md#point-to-site-connections) van de veelgestelde vragen over de VPN Gateway.<br><br>Selecteer het downloadpakket dat overeenkomt met het besturingssysteem van de client waarop het wordt geïnstalleerd:
+1. Navigeer in de Klassieke Azure Portal op de **Dashboard**-pagina voor het virtuele netwerk naar het menu snelle weergave in de rechterhoek. Zie voor de lijst met ondersteunde client-besturingssystemen de sectie [Punt-naar-site-verbindingen](vpn-gateway-vpn-faq.md#point-to-site-connections) van de veelgestelde vragen over de VPN Gateway. Het VPN-clientpakket bevat configuratiegegevens voor de configuratie van de VPN-clientsoftware die is ingebouwd in Windows. Met het pakket wordt geen andere software geïnstalleerd. De instellingen zijn specifiek voor het virtuele netwerk waarmee u verbinding wilt maken.<br><br>Selecteer het downloadpakket dat overeenkomt met het besturingssysteem van de client waarop het wordt geïnstalleerd:
  - Voor 32-bits clients selecteert u **Het 32-bits VPN-clientpakket downloaden**.
  - Voor 64-bits clients selecteert u **Het 64-bits VPN-clientpakket downloaden**.
 
 2. Het duurt enkele minuten voordat het clientpakket is gemaakt. Wanneer het pakket is voltooid, kunt u het bestand downloaden. Het *EXE*-bestand dat u hebt gedownload kan veilig worden opgeslagen op de lokale computer.
 
-3. Nadat u het VPN-clientpakket via de klassieke Azure Portal hebt gegenereerd en geïnstalleerd, kunt u het installeren op de clientcomputer van waaruit u verbinding wilt maken met het virtuele netwerk. Als u het VPN-clientpakket op meerdere clientcomputers wilt installeren, moet op elke computer een clientcertificaat worden geïnstalleerd. Het VPN-clientpakket bevat configuratiegegevens voor de configuratie van de VPN-clientsoftware die is ingebouwd in Windows. Met het pakket wordt geen andere software geïnstalleerd.
+3. Nadat u het VPN-clientpakket via de klassieke Azure Portal hebt gegenereerd en geïnstalleerd, kunt u het installeren op de clientcomputer van waaruit u verbinding wilt maken met het virtuele netwerk. Als u het VPN-clientpakket op meerdere clientcomputers wilt installeren, moet op elke computer een clientcertificaat worden geïnstalleerd.
 
 ### Deel 2: Het VPN-configuratiepakket installeren op de client en de verbinding starten
 
@@ -180,6 +181,6 @@ Bekijk de pagina [Virtual Network Documentation](https://azure.microsoft.com/doc
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

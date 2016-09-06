@@ -13,11 +13,14 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/07/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
+
+> [AZURE.NOTE] Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 90 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-policies.md). Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+
 
 ## Wat zijn beveiligingswaarschuwingen?
 Security Center verzamelt, analyseert en integreert automatisch logboekgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen, zoals firewall- en eindpuntbeveiligingsoplossingen om werkelijke dreigingen te detecteren en fout-positieven te reduceren. In Security Center wordt een lijst met beveiligingswaarschuwingen met prioriteiten weergegeven samen met de informatie die u nodig hebt om snel onderzoek te doen naar het probleem en aanbevelingen voor het herstellen van een aanval. Azure Security Center voegt soortgelijke waarschuwingen ook samen om kettingpatronen onder te brengen in [incidenten](security-center-incident.md). 
@@ -210,6 +213,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Cen
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

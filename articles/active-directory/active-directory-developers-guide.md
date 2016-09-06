@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -23,15 +23,15 @@
 Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Service) waarop ontwikkelaars efficiënt identiteitsbeheer kunnen integreren in hun toepassingen. De volgende artikelen bevatten overzichten van de implementatie en belangrijke functies van Azure AD. We raden u aan deze in de juiste volgorde te lezen. Ga naar [Aan de slag](#getting-started) als u direct aan de slag wilt gaan.
 
 
-1. [De voordelen van Azure Active Directory-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
+1. [De voordelen van Azure AD-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
 
-1. [Scenario's voor Active Directory-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure AD om eenmalige aanmelding voor uw toepassing te bieden.
+1. [Scenario's voor Azure AD-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure AD om eenmalige aanmelding voor uw toepassing te bieden.
 
-1. [Toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure AD en de huisstijlrichtlijnen voor geïntegreerde apps.
+1. [Toepassingen integreren met Azure AD](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure AD en de huisstijlrichtlijnen voor geïntegreerde apps.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): gebruik de Azure AD Graph API om via een programma toegang te krijgen tot Azure AD via REST API-eindpunten. Azure AD Graph API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/), een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
+1. [Azure AD Graph-API](active-directory-graph-api.md): gebruik de Azure AD Graph-API om via geprogrammeerde toegang te krijgen tot Azure AD via REST API-eindpunten. De Azure AD Graph-API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph biedt een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
 
-1. [Azure Active Directory-verificatiebibliotheken](active-directory-authentication-libraries.md): u kunt eenvoudig gebruikers verifiëren om toegangstokens te verkrijgen met Azure AD-verificatiebibliotheken voor .NET, JavaScript, Objective-C, Android en meer.
+1. [Azure AD-verificatiebibliotheken](active-directory-authentication-libraries.md): u kunt eenvoudig gebruikers verifiëren door ervoor te zorgen dat zij toegangstokens verkrijgen via Azure AD-verificatiebibliotheken voor .NET, JavaScript, Objective-C, Android en meer.
 
 
 ## Aan de slag
@@ -84,6 +84,7 @@ Deze artikelen bevatten naslaginformatie over REST API's en API's voor verificat
 
 ###  Ondersteuning
 - [Vragen met tags](http://stackoverflow.com/questions/tagged/azure-active-directory): vind Azure Active Directory-oplossingen over stackoverloop door te zoeken naar de tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) en [adal](http://stackoverflow.com/questions/tagged/adal).
+- Zie de [woordenlijst voor Azure AD-ontwikkelaars](active-directory-dev-glossary.md) voor definities van de meest gebruikte termen die betrekking hebben op het ontwikkelen en integreren van toepassingen.
 
 ### Code
 
@@ -105,9 +106,9 @@ Deze artikelen bevatten naslaginformatie over REST API's en API's voor verificat
 
 - [OAuth 2.0-protocol: werken met de autorisatiecodetoekenning](active-directory-protocols-oauth-code.md): u kunt de autorisatiecodetoekenning van het OAuth 2.0-protocol gebruiken om toegang te verlenen aan webtoepassingen en web-API’s in uw Azure Active Directory-tenant.
 
-- [OAuth 2.0-protocol: inzicht in de impliciete toekenning](active-directory-dev-understanding-oauth2-implicit-grant.md): meer informatie over de impliciete autorisatietoekenning en of deze geschikt is voor uw toepassing.
+- [OAuth 2.0-protocol: uitleg over de impliciete toekenning](active-directory-dev-understanding-oauth2-implicit-grant.md): meer informatie over de impliciete autorisatietoekenning en of deze geschikt is voor uw toepassing.
 
-- [OAuth 2.0-protocol: service-naar-serviceaanroepen met behulp van referenties Client-Service](active-directory-protocols-oauth-service-to-service.md): de stroom van de toekenning van OAuth 2.0-clientreferenties maakt het voor een webservice (een vertrouwelijke client) mogelijk om eigen referenties te gebruiken voor het verifiëren bij het aanroepen van een andere webservice, in plaats van een gebruiker te imiteren. In dit scenario is de client doorgaans een webservice in de middelste laag , een daemon-service of website.
+- [OAuth 2.0-protocol: service-naar-serviceaanroepen met behulp van clientreferenties](active-directory-protocols-oauth-service-to-service.md): de toekenning van clientreferenties in OAuth 2.0 stelt een webservice (een vertrouwelijke client) in staat om eigen referenties te gebruiken voor het verifiëren bij het aanroepen van een andere webservice, in plaats van een gebruiker te imiteren. In dit scenario is de client doorgaans een webservice in de middelste laag , een daemon-service of website.
 
 - [OpenID Connect 1.0-protocol: aanmelding en verificatie](active-directory-protocols-openid-connect-code.md): met het OpenID Connect 1.0-protocol kunt u OAuth 2.0 uitbreiden voor gebruik als verificatieprotocol. Een clienttoepassing kan een id_token ontvangen voor het beheer van het aanmeldingsproces of de stroom van de autorisatiecode uitbreiden om zowel een id_token als autorisatiecode te ontvangen.
 
@@ -147,6 +148,6 @@ In deze overzichtspresentaties over het ontwikkelen van apps met behulp van Azur
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

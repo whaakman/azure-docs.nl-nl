@@ -1,9 +1,9 @@
-1.  Meld u online aan bij de [Microsoft Azure-portal](https://portal.azure.com/).
-2.  Klik in de snelbalk op **Nieuw**, klik vervolgens op **Gegevens en opslag**, en klik vervolgens op **Azure DocumentDB**.
+1.  Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2.  Klik in de snelbalk achtereenvolgens op **Nieuw**, **Gegevens en opslag** en **DocumentDB (NoSQL)**.
 
-    ![Schermopname van de Azure-portal voor het maken van een database, waarbij de knop Nieuw, Gegevens en opslag in de blade Maken en Azure DocumentDB in de blade Gegevens zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Schermopname van Azure Portal waarbij Meer services en DocumentDB (NoSQL) zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. In de blade **Nieuw DocumentDB-account** geeft u de gewenste configuratie op voor het DocumentDB-account.
+3. In de blade **Nieuw account** geeft u de gewenste configuratie op voor het DocumentDB-account.
 
     ![Schermopname van de nieuwe DocumentDB-blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -27,7 +27,7 @@
 
     ![Schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account is gemaakt en naar een resourcegroep is geïmplementeerd - melding van Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  Nadat het DocumentDB-account is gemaakt, kan het meteen met de standaardinstellingen in de onlineportal worden gebruikt. Merk op dat de standaardconsistentie van de DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardinstelling voor consistentie aanpassen door te klikken op **Standaardconsistentie** in het menu. Zie [Consistency levels in DocumentDB](../articles/azure-portal/resource-group-portal.md) (Consistentieniveaus in DocumentDB) voor meer informatie over de consistentieniveaus die worden aangeboden door DocumentDB.
+5.  Nadat het DocumentDB-account is gemaakt, kan het met de standaardinstellingen worden gebruikt. Merk op dat de standaardconsistentie van de DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardconsistentie aanpassen door op **Standaardconsistentie** in het resourcemenu te klikken. Zie [Consistency levels in DocumentDB](../articles/azure-portal/resource-group-portal.md) (Consistentieniveaus in DocumentDB) voor meer informatie over de consistentieniveaus die DocumentDB te bieden heeft.
 
     ![Schermopname van de blade Resourcegroep - begin met het ontwikkelen van de toepassing](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -39,6 +39,6 @@
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

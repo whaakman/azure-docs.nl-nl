@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
+    ms.date="08/25/2016"
     ms.author="anhoh"/>
 
 # De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
@@ -182,7 +182,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -390,11 +390,11 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing
 
     ![Schermopname van de geselecteerde zelfstudie in Solution Explorer met de optie Publiceren gemarkeerd](./media/documentdb-python-application/image20.png)
 
-2. Selecteer in het venster **Publish Web** (Publiceren naar het web) de optie **Microsoft Azure Web Apps** (Web-apps van Microsoft Azure) en klik op **Next** (Volgende).
+2. Selecteer in het venster **Publish Web** (Publiceren naar het web) de optie **Microsoft Azure Web Apps** en klik op **Next** (Volgende).
 
     ![Schermopname van het venster Publish Web (Publiceren naar het web) met Microsoft Azure Web Apps (Web-apps van Microsoft Azure) gemarkeerd](./media/documentdb-python-application/image21.png)
 
-3. Klik in het venster **Microsoft Azure Web Apps** (Web-apps van Microsoft Azure) op **New** (Nieuw).
+3. Klik in het venster **Microsoft Azure Web Apps** op **New** (Nieuw).
 
     ![Schermopname van het venster Microsoft Azure Web Apps (Web-apps van Microsoft Azure)](./media/documentdb-python-application/select-existing-website.png)
 
@@ -436,6 +436,6 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

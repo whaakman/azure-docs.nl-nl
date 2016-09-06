@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.date="08/19/2016"
     ms.author="rachelap"/>
 
 # Aan de slag met API-apps, ASP.NET en Swagger in Azure App Service
@@ -493,6 +493,6 @@ Gebruik van de **Azure-API-app**-projectsjabloon geeft hetzelfde resultaat als w
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -42,17 +42,15 @@ De volgende cross-premises verbindingen worden ondersteund:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute is een directe verbinding van uw WAN met Azure. Deze loopt niet via het openbare internet. Voor meer informatie raadpleegt u het [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht van ExpressRoute) en de [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) (Veelgestelde vragen over ExpressRoute).
 
-Voor meer informatie over cross-premises-verbindingen raadpleegt u [About secure cross-premises connectivity](vpn-gateway-cross-premises-options.md) (Over beveiligde cross-premises-connectiviteit).
+Voor meer informatie over verbindingen raadpleegt u [Informatie over VPN-gateway](vpn-gateway-about-vpngateways.md).
 
 ### Wat is het verschil tussen een site-naar-site-verbinding en een punt-naar-site?
 
-Met **site-naar-site**-verbindingen kunt u uw computers on-premises verbinden met elke virtuele machine of elke rolinstantie in uw virtuele netwerk, afhankelijk van hoe u routering wilt configureren. Het is een geweldige optie voor een cross-premises-verbinding die altijd beschikbaar is. Dit type verbinding is afhankelijk van een IPsec-VPN-apparaat (hardware of software) dat op de rand van uw netwerk moet worden geïmplementeerd. Voor dit type verbinding hebt u de vereiste VPN-hardware en een extern gericht IPv4-adres nodig.
+Met **site-naar-site**-verbindingen kunt u uw computers on-premises verbinden met elke virtuele machine of elke rolinstantie in uw virtuele netwerk, afhankelijk van hoe u routering wilt configureren. Het is een geweldige optie voor een cross-premises-verbinding die altijd beschikbaar is. Dit type verbinding is afhankelijk van een IPsec-VPN-apparaat (hardware of software) dat op de rand van uw netwerk moet worden geïmplementeerd. Als u dit type verbinding wilt maken, hebt u de vereiste VPN-hardware en een extern gericht IPv4-adres nodig.
 
 Met **punt-naar-site**-verbindingen kunt u vanaf één computer waar dan ook verbinding maken met alles binnen het virtuele netwerk. Hiervoor wordt de met Windows meegeleverde VPN-client gebruikt. Als onderdeel van de punt-naar-site-configuratie installeert u een certificaat en een VPN-clientconfiguratiepakket. Dit pakket bevat de instellingen waarmee de computer verbinding kan maken met elke virtuele machine of rolinstantie in het virtuele netwerk. Het is ideaal wanneer u verbinding wilt maken met een virtueel netwerk maar u zich niet on-premises bevindt. Het is ook een goede optie wanneer u geen toegang hebt tot VPN-hardware of een extern gericht IPv4-adres, twee zaken die vereist zijn voor een site-naar-site-verbinding. 
 
 U kunt uw virtuele netwerk configureren om tegelijkertijd gebruik te maken van site-naar-site en punt-naar-site, mits u de site-naar-site-verbinding maakt met een op route gebaseerd VPN-type voor uw gateway. Op route gebaseerde VPN-typen worden in het klassieke implementatiemodel dynamische gateways genoemd.
-
-Voor meer informatie raadpleegt u [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md) (Over beveiligde cross-premises-connectiviteit voor virtuele netwerken).
 
 ### Wat is ExpressRoute?
 
@@ -74,7 +72,7 @@ Als uw apparaat niet wordt vermeld als een bekend compatibel VPN-apparaat en u d
 
 ### Waarom wordt mijn op beleid gebaseerde VPN-tunnel inactief als er geen verkeer is?
 
-Dit is normaal voor op beleid gebaseerde VPN-gateways (ook wel bekend als statische routering genoemd). Wanneer er langer dan vijf minuten geen verkeer is via de tunnel, wordt de tunnel verwijderd. Zodra er echter weer verkeer is in een van de richtingen, wordt de tunnel onmiddellijk opnieuw ingesteld . Dit gebeurt niet als u een op route gebaseerde VPN-gateway hebt (ook wel dynamisch genoemd).
+Dit is normaal voor op beleid gebaseerde VPN-gateways (ook wel bekend als statische routering genoemd). Wanneer er langer dan vijf minuten geen verkeer is via de tunnel, wordt de tunnel verwijderd. Zodra er verkeer is in een van de richtingen, wordt de tunnel onmiddellijk opnieuw ingesteld. Dit gebeurt niet als u een op route gebaseerde VPN-gateway hebt (ook wel dynamisch genoemd).
 
 ### Kan ik software-VPN's gebruiken om verbinding te maken met Azure?
 
@@ -128,7 +126,7 @@ Automatisch opnieuw verbinding maken en DDNS worden momenteel niet ondersteund i
 
 ### Kunnen site-naar-site- en punt-naar-site-configuraties naast elkaar worden gebruikt in hetzelfde virtuele netwerk?
 
-Ja. Beide oplossingen werken als de gateway een op route gebaseerd VPN-type heeft. Voor het klassieke implementatiemodel hebt u een dynamische gateway nodig. Punt-naar-site wordt niet ondersteund voor VPN-gateways met statische routering of gateways met een op beleid gebaseerd VPN-type.
+Ja. Beide oplossingen werken als de gateway een op RouteBased-type VPN heeft. Voor het klassieke implementatiemodel hebt u een dynamische gateway nodig. Punt-naar-site wordt niet ondersteund voor VPN-gateways met statische routering of gateways met een op beleid gebaseerd VPN-type.
 
 ### Kan ik een punt-naar-site-client configureren om verbinding te maken met meerdere virtuele netwerken tegelijk?
 
@@ -168,11 +166,11 @@ U kunt alleen PSK-verificatie (vooraf gedeelde sleutels) gebruiken.
 
 Er is een gatewayservice die wordt uitgevoerd om cross-premises-connectiviteit mogelijk te maken. 
 
-Als u een VPN-gateway wilt configureren, moet u eerst een gatewaysubnet voor het VNet maken. Alle gatewaysubnetten moeten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
+Als u een VPN-gateway wilt configureren, moet u eerst een gatewaysubnet voor het VNet maken. Voor een goede werking moeten alle gatewaysubnetten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
 
 De minimale grootte van het gatewaysubnet is volledig afhankelijk van de configuratie die u wilt maken. Hoewel u voor bepaalde configuraties een gatewaysubnet kunt maken dat zo klein is als /29, raden wij aan om een gatewaysubnet van /28 of groter (/28, /27, /26 enzovoort) te maken. 
 
-## Kan ik Virtual Machines of rolinstanties implementeren in het gatewaysubnet?
+### Kan ik Virtual Machines of rolinstanties implementeren in het gatewaysubnet?
 
 Nee.
 
@@ -197,7 +195,7 @@ Een VPN-gateway is in feite een multihomed apparaat met één NIC die toegang he
 
 ### Meer informatie over gatewaytypen, vereisten en doorvoer
 
-Zie [About VPN Gateways](vpn-gateway-about-vpngateways.md) (Over VPN-gateways) voor meer informatie.
+Zie [Informatie over VPN-gateway](vpn-gateway-about-vpn gateway-settings.md) voor meer informatie.
 
 ## Multi-site- en VNet-naar-VNet-connectiviteit
 
@@ -231,7 +229,7 @@ Nee, redundante tunnels tussen een virtueel netwerk van Azure en een on-premises
 
 ### Mogen er overlappende adresruimten zijn tussen de verbonden virtuele netwerken en on-premises lokale sites?
 
-Nee. Als er overlappende adresruimten zijn, zal het uploaden van het netcfg-bestand of het maken van een virtueel netwerk niet lukken.
+Nee. Als er overlappende adresruimten zijn, zal het uploaden van het netwerkconfiguratiebestand of het maken van een virtueel netwerk niet lukken.
 
 ### Krijg ik meer bandbreedte met meerdere site-naar-site-VPN-verbindingen dan met één virtueel netwerk?
 
@@ -239,7 +237,10 @@ Nee, alle VPN-tunnels, inclusief punt-naar-site-VPN-verbindingen, delen dezelfde
 
 ### Kan ik Azure VPN-gateway gebruiken om verkeer tussen mijn on-premises sites of naar een ander virtueel netwerk over te brengen?
 
-Transitverkeer via Azure VPN-gateway is mogelijk, maar is afhankelijk van statisch gedefinieerde adresruimten in het netcfg-configuratiebestand. BGP wordt nog niet ondersteund met Azure Virtual Networks en VPN-gateways. Zonder BGP is het handmatig definiëren van adresruimten voor doorvoer zeer foutgevoelig en het wordt daarom niet aanbevolen.
+**Klassiek implementatiemodel**<br>
+Transitverkeer via Azure VPN-gateway is mogelijk met het klassieke implementatiemodel, maar is afhankelijk van statisch gedefinieerde adresruimten in het netwerkconfiguratiebestand. BGP wordt nog niet ondersteund met Azure Virtual Networks en VPN-gateways via het klassieke implementatiemodel. Zonder BGP is het handmatig definiëren van adresruimten voor doorvoer zeer foutgevoelig en het wordt daarom niet aanbevolen.<br>
+**Resource Manager-implementatiemodel**<br>
+Als u het Resource Manager-implementatiemodel gebruik, raadpleegt u de sectie [BGP](#bgp) voor meer informatie.
 
 ### Genereert Azure dezelfde vooraf gedeelde IPsec/IKE-sleutel voor al mijn VPN-verbindingen voor hetzelfde virtuele netwerk?
 
@@ -254,7 +255,7 @@ Bij verkeer tussen verschillende virtuele netwerken van Azure worden alleen kost
 
 Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en site-naar-site-VPN-verbindingen die naast elkaar kunnen worden gebruikt configureren](../expressroute/expressroute-howto-coexist-classic.md)
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -276,15 +277,10 @@ Nee. Alleen het verkeer met een doel-IP dat zich bevindt in de door u opgegeven 
 ## Veelgestelde vragen over Virtual Network
 
 Aanvullende informatie over virtuele netwerken vindt u in de [Veelgestelde vragen over Virtual Network](../virtual-network/virtual-networks-faq.md).
-
-## Volgende stappen
-
-Meer informatie over VPN-gateways vindt u op de [pagina met VPN-gatewaydocumentatie](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

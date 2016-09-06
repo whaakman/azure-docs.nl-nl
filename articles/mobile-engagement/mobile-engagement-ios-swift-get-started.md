@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Aan de slag met Azure Mobile Engagement voor iOS-apps in Swift
@@ -33,7 +33,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Engagement-zelfstudies voor iOS-apps.
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started) voor meer informatie.
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 
@@ -101,7 +101,7 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
 
 ##<a id="monitor"></a>Realtime-bewaking inschakelen
 
-Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm (activiteit) naar de back-end van Mobile Engagement sturen.
+U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn.
 
 1. Open het bestand **ViewController.swift** en vervang de basisklasse van **ViewController** met **EngagementViewController**:
 
@@ -207,6 +207,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

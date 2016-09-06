@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
 # Een virtuele Linux-machine in Azure maken met behulp van de CLI
 
-> [AZURE.NOTE] Als u even de tijd hebt, helpt u ons dan bij het verbeteren van de documentatie over de virtuele Linux-machine van Azure door deel te nemen aan een [korte enquête](https://aka.ms/linuxdocsurvey) over uw ervaringen. Met elk antwoord helpt u ons op weg om u beter van dienst te zijn bij de uitvoering van uw werk.
+> [AZURE.NOTE] Als u even de tijd hebt, help ons dan bij het verbeteren van de documentatie over de virtuele Linux-machine van Azure door deel te nemen aan een [korte enquête](https://aka.ms/linuxdocsurvey) over uw ervaringen. Met elk antwoord helpt u ons op weg om u beter van dienst te zijn bij de uitvoering van uw werk.
 
-Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van de opdracht `azure vm quick-create` van Azure CLI. Met de opdracht `quick-create` wordt een virtuele machine met een basisinfrastructuur eromheen geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of voor het zeer snel testen van een concept (zie het als het snelste pad naar een Linux-bash-shell).  Voor de stappen in dit artikel is een Azure-account vereist ([registreer u voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)] en moet [de Azure CLI](../xplat-cli-install.md) zijn aangemeld (`azure login`) en zijn ingesteld op de Resource Manager-modus (`azure config mode arm`).  U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure-portal](virtual-machines-linux-quick-create-portal.md).
+Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van de opdracht `azure vm quick-create` van Azure CLI. Met de opdracht `quick-create` wordt een virtuele machine met een basisinfrastructuur eromheen geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen.  Voor de stappen in dit artikel is een Azure-account vereist ([registreer u voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)] en moet [de Azure CLI](../xplat-cli-install.md) zijn aangemeld (`azure login`) en zijn ingesteld op de Resource Manager-modus (`azure config mode arm`).  U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure-portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Beknopt overzicht van opdrachten
 
@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## De virtuele Linux-machine implementeren
 
-In het navolgende wordt elke prompt weergegeven, samen met de verwachte uitvoer, om met de alias RHEL een virtuele machine met RedHat Enteprise Linux 7.2 te maken. Hierbij wordt gebruikgemaakt van dezelfde opdracht als hierboven.  
+We leiden u nu stapsgewijs door de opdracht, waarbij elke stap wordt toegelicht met behulp van RedHat Enterprise Linux 7.2.  
 
 ## Een ImageURN-alias gebruiken
 
@@ -46,14 +46,13 @@ De opdracht `quick-create` van Azure CLI beschikt over aliassen die aan de meest
 | Debian    | credativ  | Debian       | 8           | meest recente  |
 | openSUSE  | SUSE      | openSUSE     | 13.2        | meest recente  |
 | RHEL      | RedHat    | RHEL         | 7.2         | meest recente  |
-| SLES      | SLES      | SLES         | 12-SP1      | meest recente  |
 | UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | meest recente  |
 
 
 
-Voor de optie **ImageURN** (`-Q`) gebruiken we `RHEL` om een virtuele machine met RedHat Enterprise Linux 7.2 te implementeren. (Deze 7 aliassen vertegenwoordigen een klein gedeelte van de besturingssystemen die in Azure beschikbaar zijn. Meer installatiekopieën vindt u door in de Marketplace [naar een installatiekopie te zoeken](virtual-machines-linux-cli-ps-findimage.md). U kunt ook [uw eigen aangepaste installatiekopie uploaden](virtual-machines-linux-create-upload-generic.md).)
+Voor de optie **ImageURN** (`-Q`) gebruiken we `RHEL` om een virtuele machine met RedHat Enterprise Linux 7.2 te implementeren. Deze `quick-create`-aliassen vertegenwoordigen een klein deel van het besturingssysteem dat beschikbaar is in Azure.  Meer installatiekopieën vindt u in de marketplace door te [zoeken naar een installatiekopie](virtual-machines-linux-cli-ps-findimage.md), maar u kunt ook [uw eigen aangepaste installatiekopie uploaden](virtual-machines-linux-create-upload-generic.md).
 
-Vervang voor de volgende opdrachten de prompts door waarden uit uw eigen omgeving. Wij gebruiken voorbeeldwaarden.  
+Vervang in de volgende opdrachten de prompts door waarden uit uw eigen omgeving.
 
 De prompts volgen en uw eigen namen invoeren
 
@@ -147,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-U kunt nu SSH in uw virtuele machine gebruiken op standaard-SSH-poort 22, evenals de volledig gekwalificeerde domeinnaam (FQDN) die in bovenstaande uitvoer wordt weergegeven. (U kunt bovendien het vermelde IP-adres gebruiken.)
+SSH in uw virtuele machine op poort 22 en het openbare IP-adres dat staat vermeld in de uitvoer. (U kunt ook het vermelde FQDN-adres gebruiken.)
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -165,16 +164,14 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Volgende stappen
 
-`azure vm quick-create` is een goede manier om snel een virtuele machine te implementeren, zodat u zich kunt aanmelden bij een bash-shell en aan de slag kunt gaan. Het gebruik van `vm quick-create` geeft u niet de extra voordelen van een complexe omgeving.  Voor het implementeren van een virtuele Linux-machine die is afgestemd op uw infrastructuur, volgt u de instructies in een van de onderstaande artikelen.
+`azure vm quick-create` is een goede manier om snel een virtuele machine te implementeren, zodat u zich kunt aanmelden bij een bash-shell en aan de slag kunt gaan. Het gebruik van `vm quick-create` geeft u niet de extra voordelen van een complexe omgeving.  Voor het implementeren van een virtuele Linux-machine die is afgestemd op uw infrastructuur, volgt u de instructies in een van deze artikelen.
 
 - [Een Azure Resource Manager-sjabloon gebruiken om een specifieke implementatie te maken](virtual-machines-linux-cli-deploy-templates.md)
 - [Rechtstreeks uw eigen aangepaste omgeving maken voor een virtuele Linux-machine met Azure CLI-opdrachten](virtual-machines-linux-create-cli-complete.md).
 - [Een met SSH beveiligde virtuele Linux-machine in Azure maken met behulp van sjablonen](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Aan de hand van deze artikelen kunt u aan de slag met het maken van uw Azure-infrastructuur, evenals met een aantal bedrijfseigen en open-source hulpprogramma’s voor implementatie, configuratie en indeling van uw infrastructuur.
 
 
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Een Android-app maken
@@ -32,7 +32,6 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * De [Android-hulpprogramma's voor ontwikkelaars](https://developer.android.com/sdk/index.html), waaronder Integrated Development Environment van Android Studio en het meest recente Android-platform.
 * Azure Mobile Android SDK, waarnaar automatisch wordt verwezen als onderdeel van het snelstartproject dat u hebt gedownload.
-* Een pc met [Visual Studio Community 2013] of hoger&mdash; is niet vereist voor een back-end voor Node.js.
 * Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Een nieuwe back-end voor mobiele apps van Azure maken
@@ -56,6 +55,6 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
