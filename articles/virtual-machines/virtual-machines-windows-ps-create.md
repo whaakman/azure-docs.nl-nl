@@ -122,7 +122,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
+    Het wachtwoord moet tussen 8 en 123 tekens bevatten en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Vervang de waarde van **$vmName** door de gewenste naam voor de virtuele machine. Maak de variabele en de configuratie voor de virtuele machine.
 
@@ -174,6 +174,6 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

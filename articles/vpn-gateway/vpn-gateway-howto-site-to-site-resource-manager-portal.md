@@ -1,6 +1,6 @@
 <properties
    pageTitle="Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met Azure Resource Manager en Azure Portal | Microsoft Azure"
-   description="In dit artikel leert u stapsgewijs hoe u een VNet maakt met het Resource Manager-model en hoe u dit met uw on-premises netwerk verbindt via een S2S VPN-gatewayverbinding."
+   description="Een VNet maken met het Resource Manager-implementatiemodel en dit verbinden met uw on-premises netwerk via een S2S VPN-gatewayverbinding."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,40 +14,36 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Een VNet maken met een site-naar-site-VPN-verbinding met de Azure Portal en Azure Resource Manager
+# Een VNet met een site-naar-site-verbinding maken met Azure Portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassieke Azure Portal](vpn-gateway-site-to-site-create.md)
+- [Klassieke Azure-portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt met behulp van het Azure Resource Manager-implementatiemodel en de Azure Portal. In de volgende stappen gaat u een VNet maken en een gatewaysubnet, een gateway, een lokale site en een verbinding toevoegen. Daarnaast moet u het VPN-apparaat configureren. 
+In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt met behulp van het **Azure Resource Manager-implementatiemodel** en Azure Portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
+
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
-**Over Azure-implementatiemodellen**
+### Implementatiemodellen en hulpmiddelen voor site-naar-site-verbindingen
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Verbindingsdiagram
-
-![Site-naar-site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-**Implementatiemodellen en hulpmiddelen voor site-naar-site-verbindingen**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
-Als u VNets met elkaar wilt verbinden, maar geen verbinding maakt met een on-premises locatie, raadpleeg dan [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Een VNet-naar-VNet-verbinding configureren). Als u de configuratie van een ander type verbinding zoekt, raadpleeg dan het artikel [VPN Gateway connection topologies](vpn-gateway-topology.md) (Verbindingstopologieën voor VPN-gateways).
+Als u VNets met elkaar wilt verbinden, maar geen verbinding maakt met een on-premises locatie, raadpleeg dan [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Een VNet-naar-VNet-verbinding configureren).
 
 ## Voordat u begint
 
 Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
-- Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet vertrouwd bent met de configuratie van uw VPN-apparaat of niet bekend bent met de IP-adresbereiken in uw on-premises netwerkconfiguratie, moet u contact opnemen met iemand die u deze details kan verstrekken.
+- Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet weet hoe u uw VPN-apparaat moet configureren of de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken.
 
 - Een extern gericht openbaar IP-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
     
@@ -79,7 +75,7 @@ Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfigu
 
 ## 1. Een virtueel netwerk maken 
 
-Als u al een virtueel netwerk hebt gemaakt, controleert u of de instellingen compatibel zijn met het ontwerp van uw VPN-gateway. Let er met name op dat subnetten geen andere netwerken overlappen. Als u overlappende subnetten hebt, werkt de verbinding niet goed. Als u hebt geverifieerd of het VNet met de juiste instellingen is geconfigureerd, kunt u beginnen met de stappen in de sectie [Een DNS-server opgeven](#dns).
+Als u al beschikt over een VNet, controleert u of de instellingen compatibel zijn met het ontwerp van de VPN-gateway. Let vooral op eventuele subnetten die met andere netwerken overlappen. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed. Als het VNet met de juiste instellingen is geconfigureerd, kunt u beginnen met de stappen in de sectie [Een DNS-server opgeven](#dns).
 
 ### Een virtueel netwerk maken
 
@@ -123,7 +119,7 @@ Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](
 
 ## 6. Een lokale netwerkgateway maken
 
-De *lokale netwerkgateway* verwijst naar uw on-premises locatie. U geeft de lokale netwerkgateway een naam waarmee Azure naar de gateway kan verwijzen. 
+De *lokale netwerkgateway* verwijst naar uw on-premises locatie. Geef de lokale netwerkgateway een naam waarmee Azure naar de gateway kan verwijzen. 
 
 Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u deze toevoegt aan uw lokale site.
 
@@ -137,7 +133,7 @@ Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](
 
 ## 8. Een site-naar-site-VPN-verbinding maken
 
-Vervolgens maakt u de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het VPN-apparaat. Zorg dat u de waarden vervangt door die van uzelf. De gedeelde sleutel moet overeenkomen met de waarde die u hebt gebruikt voor de configuratie van uw VPN-apparaat. 
+Maak de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het VPN-apparaat. Zorg dat u de waarden vervangt door die van uzelf. De gedeelde sleutel moet overeenkomen met de waarde die u hebt gebruikt voor de configuratie van uw VPN-apparaat. 
 
 Controleer voordat u met deze sectie begint of de gateway van het virtuele netwerk en de lokale netwerkgateways zijn voltooid. Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u de verbinding maakt.
 
@@ -160,6 +156,6 @@ U kunt de VPN-verbinding controleren in de portal of met behulp van PowerShell.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Logische apps migreren naar preview-schemaversie 2015-08-01
@@ -51,6 +51,6 @@ De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een doc
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

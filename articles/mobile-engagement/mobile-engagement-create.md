@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/17/2016"  
+    ms.date="08/19/2016"  
     ms.author="piyushjo"/>
 
 
@@ -49,6 +49,7 @@ Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, ma
 [Aan de slag met Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (u kunt andere mobiele platforms selecteren boven aan de pagina).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

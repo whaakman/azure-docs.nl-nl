@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/26/2016"
     ms.author="rachelap"/>
 
 # Overzicht van Web Apps
@@ -52,7 +52,7 @@ Hier volgen enkele belangrijke functies van Azure App Service die van toepassing
 
 - **Visual Studio-integratie**: specifieke hulpprogramma's in Visual Studio stroomlijnen het maken en implementeren van apps en het opsporen van fouten.
 
-Bovendien kan een web-app gebruikmaken van functies die worden aangeboden door [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) (zoals CORS-ondersteuning) en [mobiele apps](../app-service-mobile/app-service-mobile-value-prop.md) (zoals pushmeldingen). Zie [Overzicht van Azure App Service](../app-service/app-service-value-prop-what-is.md) voor meer informatie over soorten apps in App Service.
+Bovendien kan een web-app gebruikmaken van functies die worden aangeboden door [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (zoals CORS-ondersteuning) en [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (zoals pushmeldingen). Zie [Overzicht van Azure App Service](../app-service/app-service-value-prop-what-is.md) voor meer informatie over soorten apps in App Service.
 
 Naast Web Apps in App Service biedt Azure nog andere services die kunnen worden gebruikt voor het hosten van websites en web-apps. Voor de meeste scenario's is Web Apps de beste keuze.  Voor microservice-architectuur kunt u wellicht [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) gebruiken. Hebt u meer controle nodig over de virtuele machines waarop uw code wordt uitgevoerd, dan kunt u [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) overwegen. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](choose-web-site-cloud-service-vm.md) voor meer informatie over hoe u moet kiezen tussen deze Azure-services.
 
@@ -64,6 +64,6 @@ Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Az
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

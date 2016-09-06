@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Aan de slag met SQL Server in Azure Virtual Machines | Microsoft Azure"
-    description="Verplaats de werkbelasting van uw on-premises SQL Server-database naar de cloud met Azure Virtual Machines. Ga snel aan de slag met vooraf geconfigureerde installatiekopieën voor virtuele SQL-machines"
+    pageTitle="Overzicht van SQL Server op virtuele machines in Azure | Microsoft Azure"
+    description="Meer informatie over het uitvoeren van volledige SQL Server-edities op virtuele machines in Azure. U vindt hier rechtstreekse koppelingen naar alle installatiekopieën voor virtuele machines met SQL Server en gerelateerde inhoud."
     services="virtual-machines-windows"
     documentationCenter=""
     authors="rothja"
@@ -14,13 +14,16 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="07/22/2016"
+    ms.date="08/29/2016"
     ms.author="jroth"/>
 
-# Aan de slag met SQL Server in Azure Virtual Machines
+# Overzicht van SQL Server op virtuele machines in Azure
 
-Dit onderwerp beschrijft uw opties voor het uitvoeren van SQL Server op virtuele machines in Azure, en biedt richtlijnen en bronnen om aan de slag te gaan.
+In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele machines in Azure. Ook vindt u hier [koppelingen naar portalinstallatiekopieën](#option-1-deploy-a-sql-vm-per-minute-licensing) en een overzicht van [algemene taken](#manage-your-sql-vm).
 
+>[AZURE.NOTE] Zie [Een virtuele machine met SQL Server inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) als u al bekend bent met SQL Server en alleen wilt zien hoe u een VM met SQL Server implementeert.
+
+## Overzicht
 Mogelijk bent u een databasebeheerder en wilt u uw on-premises SQL Server-werkbelasting naar de cloud verplaatsen. Of misschien bent u een ontwikkelaar en overweegt u de relationele-databasemogelijkheden van SQL Server te benutten in uw Azure-toepassing. Wat is het voordeel van het uitvoeren van uw SQL Server-werkbelasting op virtuele machines in Azure? De volgende overzichtsvideo beschrijft de voordelen en biedt een technisch overzicht.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
@@ -29,7 +32,7 @@ Mogelijk bent u een databasebeheerder en wilt u uw on-premises SQL Server-werkbe
 
 Voordat u begint, moet u eerst evalueren wat de voordelen zijn van het gebruik van SQL Server op virtuele machines in Azure.
 
-Als u andere werkbelastingen, zoals een bedrijfstoepassing, naar Azure verplaatst, is het handig ook alle afhankelijke SQL Server-databases naar Azure te verplaatsen. Dit zorgt voor betere prestaties. Maar het hosten van SQL Server op virtuele machines in Azure heeft nog meer voordelen. U hebt bijvoorbeeld automatisch toegang tot meerdere datacenters voor wereldwijde aanwezigheid en herstel na een noodgeval. Zie voor een volledige lijst met scenario's en voordelen de [productpagina van SQL Server op virtuele machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Als u andere werkbelastingen, zoals een bedrijfstoepassing, naar Azure verplaatst, is het handig om ook alle afhankelijke SQL Server-databases naar Azure te verplaatsen. Dit zorgt voor betere prestaties. Maar het hosten van SQL Server op virtuele machines in Azure heeft nog meer voordelen. U hebt bijvoorbeeld automatisch toegang tot meerdere datacenters voor wereldwijde aanwezigheid en herstel na een noodgeval. Zie voor een volledige lijst met scenario's en voordelen de [productpagina van SQL Server op virtuele machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [AZURE.NOTE] Wanneer u SQL Server op virtuele machines in Azure evalueert, bekijk dan ook de andere opslag- en SQL-opties in Azure, zoals [SQL Database](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en [SQL Server Stretch Database](../sql     -server-stretch-database/sql-server-stretch-database-overview.md). Zie [Een SQL Server-optie voor de cloud kiezen: Azure SQL (PaaS) Database of SQL Server op virtuele machines in Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) voor een gedetailleerde vergelijking.
 
@@ -77,7 +80,7 @@ Als u hoge beschikbaarheid nodig hebt, overweeg dan SQL Server-beschikbaarheidsg
 
 Raadpleeg voor andere overwegingen met betrekking tot hoge beschikbaarheid [Hoge beschikbaarheid en herstel na een noodgeval voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-### Een back-up van uw gegevens maken
+### Een back-up maken van uw gegevens
 Azure VM's kunnen gebruikmaken van [geautomatiseerde back-ups](virtual-machines-windows-sql-automated-backup.md), waarbij er regelmatig back-ups in Blob Storage worden gemaakt van uw database. U kunt deze techniek ook handmatig gebruiken. Zie [Azure Storage gebruiken voor back-up en herstel van SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md) voor meer informatie. Zie [Back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md) voor een overzicht van alle opties voor back-up en herstel.
 
 ### Updates automatiseren
@@ -93,6 +96,6 @@ Nog vragen? Bekijk eerst de [Veelgestelde vragen over SQL Server in Azure Virtua
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

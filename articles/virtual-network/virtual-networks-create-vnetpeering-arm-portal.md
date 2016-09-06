@@ -3,7 +3,7 @@
    description="Informatie over het maken van een virtueel netwerk met Azure Portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -132,6 +132,6 @@ Elke koppeling in VNet-peering heeft een aantal van de hierboven genoemde eigens
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

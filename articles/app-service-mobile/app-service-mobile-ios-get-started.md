@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/30/2016"
+    ms.date="08/17/2016"
     ms.author="krisragh"/>
 
 #Een iOS-app maken
@@ -24,13 +24,8 @@
 
 Deze zelfstudie laat zien hoe u [Azure Mobile Apps](app-service-mobile-value-prop.md), een back-endservice in de cloud, toevoegt aan een iOs-app. Eerst maakt u een nieuwe mobiele back-end. Vervolgens gebruiken we een eenvoudige iOS-app voor een _takenlijst_ voor het opslaan van gegevens in Azure.
 
-## Vereisten
+Voor het uitvoeren van deze zelfstudie hebt u een Mac en [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) nodig
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
-
-* Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
-* Een pc met [Visual Studio Community 2013] of hoger. 
-* Een Mac met Xcode 7.3 of hoger.
 
 ## Stap 1: een nieuwe back-end voor mobiele apps van Azure maken
 
@@ -54,6 +49,6 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

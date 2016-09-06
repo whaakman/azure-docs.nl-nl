@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="multiple"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="08/25/2016"
     ms.author="wesmc"/>
 
 
@@ -23,7 +23,7 @@
 
 Azure Notification Hubs bieden een gebruiksvriendelijke, uitgebreide pushinfrastructuur voor meerdere platforms waarmee u mobiele pushmeldingen vanaf elke back-end (in de cloud of lokaal) naar elk mobiel platform kunt versturen.
 
-Met Notification Hubs kunt u eenvoudig persoonlijke pushberichten naar meerdere platforms verzenden, waarbij de details van de verschillende platform notification systems (PNS) worden afgeleid. Met één API-aanroep kunt u afzonderlijke gebruikers of een publiek van miljoenen gebruikers op al hun apparaten bereiken.
+Met Notification Hubs kunt u eenvoudig persoonlijke pushmeldingen naar meerdere platformen verzenden, waarbij de details van de verschillende platform notification systems (PNS) worden afgeleid. Met één API-aanroep kunt u afzonderlijke gebruikers of een publiek van miljoenen gebruikers op al hun apparaten bereiken.
 
 U kunt Notification Hubs voor zowel bedrijfs- als consumentenscenario's gebruiken. Bijvoorbeeld:
 
@@ -39,7 +39,7 @@ U kunt Notification Hubs voor zowel bedrijfs- als consumentenscenario's gebruike
 
 Smartphones en tablets kunnen gebruikers 'waarschuwen' wanneer een gebeurtenis heeft plaatsgevonden. Deze meldingen kunnen vele vormen aannemen.
 
-In de Windows Store en Windows Phone-toepassingen kan de melding worden weergegeven in de vorm van een _pop-up_: er wordt een venster zonder modus weergegeven met een geluid om de gebruiker ervan op de hoogte stellen dat er een nieuwe melding is. Andere ondersteunde typen meldingen zijn _tegelmeldingen_, _onbewerkte meldingen_ en _badgemeldingen_. Zie [Tegels, badges en meldingen](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx) voor meer informatie over de verschillende typen meldingen die worden ondersteund op Windows-apparaten 
+In de Windows Store en Windows Phone-toepassingen kan de melding worden weergegeven in de vorm van een _pop-up_: er wordt een venster zonder modus weergegeven met een geluid om de gebruiker ervan op de hoogte stellen dat er een nieuwe melding is. Andere ondersteunde typen meldingen zijn _tegelmeldingen_, _onbewerkte meldingen_ en _badgemeldingen_. Zie [Tegels, badges en meldingen](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx) voor meer informatie over de verschillende typen meldingen die worden ondersteund op Windows-apparaten.
 
 Op iOS-apparaten van Apple waarschuwt de pushbewerking de gebruiker op dezelfde manier via een venster waarin de gebruiker wordt gevraagd om de melding te bekijken of te sluiten. Als de gebruiker op **Bekijken** klikt, wordt de app geopend waarin het bericht is ontvangen. Zie [iOS-meldingen](http://go.microsoft.com/fwlink/?LinkId=615245) voor meer informatie over iOS-meldingen.
 
@@ -53,7 +53,7 @@ Specifieke voorbeelden van scenario’s voor mobiele betrokkenheid:
 
 ##Hoe werken pushmeldingen?
 
-Pushmeldingen worden geleverd via een platformspecifieke infrastructuur, het zogenaamde _Platform Notification System_ (PNS). Een PNS biedt zogenaamde barebonefuncties (dat wil zeggen, er is geen ondersteuning voor uitzending en persoonlijke instellingen) die geen gemeenschappelijke interface hebben. Als een ontwikkelaar bijvoorbeeld een melding wil verzenden naar een Windows Store-app, moet deze contact opnemen met de WNS (Windows Notification Service). Als de ontwikkelaar een melding wil verzenden naar een iOS-apparaat, moet deze contact opnemen met APNs (Apple Push Notification Service) en het bericht nogmaals versturen. Azure Notification hubs bieden een algemene interface plus andere functies die ondersteuning bieden voor pushmeldingen op elk platform.
+Pushmeldingen worden geleverd via een platformspecifieke infrastructuur, het zogenaamde _Platform Notification System_ (PNS). Een PNS biedt zogenaamde barebonefuncties (dat wil zeggen, er is geen ondersteuning voor uitzending en persoonlijke instellingen) die geen gemeenschappelijke interface hebben. Voor het verzenden van een melding naar een Windows Store-app bijvoorbeeld moet een ontwikkelaar verbinding maken met de WNS (Windows Notification Service). Voor het verzenden van een melding naar een iOS-apparaat moet dezelfde ontwikkelaar verbinding maken met APNS (Apple Push Notification Service) en het bericht nogmaals verzenden. Azure Notification hubs bieden een algemene interface plus andere functies die ondersteuning bieden voor pushmeldingen op elk platform.
 
 Op hoog niveau volgen alle platformmeldingssystemen hetzelfde patroon:
 
@@ -75,7 +75,7 @@ Pushmeldingen zijn een van de meest aangevraagde functies in cloudservices voor 
 - **Schalen.** Bij het schalen van de infrastructuur komen twee aspecten om de hoek kijken:
     + Volgens de PNS-richtlijnen moeten de apparaattokens steeds worden vernieuwd zodra de app wordt gestart. Dit leidt tot een grote hoeveelheid verkeer (en databasetoegang) om de apparaattokens bijgewerkt te houden. Wanneer het aantal apparaten groeit (mogelijk tot miljoenen), zijn de kosten van het maken en bijwerken van deze infrastructuur aanzienlijk.
 
-    + De meeste PNS's bieden geen ondersteuning voor uitzending naar meerdere apparaten. Het gevolg: een uitzending naar miljoenen apparaten leidt tot miljoenen aanroepen naar de PNS. Het schalen van deze verzoeken is zeer lastig, omdat appontwikkelaars de totale latentie laag willen houden (bijvoorbeeld, als het laatste apparaat de melding niet ontvangt binnen 30 minuten nadat de melding is verzonden, wordt het hele doel van pushmeldingen voorbij geschoten).
+    + De meeste PNS's bieden geen ondersteuning voor uitzending naar meerdere apparaten. Het gevolg: een uitzending naar miljoenen apparaten leidt tot miljoenen aanroepen naar de PNS. Het schalen van deze aanvragen is zeer lastig, omdat app-ontwikkelaars de totale wachttijd laag willen houden. Als bijvoorbeeld het laatste apparaat de melding niet ontvangt binnen 30 minuten nadat de melding is verzonden, heeft het in veel gevallen geen zin meer om pushmeldingen te gebruiken.
 - **Routing.** Een PNS biedt een manier om een bericht naar een apparaat te verzenden. Meestal zijn appmeldingen echter bedoeld voor bepaalde gebruikers of belangengroepen (bijvoorbeeld alle medewerkers die aan een bepaald klantaccount zijn toegewezen). Dus om de meldingen naar de juiste apparaten te versturen, moet de back-end van de app een register bijhouden waarin belangengroepen zijn gekoppeld aan apparaattokens. Dit komt boven op de onderhoudskosten en de tijd om een app op de markt te brengen.
 
 ##Waarom werken met Notification Hubs?
@@ -116,23 +116,27 @@ Notification Hubs bieden een kant-en-klare pushmeldinginfrastructuur, die de vol
 - **Uitgebreide telemetrie**: beschikbaar in de portal en programmatisch.
 
 
-##Integratie met App Service - Mobiele apps
+##Integratie met App Service Mobile Apps
 
-Voor een naadloze werking van alle Azure-services biedt [App Service - Mobiele apps] ingebouwde ondersteuning voor pushmeldingen via Notification Hubs. Met [App Service - Mobiele apps] kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+Voor een naadloze werking van alle Azure-services biedt [App Service Mobile Apps] ingebouwde ondersteuning voor pushmeldingen via Notification Hubs. Met [App Service Mobile Apps] kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
 
 Mobiele apps van ontwikkelaars kunnen gebruikmaken van Notification Hubs in de volgende werkstroom:
 
 1. PNS-ingang van het apparaat ophalen
-2. Het apparaat en [sjablonen] registreren met Notification Hubs via de handige Client SDK API voor mobiele apps
+2. Het apparaat en [sjablonen] registreren met Notification Hubs via de handige Client SDK API voor Mobile Apps
     + Om beveiligingsreden worden alle tags op registraties door mobiele apps verwijderd. Gebruik Notification Hubs om vanuit de back-end rechtstreeks tags aan apparaten koppelen.
 3. Meldingen verzenden vanuit de back-end van uw app met Notification Hubs
 
 Hier zijn een aantal voordelen voor ontwikkelaars:
+
 - **Client SDK's voor mobiele apps.** Deze SDK's voor meerdere platforms bieden eenvoudige API's voor de registratie en het contact met de Notification Hub die automatisch aan de mobiele app is gekoppeld. Ontwikkelaars hoeven niet op zoek naar de aanmeldgegevens voor Notification Hubs of met een extra service te werken.
     + De SDK's coderen een apparaat automatisch met de geverifieerde gebruikers-id van de mobiele app om het verzenden van pushberichten mogelijk te maken.
     + De SDK's gebruiken de installatie-id van een mobiele app automatisch als GUID om te registreren bij Notification Hubs. Hierdoor hoeven ze niet meerdere service-GUID's meer bij te houden.
+    
 - **Installatiemodel.** Mobiele apps werken met het meest recente pushmodel van Notification Hubs. Hierdoor zijn alle pusheigenschappen beschikbaar die aan een apparaat zijn gekoppeld in een JSON-installatie, die aansluit op de Push Notification Services en eenvoudig te gebruiken is.
+
 - **Flexibiliteit.** Ontwikkelaars kunnen altijd beslissen om rechtstreeks met Notification Hubs te werken, zelfs na integratie.
+
 - **Geïntegreerde ervaring in [Azure Portal].** De pushfunctie in mobiele apps is zeer visueel en ontwikkelaars kunnen eenvoudig via mobiele apps met de bijbehorende Notification Hub werken.
 
 
@@ -166,13 +170,13 @@ De relevante .NET API-verwijzingen voor pushmeldingen vindt u hier:
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [App Service - Mobiele apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+  [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
   [sjablonen]: notification-hubs-templates.md
   [Azure Portal]: https://portal.azure.com
   [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

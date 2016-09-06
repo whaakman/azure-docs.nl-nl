@@ -13,12 +13,12 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/12/2016"
+    ms.date="08/22/2016"
     ms.author="marsma"/>
 
 # Overzicht van Batch-functies voor ontwikkelaars
 
-In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
+In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties en resources besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
 
 Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [Batch REST][batch_rest_api]-API-aanroepen uitgeeft of een van de [Batch SDK's](batch-technical-overview.md#batch-development-apis) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
 
@@ -40,13 +40,13 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 
 6. Bewaak de voortgang van de taak en haal de taakuitvoer op uit Azure Storage.
 
-In de volgende secties vindt u uitleg over elk van de resources die in de bovenstaande werkstroom zijn vermeld, evenals over vele andere functies van Batch die uw gedistribueerde rekenkundige scenario mogelijk maken.
+In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [AZURE.NOTE] U hebt een [Batch-account](batch-account-create-portal.md) nodig om de Batch-service te gebruiken. Bovendien gebruiken vrijwel alle oplossingen een [Azure-opslagaccount][azure_storage] om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
 
-## Onderdelen van de Batch-service
+## Batch-serviceresources
 
-Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en taken) zijn vereist zijn voor alle oplossingen die gebruikmaken van de Batch-service. Andere resources, zoals jobplanningen en toepassingspakketten, zijn nuttige, maar optionele functies.
+Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en taken) zijn vereist zijn voor alle oplossingen die gebruikmaken van de Batch-service. Andere resources, zoals taakplanningen en toepassingspakketten, zijn nuttige, maar optionele functies.
 
 - [Account](#account)
 - [Rekenknooppunt](#compute-node)
@@ -67,7 +67,7 @@ Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en ta
 
 ## Account
 
-Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. Alle verwerkingen zijn gekoppeld aan een Batch-account. Wanneer u met de Batch-service bewerkingen wilt uitvoeren, hebt u de accountnaam en een van de bijbehorende accountsleutels nodig. U kunt een [Azure Batch-account in de Azure Portal maken en beheren](batch-account-create-portal.md).
+Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. Alle verwerkingen zijn gekoppeld aan een Batch-account. Wanneer u met de Batch-service bewerkingen wilt uitvoeren, hebt u de accountnaam en een van de bijbehorende accountsleutels nodig. U kunt [een Azure Batch-account in de Azure Portal maken](batch-account-create-portal.md).
 
 ## Rekenknooppunt
 
@@ -87,7 +87,7 @@ Alle rekenknooppunten in Batch omvatten ook:
 
 Een pool is een verzameling knooppunten waarop uw toepassing wordt uitgevoerd. De pool kan door u handmatig worden gemaakt of automatisch door de Batch-service worden gemaakt wanneer u het werk opgeeft dat moet worden uitgevoerd. U kunt een pool maken en beheren die voldoet aan de resourcevereisten van uw toepassing. Een pool kan alleen worden gebruikt door de Batch-account waarin deze is gemaakt. Een Batch-account kan meer dan één pool hebben.
 
-Azure Batch-pools bouwen voort op het Azure-kernrekenplatform: Batch-pools bieden grootschalige toewijzing, installatie van toepassingen, gegevensdistributie en statuscontrole, evenals flexibele aanpassing van het aantal rekenknooppunten binnen een pool ([vergroten/verkleinen](#scaling-compute-resources)).
+Azure Batch-groepen worden gebouwd boven op het kernrekenplatform van Azure. Deze bieden grootschalige toewijzing, installatie van toepassingen, gegevensdistributie, statuscontrole en flexibele aanpassing van het aantal rekenknooppunten binnen een pool ([vergroten/verkleinen](#scaling-compute-resources)).
 
 Aan elk knooppunt dat aan een pool wordt toegevoegd, wordt een unieke naam en een uniek IP-adres toegewezen. Wanneer een knooppunt uit een pool wordt verwijderd, gaan alle wijzigingen in het besturingssysteem of de bestanden verloren. De naam en het IP-adres van het verwijderde knooppunt worden vrijgegeven voor toekomstig gebruik. Wanneer een knooppunt een pool verlaat, is de levensduur ervan beëindigd.
 
@@ -144,6 +144,14 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
 
     De optionele *begintaak* wordt in elk knooppunt uitgevoerd wanneer dat knooppunt aan de pool wordt toegevoegd en telkens wanneer dat knooppunt opnieuw wordt opgestart of er een nieuwe installatiekopie van wordt gemaakt. De begintaak is vooral handig voor de voorbereiding van rekenknooppunten voor het uitvoeren van taken, zoals het installeren van de toepassingen die door de taken worden uitgevoerd.
 
+- **Toepassingspakketten**
+
+    U kunt [toepassingspakketten](#application-packages) opgeven die moeten worden geïmplementeerd in de rekenknooppunten in de groep. Toepassingspakketten bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten die u voor een groep van toepassingen opgeeft, worden geïnstalleerd op elk knooppunt dat lid wordt van de groep, en elke keer dat er een knooppunt opnieuw wordt opgestart of er een installatiekopie wordt hersteld.
+
+- **Netwerkconfiguratie**
+
+    U kunt de id van een [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) van Azure opgeven waarin de rekenknooppunten van de groep moeten worden gemaakt. U kunt de vereisten voor het opgeven van een VNet voor uw groep vinden in [Een groep toevoegen aan een account][vnet] in de Batch REST API-referentie.
+
 > [AZURE.IMPORTANT] Alle Batch-accounts hebben een standaard**quotum** dat het aantal **kernen** (en dus rekenknooppunten) in een Batch-account beperkt. U vindt de standaardquota en instructies over het [verhogen van een quotum](batch-quota-limit.md#increase-a-quota) (zoals het maximum aantal kernen in uw Batch-account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Quota en limieten voor de Azure Batch-service). Rijzen er vragen zoals "Waarom kan mijn pool niet meer dan X knooppunten bevatten?", dan is dit quotum voor kernen mogelijk de oorzaak.
 
 ## Job
@@ -151,7 +159,9 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
 Een job is een verzameling taken. Deze beheert hoe de berekening door de taken op rekenknooppunten in een pool wordt uitgevoerd.
 
 - De job bepaalt de **pool** waarin het werk wordt uitgevoerd. U kunt voor elke job een nieuwe pool maken of één groep gebruiken voor een groot aantal jobs. U kunt een pool maken voor elke job die aan een jobplanning is gekoppeld, maar ook voor alle jobs die aan een jobplanning zijn gekoppeld.
+
 - U kunt desgewenst een **jobprioriteit** opgeven. Wanneer er een job wordt verzonden met een hogere prioriteit dan de jobs die momenteel worden uitgevoerd, worden de taken van de job met hogere prioriteit in de wachtrij ingevoegd vóór de taken van de jobs met lagere prioriteit. Taken met lagere prioriteit die al worden uitgevoerd, kunnen niet worden verschoven.
+
 - Met **beperkingen** voor jobs kunt u bepaalde limieten aan uw taken stellen:
 
     U kunt een **maximale kloktijd** instellen, zodat als de uitvoering van een job langer duurt dan de maximale kloktijd die is opgegeven, de job en alle bijbehorende taken worden beëindigd.
@@ -159,6 +169,10 @@ Een job is een verzameling taken. Deze beheert hoe de berekening door de taken o
     Batch kan dit detecteren en vervolgens de mislukte taken opnieuw uitvoeren. U kunt het **maximumaantal nieuwe pogingen voor een taak** opgegeven als beperking. U kunt er ook voor kiezen om *altijd* of *nooit* een poging te doen om een taak opnieuw uit te voeren. Wanneer u een taak opnieuw probeert uit te voeren, wordt deze weer in de wachtrij geplaatst om opnieuw te worden uitgevoerd.
 
 - De clienttoepassing kan taken toevoegen aan een taak, maar u kunt ook een [jobbeheertaak](#job-manager-task) opgeven. Een jobbeheertaak bevat de benodigde informatie om de vereiste taken voor een job te maken, waarbij de jobbeheertaak wordt uitgevoerd op een van de rekenknooppunten binnen de pool. De jobbeheertaak wordt specifiek door Batch verwerkt en wordt in de wachtrij geplaatst zodra de job is gemaakt en opnieuw opgestart als deze mislukt. Een jobbeheertaak is *vereist* voor jobs die door een [jobplanning](#scheduled-jobs) zijn gemaakt, omdat dit de enige manier is om de taken te definiëren voordat de job wordt geïnstantieerd.
+
+- Standaard blijven jobs in de actieve status wanneer alle taken binnen de job zijn voltooid. U kunt dit gedrag wijzigen zodat de job automatisch wordt beëindigd wanneer alle taken binnen de job zijn voltooid. Stel de eigenschap **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] in Batch .NET) van de job in op *terminatejob* om de job automatisch te beëindigen wanneer alle taken de status voltooid hebben.
+
+    Houd er rekening mee dat de Batch-service een job *zonder* taken ziet als een job waarvan alle taken zijn voltooid. Daarom wordt deze optie meestal gebruikt met een [Jobbeheertaak](#job-manager-task). Als u de automatische beëindiging van een job wilt gebruiken zonder jobbeheer, moet u eerst de eigenschap **onAllTasksComplete** van een nieuwe job instellen op *noaction*. Vervolgens stelt u de eigenschap in op *terminatejob* als u klaar bent met taken toevoegen aan de job.
 
 ### Jobprioriteit
 
@@ -194,6 +208,8 @@ Wanneer u een taak maakt, kunt u het volgende opgeven:
 
 - De **beperkingen** waaronder de taak moet worden uitgevoerd. Bijvoorbeeld de maximale duur dat de taak mag worden uitgevoerd, het maximumaantal keren dat een taak opnieuw moet worden uitgevoerd indien deze mislukt en de maximale duur dat bestanden in de werkmap van de taak behouden blijven.
 
+- **Toepassingspakketten** voor het implementeren in het rekenknooppunt waarop de taak staat gepland voor uitvoering. [Toepassingspakketten](#application-packages) bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten op taakniveau zijn met name nuttig in omgevingen met gedeelde groepen. Verschillende jobs worden uitgevoerd op één groep en de groep wordt niet verwijderd wanneer een job is voltooid. Als de job minder taken dan knooppunten in de groep heeft, kunnen toepassingspakketten van taken gegevensoverdracht minimaliseren omdat uw toepassing alleen wordt geïmplementeerd op de knooppunten die taken uitvoeren.
+
 Naast de taken die u definieert om een berekening op een knooppunt uit te voeren, stelt de Batch-service ook de volgende speciale taken beschikbaar:
 
 - [Begintaak](#start-task)
@@ -217,6 +233,8 @@ Deze kan echter ook referentiegegevens bevatten die worden gebruikt door alle ta
 Het is doorgaans wenselijk dat de Batch-service wacht tot de begintaak is voltooid voordat het knooppunt als gereed wordt beschouwd om er taken aan toe te wijzen, maar dit kunt u configureren.
 
 Als een begintaak op een rekenknooppunt mislukt, wordt de status van het knooppunt bijgewerkt om de fout aan te geven en zal het knooppunt niet beschikbaar zijn om taken toe te wijzen. Een begintaak kan mislukken als er een probleem optreedt bij het kopiëren van de bronbestanden van de begintaak uit de opslag, of als het proces dat door de opdrachtregel ervan wordt uitgevoerd een andere afsluitcode dan nul retourneert.
+
+Als u de starttaak voor een *bestaande* groep toevoegt of bijwerkt, moet u de rekenknooppunten voor de starttaak opnieuw toepassen op de knooppunten.
 
 ### Jobbeheertaak
 
@@ -269,7 +287,7 @@ Bekijk [Taakafhankelijkheden in Azure Batch](batch-task-dependencies.md) en het 
 
 Elke taak die in een Batch-opdracht wordt uitgevoerd, heeft toegang tot omgevingsvariabelen die zowel worden ingesteld door de Batch-service (servicegedefinieerd, zoals beschreven in de volgende tabel) als aangepaste variabelen die u voor uw taken kunt instellen. De toepassingen en scripts die door taken op rekenknooppunten worden uitgevoerd, hebben tijdens de uitvoering toegang tot deze omgevingsvariabelen.
 
-U kunt aangepaste omgevingsvariabelen instellen op het niveau van de taak of de job door voor deze entiteiten de eigenschap voor *omgevingsinstellingen* in te vullen. Zie bijvoorbeeld de bewerking [Add a task to a job](Een taak toevoegen aan een job)[rest_toevoegen_taak] (Batch REST-API) of de eigenschappen [CloudTask.EnvironmentSettings][net_cloudtask_env] en [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
+U kunt aangepaste omgevingsvariabelen instellen op het niveau van de taak of de job door voor deze entiteiten de eigenschap voor *omgevingsinstellingen* in te vullen. Zie bijvoorbeeld de bewerking [Add a task to a job][rest_toevoegen_taak] (Batch REST-API) of de eigenschappen [CloudTask.EnvironmentSettings][net_cloudtask_env] en [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
 
 Uw clienttoepassing of -service kan de omgevingsvariabelen, zowel door de service gedefinieerde als aangepaste, verkrijgen met behulp van de bewerking [Get information about a task (Informatie over een taak ophalen)][rest_get_task_info] (Batch REST) of via de eigenschap [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). Processen die op een rekenknooppunt worden uitgevoerd, kunnen ook toegang krijgen tot deze en andere omgevingsvariabelen in het knooppunt, bijvoorbeeld met behulp van de vertrouwde syntaxis van `%VARIABLE_NAME%` (Windows) of `$VARIABLE_NAME` (Linux).
 
@@ -316,11 +334,15 @@ De hoofdmap bevat de volgende mapstructuur:
 
 ## Toepassingspakketten
 
-Met de functie voor [toepassingspakketten](batch-application-packages.md) kunt u toepassingen in de rekenknooppunten in uw pools eenvoudig beheren en implementeren. Met toepassingspakketten kunt u eenvoudig meerdere versies uploaden en beheren van de toepassingen die door uw taken worden uitgevoerd, zoals binaire bestanden en ondersteuningsbestanden. Vervolgens kunt u automatisch een of meer van deze toepassingen implementeren in de rekenknooppunten in uw pool.
+Met de functie voor [toepassingspakketten](batch-application-packages.md) kunt u toepassingen in de rekenknooppunten in uw pools eenvoudig beheren en implementeren. U kunt eenvoudig meerdere versies van de toepassingen die door uw taken worden uitgevoerd uploaden en beheren, zoals de bijbehorende binaire bestanden en ondersteuningsbestanden. Vervolgens kunt u automatisch een of meer van deze toepassingen implementeren in de rekenknooppunten in uw pool.
 
-Batch regelt de samenwerking met Azure Storage op de achtergrond om uw toepassingspakketten veilig in rekenknooppunten op te slaan en te implementeren, zodat uw code en beheeroverhead kunnen worden vereenvoudigd.
+U kunt toepassingspakketten opgeven op het niveau van de groep en de taak. Wanneer u toepassingspakketten voor de groep opgeeft, wordt de toepassing geïmplementeerd in elk knooppunt van de groep. Wanneer u toepassingspakketten voor de taak opgeeft, wordt de toepassing alleen geïmplementeerd in knooppunten die ten minste één van de taken van de job moeten uitvoeren, net voordat de opdrachtregel van de taak wordt uitgevoerd.
+
+Batch regelt de samenwerking met Azure Storage om uw toepassingspakketten op te slaan en in rekenknooppunten te implementeren, zodat uw code en beheeroverhead kunnen worden vereenvoudigd.
 
 Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie over de functie voor toepassingspakketten.
+
+>[AZURE.NOTE] Als u toepassingspakketten van een groep toevoegt aan een *bestaande* groep, moeten de rekenknooppunten opnieuw worden opgestart zodat de toepassingspakketten in de knooppunten kunnen worden geïmplementeerd.
 
 ## Levensduur van pool en rekenknooppunt
 
@@ -359,6 +381,8 @@ Zie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-s
 Certificaten gebruikt u doorgaans bij het versleutelen of ontsleutelen van gevoelige gegevens voor taken, zoals de sleutel voor een [Azure-opslagaccount][azure_storage]. Ter ondersteuning hiervan installeert u certificaten op knooppunten. Versleutelde geheimen worden via opdrachtregelparameters doorgegeven aan taken of worden ingesloten in een van de taakresources. De geïnstalleerde certificaten kunnen dan worden gebruikt om ze te ontsleutelen.
 
 U gebruikt de bewerking[Certificaat toevoegen][rest_add_cert] (Batch REST) of de methode [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) om een certificaat aan een Batch-account toe te voegen. Daarna kunt u het certificaat aan een nieuwe of bestaande pool koppelen. Wanneer een certificaat aan een pool is gekoppeld, wordt het door de Batch-service in elk knooppunt in de pool geïnstalleerd. De Batch-service installeert de juiste certificaten wanneer het knooppunt wordt gestart, voordat er een taak wordt gestart (met inbegrip van begintaken en jobbeheertaken).
+
+Als u certificaten toevoegt aan een *bestaande* groep, moeten de rekenknooppunten opnieuw worden opgestart zodat de certificaten op de knooppunten kunnen worden toegepast.
 
 ## Foutafhandeling
 
@@ -462,6 +486,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_job_env]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.commonenvironmentsettings.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
+[net_onalltaskscomplete]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.onalltaskscomplete.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 [net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
 [net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
@@ -470,6 +495,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 [net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
 [net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
+[vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
 [py_gebruiker_toevoegen]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
 
@@ -495,6 +521,6 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure Media Services gebruiken met Java" 
+    pageTitle="Aan de slag met het leveren van inhoud op aanvraag met Java | Microsoft Azure" 
     description="Hierin wordt beschreven hoe u Azure Media Services gebruikt om algemene taken uit te voeren, inclusief codering, versleutelen en het streamen van resources." 
     services="media-services" 
     documentationCenter="java" 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/11/2016"   
+    ms.date="08/17/2016"   
     ms.author="robmcm"/>
 
-#Media Services gebruiken met Java
+# Aan de slag met het leveren van inhoud op aanvraag met Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met
 
 ##Procedure: Media Services gebruiken met Java
 
-De volgende code toont u hoe u een asset maakt, een mediabestand naar de asset uploadt, een taak uitvoert met de taak om de asset te transformeren en een locator maakt om uw video te streamen.
+De volgende code geeft aan hoe u een asset maakt, een mediabestand naar de asset uploadt, een taak uitvoert met de opdracht om de asset te transformeren en een locator maakt om uw video te streamen.
 
 U moet een Media Services-account instellen voordat u deze code kunt gebruiken. Zie [Een Media Services-account maken](media-services-create-account.md) voor meer informatie over het instellen van een account.
 
-Vervang uw waarden voor de variabelen `clientId` en `clientSecret`. De code maakt ook gebruik van een lokaal opgeslagen bestand. U moet zelf het bestand aanleveren dat moet worden gebruikt.
+Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt ook gebruik van een lokaal opgeslagen bestand. U moet zelf het bestand aanleveren dat moet worden gebruikt.
     
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -278,6 +278,6 @@ Zie [Azure-bibliotheken voor Java-documentatie][] voor Javadoc-documentatie voor
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

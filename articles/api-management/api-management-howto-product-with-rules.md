@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Uw API beveiligen met frequentielimieten met behulp van Azure API Management
@@ -238,7 +238,6 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 
 ## <a name="next-steps"> </a>Volgende stappen
 
--   Bekijk de andere onderwerpen in de zelfstudie [Aan de slag met geavanceerde API-configuratie][].
 -   Bekijk een demo voor het instellen van frequentielimieten en quota in de volgende video.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -289,13 +288,12 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 [Het product publiceren]: #publish-product
 [Een ontwikkelaarsaccount abonneren op het product]: #subscribe-account
 [Een bewerking aanroepen en de frequentielimiet testen]: #test-rate-limit
-[Aan de slag met geavanceerde API-configuratie]: api-management-get-started-advanced.md
 
 [Aanroepfrequentie beperken]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Gebruiksquotum instellen]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -73,45 +73,11 @@ Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen
 
 6.  Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
-## Een Service Bus-naamruimte maken
+## Een naamruimte maken
 
-De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt gegenereerd door het systeem als een servicenaamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
+De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
-### De naamruimte instellen via de klassieke Azure-portal
-
-1.  Meld u aan bij de [klassieke Azure-portal][].
-
-2.  Klik in het linkernavigatievenster van de portal op **Service Bus**.
-
-3.  Klik in het onderste deelvenster van de portal op **Maken**.
-
-    ![][6]
-
-4.  Voer op de pagina **Een nieuwe naamruimte toevoegen** een naamruimtenaam in. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-
-    ![][7]
-
-5.  Nadat u hebt gecontroleerd of de naam voor de naamruimte beschikbaar is, kiest u het land of de regio waarin uw naamruimte moet worden gehost. Zorg er daarbij voor dat u hetzelfde land of dezelfde regio gebruikt waarin u uw rekenresources implementeert. Zorg er ook voor dat u **Berichten** selecteert in het naamruimteveld **Type** en **Standaard** in het veld **Berichtenlaag**.
-
-    > [AZURE.IMPORTANT] Kies **dezelfde regio** die u van plan bent te kiezen voor het implementeren van uw toepassing. Dat geeft de beste prestaties.
-
-6.  Klik op het vinkje OK. Uw servicenaamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
-
-7.  Klik op de naam van de servicenaamruimte in het hoofdvenster.
-
-8. Klik op **Verbindingsgegevens**.
-
-9.  Zoek in het deelvenster **Toegang tot verbindingsgegevens** de verbindingsreeks die de SAS-sleutel en de naam van de sleutel bevat.
-
-    ![][35]
-
-10.  Noteer deze referenties of kopieer ze naar het klembord.
-
-11. Klik op dezelfde portalpagina op het tabblad **Configureren** boven aan de pagina.
-
-12. Kopieer de primaire sleutel voor het beleid **RootManageSharedAccessKey** naar het klembord of plak deze in Kladblok. U gebruikt deze waarde verderop in deze zelfstudie.
-
-    ![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Een webrol maken
 
@@ -272,7 +238,7 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
 
 2.  Geef de klasse de naam **QueueConnector.cs**. Klik op **Toevoegen** om de klasse te maken.
 
-3.  Voeg nu code toe waarin de verbindingsgegevens zijn opgenomen en waarmee de verbinding met een Service Bus-wachtrij wordt geïnitialiseerd. Vervang de volledige inhoud van QueueConnector.cs door de volgende code en voer waarden in voor `your Service Bus namespace` (uw naamruimtenaam) en `yourKey`. Dit is de **primaire sleutel** die u eerder van de [klassieke Azure-portal][] hebt gekregen in stap 12 van het gedeelte 'Een Service Bus-naamruimte maken'.
+3.  Voeg nu code toe waarin de verbindingsgegevens zijn opgenomen en waarmee de verbinding met een Service Bus-wachtrij wordt geïnitialiseerd. Vervang de volledige inhoud van QueueConnector.cs door de volgende code en voer waarden in voor `your Service Bus namespace` (de naam van uw naamruimte) en `yourKey`. Dit is de **primaire sleutel** die u eerder van Azure Portal hebt gekregen.
 
     ```
     using System;
@@ -473,9 +439,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [klassieke Azure-portal]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -493,8 +456,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
@@ -503,6 +464,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
   
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

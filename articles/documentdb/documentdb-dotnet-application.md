@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="08/11/2016" 
+    ms.date="08/25/2016" 
     ms.author="anhoh"/>
 
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
@@ -546,7 +546,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
     ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/image24.png)
 
-    Als u Visual Studio 2013 gebruikt en het foutbericht ‘Kan niet afwachten in de hoofdcode van een catch-component’ verschijnt,  moet u het [Microsoft.Net.Compilers NuGet-pakket](https://www.nuget.org/packages/Microsoft.Net.Compilers/) installeren. U kunt de code ook vergelijken met het voorbeeldproject op [GitHub][]. 
+    Als u Visual Studio 2013 gebruikt en het foutbericht 'Kan niet afwachten in de hoofdcode van een catch-component' verschijnt, moet u het [Microsoft.Net.Compilers NuGet-pakket](https://www.nuget.org/packages/Microsoft.Net.Compilers/) installeren. U kunt de code ook vergelijken met het voorbeeldproject op [GitHub][]. 
 
 2. Klik op de koppeling **Nieuw maken** en voeg waarden toe aan de velden **Naam** en **Beschrijving**. Schakel het selectievakje **Voltooid** niet in, anders wordt het nieuwe **Item** toegevoegd met een onvoltooide status en wordt het niet weergegeven in de aanvankelijke lijst.
 
@@ -594,6 +594,6 @@ Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschik
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

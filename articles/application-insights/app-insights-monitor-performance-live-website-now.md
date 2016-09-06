@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="08/24/2016"
     ms.author="awills"/>
 
 
@@ -162,7 +162,7 @@ Als u gebruik wilt maken van Status Monitor, moet u [een aantal uitgaande poorte
   * Open Diagnostic Search (de tegel Search) om afzonderlijke gebeurtenissen te bekijken. Gebeurtenissen zijn vaak zichtbaar in Diagnostic Search voordat er cumulatieve gegevens in de grafieken worden weergegeven.
   * Open Status Monitor en selecteer in het linkerdeelvenster uw toepassing. Controleer in het gedeelte Configuration notifications of er diagnostische meldingen zijn voor de toepassing:
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Open de blade Performance om aanvragen, reactietijden, afhankelijkheden en andere gegevens te bekijken](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Controleer of de firewall van uw server uitgaand verkeer op de hierboven vermelde poorten toestaat.
   * Als u op de server een bericht over 'insufficient permissions' (onvoldoende machtigingen) ziet, probeert u het volgende:
@@ -302,6 +302,6 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -38,7 +38,6 @@ Het webplatforminstallatieprogramma biedt drie configuraties voor Service Fabric
 - [Installeer de Service Fabric-runtime, -SDK en de hulpprogramma's voor Visual Studio "15" Preview][full-bundle-dev15]
 - [Installeer alle de Service Fabric-runtime en -SDK (geen hulpprogramma's voor Visual Studio tools)][core-sdk]
 
-
 ## Uitvoering van PowerShell-script inschakelen
 
 Service Fabric gebruikt Windows PowerShell-scripts om een lokaal ontwikkelcluster te maken en om toepassingen vanuit Visual Studio te implementeren. Standaard worden deze scripts door Windows geblokkeerd zodat ze niet worden uitgevoerd. Als u ze wilt inschakelen, moet u het PowerShell-uitvoeringsbeleid wijzigen. Open PowerShell als een beheerder en voer de volgende opdracht in:
@@ -66,6 +65,6 @@ Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoer
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

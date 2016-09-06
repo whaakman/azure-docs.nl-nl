@@ -13,15 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016" 
+    ms.date="08/30/2016" 
     ms.author="juliako"/>
 
 
 #Live streamen met on-premises coderingsprogramma's via Azure Portal
 
 Deze zelfstudie bevat de stappen voor het maken van een **kanaal** via Azure Portal dat is geconfigureerd voor een doorvoerlevering. 
-
-Azure Media Services in Azure Portal is momenteel als preview-versie beschikbaar.   
 
 
 ##Vereisten
@@ -177,6 +175,6 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

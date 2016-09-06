@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/25/2016"
     ms.author="tarcher"/>
 
 # Een lab maken in Azure DevTest Labs
@@ -46,6 +46,8 @@ Als u een lab wilt maken, hebt u de volgende zaken nodig:
 
     ![Een labblade maken](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Volgende stappen
 
 Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren:
@@ -61,6 +63,6 @@ Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren
 - [Een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

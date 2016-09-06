@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/07/2016"
+    ms.date="08/29/2016"
     ms.author="cynthn"/>
 
 # Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
@@ -37,7 +37,7 @@ Als voorbeeld gebruiken we een installatiekopie voor Windows Server 2012 R2 Data
     ![Schermafbeelding van de installatiekopieën voor virtuele machines in Azure die in de portal beschikbaar zijn](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. Controleer op de pagina **Windows Server 2012 R2 Datacenter** onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik op **Create**.
+3. Controleer op de blade **Windows Server 2012 R2 Datacenter** onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik op **Create**.
 
     ![Schermafbeelding van het implementatiemodel dat voor de virtuele machine moet worden geselecteerd](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -49,25 +49,25 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u voor het grootste deel van
 
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de virtuele machine. 
 
-    Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
+    Het wachtwoord moet tussen 8 en 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
 3. Selecteer een bestaande [Resourcegroep](../resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. Typ een Azure-datacenter**locatie**, zoals **VS - west**. 
 
 4. Wanneer u klaar bent, klikt u op **OK** om door te gaan naar de volgende sectie. 
 
-    ![Schermafbeelding met de instellingen op de blade Grondbeginselen voor het configureren van een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
+    ![Schermafbeelding met de instellingen op de blade **Grondbeginselen** voor het configureren van een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
     
 5. Kies een [grootte](virtual-machines-windows-sizes.md) voor de virtuele machine en klik vervolgens op **Selecteren** om door te gaan. 
 
     ![Schermafbeelding van de blade Grootte, waarop de groottes worden getoond die u kunt selecteren voor een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-6. Op de blade **Instellingen** kunt u de opslag- en netwerkopties wijzigen. Voor uw eerste virtuele machine kunt u over het algemeen de standaardinstellingen accepteren. Als u voor uw virtuele machine een grootte hebt geselecteerd die hierdoor wordt ondersteund, kunt u Premium Storage uitproberen. Selecteer hiervoor onder **Schijftype** de optie **Premium SSD**. Wanneer u alle wijzigingen hebt aangebracht, klikt u op **OK**.
+6. Op de blade **Instellingen** kunt u de opslag- en netwerkopties wijzigen. Accepteer voor deze zelfstudie de standaardinstellingen. Als u voor uw virtuele machine een grootte hebt geselecteerd die hierdoor wordt ondersteund, kunt u Premium Storage uitproberen. Selecteer hiervoor onder **Schijftype** de optie **Premium SSD**. Wanneer u alle wijzigingen hebt aangebracht, klikt u op **OK**.
 
     ![Schermafbeelding van de blade Instellingen, waarop u optionele functies voor uw virtuele machine in Azure kunt configureren](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
-7. Klik op **Samenvatting** om uw keuzes te bekijken. Wanneer u klaar bent, klikt u op **OK**.
+7. Klik op **Samenvatting** om uw keuzes te bekijken. Als u het bericht **Validatie geslaagd** ziet, klikt u op **OK**.
 
     ![Schermafbeelding van de pagina Samenvatting, met de gekozen configuratie voor de virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
@@ -101,6 +101,75 @@ Als u problemen ondervindt wanneer u verbinding probeert te maken, raadpleegt u 
 
 U kunt de virtuele machine nu net zo gebruiken als elke andere server.
 
+## IIS installeren op de virtuele machine
+
+Nu u bent aangemeld bij de virtuele machine gaan we een serverfunctie installeren zodat u meer kunt experimenteren.
+
+1. Open **Serverbeheer** als dit nog niet is geopend. Klik op het menu **Start** en klik vervolgens op **Serverbeheer**.
+2. Selecteer in **Serverbeheer** de optie **Lokale server** in het linkerdeelvenster. 
+3. Selecteer in het menu **Beheren** > **Functies en onderdelen toevoegen**.
+4. Kies in de Wizard Functies en onderdelen toevoegen op de pagina **Installatietype** de optie **Installatie die op de functie of het onderdeel is gebaseerd** en klik vervolgens op **Volgende**.
+
+    ![Schermafbeelding van het tabblad Wizard Functies en onderdelen toevoegen voor Installatietype.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
+
+5. Selecteer de virtuele machine in de serverpool en klik op **Volgende**.
+6. Selecteer op de pagina **Serverfuncties** de optie **Webserver (IIS)**.
+
+    ![Schermafbeelding van het tabblad Wizard Functies en onderdelen toevoegen voor Serverfuncties.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
+
+7. Controleer of in het pop-upvenster over het toevoegen van functies die nodig zijn voor IIS dat **Beheerprogramma's opnemen (indien van toepassing)** is geselecteerd en klik vervolgens op **Onderdelen toevoegen**. Als het pop-upvenster wordt gesloten, klikt u in de wizard op **Volgende**.
+
+    ![Schermafbeelding met pop-upvenster voor het bevestigen van het toevoegen van de IIS-rol.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
+
+8. Klik op de pagina met onderdelen op **Volgende**.
+9. Klik op de pagina **Webserverfunctie (IIS)** op **Volgende**. 
+10. Klik op de pagina **Functieservices** op **Volgende**. 
+11. Klik op de pagina **Bevestiging** op **Installeren**. 
+12. Klik nadat de installatie is voltooid op **Sluiten** in de wizard.
+
+
+
+## Poort 80 openen 
+
+Als u wilt dat uw virtuele machine binnenkomend verkeer accepteert via poort 80, moet u een regel voor binnenkomend verkeer toevoegen aan de netwerkbeveiligingsgroep. 
+
+1. Open de [Azure Portal](https://portal.azure.com).
+2. Selecteer onder **Virtuele machines** de virtuele machine die u hebt gemaakt.
+3. Selecteer onder de instellingen voor virtuele machines **Netwerkinterfaces** en selecteer vervolgens de bestaande netwerkinterface.
+
+    ![Schermafbeelding met de instelling van de virtuele machine voor de netwerkinterfaces.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
+
+4. Klik in **Essentials** voor de netwerkinterface op de **netwerkbeveiligingsgroep**.
+
+    ![Schermafbeelding met de sectie Essentials voor de netwerkinterface.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
+
+5. Op de blade **Essentials** voor de netwerkbeveiligingsgroep moet u één bestaande regel voor binnenkomend verkeer hebben voor **default-allow-rdp** waarmee u zich kunt aanmelden bij de virtuele machine. U moet een andere regel voor binnenkomend verkeer toevoegen voor IIS-verkeer. Klik op **Binnenkomende beveiligingsregel**.
+
+    ![Schermafbeelding met de sectie Essentials voor de netwerkbeveiligingsgroep.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
+
+6. Klik in **Binnenkomende beveiligingsregels** op **Toevoegen**.
+
+    ![Schermafbeelding met de knop voor het toevoegen van een beveiligingsregel.](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
+
+7. Klik in **Binnenkomende beveiligingsregels** op **Toevoegen**. Type **80** in het poortbereik en zorg ervoor dat **Toestaan** is geselecteerd. Klik als u klaar bent op **OK**.
+
+    ![Schermafbeelding met de knop voor het toevoegen van een beveiligingsregel.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
+ 
+Zie [Externe toegang tot de virtuele machine toestaan met behulp van de Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md) voor meer informatie over netwerkbeveiligingsgroepen en regels voor binnenkomend en uitgaand verkeer.
+ 
+## Verbinding maken met de standaardwebsite van IIS
+
+1. Klik in de Azure Portal op **Virtuele machines** en selecteer de virtuele machine.
+2. Kopieer op de blade **Essentials** uw **Openbare IP-adres**.
+
+    ![Schermafbeelding die toont hoe u het openbare IP-adres van de virtuele machine kunt vinden.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
+
+2. Open een browser en typ uw openbare IP-adres als volgt in de adresbalk: http://<publicIPaddress> en klik op **Enter** om naar dat adres te gaan.
+3. Uw browser moet naar de standaardwebpagina van IIS gaan. De pagina ziet er ongeveer als volgt uit:
+
+    ![Schermafbeelding van de standaardpagina van IIS in een browser.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
+
+
 ## De virtuele machine stoppen
 
 Het is een goed idee om de virtuele machine te stoppen als u deze niet gebruikt. Zo voorkomt u dat de kosten oplopen. U stopt de virtuele machine door op de knop **Stoppen** te klikken en vervolgens op **Ja**.
@@ -116,8 +185,10 @@ Als u de virtuele machine opnieuw wilt opstarten of weer in gebruik wilt nemen, 
 
 * U kunt ook [een virtuele Windows-machine maken met behulp van Powershell](virtual-machines-windows-ps-create.md) of [ een virtuele Linux-machine maken](virtual-machines-linux-quick-create-cli.md) met behulp van de Azure CLI.
 
+* Bekijk het artikel [Een virtuele Windows-machine maken met behulp van een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md) als u belangstelling hebt voor het automatiseren van implementaties.
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

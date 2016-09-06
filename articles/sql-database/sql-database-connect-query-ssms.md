@@ -2,7 +2,7 @@
     pageTitle="Verbinding maken met SQL Database: SQL Server Management Studio | Microsoft Azure"
     description="Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp van SQL Server Management Studio (SSMS). Voer een voorbeeldquery uit met Transact-SQL (T-SQL)."
     metaCanonical=""
-    keywords="connect to sql database,sql server management studio"
+    keywords="verbinding maken met SQL-database,Sql Server Management Studio"
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
 # Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld T-SQL-query uitvoeren
@@ -25,26 +25,23 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Dit artikel laat zien hoe u verbinding maakt met een Azure SQL Database met behulp van de meest recente versie van SQL Server Management Studio (SSMS) en hoe u een eenvoudige query uitvoert met (T-SQL) Transact-SQL-instructies.
-
-[AZURE.INCLUDE [Sign in](../../includes/azure-getting-started-portal-login.md)]
+In dit artikel wordt beschreven hoe u verbinding maakt met een SQL-database in Azure met behulp van SQL Server Management Studio (SSMS). Nadat de verbinding tot stand is gebracht, voeren we een eenvoudige T-SQL-query (Transact-SQL) uit om te controleren of de communicatie met de database goed verloopt.
 
 [AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Zie voor meer informatie over firewallregels [de uitleg bij Firewall-instellingen configureren (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
-## Voorbeeldquery‘s uitvoeren
+## Voorbeeldquery's uitvoeren
 
-Nadat u verbinding hebt gemaakt met uw logische server, kunt u verbinding maken met een database en een voorbeeldquery uitvoeren. 
+Nadat u verbinding hebt gemaakt met uw server, kunt u verbinding maken met een database en een voorbeeldquery uitvoeren. Zie [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) (Transact-SQL-instructies opstellen) als u niet bekend bent met het opstellen van query's.
 
-1. Navigeer in **Object Explorer** naar een database op de server waarvoor u gemachtigd bent, zoals de **AdventureWorks**-voorbeelddatabase.
-2. Klik met de rechtermuisknop op de database en selecteer **Nieuwe query**.
+1. Navigeer in **Objectverkenner** naar een database op de server, zoals de **AdventureWorks**-voorbeelddatabase.
+2. Klik met de rechtermuisknop op de database en selecteer vervolgens **Nieuwe query**:
 
     ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. Kopieer en plak de volgende code in het queryvenster.
+3. Kopieer en plak de volgende code in het queryvenster:
 
         SELECT
         CustomerId
@@ -54,7 +51,7 @@ Nadat u verbinding hebt gemaakt met uw logische server, kunt u verbinding maken 
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Klik op de knop **Uitvoeren**.  In het volgende screenshot staat een voorbeeld van een geslaagde query.
+4. Klik op de knop **Uitvoeren**:
 
     ![Geslaagd. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -66,8 +63,10 @@ Als u geen ervaring hebt met T-SQL, raadpleegt u de [Zelfstudie: Transact-SQL-in
 
 Om aan de slag te gaan met het maken van databasegebruikers en databasegebruikersbeheerders raadpleegt u [Aan de slag met Azure SQL Database-beveiliging](sql-database-get-started-security.md)
 
+Zie [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio gebruiken) voor meer informatie over SSMS.
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO5-->
 
 

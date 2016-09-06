@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Uw eerste API beheren in Azure API Management
@@ -186,7 +186,7 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 ## <a name="next-steps"> </a>Volgende stappen
 
--   Bekijk de andere onderwerpen in de zelfstudie [Aan de slag met geavanceerde API-configuratie][].
+- Meer informatie over [Uw API beveiligen met frequentielimieten](api-management-howto-product-with-rules.md).
 
 [Gratis proefversie van Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 [Meldingen en e-mailsjablonen configureren in Azure API Management]: api-management-howto-configure-notifications.md
 [Antwoorden]: api-management-howto-add-operations.md#responses
 [Een product maken en publiceren]: api-management-howto-add-products.md
-[Aan de slag met geavanceerde API-configuratie]: api-management-get-started-advanced.md
 [API Management-prijzen]: http://azure.microsoft.com/pricing/details/api-management/
 
 [klassieke Azure-portal]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

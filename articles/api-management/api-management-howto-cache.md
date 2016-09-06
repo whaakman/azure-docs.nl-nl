@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
@@ -129,7 +129,6 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 
 ## <a name="next-steps"> </a>Volgende stappen
 
--   Bekijk de andere onderwerpen in de zelfstudie [Aan de slag met geavanceerde API-configuratie][].
 -   Zie [Cachebeleidsregels][] in [Naslaginformatie over beleid voor API Management][] voor meer informatie over cachebeleidsregels.
 -   Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 
@@ -151,7 +150,6 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 [API's toevoegen aan een product]: api-management-howto-add-products.md#add-apis
 [Een product publiceren]: api-management-howto-add-products.md#publish-product
 [Aan de slag met Azure API Management]: api-management-get-started.md
-[Aan de slag met geavanceerde API-configuratie]: api-management-get-started-advanced.md
 
 [Naslaginformatie over beleid voor API Management]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Cachebeleidsregels]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -165,6 +163,6 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

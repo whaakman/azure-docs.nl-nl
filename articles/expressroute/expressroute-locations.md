@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Partners en peeringlocaties voor ExpressRoute
@@ -76,7 +76,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Ondersteund | Ondersteund | Osaka, Tokio |
 | **[InterCloud]( https://www.intercloud.com/)** | Ondersteund | Ondersteund | Amsterdam, Londen, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Ondersteund | Ondersteund | Amsterdam, Londen |
-| **Interxion** | Ondersteund | Ondersteund | Amsterdam, Londen, Parijs |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)**  | Ondersteund | Ondersteund | Amsterdam, Londen, Parijs |
 | **Jisc** | Binnenkort beschikbaar | Binnenkort beschikbaar | Londen+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Ondersteund | Ondersteund | Amsterdam, Chicago, Dallas, Las Vegas+, Londen, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Ondersteund | Ondersteund | Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
@@ -89,7 +89,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Softbank** | Ondersteund | Ondersteund | Osaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Ondersteund | Ondersteund | Amsterdam, Chennai, Hongkong, Londen, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Ondersteund | Ondersteund | Amsterdam, Londen |
-| **Telefonica** | Binnenkort beschikbaar | Binnenkort beschikbaar | Sao Paulo+ |
+| **Telefonica** | Ondersteund | Binnenkort beschikbaar | Sao Paulo |
 | **Telenor** | Ondersteund | Ondersteund | Amsterdam, Londen |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Ondersteund | Binnenkort beschikbaar | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Ondersteund | Ondersteund | Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
@@ -133,7 +133,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 
     - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
     - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-    - [InterXion](http://www.interxion.com/)
+    - [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
     - [Cologix](http://www.cologix.com/)
@@ -173,6 +173,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -1,6 +1,6 @@
 ## Een Event Hub maken
 
-1. Meld u aan bij de [klassieke Azure-portal][] en klik op **NIEUW** onder aan het scherm.
+1. Meld u aan bij de [Klassieke Azure-portal][] en klik onder aan het scherm op **NIEUW**.
 
 2. Klik op **App Services**, vervolgens op **Service Bus**, vervolgens op **Event Hub** en vervolgens op **Snelle invoer**.
 
@@ -25,7 +25,9 @@ Uw Event Hub is nu gemaakt en u hebt de verbindingsreeksen die u nodig hebt om g
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[Klassieke Azure-portal]: https://manage.windowsazure.com/
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

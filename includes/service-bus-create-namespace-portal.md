@@ -1,55 +1,45 @@
-1. Meld u aan bij de klassieke Azure-portal.
+1. Meld u aan bij [Azure Portal][].
 
-2. Klik in het linkernavigatievenster van de portal op **Service Bus**.
+2. Klik in het linker navigatiedeelvenster van de portal achtereenvolgens op **Nieuw**, **Enterprise Integration** en **Service Bus**.
 
-3. Klik in het onderste deelvenster van de portal op **Maken**.
+4. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 
-    ![Selecteer Maken][select-create]
-   
-4. Voer in het dialoogvenster **Een nieuwe naamruimte toevoegen** een naamruimtenaam in. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+5. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic, Standard of Premium).
 
-    ![Naam van naamruimte][namespace-name]
-  
-5. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u het land of regio waarin uw naamruimte moet worden gehost.
+7. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
 
-6. Laat de standaardwaarden van de andere velden in het dialoogvenster ongewijzigd (**Berichten**- en **Standard**-laag) en klik vervolgens op het vinkje voor OK. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
+9. Kies in het veld **Resourcegroep** een bestaande resourcegroep waarin de naamruimte zal zijn opgenomen of maak een nieuwe resourcegroep.      
+
+8. Kies in **Locatie** het land of regio waarin uw naamruimte moet worden gehost.
+
+    ![Een naamruimte maken][create-namespace]
+
+6. Klik op de knop **Maken**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
  
-    ![Is gemaakt][created-successfully]
+### De beheerreferenties ophalen
 
-###De referenties ophalen
-1. Klik in het linkernavigatievenster op het knooppunt **Service Bus** om de lijst met beschikbare naamruimten weer te geven:
+1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
  
-    ![Service Bus selecteren][select-service-bus]
-  
-2. Selecteer de naamruimte die u zojuist hebt gemaakt in de lijst die wordt weergegeven:
- 
-    ![Naamruimte selecteren][select-namespace]
- 
-3. Klik op **Verbindingsgegevens**.
+3. Klik in de blade **Service Bus-naamruimte** op **Beleid voor gedeelde toegang**.
 
-    ![Verbindingsgegevens][connection-information]
-  
-4. Zoek in het deelvenster **Toegang tot verbindingsgegevens** de verbindingsreeks die de SAS-sleutel en de naam van de sleutel bevat.
+4. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
 
-    ![Toegang tot verbindingsgegevens][access-connection-information]
-  
-5. Noteer de sleutel of kopieer de sleutel naar het Klembord.
+    ![verbinding-gegevens][connection-info]
+
+5. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik.
+
+    ![verbinding-reeks][connection-string]
 
 <!--Image references-->
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
-
+[maken-naamruimte]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[verbinding-gegevens]: ./media/service-bus-create-namespace-portal/connection-info.png
+[verbinding-reeks]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

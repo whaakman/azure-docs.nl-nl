@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Uw eerste Azure-functie maken
+#Uw eerste Azure-functie maken
 
 ##Overzicht
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand-ervaring die het bestaande Azure-toepassingsplatform uitbreidt met mogelijkheden voor het implementeren van code die wordt geactiveerd door gebeurtenissen in andere Azure-services, SaaS-producten en on-premises systemen. Met Azure Functions schalen uw toepassingen mee met uw behoeften en betaalt u alleen voor de resources die u gebruikt. U kunt Azure Functions gebruiken om geplande of geactiveerde code-eenheden te implementeren in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
@@ -70,6 +70,6 @@ Azure Functions maakt gebruik van het Azure App Service-platform voor kernfuncti
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

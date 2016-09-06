@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Beveiligingsbeleid instellen in Azure Security Center
@@ -26,7 +26,7 @@ Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests ander
 
 ## Beveiligingsbeleid instellen voor abonnementen
 
-U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Ga naar de Azure-portal en volg de onderstaande stappen om beveiligingsbeleid te configureren in Security Center:
+U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Ga naar de Azure-portal en volg de voorgaande stappen om beveiligingsbeleid te configureren in Security Center:
 
 1. Klik op de tegel **Beleid** op het dashboard van Security Center.
 
@@ -34,19 +34,25 @@ U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configur
 
     ![Beleid definiëren](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-3. De blade **Beveiligingsbeleid** voor dat abonnement wordt geopend met een reeks opties die vergelijkbaar zijn met de opties die hieronder worden weergegeven:
+3. De blade **Beveiligingsbeleid** voor dat abonnement wordt geopend met een reeks opties die vergelijkbaar zijn met de opties in het volgende scherm:
 
     ![Gegevensverzameling inschakelen](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. Zorg ervoor dat de optie **Gegevens van virtuele machines verzamelen** is ingesteld op **Aan**. Met deze optie worden er automatisch logboekgegevens verzameld voor bestaande en nieuwe resources. 
+    De volgende opties zijn beschikbaar op deze blade:
+    - **Preventiebeleid**: met deze optie kunt u beleidsregels per abonnement of resourcegroep configureren.  
+    - **E-mailmelding**: er wordt een e-mailbericht verzonden de eerste keer dat een waarschuwing plaatsvindt en alleen voor waarschuwingen met een hoge urgentie. E-mailvoorkeuren kunnen alleen worden geconfigureerd voor abonnementsbeleid. Lees [Contactgegevens voor beveiliging verstrekken in Azure Security Center](security-center-provide-security-contact-details.md) voor meer informatie over het configureren van e-mailmeldingen. 
+    - **Prijscategorie**: gebruik deze optie om een upgrade van de prijscategorie uit te voeren. Ga naar de pagina [Security Center](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tariefopties.
+
+    
+4.  Zorg ervoor dat de optie **Gegevens van virtuele machines verzamelen** is ingesteld op **Aan**. Met deze optie worden er automatisch logboekgegevens verzameld voor bestaande en nieuwe resources. 
 
     >[AZURE.NOTE] U kunt het beste gegevensverzameling inschakelen voor al uw abonnementen, omdat dit ervoor zorgt dat beveiligingsbewaking beschikbaar is voor alle bestaande en nieuwe VM's. Bij het inschakelen van gegevensverzameling wordt de bewakingsagent geïnstalleerd. Als u het verzamelen van gegevens nu niet vanaf deze locatie wilt inschakelen, kunt u dit later doen vanuit de weergaven voor de status en aanbevelingen. U kunt het verzamelen van gegevens ook alleen voor het abonnement of bepaalde VM's inschakelen. Zie [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center) voor meer informatie over de ondersteunde VM's.
 
-5. Als uw opslagaccount nog niet is geconfigureerd, wordt er mogelijk een waarschuwing weergegeven zoals in de onderstaande afbeelding als u **Beveiligingsbeleid** opent:
+5. Als uw opslagaccount nog niet is geconfigureerd, wordt mogelijk de onderstaande waarschuwing weergegeven wanneer u **Beveiligingsbeleid** opent:
 
     ![Opslagselectie](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. Als deze waarschuwing wordt weergegeven, klikt u op deze optie en selecteert u de regio (zie onderstaande afbeelding):
+6. Als deze waarschuwing wordt weergegeven, klikt u op deze optie en selecteert u de regio zoals in het volgende scherm:
 
     ![Opslagselectie](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
@@ -56,18 +62,18 @@ U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configur
 
     > [AZURE.NOTE] U kunt de gegevens van virtuele machines in verschillende regio's desgewenst samenvoegen in één centraal opslagaccount. Zie [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center) voor meer informatie.
 
-9. Klik in de blade **Beveiligingsbeleid** op **Aan** om de beveiligingsaanbevelingen in te schakelen die u wilt gebruiken voor dit abonnement. Klik op de optie **Preventiebeleid**. De blade **Beveiligingsbeleid** wordt geopend, zoals hieronder wordt weergegeven. 
+9. Klik in de blade **Beveiligingsbeleid** op **Aan** om de beveiligingsaanbevelingen in te schakelen die u wilt gebruiken voor dit abonnement. Klik op de optie **Preventiebeleid**. De blade **Beveiligingsbeleid** wordt geopend, zoals in het volgende scherm: 
 
     ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-ga.png)
 
-Gebruik de onderstaande tabel als referentie om te begrijpen wat elke optie doet:
+Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 
 | Beleid | Wanneer Status is ingesteld op Aan |
 |----- |-----|
-| Systeemupdates | Hiermee wordt dagelijks een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of WSUS, afhankelijk van welke service is geconfigureerd voor de betreffende virtuele machine en wordt aanbevolen dat de ontbrekende updates worden toegepast. Er wordt gecontroleerd op de nieuwste updates in Linux-systemen en hierbij wordt gebruikgemaakt van het door de distributie beschikbaar gestelde pakketbeheersysteem om te bepalen voor welke pakketten er updates beschikbaar zijn. Ook wordt bij virtuele [cloudservicesmachines](./cloud-services/cloud-services-how-to-configure.md) gecontroleerd of er beveiligingsupdates en essentiële updates zijn. |
+| Systeemupdates | Hiermee wordt dagelijks een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of WSUS, afhankelijk van welke service is geconfigureerd voor de betreffende virtuele machine, en wordt aanbevolen dat de ontbrekende updates worden toegepast. Er wordt gecontroleerd op de nieuwste updates in Linux-systemen en hierbij wordt gebruikgemaakt van het door de distributie beschikbaar gestelde pakketbeheersysteem om te bepalen voor welke pakketten er updates beschikbaar zijn. Ook wordt bij [virtuele Cloud Services-machines](./cloud-services/cloud-services-how-to-configure.md) gecontroleerd of er beveiligingsupdates en essentiële updates zijn. |
 | Beveiligingsproblemen van besturingssystemen | Hiermee worden dagelijks de besturingssysteemconfiguraties geanalyseerd die de virtuele machine kwetsbaarder kunnen maken voor aanvallen en worden er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen. Zie de [lijst met aanbevolen basislijnen](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor meer informatie over de specifieke configuraties die worden bewaakt. |
 | Eindpuntbeveiliging | Hiermee wordt aanbevolen dat voor alle virtuele machines in Windows eindpuntbeveiliging wordt ingericht om virussen, spyware en andere schadelijke software op te sporen en te verwijderen.|
-| Schijfversleuteling | Raadt aan om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. 
+| Schijfversleuteling | Hiermee wordt aanbevolen om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. 
 | Netwerkbeveiligingsgroepen | Raadt aan om [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) (NSG's) te configureren om binnenkomend en uitgaand verkeer naar virtuele machines met openbare eindpunten te beheren. NSG's die worden geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders is aangegeven. Behalve dat wordt gecontroleerd of een NSG is geconfigureerd, worden met deze optie ook de beveiligingsregels voor binnenkomend verkeer beoordeeld als er regels zijn die binnenkomend verkeer toestaan. |
 | Web Application Firewall | Hiermee wordt aanbevolen Web Application Firewall op virtuele machines in te richten wanneer [ILPIP](../virtual-network/virtual-networks-instance-level-public-ip.md) (Instance Level Public IP) wordt gebruikt en de gekoppelde NSG-regels voor binnenkomende beveiliging zijn geconfigureerd voor toegang tot poort 80/443. Er wordt gebruikgemaakt van Load Balanced IP (VIP) en de gekoppelde taakverdelings- en binnenkomende NAT-regels zijn geconfigureerd voor toegang tot poort 80/443 (zie [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md) (Azure Resource Manager-ondersteuning voor load balancer) voor meer informatie) |
 | Next Generation Firewall | Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor Next Generation Firewall wordt aanbevolen en biedt u de mogelijkheid een virtuele toepassing in te richten. |
@@ -94,7 +100,7 @@ Nadat u de resourcegroep hebt geselecteerd, wordt de blade **Beveiligingsbeleid*
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Gids voor de planning en werking van Azure Security Center): leer de ontwerpoverwegingen kennen en leer hiervoor te plannen voor de overstap naar Azure Security Center.
-- [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) (Beveiligingsstatus controleren in Azure Security Center): meer informatie over het controleren van de status van uw Azure-resources
 - [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
 - [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 - [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
@@ -102,6 +108,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

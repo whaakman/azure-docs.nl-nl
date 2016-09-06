@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Partners en peeringlocaties voor ExpressRoute
@@ -29,7 +29,7 @@ U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio 
 
 |**Geopolitieke regio**|**Azure-regio's**|**ExpressRoute-locaties**|
 |---|---|---|
-|**Noord-Amerika**|VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Noord-Amerika**|VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Zuid-Amerika**|Brazilië - zuid|Sao Paulo|
 |**Europa**|Noord-Europa, West-Europa|Amsterdam, Dublin, Londen, Newport(Wales)+, Parijs|
 |**Azië**|Oost-Azië, Zuidoost-Azië|Hongkong, Singapore|
@@ -76,7 +76,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Mumbai** | Tata Communications |
 | **Osaka** | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Parijs** | Interxion |
-| **Sao Paulo** | Equinix, Telefonica+ |
+| **Sao Paulo** | Equinix, Telefonica |
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
@@ -158,6 +158,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="mobile-baidu"
     ms.workload="mobile"
-    ms.date="05/05/2016"
+    ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
@@ -405,7 +405,7 @@ U kunt de ontvangst van meldingen in uw app snel testen door in de [Azure-portal
 
 Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook direct gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
 
-In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u uw clientapp test door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) (Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. Voor het verzenden van meldingen kunt u echter de volgende methoden gebruiken:
+In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u uw clientapp test door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. Voor het verzenden van meldingen kunt u echter de volgende methoden gebruiken:
 
 * **REST-interface**: u kunt meldingen op elk back-endplatform ondersteunen met de [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -505,6 +505,6 @@ U kunt vanaf het foutopsporingstabblad van de klassieke Azure-portal een testmel
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

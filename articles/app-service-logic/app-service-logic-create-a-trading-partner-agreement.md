@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Een handelspartnerovereenkomst maken   
@@ -81,6 +81,6 @@ Ga als volgt te werk om handelspartnerovereenkomsten te maken:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

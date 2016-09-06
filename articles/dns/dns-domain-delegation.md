@@ -47,6 +47,10 @@ Er zijn twee typen DNS-servers:
 - Een _gezaghebbende_ DNS-server host DNS-zones. Deze beantwoordt DNS-query's voor records in deze zones.
 - Een _recursieve_ DNS-server host geen DNS-zones. De server beantwoordt alle DNS-query's door gezaghebbende DNS-servers aan te roepen om de benodigde gegevens te verzamelen.
 
+>[AZURE.NOTE] Azure DNS biedt een gezaghebbende DNS-service.  Het biedt geen een recursieve DNS-service.
+
+> Cloudservices en virtuele machines in Azure worden automatisch geconfigureerd voor het gebruik van een recursieve DNS-service die afzonderlijk wordt geleverd als onderdeel van de infrastructuur van Azure.  Raadpleeg [Naamomzetting in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) voor meer informatie over het wijzigen van deze DNS-instellingen.
+
 DNS-clients op pc's of mobiele apparaten roepen een recursieve DNS-server om de DNS-query's uit te voeren die de clienttoepassingen nodig hebben.
 
 Wanneer een recursieve DNS-server een query voor een DNS-record zoals www.contoso.com ontvangt, moet eerst de naamserver worden gezocht die de zone voor het domein contoso.com host. Hiervoor wordt begonnen bij de basisnaamservers om de naamservers te zoeken die com-zone hosten. Vervolgens wordt er een query op de com-naamservers uitgevoerd om de naamservers te zoeken die de zone contoso.com hosten.  Tot slot wordt er op deze naamservers een query uitgevoerd om www.contoso.com te zoeken.  
@@ -204,6 +208,6 @@ U kunt controleren of alles juist is ingesteld door de SOA-record van de onderli
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

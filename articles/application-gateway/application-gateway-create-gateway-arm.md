@@ -26,7 +26,7 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -50,7 +50,7 @@ In dit artikel vindt u meer informatie over de stappen voor het maken, configure
 - **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel openbare IP-/VIP-adressen zijn.
 - **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
 - **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+- **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
 - **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. 
 
 
@@ -62,13 +62,7 @@ Het verschil tussen het gebruik van Azure Classic en Azure Resource Manager zit 
 Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om de toepassingsgatewayresource te maken.
 
 
-Dit zijn de stappen voor het maken van een toepassingsgateway:
-
-1. Maak een resourcegroep voor Resource Manager.
-2. Maak een virtueel netwerk, subnet en openbaar IP-adres voor de toepassingsgateway.
-3. Maak een configuratieobject voor de toepassingsgateway.
-4. Maak een toepassingsgatewayresource.
-
+Hieronder worden de stappen voor het maken van een toepassingsgateway beschreven.
 
 ## Een resourcegroep maken voor Resource Manager
 
@@ -138,7 +132,7 @@ U moet alle configuratie-items instellen voordat u de toepassingsgateway maakt. 
 
 ### Stap 1
 
-Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
+Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de groep met back-end-IP's. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -146,7 +140,7 @@ Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam gateway
 
 ### Stap 2
 
-Configureer de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. U vervangt de bovenstaande IP-adressen om uw eigen toepassings-IP-adreseindpunten toe te voegen.
+Configureer de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50. Deze IP-adressen zijn de IP-adressen die het netwerkverkeer ontvangen dat afkomstig is van het front-end-IP-eindpunt. U vervangt de bovenstaande IP-adressen met de IP-adreseindpunten van uw eigen toepassing.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -227,10 +221,6 @@ Haal DNS- en VIP-details van de toepassingsgateway op van de openbare IP-resourc
 
 Volg deze stappen als u een toepassingsgateway wilt verwijderen:
 
-1. Gebruik de cmdlet **Stop-AzureRmApplicationGateway** om de gateway te stoppen.
-2. Gebruik de cmdlet **Remove-AzureRmApplicationGateway** om de gateway te verwijderen.
-3. Gebruik de cmdlet **Get-AzureRmApplicationGateway** om te controleren of de gateway is verwijderd.
-
 ### Stap 1
 
 Haal het toepassingsgatewayobject op en koppel dit aan de variabele $getgw.
@@ -273,6 +263,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

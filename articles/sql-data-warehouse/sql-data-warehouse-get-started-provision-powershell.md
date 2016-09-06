@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL Data Warehouse maken met PowerShell
@@ -23,7 +23,7 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-In dit artikel wordt beschreven hoe u een SQL Data Warehouse met PowerShell maakt.
+In dit artikel wordt beschreven hoe u een SQL Data Warehouse maakt met PowerShell.
 
 ## Vereisten
 
@@ -34,7 +34,7 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 - **Resourcegroep**: gebruik dezelfde resourcegroep als uw Azure SQL-server of zie [een resourcegroep maken][].
 - **PowerShell-versie 1.0.3 of hoger**: u kunt uw versie controleren door **Get-Module - ListAvailable-Name Azure** uit te voeren.  De meest recente versie kan worden geïnstalleerd met het [Webplatforminstallatieprogramma voor Microsoft][].  Zie [Azure PowerShell installeren en configureren][] voor meer informatie over het installeren van de meest recente versie.
 
-> [AZURE.NOTE] Het maken van een nieuwe SQL Data Warehouse kan leiden tot een nieuwe factureerbare service.  Zie [Prijzen van SQL Data Warehouse][] voor meer informatie over prijzen.
+> [AZURE.NOTE] Het maken van een SQL Data Warehouse kan leiden tot een nieuwe factureerbare service.  Zie [Prijzen van SQL Data Warehouse][] voor meer informatie over prijzen.
 
 ## Een SQL Data Warehouse maken
 
@@ -51,22 +51,27 @@ Om aan de slag te gaan, hebt u het volgende nodig:
     Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
 
-4.  Maak database. In dit voorbeeld wordt een nieuwe database met de naam 'mynewsqldw' met servicedoelstellingsniveau 'DW400' gemaakt op een server met de naam 'sqldwserver1', die zich bevindt in de resourcegroep 'mywesteuroperesgp1'.
+4.  Maak database. In dit voorbeeld wordt een database met de naam mynewsqldw met servicedoelstellingsniveau DW400 gemaakt op een server met de naam sqldwserver1, die zich bevindt in de resourcegroep mywesteuroperesgp1.
 
     ```Powershell
-    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
     ```
 
-De vereiste parameters voor deze cmdlet zijn:
+De vereiste parameters zijn:
 
-- **RequestedServiceObjectiveName**: de hoeveelheid [DWU][] die u aanvraagt.  Ondersteunde waarden zijn: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 en DW6000.
+- **RequestedServiceObjectiveName**: de hoeveelheid [DWU][] die u aanvraagt.  De ondersteunde waarden zijn: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 en DW6000.
 - **DatabaseName**: de naam van de SQL Data Warehouse die u maakt.
 - **ServerName**: de naam van de server die u bij het maken gebruikt (moet V12 zijn).
 - **ResourceGroupName**: de resourcegroep die u gebruikt.  Gebruik Get-AzureResource om beschikbare resourcegroepen in uw abonnement te zoeken.
-- **Edition**: u moet Edition instellen op 'DataWarehouse' als u een SQL Data Warehouse wilt maken.
+- **Edition**: moet DataWarehouse zijn, als u een SQL Data Warehouse wilt maken.
 
-Zie [Create Database (Azure SQL Data Warehouse)][] voor meer informatie over de parameteropties.
-Zie [New-AzureRmSqlDatabase][] voor de naslaginformatie bij de opdracht.
+De optionele parameters zijn:
+
+- **CollationName**: de standaardsortering, indien niet opgegeven, is COLLATE SQL_Latin1_General_CP1_CI_AS.  De sortering kan niet worden gewijzigd voor een database.
+- **MaxSizeBytes**: de maximale grootte van een database is standaard 10 GB.
+
+
+Zie [New-AzureRmSqlDatabase][] en [Create Database (Azure SQL Data Warehouse)][] voor meer informatie over de parameteropties.
 
 ## Volgende stappen
 
@@ -104,6 +109,6 @@ Als u wilt weten hoe u SQL Data Warehouse programmatisch kunt beheren, lees dan 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

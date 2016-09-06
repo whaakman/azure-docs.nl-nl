@@ -123,6 +123,7 @@ Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 - Leer hoe u een [cluster maakt in Azure](service-fabric-cluster-creation-via-portal.md) of hoe u een [zelfstandig cluster maakt in Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Maak een service met het programmeermodel [Reliable Services](service-fabric-reliable-services-quick-start.md) of [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Leer hoe u uw services met de [front-end van een webservice](service-fabric-add-a-web-frontend.md) verbindt met internet.
+- Voer een [praktijkoefening](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) uit en maak een staatloze service, configureer de controle en statusrapporten en voer een toepassingsupgrade uit.
 
 <!-- Image References -->
 
@@ -140,6 +141,6 @@ Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

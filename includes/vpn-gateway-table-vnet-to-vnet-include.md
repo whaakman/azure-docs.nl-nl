@@ -7,12 +7,10 @@
 (+) geeft aan dat deze implementatiemethode alleen beschikbaar is voor VNET’s binnen hetzelfde abonnement.<br>
 (*) geeft gedeeltelijke ondersteuning aan.
 
-VNet-peering, momenteel in previewfase, is beschikbaar voor bepaalde implementatiemodellen en -configuraties. Zie het artikel [VNet peering](../articles/virtual-network/virtual-network-peering-overview.md) (VNet-peering) voor meer informatie.
 
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Een groep voor elastische database maken met C# | Microsoft Azure"
-    description="Gebruik C# databaseontwikkelingstechnieken om een schaalbare groep voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases."
+    pageTitle="Een pool voor elastische database maken met C# | Microsoft Azure"
+    description="Gebruik C# databaseontwikkelingstechnieken om een schaalbare pool voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
-# Een nieuwe groep voor elastische database maken met C&#x23;
+# Een nieuwe pool voor elastische database maken met C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure-portal](sql-database-elastic-pool-create-portal.md)
@@ -24,17 +24,17 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Meer informatie over het maken van een [elastische databasegroep](sql-database-elastic-pool.md) met C#;. 
+Meer informatie over het maken van een [elastische databasegroep](sql-database-elastic-pool.md) met C#.
 
 Raadpleeg voor algemene foutcodes [SQL-foutcodes voor SQL Database-clienttoepassingen: Databaseverbindingsfout en andere problemen](sql-database-develop-error-messages.md).
 
-In de onderstaande voorbeelden wordt de [SQL-databasebibliotheek voor .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) gebruikt, dus voordat u doorgaat dient u deze bibliotheek te installeren als deze nog niet is geïnstalleerd. U kunt deze bibliotheek installeren door de volgende opdracht in te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+In de voorbeelden wordt de [SQL-databasebibliotheek voor .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) gebruikt, dus als deze nog niet is geïnstalleerd, moet u dat eerst doen voordat u verdergaat. U kunt deze bibliotheek installeren door de volgende opdracht in te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Een nieuwe groep maken
+## Een groep maken
 
-Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instantie met waarden uit [Azure Active Directory](sql-database-client-id-keys.md). Maak een [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instantie en roep de [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-methode aan. De waarden voor eDTU per groep, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische groepen en elastische databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient)-instantie met waarden uit [Azure Active Directory](sql-database-client-id-keys.md). Maak een [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters)-instantie en roep de [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate)-methode aan. De waarden voor eDTU per groep, min. en max. DTU's worden beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -52,7 +52,7 @@ Maak een [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azur
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Een nieuwe database in een groep maken
+## Een database in een groep maken
 
 Maak een [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties)-instantie en stel de eigenschappen van de nieuwe database in. Roep vervolgens de CreateOrUpdate-methode aan met de resourcegroep, servernaam en nieuwe databasenaam.
 
@@ -76,20 +76,20 @@ Zie [Een database in een elastische groep plaatsen ](sql-database-elastic-pool-m
 
 ## Een voorbeeld: maak een groep met C&#x23;
 
-In dit voorbeeld worden een nieuwe Azure-resourcegroep, een nieuwe Azure SQL Server-instantie en een nieuwe elastische groep gemaakt. 
+In dit voorbeeld worden een Azure-resourcegroep, een Azure SQL-server en een elastische groep gemaakt. 
  
 
 Om dit voorbeeld uit te voeren, heeft u de volgende bibliotheken nodig. U kunt installeren door de volgende opdrachten uit te voeren in de [Package Manager Console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de vereiste client-id en bijbehorende waarden te verkrijgen, raadpleegt u [uw app registreren en de vereiste clientwaarden ophalen voor het verbinden van uw app met SQL Database](sql-database-client-id-keys.md). Gebruik de [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx)-cmdlet om de waarde van de abonnements-ID op te halen.
+Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de vereiste client-id en bijbehorende waarden te verkrijgen, maakt u een systeemeigen app aan de hand van het volgende artikel: [Uw app registreren en de vereiste clientwaarden ophalen om met uw app verbinding te maken met een SQL-database](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -241,8 +241,8 @@ Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de
 ## Volgende stappen
 
 - [Uw groep beheren](sql-database-elastic-pool-manage-csharp.md)
-- [Elastische taken maken](sql-database-elastic-jobs-overview.md): Met elastische taken kunt u de T-SQL-scripts uitvoeren op een willekeurig aantal databases in de groep.
-- [Uitschalen met Azure SQL Database](sql-database-elastic-scale-introduction.md): Gebruik elastische database-hulpmiddelen om uit te schalen.
+- [Elastische taken maken](sql-database-elastic-jobs-overview.md): met elastische taken kunt u T-SQL-scripts uitvoeren op een willekeurig aantal databases in de groep.
+- [Uitschalen met Azure SQL Database](sql-database-elastic-scale-introduction.md): gebruik elastische databasehulpprogramma's om uit te schalen.
 
 ## Aanvullende resources
 
@@ -251,6 +251,6 @@ Maak een console-app en vervang de inhoud van Program.cs met het volgende. Om de
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

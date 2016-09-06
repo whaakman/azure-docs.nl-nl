@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Lijst van connectoren
 
-Selecteer een pictogram voor informatie over hoe u snel gebruik kunt maken van deze connectoren voor het bouwen van werkstromen die deze services aanroepen.
+Selecteer een connector om te zien hoe u snel werkstromen kunt maken.
 
 ## Standaardconnectoren
 
@@ -46,17 +46,18 @@ Gebruik de EIP-connectoren om logische apps te maken voor B2B-scenario's met EAI
  
 |EIP-connectoren ||||
 |-----------|-----------|-----------|-----------|
-|[![API-pictogram][as2icon]<br/>**AS2</br>encode/decode**][as2doc]|[![API-pictogram][x12icon]<br/>**X12</br>encode/decode**][x12Doc]|[![API-pictogram][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API-pictogram][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|
-|[![API-pictogram][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API-pictogram][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc]|||
+|[![API-pictogram][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API-pictogram][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|[![API-pictogram][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API-pictogram][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc]|
+|[![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode]|[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode]|[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode]|[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode]|
+|[![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode]|[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connectors kunnen triggers zijn
-Meerdere connectors bieden triggers die aan uw app kunnen doorgeven dat er specifieke gebeurtenissen plaatsvinden. De FTP-connector heeft bijvoorbeeld de trigger OnUpdatedFile. U kunt een logische app, PowerApp of flow opbouwen die naar deze trigger luistert en actie onderneemt wanneer de trigger wordt geactiveerd.
+Meerdere connectors bieden triggers die aan uw app kunnen doorgeven dat er specifieke gebeurtenissen plaatsvinden. De FTP-connector heeft bijvoorbeeld de trigger OnUpdatedFile. U kunt een logische app, PowerApp of stroom maken die naar deze trigger luistert en actie onderneemt wanneer de trigger wordt geactiveerd.
 
 Er zijn twee soorten triggers:  
 
-* Poll-triggers: Met deze triggers wordt uw service met een opgegeven frequentie gepeild om te controleren of er nieuwe gegevens zijn. Als er nieuwe gegevens beschikbaar zijn, wordt een nieuw exemplaar van uw app uitgevoerd met de gegevens als invoer. Om te voorkomen dat dezelfde gegevens meerdere keren wordt gebruikt, kunnen gegevens worden opgeschoond die zijn gelezen en aan uw app zijn doorgegeven.
-* Push-triggers: Met deze triggers wordt geluisterd naar gegevens op een eindpunt of wordt geluisterd of een gebeurtenis plaatsvindt. Vervolgens wordt een nieuw exemplaar van uw app geactiveerd. De twitter-connector is hier een voorbeeld van.
+* Poll-triggers: Met deze triggers wordt uw service met een opgegeven frequentie gepeild om te controleren of er nieuwe gegevens zijn. Als er nieuwe gegevens beschikbaar zijn, wordt een nieuw exemplaar van uw app uitgevoerd met de gegevens als invoer. Gegevens die zijn gelezen en zijn doorgegeven aan uw app kunnen door de trigger worden opgeschoond om te voorkomen dat dezelfde gegevens meerdere keren wordt gebruikt.
+* Push-triggers: met deze triggers wordt geluisterd naar gegevens op een eindpunt of wordt geluisterd of een gebeurtenis plaatsvindt en wordt vervolgens een nieuwe instantie van uw app geactiveerd. De Twitter-connector is hier een voorbeeld van.
 
 ### Connectors kunnen acties zijn
 Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig voor het opzoeken van gegevens die vervolgens in de uitvoering van uw app kunnen worden gebruikt. U kunt tijdens het afhandelen van een order bijvoorbeeld klantgegevens in een SQL-database opzoeken. Of u wilt gegevens in een doeltabel schrijven, bijwerken of verwijderen. U kunt dit doen met de acties die met behulp van de connectors worden opgegeven. Acties zijn toegewezen aan de bewerkingen die zijn gedefinieerd in de Swagger-metagegevens.
@@ -105,6 +106,12 @@ Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig 
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Meer informatie over Enterprise Integration met platte bestanden."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Meer informatie over Enterprise Integration met XML-validatie."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Meer informatie over Enterprise Integration-transformaties."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Meer informatie over AS2-decodering in Enterprise Integration"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Meer informatie over AS2-codering in Enterprise Integration"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Meer informatie over X12-decodering in Enterprise Integration"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Meer informatie over X12-codering in Enterprise Integration"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Meer informatie over EDIFACT-decodering in Enterprise Integration"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Meer informatie over EDIFACT-codering in Enterprise Integration"
 [httpdoc]: ./connectors-native-http.md "HTTP-connector voor HTTP-aanroepen."
 [http~requestdoc]: ./connectors-native-reqres.md "Aanvraag- en responsacties."
 [http~responsedoc]: ./connectors-native-reqres.md "Aanvraag- en responsacties."
@@ -185,6 +192,6 @@ Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

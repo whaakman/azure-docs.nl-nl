@@ -206,6 +206,8 @@ Gebruik daarbij de volgende parameters:
 
     ![Storage-account](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
+> [AZURE.NOTE] [Migratie van opslagaccounts](../resource-group-move-resources.md) in resourcegroepen binnen hetzelfde abonnement of tussen abonnementen wordt niet ondersteund voor opslagaccounts die worden gebruikt voor het implementeren van Site Recovery.
+
 ## Stap 5: De Azure Recovery Services-agent installeren
 
 Installeer de Azure Recovery Services-agent op elke Hyper-V-hostserver in de VMM-cloud.
@@ -267,6 +269,8 @@ Controleer voordat u met de netwerktoewijzing begint of de virtuele machines op 
 Nadat u de instellingen hebt opgeslagen, wordt een taak gestart om de voortgang van de toewijzing te volgen. U kunt deze taak controleren op het tabblad Taken. Alle bestaande gerepliceerde virtuele machines die bij het bron-VM-netwerk horen, worden verbonden met de doel-Azure-netwerken. Nieuwe virtuele machines die zijn verbonden met het bron-VM-netwerk, worden na de replicatie verbonden met het toegewezen Azure-netwerk. Als u een bestaande toewijzing wijzigt met een nieuw netwerk, worden gerepliceerde virtuele machines verbonden met de nieuwe instellingen.
 
 Als het doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde naam heeft als het subnet waarin de virtuele bronmachine zich bevindt, wordt de gerepliceerde virtuele machine na een failover verbonden met dat doelsubnet. Als er geen doelsubnet met een overeenkomende naam bestaat, wordt de virtuele machine verbonden met het eerste subnet in het netwerk.
+
+> [AZURE.NOTE] [Migratie van netwerken](../resource-group-move-resources.md) in resourcegroepen binnen hetzelfde abonnement of tussen abonnementen wordt niet ondersteund voor netwerken die worden gebruikt voor het implementeren van Site Recovery.
 
 ## Stap 8: Beveiliging voor virtuele machines inschakelen
 
@@ -332,14 +336,10 @@ Met een testfailover wordt uw failover- en herstelmechanisme in een geïsoleerd 
 
     ![Herstelplan maken](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Selecteer op de pagina **Virtuele machines selecteren** de virtuele machines die u aan het herstelplan wilt toevoegen. Deze virtuele machines worden toegevoegd aan de standaardgroep voor het herstelplan: groep 
-3. 
-4. 
-5. 1. Er zijn maximaal 100 virtuele machines in één herstelplan getest.
+2. Selecteer op de pagina **Virtuele machines selecteren** de virtuele machines die u aan het herstelplan wilt toevoegen. Deze virtuele machines worden toegevoegd aan de standaardgroep voor het herstelplan: groep 1. Er zijn maximaal 100 virtuele machines in één herstelplan getest.
 
-    - Als u de eigenschappen van de virtuele machines wilt controleren voordat u ze aan het plan toevoegt, klikt u op de virtuele machine op de eigenschappenpagina van de cloud waarin deze zich bevindt. U kunt de eigenschappen van virtuele machines ook configureren in de VMM-console.
-    - Alle virtuele machines die worden weergegeven, zijn voor beveiliging ingeschakeld. De lijst bevat zowel virtuele machines die zijn ingeschakeld voor beveiliging en waarvoor de eerste replicatie is voltooid, als virtuele machines die zijn ingeschakeld voor beveiliging en waarvoor de eerste replicatie in behandeling is. Alleen voor virtuele machines waarvoor de eerste replicatie is voltooid, kan een failover als onderdeel van een herstelplan worden uitgevoerd.
-
+- Als u de eigenschappen van de virtuele machines wilt controleren voordat u ze aan het plan toevoegt, klikt u op de virtuele machine op de eigenschappenpagina van de cloud waarin deze zich bevindt. U kunt de eigenschappen van virtuele machines ook configureren in de VMM-console.
+- Alle virtuele machines die worden weergegeven, zijn voor beveiliging ingeschakeld. De lijst bevat zowel virtuele machines die zijn ingeschakeld voor beveiliging en waarvoor de eerste replicatie is voltooid, als virtuele machines die zijn ingeschakeld voor beveiliging en waarvoor de eerste replicatie in behandeling is. Alleen voor virtuele machines waarvoor de eerste replicatie is voltooid, kan een failover als onderdeel van een herstelplan worden uitgevoerd.
 
     ![Herstelplan maken](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -385,6 +385,6 @@ Meer informatie over [herstelplannen maken](site-recovery-create-recovery-plans.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

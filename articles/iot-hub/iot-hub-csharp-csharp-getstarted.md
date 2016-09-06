@@ -60,7 +60,7 @@ In dit gedeelte gaat u een Windows-consoletoepassing maken die een nieuwe appara
 5. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de verbindingsreeks voor de IoT-hub die u hebt gemaakt in de vorige paragraaf.
 
         static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Voeg de volgende methode toe aan de klasse **Program**:
 
@@ -283,6 +283,7 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

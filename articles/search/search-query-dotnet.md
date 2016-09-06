@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="08/15/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
@@ -164,6 +164,6 @@ De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

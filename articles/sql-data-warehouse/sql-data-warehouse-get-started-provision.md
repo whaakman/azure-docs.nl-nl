@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Een Azure SQL Data Warehouse maken
@@ -60,6 +60,8 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 
     - **Bron selecteren**: klik op **Bron selecteren** > **Voorbeeld**. Azure vult de optie **Select sample** (Selecteer voorbeeld) automatisch in met AdventureWorksDW.
 
+> [AZURE.NOTE] De standaardsortering voor een SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. Als er een andere sortering vereist is, kan met [T-SQL][] een andere sortering voor de database worden gemaakt.
+
 4. Klik op **Maken** om uw SQL Data Warehouse te maken.
 
 5. Wacht enkele minuten. Wanneer uw datawarehouse klaar is, keert u terug naar de [Azure-portal](https://portal.azure.com). U vindt de SQL Data Warehouse op het dashboard onder de SQL-databases, of in de resourcegroep die u hebt gebruikt om deze te maken. 
@@ -88,7 +90,8 @@ Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][].
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [abonnement]: ../azure-glossary-cloud-terminology.md#subscription
 [resourcegroep]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -101,6 +104,6 @@ Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][].
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

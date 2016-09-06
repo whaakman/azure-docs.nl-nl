@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analyse voor iOS-apps"
+    pageTitle="Analytics voor iOS-apps | Microsoft Azure"
     description="Analyseer gebruik en prestaties van uw iOS-app."
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/20/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analyse voor iOS-apps
@@ -31,15 +31,21 @@ Ga naar:
 
 Als uw app een serverzijde heeft, gebruikt u [Application Insights](app-insights-overview.md) voor het bewaken van de webserverzijde van uw app op [ASP.NET](app-insights-asp-net.md) of [J2EE](app-insights-java-get-started.md). 
 
-> [AZURE.NOTE] Binnenkort kunt u [Application Insights Analytics](app-insights-analytics.md) en [Continue export](app-insights-export-telemetry.md) gebruiken met telemetrie die verzonden is vanuit de HockeyApp-SDK. 
->
-> [Meer informatie over deze wijziging.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## Analytics, exporteren en API-toegang tot HockeyApp-gegevens 
+
+[Een HockeyApp-brug instellen](app-insights-hockeyapp-bridge-app.md) in Application Insights. Hiermee kunt u:
+
+* De efficiënte [Analytics](app-insights-analytics.md)-querytaal gebruiken voor uw telemetrie. 
+* [Telemetrie exporteren](app-insights-export-telemetry.md) naar de Azure-blobopslag.
+
+## Volgende stappen
+
+* [Aan de slag met HockeyApp voor iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
 
 
 
 
-
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/20/2016" 
+    ms.date="08/31/2016" 
     ms.author="sethm"/>
 
 # Azure Service Bus
@@ -34,14 +34,13 @@ Binnen een naamruimte kunt u een of meer exemplaren van vier verschillende commu
 
 - *Wachtrijen*, waarmee communicatie in één richting mogelijk is. Elke wachtrij fungeert als intermediaire service (ook wel *broker* genoemd) die de verzonden berichten opslaat totdat ze worden ontvangen. Elk bericht wordt door één ontvanger ontvangen.
 - *Onderwerpen*, die communicatie in één richting bieden via *abonnementen*, waarbij een enkel onderwerp meerdere abonnementen kan hebben. Net zoals een wachtrij fungeert een onderwerp als broker, maar elk abonnement kan optioneel een filter gebruiken om alleen berichten te ontvangen die aan bepaalde criteria voldoen.
-- *Relays*, die bidirectionele communicatie bieden. In tegenstelling tot wachtrijen en onderwerpen, worden via een Relay berichten die onderweg zijn niet opgeslagen. Een Relay is geen broker. De berichten worden slechts doorgegeven aan de doeltoepassing.
-- *Event Hubs*, verwerkingsservices die zeer grote hoeveelheden gebeurtenissen en telemetriegegevens verzamelen in de cloud, met een lage latentie en een hoge betrouwbaarheid.
+- *Relays*, die bidirectionele communicatie bieden. In tegenstelling tot wachtrijen en onderwerpen, worden via een relay berichten die onderweg zijn niet opgeslagen. Een relay is geen broker. De berichten worden slechts doorgegeven aan de doeltoepassing.
 
-Wanneer u een wachtrij, onderwerp, Relay of Event Hub maakt, geeft u deze een naam. In combinatie met de naam van uw naamruimte wordt aan de hand van deze naam een unieke id voor het object gemaakt. Toepassingen kunnen deze naam verstrekken aan Service Bus en vervolgens de wachtrij, het onderwerp, de Relay of de Event Hub gebruiken om met elkaar te communiceren. 
+Wanneer u een wachtrij, onderwerp of relay maakt, geeft u deze een naam. In combinatie met de naam van uw naamruimte wordt aan de hand van deze naam een unieke id voor het object gemaakt. Toepassingen kunnen deze naam verstrekken aan Service Bus en vervolgens de wachtrij, het onderwerp of de relay gebruiken om met elkaar te communiceren. 
 
-Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Voor wachtrijen, onderwerpen en Event Hubs kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen, onderwerpen en Event Hubs met behulp van REST-API's via HTTP. 
+Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Voor wachtrijen en onderwerpen kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen en onderwerpen met behulp van REST-API's via HTTP(S). 
 
-Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een algemeen communicatiemechanisme in de cloud, dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
+Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een communicatiemechanisme in de cloud dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
 
 ## Wachtrijen
 
@@ -51,7 +50,7 @@ Stel dat u met twee toepassingen verbinding wilt maken via een Service Bus-wacht
  
 **Afbeelding 2: Service Bus-wachtrijen bieden asynchrone wachtrijservices in één richting.**
 
-Het proces is eenvoudig: een afzender verzendt een bericht naar een Service Bus-wachtrij en een ontvanger neemt het bericht op een later tijdstip in ontvangst. Een wachtrij kan slechts één ontvanger hebben, zoals in afbeelding 2 wordt weergegeven, of meerdere toepassingen kunnen berichten uit dezelfde wachtrij lezen. In het laatste geval wordt elk bericht gelezen door slechts één ontvanger. Voor een multicast-service is het beter om een onderwerp te gebruiken.
+Het proces is eenvoudig: een afzender verzendt een bericht naar een Service Bus-wachtrij en een ontvanger neemt het bericht op een later tijdstip in ontvangst. Een wachtrij kan slechts één ontvanger, hebben, zoals in afbeelding 2 wordt weergegeven. Of meerdere toepassingen kunnen vanuit de dezelfde wachtrij lezen. In het laatste geval wordt elk bericht door slechts één ontvanger gelezen. Voor een multicast-service is het echter beter om een onderwerp te gebruiken.
 
 Elk bericht bestaat uit twee delen: een reeks eigenschappen, voor elk bericht een sleutel-waardepaar, en een binaire berichttekst. Hoe deze worden gebruikt, hangt af van wat een toepassing probeert te doen. Een toepassing die een bericht verzendt over een recente verkoop, kan bijvoorbeeld de eigenschappen *Verkoper = Ava* en *Bedrag = 10000* bevatten. De berichttekst kan een gescande afbeelding van de ondertekende verkoopovereenkomst bevatten of, indien deze er niet is, leeg blijven.
 
@@ -103,13 +102,9 @@ In tegenstelling tot wachtrijen en onderwerpen, maken toepassingen Relays niet e
 
 Relays zijn de juiste oplossing wanneer rechtstreekse communicatie tussen toepassingen nodig is. Denk bijvoorbeeld aan een reserveringssysteem voor een luchtvaartmaatschappij dat wordt uitgevoerd in een on-premises datacenter en dat toegankelijk moet zijn via incheckbalies, mobiele apparaten en andere computers. Toepassingen die op al deze systemen worden uitgevoerd, zouden op Service Bus Relays in de cloud kunnen vertrouwen voor communicatie, waar ze ook worden uitgevoerd.
 
-## Event Hubs
-
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/) is een zeer schaalbaar systeem voor inkomende gegevens dat miljoenen gebeurtenissen per seconde kan verwerken. Uw toepassing kan hiermee de enorme hoeveelheden gegevens verwerken en analyseren die worden geproduceerd door uw verbonden apparaten en toepassingen. U kunt bijvoorbeeld een Event Hub gebruiken voor het verzamelen van live gegevens over motorprestaties van een wagenpark. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster. Zie [Overzicht van Event Hubs](../event-hubs/event-hubs-overview.md) voor meer informatie over Event Hubs.
-
 ## Samenvatting
 
-Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen van complete oplossingen. De verscheidenheid van scenario's waarin toepassingen en services met elkaar moeten communiceren, zal toenemen naarmate meer toepassingen en apparaten zijn verbonden met internet. Service Bus is erop gericht om deze essentiële functie gemakkelijker te implementeren en op grotere schaal beschikbaar te maken door cloudtechnologieën te leveren die deze communicatie mogelijk maken via wachtrijen, onderwerpen, Relays en Event Hubs.
+Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen van complete oplossingen. De verscheidenheid van scenario's waarin toepassingen en services met elkaar moeten communiceren, zal toenemen naarmate meer toepassingen en apparaten zijn verbonden met internet. Service Bus is erop gericht om deze essentiële functie gemakkelijker te implementeren en op grotere schaal beschikbaar te maken door cloudtechnologieën te leveren die deze communicatie mogelijk maken via wachtrijen, onderwerpen en relays.
 
 ## Volgende stappen
 
@@ -127,6 +122,6 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

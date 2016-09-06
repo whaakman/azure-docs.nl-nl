@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-In dit scenario maakt u gebruik van het opdrachtregelhulpprogramma sqlcmd om een query uit te voeren bij een Azure SQL Data Warehouse.  
-
-## Vereisten
-
-Voor deze zelfstudie hebt u het volgende nodig:
-
--  [sqlcmd.exe][]. Zie [Microsoft Command Line Utilities 11 voor SQL Server][] om dit opdrachtregelhulpprogramma te downloaden. Mogelijk is hiervoor ook [Microsoft ODBC-stuurprogramma 11 voor SQL Server Windows][] vereist.
+In dit scenario maakt u gebruik van het opdrachtregelhulpprogramma [sqlcmd][] om een query uit te voeren bij een Azure SQL Data Warehouse.  
 
 ## 1. Verbinding maken
 
-Open om te beginnen de opdrachtregel met sqlcmd en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingsreeks heeft de volgende parameters nodig:
+U gaat als volgt aan de slag met [sqlcmd][]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingstekenreeks moet de volgende parameters bevatten:
 
 + **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
 + **Database (-d):** databasenaam.
@@ -73,22 +67,20 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Volgende stappen
 
-Zie [sqlcmd-documentatie][sqlcmd.exe] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
+Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft ODBC-stuurprogramma 11 voor SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Microsoft Command Line Utilities 11 voor SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure-portal]: https://portal.azure.com
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
+[Azure Portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

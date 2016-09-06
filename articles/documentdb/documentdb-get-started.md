@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/16/2016"
+    ms.date="08/29/2016"
     ms.author="anhoh"/>
 
 # NoSQL-zelfstudie: een DocumentDB C#-consoletoepassing maken
@@ -100,10 +100,9 @@ Voeg nu deze twee constanten en de variabele *client* toe onder de openbare klas
 
 Ga vervolgens naar [Azure Portal](https://portal.azure.com) om uw URI en primaire sleutel op te halen. Uw toepassing heeft de DocumentDB-URI en de primaire sleutel nodig om te weten waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat DocumentDB de verbinding van uw toepassing vertrouwt.
 
-Navigeer in Azure Portal naar het DocumentDB-account dat u in stap 1 hebt gemaakt en klik daarna op **Keys**.
+Navigeer in Azure Portal naar uw DocumentDB-account en klik vervolgens op **Sleutels**.
 
-Kopieer de URI en vervang *<your endpoint URI>* door de gekopieerde URI in uw programma.
-Kopieer de primaire sleutel en vervang *<your key>* door de gekopieerde sleutel in uw programma.
+Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer in de portal vervolgens de PRIMAIRE SLEUTEL en plak deze in `<your key>`.
 
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Schermopname van Azure Portal waarin een DocumentDB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de DocumentDB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels.][keys]
 
@@ -199,7 +198,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -247,14 +246,14 @@ Kopieer de methode **CreateDocumentCollectionIfNotExists** en plak deze onder de
         }
     }
 
-Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de code voor het maken een database. Hiermee maakt u een documentverzameling met de naam *FamilyCollection*.
+Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de code voor het maken een database. Hiermee maakt u een documentverzameling met de naam *FamilyCollection_oa*.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -345,9 +344,9 @@ En voeg twee documenten in, één voor de Andersen Family en één voor de Wakef
 
 Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de code voor het verzamelen van documenten.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB");
+    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -376,7 +375,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de 
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -413,7 +412,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de 
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -463,10 +462,10 @@ Kopieer de methode **ExecuteSimpleQuery** en plak deze onder de methode **Create
 
 Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder het tweede codefragment voor het maken van een document.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -500,17 +499,17 @@ Kopieer de methode **ReplaceFamilyDocument** en plak deze onder de methode **Exe
 
 Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de queryuitvoering. Nadat het document is vervangen, wordt dezelfde query opnieuw uitgevoerd om het gewijzigde document weer te geven.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -538,12 +537,12 @@ Kopieer de methode **DeleteFamilyDocument** en plak deze onder de methode **Repl
 
 Kopieer de volgende code en plak deze in de methode **GetStartedDemo** onder de tweede queryuitvoering.
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -555,13 +554,13 @@ Als u de gemaakte database verwijdert, worden de database en alle onderliggende 
 
 Kopieer en plak de volgende code in de methode **GetStartedDemo** onder de code voor het verwijderen van het document om de volledige database en alle onderliggende resources te verwijderen.
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -573,9 +572,9 @@ Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bou
 
 U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de query's die zijn toegevoegd en moet overeenkomen met de onderstaande voorbeeldtekst.
 
-    Created FamilyDB
+    Created FamilyDB_oa
     Press any key to continue ...
-    Created FamilyCollection
+    Created FamilyCollection_oa
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -619,6 +618,6 @@ Als u de verwijzingen naar de DocumentDB .NET SDK in Visual Studio wilt herstell
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
