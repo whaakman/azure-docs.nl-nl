@@ -105,7 +105,7 @@ Zie [Introducing the Azure IoT Hub device management client library for C][Ink-l
 
 ## Volgende stappen
 
-U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit een aantal netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-apparaat-SDK's].
+U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit een aantal netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-apparaat-SDK‘s].
 
 Zie de zelfstudie [Get started with Azure IoT Hub device management][Ink-get-started] (Aan de slag met apparaatbeheer via Azure IoT Hub) om nog meer te leren over de functies voor apparaatbeheer via Azure IoT Hub.
 
@@ -124,6 +124,6 @@ Zie de zelfstudie [Get started with Azure IoT Hub device management][Ink-get-sta
 
 
 
-<!--HONumber=ago16_HO4-->
+<!---HONumber=ago16_HO4-->
 
 
