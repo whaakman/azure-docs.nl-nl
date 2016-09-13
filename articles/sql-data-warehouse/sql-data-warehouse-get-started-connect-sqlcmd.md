@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
 
@@ -32,9 +32,12 @@ U gaat als volgt aan de slag met [sqlcmd][]: open de opdrachtprompt en voer **sq
 
 + **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
 + **Database (-d):** databasenaam.
++ **Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.
+
+Als u gebruik wilt maken van SQL Server-verificatie, moet u de gebruikersnaam- en wachtwoordparameters toevoegen:
+
 + **Gebruiker (-U):** servergebruiker in de notatie `<`gebruiker`>`
 + **Wachtwoord (-P):** wachtwoord dat is gekoppeld aan de gebruiker.
-+ **ID's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.
 
 Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 
@@ -42,7 +45,17 @@ Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] De optie -I waarmee u id’s tussen aanhalingstekens kunt opgeven, is momenteel vereist om verbinding te maken met SQL Data Warehouse.
+Als u geïntegreerde verificatie van Azure Active Directory wilt gebruiken, moet u de Azure Active Directory-parameters toevoegen:
+
++ **Azure Active Directory Authentication (-G):** Azure Active Directory gebruiken voor verificatie
+
+Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] U moet [Azure Active Directory Authentication inschakelen](sql-data-warehouse-authentication.md) om te verifiëren met Active Directory.
 
 ## 2. Query’s uitvoeren
 
@@ -81,6 +94,6 @@ Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschi
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

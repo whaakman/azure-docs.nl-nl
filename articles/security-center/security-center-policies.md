@@ -26,7 +26,7 @@ Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests ander
 
 ## Beveiligingsbeleid instellen voor abonnementen
 
-U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Ga naar de Azure-portal en volg de voorgaande stappen om beveiligingsbeleid te configureren in Security Center:
+U kunt voor elk abonnement en elke resourcegroep een beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Ga naar de Azure Portal en volg de volgende stappen om beveiligingsbeleid te configureren in Security Center:
 
 1. Klik op de tegel **Beleid** op het dashboard van Security Center.
 
@@ -108,6 +108,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

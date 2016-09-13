@@ -25,9 +25,9 @@
 - [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
 
-In deze zelfstudie gebruikt u de Data Factory-wizard Kopiëren om een pijplijn te maken. Dit doet u middels een kopieeractiviteit in een gegevensfactory. U maakt eerst een gegevensfactory met Azure Portal en daarna gebruikt u de wizard Kopiëren om gekoppelde Data Factory-services, gegevenssets en een pijplijn te maken. Dit doet u met een kopieeractiviteit waarmee gegevens uit Azure Blob Storage naar een Azure SQL Database worden gekopieerd.
+In deze zelfstudie gebruikt u de Data Factory-wizard Kopiëren om een pijplijn te maken. Dit doet u middels een kopieeractiviteit in een gegevensfactory. Eerst maakt u een gegevensfactory met behulp van Azure Portal. Daarna gebruikt u de wizard Kopiëren om gekoppelde Data Factory-services, gegevenssets en een pijplijn te maken. Dit doet u met een kopieeractiviteit waarmee gegevens uit Azure Blob Storage naar een Azure SQL-database worden gekopieerd. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 
-> [AZURE.IMPORTANT] Lees het [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de vereiste stappen voordat u deze zelfstudie volgt.
+> [AZURE.IMPORTANT] Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de vereiste stappen voordat u deze zelfstudie volgt.
 
 ## Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
@@ -57,7 +57,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     > [AZURE.NOTE] De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.  
 
 9. Klik op de hub **MELDINGEN** aan de linkerzijde en zoek meldingen over het aanmaakproces. Klik op **X** om de blade **MELDINGEN** te sluiten als deze is geopend. 
-10. Wanneer het aanmaken is voltooid, ziet u de blade **GEGEVENSFACTORY** zoals hieronder wordt weergegeven.
+10. Wanneer het aanmaken is voltooid, ziet u de blade **GEGEVENSFACTORY** zoals op de volgende afbeelding wordt weergegeven.
 
     ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -102,11 +102,11 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 
     ![Hulpprogramma voor kopiëren - Tabeltoewijzing](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Op de pagina **Schematoewijzing** klikt u op **Volgende**.
-11. Lees de informatie op de pagina **Samenvatting** en klik op **Voltooien**. Hiermee maakt u twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory (van waaruit u de wizard Kopiëren hebt gestart). 
+11. Lees de informatie op de pagina **Samenvatting** en klik op **Voltooien**. De wizard maakt twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory (van waaruit u de wizard Kopiëren hebt gestart). 
 12. Op de pagina **Implementatie is voltooid** klikt u op **Klik hier om de kopieerpijplijn te bewaken**.
 
     ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u zojuist hebt gemaakt.
+13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u hebt gemaakt.
 
     ![App voor bewaking](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -121,6 +121,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

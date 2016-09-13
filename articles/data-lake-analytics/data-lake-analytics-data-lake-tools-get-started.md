@@ -282,6 +282,7 @@ Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's
 - [Aan de slag met Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Aan de slag met Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Aan de slag met Data Lake Analytics met .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Problemen met C#-code oplossen in SQL-taken](data-lake-analytics-debug-u-sql-jobs.md)
 
 Overige onderwerpen over ontwikkelen:
 
@@ -364,6 +365,6 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

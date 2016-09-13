@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/07/2016"
     ms.author="awills"/>
 
 # De beschikbaarheid en reactiesnelheid van een website bewaken
 
-Nadat u uw webapplicatie hebt geïmplementeerd in een host, kunt u web tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Visual Studio Application Insights](app-insights-overview.md) verzendt webaanvragen op regelmatige intervallen van punten over de hele wereld en kan waarschuwen als uw applicatie traag of niet reageert.
+Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Visual Studio Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
 ![Voorbeeld van een webtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ U kunt webtests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk z
 
 Er zijn twee soorten webtests:
 
-* [URL-pingtest](#set-up-a-url-ping-test): een eenvoudige test die u in de Azure Portal kunt instellen.
+* [URL-pingtest](#create): een eenvoudige test die u in de Azure Portal kunt instellen.
 * [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Ultimate of Visual Studio Enterprise maken en uploaden naar de portal.
 
 Per toepassingsresource kunt u maximaal 10 webtests maken.
 
+## <a name="create"></a>1. Een resource aanmaken voor uw testrapporten
 
-## Een URL-pingtest instellen
-
-### <a name="create"></a>1. Een nieuwe resource maken?
-
-Sla deze stap over als u voor deze toepassing al [een Application Insights-resource hebt ingesteld][start] en u de beschikbaarheidsgegevens op dezelfde plaats wilt weergeven.
+Sla deze stap over als u voor deze toepassing al [een Application Insights-resource hebt ingesteld][start] en u de beschikbaarheidsrapporten op dezelfde plaats wilt weergeven.
 
 Meld u aan bij [Microsoft Azure](http://azure.com), ga naar het [Azure-portal](https://portal.azure.com) en maak een Application Insights-resource.
 
 ![Nieuw > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Het blade Overzicht verschijnt voor de nieuwe resource. Als u de blade op een ander moment wilt openen, gaat u naar de [Azure Portal](https://portal.azure.com) en klikt u op **Bladeren**.
+Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
-### <a name="setup"></a>2. Een webtest maken
+## <a name="setup"></a>2. Een URL-pingtest aanmaken
 
 Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hierop om voor uw toepassing de blade Webtests te openen. Voeg vervolgens een webtest toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **De URL** moet vanaf het openbare internet zichtbaar zijn. De URL kan een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
-- **Afhankelijke aanvragen parseren**: afbeeldingen, scripts, stijlbestanden en andere resources van de pagina worden als onderdeel van de test aangevraagd. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test.
+- **Afhankelijke aanvragen parseren**: afbeeldingen, scripts, stijlbestanden en andere resources van de pagina worden als onderdeel van de test aangevraagd. De vastgelegde reactietijd omvat ook de tijden hiervoor. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test.
 - **Nieuwe pogingen inschakelen**: als de test mislukt, wordt deze na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. (Deze instelling wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.)
 - **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
 - **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
@@ -68,14 +65,14 @@ Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hiero
 
     U kunt een [webhook](../azure-portal/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
 
-#### Meer URL’s testen
+### Meer URL’s testen
 
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
 
-### <a name="monitor"></a>3. Beschikbaarheidsrapporten weergeven
+## <a name="monitor"></a>3. De testresultaten bekijken
 
-Klik op de blade Beschikbaarheid/webtests na 1-2 minuten op **Vernieuwen**. (Deze blade wordt niet automatisch vernieuwd.)
+Na 1-2 minuten worden de resultaten weergegeven in de 
 
 ![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Klik op een balk op de samenvattingschart voor een detailoverzicht van deze peri
 
 In deze grafieken staan de resultaten van alle webtests die voor deze toepassing zijn uitgevoerd.
 
-#### Onderdelen van uw webpagina
 
-Afbeeldingen, stijlmodellen, scripts en andere statische componenten van de webpagina die u test worden als onderdeel van de test gevraagd.  
-
-De vastgelegde reactietijd geeft aan hoelang het duurt voordat alle onderdelen zijn geladen.
-
-Als er een onderdeel niet wordt geladen, wordt de test gemarkeerd als mislukt.
-
-## <a name="failures"></a>Als u mislukte tests ziet...
+## <a name="failures"></a>Als u mislukte tests ziet
 
 Klik op een rode punt.
 
@@ -336,6 +326,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

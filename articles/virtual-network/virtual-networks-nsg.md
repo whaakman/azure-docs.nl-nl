@@ -42,8 +42,8 @@ NSG-regels bevatten de volgende eigenschappen.
 |**Protocol**|Te matchen protocol voor de regel|TCP, UDP of \*|Als u \* als protocol gebruikt, omvat dit zowel ICMP (alleen oost-west-verkeer), als UDP en TCP en hebt u wellicht minder regels nodig<br/>Tegelijkertijd is het gebruik van \* mogelijk niet specifiek genoeg, dus gebruik deze optie alleen als dit echt nodig is|
 |**Poortbereik van bron**|Te matchen bronpoortbereik voor de regel|Een poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65635) of \* (voor alle poorten)|Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen '*'.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's
 |**Poortbereik van doel**|Te matchen doelpoortbereik voor de regel|Een poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of \* (voor alle poorten)|Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's
-|**Voorvoegsel voor bronadres**|Te matchen bronadresvoorvoegsel of tag voor de regel|Een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#Default-Tags) of * (voor alle adressen)|Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen|
-|**Voorvoegsel voor doeladres**|Te matchen doeladresvoorvoegsel of tag voor de regel|een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#Default-Tags) of * (voor alle adressen)|Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen|
+|**Voorvoegsel voor bronadres**|Te matchen bronadresvoorvoegsel of tag voor de regel|Een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#default-tags) of * (voor alle adressen)|Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen|
+|**Voorvoegsel voor doeladres**|Te matchen doeladresvoorvoegsel of tag voor de regel|een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#default-tags) of * (voor alle adressen)|Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen|
 |**Richting**|Te matchen richting van verkeer voor de regel|binnenkomend of uitgaand|Regels voor binnenkomend en uitgaand verkeer worden afzonderlijk verwerkt op basis van de richting|
 |**Prioriteit**|Regels worden gecontroleerd op volgorde van prioriteit en als een regel van toepassing is, worden verder geen regels meer getest voor matching|Getal tussen 100 en 4096|Overweeg prioriteitsnummers voor regels te laten verspringen met 100, om ruimte voor nieuwe regels over te laten tussen bestaande regels in|
 |**Toegang**|Toe te passen type toegang als de regel matcht|toestaan of weigeren|Als er geen regel voor het toestaan van een pakket wordt gevonden, wordt het pakket verwijderd|
@@ -124,13 +124,13 @@ U kunt NSG's implementeren in het klassieke implementatiemodel of het implementa
 
 |Implementatieprogramma|Klassiek|Resource Manager|
 |---|---|---|
-|Klassieke portal|![Nee][red]|![Nee][red]|
-|Azure-portal|![Ja][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Ja][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Ja][green]|[](virtual-networks-create-nsg-arm-ps.md)![Ja][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Ja][green]|[](virtual-networks-create-nsg-arm-cli.md)![Ja][green]|
-|ARM-sjabloon|![Nee][red]|[](virtual-networks-create-nsg-arm-template.md)![Ja][green]|
+|Klassieke portal|![Nee](./media/virtual-network-nsg-overview/red.png)|![Nee](./media/virtual-network-nsg-overview/red.png)|
+|Azure-portal|![Ja](./media/virtual-network-nsg-overview/green.png)|[![Ja][groen]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Ja][groen]](virtual-networks-create-nsg-classic-ps.md)|[![Ja][groen]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Ja][groen]](virtual-networks-create-nsg-classic-cli.md)|[![Ja][groen]](virtual-networks-create-nsg-arm-cli.md)|
+|ARM-sjabloon|![Nee](./media/virtual-network-nsg-overview/red.png)|[![Ja][groen]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Sleutel**|![Ja][green] Ondersteund. Klikken voor artikel.|![Nee][red] Niet ondersteund.|
+|**Sleutel**|![Ja](./media/virtual-network-nsg-overview/green.png) Ondersteund.|![Nee](./media/virtual-network-nsg-overview/red.png) Niet ondersteund.|
 |---|---|---|
 
 ## Planning
@@ -278,12 +278,12 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 - [NSG's implementeren in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [NSG-logboeken beheren](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
-[yellow]: ./media/virtual-network-nsg-overview/yellow.png
-[red]: ./media/virtual-network-nsg-overview/red.png
+[groen]: ./media/virtual-network-nsg-overview/green.png
+[geel]: ./media/virtual-network-nsg-overview/yellow.png
+[rood]: ./media/virtual-network-nsg-overview/red.png
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

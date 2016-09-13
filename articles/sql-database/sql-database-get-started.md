@@ -1,6 +1,6 @@
 <properties
     pageTitle="SQL Database tutorial: een SQL database maken | Microsoft Azure"
-    description="Ontdek hoe u een logische server kunt maken in een SQL Database, de SQL Database, voorbeeldgegevens en regels voor de server-firewall kunt instellen, verbinding kunt maken met clienttools, gebruikers kunt configureren en firewallregels voor de database kunt instellen."
+    description="Informatie over het instellen van een logische SQL Database-server, een serverfirewallregel, een SQL Database en voorbeeldgegevens. Lees ook hoe u verbinding met clienthulpprogramma's maakt, gebruikers configureert en een databasefirewallregel instelt."
     keywords="zelfstudie over sql-database, een sql-database maken"
     services="sql-database"
     documentationCenter=""
@@ -18,7 +18,8 @@
     ms.date="07/05/2016"
     ms.author="carlrab"/>
 
-# SQL Database tutorial: maak in slechts enkele minuten een SQL database met behulp van de Azure-portal
+
+# SQL Database tutorial: maak in slechts enkele minuten een SQL Database met behulp van Azure Portal
 
 **Individuele database**
 
@@ -29,11 +30,11 @@
 
 In deze zelfstudie leert u hoe u de Azure-portal kunt gebruiken om:
 
-- Een logische SQL-databaseserver voor SQL-databases te maken.
-- Een SQL database kunt maken zonder gegevens, met voorbeeldgegevens of met gegevens uit een back-up van een SQL database.
+- Een logische Azure SQL Databaseserver voor SQL Databases te maken.
+- Een SQL Database zonder gegevens te maken, met voorbeeldgegevens of met gegevens uit een back-up van een SQL Database.
 - Een firewallregel op serverniveau kunt maken voor een individueel IP-adres of voor een aantal IP-adressen.
 
-Gebruik deze links om dezelfde taken uit te voeren met  [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
+U kunt dezelfde taken uitvoeren met [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -48,15 +49,15 @@ Gebruik deze links om dezelfde taken uit te voeren met  [C#](sql-database-get-st
 ## Volgende stappen
 Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met wat voorbeeldgegevens, bent u klaar om verder te gaan met uw favoriete tools.
 
-- Als u bekend bent met Transact-SQL en SQL Server Management Studio, ontdek dan hoe u [verbinding kunt maken met een SQL database en deze kunt opvragen met SSMS](sql-database-connect-query-ssms.md).
+- Als u bekend bent met Transact-SQL en SQL Server Management Studio (SSMS), ontdek dan hoe u [verbinding kunt maken met een SQL Database en een query op de database kunt uitvoeren met SSMS](sql-database-connect-query-ssms.md).
 
-- Als u bekend bent met Excel, ontdek dan hoe u [verbinding kunt maken met SQL database via Excel](sql-database-connect-excel.md).
+- Bent u bekend met Excel? Ontdek dan hoe u [verbinding kunt maken met een SQL Database in Azure via Excel](sql-database-connect-excel.md).
 
-- Als u wilt gaan coderen, kunt u uw programmeertaal kiezen in [Connectivitietisbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md)
+- Als u wilt gaan coderen, kiest u uw programmeertaal in [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md).
 
-- Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, zie dan [een database migreren naar Azure SQL Database](sql-database-cloud-migrate.md) voor meer informatie.
+- Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md) voor meer informatie.
 
-- Als u met BCP enkele gegevens vanuit een csv-bestand in een nieuwe tabel wilt laden, verwijzen wij u naar [Met BCP enkele gegevens vanuit een csv-bestand in een nieuwe tabel laden](sql-database-load-from-csv-with-bcp.md).
+- Als u met het opdrachtregelprogramma BCP enkele gegevens vanuit een csv-bestand in een nieuwe tabel wilt laden, leest u [Met BCP gegevens vanuit een csv-bestand in SQL Database laden](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Aanvullende resources
@@ -65,7 +66,6 @@ Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met w
 
 
 
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

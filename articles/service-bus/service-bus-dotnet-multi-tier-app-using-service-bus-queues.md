@@ -12,8 +12,8 @@
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 # .NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
@@ -464,6 +464,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
   
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

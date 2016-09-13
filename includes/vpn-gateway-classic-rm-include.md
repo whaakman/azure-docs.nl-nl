@@ -2,6 +2,6 @@ Het is belangrijk om te onthouden dat Azure momenteel in combinatie met twee imp
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

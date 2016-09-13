@@ -283,11 +283,7 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
 * [Voeg telemetrie van de webclient toe][usage] om uitzonderingen op de webpaginacode weer te geven en traceringsaanroepen in te voegen.
 * [Voeg de Application Insights-SDK toe aan uw webservicecode][greenbrown], zodat u tracerings- en logboekaanroepen kunt invoegen in de servercode.
 
-## Video
 
-#### Prestatiebewaking
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -302,6 +298,6 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

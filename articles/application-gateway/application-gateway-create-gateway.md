@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/02/2016"
    ms.author="gwallace"/>
 
 # Een toepassingsgateway maken, openen of verwijderen
@@ -26,10 +26,7 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
-
 
 ## Voordat u begint
 
@@ -40,9 +37,7 @@ In dit artikel vindt u meer informatie over de stappen voor het maken, configure
 
 ## Wat is er vereist om een toepassingsgateway te maken?
 
-
 Als u de opdracht **New-AzureApplicationGateway** gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
-
 
 De waarden zijn:
 
@@ -51,7 +46,6 @@ De waarden zijn:
 - **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
 - **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
 - **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
-
 
 ## Een toepassingsgateway maken
 
@@ -63,12 +57,11 @@ Ga als volgt te werk om een toepassingsgateway te maken:
 
 >[AZURE.NOTE] Als u voor uw toepassingsgateway een aangepaste test moet configureren, raadpleegt u [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
 
-
 ### Een toepassingsgatewayresource maken
 
 Gebruik de cmdlet **New-AzureApplicationGateway** en vervang de waarden door uw eigen waarden. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
 
-In het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
+In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
 
 
     New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -82,11 +75,7 @@ In het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een vi
 
  *Description*, *InstanceCount* en *GatewaySize* zijn optionele parameters.
 
-
 Gebruik de cmdlet **Get-AzureApplicationGateway** om te controleren of de gateway is gemaakt.
-
-
-
 
     Get-AzureApplicationGateway AppGwTest
     Name          : AppGwTest
@@ -101,8 +90,7 @@ Gebruik de cmdlet **Get-AzureApplicationGateway** om te controleren of de gatewa
 
 >[AZURE.NOTE]  De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen Small, Medium en Large.
 
-
- *VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd.
+*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd.
 
 ## De toepassingsgateway configureren
 
@@ -234,57 +222,57 @@ Maak alle afzonderlijke configuratie-items.
 
 Maak het front-end-IP-adres zoals in het volgende voorbeeld wordt weergegeven.
 
-    PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
-    PS C:\> $fip.Name = "fip1"
-    PS C:\> $fip.Type = "Private"
-    PS C:\> $fip.StaticIPAddress = "10.0.0.5"
+    $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+    $fip.Name = "fip1"
+    $fip.Type = "Private"
+    $fip.StaticIPAddress = "10.0.0.5"
 
 Maak de front-endpoort zoals in het volgende voorbeeld wordt weergegeven.
 
-    PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-    PS C:\> $fep.Name = "fep1"
-    PS C:\> $fep.Port = 80
+    $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+    $fep.Name = "fep1"
+    $fep.Port = 80
 
 Maak de back-endserverpool.
 
  Geef op welke IP-adressen er aan de back-endservergroep moeten worden toegevoegd, zoals in het volgende voorbeeld wordt weergegeven.
 
 
-    PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
-    PS C:\> $servers.Add("10.0.0.1")
-    PS C:\> $servers.Add("10.0.0.2")
+    $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+    $servers.Add("10.0.0.1")
+    $servers.Add("10.0.0.2")
 
  Gebruik het object $server om de waarden toe te voegen aan het back-endpoolobject ($pool).
 
-    PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
-    PS C:\> $pool.BackendServers = $servers
-    PS C:\> $pool.Name = "pool1"
+    $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+    $pool.BackendServers = $servers
+    $pool.Name = "pool1"
 
 Maak de back-endserverpoolinstelling.
 
-    PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
-    PS C:\> $setting.Name = "setting1"
-    PS C:\> $setting.CookieBasedAffinity = "enabled"
-    PS C:\> $setting.Port = 80
-    PS C:\> $setting.Protocol = "http"
+    $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+    $setting.Name = "setting1"
+    $setting.CookieBasedAffinity = "enabled"
+    $setting.Port = 80
+    $setting.Protocol = "http"
 
 Maak de listener.
 
-    PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
-    PS C:\> $listener.Name = "listener1"
-    PS C:\> $listener.FrontendPort = "fep1"
-    PS C:\> $listener.FrontendIP = "fip1"
-    PS C:\> $listener.Protocol = "http"
-    PS C:\> $listener.SslCert = ""
+    $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+    $listener.Name = "listener1"
+    $listener.FrontendPort = "fep1"
+    $listener.FrontendIP = "fip1"
+    $listener.Protocol = "http"
+    $listener.SslCert = ""
 
 Maak de regel.
 
-    PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
-    PS C:\> $rule.Name = "rule1"
-    PS C:\> $rule.Type = "basic"
-    PS C:\> $rule.BackendHttpSettings = "setting1"
-    PS C:\> $rule.Listener = "listener1"
-    PS C:\> $rule.BackendAddressPool = "pool1"
+    $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+    $rule.Name = "rule1"
+    $rule.Type = "basic"
+    $rule.BackendHttpSettings = "setting1"
+    $rule.Listener = "listener1"
+    $rule.BackendAddressPool = "pool1"
 
 ### Stap 2
 
@@ -292,34 +280,34 @@ Wijs alle afzonderlijke configuratie-items toe aan een configuratieobject voor d
 
 Voeg het front-end-IP-adres toe aan de configuratie.
 
-    PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-    PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
-    PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
+    $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+    $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
+    $appgwconfig.FrontendIPConfigurations.Add($fip)
 
 Voeg de front-endpoort toe aan de configuratie.
 
-    PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
-    PS C:\> $appgwconfig.FrontendPorts.Add($fep)
+    $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
+    $appgwconfig.FrontendPorts.Add($fep)
 
 Voeg de back-endserverpool toe aan de configuratie.
 
-    PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-    PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
+    $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
+    $appgwconfig.BackendAddressPools.Add($pool)  
 
 Voeg de back-endpoolinstelling toe aan de configuratie.
 
-    PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
-    PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting)
+    $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+    $appgwconfig.BackendHttpSettingsList.Add($setting)
 
 Voeg de listener toe aan de configuratie.
 
-    PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
-    PS C:\> $appgwconfig.HttpListeners.Add($listener)
+    $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
+    $appgwconfig.HttpListeners.Add($listener)
 
 Voeg de regel toe aan de configuratie.
 
-    PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
-    PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule)
+    $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+    $appgwconfig.HttpLoadBalancingRules.Add($rule)
 
 ### Stap 3
 
@@ -331,10 +319,7 @@ Voer met behulp van **Set-AzureApplicationGatewayConfig** het configuratieobject
 
 Nadat de gateway is geconfigureerd, gebruikt u de cmdlet **Start-AzureApplicationGateway** om de gateway te openen. Voor een toepassingsgateway worden pas kosten doorberekend wanneer de gateway is geactiveerd.
 
-
 > [AZURE.NOTE] Het kan 15-20 minuten duren voordat de cmdlet **Start-AzureApplicationGateway** is voltooid.
-
-
 
     Start-AzureApplicationGateway AppGwTest
 
@@ -417,6 +402,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

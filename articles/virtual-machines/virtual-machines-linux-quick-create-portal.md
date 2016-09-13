@@ -21,7 +21,6 @@
 
 # Een virtuele Linux-machine in Azure maken met behulp van de portal
 
-> [AZURE.NOTE] Als u een ogenblik de tijd hebt, kunt u ons helpen bij het verbeteren van de documentatie over de virtuele Linux-machine van Azure door deel te nemen aan een [korte enquête](https://aka.ms/linuxdocsurvey) over uw ervaringen. Met elk antwoord helpt u ons op weg om u beter van dienst te zijn bij de uitvoering van uw werk.
 
 In dit artikel wordt beschreven hoe u met [Azure Portal](https://portal.azure.com/) snel een virtuele Linux-machine maakt. De enige vereisten zijn [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) en [openbare en persoonlijke SSH-sleutelbestanden](virtual-machines-linux-mac-create-ssh-keys.md).
 
@@ -81,6 +80,6 @@ U hebt nu snel een virtuele Linux-machine gemaakt die u kunt gebruiken voor test
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

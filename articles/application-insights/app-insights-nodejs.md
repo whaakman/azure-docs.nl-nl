@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/30/2016"
     ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@ Met [Visual Studio Application Insights](app-insights-overview.md) wordt uw live
 
 Met de SDK kunt u automatisch de snelheid en reacties van binnenkomende HTTP-aanvragen verzamelen, net als de prestatiemeteritems (CPU, geheugen, RPS) en onverwerkte uitzonderingen. Bovendien kunt u aangepaste aanroepen toevoegen om de afhankelijkheden, meetgegevens en andere gebeurtenissen bij te houden.
 
-![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-asp-net-manual/10-perf.png)
+![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Voordat u begint
@@ -40,7 +40,7 @@ U hebt de volgende zaken nodig:
 
 Meld u aan bij de [Azure Portal][portal] en maak een nieuwe Application Insights-resource. Een [resource][rolls] in Azure is een exemplaar van een service. In deze resource wordt de telemetrie van uw app geanalyseerd en aan u gepresenteerd.
 
-![Klik op Nieuw > Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Klik op Nieuw > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Kies Overige als het toepassingstype. Op basis van het gekozen toepassingstype wordt de standaardinhoud van de resourceblades bepaald, net als de eigenschappen die zichtbaar zijn in [Metrics Explorer][metrics].
 
@@ -48,7 +48,7 @@ Kies Overige als het toepassingstype. Op basis van het gekozen toepassingstype w
 
 De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin in de SDK om gegevens om te leiden naar de resource.
 
-![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> De SDK installeren in uw toepassing
@@ -84,7 +84,7 @@ Ga naar de [Azure Portal](https://portal.azure.com) en blader naar uw Applicatio
 
 Zoek naar gegevens op de pagina Overzicht. Aanvankelijk ziet u slechts één of twee punten. Bijvoorbeeld:
 
-![Klik verder voor meer gegevens](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Klik verder voor meer gegevens](./media/app-insights-windows-services/12-first-perf.png)
 
 Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie over metrische gegevens.][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## Volgende stappen
+
+* [Telemetrie in de portal bewaken](app-insights-dashboards.md)
+* [Analytics-query's schrijven over telemetrie (app-insights-analytics-tour.md)
 
 
 
@@ -226,6 +230,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

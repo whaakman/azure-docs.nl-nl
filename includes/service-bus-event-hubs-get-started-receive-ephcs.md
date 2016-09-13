@@ -4,17 +4,21 @@
 
 U moet over een [Azure Storage-account][] beschikken om [EventProcessorHost][] te gebruiken:
 
-1. Meld u aan bij de [Klassieke Azure-portal][] en klik onder aan het scherm op **NIEUW**.
+1. Meld u aan bij [Azure Portal][] en klik op **Nieuw** linksboven in het scherm.
 
-2. Klik op **Data Services**, vervolgens op **Opslag** en **Snelle invoer**, en typ een naam voor uw opslagaccount. Selecteer de gewenste regio en klik op **Opslagaccount maken**.
+2. Klik op **Gegevens en opslag** en klik vervolgens op **Opslagaccount**.
 
-    ![][11]
+    ![][1]
 
-3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **Toegangssleutels beheren**:
+3. Typ op de blade **Opslagaccount maken** een naam voor het opslagaccount. Kies een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. Klik vervolgens op **Maken**.
 
-    ![][12]
+    ![][2]
 
-    Kopieer de primaire toegangssleutel voor gebruik verderop in deze zelfstudie.
+4. Klik in de lijst met opslagaccounts op het zojuist gemaakte opslagaccount.
+
+5. Klik op de blade Opslagaccount op **Toegangssleutels**. Kopieer de waarde van **key1** voor gebruik verderop in deze zelfstudie.
+
+    ![][3]
 
 4. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Ontvanger**.
 
@@ -121,21 +125,22 @@ U moet over een [Azure Storage-account][] beschikken om [EventProcessorHost][] t
 [Overzicht van Event Hubs]: event-hubs-overview.md
 [Event Hubs-programmeergids]: event-hubs-programming-guide.md
 [Uitgeschaalde gebeurtenisverwerking]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-account]: ../storage/storage-create-storage-account-classic-portal.md
+[Azure Storage-account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Klassieke Azure-portal]: http://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -3,7 +3,7 @@
    description="Power BI Embedded, interactie met rapporten met behulp van de JavaScript-API"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # Interactie met Power BI-rapporten met behulp van de JavaScript-API
 
@@ -139,6 +139,6 @@ Bekijk de volgende koppelingen voor meer informatie over de JavaScript-API van P
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

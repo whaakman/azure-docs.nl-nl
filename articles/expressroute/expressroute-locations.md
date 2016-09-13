@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Partners en peeringlocaties voor ExpressRoute
@@ -31,7 +31,7 @@ U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio 
 |---|---|---|
 |**Noord-Amerika**|VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Zuid-Amerika**|Brazilië - zuid|Sao Paulo|
-|**Europa**|Noord-Europa, West-Europa|Amsterdam, Dublin, Londen, Newport(Wales)+, Parijs|
+|**Europa**|Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid|Amsterdam, Dublin, Londen, Newport(Wales)+, Parijs|
 |**Azië**|Oost-Azië, Zuidoost-Azië|Hongkong, Singapore|
 |**Japan**|Japan - west, Japan - oost|Osaka, Tokio|
 |**Australië**|Australië - zuidoost, Australië - oost|Melbourne, Sydney|
@@ -83,7 +83,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **MTN** | Ondersteund | Ondersteund | Londen |
 | **NEXTDC** | Ondersteund | Ondersteund | Melbourne, Sydney |
 | **NTT Communications** | Ondersteund | Ondersteund | Londen, Los Angeles, Osaka, Tokio |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Ondersteund | Ondersteund | Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Ondersteund | Ondersteund | Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** | Ondersteund | Ondersteund | Hongkong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Ondersteund | Ondersteund | Singapore |
 | **Softbank** | Ondersteund | Ondersteund | Osaka, Tokio | 
@@ -173,6 +173,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 
