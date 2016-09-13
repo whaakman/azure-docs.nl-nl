@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/02/2016"
     ms.author="darosa;sethm"/>
 
 # Prijscategorieën voor Service Bus Premium en Standard Messaging 
 
-Service Bus Brokered Messaging, dat berichtentiteiten zoals wachtrijen en onderwerpen omvat, combineert functies voor bedrijfsberichten met krachtige semantiek voor publiceren/abonneren in de cloud. Service Bus-berichten worden gebruikt als de communicatie-backbone voor veel geavanceerde cloudoplossingen.
+Service Bus Messaging, dat berichtentiteiten zoals wachtrijen en onderwerpen omvat, combineert functies voor bedrijfsberichten met krachtige semantiek voor publiceren/abonneren in de cloud. Service Bus-berichten worden gebruikt als de communicatie-backbone voor veel geavanceerde cloudoplossingen.
 
 De *Premium*-laag van de Service Bus-berichtenservice zorgt voor de afhandeling van algemene klantaanvragen met betrekking tot de schaal, prestaties en beschikbaarheid van essentiële toepassingen. Hoewel de functiesets bijna identiek zijn, zijn deze twee lagen van de Service Bus-berichtenservice ontworpen voor verschillende gebruiksscenario’s.
 
@@ -40,13 +40,13 @@ Niet alleen zijn de prestaties beter voorspelbaar en beschikbaar, ze zijn ook sn
 
 Hierna volgen een aantal verschillen tussen Premium en Standard Messaging.
 
-### Gepartitioneerde entiteiten
+### Gepartitioneerde wachtrijen en onderwerpen
 
-Gepartitioneerde entiteiten worden ondersteund in Premium Messaging, maar ze werken niet hetzelfde als in de Standard- en Basic-lagen van de Service Bus-berichtenservice. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. Zie [Partitioned messaging entities](service-bus-partitioning.md) (Gepartitioneerde berichtentiteiten) voor meer informatie over partitioneren.
+Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging, maar ze werken niet hetzelfde als in de Standard- en Basic-lagen van de Service Bus-berichtenservice. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. Zie [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md) voor meer informatie over partitioneren.
 
 ### Express-entiteiten
 
-Omdat Premium Messaging wordt uitgevoerd in een volledig geïsoleerde runtime-omgeving, zijn geen express-entiteiten meer nodig. Express-entiteiten worden daarom niet ondersteund in Premium-naamruimten. Zie de eigenschap [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) voor meer informatie over de Express-functie.
+Omdat Premium Messaging wordt uitgevoerd in een volledig geïsoleerde runtime-omgeving, worden express-entiteiten niet ondersteund in Premium-naamruimten. Zie de eigenschap [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) voor meer informatie over de Express-functie.
 
 ## Volgende stappen
 
@@ -60,6 +60,6 @@ Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtense
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

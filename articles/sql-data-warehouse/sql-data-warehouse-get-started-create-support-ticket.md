@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Een ondersteuningsticket maken voor SQL Data Warehouse
  
@@ -38,7 +38,7 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
 
     ![Soort aanvraag](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft standaard een **DTU-quotum** van 45.000. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum verhogen door een ondersteuningsticket te maken en *Quotum* als het aanvraagtype te selecteren. Voor het berekenen van uw DTU-behoeften, moet u weten dat elke 100 [DWU][] aan SQL Warehouse in totaal 750 DTU verbruikt. Daarom kunt u met de quotumlimiet van 45.000 maximaal DW6000 (45.000 / 750) of verschillende kleinere databases met minder DWU maken. Als u bijvoorbeeld twee DW6000’s op één SQL server wilt hosten, moet u een DTU-quotum van 90.000 aanvragen.  U kunt uw huidige DTU-verbruik zien in de blade voor de SQL-server in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. 
+    >[AZURE.NOTE]  Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft standaard een **DTU-quotum** van 45.000. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum verhogen door een ondersteuningsticket te maken en *Quotum* als het aanvraagtype te selecteren. Voor de berekening van de behoeften van uw DTU vermenigvuldigt u 7,5 met het totale aantal benodigde [DWU][]. Als u bijvoorbeeld twee DW6000’s op één SQL server wilt hosten, moet u een DTU-quotum van 90.000 aanvragen.  U kunt uw huidige DTU-verbruik zien in de blade voor de SQL-server in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. 
 
 5. Selecteer het **abonnement** waaronder de database valt met het probleem dat u wilt melden.
 
@@ -105,6 +105,6 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

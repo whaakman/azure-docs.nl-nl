@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Overzicht van Service Bus Relayed Messaging | Microsoft Azure"
+    pageTitle="Overzicht van Service Bus Relay | Microsoft Azure"
     description="Overzicht van Service Bus Relay."
     services="service-bus"
     documentationCenter=".net"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="05/06/2016"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 
-# Service Bus Relayed Messaging
+# Overzicht van Service Bus Relay
 
-Het centrale onderdeel van Service Bus is een gecentraliseerde Relay-service (echter met maximale taakverdeling) waarmee u hybride toepassingen kunt ontwikkelen die zowel in een Azure-datacenter als in uw eigen on-premises bedrijfsomgeving kunnen worden uitgevoerd.  De Relay-service ondersteunt een groot aantal verschillende transportprotocollen en webservicestandaarden, waaronder SOAP, WS-* en zelfs REST. De Service Bus Relay vereenvoudigt het uitvoeren van uw hybride toepassingen doordat u WCF-services (Windows Communication Foundation) die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat een firewallverbinding moet worden geopend of wijzigingen in de infrastructuur van een bedrijfsnetwerk vereist zijn. 
+Een belangrijk onderdeel van Service Bus is een gecentraliseerde *Relay*-service (echter met maximale taakverdeling) waarmee u hybride toepassingen kunt ontwikkelen die zowel in een Azure-datacenter als in uw eigen on-premises bedrijfsomgeving kunnen worden uitgevoerd.  De Service Bus Relay-service ondersteunt een groot aantal verschillende transportprotocollen en webservicestandaarden. waaronder SOAP, WS-* en zelfs REST. De Relay-service vereenvoudigt het uitvoeren van uw hybride toepassingen doordat u WCF-services (Windows Communication Foundation) die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat een firewallverbinding moet worden geopend of wijzigingen in de infrastructuur van een bedrijfsnetwerk vereist zijn. 
 
 ![Relay-concepten](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -39,6 +39,6 @@ Zie de volgende onderwerpen voor meer informatie over de Service Bus Relay.
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

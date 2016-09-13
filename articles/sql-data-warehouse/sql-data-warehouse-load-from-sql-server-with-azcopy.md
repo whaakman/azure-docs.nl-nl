@@ -3,7 +3,7 @@
    description="BCP wordt gebruikt om gegevens uit SQL Server te exporteren naar platte bestanden, AZCopy om gegevens te importeren in Azure Blob-opslag, en PolyBase om de gegevens in te voegen in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Gegevens uit SQL Server laden in Azure SQL Data Warehouse (AZCopy)
@@ -174,6 +174,6 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

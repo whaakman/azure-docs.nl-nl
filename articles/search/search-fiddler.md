@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
@@ -241,6 +241,6 @@ Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azur
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

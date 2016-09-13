@@ -3,7 +3,7 @@
    description="Informatie over PolyBase en het gebruik van PolyBase voor datawarehousescenario's."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Gegevens laden met PolyBase in SQL Data Warehouse
@@ -72,7 +72,7 @@ Bereid als volgt een voorbeeldtekstbestand voor:
 
 Zoek als volgt het eindpunt van de blob-service:
 
-1. Selecteer in Azure Portal **Bladeren** > **Opslagaccounts**.
+1. Selecteer in de Azure-portal **Bladeren** > **Opslagaccounts**.
 2. Klik op het opslagaccount dat u wilt gebruiken.
 3. Klik op de blade Opslagaccount op Blobs.
 
@@ -86,7 +86,7 @@ Zoek als volgt het eindpunt van de blob-service:
 
 Zoek als volgt uw Azure-opslagsleutel:
 
-1. Selecteer in Azure Portal **Bladeren** > **Opslagaccounts**.
+1. Selecteer in de Azure-portal **Bladeren** > **Opslagaccounts**.
 2. Klik op het opslagaccount dat u wilt gebruiken.
 3. Selecteer **Alle instellingen** > **Toegangssleutels**.
 4. Klik op Kopiëren om een van de toegangssleutels naar het Klembord te kopiëren.
@@ -103,7 +103,7 @@ Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Voer de volgende opdracht uit om het bestand te uploaden. Geef de URL van het eindpunt van de blob-service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
+1. Voer de volgende opdracht uit om het bestand te uploaden. Geef de URL van het eindpunt van de blob service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -287,6 +287,6 @@ Raadpleeg de [PolyBase-handleiding][] voor meer informatie over het ontwikkelen 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="07/28/2016" 
+    ms.date="09/01/2016" 
     ms.author="mandia"/>
 
 # Wat zijn connectors en BizTalk API Apps?
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-Een *connector* is een type API-app dat gericht is op connectiviteit. Connectors worden, zoals elke andere API-app, gebruikt vanuit Web Apps, Mobile Apps en Logic Apps. Met connectors kunt u eenvoudig verbinding maken met bestaande services en kunt u eenvoudig verificatie beheren, bewaking bieden, analyses uitvoeren, en meer.
+Een *connector* is een type API-app dat gericht is op connectiviteit. Connectors worden, zoals elke andere API App, gebruikt vanuit Web Apps, Mobile Apps en Logic Apps. Met connectors kunt u eenvoudig verbinding maken met bestaande services en kunt u eenvoudig verificatie beheren, bewaking bieden, analyses uitvoeren, en meer.
 
 Ontwikkelaars kunnen hun eigen API Apps maken en deze privé implementeren. In de toekomst kunnen ontwikkelaars hun eigen API Apps delen en er geld mee verdienen via de marketplace. 
 
@@ -35,7 +35,7 @@ In [Prijzen van App Service](https://azure.microsoft.com/pricing/details/app-ser
 
 
 ## Hybride connectors 
-Met de hybride connectoren kunt u het bereik verder uitbreiden in de onderneming, met connectiviteit voor [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) en WebSphere MQ. 
+Met de hybride connectoren kunt u het bereik verder uitbreiden in de onderneming, met connectiviteit voor [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) en WebSphere MQ. 
 
 ## EAI- en EDI-services
 Voor het bouwen van essentiële zakelijke apps is meer nodig dan alleen connectiviteit. Het toonaangevende implementatieplatform van Microsoft, BizTalk Server, vormt de basis van BizTalk API Apps. BizTalk API Apps biedt geavanceerde integratiemogelijkheden die eenvoudig kunnen worden vastgemaakt aan Web Apps, Mobile Apps en Logic Apps. Voorbeelden van deze integratiemogelijkheden zijn [validatie](app-service-logic-xml-validator.md), [extractie](app-service-logic-xpath-extract.md), [transformatie](app-service-logic-transform-xml-documents.md), [encoders](app-service-logic-connector-jsonencoder.md), [handelspartnerbeheer](app-service-logic-connector-tpm.md) en ondersteuning voor EDI-indelingen zoals [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) en [AS2](app-service-logic-connector-as2.md).
@@ -55,6 +55,6 @@ Zie [Connectors and API Apps List](app-service-logic-connectors-list.md) (Lijst 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

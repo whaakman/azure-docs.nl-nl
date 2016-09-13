@@ -87,7 +87,7 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [verificatiefuncties]: ./app-service-mobile-auth.md
 [gegevensfuncties]: ./app-service-mobile-offline-data-sync.md
-[functies voor pushmeldingen]: ../notification-hubs/notification-hubs-overview.md
+[functies voor pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -105,6 +105,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

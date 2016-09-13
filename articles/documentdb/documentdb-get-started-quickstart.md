@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/29/2016"
+    ms.date="09/01/2016"
     ms.author="anhoh"/>
 
 # NoSQL-zelfstudie: een DocumentDB C#-consoletoepassing maken
@@ -25,7 +25,7 @@
 
 Welkom bij de NoSQL-zelfstudie over de Azure DocumentDB .NET-SDK. Nadat u het snelstartproject hebt gemaakt of de zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u DocumentDB-resources kunt maken.
 
-- **[Snelstartgids](#quickstart)**: download het voorbeeldproject en voeg uw verbindingsinformatie toe, waarna u binnen vijf minuten een werkende DocumentDB-app hebt.
+- **[Snelstartgids](#quickstart)**: download het voorbeeldproject en voeg uw verbindingsinformatie toe, waarna u binnen tien minuten een werkende DocumentDB-app hebt.
 - **[Zelfstudie](#tutorial)**: bouw de snelstart-app helemaal zelf in 30 minuten.
 
 ## Vereisten
@@ -36,9 +36,9 @@ Welkom bij de NoSQL-zelfstudie over de Azure DocumentDB .NET-SDK. Nadat u het sn
 
 ## Snelstartgids
 
-1. Download het voorbeeldproject van [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
-2. Gebruik de Azure-portal om [een DocumentDB-account te maken](documentdb-create-account.md).
-3. Vervang in het bestand App.config de waarden voor EndpointUri en PrimaryKey door de waarden die zijn opgehaald uit de [Azure-portal](https://portal.azure.com/). Navigeer hiervoor naar de blade **DocumentDB (NoSQL)**, klik op de **accountnaam** en klik op **Keys** in het resourcemenu.
+1. Download het voorbeeldproject van [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) of kloon de opslagplaats [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
+2. Gebruik de Azure Portal om [een DocumentDB-account te maken](documentdb-create-account.md).
+3. Vervang in het bestand App.config de waarden voor EndpointUri en PrimaryKey door de waarden die zijn opgehaald uit de [Azure Portal](https://portal.azure.com/). Navigeer hiervoor naar de blade **DocumentDB (NoSQL)**, klik op de **accountnaam** en klik op **Keys** in het resourcemenu.
     ![Schermafbeelding van de waarden EndpointUri en PrimaryKey die App.config vervangen](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Maak het project. In het consolevenster ziet u de nieuwe resources die worden gemaakt, waarop een query wordt toegepast en die vervolgens worden opgeschoond.
     
@@ -97,9 +97,9 @@ Voeg nu deze twee constanten en de variabele *client* toe onder de openbare klas
 
 Ga vervolgens naar [Azure Portal](https://portal.azure.com) om uw URI en primaire sleutel op te halen. Uw toepassing heeft de DocumentDB-URI en de primaire sleutel nodig om te weten waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat DocumentDB de verbinding van uw toepassing vertrouwt.
 
-Navigeer in de Azure-portal naar uw DocumentDB-account en klik daarna op **Keys**.
+Navigeer in de Azure Portal naar uw DocumentDB-account en klik daarna op **Keys**.
 
-Kopieer de URI van de portal en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`.
+Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`.
 
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Schermopname van Azure Portal waarin een DocumentDB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de DocumentDB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels.][keys]
 
@@ -607,6 +607,6 @@ Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werke
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

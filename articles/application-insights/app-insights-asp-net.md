@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Web-app-analyse voor ASP.NET instellen met Application Insights" 
+    pageTitle="Web-app-analyse voor ASP.NET instellen met Application Insights | Microsoft Azure" 
     description="Configureer prestaties, beschikbaarheid en gebruiksanalyse voor uw ASP.NET-website die on-premises of in Azure wordt gehost." 
     services="application-insights" 
     documentationCenter=".net"
@@ -118,11 +118,11 @@ De opdracht doet dus drie dingen:
 2. Er wordt een Application Insights-resource gemaakt in de [Azure Portal](https://portal.azure.com/). Hier ziet u de gegevens. De *instrumentatiesleutel*, die de resource definieert, wordt opgehaald.
 3. De instrumentatiesleutel wordt in `ApplicationInsights.config` ingevoegd, zodat de SDK telemetrie naar de portal kan verzenden.
 
-Als u wilt, kunt u deze stappen handmatig uitvoeren voor [ASP.NET 4](app-insights-asp-net-manual.md) of [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Als u wilt, kunt u deze stappen handmatig uitvoeren voor [ASP.NET 4](app-insights-windows-services.md) of [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ### Upgraden naar toekomstige SDK-versies
 
-Als u wilt upgraden naar een [nieuwe release van de SDK](app-insights-release-notes-dotnet.md), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer Microsoft.ApplicationInsights.Web en kies Upgraden.
+Als u wilt upgraden naar een [nieuwe release van de SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer Microsoft.ApplicationInsights.Web en kies Upgraden.
 
 Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
 
@@ -144,6 +144,6 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

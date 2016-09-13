@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="09/01/2016"
     ms.author="mandia"/>
 
 
@@ -35,9 +35,7 @@ Naam | Beschrijving
 [Bing Vertalen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Gebruik Bing om tekst in een andere taal te vertalen.
 [HTTP](app-service-logic-connector-http.md) | De HTTP-listener opent een eindpunt dat als een HTTP-server fungeert en luistert naar inkomende HTTP- of HTTPS-aanvragen. Voor de HTTP-actie is geen API App vereist en de actie wordt op systeemeigen wijze ondersteund in Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Met de Office 365-connector kunt u e-mails verzenden en ontvangen, uw agenda beheren en uw contactpersonen beheren met uw Office 365-account.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | U kunt verschillende taken uitvoeren, zoals het maken, bijwerken en het uitvoeren van query's op verschillende entiteiten van Intuit QuickBooks, zoals klanten, artikelen en facturen.
 [Slack](app-service-logic-connector-slack.md) | U kunt verbinding maken met Slack en berichten plaatsen in ongebruikte kanalen.
-[Wait](app-service-logic-connector-wait.md) | Met deze connector kunt u de uitvoering van uw app vertragen. U kunt de app gedurende een bepaalde periode vertragen of totdat een gebeurtenis op een specifiek tijdstip optreedt.
 
 
 ## Enterprise Integration-connectors
@@ -61,9 +59,6 @@ Naam  | Beschrijving
 [Informix](app-service-logic-connector-informix.md) | Hiermee kunt verbinding maken met een IBM Informix-database, on-premises en via een virtuele Azure-machine waarop een Windows-besturingssysteem wordt uitgevoerd. Hiermee kunnen Web-API- en OData-API-bewerkingen worden toegewezen aan Informix Structured Query Language-opdrachten.<br/><br/>Er zijn geen triggers. Acties omvatten tabel selecteren, invoegen, bijwerken, verwijderen en aangepaste instructies.<br/><br/>Bij on-premises gebruik, kunt u VPN of Azure ExpressRoute gebruiken. Met deze connector kan Microsoft Client for DRDA ook verbinding maken met een Informix-server via een TCP/IP-netwerk.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Hiermee kunt u verbinding maken met on-premises SQL Server of Azure SQL Database. U kunt items in een SQL-databasetabel maken, bijwerken, ophalen en verwijderen.
 MQ | Hiermee kunt verbinding maken met IBM WebSphere MQ Server versie 8, on-premises en via een virtuele Azure-machine waarop een Windows-besturingssysteem wordt uitgevoerd. Bij on-premises gebruik, kunt u VPN of Azure ExpressRoute gebruiken. De connector bevat ook Microsoft Client voor MQ.<br/><br/>Er zijn geen triggers. Er zijn geen acties.<br/><br/>**Opmerking** Kan momenteel niet worden gebruikt met Logic Apps.
-[Oracle Database](app-service-logic-connector-oracle.md) | Hiermee kunt u verbinding maken met on-premises Oracle Database en items in een databasetabel maken, bijwerken, ophalen en verwijderen.
-[POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Hiermee kunt u verbinding maken met een POP3-server om e-mails met bijlagen op te halen.
-[SAP](app-service-logic-connector-sap.md) | Hiermee kunt u verbinding maken met een on-premises SAP-server en RFC's, BAPI's en tRFC's oproepen, en IDOC's verzenden.
 
 ## Connectors als triggers
 Verschillende connectors bieden triggers voor Logic Apps. Er zijn twee typen triggers:
@@ -86,6 +81,6 @@ Connectors kunnen ook worden gebruikt als acties in uw logische app. Acties zijn
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

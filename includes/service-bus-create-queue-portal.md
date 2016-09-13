@@ -26,6 +26,6 @@ Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier] wordt
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

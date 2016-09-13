@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Live streamen met Azure Media Services om multi-bitrate streams te maken met de klassieke Azure-portal" 
-    description="In deze zelfstudie wordt u begeleid bij de stappen voor het maken van een kanaal dat een single-bitrate live stream ontvangt, en het coderen van deze stream naar een multi-bitrate stream met de klassieke Azure-portal." 
+    pageTitle="Live streamen met Azure Media Services om multi-bitrate streams te maken met Azure Portal | Microsoft Azure" 
+    description="In deze zelfstudie wordt u begeleid bij de stappen voor het met Azure Portal maken van een kanaal dat een single-bitrate live stream ontvangt en deze codeert naar een multi-bitrate stream." 
     services="media-services" 
     documentationCenter="" 
     authors="juliako,anilmur" 
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/06/2016"
     ms.author="juliako"/>
 
 
-#Live streamen met Azure Media Services om multi-bitrate streams te maken met de klassieke Azure-portal
+#Live streamen met Azure Media Services om multi-bitrate streams te maken met de Azure-portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -47,23 +47,23 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 
-3. Maak een programma (hierbij wordt ook een asset gemaakt). 
-1. Publiceer het programma (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).  
+3. Maak een gebeurtenis/programma (hierbij wordt ook een asset gemaakt). 
+1. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).  
 
     Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
-1. Start het programma wanneer u klaar bent om te streamen en te archiveren.
+1. Start de gebeurtenis wanneer u klaar bent om te streamen en te archiveren.
 2. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
-1. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
-1. Verwijder het programma (en verwijder desgewenst de asset).   
+1. Stop de gebeurtenis als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
+1. Verwijder de gebeurtenis (en verwijder desgewenst de asset).   
 
 ##In deze zelfstudie
 
-In deze zelfstudie wordt de klassieke Azure-portal gebruikt om de volgende taken uit te voeren: 
+In deze zelfstudie wordt de Azure-portal gebruikt om de volgende taken uit te voeren: 
 
 2.  Configureer streaming-eindpunten.
 3.  Maak een kanaal dat is ingeschakeld voor het uitvoeren van live codering.
 1.  Haal de URL voor opnemen op om deze aan het live coderingsprogramma te leveren. Het live coderingsprogramma gebruikt deze URL om de stream in het kanaal op te nemen. .
-1.  Een programma (en een asset) maken
+1.  Een gebeurtenis/programma (en een asset) maken
 1.  De asset publiceren en streaming-URL's ophalen  
 1.  Uw inhoud afspelen 
 2.  Opschonen
@@ -75,78 +75,69 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 - Een Media Services-account. Zie [Account maken](media-services-create-account.md) voor meer informatie over het maken van een Media Services-account.
 - Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
-##Een streaming-eindpunt configureren met Portal
+##Streaming-eindpunten configureren 
 
-Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. De client kan met Adaptive Bitrate Streaming overschakelen op een hogere of lagere bitrate stream, wanneer de video wordt weergegeven op basis van de huidige bandbreedte, het huidige CPU-gebruik en andere factoren. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties). 
+Media Services biedt dynamische pakketten zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
-Als u met live streamen werkt, wordt er met een on-premises live coderingsprogramma (in ons geval Wirecast) een multi-bitrate live stream in het kanaal opgenomen. Wanneer de stream door een gebruiker wordt aangevraagd, gebruikt Media Services dynamische pakketten om de bronstream opnieuw te verpakken in de aangevraagde adaptieve bitrate stream (HLS, DASH of Smooth). 
+Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-eenheid voor het streaming-eindpunt hebben van waaruit u uw inhoud wilt leveren.  
 
-Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-eenheid hebben voor het **streaming-eindpunt** van waaruit u uw inhoud wilt leveren.
+Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
 
-Ga als volgt te werk als u het aantal eenheden wilt wijzigen dat voor streaming is gereserveerd:
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+1. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
 
-1. Klik in de [klassieke Azure-portal](https://manage.windowsazure.com/) op **Media Services**. Klik vervolgens op de naam van de mediaservice.
+2. Klik op het standaardstreaming-eindpunt. 
 
-2. Selecteer de pagina STREAMING-EINDPUNTEN. Klik vervolgens op het streaming-eindpunt dat u wilt wijzigen.
+    Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
 
-3. Geef het aantal streaming-eenheden op door het tabblad SCHAAL te selecteren en de schuifregelaar voor **gereserveerde capaciteit** te verplaatsen.
+3. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
 
-    ![De pagina Schaal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
+    ![Streaming-eenheden](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. Klik op de knop OPSLAAN om uw wijzigingen op te slaan.
+4. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
 
-    Het duurt ongeveer twintig minuten tot de toewijzing van nieuwe eenheden is voltooid. 
+    >[AZURE.NOTE]Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
 
-     
-    >[AZURE.NOTE] Als u op dit moment van een positieve waarde voor de streaming-eenheden naar geen streaming-eenheden gaat, kan het streamen voor maximaal één uur worden uitgeschakeld.
-    >
-    > Het hoogste aantal eenheden dat is opgegeven voor de periode van 24 uur, wordt gebruikt bij het berekenen van de kosten. Zie [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107) (Informatie over Media Services-prijzen) voor informatie over prijzen.
-
- 
 ##Een KANAAL maken
 
-1.  Klik in de [klassieke Azure-portal](http://manage.windowsazure.com/) op Media Services en klik vervolgens op de naam van het Media Services-account.
-2.  Selecteer de pagina KANALEN.
-3.  Selecteer Toevoegen+ om een nieuw kanaal toe te voegen.
+1. Klik in [Azure Portal](https://portal.azure.com/) op Media Services en klik vervolgens op de naam van het Media Services-account.
+2. Selecteer **Live streamen**.
+3. Selecteer **Aangepast maken**. Met deze optie kunt u een kanaal maken dat is ingeschakeld voor real-time codering.
 
-Kies het coderingstype **Standaard**. U geeft met dit type op dat u een kanaal wilt maken dat voor live codering is ingeschakeld. Dit betekent dat de binnenkomende single-bitrate stream naar het kanaal wordt verzonden en naar een multi-bitrate stream wordt gecodeerd met de opgegeven instellingen van het live coderingsprogramma. Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+    ![Een kanaal maken](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+    
+4. Klik op **Instellingen**.
+    
+    1.  Kies het kanaaltype **Live Encoding**. U geeft met dit type op dat u een kanaal wilt maken dat voor live codering is ingeschakeld. Dit betekent dat de binnenkomende single-bitrate stream naar het kanaal wordt verzonden en naar een multi-bitrate stream wordt gecodeerd met de opgegeven instellingen van het live coderingsprogramma. Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie. Klik op OK.
+    2. Geef een naam op voor het kanaal.
+    3. Klik op OK onder aan het scherm.
+    
+5. Selecteer het tabblad **Opnemen**.
 
-![standard0][standard0]
+    1. Op deze pagina kunt u een streaming-protocol selecteren. Voor het kanaaltype **Live Encoding** zijn geldige protocolopties:
+        
+        - Single-bitrate Fragmented MP4 (Smooth Streaming);
+        - Single-bitrate RTMP;
+        - RTP (MPEG-TS): MPEG-2-transportstroom via RTP.
+        
+        Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor een gedetailleerde beschrijving van de protocollen.
+    
+        U kunt de protocoloptie niet wijzigen terwijl het kanaal of de gekoppelde gebeurtenissen/programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk streaming-protocol.  
 
-Geldige opnameprotocolopties voor het coderingstype **Standaard** zijn:
+    2. U kunt IP-beperking toepassen op de opname. 
+    
+        U kunt de IP-adressen definiëren die een video naar dit kanaal mogen publiceren. Toegestane IP-adressen kunnen worden opgegeven als een enkel IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld '10.0.0.1(255.255.252.0)').
 
-- Single-bitrate Fragmented MP4 (Smooth Streaming);
-- Single-bitrate RTMP;
-- RTP (MPEG-TS): MPEG-2-transportstroom via RTP.
+        Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 
-Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor een gedetailleerde beschrijving van de protocollen.
+6. Pas op het tabblad **Voorbeeld** IP-beperking toe op de preview.
+7. Geef op het tabblad **Codering** de vooraf gedefinieerde instellingen voor codering op. 
 
-![standard1][standard1]
-
-U kunt het invoerprotocol niet wijzigen terwijl het kanaal of de gekoppelde programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk invoerprotocol.  
-
-U kunt op de pagina **Advertising Configuration** (Reclameconfiguratie) de bron voor advertentiemarkeringssignalen opgeven. Wanneer u Portal gebruikt, kunt u alleen API selecteren. Hiermee wordt aangegeven dat het live coderingsprogramma binnen het kanaal moet luisteren naar een asynchrone advertentiemarkerings-API. Wanneer u Portal gebruikt, kunt u alleen API selecteren.
-
-Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
-
-![standard2][standard2]
-
-U kunt op de pagina **Encoding Preset** (Vooraf gedefinieerde instellingen voor codering) vooraf ingestelde systeemwaarden selecteren. Momenteel kunt u alleen de vooraf ingestelde systeemwaarde **Default 720p** (Standaard 720p) selecteren.
-
-![standard3][standard3]
-
-Op de pagina **Channel Creation** (Kanaal maken) definieert u de IP-adressen die video naar dit kanaal mogen publiceren. Toegestane IP-adressen kunnen worden opgegeven als een enkel IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld 10.0.0.1(255.255.252.0)).
-
-Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
-
-
-![standard4][standard4]
+    Momenteel kunt u alleen de vooraf ingestelde systeemwaarde **Default 720p** (Standaard 720p) selecteren. Open een Microsoft-ondersteuningsticket als u aangepaste vooraf gedefinieerde instellingen voor codering wilt opgeven. Voer vervolgens de naam in van de vooraf gedefinieerde instellingen die voor u zijn gemaakt. 
 
 >[AZURE.NOTE] Momenteel kan het tot dertig minuten duren voordat het kanaal wordt gestart. Het opnieuw instellen van een kanaal kan tot vijf minuten duren.
 
-Als u het kanaal hebt gemaakt, kunt u het tabblad **CODERINGSPROGRAMMA** selecteren waar u de configuraties van de kanalen kunt bekijken. U kunt ook advertenties en slates beheren. 
-
-![standard5][standard5]
+Als u het kanaal hebt gemaakt, kunt u op het kanaal klikken en het tabblad **Instellingen** selecteren, waar u de configuraties van de kanalen kunt bekijken. 
 
 Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
@@ -155,94 +146,65 @@ Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](m
 
 Wanneer het kanaal is gemaakt, kunt u URL’s voor opnemen ophalen die u aan het live coderingsprogramma levert. Het coderingsprogramma gebruikt deze URL's voor het invoeren van een live stream.
 
-![readychannel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ready-channel.png)
-
-
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Een programma maken en beheren
+##Gebeurtenissen maken en beheren
 
 ###Overzicht
 
-Een kanaal is gekoppeld aan programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren programma's. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
+Een kanaal is gekoppeld aan gebeurtenissen/programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren gebeurtenissen/programma’s. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
 
-U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
+U kunt het aantal uren opgeven dat u de opgenomen inhoud voor de gebeurtenis wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Gebeurtenissen kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
 
-Elk programma is gekoppeld aan een asset. Als u het programma wilt publiceren, moet u een OnDemand-locator voor de gekoppelde asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
+Elke gebeurtenis is gekoppeld aan een asset. Als u de gebeurtenis wilt publiceren, moet u een OnDemand-locator voor de gekoppelde asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
 
-Een kanaal ondersteunt maximaal drie gelijktijdig actieve programma's, zodat u meerdere archieven van dezelfde binnenkomende stream kunt maken. Hierdoor kunt u verschillende onderdelen van een gebeurtenis naar behoefte publiceren en archiveren. Zo kan het voor uw bedrijf nodig zijn zes uur van een programma te archiveren, maar alleen de laatste tien minuten uit te zenden. Hiervoor moet u twee gelijktijdig actieve programma's maken. Het ene programma wordt ingesteld om zes uur van de gebeurtenis te archiveren, maar het programma wordt niet gepubliceerd. Het andere programma wordt ingesteld om tien minuten te archiveren en dit programma wordt wel gepubliceerd.
+Een kanaal ondersteunt maximaal drie gelijktijdig actieve gebeurtenissen, zodat u meerdere archieven van dezelfde binnenkomende stream kunt maken. Hierdoor kunt u verschillende onderdelen van een gebeurtenis naar behoefte publiceren en archiveren. Zo kan het voor uw bedrijf nodig zijn zes uur van een gebeurtenis te archiveren, maar alleen de laatste tien minuten uit te zenden. Hiervoor moet u twee gelijktijdig actieve gebeurtenissen maken. De ene gebeurtenis wordt ingesteld om zes uur van de gebeurtenis te archiveren, maar het programma niet te publiceren. De andere gebeurtenis wordt ingesteld om tien minuten te archiveren en dit programma wel te publiceren.
 
 Gebruik bestaande programma's niet voor nieuwe gebeurtenissen. In plaats daarvan maakt en start u een nieuw programma voor elke gebeurtenis.
 
-Start het programma wanneer u klaar bent om te streamen en te archiveren. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren. 
+Start een gebeurtenis/het programma wanneer u klaar bent om te streamen en te archiveren. Stop de gebeurtenis als u het streamen wilt stoppen en de gebeurtenis wilt archiveren. 
 
-Als u de gearchiveerde inhoud wilt verwijderen, stopt en verwijdert u het programma en verwijdert u vervolgens de gekoppelde asset. Een asset kan niet worden verwijderd als deze wordt gebruikt door een programma. U moet eerst het programma verwijderen. 
+Als u de gearchiveerde inhoud wilt verwijderen, stopt en verwijdert u de gebeurtenis en verwijdert u vervolgens de gekoppelde asset. Een asset kan niet worden verwijderd als deze wordt gebruikt door de gebeurtenis. U moet eerst de gebeurtenis verwijderen. 
 
-Zelfs na het stoppen en verwijderen van het programma kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd.
+Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd.
 
 Als u de gearchiveerde inhoud wilt behouden maar deze niet langer voor streaming beschikbaar mag zijn, verwijdert u de streaming-locator.
 
-###Programma's maken/starten/stoppen
+###Gebeurtenissen maken/starten/stoppen
 
 Zodra de stream het kanaal binnenkomt, kunt u de streaminggebeurtenis starten door een asset, programma en streaming-locator te maken. Hiermee wordt de stream gearchiveerd en beschikbaar gesteld aan kijkers via het streaming-eindpunt. 
 
 Gebeurtenissen kunnen op twee manieren worden gestart: 
 
-1. Klik vanaf de pagina **KANAAL** op **TOEVOEGEN** om een nieuw programma toe te voegen.
+1. Klik vanaf de pagina **Kanaal** op **Live gebeurtenis** om een nieuwe gebeurtenis toe te voegen.
 
-    Geef het volgende op: programmanaam, assetnaam, archiefvenster en versleutelingsoptie.
+    Geef het volgende op: gebeurtenisnaam, assetnaam, archiefvenster en versleutelingsoptie.
     
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
     
-    Als u **Dit programma nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
+    Als u **Deze gebeurtenis nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
     
-    U kunt op **STARTEN** klikken, wanneer u klaar bent om het programma te streamen.
+    U kunt op **Starten** klikken, wanneer u klaar bent om de gebeurtenis te streamen.
 
-    Als u het programma hebt gestart, drukt u op PLAY om het afspelen van de inhoud te starten.
+    Als u de gebeurtenis hebt gestart, drukt u op **Bekijken** om het afspelen van de inhoud te starten.
 
+2. U kunt ook een snelkoppeling gebruiken en op de knop **Go Live** op de pagina **Kanaal** klikken. Hiermee wordt een standaardasset, -programma en -streaming-locator gemaakt.
 
-    ![createdprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-created-program.png)
+    De gebeurtenis heet **default** en het archiefvenster is ingesteld op 8 uur.
 
-2. U kunt ook een snelkoppeling gebruiken en op de knop **STREAMING STARTEN** op de pagina **KANAAL** klikken. Hiermee wordt een asset, een programma en een streaming-locator gemaakt.
+U kunt de gepubliceerde gebeurtenis bekijken op de pagina **Live gebeurtenis**. 
 
-    Het programma heet DefaultProgram en het archiefvenster is ingesteld op één uur.
-
-    U kunt het gepubliceerde programma vanaf de pagina KANAAL afspelen. 
-
-    ![channelpublish](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-channel-play.png)
+Als u op **Uit lucht** klikt, worden alle live evenementen gestopt. 
 
 
-Als u op **STREAMING STOPPEN** op de pagina **KANAAL** klikt, wordt het standaardprogramma gestopt en verwijderd. De asset is er nog steeds en u kunt deze publiceren of de publicatie ervan ongedaan maken vanaf de pagina **INHOUD**.
+##De gebeurtenis bekijken
 
-Als u overschakelt naar de pagina **INHOUD**, ziet u de assets die zijn gemaakt voor uw programma's.
+Als u een gebeurtenis wilt bekijken, klikt u op **Bekijken** in Azure Portal of kopieert u de streaming-URL en gebruikt u een speler van uw keuze. 
+ 
+![Gemaakt](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-![contentasset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-content-assets.png)
-
-
-##Inhoud afspelen
-
-Als u uw gebruiker een URL wilt leveren die kan worden gebruikt om uw inhoud te streamen, moet u eerst uw asset publiceren (zoals is beschreven in de vorige sectie) door een locator te maken (wanneer u een asset publiceert met Portal, worden locators voor u gemaakt). Locators bieden toegang tot bestanden in de asset. 
-
-Afhankelijk van het streamingprotocol dat u wilt gebruiken om de inhoud af te spelen, moet u mogelijk de URL wijzigen die u via de koppeling **PUBLICATIE-URL** van het kanaal/programma krijgt.
-
-De live stream wordt door de dynamische pakketten in het opgegeven protocol verpakt. 
-
-Een streaming-URL heeft standaard de volgende indeling en u kunt de streaming-URL gebruiken om Smooth Streaming-assets af te spelen:
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-Als u een streaming-URL voor HLS wilt maken, voegt u (format=m3u8-aapl) toe aan de URL.
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-Als u een streaming-URL voor MPEG DASH wilt maken, voegt u (format=mpd-time-csf) toe aan de URL.
-
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
-
-Zie [Inhoud leveren](media-services-deliver-content-overview.md) voor meer informatie over het leveren van uw inhoud.
-
-U kunt Smooth Stream afspelen met [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) of iOS- en Android-apparaten gebruiken om HLS versie 3 af te spelen.
+De live gebeurtenis wordt automatisch geconverteerd naar inhoud op aanvraag wanneer deze wordt gestopt.
 
 ##Opruimen
 
@@ -252,6 +214,13 @@ Als u klaar bent met het streamen van gebeurtenissen en de resources wilt opruim
 - Stop het kanaal. Nadat het kanaal is gestopt, worden hiervoor geen kosten meer in rekening gebracht. Als u het kanaal opnieuw wilt starten, wordt dezelfde URL voor opnemen gebruikt, zodat u het coderingsprogramma niet opnieuw hoeft te configureren.
 - U kunt uw streaming-eindpunt stoppen, tenzij u het archief van uw live gebeurtenis wilt blijven leveren als stream op aanvraag. Nadat het kanaal is gestopt, worden hiervoor geen kosten meer in rekening gebracht.
   
+##Gearchiveerde inhoud weergeven
+
+Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd. Een asset kan niet worden verwijderd als deze wordt gebruikt door een gebeurtenis. U moet eerst de gebeurtenis verwijderen. 
+
+Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens op **Assets**.
+
+![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ##Overwegingen
 
@@ -259,7 +228,9 @@ Als u klaar bent met het streamen van gebeurtenissen en de resources wilt opruim
 - Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
 
 
-##Media Services-leertrajecten
+##Volgende stap
+
+Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -267,16 +238,9 @@ Als u klaar bent met het streamen van gebeurtenissen en de resources wilt opruim
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+ 
 
 
-[standard0]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png
-[standard1]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard1.png
-[standard2]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard2.png
-[standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
-[standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
-[standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
-
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

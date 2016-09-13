@@ -48,7 +48,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing  maken die een nieuwe appar
     npm init
     ```
 
-2. Bij de opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub**-pakket te installeren:
+2. Bij de opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub** Service SDK-pakket te installeren:
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat simu
     npm init
     ```
 
-2. Bij de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp**-pakket te installeren:
+2. Bij de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-amqp**-pakket te installeren:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -313,6 +313,7 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=sep16_HO1-->
 
 

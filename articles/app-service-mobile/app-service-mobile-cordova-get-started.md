@@ -79,13 +79,13 @@ Informatie over het gebruik van de SDK's.
 [Verificatie toevoegen]: app-service-mobile-cordova-get-started-users.md
 [Pushmeldingen toevoegen]: app-service-mobile-cordova-get-started-push.md
 [Authentication]: app-service-mobile-auth.md
-[Pushmeldingen]: ../notification-hubs/notification-hubs-overview.md
+[Pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

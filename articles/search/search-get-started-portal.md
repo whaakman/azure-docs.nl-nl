@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="05/17/2016" 
+    ms.date="08/29/2016" 
     ms.author="heidist"/>
 
 # Aan de slag met Azure Search in de portal
@@ -27,7 +27,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbe
  
 ## Uw service vinden
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
 
 2. Open het servicedashboard van uw Azure Search-service. U kunt het dashboard op verschillende manieren vinden.
     - Klik in de snelbalk op **Services zoeken**. Elke ingerichte service in uw abonnement wordt in de snelbalk weergegeven. Als er een zoekservice is gedefinieerd, ziet u **Services zoeken** in de lijst.
@@ -186,6 +186,6 @@ Als het goed is, ontvangt u JSON-uitvoer, beginnend met documentnummer 386 en ei
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

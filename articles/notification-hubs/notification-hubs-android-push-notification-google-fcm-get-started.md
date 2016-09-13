@@ -729,12 +729,12 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 [Naar een bibliotheekproject verwijzen]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Klassieke Azure Portal]: https://manage.windowsazure.com/
 [Richtlijnen voor Notification Hubs]: notification-hubs-push-notification-overview.md
-[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-android-notify-users.md
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

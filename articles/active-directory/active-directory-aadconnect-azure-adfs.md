@@ -1,7 +1,7 @@
 <properties
     pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
     description="In dit document leert u hoe u AD FS implementeert in Azure voor hoge beschikbaarheid."
-    keywords="Inleiding tot AD FS, Azure, Overzicht van Azure AD Connect AD FS in Azure, iaas, AD FS"
+    keywords="AD FS implementeren in azure, azure adfs implementeren, azure adfs, azure ad fs, adfs implementeren, ad fs implementeren, adfs in azure, adfs implementeren in azure, AD FS implementeren in azure, adfs azure, introductie tot AD FS, Azure, AD FS in Azure, iaas, ADFS, adfs verplaatsen naar azure"
     services="active-directory"
     documentationCenter=""
     authors="anandyadavmsft"
@@ -54,9 +54,9 @@ Zoals hierboven is beschreven, kunt u twee subnetten in één virtueel netwerk m
 ![Virtueel netwerk maken](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
     
 Als u in de Azure Portal Virtueel netwerk selecteert, kunt u met één klik onmiddellijk het virtuele netwerk en één subnet implementeren. Er wordt ook een INT-subnet gedefinieerd en u kunt daar nu virtuele machines aan toevoegen.
-In de volgende stap gaat u nog een subnet aan het netwerk toevoegen, dat wil zeggen het DMZ-subnet. Voor het maken van het DMZ-subnet,
+In de volgende stap gaat u nog een subnet aan het netwerk toevoegen, dat wil zeggen het DMZ-subnet. Als u het DMZ-subnet wilt maken:
 
-* selecteert u het zojuist gemaakte netwerk
+* Selecteer het zojuist gemaakte netwerk
 * Selecteer het subnet in de eigenschappen
 * Klik in het deelvenster van het subnet op de knop Toevoegen
 * Geef de naam en adresruimte van het subnet op om het subnet te maken
@@ -184,16 +184,16 @@ Selecteer de zojuist gemaakte ILB in het deelvenster Load Balancers. Het instell
 
 Selecteer Tests in het instellingenvenster ILB-instellingen.
 1.  Klik op Toevoegen
-2.  Geef details op voor test a. **Naam**: naam test b. **Protocol**: TCP c. **Poort**: 443 (HTTPS) d. **Interval**: 5 (standaardwaarde). Dit is het interval waarmee de machines in de back-endpool e door ILB worden getest. **Drempelwaarde voor onjuiste status**: 2 (standaardwaarde). Dit is het aantal opeenvolgende mislukte tests waarna ILB een virtuele machine in de back-endpool beschouwt als niet-reagerend en geen verkeer meer naar die machine verzendt.
+2.  Geef details op voor test a. **Naam**: naam van test b. **Protocol**: TCP c. **Poort**: 443 (HTTPS) d. **Interval**: 5 (standaardwaarde). Dit is het interval waarmee de machines in de back-endpool e door ILB worden getest. **Drempelwaarde voor onjuiste status**: 2 (standaardwaarde). Dit is het aantal opeenvolgende mislukte tests waarna ILB een virtuele machine in de back-endpool beschouwt als niet-reagerend en geen verkeer meer naar die machine verzendt.
 
 ![Test ILB configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
  
 **6.4.  Taakverdelingsregels maken**
 
-Voor een doeltreffende verdeling van het verkeer moet de ILB worden geconfigureerd met taakverdelingsregels. Als u een taakverdelingsregel wilt maken, 
-1.  selecteert u Taakverdelingsregel in het instellingenvenster van de ILB
+Voor een doeltreffende verdeling van het verkeer moet de ILB worden geconfigureerd met taakverdelingsregels. Als u een regel voor taakverdeling wilt maken: 
+1.  Selecteer Taakverdelingsregel in het instellingendeelvenster van de ILB
 2.  Klik in het deelvenster Taakverdelingsregel op Toevoegen
-3.  In het deelvenster Taakverdelingsregel a. **Naam**: geef een naam op voor de regel b. **Protocol**: selecteer TCP c. **Poort**: 443 d. **Back-endpoort**: 443 e. **Back-endpool**: selecteer de pool die u eerder voor de AD FS-cluster hebt gemaakt f. **Test**: selecteer de test die u eerder voor de AD FS-servers hebt gemaakt
+3.  In het deelvenster Taakverdelingsregel toevoegen a. **Naam**: geef een naam op voor de regel b. **Protocol**: selecteer TCP c. **Poort**: 443 d. **Back-endpoort**: 443 e. **Back-endpool**: selecteer de pool die u eerder voor het AD FS-cluster hebt gemaakt f. **Test**: selecteer de test die u eerder voor de AD FS-servers hebt gemaakt
 
 ![ILB-taakverdelingsregels configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
@@ -311,6 +311,7 @@ Bij een geslaagde aanmelding wordt een soortgelijk positief bericht weergegeven:
 
 * [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 * [De AD FS configureren en beheren met Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
@@ -318,7 +319,6 @@ Bij een geslaagde aanmelding wordt een soortgelijk positief bericht weergegeven:
 
 
 
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

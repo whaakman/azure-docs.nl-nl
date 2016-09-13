@@ -30,8 +30,6 @@ Event Hubs is een verwerkingsservice van gebeurtenissen, die instaat voor de ver
 
 Andere belangrijke mogelijkheden van Event Hubs zijn het bijhouden van het gebruik van mobiele apps, verzamelen van informatie over gegevensverkeer van web-farms, het vastleggen van spelgebeurtenissen in consolegames of het verzamelen van telemetriegegevens van industriële machines of verbonden voertuigen.
 
-In tegenstelling tot [Service Bus-wachtrijen en -onderwerpen](../service-bus/service-bus-messaging-overview.md) is Event Hubs gericht op de verwerking van berichtenstromen van elke gewenste omvang. De mogelijkheden van Event Hubs verschillen van de Service Bus-onderwerpen doordat Event Hubs bijvoorbeeld sterk zijn gericht op scenario's met hoge doorvoer en het verwerken van gebeurtenissen. Als gevolg biedt Event Hubs niet alle berichtenmogelijkheden die beschikbaar zijn voor [onderwerpen](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Als u deze mogelijkheden nodig hebt, blijft onderwerpen de beste keuze.
-
 ## Volgende stappen
 
 Lees de volgende onderwerpen voor gedetailleerde informatie over Event Hubs.
@@ -47,6 +45,6 @@ Lees de volgende onderwerpen voor gedetailleerde informatie over Event Hubs.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

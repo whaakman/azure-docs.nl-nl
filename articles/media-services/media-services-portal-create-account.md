@@ -1,6 +1,6 @@
 <properties
-    pageTitle=" Een Azure Media Services-account maken via de Azure-portal | Microsoft Azure"
-    description="In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een Azure Media Services-account maakt via de Azure-portal."
+    pageTitle=" Een Azure Media Services-account maken via de Azure Portal | Microsoft Azure"
+    description="In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een Azure Media Services-account maakt via de Azure Portal."
     services="media-services"
     documentationCenter=""
     authors="Juliako"
@@ -13,17 +13,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/29/2016"
+    ms.date="09/07/2016"
     ms.author="juliako"/>
 
 
-# Een Azure Media Services-account maken via de Azure-portal
+# Een Azure Media Services-account maken via de Azure Portal
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 
-De Azure-portal biedt een manier om snel een Azure Media Services-account (AMS) te maken. U kunt uw account gebruiken voor toegang tot Media Services waarmee u media-inhoud in Azure kunt opslaan, versleutelen, coderen, beheren en streamen. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account) in hetzelfde geografische gebied als het Media Services-account.
+De Azure Portal biedt een manier om snel een Azure Media Services-account (AMS) te maken. U kunt uw account gebruiken voor toegang tot Media Services waarmee u media-inhoud in Azure kunt opslaan, versleutelen, coderen, beheren en streamen. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account) in hetzelfde geografische gebied als het Media Services-account.
 
-In dit artikel worden enkele algemene concepten toegelicht en wordt uitgelegd hoe u een Media Services-account maakt via de Azure-portal.
+In dit artikel worden enkele algemene concepten toegelicht en wordt uitgelegd hoe u een Media Services-account maakt via de Azure Portal.
 
 ## Concepten
 
@@ -33,16 +38,16 @@ Voor toegang tot Media Services zijn twee gekoppelde accounts vereist:
 
     Beschikbare Media Services-regio's (AMS) zijn onder meer: Noord-Europa, West-Europa, VS - west, VS - oost, Zuidoost-Azië, Azië, Japan - west, Japan - oost. Media Services gebruikt geen affiniteitsgroepen.
     
-    AMS is nu ook beschikbaar in de volgende datacenters: Brazilië - zuid, India - west, India - zuid en India - midden. U kunt de Azure-portal nu gebruiken om Media Service-accounts te maken en diverse taken uit te voeren die hier worden beschreven. Live Encoding is echter niet ingeschakeld in deze datacenters. Bovendien zijn niet alle soorten gereserveerde coderingseenheden beschikbaar in deze datacenters.
+    AMS is nu ook beschikbaar in de volgende datacenters: Brazilië - zuid, India, westen, India - zuid en India, midden. U kunt de Azure Portal nu gebruiken om Media Service-accounts te maken en diverse taken uit te voeren die hier worden beschreven. Live Encoding is echter niet ingeschakeld in deze datacenters. Bovendien zijn niet alle soorten gereserveerde coderingseenheden beschikbaar in deze datacenters.
     
     - Brazilië - zuid: alleen Standard en Basic gereserveerde coderingseenheden zijn beschikbaar.
-    - India - west, India - zuid: voor mediabestanden en moet zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
+    - India - west, India - zuid: geef Storage-blobs op voor mediabestanden; opslagaccounts moeten zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
 
 ## Een AMS-account maken
 
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
 
     ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -57,7 +62,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
     2. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](resource-group-overview.md#resource-groups) voor meer informatie.
     3. Selecteer in **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
     
-    3. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount in dezelfde geografische regio als uw Media Services-account selecteren of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
+    3. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
 
         Klik [hier](storage-introduction.md) voor meer informatie over opslag.
 
@@ -75,7 +80,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
 U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toegang te krijgen tot het Media Services-account.
 
-1. Selecteer uw account in de Azure-portal. 
+1. Selecteer uw account in de Azure Portal. 
 
     Het venster **Instellingen** wordt aan de rechterkant weergegeven. 
 
@@ -102,6 +107,6 @@ U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

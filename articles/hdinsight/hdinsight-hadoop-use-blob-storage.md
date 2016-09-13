@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ Daarnaast biedt HDInsight toegang tot gegevens die zijn opgeslagen in Azure Blob
 
 Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-creatieproces zal er een Azure Storage-account en een specifieke Azure Blob Storage-container uit dat account worden aangewezen als het standaardbestandssysteem.
 
-Naast dit opslagaccount kunt u tijdens het maakproces extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken][hdinsight-creation] voor instructies over het toevoegen van extra opslagaccounts.
+Naast dit opslagaccount kunt u tijdens het maakproces of nadat een cluster is gemaakt extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken][hdinsight-creation] voor instructies over het toevoegen van extra opslagaccounts.
 
 - **Containers in de opslagaccounts die zijn verbonden met een cluster:** omdat de accountnaam en de sleutel tijdens het maken worden gekoppeld aan het cluster, hebt u volledige toegang tot de blobs in deze containers.
 
@@ -301,6 +301,6 @@ Ga voor meer informatie naar:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

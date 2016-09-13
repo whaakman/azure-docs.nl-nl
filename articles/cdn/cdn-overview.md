@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="09/01/2016"
     ms.author="casoper"/>
 
 # Overzicht van Azure Content Delivery Network (CDN)
@@ -41,7 +41,7 @@ Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de 
 
 4. De randserver neemt het bestand op in de cache en retourneert het bestand naar de oorspronkelijke aanvrager (Alice).  Het bestand blijft in cache op de randserver totdat de TTL verloopt.  Als de oorsprong geen TTL heeft opgegeven, is de standaard-TTL zeven dagen.
 
-5. Extra gebruikers (zoals Bob) kunnen dan diezelfde URL gebruiken om hetzelfde bestand aan te vragen en worden mogelijk ook omgeleid naar hetzelfde POP.
+5. Extra gebruikers kunnen dan diezelfde URL gebruiken om hetzelfde bestand aan te vragen en worden mogelijk ook omgeleid naar hetzelfde POP.
 
 6. Als de TTL voor het bestand niet is verlopen, retourneert de randserver het bestand uit de cache.  Dit resulteert in een snellere, responsievere gebruikerservaring.
 
@@ -53,22 +53,25 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 |       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) en [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) of [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS-ondersteuning | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Taakverdeling | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| DDoS-beveiliging | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)-beveiliging | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Ondersteuning voor aangepaste domeinnamen](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Opslaan in cache van queryreeks](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Landen filteren](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Snel leegmaken](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Vooraf laden van assets](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Basisanalyse](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) of [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Ondersteuning voor HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Geavanceerde HTTP-rapporten](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Realtime statistieken](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Realtime waarschuwingen](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md) | | | **&#x2713;** |
+| Instellingen voor cache/koptekst (met behulp van [regels-engine](cdn-rules-engine.md))  | | | **&#x2713;** |
+| URL-omleidings-/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Regels voor mobiele apparaten (met behulp van [regels-engine](cdn-rules-engine.md))  | | | **&#x2713;** |
 
 >[AZURE.TIP] Is er een functie die u graag zou willen zien in Azure CDN?  [Geef ons feedback](https://feedback.azure.com/forums/169397-cdn). 
 
@@ -86,6 +89,6 @@ Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor inf
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

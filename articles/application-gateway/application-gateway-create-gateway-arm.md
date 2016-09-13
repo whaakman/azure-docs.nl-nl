@@ -12,14 +12,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
 # Een toepassingsgateway maken, openen of verwijderen met Azure Resource Manager
 
 Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway biedt de volgende functies voor de levering van toepassingen: HTTP load balancing, op cookies gebaseerde sessieaffiniteit en offloading van Secure Sockets Layer (SSL).
-
 
 > [AZURE.SELECTOR]
 - [Azure Portal](application-gateway-create-gateway-portal.md)
@@ -28,14 +27,10 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 - [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
 
-<BR>
-
-
 In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
 
 >[AZURE.IMPORTANT] Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. In dit document leest u meer over het maken van een toepassingsgateway met Azure Resource Manager. Als u de klassieke versie wilt gebruiken, gaat u naar [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md) (Een klassieke toepassingsgatewayimplementatie maken met PowerShell).
-
 
 
 ## Voordat u begint
@@ -46,21 +41,17 @@ In dit artikel vindt u meer informatie over de stappen voor het maken, configure
 
 ## Wat is er vereist om een toepassingsgateway te maken?
 
-
 - **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel openbare IP-/VIP-adressen zijn.
 - **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
 - **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
 - **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
 - **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. 
 
-
-
 ## Een toepassingsgateway maken
 
 Het verschil tussen het gebruik van Azure Classic en Azure Resource Manager zit hem in de volgorde waarin u de toepassingsgateway maakt en in de items die u moet configureren.
 
 Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om de toepassingsgatewayresource te maken.
-
 
 Hieronder worden de stappen voor het maken van een toepassingsgateway beschreven.
 
@@ -69,31 +60,36 @@ Hieronder worden de stappen voor het maken van een toepassingsgateway beschreven
 Zorg ervoor dat u de nieuwste versie van Azure PowerShell gebruikt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
 
 ### Stap 1
-Meld u aan bij Azure Login-AzureRmAccount.
 
-U wordt gevraagd om u te verifiëren met uw referenties.<BR>
+Meld u aan bij Azure.
+    
+    Login-AzureRmAccount
+
+U wordt gevraagd om u te verifiëren met uw referenties.
+
 ### Stap 2
+
 Controleer de abonnementen voor het account.
 
-        Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 ### Stap 3
-Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
-        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Kies welk Azure-abonnement u wilt gebruiken.
+
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Stap 4
-Maak een nieuwe resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
+
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
 
 In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam appgw-RG en de locatie VS - west.
 
 >[AZURE.NOTE] Als u voor uw toepassingsgateway een aangepaste test moet configureren, raadpleegt u [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
-
-
 
 ## Een virtueel netwerk en een subnet maken voor de toepassingsgateway
 
@@ -105,13 +101,11 @@ Wijs het adresbereik 10.0.0.0/24 toe aan de subnetvariabele die u gaat gebruiken
 
     $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-
 ### Stap 2
 
 Maak een virtueel netwerk met de naam appgwvnet in de resourcegroep appgw-rg. Doe dit voor de regio VS - west. Gebruik het voorvoegsel 10.0.0.0/16 met het subnet 10.0.0.0/24.
 
     $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
 
 ### Stap 3
 
@@ -134,9 +128,7 @@ U moet alle configuratie-items instellen voordat u de toepassingsgateway maakt. 
 
 Maak voor de toepassingsgateway een IP-configuratie en geef deze de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de groep met back-end-IP's. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
-
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-
 
 ### Stap 2
 
@@ -144,14 +136,11 @@ Configureer de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-
-
 ### Stap 3
 
 Configureer de toepassingsgateway door voor het netwerkverkeer met load balancing in de back-endpool poolsetting01 in te stellen.
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
-
 
 ### Stap 4
 
@@ -164,7 +153,6 @@ Configureer de front-end-IP-poort frontendport01 voor het openbare IP-eindpunt.
 Maak een front-end-IP-configuratie met de naam fipconfig01 en koppel het openbare IP-adres aan de front-end-IP-configuratie.
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-
 
 ### Stap 6
 
@@ -197,26 +185,6 @@ Haal DNS- en VIP-details van de toepassingsgateway op van de openbare IP-resourc
 
     Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 
-    Name                     : publicIP01
-    ResourceGroupName        : appgwtest 
-    Location                 : westus
-    Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
-    Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
-    ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
-    ProvisioningState        : Succeeded
-    Tags                     : 
-    PublicIpAllocationMethod : Dynamic
-    IpAddress                : 137.116.26.16
-    IdleTimeoutInMinutes     : 4
-    IpConfiguration          : {
-                                 "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
-                               }
-    DnsSettings              : {
-                                 "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
-                               } 
-
-
-
 ## Een toepassingsgateway verwijderen
 
 Volg deze stappen als u een toepassingsgateway wilt verwijderen:
@@ -225,7 +193,7 @@ Volg deze stappen als u een toepassingsgateway wilt verwijderen:
 
 Haal het toepassingsgatewayobject op en koppel dit aan de variabele $getgw.
 
-    $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+    $getgw = Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Stap 2
 
@@ -263,6 +231,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

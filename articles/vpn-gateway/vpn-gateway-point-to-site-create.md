@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Een punt-naar-site-VPN-verbinding met een Azure-netwerk configureren met behulp van de klassieke portal | Microsoft Azure"
-   description="U maakt een beveiligde verbinding met uw Azure Virtual Network door een punt-naar-site-VPN-verbinding te maken."
+   pageTitle="Een punt-naar-site-VPN-gatewayverbinding met een Azure-netwerk configureren met behulp van de klassieke portal | Microsoft Azure"
+   description="U maakt een beveiligde verbinding met uw Azure Virtual Network door een punt-naar-site-VPN-gatewayverbinding te maken."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -144,16 +144,30 @@ U moet ook een VPN-client configureren om verbinding te maken met het virtuele n
 
 3. Nadat u het VPN-clientpakket via de klassieke Azure Portal hebt gegenereerd en geïnstalleerd, kunt u het installeren op de clientcomputer van waaruit u verbinding wilt maken met het virtuele netwerk. Als u het VPN-clientpakket op meerdere clientcomputers wilt installeren, moet op elke computer een clientcertificaat worden geïnstalleerd.
 
-### Deel 2: Het VPN-configuratiepakket installeren op de client en de verbinding starten
+### Deel 2: Het VPN-configuratiepakket installeren op de client
 
-1. Kopieer het configuratiebestand lokaal op de computer die u wilt verbinden met het virtuele netwerk en dubbelklik op het EXE-bestand. Wanneer het pakket is geïnstalleerd, kunt u de VPN-verbinding starten. Het configuratiepakket is niet ondertekend door Microsoft. U kunt het pakket desgewenst laten ondertekenen door de ondertekeningsservice van uw organisatie of het zelf ondertekenen met behulp van [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). U kunt het pakket echter gebruiken zonder het te ondertekenen. Als het pakket niet is ondertekend, wordt echter een waarschuwing weergegeven wanneer u het pakket installeert.
-2. Ga op de clientcomputer naar de VPN-verbindingen en zoek de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Klik op **Verbinden**.
-3. Er verschijnt een pop-upbericht dat wordt gebruikt voor het maken van een zelfondertekend certificaat voor het eindpunt van de gateway. Klik op **Doorgaan** om verhoogde bevoegdheden te gebruiken.
-4. Klik op de pagina **Verbindingsstatus** op **Verbinden** om de verbinding te starten.
-5. Als het scherm **Certificaat selecteren** wordt geopend, controleert u of het weergegeven clientcertificaat het certificaat is dat u voor de verbinding wilt gebruiken. Als dat niet het geval is, gebruikt u de pijl-omlaag om het juiste certificaat te selecteren en klikt u op **OK**.
-6. U hebt nu verbinding met het virtuele netwerk en u hebt volledige toegang tot elke service en virtuele machine die in het virtuele netwerk wordt gehost.
+1. Kopieer het configuratiebestand lokaal op de computer die u wilt verbinden met het virtuele netwerk en dubbelklik op het EXE-bestand. 
 
-### Deel 3: De VPN-verbinding controleren
+2. Wanneer het pakket is geïnstalleerd, kunt u de VPN-verbinding starten. Het configuratiepakket is niet ondertekend door Microsoft. U kunt het pakket desgewenst laten ondertekenen door de ondertekeningsservice van uw organisatie of het zelf ondertekenen met behulp van [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). U kunt het pakket echter gebruiken zonder het te ondertekenen. Als het pakket niet is ondertekend, wordt echter een waarschuwing weergegeven wanneer u het pakket installeert.
+
+3. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De verbinding wordt nu vermeld. U ziet de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. Die ziet er ongeveer als volgt uit: 
+
+    ![VPN-client](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Deel 3: Verbinding maken met Azure
+
+1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Klik op **Verbinden**. Er verschijnt mogelijk een pop-upbericht dat verwijst naar het certificaat. Klik in dat geval op **Doorgaan** om verhoogde bevoegdheden te gebruiken. 
+
+2. Klik op de pagina **Verbindingsstatus** op **Verbinden** om de verbinding te starten. Als het scherm **Certificaat selecteren** wordt geopend, controleert u of het weergegeven clientcertificaat het certificaat is dat u voor de verbinding wilt gebruiken. Als dat niet het geval is, gebruikt u de pijl-omlaag om het juiste certificaat te selecteren en klikt u op **OK**.
+
+    ![VPN-client 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Uw verbinding wordt nu tot stand gebracht.
+
+    ![VPN-client 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Deel 4: De VPN-verbinding controleren
 
 1. Als u wilt controleren of uw VPN-verbinding actief is, opent u een opdrachtprompt met verhoogde bevoegdheid en voert u *ipconfig/all* in.
 2. Bekijk de resultaten. Het IP-adres dat u hebt ontvangen is een van de adressen binnen het adresbereik van de punt-naar-site-verbinding dat u hebt opgegeven tijdens het maken van het VNet. De resultaten moeten er ongeveer als volgt uitzien:
@@ -181,6 +195,6 @@ Bekijk de pagina [Virtual Network Documentation](https://azure.microsoft.com/doc
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

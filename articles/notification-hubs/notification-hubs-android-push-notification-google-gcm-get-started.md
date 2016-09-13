@@ -150,8 +150,8 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 
     Zorg ervoor dat u de volgende drie tijdelijke aanduidingen in de volgende code bijwerkt voor de klasse `NotificationSettings`:
     * **Verzender-id**: het projectnummer dat u eerder in de [Google Cloud Console](http://cloud.google.com/console) hebt verkregen.
-    * **HubListenConnectionString**: de verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in de hubblade **Instellingen** in de [Azure-portal].
-    * **HubName**: gebruik de naam van uw Notification Hub die wordt weergegeven in de hubblade in de [Azure-portal].
+    * **HubListenConnectionString**: de verbindingsreeks **DefaultListenAccessSignature** voor de hub. Kopieer deze verbindingsreeks door te klikken op **Toegangsbeleid** in de hubblade **Instellingen** in [Azure Portal].
+    * **HubName**: gebruik de naam van uw Notification Hub die wordt weergegeven in de hubblade in [Azure Portal].
 
     `NotificationSettings` code:
 
@@ -430,7 +430,7 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 
 ##Pushmeldingen verzenden
 
-U kunt testen of u pushmeldingen in uw app ontvangt door deze meldingen via de [Azure-portal] te verzenden. Ga naar het gedeelte **Probleemoplossing** in de hubblade, zoals hieronder weergegeven.
+U kunt testen of u pushmeldingen in uw app ontvangt door deze meldingen via [Azure Portal] te verzenden. Ga naar het gedeelte **Probleemoplossing** in de hubblade, zoals hieronder weergegeven.
 
 ![Azure Notification Hubs - Verzenden testen](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -468,7 +468,7 @@ Normaal gesproken verzendt u meldingen via een back-endserver. Mogelijk wilt u p
 
 3. Voeg in het bestand `NotificationSetting.java` de volgende instelling toe voor de klasse `NotificationSettings`.
 
-    Werk `HubFullAccess` bij met de verbindingsreeks **DefaultFullSharedAccessSignature** voor uw hub. U kunt deze verbindingsreeks kopiëren vanuit de [Azure-portal] door te klikken op **Toegangsbeleid** op de blade **Instellingen** voor uw Notification Hub.
+    Werk `HubFullAccess` bij met de verbindingsreeks **DefaultFullSharedAccessSignature** voor uw hub. U kunt deze verbindingsreeks kopiëren vanuit [Azure Portal] door te klikken op **Toegangsbeleid** op de blade **Instellingen** voor uw Notification Hub.
 
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
@@ -721,14 +721,14 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 [Aan de slag met pushmeldingen in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Android SDK voor Mobile Services]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Naar een bibliotheekproject verwijzen]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Klassieke Azure-portal]: https://manage.windowsazure.com/
+[Klassieke Azure Portal]: https://manage.windowsazure.com/
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-android-notify-users.md
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-aspnet-backend-android-breaking-news.md
-[Azure-portal]: https://portal.azure.com
+[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

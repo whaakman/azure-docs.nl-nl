@@ -27,7 +27,7 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Lees hoe u met de Azure Data Lake Store .NET SDK een Azure Data Lake-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
+Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx) een Azure Data Lake-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden, het verwijderen van uw account enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
 
 ## Vereisten
 
@@ -220,6 +220,8 @@ Het volgende codefragment bevat de methode `UploadFile`, die u kunt gebruiken vo
         var uploader = new DataLakeStoreUploader(parameters, frontend);
         uploader.Execute();
     }
+
+DataLakeStoreUploader ondersteunt recursief uploaden en downloaden tussen een lokaal bestandspad (of een map) naar Date Lake Store.    
 
 ## Bestands- of mapinformatie ophalen
 
@@ -525,9 +527,11 @@ Als laatste moet u ervoor zorgen dat het lokale pad en de bestandsnaam die u hie
 - [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 - [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Naslaginformatie over Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Naslaginformatie over Data Lake Store REST](https://msdn.microsoft.com/library/mt693424.aspx)
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

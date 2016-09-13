@@ -19,9 +19,7 @@
 
 # Een virtuele Linux-machine in Azure maken met behulp van de CLI
 
-> [AZURE.NOTE] Als u even de tijd hebt, help ons dan bij het verbeteren van de documentatie over de virtuele Linux-machine van Azure door deel te nemen aan een [korte enquête](https://aka.ms/linuxdocsurvey) over uw ervaringen. Met elk antwoord helpt u ons op weg om u beter van dienst te zijn bij de uitvoering van uw werk.
-
-Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van de opdracht `azure vm quick-create` van Azure CLI. Met de opdracht `quick-create` wordt een virtuele machine met een basisinfrastructuur eromheen geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen.  Voor de stappen in dit artikel is een Azure-account vereist ([registreer u voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)] en moet [de Azure CLI](../xplat-cli-install.md) zijn aangemeld (`azure login`) en zijn ingesteld op de Resource Manager-modus (`azure config mode arm`).  U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure-portal](virtual-machines-linux-quick-create-portal.md).
+Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van de opdracht `azure vm quick-create` van Azure CLI. Met de opdracht `quick-create` wordt een virtuele machine met een basisinfrastructuur eromheen geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen.  Voor de stappen in dit artikel is een Azure-account vereist ([registreer u voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en moet [de Azure CLI](../xplat-cli-install.md) zijn aangemeld (`azure login`) en zijn ingesteld op de Resource Manager-modus (`azure config mode arm`).  U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Beknopt overzicht van opdrachten
 
@@ -172,6 +170,6 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 
