@@ -589,7 +589,7 @@ if (imagesBlobContainer.CreateIfNotExists())
 }
 ```
 
-Met vergelijkbare code wordt er een verwijzing naar de *afbeeldingen*wachtrij opgehaald en een nieuwe wachtrij gemaakt. In dit geval is er geen machtigingswijziging nodig.
+Met vergelijkbare code wordt er een verwijzing naar de *afbeeldingen* wachtrij opgehaald en een nieuwe wachtrij gemaakt. In dit geval is er geen machtigingswijziging nodig.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -624,7 +624,7 @@ blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeco
 imagesBlobContainer = blobClient.GetContainerReference("images");
 ```
 
-Door vergelijkbare code wordt een verwijzing naar de *afbeeldingen*wachtrij opgehaald.
+Door vergelijkbare code wordt een verwijzing naar de *afbeeldingen* wachtrij opgehaald.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -872,6 +872,6 @@ Zie de volgende bronnen voor meer informatie:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!---HONumber=ago16_HO4-->
 
 
