@@ -38,7 +38,7 @@ Het dubbele apparaat heeft de volgende onderdelen:
 
 1.  **Apparaatvelden:** apparaatvelden zijn vooraf gedefinieerde eigenschappen die worden gebruikt voor zowel IoT Hub-berichten als apparaatbeheer. Hiermee kan IoT Hub fysieke apparaten identificeren en er verbinding mee maken. Apparaatvelden zijn niet gesynchroniseerd op het apparaat en zijn exclusief opgeslagen op het dubbele apparaat. Apparaatvelden bevatten de apparaat-id en verificatiegegevens.
 
-2.  **Apparaateigenschappen:** apparaateigenschappen zijn een vooraf gedefinieerde woordenlijst met eigenschappen die een fysiek apparaat beschrijft. Een fysiek apparaat is het hoofdapparaat voor elke eigenschap en is de gezaghebbende opslag voor elke bijbehorende waarde. Een uiteindelijk consistente weergave van deze eigenschappen wordt opgeslagen op het dubbele apparaat in de cloud. De coherentie en vernieuwing zijn onderhevig aan de synchronisatie-instellingen zoals beschreven in [Tutorial: how to use the device twin][Ink-tutorial-twin] (Zelfstudie: het dubbele apparaat gebruiken). Enkele voorbeelden van apparaateigenschappen zijn de firmwareversie, het accuniveau en de naam van de fabrikant.
+2.  **Apparaateigenschappen:** apparaateigenschappen zijn een vooraf gedefinieerde woordenlijst met eigenschappen die een fysiek apparaat beschrijft. Een fysiek apparaat is het hoofdapparaat voor elke eigenschap en is de gezaghebbende opslag voor elke bijbehorende waarde. Een uiteindelijk consistente weergave van deze eigenschappen wordt opgeslagen op het dubbele apparaat in de cloud. De coherentie en vernieuwing zijn onderhevig aan de synchronisatie-instellingen zoals beschreven in [Tutorial: how to use the device twin][lnk-tutorial-twin] (Zelfstudie: het dubbele apparaat gebruiken). Enkele voorbeelden van apparaateigenschappen zijn de firmwareversie, het accuniveau en de naam van de fabrikant.
 
 3.  **Service-eigenschappen:** service-eigenschappen zijn **&lt;sleutel-waardeparen&gt;** die door de ontwikkelaar worden toegevoegd aan de woordenlijst met service-eigenschappen. Deze eigenschappen breiden het gegevensmodel voor het dubbele apparaat uit, waardoor u het apparaat beter kunt typeren. Service-eigenschappen worden niet gesynchroniseerd naar het apparaat en worden alleen opgeslagen op het dubbele apparaat in de cloud. Een voorbeeld van een service-eigenschap is **&lt;NextServiceDate, 11/12/2017&gt;**. Deze eigenschap kan worden gebruikt om apparaten te vinden via hun volgende servicedatum.
 
@@ -84,13 +84,13 @@ Er worden momenteel zes typen apparaattaken geboden met apparaatbeheer via Azure
 - **Apparaateigenschap Lezen**: hiermee wordt de meest recente waarde van een apparaateigenschap opgehaald op het fysieke apparaat.
 - **Apparaateigenschap Schrijven:** hiermee wordt een apparaateigenschap op het fysieke apparaat gewijzigd.
 
-Zie de [API documentation for C\# and node.js][Ink-apidocs] (API-documentatie voor C en node.JS) voor details over het gebruik van elk van deze taken.
+Zie de [API documentation for C\# and node.js][lnk-apidocs] (API-documentatie voor C en node.JS) voor details over het gebruik van elk van deze taken.
 
 Een taak kan worden uitgevoerd op meerdere apparaten. Wanneer u een taak start, wordt voor elk van deze apparaten een bijbehorende onderliggende taak gemaakt. Een onderliggende taak werkt op een enkel apparaat. Elke onderliggende taak bevat een verwijzing naar de bovenliggende taak. De bovenliggende taak is slechts een container voor de onderliggende taken. Er wordt met deze taak geen logica geïmplementeerd om onderscheid te maken tussen typen apparaten (zoals het bijwerken van een Intel Edison versus het bijwerken van een Raspberry Pi). In het volgende diagram wordt de relatie weergegeven tussen een bovenliggende taak en de bijbehorende onderliggende taken, en de bijbehorende fysieke apparaten.
 
 ![][img-jobs]
 
-U kunt een query uitvoeren voor de taakgeschiedenis om de status te begrijpen van de taken die u hebt gestart. Zie [onze querybibliotheek][Ink-query-samples] voor een aantal voorbeelden van query‘s.
+U kunt een query uitvoeren voor de taakgeschiedenis om de status te begrijpen van de taken die u hebt gestart. Zie [onze querybibliotheek][lnk-query-samples] voor een aantal voorbeelden van query‘s.
 
 ## Apparaatimplementatie
 
@@ -101,13 +101,13 @@ De DM-clientbibliotheek heeft twee hoofdverantwoordelijkheden in apparaatbeheer:
 - Eigenschappen op het fysieke apparaat synchroniseren met het bijbehorende dubbele apparaat in IoT Hub
 - Apparaattaken besturen die via IoT Hub zijn verzonden naar het apparaat
 
-Zie [Introducing the Azure IoT Hub device management client library for C][Ink-library-c] (Introductie tot de clientbibliotheek voor apparaatbeheer via Azure IoT Hub voor C) voor meer informatie over deze verantwoordelijkheden en de implementatie op fysieke apparaten.
+Zie [Introducing the Azure IoT Hub device management client library for C][lnk-library-c] (Introductie tot de clientbibliotheek voor apparaatbeheer via Azure IoT Hub voor C) voor meer informatie over deze verantwoordelijkheden en de implementatie op fysieke apparaten.
 
 ## Volgende stappen
 
 U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit een aantal netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-apparaat-SDK‘s].
 
-Zie de zelfstudie [Get started with Azure IoT Hub device management][Ink-get-started] (Aan de slag met apparaatbeheer via Azure IoT Hub) om nog meer te leren over de functies voor apparaatbeheer via Azure IoT Hub.
+Zie de zelfstudie [Get started with Azure IoT Hub device management][lnk-get-started] (Aan de slag met apparaatbeheer via Azure IoT Hub) om nog meer te leren over de functies voor apparaatbeheer via Azure IoT Hub.
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,6 +124,6 @@ Zie de zelfstudie [Get started with Azure IoT Hub device management][Ink-get-sta
 
 
 
-<!---HONumber=ago16_HO4-->
+<!----HONumber=ago16_HO4-->
 
 
