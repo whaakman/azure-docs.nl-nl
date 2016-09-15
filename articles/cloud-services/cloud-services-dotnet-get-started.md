@@ -835,7 +835,7 @@ Het `RoleEnvironment`-object wordt verstrekt door Azure wanneer u een toepassing
 
 De toepassing gebruikt de Azure RoleEnvironment onder meer voor het ophalen van verbindingsreekswaarden die zijn opgeslagen in de *.cscfg*-bestanden. Een andere oorzaak van deze uitzondering kan dan ook te maken hebben met een ontbrekende verbindingsreeks. Controleer of u de instelling StorageConnectionString in het project ContosoAdsWeb voor zowel de cloudconfiguratie als de lokale configuratie hebt gemaakt en of u ook in het project ContosoAdsWorker beide verbindingsreeksen voor beide configuraties hebt gemaakt. Als u in de hele oplossing een zoekopdracht **Find All** uitvoert voor StorageConnectionString, moet u deze in 6 bestanden 9 maal vinden.
 
-### Cannot override to port xxx. New port below minimum allowed value 8080 for protocol http
+### Kan niet overschrijven naar poort xxx. Nieuwe poort onder minimaal toegestane waarde 8080 voor http-protocol
 
 Wijzig het poortnummer dat door het webproject wordt gebruikt. Klik met de rechtermuisknop op het project ContosoAdsWeb en klik vervolgens op **Properties**. Klik op het tabblad **Web** en wijzig het poortnummer in de instelling **Project Url**.
 
