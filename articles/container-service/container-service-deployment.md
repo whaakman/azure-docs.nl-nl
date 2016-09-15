@@ -20,29 +20,29 @@
 
 # Een Azure Container Service-cluster implementeren
 
-Azure Container Service biedt een snelle implementatie van populaire open-sourceoplossingen voor containerclustering en -orchestration. Met behulp van Azure Container Service kunt u DC/OS- en Docker Swarm-clusters implementeren met Azure Resource Manager-sjablonen of Azure Portal. U implementeert deze clusters met behulp van Azure Virtual Machine-schaalsets, en de clusters profiteren van het Azure-aanbod voor netwerken en opslag. Voor toegang tot Azure Container Service hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Container Service biedt een snelle implementatie van populaire open-sourceoplossingen voor containerclustering en -orchestration. Met behulp van Azure Container Service kunt u DC/OS- en Docker Swarm-clusters implementeren met Azure Resource Manager-sjablonen of Azure Portal. U implementeert deze clusters met behulp van Azure Virtual Machine-schaalsets, en de clusters profiteren van het Azure-aanbod voor netwerken en opslag. U hebt een Azure-abonnement nodig om toegang te krijgen tot Azure Container Service. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 In dit document vindt u instructies voor het implementeren van een Azure Container Service-cluster met behulp van [Azure Portal](#creating-a-service-using-the-azure-portal), de [Azure-opdrachtregelinterface (CLI)](#creating-a-service-using-the-azure-cli) en de [Azure PowerShell-module](#creating-a-service-using-powershell).  
 
-## Een service maken met behulp van Azure Portal
+## Een service maken met Azure Portal
 
-Meld u aan bij Azure Portal, selecteer **Nieuw** en zoek in Azure Marketplace naar **Azure Container Service**.
+Meld u aan bij Azure Portal, selecteer **New** (Nieuw) en zoek in Azure Marketplace naar **Azure Container Service**.
 
 ![Implementatie maken - 1](media/acs-portal1.png)  <br />
 
-Selecteer **Azure Container Service** en klik op **Maken**.
+Selecteer **Azure Container Service** en klik op **Create** (Maken).
 
 ![Implementatie maken - 2](media/acs-portal2.png)  <br />
 
 Voer de volgende informatie in:
 
-- **Gebruikersnaam**: dit is de naam van de gebruiker die wordt gebruikt voor een account op elk van de virtuele machines en virtuele-machineschaalsets in het Azure Container Service-cluster.
-- **Abonnement**: selecteer een Azure-abonnement.
-- **Resourcegroep**: selecteer een bestaande resourcegroep of maak een nieuwe.
+- **User name** (Gebruikersnaam): dit is de gebruikersnaam die wordt gebruikt voor een account op elk van de virtuele machines en virtuele-machineschaalsets in het Azure Container Service-cluster.
+- **Subscription** (Abonnement): selecteer een Azure-abonnement.
+- **Resource group** (Resourcegroep): selecteer een bestaande resourcegroep of maak een nieuwe.
 - **Locatie**: selecteer een Azure-regio voor de Azure Container Service-implementatie.
-- **Openbare SSH-sleutel**: voeg de openbare sleutel toe die wordt gebruikt voor verificatie op basis van de virtuele machines voor Azure Container Service. Het is heel belangrijk dat deze sleutel geen regeleinden bevat, maar wel de prefix 'ssh-rsa' en de postfix 'gebruikersnaam@domein'. Deze moet er ongeveer als volgt uitzien: **ssh-rsa AAAAB3Nz…<…>…UcyupgH azureuser@linuxvm**. Zie de artikelen voor [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) en [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) voor informatie over het maken van SSH-sleutels.
+- **SSH public key** (Openbare SSH-sleutel): voeg de openbare sleutel toe die wordt gebruikt voor verificatie bij de virtuele machines voor Azure Container Service. Het is heel belangrijk dat deze sleutel geen regeleinden bevat, maar wel de prefix 'ssh-rsa' en de postfix 'gebruikersnaam@domein'. Het moet er ongeveer zo uitzien: **ssh-rsa AAAAB3Nz…<…>…UcyupgH azureuser@linuxvm**. Zie de artikelen voor [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) en [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) voor informatie over het maken van SSH-sleutels.
 
-Klik op **OK** wanneer u gereed bent om door te gaan.
+Klik op **OK** wanneer u klaar bent om door te gaan.
 
 ![Implementatie maken - 3](media/acs-portal3.png)  <br />
 
@@ -51,18 +51,18 @@ Selecteer een Orchestration-type. De opties zijn:
 - **DC/OS**: implementeert een DC/OS-cluster.
 - **Swarm**: implementeert een Docker Swarm-cluster.
 
-Klik op **OK** wanneer u gereed bent om door te gaan.
+Klik op **OK** wanneer u klaar bent om door te gaan.
 
 ![Implementatie maken - 4](media/acs-portal4.png)  <br />
 
 Voer de volgende informatie in:
 
-- **Aantal masters**: het aantal masters in het cluster.
-- **Aantal agents**: voor Docker Swarm is dit het oorspronkelijke aantal agents in de agentschaalset. Voor DC/OS is dit het oorspronkelijke aantal agents in een persoonlijke schaalset. Bovendien wordt een openbare schaalset gemaakt, die een vooraf bepaald aantal agents bevat. Het aantal agents in deze openbare schaalset wordt bepaald door het aantal masters dat in het cluster is gemaakt: één openbare agent voor één master en twee openbare agents voor drie of vijf masters.
-- **Grootte van virtuele machines van agent**: de grootte van de virtuele machines van de agent.
-- **DNS-voorvoegsel**: een wereldwijd unieke naam die wordt gebruikt voor het toevoegen van belangrijke delen van de volledig gekwalificeerde domeinnamen voor de service.
+- **Master count** (Aantal masters): het aantal masters in het cluster.
+- **Agent count** (Aantal agents): voor Docker Swarm is dit het oorspronkelijke aantal agents in de agentschaalset. Voor DC/OS is dit het oorspronkelijke aantal agents in een persoonlijke schaalset. Bovendien wordt een openbare schaalset gemaakt, die een vooraf bepaald aantal agents bevat. Het aantal agents in deze openbare schaalset wordt bepaald door het aantal masters dat in het cluster is gemaakt: één openbare agent voor één master en twee openbare agents voor drie of vijf masters.
+- **Agent virtual machine size** (Grootte van virtuele machines van agent): de grootte van de virtuele machines van de agent.
+- **DNS prefix** (DNS-voorvoegsel): een wereldwijd unieke naam die wordt gebruikt om sleutelonderdelen toe te voegen voor de volledig gekwalificeerde domeinnamen voor de service.
 
-Klik op **OK** wanneer u gereed bent om door te gaan.
+Klik op **OK** wanneer u klaar bent om door te gaan.
 
 ![Implementatie maken - 5](media/acs-portal5.png)  <br />
 
@@ -70,7 +70,7 @@ Klik op **OK** nadat de servicevalidatie is voltooid.
 
 ![Implementatie maken - 6](media/acs-portal6.png)  <br />
 
-Klik op **Maken** om het implementatieproces te starten.
+Klik op **Create** (Maken) om het implementatieproces te starten.
 
 ![Implementatie maken - 7](media/acs-portal7.png)  <br />
 
@@ -84,12 +84,12 @@ Wanneer de implementatie is voltooid, is het Azure Container Service-cluster kla
 
 Wanneer u een Azure Container Service-exemplaar wilt maken met behulp van de opdrachtregel, hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ook moet de Azure CLI [geïnstalleerd](../xplat-cli-install.md) en [geconfigureerd](../xplat-cli-connect.md) zijn.
 
-Selecteer een van de volgende sjablonen van GitHub wanneer u een DC/OS- of Docker Swarm-cluster wilt implementeren. Houd er rekening mee deze sjablonen hetzelfde zijn, met uitzondering van de standaardselectie voor orchestrator.
+Selecteer een van de volgende sjablonen van GitHub wanneer u een DC/OS- of Docker Swarm-cluster wilt implementeren. Deze sjablonen zijn hetzelfde, behalve de standaardselectie voor orchestrator.
 
 * [DC/OS-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Controleer vervolgens of de Azure CLI is verbonden met een Azure-abonnement. U kunt dit doen met behulp van de volgende opdracht:
+Controleer vervolgens of de Azure CLI is verbonden met een Azure-abonnement. U gebruikt hiervoor de volgende opdracht:
 
 ```bash
 azure account show
@@ -100,7 +100,7 @@ Als er geen Azure-account wordt geretourneerd, gebruikt u de volgende opdracht o
 azure login -u user@domain.com
 ```
 
-Vervolgens configureert u de Azure CLI-hulpprogramma's voor het gebruik van Azure Resource Manager.
+Hierna configureert u de Azure CLI-hulpprogramma's voor het gebruik van Azure Resource Manager.
 
 ```bash
 azure config mode arm
@@ -110,9 +110,9 @@ Maak een Azure-resourcegroep- en Container Service-cluster met de volgende opdra
 
 - **RESOURCE_GROUP** de naam is van de resourcegroep die u wilt gebruiken voor deze service.
 - **LOCATION** de Azure-regio is waar de resourcegroep en Azure Container Service-implementatie wordt gemaakt.
-- **TEMPLATE_URI** de locatie is van het implementatiebestand. Dit moet het Raw-bestand zijn, niet een verwijzing naar de GitHub-gebruikersinterface. U vindt deze URL door het bestand azuredeploy.json te selecteren in GitHub en te klikken op de knop **Raw**.
+- **TEMPLATE_URI** de locatie is van het implementatiebestand. Dit moet het Raw-bestand zijn, niet een verwijzing naar de GitHub-gebruikersinterface. U vindt deze URL door het bestand azuredeploy.json te selecteren in GitHub en op de knop **Raw** te klikken.
 
-> [AZURE.NOTE] Wanneer u deze opdracht uitvoert, vraagt de shell u de implementatieparameterwaarden op te geven.
+> [AZURE.NOTE] Wanneer u deze opdracht uitvoert, vraagt de shell u parameterwaarden op te geven voor de implementatie.
 
 ```bash
 # sample deployment
@@ -138,13 +138,13 @@ U kunt ook parameters in JSON-indeling opgeven met behulp van de `-e`-switch:
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
  ```
 
-Wanneer u een voorbeeld wilt zien van een parameterbestand met de naam `azuredeploy.parameters.json`, zoekt u deze op met de Azure Container Service-sjablonen in GitHub.
+U kunt een voorbeeldparameterbestand met de naam `azuredeploy.parameters.json` bekijken door dit in GitHub op te zoeken met de Azure Container Service-sjablonen.
 
-## Een service maken met behulp van de PowerShell
+## Een service maken met PowerShell
 
-U kunt ook een Azure Container Service-cluster implementeren met behulp van PowerShell. Dit document is gebaseerd op versie 1.0 van de [Azure PowerShell-module](https://azure.microsoft.com/blog/azps-1-0/).
+U kunt een Azure Container Service-cluster ook implementeren met PowerShell. Dit document is gebaseerd op versie 1.0 van de [Azure PowerShell-module](https://azure.microsoft.com/blog/azps-1-0/).
 
-Selecteer een van de volgende sjablonen wanneer u een DC/OS- of Docker Swarm-cluster wilt implementeren. Houd er rekening mee deze sjablonen hetzelfde zijn, met uitzondering van de standaardselectie voor orchestrator.
+Selecteer een van de volgende sjablonen wanneer u een DC/OS- of Docker Swarm-cluster wilt implementeren. Deze sjablonen zijn hetzelfde, behalve de standaardselectie voor orchestrator.
 
 * [DC/OS-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
 * [Swarm-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -167,7 +167,7 @@ Als u naar een nieuwe resourcegroep implementeert, moet u eerst de resourcegroep
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
-Nadat u een resourcegroep hebt gemaakt, kunt u uw cluster maken met de volgende opdracht. De URI van de gewenste sjabloon worden opgegeven voor de `-TemplateUri`-parameter. Wanneer u deze opdracht uitvoert, vraagt PowerShell u de implementatieparameterwaarden op ge geven.
+Nadat u een resourcegroep hebt gemaakt, kunt u uw cluster maken met de volgende opdracht. De URI van de gewenste sjabloon wordt opgegeven voor de `-TemplateUri`-parameter. Wanneer u deze opdracht uitvoert, vraagt PowerShell u de parameterwaarden voor de implementatie op te geven.
 
 ```powershell
 # sample deployment
@@ -189,7 +189,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 
 ## Volgende stappen
 
-Nu u een werkend cluster hebt, leest u deze documenten voor meer informatie over verbinding en beheer:
+Nu u een werkend cluster hebt, kunt u deze documenten lezen voor meer informatie over verbinding en beheer:
 
 - [Verbinding maken met een Azure Container Service-cluster](container-service-connect.md)
 - [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
