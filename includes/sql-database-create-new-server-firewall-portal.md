@@ -48,6 +48,6 @@ Voer de volgende stappen uit in Azure Portal om een firewallregel op servernivea
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep14_HO2-->
 
 
