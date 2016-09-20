@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -193,6 +193,7 @@ Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en 
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

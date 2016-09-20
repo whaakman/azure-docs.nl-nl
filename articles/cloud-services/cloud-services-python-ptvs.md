@@ -242,6 +242,8 @@ if (-not $is_emulated){
 
 #### LaunchWorker.ps1 wijzigen
 
+>[AZURE.NOTE] In het geval van een project met een **werkrol** is het bestand **LauncherWorker.ps1** vereist om het opstartbestand uit te voeren. Bij een project met een **webrol** wordt het opstartbestand in plaats daarvan gedefinieerd in de projecteigenschappen.
+
 Het bestand **bin\LaunchWorker.ps1** is oorspronkelijk gemaakt om heel wat voorbereidende taken te verrichten, maar werkt niet echt. Vervang de inhoud van dat bestand door het volgende script.
 
 Met dit script wordt het bestand **worker.py** van uw Python-project aangeroepen. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
@@ -368,6 +370,6 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="paulettm"
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 
@@ -79,6 +79,6 @@ Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken t
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

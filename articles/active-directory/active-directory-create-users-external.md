@@ -18,6 +18,10 @@
 
 # Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Klassieke Azure-portal](active-directory-create-users-external.md)
+
 In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
 ## Een gebruiker toevoegen
@@ -86,6 +90,6 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

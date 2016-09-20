@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Op rollen gebaseerd toegangsbeheer in Azure Automation
@@ -239,6 +239,6 @@ Vervang in de bovenstaande voorbeelden de **aanmeldnaam**, de **abonnements-id**
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

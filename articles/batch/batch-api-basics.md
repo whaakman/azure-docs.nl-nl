@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/22/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
 
 # Overzicht van Batch-functies voor ontwikkelaars
@@ -81,8 +81,6 @@ Alle rekenknooppunten in Batch omvatten ook:
 - **Firewall**instellingen die zijn geconfigureerd om de toegang te beheren.
 - [Externe toegang](#connecting-to-compute-nodes) voor Windows-knooppunten (Remote Desktop Protocol (RDP)) en Linux-knooppunten (Secure Shell (SSH)).
 
-> [AZURE.NOTE] Linux-ondersteuning in Batch wordt momenteel nog verder ontwikkeld. Zie [Linux-rekenknooppunten in Azure Batch-pools inrichten](batch-linux-nodes.md) voor meer informatie.
-
 ## Pool
 
 Een pool is een verzameling knooppunten waarop uw toepassing wordt uitgevoerd. De pool kan door u handmatig worden gemaakt of automatisch door de Batch-service worden gemaakt wanneer u het werk opgeeft dat moet worden uitgevoerd. U kunt een pool maken en beheren die voldoet aan de resourcevereisten van uw toepassing. Een pool kan alleen worden gebruikt door de Batch-account waarin deze is gemaakt. Een Batch-account kan meer dan één pool hebben.
@@ -146,7 +144,7 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
 
 - **Toepassingspakketten**
 
-    U kunt [toepassingspakketten](#application-packages) opgeven die moeten worden geïmplementeerd in de rekenknooppunten in de groep. Toepassingspakketten bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten die u voor een groep van toepassingen opgeeft, worden geïnstalleerd op elk knooppunt dat lid wordt van de groep, en elke keer dat er een knooppunt opnieuw wordt opgestart of er een installatiekopie wordt hersteld.
+    U kunt [toepassingspakketten](#application-packages) opgeven die moeten worden geïmplementeerd in de rekenknooppunten in de groep. Toepassingspakketten bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten die u voor een groep van toepassingen opgeeft, worden geïnstalleerd op elk knooppunt dat lid wordt van de groep, en elke keer dat er een knooppunt opnieuw wordt opgestart of er een installatiekopie wordt hersteld. Toepassingspakketten worden momenteel niet ondersteund op Linux-rekenknooppunten.
 
 - **Netwerkconfiguratie**
 
@@ -521,6 +519,6 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

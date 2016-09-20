@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met .NET SDK
@@ -33,7 +33,6 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 
 * Visual Studio 2013 of 2015 In onderstaande instructies wordt Visual Studio 2015 gebruikt.
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Uw Azure-abonnement inschakelen** voor de openbare preview van Data Lake Store. Zie [Instructies](data-lake-store-get-started-portal.md#signup).
 * **Een Azure Active Directory-toepassing maken**. Er zijn twee manieren waarop u kunt verifiëren met behulp van Azure Active Directory: **interactief** en **niet-interactief**. De vereisten zijn afhankelijk van de manier waarop u wilt verifiëren.
     * **Voor interactieve verificatie** (dat in dit artikel wordt gebruikt) moet u in Azure Active Directory een **Native Client-toepassing** maken. Wanneer u de toepassing hebt gemaakt, haalt u de volgende waarden op met betrekking tot de toepassing.
         - **Client-id** en **omleidings-URI** voor de toepassing ophalen
@@ -532,6 +531,6 @@ Als laatste moet u ervoor zorgen dat het lokale pad en de bestandsnaam die u hie
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

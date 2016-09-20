@@ -37,6 +37,6 @@ Als u een video wilt bekijken over het koppelen, initialiseren en formatteren va
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

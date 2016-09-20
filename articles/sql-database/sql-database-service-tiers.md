@@ -19,7 +19,9 @@
 
 # Opties en prestaties van SQL Database: inzicht in wat er beschikbaar is in elke servicelaag
 
-[Azure SQL Database](sql-database-technical-overview.md) heeft meerdere servicelagen voor de afhandeling van verschillende workloads. U kunt steeds de [servicelagen wijzigen](sql-database-scale-up.md) met een minimale downtime voor uw toepassing (doorgaans minder dan vier seconden). U kunt ook [een individuele database maken](sql-database-get-started.md) met gedefinieerde kenmerken en prijzen. Of u kunt meerdere databases beheren door [een pool voor elastische database te maken](sql-database-elastic-pool-create-portal.md). In beide gevallen is er een **Basic**-, **Standard**- en **Premium**-laag. Databaseopties in deze lagen zijn vergelijkbaar voor individuele databases en elastische pools, maar voor elastische pools zijn er aanvullende overwegingen. In dit artikel vindt u details over servicelagen voor individuele databases en elastische pools.
+[Azure SQL Database](sql-database-technical-overview.md) biedt drie servicelagen met meerdere prestatieniveaus om verschillende workloads af te handelen. Elke prestatieniveau biedt meer resources die zijn ontworpen om een steeds snellere doorvoer te leveren. U kunt elke database in een eigen [servicelaag](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) met een eigen prestatieniveau beheren. U kunt ook meerdere databases in een [elastische pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) met een gemeenschappelijke set bronnen beheren. De resources voor zelfstandige databases worden DTU's genoemd (Database Transaction Units) en de resources voor elastische pools worden elastische DTU's of eDTU's genoemd. Zie [Wat is een DTU?](sql-database-what-is-a-DTU.md) voor meer informatie over DTU's en eDTU's. 
+
+In beide gevallen is er een servicelaag **Basic**, **Standard** en **Premium**. Databaseopties in deze lagen zijn vergelijkbaar voor individuele databases en elastische pools, maar voor elastische pools zijn er aanvullende overwegingen. In dit artikel vindt u details over servicelagen voor individuele databases en elastische pools.
 
 ## Servicelagen en database-opties
 Basic-, Standard- en Premium-servicelagen hebben allemaal een SLA van 99,99% beschikbaarheid en bieden voorspelbare prestaties, flexibele opties voor bedrijfscontinuïteit, beveiligingsfuncties en facturering per uur. In de volgende tabel vindt u voorbeelden van de lagen die het meest geschikt zijn voor verschillende toepassingsworkloads.
@@ -39,24 +41,18 @@ De hieronder vermelde prestatiekenmerken zijn van toepassing op databases die zi
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Raadpleeg de sectie [DTU](#understanding-dtus) in dit onderwerp voor meer inzicht in DTU's.
-
 >[AZURE.NOTE] Voor een gedetailleerde uitleg van de overige rijen in deze tabel met servicelagen raadpleegt u [Mogelijkheden en beperkingen van servicelagen](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Servicelagen en prestaties in eDTU's van elastische pools
 Behalve dat u een individuele database kunt maken en schalen, hebt u ook de mogelijkheid om meerdere databases te beheren in een [elastische pool](sql-database-elastic-pool.md). Alle databases in een elastische pool delen een gemeenschappelijke set bronnen. De prestatiekenmerken worden gemeten met behulp van *eDTU's* (elastic Database Transaction Units). Net als bij individuele databases zijn er drie soorten servicelagen: **Basic**, **Standard** en **Premium**. Voor pools bepalen deze drie servicelagen nog steeds de algehele prestatielimieten en een aantal functies.
 
-Dankzij pools kunnen databases DTU-bronnen delen en verbruiken zonder dat er aan elke database in de pool een specifiek prestatieniveau hoeft te worden toegewezen. Zo kan een individuele database in een Standard-pool van 0 eDTU's tot het maximumaantal eDTU's voor de database gaan dat u hebt ingesteld bij de configuratie van de pool. Zo kunnen meerdere databases met verschillende workloads efficiënt gebruikmaken van de eDTU-resources die voor de hele pool beschikbaar zijn. Zie [Prijs- en prestatieoverwegingen voor een elastische pool](sql-database-elastic-pool-guidance.md) voor meer informatie.
+Dankzij pools kunnen databases DTU-resources delen en verbruiken zonder dat er aan elke database in de pool een specifiek prestatieniveau hoeft te worden toegewezen. Zo kan een individuele database in een Standard-pool van 0 eDTU's tot het maximumaantal eDTU's voor de database gaan dat u hebt ingesteld bij de configuratie van de pool. Zo kunnen meerdere databases met verschillende workloads efficiënt gebruikmaken van de eDTU-resources die voor de hele pool beschikbaar zijn. Zie [Prijs- en prestatieoverwegingen voor een elastische pool](sql-database-elastic-pool-guidance.md) voor meer informatie.
 
 In de volgende tabel vindt u een beschrijving van de kenmerken van de servicelagen van de pool.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Elke database in een pool heeft dezelfde kenmerken als die van een individuele database voor die laag. Zo heeft de Basic-pool een limiet voor het maximumaantal sessies per groep van 4800 tot 28800, maar één database binnen die Basic-pool heeft een databaselimiet van 300 sessies.
-
-## DTU's
-
-[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
 ## Het kiezen van een servicelaag
 
@@ -94,6 +90,6 @@ Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant s
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,7 +4,7 @@
     services="hdinsight" 
     documentationCenter="" 
     authors="nitinme" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -137,6 +137,6 @@ Begin met het maken van een Spark-cluster in HDInsight Linux. Zie [Snelstartgids
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/14/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Azure Automation-integratiemodules
@@ -208,6 +208,6 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
 - Zie [Een Windows PowerShell-module schrijven](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) voor meer informatie over het maken van PowerShell-modules.
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

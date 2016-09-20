@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/01/2016"
+   ms.date="09/14/2016"
    ms.author="sstein"/>
 
 # SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
@@ -114,7 +114,7 @@ Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` b
         {
             // Authenticate:
             _token = GetToken(_tenantId, _applicationId, _applicationSecret);
-            Console.WriteLine("Token aquired. Expires on:" + _token.ExpiresOn);
+            Console.WriteLine("Token acquired. Expires on:" + _token.ExpiresOn);
 
             // Instantiate management clients:
             _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
@@ -293,6 +293,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

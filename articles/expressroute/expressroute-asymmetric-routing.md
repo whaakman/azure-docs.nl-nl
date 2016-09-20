@@ -1,6 +1,6 @@
 <properties
    pageTitle="Asymmetrische routering | Microsoft Azure"
-   description="In dit artikel komen problemen met asymmetrische routering aan de orde die een klant kan tegenkomen in het netwerk wanneer het meerdere koppelingen naar een bestemming bevat."
+   description="In dit artikel komen problemen met asymmetrische routering aan de orde die een klant kan tegenkomen in een netwerk dat meerdere koppelingen naar een bestemming heeft."
    documentationCenter="na"
    services="expressroute"
    authors="osamazia"
@@ -9,7 +9,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
@@ -17,68 +17,68 @@
 
 # Asymmetrische routering met meerdere netwerkpaden
 
-In dit artikel wordt uitgelegd hoe uitgaand en retourverkeer verschillende routes kan nemen wanneer er meerdere paden beschikbaar zijn tussen bron en bestemming.
+In dit artikel wordt uitgelegd hoe uitgaand en binnenkomend netwerkverkeer verschillende routes kan nemen wanneer er meerdere paden beschikbaar zijn tussen netwerkbron en -bestemming.
 
-Om asymmetrische routering te begrijpen, moeten we twee concepten begrijpen. Het ene is de impact van meerdere netwerkpaden. Het andere is het gedrag van de apparaten die de status bijhouden, zoals firewalls. Deze apparaten worden stateful apparaten genoemd. Een combinatie van deze twee factoren zorgt voor scenario's waarin het verkeer door een stateful apparaat wordt verwijderd omdat niet wordt gezien dat het verkeer via zichzelf afkomstig is.
+Om asymmetrische routering te begrijpen, moet u twee concepten begrijpen. Het ene is het effect van meerdere netwerkpaden. Het andere is hoe apparaten, zoals een firewall, hun staat behouden (keep state). Dit soort apparaten worden stateful apparaten genoemd. Door een combinatie van deze twee factoren ontstaan scenario's waarin verkeer wordt verwijderd door een stateful apparaat, omdat het stateful apparaat niet heeft gedetecteerd dat verkeer afkomstig was van het apparaat zelf.
 
 ## Meerdere netwerkpaden
 
-Wanneer een bedrijfsnetwerk slechts één koppeling met internet heeft via de internetprovider, komt al het verkeer naar en van internet via hetzelfde pad. Bedrijven schaffen vaak meerdere aansluitingen aan, als redundante paden, ter verbetering van de uptime van het netwerk. In dergelijke gevallen is het mogelijk dat verkeer dat buiten het netwerk naar internet gaat via de ene koppeling gaat, terwijl het retourverkeer via een andere koppeling komt. Dit verschijnsel staat bekend als asymmetrische routering, waarbij het terugkerende verkeer een ander pad neemt dan de oorspronkelijke stroom.
+Wanneer een bedrijfsnetwerk maar één koppeling met internet heeft via de internetprovider, loopt al het verkeer naar en van internet via hetzelfde pad. Bedrijven schaffen vaak meerdere aansluitingen aan, als redundante paden, ter verbetering van de uptime van het netwerk. In die gevallen is het mogelijk dat verkeer dat buiten het netwerk naar internet gaat via de ene koppeling gaat, en het retourverkeer via een andere koppeling komt. Dit wordt doorgaans asymmetrische routering genoemd. Bij asymmetrische routering neemt het terugkerende netwerkverkeer een andere weg dan de uitgaande stroom.
 
-![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
+![Netwerk met meerdere paden](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
-De bovenstaande beschrijving is voor internet, maar geldt ook voor andere combinaties van meerdere paden. Voorbeelden zijn een internetpad en een persoonlijk pad naar dezelfde bestemming, meerdere persoonlijke paden naar dezelfde bestemming, enz. 
+Hoewel dit zich voornamelijk voordoet op internet, is asymmetrische routering ook van toepassing op andere combinaties van meerdere paden. Het is bijvoorbeeld ook van toepassing wanneer een internetpad en een persoonlijk pad dezelfde bestemming hebben, en wanneer meerdere persoonlijke paden eenzelfde bestemming hebben.
 
-Elke router langs het pad van bron naar bestemming berekent het beste pad om een bestemming te bereiken, op basis van zijn berekening van het beste pad om de bestemming te bereiken. Het bepalen van het best mogelijke pad is gebaseerd op twee hoofdfactoren.
+Elke router berekent onderweg van bron naar doel het beste pad om een bestemming te bereiken. De manier waarop de router het optimale pad bepaalt, is gebaseerd op twee hoofdfactoren:
 
-1.  Routering tussen externe netwerken is gebaseerd op het routeringsprotocol genaamd Border Gateway Protocol, dat ook wel BGP wordt genoemd. BGP kijkt naar aankondigingen van neighbors en voert hier een aantal stappen op uit om het beste pad naar de bestemming te bepalen en installeert dit in zijn routeringstabel.
-2.  Lengte van subnetmasker dat is gekoppeld aan een route. Als meerdere aankondigingen voor hetzelfde IP-adres maar met verschillende subnetmaskers worden ontvangen, krijgt de aankondiging met het langere subnetmasker de voorkeur, omdat deze als een meer specifieke route wordt beschouwd.
+-   Routering tussen externe netwerken is gebaseerd op een routeringsprotocol, het Border Gateway Protocol (BGP). BGP kijkt naar aankondigingen van neighbors en voert hier een aantal stappen op uit om het beste pad naar de bestemming te bepalen. Het beste pad wordt opgeslagen in de routeringstabel.
+-   De routeringspaden worden beïnvloed door de lengte van een subnetmasker dat aan een route is gekoppeld. Als een router meerdere aankondigingen voor hetzelfde IP-adres maar met verschillende subnetmaskers ontvangt, krijgt de aankondiging met het langere subnetmasker de voorkeur, omdat deze als een meer specifieke route wordt beschouwd.
 
 ## Stateful apparaten
 
-Routers kijken naar de IP-header van het pakket voor routeringsdoeleinden. Er zijn echter apparaten die nog dieper in het pakket kijken. Doorgaans kijken deze apparaten naar headers van Layer4 (TCP/UDP) of zelfs Layer7 (toepassingslaag). Dit zijn beveiligingsapparaten of apparaten die de bandbreedte optimaliseren. Een firewall is een algemeen voorbeeld van een stateful apparaat. De firewall staat een pakket toe of weigert een pakket via zijn interfaces op basis van verschillende velden, zoals protocol, TCP/UDP-poort en URL-headers. Deze pakketinspectie geeft veel verwerkingsbelasting op het apparaat. Om de prestaties te verbeteren, inspecteert de firewall het eerste pakket van een stroom. Als het pakket is toegestaan, bewaart de firewall de stroomgegevens in de statustabel. Alle volgende pakketten met betrekking tot deze stroom zijn toegestaan op basis van de eerste beslissing. Dus als een pakket, dat deel uitmaakt van een bestaande stroom, bij de firewall aankomt en de firewall er geen eerdere statusinformatie over heeft, wordt dit pakket door de firewall verwijderd.
+Routers kijken naar de IP-header van een pakket voor routeringsdoeleinden. Er zijn echter apparaten die nog dieper in het pakket kijken. Normaal gesproken kijken deze apparaten naar Layer4- (Transmission Control Protocol of TCP; of User Datagram Protocol of UDP), of zelfs Layer7-headers (toepassingslaag). Dergelijke apparaten zijn beveiligingsapparaten of apparaten die de bandbreedte optimaliseren. 
+
+Een firewall is een algemeen voorbeeld van een stateful apparaat. De firewall bepaalt op basis van verschillende velden, zoals protocol, TCP/UDP-poort en URL-headers, of een pakket de interfaces mag passeren. Dit niveau van pakketinspectie betekent een grote verwerkingsbelasting voor het apparaat. Om de prestaties te verbeteren, inspecteert de firewall het eerste pakket van een stroom. Als het pakket mag doorgaan, worden de stroomgegevens in de statustabel van de firewall bewaard. Alle volgende pakketten met betrekking tot deze stroom zijn toegestaan op basis van de eerste beslissing. Een pakket dat deel uitmaakt van een bestaande stroom, kan aankomen bij de firewall. Als de firewall geen eerdere statusinformatie over het pakket heeft, wordt het pakket door de firewall geweigerd.
 
 ## Asymmetrische routering met ExpressRoute
 
-Als u verbinding maakt met Microsoft via ExpressRoute, vinden de volgende wijzigingen plaats in uw netwerk.
+Wanneer u via ExpressRoute verbinding maakt met Microsoft, verandert het netwerk als volgt:
 
-1.  U hebt meerdere koppelingen naar Microsoft. De ene koppeling is uw bestaande internetverbinding en de andere gaat via ExpressRoute. Bepaald verkeer naar Microsoft kan via internet gaan maar terugkeren via ExpressRoute of andersom.
-2.  U ontvangt specifiekere IP-adressen via ExpressRoute. Verkeer van uw netwerk naar Microsoft voor services die worden aangeboden via ExpressRoute geeft dus altijd de voorkeur aan ExpressRoute. 
+-   U hebt meerdere koppelingen naar Microsoft. De ene koppeling is uw bestaande internetverbinding en de andere gaat via ExpressRoute. Bepaald verkeer naar Microsoft kan via internet gaan maar kan terugkeren via ExpressRoute of andersom.
+-   U ontvangt specifiekere IP-adressen via ExpressRoute. Voor verkeer van uw netwerk naar Microsoft voor services die worden aangeboden via ExpressRoute, geven routers dus altijd de voorkeur aan ExpressRoute.
 
-Om de gevolgen van de bovenstaande twee punten te begrijpen, doorlopen we een paar scenario's. Stel dat u slechts één aansluiting op internet heeft en alle Microsoft-services via internet gebruikt. Het verkeer van uw netwerk naar Microsoft en terug passeert via dezelfde internetkoppeling en passeert de firewall. De firewall registreert de stroom wanneer deze het eerste pakket ziet en retourpakketten worden toegestaan, aangezien de stroom in de statustabel bestaat.
+Om te begrijpen welk effect deze twee wijzigingen op een netwerk hebben, gaan we enkele scenario's bekijken. Stel, u hebt maar één aansluiting met internet en alle Microsoft-services worden via internet gebruikt. Het verkeer van uw netwerk naar Microsoft en terug passeert via dezelfde internetkoppeling en passeert de firewall. De firewall registreert de stroom wanneer het eerste pakket binnenkomt en retourpakketten worden toegestaan, aangezien de stroom in de statustabel bestaat.
 
-![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
+![Asymmetrische routering met ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
-Nu schakelt u ExpressRoute in en gebruikt u services die worden aangeboden door Microsoft via ExpressRoute. Alle andere services van Microsoft worden via internet gebruikt. U implementeert een afzonderlijke firewall aan de rand van uw verbinding met ExpressRoute. Microsoft zal specifiekere voorvoegsels naar het netwerk via ExpressRoute sturen voor specifieke services. Uw routeringsinfrastructuur zal voor die voorvoegsels kiezen voor ExpressRoute als voorkeurspad. Als u uw openbare IP-adressen niet naar Microsoft stuurt via ExpressRoute, zal Microsoft via internet met uw openbare IP-adressen communiceren. Voorwaarts verkeer van uw netwerk naar Microsoft gebruikt dus ExpressRoute terwijl terugkerend verkeer van Microsoft gebruikmaakt van internet. Wanneer de firewall aan de rand een antwoordpakket voor een stroom ziet die niet wordt gevonden in de tabel, wordt het retourverkeer verwijderd. 
+Vervolgens schakelt u ExpressRoute in, en gebruikt u services die door Microsoft worden aangeboden nu via ExpressRoute. Alle andere services van Microsoft worden via internet gebruikt. U implementeert een afzonderlijke firewall aan de rand die is verbonden met ExpressRoute. Microsoft kondigt voor specifieke services specifiekere voorvoegsels naar het netwerk via ExpressRoute aan. De routeringsinfrastructuur kiest ExpressRoute als het voorkeurspad voor die voorvoegsels. Als u uw openbare IP-adressen niet bij Microsoft aankondigt via ExpressRoute, zal Microsoft via internet met uw openbare IP-adressen communiceren. Voorwaarts verkeer van uw netwerk naar Microsoft gebruikt dus ExpressRoute, en terugkerend verkeer van Microsoft maakt gebruik van internet. Wanneer de firewall aan de rand een antwoordpakket ziet voor een stroom die niet wordt gevonden in de statustabel, wordt het retourverkeer verwijderd.
 
-Als u ervoor kiest om dezelfde NAT-pool te gebruiken voor ExpressRoute en voor internet, treden er vergelijkbare problemen op met de clients met persoonlijke IP-adressen in uw netwerk. Aanvragen voor services zoals Windows Update verlopen via internet omdat IP-adressen voor deze services niet worden verzonden via ExpressRoute. Het retourverkeer keert echter terug via ExpressRoute. Als Microsoft een IP-adres met hetzelfde subnetmasker van internet en ExpressRoute ontvangt, verkiest het ExpressRoute boven internet. Als een firewall of een ander stateful apparaat aan de rand van uw netwerk, gericht op ExpressRoute, geen eerdere informatie over de stroom heeft, worden de pakketten die behoren tot deze gegevensstroom verwijderd. 
+Als u ervoor kiest om dezelfde NAT-pool (Network Address Translation) te gebruiken voor ExpressRoute en voor internet, treden er vergelijkbare problemen op met de clients in uw netwerk met persoonlijke IP-adressen. Aanvragen voor services zoals Windows Update verlopen via internet omdat IP-adressen voor deze services niet worden verzonden via ExpressRoute. Het retourverkeer keert echter terug via ExpressRoute. Als Microsoft een IP-adres met hetzelfde subnetmasker van internet en ExpressRoute ontvangt, verkiest het ExpressRoute boven internet. Als een firewall of een ander stateful apparaat aan de rand van uw netwerk en gericht op ExpressRoute geen eerdere informatie over de stroom heeft, worden de pakketten die behoren tot deze gegevensstroom verwijderd.
 
 ## Oplossingen voor asymmetrische routering
 
-Er zijn twee manieren voor het oplossen van het probleem met asymmetrische routering. Een is via routering en de andere via op brongebaseerde NAT (SNAT). 
+Er zijn in feite twee oplossingen voor het probleem van asymmetrische routering. De ene is routering en de andere is het gebruik van brongebaseerde NAT (SNAT).
 
-1. Routering 
+### Routering
 
-    - U moet ervoor zorgen dat uw openbare IP-adressen worden verzonden naar de juiste WAN-koppelingen. Bijvoorbeeld als u internet wilt gebruiken voor verificatieverkeer en ExpressRoute voor uw e-mailverkeer. U moet uw openbare IP-adressen van ADFS dan niet verzenden via ExpressRoute. Evenzo moet de on-premises ADFS-server niet worden blootgesteld aan IP-adressen die via ExpressRoute worden ontvangen. Routes die worden ontvangen via ExpressRoute zijn specifieker, zodat ExpressRoute het voorkeurspad wordt voor verificatieverkeer naar Microsoft, en dit veroorzaakt asymmetrische routering.
+Zorg ervoor dat uw openbare IP-adressen zijn aangekondigd aan de juiste WAN-koppelingen (Wide Area Network). Als u bijvoorbeeld internet wilt gebruiken voor verificatieverkeer en ExpressRoute voor uw e-mailverkeer, dan moet u uw openbare IP-adressen voor AD FS (Active Directory Federation Services) niet aankondigen via ExpressRoute. Evenzo moet u ervoor zorgen dat u een on-premises AD FS-server niet blootstelt aan IP-adressen die de router via ExpressRoute ontvangt. Routes die worden ontvangen via ExpressRoute zijn specifieker, zodat ExpressRoute het voorkeurspad wordt voor verificatieverkeer naar Microsoft. Dit veroorzaakt asymmetrische routering.
 
-    - Als u ExpressRoute wilt gebruiken voor verificatie moet u er vervolgens voor zorgen dat u openbare IP-adressen van ADFS via ExpressRoute verzendt zonder NAT. Op deze manier gaat verkeer dat afkomstig is van Microsoft naar een on-premises ADFS-server via ExpressRoute en maakt retourverkeer van de klant naar Microsoft gebruik van ExpressRoute omdat dit de voorkeur krijgt boven internet. 
+Als u ExpressRoute wilt gebruiken voor verificatie, zorg dan dat u openbare IP-adressen van ADFS via ExpressRoute aankondigt zonder NAT. Op deze manier loopt het verkeer dat afkomstig is van Microsoft en naar een on-premises AD FS-server gaat via ExpressRoute. Retourverkeer van de klant naar Microsoft maakt gebruik van ExpressRoute omdat het de voorkeursroute is via internet.
 
-2. Brongebaseerde NAT
+### Brongebaseerde NAT
 
-    Een andere manier voor het oplossen van problemen met asymmetrische routering is via bron-NAT (SNAT). Bijvoorbeeld als u niet het openbare IP-adres van de on-premises SMTP-server hebt verzonden via ExpressRoute met de intentie internet te gebruiken voor deze communicatie. Een aanvraag afkomstig van Microsoft naar uw on-premises SMTP-server gaat via internet. U verzendt via bron-NAT de inkomende aanvraag naar een intern IP-adres. Terugkerend verkeer van de SMTP-server gaat naar de firewall aan de rand (gebruikt voor NAT) in plaats van ExpressRoute. Op deze manier keert het retourverkeer terug via internet. 
+Een andere oplossing voor problemen met asymmetrische routering is het gebruik van SNAT. U hebt bijvoorbeeld het openbare IP-adres van een on-premises SMTP-server (Simple Mail Transfer Protocol) niet via ExpressRoute aangekondigd omdat u voor dit type communicatie internet wilt gebruiken. Een aanvraag die afkomstig is van Microsoft en vervolgens naar uw on-premises SMTP-server gaat, passeert via internet. U verzendt de inkomende aanvraag via SNAT naar een intern IP-adres. Terugkerend verkeer van de SMTP-server gaat naar de edge-firewall (die u voor NAT gebruikt) in plaats van via ExpressRoute. Het retourverkeer gaat terug via internet.
 
 
-![Routing2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+![Brongebaseerde NAT-netwerkconfiguratie](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## Detectie van asymmetrische routering
 
-Traceroute is de beste manier om ervoor te zorgen dat verkeer via het verwachte pad gaat. Als u verwacht dat verkeer van de on-premises SMTP-server naar Microsoft via het internetpad gaat, pas dan traceroute toe vanaf de SMTP-server naar Office 365. Er wordt gevalideerd of het verkeer inderdaad uw netwerk verlaat richting internet en niet naar ExpressRoute. 
+Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het verwachte pad loopt. Als u verwacht dat verkeer van de on-premises SMTP-server naar Microsoft via het internetpad gaat, dan loopt de verwachte traceroute van de SMTP-server naar Office 365. Zo wordt gevalideerd of het verkeer inderdaad uw netwerk verlaat richting internet en niet richting ExpressRoute.
 
 
 
-
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

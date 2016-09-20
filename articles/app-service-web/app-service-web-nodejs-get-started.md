@@ -58,8 +58,9 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Navigeer in uw browser naar <http://localhost:3000> om te controleren of de startpagina van Express wordt geopend. Wanneer u hebt geverifieerd dat de app correct wordt uitgevoerd, gebruikt u `Ctrl-C` om deze te stoppen.
     
-1. Meld u als volgt aan bij Azure (hiervoor hebt u [Azure CLI](#prereq) nodig):
+1. Overstappen op ASM-modus en aanmelden bij Azure (hier hebt u [Azure CLI](#prereq) voor nodig):
 
+        azure config mode asm
         azure login
 
     Volg de aanwijzing om de aanmelding in een browser voort te zetten met het Microsoft-account waarmee u uw Azure-abonnement hebt afgesloten.
@@ -245,6 +246,6 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

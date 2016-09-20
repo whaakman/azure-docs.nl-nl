@@ -8,6 +8,6 @@ Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-ops
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

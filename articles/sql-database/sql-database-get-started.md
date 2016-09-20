@@ -139,6 +139,6 @@ Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met w
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

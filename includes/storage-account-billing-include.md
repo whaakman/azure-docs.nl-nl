@@ -11,6 +11,6 @@ Op de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/de
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

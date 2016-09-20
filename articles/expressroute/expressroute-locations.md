@@ -29,7 +29,7 @@ U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio 
 
 |**Geopolitieke regio**|**Azure-regio's**|**ExpressRoute-locaties**|
 |---|---|---|
-|**Noord-Amerika**|VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Noord-Amerika**|VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Zuid-Amerika**|Brazilië - zuid|Sao Paulo|
 |**Europa**|Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid|Amsterdam, Dublin, Londen, Newport(Wales)+, Parijs|
 |**Azië**|Oost-Azië, Zuidoost-Azië|Hongkong, Singapore|
@@ -43,9 +43,9 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 
 |**Geopolitieke regio**|**Azure-regio's**|**ExpressRoute-locaties**|
 |---|---|---|---|
-|**Cloud van de Amerikaanse overheid**|VS (overheid) - Iowa, VS (overheid) - Virginia|Chicago, Dallas+, New York, Washington DC|
+|**Cloud van de Amerikaanse overheid**|VS (overheid) - Iowa, VS (overheid) - Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China Noord, China Oost|Beijing, Shanghai|
-|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn, Frankfurt|
+|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn+, Frankfurt|
 
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
@@ -88,7 +88,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Ondersteund | Ondersteund | Singapore |
 | **Softbank** | Ondersteund | Ondersteund | Osaka, Tokio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Ondersteund | Ondersteund | Amsterdam, Chennai, Hongkong, Londen, Mumbai, Silicon Valley, Singapore, Washington DC |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Ondersteund | Ondersteund | Amsterdam, Londen |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Ondersteund | Ondersteund | Amsterdam, Dublin, Londen |
 | **Telefonica** | Ondersteund | Binnenkort beschikbaar | Sao Paulo |
 | **Telenor** | Ondersteund | Ondersteund | Amsterdam, Londen |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Ondersteund | Binnenkort beschikbaar | Melbourne, Sydney |
@@ -105,7 +105,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Serviceprovider**  |**Microsoft Azure** | **Office 365** | **Locaties** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Ondersteund | Ondersteund | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Ondersteund | Ondersteund | Chicago, Dallas+, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Ondersteund | Ondersteund | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Ondersteund | Ondersteund | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Ondersteund | Ondersteund | Chicago, Dallas+, New York, Washington DC |
 
@@ -173,6 +173,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 
