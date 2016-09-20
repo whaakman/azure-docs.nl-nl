@@ -17,20 +17,17 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
-# Uw eerste Azure-gegevensfactory bouwen met de Data Factory-REST API
+# Zelfstudie: uw eerste Azure-gegevensfactory bouwen met de Data Factory-REST API
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md)
-- [De Data Factory-editor gebruiken](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell gebruiken](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-build-your-first-pipeline-using-vs.md)
-- [Een Resource Manager-sjabloon gebruiken](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API gebruiken](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-In dit artikel leert u hoe u de Data Factory-REST API gebruikt voor het maken van uw eerste Azure-gegevensfactory.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-## Vereisten
-
-- Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md). Op basis van dit artikel krijgt u inzicht in de basisconcepten van Azure Data Factory. 
+## Aanvullende vereisten
 - Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma CURL REST-opdrachten gebruiken om een gegevensfactory te maken. 
 - Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) voor het volgende: 
     1. Maak een webtoepassing met de naam **ADFGetStartedApp** in Azure Active Directory.
@@ -408,6 +405,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

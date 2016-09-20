@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -221,21 +221,21 @@ Zie [Een voorspellende oplossing met Azure Machine Learning ontwikkelen][walkthr
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
-[screen1]:./media/machine-learning-create-experiment/screen1.png
-[screen1a]:./media/machine-learning-create-experiment/screen1a.png
-[screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[scherm1]:./media/machine-learning-create-experiment/screen1.png
+[scherm2]:./media/machine-learning-create-experiment/screen1a.png
+[scherm1b]:./media/machine-learning-create-experiment/screen1b.png
 [screen1c]: ./media/machine-learning-create-experiment/screen1c.png
-[screen2]:./media/machine-learning-create-experiment/screen2.png
-[screen3]:./media/machine-learning-create-experiment/screen3.png
-[screen4]:./media/machine-learning-create-experiment/screen4.png
-[screen4a]:./media/machine-learning-create-experiment/screen4a.png
-[screen5]:./media/machine-learning-create-experiment/screen5.png
-[screen6]:./media/machine-learning-create-experiment/screen6.png
-[screen7]:./media/machine-learning-create-experiment/screen7.png
-[screen8]:./media/machine-learning-create-experiment/screen8.png
-[screen8a]:./media/machine-learning-create-experiment/screen8a.png
-[screen9]:./media/machine-learning-create-experiment/screen9.png
-[screen10]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
+[scherm2]:./media/machine-learning-create-experiment/screen2.png
+[scherm3]:./media/machine-learning-create-experiment/screen3.png
+[scherm4]:./media/machine-learning-create-experiment/screen4.png
+[scherm4a]:./media/machine-learning-create-experiment/screen4a.png
+[scherm5]:./media/machine-learning-create-experiment/screen5.png
+[scherm6]:./media/machine-learning-create-experiment/screen6.png
+[scherm7]:./media/machine-learning-create-experiment/screen7.png
+[scherm8]:./media/machine-learning-create-experiment/screen8.png
+[scherm8a]:./media/machine-learning-create-experiment/screen8a.png
+[scherm9]:./media/machine-learning-create-experiment/screen9.png
+[scherm10]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
 
 
 <!-- Module References -->
@@ -249,6 +249,6 @@ Zie [Een voorspellende oplossing met Azure Machine Learning ontwikkelen][walkthr
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

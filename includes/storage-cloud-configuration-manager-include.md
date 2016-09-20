@@ -14,6 +14,6 @@ Het gebruik van Azure Configuration Manager is optioneel. U kunt ook een API geb
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

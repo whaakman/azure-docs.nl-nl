@@ -128,7 +128,7 @@ Een account-SAS delegeert toegang tot resources in een of meer van de opslagserv
 
 Tot slot kunt u opgeven dat een container en de bijbehorende blobs of een specifieke blob beschikbaar zijn voor openbare toegang. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist.  Openbare containers en blobs zijn nuttig voor de weergave van resources, zoals media en documenten die worden gehost op websites.  Om de netwerklatentie voor een globale doelgroep te reduceren, kunt u de blobgegevens die worden gebruikt door websites met Azure CDN in de cache opslaan.
 
-Zie [Shared Access Signatures: inzicht in het SAS-model](storage-dotnet-shared-access-signature-part-1.md) voor meer informatie over handtekeningen voor gedeelde toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) en [Verificatie voor de Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179428.aspx) voor meer informatie over veilige toegang tot uw Storage-account.
+Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie over handtekeningen voor gedeelde toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) en [Verificatie voor de Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179428.aspx) voor meer informatie over veilige toegang tot uw Storage-account.
 
 ## Replicatie voor duurzaamheid en maximale beschikbaarheid
 
@@ -269,6 +269,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

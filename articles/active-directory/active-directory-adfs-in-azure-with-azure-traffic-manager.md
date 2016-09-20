@@ -19,7 +19,7 @@
     
 #AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
 
-[AD FS-implementatie in Azure](.\active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
+[AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
 
 Met een maximaal beschikbare AD FS-infrastructuur in meerdere regio’s kunt u:
 
@@ -49,7 +49,7 @@ De algemene ontwerpprincipes zijn hetzelfde als de principes die worden vermeld 
 ##Stappen voor het integreren van Azure Traffic Manager
 
 ###AD FS implementeren in de nieuwe geografische regio
-Volg de stappen en richtlijnen in [AD FS-implementatie in Azure](.\active-directory-aadconnect-azure-adfs.md) voor het implementeren van dezelfde topologie in de nieuwe geografische regio.
+Volg de stappen en richtlijnen in [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) voor het implementeren van dezelfde topologie in de nieuwe geografische regio.
 
 ###DNS-labels voor openbare IP-adressen van de openbare, internetgerichte load balancers
 Zoals eerder vermeld, kan Azure Traffic Manager alleen verwijzen naar DNS-labels als eindpunt. Daarom is het belangrijk om DNS-labels te maken voor de openbare IP-adressen van de externe load balancers. In de schermafbeelding hieronder ziet u hoe u uw DNS-label kunt configureren voor het openbare IP-adres. 
@@ -135,6 +135,6 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

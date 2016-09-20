@@ -424,7 +424,7 @@ In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een 
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang raadpleegt u [Handtekeningen voor gedeelde toegang: inzicht in het SAS-model](storage-dotnet-shared-access-signature-part-1.md) en [Een SAS maken en gebruiken met Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
+Voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang, raadpleegt u [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) en [Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md) (Een SAS maken en gebruiken met Blob Storage).
 
 ### Bestanden kopiëren
 
@@ -671,6 +671,6 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -56,6 +56,7 @@ Om te beginnen met de Machine Learning PowerShell downloadt u het [releasepakket
 De PowerShell-module wordt in deze voorbeeldperiode steeds verbeterd en uitgebreid. Houd de [Cortana Intelligence en Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) in de gaten voor meer nieuws en info.
 
 
-<!--HONumber=ago16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

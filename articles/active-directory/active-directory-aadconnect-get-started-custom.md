@@ -5,7 +5,7 @@
     keywords="wat is Azure AD Connect, Active Directory installeren, vereiste onderdelen voor Azure AD"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect (Engelstalig)
@@ -27,10 +27,10 @@ Als de aangepaste instellingen niet met uw topologie overeenkomen, bijvoorbeeld 
 ## Installatie van Azure AD Connect met aangepaste instellingen
 
 ### Snelle instellingen
-Klik op deze pagina op **Aanpassen** om een installatie met aangepaste instellingen te beginnen.
+Klik op deze pagina op **Aanpassen** om met een installatie met aangepaste instellingen te beginnen.
 
 ### Vereiste onderdelen installeren
-Wanneer u de synchronisatieservices installeert, kunt de sectie optionele configuratie uitschakelen: Azure AD Connect stelt alles dan automatisch in. Het programma stelt een exemplaar van SQL Server 2012 Express LocalDB in, maakt de juiste groepen aan en wijst machtigingen toe. Als u de standaardinstellingen wilt wijzigen, kunt u in de volgende tabel zien welke opties voor optionele configuratie beschikbaar zijn.
+Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele configuratie uitschakelen: Azure AD Connect stelt alles dan automatisch in. Het programma stelt een exemplaar van SQL Server 2012 Express LocalDB in, maakt de juiste groepen aan en wijst machtigingen toe. Als u de standaardinstellingen wilt wijzigen, kunt u in de volgende tabel zien welke opties voor optionele configuratie beschikbaar zijn.
 
 ![Vereiste onderdelen](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
@@ -43,7 +43,7 @@ Aangepaste synchronisatiegroepen opgeven | Azure AD Connect maakt standaard vier
 ### Gebruikersaanmelding
 Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige aanmeldmethode voor uw gebruikers te selecteren. In de volgende tabel staan de beschikbare opties kort beschreven. Zie voor een volledige beschrijving van de aanmeldmethodes [User sign-in](active-directory-aadconnect-user-signin.md).
 
-![Gebruikersaanmelding](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
 Optie voor eenmalige aanmelding | Beschrijving
 ------------- | -------------
@@ -55,14 +55,14 @@ Niet configureren | Geen van beide onderdelen wordt geïnstalleerd en geconfigur
 Voer op het scherm Verbinding maken met Azure AD het account en wachtwoord van een globale beheerder in. Als u op de vorige pagina **Federatie met AD FS** hebt geselecteerd, meld u dan niet aan met een account in een domein waarvoor u federatie wilt inschakelen. Het is aan te raden om een account te gebruiken uit het standaarddomein **onmicrosoft.com**, dat bij uw Azure AD-directory wordt geleverd.
 
 Dit account wordt alleen gebruikt om een serviceaccount in Azure AD aan te maken en wordt niet gebruikt wanneer de wizard is voltooid.  
-![Gebruikersaanmelding](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
 Als MFA voor het account van de globale beheerder is ingeschakeld, dan moet u het wachtwoord opnieuw in het aanmeldpopupvenster invoeren en de MFA-controle voltooien. De controle kan bestaan uit het invoeren van een verificatiecode of uit een telefonische oproep.  
-![Gebruikersaanmelding met MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+![Aanmelding door een gebruiker bij MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 Voor het account van de globale beheerder kan ook [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) zijn ingeschakeld.
 
-Als u een foutbericht krijgt en problemen met de connectiviteit heeft, raadpleeg dan [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
+Zie [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md) als u een foutbericht krijgt en u problemen hebt met de connectiviteit.
 
 ## Pagina's in de sectie Synchronisatie
 
@@ -72,15 +72,15 @@ Azure AD Connect heeft de referenties van een account met de juiste machtigingen
 ![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### Aanmeldconfiguratie Azure AD
-Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD geverifieerd zijn. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
+Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD zijn geverifieerd. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
 
 ![Niet-geverifieerde domeinen](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
 Bekijk elk domein waarbij **Niet toegevoegd** en **Niet geverifieerd** staat. Zorg ervoor dat de domeinen die u gebruikt in Azure AD zijn geverifieerd. Klik op het symbool Vernieuwen wanneer u uw domeinen hebt geverifieerd. Zie voor meer informatie [add and verify the domain](active-directory-add-domain.md)
 
-**UserPrincipalName** - Met het kenmerk userPrincipalName melden gebruikers zich aan bij Azure AD en Office 365. De gebruikte domeinen, ook wel het UPN-achtervoegsel genoemd, moeten worden geverifieerd in Azure AD voordat de gebruikers worden gesynchroniseerd. Microsoft raad aan om het standaardkenmerk userPrincipalName te houden. Als dit kenmerk niet-routeerbaar is en niet kan worden geverifieerd, dan kunt u een ander kenmerk selecteren. U kunt bijvoorbeeld e-mail selecteren als het kenmerk met het aanmeldings-id. Het gebruik van een ander kenmerk dan userPrincipalName wordt **alternatieve id** genoemd. De waarde van het alternatieve-id-kenmerk moet aan de standaard RFC822 voldoen. Een alternatieve id kan worden gebruikt met wachtwoordsynchronisatie en federatie.
+**UserPrincipalName** - Met het kenmerk userPrincipalName melden gebruikers zich aan bij Azure AD en Office 365. De gebruikte domeinen, ook wel het UPN-achtervoegsel genoemd, moeten worden geverifieerd in Azure AD voordat de gebruikers worden gesynchroniseerd. Het wordt door Microsoft aangeraden om het standaardkenmerk userPrincipalName te behouden. Als dit kenmerk niet-routeerbaar is en niet kan worden geverifieerd, dan kunt u een ander kenmerk selecteren. U kunt bijvoorbeeld e-mail selecteren als het kenmerk met het aanmeldings-id. Het gebruik van een ander kenmerk dan userPrincipalName wordt **alternatieve id** genoemd. De waarde van het alternatieve-id-kenmerk moet aan de standaard RFC822 voldoen. Een alternatieve id kan worden gebruikt met wachtwoordsynchronisatie en federatie.
 
 >[AZURE.WARNING]
-Het gebruik van een alternatieve id is niet met alle Office 365-werkbelastingen compatibel. Raadpleeg voor meer informatie [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
+Het gebruik van een alternatieve id is niet met alle Office 365-werkbelastingen compatibel. Zie [Alternatieve aanmeldings-id configureren](https://technet.microsoft.com/library/dn659436.aspx).
 
 ### Domein- en OE-filters
 Standaard worden alle domeinen en OE's gesynchroniseerd. Van domeinen of OE’s die u niet wilt synchroniseren naar Azure AD kunt u de selectie opheffen.  
@@ -157,10 +157,10 @@ AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configu
 
 - Een Windows Server 2012 R2-server als de federatieserver met extern beheer ingeschakeld
 - Een Windows Server 2012 R2-server als de webtoepassingsproxyserver met extern beheer ingeschakeld
-- Een SSL-certificaat voor de federatie-servicenaam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
+- Een SSL-certificaat voor de Federation Service-naam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
 
 ### Vereisten voor de AD FS-configuratie
-Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### Maak een nieuwe AD FS-farm aan of gebruik een bestaande AD FS-farm
 U kunt een bestaande AD FS-farm gebruiken of u kunt ervoor kiezen een nieuwe AD FS-farm aan te maken. Als u ervoor kiest om een nieuwe aan te maken, dan dient u het SSL-certificaat op te geven. Als het SSL-certificaat met een wachtwoord is beveiligd, dan wordt u gevraagd het wachtwoord op te geven.
@@ -170,7 +170,7 @@ U kunt een bestaande AD FS-farm gebruiken of u kunt ervoor kiezen een nieuwe AD 
 Als u een bestaande AD FS-farm gebruikt, wordt u meteen doorgestuurd naar het scherm De vertrouwensrelatie tussen AD FS en Azure AD configureren.
 
 ### Geef de AD FS-servers op
-Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Koppel alle servers aan Active Directory voordat u deze configuratie uitvoert. Microsoft raadt aan om voor proef-implementaties één AD FS-server te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren.
+Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Koppel alle servers aan Active Directory voordat u deze configuratie uitvoert. Het wordt door Microsoft aangeraden om voor proefimplementaties één AD FS-server te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren.
 
 >[AZURE.NOTE]
 Zorg ervoor dat alle servers aan een AD-domein zijn gekoppeld voordat u deze configuratie uitvoert.
@@ -178,7 +178,7 @@ Zorg ervoor dat alle servers aan een AD-domein zijn gekoppeld voordat u deze con
 ![AD FS-Servers](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### Geef de webtoepassingsproxyservers op
-Voer de servers in die u als uw webtoepassingsproxyservers wilt gebruiken. De webtoepassingsproxyserver wordt in uw DMS (extranetgericht) geïmplementeerd en ondersteunt verificatieaanvragen van het extranet. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Microsoft raadt aan om voor proef-implementaties één webtoepassingsproxyserver te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren. Het is aan te raden een gelijk aantal proxyservers te hebben om aan de verificatie van het intranet te voldoen.
+Voer de servers in die u als uw webtoepassingsproxyservers wilt gebruiken. De webtoepassingsproxyserver wordt in uw DMS (extranetgericht) geïmplementeerd en ondersteunt verificatieaanvragen van het extranet. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Het wordt door Microsoft aangeraden om voor proefimplementaties één webtoepassingsproxyserver te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren. Het is aan te raden een gelijk aantal proxyservers te hebben om aan de verificatie van het intranet te voldoen.
 
 >[AZURE.NOTE]
 <li> Als het account dat u gebruikt geen lokale beheerder op de AD FS-servers is, wordt u gevraagd om beheerreferenties.</li>
@@ -266,6 +266,6 @@ Accounts die worden gebruikt voor installatie | [Meer informatie over accounts e
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

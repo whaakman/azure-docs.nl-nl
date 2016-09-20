@@ -1,7 +1,7 @@
 <properties
    pageTitle="Gegevens vanuit csv-bestand laden in Azure SQL-database (bcp) | Microsoft Azure"
    description="Maak bij een kleine gegevensomvang gebruik van bcp om gegevens in de Azure SQL-database te importeren."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft D
 
 Als u deze zelfstudie wilt uitvoeren met uw eigen gegevens, moeten deze zijn gecodeerd in de ASCII- of UTF-16-indeling, omdat de indeling UTF-8 niet wordt ondersteund in BCP. 
 
-UTF-8 wordt wel ondersteund in PolyBase, maar UTF-16 nog niet. Als u BCP wilt gebruiken in combinatie met PolyBase, moet u de gegevens na het exporteren uit SQL Server transformeren naar UTF-8. 
-
-
 ## 1. Een doeltabel maken
 
-Definieer een (doel)tabel in SQL Data Warehouse waarin u de gegevens wilt laden. De kolommen in de tabel moeten overeenkomen met de gegevens in elke rij van het gegevensbestand.
+Definieer een tabel in SQL Database als de doeltabel. De kolommen in de tabel moeten overeenkomen met de gegevens in elke rij van het gegevensbestand.
 
 Open een opdrachtprompt en voer de volgende opdracht uit met sqlcmd.exe om een tabel te maken:
 
@@ -129,6 +126,6 @@ Zie [SQL Server-database migreren](sql-database-cloud-migrate.md) om een SQL-ser
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

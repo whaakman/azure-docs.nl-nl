@@ -72,7 +72,7 @@ Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of
 
 ## <a name="monitor"></a>3. De testresultaten bekijken
 
-Na 1-2 minuten worden de resultaten weergegeven in de 
+Na 1-2 minuten worden de resultaten weergegeven in de blade Webtest.
 
 ![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -326,6 +326,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

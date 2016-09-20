@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met de Azure Portal
@@ -34,16 +34,6 @@ Lees hoe u met de Azure Portal een Azure Data Lake Store-account maakt en basisb
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 - **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="signup"></a>Uw Azure-abonnement inschakelen voor de openbare preview van Data Lake Store.
-
-U moet eerst vragen om uw Azure-abonnement in te schakelen voor de openbare preview van Data Lake Store. Volg de onderstaande stappen.
-
-1. Meld u aan bij de nieuwe [Azure Portal](https://portal.azure.com).
-2. Klik op **Nieuw**, klik op **Gegevens en opslag** en klik vervolgens op **Azure Data Lake Store**.
-3. Klik op de blade **Nieuwe Data Lake Store** op **Aanmelden voor de preview**. Lees de informatie en klik op **OK**. U ontvangt een e-mailbericht wanneer het abonnement is ingeschakeld voor de openbare preview.
-
-    ![Aanmelden voor openbare preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
 
 ## Leert u snel met video's?
 
@@ -140,6 +130,6 @@ Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lak
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

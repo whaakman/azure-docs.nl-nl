@@ -45,6 +45,6 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volg
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

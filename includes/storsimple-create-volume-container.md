@@ -22,6 +22,6 @@
 Als u een video wilt bekijken over het maken van een volumecontainer in uw StorSimple-oplossing, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

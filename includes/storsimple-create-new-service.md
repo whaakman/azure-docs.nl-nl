@@ -29,6 +29,6 @@
 Als u een video wilt bekijken over het maken van een nieuwe StorSimple Manager-service, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Een StorSimple-apparaat implementeren (Update 2)
@@ -247,6 +247,6 @@ Voer de volgende stappen uit in de beheerportal als u voor één volume op het S
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

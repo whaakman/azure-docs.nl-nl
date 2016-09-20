@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Aan de slag met Azure Data Lake Store met Java
@@ -41,7 +41,6 @@ Volg deze koppelingen voor de downloadlocatie voor de Java SDK voor Data Lake St
 * Java Development Kit (JDK) 8 (met Java-versie 1.8).
 * IntelliJ of een andere geschikte Java-ontwikkelomgeving. Dit is optioneel, maar wordt wel aanbevolen. In onderstaande instructies wordt IntelliJ gebruikt.
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Uw Azure-abonnement inschakelen** voor de openbare preview van Data Lake Store. Zie [Instructies](data-lake-store-get-started-portal.md#signup).
 * **Een Azure Active Directory-toepassing maken**. Er zijn twee manieren waarop u kunt verifiëren met behulp van Azure Active Directory: **interactief** en **niet-interactief**. De vereisten zijn afhankelijk van de manier waarop u wilt verifiëren.
     * **Voor interactieve verificatie** moet u in Azure Active Directory een **Native Client-toepassing** maken. Wanneer u de toepassing hebt gemaakt, haalt u de volgende waarden op met betrekking tot de toepassing.
         - **Client-id** en **omleidings-URI** voor de toepassing ophalen
@@ -282,6 +281,6 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

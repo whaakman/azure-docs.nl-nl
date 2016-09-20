@@ -18,27 +18,20 @@
 
 # Zelfstudie: bouw uw eerste Azure-gegevensfactory op basis van een Azure Resource Manager-sjabloon
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md)
-- [De Data Factory-editor gebruiken](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell gebruiken](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-build-your-first-pipeline-using-vs.md)
-- [Een Resource Manager-sjabloon gebruiken](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API gebruiken](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In dit artikel leert u hoe u een Azure Resource Manager-sjabloon gebruikt om uw eerste Azure-gegevensfactory te maken. 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
+## Aanvullende vereisten
+Naast de vereiste items die worden vermeld in het voorgaande gedeelte met vereisten, installeert u het volgende:
 
-## Vereisten
-Naast de vereisten die worden vermeld in het onderwerp Overzicht van de zelfstudie, moet u de volgende zaken installeren:
-
-- Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de vereiste stappen uit voordat u doorgaat. 
 - **Installeer Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
-- Dit artikel biedt geen conceptueel overzicht van de Azure Data Factory-service. Lees voor een gedetailleerd overzicht van de service het artikel [Inleiding tot Azure Data Factory](data-factory-introduction.md). 
 - Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
-
-> [AZURE.IMPORTANT]
-> Voer de vereiste stappen in [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) uit om de procedures in dit artikel te kunnen volgen. 
 
 ## Resource Manager-sjabloon maken
 
@@ -46,8 +39,8 @@ Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetS
 
 Met de sjabloon kunt u de volgende Data Factory-entiteiten maken.
 
-1. Een **gegevensfactory** met de naam **TutorialDataFactoryARM**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. 
-2. Twee **gekoppelde services**: **StorageLinkedService** en **HDInsightOnDemandLinkedService**. Met deze gekoppelde services koppelt u uw Azure-opslagaccount en een Azure HDInsight-cluster op aanvraag aan uw gegevensfactory. Het Azure-opslagaccount bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om het Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. U moet aangeven welk(e) gegevensarchief/rekenservices er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken. 
+1. Een **gegevensfactory** met de naam **TutorialDataFactoryARM**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens. 
+2. Twee **gekoppelde services**: **StorageLinkedService** en **HDInsightOnDemandLinkedService**. Met deze gekoppelde services koppelt u uw Azure-opslagaccount en een Azure HDInsight-cluster op aanvraag aan uw gegevensfactory. Het Azure-opslagaccount bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om het Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. Geef aan welk(e) gegevensarchief/rekenservices er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken. 
 3. Twee **gegevenssets (invoer/uitvoer)**: **AzureBlobInput** en **AzureBlobOutput**. Deze gegevenssets vertegenwoordigen de invoer- en uitvoergegevens voor Hive-verwerking. Deze gegevenssets verwijzen naar de **StorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.   
 
 Klik op het tabblad **De Data Factory-editor gebruiken** om over te schakelen naar het artikel met informatie over de JSON-eigenschappen die in deze sjabloon worden gebruikt.
@@ -234,7 +227,7 @@ Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-service
 ## Een gegevensfactory maken
 
 1. Open **Azure PowerShell** en voer de volgende opdracht uit. 
-    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.  
+    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.  
     - Voer de volgende opdracht uit om het abonnement te selecteren waarin u de gegevensfactory wilt maken.
             Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
 1. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
@@ -243,7 +236,7 @@ Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-service
 
 ## De pijplijn bewaken
  
-1.  Wanneer u zich hebt aangemeld bij de [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren** en selecteert u **Gegevensfactory’s**.
+1.  Wanneer u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren** en selecteert u **Gegevensfactory’s**.
         ![Bladeren -> Gegevensfactory’s](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.  Klik op de blade **Gegevensfactory’s** op de gegevensfactory (**TutorialFactoryARM**) die u hebt gemaakt.   
 2.  Klik op de blade **Gegevensfactory** van uw gegevensfactory op **Diagram**.
@@ -266,7 +259,7 @@ U kunt ook de app voor bewaking en beheer gebruiken om uw gegevenspijplijnen te 
 > [AZURE.IMPORTANT] Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
 
 ## Resource Manager-sjabloon voor het maken van een gateway
-Hier volgt een Resource Manager-voorbeeldsjabloon voor het op de achtergrond maken van een logische gateway. U moet een gateway installeren op uw on-premises computer of virtuele Azure IaaS-machine en de gateway met een sleutel registreren bij de Data Factory-service. Zie [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md) voor meer informatie.
+Hier volgt een Resource Manager-voorbeeldsjabloon voor het op de achtergrond maken van een logische gateway. Installeer een gateway op uw on-premises computer of virtuele Azure IaaS-machine en registreer de gateway met een sleutel bij de Data Factory-service. Zie [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md) voor meer informatie.
 
     {
         "contentVersion": "1.0.0.0",
@@ -315,6 +308,6 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

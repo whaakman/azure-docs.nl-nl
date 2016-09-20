@@ -37,7 +37,7 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 + [ASP.NET - voor apps die al live zijn](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Azure-web-apps en virtuele Azure-machines](../azure-portal/insights-perf-analytics.md)
++ [Azure-web-apps en virtuele Azure-machines](app-insights-azure-web-apps.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) met inbegrip van web- en werkrollen
 + [CRM Online van Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -87,6 +87,6 @@ Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 
