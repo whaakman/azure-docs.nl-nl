@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Uw eerste web-app in vijf minuten in Azure implementeren | Microsoft Azure" 
+    pageTitle="Uw eerste Node.js-web-app in vijf minuten in Azure implementeren | Microsoft Azure" 
     description="Ontdek hoe eenvoudig het is om web-apps in App Service uit te voeren door een voorbeeld-app te implementeren. Ontwikkel snel uw eigen app en bekijk onmiddellijk de resultaten." 
     services="app-service\web"
     documentationCenter=""
@@ -14,19 +14,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/09/2016" 
+    ms.date="09/16/2016" 
     ms.author="cephalin"
 />
     
-# In vijf minuten uw eerste web-app implementeren in Azure
+# Uw eerste Node.js-web-app in vijf minuten in Azure implementeren
 
-Deze zelfstudie helpt u om uw eerste web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+Met deze zelfstudie leert u om uw eerste Node.js-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Met App Service kunt u web-apps, [back-ends voor mobiele apps](/documentation/learning-paths/appservice-mobileapps/) en [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) maken.
 
 U gaat het volgende doen: 
 
 - Een web-app maken in Azure App Service.
-- Voorbeeldcode implementeren (kies tussen ASP.NET, PHP, Node.js, Java of Python).
+- Node.js-voorbeeldcode implementeren.
 - Zien hoe de code live in productie wordt uitgevoerd.
 - De web-app op dezelfde manier bijwerken als waarop u [Git-doorvoeracties pusht](https://git-scm.com/docs/git-push).
 
@@ -44,7 +44,7 @@ U gaat het volgende doen:
 
 2. Klik in het menu aan de linkerkant op **Nieuw** > **Web en mobiel** > **Web-app**.
 
-    ![beginnen met het maken van uw eerste web-app in Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. Gebruik in de blade voor het maken van de app de volgende instellingen voor de nieuwe app:
 
@@ -54,19 +54,19 @@ U gaat het volgende doen:
 
     Wanneer u klaar bent, ziet de blade voor het maken van de app er als volgt uit:
 
-    ![uw eerste web-app in Azure configureren](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. Klik onderaan op **Maken**. U kunt bovenaan op het **melding**spictogram klikken als u de voortgang wilt bekijken.
 
-    ![melding over het maken van een app voor uw eerste web-app in Azure](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. Wanneer de implementatie is voltooid, ziet u deze melding. Klik op het bericht als u de blade van uw implementatie wilt openen.
 
-    ![bericht over voltooide implementatie voor uw eerste web-app in Azure](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. Klik in de blade **Implementatie is voltooid** op de koppeling **Resource** om de blade van de nieuwe web-app te openen.
 
-    ![resourcekoppeling voor uw eerste web-app in Azure](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
 ## Code voor de web-app implementeren
 
@@ -74,7 +74,7 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
 5. Schuif in de blade van de web-app omlaag naar **Implementatieopties** of zoek deze optie en klik erop. 
 
-    ![implementatieopties voor uw eerste web-app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. Klik op **Bron kiezen** > **Lokale Git-opslagplaats** > **OK**.
 
@@ -84,28 +84,21 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
 7. Schuif in de blade van de web-app omlaag naar **Eigenschappen** of zoek deze optie en klik erop. Klik naast de **Git-URL** op de knop **Kopiëren**.
 
-    ![blade Eigenschappen voor uw eerste web-app in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
     Nu kunt u uw code met Git gaan implementeren.
 
 1. Schakel in de opdrachtregelterminal naar een werkmap (`CD`) en ga als volgt te werk om de voorbeeld-app te kopiëren:
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git
 
-    ![Kopieer de voorbeeldcode van de app voor uw eerste web-app in Azure](./media/app-service-web-get-started/html-git-clone.png)
+    ![Kopieer de voorbeeldcode van de app voor uw eerste web-app in Azure](./media/app-service-web-get-started-languages/node-git-clone.png)
 
     Voor *&lt;github_sample_url>* gebruikt u een van de volgende URL's, afhankelijk van het framework dat u wilt gebruiken:
 
-    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-
 2. Schakel naar de opslagplaats van uw voorbeeld-app. Bijvoorbeeld: 
 
-        cd app-service-web-html-get-started
+        cd app-service-web-nodejs-get-started
 
 3. Stel de Git remote voor uw Azure-app in op de Git-URL die u enkele stappen eerder hebt gekopieerd vanuit de portal.
 
@@ -115,9 +108,9 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
         git push azure master
 
-    ![Code pushen naar uw eerste web-app in Azure](./media/app-service-web-get-started/html-git-push.png)    
+    ![Code pushen naar uw eerste web-app in Azure](./media/app-service-web-get-started-languages/node-git-push.png)    
 
-    Als u een van de taalframeworks hebt gebruikt, ziet u andere uitvoer. Dat komt omdat `git push` niet alleen code in Azure plaatst, maar ook implementatietaken in de implementatie-engine activeert. Als u package.json- (Node.js) of requirements.txt-bestanden (Python) in de hoofdmap van het project (opslagplaats) hebt, of als er een packages.config-bestand in uw ASP.NET-project staat, worden de vereiste pakketten met de implementatiescripts voor u hersteld. U kunt ook [de Composer-extensie inschakelen](web-sites-php-mysql-deploy-use-git.md#composer) als u composer.json-bestanden in uw PHP-app automatisch wilt verwerken.
+    Als u een van de taalframeworks hebt gebruikt, ziet u andere uitvoer. Dat komt omdat `git push` niet alleen code in Azure plaatst, maar ook implementatietaken in de implementatie-engine activeert. Als er een package.json-bestand aanwezig is in de hoofdmap (opslagplaats) van uw project, worden de vereiste pakketten hersteld door het implementatiescript. 
 
 Dat is alles. De code wordt nu live uitgevoerd in Azure. Navigeer in uw browser naar http://*&lt;appname>*.azurewebsites.net om de code in actie te zien. 
 
@@ -131,14 +124,13 @@ Nu kunt u met Git op elk moment pushacties uitvoeren vanuit het project (opslagp
 
 ## Volgende stappen
 
-Zoek als volgt de meest geschikte ontwikkel- en implementatiestappen voor uw taalframework:
+[Maak, configureer en implementeer een Node.js Express-web-app in Azure](app-service-web-nodejs-get-started.md). Door deze zelfstudie te volgen, leert u de basisvaardigheden voor het uitvoeren van een Node.js-web-app in Azure, zoals:
 
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+- Apps via PowerShell/Bash maken en configureren in Azure.
+- De Node.jsv-versie instellen.
+- Een opstartbestand gebruiken dat zich niet in de hoofdmap van de toepassing bevindt.
+- Automatiseren met NPM.
+- Fout- en uitvoerlogboeken ophalen.
 
 Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
