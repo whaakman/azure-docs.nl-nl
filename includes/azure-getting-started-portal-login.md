@@ -32,6 +32,6 @@ Gebruik uw [bestaande abonnement]( https://account.windowsazure.com/Home/Index) 
    ![Aanmelden](./media/azure-getting-started-portal-login/login.png)
 
 
-<!--HONumber=Sep16_HO3-->
+<!---HONumber=Sep16_HO3-->
 
 
