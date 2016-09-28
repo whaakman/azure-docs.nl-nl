@@ -47,6 +47,6 @@ Voer de volgende stappen uit in Azure Portal om een firewallregel op servernivea
     >[AZURE.IMPORTANT] Het IP-adres van de client kan van tijd tot tijd veranderen. Het is dan ook mogelijk dat u pas weer toegang hebt tot de server wanneer u een nieuwe firewallregel hebt gemaakt. U kunt uw IP-adres controleren met behulp van [Bing](http://www.bing.com/search?q=my%20ip%20address). Voeg vervolgens één IP-adres of een bereik van IP-adressen toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) voor meer informatie.
 
 
-<!--HONumber=Sep16_HO3-->
+<!---HONumber=Sep16_HO3-->
 
 
