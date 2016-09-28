@@ -30,7 +30,6 @@
 7. Klik op **Openen** om een seriële sessie te starten.
  
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

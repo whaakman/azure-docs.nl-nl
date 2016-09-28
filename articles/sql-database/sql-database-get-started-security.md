@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="carlrab"/>
 
+
 # SQL Database-zelfstudie: SQL Database-gebruikersaccounts maken om toegang tot een database te krijgen en deze te beheren
 
 
@@ -54,6 +55,6 @@ Nu u deze zelfstudie voor SQL Database hebt voltooid, een gebruikersaccount hebt
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

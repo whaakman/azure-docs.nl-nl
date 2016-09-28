@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Wat is Azure Scheduler?
 
 Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.  In Scheduler wordt dit gedaan met behulp van [de Azure Portal](scheduler-get-started-portal.md), programmacode, de [REST-API](https://msdn.microsoft.com/library/mt629143.aspx) of Azure PowerShell.
@@ -52,6 +53,6 @@ Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](sch
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/31/2016" 
     ms.author="sethm"/>
 
+
 # Azure Service Bus
 
 Een toepassing of service moet vaak communiceren met andere toepassingen of services, ongeacht of de toepassing of service in de cloud of on-premises wordt uitgevoerd. Microsoft Azure biedt Service Bus om dit op een veelzijdige, handige manier te doen. In dit artikel wordt een overzicht gegeven van deze technologie en wordt beschreven wat de service inhoudt en waarom u deze zou kunnen overwegen.
@@ -122,6 +123,6 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="09/28/2015"
     ms.author="dastrock"/>
 
+
 # Een Azure Active Directory-tenant verkrijgen
 
 In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) representatief voor een organisatie.  Het is een toegewezen exemplaar van de Azure AD-service die een organisatie ontvangt en waarvan de organisatie de eigenaar is wanneer deze zich registreert voor een Microsoft-cloudservice, zoals Azure, Microsoft Intune of Office 365.  Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants.  
@@ -67,6 +68,6 @@ Tijdens de aanmeldingsprocedure voor Azure moet u uw creditcardgegevens opgeven.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

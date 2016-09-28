@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="wesmc"/>
 
+
 # Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -505,6 +506,6 @@ U kunt vanaf het foutopsporingstabblad van de klassieke Azure-portal een testmel
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

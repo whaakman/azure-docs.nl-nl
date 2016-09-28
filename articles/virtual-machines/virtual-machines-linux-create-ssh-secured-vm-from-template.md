@@ -17,6 +17,7 @@
     ms.date="08/17/2016"
     ms.author="v-livech"/>
 
+
 # Een virtuele Linux-machine maken met een Azure-sjabloon
 
 Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van een Azure-sjabloon.  Als u dit artikel wilt lezen, moet u een Azure-account hebben ([registreer u voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)] en moet de [Azure CLI](../xplat-cli-install.md) zijn aangemeld (`azure login`) en zijn ingesteld op de Resource Manager-modus (`azure config mode arm`).  U kunt een virtuele Linux-machine ook snel implementeren met behulp van [Azure Portal](virtual-machines-linux-quick-create-portal.md) of de [Azure CLI](virtual-machines-linux-quick-create-cli.md).
@@ -76,6 +77,6 @@ Doorzoek de [Sjablonengalerie](https://azure.microsoft.com/documentation/templat
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

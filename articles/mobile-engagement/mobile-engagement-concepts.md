@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Azure Mobile Engagement-concepten
 
 Mobile Engagement definieert een aantal algemene concepten voor alle ondersteunde platforms. Dit artikel biedt een korte beschrijving van deze concepten.
@@ -87,6 +88,6 @@ De volledige structuur van sleutel-waardeparen wordt opgeslagen als een JSON-obj
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

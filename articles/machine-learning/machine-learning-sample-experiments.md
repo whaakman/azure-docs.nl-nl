@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="cgronlun;chhavib;olgali"/>
 
+
 # Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken
 Leer hoe u met voorbeeldexperimenten van [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
 
@@ -70,6 +71,6 @@ Er wordt een nieuw experiment gemaakt in de werkruimte op basis van het voorbeel
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="marsma"/>
 
+
 # Aan de slag met Azure Batch CLI
 
 Met de platformonafhankelijke Azure-opdrachtregelinterface (Azure CLI) kunt u Batch-accounts en -resources beheren, zoals groepen en taken in Linux-, Mac- en Windows-opdrachtshells. Met de Azure-opdrachtregelinterface kunt u veel dezelfde taken uitvoeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch Powershell-cmdlets, en scripts voor deze taken uitvoeren.
@@ -255,6 +256,6 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

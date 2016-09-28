@@ -20,7 +20,6 @@
 
 7. Klik op de knop **Maken** om het nieuwe profiel te maken. 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

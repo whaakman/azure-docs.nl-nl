@@ -16,6 +16,7 @@
     ms.date="08/30/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: Een web-API ontwikkelen met behulp van Node.js
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -782,6 +783,6 @@ U kunt nu verdergaan met geavanceerdere onderwerpen, te weten:
 [Een web-API verbinden met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

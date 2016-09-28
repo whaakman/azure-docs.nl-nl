@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Application Insights handmatig configureren voor ASP.NET 4-toepassingen
 
 *Application Insights verkeert momenteel in de preview-fase.*
@@ -165,6 +166,6 @@ Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

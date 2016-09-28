@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
+
 # Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld T-SQL-query uitvoeren
 
 > [AZURE.SELECTOR]
@@ -67,6 +68,6 @@ Zie [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms1741
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

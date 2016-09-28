@@ -18,6 +18,7 @@
     ms.author="nitinme"/>
 
 
+
 # Aan de slag: een Apache Spark-cluster in HDInsight maken en interactieve query's uitvoeren met Spark SQL
 
 Leer hoe u een Apache Spark-cluster in HDInsight maakt en vervolgens een [Jupyter](https://jupyter.org)-notebook gebruikt om interactieve Spark SQL-query's uit te voeren in het Spark-cluster.
@@ -216,6 +217,6 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

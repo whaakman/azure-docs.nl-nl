@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Hadoop-zelfstudie: aan de slag met Hadoop op basis van Linux in HDInsight
 
 > [AZURE.SELECTOR]
@@ -163,6 +164,6 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

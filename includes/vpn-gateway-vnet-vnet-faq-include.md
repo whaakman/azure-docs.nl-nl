@@ -20,7 +20,6 @@
 
 - VNet-naar-VNet-verkeer in dezelfde regio is gratis voor beide richtingen; voor uitgaand VNet-naar-VNet-verkeer tussen regio's gelden de tarieven voor uitgaande gegevensoverdracht tussen VNets op basis van de bronregio's. Raadpleeg de [pagina met prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway/) voor meer informatie.
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

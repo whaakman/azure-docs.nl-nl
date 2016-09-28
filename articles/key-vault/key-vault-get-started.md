@@ -16,8 +16,9 @@
     ms.date="07/15/2016"
     ms.author="cabailey"/>
 
+
 # Aan de slag met Azure Sleutelkluis #
-Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Sleutelkluis](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
+Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
 
 ## Inleiding  
 Gebruik deze handleiding om aan de slag te gaan met Azure Sleutelkluis en een geharde container (een kluis) in Azure te maken om cryptografiesleutels en geheimen op te slaan in Azure. In het artikel wordt uitgelegd hoe u Azure PowerShell gebruikt om een kluis te maken die een wachtwoord of sleutel bevat die u vervolgens kunt gebruiken voor een Azure-toepassing. Vervolgens wordt uitgelegd hoe een toepassing de sleutel of het wachtwoord kan gebruiken.
@@ -35,7 +36,7 @@ Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie o
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 - Een abonnement op Microsoft Azure Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- Azure PowerShell, **minimaal versie 1.1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console. Ook wanneer u een van de versies van Azure PowerShell versie 0.9.1 tot en met 0.9.8 hebt geïnstalleerd, kunt u deze zelfstudie gebruiken en zij er slechts enkele kleine wijzigingen van toepassing. U moet bijvoorbeeld de opdracht `Switch-AzureMode AzureResourceManager` gebruiken en bepaalde Azure Sleutelkluis-opdrachten zijn gewijzigd. Zie [Azure Sleutelkluis-cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) voor een overzicht van de Sleutelkluis-cmdlets voor versie 0.9.1 tot en met versie 0.9.8. 
+- Azure PowerShell, **minimaal versie 1.1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console. Ook wanneer u een van de versies van Azure PowerShell versie 0.9.1 tot en met 0.9.8 hebt geïnstalleerd, kunt u deze zelfstudie gebruiken en zij er slechts enkele kleine wijzigingen van toepassing. U moet bijvoorbeeld de opdracht `Switch-AzureMode AzureResourceManager` gebruiken en bepaalde Azure Key Vault-opdrachten zijn gewijzigd. Zie [Azure Key Vault-cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) voor een overzicht van de Key Vault-cmdlets voor versie 0.9.1 tot en met versie 0.9.8. 
 - Een toepassing die wordt geconfigureerd voor het gebruik van de sleutel of het wachtwoord dat u in deze zelfstudie maakt. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Zie het bijbehorende Leesmij-bestand voor instructies.
 
 
@@ -103,11 +104,11 @@ Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit t
 
 ## <a id="add"></a>Een sleutel of geheim toevoegen aan de sleutelkluis ##
 
-Als u wilt dat Azure Sleutelkluis een softwarematig beveiligde sleutel voor u maakt, gebruikt u de cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) en typt u het volgende:
+Als u wilt dat Azure Key Vault een softwarematig beveiligde sleutel voor u maakt, gebruikt u de cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) en typt u het volgende:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
-Als u al een bestaande softwarematig beveiligde sleutel in een PFX-bestand met de naam softkey.pfx hebt opgeslagen naar station C:\ en u dat bestand wilt uploaden naar Azure Sleutelkluis, typt u het volgende om de variabele **securepfxpwd** voor het wachtwoord **123** voor PFX-bestand in te stellen:
+Als u al een bestaande softwarematig beveiligde sleutel in een PFX-bestand met de naam softkey.pfx hebt opgeslagen naar station C:\ en u dat bestand wilt uploaden naar Azure Key Vault, typt u het volgende om de variabele **securepfxpwd** voor het wachtwoord **123** voor PFX-bestand in te stellen:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -210,7 +211,7 @@ Met de volgende opdracht wordt een BYOK-pakket (Bring Your Own Key) geïmporteer
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Zie [Met HSM beveiligde sleutels voor Azure Sleutelkluis genereren en overdragen](key-vault-hsm-protected-keys.md) voor gedetailleerde instructies om dit BYOK-pakket te genereren.
+Zie [Met HSM beveiligde sleutels voor Azure Key Vault genereren en overdragen](key-vault-hsm-protected-keys.md) voor gedetailleerde instructies om dit BYOK-pakket te genereren.
 
 ## <a id="delete"></a>De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen ##
 
@@ -236,17 +237,17 @@ Overige opdrachten die handig kunnen zijn voor het beheren van Azure Sleutelklui
 
 ## <a id="next"></a>Volgende stappen ##
 
-Zie [Azure Sleutelkluis in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een vervolgzelfstudie over het gebruik van Azure Sleutelkluis in een webtoepassing.
+Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een vervolgzelfstudie over het gebruik van Azure Key Vault in een webtoepassing.
 
-Zie [Logboekregistratie van Azure Sleutelkluis](key-vault-logging.md) om te zien hoe uw sleutelkluis wordt gebruikt.
+Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) om te zien hoe uw sleutelkluis wordt gebruikt.
 
-Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met de nieuwste Azure PowerShell 1.0-cmdlets voor Azure Sleutelkluis. 
+Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met de nieuwste Azure PowerShell 1.0-cmdlets voor Azure Key Vault. 
  
 
-Zie de [Ontwikkelaarshandleiding voor Azure Sleutelkluis](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
+Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

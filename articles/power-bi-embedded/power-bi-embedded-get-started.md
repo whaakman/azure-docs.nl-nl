@@ -16,6 +16,7 @@
    ms.date="07/05/2016"
    ms.author="mblythe"/>
 
+
 # Aan de slag met Microsoft Power BI Embedded
 
 **Power BI Embedded** is een Azure-service waarmee ontwikkelaars van toepassingen interactieve Power BI-rapporten aan hun eigen toepassingen kunnen toevoegen. **Power BI Embedded** werkt met bestaande toepassingen zonder dat deze opnieuw hoeven te worden ontworpen en zonder de manier te hoeven wijzigen waarop gebruikers zich aanmelden.
@@ -103,6 +104,6 @@ In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en ge
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

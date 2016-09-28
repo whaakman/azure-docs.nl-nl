@@ -29,7 +29,6 @@ Ga als volgt te werk om een beleid te maken:
     Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

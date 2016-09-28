@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
 
 De functie Web Apps in Azure App Service biedt al failover- en round-robinverkeersroutering voor websites in een datacenter, ongeacht de websitemodus. Met Azure Traffic Manager kunt u failover- en round-robinverkeersroutering opgeven voor websites en cloudservices in verschillende datacenters. Het eerste dat u moet doen om deze functionaliteit te gebruiken, is het cloudservice- of website-eindpunt toevoegen aan Traffic Manager.
@@ -77,6 +78,6 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

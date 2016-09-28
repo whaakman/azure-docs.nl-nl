@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
+
 
 # Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
 
@@ -88,6 +89,6 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

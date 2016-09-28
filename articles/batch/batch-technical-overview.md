@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="marsma"/>
 
+
 # Basisbeginselen van Azure Batch
 
 In Azure Batch kunt u grootschalige parallelle en High Performance Computing (HPC)-toepassingen efficiënt in de cloud uitvoeren. Dit is een platformservice die de uitvoering van rekenintensief werk op een beheerde verzameling van virtuele machines plant en automatisch het aantal rekenresources kan aanpassen aan de behoeften van uw jobs.
@@ -163,6 +164,6 @@ Nu u een gedetailleerd overzicht van de Batch-service hebt gezien, is het tijd o
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

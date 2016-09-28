@@ -17,6 +17,7 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
+
 # Een virtueel netwerk maken met een ARM-sjabloon
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
@@ -40,6 +41,6 @@ Als u de ARM-sjabloon rechtstreeks vanuit GitHub wilt implementeren zonder deze 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

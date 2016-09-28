@@ -27,7 +27,6 @@ U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naa
 
     ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

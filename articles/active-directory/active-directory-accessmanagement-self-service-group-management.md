@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="curtand"/>
 
+
 # Azure Active Directory instellen voor groepsbeheer met self-service
 
 Zelfservicegroepsbeheer zorgt ervoor dat gebruikers beveiligingsgroepen of Office 365-groepen kan maken en beheren in de Azure Active Directory (Azure AD). Gebruikers kunnen ook vragen om lidmaatschap van een beveiligingsgroep of Office 365-groep en de eigenaar van de groep kan lidmaatschap goedkeuren of ontkennen. Op deze manier kan dagelijkse beheer van groepslidmaatschap worden overgedragen aan de mensen die de bedrijfscontext voor het desbetreffende lidmaatschap begrijpen. Functies van het zelfservicegroepsbeheer zijn enkel bechikbaar voor beveiligingsgroepen en Office 365-groepen, maar niet voor beveiligingsgroepen met mail of distributielijsten.
@@ -59,6 +60,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

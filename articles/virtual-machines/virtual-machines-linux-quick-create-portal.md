@@ -19,6 +19,7 @@
     ms.author="v-livech"
 />
 
+
 # Een virtuele Linux-machine in Azure maken met behulp van de portal
 
 
@@ -80,6 +81,6 @@ U hebt nu snel een virtuele Linux-machine gemaakt die u kunt gebruiken voor test
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

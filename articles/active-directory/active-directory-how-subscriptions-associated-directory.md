@@ -16,6 +16,7 @@
     ms.date="08/15/2016"
     ms.author="curtand"/>
 
+
 # Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory
 
 In dit onderwerp wordt informatie geboden over problemen met het aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory (Azure AD).
@@ -141,6 +142,6 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

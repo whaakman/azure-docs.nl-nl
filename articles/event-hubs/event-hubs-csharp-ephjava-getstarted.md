@@ -3,7 +3,7 @@
     description="Volg deze zelfstudie om aan de slag te gaan met Azure Event Hubs; verzenden van gebeurtenissen in C# en ze in Java ontvangen met behulp van de EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/16/2016"
-    ms.author="jotaub"/>
+    ms.date="09/27/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Aan de slag met Event Hubs
 
@@ -73,6 +74,6 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="rogardle"/>
 
+
 # Een Azure Container Service-cluster implementeren
 
 Azure Container Service biedt een snelle implementatie van populaire open-sourceoplossingen voor containerclustering en -orchestration. Met behulp van Azure Container Service kunt u DC/OS- en Docker Swarm-clusters implementeren met Azure Resource Manager-sjablonen of Azure Portal. U implementeert deze clusters met behulp van Azure Virtual Machine-schaalsets, en de clusters profiteren van het Azure-aanbod voor netwerken en opslag. U hebt een Azure-abonnement nodig om toegang te krijgen tot Azure Container Service. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
@@ -187,6 +188,6 @@ Nu u een werkend cluster hebt, kunt u deze documenten lezen voor meer informatie
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

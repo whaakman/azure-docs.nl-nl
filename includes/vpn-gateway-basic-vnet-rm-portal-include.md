@@ -30,7 +30,6 @@ Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Po
 
     ![Tegel Virtueel netwerk aanmaken](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

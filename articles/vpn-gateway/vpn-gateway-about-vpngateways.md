@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="cherylmc" />
 
+
 # Informatie over VPN-gateway
 
 
@@ -138,6 +139,6 @@ De VPN-gatewayconfiguratie plannen. Zie [VPN-gateway plannen en ontwerpen](vpn-g
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

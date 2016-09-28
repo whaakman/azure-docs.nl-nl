@@ -1,6 +1,6 @@
 <properties
-    pageTitle=" Aan de slag met het leveren van inhoud op aanvraag met de Azure-portal | Microsoft Azure"
-    description="In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure-portal."
+    pageTitle=" Aan de slag met het leveren van inhoud op aanvraag met de Azure Portal | Microsoft Azure"
+    description="In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Portal."
     services="media-services"
     documentationCenter=""
     authors="Juliako"
@@ -17,11 +17,12 @@
     ms.author="juliako"/>
 
 
-# Aan de slag met het leveren van inhoud-op-aanvraag via de Azure-portal
+
+# Aan de slag met het leveren van inhoud-op-aanvraag via de Azure Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure-portal.
+In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Portal.
 
 > [AZURE.NOTE] U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 
@@ -39,7 +40,7 @@ Deze zelfstudie bevat de volgende taken:
 
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
 
     ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -72,7 +73,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
 U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toegang te krijgen tot het Media Services-account.
 
-1. Selecteer uw account in de Azure-portal. 
+1. Selecteer uw account in de Azure Portal. 
 
     Het venster **Instellingen** wordt aan de rechterkant weergegeven. 
 
@@ -209,7 +210,7 @@ De URL wordt toegevoegd aan de lijst met **gepubliceerde URL's**.
 
 ## Inhoud afspelen vanuit de portal
 
-De Azure-portal biedt een speler voor het afspelen van inhoud, die u kunt gebruiken om uw video te testen.
+De Azure Portal biedt een speler voor het afspelen van inhoud, die u kunt gebruiken om uw video te testen.
 
 Klik op de gewenste video en klik vervolgens op de knop **Afspelen**.
 
@@ -234,6 +235,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

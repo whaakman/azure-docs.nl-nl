@@ -17,6 +17,7 @@
     ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
+
 # Wat is Azure Backup?
 Azure Backup is de service die u gebruikt om back-ups te maken en te herstellen van uw gegevens in de Microsoft-cloud. Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Daarnaast draagt Azure Backup bij aan de beveiliging van de assets die worden uitgevoerd in de cloud. Azure Backup biedt herstelservices met een uitstekende infrastructuur die schaalbare, duurzaam en maximaal beschikbaar is.
 
@@ -226,11 +227,11 @@ Omdat in deze zelfstudies wordt uitgelegd hoe u snel een back-up kunt maken, wor
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
-[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
-[red]: ./media/backup-introduction-to-azure-backup/red.png
+[geel]: ./media/backup-introduction-to-azure-backup/yellow.png
+[rood]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -46,7 +46,6 @@ U kunt de verbindingsstatus weergeven door naar de verbinding te navigeren in de
 
     ![Verbinding controleren](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

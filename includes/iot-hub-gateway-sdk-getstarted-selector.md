@@ -19,7 +19,7 @@ Voordat u de voorbeeldcode gaat bekijken of uw eigen gateway met de gateway-SDK 
 
 ### Modules
 
-U maakt een gateway met de Azure IoT gateway-SDK door **modules** te maken en aan elkaar te koppelen. Modules gebruiken *berichten* om gegevens met elkaar uit te wisselen. Een module ontvangt een bericht, voert daarmee een bepaalde actie uit, zet het eventueel om in een nieuw bericht en publiceert dit bericht vervolgens zodat het door andere modules kan worden verwerkt. Sommige modules kunnen alleen nieuwe berichten produceren en verwerken nooit binnenkomende berichten. Een keten van modules vormt een gegevensverwerkingspijplijn waarbij elke module een transformatie uitvoert van de gegevens op één punt in die pijplijn.
+U maakt een gateway met de Azure IoT gateway-SDK door *modules* te maken en aan elkaar te koppelen. Modules gebruiken *berichten* om gegevens met elkaar uit te wisselen. Een module ontvangt een bericht, voert daarmee een bepaalde actie uit, zet het eventueel om in een nieuw bericht en publiceert dit bericht vervolgens zodat het door andere modules kan worden verwerkt. Sommige modules kunnen alleen nieuwe berichten produceren en verwerken nooit binnenkomende berichten. Een keten van modules vormt een gegevensverwerkingspijplijn waarbij elke module een transformatie uitvoert van de gegevens op één punt in die pijplijn.
 
 ![][1]
  
@@ -73,7 +73,6 @@ In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voor
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

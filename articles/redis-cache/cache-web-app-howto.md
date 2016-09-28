@@ -16,6 +16,7 @@
     ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
+
 # Een web-app maken met Redis-Cache
 
 > [AZURE.SELECTOR]
@@ -682,7 +683,7 @@ Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inricht
 
 Als u deze services wilt implementeren in een nieuwe of bestaande resourcegroep naar keuze, klikt u op de knop **Deploy to Azure**.
 
-[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[! [Deploy to Azure] [deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 De knop **Deploy to Azure** gebruikt de sjabloon voor de [Azure-snelstartgids](https://github.com/Azure/azure-quickstart-templates) [Een web-app maken plus Redis-cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) om deze services in te richten en de verbindingsreeks in te stellen voor de SQL Database, evenals de toepassingsinstelling voor de verbindingsreeks voor de Azure Redis-cache.
 
@@ -852,6 +853,6 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

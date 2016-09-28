@@ -16,6 +16,7 @@
     ms.date="09/01/2016"
     ms.author="casoper"/>
 
+
 # Overzicht van Azure Content Delivery Network (CDN)
 
 > [AZURE.NOTE] In dit document wordt uitgelegd wat Azure Content Delivery Network (CDN) is, hoe het werkt en wat de functies van elk Azure CDN-product zijn.  Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) als u deze informatie wilt overslaan om rechtstreeks naar een zelfstudie over het maken van een CDN-eindpunt te aan.  Zie [Azure CDN POP-locaties](cdn-pop-locations.md) als u een lijst met de huidige CDN-knooppuntlocaties wilt weergeven.
@@ -89,6 +90,6 @@ Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor inf
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

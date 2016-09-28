@@ -13,7 +13,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="minet" />
+    ms.author="minet;robinsh" />
+
 
 # Aan de slag met Azure File Storage in Windows
 
@@ -27,7 +28,7 @@ Azure File Storage is een service die bestandsshares in de cloud aanbiedt met be
 
 Omdat een File Storage-share een standaard SMB-bestandsshare is, hebben toepassingen die in Azure worden uitgevoerd toegang tot de gegevens in de share via I/O API's van het bestandssysteem. Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. IT-professionals kunnen PowerShell-cmdlets gebruiken om File Storage-shares te maken, te koppelen en te beheren als onderdeel van het beheer van Azure-toepassingen.
 
-U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST API van Azure Storage. En omdat deze bestandsshares SMB-shares zijn, kunt u ze openen via standaard- en bekende API's van het bestandssysteem. 
+U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST API van Azure Storage. En omdat deze bestandsshares SMB-shares zijn, kunt u ze openen via standaard- en bekende API's van het bestandssysteem.
 
 Zie [Azure File Storage gebruiken met Linux](storage-how-to-use-files-linux.md) voor meer informatie over het gebruik van File Storage met Linux.
 
@@ -67,7 +68,7 @@ De [Azure Portal](https://portal.azure.com) geeft klanten een gebruikersinterfac
 - Bestanden uploaden naar en downloaden van de bestandsshare
 - Het werkelijke gebruik van elke bestandsshare controleren
 - Het quotum van de sharegrootte aanpassen
-- De opdracht `net use` verkrijgen om de bestandsshare te koppelen vanuit een Windows-client 
+- De opdracht `net use` verkrijgen om de bestandsshare te koppelen vanuit een Windows-client
 
 ### Bestandsshare maken
 
@@ -85,7 +86,7 @@ De [Azure Portal](https://portal.azure.com) geeft klanten een gebruikersinterfac
 
     ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 
-5. Klik op Bestandsshares en volg de koppeling om uw eerste bestandsshare te maken. 
+5. Klik op Bestandsshares en volg de koppeling om uw eerste bestandsshare te maken.
 
     ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 
@@ -119,7 +120,7 @@ De [Azure Portal](https://portal.azure.com) geeft klanten een gebruikersinterfac
 
     ![Schermafbeelding van het koppelen van de bestandsshare](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-    >[AZURE.TIP] Als u de toegangssleutel voor opslag voor de koppeling wilt weten, klikt u in uw opslagaccount op **Instellingen** en vervolgens op **Toegangssleutels**. 
+    >[AZURE.TIP] Als u de toegangssleutel voor opslag voor de koppeling wilt weten, klikt u in uw opslagaccount op **Instellingen** en vervolgens op **Toegangssleutels**.
 
     ![Schermafbeelding van het zoeken van de toegangssleutel voor het opslagaccount.](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -191,18 +192,18 @@ Vanaf versie 0.9.7 van Azure PowerShell kunt u een bestand kopiëren naar een an
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## De bestandsshare koppelen 
+## De bestandsshare koppelen
 
-Dankzij ondersteuning voor SMB 3.0 ondersteunt File Storage nu versleuteling en permanente ingangen vanuit SMB 3.0-clients. Ondersteuning voor versleuteling houdt in dat SMB 3.0-clients een bestandsshare vanaf elke locatie kunnen koppelen, onder andere vanaf: 
+Dankzij ondersteuning voor SMB 3.0 ondersteunt File Storage nu versleuteling en permanente ingangen vanuit SMB 3.0-clients. Ondersteuning voor versleuteling houdt in dat SMB 3.0-clients een bestandsshare vanaf elke locatie kunnen koppelen, onder andere vanaf:
 
 - Een virtuele machine van Azure in dezelfde regio (wordt ook ondersteund door SMB 2.1)
 - Een virtuele machine van Azure in een andere regio (alleen SMB 3.0)
-- Een on-premises clienttoepassing (alleen SMB 3.0) 
+- Een on-premises clienttoepassing (alleen SMB 3.0)
 
 Wanneer een client File Storage opent, hangt de gebruikte SMB-versie af van de SMB-versie die door het besturingssysteem wordt ondersteund. In onderstaande tabel vindt u een overzicht van de ondersteuning voor Windows-clients. Raadpleeg dit blog voor meer informatie over [SMB-versies](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows Client         | Ondersteunde SMB-versie |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7              | SMB 2.1               |
 | Windows Server 2008 R2 | SMB 2.1               |
 | Windows 8              | SMB 3.0               |
@@ -249,12 +250,12 @@ Nu kunt u de File Storage-share net zoals een ander station gebruiken vanaf de v
 
 U kunt de bestandsshare ook koppelen vanuit een functie die wordt uitgevoerd in een Azure-cloudservice, door op afstand verbinding te maken met die functie.
 
-### De bestandsshare koppelen vanuit een on-premises client waarop Windows wordt uitgevoerd 
+### De bestandsshare koppelen vanuit een on-premises client waarop Windows wordt uitgevoerd
 
 Als u de bestandsshare wilt koppelen vanuit een on-premises client, moet u eerst de volgende stappen uitvoeren:
 
-- Installeer een versie van Windows die ondersteuning biedt voor SMB 3.0. Windows gebruikt SMB 3.0-versleuteling om gegevens veilig over te brengen tussen uw on-premises client en de Azure-bestandsshare in de cloud. 
-- Open internettoegang voor poort 445 (TCP uitgaand) in uw lokale netwerk, zoals door het SMB-protocol wordt vereist. 
+- Installeer een versie van Windows die ondersteuning biedt voor SMB 3.0. Windows gebruikt SMB 3.0-versleuteling om gegevens veilig over te brengen tussen uw on-premises client en de Azure-bestandsshare in de cloud.
+- Open internettoegang voor poort 445 (TCP uitgaand) in uw lokale netwerk, zoals door het SMB-protocol wordt vereist.
 
 > [AZURE.NOTE] Sommige internetproviders blokkeren poort 445, dus misschien moet u contact opnemen met uw serviceprovider.
 
@@ -270,7 +271,7 @@ Ga als volgt te werk om een nieuwe consoletoepassing te maken in Visual Studio e
 2. Geef een naam op voor de consoletoepassing en klik op **OK**.
 3. Wanneer het project is gemaakt, klikt u met de rechtermuisknop op het project in Solution Explorer en kiest u **NuGet-pakketten beheren**. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Azure Storage-clientbibliotheek voor .NET-pakketten en -afhankelijkheden te installeren.
 
-In de codevoorbeelden in dit artikel wordt ook gebruik gemaakt van de [Configuration Manager-bibliotheek van Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx), om de opslagverbindingsreeks op te halen uit het bestand app.config in de consoletoepassing. Met Azure Configuration Manager kunt u de verbindingsreeks in runtime ophalen, ongeacht of de toepassing wordt uitgevoerd in Microsoft Azure of vanuit een bureaublad-, mobiele of webtoepassing. 
+In de codevoorbeelden in dit artikel wordt ook gebruik gemaakt van de [Configuration Manager-bibliotheek van Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx), om de opslagverbindingsreeks op te halen uit het bestand app.config in de consoletoepassing. Met Azure Configuration Manager kunt u de verbindingsreeks in runtime ophalen, ongeacht of de toepassing wordt uitgevoerd in Microsoft Azure of vanuit een bureaublad-, mobiele of webtoepassing.
 
 U installeert het Azure Configuration Manager-pakket door in Solution Explorer met de rechtermuisknop op het project te klikken en **NuGet-pakketten beheren** te kiezen. Zoek online naar 'ConfigurationManager' en klik op **Installeren** om het pakket te installeren.
 
@@ -540,7 +541,7 @@ Voeg eerst de volgende `using`-instructies toe aan de reeds eerder vermelde inst
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen. 
+Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -584,37 +585,37 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
 
 ## Veelgestelde vragen over File Storage
 
-1. **Wordt verificatie op basis van Active Directory door File Storage ondersteund?** 
+1. **Wordt verificatie op basis van Active Directory door File Storage ondersteund?**
 
-    Op dit moment wordt verificatie op basis van AD of ACL's nog niet ondersteund, maar deze mogelijkheid staat wel in onze lijst met functieaanvragen. Op dit moment worden Azure Storage-accountsleutels gebruikt voor verificatie naar de bestandsshare. We bieden een tijdelijke oplossing met Shared Access Signatures (SAS) via de REST API of de clientbibliotheken. Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand. Iedereen die over dit token beschikt gedurende de tijd dat het geldig is, heeft alleen-lezen toegang tot dit bestand. 
+    Op dit moment wordt verificatie op basis van AD of ACL's nog niet ondersteund, maar deze mogelijkheid staat wel in onze lijst met functieaanvragen. Op dit moment worden Azure Storage-accountsleutels gebruikt voor verificatie naar de bestandsshare. We bieden een tijdelijke oplossing met Shared Access Signatures (SAS) via de REST API of de clientbibliotheken. Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand. Iedereen die over dit token beschikt gedurende de tijd dat het geldig is, heeft alleen-lezen toegang tot dit bestand.
 
     SAS wordt alleen ondersteund via de REST API of clientbibliotheken. Wanneer u de bestandsshare koppelt via het SMB-protocol, kunt u geen SAS gebruiken om toegang tot de inhoud ervan te delegeren.
 
 2. **Zijn Azure-bestandsshares publiekelijk zichtbaar via internet of zijn ze alleen toegankelijk vanuit Azure?**
- 
+
     Zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012), is uw bestandsshare beschikbaar via internet.  
 
-3. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?** 
+3. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?**
 
     Als de bestandsshare en de virtuele machine zich in verschillende regio's bevinden, wordt het verkeer tussen hen in rekening gebracht als externe bandbreedte.
- 
-4. **Is het netwerkverkeer gratis tussen een virtuele machine en een bestandsshare in dezelfde regio?** 
+
+4. **Is het netwerkverkeer gratis tussen een virtuele machine en een bestandsshare in dezelfde regio?**
 
     Ja. Het is gratis als het verkeer plaatsvindt in dezelfde regio.
 
-5. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?** 
+5. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?**
 
     Nee. Als u niet over ExpressRoute beschikt, hebt u nog steeds toegang tot de bestandsshare vanaf een on-premises computer, zolang poort 445 (TCP uitgaand) is geopend voor internettoegang. Indien gewenst kunt u ExpressRoute echter met File Storage gebruiken.
 
 6. **Is een 'bestandssharewitness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
 
     Dit wordt momenteel niet ondersteund.
- 
+
 7. **File Storage wordt op dit moment toch alleen gerepliceerd via LRS of GRS?**  
 
     We willen RA-GRS ook gaan ondersteunen, maar we kunnen nog niet zeggen op welke termijn dit gaat gebeuren.
 
-8. **Wanneer kan ik bestaande opslagaccounts gebruiken voor Azure File Storage?** 
+8. **Wanneer kan ik bestaande opslagaccounts gebruiken voor Azure File Storage?**
 
     Azure File Storage is nu ingeschakeld voor alle opslagaccounts.
 
@@ -636,7 +637,7 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
 
 13. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
 
-    Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2). 
+    Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2).
 
 14. **Azure File Storage gebruiken met IBM MQ**
 
@@ -665,12 +666,12 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 ### Blogberichten
 
 - [Azure File storage is now generally available (Azure File Storage is nu algemeen beschikbaar)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Permanente verbindingen met Microsoft Azure-bestanden)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

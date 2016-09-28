@@ -16,6 +16,7 @@
     ms.date="08/05/2016"
     ms.author="douglasl"/>
 
+
 # Ga aan de slag door de Enable Database voor Stretch-wizard uit te voeren
 
 Voer de Enable Database  voor Stretch-wizard uit om een database te configureren voor Stretch Database.  In dit onderwerp wordt uitgelegd welke gegevens u moet invoeren en welke keuzes u in de wizard moet maken.
@@ -196,6 +197,6 @@ Aanvullende tabellen voor Stretch Database inschakelen. Controleer gegevensmigra
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

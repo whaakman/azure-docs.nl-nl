@@ -15,6 +15,7 @@
     ms.date="07/11/2016"
     ms.author="sethm" />
 
+
 # Service Bus-architectuur
 
 In dit artikel wordt de bericht- en relayverwerkingsarchitectuur van Azure Service Bus beschreven.
@@ -61,6 +62,6 @@ Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

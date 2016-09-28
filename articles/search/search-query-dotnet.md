@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
+
 # Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
 > [AZURE.SELECTOR]
 - [Overzicht](search-query-overview.md)
@@ -164,6 +165,6 @@ De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
+
 
 # Werken met Azure Resource Manager-sjablonen in Visual Studio Code
 
@@ -138,6 +139,6 @@ Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande ins
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

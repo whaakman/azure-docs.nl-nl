@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
+
 # Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview)
 
 > [AZURE.IMPORTANT]
@@ -107,6 +108,6 @@ Als u nog niet hebt deelgenomen aan de preview, kunt u deze [enquête](http://ww
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

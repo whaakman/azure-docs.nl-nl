@@ -12,7 +12,6 @@
 4. Klik op het tabblad **Cloud Messaging** in de instellingen van uw project en kopieer de waarde van **Server Key** (Serversleutel) en **Sender ID** (Afzender-id).  Deze waarden worden later gebruikt voor het configureren van het toegangsbeleid voor de Notification Hub en uw wijzigingsmelding in de app.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

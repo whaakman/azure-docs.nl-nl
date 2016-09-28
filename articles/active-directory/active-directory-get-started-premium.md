@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+
 # Aan de slag met Azure Active Directory Premium
 
 
@@ -164,6 +165,6 @@ De beschikbaarheid van services en functies voor een Microsoft-cloudservice vari
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

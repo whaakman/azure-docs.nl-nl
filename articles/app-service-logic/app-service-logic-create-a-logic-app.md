@@ -16,6 +16,7 @@
     ms.date="07/16/2016"
     ms.author="jehollan"/>
 
+
 # Een nieuwe logische app maken waarmee SaaS-services worden verbonden
 
 In dit onderwerp wordt beschreven hoe u in een paar minuten aan de slag kunt met [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We volgen een eenvoudige werkstroom waarmee u interessante tweets naar uw e-mail kunt verzenden.
@@ -68,6 +69,6 @@ U hebt nu in minder dan 5 minuten een eenvoudige logische app ingesteld die word
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

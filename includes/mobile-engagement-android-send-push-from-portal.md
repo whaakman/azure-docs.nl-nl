@@ -52,7 +52,6 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

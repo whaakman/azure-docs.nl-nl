@@ -16,6 +16,7 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
+
 # Een nieuwe pool voor elastische database maken met PowerShell
 
 > [AZURE.SELECTOR]
@@ -84,6 +85,6 @@ Dit script maakt een nieuwe Azure-resourcegroep en een nieuwe server. Als dit wo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

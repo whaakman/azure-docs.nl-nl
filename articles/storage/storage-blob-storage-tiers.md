@@ -3,8 +3,8 @@
     description="Opslaglagen voor Azure Blob Storage bieden voordelige opslag voor objectgegevens op basis van toegangspatronen. De opslaglaag voor 'cool' blobs is geoptimaliseerd voor gegevens die minder regelmatig worden geopend."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
+
 
 
 # Azure Blob Storage: opslaglagen voor 'hot' blobs en 'cool' blobs
@@ -355,6 +356,6 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

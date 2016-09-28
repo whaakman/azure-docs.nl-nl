@@ -16,6 +16,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Aan de slag met Notification Hubs met Xamarin voor Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -522,6 +523,6 @@ In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Android-appa
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -25,7 +25,6 @@ Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier] wordt
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

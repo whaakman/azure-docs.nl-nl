@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # SQL Azure met Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -56,6 +57,6 @@ Als het gebruik van een clienttoepassing, gehost in Azure RemoteApp die verbindi
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

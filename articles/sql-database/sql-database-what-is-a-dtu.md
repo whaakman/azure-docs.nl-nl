@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="carlrab"/>
 
+
 # Over DTU's (Database Transaction Units) en eDTU's (elastische Database Transaction Units)
 
 In dit artikel wordt uitgelegd wat DTU's (Database Transaction Units) en eDTU's (elastische Database Transaction Units) zijn en wat er gebeurt als u het maximale aantal DTU's of eDTU's hebt bereikt.  
@@ -59,6 +60,6 @@ Prestatieniveaus worden gekalibreerd en worden bestuurd om de resources te verst
 - Zie [SQL Database benchmark overview](sql-database-benchmark-overview.md) (Overzicht van SQL Database-benchmarks) voor meer informatie over de methodologie achter de OLTP-benchmarkworkload waarmee de DTU-combinatie wordt bepaald.
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="glenga"/>
 
+
 # Aan de slag met Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
@@ -93,6 +94,6 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u de [Mobile Services-clien
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

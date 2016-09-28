@@ -15,6 +15,7 @@
    ms.date="08/23/2016"
    ms.author="osamazia"/>
 
+
 # Asymmetrische routering met meerdere netwerkpaden
 
 In dit artikel wordt uitgelegd hoe uitgaand en binnenkomend netwerkverkeer verschillende routes kan nemen wanneer er meerdere paden beschikbaar zijn tussen netwerkbron en -bestemming.
@@ -79,6 +80,6 @@ Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

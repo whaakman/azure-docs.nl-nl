@@ -17,11 +17,12 @@
     ms.author="brandwe"/>
 
 
+
 # Azure AD B2C: aanmelding toevoegen aan een Node.js-web-app
 
 > [AZURE.WARNING] Het spijt ons zeer, maar deze zelfstudie is toe aan groot onderhoud. Daarom hebben wij besloten de zelfstudie tijdelijk niet beschikbaar te stellen.  Er is een gelijkwaardige .NET-zelfstudie beschikbaar in onze [ontwikkelaarshandleiding](active-directory-b2c-overview.md).
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

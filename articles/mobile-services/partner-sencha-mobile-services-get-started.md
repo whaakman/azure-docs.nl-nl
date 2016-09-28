@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="glenga"/>
 
+
 # <a name="getting-started"> </a>Aan de slag met Mobile Services en Sencha Touch
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -726,6 +727,6 @@ Voor meer informatie over hoe u aan de slag kunt gaan met Sencha Touch, raadplee
 [klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

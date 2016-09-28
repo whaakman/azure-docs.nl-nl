@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="wesmc"/>
 
+
 # Aan de slag met Notification Hubs voor Windows Universal Platform-apps
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -186,7 +187,7 @@ In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u 
 
 * **Node.js**: [Notification Hubs gebruiken vanuit Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 
-* **Mobiele apps van Azure**: zie [Pushmeldingen toevoegen voor mobiele apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) voor een voorbeeld van hoe u meldingen verzendt vanuit een mobiele app van Azure die is geïntegreerd met Notification Hubs.
+* **Azure Mobile Apps**: zie [Pushmeldingen toevoegen voor mobiele apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) voor een voorbeeld van hoe u meldingen verzendt vanuit een Azure Mobile App die is geïntegreerd met Notification Hubs.
 
 * **Java/PHP**: zie 'Notification Hubs gebruiken vanuit Java/PHP' voor een voorbeeld van hoe u meldingen verzendt met de REST API's ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
@@ -276,6 +277,6 @@ Zie [Notification Hubs Guidance](notification-hubs-push-notification-overview.md
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

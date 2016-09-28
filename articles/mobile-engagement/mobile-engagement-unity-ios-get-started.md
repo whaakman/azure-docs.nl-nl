@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Aan de slag met Azure Mobile Engagement voor Unity iOS-implementatie
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -135,6 +136,6 @@ U hoeft verder niets te configureren in uw app als deze is al ingesteld voor het
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

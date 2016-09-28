@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="07/26/2016"
-    ms.author="robinsh"/>
+    ms.author="micurd;robinsh"/>
+
 
 
 # Over Azure-opslagaccounts
@@ -179,6 +180,6 @@ Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

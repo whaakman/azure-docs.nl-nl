@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
+
 # Mijn eerste PowerShell-runbook
 
 > [AZURE.SELECTOR] - [Grafisch](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)  
@@ -167,6 +168,6 @@ PowerShell-runbooks hebben dezelfde levenscyclus, mogelijkheden en beheer als Po
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

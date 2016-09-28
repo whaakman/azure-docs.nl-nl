@@ -12,7 +12,6 @@ Een containernaam moet een geldige DNS-naam zijn die voldoet aan de volgende naa
 
 > [AZURE.IMPORTANT] De naam van een container bestaat alleen uit kleine letters. Als u een hoofdletter in een containernaam opneemt of de naamgevingsregels op een andere manier schendt, wordt mogelijk een 400-fout (ongeldige aanvraag) weergegeven. 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="09/08/2016"
     ms.author="billmath"/>
 
+
 #Azure AD Connect in Microsoft Cloud Duitsland - Openbare preview
 
 ## Inleiding
@@ -69,6 +70,6 @@ Zie [Uw on-premises identiteiten integreren met Azure Active Directory](active-d
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

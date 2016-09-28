@@ -17,6 +17,7 @@
     ms.author="mandia"/>
 
 
+
 # Lijst met connectors en API Apps voor gebruik in Logic Apps
 >[AZURE.NOTE] Deze versie van het artikel is van toepassing Logic Apps-previewschemaversie 2014-12-01. Zie [New Connectors List](../connectors/apis-list.md) (Lijst met nieuwe connectors) voor de General Availability (GA)-versie van Logic Apps.
 
@@ -81,6 +82,6 @@ Connectors kunnen ook worden gebruikt als acties in uw logische app. Acties zijn
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

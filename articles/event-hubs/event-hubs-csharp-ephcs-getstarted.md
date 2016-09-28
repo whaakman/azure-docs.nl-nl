@@ -3,7 +3,7 @@
     description="Volg deze zelfstudie om aan de slag te gaan met Azure Event Hubs met C# en de EventProcessorHost."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="09/02/2016"
-    ms.author="sethm"/>
+    ms.author="jotaub;sethm"/>
+
 
 # Aan de slag met Event Hubs
 
@@ -96,6 +97,6 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

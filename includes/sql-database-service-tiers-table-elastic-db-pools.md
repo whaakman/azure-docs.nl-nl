@@ -67,7 +67,6 @@
 ** Gedeelde opslag voor pool voor Elastic Database, zodat database-opslag wordt beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

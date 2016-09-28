@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Met Application Insights werken in Visual Studio
 
 In Visual Studio (2015 en hoger) kunt u de prestaties analyseren en problemen identificeren tijdens de foutopsporing en algemeen gebruik. Dit gebeurt aan de hand van telemetrie uit [Visual Studio Application Insights](app-insights-overview.md).
@@ -112,6 +113,6 @@ Als u wilt zoeken naar afwijkingen in uw gegevens, kiest u een van de afwijkings
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

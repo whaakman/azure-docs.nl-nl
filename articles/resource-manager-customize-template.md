@@ -16,6 +16,7 @@
     ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
+
 # Een geëxporteerde Azure Resource Manager-sjabloon aanpassen
 
 Dit artikel laat zien hoe u een geëxporteerde sjabloon wijzigt, zodat u extra waarden als parameters kunt doorgeven. Dit is gebaseerd op de stappen die worden uitgevoerd in het artikel [Resource Manager-sjabloon exporteren](resource-manager-export-template.md), maar het is niet noodzakelijk dat artikel eerst te voltooien. U vindt de vereiste sjabloon en scripts in dit artikel.
@@ -236,6 +237,6 @@ Beide opties worden in dit artikel getoond.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

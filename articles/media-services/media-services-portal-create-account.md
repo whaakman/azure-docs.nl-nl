@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Een Azure Media Services-account maken via de Azure Portal
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

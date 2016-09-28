@@ -1,21 +1,22 @@
 <properties 
-    pageTitle="Aan de slag met de Azure Multi-Factor Authentication-server" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan." 
+    pageTitle="Aan de slag met de Azure Multi-Factor Authentication-server"
+    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan."
     services="multi-factor-authentication"
-    keywords="verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    keywords="verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -73,7 +74,7 @@ Nu dat u de server hebt gedownload, kunt u deze installeren en configureren.  Zo
 
 
 Vereisten voor Azure Multi-Factor Authentication-server|Beschrijving|
-:------------- | :------------- | 
+:------------- | :------------- |
 Hardware|<li>200 MB aan vasteschijfruimte</li><li>Voor x32 of x64 geschikte processor</li><li>1 GB of meer RAM-geheugen</li>
 Software|<li>Windows Server 2008 of een recentere versie als de host een serverbesturingssysteem is</li><li>Windows 7 of een recentere versie als de host een clientbesturingssysteem is</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 of een recentere versie als de installatie wordt uitgevoerd vanuit de gebruikersportal of de webservice-SDK</li>
 
@@ -122,7 +123,7 @@ De bovenstaande stappen geven een snelle installatie met behulp van de configura
 
 ##Gebruikers uit Active Directory importeren
 
-Nu dat de server is geïnstalleerd en geconfigureerd, kunt u snel gebruikers importeren in de Azure MFA-server. 
+Nu dat de server is geïnstalleerd en geconfigureerd, kunt u snel gebruikers importeren in de Azure MFA-server.
 
 ### Gebruikers uit Active Directory importeren
 --------------------------------------------------------------------------------
@@ -164,10 +165,10 @@ Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, word
 - E-mailadres - optioneel
 - Telefoonnummer - bij het voeren van een telefoongesprek of bij een sms-verificatie
 - Apparaattoken - bij verificatie met behulp van de mobiele app
-- Verificatiemodus 
-- Verificatieresultaat 
-- Naam van MFA-server 
-- IP van MFA-server 
+- Verificatiemodus
+- Verificatieresultaat
+- Naam van MFA-server
+- IP van MFA-server
 - Client-IP – indien beschikbaar
 
 
@@ -179,7 +180,7 @@ Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/gewei
 Gebruik de onderstaande tabel voor meer informatie over geavanceerde instellingen en configuratie-informatie.
 
 Methode|Beschrijving
-:------------- | :------------- | 
+:------------- | :------------- |
 [Gebruikersportal](multi-factor-authentication-get-started-portal.md)|  Informatie over de installatie en configuratie van de gebruikersportal, inclusief implementatie en selfservice van gebruiker.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|Informatie over het instellen van Azure Multi-Factor Authentication met AD FS.
 [RADIUS-authenticatie](multi-factor-authentication-get-started-server-radius.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met RADIUS.
@@ -192,6 +193,6 @@ Methode|Beschrijving
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

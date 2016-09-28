@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="markvi"/>
 
+
 # Azure Active Directory-rapportage - preview
 
 *Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
@@ -219,6 +220,6 @@ Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

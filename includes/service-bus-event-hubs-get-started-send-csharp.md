@@ -4,13 +4,13 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 
 1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
 
-    ![][7]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **NuGet-pakketten beheren voor oplossing**. 
 
 3. Klik op het tabblad **Bladeren** en zoek naar `Microsoft Azure Service Bus`. Controleer of de projectnaam (**Afzender**) is opgegeven in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden. 
 
-    ![][8]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
     Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
 
@@ -66,11 +66,6 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     ```
 
 
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

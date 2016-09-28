@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # OneDrive voor Bedrijven en Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -26,6 +27,6 @@ De synchronisatieagent van OneDrive voor Bedrijven wordt niet ondersteund met Az
 U kunt OneDrive voor Bedrijven opnemen in een verzameling voor gebruik met Office 365. 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

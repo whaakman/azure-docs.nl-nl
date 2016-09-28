@@ -18,6 +18,7 @@
     ms.date="08/10/2016"
     ms.author="jgao"/>
 
+
 # Aan de slag met Visual Studio Hadoop-hulpprogramma’s voor HDInsight om een Hive-query uit te voeren
 
 Informatie over het gebruik van HDInsight Tools voor Visual Studio om verbinding te maken met HDInsight-clusters en Hive-query's te verzenden. Zie [Inleiding tot HDInsight][hdinsight.introduction] en [Aan de slag met HDInsight][hdinsight.get.started] voor meer informatie over het gebruik van HDInsight. Zie [C#-topologieën met Visual Studio ontwikkelen voor Apache Storm op HDInsight][hdinsight.storm.visual.studio.tools] voor meer informatie over verbinding maken met een Storm-cluster.
@@ -286,6 +287,6 @@ In dit artikel hebt u geleerd hoe u de Hadoop-hulpprogramma's kunt gebruiken om 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

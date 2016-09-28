@@ -29,7 +29,6 @@ Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had 
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

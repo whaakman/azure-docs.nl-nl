@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="terrylan"/>
 
+
 # Beveiligingsbeheer in Azure
 
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -249,6 +250,6 @@ Naast de specifieke items waarnaar in dit artikel wordt verwezen, zijn ook de vo
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

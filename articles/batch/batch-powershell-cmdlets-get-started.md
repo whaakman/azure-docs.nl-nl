@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="danlep"/>
 
+
 # Aan de slag met PowerShell-cmdlets voor Azure Batch
 Met de PowerShell-cmdlets voor Azure Batch kunt u veel dezelfde taken die u uitvoert met de Batch-API's, Azure Portal en de Azure-opdrachtregelinterface (CLI), uitvoeren en er scripts voor uitvoeren. Dit is een korte inleiding in de cmdlets die u kunt gebruiken om uw Batch-accounts te beheren en te werken met uw Batch-resources, zoals pools en taken. Dit artikel is gebaseerd op cmdlets in Azure PowerShell versie 1.6.0.
 
@@ -169,6 +170,6 @@ Met Batch-cmdlets kunt u gebruikmaken van de PowerShell-pijplijn om gegevens tus
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

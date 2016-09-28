@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Gegevens uploaden naar Azure Search met behulp van de REST-API
 > [AZURE.SELECTOR]
 - [Overzicht](search-what-is-data-import.md)
@@ -170,6 +171,6 @@ Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

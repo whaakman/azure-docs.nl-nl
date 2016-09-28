@@ -16,6 +16,7 @@
     ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
+
 # Wat is Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -84,6 +85,6 @@ Aan de slag Probeer het nu! Deze artikelen helpen u op weg met Azure RemoteApp:
 Wist u dat u niet alleen dit artikel kunt beoordelen en opmerkingen kunt toevoegen, maar zelfs wijzigingen kunt aanbrengen in het artikel zelf? Ontbreekt er iets? Is er iets niet juist? Heb ik iets geschreven dat niet duidelijk is? Blader omhoog en klik op **Edit on GitHub** of **Edit** als u wijzigingen wilt aanbrengen. Deze worden eerst nagekeken en wanneer ze zijn goedgekeurd, worden uw wijzigingen en verbeteringen hier weergegeven.
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

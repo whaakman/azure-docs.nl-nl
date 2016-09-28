@@ -17,6 +17,7 @@
    ms.author="v-livech"/>
 
 
+
 # Een virtuele Linux-machine in Azure maken met de CLI
 
 In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht `azure vm quick-create` in de opdrachtregelinterface (CLI) van Azure. Met de opdracht `quick-create` wordt een virtuele machine binnen een beveiligde basisinfrastructuur geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen. Voor het artikel hebt u het volgende nodig:
@@ -207,6 +208,6 @@ U kunt ook [het Azure-stuurprogramma `docker-machine` gebruiken dat verschillend
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

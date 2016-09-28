@@ -16,6 +16,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
 > [AZURE.SELECTOR]
 - [Overzicht](search-query-overview.md)
@@ -241,6 +242,6 @@ Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azur
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

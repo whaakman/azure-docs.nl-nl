@@ -7,7 +7,6 @@ Als Visual Studio niet bij u is geïnstalleerd, gebruikt u de koppeling voor Vis
 >[AZURE.NOTE] Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een halfuur of meer.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

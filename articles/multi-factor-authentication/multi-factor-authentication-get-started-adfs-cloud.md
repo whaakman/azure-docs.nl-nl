@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS" 
-    description="Dit is de pagina Azure Multi-Factor Authentication waarop wordt beschreven hoe u aan de slag kunt met Azure MFA en AD FS in de cloud." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS"
+    description="Dit is de pagina Azure Multi-Factor Authentication waarop wordt beschreven hoe u aan de slag kunt met Azure MFA en AD FS in de cloud."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 
 Als uw organisatie is gefedereerd met behulp van Azure Active Directory en u resources hebt die worden gebruikt door Azure AD, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services gebruiken om deze resources te beveiligen. Gebruik de onderstaande procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
 
-## Als u Azure AD-resources wilt beveiligen met behulp van AD FS, moet u het volgende doen: 
+## Als u Azure AD-resources wilt beveiligen met behulp van AD FS, moet u het volgende doen:
 
 
 
@@ -71,7 +72,7 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. We gaan twee clai
 10. Selecteer in de wizard Transformatieclaimregels toevoegen Claim verzenden met een aangepaste regel in de vervolgkeuzelijst en klik op Volgende.
 11. In het vak onder Naam claimregel typt u Gebruikers aangemeld houden.
 12. In het vak Aangepaste regel typt u:
-        
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -100,12 +101,6 @@ Dat is alles. Vanaf dit moment hoeven Office 365-gebruikers alleen MFA te gebrui
 
 
 
-
-
-
-
-
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

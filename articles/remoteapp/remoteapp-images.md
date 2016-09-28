@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -109,6 +110,6 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

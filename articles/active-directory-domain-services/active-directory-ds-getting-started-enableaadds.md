@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Domain Services *(Preview)* - Azure AD Domain Services inschakelen
 
 ## Taak 3: Azure AD Domain Services inschakelen
@@ -96,6 +97,6 @@ De volgende configuratietaak bestaat uit het [bijwerken van de DNS-instellingen 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

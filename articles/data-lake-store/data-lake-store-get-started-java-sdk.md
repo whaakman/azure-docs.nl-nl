@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Aan de slag met Azure Data Lake Store met Java
 
 > [AZURE.SELECTOR]
@@ -281,6 +282,6 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

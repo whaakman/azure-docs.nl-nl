@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="charleywen"/>
 
+
 # ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het Resource Manager-implementatiemodel
 
 > [AZURE.SELECTOR]
@@ -196,6 +197,6 @@ Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

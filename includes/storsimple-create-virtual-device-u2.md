@@ -11,7 +11,7 @@
     1. **Naam**: een unieke naam voor uw virtuele apparaat.
 
 
-    2. **Model**: het model van het virtuele apparaat. Dit veld wordt alleen weergegeven als u Update 2 of hoger uitvoert. Een 8010-apparaatmodel biedt 30 TB Standard-opslag terwijl 8020 64 TB Premium-opslag heeft. Geef 8010 op
+    2. **Model**: het model van het virtuele apparaat. Dit veld wordt alleen weergegeven als u Update 2 of hoger uitvoert. Een 8010-apparaatmodel biedt 30 TB Standard-opslag terwijl 8020 64 TB Premium Storage heeft. Geef 8010 op
     3.  om ophaalscenario's op itemniveau vanuit back-ups te implementeren. Selecteer 8020 om workloads met hoge prestaties en lage latentie te implementeren of voor gebruik als een tweede apparaat voor herstel na noodgevallen.
      
     4. **Versie**: kies de versie van het virtuele apparaat. Als het 8020-apparaatmodel wordt geselecteerd, wordt dit versieveld niet weergegeven voor de gebruiker. Deze optie ontbreekt als op alle fysieke apparaten die zijn geregistreerd met deze service Update 1 (of hoger) wordt uitgevoerd. Dit veld wordt alleen weergegeven als u een combinatie van fysieke pre-Update 1- en Update 1-apparaten hebt geregistreerd met dezelfde service. Aangezien de versie van het virtuele apparaat bepaalt welk fysiek apparaat voor failover kan dienen of van welk fysiek apparaat u een kloon kunt maken, is het belangrijk dat u de juiste versie van het virtuele apparaat maakt. Selecteer:
@@ -20,9 +20,9 @@
        - Versie Update 1 voor failover of klonen vanaf een fysiek apparaat met Update 1 (of lager). 
        
     
-    5. **Virtueel netwerk**: geef een virtueel netwerk op dat u wilt gebruiken met dit virtuele apparaat. Als u Premium-opslag (Update 2 of hoger) gebruikt, moet u een virtueel netwerk selecteren dat wordt ondersteund met het premium-opslagaccount. De niet-ondersteunde virtuele netwerken worden lichter gekleurd weergegeven in de vervolgkeuzelijst. U wordt gewaarschuwd als u een niet-ondersteund virtueel netwerk selecteert. 
+    5. **Virtueel netwerk**: geef een virtueel netwerk op dat u wilt gebruiken met dit virtuele apparaat. Als u Premium Storage (Update 2 of hoger) gebruikt, moet u een virtueel netwerk selecteren dat wordt ondersteund met het Premium Storage-account. De niet-ondersteunde virtuele netwerken worden lichter gekleurd weergegeven in de vervolgkeuzelijst. U wordt gewaarschuwd als u een niet-ondersteund virtueel netwerk selecteert. 
 
-    5. **Opslagaccount voor het maken van virtuele apparaten**: selecteer een opslagaccount voor de installatiekopie van het virtuele apparaat tijdens het inrichten. Dit opslagaccount moet zich in dezelfde regio bevinden als het virtuele apparaat en virtuele netwerk. Het mag niet worden gebruikt voor de opslag van gegevens door ofwel het fysieke of het virtuele apparaat. Voor dit doel wordt standaard een nieuw opslagaccount gemaakt. Als u echter al een opslagaccount hebt dat hiervoor geschikt is, kunt u dit in de lijst selecteren. Als u een Premium virtueel apparaat maakt, worden in de vervolgkeuzelijst alleen Premium-opslagaccounts weergegeven. 
+    5. **Opslagaccount voor het maken van virtuele apparaten**: selecteer een opslagaccount voor de installatiekopie van het virtuele apparaat tijdens het inrichten. Dit opslagaccount moet zich in dezelfde regio bevinden als het virtuele apparaat en virtuele netwerk. Het mag niet worden gebruikt voor de opslag van gegevens door ofwel het fysieke of het virtuele apparaat. Voor dit doel wordt standaard een nieuw opslagaccount gemaakt. Als u echter al een opslagaccount hebt dat hiervoor geschikt is, kunt u dit in de lijst selecteren. Als u een Premium virtueel apparaat maakt, worden in de vervolgkeuzelijst alleen Premium Storage-accounts weergegeven. 
 
         >[AZURE.NOTE] Het virtuele apparaat kan alleen met de Azure Storage-accounts werken. Andere cloudserviceproviders, zoals Amazon, HP en OpenStack (die worden ondersteund voor het fysieke apparaat), worden niet ondersteund voor het virtuele StorSimple-apparaat.
     
@@ -36,7 +36,6 @@
     
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

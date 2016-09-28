@@ -18,6 +18,7 @@
    ms.date="04/12/2016"
    ms.author="rogardle"/>
 
+
 # Een toepassings- of gebruikersspecifieke Marathon-service maken
 
 Azure Container Service voorziet in een set masterservers waarop we Apache Mesos en Marathon vooraf configureren. Deze kunnen worden gebruikt voor het indelen van uw toepassingen op het cluster, maar het is raadzaam om niet de masterservers voor dit doel te gebruiken. Voor het aanpassen van de configuratie van Marathon moet bijvoorbeeld bij de masterservers zelf worden aangemeld en moeten wijzigingen worden aangebracht. Hierdoor worden gebruikers aangemoedigd unieke masterservers te maken die enigszins verschillen van de norm en die onafhankelijk moeten worden onderhouden en beheerd. Daarnaast is de configuratie die het ene team nodig heeft, mogelijk niet de optimale configuratie voor een ander team.
@@ -60,6 +61,6 @@ Met de opdracht `dcos config show` kunt u controleren met welk exemplaar van Mar
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

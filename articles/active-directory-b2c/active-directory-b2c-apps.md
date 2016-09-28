@@ -16,6 +16,7 @@
     ms.date="07/22/2016"
     ms.author="dastrock"/>
 
+
 # Azure Active Directory B2C: Typen toepassingen
 
 Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor diverse moderne app-architecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). In dit document vindt u een korte beschrijving van de typen apps die u kunt maken, onafhankelijk van de taal of het platform waaraan u de voorkeur geeft. Het document geeft ook inzicht in geavanceerde scenario's voordat u [toepassingen gaat ontwikkelen](active-directory-b2c-overview.md#getting-started).
@@ -130,6 +131,6 @@ Dit scenario met web-API-keten kan worden ondersteund met behulp van de OAuth 2.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

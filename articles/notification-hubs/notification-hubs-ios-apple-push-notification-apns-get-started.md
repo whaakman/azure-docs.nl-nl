@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Pushmeldingen verzenden naar iOS met Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -495,7 +496,7 @@ Zie [Richtlijnen voor Notification Hubs] voor algemene informatie over Notificat
 [Live SDK voor Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Aan de slag met Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Klassieke Azure-portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -508,6 +509,6 @@ Zie [Richtlijnen voor Notification Hubs] voor algemene informatie over Notificat
 [Azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

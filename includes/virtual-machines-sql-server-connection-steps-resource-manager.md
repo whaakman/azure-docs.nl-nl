@@ -35,7 +35,6 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
     ![ssms verbinden](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

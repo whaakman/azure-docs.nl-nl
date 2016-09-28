@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="yushwang;cherylmc" />
 
+
 # Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
 
 U hebt een VPN-apparaat nodig om een S2S-VPN-verbinding (site-naar-site) te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod. 
@@ -164,6 +165,6 @@ In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verifica
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

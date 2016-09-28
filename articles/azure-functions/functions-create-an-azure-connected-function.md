@@ -18,6 +18,7 @@
    ms.date="03/09/2016"
    ms.author="yochayk@microsoft.com"/>
    
+
 # Een Azure-functie maken die wordt gebonden aan een Azure-service
    
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
@@ -30,6 +31,6 @@ In deze korte video leert u hoe u een Azure-functie maakt die luistert naar beri
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

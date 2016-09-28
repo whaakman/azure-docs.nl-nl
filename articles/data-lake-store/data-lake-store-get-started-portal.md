@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Aan de slag met Azure Data Lake Store met de Azure Portal
 
 > [AZURE.SELECTOR]
@@ -130,6 +131,6 @@ Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lak
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -2,7 +2,6 @@
 > 
 > Met Microsoft Azure Storage Explorer kunt u [Azure Blob Storage-resources beheren](../articles/vs-azure-tools-storage-explorer-blobs.md), waaronder de mogelijkheid visueel blob containers en blobs te maken, lezen, bijwerken, en verwijderen, en de toegang tot uw blob containers en blobs beheren.
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

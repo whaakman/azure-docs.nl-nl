@@ -16,6 +16,7 @@
     ms.date="09/08/2016"
     ms.author="marsma"/>
 
+
 # Aan de slag met de Azure Batch-client voor Python
 
 > [AZURE.SELECTOR]
@@ -678,6 +679,6 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

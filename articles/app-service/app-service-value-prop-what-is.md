@@ -17,6 +17,7 @@
     ms.date="05/25/2016" 
     ms.author="omark"/>
 
+
 # Wat is Azure App Service?
 
 *App Service* is een [Platform as a Service](https://en.wikipedia.org/wiki/Platform_as_a_service)-product (PaaS) van Microsoft Azure. Maak web-apps en mobiele apps voor alle platforms en apparaten. Integreer uw apps met SaaS-oplossingen, maak verbinding met on-premises toepassingen en automatiseer uw bedrijfsprocessen. Met Azure worden uw apps uitgevoerd op volledig beheerde virtuele machines (VM's), waarbij u kunt kiezen uit gedeelde VM-resources of toegewezen VM's. 
@@ -49,11 +50,11 @@ Hierna ziet u een paar belangrijke functies en mogelijkheden van App Service:
 
 App Service bevat verschillende *app-typen*, die zijn bedoeld voor specifieke typen werkbelastingen:
 
-- [**Web-apps**](../app-service-web/app-service-web-overview.md): voor het hosten van websites en webtoepassingen.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md): voor het hosten van websites en webtoepassingen.
 
-- [**Mobiele apps**](../app-service-mobile/app-service-mobile-value-prop.md): voor het hosten van de back-end van mobiele apps.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md): voor het hosten van de back-end van mobiele apps.
    
-- [**API-apps**](../app-service-api/app-service-api-apps-why-best-platform.md): voor het hosten van cloud-API's. 
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md): voor het hosten van cloud-API's. 
  
 - [**Logische apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md): voor het automatiseren van de toegang tot en het gebruik van gegevens tussen clouds zonder code te schrijven.
 
@@ -82,6 +83,6 @@ Of open een [gratis Azure-account](https://azure.microsoft.com/pricing/free-tria
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

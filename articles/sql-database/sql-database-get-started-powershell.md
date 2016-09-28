@@ -17,6 +17,7 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
+
 # Maak een SQL-database aan en voer algemene database-instellingstaken uit met PowerShell-cmdlets
 
 
@@ -43,7 +44,7 @@ Voer de volgende opdracht uit om een resourcegroep te maken:
 
 ### Een server maken
 
-SQL-databases worden in Azure SQL-databaseservers gemaakt. Voer **New-AzureRmSqlServer** uit om een server te maken. De naam voor uw server moet uniek zijn voor alle Azure SQL-databaseservers. U krijgt een foutmelding als de servernaam al in gebruik is. Het is ook handig te weten dat deze opdracht enkele minuten in beslag kan nemen. U kunt de opdracht bewerken en elke geldige locatie naar keuze gebruiken, maar u moet dezelfde locatie gebruiken die u hebt gebruikt voor de resourcegroep die u in de vorige stap hebt gemaakt.
+SQL-databases worden in Azure SQL-databaseservers gemaakt. Voer **New-AzureRmSqlServer** uit om een server te maken. De naam voor uw server moet uniek zijn voor alle Azure SQL Databaseservers. U krijgt een foutmelding als de servernaam al in gebruik is. Het is ook handig te weten dat deze opdracht enkele minuten in beslag kan nemen. U kunt de opdracht bewerken en elke geldige locatie naar keuze gebruiken, maar u moet dezelfde locatie gebruiken die u hebt gebruikt voor de resourcegroep die u in de vorige stap hebt gemaakt.
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
@@ -132,7 +133,7 @@ Met het volgende PowerShell-script maakt u een SQL-database met alle afhankelijk
 ## Volgende stappen
 Nadat u een SQL-database hebt gemaakt en de algemene installatietaken voor de database hebt uitgevoerd, bent u klaar voor het volgende:
 
-- [SQL-database beheren met PowerShell](sql-database-command-line-tools.md)
+- [SQL Database beheren met PowerShell](sql-database-command-line-tools.md)
 - [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld-T-SQL-query uitvoeren](sql-database-connect-query-ssms.md)
 
 
@@ -142,6 +143,6 @@ Nadat u een SQL-database hebt gemaakt en de algemene installatietaken voor de da
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

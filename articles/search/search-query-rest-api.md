@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
 > [AZURE.SELECTOR]
 - [Overzicht](search-query-overview.md)
@@ -161,6 +162,6 @@ Ga naar de sectie "Antwoord" van [Documenten zoeken](https://msdn.microsoft.com/
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

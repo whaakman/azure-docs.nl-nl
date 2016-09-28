@@ -16,6 +16,7 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
+
 # Overzicht van Azure Data Lake Store
 
 Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Met Azure Data Lake kunt u gegevens van elke grootte, type en opnamesnelheid vastleggen op één enkele locatie voor operationele en experimentele analyses.
@@ -115,6 +116,6 @@ Als u liever video's bekijkt voor meer informatie, biedt Data Lake Store video's
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

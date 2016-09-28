@@ -18,6 +18,7 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
+
 # Aan de slag met persoonlijke sjablonen in de Azure-portal
 
 Een [Azure Resource Manager](../resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
@@ -136,6 +137,6 @@ Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu de gebruikers of groep
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

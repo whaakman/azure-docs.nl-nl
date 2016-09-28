@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+
 # Runbooks met Azure Service Management en Resource Manager verifiëren
 
 In dit artikel worden de stappen beschreven die u moet uitvoeren om een gebruikersaccount van Azure AD te configureren voor Azure Automation-runbooks die worden uitgevoerd met resources van Azure Service Management (ASM) of Azure Resource Manager (ARM).  Hoewel dit een ondersteunde verificatie-identiteit blijft voor de op ARM gebaseerde runbooks, is het gebruik van het nieuwe Uitvoeren als-account voor Azure de aanbevolen methode.       
@@ -89,6 +90,6 @@ U moet deze regels na [controlepunten](http://technet.microsoft.com/library/dn46
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

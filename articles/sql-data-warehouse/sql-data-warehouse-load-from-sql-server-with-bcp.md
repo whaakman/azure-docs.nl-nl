@@ -17,6 +17,7 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
+
 # Gegevens uit SQL Server laden in Azure SQL Data Warehouse (platte bestanden)
 
 > [AZURE.SELECTOR]
@@ -204,6 +205,6 @@ Zie [Tabeloverzicht][] of [Syntaxis voor CREATE TABLE][] voor meer informatie ov
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

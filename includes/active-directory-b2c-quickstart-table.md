@@ -6,7 +6,6 @@
 |  | [Een Web-API aanroepen vanuit een .NET-web-app](active-directory-b2c-devquickstarts-web-api-dotnet.md) |  |
 | | [Registratie en aanmelden toevoegen aan een ASP.NET Core-app](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | |
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

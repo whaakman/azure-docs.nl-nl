@@ -6,7 +6,6 @@
 - [Overige](../articles/application-insights/app-insights-platforms.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

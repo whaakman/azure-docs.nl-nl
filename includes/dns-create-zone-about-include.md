@@ -11,7 +11,6 @@ Het domein 'contoso.com' kan bijvoorbeeld een aantal DNS-records bevatten, zoals
 
 - Als meerdere zones dezelfde naam delen, krijgt elk exemplaar andere serveradressen toegewezen en kan slechts één exemplaar van het bovenliggende domein worden overgedragen. Zie [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md) (Een domein aan Azure DNS overdragen) voor meer informatie.
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

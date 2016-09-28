@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Een StorSimple-apparaat implementeren
 
 > [AZURE.SELECTOR]
@@ -296,6 +297,6 @@ Voer de volgende stappen uit in de klassieke Azure-portal als u voor één volum
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

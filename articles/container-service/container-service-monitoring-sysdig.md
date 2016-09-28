@@ -18,6 +18,7 @@
    ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
+
 # Een Azure Container Service-cluster met Sysdig bewaken
 
 In dit artikel implementeren we Sysdig-agents op alle agentknooppunten in uw Azure Container Service-cluster. Voor deze configuratie hebt u een Sysdig-account nodig. 
@@ -55,6 +56,6 @@ Stel nu de exemplaren in op 10000000, zodat telkens wanneer aan het cluster een 
 Nadat u het pakket hebt geïnstalleerd, navigeert u terug naar de Sysdig-gebruikersinterface en kunt u de verschillende gebruikswaarden voor de containers in uw cluster verkennen. 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

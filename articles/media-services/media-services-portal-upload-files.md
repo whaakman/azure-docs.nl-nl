@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Bestanden uploaden naar een Media Services-account via Azure Portal 
 
 > [AZURE.SELECTOR]
@@ -61,6 +62,6 @@ U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-port
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

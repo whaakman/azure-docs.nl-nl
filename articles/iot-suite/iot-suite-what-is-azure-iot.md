@@ -17,6 +17,7 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
+
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
@@ -46,6 +47,6 @@ Raadpleeg deze resources om meer te leren over IoT Suite en de vooraf geconfigur
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

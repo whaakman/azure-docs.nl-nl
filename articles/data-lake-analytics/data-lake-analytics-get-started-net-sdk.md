@@ -16,6 +16,7 @@
    ms.date="06/22/2016"
    ms.author="edmaca"/>
 
+
 # Zelfstudie: Aan de slag met Data Lake Analytics met .NET SDK
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -24,8 +25,6 @@
 Informatie over het gebruik van de Azure .NET SDK voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een C#-consoletoepassing ontwikkelen, die een U-SQL-script bevat dat een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Vereisten
 
@@ -267,6 +266,6 @@ Een voorbeeld van een zoeklogboek is gekopieerd naar een openbare Azure Blob-con
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

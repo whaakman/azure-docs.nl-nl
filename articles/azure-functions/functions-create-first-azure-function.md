@@ -18,6 +18,7 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
+
 #Uw eerste Azure-functie maken
 
 ##Overzicht
@@ -76,6 +77,6 @@ Azure Functions maakt gebruik van het Azure App Service-platform voor kernfuncti
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

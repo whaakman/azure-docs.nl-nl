@@ -17,6 +17,7 @@
     ms.date="06/07/2016"
     ms.author="davidmu"/>
 
+
 # Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
 
 Dit artikel laat zien hoe u met behulp van [Resource Manager](../resource-group-overview.md) en PowerShell snel een virtuele machine in Azure maakt met Windows Server, evenals de hiervoor benodigde resources. 
@@ -174,6 +175,6 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

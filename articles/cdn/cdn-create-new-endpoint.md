@@ -15,6 +15,7 @@
      ms.date="07/28/2016" 
      ms.author="casoper"/>
 
+
 # Azure CDN gebruiken  
 
 In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
@@ -99,6 +100,6 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

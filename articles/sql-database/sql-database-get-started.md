@@ -19,6 +19,7 @@
     ms.author="carlrab"/>
 
 
+
 # SQL Database tutorial: maak in slechts enkele minuten een SQL Database met behulp van Azure Portal
 
 > [AZURE.SELECTOR]
@@ -139,6 +140,6 @@ Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met w
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

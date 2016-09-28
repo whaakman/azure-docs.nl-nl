@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Een query uitvoeren in uw Azure Search-index
 > [AZURE.SELECTOR]
 - [Overzicht](search-query-overview.md)
@@ -60,6 +61,6 @@ U kunt in Azure Search eenvoudig het exacte aantal zoekresultaten weergeven met 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

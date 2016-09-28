@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
 De vooraf geconfigureerde oplossing voor *voorspeld onderhoud* is een van de [vooraf geconfigureerde oplossingen][lnk_preconfigured_solutions] die is uitgebracht als onderdeel van [Microsoft Azure IoT Suite][lnk_iot_suite]. Deze oplossing integreert het verzamelen van telemetriegegevens in realtime met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk_machine_learning].
@@ -68,6 +69,6 @@ U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfig
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

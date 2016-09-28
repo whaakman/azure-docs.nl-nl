@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="jgao"/>
 
+
 # HDInsight-toepassingen publiceren in Azure Marketplace
 
 Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. In dit artikel leert u hoe u een HDInsight-toepassing publiceert in Azure Marketplace.  Zie [Een aanbieding publiceren in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) voor algemene informatie over publiceren in Azure Marketplace.
@@ -104,6 +105,6 @@ Volg de volgende stappen om een HDInsight- toepassing te publiceren:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

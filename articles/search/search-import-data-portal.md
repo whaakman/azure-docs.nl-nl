@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="heidist"/>
 
+
 # Gegevens importeren in Azure Search via de portal
 
 De Azure Portal bevat de wizard **Gegevens importeren** op het Azure Search-dashboard om gegevens in een index te laden. 
@@ -122,6 +123,6 @@ Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

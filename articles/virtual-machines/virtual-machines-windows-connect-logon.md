@@ -17,6 +17,7 @@
     ms.date="07/28/2016"
     ms.author="cynthn"/>
 
+
 # Verbinding maken met en aanmelden bij een virtuele machine in Azure waarop Windows wordt uitgevoerd 
 
 
@@ -47,6 +48,6 @@ Zie [Problemen oplossen met Extern bureaublad-verbindingen](virtual-machines-win
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

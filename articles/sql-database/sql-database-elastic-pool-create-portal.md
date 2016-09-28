@@ -18,6 +18,7 @@
     ms.tgt_pltfrm="NA"/>
 
 
+
 # Een nieuwe groep voor een elastische database maken met de Azure-portal
 
 > [AZURE.SELECTOR]
@@ -117,6 +118,6 @@ Nadat databases aan de groep zijn toegevoegd, worden dynamische aanbevelingen ge
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="09/08/2016"
     ms.author="marsma"/>
 
+
 # Overzicht van Batch-functies voor ontwikkelaars
 
 In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties en resources besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
@@ -519,6 +520,6 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.author="adegeo"/>
 
 
+
 # Python-web- en -werkrollen met Python-tools voor Visual Studio
 
 Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
@@ -370,6 +371,6 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

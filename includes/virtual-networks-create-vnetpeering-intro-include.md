@@ -7,7 +7,6 @@ VNet-peering verkeert in de openbare previewfase. Als u hiervan gebruik wilt mak
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

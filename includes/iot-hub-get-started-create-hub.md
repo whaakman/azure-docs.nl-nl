@@ -44,7 +44,6 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat verbinding kan maken. De volg
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

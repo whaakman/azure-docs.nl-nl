@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -15,6 +15,7 @@
    ms.topic="get-started-article"
    ms.date="08/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
+
 
 # Azure AD Connect: upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
@@ -223,6 +224,6 @@ Accounts die worden gebruikt voor installatie | [Meer informatie over accounts e
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

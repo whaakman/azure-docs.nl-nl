@@ -17,6 +17,7 @@
     ms.date="09/09/2016"
     ms.author="garye"/>
 
+
 # Wat is Azure Machine Learning Studio?
 
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
@@ -118,6 +119,6 @@ Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

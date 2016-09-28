@@ -17,6 +17,7 @@
     ms.date="08/29/2016" 
     ms.author="heidist"/>
 
+
 # Aan de slag met Azure Search in de portal
 
 Met deze inleiding zonder code kunt u aan de slag met Microsoft Azure Search en maakt u gebruik van de ingebouwde mogelijkheden in de portal. 
@@ -186,6 +187,6 @@ Als het goed is, ontvangt u JSON-uitvoer, beginnend met documentnummer 386 en ei
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

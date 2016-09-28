@@ -17,6 +17,7 @@
     ms.date="08/25/2016" 
     ms.author="nitinme"/>
 
+
 # Overzicht: Apache Spark in Azure HDInsight Linux
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is een open-source framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor de analyse van big data te verbeteren. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak en geavanceerde analyses. De in-memory rekencapaciteiten van Spark maken dit tot een goede keuze voor zich herhalende algoritmen in machine-learning- en grafiekberekeningen. Spark is ook compatibel met Azure Blob Storage (WASB), zodat bestaande gegevens die zijn opgeslagen in Azure, gemakkelijk kunnen worden verwerkt via Spark.
@@ -137,6 +138,6 @@ Begin met het maken van een Spark-cluster in HDInsight Linux. Zie [Snelstartgids
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

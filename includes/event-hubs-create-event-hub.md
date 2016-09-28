@@ -4,59 +4,48 @@
 
 2. Klik op **Gegevens en analyses** en klik vervolgens op **Event Hubs**.
 
-    ![][9]
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
 3. Voer op de blade **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 
-    ![][1]
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic of Standard). Kies ook een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. 
 
 2. Klik op **Maken** om de naamruimte te maken.
 
-6. Klik in de lijst met naamruimten van Event Hubs op de zojuist gemaakte naamruimte.
+6. Klik in de lijst met naamruimten van Event Hubs op de zojuist gemaakte naamruimte.      
 
-    ![][2]
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
 7. Klik op de blade Naamruimte op **Event Hubs**.
 
-    ![][3]
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
 8. Klik op **Event Hub toevoegen** boven aan de blade.
 
-    ![][4]
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
 3. Typ een naam voor uw Event Hub en klik vervolgens op **Maken**.
 
-    ![][5]
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
 4. Klik in de lijst met Event Hubs op de naam van de zojuist gemaakte Event Hub. 
 
-    ![][6]
+    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
 5. Klik op de blade Naamruimte (niet de specifieke Event Hub-blade) op **Gedeeld toegangsbeleid** en klik vervolgens op **RootManageSharedAccessKey**.
 
-    ![][7]
+    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
 5. Klik op de knop voor kopiëren om de verbindingsreeks **RootManageSharedAccessKey** naar het Klembord te kopiëren. Sla deze verbindingsreeks op zodat u er verderop in de zelfstudie gebruik van kunt maken.
 
-    ![][8]
+    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Uw Event Hub is nu gemaakt en u hebt de verbindingsreeksen die u nodig hebt om gebeurtenissen te kunnen verzenden en ontvangen.
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
-[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
-[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[7]: ./media/event-hubs-create-event-hub/create-event-hub7.png
-[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
-[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
-
 [Azure Portal]: https://portal.azure.com/
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

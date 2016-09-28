@@ -16,6 +16,7 @@
     ms.date="06/01/2016"
     ms.author="piyushjo" />
 
+
 # Aan de slag met Azure Mobile Engagement voor web-apps
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -127,6 +128,6 @@ Dit zijn alle methoden die momenteel bij Web SDK beschikbaar zijn die u voor ana
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/23/2016"
+    ms.date="09/16/2016"
     ms.author="raynew"/>
+
 
 # Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Site Recovery en de Azure-portal | Microsoft Azure
 
@@ -574,6 +575,6 @@ Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) mee
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

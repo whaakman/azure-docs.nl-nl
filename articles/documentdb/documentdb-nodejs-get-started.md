@@ -17,6 +17,7 @@
   ms.date="08/11/2016"
   ms.author="anhoh"/>
 
+
 # NoSQL Node.js-zelfstudie: DocumentDB Node.js-consoletoepassing  
 
 > [AZURE.SELECTOR]
@@ -623,6 +624,6 @@ Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en c
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

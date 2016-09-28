@@ -17,6 +17,7 @@
     ms.author="piyushjo"/>
 
 
+
 # Een Azure Mobile Engagement-app maken
 
 In dit artikel wordt gedemonstreerd hoe u de methode **Snelle invoer** gebruikt voor het maken van een nieuwe **Azure Mobile Engagement**-app. Ook wordt uitgelegd hoe u naar uw **Mobile Engagement**-portal navigeert om uw apps te bewaken en beheren. 
@@ -50,6 +51,6 @@ Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, ma
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

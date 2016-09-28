@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Uw aangepaste domeinnaam toevoegen aan Azure Active Directory
 
 U kunt een aangepaste domeinnaam, zoals contoso.com configureren, zodat gebruikers in contoso.com een federatieve ervaring voor eenmalige aanmelding bij het bedrijfsnetwerk kunnen hebben. Als Active Directory Federation Services (AD FS) of een andere federatieserver al op uw bedrijfsnetwerk wordt uitgevoerd, kunt u het hulpprogramma Azure AD Connect gebruiken om Azure AD te configureren voor gebruik van de aangepaste domeinnaam. U kunt Azure AD Connect ook gebruiken om een nieuwe AD FS-omgeving te implementeren en deze te configureren voor federatieve eenmalige aanmelding bij Azure AD.
@@ -24,7 +25,7 @@ Als u niet beschikt over AD FS of een andere federatieserver en deze ook niet va
 
 ## Een aangepaste domeinnaam toevoegen aan uw directory
 
-1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com/) met een gebruikersaccount met de rechten voor globale beheerder van uw Azure AD-directory.
+1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com/) met een gebruikersaccount met de rechten voor globale beheerder van uw Azure AD-directory.
 
 2. Open in **Active Directory** uw directory en selecteer de tab **Domeinen**.
 
@@ -77,6 +78,6 @@ Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals contoso.com e
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

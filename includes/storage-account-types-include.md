@@ -27,7 +27,6 @@ Voordat u een opslagaccount kunt maken, moet u een Azure-abonnement hebben, een 
 Zie [Een opslagaccount maken](../articles/storage/storage-create-storage-account.md#create-a-storage-account) voor informatie over het maken van een opslagaccount. Met één abonnement kunt u maximaal 100 opslagaccounts met een unieke naam maken. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountlimieten.
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

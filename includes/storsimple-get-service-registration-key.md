@@ -22,7 +22,6 @@
 
 Als u een video wilt bekijken over het ophalen van de serviceregistratiesleutel, klikt u [hier](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

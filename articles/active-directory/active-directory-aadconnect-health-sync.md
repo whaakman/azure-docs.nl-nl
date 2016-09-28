@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="billmath"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="08/08/2016"
     ms.author="billmath"/>
+
 
 # Azure AD Connect Health for Sync gebruiken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -71,6 +72,6 @@ Deze functie biedt een grafisch weergegeven trend van het aantal wijzigingen dat
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

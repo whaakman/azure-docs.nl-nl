@@ -18,6 +18,7 @@
    ms.date="08/30/2016"
    ms.author="glenga"/>
    
+
 # Een webhook of API Azure-functie maken
 
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand ervaring waarmee u geplande of geactiveerde code-eenheden kunt maken voor implementatie in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
@@ -95,6 +96,6 @@ Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoa
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

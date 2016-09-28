@@ -17,6 +17,7 @@
    ms.date="07/27/2016"
    ms.author="larryfr"/>
 
+
 #Inleiding tot Apache Storm op HDInsight: realtime analyses voor Hadoop
 
 Met Apache Storm op HDInsight kunt u gedistribueerde, realtime analyseoplossingen in de Azure-omgeving maken met [Apache Hadoop](http://hadoop.apache.org).
@@ -227,6 +228,6 @@ Meer informatie over realtime analyseoplossingen met Apache Storm in HDInsight:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

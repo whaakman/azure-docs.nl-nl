@@ -17,6 +17,7 @@
     ms.author="wesmc"/>
 
 
+
 #Azure Notification Hubs
 
 ##Overzicht
@@ -177,6 +178,6 @@ De relevante .NET API-verwijzingen voor pushmeldingen vindt u hier:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

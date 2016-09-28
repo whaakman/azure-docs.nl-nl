@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
 
+
 # Functionaliteit toevoegen aan uw eerste web-app
 
 In [In vijf minuten een web-app implementeren in Azure](app-service-web-get-started.md) hebt u een voorbeeld-web-app geïmplementeerd in [Azure App Service](../app-service/app-service-value-prop-what-is.md). In dit artikel gaat u snel een aantal handige functies aan uw geïmplementeerde web-app toevoegen. U gaat zo dadelijk het volgende doen:
@@ -157,6 +158,6 @@ Scan uw web-app op actieve bedreigingen met behulp van de service die wordt gele
 - [Ontdek hoe App Service werkt](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

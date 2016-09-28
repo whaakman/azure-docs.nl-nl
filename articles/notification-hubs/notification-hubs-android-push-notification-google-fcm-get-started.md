@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="wesmc"/>
 
+
 # Pushmeldingen naar Android verzenden met Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -735,6 +736,6 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

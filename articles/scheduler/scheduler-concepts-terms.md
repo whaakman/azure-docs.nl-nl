@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Schedulerconcepten, -terminologie en -entiteitenhiërarchie
 
 ## Scheduler-entiteitenhiërarchie
@@ -220,6 +221,6 @@ Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 
