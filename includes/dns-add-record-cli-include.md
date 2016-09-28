@@ -55,7 +55,6 @@ Als u een SRV-record in de zonebasis maakt, kunt u '_service' en '_protocol' in 
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

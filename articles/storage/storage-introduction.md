@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="vamshik;tamram"/>
+
 
 # Inleiding tot Microsoft Azure Storage
 
@@ -132,14 +133,14 @@ Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signatur
 
 ## Replicatie voor duurzaamheid en maximale beschikbaarheid
 
-De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en maximale beschikbaarheid te garanderen en te voldoen aan de [SLA voor Storage](https://azure.microsoft.com/support/legal/sla/storage/), zelfs met betrekking tot tijdelijke hardwarefouten. 
+De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en maximale beschikbaarheid te garanderen en te voldoen aan de [SLA voor Storage](https://azure.microsoft.com/support/legal/sla/storage/), zelfs met betrekking tot tijdelijke hardwarefouten.
 
 Zie [Azure-regio’s](https://azure.microsoft.com/regions/#services) voor meer informatie over welke services beschikbaar zijn in elke regio.
 
 Wanneer u een opslagaccount maakt, moet u een van de volgende replicatieopties selecteren:  
 
 - **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één faciliteit in één regio driemaal gerepliceerd. LRS beschermt u uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één faciliteit.  
-  
+
     LRS wordt aangeboden met korting. Voor maximale duurzaamheid wordt aanbevolen dat u geografisch redundante opslag gebruikt, zoals hieronder wordt beschreven.
 
 
@@ -148,8 +149,8 @@ Wanneer u een opslagaccount maakt, moet u een van de volgende replicatieopties s
     ZRS biedt een hoger duurzaamheidsniveau dan LRS. Voor maximale duurzaamheid wordt echter het gebruik van geografisch redundante opslag aanbevolen. Deze vorm wordt hieronder beschreven.  
 
     > [AZURE.NOTE] ZRS is momenteel alleen beschikbaar voor blok-blobs en wordt alleen ondersteund voor versie 2014-02-14 en hoger.
-    > 
-    > Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het niet omzetten naar ander type replicatie. Ook kunt u niet meer overstappen naar ZRS als u al een ander type hebt geselecteerd. 
+    >
+    > Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het niet omzetten naar ander type replicatie. Ook kunt u niet meer overstappen naar ZRS als u al een ander type hebt geselecteerd.
 
 - **Geografisch redundante opslag (GRS)**. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio en driemaal in een secundaire regio op honderden kilometers afstand van de primaire regio. Zo biedt deze service het hoogste duurzaamheidsniveau. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover naar de secundaire regio uitgevoerd. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
 
@@ -158,7 +159,7 @@ Wanneer u een opslagaccount maakt, moet u een van de volgende replicatieopties s
 - **Geografisch redundante opslag met leestoegang (RA-GRS)**. Wanneer u een opslagaccount maakt, wordt standaard leestoegang ingeschakeld voor uw geografisch redundante opslag. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is.
 
     > [AZURE.IMPORTANT] U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.
- 
+
 Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over opties voor de replicatie van opslag.
 
 Zie [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over de prijzen van de replicatie van opslagaccounts.
@@ -269,6 +270,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

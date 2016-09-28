@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Web-apps tijdens runtime instrumenteren met Application Insights
 
 *Application Insights verkeert momenteel in de preview-fase.*
@@ -298,6 +299,6 @@ Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure R
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="06/27/2016"
     ms.author="douglasl"/>
 
+
 # Overzicht Stretch Database
 
 Stretch Database migreert uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud.
@@ -82,6 +83,6 @@ Gebruik Stretch Database Advisor, een functie van SQL Server 2016 Upgrade Adviso
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

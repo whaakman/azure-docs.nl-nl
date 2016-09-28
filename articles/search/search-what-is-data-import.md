@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Gegevens uploaden naar Azure Search
 > [AZURE.SELECTOR]
 - [Overzicht](search-what-is-data-import.md)
@@ -47,6 +48,6 @@ De functionaliteit van de indexeerfunctie wordt weergegeven in [Azure Portal](se
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en AD FS 2.0 aan de slag kunt gaan." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0"
+    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en AD FS 2.0 aan de slag kunt gaan."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 # Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0
 
 Als uw organisatie is gefedereerd met Azure Active Directory en u hebt resources die zich on-premises of in de cloud bevinden die u wilt beveiligen, kunt u dit doen door de Azure Multi-Factor Authentication-server te gebruiken en deze te configureren voor gebruik met AD FS, zodat meervoudige verificatie wordt geactiveerd voor waardevolle eindpunten.
@@ -23,7 +24,7 @@ In deze documentatie wordt beschreven hoe u de Azure Multi-Factor Authentication
 
 
 ## AD FS 2.0-proxy
-Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Authentication-server op de ADFS-proxyserver en configureert u de server door de volgende stappen uit te voeren. 
+Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Authentication-server op de ADFS-proxyserver en configureert u de server door de volgende stappen uit te voeren.
 
 ### AD FS 2.0 beveiligen met een proxy
 
@@ -63,7 +64,7 @@ Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Aut
 
 ## AD FS 2.0 Direct zonder een proxy
 
-Als u AD FS wilt beveiligen wanneer de AD FS-proxy niet wordt gebruikt, installeert u de Azure Multi-Factor Authentication-server op de AD FS-server en configureert u de server op de AD FS-server door de volgende stappen uit te voeren. 
+Als u AD FS wilt beveiligen wanneer de AD FS-proxy niet wordt gebruikt, installeert u de Azure Multi-Factor Authentication-server op de AD FS-server en configureert u de server op de AD FS-server door de volgende stappen uit te voeren.
 
 ### AD FS 2.0 beveiligen zonder een proxy
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-authenticatie.
@@ -80,7 +81,7 @@ Als u AD FS wilt beveiligen wanneer de AD FS-proxy niet wordt gebruikt, installe
 
 
 ## Goedgekeurde IP-adressen
-De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u het subnet van het kantoor op als een van de goedgekeurde IP-adressen. 
+De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u het subnet van het kantoor op als een van de goedgekeurde IP-adressen.
 
 ### Goedgekeurde IP-adressen configureren
 
@@ -93,10 +94,8 @@ De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Fac
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
 
 
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

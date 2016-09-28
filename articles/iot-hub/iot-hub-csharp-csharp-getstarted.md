@@ -16,6 +16,7 @@
      ms.date="09/12/2016"
      ms.author="dobett"/>
 
+
 # Aan de slag met Azure IoT Hub voor .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -284,6 +285,6 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

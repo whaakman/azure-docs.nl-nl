@@ -15,6 +15,7 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
+
 # PowerShell gebruiken om diagnostische Azure-gegevens naar Application Insights te verzenden
 
 [Microsoft Azure](https://azure.com) kan zo [worden geconfigureerd dat er diagnostische Azure-gegevens worden verzonden](app-insights-azure-diagnostics.md) naar [Visual Studio Application Insights](app-insights-overview.md). De diagnostische gegevens hebben betrekking op Azure Cloud Services en virtuele Azure-machines. Ze vormen een aanvulling op de telemetrie die u vanuit de app verzendt met behulp van de Application Insights-SDK. Als onderdeel van het automatiseringsproces voor het maken van nieuwe resources in Azure kunt u het verzenden van diagnostische gegevens configureren met PowerShell.
@@ -120,6 +121,6 @@ De extensie voor diagnostische gegevens verwijderen voor elke afzonderlijke rol:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

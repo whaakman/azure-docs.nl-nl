@@ -16,6 +16,7 @@
    ms.date="08/26/2016"
    ms.author="mblythe"/>
 
+
 # Interactie met Power BI-rapporten met behulp van de JavaScript-API
 
 Met behulp van de JavaScript-API van Power BI kunt u eenvoudig Power BI-rapporten insluiten in uw toepassingen. Dankzij de API kunnen uw toepassingen via programmacode communiceren met verschillende rapportelementen, zoals pagina's en filters. Door deze interactiviteit zijn Power BI-rapporten een meer geïntegreerd onderdeel van uw toepassing.
@@ -139,6 +140,6 @@ Bekijk de volgende koppelingen voor meer informatie over de JavaScript-API van P
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

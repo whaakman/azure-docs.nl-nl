@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Een on-premises StorSimple-apparaat implementeren (Update 1)
 
 > [AZURE.SELECTOR]
@@ -292,6 +293,6 @@ Voor MPIO-installatie-instructies voor een StorSimple-apparaat die is verbonden 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

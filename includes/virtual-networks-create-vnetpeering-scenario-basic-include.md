@@ -6,7 +6,6 @@ In dit scenario maakt u een koppeling tussen twee VNetten met de naam **VNet1** 
 
 Met VNet-peering is volledige connectiviteit mogelijk tussen de gehele adresruimte van gekoppelde virtuele netwerken.    
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

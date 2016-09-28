@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="barbkess;sonyama"/>
 
+
 # Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
@@ -94,6 +95,6 @@ Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

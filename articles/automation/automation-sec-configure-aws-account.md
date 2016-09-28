@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte"/>
 
+
 # Runbooks met Amazon Web Services verifiëren
 Het automatiseren van algemene taken met resources in Amazon Web Services (AWS) kan worden bewerkstelligd met Automation-runbooks in Azure.  U kunt vele taken in AWS automatiseren met Automation-runbooks, net zoals u dit kunt met resources in Azure.  U hebt slechts twee dingen nodig:
 
@@ -38,6 +39,6 @@ Nadat u uw AWS-beveiligingssleutels hebt gemaakt en gekopieerd, moet u een refer
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

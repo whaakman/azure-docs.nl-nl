@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS" 
-    description="Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van RD-gateway (Extern bureaublad) en Azure Multi-Factor Authentication-server met RADIUS." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS"
+    description="Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van RD-gateway (Extern bureaublad) en Azure Multi-Factor Authentication-server met RADIUS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
 
@@ -55,12 +56,12 @@ De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-pro
 1. Open de Azure Multi-Factor Authentication-server en klik op het pictogram RADIUS-verificatie. Schakel het selectievakje RADIUS-verificatie inschakelen in.
 2. Controleer op het tabblad Clients of de poorten overeenkomen met wat in NPS is geconfigureerd en klik op de knop Add (Toevoegen)... . Voeg het IP-adres van de RD-gatewayserver, de naam van de toepassing (optioneel) en een gedeeld geheim toe. Het gedeeld geheim moet op de Azure Multi-Factor Authentication-server en de RD-gateway hetzelfde zijn.
 3. Klik op het tabblad Doel en kies het keuzerondje RADIUS-server(s).
-4. Klik op de knop Bewerken.... Voer het IP-adres, het gedeeld geheim en de poorten van de NPS-server in. De RADIUS-client en het RADIUS-doel zijn hetzelfde, tenzij u een centrale NPS gebruikt. Het gedeeld geheim moet overeenkomen met het gedeeld geheim dat is ingesteld in de sectie RADIUS-client van de NPS-server. 
+4. Klik op de knop Bewerken.... Voer het IP-adres, het gedeeld geheim en de poorten van de NPS-server in. De RADIUS-client en het RADIUS-doel zijn hetzelfde, tenzij u een centrale NPS gebruikt. Het gedeeld geheim moet overeenkomen met het gedeeld geheim dat is ingesteld in de sectie RADIUS-client van de NPS-server.
 
 ![RADIUS-verificatie](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
  ms.date="08/10/2016"
  ms.author="krisragh"/>
 
+
 # Aan de slag met Azure Scheduler in Azure-portal
 
 Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstudie leert u een taak te maken: U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.
@@ -184,6 +185,6 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

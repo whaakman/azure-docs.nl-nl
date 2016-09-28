@@ -3,7 +3,6 @@
 - [PowerShell](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md)
 - [ARM-sjabloon](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

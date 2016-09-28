@@ -19,6 +19,7 @@
 
 
 
+
 # Verbinding maken met een SQL Database met behulp van Visual Studio
 
 > [AZURE.SELECTOR]
@@ -44,7 +45,7 @@ Als u verbinding wilt maken met een SQL-database met behulp van Visual Studio, h
 
 
 
-## Visual Studio openen via de Azure-portal
+## Visual Studio openen via de Azure Portal
 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -107,6 +108,6 @@ Nu u bent verbonden met de database, wordt in de volgende stappen uitgelegd hoe 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

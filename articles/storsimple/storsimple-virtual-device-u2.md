@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Een virtueel StorSimple-apparaat implementeren en beheren in Azure
 
 
@@ -283,6 +284,6 @@ Als u het virtuele apparaat verwijdert of uitschakelt, wordt het als **Offline**
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

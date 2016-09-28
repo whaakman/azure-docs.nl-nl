@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markusvi"/>
 
+
 # Veelgestelde vragen over Azure Active Directory
 
 Azure Active Directory is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -207,6 +208,6 @@ Zie [Automate User Provisioning and Deprovisioning to SaaS Applications with Azu
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

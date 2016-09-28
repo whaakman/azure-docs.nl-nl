@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="evboyle"/>
 
+
 # Aan de slag met Azure Search in Java
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
@@ -205,6 +206,6 @@ Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekij
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

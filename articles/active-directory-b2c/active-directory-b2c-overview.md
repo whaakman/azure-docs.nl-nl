@@ -16,6 +16,7 @@
     ms.date="07/24/2016"
     ms.author="swkrish"/>
 
+
 # Azure Active Directory B2C: consumenten registreren en aanmelden bij uw toepassingen
 
 Azure Active Directory B2C is een uitgebreide oplossing voor cloudidentiteitsbeheer voor uw webtoepassingen en mobiele toepassingen voor consumenten. Dit is een maximaal beschikbare, wereldwijde service voor honderden miljoenen consumentidentiteiten. Azure Active Directory B2C is ontwikkeld op een hoogwaardig, veilig platform en is bedoeld om uw toepassingen, uw bedrijf en uw klanten te beveiligen.
@@ -68,6 +69,6 @@ We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsinc
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="carlrab"/>
 
+
 # Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 
 Azure heeft twee opties om SQL Server-workloads te hosten in Microsoft Azure:
@@ -159,6 +160,6 @@ Kies voor **SQL Server op Azure VM's** als:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

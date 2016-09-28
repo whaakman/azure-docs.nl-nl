@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # Gegevens laden met PolyBase in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
@@ -287,6 +288,6 @@ Raadpleeg de [PolyBase-handleiding][] voor meer informatie over het ontwikkelen 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,12 +16,13 @@
    ms.date="05/27/2016"
    ms.author="tomsh"/>
 
+
 # Een virtuele machine van Azure versleutelen
 Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
 
 ![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption\security-center-disk-encryption-fig1.png)
 
-> [AZURE.NOTE] De informatie in dit document is van toepassing op de voorbeeldversie van het Azure Beveiligingscentrum.
+> [AZURE.NOTE] De informatie in dit document is van toepassing op de preview-versie van Azure Security Center.
 
 Wanneer het Azure Beveiligingscentrum heeft vastgesteld welke Azure Virtual Machines versleuteld moeten worden, volgt u de volgende stappen om dit te doen:
 
@@ -69,10 +70,10 @@ Het bovenste venster wordt het ‘scriptvenster' genoemd en het onderste venster
 
 Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de volgende informatie:
 
-- **Naam resourcegroep**: naam van de resourcegroep waar u de Sleutelkluis in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
-- **Naam Sleutelkluis**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Sleutelkluis hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Sleutelkluis hebt die u wilt gebruiken, vul dan de naam van die Sleutelkluis in.
-- **Locatie**: de locatie van de sleutelkluis. Zorg ervoor dat de Sleutelkluis en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
-- **Naam Azure Active Directory-toepassing **: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Sleutelkluis. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
+- **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
+- **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
+- **Locatie**: de locatie van de Key Vault. Zorg ervoor dat de Key Vault en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
+- **Naam Azure Active Directory-toepassing **: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
 
 > [AZURE.NOTE] Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
@@ -92,7 +93,7 @@ Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
     ![Het PowerShell-script uitvoeren](./media/security-center-disk-encryption\security-center-disk-encryption-fig4.png)
 
 8.  Het script vraagt om de **resourceGroupName:**. Voer de naam van de *Resourcegroep* in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen resourcegroep hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe resourcegroep. Als u al een *Resourcegroep* hebt die u wilt gebruiken (zoals de groep waar uw virtuele machine zich bevindt), vul dan de naam van de bestaande resourcegroep in.
-9.  Het script vraagt om de **keyVaultName:**. Voer de naam van de *Sleutelkluis* in die u wilt gebruiken en druk vervolgens op ENTER. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Sleutelkluis hebt die u wilt gebruiken, vul dan de naam van die *Sleutelkluis* in.
+9.  Het script vraagt om de **keyVaultName:**. Voer de naam van de *Key Vault* in die u wilt gebruiken en druk vervolgens op ENTER. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die *Key Vault* in.
 10. Het script vraagt om de **location:**. Voer de naam van de locatie in waar de VM die u wilt versleutelen zich bevindt en druk vervolgens op **ENTER**. Als u de locatie niet meer weet, gaat u terug naar stap 5.
 11. Het script vraagt om de **aadAppName:**. Voer de naam van de *Azure Active Directory*-toepassing in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een *Azure Active Directory-toepassing* hebt die u wilt gebruiken, vul dan de naam van de bestaande *Azure Active Directory-toepassing in*.
 12. Een aanmeldvenster wordt weergegeven. Vul uw gegevens in (u dient zich inderdaad nog een keer aan te melden).
@@ -105,7 +106,7 @@ Het resultaat van het script ziet er als volgt uit:
 
 ## De virtuele machine van Azure versleutelen
 
-U kunt nu uw virtuele machine versleutelen. Als uw virtuele machine zich in dezelfde resourcegroep bevindt als uw Sleutelkluis, kunt u verdergaan naar het gedeelte met de stappen voor het versleutelen. Als uw virtuele machine zich niet in dezelfde resourcegroep bevindt als uw Sleutelkluis, moet u het volgende invullen in de console in de PowerShell ISE:
+U kunt nu uw virtuele machine versleutelen. Als uw virtuele machine zich in dezelfde resourcegroep bevindt als uw Key Vault, kunt u verdergaan naar het gedeelte met de stappen voor het versleutelen. Als uw virtuele machine zich niet in dezelfde resourcegroep bevindt als uw Key Vault, moet u het volgende invullen in de console in de PowerShell ISE:
 
 **$resourceGroupName = <’Virtual_Machine_RG’>**
 
@@ -171,11 +172,11 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md): ontdek hoe u de status van uw Azure-bronnen kunt monitoren.
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
-- [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): lees blogposts over de beveiliging en compliance van Azure.
+- [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): lees blogberichten over de beveiliging en naleving van Azure
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

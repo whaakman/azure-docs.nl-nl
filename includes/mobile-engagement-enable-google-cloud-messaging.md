@@ -32,7 +32,6 @@
 8. Noteer de waarde van de **API-SLEUTEL**. Deze API-sleutelwaarde gaat u later gebruiken voor de configuratie in de sectie Native pushbericht. Klik nu op **Gereed**.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

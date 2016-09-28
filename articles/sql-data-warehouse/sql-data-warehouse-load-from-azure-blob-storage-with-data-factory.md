@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Gegevens uit Azure Blob-opslag laden in Azure SQL Data Warehouse (Azure Data Factory)
 
 > [AZURE.SELECTOR]
@@ -240,6 +241,6 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

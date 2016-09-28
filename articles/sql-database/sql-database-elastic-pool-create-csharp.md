@@ -16,6 +16,7 @@
     ms.date="09/14/2016"
     ms.author="sstein"/>
 
+
 # Een nieuwe pool voor Elastic Database maken met C&#x23;
 
 > [AZURE.SELECTOR]
@@ -317,6 +318,6 @@ Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de s
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

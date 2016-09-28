@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Windows-verificatie en Azure Multi-Factor Authentication-server" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina die u helpt bij het implementeren van Windows-verificatie en de Azure Multi-Factor Authentication-server." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Windows-verificatie en Azure Multi-Factor Authentication-server"
+    description="Dit is de Azure Multi-Factor Authentication-pagina die u helpt bij het implementeren van Windows-verificatie en de Azure Multi-Factor Authentication-server."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Windows-verificatie en Azure Multi-Factor Authentication-server
 
@@ -31,7 +32,7 @@ In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakele
 
 
 >[AZURE.NOTE]Deze functie wordt niet ondersteund om Terminal Services op Windows Server 2012 R2 te beveiligen.
- 
+
 
 
 
@@ -47,11 +48,11 @@ In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakele
 7. Klik op de knop Bewerken....
 8. Selecteer Eén IP-adres als u één IP-adres wilt overslaan.
 9. Selecteer IP-bereik als u een heel IP-adresbereik wilt overslaan. Voorbeeld 10.63.193.1-10.63.193.100.
-10. Selecteer Subnet als u een bereik van IP-adressen wilt opgeven met subnetnotatie. Voer het IP-adres in waarop het subnet begint en kies het juiste IP-masker uit de vervolgkeuzelijst. 
+10. Selecteer Subnet als u een bereik van IP-adressen wilt opgeven met subnetnotatie. Voer het IP-adres in waarop het subnet begint en kies het juiste IP-masker uit de vervolgkeuzelijst.
 11. Klik op de knop OK.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

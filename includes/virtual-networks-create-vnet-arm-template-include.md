@@ -58,7 +58,6 @@ U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets 
 11. Sla het bestand op.
   
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

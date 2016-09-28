@@ -18,6 +18,7 @@
     ms.author="cgronlun;tedway;olgali"/>
 
 
+
 # Inleiding tot machine learning in de cloud
 
 ## Wat is machine learning?
@@ -127,6 +128,6 @@ U kunt zich de basiskennis van predictive analytics en machine learning eigen ma
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

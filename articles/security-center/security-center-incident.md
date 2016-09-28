@@ -16,6 +16,7 @@
    ms.date="08/03/2016"
    ms.author="yurid"/>
 
+
 # Beveiligingsincidenten afhandelen in Azure Security Center 
 Sorteren en onderzoeken van beveiligingswaarschuwingen kan zelfs voor de meest ervaren beveiligingsanalisten tijdrovend zijn, en velen weten zelfs niet waar te beginnen. Met behulp van [analytics](security-center-detection-capabilities.md) om de informatie tussen afzonderlijke [beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md) te verbinden kan het Beveiligingscentrum u één overzicht geven van de aanval en alle gerelateerde waarschuwingen - zo begrijpt u snel wat de aanvaller deed en welke resources betrokken zijn.
 
@@ -65,6 +66,6 @@ In dit document hebt u kunnen lezen hoe u de mogelijkheid beveiligingsincidenten
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

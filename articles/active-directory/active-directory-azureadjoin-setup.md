@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
+    ms.date="09/27/2016"
     ms.author="femila"/>
+
 
 # Azure AD Join instellen in uw organisatie
 
@@ -57,6 +58,6 @@ Met de volgende drie scenario's kunt u uw gebruikers in staat stellen Azure AD J
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

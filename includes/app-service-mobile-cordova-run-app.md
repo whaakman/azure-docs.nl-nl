@@ -17,7 +17,6 @@ Er wordt nu een POST-aanvraag verzonden naar de back-end van Azure die u eerder 
 [Azure-portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

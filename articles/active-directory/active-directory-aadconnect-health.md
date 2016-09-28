@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren
 
@@ -127,6 +128,6 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

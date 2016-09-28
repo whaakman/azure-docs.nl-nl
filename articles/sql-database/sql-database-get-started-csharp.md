@@ -17,6 +17,7 @@
    ms.date="09/14/2016"
    ms.author="sstein"/>
 
+
 # SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
 
 
@@ -293,6 +294,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

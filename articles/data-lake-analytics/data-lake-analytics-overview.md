@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Overzicht van Microsoft Azure Data Lake Analytics
 
 ## Wat is Azure Data Lake Analytics?
@@ -82,6 +83,6 @@ Azure Data Lake Analytics is een nieuwe service die is bedoeld om big data-analy
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

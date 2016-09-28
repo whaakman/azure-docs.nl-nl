@@ -14,7 +14,6 @@ Klik op **Toegangssleutels** als u de toegangssleutels wilt ophalen.
 
 ![Toegangssleutels voor Azure Redis-cache](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

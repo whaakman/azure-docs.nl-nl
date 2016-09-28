@@ -19,6 +19,7 @@
     ms.author="joseidz"/>
 
 
+
 # Zelfstudie SQL Database: Excel verbinden met een Azure SQL Database en een rapport creëren
 
 > [AZURE.SELECTOR]
@@ -86,6 +87,6 @@ Nu de verbinding tot stand is gebracht en het bestand met gegevens en de koppeli
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

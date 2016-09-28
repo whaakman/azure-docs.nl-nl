@@ -18,6 +18,7 @@
 
 
 
+
 # Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder
 
 > [AZURE.IMPORTANT]
@@ -40,6 +41,6 @@ Uw mening telt. Aan het einde van elke sessie ziet u een dialoogvenster voor uw 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

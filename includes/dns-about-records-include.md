@@ -30,7 +30,6 @@ Als u een recordset met jokertekens wilt maken, moet u de recordnaam '\*' gebrui
 CNAME-recordsets kunnen niet worden gecombineerd met andere recordsets met dezelfde naam. U kunt bijvoorbeeld geen CNAME-recordset met de relatieve naam 'www' en tegelijkertijd een A-record met de relatieve naam 'www' maken. Omdat het toppunt van de zone (naam = '@') altijd NS- en SOA-recordsets bevat die zijn gemaakt toen de zone werd gemaakt, kunt u in het toppunt van de zone geen CNAME-recordset maken. Deze beperkingen worden veroorzaakt door de DNS-standaarden en zijn geen beperkingen van Azure DNS.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

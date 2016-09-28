@@ -17,6 +17,7 @@
     ms.date="09/01/2016"
     ms.author="anhoh"/>
 
+
 # NoSQL-zelfstudie: een DocumentDB C#-consoletoepassing maken
 
 > [AZURE.SELECTOR]
@@ -607,6 +608,6 @@ Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werke
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

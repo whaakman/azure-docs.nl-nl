@@ -17,6 +17,7 @@
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Een SQL Data Warehouse-database maken met behulp van Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
@@ -85,6 +86,6 @@ Wanneer de inrichting van uw SQL Data Warehouse is voltooid, kunt u [voorbeeldge
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

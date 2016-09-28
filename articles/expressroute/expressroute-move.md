@@ -15,6 +15,7 @@
    ms.date="06/20/2016"
    ms.author="ganesr"/>
 
+
 # ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel
 
 Dit artikel bevat een overzicht van wat het betekent om een Azure ExpressRoute-circuit te verplaatsen van het klassieke naar het Azure Resource Manager-implementatiemodel.
@@ -112,6 +113,6 @@ Volg de instructies in [Een ExpressRoute-circuit verplaatsen van het klassieke n
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

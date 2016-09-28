@@ -17,6 +17,7 @@
      ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
+
 # Recovery Services-kluis - veelgestelde vragen
 
 > [AZURE.SELECTOR]
@@ -28,13 +29,13 @@ Dit artikel bevat informatie over de Recovery Services-kluis en vormt een aanvul
 U kunt vragen over Azure Backup stellen in de sectie Disqus van dit artikel of in een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 ## Recovery Services-kluizen zijn gebaseerd op Resource Manager. Worden Backup-kluizen (klassieke modus) nog steeds ondersteund? <br/>
-Ja, Backup-kluizen worden nog steeds ondersteund. U maakt Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com). Recovery Services-kluizen worden gemaakt in de [Azure-portal](https://portal.azure.com). We raden u echter aan Recovery Services-kluizen te maken, aangezien alle toekomstige verbeteringen alleen beschikbaar zullen zijn in Recovery Services-kluizen. 
+Ja, Backup-kluizen worden nog steeds ondersteund. U maakt Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com). Recovery Services-kluizen worden gemaakt in de [Azure Portal](https://portal.azure.com). We raden u echter aan Recovery Services-kluizen te maken, aangezien alle toekomstige verbeteringen alleen beschikbaar zullen zijn in Recovery Services-kluizen. 
 
 ## Kan ik een Backup-kluis migreren naar een Recovery Services-kluis? <br/>
 Op dit moment is het niet mogelijk om de inhoud van een Backup-kluis te migreren naar een Recovery Services-kluis. We werken ernaar toe om deze functionaliteit toe te voegen, maar dit is niet beschikbaar in de openbare evaluatieversie.
 
 ## Ondersteunen Recovery Services-kluizen klassieke virtuele machines of virtuele machines op basis van Resource Manager? <br/>
-Recovery Services-kluizen ondersteunen beide modellen.  In een Recovery Services-kluis kunt u een back-up opslaan van een VM die is gemaakt in de klassieke portal (VM’s in de klassieke modus) of een back-up van een VM die is gemaakt in de Azure-portal (op basis van Resource Manager).
+Recovery Services-kluizen ondersteunen beide modellen.  In een Recovery Services-kluis kunt u een back-up opslaan van een VM die is gemaakt in de klassieke portal (VM’s in de klassieke modus) of een back-up van een VM die is gemaakt in de Azure Portal (op basis van Resource Manager).
 
 ## Ik heb back-ups van mijn klassieke VM’s opgeslagen in de back-upkluis. Nu wil ik mijn VM’s migreren van de klassieke modus naar de Resource Manager-modus.  Hoe kan ik een back-up ervan opslaan in de Recovery Services-kluis?
 Back-ups van klassieke virtuele machines in de back-upkluis worden niet automatisch naar de Recovery Services-kluis gemigreerd wanneer u de virtuele machines van de klassieke naar de Resource Manager-modus migreert. Volg deze stappen voor migratie van back-ups van VM’s:
@@ -45,6 +46,6 @@ Back-ups van klassieke virtuele machines in de back-upkluis worden niet automati
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

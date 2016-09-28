@@ -16,6 +16,7 @@
    ms.date="07/21/2016"
    ms.author="yurid"/>
 
+
 # Handleiding voor het oplossen van problemen met Azure Security Center
 Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders waarvan hun organisaties Azure Security Center gebruiken en die problemen moeten oplossen die betrekking hebben op Security Center.
 
@@ -82,6 +83,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

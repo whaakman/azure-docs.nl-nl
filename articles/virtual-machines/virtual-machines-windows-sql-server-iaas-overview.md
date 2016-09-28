@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="jroth"/>
 
+
 # Overzicht van SQL Server op virtuele machines in Azure
 
 In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele machines in Azure. Ook vindt u hier [koppelingen naar portalinstallatiekopieën](#option-1-deploy-a-sql-vm-per-minute-licensing) en een overzicht van [algemene taken](#manage-your-sql-vm).
@@ -96,6 +97,6 @@ Nog vragen? Bekijk eerst de [Veelgestelde vragen over SQL Server in Azure Virtua
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

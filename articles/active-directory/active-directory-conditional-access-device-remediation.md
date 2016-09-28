@@ -18,6 +18,7 @@
     ms.author="markvi"/>
 
 
+
 # Problemen oplossen: geen toegang vanaf uw apparaat
 
 Een pagina over geweigerde toegang wordt weergegeven wanneer u een toepassing zoals SharePoint Online opent.  
@@ -142,6 +143,6 @@ Binnenkort vindt u hier instructies voor Android-telefoons en -tablets.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

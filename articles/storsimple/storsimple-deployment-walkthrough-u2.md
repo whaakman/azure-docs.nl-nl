@@ -15,6 +15,7 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
+
 # Een StorSimple-apparaat implementeren (Update 2)
 
 > [AZURE.SELECTOR]
@@ -247,6 +248,6 @@ Voer de volgende stappen uit in de beheerportal als u voor één volume op het S
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

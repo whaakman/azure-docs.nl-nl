@@ -15,6 +15,7 @@
     ms.date="09/07/2016"
     ms.author="awills"/>
 
+
 # De beschikbaarheid en reactiesnelheid van een website bewaken
 
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Visual Studio Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -326,6 +327,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

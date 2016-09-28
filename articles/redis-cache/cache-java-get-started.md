@@ -16,6 +16,7 @@
     ms.date="08/24/2016"
     ms.author="sdanie"/>
 
+
 # Azure Redis-cache gebruiken met behulp van Java
 
 > [AZURE.SELECTOR]
@@ -82,6 +83,6 @@ Sommige Redis-clients bieden geen ondersteuning voor SSL. De [poort zonder SSL-b
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

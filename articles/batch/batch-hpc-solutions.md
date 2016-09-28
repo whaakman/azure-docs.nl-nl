@@ -16,6 +16,7 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+
 # Batch- en HPC-oplossingen in de Azure-cloud
 
 Azure biedt efficiënte, schaalbare cloudoplossingen voor batchverwerking en High Performance Computing (HPC), ook wel *Big Compute* genoemd. Ontdek hier meer over Big Compute-workloads en de Azure-services om ze te ondersteunen of ga direct naar de [oplossingscenario's](#scenarios) verderop in dit artikel. Dit artikel is hoofdzakelijk bestemd voor technische besluitvormers, IT-managers en onafhankelijke softwareleveranciers, maar ook andere IT-professionals en ontwikkelaars kunnen het gebruiken om vertrouwd te raken met deze oplossingen.
@@ -159,6 +160,6 @@ Uw  Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbindi
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

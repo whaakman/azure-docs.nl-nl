@@ -16,6 +16,7 @@
     ms.date="07/06/2016" 
     ms.author="raynew"/>
 
+
 # Welke workloads kunt u met Azure Site Recovery beveiligen?
 
 
@@ -152,6 +153,6 @@ Gebruik Site Recovery om uw SAP-implementatie als volgt te beveiligen:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

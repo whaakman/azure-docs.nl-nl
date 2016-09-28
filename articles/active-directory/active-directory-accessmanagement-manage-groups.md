@@ -1,11 +1,12 @@
-<properties
-	pageTitle="Groepen beheren in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure users using Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+<eigenschappen
+
+    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -13,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
@@ -105,7 +106,7 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups (Engelstalig)](active-directory-manage-groups.md)
 
-* [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets voor het configureren van groepsinstellingen](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Article Index for Application Management in Azure Active Directory (Engelstalig)](active-directory-apps-index.md)
 
@@ -114,7 +115,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 * [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 
 
-
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -36,7 +36,6 @@ Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Pr
     ![Lijst met subnetten in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

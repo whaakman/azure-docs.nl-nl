@@ -17,6 +17,7 @@
    ms.author="carlrab"/>
 
 
+
 # Gegevens vanuit csv laden in Azure SQL Data Warehouse (platte bestanden)
 
 U kunt het opdrachtregelhulpprogramma bcp gebruiken om gegevens uit een csv-bestand te importeren in Azure SQL Database.
@@ -126,6 +127,6 @@ Zie [SQL Server-database migreren](sql-database-cloud-migrate.md) om een SQL-ser
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

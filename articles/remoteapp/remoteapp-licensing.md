@@ -16,6 +16,7 @@
     ms.author="elizapo" />
 
 
+
 # Hoe werkt licentieverlening in Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
@@ -39,6 +40,6 @@ Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

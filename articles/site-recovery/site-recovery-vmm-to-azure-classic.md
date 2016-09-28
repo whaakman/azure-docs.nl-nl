@@ -16,6 +16,7 @@
     ms.date="05/06/2016"
     ms.author="raynew"/>
 
+
 #  Hyper-V virtuele machines in VMM-clouds repliceren naar Azure
 
 > [AZURE.SELECTOR]
@@ -385,6 +386,6 @@ Meer informatie over [herstelplannen maken](site-recovery-create-recovery-plans.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/03/2016"
-    ms.author="krisagh"/>
+    ms.author="glennga"/>
+
 
 # <a name="getting-started"> </a>Wat zijn Mobile Apps?
 
@@ -105,6 +106,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

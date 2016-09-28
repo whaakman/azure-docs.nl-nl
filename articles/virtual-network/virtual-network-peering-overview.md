@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+
 # VNet-peering
 
 VNet-peering is een mechanisme dat twee virtuele netwerken in dezelfde regio via het backbone-netwerk van Azure met elkaar verbindt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
@@ -90,6 +91,6 @@ VNet-peering is tijdens de controleperiode gratis. Na de release wordt er een no
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="06/29/2016"
    ms.author="ganesr"/>
 
+
 # Routering voor een ExpressRoute-circuit maken en wijzigen
 
 
@@ -406,6 +407,6 @@ Volgende stap, [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-how
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,9 +16,10 @@
     ms.date="02/29/2016"
     ms.author="cfowler"/>
 
+
 # Een web-app in Azure App Service verbinden met Redis-cache via het Memcache-protocol
 
-In dit artikel wordt uitgelegd hoe u een WordPress-web-app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) verbindt met [Azure Redis-Cache][12] met behulp van het [Memcache][13]-protocol. Als u een bestaande web-app hebt die een Memcached-server gebruikt voor caching in het geheugen, kunt u deze migreren naar Azure App Service en de eigen cachingoplossing van Microsoft Azure gebruiken met weinig of geen wijzigingen in de toepassingscode. Bovendien kunt u uw Memcache-expertise gebruiken om in Azure App Service uiterst schaalbare, gedistribueerde apps te maken met Azure Redis-cache voor caching in het geheugen, terwijl u gebruik kunt maken van populaire toepassingsframeworks zoals .NET, PHP, Node.js, Java en Python.  
+In dit artikel wordt uitgelegd hoe u een WordPress-web-app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) verbindt met [Azure Redis Cache][12] met behulp van het [Memcache][13]-protocol. Als u een bestaande web-app hebt die een Memcached-server gebruikt voor caching in het geheugen, kunt u deze migreren naar Azure App Service en de eigen cachingoplossing van Microsoft Azure gebruiken met weinig of geen wijzigingen in de toepassingscode. Bovendien kunt u uw Memcache-expertise gebruiken om in Azure App Service uiterst schaalbare, gedistribueerde apps te maken met Azure Redis Cache voor caching in het geheugen, terwijl u gebruik kunt maken van populaire toepassingsframeworks zoals .NET, PHP, Node.js, Java en Python.  
 
 Met App Service Web Apps kan in dit toepassingsscenario de Memcache-shim van Web Apps worden gebruikt. Dit is een lokale Memcache-server die als een Memcache-proxy fungeert om oproepen naar Azure Redis-cache op te slaan in de cache. Hierdoor kunnen alle apps die met het Memcache-protocol communiceren, gegevens in de cache opslaan met Redis-cache. Deze Memcache-shim werkt op protocolniveau en kan dus door een toepassing of toepassingsframework worden gebruikt zolang deze communiceert via het Memcache-protocol.
 
@@ -39,13 +40,13 @@ Nadat u de schaalbare WordPress-site hebt geïmplementeerd en een exemplaar van 
 
 U moet u drie app-instellingen opgeven om de Memcache-shim te configureren. U kunt dit doen met behulp van een aantal methoden, waaronder de [klassieke portal] [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)[3], de [Azure PowerShell-Cmdlets][5] of de [Azure-opdrachtregelinterface][5]. In het kader van dit artikel gebruik ik de [Azure Portal][4] om de app-instellingen op te geven. U kunt de volgende waarden vinden op de blade **Instellingen** van uw Redis-cache-exemplaar.
 
-![Blade Instellingen van Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
+![Blade Instellingen van Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
 ### App-instelling REDIS_HOST toevoegen
 
 De eerste app-instelling die u moet opgeven, is de app-instelling **REDIS\_HOST**. Met deze instelling geeft u de bestemming op waarnaar de shim de cachegegevens doorstuurt. De waarde voor de app-instelling REDIS_HOST vindt u op de blade **Eigenschappen** van het Redis-cache-exemplaar.
 
-![Hostnaam van Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
+![Hostnaam van Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
 Stel de sleutel van de app-instelling in op **REDIS\_HOST** en de waarde van de app-instelling op de **hostnaam** van het Redis-cache-exemplaar.
 
@@ -55,7 +56,7 @@ Stel de sleutel van de app-instelling in op **REDIS\_HOST** en de waarde van de 
 
 De tweede app-instelling die u moet opgeven, is de app-instelling **REDIS\_KEY**. Deze instelling verstrekt de verificatietoken die nodig is voor een veilige toegang tot het Redis-cache-exemplaar. U vindt de waarde voor de app-instelling REDIS_KEY op de blade **Toegangssleutels** van het Redis-cache-exemplaar.
 
-![Primaire sleutel voor Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
+![Primaire sleutel voor Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
 Stel de sleutel van de app-instelling in op **REDIS\_KEY** en de waarde van de app-instelling op de **Primaire sleutel** van het Redis-cache-exemplaar.
 
@@ -136,27 +137,27 @@ Als het bestand **object-cache.php** in de map **wp-content** staat, is Memcache
 
 Alle stappen om de Memcache-shim van Web Apps in te schakelen, zijn nu voltooid. U hoeft alleen nog te controleren of het Redis-cache-exemplaar wordt gevuld met de gegevens.
 
-### Ondersteuning voor niet-SSL-poort inschakelen in Azure Redis-cache
+### Ondersteuning voor niet-SSL-poort inschakelen in Azure Redis Cache
 
 >[AZURE.NOTE] Op het moment van publicatie van dit artikel biedt de Redis CLI geen ondersteuning voor SSL-verbindingen. Daarom zijn de volgende stappen noodzakelijk.
 
 Blader in de Azure Portal naar het Redis-cache-exemplaar dat u voor deze web-app hebt gemaakt. Nadat de blade van de cache is geopend, klikt u op het pictogram **Instellingen**.
 
-![Knop Instellingen van Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
+![Knop Instellingen van Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 
 Selecteer in de lijst de optie **Toegangspoorten**.
 
-![Toegangspoort voor Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/16-azure-redis-cache-access-port.png)
+![Toegangspoort voor Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/16-azure-redis-cache-access-port.png)
 
 Klik op **Nee** voor **Alleen toegang met SSL-beveiliging toestaan**.
 
-![Alleen toegang met SSL-beveiliging voor Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/17-azure-redis-cache-access-port-ssl-only.png)
+![Alleen toegang met SSL-beveiliging voor Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/17-azure-redis-cache-access-port-ssl-only.png)
 
 U ziet dat de niet-SSL-poort nu is ingesteld. Klik op **Opslaan**.
 
-![Toegangspoort zonder SSL voor Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
+![Toegangspoort zonder SSL voor Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### Verbinding maken met Azure Redis-cache vanuit Redis CLI
+### Verbinding maken met Azure Redis Cache vanuit Redis CLI
 
 >[AZURE.NOTE] Bij deze stap wordt ervan uitgegaan dat Redis lokaal is geïnstalleerd op uw ontwikkelcomputer. [Installeer Redis lokaal via deze instructies][9].
 
@@ -168,7 +169,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 
 Vervang **&lt;hostname-for-redis-cache&gt;** door de werkelijke hostnaam van xxxxx.redis.cache.windows.net en **&lt;primary-key-for-redis-cache&gt;** door de toegangssleutel voor de cache. Druk vervolgens op **Enter**. Zodra de CLI is verbonden met het Redis-cache-exemplaar, voert u een willekeurige Redis-opdracht uit. In onderstaande schermafbeelding heb ik ervoor gekozen om de sleutels weer te geven.
 
-![Verbinding maken met Azure Redis-cache vanuit Redis CLI in Terminal](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
+![Verbinding maken met Azure Redis Cache vanuit Redis CLI in Terminal](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
 De aanroep naar de lijst met sleutels moet een waarde retourneren. Als dat niet het geval is, gaat u terug naar de web-app en probeert u het opnieuw.
 
@@ -199,6 +200,6 @@ Gefeliciteerd! De WordPress-app heeft nu een gecentraliseerde geheugencache om d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

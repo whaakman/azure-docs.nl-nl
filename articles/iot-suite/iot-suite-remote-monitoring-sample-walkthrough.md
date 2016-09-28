@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+
 # Walkthrough over vooraf geconfigureerde oplossing voor externe controle
 
 ## Inleiding
@@ -229,18 +230,18 @@ De volgende TechNet-blogberichten bieden meer details over de vooraf geconfigure
 
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
 
-- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle)
+- [Connect your device to the remote monitoring preconfigured solution][Ink-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle)
 - [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com)
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[Ink-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Ink-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Ink-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
+[Ink-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

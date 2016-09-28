@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 #Live streamen met on-premises coderingsprogramma's via Azure Portal
 
 > [AZURE.SELECTOR]
@@ -186,6 +187,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

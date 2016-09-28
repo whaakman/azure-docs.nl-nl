@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+
 # Azure Automation-integratiemodules
 
 PowerShell is de basistechnologie achter Azure Automation. Omdat Azure Automation is gebouwd op PowerShell, zijn de PowerShell-modules bepalend voor de uitbreidbaarheid van Azure Automation. In dit artikel worden de details van het gebruik van Azure Automation van PowerShell-modules, die 'integratiemodules' worden genoemd, besproken en de aanbevolen procedures voor het maken van uw eigen PowerShell-modules om er zeker van te zijn dat ze werken als integratiemodules binnen Azure Automation. 
@@ -208,6 +209,6 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
 - Zie [Een Windows PowerShell-module schrijven](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) voor meer informatie over het maken van PowerShell-modules.
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

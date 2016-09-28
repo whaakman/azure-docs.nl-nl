@@ -17,6 +17,7 @@
     ms.date="09/12/2016"
     ms.author="mimig"/>
 
+
 # Een DocumentDB NoSQL-account maken met Azure Portal
 
 > [AZURE.SELECTOR]
@@ -95,6 +96,6 @@ Raadpleeg de volgende informatie voor meer informatie over DocumentDB:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

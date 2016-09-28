@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Aan de slag met Azure Data Lake Store met de Azure-opdrachtregelinterface
 
 > [AZURE.SELECTOR]
@@ -190,6 +191,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

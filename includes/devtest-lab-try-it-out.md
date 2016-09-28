@@ -5,7 +5,6 @@ Gebruikt u Azure al? Klik op volgende knop om een testlab in DevTest Labs te mak
 
 [![GIn enkele minuten aan de slag met Azure DevTest Labs](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Een Azure Traffic Manager-profiel beheren
 
 U gebruikt een Traffic Manager-profiel om de cloudservices of website-eindpunten op te geven die moeten worden bewaakt door Traffic Manager en om aan te geven welke verkeersrouteringsmethode u wilt gebruiken om de verbindingen naar deze eindpunten te distribueren.
@@ -86,6 +87,6 @@ U kunt de wijzigingsgeschiedenis voor uw Traffic Manager-profiel in de klassieke
 [Problemen met de gedegradeerde status van Traffic Manager oplossen](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

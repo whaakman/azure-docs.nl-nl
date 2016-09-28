@@ -17,6 +17,7 @@
     ms.date="09/01/2016"
     ms.author="anandy;billmath"/>
     
+
 #AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
 
 [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
@@ -135,6 +136,6 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

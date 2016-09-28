@@ -17,6 +17,7 @@
     ms.date="08/23/2016"
     ms.author="deonhe"/>
 
+
 # Logische apps migreren naar preview-schemaversie 2015-08-01
 
 U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:  
@@ -51,6 +52,6 @@ De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een doc
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

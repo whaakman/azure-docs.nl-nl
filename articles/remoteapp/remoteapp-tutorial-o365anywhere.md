@@ -17,6 +17,7 @@
    ms.author="guscatal;elizapo"/>
 
 
+
 # Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -72,6 +73,6 @@ Wanneer u op een van deze toepassing klikt, wordt deze gestart op de virtuele ma
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

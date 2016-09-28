@@ -17,11 +17,12 @@
      ms.date="08/29/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
+
 # Veelgestelde vragen over de Azure Backup-service
 
 > [AZURE.SELECTOR]
 - [Veelgestelde vragen over Backup in de klassieke modus](backup-azure-backup-faq.md)
-- [Veelgestelde vragen over Backup in de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
+- [Veelgestelde vragen over Backup voor de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
 
 Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. Vragen over Azure Backup kunt u stellen in de sectie Disqus van dit of een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
@@ -55,7 +56,7 @@ U kunt [hier](http://aka.ms/azurebackup_agent) de meest recente agent downloaden
 U kunt het beste de [nieuwste](http://aka.ms/azurebackup_agent) Azure Backup-agent op het meest recente updatepakket van SCDPM installeren (UR11 van augustus 2016)
 
 ## Wanneer ik de Azure Backup-agent configureer, moet ik de kluisreferenties opgeven. Verlopen kluisreferenties?
-Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, meldt u zich aan bij de Azure-portal en downloadt u de kluisreferentiebestanden uit uw kluis. 
+Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, meldt u zich aan bij de Azure Portal en downloadt u de kluisreferentiebestanden uit uw kluis. 
 
 ## Is er een limiet voor het aantal kluizen dat voor elk Azure-abonnement kan worden gemaakt? <br/>
 Ja. Vanaf augustus 2016 kunt u 25 kluizen (25 back-upkluizen en 25 Recovery Services-kluizen) per abonnement maken. Als u meer kluizen nodig hebt, maakt u een nieuw abonnement.
@@ -262,6 +263,6 @@ U kunt de bovenstaande kenmerken beter niet instellen voor de cachemap of de VHD
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

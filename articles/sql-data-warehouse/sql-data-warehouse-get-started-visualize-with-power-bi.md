@@ -16,6 +16,7 @@
    ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
+
 # Gegevens visualiseren met Power BI
 
 > [AZURE.SELECTOR]
@@ -123,6 +124,6 @@ Nu u met behulp van de voorbeeldgegevens wat hebt kunnen oefenen, gaat u leren h
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

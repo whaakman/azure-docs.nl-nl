@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="v-livech"/>
 
+
 # SSH-sleutels maken in Linux en Mac voor virtuele Linux-machines in Azure
 
 Met een SSH-sleutelpaar kunt u virtuele machines in Azure maken die voor verificatie standaard gebruikmaken van SSH-sleutels, waardoor het niet meer nodig is om met een wachtwoord aan te melden.  Wachtwoorden kunnen worden geraden en stellen uw virtuele machines bloot aan voortdurende aanvalspogingen om uw wachtwoord te raden. Virtuele machines die zijn gemaakt met de Azure-sjablonen of de `azure-cli` kunnen uw openbare SSH-sleutel opnemen als onderdeel van de implementatie, waardoor configuratie na implementatie niet meer nodig is.  Raadpleeg [dit document](virtual-machines-linux-ssh-from-windows.md) als u via Windows verbinding maakt met een virtuele Linux-machine.
@@ -245,6 +246,6 @@ De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

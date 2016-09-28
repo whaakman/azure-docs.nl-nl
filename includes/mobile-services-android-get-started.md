@@ -40,7 +40,6 @@ U kunt de app uitvoeren met behulp van de emulator of met een daadwerkelijk appa
     ![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

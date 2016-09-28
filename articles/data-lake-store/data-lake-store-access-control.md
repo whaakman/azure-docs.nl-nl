@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="nitinme"/>
 
+
 # Toegangsbeheer in Azure Data Lake Store
 
 Data Lake Store implementeert een model voor toegangsbeheer dat is afgeleid van HDFS. Dit is op zijn beurt afgeleid van het POSIX-model voor toegangsbeheer. Dit artikel bevat een overzicht van de basisbeginselen van het model voor toegangsbeheer voor Data Lake Store. Voor meer informatie over het HDFS-model voor toegangsbeheer raadpleegt u de [Handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
@@ -313,6 +314,6 @@ Nee.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="kgremban"/>
 
+
 # Toepassingsproxy inschakelen in de Azure-portal
 
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -92,6 +93,6 @@ Als u toepassingen op afzonderlijke netwerken of verschillende locaties hebt, ku
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

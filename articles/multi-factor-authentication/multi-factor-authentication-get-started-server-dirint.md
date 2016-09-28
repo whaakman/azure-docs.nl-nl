@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Adreslijstintegratie tussen Azure Multi-Factor Authentication en Active Directory" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u de Azure Multi-Factor Authentication-server kunt integreren met Active Directory zodat u de mappen kunt synchroniseren." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Adreslijstintegratie tussen Azure Multi-Factor Authentication en Active Directory"
+    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u de Azure Multi-Factor Authentication-server kunt integreren met Active Directory zodat u de mappen kunt synchroniseren."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Adreslijstintegratie tussen Azure MFA-server en Active Directory
 
-In de sectie Adreslijstintegratie kunt u de server configureren voor integratie met Active Directory of een andere LDAP-directory.  Hier kunt u kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en de automatische synchronisatie van gebruikers instellen. 
+In de sectie Adreslijstintegratie kunt u de server configureren voor integratie met Active Directory of een andere LDAP-directory.  Hier kunt u kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en de automatische synchronisatie van gebruikers instellen.
 
 ## Instellingen
 De Azure Multi-Factor Authentication-server is standaard geconfigureerd om gebruikers te importeren uit of te synchroniseren met Active Directory.  Op dit tabblad kunt u het standaardgedrag negeren en een binding maken met een andere LDAP-directory, een ADAM-directory of specifieke Active Directory-domeincontroller.  U kunt hier ook LDAP-verificatie gebruiken om een proxy op LDAP uit te voeren of LDAP-binding gebruiken als een RADIUS-doel, pre-authenticatie voor IIS-authenticatie gebruiken of primaire authenticatie voor de gebruikersportal gebruiken.  De volgende tabel beschrijft de afzonderlijke instellingen.
@@ -126,7 +127,7 @@ Met de knop **Verwijderen** kan de beheerder een of meer synchronisatie-items ui
 
 >[AZURE.WARNING]Nadat een synchronisatie-itemrecord is verwijderd, kan het niet worden hersteld. Als u het per ongeluk hebt verwijderd, moet u het synchronisatie-itemrecord opnieuw toevoegen.
 
-De synchronisatie-items worden verwijderd van de Multi-Factor Authentication-server.  De service van de Multi-Factor Authentication-server zal de synchronisatie-items niet langer verwerken. 
+De synchronisatie-items worden verwijderd van de Multi-Factor Authentication-server.  De service van de Multi-Factor Authentication-server zal de synchronisatie-items niet langer verwerken.
 
 Met de knoppen Omhoog en Omlaag kan de beheerder de volgorde van de synchronisatie-items wijzigen.  De volgorde is belangrijk omdat dezelfde gebruiker lid kan zijn van meer dan één synchronisatie-item (bijvoorbeeld van een container en een beveiligingsgroep).  De instellingen die bij de synchronisatie op de gebruiker worden toegepast, zijn afkomstig van het eerste synchronisatie-item in de lijst waaraan de gebruiker is gekoppeld.  Daarom moeten de synchronisatie-items in volgorde van prioriteit worden geplaatst.
 
@@ -139,6 +140,6 @@ Extra Multi-Factor Authentication-servers kunnen worden ingesteld om te fungeren
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

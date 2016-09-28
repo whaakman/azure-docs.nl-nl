@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Domain Services *(Preview)*: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
 
 ## Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
@@ -53,6 +54,6 @@ Voor de volgende configuratietaak moet u [wachtwoordsynchronisatie inschakelen v
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

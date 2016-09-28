@@ -17,6 +17,7 @@
     ms.date="07/22/2016"
     ms.author="wesmc"/>
 
+
 # Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -480,6 +481,6 @@ Zie [Azure Notification Hubs voor belangrijk nieuws] als u gebruikers wilt indel
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

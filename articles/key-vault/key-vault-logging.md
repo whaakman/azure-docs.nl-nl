@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="cabailey"/>
 
+
 # Logboekregistratie van Azure Sleutelkluis #
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
 
@@ -284,6 +285,6 @@ Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

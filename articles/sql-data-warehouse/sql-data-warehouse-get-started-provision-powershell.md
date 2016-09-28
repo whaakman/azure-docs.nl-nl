@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # SQL Data Warehouse maken met PowerShell
 
 > [AZURE.SELECTOR]
@@ -109,6 +110,6 @@ Als u wilt weten hoe u SQL Data Warehouse programmatisch kunt beheren, lees dan 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,6 +19,7 @@
     ms.author="jgao"/>
 
 
+
 # HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
 
 Informatie over het gebruik van een voordelige Azure Blob Storage met HDInsight, het maken van een Azure Storage-account en de Blob Storage-container om vervolgens de interne gegevens te adresseren.
@@ -301,6 +302,6 @@ Ga voor meer informatie naar:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

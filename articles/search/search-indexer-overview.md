@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Indexeerfuncties in Azure Search
 > [AZURE.SELECTOR]
 - [Overzicht](search-indexer-overview.md)
@@ -79,6 +80,6 @@ Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken t
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="arluca"/>
 
+
 # Azure AD Connect Health gebruiken met AD DS
 De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. Dit geldt ook voor AD DS geïnstalleerd op Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2.
 
@@ -62,6 +63,6 @@ Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter ande
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
    ms.author="cgronlun"/>
 
 
+
 # Wat is Hadoop in de cloud? Een inleiding tot het Hadoop-ecosysteem in HDInsight
 
 Maak kennis met Hadoop, het bijbehorende ecosysteem en big data in Azure HDInsight. Krijg inzicht in wat Hadoop in HDInsight is en lees meer over de onderdelen van Hadoop, de algemene terminologie en de scenario‘s voor big data-analyse. Bovendien krijgt u informatie over Hadoop-zelfstudies, documentatie en resources voor het gebruik van Hadoop in de cloud in HDInsight.
@@ -271,6 +272,6 @@ Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

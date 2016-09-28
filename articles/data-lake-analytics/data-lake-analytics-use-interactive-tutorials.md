@@ -17,6 +17,7 @@
    ms.author="edmaca"/>
 
 
+
 # Interactieve zelfstudies voor Azure Data Lake Analytics gebruiken
 
 De Azure Portal biedt een interactieve zelfstudie waarmee u snel aan de slag kunt met Data Lake Analytics. In dit artikel kunt u zien hoe u de zelfstudie voor het analyseren van websitelogboeken voltooit.
@@ -91,6 +92,6 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store](.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

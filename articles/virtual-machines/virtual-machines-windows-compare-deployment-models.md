@@ -17,6 +17,7 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
+
 # Azure Compute, Network en Storage Providers voor Windows-toepassingen onder het Azure Resource Manager-implementatiemodel
 
 Het opnemen van compute-, netwerk- en opslagmogelijkheden in het Azure Resource Manager-implementatiemodel vereenvoudigt fundamenteel de implementatie en het beheer van complexe toepassingen die worden uitgevoerd op IaaS. Veel toepassingen vereisen een combinatie van resources, zoals een virtueel netwerk, een opslagaccount, een virtuele machine en een netwerkinterface. Het Azure Resource Manager-implementatiemodel biedt de mogelijkheid om een JSON-sjabloon te maken om al deze resources samen als één toepassing te implementeren en te beheren.
@@ -25,6 +26,6 @@ Het opnemen van compute-, netwerk- en opslagmogelijkheden in het Azure Resource 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

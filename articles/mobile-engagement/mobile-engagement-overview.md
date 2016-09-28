@@ -16,6 +16,7 @@
     ms.date="01/04/2016"
     ms.author="piyushjo;matt-gibbs" />
 
+
 #Azure Mobile Engagement, overzicht
 
 Azure Mobile Engagement is een SaaS-platform (Software-as-a-Service) voor gebruikersbetrokkenheid dat het volgende biedt: gegevensgestuurde inzichten in het gebruik van apps, segmentering van gebruikers in real time, en contextbewuste pushmeldingen en in-app-berichten
@@ -53,6 +54,6 @@ Microsoft zet zich al lang in voor privacy, die een integraal onderdeel is van d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

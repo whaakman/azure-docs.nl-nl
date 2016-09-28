@@ -16,6 +16,7 @@
     ms.author="daviste"/>
 
 
+
 # Application Insights instellen voor ASP.NET
 
 Met [Visual Studio Application Insights](app-insights-overview.md) wordt uw live-toepassing bewaakt om u te helpen bij het [detecteren en onderzoeken van prestatieproblemen en -uitzonderingen](app-insights-detect-triage-diagnose.md) en om te [ontdekken hoe uw app wordt gebruikt](app-insights-overview-usage.md).  De tool werkt voor apps die worden gehost op uw eigen on-premises IIS-servers of op virtuele machines in de cloud, en voor Azure-webtoepassingen.
@@ -144,6 +145,6 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

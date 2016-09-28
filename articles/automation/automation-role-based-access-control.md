@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
+
 # Op rollen gebaseerd toegangsbeheer in Azure Automation
 
 ## Op rollen gebaseerd toegangsbeheer
@@ -239,6 +240,6 @@ Vervang in de bovenstaande voorbeelden de **aanmeldnaam**, de **abonnements-id**
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

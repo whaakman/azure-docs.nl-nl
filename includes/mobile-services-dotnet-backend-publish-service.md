@@ -4,7 +4,6 @@
 2. Meld u aan met Azure-referenties en selecteer de service uit de **bestaande Mobile Services**. Met Visual Studio worden uw publicatie-instellingen rechtstreeks uit Azure gedownload. Klik ten slotte op **Publiceren**.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

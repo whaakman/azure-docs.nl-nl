@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # Gegevens uit SQL Server laden in Azure SQL Data Warehouse (AZCopy)
 
 Gebruik de opdrachtregelprogramma's BCP en AZCopy om gegevens uit SQL Server te laden in Azure Blob-opslag. Gebruik vervolgens PolyBase of Azure Data Factory om de gegevens in Azure SQL Data Warehouse te laden. 
@@ -174,6 +175,6 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

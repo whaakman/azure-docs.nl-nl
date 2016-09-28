@@ -16,6 +16,7 @@
     ms.date="09/12/2016"
     ms.author="tarcher"/>
 
+
 # Een lab maken in Azure DevTest Labs
 
 ## Vereisten
@@ -69,6 +70,6 @@ Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren
 - [Een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

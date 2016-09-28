@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="sonyama;barbkess"/>
 
+
 # Een ondersteuningsticket maken voor SQL Data Warehouse
  
 Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningsticket maken zodat ons technisch team u kan helpen.
@@ -105,6 +106,6 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

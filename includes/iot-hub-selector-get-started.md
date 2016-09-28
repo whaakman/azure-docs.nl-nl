@@ -17,7 +17,6 @@ In deze handleiding ontdekt u hoe u:
 - Een apparaat-id maakt in uw IoT-hub.
 - Een gesimuleerd apparaat kunt maken dat telemetrie verzendt naar de back-end van uw cloud en daarvan opdrachten ontvangt.
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

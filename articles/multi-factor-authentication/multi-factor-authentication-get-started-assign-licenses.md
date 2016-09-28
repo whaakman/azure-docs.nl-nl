@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Licenties toewijzen voor Microsoft Azure Multi-Factor Authentication" 
-    description="Meer informatie over licenties toewijzen voor Microsoft Azure Multi-Factor Authentication" 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Licenties toewijzen voor Microsoft Azure Multi-Factor Authentication"
+    description="Meer informatie over licenties toewijzen voor Microsoft Azure Multi-Factor Authentication"
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Een licentie voor Azure MFA, Azure AD Premium of Enterprise Mobility aan gebruikers toewijzen
 
@@ -28,7 +29,7 @@ Als u Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties hebt aa
 3. Dubbelklik op de pagina Active Directory op de adreslijst met de gebruikers die u wilt inschakelen.
 4. Selecteer boven aan de pagina met de adreslijst **Licenties**.
 ![Licenties toewijzen](./media/multi-factor-authentication-get-started-assign-licenses/assign1.png)
-5. Selecteer op de pagina Licenties **Azure Multi-Factor Authentication**, **Active Directory Premium** of **Enterprise Mobility Suite**.  Als u er slechts één hebt, zou deze automatisch geselecteerd moeten zijn. 
+5. Selecteer op de pagina Licenties **Azure Multi-Factor Authentication**, **Active Directory Premium** of **Enterprise Mobility Suite**.  Als u er slechts één hebt, zou deze automatisch geselecteerd moeten zijn.
 6. Klik onder aan de pagina op **Toewijzen**.
 ![Licenties toewijzen](./media/multi-factor-authentication-get-started-assign-licenses/assign3.png)
 6. In het vak dat wordt weergegeven, **klikt** u naast de gebruikers of groepen aan wie u licenties wilt toewijzen.  Er zou een **groen vinkje** moeten worden weergegeven.
@@ -39,6 +40,6 @@ Als u Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties hebt aa
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

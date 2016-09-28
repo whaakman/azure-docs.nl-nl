@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -125,6 +126,6 @@ Nu u hebt geleerd hoe een verzameling maakt, kunt u proberen een [verzameling te
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

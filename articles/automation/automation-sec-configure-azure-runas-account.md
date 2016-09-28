@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+
 # Runbooks verifiëren met Azure Uitvoeren als-account
 
 In dit onderwerp wordt beschreven hoe u vanuit de Azure Portal een Automation-account configureert met behulp van de functie Uitvoeren als-account, om accounts voor het beheer van runbooks te verifiëren in Azure Resource Manager of Azure Service Management.
@@ -388,6 +389,6 @@ U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbe
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

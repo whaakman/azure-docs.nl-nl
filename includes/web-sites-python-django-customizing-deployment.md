@@ -34,7 +34,6 @@ Als deze bestanden niet bestaan, maakt Azure een tijdelijk implementatiescript e
 [Azure-opdrachtregelinterface]: http://azure.microsoft.com/downloads/
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

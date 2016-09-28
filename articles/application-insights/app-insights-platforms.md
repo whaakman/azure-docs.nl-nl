@@ -15,6 +15,7 @@
     ms.date="09/01/2016"
     ms.author="awills"/>
 
+
 # Analyses voor ontwikkelaars: talen, platforms en integraties
 
 Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
@@ -87,6 +88,6 @@ Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

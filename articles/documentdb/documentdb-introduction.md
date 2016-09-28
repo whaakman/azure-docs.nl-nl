@@ -17,6 +17,7 @@
     ms.date="09/13/2016" 
     ms.author="mimig"/>
 
+
 # Inleiding tot DocumentDB: een NoSQL JSON-database
 
 ##Wat is DocumentDB?
@@ -110,6 +111,6 @@ Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microso
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

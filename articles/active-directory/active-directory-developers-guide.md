@@ -17,6 +17,7 @@
    ms.author="mbaldwin"/>
 
 
+
 # Ontwikkelaarshandleiding voor Azure Active Directory
 
 ## Overzicht
@@ -148,6 +149,6 @@ In deze overzichtspresentaties over het ontwikkelen van apps met behulp van Azur
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

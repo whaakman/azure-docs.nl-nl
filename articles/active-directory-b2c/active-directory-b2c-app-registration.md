@@ -17,6 +17,7 @@
     ms.author="swkrish"/>
 
 
+
 # Azure Active Directory B2C: uw toepassing registreren
 
 ## Vereiste
@@ -56,6 +57,6 @@ Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

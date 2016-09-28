@@ -16,6 +16,7 @@
     ms.date="08/02/2016"
     ms.author="curtand"/>
 
+
 # Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 
 > [AZURE.SELECTOR]
@@ -90,6 +91,6 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

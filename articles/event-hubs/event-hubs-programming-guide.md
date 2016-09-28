@@ -15,6 +15,7 @@
     ms.date="08/16/2016"
     ms.author="sethm" />
 
+
 # Programmeerhandleiding voor Event Hubs
 
 In dit onderwerp wordt beschreven hoe u kunt programmeren met Azure Event Hubs met behulp van de Azure .NET SDK. Er wordt uitgegaan van een basisbegrip van Event Hubs. Zie het [Overzicht van Event Hubs](event-hubs-overview.md) voor een conceptueel overzicht van Event Hubs.
@@ -187,6 +188,6 @@ Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

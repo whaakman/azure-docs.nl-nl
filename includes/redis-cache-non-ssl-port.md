@@ -4,7 +4,6 @@ Als u de niet-SSL-poort wilt inschakelen, [bladert](../articles/redis-cache/cach
 
 
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

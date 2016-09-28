@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Aangepaste HDInsight-toepassingen installeren
 
 Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster.  Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. In dit artikel krijgt u informatie over het installeren van een HDInsight-toepassing die niet is gepubliceerd in Azure Portal, op HDInsight. De toepassing die u gaat installeren, heet [Hue](http://gethue.com/). 
@@ -147,6 +148,6 @@ Met behulp van Azure CLI kunt u het cluster of de resourcegroep verwijderen. Zie
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Het internetdomein van een bedrijf naar een Traffic Manager-domein laten wijzen
 
 Als u de domeinnaam van uw bedrijf wilt laten wijzen naar een Traffic Manager-domeinnaam, wijzigt u de DNS-resourcerecord op uw internet DNS-server ,zodat u gebruikmaakt van het CNAME-recordtype. Dit recordtype koppelt de domeinnaam van uw bedrijf aan de domeinnaam van uw Traffic Manager-profiel. U vindt de Traffic Manager-domeinnaam in het gedeelte **Algemeen** van de configuratiepagina voor het Traffic Manager-profiel.
@@ -37,6 +38,6 @@ Alle aanvragen voor *www.contoso.com* worden nu doorgestuurd naar *contoso.traff
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

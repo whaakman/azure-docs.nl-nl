@@ -16,6 +16,7 @@
     ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
+
 # De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
 
 
@@ -222,6 +223,6 @@ Achtergrondkleur van de aanmeldingspagina | De achtergrondkleur van de aanmeldin
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

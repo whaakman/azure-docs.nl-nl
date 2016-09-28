@@ -7,7 +7,6 @@ Met het mobiele-serviceproject kunt u uw nieuwe mobiele service lokaal uitvoeren
 2. Druk op **F5** om het project opnieuw te bouwen en de mobiele service lokaal te starten. Een webpagina wordt weergegeven nadat de mobiele service kon worden gestart.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

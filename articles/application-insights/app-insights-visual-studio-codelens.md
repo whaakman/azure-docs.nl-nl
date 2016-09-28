@@ -15,6 +15,7 @@
     ms.date="08/30/2016" 
     ms.author="daviste"/>
     
+
 # Application Insights Telemetry in Visual Studio CodeLens
 
 De methoden in de code van uw webtoepassing kunnen worden voorzien van aantekeningen met telemetrie over runtime-uitzonderingen en reactietijden voor aanvragen. Als u [Visual Studio Application Insights](app-insights-overview.md) installeert in uw toepassing, wordt de telemetrie weergegeven in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx): het opmerkingengedeelte boven aan elke functie, waar u normaal handige informatie ziet, zoals vanaf hoeveel plaatsen wordt verwezen naar de functie en wie de toepassing voor het laatst heeft bewerkt.
@@ -72,6 +73,6 @@ Voor meer informatie klikt u op de CodeLens-aanvraagindicator:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

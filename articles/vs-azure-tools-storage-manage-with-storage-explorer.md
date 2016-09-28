@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="tarcher" />
 
+
 # Aan de slag met Opslagverkenner (Preview)
 
 ## Overzicht 
@@ -231,6 +232,6 @@ Als u de zoekopdracht wilt wissen, klikt u op **x** in het zoekvak.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

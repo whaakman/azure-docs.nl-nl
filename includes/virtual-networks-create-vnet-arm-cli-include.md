@@ -107,7 +107,6 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

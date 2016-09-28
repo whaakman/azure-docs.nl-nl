@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
+
 
 # Containerbeheer via de webgebruikersinterface
 
@@ -103,6 +104,6 @@ Gedetailleerde uitleg over Azure Container Service met Mesos
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

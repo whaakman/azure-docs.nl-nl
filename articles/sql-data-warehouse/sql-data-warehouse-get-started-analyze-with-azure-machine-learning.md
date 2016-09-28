@@ -16,6 +16,7 @@
    ms.date="09/14/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
+
 # Gegevens analyseren met Azure Machine Learning
 
 > [AZURE.SELECTOR]
@@ -148,6 +149,6 @@ Raadpleeg [Inleiding tot Machine Learning in Azure][] voor meer informatie over 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

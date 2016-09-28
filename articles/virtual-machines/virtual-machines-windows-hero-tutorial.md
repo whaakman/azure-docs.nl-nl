@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="cynthn"/>
 
+
 # Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
 
 Deze zelfstudie leert u hoe eenvoudig het is om in enkele minuten een virtuele Windows-machine (VM) te maken met behulp van de Azure Portal.  
@@ -119,6 +120,6 @@ Als u de VM opnieuw wilt opstarten of weer in gebruik wilt nemen, klikt u op de 
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

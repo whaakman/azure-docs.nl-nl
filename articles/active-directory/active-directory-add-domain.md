@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Een aangepaste domeinnaam toevoegen aan Azure Active Directory
 
 U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend is bij uw gebruikers, zoals 'gwenda@contoso.com'. Het proces is eenvoudig:
@@ -74,14 +75,14 @@ Als u een aangepaste domeinnaam niet kunt verifiëren, probeert u het volgende. 
 
 1.  **Wacht een uur**. DNS-records moeten zijn doorgegeven voordat Azure AD het domein kan verifiëren. Dit kan een uur of langer duren.
 
-2.  **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website voor de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet verifiëren als de DNS-vermelding niet aanwezig is in het DNS-zonebestand of als deze niet exact overeenkomt met de DNS-vermelding die u van Azure AD hebt gekregen. Als u geen toegang hebt om DNS-records bij te werken voor het domein op de domeinnaamregistrar, deel de DNS-vermelding dan met de persoon die of het team dat deze toegang in uw organisatie heeft en vraag om de DNS-vermelding toe te voegen.
+2.  **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website van de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet verifiëren als de DNS-vermelding niet aanwezig is in het DNS-zonebestand of als deze niet exact overeenkomt met de DNS-vermelding die u van Azure AD hebt gekregen. Als u geen toegang hebt tot de site van de domeinnaamregistrar om de DNS-records voor het domein bij te werken, deel de DNS-vermelding dan met de persoon die of het team dat in uw organisatie deze toegang heeft en vraag om de DNS-vermelding toe te voegen.
 
-3.  **Verwijder de domeinnaam vanuit een andere directory in Azure AD**. Een domeinnaam kan maar in één directory worden geverifieerd . Als een domeinnaam eerder is geverifieerd in een andere directory, moet deze daar eerst worden verwijderd voordat deze kan worden geverifieerd in een nieuwe directory. Zie [Aangepaste domeinnamen beheren](active-directory-add-manage-domain-names.md) voor meer informatie over het verwijderen van domeinnamen.
+3.  **Verwijder de domeinnaam uit andere mappen in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als een domeinnaam eerder is geverifieerd in een andere map, moet de domeinnaam daar eerst uit worden verwijderd voordat deze kan worden geverifieerd in een nieuwe map. Zie [Aangepaste domeinnamen beheren](active-directory-add-manage-domain-names.md) voor meer informatie over het verwijderen van domeinnamen.
 
 
 ## Meer aangepaste domeinnamen toevoegen
 
-Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals 'contoso.com' en 'contosobank.com', kunt u tot maximaal 900 domeinnamen toevoegen. Gebruik dezelfde stappen in dit artikel om elke domeinnaam toe te voegen.
+Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals contoso.com en contosobank.com, kunt u tot maximaal 900 domeinnamen toevoegen. Gebruik dezelfde stappen in dit artikel om elke domeinnaam toe te voegen.
 
 ## Volgende stappen
 
@@ -93,6 +94,6 @@ Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals 'contoso.com'
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/07/2016"
     ms.author="wesmc;ricksal"/>
 
+
 # Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
 
 ## Overzicht
@@ -409,6 +410,6 @@ Hebt u eenmaal wat ervaring opgedaan, dan kunt u overwegen het volgende aan uw b
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

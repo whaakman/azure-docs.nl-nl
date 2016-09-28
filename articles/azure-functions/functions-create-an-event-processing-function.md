@@ -18,6 +18,7 @@
    ms.date="06/05/2016"
    ms.author="glenga"/>
    
+
 # Een Azure-functie voor gebeurtenisverwerking maken
 
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand ervaring waarmee u geplande of geactiveerde code-eenheden kunt maken voor implementatie in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
@@ -76,7 +77,7 @@ Dit is een zeer vereenvoudigd voorbeeld van een timertrigger en een binding aan 
 Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 + [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)  
-Naslaginformatie voor programmeurs over het coderen van functies en definiëren van triggers en bindingen.
+Naslaginformatie voor programmeurs over het coderen van functies en het definiëren van triggers en bindingen.
 + [Azure Functions testen](functions-test-a-function.md)  
 Beschrijft de verschillende hulpprogramma’s en technieken voor het testen van uw functies.
 + [Azure Functions schalen](functions-scale.md)  
@@ -86,6 +87,6 @@ Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoa
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/06/2016"
     ms.author="iainfou"/>
 
+
 # Verschillende manieren om een virtuele Linux-machine te maken met Resource Manager
 
 Voor verschillende gebruikers en doelstellingen biedt Azure verschillende manieren om een virtuele machine te maken met behulp van het Resource Manager-implementatiemodel. Dit artikel bevat een overzicht van deze manieren en van de keuzes die u hebt wanneer u een virtuele Linux-machine wilt maken.
@@ -123,6 +124,6 @@ Als u specifieke aanpassingen nodig hebt, kunt u een installatiekopie gebruiken 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

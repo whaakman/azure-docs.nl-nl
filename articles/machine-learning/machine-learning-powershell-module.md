@@ -17,6 +17,7 @@
     ms.date="08/05/2016"
     ms.author="garye;haining"/>
 
+
 # PowerShell-module voor Microsoft Azure Machine Learning
 
 De PowerShell-module voor Azure Machine Learning is een krachtig hulpprogramma waarmee u Windows PowerShell gebruikt voor het beheren van werkruimten, experimenten gegevenssets, web serivces en meer.
@@ -57,6 +58,6 @@ De PowerShell-module wordt in deze voorbeeldperiode steeds verbeterd en uitgebre
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
