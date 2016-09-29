@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/26/2016"
+    ms.date="09/21/2016"
     ms.author="marsma"/>
+
 
 # Een Azure Batch-account in de Azure Portal maken
 
@@ -28,7 +29,7 @@ Leer hoe u een Azure Batch-account maakt in de [Azure Portal][azure_portal] en w
 
 1. Meld u aan bij [Azure Portal][azure_portal].
 
-2. Klik op **Nieuw** > **Virtuele machines** > **Batch-service**.
+2. Klik op **Nieuw** > **Berekenen** > **Batch-service**.
 
     ![Batch in de Marketplace][marketplace_portal]
 
@@ -127,6 +128,6 @@ Naast het gebruik van de Azure Portal kunt u ook op de volgende manieren Batch-a
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

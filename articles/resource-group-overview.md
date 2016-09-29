@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="tomfitz"/>
+
 
 # Overzicht van Azure Resource Manager
 
@@ -25,10 +26,10 @@ De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals 
 Als u nog geen ervaring hebt met de Azure Resource Manager, zijn er enkele termen die u mogelijk niet kent.
 
 - **resource** - een beheerbaar item dat beschikbaar is via Azure. Sommige algemene resources zijn een virtuele machine, opslagaccount, webtoepassing en virtueel netwerk, maar er zijn er veel meer.
-- **resourcegroep** - een container met gerelateerde resources voor een toepassing. De resourcegroep kan alle resources voor een applicatie of enkel de resources die u groepeert bevatten. U kunt bepalen hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. Zie [Resourcegroepen](#resource-groups).
+- **resourcegroep** - een container met gerelateerde resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. Zie [Resourcegroepen](#resource-groups).
 - **resourceprovider** - Een service die de resources levert die u kunt implementeren en beheren met de Resource Manager. Elke resourceprovider biedt bewerkingen voor het werken met de resources die zijn geïmplementeerd. Enkele veelvoorkomende resourceproviders zijn Microsoft.Compute, dat voor de resource van de virtuele machine zorgt, Microsoft.Storage dat voor de resource van de opslagaccount zorgt, en Microsoft.Web, dat zorgt voor resources met betrekking tot web-apps. Zie [Resourceproviders](#resource-providers).
 - **Resource Manager sjabloon** - Een JavaScript Object Notation (JSON)-bestand dat één of meer resources definieert die worden geïmplementeerd op een resourcegroep. Het definieert ook de afhankelijkheden tussen de geïmplementeerde resources. De sjabloon kan worden gebruikt om de resources consistent en herhaaldelijk te implementeren. Zie [Sjabloonimplementatie](#template-deployment).
-- **declaratieve syntaxis** - Een syntaxis waarmee u kunt aangeven “Dit is wat ik wil maken” zonder hiervoor de nodige sequentie programmeeropdrachten te hoeven maken. De sjabloon Resource Manager is een voorbeeld van een declaratieve syntaxis. In het bestand definieert u de eigenschappen voor de infrastructuur te implementeren naar Azure. 
+- **declaratieve syntaxis** - een syntaxis waarmee u kunt aangeven 'Dit is wat ik wil maken' zonder hiervoor de nodige reeks programmeeropdrachten te hoeven maken. De sjabloon Resource Manager is een voorbeeld van een declaratieve syntaxis. In het bestand definieert u de eigenschappen voor de infrastructuur te implementeren naar Azure. 
 
 ## De voordelen van Resource Manager
 
@@ -40,7 +41,7 @@ Resource Manager biedt diverse voordelen:
 - U kunt de afhankelijkheden tussen resources zo definiëren dat deze in de juiste volgorde worden geïmplementeerd.
 - U kunt toegangsbeheer toepassen op alle services in de resourcegroep omdat op rollen gebaseerd toegangsbeheer (RBAC) is geïntegreerd in het beheerplatform.
 - U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
-- U kunt facturering voor uw organisatie verduidelijken door de samengevoegde kosten voor de hele groep weer te geven of voor een groep resources die dezelfde tag delen.  
+- U kunt de facturering van uw organisatie transparanter maken door te kijken naar de kosten voor een groep resources met dezelfde tag.  
 
 Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](resource-manager-deployment-model.md).
 
@@ -65,25 +66,27 @@ Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het d
 4. U kunt een resource van de ene naar de andere resourcegroep verplaatsen. Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](resource-group-move-resources.md).
 4. Een resourcegroep kan resources uit verschillende regio’s bevatten.
 5. Een resourcegroep kan worden gebruikt voor het bepalen van de mate van toegangsbeheer voor beheertaken.
-6. Een resource kan communiceren met een resource in een andere resourcegroep als de twee resources met elkaar verbonden zijn, maar niet dezelfde levenscyclus delen (bijvoorbeeld web-apps die verbinding maken met een database).
+6. Een resource kan communiceren met resources in andere resourcegroepen. Deze communicatie is gebruikelijk wanneer er een relatie bestaat tussen de twee resources, maar deze niet de dezelfde levenscyclus delen (bijvoorbeeld web-apps die verbinding maken met een database).
+
+Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven. U vraagt zich misschien af: 'Waarom heeft een resourcegroep een locatie nodig? En als de resources andere locaties kunnen hebben dan de resourcegroep, wat is dan het nut van een locatie voor de resourcegroep?' De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
 ## Resourceproviders
 
-Elke resourceprovider biedt een set resources en bewerkingen voor werken met technisch gebied. Als u bijvoorbeeld sleutels en geheimen wilt opslaan, werkt u met de resourceprovider **Microsoft.KeyVault**. Deze resourceprovider biedt een resourcetype genaamd **kluizen** voor het maken van de sleutelkluis en een resourcetype genaamd **kluizen/geheimen** voor het maken van een geheim in de sleutelkluis. Bovendien vindt u bewerkingen via [Key Vault REST API-bewerkingen](https://msdn.microsoft.com/library/azure/dn903609.aspx). U kunt rechtstreeks contact opnemen met de REST-API of u kunt de [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) en [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) gebruiken om de Key Vault te beheren. U kunt ook een aantal programmeertalen gebruiken om te werken met de meeste resources. Zie [SDKs en voorbeelden](#sdks-and-samples) voor meer informatie. 
+Elke resourceprovider biedt een set resources en bewerkingen voor werken met technisch gebied. Als u bijvoorbeeld sleutels en geheimen wilt opslaan, werkt u met de resourceprovider **Microsoft.KeyVault**. Deze resourceprovider biedt een resourcetype genaamd **kluizen** voor het maken van de sleutelkluis en een resourcetype genaamd **kluizen/geheimen** voor het maken van een geheim in de sleutelkluis. Bovendien vindt u bewerkingen via [Key Vault REST API-bewerkingen](https://msdn.microsoft.com/library/azure/dn903609.aspx). U kunt rechtstreeks contact opnemen met de REST-API of u kunt de [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) en [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) gebruiken om de Key Vault te beheren. U kunt ook diverse programmeertalen gebruiken om te werken met de meeste resources. Zie [SDKs en voorbeelden](#sdks-and-samples) voor meer informatie. 
 
-Als u uw infrastructuur wilt implementeren en beheren, moet u gedetailleerde kennis hebben van de resourceproviders. Zoals welke resourcetypen de provider biedt, het versienummer van de REST-API-bewerkingen, de bewerkingen die worden ondersteund, en het schema dat moet worden gebruikt bij het instellen van de waarden voor het te maken resourcetype. Zie voor meer informatie over de ondersteunde resourceproviders [Resource Manager-providers, regio's, API-versies en schema's](resource-manager-supported-services.md).
+U moet over gedetailleerde informatie over de resourceprovider beschikken om uw infrastructuur te kunnen implementeren en beheren. U moet weten welke resourcetypen deze gebruikt, wat de versienummers zijn voor REST-API-bewerkingen, welk bewerkingen worden ondersteund en welk schema moet worden gebruikt voor het maken van resources. Zie voor meer informatie over de ondersteunde resourceproviders [Resource Manager-providers, regio's, API-versies en schema's](resource-manager-supported-services.md).
 
 ## Sjabloonimplementatie
 
-Met Resource Manager kunt u een eenvoudige sjabloon maken (in JSON-indeling) waarin de implementatie en configuratie van uw toepassing worden gedefinieerd. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus van uw app de app herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Azure Resource Manager analyseert afhankelijkheden om ervoor te zorgen dat de resources in de juiste volgorde worden gemaakt. Zie voor meer informatie [Afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md).
+Met Resource Manager kunt u een sjabloon maken (in JSON-indeling) waarmee de implementatie en configuratie van uw toepassing worden gedefinieerd. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus van uw app de app herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Azure Resource Manager analyseert afhankelijkheden om ervoor te zorgen dat de resources in de juiste volgorde worden gemaakt. Zie voor meer informatie [Afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md).
 
-Wanneer u een oplossing vanaf de portal maakt, bevat de oplossing automatisch een sjabloon voor de implementatie. U hoeft de sjabloon niet helemaal zelf te maken. U kunt beginnen met de sjabloon voor uw oplossing en deze aanpassen aan uw specifieke behoeften. U kunt een sjabloon voor een bestaande resourcegroep ophalen door de huidige status van de resourcegroep te exporteren naar een sjabloon of door de sjabloon die is gebruikt voor een bepaalde implementatie, weer te geven. Raadplegen van de geëxporteerde sjabloon is een handige manier om de syntaxis van de sjabloon te leren kennen. Zie voor meer informatie over het werken met geëxporteerde sjablonen [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
+Wanneer u een oplossing vanaf de portal maakt, bevat de oplossing automatisch een sjabloon voor de implementatie. U hoeft de sjabloon niet helemaal zelf te maken. U kunt beginnen met de sjabloon voor uw oplossing en deze aanpassen aan uw specifieke behoeften. U kunt een sjabloon voor een bestaande resourcegroep ophalen door de huidige status van de resourcegroep te exporteren of door de sjabloon die is gebruikt voor een bepaalde implementatie, weer te geven. Raadplegen van de geëxporteerde sjabloon is een handige manier om de syntaxis van de sjabloon te leren kennen. Zie voor meer informatie over het werken met geëxporteerde sjablonen [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
 
 U hoeft niet uw volledige infrastructuur in één sjabloon te definiëren. Vaak is het handiger om uw implementatievereisten te verdelen over een aantal gerichte sjablonen met een specifiek doel. U kunt deze sjablonen eenvoudig opnieuw gebruiken voor verschillende oplossingen. Voor het implementeren van een bepaalde oplossing kunt u een basissjabloon gebruiken die is gekoppeld aan alle vereiste sjablonen. Zie voor meer informatie [Gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
 
-U kunt de sjabloon ook gebruiken voor updates aan de infrastructuur. U kunt bijvoorbeeld een nieuwe resource toevoegen aan uw app en configuratieregels toevoegen voor de resources die al zijn geïmplementeerd. Als de sjabloon een nieuwe resource specificeert, maar de betreffende resource al bestaat, wordt er geen nieuwe asset gemaakt. In plaats daarvan voert Azure Resource Manager een update uit. Azure Resource Manager werkt de bestaande asset bij naar dezelfde toestand als een nieuwe asset. U kunt ook opgeven dat Resource Manager alle resources moet verwijderen die niet zijn opgegeven in de sjabloon. Zie [Een toepassing implementeren met de Azure Resource Manager-sjabloon](resource-group-template-deploy.md) voor inzicht in de verschillende opties bij het implementeren. 
+U kunt de sjabloon ook gebruiken voor updates aan de infrastructuur. U kunt bijvoorbeeld een resource toevoegen aan uw oplossing en configuratieregels toevoegen voor de resources die al zijn geïmplementeerd. Als de sjabloon specificeert dat een resource wordt gemaakt maar die resource al bestaat, wordt er geen nieuwe asset gemaakt. In plaats daarvan voert Azure Resource Manager een update uit. Azure Resource Manager werkt de bestaande asset bij naar dezelfde toestand als een nieuwe asset. U kunt ook opgeven dat Resource Manager alle resources moet verwijderen die niet zijn opgegeven in de sjabloon. Zie [Een toepassing implementeren met de Azure Resource Manager-sjabloon](resource-group-template-deploy.md) voor inzicht in de verschillende opties bij het implementeren. 
 
-U kunt in de sjabloon specifieke parameters opgeven, zodat er aanpassingen kunnen worden gemaakt en er in de implementatie flexibiliteit bestaat. U kunt bijvoorbeeld parameterwaarden doorgeven die de implementatie aanpassen aan uw testomgeving. Door de parameters op te geven, kunt u dezelfde sjabloon voor implementatie gebruiken in alle omgevingen van uw app.
+U kunt in de sjabloon specifieke parameters opgeven, zodat er aanpassingen kunnen worden gemaakt en er in de implementatie flexibiliteit bestaat. U kunt bijvoorbeeld parameterwaarden doorgeven die de implementatie aanpassen aan uw testomgeving. Door de parameters op te geven, kunt u dezelfde sjabloon gebruiken om uw oplossing naar verschillende omgevingen te implementeren.
 
 Resource Manager biedt uitbreidingen voor scenario's waarin aanvullende bewerkingen moeten worden uitgevoerd, zoals het installeren van bepaalde software die niet is opgenomen in de installatie. Als u al een configuratiebeheerservice gebruikt, zoals DSC, Chef of Puppet, kunt u via uitbreidingen met deze service blijven werken.
 
@@ -97,7 +100,7 @@ Zie voor instructies over het implementeren van uw oplossing in verschillende om
 
 ## Tags
 
-Resource Manager biedt een tagfunctie waarmee u resources kunt categoriseren volgens uw vereisten voor beheer of facturering. Het is verstandig om tags te gebruiken wanneer u een verzameling complexe resourcegroepen en resources hebt en u deze assets op een handige manier moet visualiseren. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen. Zonder tags kunnen gebruikers in uw organisatie meerdere resources maken die later mogelijk moeilijk zijn te identificeren en te beheren. Als u bijvoorbeeld alle resources voor een bepaald project wilt verwijderen, moet u deze handmatig zoeken als deze resources niet voor het project zijn getagd. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen. 
+Resource Manager biedt een tagfunctie waarmee u resources kunt categoriseren volgens uw vereisten voor beheer of facturering. Gebruik tags wanneer u een verzameling complexe resourcegroepen en resources hebt en u deze assets moet visualiseren op een manier die relevant voor u is. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen. Zonder tags kunnen gebruikers in uw organisatie meerdere resources maken die later mogelijk moeilijk zijn te identificeren en te beheren. Bijvoorbeeld als u alle resources voor een bepaald project wilt verwijderen. Als deze resources niet van een tag zijn voorzien voor het project, moet u er handmatig naar zoeken. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen. 
 
 Resources hoeven niet tot dezelfde resourcegroep te behoren om een tag te kunnen delen. U kunt uw eigen tagtaxonomie maken om ervoor te zorgen dat alle gebruikers in uw organisatie gebruikmaken van veelgebruikte tags en niet per ongeluk afwijkende tags toepassen (zoals 'afd' in plaats van 'afdeling').
 
@@ -117,11 +120,11 @@ Zie voor aanbevolen procedures [Beveiligingsoverwegingen voor Azure Resource Man
 
 ## Beheer van resources met aangepast beleid
 
-Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De typen beleid die u maakt, kunnen uit verschillende scenario’s bestaan, zoals het afdwingen van een naamgevingsconventie voor resources, het beperken van de typen en exemplaren van resources die kunnen worden geïmplementeerd, het beperken van de regio's die als host kunnen fungeren voor een type resource, of het vereisen van een tagwaarde voor resources om facturering op afdelingsniveau mogelijk te maken. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. Zie voor meer informatie [Beleid gebruiken voor het beheren van resources en toegang](resource-manager-policy.md).
+Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De soorten beleid die u maakt, kunnen diverse scenario's bevatten. U kunt een naamgevingsconventie voor resources afdwingen, u kunt beperken welke typen resources en resource-exemplaren kunnen worden geïmplementeerd of u kunt beperken welke regio's als host voor een bepaald type resource kunnen fungeren. U kunt een tagwaarde voor resources verplicht stellen, om te organiseren dat facturering per afdeling plaatsvindt. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. Zie voor meer informatie [Beleid gebruiken voor het beheren van resources en toegang](resource-manager-policy.md).
 
 ## Consistente beheerlaag
 
-Resource Manager biedt volledig compatibele bewerkingen via Azure PowerShell, Azure CLI voor Mac, Linux en Windows, de Azure Portal of REST-API. U kunt de interface gebruiken die voor u het meest geschikt is en zonder problemen snel wisselen tussen de interfaces. De portal geeft zelfs meldingen weer voor acties die worden uitgevoerd buiten de portal.
+Resource Manager biedt compatibele bewerkingen via Azure PowerShell, Azure CLI voor Mac, Linux en Windows, de Azure Portal of REST-API. U kunt de interface gebruiken die voor u het meest geschikt is en zonder problemen snel wisselen tussen de interfaces.
 
 Zie voor meer informatie over PowerShell [Azure PowerShell gebruiken met Resource Manager](powershell-azure-resource-manager.md) en [Azure Resource Manager-cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -197,6 +200,6 @@ Hier volgt een videodemonstratie van dit overzicht:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

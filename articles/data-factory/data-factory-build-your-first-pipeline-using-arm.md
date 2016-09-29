@@ -16,28 +16,26 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Zelfstudie: bouw uw eerste Azure-gegevensfactory op basis van een Azure Resource Manager-sjabloon
 > [AZURE.SELECTOR]
+- [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
 - [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+In dit artikel gebruikt u een Azure Resource Manager-sjabloon om uw eerste Azure-gegevensfactory te maken.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
-
-## Aanvullende vereisten
-Naast de vereiste items die worden vermeld in het voorgaande gedeelte met vereisten, installeert u het volgende:
-
-- **Installeer Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
+## Vereisten
+- Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
+- Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
 - Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
 
 ## Resource Manager-sjabloon maken
 
-Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud: 
-
-Met de sjabloon kunt u de volgende Data Factory-entiteiten maken.
+In deze sectie maakt u de volgende Data Factory-entiteiten: 
 
 1. Een **gegevensfactory** met de naam **TutorialDataFactoryARM**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens. 
 2. Twee **gekoppelde services**: **StorageLinkedService** en **HDInsightOnDemandLinkedService**. Met deze gekoppelde services koppelt u uw Azure-opslagaccount en een Azure HDInsight-cluster op aanvraag aan uw gegevensfactory. Het Azure-opslagaccount bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om het Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. Geef aan welk(e) gegevensarchief/rekenservices er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken. 
@@ -45,8 +43,9 @@ Met de sjabloon kunt u de volgende Data Factory-entiteiten maken.
 
 Klik op het tabblad **De Data Factory-editor gebruiken** om over te schakelen naar het artikel met informatie over de JSON-eigenschappen die in deze sjabloon worden gebruikt.
 
-> [AZURE.IMPORTANT] Wijzig de waarden van de variabelen **storageAccountName** en **storageAccountKey**. Wijzig ook de waarde van de variabele **dataFactoryName**, want de naam moet uniek zijn.
+Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud:
 
+> [AZURE.IMPORTANT] Wijzig de waarden van de variabelen **storageAccountName** en **storageAccountKey**. Wijzig ook de waarde van de variabele **dataFactoryName**, want de naam moet uniek zijn.
 
     {
         "contentVersion": "1.0.0.0",
@@ -226,10 +225,10 @@ Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-service
 
 ## Een gegevensfactory maken
 
-1. Open **Azure PowerShell** en voer de volgende opdracht uit. 
-    - Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.  
-    - Voer de volgende opdracht uit om het abonnement te selecteren waarin u de gegevensfactory wilt maken.
-            Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+1. Open **Azure PowerShell** en voer de volgende opdracht uit: 
+    - Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
+    - Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
+    - Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
 1. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -247,7 +246,7 @@ Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-service
 8. Dubbelklik in de diagramweergave op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
 
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft. Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). 
+9. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft. Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
 
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
@@ -308,6 +307,6 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

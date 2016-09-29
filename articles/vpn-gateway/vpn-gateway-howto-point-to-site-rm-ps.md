@@ -16,11 +16,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc" />
 
+
 # Een punt-naar-site-verbinding met een VNet configureren met behulp van PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - klassiek](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassiek - Klassieke portal](vpn-gateway-point-to-site-create.md)
 
 Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. 
 
@@ -111,7 +112,7 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
 
         New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Maak de subnetconfiguraties voor het virtuele netwerk, noem deze *FrontEnd*, *BackEnd* en *GatewaySubnet*. Deze voorvoegsels moeten deel uitmaken van de VNet-adresruimte die hierboven is opgegeven.
+2. Maak de subnetconfiguraties voor het virtuele netwerk, noem deze *FrontEnd*, *BackEnd* en *GatewaySubnet*. Deze voorvoegsels moeten deel uitmaken van de VNet-adresruimte die u hebt opgegeven.
 
         $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
         $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -172,7 +173,7 @@ Clients die met een P2S-verbinding maken met Azure, moeten zowel een certificaat
 
 3. Kopieer en plak de geretourneerde koppeling naar een webbrowser om het pakket te downloaden. Installeer het pakket vervolgens op de clientcomputer.
 
-4. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De verbinding wordt nu vermeld. U ziet de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. Die ziet er ongeveer als volgt uit: 
+4. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De verbinding wordt nu vermeld. U ziet de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. Deze is vergelijkbaar met dit voorbeeld: 
 
     ![VPN-client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
@@ -226,7 +227,7 @@ Installeer een clientcertificaat op elke computer die u met het virtueel netwerk
 
 Certificaten worden gebruikt om VPN-clients voor punt-naar-site-VPN's te verifiëren. Via de volgende stappen kunt u basiscertificaten toevoegen en verwijderen. Wanneer u een met Base64 gecodeerd X.509 (.cer)-bestand aan Azure toevoegt, geeft u bij Azure aan dat deze het basiscertificaat dat het bestand vertegenwoordigt, moet vertrouwen. 
 
-U kunt vertrouwde basiscertificaten toevoegen of verwijderen via PowerShell of in de Azure-portal. Als u dit wilt doen in de Azure-portal, gaat u naar uw **Virtuele netwerkgateway > Instellingen > Punt-naar-site-configuratie > Basiscertificaten**. Onderstaande stappen helpen u bij het uitvoeren van deze taken met PowerShell. 
+U kunt vertrouwde basiscertificaten toevoegen of verwijderen via PowerShell of in de Azure-portal. Als u dit wilt doen in de Azure-portal, gaat u naar uw **Virtuele netwerkgateway > Instellingen > Punt-naar-site-configuratie > Basiscertificaten**. De volgende stappen helpen u bij het uitvoeren van deze taken met PowerShell. 
 
 ### Een vertrouwd basiscertificaat toevoegen
 
@@ -234,11 +235,11 @@ U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure
 
 1. Maak en bereid het nieuwe basiscertificaat voor dat u aan Azure gaat toevoegen. Exporteer de openbare sleutel als een met Base-64 X.509 gecodeerde (. CER) en open het bestand met een teksteditor. Kopieer vervolgens alleen de onderstaande sectie. 
  
-    Kopieer de waarden, zoals wordt weergegeven in het volgende voorbeeld.
+    Kopieer de waarden, zoals weergegeven in het volgende voorbeeld:
 
     ![certificaat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
     
-2. In het onderstaande voorbeeld geeft u de certificaatnaam en sleutelgegevens door als een variabele. Vervang de gegevens door uw eigen gegevens.
+2. Geef de certificaatnaam en sleutelgegevens op als een variabele. Vervang de gegevens door uw eigen gegevens, zoals weergegeven in het volgende voorbeeld:
 
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
         $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -315,6 +316,6 @@ U kunt een virtuele machine toevoegen aan het virtuele netwerk. Zie [Een virtuel
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,16 +13,17 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="06/21/2016"
+    ms.date="09/20/2016"
     ms.author="jroth" />
 
-# Een virtuele SQL Server-machine inrichten in de Azure-portal
+
+# Een virtuele SQL Server-machine inrichten in de Azure Portal
 
 > [AZURE.SELECTOR]
 - [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 - [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
-In deze end-to-end zelfstudie wordt getoond hoe u de Azure-portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
+In deze end-to-end zelfstudie wordt getoond hoe u de Azure Portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
 
 De galerie met virtuele machines van Azure bevat diverse installatiekopieën met Microsoft SQL Server. Met een paar klikken kunt u in de galerie een van de installatiekopieën voor een virtuele SQL-machine selecteren en inrichten in uw Azure-omgeving.
 
@@ -35,11 +36,11 @@ In deze zelfstudie leert u het volgende:
 
 ## Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 
-1. Meld u met uw account aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
 
     >[AZURE.NOTE] Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Klik in de Azure-portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
+1. Klik in de Azure Portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
 
 1. Klik op de blade **Nieuw** op de optie **Virtuele machines**.
 
@@ -125,6 +126,7 @@ Op de blade **SQL Server-instellingen** configureert u specifieke instellingen e
 | [Automatisch patchen](#automated-patching) |
 | [Automatische back-up](#automated-backup)             |
 | [Integratie van Azure Sleutelkluis](#azure-key-vault-integration)             |
+| [R Services](#r-services) |
 
 ### Connectiviteit
 Geef onder **SQL-connectiviteit** het gewenste type toegang tot het SQL Server-exemplaar op deze virtuele machine op. Voor deze zelfstudie selecteert u **Openbaar (internet)** om machines of services op internet toe te staan verbinding te maken met SQL Server. Als deze optie is geselecteerd, configureert Azure automatisch de firewall en de netwerkbeveiligingsgroep voor verkeer op poort 1433.  
@@ -141,6 +143,8 @@ Als u de mogelijkheid om via internet verbinding te maken met de database-engine
 - **Privé (binnen virtueel netwerk)** om verbindingen met SQL Server toe te staan vanaf machines of services in hetzelfde virtuele netwerk.
 
 In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest beperkende connectiviteit die voor uw scenario mogelijk is. Alle opties kunnen echter worden beveiligd via regels van de netwerkbeveiligingsgroep en SQL/Windows-verificatie.
+
+>[AZURE.NOTE] Met installatiekopieën van virtuele machines voor edities van SQL Server Express of voor ontwikkelaars wordt niet automatisch het TCP/IP-protocol ingeschakeld. Dit voorkomt externe connectiviteit, zelfs als u in de portal de optie Openbaar of Privé hebt geselecteerd. Voor Express- en ontwikkelaarsedities moet u SQL Server Configuration Manager gebruiken om [het TCP/IP-protocol](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) handmatig in te schakelen nadat de virtuele machine is gemaakt.
 
 **Poort** is standaard ingesteld op 1433. U kunt een ander poortnummer opgeven.
 Zie voor meer informatie [Verbinden met een SQL Server-VM (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -178,7 +182,7 @@ Standaard wordt de opslag in Azure geoptimaliseerd voor 5000 IOP's, 200 MB en 1 
 
 ![Automatisch patchen van SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Zie voor meer informatie [Automatisch patchen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
+Zie voor meer informatie [Automatisch patchen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
 ### Automatische back-up
 Schakel automatische databaseback-ups in voor alle databases onder **Automatische back-up**. Automatische back-up is standaard uitgeschakeld.
@@ -193,7 +197,7 @@ Voor het versleutelen van de back-up klikt u op **Inschakelen**. Geef het **Wach
 
 ![Automatische back-up van SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Zie voor meer informatie [Automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
+ Zie voor meer informatie [Automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 ### Integratie van Azure Sleutelkluis
 Voor het opslaan van beveiligingsgeheimen in Azure voor versleuteling klikt u op **Integratie van Azure Sleutelkluis**. Klik vervolgens op **Inschakelen**.
@@ -209,14 +213,21 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 | **Principal-geheim**|Principal-geheim voor de Azure Active Directory-service. Dit geheim wordt ook wel aangeduid als het Clientgeheim. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Referentienaam**|**Referentienaam**: de Azure Sleutelkluis-integratie maakt een referentie in SQL Server, zodat de virtuele machine toegang heeft tot de sleutelkluis. Kies een naam voor deze referentie.| mycred1|
 
-Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQL Server op Azure-VM's](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQL Server op Azure-VM's](virtual-machines-windows-ps-sql-keyvault.md).
 
 Wanneer u klaar bent met het configureren van de SQL Server-instellingen, klikt u op **OK**.
+
+### R services
+Voor de SQL Server 2016 Enterprise-editie kunt u gebruikmaken van de optie om [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2016. Klik op **Inschakelen** op de blade **SQL Server-instellingen**.
+
+![SQL Server R Services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] Voor SQL Server-installatiekopieën die geen 2016 Enterprise-editie zijn, is de optie om R Services in te schakelen uitgeschakeld.
 
 ## 5. De samenvatting bekijken
 Op de blade **Samenvatting** controleert u de samenvatting en klikt u op **OK** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze virtuele machine.
 
-U kunt de implementatie bewaken vanaf de Azure-portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
+U kunt de implementatie bewaken vanuit de Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 >[AZURE.NOTE] Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal 26 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
 
@@ -257,6 +268,6 @@ Bekijk voor een video-overzicht van SQL Server in Azure Virtual Machines [Azure 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

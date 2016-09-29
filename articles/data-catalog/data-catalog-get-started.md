@@ -13,8 +13,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="spelluru"/>
+
 
 # Aan de slag met Azure Data Catalog
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) voor een gedetailleerd overzicht.
@@ -23,17 +24,15 @@ Deze zelfstudie helpt u om aan de slag te gaan met Azure Data Catalog. In deze z
 
 | Procedure | Beschrijving |
 | :--- | :---------- |
-| [Gegevenscatalogus inrichten](#provision-data-catalog) | In deze procedure gaat u een Azure Data Catalog inrichten of instellen. U voert deze stap alleen uit als de catalogus nog niet is ingesteld. Zelfs als er aan uw Azure-account meerdere abonnementen zijn gekoppeld, kunt u slechts één gegevenscatalogus per organisatie (Microsoft Azure Active Directory-domein) hebben. |
+| [Gegevenscatalogus inrichten](#provision-data-catalog) | In deze procedure richt of stelt u een Azure Data Catalog in. U voert deze stap alleen uit als de catalogus nog niet is ingesteld. Zelfs als er aan uw Azure-account meerdere abonnementen zijn gekoppeld, kunt u slechts één gegevenscatalogus per organisatie (Microsoft Azure Active Directory-domein) hebben. |
 | [Gegevensassets registreren](#register-data-assets) | In deze procedure registreert u gegevensassets uit de AdventureWorks2014-voorbeelddatabase in de gegevenscatalogus. Registratie is het proces waarbij belangrijke structurele metagegevens, zoals namen, typen en locaties, worden geëxtraheerd uit de gegevensbron en worden gekopieerd naar de catalogus. De gegevensbronnen en gegevensassets blijven waar ze zijn, maar de metagegevens worden door de catalogus gebruikt om de gegevensbronnen en gegevensassets eenvoudiger te detecteren en te begrijpen. |
 | [Gegevensassets detecteren](#discover-data-assets) | In deze procedure gebruikt u de Azure Data Catalog-portal voor het detecteren van de gegevensassets die in de vorige stap zijn geregistreerd. Nadat een gegevensbron is geregistreerd in Azure Data Catalog, worden de metagegevens ervan door de service geïndexeerd, zodat gebruikers eenvoudig kunnen zoeken naar de gegevens die zij nodig hebben. |
-| [Aantekeningen toevoegen aan gegevensassets](#annotate-data-assets) | In deze procedure voegt u aantekeningen (informatie zoals beschrijvingen, labels, documentatie of experts) toe aan de gegevensassets ter aanvulling op de metagegevens die zijn geëxtraheerd uit de gegevensbron. Zo maakt u de gegevensbron voor meer mensen inzichtelijk. |
-| [Verbinding maken met gegevensassets](#connect-to-data-assets) | In deze procedure opent u met behulp van verbindingsgegevens gegevensassets in geïntegreerde clienthulpprogramma's (zoals Excel en SQL Server Data Tools) en een niet-geïntegreerd hulpprogramma (SQL Server Management Studio). |
+| [Aantekeningen toevoegen aan gegevensassets](#annotate-data-assets) | In deze procedure voegt u aantekeningen (informatie zoals beschrijvingen, labels, documentatie of experts) toe aan de gegevensassets. Deze informatie is een aanvulling op de metagegevens die uit de gegevensbron zijn geëxtraheerd. Zo maakt u de gegevensbron voor meer mensen inzichtelijk. |
+| [Verbinding maken met gegevensassets](#connect-to-data-assets) | In deze procedure opent u gegevensassets in geïntegreerde clienthulpprogramma's (zoals Excel en SQL Server Data Tools) en een niet-geïntegreerd hulpprogramma (SQL Server Management Studio). |
 | [Gegevensassets beheren](#manage-data-assets) | In deze procedure stelt u beveiliging in voor uw gegevensassets. Data Catalog geeft gebruikers geen toegang tot de gegevens zelf. De eigenaar van de gegevensbron bepaalt de toegang tot gegevens. <br/><br/> Met Data Catalog kunt u gegevensbronnen detecteren en de **metagegevens** bekijken die gerelateerd zijn aan de bronnen die in de catalogus zijn geregistreerd. Mogelijk zijn er echter situaties waarin gegevensbronnen alleen zichtbaar moeten zijn voor specifieke gebruikers of specifieke groepen. Voor deze scenario's kunt u via Data Catalog eigenaar worden van geregistreerde gegevensassets in de catalogus en zelf de zichtbaarheid van de assets bepalen. |
 | [Gegevensassets verwijderen](#remove-data-assets) | In deze procedure leert u hoe u gegevensassets uit de gegevenscatalogus verwijdert. |  
 
 ## Vereisten voor de zelfstudie
-
-Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan.
 
 ### Azure-abonnement
 Voor het instellen van Azure Data Catalog moet u eigenaar of mede-eigenaar van een Azure-abonnement zijn.
@@ -43,13 +42,13 @@ Azure-abonnementen helpen u om toegang tot cloudserviceresources als Azure Data 
 Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ### Azure Active Directory
-Voor het instellen van Azure Data Catalog moet u zijn aangemeld met een gebruikersaccount van Azure Active Directory (Azure AD). De gebruiker moet eigenaar of mede-eigenaar van een Azure-abonnement zijn.  
+Voor het instellen van Azure Data Catalog moet u zijn aangemeld met een gebruikersaccount van Azure Active Directory (Azure AD). U moet de eigenaar of mede-eigenaar van een Azure-abonnement zijn.  
 
-Azure AD biedt uw bedrijf een eenvoudige manier om ID’s en toegang, zowel in de cloud als on-premises, te beheren. Gebruikers kunnen één werk- of schoolaccount gebruiken om zich aan te melden bij elke cloud- of on-premises webtoepassing. Azure Data Catalog maakt gebruik van Azure AD om de aanmelding te verifiëren. Zie [Wat is Azure Active Directory?](../active-directory/active-directory-whatis.md) voor meer informatie.
+Azure AD biedt uw bedrijf een eenvoudige manier om ID’s en toegang, zowel in de cloud als on-premises, te beheren. U kunt één werk- of schoolaccount gebruiken om u bij elke cloud- of on-premises webtoepassing aan te melden. Azure Data Catalog maakt gebruik van Azure AD om de aanmelding te verifiëren. Zie [Wat is Azure Active Directory?](../active-directory/active-directory-whatis.md) voor meer informatie.
 
 ### Azure Active Directory-beleid configureren
 
-Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Dit kan gebeuren wanneer u zich op het bedrijfsnetwerk bevindt of wanneer u verbinding maakt als u zich buiten het bedrijfsnetwerk bevindt.
+Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Deze fout kan zich voordoen wanneer u zich op het bedrijfsnetwerk bevindt of wanneer u verbinding maakt als u zich buiten het bedrijfsnetwerk bevindt.
 
 Het registratiehulpprogramma maakt gebruik van *formulierverificatie* om de gebruikersaanmeldingen te valideren bij Azure Active Directory. Als u zich wilt aanmelden, moet een Azure Active Directory-beheerder formulierverificatie inschakelen in het *algemene verificatiebeleid*.
 
@@ -59,7 +58,7 @@ Met het algemene verificatiebeleid kunt u afzonderlijke verificatie voor intrane
 
 Zie [Verificatiebeleid configureren](https://technet.microsoft.com/library/dn486781.aspx) voor meer informatie.
 
-## Een gegevenscatalogus inrichten
+## Gegevenscatalogus inrichten
 U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscatalogus inrichten. Als de eigenaar of mede-eigenaar van het Azure-abonnement waartoe dit Azure Active Directory-domein behoort, al een catalogus heeft gemaakt, kunt u daarom geen nieuwe catalogus maken, zelfs niet als u meerdere Azure-abonnementen hebt. Als u wilt testen of er al een gegevenscatalogus is gemaakt door een gebruiker in uw Azure Active Directory-domein, gaat u naar de [startpagina van Azure Data Catalog](http://azuredatacatalog.com) en controleert u of u de catalogus ziet. Als er al een catalogus voor u is gemaakt, slaat u de volgende procedure over en gaat u naar de volgende sectie.    
 
 1. Ga naar de [Data Catalog-servicepagina](https://azure.microsoft.com/services/data-catalog) en klik op **Aan de slag**.
@@ -88,7 +87,7 @@ U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscat
 4.  Klik op de catalogus die u hebt gemaakt. U ziet de blade **Gegevenscatalogus** in de portal.
 
     ![Azure Data Catalog - blade in portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-5. U kunt de eigenschappen van de gegevenscatalogus bekijken en eventueel bewerken. Klik bijvoorbeeld op **Prijscategorie** en wijzig de editie.
+5. U kunt de eigenschappen van de gegevenscatalogus bekijken en bijwerken. Klik bijvoorbeeld op **Prijscategorie** en wijzig de editie.
 
     ![Azure Data Catalog - prijscategorie](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
@@ -118,7 +117,7 @@ In deze oefening gebruikt u de het hulpprogramma voor registratie om gegevensass
 
 ### Een gegevensbron registreren
 
-1.  Ga naar de [startpagina van Azure Data Catalog](https://azuredatacatlog.com) en klik op **Gegevens publiceren**.
+1.  Ga naar de [startpagina van Azure Data Catalog](https://azuredatacatalog.com) en klik op **Gegevens publiceren**.
 
     ![Azure Data Catalog - de knop Gegevens publiceren](media/data-catalog-get-started/data-catalog-publish-data.png)
 
@@ -142,12 +141,12 @@ In deze oefening gebruikt u de het hulpprogramma voor registratie om gegevensass
 
     1. Vouw in **Serverhiërarchie** het item **AdventureWorks2014** uit en klik op **Production**.
     2. Ctrl+klik op **Product**, **ProductCategory**, **ProductDescription** en **ProductPhoto**.
-    3. Klik op de **pijl om de geselecteerde items te verplaatsen ** (**>**). Hierdoor worden alle geselecteerde objecten verplaatst naar de lijst **Te registreren objecten**.
+    3. Klik op de **pijl om de geselecteerde items te verplaatsen ** (**>**). Met deze actie worden alle geselecteerde objecten verplaatst naar de lijst **Te registreren objecten**.
 
         ![Zelfstudie voor Azure Data Catalog - bladeren door objecten en objecten selecteren](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
     4. Selecteer **Preview opnemen** om een snapshotvoorbeeld van de gegevens op te nemen. De snapshot bevat maximaal 20 records uit elke tabel en wordt gekopieerd naar de catalogus.
     5. Selecteer **Gegevensprofiel opnemen** om een snapshot van de objectstatistieken op te nemen voor het gegevensprofiel (bijvoorbeeld: minimale, maximale en gemiddelde waarden voor een kolom, het aantal rijen).
-    6. Voer in het veld **Tags toevoegen** **adventure works, cycles** in. Hiermee worden de zoektags voor deze gegevensassets toegevoegd. Tags zijn voor gebruikers een uitstekende manier om een geregistreerde gegevensbron te zoeken.
+    6. Voer in het veld **Tags toevoegen** **adventure works, cycles** in. Met deze actie worden zoektags voor deze gegevensassets toegevoegd. Tags zijn voor gebruikers een uitstekende manier om een geregistreerde gegevensbron te zoeken.
     7. Geef de naam op van een **expert** met betrekking tot deze gegevens (optioneel).
 
         ![Zelfstudie voor Azure Data Catalog - te registreren objecten](media/data-catalog-get-started/data-catalog-objects-register.png)
@@ -180,7 +179,7 @@ Hieronder volgen enkele voorbeelden van het detecteren van gegevensassets in de 
 Met een basiszoekopdracht kunt u in een catalogus zoeken met behulp van een of meer zoektermen. De resultaten die worden opgehaald, zijn assets die wat betreft een willekeurige eigenschap overeenkomen met een of meer van de opgegeven voorwaarden.
 
 1. Klik in de Azure Data Catalog-portal op **Startpagina**. Als u de webbrowser hebt gesloten, gaat u naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com).
-2. Typ **cycles** in het zoekvak en druk op **ENTER**.
+2. Typ `cycles` in het zoekvak en druk op **ENTER**.
 
     ![Azure Data Catalog - basiszoekopdracht naar tekst](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Bevestig dat u alle vier tabellen en de database (AdventureWorks2014) in de resultaten ziet. U kunt overschakelen tussen **rasterweergave** en **lijstweergave** door te klikken op de knoppen op de werkbalk zoals weergegeven in de volgende afbeelding. U ziet dat het zoekwoord wordt gemarkeerd in de zoekresultaten. Dit gebeurt omdat de optie **Markeren** is **ingeschakeld**. U kunt ook het aantal **resultaten per pagina** in zoekresultaten opgeven.
@@ -204,7 +203,7 @@ Met een basiszoekopdracht kunt u in een catalogus zoeken met behulp van een of m
 Door het bereik van eigenschappen te definiëren, kunt u gegevensassets detecteren waarbij de zoekterm overeenkomt met de opgegeven eigenschap.
 
 1. Schakel het filter **Tabel** onder **Objecttype** in **Filters** uit.  
-2. Voer **tags:cycles** in het zoekvak in en druk op **ENTER**. Zie [Verwijzing naar de zoeksyntaxis van Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) voor alle eigenschappen die u kunt gebruiken voor het zoeken in de gegevenscatalogus.
+2. Typ `tags:cycles` in het zoekvak en druk op **ENTER**. Zie [Verwijzing naar de zoeksyntaxis van Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) voor alle eigenschappen die u kunt gebruiken voor het zoeken in de gegevenscatalogus.
 3. Bevestig dat u alle vier tabellen en de database (AdventureWorks2014) in de resultaten ziet.  
 
     ![Data Catalog - resultaten van het definiëren van het bereik van eigenschappen](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
@@ -223,7 +222,7 @@ Door het bereik van eigenschappen te definiëren, kunt u gegevensassets detecter
 ### Booleaanse operators
 U kunt uw zoekopdracht uitbreiden of beperken met Booleaanse operators.
 
-1. Voer **tags:cycles AND objectType:table** in het zoekvak in en druk op **ENTER**.
+1. Typ `tags:cycles AND objectType:table` in het zoekvak en druk op **ENTER**.
 2. Bevestig dat u alleen tabellen (niet de database) in de resultaten ziet.  
 
     ![Azure Data Catalog - Booleaanse operator in zoekopdracht](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
@@ -231,7 +230,7 @@ U kunt uw zoekopdracht uitbreiden of beperken met Booleaanse operators.
 ### Groeperen met haakjes
 Door te groeperen met behulp van haakjes, kunt u delen van de query groeperen voor logische isolatie, met name in combinatie met Booleaanse operators.
 
-1. Voer **name:product AND (tags:cycles AND objectType:table)** in het zoekvak in en druk op **ENTER**.
+1. Typ `name:product AND (tags:cycles AND objectType:table)` in het zoekvak en druk op **ENTER**.
 2. Bevestig dat u alleen de tabel **Product** in de zoekresultaten ziet.
 
     ![Azure Data Catalog - zoekopdracht groeperen](media/data-catalog-get-started/data-catalog-grouping-search.png)   
@@ -239,7 +238,7 @@ Door te groeperen met behulp van haakjes, kunt u delen van de query groeperen vo
 ### Vergelijkingsoperators
 Met vergelijkingsoperators kunt u andere vergelijkingen dan gelijkheid gebruiken voor eigenschappen die de gegevenstypen numeriek en datum hebben.
 
-1. Voer **lastRegisteredTime:>"06/09/2016"** in het zoekvak in.
+1. Typ `lastRegisteredTime:>"06/09/2016"` in het zoekvak.
 2. Schakel het filter **Tabel** onder **Objecttype** uit.
 3. Druk op **ENTER**.
 4. Bevestig dat u in de zoekresultaten de tabellen **Product**, **ProductCategory**, **ProductDescription** en **ProductPhoto** en de geregistreerde AdventureWorks2014-database ziet.
@@ -249,11 +248,11 @@ Met vergelijkingsoperators kunt u andere vergelijkingen dan gelijkheid gebruiken
 Zie [Gegevensbronnen detecteren](data-catalog-how-to-discover.md) voor gedetailleerde informatie over het detecteren van gegevens en [Verwijzing naar de zoeksyntaxis van Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) voor informatie over de zoeksyntaxis.
 
 ## Aantekeningen toevoegen aan gegevensassets
-In deze oefening gebruikt u de portal van Azure Data Catalog voor het maken van aantekeningen (voeg informatie toe zoals beschrijvingen, tags of experts) bij gegevensassets die eerder zijn geregistreerd in de catalogus. De aantekeningen die u opgeeft dienen ter aanvulling en verbetering van de structurele metagegevens die zijn geëxtraheerd uit de gegevensbron tijdens de registratie, en zorgen ervoor dat de gegevensassets veel eenvoudiger te detecteren en te begrijpen zijn.
+In deze oefening gebruikt u de portal van Azure Data Catalog voor het maken van aantekeningen (voeg informatie toe zoals beschrijvingen, tags of experts) bij gegevensassets die eerder zijn geregistreerd in de catalogus. De aantekeningen dienen ter aanvulling en verbetering van de structurele metagegevens die zijn geëxtraheerd uit de gegevensbron tijdens de registratie, en zorgen ervoor dat de gegevensassets veel eenvoudiger te detecteren en te begrijpen zijn.
 
 In deze oefening maakt u aantekeningen voor een enkele gegevensasset (ProductPhoto). U voegt een beschrijvende naam en een beschrijving toe aan de gegevensasset ProductPhoto.  
 
-1.  Ga naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com) en zoek met **labels: cycles** om te zoeken naar de gegevensassets die u hebt geregistreerd.  
+1.  Ga naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com) en zoek met `tags:cycles` naar de gegevensassets die u hebt geregistreerd.  
 2. Klik in de zoekresultaten op **ProductPhoto**.  
 3. Voer **Productafbeeldingen** in voor **Beschrijvende naam** en **Productfoto’s voor marketingmateriaal** voor de **Beschrijving**.
 
@@ -287,7 +286,7 @@ Zie [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-how-to-annotate.m
 ## Verbinding maken met gegevensassets
 In deze oefening opent u gegevensassets in geïntegreerde clienthulpprogramma's en een niet-geïntegreerd hulpprogramma (SQL Server Management Studio) met behulp van verbindingsgegevens.
 
-> [AZURE.NOTE] Het is belangrijk om te weten dat Azure Data Catalog u geen toegang geeft tot de werkelijke gegevensbron. Het wordt gewoon eenvoudiger voor u om ze te detecteren en te begrijpen. Wanneer u verbinding maakt met een gegevensbron, worden uw Windows-referenties gebruikt of wordt u indien nodig gevraagd om referenties. Als u niet eerder toegang hebt gekregen tot de gegevensbron, moet aan u toegang worden verleend voordat u verbinding kunt maken.
+> [AZURE.NOTE] Het is belangrijk om te weten dat Azure Data Catalog u geen toegang geeft tot de werkelijke gegevensbron. Het wordt gewoon eenvoudiger voor u om ze te detecteren en te begrijpen. Wanneer u verbinding maakt met een gegevensbron, worden uw Windows-referenties gebruikt of wordt u indien nodig om referenties gevraagd. Als u niet eerder toegang hebt gekregen tot de gegevensbron, moet aan u toegang worden verleend voordat u verbinding kunt maken.
 
 ### Verbinding maken met een gegevensasset vanuit Excel
 
@@ -327,7 +326,7 @@ In Azure Data Catalog kunt u eigenaar worden van gegevensassets, mede-eigenaren 
 
 ### Eigenaar worden van gegevensassets en de zichtbaarheid beperken
 
-1. Ga naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com). Voer in het tekstvak **Zoeken** **tags:cycles** in en druk op **ENTER**.
+1. Ga naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com). Typ `tags:cycles` in het tekstvak **Zoeken** en druk op **ENTER**.
 2. Klik op een item in de lijst met resultaten. Klik vervolgens op **Eigenaar worden** in de werkbalk.
 3. Klik in het venster **Eigenschappen** van de sectie **Beheer** op **Eigenaar worden**.
 
@@ -343,12 +342,12 @@ In deze oefening gebruikt u de portal van Azure Data Catalog om voorbeeldgegeven
 In Azure Data Catalog kunt u een individuele asset of meerdere assets verwijderen.
 
 1. Ga naar de [startpagina van Azure Data Catalog](https://www.azuredatacatalog.com).
-2. Voer in het tekstvak **Zoeken** **tags:cycles** in en druk op **ENTER**.
-3. Selecteer een item in de lijst met resultaten en klik in de werkbalk op **Verwijderen**, zoals weergegeven in de volgende afbeelding.
+2. Typ `tags:cycles` in het tekstvak **Zoeken** en druk op **ENTER**.
+3. Selecteer een item in de lijst met resultaten en klik in de werkbalk op **Verwijderen**, zoals weergegeven in de volgende afbeelding:
 
     ![Azure Data Catalog - rasteritem verwijderen](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
 
-    Als u de lijstweergave gebruikt, wordt het selectievakje aan de linkerkant van het item weergegeven. Zie de volgende afbeelding.
+    Als u de lijstweergave gebruikt, wordt het selectievakje aan de linkerkant van het item weergegeven. Zie de volgende afbeelding:
 
     ![Azure Data Catalog - lijstitem verwijderen](media/data-catalog-get-started/data-catalog-delete-list-item.png)
 
@@ -375,6 +374,6 @@ In deze zelfstudie hebt u essentiële mogelijkheden van Azure Data Catalog verke
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

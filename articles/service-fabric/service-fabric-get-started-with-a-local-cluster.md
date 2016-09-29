@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
 De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waarmee u snel uw toepassingen kunt implementeren en beheren op een lokaal cluster. In dit artikel maakt u een lokaal cluster, implementeert u een bestaande toepassing en werkt u de toepassing bij naar een nieuwe versie vanuit Windows PowerShell.
@@ -193,7 +194,37 @@ Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt
 
 3. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
 
-4. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u op F5 in Visual Studio klikt. Verwijder het lokale cluster alleen als u van plan bent het lokale cluster een tijd niet te gebruiken of als u resources moet vrijmaken.
+4. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het lokale cluster alleen als u van plan bent het lokale cluster een tijd niet te gebruiken of als u resources moet vrijmaken.
+
+## Clustermodus met één knooppunt en met vijf knooppunten
+
+Wanneer u werkt met het lokale cluster om toepassingen te ontwikkelen, moet u vaak snel dezelfde bewerkingen uitvoeren, zoals code schrijven, fouten opsporen, code wijzigen, fouten opsporen, enz. Het lokale cluster kan in twee modi worden uitgevoerd om dit proces te optimaliseren: met één knooppunt of met vijf knooppunten. Beide clustermodi hebben hun eigen voordelen.
+In de clustermodus met vijf knooppunten kunt u werken met een echt cluster. U kunt failover-scenario's testen en werken met meerdere exemplaren en replica's van uw services.
+De clustermodus met één knooppunt is geoptimaliseerd voor snelle implementaties en om snel services te registreren. Zo kunt u snel code valideren met de runtime Service Fabric.
+
+De clustermodi met één knooppunt en met vijf knooppunten zijn geen emulatoren of simulatoren. Dit cluster wordt uitgevoerd op dezelfde platformcode als de code op clusters voor meerdere machines.
+
+> [AZURE.NOTE] Deze functie is beschikbaar in SDK-versie 5.2 en hoger.
+
+Als u de clustermodus wilt wijzigen in een cluster met één knooppunt, gebruikt u de Local Cluster Manager van Service Fabric of gebruikt u PowerShell op de volgende manier:
+
+1. Start een nieuw PowerShell-venster als beheerder.
+
+2. Voer het installatiescript van het  cluster uit wat in de SDK-map staat:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Het installeren van een cluster duurt even. Nadat Setup is voltooid, ziet u soortgelijke uitvoer als deze:
+    
+    ![Cluster-installatieuitvoer][cluster-setup-success-1-node]
+
+Als u de Local Cluster Manager van Service Fabric gebruikt, gaat u als volgt te werk:
+
+![De clustermodus wijzigen][switch-cluster-mode]
+
+> [AZURE.WARNING] Wanneer u de clustermodus wijzigt, wordt het huidige cluster verwijderd van uw systeem en wordt een nieuw cluster gemaakt. De gegevens die u moet hebben opgeslagen in het cluster worden verwijderd wanneer u de clustermodus wijzigt.
 
 ## Volgende stappen
 - Nu u een aantal vooraf gemaakt toepassen hebt geïmplementeerd een upgrade hebt uitgevoerd, kunt u [proberen zelf toepassingen te ontwikkelen in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -217,9 +248,11 @@ Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [toepassing van sfe verwijderen]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

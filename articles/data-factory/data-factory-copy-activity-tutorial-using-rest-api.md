@@ -13,22 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/17/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit in REST API
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [De Data Factory-editor gebruiken](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET-API gebruiken](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
+- [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met een REST API. In de pijplijn in de gegevensfactory wordt gebruikgemaakt van een kopieeractiviteit om gegevens van Azure-blobopslag te kopiëren naar Azure SQL Database.
-
-Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.   
 
 > [AZURE.NOTE] 
 > Dit artikel omvat niet alle Data Factory-REST API. Zie [Naslaginformatie voor Data Factory-REST API](https://msdn.microsoft.com/library/azure/dn906738.aspx) voor uitgebreide documentatie over Data Factory-cmdlets.
@@ -36,7 +35,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
 
 ## Vereisten
 
-- Lees [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Neem het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
 - Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma Curl REST-opdrachten gebruiken om een gegevensfactory te maken. 
 - Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) voor het volgende: 
     1. Maak een webtoepassing met de naam **ADFCopyTutorialApp** in Azure Active Directory.
@@ -136,14 +135,14 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 
 Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureBlobInput**. Deze bevat de invoergegevens voor een activiteit in de pijplijn. Bovendien wordt hiermee aangegeven dat de invoergegevens zich in het bestand **emp.txt** bevinden dat is opgeslagen in de blobcontainer **adftutorial**. 
 
- Houd rekening met het volgende: 
+ Houd rekening met de volgende punten: 
 
 - De gegevensset **type** wordt ingesteld op **AzureBlob**.
 - **linkedServiceName** wordt ingesteld op **AzureStorageLinkedService**. 
 - **folderPath** is ingesteld op de **adftutorial**-container en **fileName** is ingesteld op **emp.txt**.  
 - De indeling **type** wordt ingesteld op **TextFormat**
 - Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een kommateken (**columnDelimiter**) 
-- De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op uur en het interval wordt ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (**adftutorial**). 
+- De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op elk uur en het interval wordt ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (**adftutorial**). 
 
 Als u geen **fileName** opgeeft voor een invoergegevensset, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
 
@@ -192,7 +191,7 @@ Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **
 
 Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureSqlOutput**. Deze bevat de uitvoergegevens voor een activiteit in de pijplijn. Bovendien geeft deze aan dat de resultaten zijn opgeslagen in de tabel: **emp** in de database die staat voor de AzureSqlLinkedService. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset elk uur (frequentie: uur en interval: 1) wordt geproduceerd.
 
-Houd rekening met het volgende: 
+Houd rekening met de volgende punten: 
 
 - De gegevensset **type** wordt ingesteld op **AzureSQLTable**.
 - **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService**.
@@ -245,7 +244,7 @@ Houd rekening met het volgende:
     }
 
 
-Houd rekening met het volgende:
+Houd rekening met de volgende punten:
 
 - In het gedeelte Activiteiten is er slechts één activiteit waarvan **type** is ingesteld op **CopyActivity**.
 - De invoer voor de activiteit is ingesteld op **AzureBlobInput** en de uitvoer voor de activiteit is ingesteld op **AzureSqlOutput**.
@@ -257,7 +256,7 @@ Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipe
 
 Als u geen waarde opgeeft voor de eigenschap **end**, wordt automatisch **start + 48 uur** gebruikt. Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**.
 
-In het bovenstaande voorbeeld zijn er 24 gegevenssegmenten, omdat er elk uur één gegevenssegment wordt gemaakt.
+In het bovenstaande voorbeeld zijn er 24 gegevenssegmenten omdat er elk uur één gegevenssegment wordt gemaakt.
     
 > [AZURE.NOTE] Zie [Anatomie van een pijplijn](data-factory-create-pipelines.md#anatomy-of-a-pipeline) voor meer informatie over de JSON-eigenschappen die in het voorgaande voorbeeld worden gebruikt.
 
@@ -300,9 +299,9 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**
 
         Write-Host $results
 
-Houd rekening met het volgende:
+Houd rekening met de volgende punten:
  
-- De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u deze fout ziet in de resultaten: **Naam gegevensfactory "ADFCopyTutorialDF" is niet beschikbaar**, doet u het volgende:  
+- De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u deze fout ziet in de resultaten: **Naam gegevensfactory 'ADFCopyTutorialDF' is niet beschikbaar**, voert u de volgende stappen uit:  
     1. Wijzig de naam (bijvoorbeeld uwnaamADFCopyTutorialDF) in het **datafactory.json**-bestand.
     2. In de eerste opdracht waar de **$cmd**-variabele een waarde is toegewezen, vervangt u ADFCopyTutorialDF door de nieuwe naam en voert u de opdracht uit. 
     3. Voer de volgende twee opdrachten uit voor het aanroepen van de REST API om de gegevensfactory te maken en de resultaten van de bewerking af te drukken. 
@@ -494,6 +493,6 @@ In deze zelfstudie hebt u REST API gebruikt om een Azure-gegevensfactory te make
  
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

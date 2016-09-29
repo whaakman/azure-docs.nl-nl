@@ -17,6 +17,7 @@
     ms.author="kgremban"/>
 
 
+
 # Toepassingen publiceren met Azure AD-toepassingsproxy
 
 Azure AD-toepassingsproxy helpt u externe werknemers te ondersteunen door on-premises toepassingen te publiceren voor toegang via internet. Inmiddels moet u [toepassingsproxy al hebben ingeschakeld in de klassieke Azure-portal](active-directory-application-proxy-enable.md). Dit artikel beschrijft de stappen voor het publiceren van toepassingen die worden uitgevoerd op uw lokale netwerk en het bieden van beveiligde externe toegang van buiten uw netwerk. Nadat u de stappen in dit artikel hebt uitgevoerd, bent u klaar om de toepassing te configureren met persoonlijke gegevens of beveiligingsvereisten.
@@ -103,6 +104,6 @@ Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationp
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

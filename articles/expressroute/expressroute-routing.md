@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
+
 
 
 # Routeringsvereisten voor ExpressRoute  
@@ -78,7 +79,7 @@ Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden t
 
 ## Autonome systeemnummers
 
-Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Aan de peeringzijde (klant of provider) kan de ASN een openbare ASN zijn, als gecontroleerd kan worden dat het van u is, of een privé-ASN voor de privépeering. Daarnaast is er voor de openbare peerings en Microsoft-peerings een openbare ASN vereist. 
+Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Aan de peeringzijde (klant of provider) kan de ASN een openbare ASN zijn, als kan worden gecontroleerd dat de ASN van u is, of een privé-ASN.
 
 Er zijn geen vereisten met betrekking tot de symmetrie van de gegevensoverdracht in de primaire en secundaire paden van circuits. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd aan de primaire of secundaire zijde van circuitparen die van u zijn. Route metrics hoeven niet identiek te zijn.
 
@@ -179,6 +180,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

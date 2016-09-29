@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Overzicht van Azure Media Services en algemene scenario's" 
+    pageTitle="Overzicht van Azure Media Services en algemene scenario's | Microsoft Azure" 
     description="Dit onderwerp bevat een overzicht van Azure Media Services" 
     services="media-services" 
     documentationCenter="" 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="08/07/2016"
+    ms.date="09/19/2016"
     ms.author="juliako;anilmur"/>
+
 
 #Overzicht van Azure Media Services en algemene scenario's
 
@@ -24,19 +25,19 @@ U kunt end-to-end-werkstromen volledig met Media Services bouwen. U kunt er ook 
 
 U kunt uw inhoud live streamen of on demand leveren. Dit onderwerp bevat algemene scenario's voor het leveren van uw inhoud: [live](media-services-overview.md#live_scenarios) of [on demand](media-services-overview.md#vod_scenarios). Het onderwerp bevat ook koppelingen naar andere relevante onderwerpen.
 
-## SDK's en hulpprogramma's 
+## SDK's en hulpprogramma's
 
 Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Een van de beschikbare client-SDK's: 
-    - [Azure Media Services SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services) 
-    - [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java) 
-    - [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 
-    - [Azure Media Services voor Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Dit is een niet-Microsoft-versie van een Node.js SDK. Deze wordt onderhouden door een community en biedt nog geen 100% dekking voor AMS API's). 
-- Bestaande hulpprogramma's: 
-    - [Klassieke Azure-portal](http://manage.windowsazure.com/) 
-    - [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
+- Een van de beschikbare client-SDK's:
+- [Azure Media Services SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services)
+- [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java)
+- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- [Azure Media Services voor Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Dit is een niet-Microsoft-versie van een Node.js SDK. Deze wordt onderhouden door een community en biedt nog geen 100% dekking voor AMS API's).
+- Bestaande hulpprogramma's:
+- [Klassieke Azure-portal](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
 
 ##Media Services-leertrajecten
 
@@ -48,13 +49,13 @@ U kunt hier de AMS-leertrajecten bekijken:
 ##Vereisten
 
 Als u Azure Media Services wilt gaan gebruiken, moet u over het volgende beschikken:
- 
+
 3. Een Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com) voor meer informatie.
 2. Een Azure Media Services-account. Gebruik de klassieke Azure-portal, .NET of REST API om een Azure Media Services-account te maken. Zie [Een account maken](media-services-create-account.md) voor meer informatie.
-3. (Optioneel) Instellen van de ontwikkelomgeving. Kies .NET of REST API voor uw ontwikkelomgeving. Zie [De omgeving instellen](media-services-dotnet-how-to-use.md) voor meer informatie. 
+3. (Optioneel) Instellen van de ontwikkelomgeving. Kies .NET of REST API voor uw ontwikkelomgeving. Zie [De omgeving instellen](media-services-dotnet-how-to-use.md) voor meer informatie.
 
-    Leer ook hoe u via een programma [verbinding kunt maken](media-services-dotnet-connect-programmatically.md).
-4. (Aanbevolen) Wijs een of meer schaaleenheden toe. U kunt het beste een of meer schaaleenheden toewijzen voor toepassingen in de productieomgeving.   Zie [Streaming-eindpunten beheren](media-services-manage-origins.md) voor meer informatie.
+Leer ook hoe u via een programma [verbinding kunt maken](media-services-dotnet-connect-programmatically.md).
+4. (Aanbevolen) Wijs een of meer schaaleenheden toe. U kunt het beste een of meer schaaleenheden toewijzen voor toepassingen in de productieomgeving.   Zie [Streaming-eindpunten beheren](media-services-portal-manage-streaming-endpoints.md) voor meer informatie.
 
 ##Concepten en overzicht
 
@@ -135,14 +136,14 @@ Wanneer u met Live Streaming werkt, maakt u doorgaans gebruik van de volgende on
 - Een camera die wordt gebruikt voor het uitzenden van een gebeurtenis.
 - Een coderingsprogramma voor live video dat de signalen van de camera converteert naar stromen die worden verzonden naar een service voor live streamen.
 
-    Eventueel meerdere op tijd gesynchroniseerde coderingsprogramma’s. Voor bepaalde kritieke live gebeurtenissen die een zeer hoge beschikbaarheid en kwaliteit vereisen, kunt u het beste redundante coderingsprogramma’s (actief/actief) met tijdsynchronisatie gebruiken voor een naadloze failover zonder verlies van gegevens.
+Eventueel meerdere op tijd gesynchroniseerde coderingsprogramma’s. Voor bepaalde kritieke live gebeurtenissen die een zeer hoge beschikbaarheid en kwaliteit vereisen, kunt u het beste redundante coderingsprogramma’s (actief/actief) met tijdsynchronisatie gebruiken voor een naadloze failover zonder verlies van gegevens.
 - Een service voor live streamen waarmee u het volgende kunt doen:
-    
-    - Live-inhoud met verschillende protocollen voor live streamen opnemen (bijvoorbeeld RTMP of Smooth Streaming).
-    - (Optioneel) Uw stream coderen in een stream met een adaptieve bitsnelheid.
-    - Een voorbeeld van uw livestream bekijken.
-    - De opgenomen inhoud vastleggen en opnemen om deze later te streamen (Video-on-Demand).
-    - De inhoud rechtstreeks aan uw klanten leveren via algemene protocollen voor streaming (MPEG DASH, Smooth, HLS, HDS) of aan een netwerk voor contentlevering (CDN) voor verdere distributie.
+
+- Live-inhoud met verschillende protocollen voor live streamen opnemen (bijvoorbeeld RTMP of Smooth Streaming).
+- (Optioneel) Uw stream coderen in een stream met een adaptieve bitsnelheid.
+- Een voorbeeld van uw livestream bekijken.
+- De opgenomen inhoud vastleggen en opnemen om deze later te streamen (Video-on-Demand).
+- De inhoud rechtstreeks aan uw klanten leveren via algemene protocollen voor streaming (MPEG DASH, Smooth, HLS, HDS) of aan een netwerk voor contentlevering (CDN) voor verdere distributie.
 
 
 Met **Microsoft Azure Media Services** (AMS) kunt u de inhoud van uw live-streaming opnemen, coderen, een voorbeeld bekijken, opslaan en leveren.
@@ -155,8 +156,8 @@ Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor 
 
 - Een on-premises live codering verzendt multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerd MP4) naar het kanaal dat is geconfigureerd voor **passthrough**-levering. **Passthrough**-levering vindt plaats wanneer de opgenomen streams het **kanaal** passeren zonder verdere verwerking. U kunt de volgende live coderingsprogramma’s gebruiken die multi-bitrate Smooth Streaming uitvoeren: Elemental, Envivio, Cisco.  De volgende live coderingsprogramma’s voeren RTMP uit: Adobe Flash Live-, Telestream Wirecast- en Tricaster-transcoders.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
 
-    >[AZURE.NOTE] Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](/pricing/details/media-services/).
-    
+>[AZURE.NOTE] Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](/pricing/details/media-services/).
+
 - Een on-premises live codering verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van de live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
 
@@ -185,7 +186,7 @@ Azure Media Services biedt de hulpprogramma's die u nodig hebt om geavanceerde, 
 
 ##Azure CDN inschakelen
 
-Media Services ondersteunt de integratie met Azure CDN. Zie [Streaming-eindpunten in een Media Services-account beheren](media-services-manage-origins.md#enable_cdn) voor meer informatie over het inschakelen van Azure CDN.
+Media Services ondersteunt de integratie met Azure CDN. Zie [Streaming-eindpunten in een Media Services-account beheren](media-services-portal-manage-streaming-endpoints.md) voor meer informatie over het inschakelen van Azure CDN.
 
 ##Een Media Services-account schalen
 
@@ -193,7 +194,7 @@ U kunt **Media Services** schalen door het aantal **gereserveerde streaming-eenh
 
 U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk opslagaccount is beperkt tot 500 TB. Als u uw opslag wilt uitbreiden buiten de standaardbeperkingen, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen.
 
-[Dit](media-services-how-to-scale.md) onderwerp bevat koppelingen naar relevante onderwerpen.
+[Dit](media-services-portal-scale-streaming-endpoints.md) onderwerp bevat koppelingen naar relevante onderwerpen.
 
 ##Ondersteuning
 
@@ -222,6 +223,6 @@ Zie [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/) voor m
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

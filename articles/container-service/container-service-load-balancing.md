@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Taakverdeling maken voor een Azure Container Service-cluster | Microsoft Azure"
-   description="Maak een taakverdelingen voor een Azure Container Service-cluster."
+   pageTitle="Taakverdelingscontainers in een Azure Container Service-cluster | Microsoft Azure"
+   description="Verdeel taken over meerdere containers in een Azure Container Service-cluster."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,10 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Taakverdelingen maken voor een Azure Container Service-cluster
 
-In dit artikel stellen we een webfront-end in op DC/OS beheerde Azure Container Service. We configureren ook een Marathon-LB om u de mogelijkheid te bieden de toepassing omhoog te schalen.
+# Taakverdelingscontainers in een Azure Container Service-cluster
+
+In dit artikel wordt beschreven hoe een interne load balancer in een met DC/OS beheerde Azure Container Service wordt gemaakt met Marathon-LB. Hiermee kunt u uw toepassingen horizontaal schalen. U kunt hiermee ook gebruikmaken van de clusters met openbare en persoonlijke agents door de load balancers in het openbare cluster en uw toepassingscontainers in het persoonlijke cluster te plaatsen.
 
 ## Vereisten
 
@@ -55,9 +56,11 @@ Na de installatie van de DC/OS CLI en ervoor te hebben gezorgd dat u verbinding 
 dcos package install marathon-lb
 ```
 
+Met deze opdracht wordt de load balancer automatisch geïnstalleerd in het cluster met openbare agents.
+
 ## Een webtoepassing met taakverdeling implementeren
 
-Met het Marathon-taakverdelingspakket kan er een eenvoudige webserver worden geïmplementeerd volgens deze configuratie:
+Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implementeren waarvan we de taken willen verdelen. Voor dit voorbeeld implementeren we een eenvoudige webserver met behulp van de volgende configuratie:
 
 ```json
 {
@@ -100,6 +103,8 @@ Met het Marathon-taakverdelingspakket kan er een eenvoudige webserver worden ge�
   * Stel `hostPort` op 0. Zo zal Marathon een willekeurige poort toewijzen.
   * Stel `instances` in op het aantal exemplaren dat u wilt maken. U kunt deze altijd omhoog en omlaag schalen.
 
+Het is goed om te weten dat Marathon standaard in het persoonlijke cluster wordt geïmplementeerd. Dat betekent dat de bovengenoemde implementatie alleen toegankelijk is via de load balancer. Dit is gewoonlijk het gewenste gedrag.
+
 ### Implementeren met de DC/OS Web UI
 
   1. Ga naar de Marathon-pagina op http://localhost/marathon (na instelling van uw [SSH-tunnel](container-service-connect.md) en klik `Create Appliction`
@@ -141,6 +146,6 @@ Zie de DC/OS-documentatie voor meer informatie over [marathon-lb](https://dcos.i
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -10,24 +10,26 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
+    ms.tgt_pltfrm="na" **
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [De Data Factory-editor gebruiken](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md) 
-- [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
+- [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie gebruikt u de Data Factory-wizard Kopiëren om een pijplijn te maken. Dit doet u middels een kopieeractiviteit in een gegevensfactory. Eerst maakt u een gegevensfactory met behulp van Azure Portal. Daarna gebruikt u de wizard Kopiëren om gekoppelde Data Factory-services, gegevenssets en een pijplijn te maken. Dit doet u met een kopieeractiviteit waarmee gegevens uit Azure Blob Storage naar een Azure SQL-database worden gekopieerd. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 
-> [AZURE.IMPORTANT] Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de vereiste stappen voordat u deze zelfstudie volgt.
+> [AZURE.IMPORTANT] Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de **vereiste** stappen voordat u deze zelfstudie volgt.
 
 ## Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
@@ -40,7 +42,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     1. Voer **ADFTutorialDataFactory** in als **naam**. 
     
         ![Blade voor een nieuwe gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-    2. Klik op de **RESOURCEGROEPNAAM** en doe het volgende:
+    2. Klik op de **RESOURCEGROEPNAAM** en voer de volgende stappen uit:
         1. Klik op **Een nieuwe resourcegroep maken**.
         2. In de blade **Resourcegroep maken** voert u **ADFTutorialResourceGroup** in als **naam** van de resourcegroep en klikt u op **OK**. 
 
@@ -88,7 +90,10 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     3. Klik op **Volgende**. 
 
     ![Hulpprogramma voor kopiëren - Het invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. Op de pagina **Bestandsindelingsinstellingen** selecteert u de **standaardwaarden** en klikt u op **Volgende**.
+7. Klik op de pagina **Het invoerbestand of de invoermap kiezen** op **Volgende** Selecteer niet **Binaire kopie**. 
+
+    ![Hulpprogramma voor kopiëren - Het invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. Op de pagina **Bestandsindelingsinstellingen** selecteert u de **standaardwaarden** en klikt u op **Volgende**.
 
     ![Hulpprogramma voor kopiëren - Bestandsindelingsinstellingen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Op de pagina Doelgegevensarchief klikt u op de tegel **Azure SQL Database** en klikt u op **Volgende**.
@@ -102,11 +107,12 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 
     ![Hulpprogramma voor kopiëren - Tabeltoewijzing](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Op de pagina **Schematoewijzing** klikt u op **Volgende**.
+11. Op de pagina **Prestatie-instellingen** klikt u op **Volgende**. 
 11. Lees de informatie op de pagina **Samenvatting** en klik op **Voltooien**. De wizard maakt twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory (van waaruit u de wizard Kopiëren hebt gestart). 
-12. Op de pagina **Implementatie is voltooid** klikt u op **Klik hier om de kopieerpijplijn te bewaken**.
+12. Op de pagina **Implementatie is voltooid** klikt u op de koppeling: **Klik hier om de kopieerpijplijn te bewaken**.
 
     ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u hebt gemaakt.
+13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u hebt gemaakt. Klik op het pictogram **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om het segment weer te geven. 
 
     ![App voor bewaking](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -121,6 +127,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

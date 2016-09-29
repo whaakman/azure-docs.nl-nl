@@ -14,32 +14,31 @@
 
     ![Een naamruimte maken][create-namespace]
 
-6. Klik op de knop **Maken**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
+6. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
  
 ### De beheerreferenties ophalen
 
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
  
-3. Klik in de blade **Service Bus-naamruimte** op **Beleid voor gedeelde toegang**.
+3. Klik in de naamruimte-blade op **Beleid voor gedeelde toegang**.
 
 4. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
 
     ![verbinding-gegevens][connection-info]
 
-5. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik.
+5. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
 
-    ![verbinding-reeks][connection-string]
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[maken-naamruimte]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[verbinding-gegevens]: ./media/service-bus-create-namespace-portal/connection-info.png
-[verbinding-reeks]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

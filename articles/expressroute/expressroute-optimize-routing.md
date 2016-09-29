@@ -15,6 +15,7 @@
    ms.date="06/07/2016"
    ms.author="charwen"/>
 
+
 # ExpressRoute-routering optimaliseren
 Als u meerdere ExpressRoute-circuits hebt, hebt u meer dan één pad om verbinding te maken met Microsoft. Dat betekent dat suboptimale routering kan plaatsvinden, met andere woorden, dat verkeer soms een langer pad aflegt om Microsoft te bereiken en Microsoft om uw netwerk te bereiken. Hoe langer het netwerkpad, hoe groter de latentie. Latentie heeft een directe invloed op toepassingsprestaties en gebruikerservaring. In dit artikel wordt dit probleem geïllustreerd en wordt uitgelegd hoe u routering optimaliseert met behulp van de standaardrouteringstechnologieën.
 
@@ -24,7 +25,7 @@ We gaan het routeringsprobleem bekijken aan de hand van een voorbeeld. Stel, u h
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### Oplossing: gebruik BGP-community's
-Om routering te optimaliseren voor de gebruikers op beide kantoren, moet u weten welk voorvoegsel van Azure VS - west is en welk van Azure VS - oost. Deze informatie wordt versleuteld met [BGP-communitywaarden](expressroute-routing.md). We hebben aan elke Azure-regio een unieke BGP-communitywaarde toegewezen, bijvoorbeeld '12076:51004' voor VS - oost en '12076:51006' voor VS - west. Nu u weet welk voorvoegsel bij welke Azure-regio hoort, kunt u configureren welk ExpressRoute-circuit de voorkeur heeft. Omdat we het BGP gebruiken om routeringsinformatie uit te wisselen, kunt u de routering beïnvloeden met de lokale voorkeur van het BGP. In ons voorbeeld kunt u in VS - west aan 13.100.0.0/16 een hogere lokale-voorkeurswaarde toekennen dan in VS - oost, en in VS - oost kunt u aan 23.100.0.0/16 een hogere lokale-voorkeurswaarde toekennen dan in VS - west. Als beide paden naar Microsoft beschikbaar zijn, zorgt deze configuratie ervoor dat uw gebruikers in Los Angeles het ExpressRoute-circuit in VS - west gebruiken om verbinding te maken met Azure VS - west, en uw gebruikers in New York de ExpressRoute in VS - oost nemen naar Azure VS - oost. Routering is nu aan beide zijden geoptimaliseerd. 
+Om routering te optimaliseren voor de gebruikers op beide kantoren, moet u weten welk voorvoegsel van Azure VS - west is en welk van Azure VS - oost. Deze informatie wordt versleuteld met [BGP-communitywaarden](expressroute-routing.md). Aan elke Azure-regio is een unieke BGP-communitywaarde toegewezen, bijvoorbeeld '12076:51004' voor VS - oost en '12076:51006' voor VS - west. Nu u weet welk voorvoegsel bij welke Azure-regio hoort, kunt u configureren welk ExpressRoute-circuit de voorkeur heeft. Omdat we het BGP gebruiken om routeringsinformatie uit te wisselen, kunt u de routering beïnvloeden met de lokale voorkeur van het BGP. In ons voorbeeld kunt u in VS - west aan 13.100.0.0/16 een hogere lokale-voorkeurswaarde toekennen dan in VS - oost, en in VS - oost kunt u aan 23.100.0.0/16 een hogere lokale-voorkeurswaarde toekennen dan in VS - west. Als beide paden naar Microsoft beschikbaar zijn, zorgt deze configuratie ervoor dat uw gebruikers in Los Angeles het ExpressRoute-circuit in VS - west gebruiken om verbinding te maken met Azure VS - west, en uw gebruikers in New York de ExpressRoute in VS - oost nemen naar Azure VS - oost. Routering is nu aan beide zijden geoptimaliseerd. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
@@ -44,6 +45,6 @@ Voor de tweede oplossing blijft u beide voorvoegsels op beide ExpressRoute-circu
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

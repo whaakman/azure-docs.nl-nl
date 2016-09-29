@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
+
 
 # Azure-resourcegroepen maken en implementeren met Visual Studio
 
@@ -47,7 +48,7 @@ In deze procedure maakt u een Azure Resource Group-project met het sjabloon **We
 
     ![knooppunten weergegeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Omdat er voor dit voorbeeld is gekozen voor het sjabloon Webtoepassing + SQL, krijgt u de volgende bestanden te zien. 
+    Omdat er voor dit voorbeeld is gekozen voor het sjabloon Web-app + SQL, krijgt u de volgende bestanden te zien: 
 
   	|Bestandsnaam|Beschrijving|
   	|---|---|
@@ -75,7 +76,7 @@ U kunt een nieuwe resource toevoegen aan een sjabloon door op de knop **Resource
 
 ![resource toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-Voor deze zelfstudie selecteert u **Opslagaccount** en geeft u het een naam. De naam van een opslagaccount mag alleen cijfers en kleine letters bevatten en moet uit minder dan 24 tekens bestaan. In het project wordt een unieke tekenreeks van 13 tekens aan de naam toegevoegd die u opgeeft. Zorg er dus voor dat uw naam niet uit meer dan 11 tekens bestaat.
+Voor deze zelfstudie selecteert u **Opslagaccount** en geeft u het een naam. Geef een naam op die niet meer dan elf tekens (alleen cijfers en kleine letters) omvat.
 
 ![opslag toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +84,7 @@ U ziet dat niet alleen de resource is toegevoegd, maar ook een parameter voor he
 
 ![overzicht weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-De parameter **storageType** wordt vooraf gedefinieerd met de toegestane typen en een standaardtype. U kunt deze waarden laten staan of ze bewerken voor uw scenario. Als u niet iedereen wilt toestaan om een **Premium_LRS**-opslagaccount te implementeren via dit sjabloon, verwijdert u het uit de toegestane typen. 
+De parameter **storageType** wordt vooraf gedefinieerd met de toegestane typen en een standaardtype. U kunt deze waarden laten staan of ze bewerken voor uw scenario. Als u niet iedereen wilt toestaan om een **Premium_LRS**-opslagaccount te implementeren via dit sjabloon, verwijdert u dit uit de toegestane typen. 
 
     "storageType": {
       "type": "string",
@@ -127,30 +128,37 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
 
     ![Dialoogvenster Resourcegroep maken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. U kunt de parameters voor de implementatie bewerken door op **Parameters bewerken** te klikken. Geef waarden op voor de parameters en selecteer **Opslaan**.
+1. U kunt de parameters voor de implementatie bewerken door de knop **Parameters bewerken** te selecteren.
+
+    ![Knop Parameters bewerken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Geef waarden op voor de lege parameters en selecteer **Opslaan**. De lege parameters zijn **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** en **databaseName**.
+
+    Met **hostingPlanName** geeft u de naam op voor het te maken [App Service-plan](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+    
+    Met **administratorLogin** geeft u de gebruikersnaam op voor de SQL Server-beheerder. Gebruik geen veelvoorkomende beheerdersnamen als **sa** of **admin**. 
+    
+    Met **administratorLoginPassword** geeft u een wachtwoord op de SQL Server-beheerder. De optie **Wachtwoorden opslaan als tekst zonder opmaak in het parameterbestand** is niet beveiligd. Selecteer deze optie daarom niet. Omdat het wachtwoord niet als tekst zonder opmaak wordt opgeslagen, moet u dit wachtwoord opnieuw opgeven tijdens de implementatie. 
+    
+    Met **databaseName** geeft u een naam op voor de te maken database. 
 
     ![Dialoogvenster Parameters bewerken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    De optie **Wachtwoorden opslaan als tekst zonder opmaak in het parameterbestand** is niet beveiligd.
-
-1. Klik op **Implementeren** om het project in Azure te implementeren. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Het implementeren kan enkele minuten duren, afhankelijk van uw configuratie. Voer het beheerderswachtwoord voor de database in de PowerShell-console in wanneer om het wachtwoord wordt gevraagd. Als er geen vooruitgang meer is bij uw implementatie, kan dat zijn omdat u in de PowerShell-console uw wachtwoord nog moet invoeren.
+1. Klik op **Implementeren** om het project in Azure te implementeren. Een PowerShell-console wordt geopend buiten het Visual Studio-exemplaar. Voer het beheerderswachtwoord voor de SQL Server in de PowerShell-console in wanneer om het wachtwoord wordt gevraagd. **De PowerShell-console kan zijn verborgen achter andere items of geminimaliseerd op de taakbalk.** Zoek en selecteer deze console om het wachtwoord op te geven.
 
     >[AZURE.NOTE] Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt.
     
-1. Wanneer de implementatie is voltooid, ziet u een bericht in het venster **Uitvoer** dat er als volgt uitziet:
+1. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+
 
 1. Open in een browser de [Azure Portal](https://portal.azure.com/) en meld u aan bij uw account. Als u de resourcegroep wilt bekijken, selecteert u **Resourcegroepen** en vervolgens de resourcegroep waarin u hebt geïmplementeerd.
 
     ![groep selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. U ziet alle geïmplementeerde resources.
+1. U ziet alle geïmplementeerde resources. Merk op dat de naam van het opslagaccount niet precies overeenkomt met wat u hebt opgegeven bij het toevoegen van die resource. Het opslagaccount moet uniek zijn. De sjabloon voegt automatisch een tekenreeks toe aan de naam die u hebt opgegeven zodat dit een unieke naam wordt. 
 
     ![resources weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +170,11 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
 
 U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen code geïmplementeerd in uw project. In dit onderwerp staat hoe u webtoepassingen en SQL Database-tabellen implementeert tijdens de implementatie. Als u een virtuele machine implementeert in plaats van een webtoepassing, moet u als onderdeel van de implementatie code uitvoeren op de machine. De processen voor het implementeren van code voor een webtoepassing en voor het instellen van een virtuele machine zijn bijna hetzelfde.
 
-1. In uw Visual Studio-oplossing voegt u een **ASP.NET-webtoepassing** toe. 
+1. Voeg een project toe aan uw Visual Studio-oplossing. Klik met de rechtermuisknop op de oplossing en selecteer **Toevoegen** > **Nieuw Project**.
+
+    ![project toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Voeg een **ASP.NET-webtoepassing** toe. 
 
     ![webtoepassing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,41 +182,59 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
 
     ![MVC selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Wanneer Visual Studio uw web-app maakt, voegt u in het resourcegroepproject een referentie toe aan het web-approject.
+1. Nadat Visual Studio uw web-app heeft gemaakt, ziet u beide projecten in de oplossing.
+
+    ![projecten weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Nu moet u nagaan of het nieuwe project gekoppeld is aan uw resourcegroepproject. Ga terug naar uw resourcegroepproject (AzureResourceGroup1). Klik met de rechtermuisknop op **Verwijzingen** en selecteer **Verwijzing toevoegen**.
+
+    ![verwijzing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Selecteer het web-app-project dat u hebt gemaakt.
 
     ![verwijzing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Wanneer u een verwijzing toevoegt, koppelt u het webtoepassingsproject aan het resourcegroepproject en worden automatisch drie sleuteleigenschappen ingesteld.  
+    Wanneer u een verwijzing toevoegt, koppelt u het webtoepassingsproject aan het resourcegroepproject en worden automatisch drie sleuteleigenschappen ingesteld. U ziet deze eigenschappen in het venster **Eigenschappen** voor de verwijzing.
+
+      ![verwijzing bekijken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - **Extra eigenschappen** bevat de faseringslocatie van het webimplementatiepakket dat naar Azure Storage wordt gepusht. 
+    De eigenschappen zijn:
+
+    - **Extra eigenschappen** bevat de faseringslocatie van het webimplementatiepakket dat naar Azure Storage wordt gepusht. Noteer de map (ExampleApp) en het bestand (package.zip). Wanneer u de app implementeert, moet u deze waarden als parameters opgeven. 
     - **Bestandspad toevoegen** bevat het pad waar het pakket wordt gemaakt. **Doelen toevoegen** bevat de opdracht die tijdens de implementatie wordt uitgevoerd. 
     - Met de standaardwaarde van **Build;Package** kan tijdens de implementatie een webtoepassingspakket worden gebouwd en gemaakt (pakket.zip).  
     
     Er is geen publicatieprofiel nodig omdat tijdens de implementatie de benodigde informatie voor het maken van het pakket wordt verkregen uit de eigenschappen.
-    
-      ![verwijzing bekijken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Voeg een nieuwe resource toe aan het sjabloon en selecteer deze keer **Webimplementatie voor Web Apps**. 
+1. Voeg een resource toe aan de sjabloon.
+
+    ![resource toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Selecteer deze keer **Webimplementatie voor Web Apps**. 
 
     ![webimplementatie toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Implementeer uw resourcegroepproject opnieuw in de resourcegroep. Deze keer zijn er enkele nieuwe parameters. U hoeft geen waarden op te geven voor **_artifactsLocation** en **_artifactsLocationSasToken** omdat Visual Studio deze automatisch gegenereert. Stel de map- en bestandsnaam in op het pad dat het implementatiepakket bevat.
+1. Implementeer uw resourcegroepproject opnieuw in de resourcegroep. Deze keer zijn er enkele nieuwe parameters. U hoeft geen waarden op te geven voor **_artifactsLocation** en **_artifactsLocationSasToken** omdat Visual Studio deze automatisch gegenereert. Stel de map- en bestandsnaam in op het pad dat het implementatiepakket bevat (weergegeven als **ExampleAppPackageFolder** en **ExampleAppPackageFileName** in de volgende afbeelding). Geef de waarden op die u eerder in de verwijzingseigenschappen hebt gezien (**ExampleApp** en **package.zip**).
 
     ![webimplementatie toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Voor het **opslagaccountartefact** kunt u het account gebruiken dat is geïmplementeerd met deze resourcegroep.
+    Voor het **artefactopslagaccount ** kunt u het account selecteren dat is geïmplementeerd met deze resourcegroep.
     
-Nadat de implementatie is voltooid, kunt u naar de site bladeren. U ziet daar dat de standaard ASP.NET-app is geïmplementeerd.
+1. Nadat de implementatie is voltooid, selecteert u uw web-app in de portal. Selecteer de URL om naar de site te bladeren.
 
-![geïmplementeerde app weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![naar site bladeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Merk op dat u de standaard ASP.NET-app hebt geïmplementeerd.
+
+    ![geïmplementeerde app weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Volgende stappen
 
-- Voor meer informatie over het beheren van resources via de portal ziet u [De Azure Portal gebruiken om uw Azure-resources te beheren](./azure-portal/resource-group-portal.md).
+- Voor meer informatie over het beheren van resources via de portal raadpleegt u [De Azure-portal gebruiken om uw Azure-resources te beheren](./azure-portal/resource-group-portal.md).
 - Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,6 +19,7 @@
 
 
 
+
 # HBase-zelfstudie: aan de slag met het gebruik van Apache HBase met Hadoop gebaseerd op Linux in HDInsight 
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
@@ -39,9 +40,9 @@ Voordat u met deze HBase-zelfstudie begint, moet u beschikken over het volgende:
 
 ## Een HBase-cluster maken
 
-Voor de volgende procedure wordt een Azure ARM-sjabloon gebruikt om een HBase-cluster te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
+Voor de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
 
-1. Klik op de volgende afbeelding om een ARM-sjabloon in Azure Portal te openen. De ARM-sjabloon bevindt zich in een openbare blob-container. 
+1. Klik op de volgende afbeelding om de sjabloon in de Azure-portal te openen. De sjabloon bevindt zich in een openbare blob-container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -247,7 +248,7 @@ SSH kan ook worden gebruikt voor tunneling van lokale aanvragen, zoals webaanvra
 4. Voer in het scherm met basisopties voor uw PuTTY-sessie de volgende waarden in:
 
     - **Hostnaam**: het SSH-adres van uw HDInsight-server in het veld Hostnaam (of IP-adres). Het SSH-adres is de naam van uw cluster, gevolgd door **-ssh.azurehdinsight.net**. Bijvoorbeeld *mijncluster-ssh.azurehdinsight.net*.
-    - **Poort**: 22. De ssh-poort op het hoofdknooppunt 0 is 22.  
+    - **Poort**: 22. De SSH-poort op het primaire hoofdknooppunt is 22.  
 5. Vouw in de sectie **Categorie** aan de linkerkant van het dialoogvenster achtereenvolgens **Verbinding** en **SSH** uit en klik vervolgens op **Tunnels**.
 6. Geef op het formulier met de opties voor SSH-port fowarding de volgende informatie op:
 
@@ -327,6 +328,6 @@ Voor meer informatie zie:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

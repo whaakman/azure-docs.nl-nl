@@ -17,15 +17,16 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Een punt-naar-site-verbinding met een VNet configureren met de klassieke portal
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - klassiek](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassiek - Klassieke portal](vpn-gateway-point-to-site-create.md)
 
 Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk.
 
-In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het **klassieke implementatiemodel** met de klassieke portal. U kunt deze configuratie momenteel niet end-to-end maken in Azure Portal en voor het klassieke implementatiemodel.
+In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het **klassieke implementatiemodel** met behulp van de **klassieke portal**. U kunt deze configuratie momenteel niet end-to-end maken in Azure Portal en voor het klassieke implementatiemodel. Sommige stappen kunt u in de Azure-portal uitvoeren, maar PowerShell is nog steeds vereist voor het downloaden van de VPN-clientconfiguration.
 
 Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres nodig. Er wordt een VPN-verbinding tot stand gebracht door de verbinding te starten vanaf de clientcomputer. Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over VPN Gateways](vpn-gateway-vpn-faq.md#point-to-site-connections) en [Planning en ontwerp](vpn-gateway-plan-design.md).
 
@@ -195,6 +196,6 @@ Bekijk de pagina [Virtual Network Documentation](https://azure.microsoft.com/doc
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
