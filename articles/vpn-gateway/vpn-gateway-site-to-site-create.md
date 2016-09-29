@@ -17,13 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Een VNet met een site-naar-site-verbinding maken met de klassieke Azure-portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassieke Azure-portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klassiek - Klassieke portal](vpn-gateway-site-to-site-create.md)
 
 In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt met behulp van het **klassieke implementatiemodel** en de klassieke Azure-portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. Het is op dit moment niet mogelijk een end-to-end/site-naar-site-configuratie voor het klassieke implementatiemodel te maken met behulp van de Azure-portal.
 
@@ -55,11 +55,11 @@ Controleer op voorhand of u de volgende items hebt.
 
 2. Klik linksonder in het scherm op **Nieuw**. Klik in het navigatievenster op **Netwerkservices** en vervolgens op **Virtueel netwerk**. Klik op **Aangepast maken** om de configuratiewizard te starten.
 
-3. Vul de gegevens op de volgende pagina's in om het VNet te maken.
+3. Voer uw configuratie-instellingen op de volgende pagina's in om uw VNet te maken:
 
 ## Pagina met details voor virtueel netwerk
 
-Voer de volgende informatie in.
+Voer de volgende informatie in:
 
 - **Naam**: geef het virtuele netwerk een naam. Bijvoorbeeld *EastUSVNet*. U gebruikt deze naam voor het virtuele netwerk wanneer u de virtuele machines en PaaS-instanties implementeert. Maak de naam dus niet te ingewikkeld.
 - **Locatie**: de locatie is direct gerelateerd aan de fysieke locatie (regio) waar u wilt dat de resources (VM's) zich bevinden. Selecteer bijvoorbeeld VS - oost als u wilt dat de virtuele machines die u in dit virtuele netwerk implementeert zich fysiek bevinden in *VS - oost*. U kunt de regio die aan het virtuele netwerk is gekoppeld niet meer wijzigen wanneer het netwerk is gemaakt.
@@ -109,6 +109,6 @@ Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netw
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

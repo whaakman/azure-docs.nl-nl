@@ -3,7 +3,7 @@
     description="In deze zelfstudie wordt u begeleid bij de stappen voor het met Azure Portal maken van een kanaal dat een single-bitrate live stream ontvangt en deze codeert naar een multi-bitrate stream." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na" 
     ms.topic="get-started-article"
     ms.date="09/06/2016"
-    ms.author="juliako"/>
+    ms.author="juliako;juliako"/>
+
 
 
 #Live streamen met Azure Media Services om multi-bitrate streams te maken met de Azure-portal
@@ -183,7 +184,7 @@ Gebeurtenissen kunnen op twee manieren worden gestart:
     
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
     
-    Als u **Deze gebeurtenis nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
+    Als u **Deze live gebeurtenis nu publiceren** ingeschakeld hebt gelaten, worden er PUBLICATIE-URL's gemaakt.
     
     U kunt op **Starten** klikken, wanneer u klaar bent om de gebeurtenis te streamen.
 
@@ -241,6 +242,7 @@ Media Services-leertrajecten bekijken.
  
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

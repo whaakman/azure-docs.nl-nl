@@ -37,7 +37,7 @@ Momenteel niet.
 
 #### Kan ik de exacte voorvoegsels als de voorvoegsels van mijn virtuele netwerk adverteren?
 
-Nee, het adverteren van dezelfde voorvoegsels als een van de adresvoorvoegsels van uw virtuele netwerk wordt door het Azure-platform geblokkeerd of gefilterd.
+Nee, het adverteren van dezelfde voorvoegsels als een van de adresvoorvoegsels van uw virtuele netwerk wordt door het Azure-platform geblokkeerd of gefilterd. U kunt echter een voorvoegsel aankondigen dat een superset is van wat u in Virtual Network hebt. In Virtual Network kunt u bijvoorbeeld de adresruimte 10.10.0.0/16 gebruiken en 10.0.0.0/8 aankondigen.
 
 ### Kan ik BGP in combinatie met mijn VNet-naar-VNet-verbindingen gebruiken?
 
@@ -80,7 +80,6 @@ Azure Local Network Gateway geeft u de eerste adresvoorvoegsels voor het on-prem
 U moet een hostroute van het Azure BGP-peer-IP-adres toevoegen aan uw VPN-apparaat die verwijst naar de IPSec-S2S VPN-tunnel. Als het Azure VPN-peer-IP-adres bijvoorbeeld "10.12.255.30" is, dient u een hostroute toe te voegen voor "10.12.255.30" met een nexthop-interface van de overeenkomende IPsec-tunnelinterface op uw VPN-apparaat.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

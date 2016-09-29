@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
+
 
 # Uw eerste Azure Service Fabric-toepassing in Visual Studio maken
 
@@ -110,6 +111,14 @@ Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 
     ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
+## De clustermodus wijzigen
+
+Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunt kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, kunt u de modus van het ontwikkelingscluster wijzigen in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
+
+![De clustermodus wijzigen][switch-cluster-mode]
+
+Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen die zijn ingericht of worden uitgevoerd op het cluster verwijderd.
+
 ## Opschonen
 
   Voordat u afsluit, moet u weten dat het lokale cluster erg puur is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
@@ -138,9 +147,10 @@ Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [toepassing van sfe verwijderen]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

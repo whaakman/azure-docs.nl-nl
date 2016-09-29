@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="carlrab"/>
 
+
 # Opties en prestaties van SQL Database: inzicht in wat er beschikbaar is in elke servicelaag
 
 [Azure SQL Database](sql-database-technical-overview.md) biedt drie servicelagen met meerdere prestatieniveaus om verschillende workloads af te handelen. Elke prestatieniveau biedt meer resources die zijn ontworpen om een steeds snellere doorvoer te leveren. U kunt elke database in een eigen [servicelaag](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) met een eigen prestatieniveau beheren. U kunt ook meerdere databases in een [elastische pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) met een gemeenschappelijke set bronnen beheren. De resources voor zelfstandige databases worden DTU's genoemd (Database Transaction Units) en de resources voor elastische pools worden elastische DTU's of eDTU's genoemd. Zie [Wat is een DTU?](sql-database-what-is-a-DTU.md) voor meer informatie over DTU's en eDTU's. 
@@ -62,7 +63,7 @@ Om te beslissen over een servicelaag, begint u met te bepalen of de database een
 
 Om te beslissen over een servicelaag voor een individuele database, bepaalt u eerst de databasefuncties die u nodig hebt om uw SQL Database-editie te bepalen:
 
-- Grootte van de database (5 GB voor Basic, maximaal 250 GB voor Standard en 500 GB tot 1 TB maximum voor Premium - afhankelijk van het prestatieniveau)
+- Grootte van de database (2 GB voor Basic, maximaal 250 GB voor Standard en 500 GB tot 1 TB maximum voor Premium, afhankelijk van het prestatieniveau)
 - Retentieperiode van de databaseback-up (7 dagen voor Basic, 35 dagen voor Standard en 35 dagen voor Premium)
 
 Na bepaling van de SQL Database-editie, bent u klaar om het prestatieniveau van de database te bepalen (het aantal DTU’s). U kunt gokken en vervolgens dynamisch [omhoog of omlaag schalen](sql-database-scale-up.md) op basis van de werkelijke ervaring. U kunt ook de [DTU Rekenmachine](http://dtucalculator.azurewebsites.net/) gebruiken om het aantal nodige DTU’s te benaderen. 
@@ -90,6 +91,6 @@ Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant s
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

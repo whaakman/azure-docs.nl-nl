@@ -19,9 +19,10 @@
    ms.author="cfowler;mahender;glenga"/>
    
    
+
 # Overzicht van Azure Functions
 
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Hierdoor wordt ontwikkelen nog efficiënter en kunt u de door u gewenste programmeertaal  gebruiken, zoals C#, Node.js, Python of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen.
+Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Hierdoor wordt ontwikkelen nog efficiënter en kunt u de door u gewenste programmeertaal gebruiken, zoals C#, F#, Node.js, Python of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen.
 
 Dit onderwerp bevat een globaal overzicht van Azure Functions. Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerste Azure-functie maken](functions-create-first-azure-function.md). Als u behoefte hebt aan meer technische informatie over Functions, raadpleegt u de [naslaginformatie voor ontwikkelaars](functions-reference.md).
 
@@ -29,7 +30,7 @@ Dit onderwerp bevat een globaal overzicht van Azure Functions. Als u meteen aan 
 
 Hier volgen een aantal essentiële functies van Azure Functions:
     
-* **Keuze van taal**: schrijf functies met C#, Node.js, Python, F#, PHP, batch, bash, Java of elk uitvoerbaar bestand.  
+* **Keuze van taal**: schrijf functies met C#, F#, Node.js, Python, PHP, batch, bash, Java of elk uitvoerbaar bestand.
 * **Betalen per gebruik**: betaal alleen voor de tijd die nodig is voor het uitvoeren van uw code. Zie de optie Dynamic App Service-abonnement in de sectie [prijzen](#pricing) hieronder.  
 * **Breng uw eigen afhankelijkheden mee**: Functions ondersteunt NuGet en NPM, zodat u uw favoriete bibliotheken kunt gebruiken.  
 * **Geïntegreerde beveiliging**: beveilig HTTP-geactiveerde functies met OAuth-providers zoals Azure Active Directory, Facebook, Google, Twitter en Microsoft-account.  
@@ -93,6 +94,6 @@ Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoa
 Azure Functions maakt gebruik van het Azure App Service-platform voor kernfunctionaliteit zoals implementaties, omgevingsvariabelen en diagnostische procedures. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

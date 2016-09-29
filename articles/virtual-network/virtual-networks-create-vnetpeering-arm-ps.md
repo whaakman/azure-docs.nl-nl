@@ -1,6 +1,6 @@
 <properties
    pageTitle="VNet-peering maken met Powershell-cmdlets | Microsoft Azure"
-   description="Leer hoe u een virtueel netwerk maakt met de Azure-portal in Resource Manager."
+   description="Leer hoe u een virtueel netwerk maakt met de Azure Portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="NarayanAnnamalai"
@@ -14,8 +14,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai; annahar"/>
+
 
 # VNet-peering maken met Powershell-cmdlets
 
@@ -29,18 +30,18 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
 
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) en volgt u de instructies helemaal tot aan het einde om u aan te melden bij Azure en uw abonnement te selecteren.
 
-        Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+        > [AZURE.NOTE] De PowerShell-cmdlet voor het beheer van VNet-peering wordt geleverd met [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Virtueel-netwerkobjecten lezen:
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
-    
+
 3. Voor het tot stand brengen van een VNET-peeringkoppeling moet u twee koppelingen maken, een voor elke richting. Met de volgende stap maakt u eerst een VNET-peeringkoppeling voor VNet1 naar VNet2:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
 
-        Output shows:
+    Weergave uitvoer:
 
         Name            : LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -60,9 +61,9 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
 
 4. Met deze stap maakt u een VNET-peeringkoppeling voor VNet2 naar VNet1:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
 
-        Output shows:
+    Weergave uitvoer:
 
         Name            : LinkToVNet1
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
@@ -84,7 +85,7 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 
-        Output shows:
+    Weergave uitvoer:
 
         Name            : LinkToVNet2
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -117,7 +118,7 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
 
-        You can run Get-AzureRmVirtualNetworkPeering to double check the property value after the change.  From the output, you can see AllowForwardedTraffic changes set to True after running the above cmdlets. 
+    U kunt Get-AzureRmVirtualNetworkPeering uitvoeren om de waarde van de eigenschap te controleren na de wijziging.  In de uitvoer ziet u dat AllowForwardedTraffic is gewijzigd in 'True' na het uitvoeren van de bovenstaande cmdlets.
 
         Name            : LinkToVNet2
         Id          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -143,13 +144,13 @@ Volg de onderstaande stappen als u VNet-peering met behulp van PowerShell voor m
 
 1. Meld u aan bij Azure met bevoegdheden van het account van gebruiker A voor abonnement A en voer de volgende cmdlet uit:
 
-        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
+        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-        This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup. 
+    Dit is geen vereiste. Peering kan ook tot stand worden gebracht als gebruikers afzonderlijk een peeringaanvraag voor hun respectieve Vnets genereren, mits de aanvragen met elkaar overeenkomen. Door de bevoegde gebruiker van het andere VNet toe te voegen als gebruiker in het lokale VNet, kunt u de peering gemakkelijker instellen.
 
 2. Meld u aan bij Azure met bevoegdheden van het account van gebruiker B voor abonnement B en voer de volgende cmdlet uit:
 
-        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
+        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 
 3. Voer tijdens de sessie met aanmelding voor gebruiker A de volgende cmdlet uit:
 
@@ -167,7 +168,7 @@ Volg de onderstaande stappen als u VNet-peering met behulp van PowerShell voor m
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. In dit scenario kunt u de onderstaande PowerShell-cmdlets uitvoeren om VNet-peering tot stand te brengen.  U moet de eigenschap AllowForwardedTraffic instellen op Waar en VNET1 koppelen aan HubVnet, waardoor inkomend verkeer van buiten de VNet-peering-adresruimte mogelijk is. 
+1. In dit scenario kunt u de onderstaande PowerShell-cmdlets uitvoeren om VNet-peering tot stand te brengen.  U moet de eigenschap AllowForwardedTraffic instellen op Waar en VNET1 koppelen aan HubVnet, waardoor inkomend verkeer van buiten de VNet-peering-adresruimte mogelijk is.
 
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
@@ -188,21 +189,54 @@ Volg de onderstaande stappen als u VNet-peering met behulp van PowerShell voor m
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
 
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+Voer onderstaande stappen uit om een VNet-peering te maken tussen een klassiek virtueel netwerk en een virtueel netwerk van Azure Resource Manager in PowerShell:
+
+1. Lees het virtuele-netwerkobject voor **VNET1**, het virtuele netwerk van Azure Resource Manager als volgt: $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+
+2. U hebt slechts één koppeling nodig om VNet-peering in dit scenario in te schakelen, namelijk een koppeling van **VNET1** naar **VNET2**. Voor deze stap hebt u uw klassieke VNet-resource-ID nodig. De indeling van de resourcegroep-ID ziet er als volgt uit: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+
+    Vervang SubscriptionID, ResourceGroupName en VirtualNetworkName door de juiste namen.
+
+    Dit doet u als volgt:
+
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+
+3. Zodra de VNet-peeringkoppeling is gemaakt, ziet u de status van de koppeling in de onderstaande uitvoer:
+
+        Name                             : LinkToVNet2
+        Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
+        Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                         "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                       }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
 ## VNet-peering verwijderen
 
-1.  Als u VNet-peering wilt verwijderen, moet u de volgende cmdlet uitvoeren: 
+1.  Als u VNet-peering wilt verwijderen, moet u de volgende cmdlet uitvoeren:
 
         Remove-AzureRmVirtualNetworkPeering  
-    
+
         remove both links, as shown below:
 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 
-2. Nadat u een koppeling in VNET-peering hebt verwijderd, verandert de verbindingsstatus van de peer in Niet-verbonden. In deze status kunt u de koppeling niet opnieuw maken tot de verbindingsstatus van de peer wordt gewijzigd in Geïnitialiseerd. We raden aan dat u beide koppelingen verwijdert voordat u VNET-peering opnieuw tot stand brengt. 
+2. Nadat u een koppeling in VNET-peering hebt verwijderd, verandert de verbindingsstatus van de peer in Niet-verbonden. In deze status kunt u de koppeling niet opnieuw maken tot de verbindingsstatus van de peer wordt gewijzigd in Geïnitialiseerd. We raden aan dat u beide koppelingen verwijdert voordat u VNET-peering opnieuw tot stand brengt.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

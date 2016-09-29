@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/29/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
+
 
 
 # Eerste blik: een back-up maken van virtuele machines van Azure
 
 > [AZURE.SELECTOR]
-- [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
-- [Eerste blik: virtuele machines van Azure beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
+- [Virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
+- [Virtuele machines van Azure beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
 
 In deze zelfstudie leert u hoe u een back-up maakt van een virtuele machine (VM) van Azure naar een back-upkluis in Azure. In dit artikel wordt het klassieke en Service Manager-implementatiemodel voor back-ups van virtuele machines beschreven. Zie [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over back-ups van een virtuele machine naar een Recovery Services-kluis die deel uitmaakt van een resourcegroep. Voor deze zelfstudie gelden de volgende vereisten:
 
@@ -31,14 +32,14 @@ In deze zelfstudie leert u hoe u een back-up maakt van een virtuele machine (VM)
 Het maken van een back-up van een VM bestaat uit vijf belangrijke stappen:  
 
 ![stap-een](./media/backup-azure-vms-first-look/step-one.png) Een back-upkluis maken of een bestaande back-upkluis gebruiken. <br/>
-![stap-twee](./media/backup-azure-vms-first-look/step-two.png) De virtuele machines detecteren en registreren met de klassieke Azure-portal. <br/>
+![stap-twee](./media/backup-azure-vms-first-look/step-two.png) De virtuele machines detecteren en registreren met de klassieke Azure Portal. <br/>
 ![stap-drie](./media/backup-azure-vms-first-look/step-three.png) De VM-agent installeren. <br/>
 ![stap-vier](./media/backup-azure-vms-first-look/step-four.png) Het beleid voor het beveiligen van de virtuele machines maken. <br/>
 ![stap-vijf](./media/backup-azure-vms-first-look/step-five.png) De back-up uitvoeren.
 
 ![Globaal overzicht van het back-upproces van VM's](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Deze zelfstudie behandelt VM's die in de klassieke Azure-portal kunnen worden gemaakt. De Azure Backup-service biedt ondersteuning voor virtuele machines op basis van Resource Manager. Zie [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over back-ups van virtuele machines naar een Recovery Services-kluis.
+>[AZURE.NOTE] Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Deze zelfstudie behandelt VM's die in de klassieke Azure Portal kunnen worden gemaakt. De Azure Backup-service biedt ondersteuning voor virtuele machines op basis van Resource Manager. Zie [Eerste blik: virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over back-ups van virtuele machines naar een Recovery Services-kluis.
 
 
 
@@ -46,7 +47,7 @@ Het maken van een back-up van een VM bestaat uit vijf belangrijke stappen:
 
 Een back-upkluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De back-upkluis bevat ook het back-upbeleid dat wordt toegepast op de virtuele machines waarvan een back-up wordt gemaakt.
 
-1. Meld u aan bij de [klassieke Azure-portal](http://manage.windowsazure.com/).
+1. Meld u aan bij de [klassieke Azure Portal](http://manage.windowsazure.com/).
 
 2. Klik in de linkerbenedenhoek van Azure Portal op **Nieuw**
 
@@ -94,9 +95,9 @@ Nadat u de opslagoptie voor uw kluis hebt gekozen, bent u klaar om de VM aan de 
 ## Stap 2 - Virtuele machines van Azure detecteren en registreren
 Voordat u de VM met een kluis registreert, moet u het detectieproces uitvoeren om nieuwe VM's weer te geven. Er wordt een lijst met virtuele machines in het abonnement weergegeven, samen met aanvullende informatie zoals de naam van de cloudservice en de regio.
 
-1. Meld u aan bij de [klassieke Azure-portal](http://manage.windowsazure.com/)
+1. Meld u aan bij de [klassieke Azure Portal](http://manage.windowsazure.com/)
 
-2. Klik in de klassieke Azure-portal op **Recovery Services** om een lijst met Recovery Services-kluizen weer te geven.
+2. Klik in de klassieke Azure Portal op **Recovery Services** om een lijst met Recovery Services-kluizen weer te geven.
     ![Workload selecteren](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
 3. Selecteer in de lijst met kluizen de kluis voor de back-up van een VM.
@@ -153,7 +154,7 @@ Als uw VM is gemigreerd van een on-premises datacenter, is de VM-agent waarschij
 ## Stap 4 - Het back-upbeleid maken
 Voordat u de eerste back-uptaak activeert, stelt u een schema in voor het maken van momentopnamen van de back-up. Het schema voor het maken van momentopnamen en de duur dat deze momentopnamen worden bewaard, vormen samen het back-upbeleid. De informatie over deze bewaarperiode is gebaseerd op het zogenaamde grootvader-vader-zoon-rotatieschema.
 
-1. Navigeer naar de back-upkluis in **Recovery Services** in de klassieke Azure-portal en klik op **Geregistreerde items**.
+1. Navigeer naar de back-upkluis in **Recovery Services** in de klassieke Azure Portal en klik op **Geregistreerde items**.
 2. Selecteer **Virtuele machine van Azure** in de vervolgkeuzelijst.
 
     ![Workload selecteren in de portal](./media/backup-azure-vms/select-workload.png)
@@ -225,6 +226,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

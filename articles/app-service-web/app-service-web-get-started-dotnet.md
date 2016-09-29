@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Uw eerste .NET-web-app in vijf minuten in Azure implementeren | Microsoft Azure" 
-    description="Ontdek hoe eenvoudig het is om web-apps in App Service uit te voeren door een voorbeeld-app te implementeren. Ontwikkel snel uw eigen app en bekijk onmiddellijk de resultaten." 
+    pageTitle="Uw eerste .NET-web-app in vijf minuten implementeren in Azure | Microsoft Azure" 
+    description="Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudig het is om web-apps in App Service uit te voeren. U kunt snel een app gaan ontwikkelen en onmiddellijk de resultaten bekijken." 
     services="app-service\web"
     documentationCenter=""
     authors="cephalin"
@@ -18,9 +18,10 @@
     ms.author="cephalin"
 />
     
-# Uw eerste .NET-web-app in vijf minuten in Azure implementeren
 
-Met deze zelfstudie leert u om een eenvoudige .NET-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+# Uw eerste .NET-web-app in vijf minuten implementeren in Azure
+
+Deze zelfstudie helpt u om een eenvoudige .NET-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Met App Service kunt u web-apps, [back-ends voor mobiele apps](/documentation/learning-paths/appservice-mobileapps/) en [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) maken.
 
 U gaat het volgende doen: 
@@ -35,12 +36,12 @@ U gaat het volgende doen:
 - [Installeer Git](http://www.git-scm.com/downloads). Controleer of de installatie is geslaagd door `git --version` uit te voeren vanuit een nieuwe Windows-opdrachtprompt, een PowerShell-venster, Linux-shell of OS X-terminal.
 - Verkrijg een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginners-app maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+>[AZURE.NOTE] U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 
 <a name="create"></a>
-## Een web-app maken
+## Een webtoepassing maken
 
-1. Meld u met uw Azure-account aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u met uw Azure-account aan bij de [Azure Portal](https://portal.azure.com).
 
 2. Klik in het menu aan de linkerkant op **Nieuw** > **Web en mobiel** > **Web-app**.
 
@@ -50,7 +51,7 @@ U gaat het volgende doen:
 
     - **App-naam**: voer een unieke naam in.
     - **Resourcegroep**: selecteer **Nieuwe maken** en geef de resourcegroep een naam.
-    - **App Service-plan/-locatie**: klik hier om te configureren en klik vervolgens op **Nieuwe maken** om de naam, locatie en prijscategorie van het App Service-plan in te stellen. Gebruik gerust de prijscategorie **Gratis**.
+    - **App Service-plan/-locatie**: klik hier om te configureren en klik vervolgens op **Nieuwe maken** om als u de naam, locatie en prijscategorie van het App Service-plan wilt instellen. Gebruik gerust de prijscategorie **Gratis**.
 
     Wanneer u klaar bent, ziet de blade voor het maken van de app er als volgt uit:
 
@@ -78,11 +79,11 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
 6. Klik op **Bron kiezen** > **Lokale Git-opslagplaats** > **OK**.
 
-7. In de blade van de web-app klikt u op **Referenties voor implementatie**.
+7. Terug in de blade van de web-app klikt u op **Implementatiereferenties**.
 
 8. Stel uw implementatiereferenties in en klik op **Opslaan**.
 
-7. Schuif in de blade van de web-app omlaag naar **Eigenschappen** of zoek deze optie en klik erop. Klik naast de **Git-URL** op de knop **Kopiëren**.
+7. Terug in de blade van de web-app schuift u omlaag naar **Eigenschappen** of zoekt u deze optie en klikt u erop. Klik naast de **Git-URL** op de knop **Kopiëren**.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
@@ -98,7 +99,7 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
         cd app-service-web-dotnet-get-started
 
-3. Stel de Git remote voor uw Azure-app in op de Git-URL die u enkele stappen eerder hebt gekopieerd vanuit de portal.
+3. Stel de git remote voor uw Azure-app in op de Git-URL die u enkele stappen eerder hebt gekopieerd vanuit de portal.
 
         git remote add azure <giturlfromportal>
 
@@ -108,13 +109,13 @@ Nu gaat u met Git een stukje code in Azure implementeren.
 
     ![Code pushen naar uw eerste web-app in Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)    
 
-    `git push` hiermee plaatst u niet alleen code in Azure, maar worden de vereiste pakketten ook hersteld en worden er binaire ASP.NET-bestanden ontwikkeld. 
+    `git push` Hiermee plaatst u niet alleen code in Azure, maar worden de vereiste pakketten ook hersteld en worden er binaire ASP.NET-bestanden ontwikkeld. 
 
 Dat is alles. De code wordt nu live uitgevoerd in Azure. Navigeer in uw browser naar http://*&lt;appname>*.azurewebsites.net om de code in actie te zien. 
 
 ## Updates aanbrengen in uw app
 
-Nu kunt u met Git op elk moment pushacties uitvoeren vanuit het project (opslagplaats) om een actieve site bij te werken. Dit werkt op dezelfde manier als waarop u de code voor het eerst implementeerde. Zo hoeft u telkens wanneer u een nieuwe wijziging wilt pushen die u lokaal hebt getest, alleen de volgende opdrachten uit te voeren vanuit de hoofdmap van het project (opslagplaats):
+Nu kunt u met Git op elk moment push-acties uitvoeren vanuit het project (opslagplaats) om een actieve site bij te werken. Dit werkt op dezelfde manier als toen u de code voor het eerst implementeerde. Zo hoeft u telkens wanneer u een nieuwe wijziging wilt pushen die u lokaal hebt getest, alleen de volgende opdrachten uit te voeren vanuit de hoofdmap van het project (opslagplaats):
 
     git add .
     git commit -m "<your_message>"
@@ -122,16 +123,16 @@ Nu kunt u met Git op elk moment pushacties uitvoeren vanuit het project (opslagp
 
 ## Volgende stappen
 
-Lees in [Een ASP.NET-web-app in Azure App Service implementeren met Visual Studio](web-sites-dotnet-get-started.md) hoe u .NET-web-apps rechtstreeks via Visual Studio in Azure maakt, ontwikkelt en implementeert.
+Lees in [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md) (Een ASP.NET-web-app in Azure App Service implementeren met Visual Studio) hoe u .NET-web-apps rechtstreeks via Visual Studio kunt maken, ontwikkelen en implementeren in Azure.
 
 Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 - Probeer [andere manieren om uw code in Azure te implementeren](../app-service-web/web-sites-deploy.md). Als u bijvoorbeeld wilt implementeren vanuit een van uw GitHub-opslagplaatsen, selecteert u in **Implementatieopties** **GitHub** in plaats van **Lokale Git-opslagplaats**.
-- Til uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiesignalen in. Dit alles met slechts enkele klikken. Zie [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md).
+- Breng uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiewaarschuwingen in. Dit alles met slechts enkele klikken. Zie [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md).
 
 
 
 
-<!---HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

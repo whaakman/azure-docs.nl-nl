@@ -5,11 +5,11 @@ In dit scenario bevinden er zich twee VNetten in een abonnement; HubVNet en VNet
 
 ![NVA-doorvoer](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-Opmerking: omwille van de eenvoud, kunt u ervan uitgaan dat alle VNetten hier zich in hetzelfde abonnement bevinden. Maar dit werkt ook in een scenario met verschillende abonnementhouders. 
+> [AZURE.NOTE] Voor het gemak kunt u ervan uitgaan dat alle VNets tot hetzelfde abonnement behoren. Maar dit werkt ook in een scenario met verschillende abonnementhouders.
 
 De sleuteleigenschap om doorvoerroutering in te schakelen, is de parameter 'Doorgestuurd verkeer toestaan'. Hierdoor is het mogelijk om verkeer van/naar de NVA in het gekoppelde VNet te accepteren en verzenden.  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,24 +16,28 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Microsoft Visual Studio
 > [AZURE.SELECTOR]
+- [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
 - [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+In dit artikel gebruikt u Microsoft Visual Studio om uw eerste Azure-gegevensfactory te maken.
 
-## Aanvullende vereisten
-2. U moet een **beheerder van het Azure-abonnement** zijn om Data Factory-entiteiten van Visual Studio te kunnen publiceren naar Azure Data Factory.   
+## Vereisten
+1. Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
+2. U moet een **beheerder van het Azure-abonnement** zijn om Data Factory-entiteiten van Visual Studio te kunnen publiceren naar Azure Data Factory.
 3. De volgende zaken moeten op uw computer zijn geïnstalleerd: 
     - Visual Studio 2013 of Visual Studio 2015
     - Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
     - Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Als u gebruikmaakt van Visual Studio 2013, kunt u de invoegtoepassing ook bijwerken met behulp van de volgende handelingen: klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**. 
  
-In de volgende procedures kunt u zien hoe u Data Factory-entiteiten maakt en implementeert.
+Nu gaan we met Visual Studio een Azure-gegevensfactory maken. 
+
 
 ## Een Visual Studio-project maken 
 1. Open **Visual Studio 2013** of **Visual Studio 2015**. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**. Het dialoogvenster **New Project** wordt weergegeven.  
@@ -267,15 +271,19 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
 
 21. Op de pagina Configure data factory doet u het volgende: 
     1. Selecteer **Create New Data Factory**.
-    2. Voer **FirstDataFactoryUsingVS** in bij **Name**. 
+    2. Voer een unieke **naam** in voor de gegevensfactory. Bijvoorbeeld: **FirstDataFactoryUsingVS09152016**. De naam moet wereldwijd uniek zijn.  
     
-        > [AZURE.IMPORTANT] De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-3. Selecteer het juiste abonnement voor het veld **Subscription**. 4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken. 5. Selecteer de **regio** voor de gegevensfactory. 6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
+        > [AZURE.IMPORTANT] Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+3. Selecteer het juiste abonnement voor het veld **Subscription**.
+     
+        > [AZURE.IMPORTANT] Als u geen abonnement niet ziet, controleert u of u bent aangemeld met een account dat een beheerder of co-beheerder is van het abonnement.  
+    4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken. 5. Selecteer de **regio** voor de gegevensfactory. 6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.) 
 23. Op de pagina **Publish Items** controleert u of alle Data Factory-entiteiten zijn geselecteerd en klikt u op **Next** om over te schakelen naar de pagina **Summary**.     
 24. Controleer de samenvatting en klik op **Next** om te beginnen met het implementatieproces en om de **implementatiestatus** te bekijken.
 25. Op de pagina **Deployment Status** ziet u de status van het implementatieproces. Klik op Finish wanneer de implementatie is uitgevoerd. 
 
-Houd rekening met het volgende: 
+ 
+Belangrijke punten om op te letten: 
 
 - Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren: 
 
@@ -288,15 +296,17 @@ Houd rekening met het volgende:
             Get-AzureRmResourceProvider
     - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 -   De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
--   Als u Data Factory-exemplaren wilt maken, moet u bijdrager/beheerder zijn van het Azure-abonnement
+-   Als u Data Factory-exemplaren wilt maken, moet u beheerder/co-beheerder van het Azure-abonnement zijn.
 
  
 ## De pijplijn bewaken
 
+### De pijplijn bewaken met Diagramweergave
 6. Meld u aan bij de [Azure Portal](https://portal.azure.com/) en doe het volgende:
-    1. Klik op **Bladeren** en selecteer **Gegevensfactory’s**.
+    1. Klik op **Meer services** en op **Gegevensfactory's**.
         ![Door gegevensfactory’s bladeren](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
-    2. Selecteer **FirstDataFactoryUsingVS** in de lijst met gegevensfactory’s. 
+    2. Selecteer de naam van de gegevensfactory (bijvoorbeeld: **FirstDataFactoryUsingVS09152016**) in de lijst met gegevensfactory’s. 
+        ![Uw gegevensfactory selecteren](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. Klik op de startpagina van uw gegevensfactory op **Diagram**.
   
     ![Tegel Diagram](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -319,17 +329,36 @@ Houd rekening met het volgende:
 
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft.
-    >[AZURE.IMPORTANT] Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten).  
+    >[AZURE.IMPORTANT] Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.  
 
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
     
 10. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
  
     ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
+
+    ![Details gegevenssegment](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+12. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
+    ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    
+    In de logboekbestanden ziet u de Hive-query die is uitgevoerd en de statusinformatie. Deze logboeken komen van pas bij het oplossen van problemen.  
+ 
 
 Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor instructies over het gebruik van de Azure Portal om de pijplijn en gegevenssets te bewaken die u tijdens deze zelfstudie hebt gemaakt.
 
-U kunt ook de Monitor and Manage App gebruiken om uw gegevenspijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van de toepassing. 
+### De pijplijn bewaken met de app Bewaking en beheer
+U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
+
+1. Klik op de tegel Bewaking en beheer.
+
+    ![De tegel Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png) 
+2. De toepassing Bewaking en beheer wordt weergegeven. Wijzig **Begintijd** en **Eindtijd**, zodat deze overeenkomen met de starttijd (04-01-2016 12:00 uur) en de eindtijd (04-02-2016 12:00 uur) van uw pijplijn. Klik op **Toepassen**.
+
+    ![De app Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png) 
+3. Selecteer een activiteitsvenster in de lijst Activiteitsvensters voor details van dit venster. 
+    ![Details van activiteitsvenster](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
  
@@ -477,6 +506,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

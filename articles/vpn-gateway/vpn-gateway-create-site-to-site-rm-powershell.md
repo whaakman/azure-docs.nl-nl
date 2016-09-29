@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Een VNet met een site-naar-site-verbinding maken met PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klassieke Azure-portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klassiek - Klassieke portal](vpn-gateway-site-to-site-create.md)
 
 In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-verbinding met uw on-premises netwerk maakt met behulp van het **Azure Resource Manager-implementatiemodel**. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 
@@ -148,7 +149,7 @@ Vervolgens vraagt u een openbaar IP-adres aan dat moet worden toegewezen aan de 
 
 De Azure VPN-gateway voor het Resource Manager-implementatiemodel ondersteunt momenteel alleen openbare IP-adressen met behulp van de dynamische toewijzingsmethode. Dit betekent echter niet dat het IP-adres verandert. Het IP-adres van de Azure VPN-gateway verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het openbare IP-adres van de gateway verandert niet wanneer de grootte van uw Azure VPN-gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
-Gebruik het volgende PowerShell-voorbeeld.
+Gebruik het volgende PowerShell-voorbeeld:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +178,7 @@ Gebruik de volgende waarden:
 
 ## 7. Uw VPN-apparaat configureren
 
-U hebt nu het openbare IP-adres van de gateway van het virtuele netwerk nodig om uw on-premises VPN-apparaat te configureren. Neem contact op met de fabrikant van uw apparaat voor specifieke configuratiegegevens. Raadpleeg daarnaast [VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie.
+U hebt nu het openbare IP-adres van de gateway van het virtuele netwerk nodig om uw on-premises VPN-apparaat te configureren. Neem contact op met de fabrikant van uw apparaat voor specifieke configuratiegegevens. Raadpleeg [VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie.
 
 Gebruik het volgende voorbeeld om het openbare IP-adres van de gateway van uw virtuele netwerk te vinden:
 
@@ -225,6 +226,6 @@ Volg de onderstaande instructies als u de voorvoegsels voor de gateway van een l
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

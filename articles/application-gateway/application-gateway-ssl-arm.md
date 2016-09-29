@@ -12,8 +12,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
+
 
 # Een toepassingsgateway configureren voor SSL-offload met Azure Resource Manager
 
@@ -49,9 +50,9 @@ Voor het configureren van SSL-certificaten moet het protocol in **HttpListener**
 
 ## Een toepassingsgateway maken
 
-Het verschil tussen het gebruik van het klassieke Azure-implementatiemodel en Azure Resource Manager zit hem in de volgorde waarin u een Application Gateway maakt en in de items die u moet configureren.
+Het verschil tussen het gebruik van het klassieke Azure-implementatiemodel en Azure Resource Manager zit hem in de volgorde waarin u een toepassingsgateway maakt en in de items die u moet configureren.
 
-Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om een toepassingsgatewayresource te maken.
+Met Resource Manager worden alle componenten van een toepassingsgateway afzonderlijk geconfigureerd en vervolgens samengesteld om een toepassingsgatewayresource te maken.
 
 
 Dit zijn de stappen voor het maken van een toepassingsgateway:
@@ -69,8 +70,6 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 ### Stap 1
 
     Login-AzureRmAccount
-
-
 
 ### Stap 2
 
@@ -109,6 +108,7 @@ In het volgende voorbeeld ziet u hoe u een virtueel netwerk maakt met Resource M
 Hiermee wijst u het adresbereik 10.0.0.0/24 toe aan de subnetvariabele die u gaat gebruiken om een virtueel netwerk te maken.
 
 ### Stap 2
+
     $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Hiermee maakt u voor de regio VS - west een virtueel netwerk met de naam appgwvnet in de resourcegroep appgw-rg, waarbij het voorvoegsel 10.0.0.0/16 met het subnet 10.0.0.0/24 wordt gebruikt.
@@ -138,7 +138,7 @@ Hiermee maakt u voor de toepassingsgateway een IP-configuratie met de naam gatew
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Hiervoor worden de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50 gebruikt. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. Vervang de IP-adressen uit het bovenstaande voorbeeld door de IP-adressen van de eindpunten van uw webtoepassing.
+Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50. Deze waarden zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. Vervang de IP-adressen uit het voorbeeld hierboven door de IP-adressen van de eindpunten van uw webtoepassing.
 
 ### Stap 3
 
@@ -189,7 +189,7 @@ Hiermee configureert u de exemplaargrootte van de toepassingsgateway.
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Hiermee maakt u een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
+In dit voorbeeld wordt een toepassingsgateway gemaakt met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
 
 ## Volgende stappen
 
@@ -202,6 +202,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

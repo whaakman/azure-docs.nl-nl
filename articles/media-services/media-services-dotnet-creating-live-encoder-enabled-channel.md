@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET" 
+    pageTitle="Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET | Microsoft Azure" 
     description="In deze zelfstudie wordt u begeleid bij de stappen voor het maken van een kanaal dat een single-bitrate livestream ontvangt, en het coderen van deze stream naar een multi-bitrate stream met .NET SDK." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/15/2016"
+    ms.author="juliako;anilmur"/>
+
 
 
 #Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
@@ -91,7 +92,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 - U hebt een Azure-account nodig om deze zelfstudie te voltooien. 
     
-    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web-apps in Azure App Service.
+    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web Apps in Azure App Service.
 - Een Media Services-account. Zie [Account maken](media-services-create-account.md) voor meer informatie over het maken van een Media Services-account.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
 - U moet Media Services .NET SDK versie 3.2.0.0 of hoger gebruiken.
@@ -518,7 +519,9 @@ Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op 
     }   
 
 
-##Volgende stappen: Media Services-leertrajecten
+##Volgende stap
+
+Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -532,6 +535,6 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

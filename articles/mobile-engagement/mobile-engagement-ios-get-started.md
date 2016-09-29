@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Aan de slag met Azure Mobile Engagement voor iOS in Objective C"
+    pageTitle="Aan de slag met Azure Mobile Engagement voor iOS in Objective C | Microsoft Azure"
     description="Informatie over het gebruik van Azure Mobile Engagement met analyses en pushmeldingen voor iOS-apps."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/14/2016"
     ms.author="piyushjo" />
+
 
 # Aan de slag met Azure Mobile Engagement voor iOS-apps in Objective C
 
@@ -25,12 +26,12 @@ In deze zelfstudie maakt u een lege iOS-app die basisgegevens verzamelt en pushm
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-+ XCode 6 of XCode 7, die u vanuit de Mac App Store kunt installeren.
++ XCode 8, die u vanuit de Mac App Store kunt installeren.
 + De [Mobile Engagement iOS SDK].
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Engagement-zelfstudies voor iOS-apps.
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started) voor meer informatie.
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 
@@ -87,7 +88,7 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie.
 
 ##<a id="monitor"></a>Realtime-bewaking inschakelen
 
-Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm (activiteit) naar de back-end van Mobile Engagement sturen.
+U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn.
 
 1. Open het bestand **ViewController.h** en importeer **EngagementViewController.h**:
 
@@ -183,6 +184,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

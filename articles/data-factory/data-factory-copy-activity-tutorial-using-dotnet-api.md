@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/19/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
 > [AZURE.SELECTOR]
-- [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [De Data Factory-editor gebruiken](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell gebruiken](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio gebruiken](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API gebruiken](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API gebruiken](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [De wizard Kopiëren gebruiken](data-factory-copy-data-wizard-tutorial.md)
+- [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 
 In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met een .NET API. In de pijplijn in de gegevensfactory wordt gebruikgemaakt van een kopieeractiviteit om gegevens van Azure-blobopslag te kopiëren naar Azure SQL Database.
 
@@ -34,7 +35,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
 > Dit artikel behandelt niet de volledige Data Factory .NET API. Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK. 
 
 ## Vereisten
-- Doorloop [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een overzicht van de zelfstudie en de volledige vereisten. 
+- Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit. 
 - Visual Studio 2012 of 2013 of 2015
 - Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 - Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
@@ -460,6 +461,6 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 
