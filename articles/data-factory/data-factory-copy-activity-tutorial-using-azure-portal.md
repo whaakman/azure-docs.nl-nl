@@ -35,95 +35,95 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
 Stap | Beschrijving
 -----| -----------
 [Een Azure-gegevensfactory maken](#create-data-factory) | In deze stap maakt u een Azure-gegevensfactory met de naam **ADFTutorialDataFactory**.  
-[Gekoppelde services maken](#create-linked-services) | In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en **AzureSqlLinkedService**. Met de AzureStorageLinkedService wordt een Azure-opslag gekoppeld en met AzureSqlLinkedService wordt de Azure SQL Database gekoppeld aan ADFTutorialDataFactory. De invoergegevens van de pijplijn staan in een blobcontainer in Azure Blob Storage en de uitvoergegevens worden opgeslagen in een tabel in de Azure SQL Database. Daarom voegt u deze twee gegevensarchieven als gekoppelde services toe aan de gegevensfactory.      
-[Invoer- en uitvoergegevenssets maken](#create-datasets) | In de vorige stap hebt u gekoppelde services gemaakt die verwijzen naar gegevensarchieven die invoer- of uitvoergegevens bevatten. In deze stap definieert u twee gegevensfactorytabellen (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven. In EmpTableFromBlob geeft u op welke blobcontainer een blob bevat met de brongegevens en voor EmpSQLTable geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen. U geeft ook andere eigenschappen op, zoals de structuur, de beschikbaarheid en het beleid. 
-[Een pijplijn maken](#create-pipeline) | In deze stap maakt u een pijplijn met de naam **ADFTutorialPipeline** in ADFTutorialDataFactory. De pijplijn heeft een **kopieeractiviteit** waarmee invoergegevens van de Azure-blob naar de uitvoer-Azure SQL-tabel worden gekopieerd. Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
+[Gekoppelde services maken](#create-linked-services) | In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en **AzureSqlLinkedService**. <br/><br/>Met de AzureStorageLinkedService wordt een Azure-opslag gekoppeld en met AzureSqlLinkedService wordt de Azure SQL Database gekoppeld aan ADFTutorialDataFactory. De invoergegevens van de pijplijn staan in een blobcontainer in Azure Blob Storage en de uitvoergegevens worden opgeslagen in een tabel in de Azure SQL Database. Daarom voegt u deze twee gegevensarchieven als gekoppelde services toe aan de gegevensfactory.      
+[Invoer- en uitvoergegevenssets maken](#create-datasets) | In de vorige stap hebt u gekoppelde services gemaakt die verwijzen naar gegevensarchieven die invoer- of uitvoergegevens bevatten. In deze stap definieert u twee gegevenssets, **InputDataset** en **OutputDataset**, die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven. <br/><br/>In InputDataset geeft u op welke blobcontainer een blob bevat met de brongegevens en voor OutputDataset geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen. U geeft ook andere eigenschappen op, zoals de structuur, de beschikbaarheid en het beleid. 
+[Een pijplijn maken](#create-pipeline) | In deze stap maakt u een pijplijn met de naam **ADFTutorialPipeline** in ADFTutorialDataFactory. <br/><br/>U voegt een **kopieeractiviteit** toe aan de pijplijn waarmee invoergegevens van de Azure-blob naar de uitvoer-Azure SQL-tabel worden gekopieerd. Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 [De pijplijn bewaken](#monitor-pipeline) | In deze stap bewaakt u segmenten van de invoer- en uitvoertabellen middels de Azure-portal.
 
-> [AZURE.IMPORTANT] 
-> Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de **vereiste** stappen voordat u deze zelfstudie volgt.
+## Vereisten 
+U dient eerst te voldoen aan de vereisten in het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voordat u deze zelfstudie volgt.
 
 ## Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
 
-1.  Wanneer u zich hebt aangemeld bij [Azure-portal][azure-portal] klikt u op **NIEUW** in de linkeronderhoek. Selecteer vervolgens **Gegevensanalyse** in de blade **Maken** en klik op **Gegevensfactory** in de blade **Gegevensanalyse**. 
+1.  Meld u aan bij de [Azure-portal](https://portal.azure.com/) en klik op **Nieuw**. Selecteer **Intelligence en analytische gegevens** en klik op **Data Factory**. 
 
-    ![Nieuw -> DataFactory][image-data-factory-new-datafactory-menu]    
+    ![Nieuw -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
 
 6. In de blade **Nieuwe gegevensfactory**:
     1. Voer **ADFTutorialDataFactory** in als **naam**. 
     
-        ![Blade voor een nieuwe gegevensfactory][image-data-factory-getstarted-new-data-factory-blade]
-    2. Klik op de **RESOURCEGROEPNAAM** en voer de volgende stappen uit:
-        1. Klik op **Een nieuwe resourcegroep maken**.
-        2. In de blade **Resourcegroep maken** voert u **ADFTutorialResourceGroup** in als **naam** van de resourcegroep en klikt u op **OK**. 
+        ![Blade voor een nieuwe gegevensfactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
 
-            ![Een resourcegroep maken][image-data-factory-create-resource-group]
-
-        Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../resource-group-overview.md) voor meer informatie.  
-7. In de blade **Nieuwe gegevensfactory** controleert u of **Toevoegen aan Startboard** is geselecteerd.
-8. Klik op **Maken** op de blade **Nieuwe gegevensfactory**.
-
-    De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+        De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     
-        Data factory name “ADFTutorialDataFactory” is not available  
+            Data factory name “ADFTutorialDataFactory” is not available  
      
-    ![Naam van gegevensfactory niet beschikbaar][image-data-factory-name-not-available]
+        ![Naam van gegevensfactory niet beschikbaar](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
+    2. Selecteer uw Azure-**abonnement**.
+    3. Voer een van de volgende stappen uit voor de resourcegroep:
+        1. Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
+        2. Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
     
-    > [AZURE.NOTE] De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.  
-    > 
-    > Als u Data Factory-exemplaren wilt maken, moet u bijdrager/beheerder zijn van het Azure-abonnement
+            Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../resource-group-overview.md) voor meer informatie.  
+    4. Selecteer de **locatie** voor de gegevensfactory. Alleen regio's die worden ondersteund door de Data Factory-service worden weergegeven in de vervolgkeuzelijst.
+    5. Selecteer **vastmaken aan Startboard**.     
+    6. Klik op **Create**.
 
-9. Klik op de hub **MELDINGEN** aan de linkerzijde en zoek meldingen over het aanmaakproces. Klik op **X** om de blade **MELDINGEN** te sluiten als deze is geopend. 
-10. Wanneer het aanmaken is voltooid, ziet u de blade **GEGEVENSFACTORY** zoals in de afbeelding is weergegeven.
+        > [AZURE.IMPORTANT] Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../active-directory/role-based-access-built-in-roles.md/#data-factory-contributor) op abonnements-/resourcegroepsniveau.
+        >  
+        >  De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.              
+9.  Klik op het belpictogram op de werkbalk om de statusmeldingen/berichten te zien. 
 
-    ![Startpagina van de gegevensfactory][image-data-factory-get-stated-factory-home-page]
+    ![Meldingen](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
+10. Wanneer het maken is voltooid, ziet u de blade **Data Factory** zoals in de afbeelding is weergegeven.
+
+    ![Startpagina van de gegevensfactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## Gekoppelde services maken
-Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Een gegevensarchief kan een Azure Storage, Azure SQL Database of een on-premises SQL Server-database zijn.
+Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md##supported-data-stores-and-formats) voor alle bronnen en sinks die worden ondersteund door de kopieerbewerking. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor de lijst met compute-services die worden ondersteund door Data Factory. In deze zelfstudie gebruikt u geen compute-service. 
 
 In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en **AzureSqlLinkedService**. Met de gekoppelde AzureStorageLinkedService-service wordt een Azure-opslagaccount gekoppeld en met AzureSqlLinkedService wordt een Azure SQL Database gekoppeld aan **ADFTutorialDataFactory**. Later in deze zelfstudie maakt u een pijplijn waarmee gegevens worden gekopieerd van een blobcontainer in AzureStorageLinkedService naar een SQL-tabel in AzureSqlLinkedService.
 
 ### Een gekoppelde service maken voor het Azure-opslagaccount
-1.  In de blade **GEGEVENSFACTORY** klikt u op de tegel **Ontwerpen en implementeren** om de **editor** van de gegevensfactory te openen.
+1.  In de blade **Gegevensfactory** klikt u op de tegel **Maken en implementeren** om de **editor** van de gegevensfactory te openen.
 
-    ![Tegel Ontwerpen en implementeren][image-author-deploy-tile] 
-
-     
+    ![Tegel Ontwerpen en implementeren](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
 5. In de **editor**, klikt u op **Nieuw gegevensarchief** op de werkbalk en selecteert u **Azure Storage** uit de vervolgkeuzelijst. U ziet het JSON-sjabloon voor het maken van een gekoppelde Azure-service in het rechterdeelvenster. 
 
-    ![Knop Nieuw gegevensarchief in de editor][image-editor-newdatastore-button]
-    
-6. Vervang **accountname** en **accountkey** door de naam van uw account en de accountsleutel van uw Azure-opslagaccount. 
+    ![Knop Nieuw gegevensarchief in de editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
+6. Vervang `<accountname>` en `<accountkey>` door de naam van uw account en de accountsleutel van uw Azure-opslagaccount. 
 
-    ![JSON voor Blob Storage in de editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
-    
-    Zie de [naslaginformatie voor JSON-scriptverwerking](http://go.microsoft.com/fwlink/?LinkId=516971) voor meer informatie over de JSON-eigenschappen.
+    ![JSON voor Blob Storage in de editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+6. Klik op **Implementeren** op de werkbalk. De geïmplementeerde **AzureStorageLinkedService** wordt nu in de structuurweergave weergeven. 
 
-6. Klik op **Implementeren** op de werkbalk om AzureStorageLinkedService te implementeren. Controleer of u **GEKOPPELDE SERVICE IS GEMAAKT** ziet op de titelbalk.
+    ![Blob Storage implementeren in de editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-    ![Blob Storage implementeren in de editor][image-editor-blob-storage-deploy]
+> [AZURE.NOTE]
+> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over JSON-eigenschappen.
 
 ### Een gekoppelde service maken voor de Azure SQL Database
 1. In de **Data Factory-editor** klikt u op **Nieuw gegevensarchief** op de werkbalk en selecteert u **Azure SQL Database** uit de vervolgkeuzelijst. U ziet het JSON-sjabloon voor het maken van een gekoppelde Azure SQL-service in het rechterdeelvenster.
+2. Vervang `<servername>`, `<databasename>`, `<username>@<servername>` en `<password>` door de namen van uw Azure SQL-server, -database en -gebruikersaccount en voer uw wachtwoord in. 
+3. Klik op **Implementeren** op de werkbalk om **AzureSqlLinkedService** te maken en te implementeren.
+4. Bevestig dat **AzureSqlLinkedService** in de structuurweergave wordt weergegeven. 
 
-    ![Editor Azure SQL-instellingen][image-editor-azure-sql-settings]
-
-2. Vervang **servername**, **databasename**, **username@servername** en **password** door de namen van uw Azure SQL-server, database en gebruikersaccount en voer uw wachtwoord in. 
-3. Klik op **Implementeren** op de werkbalk om AzureSqlLinkedService te maken en te implementeren. 
-   
+> [AZURE.NOTE]
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
 
 ## Gegevenssets maken
-In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService** en **AzureSqlLinkedService** gemaakt om een Azure-opslagaccount en een Azure SQL Database te koppelen aan de gegevensfactory **ADFTutorialDataFactory**. In deze stap definieert u twee gegevensfactorytabellen (**EmpTableFromBlob** en **EmpSQLTable**) die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk AzureStorageLinkedService en AzureSqlLinkedService. In EmpTableFromBlob geeft u op welke blobcontainer een blob bevat met de brongegevens en voor EmpSQLTable geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen. 
+In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService** en **AzureSqlLinkedService** gemaakt om een Azure-opslagaccount en een Azure SQL Database te koppelen aan de gegevensfactory **ADFTutorialDataFactory**. In deze stap definieert u twee gegevenssets, **InputDataset** en **OutputDataset**, die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk AzureStorageLinkedService en AzureSqlLinkedService. In InputDataset geeft u op welke blobcontainer een blob bevat met de brongegevens en voor OutputDataset geeft u op in welke SQL-tabel de uitvoergegevens worden opgeslagen. 
 
 ### Invoergegevensset maken 
-Een tabel is een rechthoekige gegevensset en bevat een schema. In deze stap maakt u een tabel met de naam **EmpBlobTable** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service.
+In deze stap maakt u een gegevensset met de naam **InputDataset** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service.
 
-1. In de **editor** van de gegevensfactory klikt u op **Nieuwe gegevensset** op de werkbalk en klikt u op **Blobtabel** in de vervolgkeuzelijst. 
+1. In de **Editor** voor de Data Factory, klikt u op **... Meer**, **Nieuwe gegevensset** en vervolgens op **Azure Blob-opslag** in de vervolgkeuzelijst. 
+
+    ![Nieuw gegevenssetmenu](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Vervang JSON in het rechterdeelvenster met het volgende JSON-fragment: 
 
         {
-          "name": "EmpTableFromBlob",
+          "name": "InputDataset",
           "properties": {
             "structure": [
               {
@@ -152,46 +152,44 @@ Een tabel is een rechthoekige gegevensset en bevat een schema. In deze stap maak
             }
           }
         }
-
         
      Houd rekening met de volgende punten: 
     
     - De gegevensset **type** wordt ingesteld op **AzureBlob**.
     - **linkedServiceName** wordt ingesteld op **AzureStorageLinkedService**. U hebt deze gekoppelde service gemaakt in stap 2.
-    - **folderPath** wordt ingesteld op de container **adftutorial**. U kunt ook de naam van een blob opgeven in de map. Omdat u de naam van de blob niet opgeeft, worden de gegevens uit alle blobs in de container gezien als invoergegevens.  
+    - **folderPath** wordt ingesteld op de container **adftutorial**. U kunt ook de naam van een blob in de map opgeven met behulp van de **fileName**-eigenschap. Omdat u de naam van de blob niet opgeeft, worden de gegevens uit alle blobs in de container gezien als invoergegevens.  
     - De indeling **type** wordt ingesteld op **TextFormat**
     - Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een kommateken (**columnDelimiter**) 
     - De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op elk **uur** en het **interval** wordt ingesteld op **1**). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (**adftutorial**). 
     
-
-    Als u geen **fileName** opgeeft voor een **invoer****tabel**, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
+    Als u geen **fileName** opgeeft voor een **invoer**gegevensset, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
  
     Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid\&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-    Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv. 
+    Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2016-09-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2016/09/20 en wordt fileName ingesteld op 08.csv. 
 
-        "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-        "fileName": "{Hour}.csv",
-        "partitionedBy": 
-        [
-            { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-        ],
+            "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+            "fileName": "{Hour}.csv",
+            "partitionedBy": 
+            [
+                { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+            ],
+2. Klik op **Implementeren** op de werkbalk om de tabel **InputDataset** te implementeren. Bevestig dat **InputDataset** in de structuurweergave wordt weergegeven.
 
-    Zie de [naslaginformatie voor JSON-scriptverwerking](http://go.microsoft.com/fwlink/?LinkId=516971) voor meer informatie over de JSON-eigenschappen.
-
-2. Klik op **Implementeren** op de werkbalk om te tabel **EmpTableFromBlob** te implementeren. Controleer of u **TABEL IS GEMAAKT** ziet op de titelbalk van de editor.
+> [AZURE.NOTE]
+> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over JSON-eigenschappen.
 
 ### Uitvoergegevensset maken
-In dit deel van de stap maakt u een uitvoergegevensset met de naam **EmpSQLTable**. Deze gegevensset wijst naar een SQL-tabel in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. 
+In dit deel van de stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze gegevensset wijst naar een SQL-tabel in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. 
 
-1. In de **editor** van de gegevensfactory klikt u op **Nieuwe gegevensset** op de werkbalk en klikt u op **Azure SQL-tabel** in de vervolgkeuzelijst. 
+1. In de **Editor** voor de Data Factory, klikt u op **... Meer**, **Nieuwe gegevensset** en vervolgens op **Azure SQL** in de vervolgkeuzelijst. 
 2. Vervang JSON in het rechterdeelvenster met het volgende JSON-fragment:
 
         {
-          "name": "EmpSQLTable",
+          "name": "OutputDataset",
           "properties": {
             "structure": [
               {
@@ -214,27 +212,24 @@ In dit deel van de stap maakt u een uitvoergegevensset met de naam **EmpSQLTable
             }
           }
         }
-
         
      Houd rekening met de volgende punten: 
     
-    * De gegevensset **type** wordt ingesteld op **AzureSQLTable**.
-    * **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService** (u hebt deze gekoppelde service gemaakt in stap 2).
-    * **tablename** wordt ingesteld op **emp**.
-    * De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
-    * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
+    - De gegevensset **type** wordt ingesteld op **AzureSQLTable**.
+    - **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService** (u hebt deze gekoppelde service gemaakt in stap 2).
+    - **tablename** wordt ingesteld op **emp**.
+    - De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
+    - De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 
+3. Klik op **Implementeren** op de werkbalk om de tabel **OutputDataset** te implementeren. Bevestig dat **OutputDataset** in de structuurweergave wordt weergegeven. 
 
-3. Klik op **Implementeren** op de werkbalk om te tabel **EmpSQLTable** te implementeren.
-
+> [AZURE.NOTE]
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
 
 ## Pijplijn maken
-In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **EmpTableFromBlob** als invoer en **EmpSQLTable** als uitvoer.
+In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **InputDataset** als invoer en **OutputDataset** als uitvoer.
 
-1. In de **editor** van de gegevensfactory klikt u op de werkbalk op **Nieuwe pijplijn**. Klik op **... (ellips)** op de werkbalk als u de knop niet ziet. U kunt ook met de rechtermuisknop op **Pijplijnen** klikken in de boomstructuur vervolgens klikken op **Nieuwe pijplijn**.
-
-    ![Knop Nieuwe pijplijn van de editor][image-editor-newpipeline-button]
- 
+1. In de **Editor** voor de Data Factory, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn**. U kunt ook met de rechtermuisknop op **Pijplijnen** klikken in de boomstructuur vervolgens klikken op **Nieuwe pijplijn**.
 2. Vervang JSON in het rechterdeelvenster met het volgende JSON-fragment: 
         
         {
@@ -244,16 +239,15 @@ In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt
             "activities": [
               {
                 "name": "CopyFromBlobToSQL",
-                "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
                 "type": "Copy",
                 "inputs": [
                   {
-                    "name": "EmpTableFromBlob"
+                    "name": "InputDataset"
                   }
                 ],
                 "outputs": [
                   {
-                    "name": "EmpSQLTable"
+                    "name": "OutputDataset"
                   }
                 ],
                 "typeProperties": {
@@ -274,103 +268,109 @@ In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt
                 }
               }
             ],
-            "start": "2015-07-12T00:00:00Z",
-            "end": "2015-07-13T00:00:00Z"
+            "start": "2016-07-12T00:00:00Z",
+            "end": "2016-07-13T00:00:00Z"
           }
         } 
 
     Houd rekening met de volgende punten:
 
-    - In het gedeelte Activiteiten is er slechts één activiteit waarvan **type** is ingesteld op **CopyActivity**.
-    - De invoer voor de activiteit is ingesteld op **EmpTableFromBlob** en de uitvoer voor de activiteit is ingesteld op **EmpSQLTable**.
-    - In het gedeelte **transformation** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type.
+    - In het gedeelte Activiteiten is er slechts één activiteit waarvan **type** is ingesteld op **Copy**.
+    - De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**.
+    - In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type.
 
-    Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2015-02-03, wat gelijk staat aan 2015-02-03T00:00:00Z
+    Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2016-02-03, wat gelijk staat aan 2016-02-03T00:00:00Z
     
-    Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2014-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
+    Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2016-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
     
     Als u geen waarde opgeeft voor de eigenschap **end**, wordt automatisch **start + 48 uur** gebruikt. Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**.
     
     In het voorgaande voorbeeld zijn er 24 gegevenssegmenten omdat er elk uur één gegevenssegment wordt gemaakt.
     
-    Zie de [naslaginformatie voor JSON-scriptverwerking](http://go.microsoft.com/fwlink/?LinkId=516971) voor meer informatie over de JSON-eigenschappen.
-
-4. Klik op **Implementeren** op de werkbalk om de tabel **ADFTutorialPipeline** te implementeren. Controleer of u het bericht **PIJPLIJN GEMAAKT** ziet.
-5. Sluit nu de blade **Editor** door op **X** te klikken. Klik opnieuw op **X** om de blade ADFTutorialDataFactory met de werkbalk en boomstructuur te sluiten. Als u het bericht **uw niet-opgeslagen wijzigingen worden genegeerd** ziet, klikt u op **OK**.
-6. U keert nu terug naar de blade **GEGEVENSFACTORY** van de **ADFTutorialDataFactory**.
+4. Klik op **Implementeren** op de werkbalk om de tabel **ADFTutorialPipeline** te implementeren. Controleer of de pijplijn in de structuurweergave wordt weergegeven. 
+5. Sluit nu de blade **Editor** door op **X** te klikken. Klik opnieuw op **X** om de **Data Factory**-startpagina te zien voor de **ADFTutorialDataFactory**.
 
 **Gefeliciteerd.** U hebt een Azure-gegevensfactory, gekoppelde services, tabellen en een pijplijn gemaakt en u hebt een planning ingesteld voor de pijplijn.   
  
 ### De gegevensfactory weergeven in een diagramweergave 
-1. In de blade **GEGEVENSFACTORY** klikt u op **Diagram**.
+1. In de blade **Gegevensfactory** klikt u op **Diagram**.
 
-    ![Blade Gegevensfactory - tegel Diagram][image-datafactoryblade-diagramtile]
-
+    ![Blade Gegevensfactory - tegel Diagram](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
 2. U ziet een diagram dat lijkt op de volgende afbeelding: 
 
-    ![Diagramweergave][image-data-factory-get-started-diagram-blade]
+    ![Diagramweergave](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
 
     U kunt inzoomen, uitzoomen, zoomen naar 100%, passend maken, pijplijnen en tabellen automatisch positioneren en de afkomst weergeven (upstream- en downstreamitems van geselecteerde items worden gemarkeerd).  U kunt dubbelklikken op een object (invoer-/uitvoertabel of pijplijn) om de eigenschappen ervan te bekijken. 
-3. Klik met de rechtermuisknop op **ADFTutorialPipeline** in de diagramweergave en klik op **Pijplijn openen**. U ziet hier de activiteiten in de pijplijn in combinatie met de invoer- en uitvoergegevenssets van de activiteiten. In deze zelfstudie hebt u slechts één activiteit in de pijplijn (kopieeractiviteit), met EmpTableBlob als invoergegevensset en EmpSQLTable als uitvoergegevensset.   
+3. Klik met de rechtermuisknop op **ADFTutorialPipeline** in de diagramweergave en klik op **Pijplijn openen**. 
 
     ![Pijplijn openen](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
+4. U ziet hier de activiteiten in de pijplijn in combinatie met de invoer- en uitvoergegevenssets van de activiteiten. In deze zelfstudie hebt u slechts één activiteit in de pijplijn (kopieeractiviteit), met InputDataset als invoergegevensset en OutputDataset als uitvoergegevensset.   
 
-4. Klik op **Gegevensfactory** in het koppelingenmenu linksboven om terug te keren naar de diagramweergave. In de diagramweergave worden alle pijplijnen weergegeven. In dit voorbeeld hebt u slechts één pijplijn gemaakt.   
+    ![Geopende pijplijnweergave](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
+5. Klik op **Gegevensfactory** in het koppelingenmenu linksboven om terug te keren naar de diagramweergave. In de diagramweergave worden alle pijplijnen weergegeven. In dit voorbeeld hebt u slechts één pijplijn gemaakt.   
  
 
 ## De pijplijn bewaken
 In deze stap gebruikt u de Azure-portal om te controleren wat er gebeurt in een Azure data factory. 
 
-1. Ga naar de [Azure-portal (Preview)][azure-portal] als deze nog niet is geopend. 
-2. Als de blade van **ADFTutorialDataFactory** niet is geopend, opent u die door op **ADFTutorialDataFactory** te klikken op het **Startboard**. 
+### De pijplijn bewaken met Diagramweergave
+
+1. Klik op **X** om de **Diagram**-weergave te sluiten en de Data Factory-startpagina voor de gegevensfactory weer te geven . Als u de webbrowser hebt gesloten, voert u de volgende stappen uit: 
+    2. Ga naar de [Azure-portal](https://portal.azure.com/). 
+    2. Dubbelklik op **ADFTutorialDataFactory** op de **Startboard** (of) klik op **Gegevensfactory's** in het menu aan de linkerkant en zoek naar ADFTutorialDataFactory. 
 3. U ziet het aantal tabellen en de namen van de tabellen en pijplijn die u op deze blade hebt gemaakt.
 
-    ![startpagina met namen][image-data-factory-get-started-home-page-pipeline-tables]
-
+    ![startpagina met namen](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)
 4. Klik nu op de tegel **Gegevenssets**.
-5. In de blade **Gegevenssets** klikt u op **EmpTableFromBlob**. Deze gegevensset is de invoergegevensset voor **ADFTutorialPipeline**.
+5. In de blade **Gegevenssets** klikt u op **InputDataset**. Deze gegevensset is de invoergegevensset voor **ADFTutorialPipeline**.
 
-    ![Gegevenssets waarvoor EmpTableFromBlob is geselecteerd][image-data-factory-get-started-datasets-emptable-selected]   
-5. De gegevenssegmenten tot aan de huidige tijd zijn al gemaakt en hebben de status **Gereed** omdat het bestand **emp.txt** aanwezig is in de blobcontainer **adftutorial\input**. Controleer of er geen segmenten worden weergegeven in het gedeelte **Recent mislukte segmenten** onderaan.
+    ![Gegevenssets waarvoor InputDataset is geselecteerd](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
+5. Klik op **... (ellips)** om alle gegevenssegmenten te bekijken.
 
-    Zowel **Onlangs bijgewerkt segmenten** als **Onlangs mislukte segmenten** worden gesorteerd op basis van de **TIJD VAN DE LAATSTE UPDATE**. De bijwerktijd van een segment wordt in de volgende gevallen gewijzigd: 
+    ![Alle invoergegevenssegmenten](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
+
+    De gegevenssegmenten tot aan de huidige tijd hebben de status **Gereed** omdat het bestand **emp.txt** aanwezig is in de blobcontainer **adftutorial\input**. Controleer of er geen segmenten worden weergegeven in het gedeelte **Recent mislukte segmenten** onderaan.
+
+    Zowel **Onlangs bijgewerkt segmenten** als **Onlangs mislukte segmenten** worden gesorteerd op basis van de **TIJD VAN DE LAATSTE UPDATE**. 
     
-    Klik op de titel van de lijsten of op **... (drie puntjes)** als u de langere lijst met segmenten wit zien. Klik op **Filter** op de werkbalk om de segmenten te filteren.  
+    Klik op **Filter** op de werkbalk om de segmenten te filteren.  
     
-    Als u in plaats daarvan de gegevenssegmenten wilt sorteren op basis van de begin-/eindtijd, klikt u op de tegel **Gegevenssegmenten (op segmenttijd)**.   
+    ![Invoersegmenten filteren](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
+6. Sluit de blades totdat u de blade **Gegevenssets** ziet. Klik op de **OutputDataset**. Deze gegevensset is de uitvoergegevensset voor **ADFTutorialPipeline**.
 
-    ![Gegevenssegmenten op basis van de segmenttijd][DataSlicesBySliceTime]   
+    ![blade gegevenssets](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
+6. De blade **OutputDataset** wordt weergegeven zoals in de volgende afbeelding:
 
-6. Klik nu in de blade **Gegevenssets** op **EmpSQLTable**. Deze gegevensset is de uitvoergegevensset voor **ADFTutorialPipeline**.
-
-    ![blade gegevenssets][image-data-factory-get-started-datasets-blade]
-
-6. De blade **EmpSQLTable** wordt weergegeven zoals in de volgende afbeelding:
-
-    ![blade tabel][image-data-factory-get-started-table-blade]
- 
+    ![blade tabel](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png) 
 7. De gegevenssegmenten tot nu zijn al gemaakt en hebben de status **Gereed**. Er worden geen segmenten weergegeven in het gedeelte **Probleemsegmenten** onderaan.
 8. Klik op **... (Ellips)** om alle segmenten te bekijken.
 
-    ![blade gegevenssegmenten][image-data-factory-get-started-dataslices-blade]
+    ![blade gegevenssegmenten](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
+9. Als u op een gegevenssegment uit de lijst klikt, ziet u de blade **Gegevenssegment**.
 
-9. Als u op een gegevenssegment uit de lijst klikt, ziet u de blade **GEGEVENSSEGMENT**.
-
-    ![blade Gegevenssegment][image-data-factory-get-started-dataslice-blade]
+    ![blade Gegevenssegment](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
   
-    Als het segment niet de status **Gereed** heeft, kunt u de upstreamsegmenten bekijken die niet de status Gereed hebben en die voorkomen dat de huidige status wordt uitgevoerd. U ziet deze segmenten in de lijst **Upstreamsegmenten die niet gereed zijn**. 
+    Als het segment niet de status **Gereed** heeft, kunt u de upstreamsegmenten bekijken die niet de status Gereed hebben en die voorkomen dat de huidige status wordt uitgevoerd. U ziet deze segmenten in de lijst **Upstreamsegmenten die niet gereed zijn**.
+11. In de blade **GEGEVENSSEGMENT** ziet u in de lijst onderaan alle activiteiten die worden uitgevoerd. Klik op een **activiteit die wordt uitgevoerd** om de blade **Details uitvoering van activiteit** weer te geven. 
 
-11. In de blade **GEGEVENSSEGMENT** ziet u in de lijst onderaan alle activiteiten die worden uitgevoerd. Klik op een **activiteit die wordt uitgevoerd** om de blade **DETAILS UITVOERING VAN ACTIVITEIT** weer te geven. 
-
-    ![Details uitvoering van activiteit][image-data-factory-get-started-activity-run-details]
-
-    
+    ![Details uitvoering van activiteit](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
 12. Klik op **X** om alle blades te sluiten tot u weer op de startblade bent voor **ADFTutorialDataFactory**.
 14. (optioneel) Klik op **Pijplijnen** op de startpagina van **ADFTutorialDataFactory**, klik op **ADFTutorialPipeline** in de blade **Pijplijnen** en open een detailanalyse van invoertabellen (**Verbruikt**) of uitvoertabellen (**Geproduceerd**).
 15. Open **SQL Server Management Studio**, maak verbinding maken met de Azure SQL Database en controleer of de rijen zijn ingevoegd in de tabel **emp** in de database.
 
-    ![SQL-queryresultaten][image-data-factory-get-started-sql-query-results]
+    ![SQL-queryresultaten](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
+### De pijplijn bewaken met de app Bewaking en beheer
+U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
+
+1. Klik op de tegel **Bewaking en beheer** op de startpagina van uw gegevensfactory.
+
+    ![De tegel Bewaking en beheer](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
+2. De toepassing **Bewaking en beheer** wordt weergegeven. Wijzig de **Begintijd** en de **Eindtijd** om de starttijd (2016-07-12) en de eindtijd (2016-07-13) van uw pijplijn op te geven. Klik vervolgens op **Toepassen**. 
+
+    ![De app Bewaking en beheer](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
+3. Selecteer een activiteitsvenster in de lijst **Activiteitsvensters** voor details van dit venster. 
+    ![Details van activiteitsvenster](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## Samenvatting 
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopiëren van een Azure-blob naar een Azure SQL-database. U gebruikt de Azure-portal om de data factory, gekoppelde services, datasets en een pijplijn te maken. Hier volgen de hoofdstappen die u in deze zelfstudie hebt uitgevoerd:  
@@ -392,79 +392,10 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi�
 | [Gegevenssets](data-factory-create-datasets.md) | Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory.
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
-<!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[msdn-activities]: https://msdn.microsoft.com/library/dn834988.aspx
-[msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
-[data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
-
-[azure-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
-[sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
-[sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
-
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-<!--Image references-->
-
-[DataSlicesBySliceTime]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSlicesBySliceTime.png
-
-[image-data-factory-getstarted-new-data-factory-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png
-
-[image-data-factory-get-stated-factory-home-page]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png
-
-[image-author-deploy-tile]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png
-
-[image-editor-newdatastore-button]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png
-
-[image-editor-blob-storage-deploy]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png
-
-[image-editor-azure-sql-settings]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-azure-sql-settings.png
-
-[image-editor-newpipeline-button]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newpipeline-button.png
-
-[image-datafactoryblade-diagramtile]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png
-
-
-[image-data-factory-get-started-diagram-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png
-
-[image-data-factory-get-started-home-page-pipeline-tables]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png
-
-[image-data-factory-get-started-datasets-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png
-
-[image-data-factory-get-started-table-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png
-
-[image-data-factory-get-started-dataslices-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png
-
-[image-data-factory-get-started-dataslice-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png
-
-[image-data-factory-get-started-sql-query-results]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png
-
-[image-data-factory-get-started-datasets-emptable-selected]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithEmpTableFromBlobSelected.png
-
-[image-data-factory-get-started-activity-run-details]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png
-
-[image-data-factory-create-resource-group]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/CreateNewResourceGroup.png
-
-
-[image-data-factory-new-datafactory-menu]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png
-
-
-[image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
- 
-
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

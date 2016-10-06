@@ -30,7 +30,7 @@ In dit artikel wordt uitgelegd hoe u een schaalbare [pool voor een elastische da
 
 U kunt meerdere groepen toevoegen aan een server, maar u kunt geen databases van verschillende servers toevoegen aan dezelfde groep. Om een groep te maken hebt u ten minsten één database in een V12-server nodig. Als u die niet heeft, raadpleeg dan [Uw eerste Azure SQL database maken](sql-database-get-started.md). U kunt een groep maken met slechts één database, maar groepen zijn alleen kostenefficiënt wanneer zich meerdere databases in één groep bevinden. Zie [Prijs- en prestatieoverwegingen voor een pool voor elastische databases](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in Noord-centraal VS en West-India, waar deze zich momenteel in de previewfase bevinden.  De algemene beschikbaarheid van elastische pools in deze regio's wordt zo snel mogelijk gerealiseerd. Elastische pools ondersteunen momenteel geen databases die gebruikmaken van [OLTP in het geheugen of analyses in het geheugen](sql-database-in-memory.md).
+> [AZURE.NOTE] Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in West-India, waar deze zich momenteel in de previewfase bevinden.  Algemene beschikbaarheid van elastische pools in deze regio zal zo snel mogelijk plaatsvinden. Elastische pools ondersteunen momenteel geen databases die gebruikmaken van [OLTP in het geheugen of analyses in het geheugen](sql-database-in-memory.md).
 
 ## Stap 1: een nieuwe groep maken
 
@@ -118,6 +118,6 @@ Nadat databases aan de groep zijn toegevoegd, worden dynamische aanbevelingen ge
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

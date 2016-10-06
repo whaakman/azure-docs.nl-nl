@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+
 
 
 # Wat is Azure SQL Data Warehouse?
@@ -49,7 +50,7 @@ In het volgende diagram wordt de architectuur gedetailleerder weergegeven.
 
 **Rekenknooppunten:** de rekenknooppunten vormen de kracht achter SQL Data Warehouse. Het zijn SQL Databases die uw gegevens opslaan en uw query verwerken. Wanneer u gegevens toevoegt, worden de rijen door SQL Data Warehouse gedistribueerd naar uw rekenknooppunten. De rekenknooppunten zijn de workers waarop de parallelle query's op uw gegevens worden uitgevoerd. Na de verwerking worden de resultaten teruggestuurd naar het beheerknooppunt. Om de query te voltooien, worden de resultaten door het beheerknooppunt geaggregeerd en het definitieve resultaat geretourneerd.
 
-**Opslag:** uw gegevens worden opgeslagen in Azure-blobopslag. Bij interacties tussen de rekenknooppunten en uw gegevens worden de gegevens rechtstreeks vanuit de blob-opslag gelezen of ernaar weggeschreven. Omdat opslag in Azure transparant en onbeperkt kan worden uitgebreid, kan dat ook in SQL Data Warehouse. Omdat reken- en opslagcapaciteit niet van elkaar afhankelijk zijn, kan de opslagcapaciteit in SQL Data Warehouse automatisch los van de rekencapaciteit worden geschaald en omgekeerd. Azure-blobopslag is ook volledig fouttolerant. Dit vergemakkelijkt het back-up- en herstelproces.
+**Opslag:** uw gegevens worden opgeslagen in Azure-blobopslag. Bij interacties tussen de rekenknooppunten en uw gegevens worden de gegevens rechtstreeks vanuit de blob-opslag gelezen of ernaar weggeschreven. Omdat opslag in Azure transparant en enorm kan worden uitgebreid, kan dat ook in SQL Data Warehouse. Omdat reken- en opslagcapaciteit niet van elkaar afhankelijk zijn, kan de opslagcapaciteit in SQL Data Warehouse automatisch los van de rekencapaciteit worden geschaald en omgekeerd. Azure-blobopslag is ook volledig fouttolerant. Dit vergemakkelijkt het back-up- en herstelproces.
 
 **Data Movement Service:** Data Movement Service (DMS) verplaatst gegevens van het ene naar het andere knooppunt. DMS geeft de rekenknooppunten toegang tot de benodigde gegevens voor samenvoegingen en aggregaties. DMS is geen Azure-service. Het is een Windows-service die naast SQL Database wordt uitgevoerd op alle knooppunten. Omdat DMS op de achtergrond wordt uitgevoerd, werkt u er niet rechtstreeks mee. Maar wanneer u de queryplannen bekijkt, ziet u dat deze enkele DMS-bewerkingen bevatten omdat er toch gegevensverplaatsing nodig is om elke query parallel te kunnen uitvoeren.
 
@@ -148,10 +149,11 @@ PolyBase stelt u in staat gebruik te maken van verschillende gegevensbronnen met
 
 Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][] en [voorbeeldgegevens laden][]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][] handig zijn bij het opzoeken van nieuwe terminologie. Zie desgewenst ook deze informatiebronnen voor SQL Data Warehouse.  
 
+- [Succesverhalen van klanten]
 - [Blogs]
 - [Functieverzoeken]
 - [Video's]
-- [CAT-teamblogs]
+- [Teamblogs met adviezen voor klanten]
 - [Ondersteuningsticket maken]
 - [MSDN-forum]
 - [Stack Overflow-forum]
@@ -162,20 +164,21 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Ondersteuningsticket maken]: sql-data-warehouse-get-started-create-support-ticket.md
-[voorbeeldgegevens laden]: sql-data-warehouse-load-sample-databases.md
-[een SQL Data Warehouse maakt]: sql-data-warehouse-get-started-provision.md
-[migratiedocumentatie]: sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse-oplossingspartners]: sql-data-warehouse-partner-business-intelligence.md
-[Overzicht met geïntegreerde hulpmiddelen]: sql-data-warehouse-overview-integrate.md
-[Overzicht van Back-ups en herstellen]: sql-data-warehouse-restore-database-overview.md
+[Ondersteuningsticket maken]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[voorbeeldgegevens laden]: ./sql-data-warehouse-load-sample-databases.md
+[een SQL Data Warehouse maakt]: ./sql-data-warehouse-get-started-provision.md
+[migratiedocumentatie]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse-oplossingspartners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Overzicht met geïntegreerde hulpmiddelen]: ./sql-data-warehouse-overview-integrate.md
+[Overzicht van Back-ups en herstellen]: ./sql-data-warehouse-restore-database-overview.md
 [Azure-woordenlijst]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Succesverhalen van klanten]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT-teamblogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Teamblogs met adviezen voor klanten]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
@@ -184,6 +187,6 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

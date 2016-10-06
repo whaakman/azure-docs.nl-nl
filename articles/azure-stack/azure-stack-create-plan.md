@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Een plan maken in Azure Stack | Microsoft Azure"
-    description="Maak als servicebeheerder een plan waarmee abonnees virtuele machines kunnen inrichten."
+    pageTitle="Create a plan in Azure Stack | Microsoft Azure"
+    description="As a service administrator, create a plan that lets subscribers provision virtual machines."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,68 +13,74 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Een plan maken in Azure Stack
+# Create a plan in Azure Stack
 
-[Plannen](azure-stack-key-features.md#services-plans-offers-and-subscriptions) zijn pakketten van één of meer services. Als provider kunt u plannen maken die u aan uw tenants kunt aanbieden. Tenants abonneren zich op hun beurt op uw aanbiedingen om de plannen en bijbehorende services te gebruiken. In dit voorbeeld maakt u een plan met de resourceproviders Compute, Netwerk en Opslag. Hierdoor krijgen abonnees van dit plan de mogelijkheid om virtuele machines in te richten.
+[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
-1.  Navigeer in een internetbrowser naar https://portal.azurestack.local.
+1.  In an internet browser, navigate to https://portal.azurestack.local.
 
-2.  [Meld u aan](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) bij de Azure Stack-portal als servicebeheerder en geef uw aanmeldingsgegevens op (dit is het account dat u hebt gemaakt in stap 5 van het gedeelte [Het PowerShell-script uitvoeren](azure-stack-run-powershell-script.md)). Klik vervolgens op **Aanmelden**.
+2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
 
-    Servicebeheerders kunnen aanbiedingen en plannen maken en gebruikers beheren.
+    Service administrators can create offers and plans, and manage users.
 
-3.  Klik op **Nieuw** om een plan en aanbieding te maken waarop tenants zich kunnen abonneren.
+3.  To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
 
-    ![](media/azure-stack-create-plan/image1.png)
+    ![](media/azure-stack-create-plan/image01.png)
 
-4.  Klik in de blade Maken op **Aanbiedingen en plannen voor tenants** en klik vervolgens op **Plan**.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
-    ![](media/azure-stack-create-plan/image2.png)
+    ![](media/azure-stack-create-plan/image02.png)
 
-5.  Vul de velden **Weergavenaam** en **Resourcenaam** in. De Weergavenaam is de beschrijvende naam van het plan. Alleen de beheerder kan de Resourcenaam zien. Dit is de naam die beheerders gebruiken om met het plan te werken als een Azure Resource Manager-resource.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
 
-    ![](media/azure-stack-create-plan/image3.png)
+    ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Selecteer een **Resourcegroep** of maak een nieuwe als een container voor het plan. Standaard worden alle plannen en aanbiedingen in een resourcegroep met de naam OffersAndPlans geplaatst.
+6.  Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-7.  Klik op **Aangeboden services**, gebruik de Shift-toets om alle drie de providers te selecteren (**Compute-provider**, **Opslagprovider** en **Netwerkprovider**) en klik vervolgens op **Selecteren**.
+    ![](media/azure-stack-create-plan/image03.png)
 
-    ![](media/azure-stack-create-plan/image4.png)
+7.  Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-8.  Klik op **Microsoft.Compute** en klik vervolgens op **Configuratie vereist**.
+    ![](media/azure-stack-create-plan/image04.png)
 
-    ![](media/azure-stack-create-plan/image5.png)
+8.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-9.  Accepteer alle standaardinstellingen in de blade **Quota instellen**, klik op **OK** en klik vervolgens opnieuw op **OK**.
+    ![](media/azure-stack-create-plan/image06.png)
 
-    ![](media/azure-stack-create-plan/image6.png)
+9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-10. Klik op **Microsoft.Network** en klik vervolgens op **Configuratie vereist**.
+    ![](media/azure-stack-create-plan/image07.png)
 
-    ![](media/azure-stack-create-plan/image7.png)
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-11. Selecteer alle selectievakjes in de blade **Quota instellen**, klik op **OK** en klik vervolgens opnieuw op **OK**.
+    ![](media/azure-stack-create-plan/image08.png)
 
-    ![](media/azure-stack-create-plan/image8.png)
+11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-12. Klik op **Microsoft.Storage** en klik op **Configuratie vereist**. Accepteer vervolgens alle standaardinstellingen in de blade **Quota instellen**, klik op **OK**, klik opnieuw op **OK** en klik vervolgens op **Maken** om het plan te maken.
+    ![](media/azure-stack-create-plan/image09.png)
 
-    ![](media/azure-stack-create-plan/image9.png)
-
-13. Uw plan kan nu worden opgenomen in een aanbieding. Geef meldingen weer door te klikken op de bel rechtsboven.
+12.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
     ![](media/azure-stack-create-plan/image10.png)
 
-## Volgende stappen
+13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
-[Een aanbieding maken](azure-stack-create-offer.md)
+    ![](media/azure-stack-create-plan/image11.png)
+
+14. To see your new plan, click **All resources**, then search for the plan and click its name.
+
+    ![](media/azure-stack-create-plan/image12.png)
+
+## Next steps
+
+[Create an offer](azure-stack-create-offer.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

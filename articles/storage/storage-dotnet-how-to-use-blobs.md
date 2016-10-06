@@ -412,6 +412,6 @@ Nu u de basisprincipes van Blob Storage hebt geleerd, volgt u deze koppelingen v
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

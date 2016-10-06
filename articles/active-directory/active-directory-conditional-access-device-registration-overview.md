@@ -14,16 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
-    ms.author="femila"/>
+    ms.date="09/27/2016"
+    ms.author="Markvi"/>
+
 
 # Aan de slag met Azure Active Directory-apparaatregistratie
 
 Azure Active Directory-apparaatregistratie vormt de basis voor apparaatgebaseerde scenario's voor voorwaardelijke toegang. Als een apparaat is geregistreerd, geeft Azure Active Directory-apparaatregistratie het apparaat een identiteit die wordt gebruikt om het apparaat te verifiëren wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
 
-In combinatie met een MDM-oplossing (Mobile Device Management) zoals Intune, worden de apparaatkenmerken in Azure Active Directory bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance
-
-Azure Active Directory-apparaatregistratie is beschikbaar in uw Azure Active-directory. De service biedt ondersteuning voor iOS-, Android- en Windows-apparaten. Voor de afzonderlijke scenario's die gebruikmaken van Azure Active Directory-apparaatregistratie gelden mogelijk meer specifieke vereisten en platformondersteuning.
+In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure Active Directory bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie [Apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune) voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
 
 ## Mogelijke scenario's met Azure Active Directory-apparaatregistratie
 
@@ -31,12 +30,15 @@ Azure Active Directory-apparaatregistratie biedt ondersteuning voor iOS-, Androi
 
 - **Voorwaardelijke toegang tot toepassingen die on-premises worden gehost**: u kunt geregistreerde apparaten gebruiken in combinatie met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik met AD FS met Windows Server 2012 R2. Zie [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md) (Engelstalig) voor meer informatie over het instellen van on-premises voorwaardelijke toegang.
 
-- **Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune**: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang inrichten ter beveiliging van bedrijfsresources, terwijl ze IT-medewerkers tegelijkertijd toegang geven tot de services via compatibele apparaten. Zie Conditional Access Device Policies for Office 365 services (Engelstalig) voor meer informatie.
+- **Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune**: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang inrichten ter beveiliging van bedrijfsresources, terwijl ze IT-medewerkers tegelijkertijd toegang geven tot de services via compatibele apparaten. Zie [Conditional Access Device Policies for Office 365 services (Engelstalig)](active-directory-conditional-access-device-policies.md) voor meer informatie.
 
 ##Azure Active Directory-apparaatregistratie configureren
 
 U moet Azure AD-apparaatregistratie inschakelen in de Azure-portal, zodat mobiele apparaten de service kunnen herkennen door te zoeken naar bekende DNS-records. Configureer verder uw bedrijfs-DNS, zodat Windows 10-, Windows 8.1-, Windows 7-, Android- en iOS-apparaten de service kunnen herkennen en gebruiken.
 U kunt geregistreerde apparaten bekijken en in- of uitschakelen in de beheerdersportal in Azure Active Directory.
+
+>[AZURE.NOTE]
+ Zie [Automatische registratie van apparaten op een Windows-domein met Azure Active Directory instellen](active-directory-conditional-access-automatic-device-registration-setup.md) voor de nieuwste instructies voor het instellen van automatische apparaatregistratie.
 
 ### De service Azure Active Directory-apparaatregistratie inschakelen
 
@@ -81,7 +83,7 @@ Als u bijvoorbeeld twee UPN-achtervoegsels gebruikt binnen uw organisatie met de
 
 ## Extra onderwerpen
 
-U kunt uw Windows 7- en Windows 8.1-apparaten die deelnemen aan een domein registreren met Azure AD-apparaatregistratie. Het volgende onderwerp bevat meer informatie over de voorwaarden en de stappen die vereist zijn om apparaatregistratie te configureren op Windows 7- en Windows 8.1-apparaten.
+U kunt uw Windows 7- en Windows 8.1-apparaten die deelnemen aan een domein registreren met Azure AD-apparaatregistratie. De volgende onderwerpen bevatten meer informatie over de voorwaarden en de stappen die vereist zijn om apparaatregistratie te configureren op Windows 7- en Windows 8.1-apparaten.
 
 - [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices (Engelstalig)](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure automatic device registration for Windows 7 domain joined devices (Engelstalig)](active-directory-conditional-access-automatic-device-registration-windows7.md)
@@ -90,6 +92,6 @@ U kunt uw Windows 7- en Windows 8.1-apparaten die deelnemen aan een domein regis
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

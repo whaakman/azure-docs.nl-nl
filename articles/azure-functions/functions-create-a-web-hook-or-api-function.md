@@ -43,7 +43,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 
     ![een nieuwe GitHub-webhookfunctie maken](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
-4. Merk in het tabblad **Ontwikkelen** het voorbeeld express.js function in het venster **Code** op. Deze functie ontvangt een GitHub-aanvraag van een probleemopmerking webhook, registreert de probleemtekst en stuurt een antwoord naar de webhook als `New GitHub comment: <Your issue comment text>`.
+4. U ziet dat in **Ontwikkelen** het voorbeeld express.js-functie in het venster **Code** wordt weergegeven. Deze functie ontvangt een GitHub-aanvraag van een probleemopmerking webhook, registreert de probleemtekst en stuurt een antwoord naar de webhook als `New GitHub comment: <Your issue comment text>`.
 
 
     ![een nieuwe GitHub-webhookfunctie maken](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
@@ -96,6 +96,6 @@ Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoa
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

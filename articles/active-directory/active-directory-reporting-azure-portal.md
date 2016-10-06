@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 
@@ -27,7 +27,7 @@ Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
 
 - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
 
-- **Systeemactiviteiten**: controle-informatie over gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten
+- **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten
 
 Afhankelijk van het bereik van de gegevens die u zoekt, kunt u de rapporten openen door op **Gebruikers en groepen** of **Bedrijfstoepassingen** te klikken in de lijst met services in [Azure Portal](https://portal.azure.com).
 
@@ -120,7 +120,7 @@ Met deze zoekmethode kunt u zoeken naar aanmeldingen van specifieke **gebruikers
 
 ![Rapportage](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Systeemactiviteiten
+## Controlelogboeken
 
 In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.
 
@@ -220,6 +220,6 @@ Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

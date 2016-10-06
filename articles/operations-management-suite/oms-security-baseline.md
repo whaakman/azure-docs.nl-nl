@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Basislijn van de oplossing Beveiliging en controle in Operations Management Suite | Microsoft Azure"
-   description="In dit document wordt uitgelegd hoe u de oplossing Beveiliging en controle in OMS kunt gebruiken voor het uitvoeren van een evaluatie van de basislijn van alle bewaakte computers, voor nalevings- en beveiligingsdoeleinden."
+   pageTitle="Operations Management Suite Security and Audit Solution Baseline | Microsoft Azure"
+   description="This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,70 +17,70 @@
    ms.author="yurid"/>
 
 
-# Basislijnevaluatie in de oplossing Beveiliging en controle in Operations Management Suite
+# Baseline Assessment in Operations Management Suite Security and Audit Solution
 
-Dit document helpt u om de mogelijkheden van de [oplossing Beveiliging en controle in Operations Management Suite](operations-management-suite-overview.md) te gebruiken om basislijnevaluaties uit te voeren, en zo de beveiligde status van uw bewaakte resources te evalueren.
+This document helps you to use [Operations Management Suite (OMS) Security and Audit Solution](operations-management-suite-overview.md) baseline assessment capabilities to access the secure state of your monitored resources.
 
-## Wat is basislijnevaluatie?
+## What is Baseline Assessment?
 
-Microsoft definieert samen met brancheorganisaties en overheidsinstanties overal ter wereld een Windows-configuratie die garandeert dat maximaal beveiligde serverimplementaties worden gebruikt. Deze configuratie bestaat uit een verzameling registersleutels, controlebeleidsinstellingen en beveiligingsbeleidsinstellingen, gecombineerd met waarden die door Microsoft voor deze instellingen worden aanbevolen. Deze verzameling staat bekend als de beveiligingsbasislijn. Met de functie van Beveiliging en controle in OMS om een basislijnevaluatie uit te voeren, kunt u al uw computers naadloos scannen om te zien of ze aan nalevingsvereisten voldoen. 
+Microsoft, together with industry and government organizations worldwide, defines a Windows configuration that represents highly secure server deployments. This configuration is a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. This set of rules is known as Security baseline. OMS Security and Audit baseline assessment capability can seamlessly scan all your computers for compliance. 
 
-Er zijn drie soorten regels:
+There are three types of rules:
 
-- **Registerregels**: deze controleren of registersleutels juist zijn ingesteld.
-- **Controlebeleidsregels**: regels die betrekking hebben op uw controlebeleid.
-- **Veiligheidsbeleidsregels**: regels die betrekking hebben op de machtigingen van de gebruiker op de machine.
+- **Registry rules**: check that registry keys are set correctly.
+- **Audit policy rules**: rules regarding your audit policy.
+- **Security policy rules**: rules regarding the user’s permissions on the machine.
 
-> [AZURE.NOTE] Lees [Use OMS Security to assess the Security Configuration Baseline](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/) (OMS-beveiliging gebruiken om de basislijn van de beveiligingsconfiguratie te evalueren) voor een kort overzicht van deze functie.
+> [AZURE.NOTE] Read [Use OMS Security to assess the Security Configuration Baseline](https://blogs.technet.microsoft.com/msoms/2016/08/12/use-oms-security-to-assess-the-security-configuration-baseline/) for a brief overview of this feature.
 
-## Evaluatie van de beveiligingsbasislijn
+## Security Baseline Assessment
 
-U kunt het dashboard gebruiken om uw huidige evaluatie van de beveiligingbasislijn te bekijken voor alle computers die worden bewaakt door Beveiliging en controle in OMS.  Voer de volgende stappen uit om toegang te krijgen tot het dashboard voor het evalueren van de beveiligingsbasislijn:
+You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard.  Execute the following steps to access the security baseline assessment dashboard:
 
-1. Klik in het hoofddashboard van **Microsoft Operations Management Suite** op de tegel **Beveiliging en controle**.
-2. Klik in het dashboard **Beveiliging en controle** op **Evaluatie van de basislijn** onder **Beveiligingsdomeinen**. Het dashboard **Evaluatie van de beveiligingsbasislijn** wordt weergeven zoals in de volgende afbeelding:
+1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
+2. In the **Security and Audit** dashboard, click **Baseline Assessment** under **Security Domains**. The **Security Baseline Assessment** dashboard appears as shown in the following image:
     
-    ![Basislijnevaluatie in Beveiliging en controle in OMS](./media/oms-security-baseline/oms-security-baseline-fig1.png)
+    ![OMS Security and Audit Baseline Assessment](./media/oms-security-baseline/oms-security-baseline-fig1.png)
 
-Dit dashboard is onderverdeeld in drie belangrijke gebieden:
+This dashboard is divided in three major areas:
 
-- **Computers vergeleken met de basislijn**: deze sectie bevat een overzicht van het aantal computers dat werd geopend en het percentage computers dat is geslaagd voor de evaluatie. Er wordt ook een top 10 van computers weergegeven en het resultaat voor de evaluatie in een percentage.
-- **Status van de vereiste regels**: de bedoeling van deze sectie is om de aandacht te vestigen op de status van de mislukte regels op volgorde van ernst, en door mislukte regels per type weer te geven. Door naar de eerste grafiek te kijken, kunt u snel bepalen of de meeste mislukte regels kritiek zijn of niet. Er wordt ook een top 10 met mislukte regels en de ernst ervan weergegeven. De tweede grafiek geeft het type regel aan dat is mislukt tijdens de evaluatie. 
-- **Computers waarop de evaluatie van de basislijn ontbreekt**: in deze sectie worden de computers weergegeven die niet zijn geopend als gevolg van compatibiliteitsproblemen met het besturingssysteem of als gevolg van fouten. 
+- **Computers compared to baseline**: this section gives a summary of the number of computers that were accessed and the percentage of computers that passed the assessment. It also gives the top 10 computers and the percentage result for the assessment.
+- **Required Rules Status**: this section has the intent to bring awareness of the failed rules by severity and failed rules by type. By looking to the first graph you can quickly identify if most the failed rules are critical, or not. It also gives a list of the top 10 failed rules and their severity. The second graph shows the type of rule that failed during the assessment. 
+- **Computers missing baseline assessment**: this section list the computers that were not accessed due to operating system incompatibility or failures. 
 
-### Toegang tot computers vergeleken met de basislijn
+### Accessing computers compared to baseline
 
-In het ideale geval voldoen al uw computers aan de evaluatie van de beveiligingsbasislijn. In sommige omstandigheden is dat echter niet het geval. Als onderdeel van het proces voor beveiligingsbeheer is het belangrijk om ook een controle uit te voeren van de computers die niet voldeden aan alle beveiligingsevaluatietests. Een snelle manier om dat zichtbaar te maken, is door de optie **Computers geopend** in de sectie **Computers vergeleken met de basislijn** in te schakelen. Hier ziet u het resultaat van een zoekopdracht in het logboek in de vorm van de lijst met computers, zoals in het volgende scherm wordt weergegeven:
+Ideally all your computers are be compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
 
-![Resultaten van geopende computers](./media/oms-security-baseline/oms-security-baseline-fig2.png)
+![Computer accessed results](./media/oms-security-baseline/oms-security-baseline-fig2.png)
 
-Het zoekresultaat wordt weergegeven in de vorm van een tabel, waarin de eerste kolom de computernaam bevat en de tweede het aantal mislukte regels. Klik op het aantal mislukte regels naast de computernaam voor informatie over het type regel dat is mislukt. U ziet een resultaat zoals in de volgende afbeelding:
+The search result is shown in a table format, where the first column has the computer name and the second color has the number of rules that failed. To retrieve the information regarding the type of rule that failed, click in the number of failed rules besides the computer name. You should see a result similar to the one shown in the following image:
 
-![Details van resultaten van geopende computers](./media/oms-security-baseline/oms-security-baseline-fig3.png)
+![Computer accessed results details](./media/oms-security-baseline/oms-security-baseline-fig3.png)
 
-In dit zoekresultaat wordt het aantal gebruikte regels, het aantal mislukte kritieke regels, de waarschuwingsregels en de informatie over mislukte regels weergegeven.
+In this search result, you have the total of accessed rules, the number of critical rules that failed, the warning rules and the information failed rules.
 
-### Status van toegang tot vereiste regels
+### Accessing required rules status
 
-Nadat u de informatie hebt gekregen over het percentage computers dat is geslaagd voor de evaluatie, wilt u mogelijk meer informatie ontvangen over welke regels mislukken overeenkomstig het kritieke karakter ervan. Deze visualisatie helpt u om prioriteiten te stellen wat betreft de computers die het eerst aan de beurt zijn, zodat u zeker weet dat ze tijdens de volgende evaluatie aan de nalevingsvereisten voldoen. Beweeg de muisaanwijzer over het onderdeel Kritiek van de grafiek dat zich op de tegel **Mislukte regels op ernst** onder **Status van de vereiste regels** bevindt en klik daarop. U ziet een resultaat zoals in het volgende scherm:
+After obtaining the information regarding the percentage number of computers that passed the assessment, you may want to obtain more information about which rules are failing according to the criticality. This visualization helps you to prioritize which computers should be addressed first to ensure they will be compliant in the next assessment. Hover over the Critical part of the graph located in the **Failed rules by severity** tile, under **Required rules status** and click it. You should see a result similar to the following screen:
 
-![Mislukte regels per gegevens over ernst](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
+![Failed rules by severity details](./media/oms-security-baseline/oms-security-baseline-fig4.png) 
 
-In dit logboekresultaat ziet u het type basislijnregel dat is mislukt, de beschrijving van deze regel en de CCE-id (Common Configuration Enumeration) van deze beveiligingsregel. Deze kenmerken moeten volstaan om een corrigerende actie te kunnen uitvoeren om dit probleem op de doelcomputer op te lossen.
+In this log result you see the type of baseline rule that failed, the description of this rule, and the Common Configuration Enumeration (CCE) ID of this security rule. These attributes should be enough to perform a corrective action to fix this problem in the target computer.
 
-> [AZURE.NOTE] Meer informatie over CCE vindt u in de [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
+> [AZURE.NOTE] For more information about CCE, access the [National Vulnerability Database](https://nvd.nist.gov/cce/index.cfm).
 
-### Computers openen waarop de evaluatie van de basislijn ontbreekt
+### Accessing computers missing baseline assessment
 
-OMS ondersteunt het basislijnprofiel van het domeinlid op Windows Server 2008 R2 tot en met Windows Server 2012 R2. De basislijn voor Windows Server 2016 is nog niet helemaal klaar en wordt toegevoegd zodra deze is gepubliceerd. Alle andere besturingssystemen die via basislijnevaluatie in Beveiligings en controle in OMS zijn gescand, worden weergegeven onder de sectie **Computers waarop de evaluatie van de basislijn ontbreekt**.
+OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
 
-## Zie ook
+## See also
 
-In dit document hebt u meer kunnen lezen over het evalueren van de basislijn door Beveiliging- en controle in OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
+In this document, you learned about OMS Security and Audit baseline assessment. To learn more about OMS Security, see the following articles:
 
-- [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
-- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution (Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren)](oms-security-responding-alerts.md)
-- [Monitoring Resources in Operations Management Suite Security and Audit Solution (Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren)](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

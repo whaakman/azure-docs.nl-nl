@@ -76,6 +76,8 @@ Taken worden hier beschreven zoals ze in de klassieke Azure-portal worden uitgev
 
 In Azure AD kunt u gemakkelijk een eenvoudige regel instellen om te bepalen welke gebruikers leden van de groep moeten worden. Een eenvoudige regel is een regel die slechts één vergelijking maakt. Als een groep bijvoorbeeld aan een SaaS-toepassing is toegewezen , kunt u een regel instellen voor het toevoegen van gebruikers met de functienaam ‘Vertegenwoordiger’. Deze regel verleent dan alle gebruikers met deze functietitel in uw directory toegang tot deze SaaS-toepassing.
 
+Wanneer kenmerken van een gebruiker worden gewijzigd, evalueert het systeem alle dynamische groepsregels in een directory om te zien of de wijziging van het kenmerk van de gebruiker leidt tot wijzigingen uit of toevoegingen aan de groep. Als een gebruiker voldoet aan een regel voor een groep, wordt hij of zij toegevoegd als een lid van die groep. Als gebruikers niet langer voldoen aan de regel van een groep waarvan ze deel uitmaken, worden ze verwijderd als lid van die groep.
+
 > [AZURE.NOTE] U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen. Op dit moment wordt genest groepslidmaatschap niet ondersteund voor toewijzing aan een toepassing op basis van een groep.
 >
 > Bij dynamisch lidmaatschap voor groepen moet een Azure AD Premium-licentie worden toegewezen aan
@@ -114,6 +116,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 * [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO3-->
+<!---HONumber=Sep16_HO4-->
 
 

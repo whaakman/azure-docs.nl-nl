@@ -32,7 +32,7 @@ Een Service Bus-naamruimte is toegewezen aan een schaaleenheid. De schaaleenheid
 
 - **Een gateway-store.** De gateway-store bevat de gegevens voor elke entiteit die is gedefinieerd in deze schaaleenheid. De gateway-store is bovenop een SQL Azure-database geïmplementeerd.
 
-- **Meerdere berichten-stores.** Berichten-stores bevatten de berichten van alle wachtrijen, onderwerpen en abonnementen die zijn gedefinieerd in deze schaaleenheid. Het bevat ook alle abonnementsgegevens. Tenzij [gepartitioneerde berichtentiteiten](service-bus-partitioning.md) is ingeschakeld, wordt een wachtrij of onderwerp toegewezen aan één berichten-store. Abonnementen worden opgeslagen in dezelfde berichten-store als het bovenliggende onderwerp. Met uitzondering van de Service Bus [Premium Messaging](service-bus-premium-messaging.md), worden berichten-stores bovenop SQL Azure-databases geïmplementeerd.
+- **Meerdere berichten-stores.** Berichten-stores bevatten de berichten van alle wachtrijen, onderwerpen en abonnementen die zijn gedefinieerd in deze schaaleenheid. Het bevat ook alle abonnementsgegevens. Tenzij [gepartitioneerde berichtentiteiten](../service-bus-messaging/service-bus-partitioning.md) is ingeschakeld, wordt een wachtrij of onderwerp toegewezen aan één berichten-store. Abonnementen worden opgeslagen in dezelfde berichten-store als het bovenliggende onderwerp. Met uitzondering van de Service Bus [Premium Messaging](../service-bus-messaging/service-bus-premium-messaging.md), worden berichten-stores bovenop SQL Azure-databases geïmplementeerd.
 
 ## Containers
 
@@ -56,12 +56,12 @@ Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten u
 
 Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken om aan de slag gaan:
 
-- [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
+- [Overzicht van Service Bus-berichten](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Een oplossing voor berichten in de wachtrij met behulp van Service Bus-wachtrijen.](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Een oplossing voor berichten in de wachtrij met behulp van Service Bus-wachtrijen.](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

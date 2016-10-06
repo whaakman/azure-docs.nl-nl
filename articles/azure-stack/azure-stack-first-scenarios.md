@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Belangrijkste taken in de Azure Stack POC | Microsoft Azure"
-    description="Informatie over het maken van een plan en aanbieding, het abonneren op deze aanbieding en het gebruiken van de geboden services om een virtuele machine te maken."
+    pageTitle="Azure Stack POC key tasks | Microsoft Azure"
+    description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -17,30 +17,20 @@
     ms.author="erikje"/>
 
 
-# Eerste taken met de Azure Stack POC
+# Azure Stack POC first tasks
 
-De belangrijkste objecten in Azure Stack – [plannen, aanbiedingen en abonnementen](azure-stack-key-features.md#services-plans-offers-and-subscriptions) – leveren IaaS-services, zoals virtuele machines en websites, aan tenants. Deze services bieden waarde voor uw tenants.
+Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-Nu u de Azure Stack POC hebt [geïmplementeerd](azure-stack-deploy.md) en zich erbij hebt [aangemeld](azure-stack-connect-azure-stack.md), kunt u verder gaan met de volgende stappen.
+1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
 
-[Meld u allereerst aan als servicebeheerder](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) en:
+2.  [Create a storage account](azure-stack-provision-storage-account.md).
 
-1.  [Maak een plan](azure-stack-create-plan.md) om compute-, netwerk- en opslagservices te bieden.
+## Next steps
 
-2.  [Maak een aanbieding](azure-stack-create-offer.md) die het plan bevat.
-
-[Meld u vervolgens aan als tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) en:
-
-1.  [Abonneer u op de aanbieding](azure-stack-subscribe-plan-provision-vm.md) en krijg toegang tot de plannen in de aanbieding.
-
-2.  [Gebruik de services](azure-stack-provision-vm.md) in de aanbieding om een virtuele machine te maken.
-
-## Volgende stappen
-
-[Een plan maken](azure-stack-create-plan.md)
+[Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

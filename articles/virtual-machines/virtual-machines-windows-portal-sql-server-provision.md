@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/20/2016"
+    ms.date="09/21/2016"
     ms.author="jroth" />
 
 
@@ -142,9 +142,9 @@ Als u de mogelijkheid om via internet verbinding te maken met de database-engine
 - **Lokaal (alleen binnen VM)** om alleen verbindingen met SQL Server vanuit de virtuele machine toe te staan.
 - **Privé (binnen virtueel netwerk)** om verbindingen met SQL Server toe te staan vanaf machines of services in hetzelfde virtuele netwerk.
 
-In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest beperkende connectiviteit die voor uw scenario mogelijk is. Alle opties kunnen echter worden beveiligd via regels van de netwerkbeveiligingsgroep en SQL/Windows-verificatie.
+>[AZURE.NOTE] Met de installatiekopie van virtuele machines voor edities van SQL Server Express wordt het TCP/IP-protocol niet automatisch ingeschakeld. Dit geldt ook voor de openbare en persoonlijke connectiviteitsopties. Voor de Express-editie moet u SQL Server Configuration Manager gebruiken om [het TCP/IP-protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) handmatig in te schakelen nadat de VM is gemaakt.
 
->[AZURE.NOTE] Met installatiekopieën van virtuele machines voor edities van SQL Server Express of voor ontwikkelaars wordt niet automatisch het TCP/IP-protocol ingeschakeld. Dit voorkomt externe connectiviteit, zelfs als u in de portal de optie Openbaar of Privé hebt geselecteerd. Voor Express- en ontwikkelaarsedities moet u SQL Server Configuration Manager gebruiken om [het TCP/IP-protocol](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) handmatig in te schakelen nadat de virtuele machine is gemaakt.
+In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest beperkende connectiviteit die voor uw scenario mogelijk is. Alle opties kunnen echter worden beveiligd via regels van de netwerkbeveiligingsgroep en SQL/Windows-verificatie.
 
 **Poort** is standaard ingesteld op 1433. U kunt een ander poortnummer opgeven.
 Zie voor meer informatie [Verbinden met een SQL Server-VM (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -268,6 +268,6 @@ Bekijk voor een video-overzicht van SQL Server in Azure Virtual Machines [Azure 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

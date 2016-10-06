@@ -189,7 +189,7 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 > [AZURE.NOTE] In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. Als u de doorvoer wilt verhogen, wordt aanbevolen om meerdere exemplaren van EventProcessorHost uit te voeren. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
 
 <!-- Links -->
-[Overzicht van Event Hubs]: event-hubs-overview.md
+[Event Hubs-overzicht]: event-hubs-overview.md
 [Azure Storage-account]: ../storage/storage-create-storage-account.md
 [Klassieke Azure-portal]: http://manage.windowsazure.com
 [Maven-pakket]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -200,6 +200,6 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

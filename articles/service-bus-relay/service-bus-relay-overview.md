@@ -1,39 +1,45 @@
 <properties
-	pageTitle="Service Bus relay overview | Microsoft Azure"
-	description="Overview of Service Bus relay."
-	services="service-bus-relay"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Overzicht van Service Bus Relay | Microsoft Azure"
+    description="Overzicht van Service Bus Relay."
+    services="service-bus-relay"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-relay"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/01/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-relay"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
+    ms.author="sethm"/>
 
 
-# Overview of Service Bus relay
 
-A major component of Service Bus is a centralized (but highly load-balanced) *relay* service that enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment.  The Service Bus relay supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service facilitates your hybrid applications by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
+# Overzicht van Service Bus Relay
 
-![Relay Concepts](./media/service-bus-relay-overview/sb-relay-01.png)
+Een belangrijk onderdeel van Service Bus is een gecentraliseerde *Relay*-service (echter met maximale taakverdeling) waarmee u hybride toepassingen kunt ontwikkelen die zowel in een Azure-datacenter als in uw eigen on-premises bedrijfsomgeving kunnen worden uitgevoerd.  De Service Bus Relay-service ondersteunt een groot aantal verschillende transportprotocollen en webservicestandaarden. waaronder SOAP, WS-* en zelfs REST. De Relay-service vereenvoudigt het uitvoeren van uw hybride toepassingen doordat u WCF-services (Windows Communication Foundation) die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat een firewallverbinding moet worden geopend of wijzigingen in de infrastructuur van een bedrijfsnetwerk vereist zijn. 
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at internet-scope to enable publish/subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. 
+![Relay-concepten](./media/service-bus-relay-overview/sb-relay-01.png)
 
-In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, it is not required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+De Relay-service ondersteunt traditionele berichten in één richting, aanvraag-/antwoordberichten en peer-to-peerberichten. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. 
 
-You initiate the connection between your on-premise service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. 
+In het Relayed Messaging-patroon maakt een on-premises service verbinding met de Relay-service via een uitgaande poort en wordt een bidirectionele socket voor communicatie gemaakt die is gekoppeld aan een bepaald rendezvous-adres. De client kan vervolgens met de on-premises service communiceren door berichten te verzenden naar de Relay-service die gericht is op het rendezvous-adres. De Relay-service stuurt vervolgens berichten door ('relay') naar de on-premises service via de reeds aanwezige bidirectionele socket. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
 
-## Next steps
+U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF 'Relay'-bindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. 
 
-For details about the Service Bus relay, see the following topics.
+## Volgende stappen
 
-- [Azure Service Bus Architectural Overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use the Service Bus Relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+Zie de volgende onderwerpen voor meer informatie over de Service Bus Relay.
+
+- [Overzicht van Azure Service Bus-architectuur](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [De Service Bus Relay-service gebruiken](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 
  
+
+
+<!--HONumber=Sep16_HO4-->
+
+

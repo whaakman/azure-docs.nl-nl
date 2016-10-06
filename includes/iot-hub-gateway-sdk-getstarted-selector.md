@@ -35,13 +35,15 @@ De SDK biedt een laag van abstractie zodat u gateways kunt maken die uitvoerbaar
 
 ### Berichten
 
-Hoewel de idee van modules die berichten aan elkaar doorgeven een handige manier is om te visualiseren hoe een gateway werkt, wordt hiermee niet nauwkeurig weergegeven wat er precies gebeurt. Modules gebruiken een berichtenbus om met elkaar te communiceren. Ze publiceren berichten naar de bus en de bus zendt de berichten uit naar alle modules die met de bus zijn verbonden.
+Hoewel de idee van modules die berichten aan elkaar doorgeven een handige manier is om te visualiseren hoe een gateway werkt, wordt hiermee niet nauwkeurig weergegeven wat er precies gebeurt. Modules gebruiken een broker om met elkaar te communiceren, ze publiceren berichten naar de broker (bus, pubsub of een ander berichtpatroon) en laten de broker het bericht vervolgens verzenden naar de verbonden modules.
 
-Een module gebruikt de functie **MessageBus_Publish** om een bericht naar de berichtenbus te publiceren. De berichtenbus levert berichten aan een module door een retouraanroepfunctie aan te roepen. Een bericht bestaat uit een reeks sleutel/waarde-eigenschappen en inhoud die als een blok geheugen worden doorgegeven.
+Een module gebruikt de functie **Broker_Publish** om een bericht naar de broker te publiceren. De broker levert berichten aan een module door een callbackfunctie te activeren. Een bericht bestaat uit een reeks sleutel/waarde-eigenschappen en inhoud die als een blok geheugen worden doorgegeven.
 
 ![][3]
 
-Elke module is zelf verantwoordelijk voor het filteren van de berichten, omdat de berichtenbus een broadcastmechanisme gebruikt om elk bericht af te leveren bij elke verbonden module. Een module mag alleen actie ondernemen voor berichten die voor die module zijn bedoeld. De berichtenpijplijn ontstaat door berichten effectief te filteren. Een module filtert de ontvangen berichten doorgaans aan de hand van de berichteigenschappen om te identificeren welke berichten moeten worden verwerkt.
+### Berichtroutering en filteren
+
+Er zijn twee manieren om berichten naar de juiste modules te sturen. Een set koppelingen kan worden doorgegeven aan de broker zodat de broker de bron en sink voor elke module kent, of de module kan filteren op de eigenschappen van het bericht. Een module mag alleen reageren op een bericht als het bericht is bedoeld voor die module. De koppelingen en het filteren van berichten resulteren in een berichtenpijplijn.
 
 ## Architectuur van het 'Hallo wereld'-voorbeeld
 
@@ -52,11 +54,11 @@ Het 'Hallo wereld'-voorbeeld illustreert de concepten die in de vorige sectie zi
 
 ![][4]
 
-Zoals in de vorige sectie is beschreven, geeft de module 'Hallo wereld' niet elke vijf seconden berichten rechtstreeks aan de logboekregistratiemodule door. In plaats daarvan wordt het bericht elke vijf seconden naar de berichtenbus gepubliceerd.
+Zoals in de vorige sectie is beschreven, geeft de module 'Hallo wereld' niet elke vijf seconden berichten rechtstreeks aan de logboekregistratiemodule door. In plaats daarvan wordt het bericht elke vijf seconden naar de broker gepubliceerd.
 
-De logboekregistratiemodule ontvangt het bericht van de berichtenbus en inspecteert de eigenschappen ervan in een filter. Als de logboekregistratiemodule bepaalt dat het bericht moet worden verwerkt, wordt de inhoud van het bericht naar een bestand geschreven.
+De loggermodule ontvangt het bericht van de broker en reageert erop door de inhoud van het bericht naar een bestand te schrijven.
 
-De logboekregistratiemodule verwerkt alleen berichten van de berichtenbus; deze publiceert nooit nieuwe berichten naar de bus.
+De loggermodule verwerkt alleen berichten van de broker en publiceert nooit nieuwe berichten naar de broker.
 
 ![][5]
 
@@ -73,6 +75,6 @@ In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voor
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

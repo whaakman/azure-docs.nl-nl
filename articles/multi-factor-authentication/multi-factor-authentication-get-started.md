@@ -28,7 +28,7 @@ In de volgende secties vindt u richtlijnen die u helpen om elk van deze twee vra
 
 ## Wat wil ik beveiligen?
 
-Om te bepalen welke Multi-Factor Authentication-oplossing de juiste is, moet eerst de vraag worden beantwoord wat u wilt beveiligen met een tweede verificatiemethode.  Is het een toepassing die deel uitmaakt van Azure?  Of is het bijvoorbeeld een systeem voor externe toegang?  Door te bepalen wat we willen beveiligen, kan vraag worden beantwoord waar Multi-Factor Authentication moet worden ingeschakeld.  
+Om te bepalen welke Multi-Factor Authentication-oplossing de juiste is, moet eerst de vraag worden beantwoord wat u wilt beveiligen met een tweede verificatiemethode.  Is het een toepassing die deel uitmaakt van Azure?  Of is het bijvoorbeeld een systeem voor externe toegang?  Door te bepalen wat we willen beveiligen, kan de vraag worden beantwoord waar Multi-Factor Authentication moet worden ingeschakeld.  
 
 
 Wat wilt u beveiligen| Multi-factor Authentication in de cloud|Multi-Factor Authentication-server
@@ -43,7 +43,7 @@ Externe toegang zoals VPN, RDG| |* |
 
 ## Waar bevinden de gebruikers zich?
 
-Afhankelijk van waar onze gebruikers zich bevinden, kunnen we bepalen wat de juiste oplossing is, of dat Multi-Factor Authentication in de cloud is of on-premises via de MFA Server.
+Afhankelijk van waar onze gebruikers zich bevinden, kunnen we vervolgens bepalen wat de juiste oplossing is, of Multi-Factor Authentication in de cloud is of on-premises via de MFA Server.
 
 
 
@@ -90,6 +90,6 @@ Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-pre
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

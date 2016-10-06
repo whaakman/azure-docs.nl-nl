@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Automate removal of Resource Groups | Microsoft Azure"
-    description="PowerShell Workflow version of an Azure Automation scenario including runbooks to remove all Resource Groups in your subscription."
+    pageTitle="De verwijdering van resourcegroepen automatiseren | Microsoft Azure"
+    description="PowerShell Workflow-versie van een Azure Automation-scenario, inclusief runbooks om alle resourcegroepen in uw abonnement te verwijderen."
     services="automation"
     documentationCenter=""
     authors="MGoedtel"
     manager="jwhit"
     editor=""
-	/>
+    />
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -16,55 +16,61 @@
     ms.date="09/26/2016"
     ms.author="magoedte"/>
 
-# Azure Automation scenario - automate removal of resource groups
 
-Many customers create more than one resource group, where some are for dedicated for managing production applications and others may be development, testing and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another.  Using Automation to handle it is a perfect use case and opportunity to streamline such a common management task. This also becomes helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program, for example. 
+# Azure Automation-scenario: de verwijdering van resourcegroepen automatiseren
 
-This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure you're ready to complete this procedure.   
+Veel klanten maken meer dan één resourcegroep. Sommige zijn voor het beheer van productietoepassingen en andere zijn bijvoorbeeld voor ontwikkelings-, test- en faseringsomgevingen. Het automatiseren van de implementatie van deze resources is één ding, maar om een resourcegroep buiten gebruik te stellen met een enkele muisklik is heel wat anders.  Automation is een perfect gebruiksscenario hiervoor en een uitstekende mogelijkheid om een dergelijke algemene beheertaak te stroomlijnen. Dit is ook handig als u werkt met een Azure-abonnement met een bestedingslimiet via een ledenaanbieding zoals MSDN of het programma Microsoft Partner Network Cloud Essentials. 
 
-## Getting the scenario
+Dit scenario is gebaseerd op een PowerShell-runbook en is ontworpen om een of meer resourcegroepen die u opgeeft uit uw abonnement te verwijderen.  Het runbook biedt ondersteuning om eerst een test uit te voeren alvorens verder te gaan. Dit is de standaardwaarde.  Op deze manier voltooit u deze procedure zonder dat u het risico loopt dat u de resourcegroep per ongeluk verwijdert.   
 
-This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript) or  you can import it directly from the [Runbook Gallery](automation-runbook-gallery.md) in the Azure portal.<br><br> 
+## Het scenario ophalen
 
-Runbook | Description|
+Dit scenario bestaat uit een PowerShell-runbook dat u uit de [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript) kunt downloaden. U kunt dit ook rechtstreeks vanuit de [Runbook Gallery](automation-runbook-gallery.md) in Azure Portal importeren.<br><br> 
+
+Runbook | Beschrijving|
 ----------|------------|
-Remove-ResourceGroup | Removes one or more Azure resource groups and its resources from the subscription.  
+Remove-ResourceGroup | Hiermee verwijdert u een of meer Azure-resourcegroepen en de daarbij behorende resources uit het abonnement.  
 <br>
-The following input parameters are defined for this runbook:
+De volgende invoerparameters zijn voor dit runbook gedefinieerd:
 
-Parameter | Description|
+Parameter | Beschrijving|
 ----------|------------|
-NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>The filter is not case sensitive and will match any resource group that contains the string.|
-PreviewMode (Optional) | Execute the runbook to see which resource groups would be deleted but take no action.<br>The default is **true** to help avoid accidental deletion of one or more resource groups passed to the runbook.  
+NameFilter (vereist) | Hiermee kunt u een naamfilter opgeven, zodat u de resourcegroepen die u van plan bent te verwijderen, kunt beperken. U kunt meerdere waarden doorgeven met behulp van een met komma's gescheiden lijst.<br>Het filter is niet hoofdlettergevoelig en komt overeen met elke resourcegroep die de tekenreeks bevat.|
+PreviewMode (optioneel) | Hiermee voert u het runbook uit om te zien welke resourcegroepen worden verwijderd, maar er wordt geen actie ondernomen.<br>De standaard is **waar**. Zo voorkomt u dat u onbedoeld een of meer resourcegroepen verwijdert die aan het runbook zijn doorgegeven.  
 
-## Installing and configuring this scenario
+## Dit scenario installeren en configureren
 
-### Prerequisites
+### Vereisten
 
-This runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md).    
+Dit runbook verifieert het gebruik van het [Azure Uitvoeren als-account](automation-sec-configure-azure-runas-account.md).    
 
-### Install and publish the runbooks
+### De runbooks installeren en publiceren
 
-After downloading the runbook, you can import it using the procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation).  Publish the runbook after it has been successfully imported into your Automation account.
+Nadat u het runbook hebt gedownload, kunt u dit importeren met behulp van de procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation) (Procedures voor het importeren van runbooks).  Publiceer het runbook nadat dit is geïmporteerd in uw Automation-account.
 
 
-## Using the runbook
+## Het runbook gebruiken
 
-The following steps will walk you through the execution of this runbook and help you become familiar with how it works.  We will only be testing the runbook in this example, not actually deleting the resource group.  
+De volgende stappen helpen u bij het uitvoeren van dit runbook. Zo raakt u vertrouwd met hoe het werkt.  In dit voorbeeld wordt het runbook alleen getest. De resourcegroep wordt niet daadwerkelijk verwijderd.  
 
-1. From the Azure Portal, open your Automation account and click the  **Runbooks** tile.
-2. Select the **Remove-ResourceGroup** runbook and click **Start**.
-3. When you start the runbook, the **Start Runbook** blade opens and you can configure the following values for the parameters.  Enter the name of one or more resource groups in your subscription that you want to test with and will cause no harm if accidentally deleted.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+1. Open uw Automation-account via Azure Portal en klik op de tegel **Runbooks**.
+2. Selecteer het runbook **Remove-ResourceGroup** en klik op **Starten**.
+3. Wanneer u het runbook start, wordt de blade **Runbook starten** geopend en kunt u de volgende waarden voor de parameters configureren.  Voer de naam van een of meer resourcegroepen in uw abonnement in waarmee u wilt testen en waarvan het niet erg is als deze per ongeluk worden verwijderd.<br> ![Remove-ResouceGroup-parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
     
-    >[AZURE.NOTE] Make sure the **Previewmode** option is set to **true** in order to avoid deleting the selected resource group(s).  **Please note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
+    >[AZURE.NOTE] Zorg ervoor dat de optie **Previewmode** is ingesteld op **waar** om te voorkomen dat de geselecteerde resourcegroepen worden verwijderd.  ****Met dit runbook wordt de resourcegroep met het Automation-account dat dit runbook uitvoert niet verwijderd.  
 
-4. Once you have configured all the parameter values, click **OK** and the runbook will be queued up for execution.  
+4. Nadat u alle parameterwaarden hebt geconfigureerd, klikt u op **OK**. Het runbook wordt in de wachtrij geplaatst om te worden uitgevoerd.  
 
-To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.<br> ![Remove-ResourceGroup Runbook Job Status](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Als u de details van de runbooktaak **Remove-ResourceGroup** in Azure Portal wilt weergeven, selecteert u de tegel **Taken** van het runbook. Het taakoverzicht geeft de invoerparameters en de uitvoerstroom weer, naast algemene informatie over de taak en eventuele uitzonderingen.<br> ![Taakstatus van het runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.<br> ![Remove-ResourceGroup Runbook Output Results](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png) 
+Het **Taakoverzicht** bevat berichten van de uitvoer-, waarschuwings- en foutstromen. Selecteer de tegel **Uitvoer** om gedetailleerde resultaten van de uitvoering van het runbook weer te geven.<br> ![Uitvoerresultaten van het runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png) 
 
-## Next steps
+## Volgende stappen
 
-- To get started with creating your own runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
+- Zie [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md) (Een runbook in Azure Automation maken of importeren) om uw eigen runbook te maken
+- Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
+
+
+<!--HONumber=Sep16_HO4-->
+
+

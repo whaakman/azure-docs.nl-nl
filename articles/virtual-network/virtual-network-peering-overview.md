@@ -32,7 +32,7 @@ Vereisten en de belangrijkste aspecten van VNet-peering:
 - De twee virtuele netwerken die worden gekoppeld, moeten zich in dezelfde Azure-regio bevinden.
 - De virtuele netwerken die worden gekoppeld, moeten niet-overlappende IP-adresruimten hebben.
 - VNet-peering vindt plaats tussen twee virtuele netwerken en er is geen afgeleide transitieve relatie. Als virtueel netwerk A bijvoorbeeld is gekoppeld aan virtueel netwerk B, en als virtueel netwerk B is gekoppeld aan virtueel netwerk C, betekent dit niet automatisch dat virtueel netwerk A is gekoppeld aan virtueel netwerk C.
-- Peering kan tot stand worden gebracht tussen virtuele netwerken in twee verschillende abonnementen, mits een bevoegde gebruiker van beide abonnementen de peering toestaat.
+- Peering kan tot stand worden gebracht tussen virtuele netwerken in twee verschillende abonnementen, mits een bevoegde gebruiker van beide abonnementen de peering toestaat en de abonnementen zijn gekoppeld aan dezelfde Active Directory-tenant. 
 - Een virtueel netwerk dat gebruikmaakt van het Resource Manager-implementatiemodel kan worden gekoppeld aan een ander virtueel netwerk dat gebruikmaakt van dit model, of aan een virtueel netwerk dat gebruikmaakt van het klassieke implementatiemodel. Echter, virtuele netwerken die gebruikmaken van het klassieke implementatiemodel kunnen niet aan elkaar worden gekoppeld.
 - Hoewel de communicatie tussen virtuele machines in gekoppelde virtuele netwerken geen extra bandbreedtebeperkingen heeft, is er nog steeds een bandbreedtelimiet op basis van VM-grootte van toepassing.
 
@@ -91,6 +91,6 @@ VNet-peering is tijdens de controleperiode gratis. Na de release wordt er een no
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

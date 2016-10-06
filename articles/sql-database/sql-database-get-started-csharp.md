@@ -26,7 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een pool voor elastische database maken](sql-database-elastic-pool-create-portal.md) als u een pool voor elastische database wilt maken.
+Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een pool voor elastische database maken](sql-database-elastic-pool-create-csharp.md) als u een pool voor elastische database wilt maken.
 
 De Azure SQL Database-bibliotheek voor .NET biedt een op [Azure Resource Manager](../resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
@@ -294,6 +294,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

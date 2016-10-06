@@ -136,7 +136,7 @@ Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbo
 We voegen nu een activiteit **Start-AzureRmVM** toe om een virtuele machine te starten.  U kunt elke virtuele machine in uw Azure-abonnement selecteren en voorlopig hardcoderen we deze naam in de cmdlet.
 
 1. Typ in het besturingselement Bibliotheek **Start-AzureRm** in het zoektekstvak.
-2. Voeg **Start-AzureRmVM** toe aan het papier, klik erop en sleep het onder **Verbinding maken met Azure**.
+2. Voeg **Start-AzureRmVM** toe aan het papier, klik erop en sleep het onder **Abonnements-id opgeven**.
 3. Beweeg de muisaanwijzer over **Abonnements-id opgeven** totdat een cirkel wordt weergegeven aan de onderkant van de vorm.  Klik op de cirkel en sleep de pijl naar **Start-AzureRmVM**. 
 4.  Selecteer **Start-AzureRmVM**.  Klik op **Parameters** en vervolgens op **Parameterset** om de sets voor **Start-AzureRmVM** weer te geven.  Selecteer de parameterset **ResourceGroupNameParameterSetName**. Naast **ResourceGroupName** en **Name** staan uitroeptekens.  Hiermee wordt aangegeven dat dit vereiste parameters zijn.  Voor beide parameters worden tekenreekswaarden verwacht.
 5.  Selecteer **Name**.  Selecteer **PowerShell-expressie** voor de **gegevensbron** en typ de naam van de virtuele machine tussen dubbele aanhalingstekens die we met dit runbook gaan starten.  Klik op **OK**.<br>![Parameterwaarde naam Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -219,6 +219,6 @@ We zullen het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele mach
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

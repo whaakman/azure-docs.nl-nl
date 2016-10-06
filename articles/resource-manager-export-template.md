@@ -106,6 +106,8 @@ Het is doorgaans een goed idee om te werken met een sjabloon die de gehele infra
 
 Hoewel elke implementatie alleen de wijzigingen toont die u aan de resourcegroep hebt aangebracht, kunt u op elk gewenst moment een sjabloon exporteren om de kenmerken van uw hele resourcegroep weer te geven.  
 
+> [AZURE.NOTE] U kunt geen sjablonen voor een resourcegroep met meer dan 200 bronnen exporteren.
+
 1. Selecteer **Automatiseringsscript** om de sjabloon voor een resourcegroep te bekijken.
 
       ![resourcegroep exporteren](./media/resource-manager-export-template/export-resource-group.png)
@@ -307,6 +309,6 @@ Gefeliciteerd. U hebt geleerd hoe u een sjabloon kunt exporteren uit resources d
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

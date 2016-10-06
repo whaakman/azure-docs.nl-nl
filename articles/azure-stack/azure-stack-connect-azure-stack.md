@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Verbinding maken met Microsoft Azure Stack POC | Microsoft Azure"
-    description="Meer informatie over het maken van verbinding met de Azure Stack POC-portal als servicebeheerder of tenant."
+    pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+    description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,63 +13,55 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Aanmelden bij de virtuele machine van Azure Stack POC
+# Log in to the Azure Stack POC virtual machine
 
-U kunt u aanmelden bij de virtuele machine van Azure Stack POC als
+You can log in to the Azure Stack POC virtual machine as a
 
-- [**servicebeheerder**](#log-in-as-a-service-administrator) om resourceproviders, tenantaanbiedingen, plannen, services, quota en prijzen te beheren.
+- [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
 
-of
+or
 
-- [**tenant**](#log-in-as-a-tenant) om services waarop u bent geabonneerd, in te richten, te controleren en te beheren, zoals web-apps, opslag en virtuele machines.
+- [**tenant**](#log-in-as-a-tenant) to provision, monitor, and manage services that you're subscribe to, like Web Apps, storage, and virtual machines.
 
-## Aanmelden als servicebeheerder
+## Log in as a service administrator
 
-1.  Meld u aan bij de fysieke computer van Azure Stack POC.
+1.  Log in to the Azure Stack POC physical machine.
 
-2.  Dubbelklik op het bureaubladpictogram **ClientVM.AzureStack.local.rdp** om een verbinding met extern bureaublad naar de virtuele machine van de client te openen.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    Hiervoor wordt automatisch het AzureStack\\AzureStackUser-account gebruikt dat is gemaakt met het implementatiescript. Gebruik het beheerderswachtwoord dat u in stap 5 van het scriptproces hebt opgegeven, bij de prompt **Voer het wachtwoord voor de ingebouwde beheerder in**.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  Dubbelklik op het bureaublad ClientVM.AzureStack.local op het pictogram voor de **Microsoft Azure Stack POC-portal** (https://portal.azurestack.local/) om de [portal](azure-stack-key-features.md#portal) te openen.
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-4.  Meld u aan met het servicebeheerdersaccount.
+4.  Log in using the service administrator account.
 
-## Aanmelden als tenant
+## Log in as a tenant
 
-Een servicebeheerder kan zich aanmelden als tenant om de plannen, aanbiedingen en abonnementen te testen die zijn of haar tenants mogelijk gebruiken.
-Als u nog geen account hebt, kunt u [een tenantaccount maken](azure-stack-add-new-user-aad.md) voordat u zich aanmeldt.
+A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-1.  Meld u aan bij de fysieke computer van Azure Stack.
+1.  Log in to the Azure Stack physical machine.
 
-2.  Dubbelklik op het bureaubladpictogram **ClientVM.AzureStack.local.rdp** om een verbinding met extern bureaublad naar de virtuele machine van de client te openen. 
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    Hiervoor wordt automatisch het AzureStack\\AzureStackUser-account gebruikt dat is gemaakt met het implementatiescript. Gebruik het beheerderswachtwoord dat u in stap 5 van het scriptproces hebt opgegeven, bij de prompt **Voer het wachtwoord voor de ingebouwde beheerder in**.
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-3.  Dubbelklik op het bureaublad ClientVM.AzureStack.local op het pictogram voor de **Microsoft Azure Stack POC-portal** (https://portal.azurestack.local/) om de [portal](azure-stack-key-features.md#portal) te openen.
+4.  Log in using a tenant account.
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
-4.  Meld u aan met een tenantaccount.
+## Next steps
 
-RDP kan beperken hoeveel gebruikers toegang hebben tot de fysieke Microsoft Azure POC-host. Zie [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md) (Meerdere gelijktijdige gebruikersverbindingen inschakelen) om meerdere gebruikers in te schakelen.
-
-## Volgende stappen
-
-[Eerste taken](azure-stack-first-scenarios.md)
+[First tasks](azure-stack-first-scenarios.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

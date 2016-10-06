@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met Windows Server 2012 R2 AD FS | Microsoft Azure"
+    pageTitle="MFA Server met Windows Server 2012 R2 AD FS | Microsoft Azure"
     description="In dit artikel wordt beschreven hoe u aan de slag gaat met Azure Multi-Factor Authentication en AD FS in Windows Server 2012 R2."
     services="multi-factor-authentication"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/04/2016"
+    ms.date="09/22/2016"
     ms.author="kgremban"/>
 
 
@@ -75,20 +75,61 @@ De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra
 3. Voer het installatiebestand MultiFactorAuthenticationAdfsAdapterSetup64.msi uit.
 4. Klik in het installatieprogramma van Multi-Factor Authentication AD FS-adapter op **Volgende** om de installatie uit te voeren.
 5. Klik op **Sluiten** nadat de installatie is voltooid.
-6. Bewerk het bestand MultiFactorAuthenticationAdfsAdapter.config als volgt:
 
-|Stap MultiFactorAuthenticationAdfsAdapter.config| Substap|
-|:------------- | :------------- |
-|Stel het knooppunt **UseWebServiceSdk** in op **true**.||
-|Stel de waarde voor **WebServiceSdkUrl** in op de URL van de webservice-SDK voor Multi-Factor Authentication.</br></br>Voorbeeld:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>Hierbij is certificatename de naam van uw certificaat. ||
-|Configureer de webservice-SDK.<br><br>*Optie 1*: met behulp van een gebruikersnaam en wachtwoord|<ol type="a"><li>Stel de waarde voor **WebServiceSdkUsername** in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.<li>Stel de waarde voor **WebServiceSdkPassword** in op het juiste accountwachtwoord.</li></ol>
-|De webservice-SDK configureren, *vervolg*<br><br>*Optie 2*: met behulp van een clientcertificaat|<ol type="a"><li>Verkrijg een certificaat van een certificeringsinstantie voor de server waarop de webservice-SDK wordt uitgevoerd. Lees hoe u [clientcertificaten kunt verkrijgen](https://technet.microsoft.com/library/cc770328.aspx).</li><li>Importeer het clientcertificaat in het persoonlijke certificaatarchief van de lokale computer op de server waarop de webservice-SDK wordt uitgevoerd. Opmerking: zorg ervoor dat het openbare certificaat van de certificeringsinstantie zich bevindt in de certificaatopslag met vertrouwde basiscertificaten.</li><li>Exporteer de openbare en persoonlijke sleutels van het clientcertificaat naar een PFX-bestand.</li><li>Exporteer de openbare sleutel in Base64-indeling naar een CER-bestand.</li><li>Controleer in Serverbeheer of het onderdeel Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication (Verificatie van IIS-clientcertificaattoewijzing) is geïnstalleerd. Als dit niet is geïnstalleerd, kiest u **Functies en onderdelen toevoegen** om dit onderdeel toe te voegen.</li><li>Dubbelklik in IIS-beheer op **Configuratie-editor** voor de website die de virtuele map van de webservice-SDK bevat. Opmerking: het is heel belangrijk dat u dit doet op het niveau van de website en niet op het niveau van de virtuele map.</li><li>Ga naar het gedeelte **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.</li><li>Stel **enabled** in op **true**.</li><li>Stel **oneToOneCertificateMappingsEnabled** in op **true**.</li><li>Klik op de knop **...** naast **oneToOneMappings** en klik vervolgens op de koppeling **Add**.</li><li>Open het CER-bestand dat u eerder hebt geëxporteerd in base 64-indeling. Verwijder *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* en alle regeleinden. Kopieer de resulterende tekenreeks.</li><li>Stel het **certificaat** in op de tekenreeks die u in de vorige stap hebt gekopieerd.</li><li>Stel **enabled** in op **true**.</li><li>Stel **userName** in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.</li><li>Stel het wachtwoord in op het juiste accountwachtwoord en sluit vervolgens de Configuratie-editor.</li><li>Klik op de koppeling **Toepassen**.</li><li>Dubbelklik in de virtuele map van de webservice-SDK op **Verificatie**.</li><li>Controleer of **ASP.NET-imitatie** en **Basisverificatie** zijn ingesteld op **Ingeschakeld** en of alle overige items zijn ingesteld op **Uitgeschakeld**.</li><li>Dubbelklik in de virtuele map van de webservice-SDK op **SSL-instellingen**.</li><li>Stel **Clientcertificaten** in op **Accepteren** en klik daarna op **Toepassen**.</li><li>Kopieer het PFX-bestand dat u eerder hebt geëxporteerd naar de server waarop de AD FS-adapter wordt uitgevoerd.</li><li>Importeer het PFX-bestand in het persoonlijke certificaatarchief van de lokale computer.</li><li>Klik met de rechtermuisknop en selecteer **Persoonlijke sleutels beheren**, en verleen leestoegang tot het account waarmee u zich aanmeldt bij de AD FS-service.</li><li>Open het clientcertificaat en kopieer de vingerafdruk van het tabblad **Details**.</li><li>Stel in het bestand MultiFactorAuthenticationAdfsAdapter.config **WebServiceSdkCertificateThumbprint** in op de tekenreeks die u in de vorige stap hebt gekopieerd.</li></ol>
-| Bewerk het script Register-MultiFactorAuthenticationAdfsAdapter.ps1 door *-ConfigurationFilePath-&lt;pad&gt;* toe te voegen aan het einde van de opdracht `Register-AdfsAuthenticationProvider`, waarbij *&lt;pad&gt;* het volledige pad is naar het bestand MultiFactorAuthenticationAdfsAdapter.config.||
+## Bewerk het bestand MultiFactorAuthenticationAdfsAdapter.config
 
-Voer het script \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 uit in PowerShell om de adapter te registreren. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. U moet de AD FS-service opnieuw starten voordat de registratie van kracht wordt.
+Volg deze stappen om het bestand MultiFactorAuthenticationAdfsAdapter.config te bewerken:
+
+1. Stel het knooppunt **UseWebServiceSdk** in op **true**.  
+2. Stel de waarde voor **WebServiceSdkUrl** in op de URL van de webservice-SDK voor Multi-Factor Authentication. Bijvoorbeeld:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**, waarbij certificatename de naam van uw certificaat is.  
+3. Bewerk het script Register-MultiFactorAuthenticationAdfsAdapter.ps1 door *-ConfigurationFilePath-&lt;pad&gt;* toe te voegen aan het einde van de opdracht `Register-AdfsAuthenticationProvider`, waarbij *&lt;pad&gt;* het volledige pad is naar het bestand MultiFactorAuthenticationAdfsAdapter.config.
+
+### De webservice-SDK configureren met een gebruikersnaam en wachtwoord
+
+Er zijn twee opties voor het configureren van de webservice-SDK. De eerste is met een gebruikersnaam en wachtwoord, de tweede is met een clientcertificaat. Volg deze stappen voor de eerste optie of sla dit gedeelte over voor de tweede optie.  
+
+1. Stel de waarde voor **WebServiceSdkUsername** in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.  
+2. Stel de waarde voor **WebServiceSdkPassword** in op het juiste accountwachtwoord.
+
+### De webservice-SDK configureren met een clientcertificaat
+
+Als u geen gebruikersnaam en wachtwoord wilt gebruiken, volgt u deze stappen voor het configureren van de webservice-SDK met een clientcertificaat.
+
+1. Verkrijg een certificaat van een certificeringsinstantie voor de server waarop de webservice-SDK wordt uitgevoerd. Lees hoe u [clientcertificaten kunt verkrijgen](https://technet.microsoft.com/library/cc770328.aspx).  
+2. Importeer het clientcertificaat in het persoonlijke certificaatarchief van de lokale computer op de server waarop de webservice-SDK wordt uitgevoerd. Opmerking: zorg ervoor dat het openbare certificaat van de certificeringsinstantie zich bevindt in de certificaatopslag met vertrouwde basiscertificaten.  
+3. Exporteer de openbare en persoonlijke sleutels van het clientcertificaat naar een PFX-bestand.  
+4. Exporteer de openbare sleutel in Base64-indeling naar een CER-bestand.  
+5. Controleer in Serverbeheer of het onderdeel Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication (Verificatie van IIS-clientcertificaattoewijzing) is geïnstalleerd. Als dit niet is geïnstalleerd, kiest u **Functies en onderdelen toevoegen** om dit onderdeel toe te voegen.  
+6. Dubbelklik in IIS-beheer op **Configuratie-editor** voor de website die de virtuele map van de webservice-SDK bevat. Opmerking: het is heel belangrijk dat u dit doet op het niveau van de website en niet op het niveau van de virtuele map.  
+7. Ga naar het gedeelte **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
+8. Stel **enabled** in op **true**.  
+9. Stel **oneToOneCertificateMappingsEnabled** in op **true**.  
+10. Klik op de knop **...** naast **oneToOneMappings** en klik vervolgens op de koppeling **Add**.  
+11. Open het CER-bestand dat u eerder hebt geëxporteerd in base 64-indeling. Verwijder *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* en alle regeleinden. Kopieer de resulterende tekenreeks.  
+12. Stel het **certificaat** in op de tekenreeks die u in de vorige stap hebt gekopieerd.  
+13. Stel **enabled** in op **true**.  
+14. Stel **userName** in op een account dat lid is van de veiligheidsgroep PhoneFactor Admins. Gebruik de indeling &lt;domein&gt;&#92;&lt;gebruikersnaam&gt;.  
+15. Stel het wachtwoord in op het juiste accountwachtwoord en sluit vervolgens de Configuratie-editor.  
+16. Klik op de koppeling **Toepassen**.  
+17. Dubbelklik in de virtuele map van de webservice-SDK op **Verificatie**.  
+18. Controleer of **ASP.NET-imitatie** en **Basisverificatie** zijn ingesteld op **Ingeschakeld** en of alle overige items zijn ingesteld op **Uitgeschakeld**.  
+19. Dubbelklik in de virtuele map van de webservice-SDK op **SSL-instellingen**.  
+20. Stel **Clientcertificaten** in op **Accepteren** en klik daarna op **Toepassen**.  
+21. Kopieer het PFX-bestand dat u eerder hebt geëxporteerd naar de server waarop de AD FS-adapter wordt uitgevoerd.  
+22. Importeer het PFX-bestand in het persoonlijke certificaatarchief van de lokale computer.  
+23. Klik met de rechtermuisknop en selecteer **Persoonlijke sleutels beheren**, en verleen leestoegang tot het account waarmee u zich aanmeldt bij de AD FS-service.  
+24. Open het clientcertificaat en kopieer de vingerafdruk van het tabblad **Details**.  
+25. Stel in het bestand MultiFactorAuthenticationAdfsAdapter.config **WebServiceSdkCertificateThumbprint** in op de tekenreeks die u in de vorige stap hebt gekopieerd.  
+
+
+Voer als laatste stap het script \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 uit in PowerShell om de adapter te registreren. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. U moet de AD FS-service opnieuw starten voordat de registratie van kracht wordt.
+
+## Verwante onderwerpen
+
+Zie de [Veelgestelde vragen over Azure Multi-Factor Authentication](multi-factor-authentication-faq.md) voor oplossingen voor problemen
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

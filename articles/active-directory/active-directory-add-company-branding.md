@@ -3,7 +3,7 @@
     description="Ontdek hoe u uw huisstijl kunt toevoegen aan de Azure-aanmeldingspagina en aan de toegangsvensterpagina"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="curtand"
     manager="femila"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
-    ms.author="MarkVi"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
 # De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
@@ -30,7 +30,7 @@ In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het
 
 > [AZURE.NOTE]
 >
-- De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+- De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory of als u Office 365 gebruikt. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
 - De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -223,6 +223,6 @@ Achtergrondkleur van de aanmeldingspagina | De achtergrondkleur van de aanmeldin
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

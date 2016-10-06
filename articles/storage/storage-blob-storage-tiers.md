@@ -356,6 +356,6 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

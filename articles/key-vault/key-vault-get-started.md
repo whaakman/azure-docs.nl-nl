@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -27,7 +27,7 @@ Gebruik deze handleiding om aan de slag te gaan met Azure Sleutelkluis en een ge
 
 >[AZURE.NOTE]  Deze zelfstudie bevat geen instructies voor het schrijven van de Azure-toepassing die in een van de stappen wordt gebruikt, namelijk hoe u een toepassing toestemming geeft voor het gebruik van een sleutel of geheim in de sleutelkluis.
 >
->Het is momenteel niet mogelijk om Azure Sleutelkluis in Azure Portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure Powershell. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli.md) voor instructies om een platformonafhankelijke opdrachtregelinterface te maken.
+>In deze zelfstudie wordt Azure PowerShell gebruikt. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli.md) voor instructies om een platformonafhankelijke opdrachtregelinterface te maken.
 
 Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
 
@@ -86,7 +86,7 @@ Als u Azure Resource Manager gebruikt, worden alle gerelateerde resources gemaak
 
 ## <a id="vault"></a>Een sleutelkluis maken ##
 
-Gebruik de cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx) om een sleutelkluis te maken. Deze cmdlet heeft drie verplichte parameters: een **resourcegroepnaam**, een **sleutelkluisnaam** en de **geografische locatie**.
+Gebruik de cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx).aspx) om een sleutelkluis te maken. Deze cmdlet heeft drie verplichte parameters: een **resourcegroepnaam**, een **sleutelkluisnaam** en de **geografische locatie**.
 
 Als u bijvoorbeeld de kluisnaam **ContosoKeyVault**, de resourcegroepnaam **ContosoResourceGroup** en de locatie **Oost-Azië** wilt gebruiken, typt u het volgende:
 
@@ -99,12 +99,12 @@ De uitvoer van deze cmdlet toont u de eigenschappen van de sleutelkluis die u zo
 
 Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit te voeren. Tot dusver is er nog niemand anders gemachtigd.
 
->[AZURE.NOTE]  Als de foutmelding **Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.KeyVault'** wordt weergegeven wanneer u de nieuwe sleutelkluis maakt, voert u `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` uit en voert u vervolgens opdracht New-AzureRmKeyVault opnieuw uit. Zie [Register-AzureRmProvider](https://msdn.microsoft.com/library/mt679020.aspx) voor meer informatie.
+>[AZURE.NOTE]  Als de foutmelding **Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.KeyVault'** wordt weergegeven wanneer u de nieuwe sleutelkluis maakt, voert u `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` uit en voert u vervolgens opdracht New-AzureRmKeyVault opnieuw uit. Zie [Register-AzureRmProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx) voor meer informatie.
 >
 
 ## <a id="add"></a>Een sleutel of geheim toevoegen aan de sleutelkluis ##
 
-Als u wilt dat Azure Key Vault een softwarematig beveiligde sleutel voor u maakt, gebruikt u de cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) en typt u het volgende:
+Als u wilt dat Azure Key Vault een softwarematig beveiligde sleutel voor u maakt, gebruikt u de cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) en typt u het volgende:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -172,7 +172,7 @@ De toepassing registreren in Azure Active Directory:
 
 ## <a id="authorize"></a>De toepassing toestemming geven om de sleutel of het geheim te gebruiken ##
 
-Als u de toepassing toegang wilt verlenen toegang tot de sleutel of het geheim in de kluis, gebruikt u de cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+Als u de toepassing toegang wilt verlenen toegang tot de sleutel of het geheim in de kluis, gebruikt u de cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx).
 
 Als bijvoorbeeld uw kluisnaam **ContosoKeyVault** is en de toepassing die u wilt hosten de client-id 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed heeft, kunt u het volgende uitvoeren om de toepassing toestemming te geven om ondertekenings- en versleutelingsbewerking met de sleutels in uw kluis uit te voeren:
 
@@ -207,7 +207,7 @@ U kunt de volgende opdracht gebruiken om een sleutel uit een PFX-bestand op uw c
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
-Met de volgende opdracht wordt een BYOK-pakket (Bring Your Own Key) geïmporteerd. Hiermee kunt u de sleutel in uw lokale HSM genereren en overdragen naar HSM's in de Sleutelkluis-service, zonder dat de sleutel de HSM-grens verlaat:
+Met de volgende opdracht wordt een BYOK-pakket (Bring Your Own Key) geïmporteerd. In dit scenario kunt u de sleutel in uw lokale HSM genereren en overdragen naar HSM's in de Key Vault-service, zonder dat de sleutel de HSM-grens verlaat:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -215,7 +215,7 @@ Zie [Met HSM beveiligde sleutels voor Azure Key Vault genereren en overdragen](k
 
 ## <a id="delete"></a>De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen ##
 
-Als u de sleutelkluis en de sleutel of het geheim in de kluis niet meer nodig hebt, kunt u de sleutelkluis verwijderen met de cmdlet [verwijderen AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Als u de sleutelkluis en de sleutel of het geheim in de kluis niet meer nodig hebt, kunt u de sleutelkluis verwijderen met de cmdlet [verwijderen AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-appl
 
 Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) om te zien hoe uw sleutelkluis wordt gebruikt.
 
-Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met de nieuwste Azure PowerShell 1.0-cmdlets voor Azure Key Vault. 
+Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx) voor een lijst met de nieuwste Azure PowerShell 1.0-cmdlets voor Azure Key Vault. 
  
 
 Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

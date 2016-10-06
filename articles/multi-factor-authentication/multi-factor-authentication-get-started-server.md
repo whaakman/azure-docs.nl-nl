@@ -69,7 +69,7 @@ U kunt de Azure Multi-Factor Authentication-server op twee verschillende maniere
 
 
 ## De Azure Multi-Factor Authentication-server installeren en configureren
-Nu dat u de server hebt gedownload, kunt u deze installeren en configureren.  Zorg ervoor dat de server waarop u deze installeert aan de volgende vereisten voldoet.
+Nu u de server hebt gedownload, kunt u deze installeren en configureren.  Zorg ervoor dat de server waarop u deze installeert aan de volgende vereisten voldoet.
 
 
 
@@ -112,8 +112,7 @@ IP-subnet|Netmasker|IP-bereik
 2. Zorg ervoor dat in het scherm Installatiemap selecteren de map juist is en klik op Volgende.
 3. Nadat de installatie is voltooid, klikt u op Voltooien.  Hierdoor start u de configuratiewizard.
 4. Schakel in het welkomstscherm van de configuratiewizard het selectievakje **De wizard Authenticatieconfiguratie overslaan** en klik op **Volgende**.  Hierdoor sluit u de wizard en start u de server.
-![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Klik op de pagina waarvan we de server hebben gedownload op de knop **Activeringsreferenties genereren**.  Kopieer deze informatie naar de Azure MFA-server in de desbetreffende vakken en klik op **Activeren**.
 
 
@@ -183,9 +182,9 @@ Methode|Beschrijving
 :------------- | :------------- |
 [Gebruikersportal](multi-factor-authentication-get-started-portal.md)|  Informatie over de installatie en configuratie van de gebruikersportal, inclusief implementatie en selfservice van gebruiker.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|Informatie over het instellen van Azure Multi-Factor Authentication met AD FS.
-[RADIUS-authenticatie](multi-factor-authentication-get-started-server-radius.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met RADIUS.
+[RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met RADIUS.
 [IIS-authenticatie](multi-factor-authentication-get-started-server-iis.md)|Informatie over de installatie en configuratie van de Azure MFA-server met IIS.
-[Windows-authenticatie](multi-factor-authentication-get-started-server-windows.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met Windows-authenticatie.
+[Windows-verificatie](multi-factor-authentication-get-started-server-windows.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met Windows-authenticatie.
 [LDAP-authenticatie](multi-factor-authentication-get-started-server-ldap.md)|Informatie over de installatie en configuratie van de Azure MFA-server met LDAP-authenticatie.
 [Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md)|  Informatie over de installatie en configuratie van de Azure MFA-server met extern bureaublad-gateway en gebruik van RADIUS.
 [Synchroniseren met Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Informatie over de installatie en configuratie van de synchronisatie tussen Active Directory en de Azure MFA-server.
@@ -193,6 +192,6 @@ Methode|Beschrijving
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

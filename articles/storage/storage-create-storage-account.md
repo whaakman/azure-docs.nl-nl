@@ -162,6 +162,6 @@ Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documen
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -232,7 +232,9 @@ Het volgende voorbeeld betreft een verdachte RDP-activiteit die op dat moment pl
 
 Zoals u ziet, bevat deze blade informatie over het tijdstip waarop de aanval plaatsvond, de hostnaam van de bron, de VM die het doelwit was en aanbevolen maatregelen. Onder bepaalde omstandigheden kunnen de brongegevens van de aanval leeg zijn. Lees [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) voor meer informatie over dit type gedrag.
 
-> [AZURE.NOTE] In de video [Reageren op incidenten met Azure Security Center & Microsoft Operations Management Suite](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) ziet u enkele demonstraties waarmee u kunt begrijpen hoe Security Center kan worden gebruikt in elk van deze fasen.
+In de video [Reageren op incidenten met Azure Security Center & Microsoft Operations Management Suite](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) ziet u enkele demonstraties waarmee u kunt begrijpen hoe Security Center kan worden gebruikt in elk van deze fasen.
+
+> [AZURE.NOTE] Lees [Azure Security Center gebruiken voor reacties op incidenten](security-center-incident-response.md) voor meer informatie over hoe u Security Center kunt gebruiken wanneer u reageert op incidenten. 
 
 ## Zie ook
 In dit document hebt u kunnen lezen hoe u een planning kunt maken voor het overstappen op Security Center. Zie de volgende onderwerpen voor meer informatie over Security Center:
@@ -245,6 +247,6 @@ In dit document hebt u kunnen lezen hoe u een planning kunt maken voor het overs
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

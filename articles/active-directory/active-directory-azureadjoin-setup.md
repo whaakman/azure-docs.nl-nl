@@ -58,6 +58,6 @@ Met de volgende drie scenario's kunt u uw gebruikers in staat stellen Azure AD J
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

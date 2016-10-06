@@ -30,7 +30,7 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
 
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) en volgt u de instructies helemaal tot aan het einde om u aan te melden bij Azure en uw abonnement te selecteren.
 
-        > [AZURE.NOTE] De PowerShell-cmdlet voor het beheer van VNet-peering wordt geleverd met [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] De PowerShell-cmdlet voor het beheer van VNet-peering wordt geleverd met [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Virtueel-netwerkobjecten lezen:
 
@@ -48,7 +48,8 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Initiated
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -70,7 +71,8 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet2
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -92,7 +94,8 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -125,6 +128,7 @@ Volg de onderstaande stappen om met behulp van PowerShell een VNet-peering te ma
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
+        PeeringState        : Connected
         ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -237,6 +241,6 @@ Voer onderstaande stappen uit om een VNet-peering te maken tussen een klassiek v
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

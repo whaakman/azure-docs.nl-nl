@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 
@@ -38,13 +38,7 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 
 * **Azure Data Lake Store-account**. Zie voor instructies over het maken van een account [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* **Maak een Azure Active Directory-toepassing** als u wilt dat uw toepassing automatisch wordt geverifieerd bij Azure Active Directory.
-
-    * **Voor niet-interactieve, service-principal verificatie** moet u in Azure Active Directory een **webtoepassing** maken. Wanneer u de toepassing hebt gemaakt, haalt u de volgende waarden op met betrekking tot de toepassing.
-        - **Client-id** en **clientgeheim** voor de toepassing ophalen
-        - Wijs de Azure Active Directory-toepassing toe aan een rol. De rol kan zich bevinden op het niveau van het bereik waarmee u toegang wilt geven aan de Azure Active Directory-toepassing. U kunt de toepassing bijvoorbeeld toewijzen op abonnementsniveau of op het niveau van een resourcegroep. 
-
-    Zie [Een Active Directory-toepassing en service-principal maken met portal](../resource-group-create-service-principal-portal.md) als u wilt weten hoe u deze waarden ophaalt, de machtigingen instelt en rollen toewijst.
+* **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ## Een .NET-toepassing maken
 
@@ -97,12 +91,15 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+                private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+                    _subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -116,31 +113,41 @@ In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden v
 
 ## Authentication
 
-Het volgende codefragment kan worden gebruikt voor interactief aanmelden.
+### Als u gebruikmaakt van verificatie door eindgebruikers
+
+Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden.
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-U kunt anders ook het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal.
+In het bovenstaande fragment gebruiken we een Azure AD-domein en -client-ID die standaard beschikbaar zijn voor alle Azure-abonnementen. Als u uw eigen Azure AD-domein en -client-ID wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken. Zie [Een Active Directory-toepassing maken](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) voor instructies.
+
+>[AZURE.NOTE] De instructies in de bovenstaande koppelingen zijn voor een Azure AD-webtoepassing. De stappen zijn echter precies hetzelfde, ook als u in plaats daarvan een systeemeigen clienttoepassing maakt. 
+
+### Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim 
+
+U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal.
+### Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
+
+Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -152,8 +159,11 @@ Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het n
 
 Met het volgende codefragment worden het Data Lake Store-account en clientobjecten voor het bestandssysteem gemaakt. Deze worden gebruikt voor het verzenden van aanvragen naar de service.
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+    _adlsClient.SubscriptionId = _subId;
 
 ## Alle Data Lake Store-accounts binnen een abonnement weergeven
 
@@ -162,7 +172,7 @@ Het volgende codefragment bevat alle Data Lake Store-accounts binnen een bepaald
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -197,7 +207,7 @@ Het volgende codefragment bevat de methode `UploadFile`, die u kunt gebruiken vo
         uploader.Execute();
     }
 
-DataLakeStoreUploader ondersteunt recursief uploaden en downloaden tussen een lokaal bestandspad (of een map) naar Date Lake Store.    
+`DataLakeStoreUploader` Ondersteunt recursief uploaden en downloaden tussen een lokaal bestandspad en een Date Lake Store-bestandspad.    
 
 ## Bestands- of mapinformatie ophalen
 
@@ -266,6 +276,6 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -65,7 +65,7 @@ U kunt voor elk abonnement en elke resourcegroep beveiligingsbeleid configureren
 
 9. Klik in de blade **Beveiligingsbeleid** op **Aan** om de beveiligingsaanbevelingen in te schakelen die u wilt gebruiken voor dit abonnement. Klik op **Preventiebeleid** om opties weer te geven zoals die in de volgende schermafbeelding:
 
-    ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-ga.png)
+    ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 
@@ -78,8 +78,9 @@ Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 | Netwerkbeveiligingsgroepen | Hiermee wordt aanbevolen om [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) te configureren om binnenkomend en uitgaand verkeer naar VM's met openbare eindpunten te beheren. Netwerkbeveiligingsgroepen die worden geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders is aangegeven. Behalve dat wordt gecontroleerd of een netwerkbeveiligingsgroep is geconfigureerd, worden met deze beleidsregel ook de beveiligingsregels voor binnenkomend verkeer beoordeeld die binnenkomend verkeer toestaan. |
 | Web Application Firewall | Hiermee wordt aanbevolen om een Web Application Firewall in te richten op virtuele machines wanneer een van de volgende omstandigheden waar is:</br></br>[Openbaar IP op exemplaarniveau](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) wordt gebruikt, en de beveiligingsregels voor binnenkomend verkeer van de gekoppelde netwerkbeveiligingsgroep worden geconfigureerd om toegang tot poort 80/443 toe te staan.</br></br>IP met taakverdeling wordt gebruikt en de bijbehorende taakverdeling en de inkomende NAT-regels (Network Address Translation worden geconfigureerd om toegang tot poort 80/443 toe te staan. (Zie [Azure Resource Manager-ondersteuning voor load balancer](../load-balancer/load-balancer-arm.md) voor meer informatie.) |
 | Next Generation Firewall | Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor een Next Generation Firewall wordt aanbevolen en biedt u de mogelijkheid een virtuele toepassing in te richten. |
-| Controleren voor SQL | Hiermee wordt aanbevolen dat de controle van toegang tot de Azure-database wordt ingeschakeld voor naleving, geavanceerde detectie en onderzoek. |
+| Controleren voor SQL en bedreigingen detecteren | Hiermee wordt aanbevolen dat de controle van toegang tot de Azure-database wordt ingeschakeld voor naleving, geavanceerde detectie en onderzoek. |
 | Transparent Data Encryption voor SQL | Hiermee wordt aanbevolen dat versleuteling-at-rest wordt ingeschakeld voor uw Azure SQL-databases, gekoppelde back-ups en transactielogboekbestanden. Zelfs bij een inbreuk kunnen uw gegevens niet worden gelezen. |
+| Beoordeling van beveiligingslekken | Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 
 Wanneer u klaar bent met het configureren van alle opties, klikt u op **OK** in de blade **Beveiligingsbeleid** met de aanbevelingen en klikt u vervolgens op **Opslaan** in de blade **Beveiligingsbeleid** met de oorspronkelijke instellingen.
 
@@ -109,6 +110,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

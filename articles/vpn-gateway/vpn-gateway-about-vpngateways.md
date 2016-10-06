@@ -13,21 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 
 # Informatie over VPN-gateway
 
 
-Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties, evenals tussen virtuele netwerken in Azure (VNet-naar-VNet). Als u een verbinding wilt maken, voegt u een virtuele netwerkgateway toe aan een VNet met aanvullende resources en de bijbehorende instellingen. 
+Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties, evenals tussen virtuele netwerken in Azure (VNet-naar-VNet). Wanneer u een VPN-gateway configureert, moet u een virtuele netwerkgateway en een virtuele netwerkgatewayverbinding maken en configureren.
 
-Wanneer u een resource van een virtuele netwerkgateway maakt, kunt u verschillende instellingen opgeven. Een van de vereiste instellingen is '-GatewayType'. Het gatewaytype geeft aan hoe de gateway wordt verbonden. Er zijn twee types virtuele netwerkgateway’s: VPN en ExpressRoute. Wanneer netwerkverkeer wordt verzonden via een specifieke privéverbinding, gebruikt u het gatewaytype 'ExpressRoute'. Dit wordt ook wel een ExpressRoute-gateway genoemd. Wanneer netwerkverkeer versleuteld wordt verzonden via een openbare verbinding, gebruikt u het gatewaytype 'VPN'. Dit wordt ook wel een VPN-gateway genoemd. Site-naar-site-, punt-naar-site- en VNet-naar-VNet-verbindingen gebruiken allemaal een VPN-gateway.
+Wanneer u een resource van een virtuele netwerkgateway maakt in het implementatiemodel van Resource Manager, kunt u verschillende instellingen opgeven. Een van de vereiste instellingen is '-GatewayType'. Er zijn twee types virtuele netwerkgateway’s: VPN en ExpressRoute. 
 
-Elk virtueel netwerk kan maar één virtuele netwerkgateway per type gateway hebben. U kunt voor een virtueel netwerk bijvoorbeeld één gateway gebruiken die -GatewayType Vpn gebruikt en één die -GatewayType ExpressRoute gebruikt. Dit artikel richt zich voornamelijk op VPN Gateway. Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
+Wanneer netwerkverkeer wordt verzonden via een specifieke privéverbinding, gebruikt u het gatewaytype 'ExpressRoute'. Dit wordt ook wel een ExpressRoute-gateway genoemd. Wanneer netwerkverkeer versleuteld wordt verzonden via een openbare verbinding, gebruikt u het gatewaytype 'VPN'. Dit wordt ook wel een VPN-gateway genoemd. Site-naar-site-, punt-naar-site- en VNet-naar-VNet-verbindingen gebruiken allemaal een VPN-gateway.
 
-Zie [Gatewayvereisten](vpn-gateway-about-vpn-gateway-settings.md#requirements) voor meer informatie over vereisten voor gateways. Zie [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput) (Informatie over instellingen voor VPN Gateway) voor geschatte geaggregeerde doorvoer. Zie [Prijzen voor VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) voor prijzen. Zie [Netwerklimieten](../articles/azure-subscription-service-limits.md#networking-limits) voor abonnementen en servicelimieten.
+Elk virtueel netwerk kan maar één virtuele netwerkgateway per type gateway hebben. U kunt voor een virtueel netwerk bijvoorbeeld één gateway gebruiken die -GatewayType ExpressRoute gebruikt en één die -GatewayType Vpn gebruikt. Dit artikel richt zich voornamelijk op VPN Gateway. Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
 
+## Prijzen
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Gateway-SKU's
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## Een VPN-gateway configureren
 
@@ -35,7 +47,7 @@ Wanneer u een VPN-gateway configureert, zijn de instructies die u moet volgen af
 
 Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfigureerd met specifieke instellingen. De meeste resources kunnen afzonderlijk worden geconfigureerd, hoewel ze in sommige gevallen in een bepaalde volgorde moeten worden geconfigureerd. U kunt beginnen met het maken en configureren van resources met een configuratiehulpprogramma, zoals de Azure Portal. U kunt vervolgens later besluit om over te schakelen naar een ander hulpprogramma, zoals PowerShell, om aanvullende resources te configureren, of om indien nodig bestaande bronnen te wijzigen. Op dit moment is het niet mogelijk om elke resource en resource-instelling in de Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is. Zie voor meer informatie over afzonderlijke resources en de instellingen voor VPN Gateway [Over VPN Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md).
 
-De volgende secties bevatten tabellen met de volgende informatie:
+De volgende gedeelten bevatten tabellen met de volgende informatie:
 
 - beschikbaar implementatiemodel
 - beschikbare configuratiehulpprogramma's
@@ -82,7 +94,7 @@ Azure heeft momenteel twee implementatiemodellen: klassiek en Resource Manager. 
 
 #### VNet-peering
 
-Zolang het virtuele netwerk voldoet aan bepaalde vereisten, kunt u VNet-peering gebruiken om uw verbinding te maken. Bij VNet-peering wordt geen virtuele netwerkgateway gebruikt. [VNet-peering](../virtual-network/virtual-network-peering-overview.md) bevindt zich momenteel in de previewfase.
+Zolang het virtuele netwerk voldoet aan bepaalde vereisten, kunt u VNet-peering gebruiken om uw verbinding te maken. Bij VNet-peering wordt geen virtuele netwerkgateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
 
 
 ### Implementatiemodellen en -methoden voor VNet-naar-VNet
@@ -139,6 +151,6 @@ De VPN-gatewayconfiguratie plannen. Zie [VPN-gateway plannen en ontwerpen](vpn-g
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
