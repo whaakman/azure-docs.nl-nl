@@ -1,5 +1,4 @@
-<eigenschappen
-
+<properties
     pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
@@ -117,6 +116,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 * [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO4-->
+<!---HONumber=Sep16_HO4-->
 
 
