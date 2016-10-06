@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -37,7 +37,7 @@ Gebruik de volgende tabel om beter te begrijpen hoe Key Vault u kan helpen om aa
 
 | Rol        | Probleemformulering           | Opgelost door Azure Key Vault  |
 | ------------- |-------------|-----|
-| Ontwikkelaar voor een Azure-toepassing      | "Ik wil een toepassing voor Azure schrijven die voor de ondertekening en versleuteling gebruikmaakt van sleutels. Dit moeten echter wel externe sleutels zijn, zodat de oplossing geschikt is voor een toepassing die geografisch wordt gedistribueerd. <br/><br/>Ik wil ook dat deze sleutels en geheimen worden beveiligd, zonder dat ik zelf code hoef te schrijven. Daarnaast moeten ze eenvoudig vanuit mijn toepassingen kunnen worden gebruikt met optimale prestaties." | √ De sleutels worden opgeslagen in een kluis en wanneer dit nodig is, aangeroepen via een URI.<br/><br/> √ De sleutels worden beveiligd door Azure. Hiervoor wordt gebruikgemaakt van algoritmen, sleutellengten en HSM's die voldoen aan de industriestandaard).<br/><br/> √ Sleutels worden verwerkt in HSM's die zich in de dezelfde Azure-datacenters bevinden als de toepassingen. Dit resulteert in een betere betrouwbaarheid en kortere wachttijd dan wanneer de sleutels zich op een afzonderlijke locatie, bijvoorbeeld on-premises, bevinden.|
+| Ontwikkelaar voor een Azure-toepassing      | "Ik wil een toepassing voor Azure schrijven die voor de ondertekening en versleuteling gebruikmaakt van sleutels. Dit moeten echter wel externe sleutels zijn, zodat de oplossing geschikt is voor een toepassing die geografisch wordt gedistribueerd. <br/><br/>Ik wil ook dat deze sleutels en geheimen worden beveiligd, zonder dat ik de code zelf hoef te schrijven. Ik wil ook dat deze sleutels en geheimen eenvoudig zijn te gebruiken vanuit mijn toepassingen, met optimale prestaties." | √ De sleutels worden opgeslagen in een kluis en wanneer dit nodig is, aangeroepen via een URI.<br/><br/> √ De sleutels worden beveiligd door Azure. Hiervoor wordt gebruikgemaakt van algoritmen, sleutellengten en HSM's die voldoen aan de industriestandaard).<br/><br/> √ Sleutels worden verwerkt in HSM's die zich in dezelfde Azure-datacenters bevinden als de toepassingen. Dit biedt betere betrouwbaarheid en verminderde latentie dan wanneer de sleutels zich op een andere locatie bevinden, zoals on-premises.|
 | SaaS-ontwikkelaar (Software as a Service)      |"Ik wil niet de verantwoordelijk of potentiële aansprakelijkheid voor de tenantsleutels en -geheimen van mijn klant op mij nemen. <br/><br/>Ik wil dat klanten hun sleutels zelf in eigendom hebben en beheren, zodat ik mij kan concentreren op hetgeen waar ik het beste in ben, namelijk het leveren van de belangrijkste softwarefuncties." | √ Klanten kunnen hun eigen sleutels in Azure importeren en beheren. Wanneer een SaaS-toepassing cryptografiebewerkingen moet uitvoeren met de sleutels van de klant, voert Key Vault deze bewerkingen namens de toepassing uit. De toepassing krijgt de sleutels van de klant niet te zien.|
 | Chief Security Officer (CSO) | "Ik wil weten of onze toepassingen voldoen aan de FIPS 140-2 Level 2 HSM's voor beveiligd sleutelbeheer. <br/><br/>Ik wil ervoor zorgen dat mijn organisatie de controle heeft over de levenscyclus van de sleutel en het sleutelgebruik kan controleren. <br/><br/>En hoewel we meerdere Azure-services en -resources gebruiken, wil ik de sleutels kunnen beheren vanaf één locatie in Azure."     |√ HSM's zijn FIPS 140-2 Level 2-gevalideerde modules.<br/><br/>√ Key Vault is zodanig ontworpen dat Microsoft uw sleutels niet kan zien of extraheren.<br/><br/>√ Het sleutelgebruik wordt vrijwel in realtime geregistreerd in een logboek.<br/><br/>√ De kluis biedt één interface, ongeacht het aantal kluizen dat u in Azure hebt, welke regio's ze ondersteunen en door welke toepassingen ze worden gebruikt. |
 
@@ -62,7 +62,7 @@ Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor een inleide
 
 Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) voor meer informatie over de gebruiksregistratie voor Key Vault.
 
-Zie [Over sleutels en geheimen](https://msdn.microsoft.com/library/azure/dn903623.aspx) voor meer informatie over het gebruik van sleutels en geheimen met Azure Key Vault.
+Zie [Over sleutels, geheimen en certificaten](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx) voor meer informatie over het gebruik van sleutels en geheimen met Azure Key Vault.
 
 
 <!--Image references-->
@@ -70,6 +70,6 @@ Zie [Over sleutels en geheimen](https://msdn.microsoft.com/library/azure/dn90362
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

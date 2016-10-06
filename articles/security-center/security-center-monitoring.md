@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 #Beveiligingsstatus bewaken in Azure Security Center
 Dit document bevat informatie over het gebruik van de bewakingsmogelijkheden in Azure Security Center om naleving van het beleid te controleren.
@@ -29,7 +30,7 @@ Zie [Implementing security recommendations in Azure Security Center](security-ce
 
 Op de tegel **Beveiligingsstatus van de resource** kunt u de beveiligingsstatus van uw resources bewaken. In het voorbeeld hieronder ziet u een aantal problemen met een hoge en gemiddelde ernst die uw aandacht vereisen. Het ingeschakelde beveiligingsbeleid is van invloed op de typen besturingselementen die worden bewaakt.
 
-![Status van resources](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Status van resources](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Als in Security Center een beveiligingsprobleem wordt gevonden dat moet worden verholpen, zoals een VM met ontbrekende beveiligingsupdates of een subnet zonder een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md), wordt dat hier vermeld.
 
@@ -51,7 +52,7 @@ In deze sectie wordt het totale aantal VM's weergegeven dat is geïnitialiseerd 
 
 
 ####Aanbevelingen voor virtuele machines
-Deze sectie bevat een reeks aanbevelingen voor elke VM die wordt bewaakt door Azure Security Center. In de eerste kolom staat de aanbeveling, de tweede kolom bevat het totale aantal VM's dat wordt beïnvloed door die aanbeveling en in de derde kolom ziet u de ernst van het probleem (zie hieronder).
+Dit gedeelte bevat een reeks [aanbevelingen voor elke VM](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. In de eerste kolom staat de aanbeveling, de tweede kolom bevat het totale aantal VM's dat wordt beïnvloed door die aanbeveling en in de derde kolom ziet u de ernst van het probleem (zie hieronder).
 
 ![VM Recommendations (Aanbevelingen voor VM's)](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +117,7 @@ Wanneer u op **Netwerken** in de tegel **Beveiligingsstatus van de resource** kl
 
 Net als bij de informatie over de resourcestatus van virtuele machines biedt deze blade bovenin een overzicht van de problemen en onderin een lijst met bewaakte netwerken.
 
-In de sectie met een uitsplitsing van de netwerkstatussen ziet u de mogelijke beveiligingsproblemen en aanbevelingen. Mogelijke aandachtspunten zijn:
+In het gedeelte met een uitsplitsing van de netwerkstatussen vindt u de mogelijke beveiligingsproblemen en [aanbevelingen](security-center-network-recommendations.md). Mogelijke aandachtspunten zijn:
 
 - NGFW (Next Generation Firewall) is niet geïnstalleerd
 - De netwerkbeveiligingsgroepen (NSG's) op subnetten zijn niet ingeschakeld
@@ -160,8 +161,8 @@ In deze topologieweergave bevat het eerste niveau [Virtuele netwerken](../virtua
 
 Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze VM, vergelijkbaar met wat hierboven is beschreven. U kunt op een aanbeveling klikken voor meer informatie of om het benodigde beveiligingsbeheer of de benodigde beveiligingsconfiguratie toe te passen.
 
-###SQL-resources bewaken
-Wanneer u op **SQL** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de SQL-blade geopend met aanbevelingen voor problemen zoals het niet ingeschakeld zijn van controle en Transparent Data Encryption. Ook bevat de blade aanbevelingen voor de algemene integriteitsstatus van de database.
+###Gegevens controleren
+Wanneer u op **Gegevens** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de **SQL**-blade geopend met aanbevelingen voor problemen zoals het niet ingeschakeld zijn van controle en Transparent Data Encryption. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database.
 
 ![SQL-resourcestatus](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -208,6 +209,6 @@ In dit document hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Sec
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

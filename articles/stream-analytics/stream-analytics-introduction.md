@@ -59,6 +59,6 @@ U hebt kennisgemaakt met Stream Analytics, een beheerde service voor streamingan
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

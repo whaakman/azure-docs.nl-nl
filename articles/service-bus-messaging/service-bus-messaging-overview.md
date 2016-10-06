@@ -1,57 +1,64 @@
 <properties
-	pageTitle="Service Bus messaging overview | Microsoft Azure"
-	description="Service Bus Messaging: flexible data delivery in the cloud"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Overzicht van Service Bus-berichtenservice | Microsoft Azure"
+    description="Service Bus-berichtenservice: flexibele levering van gegevens in de cloud"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="sethm"/>
 
 
-# Service Bus messaging: flexible data delivery in the cloud
 
-Microsoft Azure Service Bus is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication mechanism. Service Bus is a brokered, or third-party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
+# Service Bus-berichtenservice: flexibele levering van gegevens in de cloud
 
-Similar to the postal service delivering letters, Service Bus is flexible information delivery from both the sender and the recipient. The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same time. In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).
+De Microsoft Azure Service Bus is een betrouwbare service voor de levering van informatie. Het doel van deze service is om communicatie te vergemakkelijken. Wanneer twee of meer partijen informatie willen uitwisselen, hebben ze een communicatiemechanisme nodig. De Service Bus is een brokered communicatiemechanisme, of een communicatiemechanisme van derden. Het is vergelijkbaar met een postservice in de fysieke wereld. Postservices maken het gemakkelijk om verschillende soorten brieven en pakketten met tal van verschillende leveringsgaranties overal ter wereld te leveren.
 
-The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time-based expiration, and batching. These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.
+Net zoals een postservice die brieven levert, is de Service Bus een flexibele leverancier van informatie voor zowel de afzender als de ontvanger. De berichtenservice zorgt ervoor dat de informatie wordt afgeleverd, zelfs als de twee partijen nooit allebei op hetzelfde moment online zijn of als ze niet op precies hetzelfde moment beschikbaar zijn. In die zin is het verzenden van berichten vergelijkbaar met het verzenden van een brief, terwijl niet-brokered communicatie vergelijkbaar is met een telefonische oproep (uit de tijd dat er nog geen wachtstand en beller-id was, want die services komen meer in de richting van Brokered Messaging).
 
-Service Bus supports two distinct messaging patterns: *Relay* and *brokered messaging*.
+De afzender van het bericht kan ook een aantal verschillende leveringskenmerken vereisen, zoals transacties, detectie van duplicaten, vervallen van berichten op basis van tijd en batchverzending. Ook deze patronen laten zich vergelijken met een postservice: herhaalde levering, vereisen van een handtekening, adreswijziging of intrekken van het bericht.
+
+Service Bus ondersteunt twee verschillende berichtpatronen: *Relay* en *Brokered* Messaging.
 
 ## Service Bus Relay
 
-The [Relay](../service-bus-relay/service-bus-relay-overview.md) component of Service Bus is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
+Het [Relay](../service-bus-relay/service-bus-relay-overview.md)-onderdeel van Service Bus is een gecentraliseerde service (echter met maximale taakverdeling) die ondersteuning biedt voor tal van verschillende transportprotocollen en webservicestandaarden, waaronder SOAP, WS-* en zelfs REST. De [Relay-service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) biedt tal van verschillende Relay-connectiviteitsopties en kan helpen bij het onderhandelen over directe peer-to-peer-verbindingen wanneer dit mogelijk is. Service Bus is geoptimaliseerd voor .NET-ontwikkelaars die gebruikmaken van WCF (Windows Communication Foundation), zowel op het gebied van prestaties als op het gebied van bruikbaarheid, en biedt volledige toegang tot de bijbehorende Relay-service via SOAP- en REST-interfaces. Daardoor kunnen SOAP- of REST-programmeeromgevingen worden geïntegreerd met Service Bus.
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at Internet-scope to enable publish-subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, nor is it required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+De Relay-service ondersteunt traditionele berichten in één richting, aanvraag-/antwoordberichten en peer-to-peerberichten. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. In het Relayed Messaging-patroon maakt een on-premises service verbinding met de Relay-service via een uitgaande poort en wordt een bidirectionele socket voor communicatie gemaakt die is gekoppeld aan een bepaald rendezvous-adres. De client kan vervolgens met de on-premises service communiceren door berichten te verzenden naar de Relay-service die gericht is op het rendezvous-adres. De Relay-service stuurt vervolgens berichten door ('relay') naar de on-premises service via de reeds aanwezige bidirectionele socket. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
 
-You initiate the connection between your on-premises service and the relay service, using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF 'Relay'-bindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met Service Bus in de cloud.
 
-Service Bus Relay provides many benefits, but requires the server and client to both be online at the same time in order to send and receive messages. This is not optimal for HTTP-style communication, in which the requests may not be typically long-lived, nor for clients that connect only occasionally, such as browsers, mobile applications, and so on. Brokered messaging supports decoupled communication, and has its own advantages; clients and servers can connect when needed and perform their operations in an asynchronous manner.
+Service Bus Relay biedt veel voordelen. Hiervoor is echter wel vereist dat de server en client allebei op hetzelfde moment online zijn om berichten te kunnen verzenden en ontvangen. Dit is niet optimaal voor HTTP-communicatie, waarbij de aanvragen doorgaans mogelijk geen lange levensduur hebben, noch voor clients die maar zo nu en dan verbinding maken, zoals browsers, mobiele toepassingen enzovoort. Brokered Messaging ondersteunt ontkoppelde communicatie en heeft voordelen op zich. Clients en servers kunnen wanneer nodig verbinding maken en hun bewerkingen asynchroon uitvoeren.
 
-## Brokered messaging
+## Brokered Messaging
 
-In contrast to the relay scheme, [brokered messaging](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+In tegenstelling tot het Relay-schema kan [Brokered Messaging](service-bus-queues-topics-subscriptions.md) worden beschouwd als asynchroon, of 'tijdelijk losgekoppeld'. Producenten (afzenders) en consumenten (ontvangers) hoeven niet gelijktijdig online te zijn. De berichteninfrastructuur slaat berichten veilig op in een 'broker' (zoals een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen. Hierdoor kunnen de onderdelen van de gedistribueerde toepassing worden losgekoppeld - hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van een onderdeel - zonder dat dit van invloed is op het hele systeem. Bovendien hoeft de ontvangende toepassing slechts op bepaalde tijdstippen gedurende de dag online te zijn. Denk bijvoorbeeld aan een systeem voor voorraadbeheer, dat alleen aan het einde van de dag hoeft te worden uitgevoerd.
 
-The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+De belangrijkste onderdelen van de Brokered Messaging-infrastructuur van Service Bus zijn wachtrijen, onderwerpen en abonnementen.  Het belangrijkste verschil is dat onderwerpen mogelijkheden voor publiceren/abonneren ondersteunen die kunnen worden gebruikt voor geavanceerde, op inhoud gebaseerde routering en logica voor aflevering, met inbegrip van verzending naar meerdere ontvangers. Deze onderdelen faciliteren nieuwe scenario’s voor asynchrone berichtverzending, zoals tijdelijke ontkoppeling, publiceren/abonneren en taakverdeling. Zie [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md) voor meer informatie over deze berichtentiteiten.
 
-As with the Relay infrastructure, the brokered messaging capability is provided for WCF and .NET Framework programmers, and also via REST.
+Net als bij de Relay-infrastructuur wordt de Brokered Messaging-functie aangeboden voor programmeurs van WCF en .NET Framework en via REST.
 
-## Next steps
+## Volgende stappen
 
-To learn more about Service Bus messaging, see the following topics.
+Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtenservice
 
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Grondbeginselen van Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
+- [Service Bus-architectuur](../service-bus/service-bus-architecture.md)
+- [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
+- [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

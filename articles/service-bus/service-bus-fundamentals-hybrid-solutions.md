@@ -111,9 +111,9 @@ Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen v
 
 U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de volgende koppelingen voor meer informatie.
 
-- [Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md) gebruiken
-- [Service Bus-onderwerpen](service-bus-dotnet-how-to-use-topics-subscriptions.md) gebruiken
-- [Service Bus Relay](service-bus-dotnet-how-to-use-relay.md) gebruiken
+- [Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) gebruiken
+- [Service Bus-onderwerpen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md) gebruiken
+- [Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) gebruiken
 - [Voorbeelden van Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -123,6 +123,6 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

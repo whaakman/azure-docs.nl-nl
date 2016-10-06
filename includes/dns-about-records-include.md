@@ -2,7 +2,9 @@
 
 Elke DNS-record heeft een naam en een type. Records zijn ingedeeld in verschillende typen overeenkomstig de gegevens die ze bevatten. Het meest voorkomende type is een 'A'-record, waarmee een naam aan een IPv4-adres wordt toegewezen. Een ander type is een 'MX'-record, waarmee een naam aan een e-mailserver wordt toegewezen.
 
-Azure DNS ondersteunt alle algemene DNS-recordtypen, waaronder A, AAAA, CNAME MX, NS, SOA, SRV en TXT. SOA-recordsets worden automatisch met elke zone gemaakt. Ze kunnen niet afzonderlijk worden gemaakt. Houd er rekening mee dat SPF-records moeten worden gemaakt met het recordtype TXT. Ga voor meer informatie naar [deze pagina](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS ondersteunt alle algemene DNS-recordtypen, waaronder A, AAAA, CNAME MX, NS, PTR, SOA, SRV en TXT. Opmerking:
+- SOA-recordsets worden automatisch met elke zone gemaakt. Ze kunnen niet afzonderlijk worden gemaakt.
+- SPF-records moeten worden gemaakt met het recordtype TXT. Ga voor meer informatie naar [deze pagina](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 In Azure DNS worden records opgegeven met behulp van relatieve namen. Een FQDN-domeinnaam (Fully Qualified Domain Name) bevat anders dan een 'relatieve naam' de zonenaam. De relatieve record naam 'www' in de zone contoso.com geeft bijvoorbeeld de volledig gekwalificeerde naam van de record www.contoso.com.
 
@@ -30,6 +32,6 @@ Als u een recordset met jokertekens wilt maken, moet u de recordnaam '\*' gebrui
 CNAME-recordsets kunnen niet worden gecombineerd met andere recordsets met dezelfde naam. U kunt bijvoorbeeld geen CNAME-recordset met de relatieve naam 'www' en tegelijkertijd een A-record met de relatieve naam 'www' maken. Omdat het toppunt van de zone (naam = '@') altijd NS- en SOA-recordsets bevat die zijn gemaakt toen de zone werd gemaakt, kunt u in het toppunt van de zone geen CNAME-recordset maken. Deze beperkingen worden veroorzaakt door de DNS-standaarden en zijn geen beperkingen van Azure DNS.
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

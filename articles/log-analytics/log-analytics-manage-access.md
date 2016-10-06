@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Toegang tot Log Analytics beheren | Microsoft Azure"
-    description="Toegang tot Log Analytics beheren met behulp van verschillende beheertaken voor gebruikers, accounts, OMS-werkruimten en Azure-accounts."
+    pageTitle="Manage access to Log Analytics | Microsoft Azure"
+    description="Manage access to Log Analytics using a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,291 +17,291 @@
     ms.author="banders"/>
 
 
-# Toegang tot Log Analytics beheren
+# Manage access to Log Analytics
 
-Voor het beheren van toegang tot Log Analytics gebruikt u verschillende beheertaken voor gebruikers, accounts, OMS-werkruimten en Azure-accounts. Als u in de Operations Management Suite (OMS) een nieuwe werkruimte wilt maken, kiest u een werkruimtenaam, koppelt u deze aan uw account en kiest u een geografische locatie. Een werkruimte is in wezen een container met accountgegevens en eenvoudige configuratiegegevens voor het account. U of andere leden van uw organisatie kunnen meerdere OMS-werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
+To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-In het artikel [Aan de slag met Log Analytics](log-analytics-get-started.md) leert u hoe u snel aan de slag kunt gaan. In de rest van dit artikel worden sommige van de acties die u moet uitvoeren voor het beheren van toegang tot OMS, gedetailleerder beschreven.
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
 
-Hoewel u mogelijk niet elke beheertaak meteen hoeft uit te voeren, komen de meest voorkomende taken die u mogelijk gebruikt, in de volgende secties aan de orde:
+Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
 
-- Vaststellen hoeveel werkruimten u nodig hebt
-- Accounts en gebruikers beheren
-- Een groep toevoegen aan een bestaande werkruimte
-- Een bestaande werkruimte koppelen aan een Azure-abonnement
-- Een werkruimte upgraden naar een betaald data-abonnement
-- Een data-abonnementtype wijzigen
-- Een Azure Active Directory-organisatie toevoegen aan een bestaande werkruimte
-- Uw OMS-werkruimte sluiten
+- Determine the number of workspaces you need
+- Manage accounts and users
+- Add a group to an existing workspace
+- Link an existing workspace to an Azure subscription
+- Upgrade a workspace to a paid data plan
+- Change a data plan type
+- Add an Azure Active Directory Organization to an existing workspace
+- Close your OMS workspace
 
-## Vaststellen hoeveel werkruimten u nodig hebt
+## Determine the number of workspaces you need
 
-Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in de OMS-portal.
+A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the OMS portal.
 
-Het is mogelijk om meerdere OMS Log Analytics-werkruimten te maken en gebruikers kunnen toegang hebben tot een of meer werkruimten. Over het algemeen is het verstandig om het aantal werkruimten te beperken, omdat dit u in staat stelt om query’s uit te voeren op en relaties te zoeken tussen de meeste gegevens. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
-Op dit moment biedt een Log Analytics-werkruimte het volgende:
+Today, a Log Analytics workspace provides:
 
-- Een geografische locatie voor de opslag van gegevens
-- Details voor facturering
-- Gegevensisolatie
+- A geographic location for data storage
+- Granularity for billing
+- Data isolation
 
-Op basis van de bovenstaande kenmerken kunt u in de volgende gevallen meerdere werkruimten maken:
+Based on the above characteristics, you may want to create multiple workspaces if:
 
-- U vertegenwoordigt een mondiaal bedrijf en moet de gegevens opslaan in specifieke regio’s ten behoeve van de onafhankelijkheid van de gegevens of om nalevingsredenen.
-- U gebruikt Azure en wilt kosten voor de overdracht van uitgaande gegevens voorkomen door een Log Analytics-werkruimte in dezelfde regio te hebben als de Azure-resource die deze beheert.
-- U wilt kosten toewijzen aan verschillende afdelingen of bedrijfsonderdelen op basis van hun gebruik. Wanneer u voor elke afdeling of bedrijfsgroep een eigen werkruimte maakt, worden op uw factuur- en gebruiksoverzicht van Azure de kosten voor elke werkruimte afzonderlijk weergegeven.
-- U bent aanbieder van beheerde services en moet de logboekanalysegegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
-- U beheert meerdere klanten en wilt dat elke klant, afdeling of bedrijfsgroep de eigen gegevens kan bekijken, maar niet de gegevens van andere klanten, afdelingen of bedrijfsgroepen.
+- You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+- You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
+- You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group, your Azure bill and usage statement shows the charges for each workspace separately.
+- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
+- You manage multiple customers and you want each customer or department or business group to see their own data but not the data for other customers or departments or business groups.
 
-Wanneer u agents gebruikt om gegevens te verzamelen, kunt u elke agent configureren om te rapporteren aan de vereiste werkruimte.
+When using agents to collect data, you can configure each agent to report to the required workspace.
 
-Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
+If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
-### Werkruimtegegevens
+### Workspace information
 
-In de OMS-portal kunt u uw werkruimtegegevens bekijken en kiezen of u informatie wilt ontvangen van Microsoft.
+In the OMS portal, you can view your workspace information and choose whether you want to receive information from Microsoft.
 
-#### Werkruimtegegevens bekijken
+#### View workspace information
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts**.
-3. Klik op het tabblad **Werkruimtegegevens**.  
-  ![Werkruimtegegevens](./media/log-analytics-manage-access/workspace-information.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab.
+3. Click the **Workspace Information** tab.  
+  ![Workspace Information](./media/log-analytics-manage-access/workspace-information.png)
 
-## Accounts en gebruikers beheren
+## Manage accounts and users
 
-Aan elke werkruimte kunnen meerdere gebruikersaccounts zijn gekoppeld en elk gebruikersaccount (Microsoft-account of organisatieaccount) kan toegang hebben tot meerdere OMS-werkruimten.
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OMS workspaces.
 
-Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt voor het maken van de werkruimte, de beheerder van de werkruimte. De beheerder kan vervolgens aanvullende Microsoft-accounts uitnodigen of gebruikers uit Azure Active Directory kiezen.
+By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
 
-Het verlenen van toegang tot de OMS-werkruimte aan gebruikers wordt op twee locaties beheerd:
+Giving people access to the OMS workspace is controlled in 2 places:
 
-- In Azure kunt u op rollen gebaseerd toegangsbeheer gebruiken voor toegang tot het Azure-abonnement en de gekoppelde Azure-resources. Dit wordt ook gebruikt voor toegang tot PowerShell en de REST API.
-- In de OMS-portal kan alleen toegang worden verleend tot de OMS-portal, niet tot het gekoppelde Azure-abonnement.
+- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-Als u gebruikers toegang verleent tot de OMS-portal maar niet tot het Azure-abonnement waaraan het is gekoppeld, worden op de tegels van de oplossingen Automation, Back-up en Site Recovery geen gegevens getoond aan gebruikers wanneer ze zich aanmelden bij de OMS-portal.
+If you give people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles do not show any data to users when they sign-in the OMS portal.
 
-Als u alle gebruikers wilt toestaan om in deze oplossingen gegevens te bekijken, moet u ervoor zorgen dat zij ten minste **leesrechten** hebben voor het Automation-account, de Back-upkluis en de Site Recovery-kluis die aan de OMS-werkruimte zijn gekoppeld.   
+To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
-### Toegang tot Log Analytics beheren met behulp van de Azure Portal
+### Managing access to Log Analytics using the Azure portal
 
-Als u gebruikers toegang biedt tot de Log Analytics-werkruimte met behulp van Azure-machtigingen, bijvoorbeeld in de Azure Portal, hebben deze gebruikers ook toegang tot de Log Analytics-portal. Als gebruikers zich in de Azure Portal bevinden, kunnen ze naar de OMS-portal navigeren door te klikken op de taak **OMS Portal** wanneer ze de Log Analytics-werkruimteresource bekijken.
+If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
 
-Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet houden:
+Some points to keep in mind about the Azure portal:
 
-- Dit is geen *op rollen gebaseerd toegangsbeheer*. Als u in de Azure Portal *leesrechten* hebt voor de Log Analytics-werkruimte, kunt u via de OMS-portal wijzigingen aanbrengen. De OMS-portal heeft een concept van Beheerder, Bijdrager en Gebruiker met alleen-lezentoegang. Als het account waarbij u bent aangemeld, zich in de Azure Active Directory bevindt die is gekoppeld aan de werkruimte, bent u in de OMS-portal een Beheerder. In andere gevallen bent u een Bijdrager.
+- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
 
-- Als u zich bij de OMS-portal aanmeldt via http://mms.microsoft.com, wordt standaard de lijst **Een werkruimte selecteren** weergegeven. Deze lijst bevat alleen werkruimten die zijn toegevoegd met behulp van de OMS-portal. Als u de werkruimten wilt zien waartoe u toegang hebt met Azure-abonnementen, moet u een tenant als onderdeel van de URL opgeven. Bijvoorbeeld:
+- When you sign-in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
 
-  `mms.microsoft.com/?tenant=contoso.com` De tenant-id is vaak het laatste deel van het e-mailadres waarmee u zich aanmeldt.
+  `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you sign-in with.
 
-- Als het account waarmee u zich aanmeldt, een account in de tenant Azure Active Directory is (dit is meestal het geval, tenzij u zich aanmeldt als een CSP), bent u in de OMS-portal een *Beheerder*. Als uw account zich niet in de tenant Azure Active Directory bevindt, bent u in de OMS-portal een *Gebruiker*.
+- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you will be an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you will be a *User* in the OMS portal.
 
-- Als u rechtstreeks wilt navigeren naar een portal waartoe u toegang hebt via Azure-machtigingen, moet u de resource als onderdeel van de URL opgeven. Het is mogelijk om deze URL op te halen met behulp van PowerShell.
+- If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
-  Bijvoorbeeld `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
+  For example,  `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  De URL ziet er als volgt uit:
+  The URL will look like:
 `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
 
-### Gebruikers beheren in de OMS-portal
+### Managing users in the OMS portal
 
-U beheert gebruikers en groepen op het tabblad **Gebruikers beheren** onder het tabblad **Accounts** op de pagina Instellingen. Hier kunt u de taken uitvoeren in de volgende secties.  
+You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page. There, you can perform the tasks in the following sections.  
 
-![gebruikers beheren](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
 
-#### Een gebruiker toevoegen aan een bestaande werkruimte
+#### Add a user to an existing workspace
 
-Voer de volgende stappen uit om een gebruiker of groep toe te voegen aan een OMS-werkruimte. De gebruiker of groep kan alle waarschuwingen die aan deze werkruimte zijn gekoppeld, bekijken en er actie voor ondernemen.
+Use the following steps to add a user or group to an OMS workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
 
->[AZURE.NOTE] Als u een gebruiker of groep uit uw Azure Active Directory-organisatieaccount wilt toevoegen, moet u eerst controleren of u uw OMS-account hebt gekoppeld aan uw Active Directory-domein. Zie [Een Azure Active Directory-organisatie toevoegen aan een bestaande werkruimte](#add-an-azure-active-directory-organization-to-an-existing-workspace).
+>[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your OMS account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
-3. Kies in de sectie **Gebruikers beheren** het accounttype dat u wilt toevoegen: **Organisatieaccount**, **Microsoft-account** of **Microsoft-ondersteuning**.
-    - Als u Microsoft-account kiest, typt u het e-mailadres in van de gebruiker die is gekoppeld aan het Microsoft-account.
-    - Als u Organisatieaccount kiest, kunt u een deel van de naam of e-mailalias van de gebruiker of groep opgeven. Er wordt dan een lijst met gebruikers en groepen weergegeven. Selecteer een gebruiker of groep.
-    - Gebruik Microsoft-ondersteuning om een medewerker van Microsoft-ondersteuning tijdelijk toegang te verlenen tot uw werkruimte om u te helpen bij het oplossen van problemen.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
+    - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
+    - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] Voor optimale prestaties kunt u het aantal Active Directory-groepen dat aan één OMS-account is gekoppeld, het beste tot drie beperken: één voor beheerders, één voor bijdragers en één voor gebruikers met alleen-lezentoegang. Gebruik van meer groepen kan de prestaties van Log Analytics beïnvloeden.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-5. Kies het type gebruiker of groep dat u wilt toevoegen: **Beheerder**, **Bijdrager** of **Gebruiker met alleen-lezentoegang**.  
-6. Klik op **Toevoegen**.
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+6. Click **Add**.
 
-  Als u een Microsoft-account toevoegt, wordt er een uitnodiging om lid te worden van de werkruimte verzonden naar het e-mailadres dat u hebt opgegeven. Nadat de gebruiker de instructies in de uitnodiging heeft gevolgd om lid te worden van OMS, kan de gebruiker de waarschuwingen en accountgegevens voor het OMS-account bekijken en kunt u de gebruikersgegevens op het tabblad **Accounts** van de pagina **Instellingen** bekijken.
-  Als u een organisatieaccount toevoegt, heeft de gebruiker onmiddellijk toegang tot Log Analytics.  
-  ![uitnodigingse-mail](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
+  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
+  If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
+  ![invitation email](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
 
-#### Een bestaand gebruikerstype bewerken
+#### Edit an existing user type
 
-U kunt de accountrol van een gebruiker die aan uw OMS-account is gekoppeld, wijzigen. De volgende rollen zijn beschikbaar:
+You can change the account role for a user associated with your OMS account. You have the following role options:
 
- - *Beheerder*: kan gebruikers beheren, alle waarschuwingen weergeven en er actie voor ondernemen, en servers toevoegen en verwijderen
+ - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
 
- - *Bijdrager*: kan alle waarschuwingen weergeven en er actie voor ondernemen, en servers toevoegen en verwijderen
+ - *Contributor*: Can view and act on all alerts, and add and remove servers
 
- - *Gebruiker met alleen-lezentoegang*: gebruikers die zijn gemarkeerd als alleen-lezen kunnen het volgende niet:
-   1. Oplossingen toevoegen/verwijderen. De oplossingengalerie is verborgen.
-   2. Tegels toevoegen/wijzigen/verwijderen in **Mijn dashboard**.
-   3. De pagina’s met **instellingen** bekijken. De pagina's zijn verborgen.
-   4. In de zoekweergave zijn taken voor Power BI-configuratie, opgeslagen zoekopdrachten en waarschuwingen verborgen.
+ - *ReadOnly User*: Users marked as read-only will not be able to:
+   1. Add/remove solutions. The solution gallery is hidden.
+   2. Add/modify/remove tiles on **My Dashboard**.
+   3. View the **Settings** pages. The pages are hidden.
+   4. In the Search view, PowerBI configuration, Saved Searches, and Alerts tasks are hidden.
 
 
-#### Een account bewerken
+#### To edit an account
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
-3. Selecteer de rol van de gebruiker die u wilt wijzigen.
-2. Klik in het bevestigingsdialoogvenster op **Ja**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Select the role for the user that you want to change.
+2. In the confirmation dialog box, click **Yes**.
 
-### Een gebruiker uit een OMS-werkruimte verwijderen
+### Remove a user from a OMS workspace
 
-Voer de volgende stappen uit om een gebruiker te verwijderen uit een OMS-werkruimte. Hiermee wordt de werkruimte van de gebruiker niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en de andere werkruimten zien.
+Use the following steps to remove a user from an OMS workspace. Note that this does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user will still be able to sign in to OMS and see the other workspaces.
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
-3. Klik op **Verwijderen** naast de naam van de gebruiker die u wilt verwijderen.
-4. Klik in het bevestigingsdialoogvenster op **Ja**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Click **Remove** next to the user name that you want to remove.
+4. In the confirmation dialog box, click **Yes**.
 
 
-### Een groep toevoegen aan een bestaande werkruimte
+### Add a group to an existing workspace
 
-1.  Volg de bovenstaande stappen 1-4 in 'Een gebruiker toevoegen aan een bestaande werkruimte'.
-2.  Selecteer onder **Gebruiker/groep kiezen** de optie **Groep**.
-    ![een groep toevoegen aan een bestaande werkruimte](./media/log-analytics-manage-access/add-group.png)
-3.  Voer de weergavenaam of het e-mailadres in voor de groep die u wilt toevoegen.
-4.  Selecteer de groep in de lijst met resultaten en klik op **Toevoegen**.
+1.  Follow steps 1 -4 in “To add a user to an existing workspace”, above.
+2.  Under **Choose User/Group**, select **Group**.
+    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
+3.  Enter the Display Name or Email address for the group you’d like to add.
+4.  Select the group in the list results and then click **Add**.
 
-## Een bestaande werkruimte koppelen aan een Azure-abonnement
+## Link an existing workspace to an Azure subscription
 
-Het is mogelijk een werkruimte te maken via de website [microsoft.com/oms](https://microsoft.com/oms).  Er bestaan echter bepaalde limieten voor deze werkruimten, waarvan de meest opvallende wordt gevormd door een limiet van 500 MB aan gegevensuploads per dag als u een gratis account gebruikt. Als u in deze werkruimte wijzigingen wilt aanbrengen, moet u *uw bestaande werkruimte koppelen aan een Azure-abonnement*.
+It is possible to create a workspace from the [microsoft.com/oms](https://microsoft.com/oms) website.  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account. To make changes to this workspace you will need to *link your existing workspace to an Azure subscription*.
 
->[AZURE.IMPORTANT] U kunt een werkruimte alleen koppelen als uw Azure-account al toegang heeft tot deze werkruimte.  Met andere woorden: het account dat u gebruikt voor toegang tot de Azure Portal, moet **hetzelfde** zijn als het account dat u gebruikt voor toegang tot uw OMS-werkruimte. Als dit niet het geval is, raadpleegt u [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace).
+>[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-### Een werkruimte koppelen aan een Azure-abonnement in de OMS-portal
+### To link a workspace to an Azure subscription in the OMS portal
 
-Als u een werkruimte wilt koppelen aan een Azure-abonnement in de OMS-portal, moet de aangemelde gebruiker al een betaald Azure-account hebben. De werkruimte die u actief gebruikt, wordt gekoppeld aan het Azure-account.
+In order to link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account. The workspace that you're actively using gets linked to the Azure account.
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Azure-abonnement en data-abonnement**.
-3. Klik op het data-abonnement dat u wilt gebruiken.
-4. Klik op **Opslaan**.  
-  ![abonnement en data-abonnementen](./media/log-analytics-manage-access/subscription-tab.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
+3. Click the data plan that you want use.
+4. Click **Save**.  
+  ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
 
-Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven aan de webpagina.
+Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
 
-![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
+![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
-### Een werkruimte in de Azure Portal koppelen aan een Azure-abonnement
+### To link a workspace to an Azure subscription in the Azure portal
 
-1.  Meld u aan bij de [Azure Portal](http://portal.azure.com).
-2.  Blader naar **Log Analytics (OMS)** en selecteer dit.
-3.  U ziet de lijst met bestaande werkruimten. Klik op **Toevoegen**.  
-    ![lijst met werkruimten](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4.  Klik onder **OMS-werkruimte** op **Of bestaande koppelen**.  
-    ![bestaande koppelen](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5.  Klik op **Vereiste instellingen configureren**.  
-    ![vereiste instellingen configureren](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6.  Hier ziet u de lijst met werkruimten die nog niet zijn gekoppeld aan uw Azure-account. Selecteer een werkruimte.  
-    ![werkruimten selecteren](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7.  Indien nodig kunt u de waarden van de volgende items wijzigen:
-    - Abonnement
-    - Resourcegroep
-    - Locatie
-    - Prijscategorie  
-        ![waarden wijzigen](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8.  Klik op **Maken**. De werkruimte is nu gekoppeld aan uw Azure-account.
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Click **Add**.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-link-azure01.png)
+4.  Under **OMS Workspace**, click **Or link existing**.  
+    ![link existing](./media/log-analytics-manage-access/manage-access-link-azure02.png)
+5.  Click **Configure required settings**.  
+    ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
+6.  You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.  
+    ![select workspaces](./media/log-analytics-manage-access/manage-access-link-azure04.png)
+7.  If needed, you can change values for the following items:
+    - Subscription
+    - Resource group
+    - Location
+    - Pricing tier  
+        ![change values](./media/log-analytics-manage-access/manage-access-link-azure05.png)
+8.  Click **Create**. The workspace is now linked to your Azure account.
 
->[AZURE.NOTE] Als u de werkruimte die u wilt koppelen, niet ziet, heeft uw Azure-abonnement geen toegang tot de OMS-werkruimte die u hebt gemaakt met behulp van de OMS-website.  U moet vanuit uw OMS-werkruimte via de OMS-website toegang verlenen tot dit account. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) voor meer informatie hierover.
+>[AZURE.NOTE] If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the OMS workspace that you created using the OMS website.  You will need to grant access to this account from inside your OMS workspace using the OMS website. To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 
 
-## Een werkruimte upgraden naar een betaald data-abonnement
+## Upgrade a workspace to a paid data plan
 
-Er zijn drie typen werkruimtedata-abonnementen voor OMS: **Gratis**, **Standard** en **Premium**.  Als u een *Gratis* abonnement hebt, hebt u mogelijk uw datalimiet van 500 MB bereikt.  U moet uw werkruimte upgraden naar een ***abonnement waarbij u betaald op basis van gebruik*** als u boven deze limiet gegevens wilt verzamelen. U kunt op elk gewenst moment uw type abonnement wijzigen.  Zie [Prijsgegevens](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx) voor meer informatie over de tarieven voor OMS.
+There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a ***pay-as-you-go plan*** in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
->[AZURE.IMPORTANT] Werkruimteabonnementen kunnen alleen worden gewijzigd als ze zijn *gekoppeld* aan een Azure-abonnement.  Als u uw werkruimte in Azure hebt gemaakt of als u uw werkruimte *al* hebt gekoppeld, kunt u dit bericht negeren.  Als u uw werkruimte hebt gemaakt met de [OMS-website](http://www.microsoft.com/oms), moet u de stappen van [Een bestaande werkruimte koppelen aan een Azure-abonnement](#link-an-existing-workspace-to-an-azure-subscription) volgen.
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
 
-### Rechten gebruiken via de OMS-invoegtoepassing voor System Center
+### Using entitlements from the OMS Add-On for System Center
 
-De OMS-invoegtoepassing voor System Center biedt rechten voor het Premium-abonnement van OMS Log Analytics, zoals beschreven in [Prijzen voor OMS](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
-Wanneer u de OMS-invoegtoepassing voor System Center aanschaft, wordt de OMS-invoegtoepassing voor System Center als een recht toegevoegd aan uw System Center-overeenkomst. Elk Azure-abonnement dat onder deze overeenkomst wordt gemaakt, kan gebruikmaken van dit recht. Hiermee kunt u bijvoorbeeld meerdere OMS-werkruimten hebben die gebruikmaken van de rechten voor de OMS-invoegtoepassing.
+When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
-Doe het volgende om ervoor te zorgen dat gebruik van een OMS-werkruimte wordt toegepast op uw rechten voor de OMS-invoegtoepassing:
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
 
-1. Uw OMS-werkruimte koppelen aan een Azure-abonnement dat deel uitmaakt van de Enterprise-overeenkomst die zowel gebruik van de aangeschafte OMS-invoegtoepassing als het Azure-abonnement omvat
-2. Het Premium-abonnement selecteren voor de werkruimte
+1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
+2. Select the Premium plan for the workspace
 
-Als u uw gebruik in de Azure Portal of OMS-portal bekijkt, worden de rechten voor de OMS-invoegtoepassing niet weergegeven. U kunt de rechten echter wel in de Enterprise Portal zien.  
+When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
-Als u het Azure-abonnement waaraan uw OMS-werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.
+If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
-### Azure Commitment gebruiken via een Enterprise-overeenkomst
+### Using Azure Commitment from an Enterprise Agreement
 
-Als u kiest voor het gebruik van afzonderlijke tarieven voor OMS-onderdelen, betaalt u voor elk onderdeel van OMS afzonderlijk en wordt het gebruik weergegeven op uw Azure-factuur.
+If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waaraan uw Azure-abonnementen zijn gekoppeld, wordt gebruik van Log Analytics automatisch verrekend met een eventuele resterende betalingsverplichting.
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
 
-Als u het Azure-abonnement waaraan de OMS-werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.  
+If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
 
 
-### Een werkruimte wijzigen in een betaald data-abonnement
+### To change a workspace to a paid data plan
 
-1.  Meld u aan bij de [Azure Portal](http://portal.azure.com).
-2.  Blader naar **Log Analytics (OMS)** en selecteer dit.
-3.  U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
-    ![lijst met werkruimten](./media/log-analytics-manage-access/manage-access-change-plan01.png)
-4.  Klik onder **Instellingen** op **Prijscategorie**.  
-    ![prijscategorie](./media/log-analytics-manage-access/manage-access-change-plan02.png)
-5.  Selecteer onder **Prijscategorie** een data-abonnement en klik vervolgens op **Selecteren**.  
-    ![abonnement selecteren](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6.  Wanneer u uw weergave in de Azure Portal vernieuwt, ziet u dat **Prijscategorie** is bijgewerkt met het abonnement dat u hebt geselecteerd.  
-    ![prijscategorie bijwerken](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Select a workspace.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
+4.  Under **Settings**, click **Pricing tier**.  
+    ![pricing tier](./media/log-analytics-manage-access/manage-access-change-plan02.png)
+5.  Under **Pricing tier**, select a data plan and then click **Select**.  
+    ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6.  When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
+    ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
-U kunt nu gegevens buiten de limiet voor gratis gegevens verzamelen.
+Now you can collect data beyond the "free" data cap.
 
 
-## Een Azure Active Directory-organisatie toevoegen aan een bestaande werkruimte
+## Add an Azure Active Directory Organization to an existing workspace
 
-U kunt uw Log Analytics-werkruimte (OMS) koppelen aan een Azure Active Directory-domein. Hiermee kunt u gebruikers uit Active Directory rechtstreeks aan uw OMS-werkruimte toevoegen zonder een apart Microsoft-account.
+You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
-Wanneer u de werkruimte maakt via de Azure Portal of uw werkruimte koppelt aan een Azure-abonnement, wordt uw Azure Active Directory als uw organisatieaccount gekoppeld.
+When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
 
-Wanneer u de werkruimte maakt via de OMS-portal, wordt u gevraagd om een Azure-abonnement en een organisatieaccount te koppelen.
+When you create the workspace from the OMS portal you will be prompted to link to an Azure subscription and an organizational account.
 
-### Een Azure Active Directory-organisatie toevoegen aan een bestaande werkruimte
+### To add an Azure Active Directory Organization to an existing workspace
 
-1. Klik op de pagina Instellingen in OMS op **Accounts** en klik vervolgens op het tabblad **Werkruimtegegevens**.  
-2. Lees de informatie over organisatieaccounts en klik vervolgens op **Organisatie toevoegen**.  
-    ![organisatie toevoegen](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Voer de identiteitsgegevens in van de beheerder van uw Azure Active Directory-domein. Vervolgens wordt er een bevestiging weergegeven waarin staat dat uw werkruimte is gekoppeld aan uw Azure Active Directory-domein.
-    ![bevestiging van gekoppelde werkruimte](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
+1. On the Settings page in OMS, click **Accounts** and then click the **Workspace Information** tab.  
+2. Review the information about organizational accounts, and then click **Add Organization**.  
+    ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
+3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
+    ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
->[AZURE.NOTE] Nadat uw account is gekoppeld aan een organisatieaccount, kan deze koppeling niet meer worden verwijderd of gewijzigd.
+>[AZURE.NOTE] Once your account is linked to an Organizational Account, linking cannot be removed or changed.
 
-## Uw OMS-werkruimte sluiten
+## Close your OMS workspace
 
-Wanneer u een OMS-werkruimte sluit, worden alle prestatiegegevens die betrekking hebben op uw werkruimte, binnen 30 dagen na het sluiten van de werkruimte uit de OMS-service verwijderd.
+When you close an OMS workspace, all data related to your workspace is deleted from the OMS service within 30 days of closing the workspace.
 
-Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekoppeld, wordt de koppeling tussen gebruikers en de werkruimte verbroken. Als de gebruikers zijn gekoppeld aan andere werkruimten, kunnen ze OMS blijven gebruiken met die andere werkruimten. Als ze echter niet zijn gekoppeld aan andere werkruimten, moeten ze een nieuwe werkruimte maken voor het gebruik van OMS.
+If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using OMS with those other workspaces. However, if they are not associated with other workspaces then they will need to create a new workspace to use OMS.
 
-### Een OMS-werkruimte sluiten
+### To close an OMS workspace
 
-1. Klik in OMS op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Werkruimtegegevens**.
-3. Klik op **Werkruimte sluiten**.
-4. Selecteer een van de redenen voor het sluiten van uw werkruimte of voer in het tekstvak een andere reden in.
-5. Klik op **Werkruimte sluiten**.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Workspace Information** tab.
+3. Click **Close Workspace**.
+4. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
+5. Click **Close workspace**.
 
-## Volgende stappen
+## Next steps
 
-- Zie [Windows-computers verbinden met Log Analytics](log-analytics-windows-agents.md) voor informatie over het toevoegen van agents en verzamelen van gegevens.
-- [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
-- [Proxy- en firewallinstellingen configureren in Log Analytics](log-analytics-proxy-firewall.md) als uw organisatie een proxyserver of firewall gebruikt, zodat agents kunnen communiceren met de Log Analytics-service.
+- See [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) to add agents and gather data.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
 
 
 

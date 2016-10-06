@@ -35,7 +35,7 @@ U kunt deze werkstroom met voorbeeldgegevens uitproberen in DocumentDB. Ga naar 
 
 ## Gegevensbronnen die worden ondersteund door de wizard Gegevens importeren
 
-Indexeren van Automation en hulpprogramma's is beschikbaar voor de volgende gegevensbronnen: 
+De wizard Gegevens importeren ondersteunt de volgende gegevensbronnen: 
 
 - Azure SQL Database
 - Relationele SQL Server-gegevens op een virtuele machine van Azure
@@ -123,6 +123,6 @@ Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

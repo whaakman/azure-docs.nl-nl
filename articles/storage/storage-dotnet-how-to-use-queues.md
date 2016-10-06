@@ -14,7 +14,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="gusapost"/>
+    ms.author="cbrooks;robinsh"/>
+
 
 # Aan de slag met Azure Queue Storage met .NET
 
@@ -52,7 +53,7 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 
 Voeg boven aan het `program.cs`-bestand de volgende `using`-instructies toe:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -280,6 +281,6 @@ Nu u de basisprincipes van Queue Storage hebt geleerd, volgt u deze koppelingen 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

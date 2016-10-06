@@ -57,6 +57,6 @@ Kies .NET of de REST API om via een programma verbinding te maken met Azure Medi
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

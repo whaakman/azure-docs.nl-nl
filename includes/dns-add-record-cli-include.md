@@ -39,6 +39,11 @@ In dit voorbeeld gebruiken we de naam van de recordset '@' om de MX-record te ma
 
     azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Een PTR-recordset met één record maken  
+In dit geval vertegenwoordigt 'my-arpa-zone.com' de ARPA-zone voor uw IP-bereik.  Elke PTR-recordset die is ingesteld in deze zone komt overeen met een IP-adres in dit IP-bereik.    
+
+    azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Een SRV-recordset met één record maken
 
 Als u een SRV-record in de zonebasis maakt, kunt u '_service' en '_protocol' in de recordnaam opgeven. Het is niet nodig om '@' op te nemen in de recordnaam.
@@ -55,6 +60,6 @@ Als u een SRV-record in de zonebasis maakt, kunt u '_service' en '_protocol' in 
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

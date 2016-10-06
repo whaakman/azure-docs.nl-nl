@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Een aanbieding maken in Azure Stack | Microsoft Azure"
-    description="Leer hoe u als servicebeheerder een aanbieding voor uw tenants kunt maken in Azure Stack."
+    pageTitle="Create an offer in Azure Stack | Microsoft Azure"
+    description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,55 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Een aanbieding maken in Azure Stack
+# Create an offer in Azure Stack
 
-[Aanbiedingen](azure-stack-key-features.md#services-plans-offers-and-subscriptions) zijn groepen met een of meer plannen die providers aan tenants bieden om te kopen (op te abonneren). In dit voorbeeld maakt u een aanbieding met het [plan dat u hebt gemaakt](azure-stack-create-plan.md) in de laatste stap. Hierdoor krijgen abonnees op de aanbieding de mogelijkheid om virtuele machines in te richten.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
-1.  [Meld u aan](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) als servicebeheerder bij de portal.
-    ![](media/azure-stack-create-offer/image1.png)
+1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
+    ![](media/azure-stack-create-offer/image01.png)
 
-2.  Klik op **Nieuw**.
+2.  In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-3.  Klik op **Aanbiedingen en plannen voor tenants**. Klik vervolgens op **Aanbieding**.
-    ![](media/azure-stack-create-offer/image2.png)
+    ![](media/azure-stack-create-offer/image01a.png)
 
-4.  Voltooi op de blade **Nieuwe aanbieding** de volgende stappen:
+3.  Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
-    1.  Vul de velden **Weergavenaam** en **Resourcenaam** in. De weergavenaam is de beschrijvende naam van de aanbieding. Alleen de beheerder kan de resourcenaam zien. Dit is de naam die beheerders gebruiken om met de aanbieding te werken als Azure Resource Manager-resource.
+    ![](media/azure-stack-create-offer/image02.png)
+    
+4. Click **Offers** and then click the offer you just created.
 
-    2.  Selecteer een nieuwe of bestaande **resourcegroep**.
+    ![](media/azure-stack-create-offer/image03.png)
 
-        ![](media/azure-stack-create-offer/image3.png)
 
-5.  Klik op **Basisplannen** en selecteer op de blade **Plan** de plannen die u wilt opnemen in de aanbieding. Klik vervolgens op **Selecteren**. Klik op **Maken** om de aanbieding te maken.
+5.  Click **Change State**, and then click **Public**.
+  
+    ![](media/azure-stack-create-offer/image04.png)
 
-    ![](media/azure-stack-create-offer/image4.png)
+Offers must be made public for tenants to get the full view when subscribing. Offers can be:
 
-6.  Klik op **Status wijzigen** en vervolgens op **Openbaar**.
-Plannen en aanbiedingen moeten openbaar worden gemaakt om tenants een volledig overzicht te geven bij het abonneren. Als een plan privé is en de aanbieding is openbaar, kunnen tenants de aanbieding wel zien, maar geen details van het plan bekijken. Plannen en aanbiedingen kunnen een van de volgende statussen hebben:
+- **Public**: Visible to tenants.
 
-    -   **Openbaar**: zichtbaar voor tenants.
+- **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
 
-    -   **Privé**: alleen zichtbaar voor servicebeheerders. Deze optie is handig tijdens het opstellen van het plan of de aanbieding, of als de servicebeheerder elk abonnement wil goedkeuren.
+- **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-    -   **Uit bedrijf genomen**: gesloten voor nieuwe abonnees. De servicebeheerder kan Uit bedrijf genomen gebruiken om het afsluiten van toekomstige abonnementen te voorkomen, terwijl de huidige abonnementen ongewijzigd blijven.
+Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
-    ![](media/azure-stack-create-offer/image6.png)
+## Next steps
 
-Wijzigingen in het plan of de aanbieding zijn niet meteen zichtbaar voor de tenant. Als u de wijzigingen zichtbaar wilt maken, moet de status van het abonnement InSync zijn. Vervolgens moet de tenant de portal vernieuwen of zich aanmelden/afmelden.
-
-Zelfs nadat er een extra abonnement is gemaakt en deze de status InSync heeft gekregen, moet u zich mogelijk afmelden/aanmelden om het nieuwe abonnement weer te geven in de Abonnementskiezer bij het maken van nieuwe resources/resourcegroepen.
-
-## Volgende stappen
-
-[Abonneren op een aanbieding en vervolgens een virtuele machine inrichten](azure-stack-subscribe-plan-provision-vm.md)
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

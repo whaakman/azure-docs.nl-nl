@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Architectuur van Operations Management Suite (OMS) | Microsoft Azure"
-   description="Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen.  In dit artikel worden de verschillende services van OMS beschreven en vindt u koppelingen naar gedetailleerde inhoud."
+   pageTitle="Operations Management Suite (OMS) architecture | Microsoft Azure"
+   description="Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -16,74 +16,74 @@
    ms.author="bwren" />
 
 
-# OMS-architectuur
+# OMS architecture
 
-[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is een verzameling cloudservices voor beheer van on-premises en cloudomgevingen.  In dit artikel worden de verschillende on-premises en cloudonderdelen van OMS en hun hoogwaardige cloud computing-architectuur beschreven.  Raadpleeg de documentatie van elke service voor meer informatie.
+[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is a collection of cloud-based services for managing your on-premises and cloud environments.  This article describes the different on-premises and cloud components of OMS and their high level cloud computing architecture.  You can refer to the documentation for each service for further details.
 
 ## Log Analytics
 
-Alle gegevens die met [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) worden verzameld, worden opgeslagen in de OMS-opslagplaats die in Azure wordt beheerd.  Met verbonden bronnen worden gegevens gegenereerd die in de OMS-opslagplaats zijn verzameld.  Er zijn momenteel drie soorten verbonden bronnen die worden ondersteund.
+All data collected by [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) is stored in the OMS repository which is hosted in Azure.  Connected Sources generate data collected into the OMS repository.  There are currently three types of connected sources supported.
 
-- Een agent op een [Windows](../log-analytics/log-analytics-windows-agents.md)- of [Linux](../log-analytics/log-analytics-linux-agents.md)-computer die rechtstreeks met OMS is verbonden.
-- Een SCOM-groep (System Center Operations Manager) [verbonden met Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM-agenten blijven communiceren met beheerservers die gegevens over gebeurtenissen en prestaties doorsturen naar Log Analytics.
-- Een [Azure-opslagaccount](../log-analytics/log-analytics-azure-storage.md) waarmee [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)-gegevens van een werkrol, webrol of virtuele machine in Azure worden verzameld.
+- An agent installed on a [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md) computer connected directly to OMS.
+- A System Center Operations Manager (SCOM) management group [connected to Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM agents continue to communicate with management servers which forward events and performance data to Log Analytics.
+- An [Azure storage account](../log-analytics/log-analytics-azure-storage.md) that collects [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) data from a worker role, web role, or virtual machine in Azure.
 
-Gegevensbronnen zijn de gegevens die met Log Analytics van verbonden bronnen worden verzameld, waaronder gebeurtenislogboeken en prestatiemeteritems.  Oplossingen voegen functionaliteit toe aan OMS en kunnen eenvoudig vanuit de [OMS-oplossingsgalerie](../log-analytics/log-analytics-add-solutions.md) aan uw werkruimte worden toegevoegd.  Voor sommige oplossingen is mogelijk een directe verbinding tussen Log Analytics en SCOM-agenten nodig, terwijl voor andere oplossingen ene extra agent moet worden geïnstalleerd.
+Data sources define the data that Log Analytics collects from connected sources including event logs and performance counters.  Solutions add functionality to OMS and can easily be added to your workspace from the [OMS Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).  Some solutions may require a direct connection to Log Analytics from SCOM agents while others may require an additional agent to be installed.
 
-Log Analytics bestaat uit een webportal waarmee u OMS-resources kunt beheren, OMS-oplossingen kunt toevoegen en configureren en gegevens in de OMS-opslagplaats kunt bekijken en analyseren.
+Log Analytics has a web-based portal that you can use to manage OMS resources, add and configure OMS solutions, and view and analyze data in the OMS repository.
 
-![Hoogwaardige Log Analytics-architectuur](media/operations-management-suite-architecture/log-analytics.png)
+![Log Analytics high level architecture](media/operations-management-suite-architecture/log-analytics.png)
 
 
 ## Azure Automation
 
-[Azure Automation-runbooks](http://azure.microsoft.com/documentation/services/automation) worden uitgevoerd in de Azure-cloud en hebben toegang tot resources in Azure, in andere cloudservices of op internet.  U kunt ook met [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) on-premises computers opgeven in uw lokale datacenter, zodat runbooks toegang hebben tot lokale resources.
+[Azure Automation runbooks](http://azure.microsoft.com/documentation/services/automation) are executed in the Azure cloud and can access resources that are in Azure, in other cloud services, or accessible from the public Internet.  You can also designate on-premises machines in your local data center using [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) so that runbooks can access local resources.
 
-[DSC-configuraties](../automation/automation-dsc-overview.md) die zijn opgeslagen in Azure Automation kunnen rechtstreeks worden toegepast op virtuele Azure-machines.  Voor andere fysieke en virtuele machines kunnen configuraties via de pull-server van Azure Automation DSC zijn vereist.
+[DSC configurations](../automation/automation-dsc-overview.md) stored in Azure Automation can be directly applied to Azure virtual machines.  Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.
 
-Azure Automation heeft een OMS-oplossing waarmee statistieken en koppelingen voor het starten van de Azure-portal voor alle bewerkingen worden weergegeven.
+Azure Automation has an OMS solution that displays statistics and links to launch the Azure portal for any operations.
 
-![Hoogwaardige Azure Automation-architectuur](media/operations-management-suite-architecture/automation.png)
+![Azure Automation high level architecture](media/operations-management-suite-architecture/automation.png)
 
 ## Azure Backup
 
-Beveiligde gegevens in [Azure Backup](http://azure.microsoft.com/documentation/services/backup) worden opgeslagen in een Backup-kluis in een bepaalde geografische regio.  De gegevens worden in dezelfde regio gerepliceerd en kunnen, afhankelijk van het type kluis, ook naar een andere regio worden gerepliceerd voor meer redundantie.
+Protected data in [Azure Backup](http://azure.microsoft.com/documentation/services/backup) is stored in a backup vault located in a particular geographic region.  The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further redundancy.
 
-Azure Backup heeft drie fundamentele scenario's.
+Azure Backup has three fundamental scenarios.
 
-- Windows-computer met Azure Backup-agent.  Hiermee kunt u vanaf elke Windows-server of -client rechtstreeks naar uw Azure Backup-kluis back-ups van bestanden en mappen maken.  
-- System Center Data Protection Manager- (DPM) of Microsoft Azure Backup-server. Hiermee kunt u de DPM- of Microsoft Azure Backup-server gebruiken om van bestanden en mappen en werkbelastingen van toepassingen, zoals SQL en SharePoint, back-ups te maken naar de lokale opslag en deze vervolgens te repliceren naar uw Azure Backup Vault.
-- Extensies voor virtuele Azure-machines.  Hiermee kunt u back-ups van virtuele machines van Azure naar uw Azure Backup Vault maken.
+- Windows machine with Azure Backup agent.  This allows you to backup files and folders from any Windows server or client directly to your Azure backup vault.  
+- System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server. This allows you to leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault.
+- Azure Virtual Machine Extensions.  This allows you to backup Azure virtual machines to your Azure backup vault.
 
-Azure Backup heeft een OMS-oplossing waarmee statistieken en koppelingen voor het starten van de Azure-portal voor alle bewerkingen worden weergegeven.
+Azure Backup has an OMS solution that displays statistics and links to launch the Azure portal for any operations.
 
-![Hoogwaardige Azure Backup-architectuur](media/operations-management-suite-architecture/backup.png)
+![Azure Backup high level architecture](media/operations-management-suite-architecture/backup.png)
 
 ## Azure Site Recovery
 
-Met [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) wordt de replicatie, failover en failback van virtuele machines en fysieke servers gecoördineerd. Replicatiegegevens worden uitgewisseld tussen Hyper-V-hosts, VMware-hypervisors en fysieke servers in de primaire en secundaire datacenters, of tussen het datacenter en de Azure-opslag.  Met Site Recovery worden metagegevens opgeslagen in kluizen in een bepaalde geografische Azure-regio. Er worden geen gerepliceerde gegevens opgeslagen met de Site Recovery-service.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) orchestrates replication, failover, and failback of virtual machines and physical servers. Replication data is exchanged between Hyper-V hosts, VMware hypervisors, and physical servers in primary and secondary datacenters, or between the datacenter and Azure storage.  Site Recovery stores metadata in vaults located in a particular geographic Azure region. No replicated data is stored by the Site Recovery service.
 
-Azure Site Recovery heeft drie fundamentele replicatiescenario's.
+Azure Site Recovery has three fundamental replication scenarios.
 
-**Virtuele Hyper-V-machines repliceren**
-- Als virtuele Hyper-V-machines worden beheerd in VMM-clouds, kunt u naar een secundair datacenter of naar de Azure-opslag repliceren.  Replicatie naar Azure gaat via een beveiligde internetverbinding.  Replicatie naar een secundair datacenter gaat via LAN.
-- Als virtuele Hyper-V-machines niet met VMM worden beheerd, kunt u alleen naar de Azure-opslag repliceren.  Replicatie naar Azure gaat via een beveiligde internetverbinding.
+**Replication of Hyper-V virtual machines**
+- If Hyper-V virtual machines are managed in VMM clouds, you can replicate to a secondary data center or to Azure storage.  Replication to Azure is over a secure internet connection.  Replication to a secondary datacenter is over the LAN.
+- If Hyper-V virtual machines aren’t managed by VMM, you can replicate to Azure storage only.  Replication to Azure is over a secure internet connection.
  
-**Virtuele VMware-machines repliceren**
-- U kunt on-premises virtuele VMware-machines repliceren naar een secundair datacenter met VMware of naar de Azure-opslag.  Replicatie naar Azure kan plaatsvinden via een VPN tussen sites, via Azure ExpressRoute of via een beveiligde internetverbinding. Replicatie naar een secundair datacenter vindt plaats via het InMage Scout-gegevenskanaal.
+**Replication of VMWare virtual machines**
+- You can replicate VMware virtual machines to a secondary datacenter running VMware or to Azure storage.  Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.
  
-**Fysieke Windows- en Linux-servers repliceren** 
-- U kunt fysieke servers repliceren naar een secundair datacenter of naar de Azure-opslag. Replicatie naar Azure kan plaatsvinden via een VPN tussen sites, via Azure ExpressRoute of via een beveiligde internetverbinding. Replicatie naar een secundair datacenter vindt plaats via het InMage Scout-gegevenskanaal.  Azure Site Recovery heeft een OMS-oplossing waarmee enkele statistieken worden weergegeven. Voor bewerkingen moet u echter de Azure-portal gebruiken.
+**Replication of physical Windows and Linux servers** 
+- You can replicate physical servers to a secondary datacenter or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.  Azure Site Recovery has an OMS solution that displays some statistics, but you must use the Azure portal for any operations.
 
-![Hoogwaardige Azure Site Recovery-architectuur](media/operations-management-suite-architecture/site-recovery.png)
+![Azure Site Recovery high level architecture](media/operations-management-suite-architecture/site-recovery.png)
 
 
-## Volgende stappen
+## Next steps
 
-- Meer informatie over [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
-- Meer informatie over [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
-- Meer informatie over [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
-- Meer informatie over [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
+- Learn about [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
+- Learn about [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
+- Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
+- Learn about [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Abonneren op een aanbieding en een VM in Azure Stack (tenant) inrichten | Microsoft Azure"
-    description="Leer als tenant hoe u zich abonneert op een aanbieding en vervolgens een VM in Azure Stack inricht."
+    pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant) | Microsoft Azure"
+    description="As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,41 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Abonneren op een aanbieding
+# Subscribe to an offer
 
-Nu u [een aanbieding hebt gemaakt](azure-stack-create-offer.md), test u of uw tenants een abonnement kunnen maken.
+Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
 
-1.  Meld u op de Azure Stack POC-computer aan bij `https://portal.azurestack.local` als [een tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) en klik op **Neem een abonnement**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and click **Get a Subscription**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image1.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-2.  Typ in het veld **Weergavenaam** een naam voor uw abonnement.
+2.  In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image2.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-3.  Klik op **Aanbieding** en controleer of de aanbieding die u hebt gemaakt zich in de blade **Kies een aanbieding** bevindt. Klik op deze aanbieding, klik op **Selecteren** en vervolgens op **OK**.  
+4.  To view the subscription you created, click **Browse**, click **Subscriptions**, then click your new subscription.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image3.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
 
-4.  Als u het abonnement wilt bekijken dat u zojuist hebt gemaakt, klikt u op **Bladeren** en vervolgens op **Abonnementen**.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image4.png)
-
-Nadat u zich op een aanbieding hebt geabonneerd, wacht u totdat de abonnementsstatus InSync is. Vernieuw vervolgens de portal om te bekijken welke services deel uitmaken van het nieuwe abonnement.
+After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 
 
 
-## Volgende stappen
+## Next steps
 
-[Opslagaccounts](azure-stack-provision-storage-account.md)
+[Provision a virtual machine](azure-stack-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

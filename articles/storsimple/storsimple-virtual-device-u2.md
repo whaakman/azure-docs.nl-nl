@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 
@@ -132,13 +132,15 @@ Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:
 
 Voordat u deze procedures uitvoert, zorgt u ervoor dat u voldoet aan de [vereisten voor het virtuele apparaat](#prerequisites-for-the-virtual-device). 
 
-Wanneer u een virtueel netwerk hebt gemaakt, een StorSimple Manager-service hebt gemaakt en uw fysieke StorSimple-apparaat hebt geregistreerd bij de service, volgt u de volgende stappen om een virtueel StorSimple-apparaat te maken en te configureren.
+Wanneer u een virtueel netwerk hebt gemaakt, een StorSimple Manager-service hebt gemaakt en uw fysieke StorSimple-apparaat hebt geregistreerd bij de service, volgt u de volgende stappen om een virtueel StorSimple-apparaat te maken en te configureren. 
 
 ### Stap 1: een virtueel apparaat maken
 
 Voer de volgende stappen uit om het virtuele StorSimple-apparaat te maken.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Als het maken van het virtuele apparaat in deze stap mislukt, hebt u mogelijk geen verbinding met internet. Ga voor meer informatie naar [Problemen met internetverbinding oplossen](#troubleshoot-internet-connectivity-errors) wanneer u een virtueel apparaat maakt.
 
 
 ### Stap 2: het virtuele apparaat configureren en registreren
@@ -274,6 +276,19 @@ Als u het virtuele apparaat verwijdert of uitschakelt, wordt het als **Offline**
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## Problemen met internetverbinding oplossen 
+
+Als er tijdens het maken van een virtueel apparaat geen verbinding is met internet, mislukt deze stap. Als u wilt vaststellen of de fout wordt veroorzaakt door de internetverbinding, voert u de volgende stappen uit in de klassieke Azure-portal:
+
+1. Maak een virtuele Windows Server 2012-machine in Azure. Deze virtuele machine moet hetzelfde opslagaccount, VNet en subnet gebruiken als die worden gebruikt door uw virtuele apparaat. Als u al een bestaande Windows Server-host in Azure hebt die hetzelfde opslagaccount, Vnet en subnet gebruikt, kunt u deze ook gebruiken om het probleem met de internetverbinding op te lossen.
+2. Meld u extern aan bij de virtuele machine die u in de vorige stap hebt gemaakt. 
+3. Open een opdrachtvenster in de virtuele machine (Win + R en typ vervolgens `cmd`).
+4. Voer de volgende opdracht uit bij de prompt.
+
+    `nslookup windows.net`
+
+5. Als `nslookup` mislukt, zorgt het probleem met de internetverbinding ervoor dat het virtuele apparaat zich niet kan registreren bij de StorSimple Manager-service. 
+6. Breng de benodigde wijzigingen aan in uw virtuele netwerk om ervoor te zorgen dat het virtuele apparaat toegang kan krijgen tot Azure-sites zoals 'windows.net'.
 
 ## Volgende stappen
 
@@ -284,6 +299,6 @@ Als u het virtuele apparaat verwijdert of uitschakelt, wordt het als **Offline**
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

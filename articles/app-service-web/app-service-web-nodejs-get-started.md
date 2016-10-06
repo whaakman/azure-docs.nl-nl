@@ -21,16 +21,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe of bash, een eenvoudige [Node.js][NODEJS]-toepassing maakt en implementeert in een [web-app] in [Azure App Service]. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Node.js kan worden uitgevoerd.
+In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe of bash, een eenvoudige [Node.js]-toepassing maakt en implementeert in [Azure App Service]. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Node.js kan worden uitgevoerd.
+
 
 <a name="prereq"></a>
 ## Vereisten
 
-- **Node.js** ([Klik hier om te installeren][NODEJS])
-- **Bower** ([Klik hier om te installeren][BOWER])
-- **Yeoman** ([Klik hier om te installeren][YEOMAN])
-- **Git** ([Klik hier om te installeren][GIT])
-- **Azure CLI** ([Klik hier om te installeren][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie] of [uw voordelen als Visual Studio-abonnee activeren].
 
 ## Een eenvoudige Node.js-web-app maken en implementeren
@@ -66,13 +67,13 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Volg de aanwijzing om de aanmelding in een browser voort te zetten met het Microsoft-account waarmee u uw Azure-abonnement hebt afgesloten.
 
-2. Controleer of u zich nog steeds in de hoofdmap van de app bevindt. Maak vervolgens met de volgende opdracht de resource voor de App Service-app in Azure met een unieke app-naam, zoals: http://{appnaam}.azurewebsites.net
+2. Controleer of u zich nog steeds in de hoofdmap van de app bevindt. Maak vervolgens met de volgende opdracht de resource voor de App Service-app in Azure met een unieke app-naam. Bijvoorbeeld: http://{appnaam}.azurewebsites.net
 
         azure site create --git {appname}
 
     Volg de aanwijzing om een Azure-regio voor de implementatie te selecteren. Als u nog niet eerder Git-/FTP-implementatiereferenties voor uw Azure-abonnement hebt ingesteld, wordt u gevraagd om deze te maken.
 
-3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. De eigenschap `production` in het object `config` moet eruitzien als in het volgende voorbeeld.
+3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. De eigenschap `production` in het object `config` moet eruitzien als in het volgende voorbeeld:
 
         production: {
             root: rootPath,
@@ -84,6 +85,12 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Hiermee kunt uw Node.js-app laten reageren op webserviceaanvragen bij de standaardpoort waarnaar iisnode luistert.
     
+4. Open./package.json en voeg de `engines`-eigenschap toe om [de gewenste versie van Node.js op te geven](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Sla de wijzigingen op en gebruik git om de app te implementeren in Azure:
 
         git add .
@@ -125,13 +132,14 @@ In de volgende zelfstudies leert u hoe u in App Service met een specifiek framew
 - [In Azure App Service een Node.js-chattoepassing maken met Socket.IO]
 - [io.js gebruiken met Web Apps van Azure App Service]
 
+<a name="version"></a>
 ## Een specifieke Node.js-engine gebruiken
 
-In een reguliere werkstroom kunt u App Service instrueren om een bepaalde Node.js-engine te gebruiken, net zoals in package.json.
+In een reguliere werkstroom instrueert u App Service om een bepaalde Node.js-engine te gebruiken, net zoals in package.json.
 Bijvoorbeeld:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 De implementatie-engine Kudu bepaalt aan de hand van de volgende volgorde welke Node.js-engine er wordt gebruikt:
@@ -140,10 +148,12 @@ De implementatie-engine Kudu bepaalt aan de hand van de volgende volgorde welke 
 - Bekijk vervolgens package.json om na te gaan of `"node": "..."` is opgegeven in het `engines`-object. Zo ja, maak hier dan gebruik van.
 - Kies een standaardversie van Node.js.
 
+>[AZURE.NOTE] Het is raadzaam dat u de gewenste Node.js-engine expliciet definieert. De standaardversie van Node.js kan worden gewijzigd, en mogelijk worden er foutmeldingen in uw Azure-web-app weergegeven omdat de standaardversie van Node.js niet geschikt is voor uw app.
+
 <a name="iisnodelog"></a>
 ## De logboeken stdout en stderr ophalen uit iisnode
 
-Voer de volgende stappen uit om iisnode-logboeken te lezen.
+Volg deze stappen om iisnode-logboeken te lezen.
 
 > [AZURE.NOTE] Wanneer u deze stappen hebt voltooid, is het mogelijk dat de logboekbestanden pas worden gegenereerd wanneer er een fout optreedt.
 
@@ -162,7 +172,7 @@ Voer de volgende stappen uit om iisnode-logboeken te lezen.
         git commit -m "{your commit message}"
         git push azure master
    
-   Iisnode is nu geconfigureerd. In de volgende stappen ziet u hoe u deze logboeken opent.
+    Iisnode is nu geconfigureerd. In de volgende stappen ziet u hoe u deze logboeken opent.
      
 4. Ga in uw browser naar de Kudu-console voor foutopsporing. Deze bevindt zich op:
 
@@ -223,20 +233,20 @@ Volg deze stappen om Node-Inspector in te schakelen:
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [uw voordelen als Visual Studio-abonnee activeren]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [In Azure App Service een Node.js-chattoepassing maken met Socket.IO]: ./web-sites-nodejs-chat-app-socketio.md
 [Een Sails.js-web-app implementeren in Azure App Service]: ./app-service-web-nodejs-sails.md
 [De geheimen van de Kudu-console voor foutopsporing]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Express-generator voor Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [io.js gebruiken met Web Apps van Azure App Service]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [aanmelden voor een gratis proefversie]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web-app]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -247,6 +257,6 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

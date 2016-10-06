@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Get started with Service Bus queues | Microsoft Azure"
-    description="How to write a C# console application for Service Bus messaging"
+    pageTitle="Aan de slag met Service Bus-wachtrijen | Microsoft Azure"
+    description="Een C#-consoletoepassing schrijven voor Service Bus-berichten"
     services="service-bus-messaging"
     documentationCenter=".net"
     authors="jtaubensee"
@@ -16,67 +16,68 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Get started with Service Bus Queues
+
+# Aan de slag met Service Bus-wachtrijen
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## What will be accomplished
+## Wat wordt bereikt
 
-In this tutorial, we will complete the following:
+In deze zelfstudie voltooien we het volgende:
 
-1. Create a Service Bus namespace, using the Azure portal.
+1. Een Service Bus-naamruimte maken met de Azure-portal.
 
-2. Create a Service Bus Messaging queue, using the Azure portal.
+2. Een Service Bus-berichtenwachtrij maken met de Azure-portal.
 
-3. Write a console application to send a message.
+3. Een consoletoepassing schrijven om een bericht te verzenden.
 
-4. Write a console application to receive messages.
+4. Een consoletoepassing schrijven om berichten te ontvangen.
 
-## Prerequisites
+## Vereisten
 
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2013 of Visual Studio 2015](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2015 gebruikt.
 
-2. An Azure subscription.
+2. Een Azure-abonnement.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
+## 1. Een naamruimte maken met de Azure-portal
 
-If you already have a Service Bus namespace created, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+Als u al een Service Bus-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met Azure Portal](#2-create-a-queue-using-the-azure-portal)
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a queue using the Azure portal
+## 2. Een wachtrij maken met de Azure-portal
 
-If you already have a Service Bus queue created, jump to the [Send messages to the queue](#3-send-messages-to-the-queue) section.
+Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Send messages to the queue
+## 3. Berichten naar de wachtrij verzenden
 
-To send messages to the queue, we will write a C# console application using Visual Studio.
+We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
-### Create a console application
+### Een consoletoepassing maken
 
-1. Launch Visual Studio and create a new Console application.
+1. Visual Studio starten en een nieuwe consoletoepassing maken.
 
-### Add the Service Bus NuGet package
+### Het Service Bus NuGet-pakket toevoegen
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
+1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
 
-2. Click the **Browse** tab, then search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Klik op het tabblad **Bladeren**, zoek naar Microsoft Azure Service Bus en selecteer het item **Microsoft Azure Service Bus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
 
-    ![Select a NuGet package][nuget-pkg]
+    ![Selecteer een NuGet-pakket][nuget-pkg]
 
-### Write some code to send a message to the queue
+### Schrijf wat code om een bericht naar de wachtrij te verzenden
 
-1. Add the following using statement to the top of the Program.cs file.
+1. Voeg de volgende instructie boven in het bestand Program.cs toe.
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that used when creating the queue.
+2. Voeg de volgende code toe aan de methode `Main`, stel de variable **connectionString** in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel **queueName** in als de wachtrijnaam die is gebruikt bij het maken van de wachtrij.
 
     ```
     var connectionString = "<Your connection string>";
@@ -87,7 +88,7 @@ To send messages to the queue, we will write a C# console application using Visu
     client.Send(message);
     ```
 
-    Here is what your Program.cs should look like.
+    Zo zou het bestand Program.cs er moeten uitzien.
 
     ```
     using System;
@@ -111,21 +112,21 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-3. Run the program, and check the Azure portal. Click the name of your queue in the namespace **Overview** blade. Notice that the **Active message count** value should now be 1.
+3. Voer het programma uit en ga naar Azure Portal. Klik op de naam van uw wachtrij in de blade **Overzicht** voor de naamruimte. De waarde voor **Aantal actieve berichten** moet nu 1 zijn.
     
-      ![Message count][queue-message]
+      ![Aantal berichten][queue-message]
     
-## 4. Receive messages from the queue
+## 4. Berichten ontvangen uit de wachtrij
 
-1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
+1. Maak een nieuwe consoletoepassing en voeg een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande verzendtoepassing is gedaan.
 
-2. Add the following `using` statement to the top of the Program.cs file.
+2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
   
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
   
-3. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that you used when creating the queue.
+3. Voeg de volgende code toe aan de methode `Main`, stel de variable **connectionString** in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel **queueName** in als de wachtrijnaam die u hebt gebruikt bij het maken van de wachtrij.
 
     ```
     var connectionString = "";
@@ -142,7 +143,7 @@ To send messages to the queue, we will write a C# console application using Visu
     Console.ReadLine();
     ```
 
-	Here is what your Program.cs file should look like:
+    Zo zou het bestand Program.cs er moeten uitzien:
 
     ```
     using System;
@@ -171,15 +172,15 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-4. Run the program, and check the portal. Notice that the **Queue Length** value should now be 0.
+4. Voer het programma uit en controleer de portal. Merk op dat de waarde voor **Wachtrijlengte** nu 0 moet zijn.
 
-    ![Queue length][queue-message-receive]
+    ![Wachtrijlengte][queue-message-receive]
   
-Congratulations! You have now created a queue, sent a message, and received a message.
+Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden en een bericht ontvangen.
 
-## Next steps
+## Volgende stappen
 
-Check out our [GitHub repository with samples](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) that demonstrate some of the more advanced features of Azure Service Bus messaging.
+Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) die enkele van de meer geavanceerde functies van Azure Service Bus-berichten laten zien.
 
 <!--Image references-->
 
@@ -191,3 +192,8 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+
+
+<!--HONumber=Sep16_HO4-->
+
+

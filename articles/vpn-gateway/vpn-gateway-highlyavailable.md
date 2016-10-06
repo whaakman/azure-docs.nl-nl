@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of Highly Available configurations with Azure VPN Gateways | Microsoft Azure"
-   description="This article provides an overview of highly available configuration options using Azure VPN Gateways."
+   pageTitle="Overzicht van maximaal beschikbare configuraties met Azure VPN-gateways | Microsoft Azure"
+   description="Dit artikel bevat een overzicht van maximaal beschikbare configuratieopties met Azure VPN-gateways."
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -17,79 +17,86 @@
    ms.date="09/24/2016"
    ms.author="yushwang"/>
 
-# Highly Available Cross-Premises and VNet-to-VNet Connectivity
 
-This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
+# Maximaal beschikbare cross-premises en VNet-naar-VNet-connectiviteit
 
-## <a name = "activestandby"></a>About Azure VPN gateway redundancy
+Dit artikel bevat een overzicht van maximaal beschikbare configuratieopties voor uw cross-premises en VNet-naar-VNet-connectiviteit met Azure VPN-gateways.
 
-Every Azure VPN gateway consists of two instances in an active-standby configuration. For any planned maintenance or unplanned disruption that happens to the active instance, the standby instance would take over (failover) automatically, and resume the S2S VPN or VNet-to-VNet connections. The switch over will cause a brief interruption. For planned maintenance, the connectivity should be restored within 10 to 15 seconds. For unplanned issues, the connection recovery will be longer, about 1 minute to 1 and a half minutes in the worst case. For P2S VPN client connections to the gateway, the P2S connections will be disconnected and the users will need to reconnect from the client machines.
+## <a name = "activestandby"></a>Over Azure VPN-gatewayredundantie
 
-![Active-Standby](./media/vpn-gateway-highlyavailable/active-standby.png)
+Elke Azure VPN-gateway bestaat uit twee instanties in een actieve stand-byconfiguratie. Bij gepland onderhoud of niet-geplande onderbrekingen die met het actieve exemplaar plaatsvinden, neemt de stand-byinstantie de activiteiten automatisch over (failover) en worden de S2S VPN- of VNet-naar-VNet-verbindingen hervat. De omschakeling veroorzaakt een korte onderbreking. Bij gepland onderhoud moet de connectiviteit binnen 10 tot 15 seconden worden hersteld. Bij niet-geplande problemen duurt het herstellen van de verbinding langer, in het ergste geval tot 1,5 minuut. Bij P2S VPN-clientverbindingen met de gateway worden de P2S-verbindingen verbroken en moeten de gebruikers opnieuw verbinding maken vanaf de clientcomputers.
 
-## Highly Available Cross-Premises Connectivity
+![Actieve stand-by](./media/vpn-gateway-highlyavailable/active-standby.png)
 
-To provide better availability for your cross premises connections, there are a couple of options available:
+## Maximaal beschikbare cross-premises connectiviteit
 
-- Multiple on-premises VPN devices
-- Active-active Azure VPN gateway
-- Combination of both
+Er zijn een aantal opties beschikbaar om betere beschikbaarheid te bieden voor uw cross-premises verbindingen:
 
-### <a name = "activeactiveonprem"></a>Multiple on-premises VPN devices
+- Meerdere on-premises VPN-apparaten
+- Actief/actief Azure VPN-gateway
+- Combinatie van beide
 
-You can use multiple VPN devices from your on-premises network to connect to your Azure VPN gateway, as shown in the following diagram:
+### <a name = "activeactiveonprem"></a>Meerdere on-premises VPN-apparaten
 
-![Multiple On-Premises VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
+U kunt meerdere VPN-apparaten van uw on-premises netwerk gebruiken om verbinding te maken met uw Azure VPN-gateway, zoals in het volgende diagram wordt weergegeven:
 
-This configuration provides multiple active tunnels from the same Azure VPN gateway to your on-premises devices in the same location. There are some requirements and constraints:
+![Meerdere on-premises VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
 
-1. You need to create multiple S2S VPN connections from your VPN devices to Azure. When you connect multiple VPN devices from the same on-premises network to Azure, you need to create one local network gateway for each VPN device, and one connection from your Azure VPN gateway to the local network gateway.
+Deze configuratie biedt meerdere actieve tunnels van dezelfde Azure VPN-gateway op on-premises apparaten op dezelfde locatie. Er zijn enkele vereisten en beperkingen:
 
-2. The local network gateways corresponding to your VPN devices must have unique public IP addresses in the "GatewayIpAddress" property.
+1. U moet meerdere S2S VPN-verbindingen maken van uw VPN-apparaten naar Azure. Als u met meerdere VPN-apparaten verbinding maakt vanaf hetzelfde on-premises netwerk naar Azure, moet u één lokale netwerkgateway voor elk VPN-apparaat maken en één verbinding van uw Azure VPN-gateway naar de gateway van het lokale netwerk.
 
-3. BGP is required for this configuration. Each local network gateway representing a VPN device must have a unique BGP peer IP address specified in the "BgpPeerIpAddress" property.
+2. De lokale netwerkgateways die overeenkomen met uw VPN-apparaten moeten unieke openbare IP-adressen hebben in de eigenschap 'GatewayIpAddress'.
 
-4. The AddressPrefix property field in each local network gateway must not overlap. You should specify the "BgpPeerIpAddress" in /32 CIDR format in the AddressPrefix field, for example, 10.200.200.254/32.
+3. BGP is vereist voor deze configuratie. Elke lokale netwerkgateway voor een VPN-apparaat moet een uniek IP-adres voor BGP-peering hebben in de eigenschap 'BgpPeerIpAddress'.
 
-5. You should use BGP to advertise the same prefixes of the same on-premises network prefixes to your Azure VPN gateway, and the traffic will be forwarded through these tunnels simultaneously.
+4. Het veld van de eigenschap AddressPrefix in elke lokale netwerkgateway mag niet overlappen. U moet 'BgpPeerIpAddress' in /32 CIDR-indeling opgeven in het veld AddressPrefix, bijvoorbeeld 10.200.200.254/32.
 
-6. Each connection is counted against the maximum number of tunnels for your Azure VPN gateway, 10 for Basic and Standard SKUs, and 30 for HighPerformance SKU. 
+5. Gebruik BGP om dezelfde voorvoegsels van dezelfde on-premises netwerkvoorvoegsels te adverteren naar uw Azure VPN-gateway. Het verkeer wordt tegelijkertijd doorgestuurd via deze tunnels.
 
-In this configuration, the Azure VPN gateway is still in active-standby mode, so the same failover behavior and brief interruption will still happen as described [above](#activestandby). But this setup guards against failures or interruptions on your on-premises network and VPN devices.
+6. Elke verbinding wordt geteld tegen het maximale aantal tunnels voor uw Azure VPN-gateway, 10 voor de Basic en Standaard SKU's en 30 voor de HighPerformance SKU. 
+
+In deze configuratie bevindt de Azure VPN-gateway zich nog steeds in de actieve stand-bymodus, dus hetzelfde failovergedrag en de korte onderbreking die [hierboven](#activestandby) worden beschreven, zullen optreden. Deze installatie beschermt echter tegen storingen of onderbrekingen op uw on-premises netwerk en VPN-apparaten.
  
-### Active-active Azure VPN gateway
+### Actief/actief Azure VPN-gateway
 
-You can now create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs will establish S2S VPN tunnels to your on-premises VPN device, as shown the following diagram:
+U kunt nu een Azure VPN-gateway maken in een actief/actief-configuratie, waarbij beide exemplaren van de gateway-VM’s S2S VPN-tunnels tot stand brengen op uw on-premises VPN-apparaat, zoals wordt weergegeven in het volgende diagram:
 
-![Active-Active](./media/vpn-gateway-highlyavailable/active-active.png)
+![Actief-actief](./media/vpn-gateway-highlyavailable/active-active.png)
 
-In this configuration, each Azure gateway instance will have a unique public IP address, and each will establish an IPsec/IKE S2S VPN tunnel to your on-premises VPN device specified in your local network gateway and connection. Note that both VPN tunnels are actually part of the same connection. You will still need to configure your on-premises VPN device to accept or establish two S2S VPN tunnels to those two Azure VPN gateway public IP addresses.
+In deze configuratie heeft elk Azure-gatewayexemplaar een uniek openbaar IP-adres en elk exemplaar brengt een IPsec/IKE S2S VPN-tunnel tot stand met uw on-premises VPN-apparaat dat is opgegeven in uw lokale netwerkgateway en verbinding. Houd er rekening mee dat beide VPN-tunnels deel uitmaken van dezelfde verbinding. U moet alsnog uw on-premises VPN-apparaat zo configureren dat er twee S2S VPN-tunnels naar deze twee openbare IP-adressen voor de Azure VPN-gateway tot stand worden gebracht of worden geaccepteerd.
 
-Because the Azure gateway instances are in active-active configuration, the traffic from your Azure virtual network to your on-premises network will be routed through both tunnels simultaneously, even if your on-premises VPN device may favor one tunnel over the other. Note though the same TCP or UDP flow will always traverse the same tunnel or path, unless a maintenance event happens on one of the instances.
+Omdat de Azure-gatewayexemplaren zich in de configuratie actief/actief bevinden, wordt het verkeer van uw virtuele netwerk van Azure naar uw on-premises netwerk gerouteerd. Dit gebeurt via beide tunnels tegelijkertijd, ook als uw lokale VPN-apparaat een tunnel prioriteit geeft. Houd er rekening mee dat de dezelfde TCP- of UDP-stroom altijd via dezelfde tunnel of hetzelfde pad loopt, tenzij er onderhoud wordt uitgevoerd op een van de exemplaren.
 
-When a planned maintenance or unplanned event happens to one gateway instance, the IPsec tunnel from that instance to your on-premises VPN device will be disconnected. The corresponding routes on your VPN devices should be removed or withdrawn automatically so that the traffic will be switched over to the other active IPsec tunnel. On the Azure side, the switch over will happen automatically from the affected instance to the active instance.
+Wanneer er gepland onderhoud wordt uitgevoerd op een gatewayexemplaar of er zich een niet-gepland voorval voordoet, wordt de verbinding met de IPsec-tunnel vanuit het betreffende exemplaar met uw on-premises VPN-apparaat verbroken. De bijbehorende routes op uw VPN-apparaten moeten automatisch worden verwijderd of ingetrokken zodat het verkeer wordt omgeleid naar de andere actieve IPsec-tunnel. Vanuit Azure gebeurt de overschakeling van het betreffende exemplaar naar het actieve exemplaar automatisch.
 
-### Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
+### Dubbele redundantie: actief/actief VPN-gateways voor Azure en on-premises netwerken
 
-The most reliable option is to combine the active-active gateways on both your network and Azure, as shown in the diagram below.
+De meest betrouwbare optie is om de actief/actief-gateways op uw netwerk en in Azure te combineren, zoals wordt weergegeven in het volgende diagram.
 
-![Dual Redundancy](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
+![Dubbele redundantie](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
 
-Here you create and setup the Azure VPN gateway in an active-active configuration, and create two local network gateways and two connections for your two on-premises VPN devices as described above. The result is a full mesh connectivity of 4 IPsec tunnels between your Azure virtual network and your on-premises network.
+Hier maakt u de Azure VPN-gateway in een actief/actief-configuratie en stelt u deze in. Daarnaast maakt u twee lokale netwerkgateways en twee verbindingen voor uw twee on-premises VPN-apparaten zoals hierboven beschreven. Het resultaat is een volledig connectiviteitsraster van vier IPsec-tunnels tussen uw virtuele Azure-netwerk en uw on-premises netwerk.
 
-All gateways and tunnels are active from the Azure side, so the traffic will be spread among all 4 tunnels simultaneously, although each TCP or UDP flow will again follow the same tunnel or path from the Azure side. Even though by spreading the traffic, you may see slightly better throughput over the IPsec tunnels, the primary goal of this configuration is for high availability. And due to the statistical nature of the spreading, it is difficult to provide the measurement on how different application traffic conditions will affect the aggregate throughput.
+Alle gateways en tunnels zijn actief in Azure, zodat het verkeer wordt verdeeld tussen de vier tunnels tegelijkertijd. Alle TCP- of UDP-stromen volgen echter weer de dezelfde tunnel of hetzelfde pad vanuit Azure. Ondanks dat de doorvoer via de IPsec-tunnels mogelijk iets verbetert doordat het verkeer wordt verspreid, is het voornaamste doel van deze configuratie maximale beschikbaarheid. Door de statistische aard van de verspreiding is het daarnaast moeilijk vast te stellen in hoeverre de verkeersvoorwaarden van verschillende toepassingen de geaggregeerde doorvoer zullen beïnvloeden.
 
-This topology will require two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
+Voor deze topologie zijn twee lokale netwerkgateways en twee verbindingen vereist om het paar on-premises VPN-apparaten te ondersteunen. Daarnaast is BGP vereist zodat de twee verbindingen op hetzelfde on-premises lokale netwerk worden toegestaan. Deze vereisten zijn hetzelfde als die [hierboven](#activeactiveonprem). 
 
-## Highly Available VNet-to-VNet Connectivity through Azure VPN Gateways
+## Maximaal beschikbare VNet-naar-VNet-connectiviteit via VPN Azure-gateways
 
-The same active-active configuration can also apply to Azure VNet-to-VNet connections. You can create active-active VPN gateways for both virtual networks, and connect them together to form the same full mesh connectivity of 4 tunnels between the two VNets, as shown in the diagram below:
+Dezelfde actief/actief-configuratie kan ook worden toegepast op VNet-naar-VNet-verbindingen van Azure. U kunt actief/actief VPN-gateways voor beide virtuele netwerken maken en ze met elkaar verbinden voor hetzelfde connectiviteitsraster met vier tunnels tussen de twee VNets, zoals wordt weergegeven in het diagram hieronder:
 
-![VNet-to-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![VNet-naar-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
-This ensures there are always a pair of tunnels between the two virtual networks for any planned maintenance events, providing even better availability. Even though the same topology for cross-premises connectivity requires two connections, the VNet-to-VNet topology shown above will need only one connection for each gateway. Additionally, BGP is optional unless transit routing over the VNet-to-VNet connection is required.
+Hiermee zorgt u ervoor dat er altijd een paar tunnels tussen de twee virtuele netwerken actief is voor gepland onderhoud, waardoor de beschikbaarheid nog beter wordt. Hoewel dezelfde topologie voor cross-premises connectiviteit twee verbindingen vereist, is er voor de VNet-naar-VNet-topologie die hierboven wordt weergegeven slechts één verbinding per gateway nodig. BGP is bovendien optioneel, tenzij doorvoerroutering via de VNet-naar-VNet-verbinding vereist is.
 
 
-## Next steps
+## Volgende stappen
 
-See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](http://go.microsoft.com/fwlink/?LinkId=828726) for steps to configure active-active cross-premises and VNet-to-VNet connections.
+Zie [Actief/actief VPN-gateways configureren voor cross-premises en VNet-naar-VNet-verbindingen](http://go.microsoft.com/fwlink/?LinkId=828726) voor de stappen om actief/actief on-premises en VNet-naar-VNet-verbindingen te configureren.
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

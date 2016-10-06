@@ -118,6 +118,6 @@ In dit document hebt u kunnen lezen hoe u Power BI in Azure Security Center gebr
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

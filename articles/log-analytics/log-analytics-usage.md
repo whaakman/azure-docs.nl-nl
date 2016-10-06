@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Gegevensgebruik analyseren in Log Analytics | Microsoft Azure"
-    description="U kunt de Gebruikspagina in Log Analytics gebruiken om na te gaan hoeveel gegevens er naar de OMS-service worden verzonden."
+    pageTitle="Analyze data usage in Log Analytics | Microsoft Azure"
+    description="You can use the Usage page in Log Analytics to view how much data is being sent to the OMS service."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,54 +17,54 @@
     ms.author="banders"/>
 
 
-# Gegevensgebruik analyseren in Log Analytics
+# Analyze data usage in Log Analytics
 
-Met Log Analytics in de OMS (Operations Management Suite) worden periodiek gegevens verzameld en verzonden naar de OMS-service.  U kunt de **Gebruikspagina** gebruiken om na te gaan hoeveel gegevens er naar de OMS-service worden verzonden. Op de **Gebruikspagina** wordt weergegeven hoeveel gegevens er dagelijks op basis van de oplossingen worden verzonden en hoe vaak er via uw servers gegevens worden verzonden.
+Log Analytics in the Operations Management Suite (OMS) collects data and sends it to the OMS service periodically.  You can use the **Usage** page to view how much data is being sent to the OMS service. The **Usage** page also shows you how much data is being sent daily by solutions and how often your servers are sending data.
 
->[AZURE.NOTE] Als u een gratis account hebt gemaakt met behulp van de [OMS-website](http://www.microsoft.com/oms), kunt u dagelijks maximaal 500 MB aan gegevens naar de OMS-service verzenden. Als de dagelijkse limiet is bereikt, wordt het analyseren van gegevens gestopt en aan het begin van de volgende dag hervat. U moet ook alle gegevens opnieuw verzenden die niet zijn geaccepteerd of verwerkt via OMS.
+>[AZURE.NOTE] If you have a free account created using the [OMS website](http://www.microsoft.com/oms), you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day. You'll also need to resend any data that wasn't accepted or processed by OMS.
 
-U kunt uw gebruik bekijken via de **Gebruikstegel** op het dashboard **Overzicht** in OMS.
+You can view your usage by using the **Usage** tile on the **Overview** dashboard in OMS.
 
-![gebruikstegel](./media/log-analytics-usage/usage-tile.png)
+![usage tile](./media/log-analytics-usage/usage-tile.png)
 
-Als u de dagelijkse gebruikslimiet hebt overschreden of als u deze limiet nadert, kunt u ervoor kiezen om een oplossing te verwijderen om de hoeveelheid gegevens die naar de OMS-service wordt verzonden, te verminderen. Zie [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Log Analytics-oplossingen toevoegen uit de oplossingengalerie) voor meer informatie over het verwijderen van oplossingen.
+If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the OMS service. For more information about removing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
-![gebruiksdashboard](./media/log-analytics-usage/usage-dashboard.png)
+![usage dashboard](./media/log-analytics-usage/usage-dashboard.png)
 
-Deze **Gebruikspagina** geeft de volgende informatie weer:
+The **Usage** page displays the following information:
 
-- Gemiddeld gebruik per dag
-- Gegevensgebruik voor elke oplossing in de afgelopen 30 dagen
-- Hoeveel gegevens er in de afgelopen 30 dagen via de servers in uw omgeving naar de OMS-service zijn verzonden
-- De prijscategorie van uw gegevensplan en de geschatte kosten
-- Informatie over de SLA (Service Level Agreement), inclusief de hoeveelheid tijd die nodig is om uw gegevens via OMS te verwerken
+- Average usage per day
+- Data usage for each solution over the last 30 days
+- How much data the servers in your environment are sending to the OMS service over the last 30 days
+- Your data plan pricing tier and estimated cost
+- Information about your service level agreement (SLA), including how long it takes OMS to process your data
 
-## Werken met gebruiksgegevens
+## To work with usage data
 
-1. Klik op de **Overzichtspagina** op de **Gebruikstegel**.
-2. Bekijk op de **Gebruikspagina** de gebruikscategorieën waarop de gebieden worden weergegeven waarover u zich zorgen maakt.
-3. Als u een oplossing hebt die te veel van uw dagelijkse quota verbruikt, kunt u overwegen om deze oplossing te verwijderen.
+1. On the **Overview** page, click the **Usage** tile.
+2. On the **Usage** page, view the usage categories that show areas you’re concerned about.
+3. If you have a solution that is consuming too much of your daily upload quota, you might consider removing that solution.
 
-## De geschatte kosten en factureringsgegevens weergeven
-1. Klik op de **Overzichtspagina** op de **Gebruikstegel**.
-2. Klik op de **Gebruikspagina** onder **Gebruik** op de punthaak (**>**) naast **Geschatte kosten**.
-3. In het uitgevouwen detailvenster **Uw gegevensplan** kunt u de geschatte maandkosten zien.  
-    ![Uw gegevensplan](./media/log-analytics-usage/usage-data-plan.png)
-4. Als u uw factureringsgegevens wilt bekijken, klikt u op **Mijn factuur weergeven** om uw abonnementsgegevens weer te geven.
-    - Klik op de pagina met abonnementen op uw abonnement om details en een lijst met regelitems voor verbruik weer te geven.  
-        ![abonnement](./media/log-analytics-usage/usage-sub01.png)
-    - Op de Overzichtspagina voor uw abonnement kunt u diverse taken uitvoeren om meer details van het abonnement te beheren en te bekijken.  
-        ![abonnementsdetails](./media/log-analytics-usage/usage-sub02.png)
+## To view your estimated cost and billing information
+1. On the **Overview** page, click the **Usage** tile.
+2. On the **Usage** page under **Usage**, click the chevron (**>**) next to **Estimated cost**.
+3. In the expanded **Your data plan** details, you can see your estimated monthly cost.  
+    ![Your data plan](./media/log-analytics-usage/usage-data-plan.png)
+4. If you want to view your billing information, click **View my bill** to view your subscription information.
+    - On the subscriptions page, click your subscription to view details and a line-item list of usage.  
+        ![subscription](./media/log-analytics-usage/usage-sub01.png)
+    - On the Summary page for your subscription, you can perform a variety of tasks to manage and view more details about your subscription.  
+        ![subscription details](./media/log-analytics-usage/usage-sub02.png)
 
-## Gegevensbatches voor uw SLA weergeven
-1. Klik op de **Overzichtspagina** op de **Gebruikstegel**.
-2. Klik onder **Serviceovereenkomst** op **SLA-gegevens downloaden**.
-3. Er wordt ter controle een Excel XLSX-bestand gedownload.  
-    ![SLA-gegevens](./media/log-analytics-usage/usage-sla-details.png)
+## To view data batches for your SLA
+1. On the **Overview** page, click the **Usage** tile.
+2. Under **Service Level Agreement**, click **Download SLA details**.
+3. An Excel XLSX file is downloaded for you to review.  
+    ![SLA details](./media/log-analytics-usage/usage-sla-details.png)
 
-## Volgende stappen
+## Next steps
 
-- Zie [Log searches in Log Analytics](log-analytics-log-searches.md) (Zoekopdrachten naar logboeken in Log Analytics) om gedetailleerde informatie te bekijken die is verzameld via oplossingen.
+- See [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed information gathered by solutions.
 
 
 

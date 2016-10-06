@@ -1,7 +1,7 @@
 <properties
    pageTitle="Een functie voor gebeurtenisverwerking maken | Microsoft Azure"
    description="Gebruik Azure-functies om een C#-functie te maken die wordt uitgevoerd op basis van een gebeurtenistimer."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 
@@ -45,7 +45,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 
     ![Een nieuwe functie maken die door een timer wordt geactiveerd](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. Klik in **Uitvoer Azure-opslagwachtrij** op **selecteren** naast **Storage-accountverbinding**, selecteer het bestaande Storage-account of maak een nieuw en klik vervolgens op **Opslaan**. 
+5. Selecteer in **Uitvoer Azure Storage-wachtrij** een bestaande **Storage-accountverbinding** of maak een nieuwe en klik vervolgens op **Opslaan**. 
 
     ![Een nieuwe functie maken die door een timer wordt geactiveerd](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -87,6 +87,6 @@ Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoa
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

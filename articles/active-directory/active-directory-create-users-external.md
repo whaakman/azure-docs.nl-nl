@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
 # Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 
 > [AZURE.SELECTOR]
-- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Azure Portal](active-directory-users-create-external-azure-portal.md)
 - [Klassieke Azure-portal](active-directory-create-users-external.md)
 
 In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
@@ -71,7 +71,7 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 - De **klassieke Azure-portal**: hier kan een externe gebruiker die beheerder is van meerdere directory's die directory's beheren.
 - **SharePoint Online**: als extern delen is ingeschakeld, heeft een externe gebruiker toegang tot geautoriseerde resources van SharePoint Online.
 - **Dynamics CRM**: externe gebruikers die via PowerShell over een licentie beschikken, hebben toegang tot geautoriseerde resources in Dynamics CRM.
-- **Dynamics AX**: externe gebruikers die via PowerShell over een licentie beschikken, hebben toegang tot geautoriseerde resources in Dynamics AX. De beperkingen voor [externe gebruikers van Azure AD](#known-limitations-of-azure-ad-external-users) en [gastgebruikers](#guest-user-management-and-limitations) zijn ook van toepassing op gebruikers in Dynamics AX.
+- **Dynamics AX**: externe gebruikers die via PowerShell over een licentie beschikken, hebben toegang tot geautoriseerde resources in Dynamics AX. De beperkingen voor [externe gebruikers van Azure AD](#known-limitations-of-azure-ad-external-users) zijn ook van toepassing op gebruikers in Dynamics AX.
 
 ### Bekende beperkingen voor externe gebruikers van Azure AD
 
@@ -91,6 +91,6 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
