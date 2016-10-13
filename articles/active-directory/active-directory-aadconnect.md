@@ -4,7 +4,7 @@
     keywords="inleiding tot Azure AD Connect, overzicht Azure AD Connect, wat is Azure AD Connect, Active Directory installeren"
     services="active-directory"
     documentationCenter=""
-    authors="andkjell"
+    authors="billmath"
     manager="femila"
     editor=""/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="andkjell;billmath"/>
+    ms.date="10/04/2016"
+    ms.author="billmath"/>
 
 
 # Integrating your on-premises identities with Azure Active Directory (Engelstalig)
@@ -24,7 +24,7 @@ Azure AD Connect integreert uw on-premises directory's met Azure Active Director
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Windows Azure Active-directorysynchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn gedeprecieerd en vanaf 13 april 2017 niet langer worden ondersteund.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Microsoft Azure Active Directory-synchronisatie-synchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn afgeschaft en vanaf 13 april 2017 niet langer worden ondersteund.]
 
 ![Wat is Azure AD Connect?](./media/active-directory-aadconnect/arch.png)
 
@@ -56,9 +56,9 @@ U vindt de download voor Azure AD Connect op [Microsoft Download Center](http://
 Oplossing | Scenario
 ----- | ----- |
 Voordat u begint - [hardware- en vereisten](active-directory-aadconnect-prerequisites.md) | <li>Stappen die voltooid moeten worden voordat u Azure AD Connect installeert.</li>
-[Snelle instellingen](active-directory-aadconnect-get-started-express.md) | <li>Als u één AD-forest hebt, dan is dit de aanbevolen optie.</li> <li>Aanmelden gebruiker met hetzelfde wachtwoord tijdens wachtwoordsynchronisatie.</li>
-[Aangepaste instellingen](active-directory-aadconnect-get-started-custom.md) | <li>Wordt gebruikt wanneer u meerdere forests hebt. Ondersteunt vele on-premises [topologieën](active-directory-aadconnect-topologies.md).</li> <li>Pas uw aanmeldingsoptie aan zoals ADFS voor federatie of gebruik een externe identiteitsprovider.</li> <li>Synchronisatiefuncties, zoals filteren en terugschrijven, aanpassen.</li>
-[Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Wordt gebruikt wanneer u een bestaande DirSync-server hebt die al actief is.</li>
+[Snelle instellingen](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>Als u één AD-forest hebt, dan is dit de aanbevolen optie.</li> <li>Aanmelden gebruiker met hetzelfde wachtwoord tijdens wachtwoordsynchronisatie.</li>
+[Aangepaste instellingen](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Wordt gebruikt wanneer u meerdere forests hebt. Ondersteunt vele on-premises [topologieën](active-directory-aadconnect-topologies.md).</li> <li>Pas uw aanmeldingsoptie aan zoals ADFS voor federatie of gebruik een externe identiteitsprovider.</li> <li>Synchronisatiefuncties, zoals filteren en terugschrijven, aanpassen.</li>
+[Upgraden van DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Wordt gebruikt wanneer u een bestaande DirSync-server hebt die al actief is.</li>
 [Upgraden van Azure AD Sync of Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Er zijn verschillende methoden, afhankelijk van uw voorkeur.</li>
 
 
@@ -69,9 +69,9 @@ Voordat u begint - [hardware- en vereisten](active-directory-aadconnect-prerequi
 Onderwerp |  
 --------- | ---------
 Azure AD Connect downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771)
-Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Installeren met behulp van aangepaste instellingen | [Custom installation of Azure AD Connect (Engelstalig)](active-directory-aadconnect-get-started-custom.md)
-Upgraden van DirSync | [Upgrade van Azure AD-synchronisatiehulpprogramma (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Installeren met behulp van aangepaste instellingen | [Custom installation of Azure AD Connect (Engelstalig)](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+Upgraden van DirSync | [Upgrade van Azure AD-synchronisatiehulpprogramma (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Na installatie | [Controleer de installatie en wijs licenties toe ](active-directory-aadconnect-whats-next.md)
 
 ### Meer informatie over Azure AD Connect installeren
@@ -82,7 +82,7 @@ Onderwerp |
 --------- | ---------
 Ondersteunde topologieën | [Topologieën voor Azure AD Connect](active-directory-aadconnect-topologies.md)
 Ontwerpconcepten | [Ontwerpconcepten Azure AD Connect](active-directory-aadconnect-design-concepts.md)
-Accounts die worden gebruikt voor installatie | [Meer informatie over referenties en machtigingen van Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Accounts die worden gebruikt voor installatie | [Meer informatie over referenties en machtigingen van Azure AD Connect](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 Operationele planning | [Azure AD Connect-synchronisatie: operationele taken en overwegingen](active-directory-aadconnectsync-operations.md)
 Opties aanmelden gebruiker | [Opties aanmelden gebruiker Azure AD Connect](active-directory-aadconnect-user-signin.md)
 
@@ -167,6 +167,6 @@ Ignite 2015-presentatie over het uitbreiden van uw on-premises directory’s in 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

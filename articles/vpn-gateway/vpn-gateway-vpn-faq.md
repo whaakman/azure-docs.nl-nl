@@ -15,6 +15,7 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
+
 # Veelgestelde vragen VPN-gateways
 
 ## Verbinding maken met Virtual Network
@@ -42,7 +43,7 @@ De volgende cross-premises verbindingen worden ondersteund:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute is een directe verbinding van uw WAN met Azure. Deze loopt niet via het openbare internet. Voor meer informatie raadpleegt u het [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht van ExpressRoute) en de [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) (Veelgestelde vragen over ExpressRoute).
 
-Voor meer informatie over verbindingen raadpleegt u [Informatie over VPN-gateway](vpn-gateway-about-vpngateways.md).
+Voor meer informatie over verbindingen raadpleegt u [Informatie over VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### Wat is het verschil tussen een site-naar-site-verbinding en een punt-naar-site?
 
@@ -72,7 +73,7 @@ Als uw apparaat niet wordt vermeld als een bekend compatibel VPN-apparaat en u d
 
 ### Waarom wordt mijn op beleid gebaseerde VPN-tunnel inactief als er geen verkeer is?
 
-Dit is normaal voor op beleid gebaseerde VPN-gateways (ook wel bekend als statische routering genoemd). Wanneer er langer dan vijf minuten geen verkeer is via de tunnel, wordt de tunnel verwijderd. Zodra er verkeer is in een van de richtingen, wordt de tunnel onmiddellijk opnieuw ingesteld. Dit gebeurt niet als u een op route gebaseerde VPN-gateway hebt (ook wel dynamisch genoemd).
+Dit is normaal voor op beleid gebaseerde VPN-gateways (ook wel bekend als statische routering genoemd). Wanneer er langer dan vijf minuten geen verkeer is via de tunnel, wordt de tunnel verwijderd. Zodra er verkeer is in een van de richtingen, wordt de tunnel onmiddellijk opnieuw ingesteld.
 
 ### Kan ik software-VPN's gebruiken om verbinding te maken met Azure?
 
@@ -195,7 +196,7 @@ Een VPN-gateway is in feite een multihomed apparaat met één NIC die toegang he
 
 ### Meer informatie over gatewaytypen, vereisten en doorvoer
 
-Zie [Informatie over VPN-gateway](vpn-gateway-about-vpn gateway-settings.md) voor meer informatie.
+Zie [Informatie over VPN Gateway](vpn-gateway-about-vpn gateway-settings.md) voor meer informatie.
 
 ## Multi-site- en VNet-naar-VNet-connectiviteit
 
@@ -281,6 +282,6 @@ Aanvullende informatie over virtuele netwerken vindt u in de [Veelgestelde vrage
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO5-->
 
 

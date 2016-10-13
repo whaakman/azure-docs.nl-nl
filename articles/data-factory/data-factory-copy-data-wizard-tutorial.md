@@ -20,50 +20,47 @@
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [AZURE.SELECTOR]
 - [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 
-In deze zelfstudie gebruikt u de Data Factory-wizard Kopiëren om een pijplijn te maken. Dit doet u middels een kopieeractiviteit in een gegevensfactory. Eerst maakt u een gegevensfactory met behulp van Azure Portal. Daarna gebruikt u de wizard Kopiëren om gekoppelde Data Factory-services, gegevenssets en een pijplijn te maken. Dit doet u met een kopieeractiviteit waarmee gegevens uit Azure Blob Storage naar een Azure SQL-database worden gekopieerd. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 
-> [AZURE.IMPORTANT] Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voltooi de **vereiste** stappen voordat u deze zelfstudie volgt.
+Met de **wizard Kopiëren** van Azure Data Factory kunt u snel en eenvoudig een pijplijn maken die het scenario voor gegevensopname/-verplaatsing implementeert. Daarom wordt u aangeraden de wizard te gebruiken als een eerste stap bij het maken van een voorbeeldpijplijn voor het scenario waarin gegevensverplaatsing plaatsvindt. Deze zelfstudie laat zien hoe u een Azure-gegevensfactory kunt maken, de wizard Kopiëren kunt starten en een reeks stappen kunt uitvoeren om informatie over uw scenario voor gegevensopname/-verplaatsing op te geven. Nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn met een kopieeractiviteit om gegevens te kopiëren uit een Azure Blob-opslag naar Azure SQL-databases. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
+
+> [AZURE.IMPORTANT] Lees het artikel [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een overzicht van de zelfstudie en voltooi de **vereiste** stappen voordat u deze zelfstudie volgt.
 
 ## Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
 
-1.  Wanneer u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com) klikt u op **+ NIEUW** in de linkerbovenhoek. Selecteer vervolgens **Gegevensanalyse** in de blade **Maken** en klik op **Gegevensfactory** in de blade **Gegevensanalyse**. 
+1.  Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **+ Nieuw** in de linkerbovenhoek. Klik op **Intelligence en analytische gegevens** en klik op **Data Factory**. 
 
     ![Nieuw -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
 6. In de blade **Nieuwe gegevensfactory**:
-    1. Voer **ADFTutorialDataFactory** in als **naam**. 
-    
-        ![Blade voor een nieuwe gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-    2. Klik op de **RESOURCEGROEPNAAM** en voer de volgende stappen uit:
-        1. Klik op **Een nieuwe resourcegroep maken**.
-        2. In de blade **Resourcegroep maken** voert u **ADFTutorialResourceGroup** in als **naam** van de resourcegroep en klikt u op **OK**. 
-
-            ![Een resourcegroep maken](./media/data-factory-copy-data-wizard-tutorial/create-new-resource-group.png)
-
-        Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../resource-group-overview.md) voor meer informatie.  
-7. In de blade **Nieuwe gegevensfactory** controleert u of **Toevoegen aan Startboard** is geselecteerd.
-8. Klik op **Maken** op de blade **Nieuwe gegevensfactory**.
-
-    De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de volgende fout ontvang: **De gegevensfactory ADFTutorialDataFactory is niet beschikbaar**, wijzigt u de naam van de gegevensfactory (naar bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
+    1. Voer **ADFTutorialDataFactory** in als **naam**.
+        De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de volgende fout ontvang: **De gegevensfactory ADFTutorialDataFactory is niet beschikbaar**, wijzigt u de naam van de gegevensfactory (naar bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
      
-    ![Naam van gegevensfactory niet beschikbaar](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
+        ![Naam van gegevensfactory niet beschikbaar](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
     
-    > [AZURE.NOTE] De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.  
+        > [AZURE.NOTE] De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
+2. Selecteer uw Azure-**abonnement**.
+3. Voer een van de volgende stappen uit voor de resourcegroep: 1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
+2. Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
 
-9. Klik op de hub **MELDINGEN** aan de linkerzijde en zoek meldingen over het aanmaakproces. Klik op **X** om de blade **MELDINGEN** te sluiten als deze is geopend. 
-10. Wanneer het aanmaken is voltooid, ziet u de blade **GEGEVENSFACTORY** zoals op de volgende afbeelding wordt weergegeven.
+            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
+    3. Selecteer een **locatie** voor de gegevensfactory.
+    4. Selecteer het selectievakje **Vastmaken aan dashboard** onderaan de blade.  
+    5. Klik op **Create**.
+    
+        ![Blade voor een nieuwe gegevensfactory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
+10. Wanneer het aanmaken is voltooid, ziet u de blade **Gegevensfactory** zoals op de volgende afbeelding wordt weergegeven:
 
     ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Pijplijn maken
+## De wizard Kopiëren starten en gebruiken
 
 1. Op de startpagina van de gegevensfactory klikt u op de tegel **Gegevens kopiëren** om de **wizard Kopiëren** te openen. 
 
@@ -71,7 +68,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 2. Op de pagina **Eigenschappen**:
     1. Voer **CopyFromBlobToAzureSql** in als **taaknaam**
     2. Voer de **beschrijving** in (optioneel).
-    3. Noteer de **startdatum en -tijd** en de **einddatum en -tijd**. Zorg ervoor dat de **einddatum en -tijd** één dag na de **startdatum en -tijd** zijn. 
+    3. Wijzig de **Startdatum en -tijd** en de **Einddatum en -tijd** zodat de einddatum is ingesteld op vandaag en de startdatum op de datum vijf dagen vóór de huidige dag.  
     3. Klik op **Volgende**.  
 
     ![Hulpprogramma voor kopiëren - pagina Eigenschappen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
@@ -80,7 +77,8 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     ![Hulpprogramma voor kopiëren - pagina van brongegevensarchief](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 5. Op de pagina **Het Azure Blob Storage-account opgeven**:
     1. Voer **AzureStorageLinkedService** in als **naam van de gekoppelde service**.
-    2. Controleer of **Van Azure-abonnementen** is opgegeven als **accountselectiemethode**. 
+    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
+    3. Selecteer uw Azure-**abonnement**.  
     3. Selecteer een **Azure-opslagaccount** uit de lijst met Azure-opslagaccounts die beschikbaar is voor het abonnement dat u hebt geselecteerd. U kunt er ook voor kiezen om de opslagaccountinstellingen handmatig op te geven. Selecteer daarvoor de optie **Handmatig invoeren** als **accountselectiemethode** en klik vervolgens op **Volgende**. 
 
     ![Hulpprogramma voor kopiëren - Het Azure Blob Storage-account opgeven](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -93,29 +91,43 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 7. Klik op de pagina **Het invoerbestand of de invoermap kiezen** op **Volgende** Selecteer niet **Binaire kopie**. 
 
     ![Hulpprogramma voor kopiëren - Het invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
-8. Op de pagina **Bestandsindelingsinstellingen** selecteert u de **standaardwaarden** en klikt u op **Volgende**.
+8. Op de pagina **Bestandsinstellingen** ziet u de scheidingstekens en het schema dat automatisch is gedetecteerd door de wizard tijdens het parseren van het bestand. U kunt de scheidingstekens ook handmatig invoeren zodat de wizard Kopiëren stopt met automatisch detecteren, of als u wilt dat gegevens worden overschreven. Klik op **Volgende** nadat u de scheidingstekens hebt gecontroleerd en een voorbeeld van de gegevens hebt bekeken. 
 
     ![Hulpprogramma voor kopiëren - Bestandsindelingsinstellingen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
-8. Op de pagina Doelgegevensarchief klikt u op de tegel **Azure SQL Database** en klikt u op **Volgende**.
+8. Op de pagina Doelgegevensarchief selecteert u **Azure SQL Database** en klikt u op **Volgende**.
+
+    ![Hulpprogramma voor kopiëren - Doelarchief kiezen](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
 9. Op de pagina **De Azure SQL Database opgeven**:
-    1. Voer **AzureSqlLinkedService** in als **naam van de gekoppelde service**. 
-    2. Controleer of de **selectiemethode voor server/database** is ingesteld op **Van Azure-abonnementen**.
-    3. Selecteer de **servernaam** en **database**.
+    1. Typ **AzureSqlLinkedService** in het veld **Verbindingsnaam**.
+    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **Server-/databaseselectiemethode**.
+    3. Selecteer uw Azure-**abonnement**.  
+    2. Selecteer de **servernaam** en **database**.
     4. Voer de **gebruikersnaam** en het **wachtwoord** in.
     5. Klik op **Volgende**.  
+
+    ![Hulpprogramma voor kopiëren - Azure SQL-database opgeven](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 9. Op de pagina **Tabeltoewijzing** selecteert u uit de vervolgkeuzelijst **emp** in het veld **Bestemming** en klikt u op de **pijl naar beneden** (optioneel) om het schema en een voorbeeld van de gegevens te bekijken.
 
     ![Hulpprogramma voor kopiëren - Tabeltoewijzing](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Op de pagina **Schematoewijzing** klikt u op **Volgende**.
+
+    ![Hulpprogramma voor kopiëren - Schematoewijzing](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 11. Op de pagina **Prestatie-instellingen** klikt u op **Volgende**. 
+
+    ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 11. Lees de informatie op de pagina **Samenvatting** en klik op **Voltooien**. De wizard maakt twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory (van waaruit u de wizard Kopiëren hebt gestart). 
-12. Op de pagina **Implementatie is voltooid** klikt u op de koppeling: **Klik hier om de kopieerpijplijn te bewaken**.
+
+    ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+
+## Monitor starten en toepassing beheren 
+12. Op de pagina **Implementatie** klikt u op de koppeling: **Klik hier om de kopieerpijplijn te bewaken**.
 
     ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u hebt gemaakt. Klik op het pictogram **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om het segment weer te geven. 
 
     ![App voor bewaking](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
- 
+    
+    > [AZURE.NOTE] Klik op de knop **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om de meest recente status te zien. Deze wordt niet automatisch vernieuwd. 
 
 ## Zie ook
 | Onderwerp | Beschrijving |
@@ -127,6 +139,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

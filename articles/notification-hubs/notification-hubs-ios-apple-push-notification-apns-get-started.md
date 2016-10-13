@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -502,13 +502,13 @@ Zie [Richtlijnen voor Notification Hubs] voor algemene informatie over Notificat
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Aan de slag met pushmeldingen in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Azure Notification Hubs - Een melding naar iOS-gebruikers verzenden met .NET back-end]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-ios-send-breaking-news.md
+[Azure Notification Hubs - Een melding naar iOS-gebruikers verzenden met .NET back-end]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

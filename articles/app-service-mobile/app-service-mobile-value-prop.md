@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter=""
     authors="adrianhall"
-    manager="dwrede"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="glennga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 
-# <a name="getting-started"> </a>Wat zijn Mobile Apps?
+# <a name="getting-started"> </a>Wat is Mobile Apps?
 
 Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor mobiele, web- en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
 
@@ -100,12 +100,12 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [implementatieopties]: ../app-service-web/web-sites-deploy.md
 [hybride verbindingen]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [virtuele netwerken]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service-omgevingen]: ../app-service-web/app-service-app-service-environment-intro.md
 [leeroverzicht]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -241,6 +241,6 @@ Voer onderstaande stappen uit om een VNet-peering te maken tussen een klassiek v
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

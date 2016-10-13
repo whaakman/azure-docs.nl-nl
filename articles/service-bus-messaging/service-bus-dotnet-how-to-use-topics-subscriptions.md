@@ -152,6 +152,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 U kunt ook onderwerpabonnementen maken met de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Abonnementen hebben een naam en kunnen een optioneel filter hebben waarmee de verzameling berichten wordt beperkt die aan de virtuele wachtrij van het abonnement wordt doorgegeven.
 
+> [AZURE.IMPORTANT] Om de berichten door een abonnement te kunnen laten ontvangen, moet u dat abonnement maken voordat u berichten naar het onderwerp verzendt. Als er geen abonnementen voor een onderwerp zijn, worden deze berichten door het onderwerp verwijderd.
+
 ### Een abonnement maken met het standaardfilter (MatchAll)
 
 Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Bij gebruik van het **MatchAll**-filter worden alle berichten die naar het onderwerp worden gepubliceerd, in de virtuele wachtrij van het abonnement geplaatst. Met het volgende voorbeeld maakt u een abonnement met de naam AllMessages en wordt het standaardfilter **MatchAll** gebruikt.
@@ -330,6 +332,6 @@ Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

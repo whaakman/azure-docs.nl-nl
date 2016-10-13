@@ -255,7 +255,7 @@ Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 
 * [Excel en Hadoop koppelen met Power Query](hdinsight-connect-excel-power-query.md): informatie over hoe u met behulp van Microsoft Power Query voor Excel verbinding maakt tussen Excel en het Azure Storage-account dat de gegevens bevat die zijn gekoppeld aan het HDInsight-cluster. Windows-werkstation is vereist. Werkt met Windows - of Linux-gebaseerd cluster.
 
-* [Excel en Hadoop koppelen met het stuurprogramma Microsoft Hive ODBC](hdinsight-connect-excel-hive-ODBC-driver.md): informatie over hoe u gegevens importeert uit HDInsight met behulp van het stuurprogramma Microsoft Hive ODBC. Windows-werkstation is vereist. Werkt met Windows - of Linux-gebaseerd cluster.
+* [Excel en Hadoop koppelen met het stuurprogramma Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md): informatie over hoe u gegevens importeert uit HDInsight met behulp van het stuurprogramma Microsoft Hive ODBC. Windows-werkstation is vereist. Werkt met Windows - of Linux-gebaseerd cluster.
 
 * [Microsoft-cloudplatform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): informatie over Power BI voor Office 365, het downloaden van de proefversie van SQL Server, en het instellen van SharePoint Server 2013 en SQL Server BI.
 
@@ -272,6 +272,6 @@ Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -41,7 +41,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 Als laatste stap noteert u de waarde van de **primaire sleutel** en klikt u daarna op **Messaging**. Noteer in de blade **Messaging** de **Event Hub-compatibele naam** en het **Event Hub-compatibele eindpunt**. U hebt deze drie waarden nodig wanneer u uw **read-d2c-messages**-toepassing maakt.
 
-![][6]
+![Blade IoT Hub-berichten op de Azure-portal][6]
 
 U hebt nu uw IoT-hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT-hub, de primaire sleutel van de IoT-hub, de Event Hubs-compatibele naam en het Event Hubs-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
 
@@ -63,7 +63,7 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een nieuwe apparaat-
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -153,7 +153,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -296,7 +296,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -446,7 +446,7 @@ U kunt nu de toepassingen gaan uitvoeren.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![De Java-clienttoepassing voor IoT Hub-services voor het bewaken van berichten die van het apparaat naar de cloud gaan][7]
 
 2. Voer bij een opdrachtprompt in de map simulated-device de volgende opdracht uit om telemetriegegevens naar uw IoT-hub te verzenden:
 
@@ -454,11 +454,11 @@ U kunt nu de toepassingen gaan uitvoeren.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![De Java-clienttoepassing voor IoT Hub-apparaten voor het verzenden van berichten van het apparaat naar de cloud][8]
 
 3. De tegel **Usage** in de [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de hub:
 
-    ![][43]
+    ![De tegel Usage in de Azure-portal met het aantal berichten dat is verzonden naar IoT Hub][43]
 
 ## Volgende stappen
 
@@ -482,13 +482,13 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identiteit]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identiteit]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -497,6 +497,6 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

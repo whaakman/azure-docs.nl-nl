@@ -40,7 +40,7 @@ U gaat het volgende doen:
 <a name="create"></a>
 ## Een webtoepassing maken
 
-1. Meld u met uw Azure-account aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u met uw Azure-account aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Klik in het menu aan de linkerkant op **Nieuw** > **Web en mobiel** > **Web-app**.
 
@@ -118,7 +118,7 @@ Wanneer u een update wilt uitvoeren, uploadt u het nieuwe WAR-bestand via de FTP
 
 ## Volgende stappen
 
-[Maak een Java-web-app op basis van een sjabloon in Azure Marketplace](app-service-web-java-get-started.md#marketplace). U kunt uw eigen volledig aanpasbare Tomcat-container krijgen en gebruikmaken van de vertrouwde gebruikersinterface voor beheerders. 
+[Maak een Java-web-app op basis van een sjabloon in Azure Marketplace](web-sites-java-get-started.md#marketplace). U kunt uw eigen volledig aanpasbare Tomcat-container krijgen en gebruikmaken van de vertrouwde gebruikersinterface voor beheerders. 
 
 Spoor fouten in de Azure-web-app rechtstreeks op via [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) of [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
@@ -130,6 +130,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

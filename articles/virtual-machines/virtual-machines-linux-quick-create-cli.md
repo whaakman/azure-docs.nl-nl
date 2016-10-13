@@ -20,19 +20,19 @@
 
 # Een virtuele Linux-machine in Azure maken met de CLI
 
-In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht `azure vm quick-create` in de opdrachtregelinterface (CLI) van Azure. Met de opdracht `quick-create` wordt een virtuele machine binnen een beveiligde basisinfrastructuur geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen. Voor het artikel hebt u het volgende nodig:
+In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht `azure vm quick-create` in de opdrachtregelinterface (CLI) van Azure. Met de opdracht `quick-create` wordt een virtuele machine binnen een beveiligde basisinfrastructuur geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen. Het artikel schrijft het volgende als vereiste voor:
 
-- een Azure-account ([krijg een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
+- een Azure-account ([probeer een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
 
-- de [Azure-CLI](../xplat-cli-install.md) die is aangemeld bij `azure login`.
+- de [Azure-CLI](../xplat-cli-install.md) die is aangemeld bij `azure login`
 
-- De Azure-CLI _moet_ in de Azure Resource Manager-modus `azure config mode arm` staan.  
+- de Azure-CLI _moet_ in de Azure Resource Manager-modus staan. `azure config mode arm`
 
 U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure-portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Snelle opdrachten
 
-In het volgende voorbeeld ziet u hoe u een virtuele CoreOS-machine implementeert en uw SSH-sleutel (Secure Shell) koppelt (uw argumenten kunnen afwijken).
+In het volgende voorbeeld ziet u hoe u een virtuele CoreOS-machine implementeert en uw SSH-sleutel (Secure Shell) koppelt (uw argumenten kunnen afwijken):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -57,15 +57,15 @@ In de volgende secties wordt de `UbuntuLTS`-alias voor de optie **ImageURN** geb
 
 ## Gedetailleerd overzicht
 
-In het vorige voorbeeld van `quick-create` wordt alleen de vlag `-M` gebruikt om de openbare SSH-sleutel te identificeren die moet worden geüpload. Ondertussen worden SSH-wachtwoorden uitgeschakeld. U wordt daarom gevraagd naar
+In het vorige voorbeeld van `quick-create` wordt alleen de vlag `-M` gebruikt om de openbare SSH-sleutel te identificeren die moet worden geüpload. Ondertussen worden SSH-wachtwoorden uitgeschakeld. U wordt daarom gevraagd naar de volgende argumenten:
 
 - de naam van de resourcegroep (voor een eerste Azure-resourcegroep is doorgaans elke willekeurige tekenreeks geschikt )
 - VM-naam
-- locatie (VS West of Europa West zijn prima standaardwaarden)
+- locatie (`westus` of `westeurope` zijn goede standaardwaarden)
 - Linux (om in Azure aan te geven welk besturingssysteem u wilt)
 - gebruikersnaam
 
-Hieronder worden alle waarden opgegeven, zodat er geen verdere vragen worden gesteld. Als u een `~/.ssh/id_rsa.pub` als openbaar-sleutelbestand met ssh-rsa-indeling hebt, werkt alles.
+In het volgende voorbeeld worden alle waarden opgegeven, zodat er geen verdere vragen worden gesteld. Als u een `~/.ssh/id_rsa.pub` als openbaar-sleutelbestand met ssh-rsa-indeling hebt, werkt alles:
 
 ```bash
 azure vm quick-create \
@@ -78,7 +78,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-Uw uitvoer moet eruitzien als in het volgende uitvoerblok.
+Uw uitvoer moet eruitzien als in het volgende uitvoerblok:
 
 ```bash
 info:    Executing command vm quick-create
@@ -156,13 +156,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Meld u met het openbare IP-adres dat in de uitvoer staat vermeld aan bij uw virtuele machine. U kunt ook de volledig gekwalificeerde domeinnaam (FQDN) gebruiken die wordt vermeld.
+Meld u met het openbare IP-adres dat in de uitvoer staat vermeld aan bij uw virtuele machine. U kunt ook de volledig gekwalificeerde domeinnaam (FQDN) gebruiken die wordt vermeld:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-De aanmeldingsprocedure moet er ongeveer als volgt uitzien:
+De aanmeldingsprocedure moet er ongeveer als het volgende uitvoerblok uitzien:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -208,6 +208,6 @@ U kunt ook [het Azure-stuurprogramma `docker-machine` gebruiken dat verschillend
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

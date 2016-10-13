@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    pageTitle="Groepen beheren in Azure Active Directory | Microsoft Azure"
+    description="Groepen maken en beheren om Azure-groepen te beheren met behulp van Azure Active Directory."
     services="active-directory"
     documentationCenter=""
     authors="curtand"
@@ -13,11 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/29/2016"
     ms.author="curtand"/>
 
 
+
 # Groepen beheren in Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-groups-create-azure-portal.md)
+- [Klassieke Azure-portal](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
 
 Een van de functies van het gebruikersbeheer van Azure Active Directory (Azure AD) is de mogelijkheid voor het maken van groepen gebruikers. U gebruikt een groep om beheertaken uit te voeren zoals het toewijzen van licenties of machtigingen aan een aantal gebruikers tegelijk. Ook kunt u groepen gebruiken om toegangsmachtigingen toe te wijzen aan:
 
@@ -116,6 +123,7 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 * [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
 
 
-<!---HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO1-->
 
 

@@ -1,9 +1,9 @@
 <properties
     pageTitle="Aan de slag met Azure App Service Mobile Apps voor Xamarin iOS-apps | Microsoft Azure"
-    description="Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.iOS-ontwikkeling"
+    description="Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.iOS-ontwikkeling."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="dwrede"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/04/2016"
-    ms.author="normesta"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 
 #Een Xamarin.iOS-app maken
@@ -103,6 +104,6 @@ Volg onderstaande stappen voor het configureren van het serverproject voor het g
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

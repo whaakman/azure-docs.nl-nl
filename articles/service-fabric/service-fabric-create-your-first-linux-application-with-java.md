@@ -13,11 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="09/28/2016"
    ms.author="seanmck"/>
 
 
-# Uw eerste Service Fabric-toepassing in Linux maken met behulp van Java
+
+# Uw eerste Azure Service Fabric-toepassing maken
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van Java.
 
@@ -124,6 +129,6 @@ Uw app wordt binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de st
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

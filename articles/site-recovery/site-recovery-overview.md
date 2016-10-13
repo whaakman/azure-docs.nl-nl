@@ -13,8 +13,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="storage-backup-recovery" 
-    ms.date="02/22/2016" 
+    ms.date="10/05/2016"
     ms.author="raynew"/>
+
 
 #  Wat is Site Recovery?
 
@@ -28,7 +29,7 @@ Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door repl
 
 ## Site Recovery in de Azure-portal
 
-Azure heeft twee verschillende [implementatiemodellen](../resource-manager-deployment-model.md) voor het maken van en werken met resources: het Azure Resource Manager-model (ARM) en het klassieke model voor het beheren van services. Azure heeft ook twee portals: de [klassieke Azure-portal](https://manage.windowsazure.com/), die ondersteuning biedt voor het klassieke implementatiemodel, en de [Azure-portal](https://portal.azure.com), die ondersteuning biedt voor beide implementatiemodellen.
+Azure heeft twee verschillende [implementatiemodellen](../resource-manager-deployment-model.md) voor het maken van en werken met resources: het Azure Resource Manager-model (ARM) en het klassieke model voor het beheren van services. Azure heeft ook twee portals: de [klassieke Azure Portal](https://manage.windowsazure.com/), die ondersteuning biedt voor het klassieke implementatiemodel, en de [Azure Portal](https://portal.azure.com), die ondersteuning biedt voor beide implementatiemodellen.
 
 Site Recovery is zowel beschikbaar in de klassieke portal als in de Azure-portal. In de klassieke Azure-portal kunt u Site Recovery ondersteunen met het klassieke model voor het beheren van services. In de Azure-portal kunt u implementaties volgens het klassieke model of volgens Resource Manager ondersteunen. [Lees meer informatie](site-recovery-overview.md#site-recovery-in-the-azure-portal) over implementeren via de Azure-portal.
 
@@ -83,6 +84,6 @@ Site Recovery kan helpen bij toepassingsgevoelige BCDR, zodat workloads en apps 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

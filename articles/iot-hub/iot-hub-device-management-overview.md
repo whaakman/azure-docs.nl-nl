@@ -1,9 +1,9 @@
 <properties
  pageTitle="Overzicht van apparaatbeheer | Microsoft Azure"
- description="Overzicht van apparaatbeheer via Azure IoT Hub: dubbele apparaten, apparaatquery‘s, apparaattaken"
+ description="Overzicht van apparaatbeheer via Azure IoT Hub"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,117 +13,111 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
+
 
 # Overzicht van apparaatbeheer via Azure IoT Hub (preview-versie)
 
-Met apparaatbeheer via Azure IoT Hub kunt u gebruikmaken van standaardapparaatbeheer via loT, waarmee u apparaten extern kunt beheren, configureren en bijwerken.
+## De methode voor apparaatbeheer via Azure IoT
 
-Er zijn drie belangrijke concepten voor apparaatbeheer in Azure IoT:
+Apparaatbeheer via Azure IoT Hub biedt de functies en het uitbreidingsmodel voor apparaten en back-ends om gebruik te maken van IoT-apparaatbeheer voor de uiteenlopende apparaten en protocollen in IoT.  Apparaten in IoT variëren van zeer beperkte sensoren, microcontrollers met één doel, tot krachtigere gateways waarmee andere apparaten en protocollen worden ingeschakeld.  IoT-oplossingen verschillen ook aanzienlijk in de verticale domeinen en toepassingen met unieke gebruiksvoorbeelden voor operators in elk domein.  Voor IoT-oplossingen kan gebruik worden gemaakt van apparaatbeheermogelijkheden, patronen en codebibliotheken via IoT Hub, zodat apparaatbeheer voor de grote verscheidenheid aan apparaten en gebruikers mogelijk wordt.  
 
-1.  **Dubbel apparaat:** de weergave van een fysiek apparaat in IoT Hub.
+## Inleiding
 
-2.  **Apparaatquery's**: stelt u in staat om dubbele apparaten te vinden en meer te weten te komen over meerdere dubbele apparaten. U kunt bijvoorbeeld een query uitvoeren om alle dubbele apparaten te vinden met een firmwareversie 1.0.
+Een essentieel onderdeel van het maken van een geslaagde IoT-oplossing, is het bieden van een strategie voor hoe operators omgaan met het continue beheer van de apparaten in hun bedrijf. IoT-operators hebben hulpprogramma's en toepassingen nodig die zowel eenvoudig als betrouwbaar zijn en waarmee ze zich kunnen concentreren op de strategische aspecten van hun werk. Azure IoT Hub biedt u de bouwstenen voor het maken van IoT-toepassingen die de belangrijkste apparaatbeheerpatronen ondersteunen.
 
-3.  **Apparaattaken**: een actie die kan worden uitgevoerd op een of meer fysieke apparaten, zoals firmware bijwerken, opnieuw opstarten en fabrieksinstellingen terugzetten.
+Apparaten worden beschouwd als beheerd met IoT Hub wanneer er een eenvoudige toepassing, een apparaatbeheeragent, op wordt uitgevoerd. Hiermee wordt het apparaat veilig met de cloud verbonden. Met de agentcode kan een operator vanaf de toepassingszijde extern de apparaatstatus bevestigen en beheerbewerkingen uitvoeren zoals het toepassen van netwerkconfiguratiewijzigingen of het implementeren van firmware-updates.
 
-## Dubbel apparaat
+## Principes van IoT-apparaatbeheer
 
-Het dubbele apparaat is een weergave van een fysiek apparaat in IoT Hub. Het object **Microsoft.Azure.Devices.Device** wordt gebruikt om het dubbele apparaat weer te geven.
+IoT zorgt voor unieke beheeruitdagingen en een oplossing moet rekening houden met de volgende principes van IoT-apparaatbeheer:
 
-![][img-twin]
+![][img-dm_principles]
 
-Het dubbele apparaat heeft de volgende onderdelen:
+- **Schaal en automatisering**: voor IoT zijn eenvoudige hulpprogramma's nodig waarmee routinetaken kunnen worden geautomatiseerd en waarmee een relatief klein aantal operationele medewerkers miljoenen apparaten kan beheren. Operators verwachten dagelijks apparaatbewerkingen extern en bulksgewijs uit te voeren en alleen te worden gewaarschuwd wanneer er problemen opduiken waarvoor hun directe aandacht is vereist.
 
-1.  **Apparaatvelden:** apparaatvelden zijn vooraf gedefinieerde eigenschappen die worden gebruikt voor zowel IoT Hub-berichten als apparaatbeheer. Hiermee kan IoT Hub fysieke apparaten identificeren en er verbinding mee maken. Apparaatvelden zijn niet gesynchroniseerd op het apparaat en zijn exclusief opgeslagen op het dubbele apparaat. Apparaatvelden bevatten de apparaat-id en verificatiegegevens.
+- **Openheid en compatibiliteit**: het ecosysteem van IoT-apparaten is buitengewoon divers. Beheerhulpprogramma's moeten zo worden aangepast dat ze kunnen omgaan met een groot aantal apparaatklassen, platforms en protocollen. Operators moeten alle apparaten kunnen ondersteunen, van de meest beperkte ingesloten chips voor enkelvoudige processen tot krachtige en volledig functionele computers.
 
-2.  **Apparaateigenschappen:** apparaateigenschappen zijn een vooraf gedefinieerde woordenlijst met eigenschappen die een fysiek apparaat beschrijft. Een fysiek apparaat is het hoofdapparaat voor elke eigenschap en is de gezaghebbende opslag voor elke bijbehorende waarde. Een uiteindelijk consistente weergave van deze eigenschappen wordt opgeslagen op het dubbele apparaat in de cloud. De coherentie en vernieuwing zijn onderhevig aan de synchronisatie-instellingen zoals beschreven in [Tutorial: how to use the device twin][lnk-tutorial-twin] (Zelfstudie: het dubbele apparaat gebruiken). Enkele voorbeelden van apparaateigenschappen zijn de firmwareversie, het accuniveau en de naam van de fabrikant.
+- **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Bij apparaatbeheerbewerkingen moet rekening worden gehouden met SLA-onderhoudsvensters, netwerk- en energiestatussen, in-gebruiksomstandigheden en apparaatgeolocatie om ervoor te zorgen dat de uitval vanwege onderhoud niet van invloed is op kritieke bedrijfsactiviteiten of dat er geen gevaarlijke situaties ontstaan.
 
-3.  **Service-eigenschappen:** service-eigenschappen zijn **&lt;sleutel-waardeparen&gt;** die door de ontwikkelaar worden toegevoegd aan de woordenlijst met service-eigenschappen. Deze eigenschappen breiden het gegevensmodel voor het dubbele apparaat uit, waardoor u het apparaat beter kunt typeren. Service-eigenschappen worden niet gesynchroniseerd naar het apparaat en worden alleen opgeslagen op het dubbele apparaat in de cloud. Een voorbeeld van een service-eigenschap is **&lt;NextServiceDate, 11/12/2017&gt;**. Deze eigenschap kan worden gebruikt om apparaten te vinden via hun volgende servicedatum.
+- **Vele rollen bedienen**: ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. De operationele medewerkers moeten ook harmonieus werken met de gegeven beperkingen van interne IT-afdelingen en relevante apparaatbewerkingsgegevens zichtbaar maken voor supervisors en andere managementrollen.
 
-4.  **Labels:** labels zijn een subset met service-eigenschappen die willekeurige tekenreeksen zijn in plaats van woordenlijsteigenschappen. Ze kunnen worden gebruikt om aantekeningen te maken bij dubbele apparaten of om apparaten te organiseren in groepen. Labels worden niet gesynchroniseerd naar het apparaat en worden alleen opgeslagen op het dubbele apparaat. Als een dubbel apparaat bijvoorbeeld een fysieke truck weergeeft, kunt u bijvoorbeeld een label toevoegen voor elk type lading: **appels**, **sinaasappels** of **bananen**.
+## Levenscyclus van IoT-apparaat 
 
-## Apparaatquery's
+Hoewel IoT-projecten veel van elkaar verschillen, is er een set algemene patronen voor het beheren van apparaten. In Azure IoT worden deze patronen geïdentificeerd binnen de levenscyclus van het IoT-apparaat die uit vijf afzonderlijke fasen bestaat:
 
-In de vorige sectie hebt u geleerd over de verschillende onderdelen van het dubbele apparaat. Nu wordt uitgelegd hoe u dubbele apparaten kunt vinden in het IoT Hub-apaaraatregister op basis van de apparaateigenschappen, service-eigenschappen of labels. U kunt een query gebruiken om bijvoorbeeld apparaten te vinden die moeten worden bijgewerkt. U kunt een query uitvoeren voor alle apparaten met een opgegeven firmwareversie en het resultaat in een specifieke actie invoeren. (In IoT Hub bekend als een apparaattaak. Dit wordt uitgelegd in de volgende sectie).
+![][img-device_lifecycle]
 
-U kunt een query uitvoeren met behulp van labels en eigenschappen:
+1. **Plannen**: operators in staat stellen een apparaateigenschappenschema te maken waarmee ze eenvoudig en nauwkeurig kunnen zoeken naar en zich richten op een groep apparaten voor bulksgewijze beheerbewerkingen.
 
--   Als u met behulp van labels een query wilt uitvoeren voor dubbele apparaten, geeft u een matrix van tekenreeksen op. De query retourneert vervolgens een set apparaten die zijn gelabeld met al deze tekenreeksen.
+    *Gerelateerde bouwstenen*: [Aan de slag met apparaattwins][lnk-twins-getstarted], [Twineigenschappen gebruiken][lnk-twin-properties]
 
--   Als u een query naar dubbele apparaten wilt uitvoeren met behulp van service-eigenschappen of apparaateigenschappen, gebruikt u een JSON-query-expressie. In het volgende voorbeeld ziet u hoe u een query kunt uitvoeren voor alle apparaten met de apparaateigenschap met de sleutel **FirmwareVersion** en waarde **1.0**. U kunt zien dat het **type** van de eigenschap **apparaat** is. Dit geeft aan dat er een query wordt uitgevoerd op basis van apparaateigenschappen en niet op basis van service-eigenschappen:
+2. **Inrichten**: nieuwe apparaten veilig verifiëren voor IoT Hub en operators in staat stellen apparaatmogelijkheden en de huidige status onmiddellijk te detecteren.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *Gerelateerde bouwstenen*: [Aan de slag met IoT Hub][lnk-hub-getstarted], [Twineigenschappen gebruiken][lnk-twin-properties]
 
-## Apparaattaken
+3. **Configureren**: bulksgewijze configuratiewijzigingen en firmware-updates op apparaten ondersteunen terwijl de status en beveiliging behouden blijven.
 
-Het volgende concept in apparaatbeheer is apparaattaken. Dit zorgt voor de coördinatie van orchestrations met meerdere stappen op meerdere apparaten.
+    *Gerelateerde bouwstenen*: [Twineigenschappen gebruiken][lnk-twin-properties], [C2D-methoden][lnk-c2d-methods], [Taken plannen/uitzenden][lnk-jobs]
 
-Er worden momenteel zes typen apparaattaken geboden met apparaatbeheer via Azure IoT Hub (wanneer klanten daar behoefte aan hebben, zullen er meer taken worden toegevoegd):
+4. **Bewaken**: algehele status van alle apparaten en de status van lopende update-implementaties bewaken om operators te attenderen op problemen die mogelijk hun aandacht vereisen.
 
-- **Firmware-update**: hiermee wordt de firmware (of OS-installatiekopie) bijgewerkt op het fysieke apparaat.
-- **Opnieuw opstarten**: hiermee wordt het fysieke apparaat opnieuw opgestart.
-- **Fabrieksinstellingen**: hiermee wordt de firmware (of OS-installatiekopie) van het fysieke apparaat teruggezet naar de fabrieksinstellingen, mits de installatiekopie is opgeslagen op het apparaat.
-- **Configuratie-update**: hiermee wordt de IoT Hub-clientagent geconfigureerd die wordt uitgevoerd op het fysieke apparaat.
-- **Apparaateigenschap Lezen**: hiermee wordt de meest recente waarde van een apparaateigenschap opgehaald op het fysieke apparaat.
-- **Apparaateigenschap Schrijven:** hiermee wordt een apparaateigenschap op het fysieke apparaat gewijzigd.
+    *Gerelateerde bouwstenen*: [Twineigenschappen gebruiken][lnk-twin-properties]
 
-Zie de [API documentation for C\# and node.js][lnk-apidocs] (API-documentatie voor C en node.JS) voor details over het gebruik van elk van deze taken.
+5. **Buiten gebruik stellen**: apparaten vervangen of uit bedrijf nemen na een storing, upgradecyclus of aan het einde van de levensduur.
 
-Een taak kan worden uitgevoerd op meerdere apparaten. Wanneer u een taak start, wordt voor elk van deze apparaten een bijbehorende onderliggende taak gemaakt. Een onderliggende taak werkt op een enkel apparaat. Elke onderliggende taak bevat een verwijzing naar de bovenliggende taak. De bovenliggende taak is slechts een container voor de onderliggende taken. Er wordt met deze taak geen logica geïmplementeerd om onderscheid te maken tussen typen apparaten (zoals het bijwerken van een Intel Edison versus het bijwerken van een Raspberry Pi). In het volgende diagram wordt de relatie weergegeven tussen een bovenliggende taak en de bijbehorende onderliggende taken, en de bijbehorende fysieke apparaten.
+    *Gerelateerde bouwstenen*:
+    
+## Patronen voor apparaatbeheer via IoT Hub
 
-![][img-jobs]
+Met IoT Hub wordt de volgende set (eerste) apparaatbeheerpatronen mogelijk gemaakt.  Zoals getoond in de [zelfstudies][lnk-get-started] kunt u deze patronen aanpassen aan uw exacte scenario en nieuwe patronen ontwerpen voor andere scenario's op basis van deze kernpatronen.
 
-U kunt een query uitvoeren voor de taakgeschiedenis om de status te begrijpen van de taken die u hebt gestart. Zie [onze querybibliotheek][lnk-query-samples] voor een aantal voorbeelden van query‘s.
+1. **Opnieuw opstarten** - Via de back-endtoepassing wordt het apparaat met een D2C-methode geïnformeerd dat opnieuw opstarten is gestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen in de apparaattwin om de opstartstatus van het apparaat bij te werken. 
 
-## Apparaatimplementatie
+    ![][img-reboot_pattern]
 
-Nu de concepten aan de zijde van de server zijn besproken, kunnen we het hebben over het maken van een beheerd fysiek apparaat. Met de DM-clientbibliotheek van Azure IoT Hub kunt u IoT-apparaten beheren via Azure IoT Hub. Met beheren worden acties bedoeld zoals opnieuw opstarten, fabrieksinstellingen terugzetten en het bijwerken van firmware.  Op dit moment bieden we een platformonafhankelijke C-bibliotheek, maar binnenkort wordt ondersteuning voor andere talen toegevoegd.  
+2. **Fabrieksinstellingen terugzetten ** - Via de back-endtoepassing wordt het apparaat via een D2C-methode geïnformeerd dat het terugzetten van de fabrieksinstellingen is gestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen van de apparaattwin om de status van het terugzetten van de fabrieksinstellingen van het apparaat bij te werken.
 
-De DM-clientbibliotheek heeft twee hoofdverantwoordelijkheden in apparaatbeheer:
+    ![][img-facreset_pattern]
 
-- Eigenschappen op het fysieke apparaat synchroniseren met het bijbehorende dubbele apparaat in IoT Hub
-- Apparaattaken besturen die via IoT Hub zijn verzonden naar het apparaat
+3. **Configuratie** - Voor de back-endtoepassing worden de gewenste eigenschappen van de apparaattwin gebruikt voor het configureren van software die op het apparaat wordt uitgevoerd.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen van de apparaattwin om de configuratiestatus van het apparaat bij te werken. 
 
-Zie [Introducing the Azure IoT Hub device management client library for C][lnk-library-c] (Introductie tot de clientbibliotheek voor apparaatbeheer via Azure IoT Hub voor C) voor meer informatie over deze verantwoordelijkheden en de implementatie op fysieke apparaten.
+    ![][img-config_pattern]
+
+4. **Firmware-update** - Via de back-endtoepassing wordt het apparaat via een D2C-methode geïnformeerd dat een firmware-update is gestart.  Voor het apparaat wordt een proces met meerdere stappen gestart om het firmwarepakket te downloaden, het firmwarepakket toe te passen en ten slotte opnieuw verbinding te maken met de IoT Hub-service.  Gedurende het proces met meerdere stappen wordt gebruikgemaakt van de gerapporteerde eigenschappen van de apparaattwin om de voortgang en status van het apparaat bij te werken. 
+
+    ![][img-fwupdate_pattern]
+
+5. **Voortgang en status rapporteren** Met de back-endtoepassing worden query's voor apparaattwins uitgevoerd op een set apparaten om de status en voortgang te rapporteren van acties die op het apparaat worden uitgevoerd.
+
+    ![][img-report_progress_pattern]
 
 ## Volgende stappen
 
-U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit een aantal netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-apparaat-SDK‘s].
+Met de bouwstenen die met Azure IoT Hub worden geleverd, kunnen ontwikkelaars IoT-toepassingen maken die voldoen aan de unieke IoT-operatorvereisten in elke levenscyclusfase van een apparaat.
 
 Zie de zelfstudie [Get started with Azure IoT Hub device management][lnk-get-started] (Aan de slag met apparaatbeheer via Azure IoT Hub) om nog meer te leren over de functies voor apparaatbeheer via Azure IoT Hub.
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-apparaat-SDK‘s]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
 
-
-<!----HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

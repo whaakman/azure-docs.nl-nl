@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-Dit artikel bevat een gedetailleerd overzicht van de [voorbeeldcode van Hallo wereld][lnk-helloworld-sample] om de fundamentele onderdelen van de architectuur van de [Azure IoT Gateway-SDK][lnk-gateway-sdk] te illustreren. In het voorbeeld wordt de gateway-SDK gebruikt om een eenvoudige gateway te maken die om de vijf seconden het bericht 'Hallo wereld' vastlegt in een bestand.
+Dit artikel bevat een gedetailleerd overzicht van de [voorbeeldcode van Hallo wereld][lnk-helloworld-sample] om de fundamentele onderdelen van de architectuur van de [Azure IoT Gateway-SDK][lnk-gateway-sdk] te illustreren. In het voorbeeld wordt de IoT Hub Gateway SDK gebruikt om een eenvoudige gateway te maken die om de vijf seconden een 'Hallo wereld'-bericht vastlegt in een bestand.
 
 Dit overzicht omvat:
 
@@ -21,7 +21,7 @@ Voordat u de voorbeeldcode gaat bekijken of uw eigen gateway met de gateway-SDK 
 
 U maakt een gateway met de Azure IoT gateway-SDK door *modules* te maken en aan elkaar te koppelen. Modules gebruiken *berichten* om gegevens met elkaar uit te wisselen. Een module ontvangt een bericht, voert daarmee een bepaalde actie uit, zet het eventueel om in een nieuw bericht en publiceert dit bericht vervolgens zodat het door andere modules kan worden verwerkt. Sommige modules kunnen alleen nieuwe berichten produceren en verwerken nooit binnenkomende berichten. Een keten van modules vormt een gegevensverwerkingspijplijn waarbij elke module een transformatie uitvoert van de gegevens op één punt in die pijplijn.
 
-![][1]
+![Een keten van modules in gateway gebouwd met de Azure IoT Gateway SDK][1]
  
 De SDK bevat het volgende:
 
@@ -31,7 +31,7 @@ De SDK bevat het volgende:
 
 De SDK biedt een laag van abstractie zodat u gateways kunt maken die uitvoerbaar zijn op verschillende besturingssystemen en platforms.
 
-![][2]
+![Azure IoT-Hub Gateway SDK-abstractielaag][2]
 
 ### Berichten
 
@@ -39,7 +39,7 @@ Hoewel de idee van modules die berichten aan elkaar doorgeven een handige manier
 
 Een module gebruikt de functie **Broker_Publish** om een bericht naar de broker te publiceren. De broker levert berichten aan een module door een callbackfunctie te activeren. Een bericht bestaat uit een reeks sleutel/waarde-eigenschappen en inhoud die als een blok geheugen worden doorgegeven.
 
-![][3]
+![De rol van de broker in de Azure IoT Gateway SDK][3]
 
 ### Berichtroutering en filteren
 
@@ -52,7 +52,7 @@ Het 'Hallo wereld'-voorbeeld illustreert de concepten die in de vorige sectie zi
 -   De *Hallo wereld*-module maakt om de vijf seconden een bericht en geeft dit door aan de logboekregistratiemodule.
 -   De *logboekregistratie*module schrijft de ontvangen berichten naar een bestand.
 
-![][4]
+![Architectuur van 'Hallo wereld'-voorbeeld gebouwd met de Azure IoT Gateway SDK][4]
 
 Zoals in de vorige sectie is beschreven, geeft de module 'Hallo wereld' niet elke vijf seconden berichten rechtstreeks aan de logboekregistratiemodule door. In plaats daarvan wordt het bericht elke vijf seconden naar de broker gepubliceerd.
 
@@ -60,7 +60,7 @@ De loggermodule ontvangt het bericht van de broker en reageert erop door de inho
 
 De loggermodule verwerkt alleen berichten van de broker en publiceert nooit nieuwe berichten naar de broker.
 
-![][5]
+![Hoe de broker berichten routeert tussen modules in de Azure IoT Gateway SDK][5]
 
 In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voorbeeld en de relatieve paden naar de bronbestanden die verschillende delen van het voorbeeld implementeren in de [opslagplaats][lnk-gateway-sdk]. Verken zelf de code of gebruik de codefragmenten hieronder als richtlijn.
 
@@ -75,6 +75,6 @@ In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voor
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

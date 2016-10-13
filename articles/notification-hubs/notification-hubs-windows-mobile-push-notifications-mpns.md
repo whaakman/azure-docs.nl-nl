@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -217,7 +217,7 @@ Zie [Richtlijnen voor Notification Hubs] voor meer informatie over het gebruik v
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Geverifieerde MPNS-modus]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-phone-send-breaking-news.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [pop-upcatalogus]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tegelcatalogus]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs - Windows Phone Silverlight-zelfstudie]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
@@ -225,6 +225,6 @@ Zie [Richtlijnen voor Notification Hubs] voor meer informatie over het gebruik v
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

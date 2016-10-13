@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="07/07/2016"
+    ms.date="10/04/2016"
     ms.author="wesmc;ricksal"/>
 
 
@@ -357,7 +357,7 @@ Voer grondige tests uit op alle soorten meldingsgedrag die u in uw app hebt inge
 
 #### Instellen
 
-Het instellen van Azure Mobile Engagement is zeer eenvoudig. De documentatie die betrekking heeft op de gebruikersinterface, is beschikbaar op de Azure Mobile Engagement-website: [Navigeren in de gebruikersinterface](mobile-engagement-user-interface.md).
+Het instellen van Azure Mobile Engagement is zeer eenvoudig. De documentatie die betrekking heeft op de gebruikersinterface, is beschikbaar op de Azure Mobile Engagement-website: [Navigeren in de gebruikersinterface](mobile-engagement-user-interface-home.md).
 
 U doet er verstandig aan te beginnen met het instellen van de juiste rollen en rollidmaatschappen voor de gebruikers van uw project. Zo kunt u voor alle gebruikers het juiste toegangsniveau voor het platform beheren. De rollen kunnen zijn:
 
@@ -410,6 +410,6 @@ Hebt u eenmaal wat ervaring opgedaan, dan kunt u overwegen het volgende aan uw b
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

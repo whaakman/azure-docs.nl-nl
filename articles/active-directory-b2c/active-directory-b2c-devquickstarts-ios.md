@@ -12,6 +12,7 @@
     ms.date="07/26/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: een web-API aanroepen vanuit een iOS-toepassing die een bibliotheek van derden gebruikt
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -149,9 +150,9 @@ Het is eenvoudiger om de toepassing te configureren als er een centrale locatie 
 Hier volgt een gedetailleerde beschrijving.
 
 
-U ziet dat u voor `authURL`, `loginURL`, `bhh` en `tokenURL` de naam van uw tenant moet invullen. Dit is de tenantnaam van uw B2C-tenant die aan u is toegewezen. Bijvoorbeeld `kidventusb2c.onmicrosoft.com`.Als u onze Microsoft Azure Identity-bibliotheken (open source) gebruikt, worden deze gegevens voor u opgehaald via ons eindpunt voor metagegevens. Deze waarden zijn al voor u uitgepakt.
+U ziet dat u voor `authURL`, `loginURL`, `bhh` en `tokenURL` de naam van uw tenant moet invullen. Dit is de tenantnaam van uw B2C-tenant die aan u is toegewezen. Bijvoorbeeld `kidventusb2c.onmicrosoft.com`Als u onze Microsoft Azure Identity-bibliotheken (open source) gebruikt, worden deze gegevens voor u opgehaald via ons eindpunt voor metagegevens. Deze waarden zijn al voor u uitgepakt.
 
-Voor meer informatie over B2C-tenantnamen raadpleegt u [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 De waarde `keychain` is de container die de bibliotheek NXOAuth2Client gebruikt voor het maken van een sleutelhanger waarin uw tokens worden opgeslagen. Als u eenmalige aanmelding wilt instellen voor verschillende toepassingen, kunt u dezelfde sleutelhanger opgeven in elk van uw toepassingen en het gebruik van deze sleutelhanger vereisen in uw XCode-rechten. Dit wordt beschreven in de Apple-documentatie.
 
@@ -648,6 +649,6 @@ Nu kunt u verder met geavanceerdere B2C-onderwerpen. U kunt het volgende probere
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

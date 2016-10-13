@@ -21,7 +21,7 @@
 # Een DocumentDB NoSQL-account maken met Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documntdb-create-account.md)
+- [Azure Portal](documentdb-create-account.md)
 - [Azure CLI en Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Als u een database met Microsoft Azure DocumentDB wilt maken, moet u:
@@ -96,6 +96,6 @@ Raadpleeg de volgende informatie voor meer informatie over DocumentDB:
 
 
 
-<!---HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

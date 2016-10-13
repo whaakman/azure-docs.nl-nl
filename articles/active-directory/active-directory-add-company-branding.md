@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 
@@ -87,14 +87,33 @@ U kunt de volgende elementen op de aanmeldingspagina aanpassen:
 
 ![][5]
 
- Pagina-element  | Locatie op de pagina
-    ------------- | -------------
-Logo in banner | Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het logo dat wordt weergegeven op de doelsite waarop u zich aanmeldt (bijvoorbeeld Office 365 of Azure).
-Grote afbeelding/achtergrondkleur | Wordt aan de linkerkant van de pagina weergegeven. Vervangt de afbeelding die wordt weergegeven op de doelsite waarop u zich aanmeldt. In plaats van de grote afbeelding kan de achtergrondkleur worden weergegeven als de verbinding een lage bandbreedte heeft of het scherm erg smal is.
-Tekst van aanmeldingspagina | Wordt boven de paginavoettekst weergegeven als u handige informatie wilt verstrekken voordat iemand zich aanmeldt met een werk- of schoolaccount. U kunt bijvoorbeeld het telefoonnummer van de helpdesk weergeven of een juridische mededeling.
+
+
+| Pagina-element  | Locatie op de pagina |
+|:--            | ---                  |
+|Logo in banner    | Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het logo dat wordt weergegeven op de doelsite waarop u zich aanmeldt (bijvoorbeeld Office 365 of Azure).|
+|Grote afbeelding/achtergrondkleur | Wordt aan de linkerkant van de pagina weergegeven. Vervangt de afbeelding die wordt weergegeven op de doelsite waarop u zich aanmeldt. In plaats van de grote afbeelding kan de achtergrondkleur worden weergegeven als de verbinding een lage bandbreedte heeft of het scherm erg smal is.|
+|Aangemeld blijven | Dit wordt weergegeven onder het tekstvak voor het wachtwoord. |
+|Tekst van aanmeldingspagina | Wordt boven de paginavoettekst weergegeven als u handige informatie wilt verstrekken voordat iemand zich aanmeldt met een werk- of schoolaccount. U kunt bijvoorbeeld het telefoonnummer van de helpdesk weergeven of een juridische mededeling.|
+
 
 > [AZURE.NOTE]
 Alle elementen zijn optioneel. Als u bijvoorbeeld een logo wilt weergeven in de banner, maar geen grote afbeelding wilt gebruiken, wordt uw logo weergegeven op de aanmeldingspagina en de afbeelding voor de doelsite (in dit geval de Office 365-afbeelding van een snelweg in Californië).
+
+
+Op de aanmeldingspagina kunnen gebruikers er met het selectievakje **Aangemeld blijven** voor zorgen dat ze aangemeld blijven als ze hun browser sluiten en opnieuw openen. Dit heeft geen invloed op de levensduur van de sessie. U kunt het selectievakje op de aanmeldingspagina van Azure Active Directory verbergen.
+
+Of het selectievakje wordt weergegeven, hangt af van wat er bij **KMSI verbergen** is ingesteld.
+
+![][9]
+
+
+Als u het selectievakje wilt verbergen, stelt u deze instelling in op **Verborgen**. 
+
+> [AZURE.NOTE] Of sommige functies van SharePoint Online en Office 2010 beschikbaar zijn, hangt ervan of gebruikers dit selectievakje wel of niet kunnen inschakelen. Als u deze instelling instelt op Verborgen, krijgen uw gebruikers mogelijk extra en onverwachte prompts te zien om zich aan te melden.
+
+
+
 
 U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aangepaste elementen hebt geconfigureerd, kunt u meer versies configureren voor verschillende talen. U kunt ook een combinatie van verschillende elementen gebruiken. U kunt bijvoorbeeld:
 
@@ -220,9 +239,10 @@ Achtergrondkleur van de aanmeldingspagina | De achtergrondkleur van de aanmeldin
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

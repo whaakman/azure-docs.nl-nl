@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -268,8 +268,8 @@ Zie [Notification Hubs Guidance](notification-hubs-push-notification-overview.md
 
 <!-- URLs. -->
 
-[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [pop-upcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tegelcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
@@ -277,6 +277,6 @@ Zie [Notification Hubs Guidance](notification-hubs-push-notification-overview.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -18,7 +18,7 @@
     ms.author="yochay"/>
 
 
-# De werking van App Service
+# <a name="how-app-service-works"></a>De werking van App Service
 
 Azure App Service is een cloudservice die is ontworpen om de praktische problemen op te lossen waar engineers tegenwoordig tegenaan lopen. App Service is gericht op het bieden van optimale productiviteit van ontwikkelaars, waarbij ze ook toepassingen voor de cloud kunnen leveren. Daarnaast bevat App Service de functies en frameworks die nodig zijn om LOB-bedrijfstoepassingen te maken en ontwikkelaars ondersteuning te bieden voor de populairste programmeertalen (.NET, Java, PHP, Node.JS en Python).
 Ontwikkelaars kunnen met App Service:
@@ -27,6 +27,8 @@ Ontwikkelaars kunnen met App Service:
 * Snel back-ends van mobiele apps maken met een set gebruiksvriendelijke mobiele mogelijkheden, zoals gegevensback-ends, gebruikersverificatie en pushmeldingen met Mobile Apps. 
 * API's implementeren en publiceren met API Apps.
 * Zakelijke toepassingen met elkaar verbinden in werkstromen en gegevens transformeren met Logic Apps.
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 Alle app-typen worden gemaakt op het schaalbare en flexibele platform voor web-apps, waarmee ontwikkelaars kunnen werken aan de volledige levenscyclus, van app-ontwerp tot app-onderhoud. De levenscyclusmogelijkheden maken het volgende mogelijk:
 
@@ -43,6 +45,6 @@ Met alle mogelijkheden van App Service samen kunnen ontwikkelaars zich richten o
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

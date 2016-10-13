@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -38,36 +38,40 @@ De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platfo
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 - **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Azure CLI**: zie [De Azure CLI installeren en configureren](../xplat-cli-install.md) voor informatie over de installatie en configuratie. Start de computer opnieuw op nadat u de CLI hebt geïnstalleerd.
+
+## Authentication
+
+In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ##Meld u aan bij uw Azure-abonnement
 
-Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de methode __login__.
+1. Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de `azure login`-methode.
+
+2. Gebruik de opdracht `azure account list` om de abonnementen weer te geven die aan uw account zijn gekoppeld.
+
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
+
+    In de bovenstaande uitvoer is **Azure-sub-1** momenteel ingeschakeld, en het andere abonnement is **Azure-sub-2**. 
+
+3. Selecteer het abonnement waarmee u wilt werken. Als u wilt werken met het abonnement Azure-sub-2, gebruikt u de opdracht `azure account set`.
+
+        azure account set Azure-sub-2
 
 
 ## Een Azure Data Lake Store-account maken
 
 Open een opdrachtprompt, shell of terminalvenster en voer de volgende opdrachten uit.
 
-1. Meld u aan bij uw Azure-abonnement:
-
-        azure login
-
-    U wordt gevraagd om een webpagina te openen en een verificatiecode in te voeren. Volg de instructies op de pagina om u aan te melden bij uw Azure-abonnement.
-
 2. Schakel over naar modus Azure Resource Manager met de volgende opdracht:
 
         azure config mode arm
 
-
-3. Geef de Azure-abonnementen voor uw account weer.
-
-        azure account list
-
-
-4. Als u meerdere Azure-abonnementen hebt, gebruikt u de volgende opdracht om in te stellen welk abonnement door de Azure CLI-opdrachten wordt gebruikt:
-
-        azure account set <subscriptionname>
 
 5. Maak een nieuwe resourcegroep. Geef in de volgende opdracht de parameterwaarden op die u wilt gebruiken.
 
@@ -191,6 +195,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

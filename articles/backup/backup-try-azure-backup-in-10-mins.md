@@ -3,8 +3,8 @@
    description="Leer hoe u een back-up maakt van Windows Server-gegevens door het maken van een kluis, het installeren van de Recovery Services-agent en door een back-p van te maken van uw bestanden en mappen in Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="hoe een back-up maken; back-up maken"/>
 
@@ -14,8 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
+
 
 # Eerste blik: een back-up maken van bestanden en mappen in Azure Backup met behulp van het Resource Manager-implementatiemodel
 
@@ -209,6 +210,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [s
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 
