@@ -150,7 +150,7 @@ Dit document is een inleiding tot Security Center, de belangrijkste mogelijkhede
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -162,6 +162,6 @@ Dit document is een inleiding tot Security Center, de belangrijkste mogelijkhede
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
