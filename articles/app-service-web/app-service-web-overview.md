@@ -16,6 +16,7 @@
     ms.date="08/26/2016"
     ms.author="rachelap"/>
 
+
 # Overzicht van Web Apps
 
 *App Service Web Apps* is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en web-apps. Met deze PaaS-aanbieding ([Platform-as-a-Service](https://en.wikipedia.org/wiki/Platform_as_a_service)) van Microsoft Azure kunt u zich concentreren op uw bedrijfslogica terwijl Azure zorgt voor de infrastructuur die nodig is om uw apps uit te voeren en te schalen.
@@ -23,6 +24,8 @@
 In de volgende 5 minuten durende video maakt u kennis met Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 ## Wat is een web-app in App Service?
 
@@ -64,6 +67,6 @@ Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Az
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

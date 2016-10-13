@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -113,9 +113,9 @@ In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden v
 
 ## Authentication
 
-### Als u gebruikmaakt van verificatie door eindgebruikers
+### Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
 
-Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden.
+Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden. Door voor deze aanpak te kiezen, kunt u deze zelfstudie sneller voltooien.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,10 @@ Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder 
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-In het bovenstaande fragment gebruiken we een Azure AD-domein en -client-ID die standaard beschikbaar zijn voor alle Azure-abonnementen. Als u uw eigen Azure AD-domein en -client-ID wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken. Zie [Een Active Directory-toepassing maken](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) voor instructies.
+Een aantal dingen die u moet weten over het bovenstaande fragment.
+
+* Omdat dit fragment gebruikmaakt van een Azure AD-domein en -client-id die standaard beschikbaar zijn voor alle Azure-abonnementen, kunt u deze zelfstudie sneller voltooien. U kunt **dit fragment dus in zijn huidige vorm in uw toepassing gebruiken**.
+* Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-domein, de client-id en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [Een Active Directory-toepassing maken](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) voor instructies.
 
 >[AZURE.NOTE] De instructies in de bovenstaande koppelingen zijn voor een Azure AD-webtoepassing. De stappen zijn echter precies hetzelfde, ook als u in plaats daarvan een systeemeigen clienttoepassing maakt. 
 
@@ -276,6 +279,6 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

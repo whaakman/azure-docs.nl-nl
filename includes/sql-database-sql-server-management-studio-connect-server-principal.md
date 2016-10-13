@@ -41,10 +41,12 @@ U kunt het protocol en het poortnummer ook expliciet instellen met de servernaam
 
 Problemen met de netwerkverbinding kunnen ook leiden tot verbindingsfouten en time-outs. Soms volstaat het om opnieuw verbinding proberen te maken (als u weet dat de servernaam, referenties en firewallregels correct zijn).
 
+Zie voor meer informatie over verbindingsproblemen [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](../articles/sql-database/sql-database-connectivity-issues.md) (Het oplossen, diagnosticeren en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL Database).
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO1-->
 
 

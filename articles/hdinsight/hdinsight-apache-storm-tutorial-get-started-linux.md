@@ -25,7 +25,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 
 > [AZURE.NOTE] Met de stappen in dit artikel maakt u een HDInsight-cluster op basis van Linux. Zie [Zelfstudie voor Apache Storm: aan de slag met het Storm Starter-voorbeeld met behulp van gegevensanalyses in HDInsight](hdinsight-apache-storm-tutorial-get-started.md) voor stappen voor het maken van een Storm-cluster in HDInsight op basis van Windows.
 
-## Voordat u begint
+## Vereisten
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,6 +38,10 @@ Om deze Apache Storm-zelfstudie te voltooien, moet u beschikken over het volgend
     - **Linux-, Unix- en OS X-clients**: zie [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     - **Windows-clients**: zie [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+### Vereisten voor toegangsbeheer
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Een Storm-cluster maken
 
@@ -195,6 +199,6 @@ Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -14,33 +14,33 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="09/30/2016"
     ms.author="arluca"/>
 
 
 # Azure AD Connect Health gebruiken met AD DS
-De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. Dit geldt ook voor AD DS geïnstalleerd op Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2.
+De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. Ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2.
 
-Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) voor informatie over het controleren van AD Connect (Sync) met Azure AD Connect Health.
+Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor meer informatie over het controleren van AD FS met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) voor informatie over het controleren van AD Connect (Sync) met Azure AD Connect Health.
 
 ![Azure AD Connect Health voor AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
 ## Waarschuwingen voor Azure AD Connect Health voor AD DS
-De sectie waarschuwingen in Azure AD Connect Health voor AD DS biedt u een lijst met actieve en opgeloste waarschuwingen die betrekking hebben op uw domeincontrollers. Bij het selecteren van een actieve of opgeloste waarschuwing wordt een nieuwe blade geopend met aanvullende informatie, samen met stappen om het probleem op te lossen en koppelingen naar ondersteunende documentatie. Elk type waarschuwing kan een of meer exemplaren hebben die overeenstemmen met elk van de domeincontrollers die betrekking hebben op die waarschuwing. Aan de onderkant van de waarschuwingsblade, kunt u betrokken domeincontrollers selecteren en een nieuwe blad wordt geopend met aanvullende informatie over dat specifieke waarschuwingsexemplaar.
+De sectie waarschuwingen in Azure AD Connect Health voor AD DS biedt u een lijst met actieve en opgeloste waarschuwingen die betrekking hebben op uw domeincontrollers. Bij het selecteren van een actieve of opgeloste waarschuwing wordt een nieuwe blade geopend met aanvullende informatie, samen met stappen om het probleem op te lossen en koppelingen naar ondersteunende documentatie. Elk type waarschuwing kan een of meer exemplaren hebben die overeenstemmen met elk van de domeincontrollers die betrekking hebben op die waarschuwing. Onderaan de waarschuwingsblade kunt u dubbelklikken op een betrokken domeincontroller om een nieuwe blade te openen met aanvullende informatie over het waarschuwingsexemplaar.
 
-Inschakelen van e-mailmeldingen voor waarschuwingen is beschikbaar in deze blade, evenals het wijzigen van het tijdsbereik in deze weergave. Door het tijdsbereik uit te breiden kunt u eerder opgeloste waarschuwingen weergegeven.
+Op deze blade kunt u e-mailmeldingen inschakelen voor waarschuwingen en het tijdsbereik in de weergave wijzigen. Als u het tijdsbereik vergroot, kunt u eerdere waarschuwingen die zijn opgelost weergeven.
 
 ![Azure AD Connect-synchronisatiefout](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
-## Domeincontrollers
-Dit dashboard biedt een topologische weergave van uw omgeving, samen met belangrijke operationele statistieken en de status van elk van de bewaakte domeincontrollers. De aangeboden metrische gegevens helpen om snel alle domeincontrollers die mogelijk verder onderzocht moeten worden te identificeren. Alleen een subset van kolommen worden standaard weergegeven. Door te klikken op de opdrachtkolommen ziet u echter de gehele set kolommen die er zijn. Door de voor u meest interessante kolommen te selecteren wordt dit dashboard een handige plek om de status van uw AD DS-omgeving te bekijken. 
+## Dashboard voor domeincontrollers
+Dit dashboard biedt een topologische weergave van uw omgeving, samen met belangrijke operationele statistieken en de status van elk van de bewaakte domeincontrollers. De aangeboden metrische gegevens helpen om snel alle domeincontrollers die mogelijk verder onderzocht moeten worden te identificeren. Standaard wordt alleen een subset van de kolommen weergegeven. U kunt echter de gehele set met beschikbare kolommen vinden door te dubbelklikken op de opdracht voor kolommen. Door de voor u meest interessante kolommen te selecteren wordt dit dashboard een handige plek om de status van uw AD DS-omgeving te bekijken. 
 
 ![Domeincontrollers](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
-Domeincontrollers kunnen worden gegroepeerd op hun respectievelijke domein of de site, wat nuttig is voor het begrijpen van de topologie van de omgeving. Als u ten slotte dubbelklikt u op de bladekop, wordt het dashboard gemaximaliseerd om de beschikbare schermruimte te gebruiken. Dit kan vooral nuttig zijn wanneer meerdere kolommen worden weergegeven. 
+Domeincontrollers kunnen worden gegroepeerd op hun respectievelijke domein of de site, wat nuttig is voor het begrijpen van de topologie van de omgeving. Als u ten slotte dubbelklikt u op de bladekop, wordt het dashboard gemaximaliseerd om de beschikbare schermruimte te gebruiken. Deze grote weergave is handig als u meerdere kolommen weergeeft. 
 
-## Replicatiestatus
-Dit dashboard geeft een overzicht van de replicatiestatus en -topologie van uw bewaakte domeincontrollers. De status van de meest recente replicatiepoging wordt weergegeven, samen met nuttige documentatie voor elke fout die is gevonden. Bij het selecteren van domeincontroller met een fout wordt een nieuwe blade geopend met aanvullende informatie, samen met stappen om het probleem op te lossen en koppelingen naar ondersteunende documentatie. 
+## Dashboard voor replicatiestatus
+Dit dashboard geeft een overzicht van de replicatiestatus en -topologie van uw bewaakte domeincontrollers. De status van de meest recente replicatiepoging wordt weergegeven, samen met nuttige documentatie voor elke fout die is gevonden. U kunt dubbelklikken op een domeincontroller met een fout om een nieuwe blade te openen met informatie, zoals details over de fout, aanbevolen stappen om het probleem te verhelpen en koppelingen naar documentatie over het oplossen van problemen. 
 
 ![Replicatiestatus](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
@@ -49,7 +49,7 @@ Deze functie biedt grafische trends van verschillende prestatiemeters, die voort
 
 ![Bewaking](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter andere meters opnemen door op de filteropdracht te klikken en de gewenste meters te (de)selecteren. Als u bovendien klikt op de grafiek van een prestatiemeter, wordt een nieuwe blade geopend. Deze bevat de respectievelijke datapunten voor elke bewaakte domeincontroller.
+Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter andere meters opnemen door op de filteropdracht te klikken en de gewenste meters te (de)selecteren. Als u klikt op de grafiek van een prestatiemeter, wordt een nieuwe blade geopend. Deze bevat de gegevenspunten voor elke bewaakte domeincontroller.
 
 ## Verwante koppelingen
 
@@ -63,6 +63,6 @@ Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter ande
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

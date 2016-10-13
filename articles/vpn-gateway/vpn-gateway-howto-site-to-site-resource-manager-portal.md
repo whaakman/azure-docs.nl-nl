@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -55,23 +55,22 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfiguratiewaarden gebruiken:
 
-- VNet-naam: TestVNet1
-- Adresruimte: 10.11.0.0/16 en 10.12.0.0/16
-- Subnetten: 
+- **VNet-naam:** TestVNet1
+- **Adresruimte:** 10.11.0.0/16 en 10.12.0.0/16
+- **Subnetten:**
     - FrontEnd: 10.11.0.0/24
     - BackEnd: 10.12.0.0/24
     - GatewaySubnet: 10.12.255.0/27
-- Resourcegroep: TestRG1
-- Locatie: VS - oost
-- DNS-server: 8.8.8.8
-- Gatewaynaam: VNet1GW
-- Openbare IP: VNet1GWIP
-- VPN-type: Op route gebaseerd
-- Verbindingstype: site-naar-site (IPsec)
-- Gatewaytype: VPN
-- Naam van lokale netwerkgateway: Site2
-- Verbindingsnaam: VNet1toSite2
-
+- **Resourcegroep: **TestRG1
+- **Locatie:** VS - oost
+- **DNS-server:** 8.8.8.8
+- **Gatewaynaam:** VNet1GW
+- **Openbare IP:** VNet1GWIP
+- **VPN-type:** Op route gebaseerd
+- **Verbindingstype:** site-naar-site (IPsec)
+- **Gatewaytype:** VPN
+- **Naam van lokale netwerkgateway:** Site2
+- **Verbindingsnaam:** VNet1toSite2
 
 
 ## 1. Een virtueel netwerk maken 
@@ -90,29 +89,24 @@ Wanneer het VNet is gemaakt, kunt u er extra adresruimte en subnetten aan toevoe
 
 ## <a name="dns"></a>3. Een DNS-server opgeven
 
-Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u de DNS-server opgeeft.
-
 ### Een DNS-server opgeven
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Een gatewaysubnet maken
 
-Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewaysubnet maken voor het virtuele netwerk waarmee u verbinding wilt maken. Het gatewaysubnet dat u maakt moet de naam *GatewaySubnet* hebben, anders werkt het niet goed. 
-
-Het voorvoegsel van het gatewaysubnet vereist voor bepaalde configuraties een subnet van /28 of hoger om te kunnen voldoen aan het aantal IP-adressen dat nodig is in de pool. Dat betekent dat het voorvoegsel van het gatewaysubnet /28, /27, /26 enzovoort moet zijn. Misschien wilt u hier een groter subnet maken om te voorzien in mogelijke toekomstige configuratietoevoegingen.
+Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewaysubnet maken voor het virtuele netwerk waarmee u verbinding wilt maken. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
 
 Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u het gatewaysubnet maakt.
 
 ### Een gatewaysubnet maken
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. De gateway van een virtueel netwerk maken
 
-Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u de gateway maakt.
+Als u deze configuratie bij wijze van oefening maakt, kunt u deze [voorbeeldwaarden voor configuraties](#values) raadplegen.
 
 ### De gateway van een virtueel netwerk maken
 
@@ -120,9 +114,9 @@ Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](
 
 ## 6. Een lokale netwerkgateway maken
 
-De *lokale netwerkgateway* verwijst naar uw on-premises locatie. Geef de lokale netwerkgateway een naam waarmee Azure naar de gateway kan verwijzen. 
+De 'lokale netwerkgateway' verwijst naar uw on-premises locatie. Geef de lokale netwerkgateway een naam waarmee Azure naar de gateway kan verwijzen. 
 
-Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u deze toevoegt aan uw lokale site.
+Als u deze configuratie bij wijze van oefening maakt, kunt u deze [voorbeeldwaarden voor configuraties](#values) raadplegen.
 
 ### Een lokale netwerkgateway maken
 
@@ -157,6 +151,6 @@ U kunt de VPN-verbinding controleren in de portal of met behulp van PowerShell.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

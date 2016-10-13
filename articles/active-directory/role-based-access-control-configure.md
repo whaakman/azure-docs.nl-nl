@@ -13,10 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/21/2016"
+    ms.date="09/30/2016"
     ms.author="kgremban"/>
 
+
 # Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement
+
+> [AZURE.SELECTOR]
+- [Azure Portal](role-based-access-control-azure-portal.md)
+- [Klassieke Azure-portal](role-based-access-control-configure.md)
 
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. In dit artikel leest u hoe u met RBAC kunt werken in de Azure Portal. Zie [Wat is op rollen gebaseerd toegangsbeheer](role-based-access-control-what-is.md) als u meer informatie wilt over het beheren van toegang met RBAC.
 
@@ -78,6 +83,6 @@ U kunt rollen toewijzen en toegang beheren met Azure RBAC-opdrachten met andere 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -28,11 +28,15 @@ Informatie over het maken van [Hadoop](http://hadoop.apache.org/)-clusters op ba
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Vereisten
+## Vereisten
 
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
 - **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
+
+### Vereisten voor toegangsbeheer
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Cluster maken
 
@@ -164,6 +168,6 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

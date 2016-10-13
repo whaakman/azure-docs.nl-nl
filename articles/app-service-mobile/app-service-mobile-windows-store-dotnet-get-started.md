@@ -3,7 +3,7 @@
     description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Universal Windows Platform (UWP)-app-ontwikkeling in C#, Visual Basic of JavaScript."
     services="app-service\mobile"
     documentationCenter="windows"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Een Windows-app maken
 
@@ -98,6 +99,6 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

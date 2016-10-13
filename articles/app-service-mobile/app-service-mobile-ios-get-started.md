@@ -3,8 +3,8 @@
     description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor iOs-ontwikkeling in Objective-C of Swift."
     services="app-service\mobile"
     documentationCenter="ios"
-    authors="krisragh"
-    manager="dwrede"
+    authors="yuaxu"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Een iOS-app maken
 
@@ -49,6 +50,6 @@ Voor het uitvoeren van deze zelfstudie hebt u een Mac en [een Azure-account](htt
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

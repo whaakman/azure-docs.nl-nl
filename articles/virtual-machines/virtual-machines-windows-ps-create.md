@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="davidmu"/>
 
 
@@ -26,7 +26,7 @@ Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het u
 
 ## Stap 1: Azure PowerShell installeren
 
-Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement dat u wilt gebruiken en het aanmelden bij uw Azure-account.
+Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
         
 ## Stap 2: Een resourcegroep maken
 
@@ -36,7 +36,7 @@ Eerst maakt u een resourcegroep.
 
         Get-AzureRmLocation | sort Location | Select Location
         
-    Deze lijst ziet er ongeveer zo uit:
+    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
     
         Location
         --------
@@ -123,7 +123,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Het wachtwoord moet tussen 8 en 123 tekens bevatten en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
         
 2. Vervang de waarde van **$vmName** door de gewenste naam voor de virtuele machine. Maak de variabele en de configuratie voor de virtuele machine.
 
@@ -147,7 +147,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Vervang de waarde van **$blobPath** door een pad en bestandsnaam in de opslag waarvan de virtuele vaste schijf gebruik gaat maken. Het virtuele vasteschijfbestand wordt meestal opgeslagen in een container, bijvoorbeeld **vhds/WindowsVMosDisk.vhd**. Maak de variabelen.
+6. Vervang de waarde van **$blobPath** door een pad en bestandsnaam in de opslag op de virtuele vaste schijf. Het virtuele vasteschijfbestand wordt meestal opgeslagen in een container, bijvoorbeeld **vhds/WindowsVMosDisk.vhd**. Maak de variabelen.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -170,11 +170,11 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 ## Volgende stappen
 
 - Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in de Azure-portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
-- Informatie over het beheren van de virtuele machine die u zojuist hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md).
+- Informatie over het beheren van de virtuele machine die u hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md).
 - Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

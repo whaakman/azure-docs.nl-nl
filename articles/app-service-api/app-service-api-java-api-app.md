@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="rachelap"/>
 
+
 # Een Java API-app bouwen en implementeren in Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -24,7 +25,7 @@ In deze zelfstudie ziet u hoe u met behulp van [Git] een Java-toepassing maakt e
 
 ## Vereisten
 
-1. [Java Development Kit 8] (of hoger)
+1. [Java Development Kit 8] \(of hoger)
 1. [Maven] is geïnstalleerd op uw ontwikkelcomputer
 1. [Git] is geïnstalleerd op uw ontwikkelcomputer
 1. Een betaald abonnement of een [gratis] proefabonnement op [Microsoft Azure]
@@ -340,6 +341,6 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

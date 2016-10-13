@@ -13,11 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 
 # Azure Active Directory-rapportage - preview
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-reporting-azure-portal.md)
+- [Klassieke Azure-portal](active-directory-reporting-guide.md)
 
 *Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
 
@@ -220,6 +224,6 @@ Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

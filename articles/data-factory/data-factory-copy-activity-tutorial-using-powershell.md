@@ -20,12 +20,13 @@
 # Zelfstudie: een pijplijn maken met de kopieeractiviteit in Azure PowerShell
 > [AZURE.SELECTOR]
 - [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
+
 
 In deze zelfstudie maakt en bewaakt u een Azure Data Factory met Azure PowerShell-cmdlets. In de pijplijn in de gegevensfactory die u in deze zelfstudie maakt, wordt gebruikgemaakt van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar een Azure SQL Database.
 
@@ -465,6 +466,6 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi�
  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

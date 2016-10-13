@@ -30,13 +30,17 @@ De informatie in dit document is specifiek voor HDInsight-clusters die zijn geba
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-###Vereisten
+##Vereisten
 
 Voordat u met deze HBase-zelfstudie begint, moet u beschikken over het volgende:
 
 - **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell (SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
+
+### Vereisten voor toegangsbeheer
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Een HBase-cluster maken
 
@@ -328,6 +332,6 @@ Voor meer informatie zie:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

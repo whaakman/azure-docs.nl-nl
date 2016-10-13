@@ -133,7 +133,7 @@ Met het volgende PowerShell-script maakt u een SQL-database met alle afhankelijk
 ## Volgende stappen
 Nadat u een SQL-database hebt gemaakt en de algemene installatietaken voor de database hebt uitgevoerd, bent u klaar voor het volgende:
 
-- [SQL Database beheren met PowerShell](sql-database-command-line-tools.md)
+- [SQL Database beheren met PowerShell](sql-database-manage-powershell.md)
 - [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld-T-SQL-query uitvoeren](sql-database-connect-query-ssms.md)
 
 
@@ -143,6 +143,6 @@ Nadat u een SQL-database hebt gemaakt en de algemene installatietaken voor de da
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

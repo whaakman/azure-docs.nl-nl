@@ -24,11 +24,11 @@
 - [Veelgestelde vragen over Backup voor de klassieke modus](backup-azure-backup-faq.md)
 - [Veelgestelde vragen over Backup voor de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
 
-Dit artikel bevat informatie over de Recovery Services-kluis en vormt een aanvulling op [Veelgestelde vragen over Azure Backup](backup-azure-backup-faq). Veelgestelde vragen over Azure Backup bevat de volledige serie vragen en antwoorden over de Azure Backup-service.  
+Dit artikel bevat informatie over de Recovery Services-kluis en vormt een aanvulling op [Veelgestelde vragen over Azure Backup](backup-azure-backup-faq.md). Veelgestelde vragen over Azure Backup bevat de volledige serie vragen en antwoorden over de Azure Backup-service.  
 
 U kunt vragen over Azure Backup stellen in de sectie Disqus van dit artikel of in een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
-## Recovery Services-kluizen zijn gebaseerd op Resource Manager. Worden Backup-kluizen (klassieke modus) nog steeds ondersteund? <br/>
+## Recovery Services-kluizen zijn op basis van Resource Manager. Worden Backup-kluizen (klassieke modus) nog steeds ondersteund? <br/>
 Ja, Backup-kluizen worden nog steeds ondersteund. U maakt Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com). Recovery Services-kluizen worden gemaakt in de [Azure Portal](https://portal.azure.com). We raden u echter aan Recovery Services-kluizen te maken, aangezien alle toekomstige verbeteringen alleen beschikbaar zullen zijn in Recovery Services-kluizen. 
 
 ## Kan ik een Backup-kluis migreren naar een Recovery Services-kluis? <br/>
@@ -46,6 +46,6 @@ Back-ups van klassieke virtuele machines in de back-upkluis worden niet automati
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

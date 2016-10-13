@@ -3,7 +3,7 @@
    description="Leer stapsgewijs hoe u met CLI DNS-zones voor Azure DNS maakt om uw DNS-domein te hosten."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # Een Azure DNS-zone maken met CLI
 
@@ -25,9 +26,9 @@
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-In dit artikel wordt uitgelegd welke stappen u moet uitvoeren om een DNS-zone met CLI te maken. U kunt ook een DNS-zone met PowerShell of Azure Portal maken. 
+In dit artikel wordt uitgelegd welke stappen u moet uitvoeren om een DNS-zone met CLI te maken. U kunt ook een DNS-zone met PowerShell of Azure Portal maken.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Voordat u begint
@@ -42,56 +43,56 @@ U kunt Azure CLI installeren voor Windows, Linux of MAC. De volgende stappen moe
 
 Alle netwerkprovideropdrachten voor CLI kunt u weergeven met de volgende opdracht:
 
-    Azure network
+    azure network
 
 ### 2. Naar de CLI-modus schakelen
 
 Azure DNS maakt gebruik van Azure Resource Manager. Zorg ervoor dat u overschakelt naar de CLI-modus om de ARM-opdrachten te kunnen gebruiken.
 
-    Azure config mode arm
+    azure config mode arm
 
 ### 3. Aanmelden bij uw Azure-account
 
 U wordt gevraagd om u te verifiëren met u referenties. Houd er rekening mee dat u alleen ORGID-accounts kunt gebruiken.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Het abonnement selecteren
 
 Kies welk Azure-abonnement u wilt gebruiken.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Een resourcegroep maken
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Aangezien alle DNS-resources globaal en niet regionaal zijn, is de keuze van de locatie voor de resourcegroep niet van invloed op Azure DNS.
 
-U kunt deze stap overslaan als u een bestaande resourcegroep gebruikt. 
+U kunt deze stap overslaan als u een bestaande resourcegroep gebruikt.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Registreren
 
 De Azure DNS-service wordt beheerd door de Microsoft.Network-resourceprovider. Uw Azure-abonnement moet worden geregistreerd voor het gebruik van deze resourceprovider voordat u Azure DNS kunt gebruiken. Dit is een eenmalige bewerking voor elk abonnement.
 
-    Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## Stap 2: een DNS-zone maken
 
-Een DNS-zone wordt gemaakt met de opdracht `azure network dns zone create`. U kunt eventueel ook een DNS-zone en tags maken. Tags bevatten een lijst met naam/waarde-paren en worden door Azure Resource Manager gebruikt om resources te labelen voor facturerings- of groeperingsdoeleinden. Zie [Tags gebruiken om uw Azure-resources te organiseren](../resource-group-using-tags.md) voor meer informatie over tags. 
+Een DNS-zone wordt gemaakt met de opdracht `azure network dns zone create`. U kunt eventueel ook een DNS-zone en tags maken. Tags bevatten een lijst met naam/waarde-paren en worden door Azure Resource Manager gebruikt om resources te labelen voor facturerings- of groeperingsdoeleinden. Zie [Tags gebruiken om uw Azure-resources te organiseren](../resource-group-using-tags.md) voor meer informatie over tags.
 
 Zonenamen moeten in Azure DNS worden opgegeven zonder een afsluitende **'.'**. Bijvoorbeeld als '**contoso.com**' in plaats van '**contoso.com.**'.
 
 
 ### Een DNS-zone maken
 
-In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*. 
+In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*.
 
 Gebruik het voorbeeld om uw DNS-zone te maken door de waarden te vervangen voor uw eigen DNS-zone.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Een DNS-zone en tags maken
 
@@ -99,7 +100,7 @@ Azure DNS CLI ondersteunt tags van DNS-zones die zijn opgegeven met de optionele
 
 Gebruik het voorbeeld hieronder om een DNS-zone en tags te maken, door de waarden te vervangen door uw eigen waarden.
 
-    Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Records weergeven
 
@@ -189,6 +190,6 @@ Nadat u een DNS-zone hebt gemaakt, maakt u [recordsets en records](dns-getstarte
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -20,7 +20,7 @@
 
 # Opties en prestaties van SQL Database: inzicht in wat er beschikbaar is in elke servicelaag
 
-[Azure SQL Database](sql-database-technical-overview.md) biedt drie servicelagen met meerdere prestatieniveaus om verschillende workloads af te handelen. Elke prestatieniveau biedt meer resources die zijn ontworpen om een steeds snellere doorvoer te leveren. U kunt elke database in een eigen [servicelaag](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) met een eigen prestatieniveau beheren. U kunt ook meerdere databases in een [elastische pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) met een gemeenschappelijke set bronnen beheren. De resources voor zelfstandige databases worden DTU's genoemd (Database Transaction Units) en de resources voor elastische pools worden elastische DTU's of eDTU's genoemd. Zie [Wat is een DTU?](sql-database-what-is-a-DTU.md) voor meer informatie over DTU's en eDTU's. 
+[Azure SQL Database](sql-database-technical-overview.md) biedt drie servicelagen met meerdere prestatieniveaus om verschillende workloads af te handelen. Elke prestatieniveau biedt meer resources die zijn ontworpen om een steeds snellere doorvoer te leveren. U kunt elke database in een eigen [servicelaag](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) met een eigen prestatieniveau beheren. U kunt ook meerdere databases in een [elastische pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) met een gemeenschappelijke set bronnen beheren. De resources voor zelfstandige databases worden DTU's genoemd (Database Transaction Units) en de resources voor elastische pools worden elastische DTU's of eDTU's genoemd. Zie [Wat is een DTU?](sql-database-what-is-a-dtu.md) voor meer informatie over DTU's en eDTU's. 
 
 In beide gevallen is er een servicelaag **Basic**, **Standard** en **Premium**. Databaseopties in deze lagen zijn vergelijkbaar voor individuele databases en elastische pools, maar voor elastische pools zijn er aanvullende overwegingen. In dit artikel vindt u details over servicelagen voor individuele databases en elastische pools.
 
@@ -91,6 +91,6 @@ Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant s
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

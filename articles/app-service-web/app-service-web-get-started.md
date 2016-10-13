@@ -33,15 +33,18 @@ U gaat het volgende doen:
 
 ## Vereisten
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 - [Installeer Git](http://www.git-scm.com/downloads). Controleer of de installatie is geslaagd door `git --version` uit te voeren vanuit een nieuwe Windows-opdrachtprompt, een PowerShell-venster, Linux-shell of OS X-terminal.
 - Verkrijg een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
 
 >[AZURE.NOTE] U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 
 <a name="create"></a>
 ## Een webtoepassing maken
 
-1. Meld u met uw Azure-account aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u met uw Azure-account aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Klik in het menu aan de linkerkant op **Nieuw** > **Web en mobiel** > **Web-app**.
 
@@ -149,6 +152,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

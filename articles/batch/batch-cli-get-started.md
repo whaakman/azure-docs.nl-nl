@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Met de platformonafhankelijke Azure-opdrachtregelinterface (Azure CLI) kunt u Batch-accounts en -resources beheren, zoals groepen en taken in Linux-, Mac- en Windows-opdrachtshells. Met de Azure-opdrachtregelinterface kunt u veel dezelfde taken uitvoeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch Powershell-cmdlets, en scripts voor deze taken uitvoeren.
 
-Dit artikel is gebaseerd op Azure CLI-versie 0.10.3.
+Dit artikel is gebaseerd op Azure CLI-versie 0.10.5.
 
 ## Vereisten
 
@@ -216,19 +216,39 @@ Een toepassingspakket **toevoegen**:
 
 Het pakket **activeren**:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Stel de **standaardversie** voor de toepassing in:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Een toepassingspakket implementeren
 
 U kunt een of meer toepassingspakketten voor implementatie opgeven wanneer u een nieuwe groep maakt. Wanneer u een pakket opgeeft tijdens het maken van een groep, wordt dit pakket geïmplementeerd op elk knooppunt dat wordt gekoppeld aan de groep. Pakketten worden ook geïmplementeerd als een knooppunt opnieuw wordt gestart of teruggezet.
 
-Met deze opdracht wordt een pakket opgegeven tijdens het maken van een groep en geïmplementeerd wanneer er een knooppunt wordt gekoppeld aan de nieuwe groep:
+Geef de optie voor `--app-package-ref` op als u een groep maakt, zodat een toepassingspakket wordt geïmplementeerd naar de knooppunten van de groep wanneer deze lid worden van de groep. De optie `--app-package-ref` accepteert een met puntkomma's gescheiden lijst van toepassings-id's die naar de rekenknooppunten worden geïmplementeerd.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-U kunt momenteel niet opgeven welke pakketversie moet worden geïmplementeerd met behulp van opdrachtregelopties. U moet eerst een standaardversie voor de toepassing instellen via de Azure-portal voordat u deze kunt toewijzen aan een groep. Zie hoe u een standaardversie kunt instellen in [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten). U kunt echter een standaardversie opgeven als u een [JSON-bestand](#json-files) gebruikt in plaats van opdrachtregelopties wanneer u een groep maakt.
+Wanneer u een groep maakt met behulp van opdrachtregelopties, kunt u momenteel niet opgeven *welke* versie van een toepassingspakket u naar de rekenknooppunten wilt implementeren, bijvoorbeeld '1.10-beta3'. Daarom moet u eerst een standaardversie voor de toepassing opgeven met behulp van `azure batch application set [options] --default-version <version-id>` voordat u de groep maakt (zie de vorige sectie). U kunt echter een pakketversie voor de groep opgeven als u een [JSON-bestand](#json-files) gebruikt in plaats van opdrachtregelopties wanneer u een groep maakt.
+
+Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie over toepassingspakketten.
 
 >[AZURE.IMPORTANT] U moet [een Azure Storage-account koppelen](#linked-storage-account-autostorage) aan het Batch-account om toepassingspakketten te gebruiken.
+
+### De toepassingspakketten van een groep bijwerken
+
+Voor het bijwerken van de toepassingen die zijn toegewezen aan een bestaande groep, kunt u de opdracht `azure batch pool set` met de optie `--app-package-ref` gebruiken:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Als u een nieuw toepassingspakket wilt implementeren naar rekenknooppunten die zich al in een bestaande groep bevinden, moet u deze knooppunten opnieuw starten of de installatiekopie ervan terugzetten:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] U kunt een lijst van de knooppunten in een groep samen met hun knooppunt-id's ophalen via `azure batch node list`.
+
+Denk er wel aan dat u voorafgaand aan de implementatie de toepassing al moet hebben geconfigureerd met een standaardversie (`azure batch application set [options] --default-version <version-id>`).
 
 ## Tips voor probleemoplossing
 
@@ -256,6 +276,6 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

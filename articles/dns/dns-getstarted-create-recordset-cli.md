@@ -3,7 +3,7 @@
    description="Hostrecords voor Azure DNS maken. Recordsets en records instellen met CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # DNS-recordsets en records maken met CLI
 
@@ -68,6 +69,6 @@ Zie [Overzicht van Azure DNS-overzicht](dns-overview.md) voor meer informatie ov
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

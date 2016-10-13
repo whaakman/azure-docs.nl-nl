@@ -13,11 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/18/2016"
+    ms.date="09/30/2016"
     ms.author="curtand;jeffsta"/>
 
 
 # Een aangepaste domeinnaam toevoegen aan Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Azure Portal](active-directory-domains-add-qzure-portal.md)
+- [Klassieke Azure-portal](active-directory-add-domain.md)
 
 U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend is bij uw gebruikers, zoals 'gwenda@contoso.com'. Het proces is eenvoudig:
 
@@ -94,6 +98,6 @@ Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals contoso.com e
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 
