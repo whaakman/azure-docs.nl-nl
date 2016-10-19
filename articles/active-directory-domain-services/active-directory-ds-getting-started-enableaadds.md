@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure AD Domain Services: Azure AD Domain Services inschakelen | Microsoft Azure"
-    description="Aan de slag met Azure Active Directory Domain Services (Preview)"
+    description="Aan de slag met Azure Active Directory Domain Services"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="09/21/2016"
     ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)* - Azure AD Domain Services inschakelen
+
+# Azure AD Domain Services inschakelen
 
 ## Taak 3: Azure AD Domain Services inschakelen
 In deze taak schakelt u Azure AD Domain Services in voor uw directory. Voer de volgende configuratiestappen uit om Azure AD Domain Services in te schakelen voor uw directory.
@@ -51,43 +52,43 @@ In deze taak schakelt u Azure AD Domain Services in voor uw directory. Voer de v
 
    - Daarnaast kunt u een aangepaste domeinnaam aan deze lijst toevoegen door deze te typen. In dit voorbeeld hebben we de aangepaste domeinnaam contoso100.com getypt
 
-     > [AZURE.WARNING] Zorg ervoor dat het domeinvoorvoegsel van de domeinnaam die u opgeeft (bijvoorbeeld contoso100 in de domeinnaam contoso100.com) minder is dan 15 tekens. U kunt geen Azure AD Domain Services-domein maken met een domeinvoorvoegsel dat langer is dan 15 tekens.
+     > [AZURE.WARNING] Controleer of het domeinvoorvoegsel van de domeinnaam die u opgeeft (bijvoorbeeld 'contoso100' in de domeinnaam 'contoso100.com') minder dan 15 tekens lang is. U kunt geen Azure AD Domain Services-domein maken met een domeinvoorvoegsel dat langer is dan 15 tekens.
 
-8. De volgende stap bestaat uit het selecteren van een virtueel netwerk waarin Azure AD Domain Services beschikbaar moet zijn. Selecteer het virtuele netwerk dat u net hebt gemaakt in de vervolgkeuzelijst **Domeinservices verbinden met dit virtuele netwerk**.
+8. De volgende stap bestaat uit het selecteren van een virtueel netwerk waarin Azure AD Domain Services beschikbaar moet zijn. Selecteer het virtuele netwerk dat u hebt gemaakt in de vervolgkeuzelijst **Domeinservices verbinden met dit virtuele netwerk**.
 
    - Controleer of het virtuele netwerk dat u hebt opgegeven, deel uitmaakt van een Azure-regio die wordt ondersteund door Azure AD Domain Services.
 
-   - Raadpleeg de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) pagina om te bekijken in welke Azure-regio's Azure AD Domain Services beschikbaar zijn.
+   - Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te zien in welke Azure-regio's Azure AD Domain Services beschikbaar is.
 
    - Virtuele netwerken die bij een regio horen waarin Azure AD Domain Services niet wordt ondersteund, worden niet weergegeven in de vervolgkeuzelijst.
 
-   - Virtuele netwerken die zijn gemaakt met Azure Resource Manager (virtuele netwerken op basis van ARM), worden ook niet weergegeven in de vervolgkeuzelijst. Dit komt doordat virtuele netwerken op basis van ARM momenteel niet worden ondersteund door Azure AD Domain Services.
+   - Virtuele netwerken die zijn gemaakt met Azure Resource Manager, worden ook niet weergegeven in de vervolgkeuzelijst. Virtuele netwerken op basis van Resource Manager worden momenteel niet ondersteund door Azure AD Domain Services.
 
-9. Controleer of de DNS-domeinnaam die u hebt gekozen voor het beheerde domein, nog niet bestaat in het virtuele netwerk. Dit kan gebeuren in een van de volgende scenario's:
+9. Controleer of de DNS-domeinnaam die u hebt gekozen voor het beheerde domein, nog niet bestaat in het virtuele netwerk. Controleer met name het volgende:
 
-   - Als het virtuele netwerk al een domein met dezelfde DNS-domeinnaam bevat.
+   - Of het virtuele netwerk al een domein met dezelfde DNS-domeinnaam bevat.
 
-   - Als het virtuele netwerk dat u hebt geselecteerd, een VPN-verbinding heeft met uw on-premises netwerk en u een domein met dezelfde DNS-domeinnaam hebt op uw on-premises netwerk.
+   - Of het virtuele netwerk dat u hebt geselecteerd, een VPN-verbinding heeft met uw on-premises netwerk en u een domein met dezelfde DNS-domeinnaam hebt op uw on-premises netwerk.
 
-   - Als het virtuele netwerk een bestaande cloudservice met deze naam bevat.
+   - Of het virtuele netwerk een bestaande cloudservice met deze naam bevat.
 
-10. Wanneer u klaar bent met het selecteren van de bovenstaande opties, klikt u op **Opslaan** in het taakvenster onder aan deze pagina om Azure AD Domain Services in te schakelen.
+10. Klik op **Opslaan** in het taakvenster onder aan de pagina om Azure AD Domain Services in te schakelen.
 
-11. Op de pagina wordt de status In behandeling... weergegeven, terwijl Azure AD Domain Services wordt ingeschakeld voor uw directory.
+11. Op de pagina wordt 'In behandeling...' weergegeven, terwijl Azure AD Domain Services wordt ingeschakeld voor uw directory.
 
     ![Domain Services inschakelen - status In behandeling](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-    > [AZURE.NOTE] Azure AD Domain Services zorgt voor maximale beschikbaarheid voor uw beheerde domein. Wanneer u Azure AD Domain Services voor het eerst inschakelt voor uw domein, ziet u dat de IP-adressen waarop Domain Services beschikbaar zijn, een voor een worden weergegeven in het virtuele netwerk. Het tweede IP-adres wordt kort weergegeven zodra maximale beschikbaarheid is ingeschakeld voor uw domein. Wanneer maximale beschikbaarheid is geconfigureerd en actief is voor uw domein, ziet u twee IP-adressen in de sectie **Domeinservices** van het tabblad **Configureren**.
+    > [AZURE.NOTE] Azure AD Domain Services zorgt voor maximale beschikbaarheid voor uw beheerde domein. Nadat u Azure AD Domain Services hebt ingeschakeld, ziet u dat de IP-adressen waarop Domain Services beschikbaar zijn, een voor een worden weergegeven in het virtuele netwerk. Het tweede IP-adres wordt kort weergegeven zodra maximale beschikbaarheid is ingeschakeld voor uw domein. Wanneer maximale beschikbaarheid is geconfigureerd en actief is voor uw domein, ziet u twee IP-adressen in de sectie **Domeinservices** van het tabblad **Configureren**.
 
 12. Na ongeveer 20-30 minuten ziet u het eerste IP-adres waarop Domain Services beschikbaar is in het virtuele netwerk in het veld **IP-adres** op de pagina **Configureren**.
 
     ![Domain Services ingeschakeld - eerste IP ingericht](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-13. Wanneer maximale beschikbaarheid is ingeschakeld voor uw domein, ziet u twee IP-adressen op de pagina. Dit zijn de IP-adressen waarop Azure AD Domain Services beschikbaar zullen zijn in het geselecteerde virtuele netwerk. Noteer deze IP-adressen zodat u de DNS-instellingen voor het virtuele netwerk kunt bijwerken. In deze stap kunnen virtuele machines in het virtuele netwerk verbinding maken met het domein voor bewerkingen, zoals het koppelen van domeinen.
+13. Wanneer maximale beschikbaarheid is ingeschakeld voor uw domein, ziet u twee IP-adressen op de pagina. Dit zijn de IP-adressen waarop Azure AD Domain Services beschikbaar zijn in het geselecteerde virtuele netwerk. Noteer de IP-adressen zodat u de DNS-instellingen voor het virtuele netwerk kunt bijwerken. In deze stap kunnen virtuele machines in het virtuele netwerk verbinding maken met het domein voor bewerkingen, zoals het koppelen van domeinen.
 
     ![Domain Services ingeschakeld - beide IP's ingericht](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE] Afhankelijk van de grootte van uw Azure AD-directory (aantal gebruikers, groepen enzovoort), kan het enige tijd duren voordat de inhoud van de directory beschikbaar is in Azure AD Domain Services. Dit synchronisatieproces wordt op de achtergrond uitgevoerd. Bij grote mappen met tienduizenden objecten kan het een dag of twee duren voordat alle gebruikers, groepslidmaatschappen en referenties zijn gesynchroniseerd en beschikbaar zijn in Azure AD Domain Services.
+> [AZURE.NOTE] Afhankelijk van de grootte van uw Azure AD-tenant (aantal gebruikers, groepen enzovoort), kan het enige tijd duren voordat de inhoud van de tenant beschikbaar is in Azure AD Domain Services. Dit synchronisatieproces wordt op de achtergrond uitgevoerd. Bij grote tenants met tienduizenden objecten kan het een dag of twee duren voordat alle gebruikers, groepslidmaatschappen en referenties beschikbaar zijn in Azure AD Domain Services.
 
 <br>
 
@@ -96,6 +97,6 @@ De volgende configuratietaak bestaat uit het [bijwerken van de DNS-instellingen 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

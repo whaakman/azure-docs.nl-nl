@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="javascript"
     ms.topic="get-started-article"
-    ms.date="03/06/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
+
 
 # Aan de slag met Mobile Services
 
@@ -29,7 +30,7 @@ Deze zelfstudie laat zien hoe u met Azure Mobile Services een cloudgebaseerde ba
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F) voor meer informatie.
 * [Visual Studio 2013 Express voor Windows]
 
 ## Een nieuwe mobiele service maken
@@ -40,7 +41,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een eenvoudige Quick Start volgen om een nieuwe Windows Store 8.1 JavaScript-app te maken die verbinding maakt met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 
 2. Klik op het tabblad Quick Start op **Windows** onder **Platform kiezen** en vouw **Een nieuwe Windows Store-app maken** uit.
@@ -67,7 +68,7 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
 
 4. (Optioneel) Voer de app opnieuw uit. Na het starten van de app worden de gegevens die in de vorige stap zijn opgeslagen, vanuit de mobiele service geladen.
  
-4. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
+4. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
 
     U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.
 
@@ -89,10 +90,10 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u de [Mobile Services-clien
 <!-- URLs. -->
 [Visual Studio 2013 Express voor Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
+
 
 # Containerbeheer via de webgebruikersinterface
 
@@ -60,7 +61,7 @@ Protocol        | TCP
 Als u de containerpoort statisch wilt toewijzen aan een poort op de agent, gebruikt u de JSON-modus. U doet dit door de wizard Nieuwe toepassing over te schakelen naar de **JSON-modus** met behulp van de wisselknop. Voer dan het volgende in onder de sectie `portMappings` van de definitie van de toepassing. In dit voorbeeld wordt poort 80 van de container gebonden aan poort 80 van de DC/OS-agent. Nadat u deze wijziging hebt aangebracht, kunt u deze wizard uit JSON-modus halen.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Nieuwe toepassingsgebruikersinterface: voorbeeld van poort 80](media/dcos/dcos13.png)
@@ -97,8 +98,12 @@ Nadat de bewerking voor het aanpassen van de schaal is voltooid, ziet u meerdere
 
 - [Werken met DC/OS en de Marathon API](container-service-mesos-marathon-rest.md)
 
+Gedetailleerde uitleg over Azure Container Service met Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Sep16_HO3-->
 
 

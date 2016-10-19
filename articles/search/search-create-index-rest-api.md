@@ -14,8 +14,9 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
+
 
 # Een index voor Azure Search maken met behulp van de REST-API.
 > [AZURE.SELECTOR]
@@ -108,6 +109,6 @@ Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

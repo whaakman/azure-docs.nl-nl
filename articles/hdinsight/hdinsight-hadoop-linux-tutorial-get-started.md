@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="03/16/2016"
+    ms.date="09/14/2016"
     ms.author="jgao"/>
+
 
 # Hadoop-zelfstudie: aan de slag met Hadoop op basis van Linux in HDInsight
 
@@ -23,27 +24,31 @@
 - [Op basis van Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Op basis van Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
-Informatie over het maken van [Hadoop](http://hadoop.apache.org/)-clusters op basis van Linux in HDInsight en het uitvoeren van Hive-taken in HDInsight. [Apache Hive](https://hive.apache.org/) is het meest populaire onderdeel in het Hadoop-ecosysteem. Momenteel wordt HDInsight geleverd met 4 verschillende clustertypen: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) en [Storm](hdinsight-storm-overview.md).  Elk clustertype ondersteunt een andere set onderdelen. Alle 4 clustertypen ondersteunen Hive. Zie voor een lijst van ondersteunde onderdelen in HDInsight [Wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md)  
+Informatie over het maken van [Hadoop](http://hadoop.apache.org/)-clusters op basis van Linux in HDInsight en het uitvoeren van Hive-taken in HDInsight. [Apache Hive](https://hive.apache.org/) is het meest populaire onderdeel in het Hadoop-ecosysteem. Momenteel wordt HDInsight geleverd met vier verschillende clustertypen: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) en [Storm](hdinsight-storm-overview.md).  Elk clustertype ondersteunt een andere set onderdelen. Alle 4 clustertypen ondersteunen Hive. Zie voor een lijst van ondersteunde onderdelen in HDInsight [Wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md)  
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Vereisten
+## Vereisten
 
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
 - **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
+### Vereisten voor toegangsbeheer
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Cluster maken
 
-De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In deze sectie maakt u een Hadoop-cluster op basis van Linux in HDInsight met behulp van de [Azure ARM-sjabloon](../resource-group-template-deploy.md). Een ARM-sjabloon is volledig aanpasbaar, waardoor het gemakkelijk is om Azure-resources zoals HDInsight te maken. Het maken van een Azure ARM-sjabloon is niet vereist voor deze zelfstudie. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie. De ARM-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich in een openbare blobcontainer, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In deze sectie maakt u een Hadoop-cluster op basis van Linux in HDInsight met behulp van de [Azure Resource Manager-sjabloon](../resource-group-template-deploy.md). Een Resource Manager-sjabloon is volledig aanpasbaar, waardoor het gemakkelijk is om Azure-resources zoals HDInsight te maken. Het maken van een Azure Resource Manager-sjabloon is niet vereist voor deze zelfstudie. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie. De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich in een openbare blobcontainer, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Klik op de volgende afbeelding om u aan te melden bij Azure en de ARM-sjabloon in de Azure Portal te openen. 
+1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in de Azure Portal te openen. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Voer op de blade **Parameters** het volgende in:
 
-    ![Aan de slag met HDInsight op basis van Linux via de portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![Aan de slag met HDInsight op basis van Linux en Resource Manager-sjabloon via de portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
 
     - **Clusternaam**: voer een naam in voor het Hadoop-cluster dat u maakt.
     - **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
@@ -108,7 +113,7 @@ Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijderen. Met HDInsig
 
 ## Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een HDInsight-cluster op basis van Linux  maakt met behulp van een ARM-sjabloon, en hoe u eenvoudige Hive-query's uitvoert.
+In deze zelfstudie hebt u geleerd hoe u een HDInsight-cluster op basis van Linux maakt met behulp van een Resource Manager-sjabloon, en hoe u eenvoudige Hive-query's uitvoert.
 
 Zie de volgende onderwerpen voor meer informatie over het analyseren van gegevens met HDInsight:
 
@@ -141,7 +146,7 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-inrichting]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
@@ -163,6 +168,6 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

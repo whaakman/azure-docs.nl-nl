@@ -3,7 +3,7 @@
    description="Lees hoe u de domeindelegering wijzigt en DNS-naamservers kunt gebruiken om domeinen te hosten."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
-   ms.author="cherylmc"/>
+   ms.date="06/30/2016"
+   ms.author="sewhee"/>
+
 
 
 # Een domein delegeren naar Azure DNS
@@ -47,9 +48,13 @@ Er zijn twee typen DNS-servers:
 - Een _gezaghebbende_ DNS-server host DNS-zones. Deze beantwoordt DNS-query's voor records in deze zones.
 - Een _recursieve_ DNS-server host geen DNS-zones. De server beantwoordt alle DNS-query's door gezaghebbende DNS-servers aan te roepen om de benodigde gegevens te verzamelen.
 
+>[AZURE.NOTE] Azure DNS biedt een gezaghebbende DNS-service.  Het biedt geen een recursieve DNS-service.
+
+> Cloudservices en virtuele machines in Azure worden automatisch geconfigureerd voor het gebruik van een recursieve DNS-service die afzonderlijk wordt geleverd als onderdeel van de infrastructuur van Azure.  Raadpleeg [Naamomzetting in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) voor meer informatie over het wijzigen van deze DNS-instellingen.
+
 DNS-clients op pc's of mobiele apparaten roepen een recursieve DNS-server om de DNS-query's uit te voeren die de clienttoepassingen nodig hebben.
 
-Wanneer een recursieve DNS-server een query voor een DNS-record zoals www.contoso.com ontvangt, moet eerst de naamserver worden gezocht die de zone voor het domein contoso.com host. Hiervoor wordt begonnen bij de basisnaamservers om de naamservers te zoeken die com-zone hosten. Vervolgens wordt er een query op de com-naamservers uitgevoerd om de naamservers te zoeken die de zone contoso.com hosten.  Tot slot wordt er op deze naamservers een query uitgevoerd om www.contoso.com te zoeken.  
+Wanneer een recursieve DNS-server een query voor een DNS-record zoals www.contoso.com ontvangt, moet eerst de naamserver worden gezocht die de zone voor het domein contoso.com host. Hiervoor wordt begonnen bij de basisnaamservers om de naamservers te zoeken die com-zone hosten. Vervolgens wordt er een query op de com-naamservers uitgevoerd om de naamservers te zoeken die de zone contoso.com hosten.  Tot slot wordt er op deze naamservers een query uitgevoerd om www.contoso.com te zoeken.
 
 Dit wordt het omzetten van de DNS-naam genoemd. Strikt genomen omvat de DNS-omzetting aanvullende stappen zoals het volgen van CNAMEs, maar dat is niet belangrijk om te begrijpen hoe de DNS-delegering werkt.
 
@@ -79,7 +84,7 @@ De eenvoudigste manier om de toegewezen naamservers te bekijken, is via Azure Po
 
 Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegewezen naamservers bevatten.  Als u de namen van de naamservers wilt weergeven via Azure PowerShell of Azure CLI, hoeft u deze records alleen maar op te halen.
 
-Met Azure PowerShell kunnen de gezaghebbende NS-records als volgt worden opgehaald. De recordnaam "@" wordt gebruikt om te verwijzen naar records in de apex van de zone. 
+Met Azure PowerShell kunnen de gezaghebbende NS-records als volgt worden opgehaald. De recordnaam "@" wordt gebruikt om te verwijzen naar records in de apex van de zone.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -116,7 +121,9 @@ U kunt ook de platformoverschrijdende CLI van Azure gebruiken om gezaghebbende N
 
 Elke registrar heeft zijn eigen hulpprogramma's voor DNS-beheer om de naamserverrecords voor een domein te wijzigen. Ga naar DNS-beheerpagina van de registrar, bewerk de NS-records en vervang de NS-records door de records die door Azure DNS zijn gemaakt.
 
-Wanneer u een domein naar Azure DNS delegeert, moet u de naamservernamen gebruiken die zijn verstrekt door Azure DNS. U moet niet glue records gebruiken om naar het IP-adres van de Azure DNS-naamserver te wijzen, aangezien deze IP-adressen in de toekomst kunnen worden gewijzigd. Delegeringen die gebruikmaken van de naamservernamen in uw eigen zone, ook wel vanity naamservers genoemd, worden momenteel niet ondersteund in Azure DNS.
+Wanneer u een domein naar Azure DNS delegeert, moet u de naamservernamen gebruiken die zijn verstrekt door Azure DNS.  U moet altijd alle vier de naamservernamen gebruiken, ongeacht de naam van uw domein.  Domeindelegatie vereist niet dat de naamservernaam hetzelfde domein op het hoogste niveau gebruikt als uw domein.
+
+U moet niet glue records gebruiken om naar het IP-adres van de Azure DNS-naamserver te wijzen, aangezien deze IP-adressen in de toekomst kunnen worden gewijzigd. Delegeringen die gebruikmaken van de naamservernamen in uw eigen zone, ook wel vanity naamservers genoemd, worden momenteel niet ondersteund in Azure DNS.
 
 ### Controleren of de naamomzetting werkt
 
@@ -140,7 +147,7 @@ U hoeft de Azure DNS-naamservers niet op te geven, aangezien het normale DNS-omz
 
 ## Subdomeinen delegeren in Azure DNS
 
-Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein delegeren in Azure DNS. Stel dat u contoso.com hebt ingesteld en gedelegeerd in Azure DNS en vervolgens een afzonderlijke onderliggende zone, partners.contoso.com, wilt instellen. 
+Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein delegeren in Azure DNS. Stel dat u contoso.com hebt ingesteld en gedelegeerd in Azure DNS en vervolgens een afzonderlijke onderliggende zone, partners.contoso.com, wilt instellen.
 
 Het proces voor het instellen van een subdomein is vergelijkbaar met het proces voor een normale delegering. Het enige verschil is dat de NS-records in stap 3 moeten worden gemaakt in de bovenliggende zone in Azure DNS, contoso.com, moeten worden gemaakt en niet moeten worden ingesteld via een domeinregistrar.
 
@@ -163,7 +170,7 @@ Eerst moeten de bovenliggende en onderliggende zones worden gemaakt. Deze kunnen
 
 #### Stap 2. NS-records ophalen
 
-Vervolgens moeten de gezaghebbende NS-records uit de onderliggende zone worden opgehaald, zoals in het volgende voorbeeld.  Deze bevatten de naamservers die aan de onderliggende zone zijn toegewezen. 
+Vervolgens moeten de gezaghebbende NS-records uit de onderliggende zone worden opgehaald, zoals in het volgende voorbeeld.  Deze bevatten de naamservers die aan de onderliggende zone zijn toegewezen.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -202,6 +209,6 @@ U kunt controleren of alles juist is ingesteld door de SOA-record van de onderli
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

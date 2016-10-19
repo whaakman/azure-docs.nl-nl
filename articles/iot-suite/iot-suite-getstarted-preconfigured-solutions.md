@@ -14,60 +14,37 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
+
 
 # Zelfstudie: Aan de slag met vooraf geconfigureerde oplossingen
 
 ## Inleiding
 
-[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT-Suite combineren meerdere Azure IoT-services om totaaloplossingen te leveren die algemene IoT-bedrijfsscenario's implementeren.
+[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT-Suite combineren meerdere Azure IoT-services om totaaloplossingen te leveren die algemene IoT-bedrijfsscenario's implementeren. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
 
-In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor *externe controle* inricht. Hierbij maakt u kennis met de basisfuncties van de vooraf geconfigureerde oplossing voor externe controle.
+In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Dit leidt u door de belangrijkste functies van de oplossing voor externe bewaking. U krijgt toegang tot deze functies via het oplossingsdashboard dat samen met de vooraf geconfigureerde oplossing het volgende implementeert:
 
-Om deze zelfstudie te voltooien, hebt u een actief Azure-abonnement  nodig.
+![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-dashboard]
+
+U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 > [AZURE.NOTE]  Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk_free_trial] voor meer informatie.
 
-## De vooraf geconfigureerde oplossing voor externe controle inrichten
+[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-1.  Meld u aan bij [azureiotsuite.com][lnk azureiotsuite] met de referenties van uw Azure-account en klik op **+** om een nieuwe oplossing te maken.
-
-    > [AZURE.NOTE] Als er problemen zijn met de vereiste machtigingen voor het inrichten van een oplossing, leest u de richtlijnen in [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com).
-
-2.  Klik op de tegel **Externe controle** op **Selecteren**.
-
-3.  Voer een **oplossingsnaam** in voor uw vooraf geconfigureerde oplossing voor externe controle.
-
-4.  Selecteer de **regio** die en het **abonnement** dat u wilt gebruiken voor het inrichten van de oplossing.
-
-5.  Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
-
-## Wacht tot het inrichtingsproces is voltooid.
-
-1. Klik op de tegel voor uw oplossing met de status **Inrichten**.
- 
-2. Tijdens de implementatie van Azure-services in uw Azure-abonnement verschijnen verschillende **inrichtingstatuswaarden**.
-
-3. Nadat het inrichten is voltooid, verandert de status in **Gereed**.
-
-4. Klik op de tegel, waarna de details van uw oplossing in het rechterdeelvenster worden weergegeven.
-
-> [AZURE.NOTE] Als er problemen zijn met de implementatie van de vooraf geconfigureerde oplossing, leest u [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com) en de [veelgestelde vragen][lnk-faq]. Als de problemen zich blijven voordoen, maakt u een serviceticket op de [portal][lnk-portal].
-
-Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had te zien? Geef ons suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
-
-## Dashboard van oplossing voor externe controle weergeven
+## Het oplossingsdashboard bekijken
 
 Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. U kunt er bijvoorbeeld telemetrie weergeven, apparaten toevoegen en regels configureren.
 
 1.  Wanneer het inrichten is voltooid en voor de tegel voor uw vooraf geconfigureerde oplossing de status **Gereed** wordt weergegeven, klikt u op **Starten** om uw oplossingsportal voor externe controle te openen in een nieuw tabblad.
 
-    ![][img-launch-solution]
+    ![De vooraf geconfigureerde oplossing starten][img-launch-solution]
 
 2.  Standaard ziet u in de oplossingsportal het *dashboard van de oplossing*. In het menu links kunt u andere weergaven selecteren.
 
-    ![][img-dashboard]
+    ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-dashboard]
 
 Het dashboard bevat de volgende informatie:
 
@@ -75,19 +52,19 @@ Het dashboard bevat de volgende informatie:
 - Het deelvenster **Telemetriegeschiedenis** tekent de vochtigheids- en temperatuurtelemetrie van een geselecteerd apparaat in bijna realtime en geeft statistische gegevens weer, zoals de maximale, minimale en gemiddelde vochtigheid.
 - Het deelvenster **Geschiedenis van waarschuwingen** toont recente waarschuwingsgebeurtenissen wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. Naast de voorbeelden die met de vooraf geconfigureerde oplossing zijn gemaakt, kunt u ook uw eigen alarmen definiëren.
 
-## Lijst met apparaten van de oplossing weergeven
+## De lijst met apparaten weergeven
 
 De lijst met apparaten bevat alle geregistreerde apparaten in de oplossing. U kunt metagegevens van apparaten weergeven en bewerken, apparaten toevoegen of verwijderen en opdrachten naar apparaten verzenden.
 
 1.  Klik links in het menu op **Apparaten** om de *lijst met apparaten* voor deze oplossing weer te geven.
 
-    ![][img-devicelist]
+    ![Lijst met apparaten in het dashboard][img-devicelist]
 
 2.  De lijst met apparaten geeft aan dat bij het inrichtingsproces vier gesimuleerde apparaten zijn gemaakt.
 
 3.  Klik in de lijst op een apparaat om de details ervan weer te geven.
 
-    ![][img-devicedetails]
+    ![Apparaatdetails in het dashboard][img-devicedetails]
 
 Het deelvenster **Apparaatdetails** bevat drie secties:
 
@@ -101,7 +78,7 @@ Het deelvenster Apparaatdetails bevat alle opdrachten die een specifiek apparaat
 
 1.  Klik in het deelvenster Apparaatdetails op **Opdrachten** voor het geselecteerde apparaat.
 
-    ![][img-devicecommands]
+    ![Apparaatopdrachten in het dashboard][img-devicecommands]
 
 2.  Selecteer **PingDevice** in de lijst met opdrachten.
 
@@ -109,55 +86,61 @@ Het deelvenster Apparaatdetails bevat alle opdrachten die een specifiek apparaat
 
 4.  U ziet de status van de opdracht in de opdrachtgeschiedenis.
 
-    ![][img-pingcommand]
+    ![Opdrachtstatus in het dashboard][img-pingcommand]
 
 De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
 
 ## Een nieuw gesimuleerd apparaat toevoegen
 
+Wanneer u de vooraf geconfigureerde oplossing implementeert, voorziet u automatisch de vier proefapparaten die u ziet in de apparatenlijst. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle ][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
+
+De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de oplossing:
+
 1.  Ga terug naar de lijst met apparaten.
 
 2.  Klik linksonder op **+ Een apparaat toevoegen** om een nieuw apparaat toe te voegen.
 
-    ![][img-adddevice]
+    ![Een apparaat toevoegen aan de vooraf geconfigureerde oplossing][img-adddevice]
 
 3.  Klik op **Nieuwe toevoegen** op de tegel **Gesimuleerd apparaat**.
 
-    ![][img-addnew]
+    ![Nieuwe apparaatgegevens in het dashboard instellen][img-addnew]
     
-    U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Connect your device to the IoT Suite remote monitoring preconfigured solution][lnk-connecting-devices] (Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe controle) voor meer informatie hierover.
+    U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe controle][lnk-connect-rm] voor meer informatie over het koppelen van fysieke apparaten aan de oplossing.
 
 4.  Selecteer **Laat mij mijn eigen apparaat-id definiëren** en voer de unieke id van een apparaatnaam in, zoals **mijnapparaat_01**.
 
-5.  Klik op **Maken**.
+5.  Klik op **Create**.
 
-    ![][img-definedevice]
+    ![Een nieuw apparaat opslaan][img-definedevice]
 
 6. Klik in stap 3 van **Een gesimuleerd apparaat toevoegen** op **Gereed** om terug te keren naar de lijst met apparaten.
 
 7. In de lijst met apparaten kunt u zien dat uw apparaat **wordt uitgevoerd**.
 
-    ![][img-runningnew]
+    ![Nieuw apparaat weergeven in de apparatenlijst][img-runningnew]
 
 8. U kunt op het dashboard ook de gesimuleerde telemetrie van het nieuwe apparaat bekijken:
 
-    ![][img-runningnew-2]
+    ![Telemetrie voor nieuw apparaat weergeven][img-runningnew-2]
 
 ## De metagegevens van een apparaat bewerken
+
+Wanneer een apparaat voor het eerst verbinding maakt met de oplossing, stuurt het zijn metagegevens naar de oplossing. Wanneer u de metagegevens van het apparaat verwerkt via het oplossingsdashboard, stuurt het nieuwe metagegevenswaarden naar het apparaat en slaat het nieuwe waarden op in de DocumentDB-database van de oplossing. Zie [Apparaatidentiteitsregister en DocumentDB][lnk-devicemetadata] voor meer informatie.
 
 1.  Ga terug naar de lijst met apparaten.
 
 2.  Selecteer het nieuwe apparaat in de **lijst met apparaten** en klik daarna op **Bewerken** om de **apparaateigenschappen** te bewerken:
 
-    ![][img-editdevice]
+    ![Metagegevens van het apparaat bijwerken][img-editdevice]
 
 3. Schuif omlaag en wijzig de waarden voor breedtegraad en lengtegraad. Klik daarna op **Wijzigingen aan het apparaatregister opslaan**.
 
-    ![][img-editdevice2]
+    ![Metagegevens van het apparaat bijwerken][img-editdevice2]
 
 4. Ga terug naar het dashboard. De locatie van het apparaat op de kaart is gewijzigd:
 
-    ![][img-editdevice3]
+    ![Metagegevens van het apparaat bijwerken][img-editdevice3]
 
 ## Een regel voor het nieuwe apparaat toevoegen
 
@@ -165,60 +148,71 @@ Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In d
 
 1.  Ga terug naar de lijst met apparaten.
 
-2.  Selecteer het nieuwe apparaat in de **lijst met apparaten** en klik daarna op **Regel toevoegen** om een nieuwe regel voor het apparaat toe te voegen.
+2.  Selecteer het nieuwe apparaat in de **lijst met apparaten** en klik daarna op **Regel toevoegen** om een regel voor het apparaat toe te voegen.
 
 3. Maak een regel die **Temperatuur** als gegevensveld gebruikt en **AlarmTemp** gebruikt als de uitvoer wanneer de temperatuur 47 graden overschrijdt:
 
-    ![][img-adddevicerule]
+    ![Een apparaatregel toevoegen][img-adddevicerule]
 
 4. Klik op **Regels opslaan en weergeven** om uw wijzigingen op te slaan.
 
 5.  Klik op **Opdrachten** in het deelvenster Apparaatdetails voor het nieuwe apparaat.
 
-    ![][img-adddevicerule2]
+    ![Een apparaatregel toevoegen][img-adddevicerule2]
 
 6.  Selecteer **ChangeSetPointTemp** in de opdrachtlijst en stel **SetPointTemp** in op 45. Klik daarna op **Opdracht verzenden**:
 
-    ![][img-adddevicerule3]
+    ![Een apparaatregel toevoegen][img-adddevicerule3]
 
 7.  Ga terug naar het dashboard van de oplossing. Na korte tijd verschijnt in het deelvenster **Geschiedenis van waarschuwingen** een nieuwe vermelding wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt:
 
-    ![][img-adddevicerule4]
+    ![Een apparaatregel toevoegen][img-adddevicerule4]
 
 8. Op de pagina **Regels** van het dashboard kunt u al uw regels bekijken en bewerken:
 
-    ![][img-rules]
+    ![Lijst met apparaatregels][img-rules]
 
 9. Op de pagina **Acties** van het dashboard kunt u alle acties die worden uitgevoerd in reactie op een regel bekijken en bewerken:
 
-    ![][img-actions]
+    ![Lijst met apparaatacties][img-actions]
 
-> [AZURE.NOTE] Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps].
+> [AZURE.NOTE] Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De Logic App koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
+
+## Andere functies
+
+Op de portal van de oplossing kunt u naar apparaten zoeken met specifieke kenmerken zoals een modelnummer:
+
+![Een apparaat zoeken][img-search]
+
+U kunt een apparaat uitschakelen en nadat het is uitgeschakeld kunt u het verwijderen:
+
+![Een apparaat uitschakelen en verwijderen][img-disable]
 
 ## Achter de schermen
 
 Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
 
-![][img-portal]
+![Vooraf geconfigureerde oplossing in de Azure-portal][img-portal]
 
-U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep. In de bovenstaande schermafbeelding ziet u de instellingen voor de IoT-hub die in de vooraf geconfigureerde oplossing worden gebruikt.
+U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep.
 
-U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing voor externe controle bevindt zich in [azure-iot-remote-monitoring][lnk-rmgithub]:
+U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing voor externe controle bevindt zich in [azure-iot-remote-monitoring][lnk-rmgithub] GitHub-opslagplaats:
 
 - De map **DeviceAdministration** bevat de broncode voor het dashboard.
 - De map **Simulator** bevat de broncode voor het gesimuleerde apparaat.
 - De map **EventProcessor** bevat de broncode voor het back-endproces dat de binnenkomende telemetrie verwerkt.
 
-Als u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de site [azureiotsuite.com][lnk azureiotsuite]. Zo kunt u eenvoudig alle resources verwijderen die zijn ingericht bij het maken van de vooraf geconfigureerde oplossing.
+Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de [azureiotsuite.com][lnk azureiotsuite] site. Met de site kunt u gemakkelijk resources verwijderen die werden aangevoerd toen u de vooraf geconfigureerde oplossing hebt gemaakt.
 
-> [AZURE.NOTE] Om ervoor te zorgen dat u alles met betrekking tot de vooraf geconfigureerde oplossing verwijdert, verwijdert u niet gewoon de resourcegroep uit de portal, maar verwijdert u de oplossing uit [azureiotsuite.com][lnk azureiotsuite].
+> [AZURE.NOTE] Om ervoor te zorgen dat u alles met betrekking tot de vooraf geconfigureerde oplossing verwijdert, verwijdert u niet gewoon de resourcegroep uit de portal, maar verwijdert u de oplossing op de [azureiotsuite.com][lnk azureiotsuite].
 
 ## Volgende stappen
 
-Nu dat u een werkende vooraf geconfigureerde oplossing hebt gemaakt, kunt u verder gaan met de volgende leidraden:
+Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
 
--   [Guidance on customizing preconfigured solutions][lnk-customize] (Instructies voor het aanpassen van vooraf geconfigureerde oplossingen)
--   [Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud][lnk-predictive]
+- [Walkthrough over vooraf geconfigureerde oplossing voor externe controle][lnk-rm-walkthrough]
+- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle)
+- [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com)
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -241,21 +235,23 @@ Nu dat u een werkende vooraf geconfigureerde oplossing hebt gemaakt, kunt u verd
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
+[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
+[img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: iot-suite-faq.md
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

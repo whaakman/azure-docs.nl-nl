@@ -14,8 +14,9 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
+
 
 # Gegevens uploaden naar Azure Search met behulp van de REST-API
 > [AZURE.SELECTOR]
@@ -32,9 +33,9 @@ Om documenten met behulp van de REST-API naar uw index te pushen, doet u een HTT
 ## I. De admin api-sleutel voor de Azure Search-service vaststellen
 Als u met behulp van de REST-API een HTTP-aanvraag bij uw service doet, moet *elke* API-aanvraag de api-sleutel bevatten die is gegenereerd door de zoekservice die u hebt ingericht.  Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-1. Om de api-sleutels van uw service te vinden, moet u inloggen op de [Azure Portal](https://portal.azure.com/)
+1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
 2. Ga naar de blade van uw Azure Search-service
-3. Klik op het pictogram "Sleutels"
+3. Klik op het pictogram Sleutels
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
@@ -170,6 +171,6 @@ Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

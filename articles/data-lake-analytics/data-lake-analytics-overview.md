@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
+
 
 # Overzicht van Microsoft Azure Data Lake Analytics
 
@@ -67,6 +68,7 @@ Azure Data Lake Analytics is een nieuwe service die is bedoeld om big data-analy
     - [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Azure Data Lake Analytics beheren met Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Azure Data Lake Analytics-taken bewaken en problemen oplossen met Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Diagnostische logboeken openen voor Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 - End-to-end zelfstudie
     - [Interactieve zelfstudies voor Azure Data Lake Analytics gebruiken](data-lake-analytics-use-interactive-tutorials.md)
@@ -81,6 +83,6 @@ Azure Data Lake Analytics is een nieuwe service die is bedoeld om big data-analy
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

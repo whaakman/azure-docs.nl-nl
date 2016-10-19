@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
+
 
 # Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure Portal
 
@@ -23,8 +24,6 @@
 Informatie over het gebruik van de Azure-portal voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een taak ontwikkelen die een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie. Als uw eerste taak is voltooid, kunt u complexere gegevenstransformaties gaan schrijven met U-SQL.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Vereisten
 
@@ -52,7 +51,7 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store]()
     - **Resourcegroep**. Selecteer een bestaande Azure-resourcegroep of maak een nieuwe. Met Azure Resource Manager (ARM) kunt u de resources in uw toepassing als groep gebruiken. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor meer informatie. 
     - **Locatie**. Selecteer een Azure-datacenter voor het Data Lake Analytics-account. 
 7. Selecteer **Vastmaken aan Startboard**. Dit is vereist voor het volgen van deze zelfstudie.
-8. Klik op **Maken**. U gaat naar het Startboard van de portal. Er is een nieuwe tegel toegevoegd aan het Startboard met het label ‘Deploying Azure Data Lake Analytics’. Het duurt enkele minuten om een Data Lake Analytics-account te maken. Wanneer het account is gemaakt, wordt het in een nieuwe blade in de portal geopend.
+8. Klik op **Create**. U gaat naar het Startboard van de portal. Er is een nieuwe tegel toegevoegd aan het Startboard met het label ‘Deploying Azure Data Lake Analytics’. Het duurt enkele minuten om een Data Lake Analytics-account te maken. Wanneer het account is gemaakt, wordt het in een nieuwe blade in de portal geopend.
 
     ![Azure Data Lake Analytics-portalblade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -155,9 +154,10 @@ Nadat u de brongegevens hebt voorbereid, kunt u beginnen met het ontwikkelen van
 - Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
 - Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
 - Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
+- Zie [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Diagnostische logboeken openen voor Azure Data Lake Analytics) voor logboekregistratie van diagnostische informatie.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

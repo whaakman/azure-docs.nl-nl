@@ -13,23 +13,26 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
+
 
 # Aan de slag met Node.js-web-apps in Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe of bash, een eenvoudige [Node.js][NODEJS]-toepassing maakt en implementeert in een [web-app] in [Azure App Service]. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Node.js kan worden uitgevoerd.
+In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe of bash, een eenvoudige [Node.js]-toepassing maakt en implementeert in [Azure App Service]. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Node.js kan worden uitgevoerd.
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 <a name="prereq"></a>
 ## Vereisten
 
-- **Node.js** ([Klik hier om te installeren][NODEJS])
-- **Bower** ([Klik hier om te installeren][BOWER])
-- **Yeoman** ([Klik hier om te installeren][YEOMAN])
-- **Git** ([Klik hier om te installeren][GIT])
-- **Azure CLI** ([Klik hier om te installeren][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie] of [uw voordelen als Visual Studio-abonnee activeren].
 
 ## Een eenvoudige Node.js-web-app maken en implementeren
@@ -58,19 +61,20 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Navigeer in uw browser naar <http://localhost:3000> om te controleren of de startpagina van Express wordt geopend. Wanneer u hebt geverifieerd dat de app correct wordt uitgevoerd, gebruikt u `Ctrl-C` om deze te stoppen.
     
-1. Meld u als volgt aan bij Azure (hiervoor hebt u [Azure CLI](#prereq) nodig):
+1. Overstappen op ASM-modus en aanmelden bij Azure (hier hebt u [Azure CLI](#prereq) voor nodig):
 
+        azure config mode asm
         azure login
 
     Volg de aanwijzing om de aanmelding in een browser voort te zetten met het Microsoft-account waarmee u uw Azure-abonnement hebt afgesloten.
 
-2. Controleer of u zich nog steeds in de hoofdmap van de app bevindt. Maak vervolgens met de volgende opdracht de resource voor de App Service-app in Azure met een unieke app-naam, zoals: http://{appnaam}.azurewebsites.net
+2. Controleer of u zich nog steeds in de hoofdmap van de app bevindt. Maak vervolgens met de volgende opdracht de resource voor de App Service-app in Azure met een unieke app-naam. Bijvoorbeeld: http://{appnaam}.azurewebsites.net
 
         azure site create --git {appname}
 
     Volg de aanwijzing om een Azure-regio voor de implementatie te selecteren. Als u nog niet eerder Git-/FTP-implementatiereferenties voor uw Azure-abonnement hebt ingesteld, wordt u gevraagd om deze te maken.
 
-3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. Uw JSON-productieobject moet eruitzien als in het volgende voorbeeld. Als deze map of dit bestandspad niet voorkomt in de hoofdmap van uw toepassing, maakt u een map met de naam **config** in de hoofdmap van de toepassing en kopieert u de volgende JSON naar de map.
+3. Open het bestand ./config/config.js in de hoofdmap van de toepassing en wijzig de productiepoort in `process.env.port`. De eigenschap `production` in het object `config` moet eruitzien als in het volgende voorbeeld:
 
         production: {
             root: rootPath,
@@ -82,6 +86,12 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     Hiermee kunt uw Node.js-app laten reageren op webserviceaanvragen bij de standaardpoort waarnaar iisnode luistert.
     
+4. Open./package.json en voeg de `engines`-eigenschap toe om [de gewenste versie van Node.js op te geven](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Sla de wijzigingen op en gebruik git om de app te implementeren in Azure:
 
         git add .
@@ -96,7 +106,7 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     U ziet nu hoe uw node.js-web-app live in Azure App Service wordt uitgevoerd.
     
-    ![Example of browsing to the deployed application.][deployed-express-app]
+    ![Voorbeeld van het bladeren naar de geïmplementeerde toepassing.][deployed-express-app]
 
 ## De Node.js-web-app bijwerken
 
@@ -123,13 +133,14 @@ In de volgende zelfstudies leert u hoe u in App Service met een specifiek framew
 - [In Azure App Service een Node.js-chattoepassing maken met Socket.IO]
 - [io.js gebruiken met Web Apps van Azure App Service]
 
+<a name="version"></a>
 ## Een specifieke Node.js-engine gebruiken
 
-In een reguliere werkstroom kunt u App Service instrueren om een bepaalde Node.js-engine te gebruiken, net zoals in package.json.
+In een reguliere werkstroom instrueert u App Service om een bepaalde Node.js-engine te gebruiken, net zoals in package.json.
 Bijvoorbeeld:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 De implementatie-engine Kudu bepaalt aan de hand van de volgende volgorde welke Node.js-engine er wordt gebruikt:
@@ -138,10 +149,12 @@ De implementatie-engine Kudu bepaalt aan de hand van de volgende volgorde welke 
 - Bekijk vervolgens package.json om na te gaan of `"node": "..."` is opgegeven in het `engines`-object. Zo ja, maak hier dan gebruik van.
 - Kies een standaardversie van Node.js.
 
+>[AZURE.NOTE] Het is raadzaam dat u de gewenste Node.js-engine expliciet definieert. De standaardversie van Node.js kan worden gewijzigd, en mogelijk worden er foutmeldingen in uw Azure-web-app weergegeven omdat de standaardversie van Node.js niet geschikt is voor uw app.
+
 <a name="iisnodelog"></a>
 ## De logboeken stdout en stderr ophalen uit iisnode
 
-Voer de volgende stappen uit om iisnode-logboeken te lezen.
+Volg deze stappen om iisnode-logboeken te lezen.
 
 > [AZURE.NOTE] Wanneer u deze stappen hebt voltooid, is het mogelijk dat de logboekbestanden pas worden gegenereerd wanneer er een fout optreedt.
 
@@ -160,7 +173,7 @@ Voer de volgende stappen uit om iisnode-logboeken te lezen.
         git commit -m "{your commit message}"
         git push azure master
    
-   Iisnode is nu geconfigureerd. In de volgende stappen ziet u hoe u deze logboeken opent.
+    Iisnode is nu geconfigureerd. In de volgende stappen ziet u hoe u deze logboeken opent.
      
 4. Ga in uw browser naar de Kudu-console voor foutopsporing. Deze bevindt zich op:
 
@@ -170,15 +183,15 @@ Voer de volgende stappen uit om iisnode-logboeken te lezen.
 
 5. Navigeer naar D:\home\site\wwwroot\iisnode
 
-    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-zoeken]
+    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-find]
 
 6. Klik op het pictogram **Bewerken** voor het logboek dat u wilt lezen. U kunt desgewenst ook op **Downloaden** of **Verwijderen** klikken.
 
-    ![Een iisnode-logboekbestand openen][iislog-kudu-console-openen]
+    ![Een iisnode-logboekbestand openen][iislog-kudu-console-open]
 
     Nu kunt u het logboek bekijken om u te helpen bij het opsporen van fouten in uw App Service-implementatie.
     
-    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-lezen]
+    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-read]
 
 ## Fouten in een app opsporen met Node-Inspector
 
@@ -208,6 +221,7 @@ Volg deze stappen om Node-Inspector in te schakelen:
 ## Meer bronnen
 
 - [Een Node.js-versie opgeven in een Azure-toepassing](../nodejs-specify-node-version-azure-apps.md)
+- [Aanbevolen procedures en gids voor probleemoplossing voor Node.js-toepassingen in Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Fouten opsporen in een Node.js web-app in Azure App Service](web-sites-nodejs-debug.md)
 - [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
 - [Web-apps van Azure App Service: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -220,30 +234,30 @@ Volg deze stappen om Node-Inspector in te schakelen:
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [uw voordelen als Visual Studio-abonnee activeren]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [In Azure App Service een Node.js-chattoepassing maken met Socket.IO]: ./web-sites-nodejs-chat-app-socketio.md
 [Een Sails.js-web-app implementeren in Azure App Service]: ./app-service-web-nodejs-sails.md
 [De geheimen van de Kudu-console voor foutopsporing]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Express-generator voor Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [io.js gebruiken met Web Apps van Azure App Service]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [aanmelden voor een gratis proefversie]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web-app]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
 [deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
-[iislog-kudu-console-zoeken]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
-[iislog-kudu-console-openen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
-[iislog-kudu-console-lezen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
+[iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
+[iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
+[iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

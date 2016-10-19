@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Aan de slag met het leveren van inhoud on demand met .NET SDK"
+    pageTitle="Aan de slag met het leveren van inhoud op aanvraag met .NET | Azure"
     description="In deze zelfstudie leert u een eenvoudige toepassing voor de levering van on demand inhoud te implementeren met Azure Media Services door gebruik te maken van .NET."
     services="media-services"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
+    ms.date="08/17/2016"
     ms.author="juliako"/>
 
 
@@ -457,6 +457,6 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

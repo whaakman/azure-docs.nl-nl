@@ -5,7 +5,6 @@
 > Aan de slag met Azure Mobile Apps, zie het [Azure Mobile Apps-documentatiecentrum](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

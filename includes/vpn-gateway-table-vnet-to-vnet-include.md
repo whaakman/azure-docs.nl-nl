@@ -1,15 +1,15 @@
-|  | **Klassieke implementatie** | **Implementatie van Resource Manager** | **Implementaties van klassiek naar Resource Manager** |
-|----------------------------------------|-------------|----------------------|---------------------------------|
-| **Klassieke portal** | [Artikel](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Niet ondersteund |  Niet ondersteund |
-| **Azure Portal** |  Niet ondersteund | Ondersteund+ |  Niet ondersteund |
-| **PowerShell** | Ondersteund | [Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Artikel](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
+| **Implementatiemodel/-methode** | **Azure Portal** | **Klassieke portal** | **PowerShell** |
+|---|---|---|---|
+|**Klassiek** | Niet ondersteund | [Artikel](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Ondersteund |
+|**Resource Manager** | Niet ondersteund |Ondersteund+ | [Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Verbindingen tussen verschillende implementatiemodellen** | [Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Artikel](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
-(+) geeft aan dat deze implementatiemethode alleen beschikbaar is voor VNET’s binnen hetzelfde abonnement.
-
-
-
+(+) geeft aan dat deze implementatiemethode alleen beschikbaar is voor VNET’s binnen hetzelfde abonnement.<br>
+(*) geeft aan dat voor deze implementatiemethode ook PowerShell is vereist.
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Oct16_HO1-->
 
 

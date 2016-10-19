@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # QoS-vereisten voor ExpressRoute
@@ -21,7 +21,7 @@ Skype voor Bedrijven heeft verschillende workloads die allemaal een andere QoS-b
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] QoS-vereisten zijn alleen van toepassing op de Microsoft-peering.
+>[AZURE.NOTE] QoS-vereisten zijn alleen van toepassing op de Microsoft-peering. De DSCP-waarden in uw netwerkverkeer dat is ontvangen op Openbare Azure-peering en Persoonlijke Azure-peering wordt ingesteld op 0. 
 
 De volgende tabel bevat een lijst van DSCP-markeringen die worden gebruikt door Skype voor Bedrijven. Raadpleeg [Managing QoS for Skype for Business](https://technet.microsoft.com/library/gg405409.aspx) (QoS voor Skype voor Bedrijven beheren) voor meer informatie.
 
@@ -52,6 +52,6 @@ De volgende tabel bevat een lijst van DSCP-markeringen die worden gebruikt door 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -11,7 +11,7 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
 
         info:    New mode is arm
 
-3. Voer indien nodig de opdracht **`azure group create`** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../articles/resource-group-overview.md).
+3. Voer indien nodig de opdracht **`azure group create`** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
 
         azure group create -n TestRG -l centralus
 
@@ -30,7 +30,7 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
         info:    group create command OK
 
     - **-n (of --naam)**. Naam voor de nieuwe resourcegroep. In ons scenario *TestRG*.
-    - **-l (of --locatie)**. Azure-regio waar de nieuwe resourcegroep wordt gemaakt. In ons scenario *centralus*.
+    - **-l (of --locatie)**. De Azure-regio waar de nieuwe resourcegroep wordt gemaakt. In ons scenario *centralus*.
 
 4. Voer de **`azure group deployment create`** cmdlet uit om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
@@ -90,7 +90,6 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

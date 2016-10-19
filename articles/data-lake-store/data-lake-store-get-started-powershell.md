@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
+
 
 # Aan de slag met Azure Data Lake Store met Azure PowerShell
 
@@ -33,17 +34,17 @@ Lees hoe u met Azure PowerShell een Azure Data Lake Store-account maakt en basis
 
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
-- **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-- **Uw Azure-abonnement inschakelen** voor de openbare preview van Data Lake Store. Zie [Instructies](data-lake-store-get-started-portal.md#signup).
+* **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md).
 
-##Azure PowerShell 1.0 of hoger installeren
+## Authentication
 
-Zie de sectie Vereisten van [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Store gebruikt, waarbij u wordt gevraagd de referenties van uw Azure-account in te voeren. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ## Een Azure Data Lake Store-account maken
 
-1. Open vanaf het bureaublad een nieuw Azure PowerShell-venster en voer het volgende fragment in om u aan te melden bij uw Azure-account, het abonnement in te stellen en de Data Lake Store-provider te registreren. Wanneer u wordt gevraagd om u aan te melden, zorg dan dat u zich aanmeldt als een van de beheerders/eigenaars van het abonnement:
+1. Open vanaf het bureaublad een nieuw Windows PowerShell-venster en voer het volgende fragment in om u aan te melden bij uw Azure-account, het abonnement in te stellen en de Data Lake Store-provider te registreren. Wanneer u wordt gevraagd om u aan te melden, zorg dan dat u zich aanmeldt als een van de beheerders/eigenaars van het abonnement:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -143,6 +144,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -58,9 +58,9 @@ De eerste stap voor het maken van uw app bestaat uit het maken van een web-app v
 
 1. Meld u aan bij de Azure Portal en klik in de linkerbenedenhoek op de knop **NIEUW**.
 3. Voer in het zoekvak 'python' in.
-4. Selecteer in de zoekresultaten **Django** en klik vervolgens op **Maken**.
+4. Selecteer in de zoekresultaten **Django** (gepubliceerd door PTVS), en klik vervolgens op **Maken**.
 5. Configureer de nieuwe Django-app door er bijvoorbeeld een nieuw App Service-plan en een nieuwe resourcegroep voor te maken. Klik vervolgens op **Maken**.
-6. Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Continue implementatie met Git in Azure App Service](web-sites-publish-source-control.md).
+6. Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service).
 
 ## Toepassingsoverzicht
 
@@ -146,7 +146,7 @@ In de volgende drie gedeelten wordt beschreven hoe u verdergaat met de ontwikkel
 
 ### De opslagplaats klonen
 
-Kloon eerst de opslagplaats via de URL die in de Azure Portal is opgegeven. Zie voor meer informatie [Continue implementatie met Git in Azure App Service](web-sites-publish-source-control.md).
+Kloon eerst de opslagplaats via de URL die in de Azure Portal is opgegeven. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
 Open het oplossingsbestand (.sln) dat is opgenomen in de hoofdmap van de opslagplaats.
 
@@ -164,7 +164,7 @@ U maakt nu een virtuele omgeving voor lokale ontwikkeling. Klik met de rechtermu
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-add-virtual-env-27.png)
 
-Klik op **Maken**. Hiermee maakt u de virtuele omgeving en worden alle afhankelijkheden uit requirements.txt geïnstalleerd.
+Klik op **Create**. Hiermee maakt u de virtuele omgeving en worden alle afhankelijkheden uit requirements.txt geïnstalleerd.
 
 ### Een beheerder maken
 
@@ -223,7 +223,7 @@ Blader naar de Azure-URL om uw wijzigingen te bekijken.
 
 ### De opslagplaats klonen
 
-Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie voor meer informatie [Continue implementatie met Git in Azure App Service](web-sites-publish-source-control.md).
+Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Blader naar de Azure-URL om uw wijzigingen te bekijken.
 
 ### De opslagplaats klonen
 
-Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie voor meer informatie [Continue implementatie met Git in Azure App Service](web-sites-publish-source-control.md).
+Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -506,7 +506,7 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
 <!--External Link references-->
 [Azure SDK voor Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
-[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[Azure SDK voor Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
 [python.org]: http://www.python.org/
 [Git voor Windows]: http://msysgit.github.io/
 [GitHub voor Windows]: https://windows.github.com/
@@ -518,6 +518,6 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

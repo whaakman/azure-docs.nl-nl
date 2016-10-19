@@ -31,6 +31,6 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

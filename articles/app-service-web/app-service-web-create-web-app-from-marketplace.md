@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="09/20/2016"
     ms.author="robmcm"/>
+
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
@@ -26,13 +27,13 @@ Azure Marketplace maakt een groot aantal populaire web-apps beschikbaar die zijn
 
 In deze zelfstudie leert u het volgende:
 
-* Een toepassingssjabloon zoeken in Azure Marketplace.
-* In Azure App Service een web-app maken die op de sjabloon is gebaseerd.
-* Azure App Service-instellingen configureren voor de nieuwe web-app en database.
+* In de Azure App Service een web-app zoeken en maken die op een Azure Marketplace-sjabloon is gebaseerd.
+* Azure App Service-instellingen configureren voor de nieuwe web-app.
+* Uw web-app starten en beheren.
 
 In deze zelfstudie gaat u een WordPress-blogsite implementeren vanuit Azure Marketplace. Wanneer u de stappen in deze zelfstudie hebt uitgevoerd, hebt u uw eigen WordPress-site in werking in de cloud.
 
-![Voorbeeld van dashboard voor WordPress-web-app][WordPressDashboard]
+![Voorbeeld van dashboard voor WordPress-web-app][WordPressDashboard1]
 
 Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de database MySQL gebruikt. Als u in plaats daarvan SQL Database voor de database wilt gebruiken, raadpleeg dan [Project Nami], dat eveneens beschikbaar is via Azure Marketplace.
 
@@ -41,7 +42,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 >
 > Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Daar kunt u direct een tijdelijke en eenvoudige web-app maken in App Service. U hebt hiervoor geen creditcard nodig en u bent nergens toe verplicht.
 
-## WordPress selecteren en configureren voor Azure App Service
+## Een web-app zoeken en maken in Azure App Service
 
 1. Meld u aan bij de [Azure Portal].
 
@@ -57,7 +58,9 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 
     ![Een WordPress-web-app maken][MarketplaceCreate]
 
-1. De blade Instellingen van WordPress wordt weergegeven. Hiermee gaat u de volgende stappen uitvoeren:
+## Azure App Service-instellingen configureren voor uw nieuwe web-app
+
+1. Nadat u een nieuwe web-app hebt gemaakt, wordt de blade Instellingen van WordPress weergegeven. Hiermee voert u de volgende stappen uit:
 
     ![Instellingen voor de WordPress-web-app configureren][ConfigStart]
 
@@ -73,7 +76,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 
 1. Selecteer een **Resourcegroep** of maak een nieuwe.
 
-    Zie [De Azure Portal gebruiken om Azure-resources te beheren][ResourceGroups] voor meer informatie over resourcegroepen.
+    Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager][Resourcegroepen].
 
     ![De resourcegroep voor de web-app configureren][ConfigResourceGroup]
 
@@ -131,7 +134,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 
 1. De dashboardpagina van de site wordt geopend met de informatie die u hebt opgegeven.    
 
-    ![Het WordPress-dashboard weergeven][WordPressDashboard]
+    ![Het WordPress-dashboard weergeven][WordPressDashboard2]
 
 ## Volgende stappen
 
@@ -151,7 +154,7 @@ Voor meer informatie over het ontwikkelen van WordPress-web-apps op Azure raadpl
 [activeren]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [gratis proefversie]: https://azure.microsoft.com/pricing/free-trial/
 [App Service uitproberen]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[Resourcegroepen]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -174,11 +177,12 @@ Voor meer informatie over het ontwikkelen van WordPress-web-apps op Azure raadpl
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

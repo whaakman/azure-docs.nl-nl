@@ -1,12 +1,12 @@
 <properties
     pageTitle="Query uitvoeren voor gegevens uit HDFS-compatibele Blob Storage | Microsoft Azure"
     description="HDInsight gebruikt Azure Blob Storage als het big data-archief voor HDFS. Informatie over het opvragen van gegevens uit Blob Storage en het opslaan van resultaten van de analyse."
-    keywords="blob storage,hdfs,structured data,unstructured data"
+    keywords="blob-opslag, hdfs, gestructureerde gegevens, niet-gestructureerde gegevens"
     services="hdinsight,storage"
     documentationCenter=""
     tags="azure-portal"
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -15,8 +15,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
+
 
 
 # HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
@@ -27,11 +28,7 @@ Azure Blob Storage is een robuuste, algemene opslagoplossing die naadloos kan wo
 
 Door gegevens op te slaan in Blob Storage kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
-> [AZURE.NOTE]  De syntaxis *asv://* wordt niet ondersteund door clusters van HDInsight versie 3.0. Dit betekent dat alle taken die worden verzonden naar een HDInsight versie 3.0-cluster en expliciet gebruikmaken van de syntaxis *asv://*, zullen mislukken. In plaats daarvan moet de syntaxis *wasb://* worden gebruikt. Ook de taken die worden verzonden naar HDInsight versie 3.0-clusters die zijn gemaakt met een bestaande metastore en expliciete verwijzingen naar resources bevatten die de syntaxis asv:// gebruiken, zullen mislukken. Deze metastores moeten opnieuw worden gemaakt met de syntaxis wasb:// om resources te adresseren.
-
-> HDInsight ondersteunt momenteel alleen blok-blobs.
-
-> De meeste HDFS-opdrachten (bijvoorbeeld <b>ls</b>, <b>copyFromLocal</b> en <b>mkdir</b>) blijven gewoon naar verwachting werken. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (ook wel DFS genoemd), zoals <b>fschk</b> en <b>dfsadmin</b>, vertonen afwijkend gedrag in Azure Blob Storage.
+> [AZURE.IMPORTANT] HDInsight biedt alleen ondersteuning voor blok-blobs. HDInsight biedt geen ondersteuning voor pagina- en toevoeg-blobs.
 
 Zie [Aan de slag met HDInsight][hdinsight-get-started] of [HDInsight-clusters maken][hdinsight-creation] voor informatie over het maken van HDInsight-clusters.
 
@@ -49,10 +46,11 @@ Daarnaast biedt HDInsight toegang tot gegevens die zijn opgeslagen in Azure Blob
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] In eerdere versies van HDInsight dan 3.0 werd `asv://` gebruikt in plaats van `wasb://`. `asv://` mag niet worden gebruikt met HDInsight-clusters 3.0 of hoger, omdat dit tot een fout leidt.
 
 Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-creatieproces zal er een Azure Storage-account en een specifieke Azure Blob Storage-container uit dat account worden aangewezen als het standaardbestandssysteem.
 
-Naast dit opslagaccount kunt u tijdens het maakproces extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken][hdinsight-creation] voor instructies over het toevoegen van extra opslagaccounts.
+Naast dit opslagaccount kunt u tijdens het maakproces of nadat een cluster is gemaakt extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken][hdinsight-creation] voor instructies over het toevoegen van extra opslagaccounts.
 
 - **Containers in de opslagaccounts die zijn verbonden met een cluster:** omdat de accountnaam en de sleutel tijdens het maken worden gekoppeld aan het cluster, hebt u volledige toegang tot de blobs in deze containers.
 
@@ -83,7 +81,7 @@ Het opslaan van gegevens in Azure Blob Storage in plaats van HDFS heeft enkele v
 
 Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Blob Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt DFS voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
 
-
+> [AZURE.NOTE] De meeste HDFS-opdrachten (bijvoorbeeld <b>ls</b>, <b>copyFromLocal</b> en <b>mkdir</b>) blijven gewoon naar verwachting werken. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (ook wel DFS genoemd), zoals <b>fschk</b> en <b>dfsadmin</b>, vertonen afwijkend gedrag in Azure Blob Storage.
 
 ## Blob-containers maken
 
@@ -155,10 +153,6 @@ Het URI-schema om bestanden in Blob Storage vanuit HDInsight te openen:
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] De syntaxis voor het adresseren van de bestanden op de opslagemulator (die wordt uitgevoerd op de HDInsight-emulator) is <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
-
-
-
 Het URI-schema biedt niet-versleutelde toegang (met het voorvoegsel *wasb:*) en SSL-versleutelde toegang (met *wasbs*). Waar mogelijk kunt u het beste *wasbs* gebruiken, zelfs voor de toegang tot gegevens die zich in dezelfde regio in Azure bevinden.
 
 Met &lt;BlobStorageContainerName&gt; wordt de naam van de container in Azure Blob Storage aangeduid.
@@ -166,8 +160,8 @@ Met &lt;StorageAccountName&gt; wordt de naam van het Azure Storage-account aange
 
 Als &lt;BlobStorageContainerName&gt; of &lt;StorageAccountName&gt; niet zijn opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. U kunt bijvoorbeeld als volgt verwijzen naar het bestand *hadoop-mapreduce-examples.jar* dat bij HDInsight-clusters wordt geleverd:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] De bestandsnaam is <i>hadoop examples.jar</i> in HDInsight versie 2.1- en 1.6-clusters.
@@ -277,7 +271,7 @@ $clusterName = <HDInsightClusterName>
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Volgende stappen
 
@@ -308,6 +302,6 @@ Ga voor meer informatie naar:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

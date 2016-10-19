@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # SQL Azure met Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 Wanneer klanten ervoor kiezen om hun Windows-toepassingen met Azure RemoteApp te hosten in de cloud, willen ze vaak ook hun gegevens, zoals SQL-servers, naar de cloud migreren voor een volledige cloudimplementatie. Hiermee ontstaat een volledige in de cloud gehoste oplossing die altijd en overal kan worden gebruikt door elk apparaat waarop Azure RemoteApp is geïnstalleerd. Hieronder vindt u koppelingen en verwijzingen evenals richtlijnen die u helpen bij dit proces.  
 
@@ -41,7 +45,7 @@ Lees [Een Azure SQL-databasefirewall configureren](../sql-database/sql-database-
 
 En wanneer een computer via internet verbinding probeert te maken met de databaseserver, wordt het oorspronkelijke IP-adres van de aanvraag door de firewall gecontroleerd met de volledige set firewallregels op serverniveau en (indien nodig) databaseniveau. 'Als het IP-adres van de aanvraag binnen een van de bereiken ligt die zijn opgegeven in de firewallregels op serverniveau, wordt de verbinding aan uw Azure SQL Database-server verleend.' Daarom kunnen we IP-bereiken gebruiken en niet alleen afzonderlijke bron-IP-adressen.
 
-Volg de stapsgewijze instructies in [Firewall-instellingen configureren in SQL Database via Azure Portal](../sql-database/sql-database-configure-firewall-settings.md) om het IP-adresbereik op te geven. Geef bij de configuratie van de SQL-firewallregels het IP-adresbereik op van het subnet dat is opgegeven voor de Azure RemoteApp-verzameling. Op die manier kunnen de ARA-servers verbinding maken met SQL DB, ook al hebben ze dynamisch toegewezen IP-adressen.
+Volg de stapsgewijze instructies in [Firewall-instellingen configureren in SQL Database via de Azure-portal](../sql-database/sql-database-configure-firewall-settings.md) om het IP-adresbereik op te geven. Geef bij de configuratie van de SQL-firewallregels het IP-adresbereik op van het subnet dat is opgegeven voor de Azure RemoteApp-verzameling. Op die manier kunnen de ARA-servers verbinding maken met SQL DB, ook al hebben ze dynamisch toegewezen IP-adressen.
 
 ## Problemen oplossen
 Als het gebruik van een clienttoepassing, gehost in Azure RemoteApp die verbinding maakt met een SQL-database, traag is wanneer deze wordt gehost in Azure of on-premises, kan dit een aantal redenen hebben.  
@@ -53,6 +57,6 @@ Als het gebruik van een clienttoepassing, gehost in Azure RemoteApp die verbindi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

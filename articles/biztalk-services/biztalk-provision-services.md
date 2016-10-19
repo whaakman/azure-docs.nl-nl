@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/15/2016"
     ms.author="mandia"/>
 
 
@@ -279,6 +279,6 @@ Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

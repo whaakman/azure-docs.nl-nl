@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="get-started-article" 
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services
@@ -45,7 +45,7 @@ Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een
 
 In deze sectie maakt u een nieuwe universele Windows-app die is verbonden met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 
 2. Klik op het tabblad Quick Start op **Windows** onder **Platform kiezen** en vouw **Een nieuwe Windows Store-app maken** uit.
@@ -100,10 +100,10 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Aan de slag met pushmeldingen]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md
 [Visual Studio 2013 Express voor Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

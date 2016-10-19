@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
-    ms.author="bradygaster"/>
+    ms.date="08/31/2016"
+    ms.author="rachelap"/>
+
 
 # Een Java API-app bouwen en implementeren in Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-In deze zelfstudie ziet u hoe u met behulp van [Git] een Java-toepassing maakt en implementeert in Azure App Service. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. De code in deze zelfstudie wordt gebouwd met [Maven]. [Jax-RS] wordt gebruikt voor het maken van de RESTful-service en wordt met behulp van [Swagger Editor] gegenereerd op basis van de [Swagger]-metagegevensspecificatie.
+In deze zelfstudie ziet u hoe u met behulp van [Git] een Java-toepassing maakt en implementeert in Azure App Service API Apps. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. De code in deze zelfstudie wordt gebouwd met [Maven]. [Jax-RS] wordt gebruikt voor het maken van de RESTful-service en wordt met behulp van [Swagger Editor] gegenereerd op basis van de [Swagger]-metagegevensspecificatie.
 
 ## Vereisten
 
-1. [Java Development Kit 8] (of hoger)
+1. [Java Development Kit 8] \(of hoger)
 1. [Maven] is geïnstalleerd op uw ontwikkelcomputer
 1. [Git] is geïnstalleerd op uw ontwikkelcomputer
 1. Een betaald abonnement of een [gratis] proefabonnement op [Microsoft Azure]
@@ -340,6 +341,6 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

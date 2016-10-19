@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/22/2016"
-    ms.author="tdykstra"/>
+    ms.date="07/22/2016"
+    ms.author="rachelap"/>
 
 # Een ASP.NET-web-app in Azure App Service implementeren met Visual Studio
 
@@ -117,7 +117,7 @@ U kunt nu in Visual Studio aangeven welke Azure-resources er moeten worden gemaa
 
 6. Klik naast het vak **Resourcegroep** op de knop **Nieuw** en geef de naam MyExample op. Desgewenst kunt u ook een andere naam gebruiken. 
 
-    ![Het dialoogvenster App Service maken](./media/web-sites-dotnet-get-started/rgcreate.png)
+    ![Het dialoogvenster Create App Service](./media/web-sites-dotnet-get-started/rgcreate.png)
 
     Een resourcegroep is een verzameling Azure-resources, zoals web-apps, databases en virtuele machines. Bij een zelfstudie is het gewoonlijk het beste om een nieuwe resourcegroep te maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt. Zie voor meer informatie [Overzicht van Azure Resource Manager](../resource-group-overview.md).
 
@@ -239,9 +239,12 @@ In deze zelfstudie hebt u gezien hoe u een eenvoudige web-app makt en hoe u deze
 
 * Als u deze niet meer nodig hebt, verwijdert u de resourcegroep die uw web-app bevat, evenals alle gerelateerde Azure-resources.
 
-    Voor meer informatie over werken met resourcegroepen in de Azure Portal raadpleegt u [De Azure Portal gebruiken om Azure-resources te implementeren en te beheren](../resource-group-portal.md).   
+    Zie [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md) (Resources implementeren met Resource Manager-sjablonen en Azure Portal) voor meer informatie over het werken met resourcegroepen in Azure Portal.   
+
+*   Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET web-app maken en implementeren in Azure App Service) en [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Een mobiele app maken en implementeren in Azure App Service) uit de 2015 Connect-[demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) van [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) voor meer voorbeelden van het maken van een ASP.NET web-app in de App Service. Voor meer snelstartgidsen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Snelstartgidsen voor ontwikkelhulpprogramma’s voor Azure).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

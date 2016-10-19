@@ -1,12 +1,12 @@
 <properties
     pageTitle="Informatie over het gebruik van Visual Studio Hadoop-hulpprogramma's voor HDInsight | Microsoft Azure"
     description="Informatie over de installatie en het gebruik van Visual Studio Hadoop-hulpprogramma's voor HDInsight om verbinding te maken met een Hadoop-cluster en een Hive-query uit te voeren."
-    keywords="hadoop tools,hive query,visual studio"
+    keywords="hadoop-hulpprogramma’s, hive-query, visual studio"
     services="HDInsight"
     documentationCenter=""
     tags="azure-portal"
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -15,8 +15,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="05/25/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
+
 
 # Aan de slag met Visual Studio Hadoop-hulpprogramma’s voor HDInsight om een Hive-query uit te voeren
 
@@ -86,6 +87,11 @@ Nadat u verbinding met uw Azure-abonnement hebt gemaakt, kunt u het volgende:
 In Server Explorer worden het standaardaccount voor opslag en alle gekoppelde opslagaccounts weergegeven. Als u het standaardopslagaccount uitvouwt, kunt u de containers op het opslagaccount zien. Het standaardopslagaccount en de standaardcontainer worden gemarkeerd. U kunt ook met de rechtermuisknop op een van de containers klikken om de inhoud weer te geven.
 
 ![De lijst met clusters in Server Explorer van HDInsight Tools voor Visual Studio][2]
+
+Nadat u een container hebt geopend, kunt u met de volgende knoppen blobs uploaden, verwijderen en downloaden:
+
+![Blobbewerkingen in Server Explorer van HDInsight Tools voor Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Een Hive-query uitvoeren
 [Apache Hive][apache.hive] is een datawarehouse-infrastructuur die is gebouwd op Hadoop om overzichten, query's en analyses te leveren. HDInsight Tools voor Visual Studio biedt ondersteuning voor het uitvoeren van Hive-query's vanuit Visual Studio. Zie [Hive gebruiken met HDInsight][hdinsight.hive] voor meer informatie over Hive.
@@ -281,6 +287,6 @@ In dit artikel hebt u geleerd hoe u de Hadoop-hulpprogramma's kunt gebruiken om 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

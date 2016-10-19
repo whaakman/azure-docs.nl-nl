@@ -3,9 +3,9 @@
    description="Conceptueel overzicht van Compute, Network en Storage Resource Providers (CRP NRP en SRP) voor Windows-toepassingen in het Azure Resource Manager-implementatiemodel"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
+
 
 # Azure Compute, Network en Storage Providers voor Windows-toepassingen onder het Azure Resource Manager-implementatiemodel
 
@@ -25,6 +26,6 @@ Het opnemen van compute-, netwerk- en opslagmogelijkheden in het Azure Resource 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

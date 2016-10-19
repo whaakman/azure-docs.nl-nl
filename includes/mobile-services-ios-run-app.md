@@ -16,7 +16,6 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
     </div>
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Aan de slag met Azure Search | Microsoft Azure | Azure Search - Aan de slag | DocumentDB | Service voor zoeken in de cloud" 
-    description="Met deze zelfstudie kunt u stapsgewijs uw eerste Azure Search-oplossing maken. U leert hoe u een Azure Search-index maakt met DocumentDB-gegevens. Dit is een portal-gebaseerde oefening zonder code, waarin gebruik wordt gemaakt van de wizard Gegevens importeren." 
+    pageTitle="Aan de slag met Azure Search | Microsoft Azure | DocumentDB | Service voor zoeken in de cloud" 
+    description="Ontdek hoe u uw eerste Azure Search-index kunt maken in deze zelfstudie en met DocumentDB-voorbeeldgegevens. Deze oefening bevindt zich in de portal, bevat geen code, en maakt gebruik van de wizard Gegevens importeren." 
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor=""
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="05/17/2016" 
+    ms.date="10/03/2016" 
     ms.author="heidist"/>
+
 
 # Aan de slag met Azure Search in de portal
 
@@ -23,11 +24,11 @@ Met deze inleiding zonder code kunt u aan de slag met Microsoft Azure Search en 
 
 In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbeelddatabase](#apdx-sampledata) beschikt. U kunt deze database heel eenvoudig maken aan de hand van onze gegevens en instructies. U kunt de stappen in deze zelfstudie ook aanpassen aan uw bestaande gegevens in een DocumentDB-database of SQL Database.
 
-> [AZURE.NOTE] Voor deze zelfstudie moet u beschikken over een [Azure-abonnement](../../includes/free-trial-note.md) en een [Azure Search-service](search-create-service-portal.md). 
+> [AZURE.NOTE] Voor deze zelfstudie moet u beschikken over een [Azure-abonnement](/pricing/free-trial/?WT.mc_id=A261C142F) en een [Azure Search-service](search-create-service-portal.md). 
  
 ## Uw service vinden
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Open het servicedashboard van uw Azure Search-service. U kunt het dashboard op verschillende manieren vinden.
     - Klik in de snelbalk op **Services zoeken**. Elke ingerichte service in uw abonnement wordt in de snelbalk weergegeven. Als er een zoekservice is gedefinieerd, ziet u **Services zoeken** in de lijst.
@@ -35,7 +36,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbe
 
 ## Controleren of er voldoende ruimte is
 
-Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie indexen drie gegevensbronnen en drie indexeerfuncties. Zorg ervoor dat er voldoende ruimte is voor extra items voordat u begint. In deze zelfstudie maakt u er van elk object één.
+Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie indexen drie gegevensbronnen en drie indexeerfuncties. Zorg ervoor dat er voldoende ruimte is voor extra items voordat u begint. In deze zelfstudie wordt van elk object één exemplaar gemaakt.
 
 ## Een index laden en gegevens laden
 
@@ -52,13 +53,13 @@ Voordat u doorgaat, maakt u een [DocumentDB-voorbeelddatabase](#apdx-sampledata)
 
 1. Klik op het dashboard van uw Azure Search-service op **Gegevens importeren** in de opdrachtbalk om een wizard te starten waarmee u een index maakt en deze vervolgens vult.
 
-  ![][7]
+    ![][7]
 
 2. Klik in de wizard op **Gegevensbron** > **DocumentDB** > **Naam** en typ een naam voor de gegevensbron. Een gegevensbron is een verbindingsobject in Azure Search dat kan worden gebruikt met andere indexeerfuncties. Zodra u de gegevensbron hebt gemaakt, wordt deze beschikbaar gesteld in de "bestaande gegevensbron" in uw service.
 
 3. Kies uw bestaande DocumentDB-account, de database en de verzameling. Als u de voorbeeldgegevens gebruikt, ziet de definitie van de gegevensbron er als volgt uit:
 
-  ![][2]
+    ![][2]
 
 Zoals u ziet, wordt de query overgeslagen. Dit is omdat we deze keer het bijhouden van gegevens in onze gegevensset niet gebruiken. Als uw gegevensset een veld bevat waarin wordt bijgehouden wanneer een record wordt bijgewerkt, kunt u een Azure Search-indexeerfunctie configureren zodat u deze bijwerkfunctie voor bepaalde updates van uw index kunt gebruiken.
 
@@ -149,7 +150,7 @@ U kunt deze dezelfde werkstroom met de wizard importeren voor andere gegevensbro
 
 In deze sectie maken we een kleine database in DocumentDB die kan worden gebruikt voor het uitvoeren van de taken in deze zelfstudie.
 
-De volgende instructies bevatten algemene richtlijnen. Deze zijn echter niet volledig. Als u meer hulp nodig met DocumentDB-navigatie in de portal of taken, raadpleegt u de DocumentDB-documentatie. De meeste opdrachten die u nodig hebt vindt u in de opdrachtbalk van de service boven in het dashboard of in de databaseblade. 
+De volgende instructies bevatten algemene richtlijnen. Deze zijn echter niet volledig. Als u meer hulp nodig hebt met DocumentDB-navigatie in de portal of taken, raadpleegt u de DocumentDB-documentatie. De meeste opdrachten die u nodig hebt vindt u in de opdrachtbalk van de service boven in het dashboard of in de databaseblade. 
 
   ![][1]
 
@@ -186,6 +187,6 @@ Als het goed is, ontvangt u JSON-uitvoer, beginnend met documentnummer 386 en ei
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

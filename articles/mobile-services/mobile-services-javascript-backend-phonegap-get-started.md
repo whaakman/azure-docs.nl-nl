@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="multiple"
     ms.topic="get-started-article" 
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="ggailey777"/>
 
 # Aan de slag met Mobile Services
@@ -52,7 +52,7 @@ Om deze zelfstudie te voltooien, hebt u het volgende nodig:
 
 In deze sectie maakt u een nieuwe PhoneGap-app die is verbonden met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **PhoneGap** onder **Platform kiezen** en vouw **Een nieuwe PhoneGap-app maken** uit.
 
@@ -113,7 +113,7 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
 
     > [AZURE.IMPORTANT] Wijzigingen in dit platformproject worden overschreven als het hoofdproject wordt herbouwd met de PhoneGap-hulpprogramma's. Breng in plaats daarvan wijzigingen aan in de www-hoofdmap van het project, zoals wordt beschreven in onderstaande sectie.
 
-4. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en vervolgens op de tabel **Taken**.
+4. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en vervolgens op de tabel **Taken**.
 
     ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -176,12 +176,12 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 <!-- URLs. -->
 [Verificatie toevoegen aan uw app]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express voor Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

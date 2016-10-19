@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.date="09/20/2016"
+    ms.author="rachelap"/>
+
 
 # Aan de slag met API-apps, ASP.NET en Swagger in Azure App Service
 
@@ -42,11 +43,11 @@ De Visual Studio-oplossing omvat drie projecten:
 
 ![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
-* **ToDoListAngular** - de front end: een AngularJS SPA die de middelste laag aanroept. 
+* **ToDoListAngular** - de front end: een AngularJS SPA die de middelste laag aanroept.
 
 * **ToDoListAPI** - de middelste laag: een ASP.NET Web API-project dat de gegevenslaag aanroept om CRUD-bewerkingen uit te voeren op taken.
 
-* **ToDoListAPI** - de gegevenslaag: een ASP.NET Web API-project dat CRUD-bewerkingen uitvoert op taken. 
+* **ToDoListAPI** - de gegevenslaag: een ASP.NET Web API-project dat CRUD-bewerkingen uitvoert op taken.
 
 De architectuur met drie lagen is een van de vele architecturen die u kunt implementeren met behulp van API-apps en wordt hier alleen voor demonstratiedoeleinden gebruikt. Ter illustratie van de functies van API-apps is de code in elke laag zo eenvoudig mogelijk gehouden. De gegevenslaag maakt bijvoorbeeld voor persistentie gebruik van het geheugen van de server in plaats van een database.
 
@@ -60,41 +61,49 @@ In de volgende zelfstudie in de reeks wordt de SPA-front-end in de cloud geïmpl
 
 * Azure-account: u kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-    Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Daar kunt u direct een eenvoudige, tijdelijke app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
+    Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Daar kunt u direct een eenvoudige, tijdelijke app maken in App Service. U hebt hiervoor **geen creditcard nodig** en bent nergens toe verplicht.
 
-* Visual Studio 2015 met de [Azure SDK voor .NET](http://go.microsoft.com/fwlink/?linkid=518003): de SDK installeert automatisch Visual Studio 2015 als u dit nog niet hebt.
+* Visual Studio 2015 met de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/archive-net-downloads/): de SDK installeert automatisch Visual Studio 2015 als u dit nog niet hebt.
+
+    * Klik in Visual Studio op Help -> Over Microsoft Visual Studio en zorg ervoor dat 'Azure App Service Tools v2.9.1' of hoger is geïnstalleerd.
+
+    ![Versie van Azure App Tools](./media/app-service-api-dotnet-get-started/apiversion.png)
 
     >[AZURE.NOTE] Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een halfuur of meer.
 
-## De voorbeeldtoepassing downloaden 
+## De voorbeeldtoepassing downloaden
 
 1. Download de opslagplaats [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
 
-    U kunt klikken op de knop **ZIP downloaden** of de opslagplaats klonen op uw lokale computer. 
+    U kunt klikken op de knop **ZIP downloaden** of de opslagplaats klonen op uw lokale computer.
 
 2. Open de ToDoList-oplossing in Visual Studio 2015 of 2013.
+   1. Het is belangrijk dat u elke oplossing vertrouwt.
+        ![Beveiligingswaarschuwing](./media/app-service-api-dotnet-get-started/securitywarning.png)
 
-2. Maak de oplossing voor het herstellen van de NuGet-pakketten.
+3. Maak de oplossing (CTRL + SHIFT + B) voor het herstellen van de NuGet-pakketten.
 
-    Als u de toepassing in actie wilt zien voordat u deze implementeert, kunt u deze lokaal uitvoeren. Zorg ervoor dat alle drie de projecten opstartprojecten zijn. U moet Internet Explorer of Edge gebruiken omdat deze browsers cross-origin JavaScript-aanroepen toestaan naar `http://localhost`-URL's. 
+    Als u de toepassing in actie wilt zien voordat u deze implementeert, kunt u deze lokaal uitvoeren. Zorg ervoor dat ToDoListDataAPI uw opstartproject is en voer de oplossing uit. Er moet een 403 HTTP-fout in uw browser worden weergegeven.
 
 ## Swagger API-metagegevens en -gebruikersinterface gebruiken
 
-Ondersteuning voor [Swagger](http://swagger.io/) 2.0 API-metagegevens is ingebouwd in Azure App Service. Elke API-app kan een URL-eindpunt opgeven dat metagegevens retourneert voor de API in Swagger JSON-indeling. De metagegevens die vanuit dat eindpunt worden geretourneerd, kunnen worden gebruikt voor het genereren van clientcode. 
+Ondersteuning voor [Swagger](http://swagger.io/) 2.0 API-metagegevens is ingebouwd in Azure App Service. Elke API-app kan een URL-eindpunt opgeven dat metagegevens retourneert voor de API in Swagger JSON-indeling. De metagegevens die vanuit dat eindpunt worden geretourneerd, kunnen worden gebruikt voor het genereren van clientcode.
 
 Een ASP.NET Web API-project kan Swagger-metagegevens dynamisch genereren met behulp van het [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet-pakket. Het Swashbuckle NuGet-pakket is al geïnstalleerd in de ToDoListDataAPI- en ToDoListAPI-projecten die u hebt gedownload.
 
 In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegevens en probeert u een testgebruikersinterface uit die hierop is gebaseerd.
 
-2. Stel het project ToDoListDataAPI (**niet** het project ToDoListAPI) in als opstartproject. 
- 
-4. Druk op F5 of klik op **Fouten opsporen > Foutopsporing starten** om het project uit te voeren in de foutopsporingsmodus.
+1. Stel het project ToDoListDataAPI (**niet** het project ToDoListAPI) in als opstartproject.
+
+    ![ToDoDataAPI instellen als opstartproject](./media/app-service-api-dotnet-get-started/startupproject.png)
+
+2. Druk op F5 of klik op **Fouten opsporen > Foutopsporing starten** om het project uit te voeren in de foutopsporingsmodus.
 
     De browser wordt geopend en u ziet de foutpagina HTTP 403.
 
-12. Voeg in de adresbalk van uw browser `swagger/docs/v1` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger/docs/v1`.)
+3. Voeg in de adresbalk van uw browser `swagger/docs/v1` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger/docs/v1`.)
 
-    Dit is de standaard-URL die wordt gebruikt om Swashbuckle Swagger 2.0 JSON-metagegevens te retourneren voor de API. 
+    Dit is de standaard-URL die wordt gebruikt om Swashbuckle Swagger 2.0 JSON-metagegevens te retourneren voor de API.
 
     Als u Internet Explorer gebruikt, vraagt de browser u om een *v1.json*-bestand te downloaden.
 
@@ -141,9 +150,9 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
                 "deprecated": false
               },
 
-1. Sluit de browser en stop de foutopsporing van Visual Studio.
+4. Sluit de browser en stop de foutopsporing van Visual Studio.
 
-3. Open in het project ToDoListDataAPI in **Solution Explorer** het bestand *App_Start\SwaggerConfig.cs*, blader naar de volgende code en verwijder het commentaarteken hierbij.
+5. Open in het project ToDoListDataAPI in **Solution Explorer** het bestand *App_Start\SwaggerConfig.cs*, blader naar regel 174 en verwijder het commentaarteken bij de volgende code.
 
         /*
             })
@@ -155,17 +164,17 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
 
     Met de code waarbij u het commentaarteken hebt verwijderd, wordt de Swagger-gebruikersinterface ingeschakeld die u in de volgende stappen gebruikt. Wanneer u een Web API-project maakt met behulp van de API-app-projectsjabloon, wordt deze code als veiligheidsmaatregel standaard uitgecommentarieerd.
 
-5. Voer het project opnieuw uit.
+6. Voer het project opnieuw uit.
 
-3. Voeg in de adresbalk van uw browser `swagger` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger`.)
+7. Voeg in de adresbalk van uw browser `swagger` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger`.)
 
-4. Wanneer de pagina van de Swagger-gebruikersinterface wordt weergegeven, klikt u op **ToDoList** om na te gaan welke methoden er beschikbaar zijn.
+8. Wanneer de pagina van de Swagger-gebruikersinterface wordt weergegeven, klikt u op **ToDoList** om na te gaan welke methoden er beschikbaar zijn.
 
     ![Beschikbare methoden in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Klik op de eerste knop **Get** in de lijst.
+9. Klik op de eerste knop **Get** in de lijst.
 
-6. Geef in de sectie **Parameters** een sterretje op als de waarde van de `owner`-parameter en klik vervolgens op **Try it out**.
+10. Geef in de sectie **Parameters** een sterretje op als de waarde van de `owner`-parameter en klik vervolgens op **Try it out**.
 
     Als u in latere zelfstudies verificatie toevoegt, biedt de middelste laag de werkelijke gebruikers-id voor de gegevenslaag. Zolang de toepassing wordt uitgevoerd zonder dat verificatie is ingeschakeld, hebben alle taken een sterretje als eigenaar-id.
 
@@ -175,13 +184,13 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
 
     ![Resultaten van Try it out in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/gettryitout.png)
 
-6. Klik op **Post** en vervolgens op het vak onder **Model Schema**.
+11. Klik op **Post** en vervolgens op het vak onder **Model Schema**.
 
     Als u op het modelschema klikt, worden er gegevens ingevuld in het invoervak waarin u de waarde van parameter voor de Post-methode kunt opgeven. (Als dit in Internet Explorer niet werkt, probeert u een andere browser of voert u in de volgende stap de waarde van de parameter handmatig in.)  
 
     ![Post voor Try it out in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Wijzig de JSON-code in het invoervak van de `todo`-parameter, zodat deze lijkt op het volgende voorbeeld of vervang deze door uw eigen beschrijvende tekst:
+12. Wijzig de JSON-code in het invoervak van de `todo`-parameter, zodat deze lijkt op het volgende voorbeeld of vervang deze door uw eigen beschrijvende tekst:
 
         {
           "ID": 2,
@@ -189,21 +198,21 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
           "Owner": "*"
         }
 
-10. Klik op **Try it out**.
+13. Klik op **Try it out**.
 
     De ToDoList-API retourneert een 204 HTTP-responscode waarmee wordt aangegeven dat de bewerking is geslaagd.
 
-11. Klik op de eerste **Get**-knop en klik vervolgens in die sectie van de pagina op de knop **Try it out**.
+14. Klik op de eerste **Get**-knop en klik vervolgens in die sectie van de pagina op de knop **Try it out**.
 
-    De respons van de Get-methode bevat nu de nieuwe taak. 
+    De respons van de Get-methode bevat nu de nieuwe taak.
 
-12. Optioneel: probeer ook de methoden Put, Delete en Get by ID.
+15. Optioneel: probeer ook de methoden Put, Delete en Get by ID.
 
-14. Sluit de browser en stop de foutopsporing van Visual Studio.
+16. Sluit de browser en stop de foutopsporing van Visual Studio.
 
-Swashbuckle werkt met elk ASP.NET Web API-project. Als u het genereren van Swagger-metagegevens wilt toevoegen aan een bestaand project, hoeft u hiervoor alleen het Swashbuckle-pakket te installeren. 
+Swashbuckle werkt met elk ASP.NET Web API-project. Als u het genereren van Swagger-metagegevens wilt toevoegen aan een bestaand project, hoeft u hiervoor alleen het Swashbuckle-pakket te installeren.
 
-**Opmerking:** de Swagger-metagegevens bevatten voor elke API-bewerking een unieke id. Standaard kan Swashbuckle dubbele Swagger-bewerkings-id's genereren voor uw Web API-controllermethoden. Dit gebeurt als uw domeincontroller overbelaste HTTP-methoden bevat, zoals `Get()` en `Get(id)`. Zie [Door Swashbuckle gegenereerde API-definities aanpassen](app-service-api-dotnet-swashbuckle-customize.md) voor meer informatie over het afhandelen van overbelasting. Als u in Visual Studio een Web API-project maakt met de Azure-API-app-sjabloon, wordt er aan het bestand *SwaggerConfig.cs* automatisch code toegevoegd die unieke bewerkings-id's geneert.  
+>[AZURE.NOTE] De Swagger-metagegevens bevatten voor elke API-bewerking een unieke id. Standaard kan Swashbuckle dubbele Swagger-bewerkings-id's genereren voor uw Web API-controllermethoden. Dit gebeurt als uw domeincontroller overbelaste HTTP-methoden bevat, zoals `Get()` en `Get(id)`. Zie [Door Swashbuckle gegenereerde API-definities aanpassen](app-service-api-dotnet-swashbuckle-customize.md) voor meer informatie over het afhandelen van overbelasting. Als u in Visual Studio een Web API-project maakt met de Azure-API-app-sjabloon, wordt er aan het bestand *SwaggerConfig.cs* automatisch code toegevoegd die unieke bewerkings-id's geneert.  
 
 ## <a id="createapiapp"></a> Een API-app in Azure maken en er code in implementeren
 
@@ -213,11 +222,11 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     ![Klikken op Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu.png)
 
-3.  Klik in de stap **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
+2.  Klik in de stap **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
 
     ![Klikken op Azure App Service in de wizard Publish Web](./media/app-service-api-dotnet-get-started/selectappservice.png)
 
-4. Meld u aan bij uw Azure-account als u dit nog niet hebt gedaan. Vernieuw uw referenties als deze zijn verlopen.
+3. Meld u aan bij uw Azure-account als u dit nog niet hebt gedaan. Vernieuw uw referenties als deze zijn verlopen.
 
 4. Kies in het dialoogvenster App Service bij **Subscription** het Azure-abonnement dat u wilt gebruiken en klik vervolgens op **New**.
 
@@ -229,19 +238,19 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     ![App-type in het dialoogvenster App Service](./media/app-service-api-dotnet-get-started/apptype.png)
 
-4. Voer bij **API App Name** een naam in die uniek is in het domein *azurewebsites.net*. U kunt de standaardnaam accepteren die door Visual Studio wordt voorgesteld.
+5. Voer bij **API App Name** een naam in die uniek is in het domein *azurewebsites.net*. U kunt de standaardnaam accepteren die door Visual Studio wordt voorgesteld.
 
     Als u een naam opgeeft die iemand anders al gebruikt, ziet u aan de rechterkant een rood uitroepteken.
 
-    De URL van de API-app wordt `{APi app name}.azurewebsites.net`.
+    De URL van de API-app wordt `{API app name}.azurewebsites.net`.
 
-6. Klik in de vervolgkeuzelijst **Resource Group** op **New** en voer vervolgens ToDoListGroup of desgewenst een andere naam in. 
+6. Klik in de vervolgkeuzelijst **Resource Group** op **New** en voer vervolgens ToDoListGroup of desgewenst een andere naam in.
 
     Een resourcegroep is een verzameling Azure-resources, zoals web-apps, databases, virtuele machines, enzovoort. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
 
-    In dit vak kunt u een bestaande [resourcegroep](../azure-portal/resource-group-portal.md) selecteren of een nieuwe maken door een naam te typen die anders is dan alle bestaande resourcegroepen in uw abonnement.
+    In dit vak kunt u een bestaande [resourcegroep](../resource-group-overview.md) selecteren of een nieuwe maken door een naam te typen die anders is dan alle bestaande resourcegroepen in uw abonnement.
 
-4. Klik naast de vervolgkeuzelijst **App Service Plan** op de knop **New**.
+7. Klik naast de vervolgkeuzelijst **App Service Plan** op de knop **New**.
 
     De schermafbeelding toont voorbeeldwaarden voor **API App Name**, **Subscription** en **Resource Group**. De door u gebruikte waarden zijn anders.
 
@@ -249,31 +258,31 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     In de volgende stappen maakt u een App Service-plan voor de nieuwe resourcegroep. In een App Service-plan worden de rekenresources opgegeven op basis waarvan uw API-app wordt uitgevoerd. Als u bijvoorbeeld de gratis categorie hebt gekozen, wordt uw API-app uitgevoerd op basis van gedeelde virtuele machines. Bij sommige categorieën waar u voor betaalt, worden apps uitgevoerd via exclusieve virtuele machines. Zie [Overzicht van App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor informatie over App Service-plannen
 
-5. Geef in het dialoogvenster **Configure App Service Plan** de naam ToDoListPlan op. Desgewenst kunt u ook een andere naam gebruiken.
+8. Geef in het dialoogvenster **Configure App Service Plan** de naam ToDoListPlan op. Desgewenst kunt u ook een andere naam gebruiken.
 
-5. Kies in de vervolgkeuzelijst **Location** de locatie die het dichtst bij u ligt.
+9. Kies in de vervolgkeuzelijst **Location** de locatie die het dichtst bij u ligt.
 
     Met deze instelling bepaalt u in welk Azure-datacentrum uw app wordt uitgevoerd. Kies een locatie dicht bij u in de buurt om de [latentie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090) te minimaliseren.
 
-5. Klik in de vervolgkeuzelijst **Size** op **Free**.
+10. Klik in de vervolgkeuzelijst **Size** op **Free**.
 
     Voor deze zelfstudie levert de prijscategorie Free voldoende prestaties.
 
-6. Klik in het dialoogvenster **Configure App Service Plan** op **OK**.
+11. Klik in het dialoogvenster **Configure App Service Plan** op **OK**.
 
     ![Klikken op OK in het dialoogvenster Configure App Service Plan](./media/app-service-api-dotnet-get-started/configasp.png)
 
-7. Klik in het dialoogvenster **Create App Service** op **Create**.
+12. Klik in het dialoogvenster **Create App Service** op **Create**.
 
     ![Klikken op Create in het dialoogvenster Create App Service](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
     Visual Studio maakt de API-app en een publicatieprofiel met alle vereiste instellingen voor de API-app. Vervolgens wordt de wizard **Publish Web** geopend. Deze wizard gebruikt u voor het implementeren van het project.
 
-    De wizard **Publish Web** wordt geopend op het tabblad **Connection** (hieronder getoond). 
+    De wizard **Publish Web** wordt geopend op het tabblad **Connection** (hieronder getoond).
 
     Op het tabblad **Connection** verwijzen de instellingen bij **Server** en **Site name** naar uw API-app. **User name** en **Password** zijn implementatiereferenties die Azure voor u maakt. Na de implementatie opent Visual Studio een browservenster met de **doel-URL** (dat is de enige functie van **doel-URL**).  
 
-8. Klik op **Next**. 
+13. Klik op **Next**.
 
     ![Klikken op Next op het tabblad Connection van de wizard Publish Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
@@ -285,7 +294,7 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     Voor deze zelfstudie hebt u geen van deze opties nodig. Zie [Procedure: een webproject implementeren met behulp van publicatie met één klik in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) voor gedetailleerde uitleg over deze opties.
 
-14. Klik op **Next**.
+14. Klik op **Volgende**.
 
     ![Klikken op Next op het tabblad Settings van de wizard Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
@@ -301,33 +310,33 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
 
     ![Pagina met melding dat de nieuwe API-app is gemaakt](./media/app-service-api-dotnet-get-started/appcreated.png)
 
-11. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+16. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
 
     De browser geeft dezelfde Swagger-gebruikersinterface weer die u eerder hebt gezien, maar deze wordt nu uitgevoerd in de cloud. Probeer de Get-methode uit en u zult zien dat u bent teruggekeerd naar de twee standaardtaken. De wijzigingen die u eerder hebt doorgevoerd, zijn in het geheugen van de lokale computer opgeslagen.
 
-12. Open de [Azure Portal](https://portal.azure.com/).
+17. Open de [Azure Portal](https://portal.azure.com/).
 
     De Azure Portal is een webinterface voor het beheer van Azure-bronnen zoals API-apps.
- 
-14. Klik op **Bladeren > App Services**.
+
+18. Klik op **Meer Services > App Services**.
 
     ![Bladeren door App Services](./media/app-service-api-dotnet-get-started/browseas.png)
 
-15. Zoek uw nieuwe API-app op op de blade **App Services** en klik erop. (In de Azure Portal worden de vensters die aan de rechterkant worden geopend, *blades* genoemd.)
+19. Zoek uw nieuwe API-app op op de blade **App Services** en klik erop. (In de Azure Portal worden de vensters die aan de rechterkant worden geopend, *blades* genoemd.)
 
     ![De blade App Services](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
     Er worden twee blades geopend. De eerste blade bevat een overzicht van de API-app. De tweede bevat een lange lijst met instellingen die u kunt bekijken en wijzigen.
 
-16. Ga op de blade **Instellingen** naar de sectie **API** en klik op **API-definitie**. 
+20. Ga op de blade **Instellingen** naar de sectie **API** en klik op **API-definitie**.
 
     ![API-definitie op de blade Instellingen](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-    Op de blade **API-definitie** kunt u de URL opgeven die de Swagger 2.0-metagegevens in JSON-indeling retourneert. Wanneer Visual Studio de API-app maakt, wordt de URL van de API-definitie ingesteld op de standaardwaarde voor door Swashbuckle gegenereerde metagegevens die u eerder hebt gezien. Dit zijn de basis-URL van de API-app plus `/swagger/docs/v1`. 
+    Op de blade **API-definitie** kunt u de URL opgeven die de Swagger 2.0-metagegevens in JSON-indeling retourneert. Wanneer Visual Studio de API-app maakt, wordt de URL van de API-definitie ingesteld op de standaardwaarde voor door Swashbuckle gegenereerde metagegevens die u eerder hebt gezien. Dit zijn de basis-URL van de API-app plus `/swagger/docs/v1`.
 
     ![URL van de API-definitie](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
-    Wanneer u een API-app selecteert om er clientcode voor te genereren, worden de metagegevens door Visual Studio opgehaald via deze URL. 
+    Wanneer u een API-app selecteert om er clientcode voor te genereren, worden de metagegevens door Visual Studio opgehaald via deze URL.
 
 ## <a id="codegen"></a> Clientcode genereren voor de gegevenslaag
 
@@ -349,23 +358,23 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
 
     ![Azure-asset selecteren](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
-8. Vouw in het dialoogvenster **App Service** de resourcegroep uit die u voor deze zelfstudie gebruikt en selecteer uw API-app. Klik vervolgens op **OK**.
+4. Vouw in het dialoogvenster **App Service** de resourcegroep uit die u voor deze zelfstudie gebruikt en selecteer uw API-app. Klik vervolgens op **OK**.
 
     ![API-app selecteren voor het genereren van code](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
-    Als u terugkeert naar het dialoogvenster **Add REST API Client**, zult u zien dat in het tekstvak de URL-waarde van de API-definitie die u eerder in de portal zag, is ingevuld. 
+    Als u terugkeert naar het dialoogvenster **Add REST API Client**, zult u zien dat in het tekstvak de URL-waarde van de API-definitie die u eerder in de portal zag, is ingevuld.
 
     ![URL van de API-definitie](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
     >[AZURE.TIP] Behalve via het bladerdialoogvenster kunt u de metagegevens voor het genereren van code ook ophalen door de URL direct in te voeren. Als u clientcode wilt genereren voordat u Azure implementeert, kunt u bovendien ook het volgende doen: voer het Web API-project lokaal uit, ga naar de URL die het Swagger JSON-bestand aanlevert, sla het bestand op en selecteer de optie **Select an existing Swagger metadata file**.
 
-9. Klik in het dialoogvenster **Add REST API Client** op **OK**.
+5. Klik in het dialoogvenster **Add REST API Client** op **OK**.
 
     Visual Studio maakt een map met de naam van de API-app en genereert clientklassen.
 
     ![Codebestanden voor gegenereerde client](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. Open in het project ToDoListAPI *Controllers\ToDoListController.cs* om de code te zien die de API aanroept met behulp van de gegenereerde client. 
+6. Open in het project ToDoListAPI *Controllers\ToDoListController.cs* om de code op regel 40 te zien die de API aanroept met behulp van de gegenereerde client.
 
     Het volgende fragment toont hoe de code het clientobject instantieert en de Get-methode aanroept.
 
@@ -374,7 +383,7 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
             var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
             return client;
         }
-        
+
         public async Task<IEnumerable<ToDoItem>> Get()
         {
             using (var client = NewDataAPIClient())
@@ -391,7 +400,7 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
 
     De constructorparameter haalt de eindpunt-URL uit de `toDoListDataAPIURL`-appinstelling. Deze waarde is in het bestand Web.config ingesteld op de lokale IIS Express URL van het API-project, zodat u de toepassing lokaal kunt uitvoeren. Als u de constructorparameter weglaat, wordt het standaardeindpunt de URL waaruit u de code hebt gegenereerd.
 
-6. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van de API-app; wijzig de code in *Controllers\ToDoListController.cs*, zodat de typenaam overeenkomt met wat er in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI0121 is, zou u deze code wijzigen:
+7. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van de API-app; wijzig de code in *Controllers\ToDoListController.cs*, zodat de typenaam overeenkomt met wat er in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI071316 is, zou u deze code wijzigen:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -399,69 +408,69 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
 
 in deze:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Een API-app maken voor het hosten van de middelste laag
 
-Eerder hebt u [de API-app voor de gegevenslaag gemaakt en er code in geïmplementeerd](#createapiapp).  Nu volgt u dezelfde procedure voor de API-app voor de middelste laag. 
+Eerder hebt u [de API-app voor de gegevenslaag gemaakt en er code in geïmplementeerd](#createapiapp).  Nu volgt u dezelfde procedure voor de API-app voor de middelste laag.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het ToDoListAPI-project voor de middelste laag (niet op de ToDoListDataAPI voor de gegevenslaag) en klik vervolgens op **Publish**.
 
     ![Klikken op Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu2.png)
 
-3.  Klik op het tabblad **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
+2.  Klik op het tabblad **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
 
-5. Klik in het dialoogvenster **App Service** op **New**.
+3. Klik in het dialoogvenster **App Service** op **New**.
 
-3. Accepteer op het tabblad **Hosting** van het dialoogvenster **Create App Service** de standaardnaam bij **API App Name** of voer een andere naam in die uniek is in het domein *azurewebsites.net*. 
+4. Accepteer op het tabblad **Hosting** van het dialoogvenster **Create App Service** de standaardnaam bij **API App Name** of voer een andere naam in die uniek is in het domein *azurewebsites.net*.
 
 5. Kies in **Subscription** het Azure-abonnement dat u momenteel gebruikt.
 
 6. Kies in de vervolgkeuzelijst **Resource Group** dezelfde resourcegroep die u eerder hebt gemaakt.
 
-4. Kies in de vervolgkeuzelijst **App Service Plan** hetzelfde abonnement dat u eerder hebt gemaakt. Deze waarde wordt standaard ingesteld. 
+7. Kies in de vervolgkeuzelijst **App Service Plan** hetzelfde abonnement dat u eerder hebt gemaakt. Deze waarde wordt standaard ingesteld.
 
-7. Klik op **Create**.
+8. Klik op **Create**.
 
     Visual Studio maakt de API-app, maakt er een publicatieprofiel voor en geeft de stap **Connection** van de wizard **Publish Web** weer.
 
-3.  Klik in de stap **Connection** van de wizard **Publish Web** op **Publish**.
+9.  Klik in de stap **Connection** van de wizard **Publish Web** op **Publish**.
 
     Visual Studio implementeert het project TToDoListAPI in de nieuwe API-app en opent een browservenster met de URL van de API-app. Er wordt een pagina weergegeven met de melding dat het maken is gelukt.
 
 ## De middelste laag configureren voor het aanroepen van de gegevenslaag
 
-Als u de API-app voor de middelste laag nu aanroept, probeert deze de gegevenslaag aan te roepen via de localhost-URL die zich nog in het bestand Web.config bevindt. In deze sectie kunt u de API-app-URL voor de gegevenslaag invoeren in een omgevingsinstelling in de API-app voor de middelste laag. Wanneer de code in de API-app voor de middelste laag de URL-instelling van de gegevenslaag ophaalt, overschrijft de omgevingsinstelling de inhoud van het bestand Web.config. 
- 
+Als u de API-app voor de middelste laag nu aanroept, probeert deze de gegevenslaag aan te roepen via de localhost-URL die zich nog in het bestand Web.config bevindt. In deze sectie kunt u de API-app-URL voor de gegevenslaag invoeren in een omgevingsinstelling in de API-app voor de middelste laag. Wanneer de code in de API-app voor de middelste laag de URL-instelling van de gegevenslaag ophaalt, overschrijft de omgevingsinstelling de inhoud van het bestand Web.config.
+
 1. Ga naar de [Azure Portal](https://portal.azure.com/) en navigeer naar de blade **API-app** van de API-app die u als host voor het project TodoListAPI (middelste laag) hebt gemaakt.
 
 2. Klik op de blade **Instellingen** van de API-app op **Toepassingsinstellingen**.
- 
-4. Ga op de blade **Toepassingsinstellingen** omlaag naar de sectie **App-instellingen** en voeg de volgende sleutel en waarde toe:
+
+3. Ga op de blade **Toepassingsinstellingen** van de API-app omlaag naar de sectie **App-instellingen** en voeg de volgende sleutel en waarde toe. De waarde is de URL van de eerste API-app die u in deze zelfstudie hebt gepubliceerd.
 
   	| **Sleutel** | toDoListDataAPIURL |
   	|---|---|
   	| **Waarde** | https://{de naam van uw API-app voor de gegevenslaag}.azurewebsites.net |
-  	| **Voorbeeld** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Voorbeeld** | https://todolistdataapi.azurewebsites.net |
 
 4. Klik op **Opslaan**.
 
     ![Klikken op Opslaan in het gedeelte App-instellingen](./media/app-service-api-dotnet-get-started/asinportal.png)
 
-    Wanneer de code wordt uitgevoerd in Azure, overschrijft deze waarde de localhost-URL die zich in het Web.config-bestand bevindt. 
+    Wanneer de code wordt uitgevoerd in Azure, overschrijft deze waarde de localhost-URL die zich in het Web.config-bestand bevindt.
 
 ## Testen
 
-11. Open in een browservenster de URL van de nieuwe API-app voor de middelste laag die u zojuist hebt gemaakt voor ToDoListAPI. Klik hiertoe op de URL op de hoofdblade van de API-app in de portal.
+1. Open in een browservenster de URL van de nieuwe API-app voor de middelste laag die u zojuist hebt gemaakt voor ToDoListAPI. Klik hiertoe op de URL op de hoofdblade van de API-app in de portal.
 
-13. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+2. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
 
     In de browser wordt dezelfde Swagger-gebruikersinterface weergegeven die u eerder hebt gezien voor ToDoListDataAPI. Nu is `owner` echter geen verplicht veld voor de Get-bewerking, omdat de API-app voor de middelste laag die waarde voor u naar de API-app voor de gegevenslaag verzendt. (Wanneer u de zelfstudies over verificatie volgt, verzendt de middelste laag werkelijke gebruikers-id’s voor de `owner`-parameter. In deze zelfstudie gebruiken we een hard gecodeerd sterretje.)
 
-12. Probeer de Get-methode en de andere methoden om te valideren dat de API-app voor de middelste laag de API-app voor de gegevenslaag op correcte wijze aanroept.
+3. Probeer de Get-methode en de andere methoden om te valideren dat de API-app voor de middelste laag de API-app voor de gegevenslaag op correcte wijze aanroept.
 
     ![Get-methode van de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/midtierget.png)
 
@@ -482,7 +491,7 @@ Wanneer uw ASP.NET-API-app eenmaal wordt uitgevoerd in Azure App Service, doet u
 ## Volgende stappen
 
 U hebt gezien hoe u bestaande Web API-projecten in API-apps kunt implementeren, clientcode kunt genereren voor API-apps en API-apps vanuit .NET-clients kunt gebruiken. In de volgende zelfstudie in deze reeks ziet u hoe u [CORS kunt toepassen om API-apps vanuit JavaScript-clients te gebruiken](app-service-api-cors-consume-javascript.md).
- 
+
 Zie de [Azure/AutoRest](https://github.com/azure/autorest)-opslagplaats op GitHub.com voor meer informatie over het genereren van clientcode. Open een [actie-item in de AutoRest-opslagplaats](https://github.com/azure/autorest/issues) voor hulp bij problemen met het gebruik van de gegenereerde client.
 
 Als u geheel nieuwe API-app-projecten wilt maken, gebruikt u de **Azure-API-app**-sjabloon.
@@ -493,6 +502,6 @@ Gebruik van de **Azure-API-app**-projectsjabloon geeft hetzelfde resultaat als w
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

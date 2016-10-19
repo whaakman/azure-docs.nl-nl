@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Een handelspartnerovereenkomst maken in Azure App Service | Microsoft Azure" 
    description="Handelspartnerovereenkomsten maken" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Een handelspartnerovereenkomst maken   
@@ -81,6 +81,6 @@ Ga als volgt te werk om handelspartnerovereenkomsten te maken:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="Logische apps migreren naar preview-schemaversie 2015-08-01 | Microsoft Azure App Service"
     description="U kunt uw logische apps eenvoudig migreren naar de nieuwste schemaversie. Volg deze stappen."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MSFTMAN"
     manager="erikre"
@@ -9,13 +9,14 @@
     tags="connectors"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
+
 
 # Logische apps migreren naar preview-schemaversie 2015-08-01
 
@@ -23,9 +24,8 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 1. Open uw logische app in de Azure Portal  
 2. Klik op Schema bijwerken:
 
- ![API Icon][step1]   
-De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een document dat gedetailleerde informatie bevat over de verbeteringen in het nieuwe schema:
- ![API Icon][step2]
+ ![API-pictogram][step1]   
+De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een document dat gedetailleerde informatie bevat over de verbeteringen in het nieuwe schema: ![API-pictogram][step2]
 
 >[AZURE.NOTE] Wanneer u **Schema bijwerken** selecteert, worden automatisch de migratiestappen uitgevoerd en krijgt u de code-uitvoer. U kunt deze gebruiken om uw definitie bij te werken, maar zorg ervoor dat u de richtlijnen voor codering volg, zoals die zijn beschreven in de **aanbevolen procedures** hieronder.
 
@@ -52,6 +52,6 @@ De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een doc
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

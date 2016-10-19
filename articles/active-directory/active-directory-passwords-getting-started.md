@@ -2,11 +2,11 @@
     pageTitle="Aan de slag: Azure AD-wachtwoordbeheer | Microsoft Azure"
     description="Stel gebruikers in staat om hun eigen wachtwoorden opnieuw in te stellen, ontdek wat de vereisten zijn voor het opnieuw instellen van wachtwoorden en schakel Wachtwoord terugschrijven in om on-premises wachtwoorden te beheren in Active Directory."
     services="active-directory"
-    keywords="Active directory password management, password management, reset Azure AD password"
+    keywords="wachtwoordbeheer Active Directory, wachtwoordbeheer, Azure AD-wachtwoord opnieuw instellen"
     documentationCenter=""
     authors="asteen"
-    manager="kbrint"
-    editor="billmath"/>
+    manager="femila"
+    editor="curtand"/>
 
 <tags
     ms.service="active-directory"
@@ -14,10 +14,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/16/2016" 
+    ms.date="07/12/2016"
     ms.author="asteen"/>
 
+
 # Aan de slag met wachtwoordbeheer
+
+> [AZURE.IMPORTANT] **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
+
 Er hoeven slechts enkele eenvoudige stappen te worden uitgevoerd om uw gebruikers in staat te stellen hun eigen wachtwoorden voor Azure Active Directory in de cloud of on-premises te beheren. Wanneer u hebt gecontroleerd of u aan een aantal eenvoudige vereisten voldoet, is het wijzigen van wachtwoorden en het opnieuw instellen van wachtwoorden voor uw volledige organisatie voor u het weet ingeschakeld. In dit artikel leest u meer over de volgende concepten:
 
 * [**Gebruikers in staat stellen om hun cloud-Azure Active Directory-wachtwoorden te wijzigen of opnieuw in te stellen**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -195,7 +199,7 @@ Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de vo
 
 
 ### Stap 1: de nieuwste versie van Azure AD Connect downloaden
-Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0419.0911** of hoger.  Wachtwoord terugschrijven met automatische accountontgrendeling is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0485.0222** of hoger. Als u een oudere versie gebruikt, voert u een upgrade uit naar ten minste deze versie voordat u doorgaat. [Klik hier om de nieuwste versie van Azure AD Connect te downloaden](active-directory-aadconnect.md#download-azure-ad-connect).
+Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0419.0911** of hoger.  Wachtwoord terugschrijven met automatische accountontgrendeling is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0485.0222** of hoger. Als u een oudere versie gebruikt, voert u een upgrade uit naar ten minste deze versie voordat u doorgaat. [Klik hier om de nieuwste versie van Azure AD Connect te downloaden](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### De versie van Azure AD Sync controleren
 1.  Ga naar **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -312,7 +316,7 @@ Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervo
 ## Koppelingen naar documentatie over wachtwoordherstel
 Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wachtwoordherstel:
 
-* [**Uw eigen wachtwoord opnieuw instellen**](active-directory-passwords-update-your-own-password.md): meer informatie over hoe u als gebruiker van het systeem uw eigen wachtwoord kunt wijzigen of opnieuw in kunt stellen
+* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
 * [**Hoe werkt het?**](active-directory-passwords-how-it-works.md): meer informatie over de zes verschillende onderdelen van de service en wat elke service biedt
 * [**Aanpassen**](active-directory-passwords-customize.md): informatie over het aanpassen van de weergave en het gedrag van de service om aan de behoeften van uw organisatie te voldoen
 * [**Aanbevolen procedures**](active-directory-passwords-best-practices.md): informatie over het snel implementeren en effectief beheren van wachtwoorden in uw organisatie
@@ -358,6 +362,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

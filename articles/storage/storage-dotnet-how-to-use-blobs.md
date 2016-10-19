@@ -13,13 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/25/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="jwillis;tamram"/>
+
 
 
 # Aan de slag met Azure Blob Storage met .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overzicht
 
@@ -40,6 +43,11 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Meer voorbeelden
+
+Zie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Aan de slag met Azure Blob Storage in .NET) voor meer voorbeelden van het gebruik van Blobe Storage. U kunt de voorbeeldtoepassing downloaden en uitvoeren, of door de code bladeren op GitHub.
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -360,18 +368,25 @@ Standaard beveiligt Azure Storage uw gegevens door de toegang te beperken tot de
 Standaard zijn de blobgegevens in uw opslagaccount alleen toegankelijk voor de eigenaar van het opslagaccount. Wanneer er een verificatieaanvraag wordt gedaan bij Blob Storage, is de toegangssleutel voor het account standaard vereist. Mogelijk wilt u echter bepaalde blobgegevens beschikbaar stellen aan andere gebruikers. U hebt hiervoor twee opties:
 
 - **Anonieme toegang:** u kunt een container of de blobs erin openbaar beschikbaar maken voor anonieme toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
-- **Shared Access Signature:** u kunt clients voorzien van een Shared Access Signature (SAS), die gedelegeerde toegang tot een resource in uw opslagaccount biedt gedurende een door u opgegeven tijdsbestek en met door u opgegeven machtigingen. Zie [Shared Access Signatures: inzicht in het SAS-model](storage-dotnet-shared-access-signature-part-1.md) voor meer informatie.
+- **Shared Access Signature:** u kunt clients voorzien van een Shared Access Signature (SAS), die gedelegeerde toegang tot een resource in uw opslagaccount biedt gedurende een door u opgegeven tijdsbestek en met door u opgegeven machtigingen. Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie.
 
 ### Blobgegevens versleutelen
 
 Azure Storage ondersteunt de versleuteling van blobgegevens op de client en op de server:
 
 - **Versleuteling aan clientzijde:** de Storage-clientbibliotheek voor .NET ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat naar Azure Storage wordt geüpload en de ontsleuteling van gegevens tijdens het downloaden naar de client. De bibliotheek ondersteunt ook integratie met Azure Key Vault voor het beheer van sleutels voor opslagaccounts. Zie [Versleuteling aan clientzijde met .NET voor Microsoft Azure Storage](storage-client-side-encryption.md) voor meer informatie. Zie ook [Zelfstudie: blobs versleutelen en ontsleutelen in Microsoft Azure Storage met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Versleuteling aan serverzijde**: Azure Storage ondersteunt nu ook versleuteling aan serverzijde. Zie [Azure Storage-service: versleuteling van data-at-rest (preview)](storage-service-encryption.md). 
+- **Versleuteling aan serverzijde**: Azure Storage ondersteunt nu ook versleuteling aan serverzijde. Zie [Azure Storage-service: versleuteling van data-at-rest (preview)](storage-service-encryption.md).
 
 ## Volgende stappen
 
 Nu u de basisprincipes van Blob Storage hebt geleerd, volgt u deze koppelingen voor meer informatie.
+
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken op Windows, OS X en Linux.
+
+### Voorbeelden van Blob Storage
+
+- [Aan de slag met Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Naslaginformatie over Blob Storage
 
@@ -397,6 +412,6 @@ Nu u de basisprincipes van Blob Storage hebt geleerd, volgt u deze koppelingen v
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

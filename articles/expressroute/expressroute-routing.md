@@ -3,8 +3,8 @@
    description="Deze pagina bevat gedetailleerde vereisten voor het configureren en beheren van routering voor ExpressRoute-circuits."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/16/2016"
+   ms.author="ganesr"/>
+
 
 
 # Routeringsvereisten voor ExpressRoute  
 
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connecitiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de vereisten die hieronder worden beschreven. 
 
-Raadpleeg het artikel [Circuits en Routeringsdomeinen](expressroute-circuit-peerings.md) (Circuits en routeringsdomeinen) voor een beschrijving van de routeringssessies die moeten worden ingesteld om connectiviteit te vergemakkelijken.
+Raadpleeg het artikel [Circuits and routing domains](expressroute-circuit-peerings.md) (Circuits en routeringsdomeinen) voor een beschrijving van de routeringssessies die moeten worden ingesteld om connectiviteit mogelijk te maken.
 
 **Opmerking:** Microsoft biedt geen ondersteuning voor routerredundantieprotocollen (zoals HSRP, VRRP) voor de configuratie van hoge beschikbaarheid. We zijn afhankelijk van twee redundante BGP-sessies per peering voor maximale beschikbaarheid.
 
@@ -78,15 +79,15 @@ Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden t
 
 ## Autonome systeemnummers
 
-Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
+Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Aan de peeringzijde (klant of provider) kan de ASN een openbare ASN zijn, als kan worden gecontroleerd dat de ASN van u is, of een privé-ASN.
 
-Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
+Er zijn geen vereisten met betrekking tot de symmetrie van de gegevensoverdracht in de primaire en secundaire paden van circuits. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd aan de primaire of secundaire zijde van circuitparen die van u zijn. Route metrics hoeven niet identiek te zijn.
 
 ## Limieten voor route-aggregatie en voorvoegsel
 
 Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door middel van de persoonlijke Azure-peering. Dit aantal kan worden verhoogd tot 10.000 voorvoegsels als de Premium-invoegtoepassing voor ExpressRoute wordt ingeschakeld. We accepteren maximaal 200 voorvoegsels per BGP-sessie voor openbare Azure-peering en Microsoft-peering. 
 
-De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. Provider moet standaardroute- en privé IP-adressen (RFC 1918) uit de paden voor openbare Azure- en Microsoft-peering filteren. 
+De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. De provider of de klant moet de standaardroute en privé-IP-adressen (RFC 1918) uit de BGP-aankondigingen voor het openbare peeringpad van Azure en het Microsoft-peeringpad filteren. 
 
 ## Transitroutering en regio-overschrijdende routering
 
@@ -124,6 +125,8 @@ Daarom markeert Microsoft voorvoegsels die worden geadverteerd via openbare peer
 |    | VS - oost | 12076:51004 |
 |    | VS - oost 2 | 12076:51005 |
 |    | VS - west | 12076:51006 |
+|    | VS - west 2 | 12076:51026 |
+|    | West-centraal VS | 12076:51027 |
 |    | Noord-centraal VS | 12076:51007 |
 |    | Zuid-centraal VS | 12076:51008 |
 |    | VS - midden | 12076:51009 |
@@ -177,6 +180,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

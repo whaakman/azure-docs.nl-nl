@@ -10,11 +10,18 @@ Nee, BGP wordt alleen ondersteund op route-gebaseerde VPN-gateways.
 
 Ja, u kunt uw eigen openbare ASN's of persoonlijke ASN's voor zowel uw on-premises netwerken en virtuele netwerken van Azure gebruiken.
 
+#### Zijn er ASN's die zijn gereserveerd door Azure?
+
+Ja, de volgende ASN's zijn gereserveerd door Azure voor zowel interne als externe koppelingen:
+
+- Openbare ASN’s: 8075, 8076, 12076
+- Privé-ASNs: 65515, 65517, 65518, 65519, 65520
+
+U kunt deze ASN's niet opgeven voor uw on-premises VPN-apparaten wanneer u verbinding maakt met Azure VPN-gateways.
+
 ### Kan ik hetzelfde ASN gebruiken voor on-premises VPN-netwerken en Azure VNets?
 
 Nee, u moet verschillende ASN’s toewijzen aan uw on-premises netwerken en uw Azure Vnets als u ze beide verbindt met BGP. Azure VPN-gateways krijgen standaard een ASN van 65515 toegewezen, onafhankelijk of BGP is ingeschakeld voor verbinding tussen gebouwen. U kunt deze standaardwaarde onderdrukken door een andere ASN toe te wijzen bij het aanmaken van de VPN-gateway of door het ASN te wijzigen nadat de gateway is aangemaakt. U moet uw lokale ASN's toewijzen aan de bijbehorende on-premises netwerkgateways van Azure.
-
-
 
 ### Welke adresvoorvoegsels maakt Azure VPN-gateways aan mij bekend?
 
@@ -23,6 +30,14 @@ Azure VPN-gateway maakt de volgende routes bekend aan uw on-premises BGP-apparat
 - Uw VNet-adresvoorvoegsels
 - Adresvoorvoegsels voor alle lokale netwerkgateways die zijn verbonden met de Azure VPN-gateway
 - Routes die afkomstig zijn van andere BGP-peeringsessies die zijn verbonden met de Azure VPN-gateway, **behalve standaardroutes of routes die overlappen met een VNet-voorvoegsel**.
+
+#### Kan ik standaardroute (0.0.0.0/0) adverteren naar Azure VPN-gateways?
+
+Momenteel niet.
+
+#### Kan ik de exacte voorvoegsels als de voorvoegsels van mijn virtuele netwerk adverteren?
+
+Nee, het adverteren van dezelfde voorvoegsels als een van de adresvoorvoegsels van uw virtuele netwerk wordt door het Azure-platform geblokkeerd of gefilterd. U kunt echter een voorvoegsel aankondigen dat een superset is van wat u in Virtual Network hebt. In Virtual Network kunt u bijvoorbeeld de adresruimte 10.10.0.0/16 gebruiken en 10.0.0.0/8 aankondigen.
 
 ### Kan ik BGP in combinatie met mijn VNet-naar-VNet-verbindingen gebruiken?
 
@@ -50,7 +65,7 @@ Momenteel niet.
 
 ### Welk adres gebruikt Azure VPN-gateway voor BGP-peer-IP?
 
-De Azure VPN-gateway wijst één IP-adres uit het GatewaySubnet-bereik toe dat wordt gedefinieerd voor het virtuele netwerk. Dit is standaard het een-na-laatste adres van het bereik. Als uw GatewaySubnet bijvoorbeeld 10.12.255.0.0/27 is, variërend van 10.42.255.0.0 tot 10.42.255.31, wordt het BGP-peer-IP-adres op de Azure VPN-gateway 10.12.255.30. U kunt deze informatie vinden als u de informatie van de Azure VPN-gateway laat weergeven.
+De Azure VPN-gateway wijst één IP-adres uit het GatewaySubnet-bereik toe dat wordt gedefinieerd voor het virtuele netwerk. Dit is standaard het een-na-laatste adres van het bereik. Als GatewaySubnet bij u bijvoorbeeld 10.12.255.0/27 is, variërend van 10.12.255.0 tot 10.12.255.31, wordt het BGP-peer-IP-adres op de Azure VPN-gateway 10.12.255.30. U kunt deze informatie vinden als u de informatie van de Azure VPN-gateway laat weergeven.
 
 ### Wat zijn de vereisten voor de BGP-peer-IP-adressen op mijn VPN-apparaat?
 
@@ -65,6 +80,6 @@ Azure Local Network Gateway geeft u de eerste adresvoorvoegsels voor het on-prem
 U moet een hostroute van het Azure BGP-peer-IP-adres toevoegen aan uw VPN-apparaat die verwijst naar de IPSec-S2S VPN-tunnel. Als het Azure VPN-peer-IP-adres bijvoorbeeld "10.12.255.30" is, dient u een hostroute toe te voegen voor "10.12.255.30" met een nexthop-interface van de overeenkomende IPsec-tunnelinterface op uw VPN-apparaat.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

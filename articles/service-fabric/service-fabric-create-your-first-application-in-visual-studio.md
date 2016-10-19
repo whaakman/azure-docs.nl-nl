@@ -13,10 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
 
-# Uw eerste Azure Service Fabric-toepassing in Visual Studio maken
+
+
+# Uw eerste Azure Service Fabric-toepassing maken
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 De Service Fabric SDK bevat een invoegtoepassing voor Visual Studio voor sjablonen en hulpprogramma's om Service Fabric-toepassingen te maken, te implementeren en foutopsporing uit te voeren. In dit onderwerp vindt u meer informatie over het maken van uw eerste toepassing in Visual Studio.
 
@@ -42,11 +48,11 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 
     ![Dialoogvenster voor nieuw project in Visual Studio][1]
 
-4. Op de volgende pagina wordt u gevraagd het eerste servicetype te kiezen dat u wilt opnemen in uw toepassing. In deze zelfstudie houden we het eenvoudig door **Stateful** te kiezen. Geef het servicetype een naam en klik op **OK**.
+4. Kies op de volgende pagina **Stateful** als het eerste servicetype om in uw toepassing op te nemen. Geef het servicetype een naam en klik op **OK**.
 
     ![Dialoogvenster voor nieuwe service in Visual Studio][2]
 
-    >[AZURE.NOTE] Zie [Een raamwerk kiezen](service-fabric-choose-framework.md) voor meer informatie over de opties.
+    >[AZURE.NOTE] Zie [Service Fabric programming model overview](service-fabric-choose-framework.md) (Overzicht van het Service Fabric-programmeermodel) voor meer informatie over de opties.
 
     Visual Studio maakt het toepassingsproject en het stateful service-project en geeft deze weer in Solution Explorer.
 
@@ -56,29 +62,29 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 
     - **Profielen publiceren**: deze optie wordt gebruikt voor het beheren van voorkeuren voor tools voor verschillende omgevingen.
 
-    - **Scripts**: bevat een PowerShell-script voor het implementeren van/bijwerken van uw toepassing. Dit script wordt achter de schermen gebruikt door Visual Studio en kan rechtstreeks worden aangeroepen op de opdrachtregel.
+    - **Scripts**: bevat een PowerShell-script voor het implementeren van/bijwerken van uw toepassing. Visual Studio gebruikt het script-achter-de-schermen van Visual Studio. Het script kan ook rechtstreeks op de opdrachtregel worden aangeroepen.
 
-    - **Definitie van toepassing**: bevat het toepassingsmanifest onder *ApplicationPackageRoot* en de bijbehorende parameter voor toepassingsbestanden onder *ApplicationParameters* die de toepassing definiëren. U kunt deze toepassing configureren voor een bepaalde omgeving.
+    - **Toepassingsdefinitie**: bevat het toepassingsmanifest onder *ApplicationPackageRoot*. Gekoppelde bestanden met toepassingsparameters vindt u onder *ApplicationParameters*, die de toepassing definiëren en waarmee u deze specifiek voor een bepaalde omgeving kunt configureren.
 
     Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
 
 ## De toepassing implementeren en fouten opsporen in de toepassing
 
-Nu u een toepassing hebt, kunt u deze uitvoeren.
+Nu u een toepassing hebt, kunt proberen deze uit te voeren.
 
 1. Druk op F5 in Visual Studio om de toepassing voor foutopsporing te implementeren.
 
-    >[AZURE.NOTE] Dit duurt even de eerste keer. Visual Studio maakt een lokaal cluster. Een lokaal cluster voert dezelfde platformcode uit als op een cluster met meerdere machines, alleen op één computer. U ziet de status van het maken van het cluster in het venster Visual Studio.
+    >[AZURE.NOTE] De implementatie duurt de eerste keer enige tijd omdat Visual Studio een lokaal ontwikkelingscluster maakt. Een lokaal cluster voert dezelfde platformcode uit als op een cluster met meerdere machines, alleen op één computer. U ziet de status van het maken van het cluster in het Visual Studio-uitvoervenster.
 
-    Als het cluster gereed is, ontvangt u een melding van het lokale toepassingsbewakingsprogramma voor het systeemvak dat is opgenomen in de SDK.
+    Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
 
     ![Melding van het systeemvak van het lokale cluster][4]
 
-2. Als de toepassing wordt gestart, toont Visual Studio automatisch de diagnostische logboeken waarin u de uitvoer van de service kunt bekijken.
+2. Als de toepassing wordt gestart, geeft Visual Studio automatisch de diagnostische logboeken met gebeurtenissen weer, waarin u de traceringsuitvoer van de service kunt bekijken.
 
     ![Diagnostische logboeken][5]
 
-    Als het gaat om een stateful servicesjabloon geeft het bericht een itemwaarde weer die wordt verhoogd in de methode `RunAsync` van MyStatefulService.cs.
+    Als het gaat om een stateful servicesjabloon, geven de berichten de itemwaarde weer die wordt verhoogd in de methode `RunAsync` van MyStatefulService.cs.
 
 3. Vouw een van de gebeurtenissen uit voor meer informatie, zoals het knooppunt waarop de code wordt uitgevoerd. In dit geval is het _Node_2. Dit kan anders zijn op uw machine.
 
@@ -86,21 +92,21 @@ Nu u een toepassing hebt, kunt u deze uitvoeren.
 
     Het lokale cluster bevat vijf knooppunten die worden gehost op een enkele computer. Het lijkt op een cluster met vijf knooppunten, waarbij de knooppunten zich op afzonderlijke computers bevinden. We bekijken een van de knooppunten op het lokale cluster om het verlies van gegevens van een machine te simuleren en tegelijkertijd te oefenen met de foutopsporingsfunctie.
 
-    >[AZURE.NOTE] De diagnostische gebeurtenissen van de toepassing die worden gegenereerd door de projectsjabloon, maken gebruik van de klasse `ServiceEventSource`. Zie [Services lokaal bewaken en onderzoeken](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) voor meer informatie.
+    >[AZURE.NOTE] De diagnostische gebeurtenissen van de toepassingen die worden gegenereerd door de projectsjabloon, maken gebruik van de klasse `ServiceEventSource`. Zie [Services lokaal bewaken en onderzoeken](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) voor meer informatie.
 
-4. Zoek de klasse in uw serviceproject die is afgeleid van StatefulService (bijvoorbeeld MyStatefulService) en stel een onderbrekingspunt in op de eerste regel van de `RunAsync`-methode.
+4. Zoek de klasse in uw serviceproject die is afgeleid van StatefulService (bijvoorbeeld MyStatefulService) en stel een onderbrekingspunt in op de eerste regel van de methode `RunAsync`.
 
     ![Onderbrekingspunt in de stateful service RunAsync-methode][7]
 
-5. Klik met de rechtermuisknop op het systeemvak Lokaal clusterbeheer en lies **Lokaal cluster beheren** om Service Fabric Explorer te starten.
+5. Klik met de rechtermuisknop op het systeemvak Lokaal clusterbeheer en kies **Lokaal cluster beheren** om Service Fabric Explorer te starten.
 
     ![Start Service Fabric Explorer vanuit Lokaal clusterbeheer][systray-launch-sfx]
 
-    Service Fabric Explorer biedt een visuele representatie van een cluster, met inbegrip van een set gedistribueerde toepassingen die zijn geïmplementeerd en de set van fysieke knooppunten waaruit het bestaat. Zie [Uw cluster visualiseren](service-fabric-visualizing-your-cluster.md) voor meer informatie over Service Fabric Explorer.
+    Service Fabric Explorer biedt een visuele representatie van een cluster, waaronder de set toepassingen die is geïmplementeerd en de set fysieke knooppunten waaruit het cluster bestaat. Zie [Uw cluster visualiseren](service-fabric-visualizing-your-cluster.md) voor meer informatie over Service Fabric Explorer.
 
 6. Vouw in het linkerdeelvenster **Cluster > Knooppunten** uit en zoek het knooppunt waarop uw code wordt uitgevoerd.
 
-7. Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten. (U kunt deze stap ook uitvoeren in een contextmenu in de lijstweergave van knooppunten in het linkerdeelvenster door te klikken op de drie puntjes.)
+7. Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten. (Opmerking: u kunt ook deactiveren vanuit het contextmenu in de knooppuntlijstweergave in het linkerdeelvenster.)
 
     ![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
 
@@ -110,31 +116,28 @@ Nu u een toepassing hebt, kunt u deze uitvoeren.
 
     ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
-### Opschonen
+## De clustermodus wijzigen
 
-  Voordat u afsluit, moet u weten dat het lokale cluster erg puur is. Zelfs nadat u het foutopsporingsprogramma stopt en Visual Studio sluit, blijven uw toepassingen op de achtergrond actief. Afhankelijk van de aard van uw apps maakt deze activiteit op de achtergrond behoorlijk aanspraak op uw computer. U hebt verschillende mogelijkheden om dit te beheren:
+Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunt kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, kunt u de modus van het ontwikkelingscluster wijzigen in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
 
-  1. Als u een afzonderlijke toepassing en alle bijbehorende gegevens wilt verwijderen, gebruikt u **Toepassing verwijderen** in Service Fabric Explorer via het menu **ACTIES** of het contextmenu in de lijstweergave van de toepassing in het linkerdeelvenster.
+![De clustermodus wijzigen][switch-cluster-mode]
 
-    ![Een toepassing verwijderen in Service Fabric Explorer][sfe-delete-application]
+Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen die zijn ingericht of worden uitgevoerd op het cluster verwijderd.
 
-  2. Na het verwijderen van de toepassing uit het cluster vervolgens kunt u **Type verwijderen** kiezen voor de toepassing. Hiermee wordt het pakket van de toepassing van de installatiekopie van het cluster verwijderd.
-  3. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
+## Opschonen
 
-  4. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u op F5 in Visual Studio klikt. Gebruik deze optie alleen als u het lokale cluster voor een tijdje niet gaat gebruiken of als geen resources hoeft vrij te maken.
+  Voordat u afsluit, moet u weten dat het lokale cluster erg puur is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
 
+  1. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
 
+  2. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u op F5 in Visual Studio klikt. Verwijder het cluster alleen als u het lokale cluster een tijd niet gaat gebruiken of als u resources wilt vrijmaken.
 
 ## Volgende stappen
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Informatie over het maken van een cluster in Azure](service-fabric-cluster-creation-via-portal.md)
-- [Meer informatie over Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Probeer een service te maken op basis van het model voor Reliable Actors](service-fabric-reliable-actors-get-started.md)
+- Leer hoe u een [cluster maakt in Azure](service-fabric-cluster-creation-via-portal.md) of hoe u een [zelfstandig cluster maakt in Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Maak een service met het programmeermodel [Reliable Services](service-fabric-reliable-services-quick-start.md) of [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+- Leer hoe u uw services met de [front-end van een webservice](service-fabric-add-a-web-frontend.md) verbindt met internet.
+- Voer een [praktijkoefening](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) uit en maak een staatloze service, configureer de controle en statusrapporten en voer een toepassingsupgrade uit.
 
 <!-- Image References -->
 
@@ -145,13 +148,14 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [5]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer.png
 [6]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail.png
 [7]: ./media/service-fabric-create-your-first-application-in-visual-studio/runasync-breakpoint.png
-[sfx-stop-knooppunt]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
-[systray-starten-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
+[sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
+[systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [toepassing van sfe verwijderen]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

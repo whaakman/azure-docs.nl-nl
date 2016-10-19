@@ -3,7 +3,7 @@
    description="Meer informatie over virtuele netwerken (VNEt's) in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,11 +13,12 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
+
 
 # Overzicht van Virtual Network
 
-Een virtueel Azure-netwerk (VNET) is een weergave van uw eigen netwerk in de cloud.  Het is een logische isolatie van de Azure-cloud die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNET ook verder segmenteren in subnetten en Azure IaaS virtuele machines (VM's) en/of [Cloudservices (PaaS-rolexemplaren)](../cloud-services/cloud-services-choose-me.md). Hiermee kunt u het virtuele netwerk verbinden met uw on-premises netwerk via een van de beschikbare [verbindingsopties](../vpn-gateway/vpn-gateway-cross-premises-options.md) in Azure. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
+Een virtueel Azure-netwerk (VNET) is een weergave van uw eigen netwerk in de cloud.  Het is een logische isolatie van de Azure-cloud die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNET ook verder segmenteren in subnetten en Azure IaaS virtuele machines (VM's) en/of [Cloudservices (PaaS-rolexemplaren)](../cloud-services/cloud-services-choose-me.md). Hiermee kunt u het virtuele netwerk via een van de beschikbare [verbindingsopties](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) in Azure verbinden met uw on-premises netwerk. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
 
 Zie de onderstaande afbeelding van een vereenvoudigd on-premises netwerk om meer inzicht te krijgen in VNET's.
 
@@ -56,7 +57,7 @@ Een subnet is een bereik met IP-adressen in het VNET. U kunt u een VNET onderver
 ## IP-adressen
 
 
-Er kunnen twee soorten IP-adressen worden toegewezen aan bronnen in Azure: *openbare* en *privé* IP-adressen. Openbare IP-adressen worden gebruikt om Azure-bronnen te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis-cache](https://azure.microsoft.com/services/cache/) en [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privé IP-adressen worden gebruikt voor communicatie tussen bronnen in een virtueel netwerk, samen met bronnen die verbonden zijn via een VPN, zonder gebruik te maken van via internet routeerbare IP-adressen.
+Er kunnen twee soorten IP-adressen worden toegewezen aan bronnen in Azure: *openbare* en *privé* IP-adressen. Openbare IP-adressen worden gebruikt om Azure-bronnen te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/) en [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privé IP-adressen worden gebruikt voor communicatie tussen bronnen in een virtueel netwerk, samen met bronnen die verbonden zijn via een VPN, zonder gebruik te maken van via internet routeerbare IP-adressen.
 
 Ga naar [IP-adressen in het virtuele netwerk](virtual-network-ip-addresses-overview-arm.md) voor meer informatie over IP-adressen in Azure
 
@@ -97,6 +98,6 @@ Er worden geen extra kosten in rekening gebracht voor het gebruik van virtuele n
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

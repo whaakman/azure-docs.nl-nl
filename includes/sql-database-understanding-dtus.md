@@ -16,6 +16,6 @@ Een eenvoudig voorbeeld helpt. Stel, we hebben een Basic-pool voor elastische da
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

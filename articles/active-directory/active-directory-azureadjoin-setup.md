@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""
     tags="azure-classic-portal"/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="09/27/2016"
     ms.author="femila"/>
+
 
 # Azure AD Join instellen in uw organisatie
 
@@ -34,7 +35,7 @@ Raadpleeg [Gebruikersaccounts en wachtwoorden](https://msdn.microsoft.com/librar
 5. Ga naar de sectie **Apparaten**.
 6. Stel het volgende in op het tabblad **Apparaten**:  
    * **MAXIMUMAANTAL APPARATEN PER GEBRUIKER**: selecteer het maximumaantal apparaten dat een gebruiker mag hebben in Azure AD.  Als een gebruiker dit quotum bereikt, kan deze persoon geen apparaten meer toevoegen totdat een of meer van de bestaande apparaten zijn verwijderd.
-   * **MEERVOUDIGE VERIFICATIE VEREISEN VOOR HET TOEVOEGEN VAN APPARATEN**: hiermee stelt u in of gebruikers een tweede verificatiefactor moeten opgeven om hun apparaat toe te voegen aan Azure AD. Zie [Getting started with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-get-started-cloud/) (Engelstalig) voor meer informatie over meervoudige verificatie met Azure.
+   * **MEERVOUDIGE VERIFICATIE VEREISEN VOOR HET TOEVOEGEN VAN APPARATEN**: hiermee stelt u in of gebruikers een tweede verificatiefactor moeten opgeven om hun apparaat toe te voegen aan Azure AD. Zie [Aan de slag met Azure Multi-Factor Authentication in de cloud](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md) voor meer informatie over meervoudige verificatie met Azure.
    * **GEBRUIKERS MOGEN APPARATEN TOEVOEGEN AAN AZURE**: selecteer de gebruikers en groepen die apparaten mogen toevoegen aan Azure AD
    * **EXTRA BEHEERDERS OP AZURE AD MET TOEGEVOEGDE APPARATEN**: met Azure AD Premium of de Enterprise Mobility Suite (EMS) kunt u kiezen welke gebruikers lokale beheerdersrechten ontvangen voor het apparaat. Globale beheerders en eigenaren van de apparaten ontvangen standaard lokale beheerdersrechten.
 
@@ -57,6 +58,6 @@ Met de volgende drie scenario's kunt u uw gebruikers in staat stellen Azure AD J
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

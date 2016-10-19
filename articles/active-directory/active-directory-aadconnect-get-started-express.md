@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
+
 
 # Aan de slag met Azure AD Connect met expresinstellingen
 **Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor verificatie. **Expresinstellingen** is de standaardoptie en wordt gebruikt voor het meest geïmplementeerde scenario. U bent slechts enkele snelle klikken verwijderd van uitbreiding van uw on-premises directory naar de cloud.
@@ -32,7 +33,7 @@ In de sectie met [video's](#videos) kunt u zien hoe deze stappen in de praktijk 
 4. Klik in het scherm Expresinstellingen op **Expresinstellingen gebruiken**.  
 ![Welkom bij Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in van een hoofdbeheerder voor Azure AD. Klik op **Volgende**.  
-![Verbinding maken met Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Als u een foutbericht ontvangt en problemen met de connectiviteit hebt, raadpleegt u [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
+![Verbinding maken met Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Als u een foutbericht ontvangt en problemen hebt met de connectiviteit, raadpleegt u [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. Klik op **Volgende**.  
 ![Verbinding maken met AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. De pagina [**Configuratie van aanmelding bij Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) wordt alleen weergegeven als u de [domeinen niet hebt geverifieerd](active-directory-add-domain.md) bij de [vereisten](active-directory-aadconnect-prerequisites.md).
@@ -71,6 +72,6 @@ Accounts die worden gebruikt voor installatie | [Meer informatie over accounts e
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

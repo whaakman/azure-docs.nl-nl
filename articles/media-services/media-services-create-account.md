@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"
+    ms.date="09/26/2016"
     ms.author="juliako"/>
+
 
 
 # Een Azure Media Services-account maken
@@ -108,6 +109,6 @@ Daarnaast kunt u code weergeven die gebruikmaakt van de Azure Media Services SDK
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

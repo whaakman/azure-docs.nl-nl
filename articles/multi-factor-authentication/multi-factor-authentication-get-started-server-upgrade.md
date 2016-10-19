@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server" 
-    description="In dit document wordt beschreven hoe u aan de slag gaat met Azure MFA-server en hoe u een upgrade uitvoert vanuit de oudere PhoneFactor-agent." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server"
+    description="In dit document wordt beschreven hoe u aan de slag gaat met Azure MFA-server en hoe u een upgrade uitvoert vanuit de oudere PhoneFactor-agent."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
 
-Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor Authentication-server moeten de PhoneFactor Agent en de bijbehorende onderdelen worden verwijderd voordat de Multi-Factor Authentication-server en de verbonden onderdelen kunnen worden geïnstalleerd. 
+Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor Authentication-server moeten de PhoneFactor Agent en de bijbehorende onderdelen worden verwijderd voordat de Multi-Factor Authentication-server en de verbonden onderdelen kunnen worden geïnstalleerd.
 
 ## De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
 <ol>
@@ -53,7 +54,7 @@ Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor 
 
 <li>Als de webservice-SDK eerder was geïnstalleerd, installeert u de nieuwe webservice-SDK via de gebruikersinterface van Multi-Factor Authentication-server. De standaardnaam van de virtuele map is nu 'MultiFactorAuthWebServiceSdk', in plaats van 'PhoneFactorWebServiceSdk'. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, moet u de URL wijzigen in alle toepassingen die naar de webservice-SDK verwijzen, zoals de gebruikersportal en de webservice voor mobiele apps, zodat ze naar de juiste locatie wijzigen.
 
-<li>Als de gebruikersportal eerder was geïnstalleerd op de PhoneFactor Agent-server, installeert u de nieuwe Multi-Factor Authentication-gebruikersportal via de gebruikersinterface van de Multi-Factor Authentication-server. De standaardnaam van de virtuele map is nu 'MultiFactorAuth', in plaats van 'PhoneFactor'. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Gebruikersportal op de Multi-Factor Authentication-server en werkt u de URL van de gebruikersportal bij op het tabblad Instellingen. 
+<li>Als de gebruikersportal eerder was geïnstalleerd op de PhoneFactor Agent-server, installeert u de nieuwe Multi-Factor Authentication-gebruikersportal via de gebruikersinterface van de Multi-Factor Authentication-server. De standaardnaam van de virtuele map is nu 'MultiFactorAuth', in plaats van 'PhoneFactor'. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Gebruikersportal op de Multi-Factor Authentication-server en werkt u de URL van de gebruikersportal bij op het tabblad Instellingen.
 
 <li>Ga als volgt te werk als de gebruikersportal en/of webservice voor mobiele apps eerder op een andere server van de PhoneFactor Agent was geïnstalleerd:
 <ol>
@@ -64,12 +65,7 @@ Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor 
 <li>Ga naar de installatielocatie van de webservice voor mobiele apps (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.</li></ol>
 
 
- 
 
-
- 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -2,7 +2,7 @@
     pageTitle="Excel verbinden met de SQL Database | Microsoft Azure"
     description="Leer hoe u Microsoft Excel verbindt met Azure SQL Database in de cloud. Gegevens importeren in Excel voor rapportage en gegevens verkenning."
     services="sql-database"
-    keywords="connect excel to sql, import data to excel"
+    keywords="excel verbinden met sql, gegevens importeren in excel"
     documentationCenter=""
     authors="joseidz"
     manager="jhubbard"
@@ -15,8 +15,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/25/2016"
+    ms.date="07/05/2016"
     ms.author="joseidz"/>
+
 
 
 # Zelfstudie SQL Database: Excel verbinden met een Azure SQL Database en een rapport creëren
@@ -48,7 +49,7 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
 
     ![Typ de servernaam en aanmeldingsreferenties in](./media/sql-database-connect-excel/connect-to-server.png)
 
-    > [AZURE.TIP] Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure Portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
+    > [AZURE.TIP] Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure-portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
 
 5. In het dialoogvenster **Database en tabel selecteren**, selecteert u de database waarmee u wilt werken uit de lijst en klik vervolgens op de tabellen of weergaven waarmee u wilt werken (we hebben **vGetAllCategories** gekozen), en klik vervolgens op **Volgende**.
 
@@ -81,11 +82,11 @@ Nu de verbinding tot stand is gebracht en het bestand met gegevens en de koppeli
 ## Volgende stappen
 
 - Leer hoe u [SQL Database koppelt met SQL Server Management Studio](sql-database-connect-query-ssms.md) voor geavanceerd uitvoeren van query's en analyses.
-- Meer informatie over de voordelen van [elastische pools](sql-database-elastic-pool.md).
+- Meer informatie over de voordelen van [elastische groepen](sql-database-elastic-pool.md).
 - Leer hoe u [ een webtoepassing maakt die verbinding maakt met SQL Database op de back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

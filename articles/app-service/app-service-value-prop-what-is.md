@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Azure App Service voor web-apps en mobiele apps | Microsoft Azure" 
     description="Lees hoe u met Azure App Service web-apps en mobiele apps kunt ontwikkelen, implementeren en beheren." 
-    keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service"
+    keywords="app service, azure app service, kosten app service, schaal, schaalbaar, implementatie app, implementatie azure app, paas, platform as a service"
     services="app-service" 
     documentationCenter="" 
     authors="omarkmsft" 
@@ -16,6 +16,7 @@
     ms.topic="get-started-article" 
     ms.date="05/25/2016" 
     ms.author="omark"/>
+
 
 # Wat is Azure App Service?
 
@@ -33,9 +34,9 @@ Hierna ziet u een paar belangrijke functies en mogelijkheden van App Service:
 
 - **Meerdere talen en frameworks**: App Service biedt uitstekende ondersteuning voor ASP.NET, Node.js, Java, PHP en Python. U kunt ook [Windows PowerShell en andere scripts of uitvoerbare bestanden](../app-service-web/web-sites-create-web-jobs.md) uitvoeren op virtuele machines van App Service.
 
-- **DevOps-optimalisatie**: stel [continue integratie en implementatie](../app-service-web/app-service-continous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](../app-service-web/web-sites-staged-publishing.md). Voer [A/B-tests](../app-service-web/app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](../powershell-install-configure.md) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
+- **DevOps-optimalisatie**: stel [continue integratie en implementatie](../app-service-web/app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](../app-service-web/web-sites-staged-publishing.md). Voer [A/B-tests](../app-service-web/app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](../powershell-install-configure.md) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
  
-- **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](../app-service/app-service-scale.md) schalen of [uit](../azure-portal/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten. De [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
+- **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](../app-service-web/web-sites-scale.md) schalen of [uit](../azure-portal/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 
 - **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP, Siebel en Oracle), SaaS-services (zoals Salesforce en Office 365) en internetservices (zoals Facebook en Twitter). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
@@ -49,11 +50,11 @@ Hierna ziet u een paar belangrijke functies en mogelijkheden van App Service:
 
 App Service bevat verschillende *app-typen*, die zijn bedoeld voor specifieke typen werkbelastingen:
 
-- [**Web-apps**](../app-service-web/app-service-web-overview.md): voor het hosten van websites en webtoepassingen.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md): voor het hosten van websites en webtoepassingen.
 
-- [**Mobiele apps**](../app-service-mobile/app-service-mobile-value-prop.md): voor het hosten van de back-end van mobiele apps.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md): voor het hosten van de back-end van mobiele apps.
    
-- [**API-apps**](../app-service-api/app-service-api-apps-why-best-platform.md): voor het hosten van cloud-API's. 
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md): voor het hosten van cloud-API's. 
  
 - [**Logische apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md): voor het automatiseren van de toegang tot en het gebruik van gegevens tussen clouds zonder code te schrijven.
 
@@ -82,6 +83,6 @@ Of open een [gratis Azure-account](https://azure.microsoft.com/pricing/free-tria
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

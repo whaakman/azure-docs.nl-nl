@@ -1,6 +1,6 @@
 <properties
     pageTitle="Aan de slag met Azure Queue Storage met .NET | Microsoft Azure"
-    description="Verzend en ontvang berichten asynchroon tussen toepassingsonderdelen met Azure Queue Storage. Ga aan de slag met eenvoudige wachtrij-opslagbewerkingen, inclusief het maken en verwijderen van wachtrijen en het toevoegen, lezen en verwijderen van wachtrijberichten."
+    description="Azure Queues biedt betrouwbare, asynchrone uitwisseling van berichten tussen toepassingsonderdelen. Met Cloud Messaging kunnen onderdelen van uw toepassing onafhankelijk van elkaar worden opgeschaald."
     services="storage"
     documentationCenter=".net"
     authors="robinsh"
@@ -13,16 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/07/2016"
-    ms.author="gusapost"/>
+    ms.date="07/26/2016"
+    ms.author="cbrooks;robinsh"/>
+
 
 # Aan de slag met Azure Queue Storage met .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overzicht
 
-Azure Queue Storage is een service die berichtenwachtrijen in de cloud biedt. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald.  Queue Storage biedt een betrouwbare berichtenoplossing voor asynchrone communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
+Azure Queue Storage biedt uitwisseling van berichten tussen toepassingsonderdelen in de cloud. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue Storage biedt asynchrone uitwisseling van berichten voor communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
 
 ### Over deze zelfstudie
 
@@ -50,7 +53,7 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 
 Voeg boven aan het `program.cs`-bestand de volgende `using`-instructies toe:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -278,6 +281,6 @@ Nu u de basisprincipes van Queue Storage hebt geleerd, volgt u deze koppelingen 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

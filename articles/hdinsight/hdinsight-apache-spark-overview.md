@@ -4,7 +4,7 @@
     services="hdinsight" 
     documentationCenter="" 
     authors="nitinme" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/06/2016" 
+    ms.date="08/25/2016" 
     ms.author="nitinme"/>
+
 
 # Overzicht: Apache Spark in Azure HDInsight Linux
  
@@ -137,6 +138,6 @@ Begin met het maken van een Spark-cluster in HDInsight Linux. Zie [Snelstartgids
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

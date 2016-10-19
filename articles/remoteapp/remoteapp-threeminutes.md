@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
+
 # Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 Wilt u Azure RemoteApp op uw apparaat zien? Als u een Microsoft-account hebt, hebt u gedurende 10 minuten toegang tot onze demo-implementatie. Hiervoor zijn Office en enkele andere toepassingen beschikbaar. Dit is een uitstekende manier om de gebruikerservaring van Azure RemoteApp in minder dan 3 minuten te testen.
 
@@ -37,6 +41,6 @@ Uw mening telt. Aan het einde van elke sessie ziet u een dialoogvenster voor uw 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

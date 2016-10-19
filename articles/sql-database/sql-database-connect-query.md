@@ -2,9 +2,9 @@
     pageTitle="Verbinding maken met SQL Database met een C#-query | Microsoft Azure"
     description="Schrijf een programma in C# om een SQL Database op te vragen en hiermee verbinding te maken. Informatie over IP-adressen, verbindingsreeksen, beveiligde aanmelding en gratis Visual Studio."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="c#-databasequery, c#-query, verbinding maken met database, SQL C#"
     documentationCenter=""
-    authors="MightyPen"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -14,8 +14,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
-    ms.author="annemill"/>
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
+
+
 
 
 # Verbinding maken met een SQL Database met behulp van Visual Studio
@@ -25,78 +27,62 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Ontdek hoe u verbinding kunt maken met een Azure SQL Database in Visual Studio. 
+Lees hoe u verbinding kunt maken met een Azure SQL-database in Visual Studio. 
 
 ## Vereisten
 
 
-Voor verbinding met SQL Database met Visual Studio, heeft u het volgende nodig: 
+Als u verbinding wilt maken met een SQL-database met behulp van Visual Studio, hebt u het volgende nodig: 
 
 
-- Een Azure-account en -abonnement. U  kunt zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). 
-
-
-- Een **AdventureWorksLT**-demonstratiedatabase op de Azure SQL Database-service.
- - [Maak een demonstratiedatabase](sql-database-get-started.md) in slechts enkele minuten.
+- Een SQL-database waarmee u verbinding kunt maken. In dit artikel wordt de voorbeelddatabase **AdventureWorks** gebruikt. Zie [De demodatabase maken](sql-database-get-started.md) voor informatie over hoe u aan de AdventureWorks-database komt.
 
 
 - Visual Studio 2013 update 4 (of hoger). Microsoft biedt de Visual Studio Community nu *gratis* aan.
  - [Visual Studio Community downloaden](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Meer opties voor gratis Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Verderop in dit onderwerp wordt ook [uitgelegd](#InstallVSForFree) hoe het [Azure Portal](https://portal.azure.com/) u helpt bij het installeren van Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Stap 1: Installeer gratis Visual Studio Community 
 
 
-Als u Visual Studio wilt installeren, kunt u:
-
-- Visual Studio Community gratis installeren door in uw browser te zoeken naar webpagina’s met gratis downloads en andere opties voor Visual Studio-producten; of
-- via de [Azure Portal](https://portal.azure.com/) navigeren naar de webpagina met de download, zoals hieronder staat uitgelegd.
+## Visual Studio openen via de Azure Portal
 
 
-### Visual Studio via de Azure Portal
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Klik op **Meer services** > **SQL-databases**
+3. Open de blade van de **AdventureWorks**-database door de *AdventureWorks*-database te zoeken en erop te klikken.
+
+6. Klik op de knop **Extra** boven aan de databaseblade:
+
+    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Klik op **Openen in Visual Studio** (als u Visual Studio nodig hebt, klikt u op de downloadkoppeling):
+
+    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/), http://portal.azure.com/.
-
-2. Klik op **BLADEREN* ALLE** > **SQL databases**. Er wordt een blade geopend waarin wordt gezocht naar databases.
-
-3. Typ de naam van uw **AdventureWorksLT** database in het tekstvak bovenin om de zoekopdracht te filteren.
-
-4. Wanneer u de rij van uw database op uw server ziet, klikt u op die rij. Er wordt een blade geopend voor uw database.
-
-5. U kunt voor het gemak alle vorige blades minimaliseren.
-
-6. Klik op de knop **Openen in Visual Studio** bovenaan uw databaseblade. Een nieuwe blade over Visual Studio wordt geopend met links naar installatielocaties voor Visual Studio.
-
-    ![De knop Openen in Visual Studio][20-OpenInVisualStudioButton]
-
-7. Klik op de link **Community (gratis)**, of een dergelijke link. Er wordt een nieuwe webpagina toegevoegd.
-
-8. Gebruik de links op de nieuwe webpagina om Visual Studio te installeren.
-
-9. Nadat Visual Studio is geïnstalleerd, klikt u op de knop  **Openen in Visual Studio** in de blade **Openen in Visual Studio** Visual Studio wordt geopend.
-
-10. Omwille van het venster **SQL Server Object Explorer**, vraagt Visual Studio u om de velden voor de verbindingsreeks in te vullen in een dialoogvenster.
- - Kies voor **SQL Server-verificatie**, niet voor **Windows-verificatie**.
- - Geef uw **AdventureWorksLT** database op (**Opties** > **Verbindingseigenschappen** in het dialoogvenster).
-
-11. Vouw de knooppunten voor uw database in de **SQL Server Object Explorer** uit.
+8. Visual Studio wordt geopend, waarbij het venster **Verbinding maken met server** al zo is ingesteld dat verbinding wordt gemaakt met de server en de database die u in de portal hebt geselecteerd.  (Klik op **Opties** om te controleren of de verbinding is ingesteld op de juiste database.) Typ het beheerderswachtwoord van de server en klik op **Verbinden**.
 
 
-## Stap 2: voer een voorbeeldquery uit
+    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Nadat u verbinding hebt gemaakt met uw logische server, kunt u verbinding maken met een database en een voorbeeldquery uitvoeren. 
 
-1. Navigeer in **Object Explorer** naar een database op de server waarvoor u gemachtigd bent, zoals de **AdventureWorks**-voorbeelddatabase.
+8. Als u nog geen een firewallregel voor het IP-adres van uw computer hebt ingesteld, wordt het bericht *Kan geen verbinding maken* weergegeven. Zie [Een firewallregel op serverniveau voor Azure SQL Database configureren](sql-database-configure-firewall-settings.md) voor informatie over het maken van een firewallregel.
+
+
+9. Nadat de verbinding tot stand is gebracht, wordt het venster **SQL Server-objectverkenner** geopend met een verbinding met uw database.
+
+    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Een voorbeeldquery uitvoeren
+
+Nu u bent verbonden met de database, wordt in de volgende stappen uitgelegd hoe u een eenvoudige query uitvoert:
+
 2. Klik met de rechtermuisknop op de database en selecteer **Nieuwe query**.
 
-    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![Nieuwe query. Verbinding maken met de SQL Database-server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Kopieer en plak de volgende code in het queryvenster.
 
@@ -108,22 +94,20 @@ Nadat u verbinding hebt gemaakt met uw logische server, kunt u verbinding maken 
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. Klik op de knop **Uitvoeren**.  In het volgende screenshot staat een voorbeeld van een geslaagde query.
+4. Klik op de knop **Uitvoeren** om de query uit te voeren:
 
-    ![Geslaagd. Verbinding maken met de SQL Database-server: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Geslaagd. Verbinding maken met de SQL Database-server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Volgende stappen
 
-[Verbinding maken met SQL Database met behulp van .NET (C#)](sql-database-develop-dotnet-simple.md) 
-
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+- Bij het openen van SQL-databases in Visual Studio wordt gebruik gemaakt van SQL Server Data Tools. Zie [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx) voor meer informatie.
+- Zie [Verbinding maken met SQL Database met behulp van .NET (C#)](sql-database-develop-dotnet-simple.md) als u via code verbinding wilt maken met een SQL-database.
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Sep16_HO3-->
 
 

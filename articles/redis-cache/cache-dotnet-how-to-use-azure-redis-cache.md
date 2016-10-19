@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/31/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Azure Redis-cache gebruiken
@@ -59,21 +59,7 @@ Zie [Azure Redis-cache configureren](cache-configure.md) voor meer informatie ov
 <a name="NuGet"></a>
 ## De cacheclients configureren
 
-Een cache die u met Azure Redis-cache hebt gemaakt, is toegankelijk vanuit elke Azure-toepassing. .NET-toepassingen die in Visual Studio zijn ontwikkeld, kunnen de cacheclient **StackExchange.Redis** gebruiken. Deze kan worden geconfigureerd met een NuGet-pakket, dat de configuratie van de cacheclienttoepassingen eenvoudiger maakt. 
-
->[AZURE.NOTE] Zie de GitHub-pagina [StackExchange.Redis][] en de [documentatie over de cacheclient StackExchange.Redis][] voor meer informatie.
-
-Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in **Solution Explorer** met de rechtermuisknop op het project en kiest u **Manage NuGet Packages**. 
-
-![Manage NuGet Packages][NuGetMenu]
-
-Typ in het zoekvak **StackExchange.Redis** of **StackExchange.Redis.StrongName**, selecteer de gewenste versie in de resultaten en klik op **Install**.
-
->[AZURE.NOTE] Als u liever een versie van de clientbibliotheek **StackExchange.Redis** gebruikt met een sterke naam, kiest u **StackExchange.Redis.StrongName**. Kies anders **StackExchange.Redis**.
-
-![NuGet-pakket StackExchange.Redis][StackExchangeNuget]
-
-Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Nadat uw clientproject is geconfigureerd voor het opslaan in de cache, kunt u de technieken die in de volgende gedeelten worden beschreven, gebruiken om met uw cache te werken.
 
@@ -97,7 +83,7 @@ Als u via een programma met een cache wilt werken, hebt u een verwijzing naar de
 
 De verbinding met de Azure Redis-cache wordt beheerd door de klasse `ConnectionMultiplexer`. Deze klasse is ontworpen om te worden gedeeld en opnieuw te worden gebruikt in uw clienttoepassing en hoeft niet per bewerking te worden gemaakt. 
 
-Als u verbinding wilt maken met een Azure Redis-cache en een exemplaar van een verbonden `ConnectionMultiplexer` wilt ontvangen, roept u de statische `Connect`-methode aan en geeft u het cache-eindpunt en -sleutel door, zoals in het volgende voorbeeld. Gebruik de sleutel die vanuit de Azure Portal is gegenereerd, als wachtwoordparameter.
+Als u verbinding wilt maken met een Azure Redis-cache en een exemplaar van een verbonden `ConnectionMultiplexer` wilt ontvangen, roept u de statische `Connect`-methode aan en geeft u het cache-eindpunt en -sleutel door, zoals in het volgende voorbeeld. Gebruik de sleutel die vanuit de Azure-portal is gegenereerd, als wachtwoordparameter.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -204,10 +190,12 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 -   Bekijk de ASP.NET-providers voor Azure Redis-cache.
     -   [State-provider voor Azure Redis-sessies](cache-aspnet-session-state-provider.md)
     -   [Cacheprovider voor ASP.NET-uitvoer in Azure Redis-cache](cache-aspnet-output-cache-provider.md)
--   [Schakel de diagnostische gegevens van de cache in](cache-how-to-monitor.md#enable-cache-diagnostics), zodat u de status van de cache kunt [bewaken](cache-how-to-monitor.md). U kunt de metrische gegevens weergeven in de Azure Portal. U kunt ze ook [downloaden en bekijken](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) met de hulpprogramma's van uw keuze.
+-   [Schakel de diagnostische gegevens van de cache in](cache-how-to-monitor.md#enable-cache-diagnostics), zodat u de status van de cache kunt [bewaken](cache-how-to-monitor.md). U kunt de metrische gegevens weergeven in de Azure-portal. U kunt ze ook [downloaden en bekijken](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) met de hulpprogramma's van uw keuze.
 -   Bekijk de [documentatie over de cacheclient StackExchange.Redis][].
     -   Azure Redis-cache is toegankelijk vanuit veel Redis-clients en ontwikkelingstalen. Zie voor meer informatie [http://redis.io/clients][].
-    -   Azure Redis-cache kan ook worden gebruikt met services zoals Redsmin. Zie voor meer informatie [Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin][].
+-   Azure Redis-cache kan ook worden gebruikt met services en hulpprogramma’s van derden, zoals Redsmin en Redis Desktop Manager.
+    -   Zie [How to retrieve an Azure Redis connection string and use it with Redsmin][] (Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin) voor meer informatie over Redsmin.
+    -   Benader en controleer uw gegevens in Azure Redis-cache met een grafische gebruikersinterface die gebruikmaakt van [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -   Zie de [Redis][]-documentatie en lees meer informatie over de [Redis-gegevenstypen][] en [een inleiding van vijftien minuten tot de Redis-gegevenstypen][].
 
 
@@ -257,7 +245,7 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
 [In andere talen ontwikkelen voor Azure Redis-cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [State-provider voor Azure Redis-sessies]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Een cacheclient via een programma configureren]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [State-provider voor Azure-cachesessies]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -280,7 +268,7 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 [Installatie van NuGet-pakketmanager]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Prijsdetails voor caches]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 
 [Overzicht van Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -302,6 +290,6 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,11 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
+
 # Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 In dit artikel wordt uitgelegd hoe u Office 365 implementeert op elk apparaat in uw bedrijf. Uw gebruikers beschikken op Android, Apple en Windows over dezelfde mogelijkheden en gebruikersinterface.
 
@@ -26,7 +30,7 @@ We kunnen dit met Azure RemoteApp bewerkstelligen door Office 365 te hosten op s
 ## Een cloudverzameling maken
 
 Ga nadat u een Azure-account hebt gemaakt eerst naar **RemoteApp** door op de koppeling aan de linkerkant te klikken.
-![Azure RemoteApp in Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
+![Azure RemoteApp in de Azure-portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
 Klik vervolgens onderaan op **Nieuw** en kies voor het 'snel maken' van een verzameling. Geef een naam, de regio, het abonnement, het plan en de 'Office Proffesional 2013'-installatiekopie die wij verstrekken op.
 ![Dialoogvenster Maken](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
@@ -69,6 +73,6 @@ Wanneer u op een van deze toepassing klikt, wordt deze gestart op de virtuele ma
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

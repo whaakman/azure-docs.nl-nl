@@ -6,15 +6,16 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="powershell workflow, powershell workflow examples, workflow powershell"/>
+    keywords="powershell-werkstroom, voorbeelden powershell-werkstroom, werkstroom powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
+
 
 # Mijn eerste PowerShell Workflow-runbook
 
@@ -110,7 +111,7 @@ We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets
     ```
 
 5.  Klik op **Testvenster** zodat we het runbook kunnen testen.
-6.  Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer waarin basisinformatie uit uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is. <br> ![Verifiëren](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.  Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer zoals hieronder afgebeeld, waarin basisinformatie van uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is.<br> ![Verifiëren](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## Stap 6: code toevoegen om een virtuele machine te starten
 
@@ -121,12 +122,11 @@ Nu ons runbook verifieert voor ons Azure-abonnement, kunnen we resources beheren
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.  Sla het runbook op en klik vervolgens op **Testvenster** zodat we het runbook kunnen testen.
 3.  Klik op **Start** om de test te starten. Nadat deze is voltooid, controleert u of de virtuele machine is gestart.
@@ -145,8 +145,7 @@ Met ons runbook wordt momenteel de virtuele machine gestart die we hebben hardge
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -162,12 +161,11 @@ Met ons runbook wordt momenteel de virtuele machine gestart die we hebben hardge
 ## Volgende stappen
 
 -  Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
--   Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks
+-  Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks
 -  Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
--   Zie [Systeemeigen PowerShell-scriptondersteuning in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) voor meer informatie over de functie voor PowerShelll-scriptondersteuning
+-  Zie [Systeemeigen PowerShell-scriptondersteuning in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) voor meer informatie over de functie voor PowerShelll-scriptondersteuning
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

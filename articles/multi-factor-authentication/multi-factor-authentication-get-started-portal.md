@@ -1,28 +1,29 @@
 <properties 
-    pageTitle="De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en de gebruikersportal aan de slag kunt gaan." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server"
+    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en de gebruikersportal aan de slag kunt gaan."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
 
-De gebruikersportal biedt de beheerder de mogelijkheid om de Azure Multi-Factor Authentication-gebruikersportal te installeren en te configureren. De gebruikersportal is een IIS-website waar gebruikers zich kunnen registreren bij Azure Multi-Factor Authentication en hun account kunnen beheren. Een gebruiker kan bij de volgende aanmelding zijn telefoonnummer en pincode wijzigen of Azure Multi-Factor Authentication overslaan. 
+De gebruikersportal biedt de beheerder de mogelijkheid om de Azure Multi-Factor Authentication-gebruikersportal te installeren en te configureren. De gebruikersportal is een IIS-website waar gebruikers zich kunnen registreren bij Azure Multi-Factor Authentication en hun account kunnen beheren. Een gebruiker kan bij de volgende aanmelding zijn telefoonnummer en pincode wijzigen of Azure Multi-Factor Authentication overslaan.
 
-Gebruikers zullen zich bij de gebruikersportal aanmelden met hun gebruikelijke gebruikersnaam en wachtwoord en zullen een Azure Multi-Factor Authentication-telefoonoproep aannemen of beveiligingsvragen beantwoorden om hun verificatie te voltooien. Als gebruikersregistratie is toegestaan, zal een gebruiker zijn telefoonnummer en pincode configureren de eerste keer dat deze zich aanmeldt bij de gebruikersportal. 
+Gebruikers zullen zich bij de gebruikersportal aanmelden met hun gebruikelijke gebruikersnaam en wachtwoord en zullen een Azure Multi-Factor Authentication-telefoonoproep aannemen of beveiligingsvragen beantwoorden om hun verificatie te voltooien. Als gebruikersregistratie is toegestaan, zal een gebruiker zijn telefoonnummer en pincode configureren de eerste keer dat deze zich aanmeldt bij de gebruikersportal.
 
-Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook een machtiging worden verleend om nieuwe gebruikers toe te voegen en bestaande gebruikers bij te werken. 
+Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook een machtiging worden verleend om nieuwe gebruikers toe te voegen en bestaande gebruikers bij te werken.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
@@ -30,25 +31,25 @@ Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook 
 
 Als u de gebruikersportal op dezelfde server als de Azure Multi-Factor Authentication-server wilt installeren, moet aan de volgende vereisten worden voldaan:
 
-- IIS moet worden geïnstalleerd met inbegrip van asp.net en compatibiliteit met IIS 6-metabase (voor IIS 7 of hoger) 
+- IIS moet worden geïnstalleerd met inbegrip van asp.net en compatibiliteit met IIS 6-metabase (voor IIS 7 of hoger)
 - De aangemelde gebruiker moet beschikken over beheerdersrechten voor de computer en het domein, indien van toepassing.  De reden hiervoor is dat het account machtigingen nodig heeft om Active Directory-beveiligingsgroepen te maken.
 
 ### De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
 
-1. Op de Azure Multi-Factor Authentication-server: klik in het menu links op het Gebruikersportal-pictogram en daarna op de knop Gebruikersportal installeren. 
+1. Op de Azure Multi-Factor Authentication-server: klik in het menu links op het Gebruikersportal-pictogram en daarna op de knop Gebruikersportal installeren.
 1. Klik op Volgende.
 1. Klik op Volgende.
 1. Als de computer lid is van een domein en de Active Directory-configuratie voor de  beveiliging van de communicatie tussen de gebruikersportal en de Multi-Factor Authentication-service niet is voltooid, wordt de Active Directory-stap weergegeven. Klik op de knop Volgende om deze configuratie automatisch te voltooien.
 1. Klik op Volgende.
 1. Klik op Volgende.
 1. Klik op Sluiten.
-1. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Zorg ervoor dat er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+1. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
 ## De gebruikersportal van de Azure Multi-Factor Authentication-server implementeren op een afzonderlijke server
 
-Voor het gebruik van de Azure Multi-Factor Authentication-app is het volgende vereist om de app correct te laten communiceren met de gebruikersportal: 
+Voor het gebruik van de Azure Multi-Factor Authentication-app is het volgende vereist om de app correct te laten communiceren met de gebruikersportal:
 
 Controleer of aan deze hardware- en softwarevereisten is voldaan:
 
@@ -71,7 +72,7 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 
 ### De webservice-SDK installeren
 
-Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram van de webservice-SDK, klik op de knop Webservice-SDK installeren  en volg de aanwijzingen op het scherm. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht. 
+Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram voor de webservice-SDK, en klik op de knop Install Web Service SDK (Webservice-SDK installeren)... en volg de aanwijzingen die worden gegeven. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -91,7 +92,7 @@ Voordat u de gebruikersportal op een aparte server installeert, houdt u rekening
 5. Zoek de sleutel USE_WEB_SERVICE_SDK en wijzig de waarde van false (onwaar) in true (waar). Zoek de sleutels WEB_SERVICE_SDK_AUTHENTICATION_USERNAME en WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD en stel de waarden in op de gebruikersnaam en het wachtwoord van het serviceaccount dat lid is van de beveiligingsgroep PhoneFactor Admins (zie de sectie Vereisten hierboven). Zorg ervoor dat u de gebruikersnaam en het wachtwoord invoert tussen de aanhalingstekens aan het einde van de regel (value=””/>). Het is raadzaam om een gekwalificeerde gebruikersnaam (bijvoorbeeld domein\gebruikersnaam of computer\gebruikersnaam) te gebruiken.
 6. Zoek de instelling pfup_pfwssdk_PfWsSdk en wijzig de waarde van http://localhost:4898/PfWsSdk.asmx in de URL van de webservice-SDK die wordt uitgevoerd op de Azure Multi-Factor Authentication-server (bijvoorbeeld https://computer1.domein.lokaal/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Omdat voor deze verbinding SSL wordt gebruikt, moet u naar de webservice-SDK verwijzen met de servernaam en niet met het IP-adres omdat het SSL-certificaat wordt uitgegeven voor de servernaam. Hierdoor moet de gebruikte URL overeenkomen met de naam op het certificaat. Als de naam van de server niet wordt omgezet in een IP-adres van de internetgerichte server, kunt u een vermelding toevoegen aan het hostbestand op die server, om de naam van de Azure Multi-Factor Authentication-server toe te wijzen aan het IP-adres ervan. Sla het bestand web.config op nadat de wijzigingen zijn aangebracht.
 7. Als de website waaronder de gebruikersportal is geïnstalleerd (bijvoorbeeld Standaardwebsite) nog niet is verbonden met een openbaar ondertekend certificaat, installeert u het certificaat op de server als dit nog niet is gebeurd, opent u IIS-beheer en verbindt u het certificaat aan de website.
-8. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Zorg ervoor dat er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+8. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
 
 
@@ -101,7 +102,7 @@ Nu de portal is geïnstalleerd, moet u de Azure Multi-Factor Authentication-serv
 De Azure Multi-Factor Authentication-server biedt verschillende opties voor de gebruikersportal.  De volgende tabel geeft een lijst van deze opties en een verklaring van de taak waarvoor ze worden gebruikt.
 
 Instellingen van gebruikersportal|Beschrijving|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL gebruikersportal| Hiermee kunt u de URL invoeren van de locatie waar de portal wordt gehost.
 Primaire authenticatie| Hiermee kunt u opgeven welk verificatietype moet worden gebruikt bij de aanmelding bij de portal:  Windows-, Radius- of LDAP-authenticatie.
 Aanmelden van gebruikers toestaan|Hiermee kunnen gebruikers een gebruikersnaam en wachtwoord invoeren op de aanmeldingspagina voor de gebruikersportal.  Als deze instelling niet is ingeschakeld, worden de vakken grijs weergegeven.
@@ -153,7 +154,7 @@ Hier kunt u instellen dat de gebruikersportal claims accepteert van een identite
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Goedgekeurde IP-adressen
-Op dit tabblad kunt u een IP-adres of een IP-adresbereik opgeven dat kan worden toegevoegd zodat meervoudige verificatie wordt overgeslagen als een gebruiker zich aanmeldt vanaf een van deze IP-adressen. 
+Op dit tabblad kunt u een IP-adres of een IP-adresbereik opgeven dat kan worden toegevoegd zodat meervoudige verificatie wordt overgeslagen als een gebruiker zich aanmeldt vanaf een van deze IP-adressen.
 
 ![Goedgekeurde IP-adressen gebruikersportal](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -168,13 +169,13 @@ Als de gebruiker de verificatiemethode Spraakoproep selecteert of als de gebruik
 
 Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  Nadat de gebruiker zijn of haar telefoonnummer(s) en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop Bel me nu om te verifiëren.  Azure Multi-Factor Authentication zal een verificatie door middel van een spraakoproep uitvoeren met behulp van het primaire telefoonnummer van de gebruiker.  De gebruiker moet de spraakoproep beantwoorden en zijn of haar pincode invoeren (indien van toepassing) en daarna op # drukken om door te gaan naar de volgende stap van het zelfregistratieproces.   
 
-Als de gebruiker de verificatiemethode Sms-tekstbericht selecteert of vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker gevraagd zijn of haar mobiel telefoonnummer op te geven.  Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  Nadat de gebruiker zijn of haar telefoonnummer en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop Sms me nu om te verifiëren.  Azure Multi-Factor Authentication zal een sms-verificatie uitvoeren met behulp van de mobiele telefoon van de gebruiker.  De gebruiker moet het sms-bericht dat een eenmalige wachtwoordcode bevat ontvangen en het bericht beantwoorden met die eenmalige wachtwoordcode (plus de pincode, indien van toepassing) om door te gaan naar de volgende stap van het zelfregistratieproces. 
+Als de gebruiker de verificatiemethode Sms-tekstbericht selecteert of vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker gevraagd zijn of haar mobiel telefoonnummer op te geven.  Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  Nadat de gebruiker zijn of haar telefoonnummer en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop Sms me nu om te verifiëren.  Azure Multi-Factor Authentication zal een sms-verificatie uitvoeren met behulp van de mobiele telefoon van de gebruiker.  De gebruiker moet het sms-bericht dat een eenmalige wachtwoordcode bevat ontvangen en het bericht beantwoorden met die eenmalige wachtwoordcode (plus de pincode, indien van toepassing) om door te gaan naar de volgende stap van het zelfregistratieproces.
 
 ![Sms gebruikersportal](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 Als de gebruiker de verificatiemethode Mobiele app selecteert of vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker op de pagina gevraagd om de Azure Multi-Factor Authentication-app op zijn of  haar apparaat te installeren en een activeringscode te genereren.  Na de installatie van de Azure Multi-Factor Authentication-app klikt de gebruiker op de knop Activeringscode genereren.    
 
->[AZURE.NOTE]Als de gebruiker de Azure Multi-Factor Authentication-app wilt gebruiken, moet de gebruiker pushmeldingen voor het apparaat inschakelen. 
+>[AZURE.NOTE]Als de gebruiker de Azure Multi-Factor Authentication-app wilt gebruiken, moet de gebruiker pushmeldingen voor het apparaat inschakelen.
 
 Op de pagina worden vervolgens een activeringscode en een URL weergegeven, samen met een afbeelding van een streepjescode.  Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  De gebruiker voert de activeringscode en URL in de Azure Multi-Factor Authentication-app in of gebruikt de streepjescodescanner om de afbeelding van de streepjescode te scannen en klikt op de knop Activeren.    
 
@@ -187,9 +188,8 @@ Als de beheerders de Azure Multi-Factor Authentication-server hebben geconfigure
 
 De zelfregistratie van de gebruiker is nu voltooid en de gebruiker is aangemeld bij de gebruikersportal.  Gebruikers kunnen zich later op elk gewenst moment opnieuw aanmelden bij de gebruikersportal om hun telefoonnummers, pincodes, verificatiemethoden en beveiligingsvragen te wijzigen als dat door de beheerders is toegestaan.
 
- 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

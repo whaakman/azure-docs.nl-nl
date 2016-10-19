@@ -20,7 +20,7 @@ Naast de hierboven genoemde voordelen zijn er een aantal belangrijke prestatieve
 -   Brede en parallelle implementatie van virtuele machines
 -   Ondersteuning voor 3 foutdomeinen in beschikbaarheidssets
 -   Verbeterde extensie voor aangepaste scripts, waarmee scripts van elke openbaar toegankelijke aangepaste URL kunnen worden gespecificeerd
-- Integratie van virtuele machines met de Azure Sleutelkluis voor uiterst veilige opslag en persoonlijke implementatie van geheimen van [FIPS-gevalideerde](http://wikipedia.org/wiki/FIPS_140-2) [hardwarebeveiligingsmodules](http://wikipedia.org/wiki/Hardware_security_module)
+- Integratie van virtuele machines met de Azure Key Vault voor uiterst veilige opslag en persoonlijke implementatie van geheimen van [FIPS-gevalideerde](http://wikipedia.org/wiki/FIPS_140-2)[hardwarebeveiligingsmodules](http://wikipedia.org/wiki/Hardware_security_module)
 -   De bouwstenen van netwerken via API's, waarmee klanten gecompliceerde toepassingen met netwerkinterfaces, load balancers en virtuele netwerken kunnen maken
 -   De nieuwe netwerkinterfaces zorgen ervoor dat een gecompliceerde netwerkconfiguratie kan worden ondersteund en hergebruikt voor virtuele machines
 -   Load balancers als een eerste-klas resource zorgen ervoor dat IP-adressen kunnen worden toegewezen
@@ -85,16 +85,11 @@ De quota voor de virtuele machines, virtuele netwerken en opslagaccounts die zij
 
 De automatisering en scripts die u hebt gemaakt blijven werken voor de bestaande virtuele machines en virtuele netwerken die zijn gemaakt in de Azure Service Management-modus. De scripts moeten echter worden bijgewerkt voor het gebruik van het nieuwe schema voor het maken van dezelfde resources via de nieuwe Azure Resource Manager-modus.
 
-**Kunnen de virtuele netwerken die zijn gemaakt met behulp van de nieuwe Azure Resource Manager-API's worden verbonden met mijn Express Route-circuit?**
-
-Dit wordt momenteel niet ondersteund. U kunt de virtuele netwerken die zijn gemaakt met behulp van de nieuwe Azure Resource Manager-API's niet verbinden met een Express Route-circuit. Dit wordt in de toekomst wel ondersteund.
-
 **Waar vind ik voorbeelden van Azure Resource Manager-sjablonen?**
 
 U vindt een uitgebreide set startsjablonen voor Azure Resource Manager op [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

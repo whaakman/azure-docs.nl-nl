@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
+
 
 # Containerbeheer met de REST API
 
@@ -74,8 +75,6 @@ U implementeert met Docker ingedeelde containers via Marathon met behulp van een
 Wanneer u een met Docker ingedeelde agent wilt implementeren, maakt u uw eigen JSON-bestand of gebruikt u het voorbeeld dat is opgegeven bij de [Azure Container Service-demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Sla dit op een toegankelijke locatie op. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef de naam op van het JSON-bestand.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +103,6 @@ Voer de volgende opdracht uit om de toepassing uit te schalen.
 >[AZURE.NOTE] De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +146,6 @@ U implementeert met Docker ingedeelde containers via Marathon met behulp van een
 Maak uw eigen JSON-bestand of gebruik het voorbeeld dat is opgegeven bij de [Azure Container Service-demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Sla dit op een toegankelijke locatie op. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef de naam op van het JSON-bestand.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,21 +160,16 @@ Voer de volgende opdracht uit om de toepassing uit te schalen.
 > [AZURE.NOTE] De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## Volgende stappen
 
-[Meer informatie over de Mesos HTTP-eindpunten]( http://mesos.apache.org/documentation/latest/endpoints/).
-[Meer informatie over de Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [Meer informatie over de Mesos HTTP-eindpunten]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Meer informatie over de Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
 
 
 
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

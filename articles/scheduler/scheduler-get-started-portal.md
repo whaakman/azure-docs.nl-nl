@@ -3,8 +3,8 @@
  description="Aan de slag met Azure Scheduler in Azure-portal"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -12,8 +12,9 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
- ms.author="krisragh"/>
+ ms.date="08/10/2016"
+ ms.author="deli"/>
+
 
 # Aan de slag met Azure Scheduler in Azure-portal
 
@@ -21,11 +22,11 @@ Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstud
 
 ## Een taak maken
 
-1.  Meld u aan bij [Azure Portal](https://portal.azure.com/).  
+1.  Meld u aan bij de [Azure-portal](https://portal.azure.com/).  
 
 2.  Klik op **+Nieuw** > typ _Scheduler_ in het zoekvak > selecteer **Scheduler** in de resultaten > klik op **Maken**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  We gaan een taak maken waarbij we eenvoudig http://www.microsoft.com/ bestoken met een GET-aanvraag. In het scherm **Scheduler-taak** voert u de volgende gegevens in:
 
@@ -43,7 +44,7 @@ Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstud
 
     3.  **URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Tot slot gaan we een planning definiëren. De taak kan worden gedefinieerd als een eenmalige taak, maar we kiezen een schema voor een terugkerende taak:
 
@@ -55,7 +56,7 @@ Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstud
 
     4. **Beëindigen op**: twee dagen na de huidige datum  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Klik op **Maken**.
 
@@ -73,7 +74,7 @@ Zodra een taak is gemaakt, wordt deze weergegeven in het belangrijkste Azure-das
 
 5.  Gebruikers
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Eigenschappen
 
@@ -100,7 +101,7 @@ Voor Service Bus-actietypen kunt u de naamruimte, het onderwerp/wachtrijpad, de 
 
 Hiermee kunt u het schema opnieuw configureren als u de planning wilt wijzigen die u hebt gemaakt in de wizard Snelle invoer.
 
-Dit is een kans om [complexe schema's en geavanceerde terugkeerpatroon in uw taak in te bouwen](scheduler-advanced-complexity.md)
+Dit is een kans om [complexe schema's en een geavanceerd terugkeerpatroon in uw taak in te bouwen](scheduler-advanced-complexity.md)
 
 U kunt de startdatum en -tijd wijzigen evenals de einddatum en -tijd (als het om een terugkerende taak gaat.)
 
@@ -150,7 +151,7 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
  [Hoge beschikbaarheid en betrouwbaarheid](scheduler-high-availability-reliability.md)
 
- [Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
+ [Limieten, standaardwaarden en foutcodes van Scheduler](scheduler-limits-defaults-errors.md)
 
  [Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
 
@@ -184,6 +185,6 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -13,14 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/17/2016"
+    ms.date="08/05/2016"
     ms.author="douglasl"/>
+
 
 # Ga aan de slag door de Enable Database voor Stretch-wizard uit te voeren
 
 Voer de Enable Database  voor Stretch-wizard uit om een database te configureren voor Stretch Database.  In dit onderwerp wordt uitgelegd welke gegevens u moet invoeren en welke keuzes u in de wizard moet maken.
 
 Zie [Stretch Database](sql-server-stretch-database-overview.md) voor meer informatie over Stretch Database.
+
+ >   [AZURE.NOTE] Later, wanneer u Stretch Database uitschakelt, houd er dan rekening mee dat het uitschakelen van Stretch Database voor een tabel of voor een database er niet voor zorgt dat het externe object wordt verwijderd. Als u de externe tabel of de externe database wilt verwijderen, moet u deze verwijderen met behulp van de Azure-beheerportal. Voor de externe objecten blijven Azure-kosten in rekening worden gebracht totdat u deze handmatig verwijdert. 
 
 ## De wizard starten
 
@@ -31,10 +34,18 @@ Zie [Stretch Database](sql-server-stretch-database-overview.md) voor meer inform
 ## <a name="Intro"></a>Inleiding
 Controleer het doel van de wizard en de vereisten.
 
+De belangrijke vereisten zijn:
+
+-   U moet een beheerder zijn om database-instellingen te wijzigen.
+-   U moet beschikken over een Microsoft Azure-abonnement.
+-   De SQL Server moet kunnen communiceren met de externe Azure-server.
+
 ![Introductiepagina van de Stretch Database-wizard][StretchWizardImage1]
 
 ## <a name="Tables"></a>Selecteer tabellen
 Selecteer de tabellen die u wilt inschakelen voor Stretch.
+
+Tabellen met een groot aantal rijen worden boven aan de gesorteerde lijst weergegeven. Voordat de Wizard de lijst met tabellen weergeeft, analyseert u deze om te zoeken naar gegevenstypen die momenteel niet worden ondersteund door Stretch Database.
 
 ![Selecteer de tabellenpagina van de Stretch Database-wizard][StretchWizardImage2]
 
@@ -42,31 +53,41 @@ Selecteer de tabellen die u wilt inschakelen voor Stretch.
 |----------|---------------|
 |(geen titel)|Vink het selectievakje in deze kolom aan om de geselecteerde tabel voor Stretch in te schakelen.|
 |**Naam**|De naam van de kolom in de tabel.|
-|(geen titel)|Een symbool in deze kolom geeft meestal aan u de geselecteerde tabel voor Stretch niet kunt inschakelen vanwege een probleem met blokkeringen. Dit komt mogelijk doordat de tabel een niet-ondersteund gegevenstype gebruikt. Houd de cursor boven  het symbool om meer informatie in de knopinfo weer te geven. Zie [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md) voor meer informatie.|
-|**Stretched**|Geeft aan of de tabel al is ingeschakeld.|
-|**Migreren**|U kunt een hele tabel migreren (**Gehele tabel**) of u kunt een filter op basis van datum-predicaat opgeven in de wizard. Als u een ander filterpredicaat wilt gebruiken om rijen te selecteren die u wilt migreren, voert u de instructie ALTER TABLE uit om het filterpredicaat te specificeren nadat u de wizard hebt afgesloten. Zie [Een filterpredicaat gebruiken om rijen te selecteren om te migreren (Stretch Database)](sql-server-stretch-database-predicate-function.md) voor meer informatie over het filterpredicaat. Zie [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) of [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)voor meer informatie over het toepassen van het predicaat.|
+|(geen titel)|Een symbool in deze kolom kan mogelijk staan voor een waarschuwing die niet\' voorkomt dat u de geselecteerde tabel kunt inschakelen voor Stretch. Het kan ook staan voor een probleem met een blokkering, dat verhindert dat u de geselecteerde tabel kunt inschakelen voor Stretch \-, bijvoorbeeld omdat de tabel een niet-ondersteund gegevenstype gebruikt. Houd de cursor boven  het symbool om meer informatie in de knopinfo weer te geven. Zie voor meer informatie [Beperkingen voor Stretch Database](sql-server-stretch-database-limitations.md).|
+|**Stretched**|Geeft aan of de tabel al is ingeschakeld voor Stretch.|
+|**Migreren**|U kunt een hele tabel migreren (**Gehele tabel**) of u kunt een filter op een bestaande kolom opgeven in de tabel. Als u een andere filterfunctie wilt gebruiken om rijen te selecteren die u wilt migreren, voert u de instructie ALTER TABLE uit om de filterfunctie te specificeren nadat u de wizard hebt afgesloten. Zie voor meer informatie over de filterfunctie [Rijen selecteren voor migratie met behulp van een filterfunctie](sql-server-stretch-database-predicate-function.md). Zie [Stretch Database inschakelen voor een tabel](sql-server-stretch-database-enable-table.md) of [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx) voor meer informatie over het toepassen van de functie.|
 |**Rijen**|Aantal rijen in de tabel.|
 |**Grootte (KB)**|Grootte van de tabel in KB.|
 
-## <a name="Filter"></a>Geef optioneel een filterpredicaat op basis van datum
+## <a name="Filter"></a>Geef optioneel een rijfilter op
 
-Als u een filterpredicaat op basis van datum wilt geven om de rijen die u wilt migreren te selecteren, doe dan het volgende op de pagina **Tabellen selecteren**.
+Als u een filterfunctie wilt opgeven om de rijen die u wilt migreren te selecteren, doe dan het volgende op de pagina **Tabellen selecteren**.
 
 1.  In de lijst **Selecteer de tabellen die u wilt uitrekken**, klikt u op **Gehele tabel** in de rij voor de tabel. Het dialoogvenster **Selecteer rijen om uit te rekken** wordt geopend.
 
-    ![Geef een filterpredicaat op op basis van datum][StretchWizardImage2a]
+    ![Een filterfunctie definiëren][StretchWizardImage2a]
 
 2.  In het dialoogvenster **Selecteer rijen om uit te rekken** selecteert u **Rijen kiezen**.
 
-3.  In het **naamveld** vult u een naam in voor het filterpredicaat.
+3.  In het **naamveld** vult u een naam in voor de filterfunctie.
 
-4.  Voor de **waar**-clausule kiest u een datumkolom uit de tabel, een operator en een datumwaarde.
+4.  Voor de **waar**-clausule kiest u een kolom uit de tabel, een operator en een waarde.
 
-5. Klik op **Controleren** om het predicaat te testen. Als het predicaat resultaten uit de tabel geeft, dat wil zeggen, als er te migreren rijen zijn die voldoen aan de voorwaarde, geeft de test **geslaagd** aan.
+5. Klik op **Controleren** om de functie te testen. Als de functie resultaten uit de tabel geeft, dat wil zeggen, als er te migreren rijen zijn die voldoen aan de voorwaarde, geeft de test **Geslaagd** aan.
+
+    >   [AZURE.NOTE] Het tekstvak waarin de filterquery wordt weergegeven is alleen-lezen. U kunt de query in het tekstvak niet bewerken.
 
 6.  Klik op Gereed om terug te keren naar de pagina **Tabellen selecteren**.
 
-    ![Selecteer de pagina Tabellen nadat u een filterpredicaat heeft gedefinieerd][StretchWizardImage2b]
+De filterfunctie wordt pas in SQL Server gemaakt wanneer u klaar bent met de wizard. Tot die tijd kunt u terugkeren naar de pagina **Tabellen selecteren** om de filterfunctie te wijzigen of deze een andere naam te geven.
+
+![Selecteer de pagina Tabellen nadat u een filterfunctie hebt gedefinieerd][StretchWizardImage2b]
+
+Als u een ander type filterfunctie wilt gebruiken om de rijen die u wilt migreren te selecteren, voert u een van de volgende acties uit.  
+
+-   Sluit de wizard af en voer de instructie ALTER TABLE uit om Stretch in te schakelen voor de tabel en een filterfunctie op te geven. Zie voor meer informatie [Stretch Database inschakelen voor een tabel](sql-server-stretch-database-enable-table.md).  
+
+-   Voer de instructie ALTER TABLE uit om een filterfunctie op te geven nadat u de wizard hebt afgesloten. Zie voor de vereiste stappen [Een filterfunctie toevoegen na het uitvoeren van de wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 ## <a name="Configure"></a>Azure-implementatie configureren
 
@@ -74,9 +95,11 @@ Als u een filterpredicaat op basis van datum wilt geven om de rijen die u wilt m
 
     ![Inloggen bij de Azure - Stretch Database-wizard][StretchWizardImage3]
 
-2.  Selecteer het Azure-abonnement dat moet worden gebruikt voor de Stretch Database.
+2.  Selecteer het bestaande Azure-abonnement dat moet worden gebruikt voor de Stretch Database.
 
-3.  Selecteer een Azure-regio. Als u een nieuwe server maakt, wordt de server gemaakt in deze regio.
+3.  Selecteer een Azure-regio.
+    -   Als u een nieuwe server maakt, wordt de server gemaakt in deze regio.  
+    -   Als u bestaande servers in de geselecteerde regio hebt, geeft de wizard deze weer als u **Bestaande server** kiest.
 
     Om latentie te beperken, kiest u de Azure-regio waarin uw SQL Server zich bevindt. Zie [Azure-gebieden](https://azure.microsoft.com/regions/) voor meer informatie over de regio's.
 
@@ -94,41 +117,47 @@ Als u een filterpredicaat op basis van datum wilt geven om de rijen die u wilt m
 
     -   **Bestaande server**
 
-        1.  Selecteer of typ de naam van de bestaande Azure-server.
+        1.  Selecteer de bestaande Azure-server.
 
         2.  Selecteer de verificatiemethode.
 
-            -   Als u **SQL Server-verificatie** selecteert, maakt u een nieuwe gebruikersnaam en nieuw wachtwoord.
+            -   Als u **SQL Server-verificatie** selecteert, geeft u de gebruikersnaam en het wachtwoord van de beheerder op.
 
-            -   Selecteer **Active Directory Integrated Authentication** om een federatieve serviceaccount voor SQL Server te gebruiken om te communiceren met de externe Azure-server.
+            -   Selecteer **Active Directory Integrated Authentication** om een federatieve serviceaccount voor SQL Server te gebruiken om te communiceren met de externe Azure-server. Als de geselecteerde server niet is geïntegreerd met Azure Active Directory, wordt deze optie niet weergegeven.
 
         ![Bestaande Azure-server selecteren - Stretch Database-wizard][StretchWizardImage5]
 
 ## <a name="Credentials"></a>Beveiligde referenties
-Voer een sterk wachtwoord in om een databasehoofdsleutel te maken, of voer het wachtwoord in als een databasehoofdsleutel al bestaat.
+U hebt een databasehoofdsleutel nodig om de referenties te beschermen die de Stretch Database gebruikt om verbinding te maken met de externe database.  
 
-U hebt een databasehoofdsleutel nodig om de referenties te beschermen die de Stretch Database gebruikt om verbinding te maken met de externe database.
+Als er al een databasehoofdsleutel bestaat, voert u hiervoor het wachtwoord in.  
+
+![Beveilig de referentiepagina van de Stretch Database-wizard][StretchWizardImage6b]
+
+Als de database geen bestaande hoofdsleutel heeft, voert u een sterk wachtwoord in om een databasehoofdsleutel te maken.  
 
 ![Beveilig de referentiepagina van de Stretch Database-wizard][StretchWizardImage6]
 
 Zie [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) en [Create a Database Master Key](https://msdn.microsoft.com/library/aa337551.aspx) voor meer informatie over de databasehoofdsleutel. Zie [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx) voor meer informatie over de referentie die de wizard maakt.
 
 ## <a name="Network"></a>Selecteer IP-adres
-Gebruik het openbare IP-adres van uw SQL Server of voer een bereik met IP-adressen in om een firewallregel op Azure te creëren waarmee SQL Server kan communiceren met de externe Azure-server invoeren.
+Gebruik het subnet-IP-adresbereik (aanbevolen) of het openbare IP-adres van uw SQL Server om een firewallregel op Azure te creëren waardoor SQL Server kan communiceren met de externe Azure-server.
 
 Het IP-adressen/de IP-adressen die u op deze pagina opgeeft, laten de Azure-server weten dat deze binnenkomende gegevens, query's en beheerbewerkingen gestart door SQL Server moet doorlaten via de Azure-firewall. De wizard brengt geen wijzigingen aan in de firewall-instellingen op de SQL Server.
 
 ![Selecteer de IP-adrespagina van de Stretch Database-wizard][StretchWizardImage7]
 
 ## <a name="Summary"></a>Samenvatting
-Bekijk de waarden die u hebt ingevoerd en de opties die u hebt geselecteerd in de wizard. Selecteer vervolgens **Voltooien** om Stretch in te schakelen.
+Bekijk de waarden die u hebt ingevoerd, de opties die u hebt geselecteerd in de wizard en de geschatte kosten in Azure. Selecteer vervolgens **Voltooien** om Stretch in te schakelen.
 
 ![Overzichtspagina van de Stretch Database-wizard][StretchWizardImage8]
 
 ## <a name="Results"></a>Resultaten
 Bekijk de resultaten.
 
-Selecteer eventueel **Monitor** om het monitoren van de status van de gegevensmigratie in de Stretch Database Monitor te starten. Zie [Monitor and troubleshoot data migration (Stretch Database)](sql-server-stretch-database-monitor.md) voor meer informatie.
+Zie [Gegevensmigratie bewaken en problemen oplossen (Stretch Database)](sql-server-stretch-database-monitor.md) om de status van de gegevensmigratie te bewaken.
+
+![Pagina met resultaten van de Stretch Database-wizard][StretchWizardImage9]
 
 ## <a name="KnownIssues"></a>Problemen met de wizard oplossen
 **De Stretch Database-wizard is mislukt.**
@@ -139,13 +168,13 @@ Aanvullende tabellen voor Stretch Database inschakelen. Controleer gegevensmigra
 
 -   [Stretch  Database  inschakelen voor een tabel](sql-server-stretch-database-enable-table.md) om aanvullende tabellen in te schakelen.
 
--   [Stretch  Database bewaken](sql-server-stretch-database-monitor.md) om de status van de gegevensmigratie te bekijken.
+-   [Gegevensmigratie bewaken en problemen oplossen](sql-server-stretch-database-monitor.md) voor de status van de gegevensmigratie.
 
 -   [Stretch Database pauzeren en  hervatten](sql-server-stretch-database-pause.md)
 
 -   [Stretch Database beheren en problemen oplossen](sql-server-stretch-database-manage.md)
 
--   [Back-up en herstel voor Stretch geschikte databases](sql-server-stretch-database-backup.md)
+-   [Back-up maken van Stretch-databases](sql-server-stretch-database-backup.md)
 
 ## Zie ook
 
@@ -161,11 +190,13 @@ Aanvullende tabellen voor Stretch Database inschakelen. Controleer gegevensmigra
 [StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
 [StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png
 [StretchWizardImage6]: ./media/sql-server-stretch-database-wizard/stretchwiz6.png
+[StretchWizardImage6b]: ./media/sql-server-stretch-database-wizard/stretchwiz6b.png
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
+[StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

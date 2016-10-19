@@ -15,13 +15,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
+
 
 
 # Verbinding maken met een Azure Container Service-cluster
 
-DC/OS- en Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar Voor het beheren van deze eindpunten moet u een SSH-tunnel (Secure Shell) maken. Wanneer een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In dit document vindt u instructies voor het maken van een SSH-tunnel in Linux, OS X en Windows.
+DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar Voor het beheren van deze eindpunten moet u een SSH-tunnel (Secure Shell) maken. Nadat een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In dit document vindt u instructies voor het maken van een SSH-tunnel in Linux, OS X en Windows.
 
 >[AZURE.NOTE] U kunt een SSH-sessie maken met een clusterbeheersysteem. Dit wordt echter niet aangeraden. Wanneer u rechtstreeks in een beheersysteem werkt, bestaat het risico op onbedoelde configuratiewijzigingen.   
 
@@ -41,8 +42,6 @@ Open nu een shell en voer de volgende opdracht uit, waarbij:
 **PATH_TO_PRIVATE_KEY** [OPTIONEEL] het pad is naar de persoonlijke sleutel die overeenkomt met de openbare sleutel die u hebt opgegeven bij het maken van het containerservicecluster. Gebruik deze optie met de vlag -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > De poort voor de SSH-verbinding is 2200 en niet 22 (de standaardpoort).
@@ -52,8 +51,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Wanneer u een tunnel wilt openen naar de DC/OS-gerelateerde eindpunten, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -70,12 +67,10 @@ U kunt ook de REST API's voor elke toepassing via deze tunnel bereiken.
 Wanneer u een tunnel wilt openen naar het Swarm-eindpunt, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-U kunt nu uw omgevingsvariabele DOCKER_HOST als volgt instellen en de Docker-opdrachtregelinterface (CLI) op dezelfde wijze blijven gebruiken.
+U kunt nu uw omgevingsvariabele DOCKER_HOST als volgt instellen. U kunt uw Docker-opdrachtregelinterface blijven gebruiken zoals u dat normaal doet.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -91,11 +86,11 @@ Voer een hostnaam in die bestaat uit de naam van de cluserbeheerdergebruiker en 
 
 ![PuTTY-configuratie 1](media/putty1.png)
 
-Selecteer `SSH` en `Authentication`. Voeg uw persoonlijke sleutelbestand toe voor verificatiedoeleinden.
+Selecteer **SSH** en **Verificatie**. Voeg uw persoonlijke sleutelbestand toe voor verificatiedoeleinden.
 
 ![PuTTY-configuratie 2](media/putty2.png)
 
-Selecteer `Tunnels` en configureer de volgende doorgestuurde poorten:
+Selecteer **Tunnels** en configureer de volgende doorgestuurde poorten:
 - **Bronpoort:** uw voorkeur, gebruik 80 voor DC/OS of 2375 voor Swarm.
 - **Doelpoort:** gebruik localhost:80 voor DC/OS of localhost:2375 voor Swarm.
 
@@ -119,13 +114,13 @@ Wanneer u de tunnel voor Docker Swarm hebt geconfigureerd, hebt u toegang tot he
 
 ## Volgende stappen
 
-Implementeer en beheer containers met DC/OS of Swarm.
+Containers implementeren en beheren met DC/OS of Swarm:
 
-[Werken met Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
-[Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
+- [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
+- [Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

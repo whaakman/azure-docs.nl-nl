@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="gusapost;tamram"/>
+
 
 
 # Aan de slag met Azure Table Storage met .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overzicht
 
-Azure Table Storage is een service waarmee gestructureerde NoSQL-gegevens worden opgeslagen in de cloud. Table Storage is een sleutel-/kenmerkopslag met een schemaloos ontwerp. Omdat Table Storage schemaloos is, kunt u uw gegevens eenvoudig aanpassen naarmate de behoeften van uw toepassing veranderen. De toegang tot gegevens verloopt snel en kostenefficiënt voor alle soorten toepassingen. Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes. 
+Azure Table Storage is een service waarmee gestructureerde NoSQL-gegevens worden opgeslagen in de cloud. Table Storage is een sleutel-/kenmerkopslag met een schemaloos ontwerp. Omdat Table Storage schemaloos is, kunt u uw gegevens eenvoudig aanpassen naarmate de behoeften van uw toepassing veranderen. De toegang tot gegevens verloopt snel en kostenefficiënt voor alle soorten toepassingen. Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
 
 U kunt Table Storage gebruiken voor het opslaan van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig heeft. In elke tabel kunt u een willekeurig aantal entiteiten opslaan. Een opslagaccount kan een onbeperkt aantal tabellen bevatten, tot de maximale capaciteit van het opslagaccount.
 
@@ -42,6 +45,11 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Meer voorbeelden
+
+Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Aan de slag met Azure Table Storage in .NET) voor meer voorbeelden van het gebruik van Table Storage. U kunt de voorbeeldtoepassing downloaden en uitvoeren, of door de code bladeren op GitHub.
+
+
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -52,7 +60,7 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 
 Voeg boven aan het `program.cs`-bestand de volgende `using`-instructies toe:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -76,13 +84,13 @@ In dit voorbeeld ziet u hoe u een tabel kunt maken als deze nog niet bestaat:
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-        
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -442,6 +450,7 @@ Als u een groot aantal entiteiten leest en u deze wilt verwerken/weergeven terwi
 
 Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken:
 
+- Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Aan de slag met Azure Table Storage in .NET) voor meer voorbeelden van Table Storage.
 - Bekijk de naslagdocumentatie over de Tabelservice voor meer informatie over beschikbare API's:
     - [Naslaginformatie over de Storage-clientbibliotheek voor .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Naslaginformatie over REST API](http://msdn.microsoft.com/library/azure/dd179355)
@@ -470,6 +479,6 @@ Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

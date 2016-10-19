@@ -16,6 +16,7 @@
     ms.date="12/16/2015"
     ms.author="dwrede"/>
 
+
 # Overzicht van Microsoft Azure Portal
 
 De Microsoft Azure Portal is een centrale plaats waar u uw Azure-resources kunt inrichten en beheren.  In deze zelfstudie raakt u vertrouwd met de portal en ziet u hoe u een aantal van deze kernmogelijkheden gebruikt:
@@ -100,6 +101,6 @@ De Microsoft Azure Portal vereenvoudigt het maken en beheren van uw toepassingen
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

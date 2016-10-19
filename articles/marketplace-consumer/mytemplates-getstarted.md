@@ -1,6 +1,6 @@
 <properties
    pageTitle="Aan de slag met persoonlijke sjablonen | Microsoft Azure"
-   description="Uw persoonlijke sjablonen toevoegen, beheren en delen met de Azure Portal, de Azure CLI of PowerShell."
+   description="Uw persoonlijke sjablonen toevoegen, beheren en delen met de Azure-portal, de Azure CLI of PowerShell."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,13 +18,14 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
-# Aan de slag met persoonlijke sjablonen in de Azure Portal
+
+# Aan de slag met persoonlijke sjablonen in de Azure-portal
 
 Een [Azure Resource Manager](../resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
 
-U kunt de nieuwe **sjabloon**mogelijkheden van de [Azure Portal](https://portal.azure.com) gebruiken in combinatie met de **Microsoft.Gallery** resourceprovider als een uitbreiding van de [Azure Marketplace](https://azure.microsoft.com/marketplace/). Zo kunnen gebruikers persoonlijke sjablonen maken, beheren en implementeren vanuit een persoonlijke bibliotheek.
+U kunt de nieuwe **sjabloon**mogelijkheden van de [Azure-portal](https://portal.azure.com) gebruiken in combinatie met de **Microsoft.Gallery** resourceprovider als een uitbreiding van de [Azure Marketplace](https://azure.microsoft.com/marketplace/). Zo kunnen gebruikers persoonlijke sjablonen maken, beheren en implementeren vanuit een persoonlijke bibliotheek.
 
-Dit document is een handleiding voor het toevoegen, beheren en delen van een persoonlijk **sjabloon** via de Azure Portal.
+Dit document is een handleiding voor het toevoegen, beheren en delen van een persoonlijk **sjabloon** via de Azure-portal.
 
 ## Richtlijnen
 
@@ -33,18 +34,18 @@ Met de volgende tips kunt u profiteren van de **sjablonen** wanneer u aan de sla
 - Een **sjabloon** is een inkapselende resource met een Resource Manager-sjabloon en aanvullende metagegevens. Het werkt op dezelfde manier als een item in de Marketplace. Het belangrijkste verschil is dat het een persoonlijk item is, in plaats van een openbaar Marketplace-item.
 - De **sjablonen**bibliotheek is zeer geschikt voor gebruikers die hun implementaties willen aanpassen.
 - **Sjablonen** zijn handig voor gebruikers die een eenvoudige opslagplaats in Azure nodig hebben.
-- Begin met een bestaand Resource Manager-sjabloon. Zoek sjablonen in [github](https://github.com/Azure/azure-quickstart-templates) of [exporteer een sjabloon](https://azure.microsoft.com/blog/export-template/) vanuit een bestaande resourcegroep.
+- Begin met een bestaand Resource Manager-sjabloon. Zoek sjablonen in [github](https://github.com/Azure/azure-quickstart-templates) of [exporteer een sjabloon](../resource-manager-export-template.md) vanuit een bestaande resourcegroep.
 - **Sjablonen** zijn gekoppeld aan de gebruiker die deze publiceert. De naam van de uitgever is zichtbaar voor alle gebruikers met leestoegang.
 - **Sjablonen** zijn resources van de Resource Manager en kunnen na publicatie niet meer worden gewijzigd.
 
 ## Een sjabloonresource toevoegen
 
-Er zijn twee manieren om een **sjabloon**resource te maken in de Azure Portal.
+Er zijn twee manieren om een **sjabloon**resource te maken in de Azure-portal.
 
 ### Methode 1: Maak een nieuwe sjabloonresource vanuit een bestaande resourcegroep
 
-1. Navigeer naar een bestaande resourcegroep in de Azure Portal. Klik op **Sjabloon exporteren** in **Instellingen**.
-2. Zodra de Resource Manager-sjabloon is geëxporteerd, gebruikt u de knop **Sjabloon opslaan** om de sjabloon op te slaan in de  **Sjabloon**opslag. Meer informatie over het exporteren van sjablonen vindt u [hier](https://azure.microsoft.com/blog/export-template/).
+1. Navigeer naar een bestaande resourcegroep in de Azure-portal. Klik op **Sjabloon exporteren** in **Instellingen**.
+2. Zodra de Resource Manager-sjabloon is geëxporteerd, gebruikt u de knop **Sjabloon opslaan** om de sjabloon op te slaan in de  **Sjabloon**opslag. Meer informatie over het exporteren van sjablonen vindt u [hier](../resource-manager-export-template.md).
 <br /><br />
 ![Resourcegroep exporteren](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +117,7 @@ Selecteer **Delen** in het bladeritem door te klikken met de rechtermuisknop of 
 
 ![Sjabloon delen](media/share-template-portal1a.png)  <br />
 
- U kunt nu een rol en een gebruiker of groep kiezen die u toegang wilt geven tot een bepaald **sjabloon**. De beschikbare rollen zijn Eigenaar, Lezer en Inzender. Meer informatie vindt u in het gedeelte [toegangscontrole](#access-control-for-a-tenant-resource-provider) hieronder.
+ U kunt nu een rol en een gebruiker of groep kiezen die u toegang wilt geven tot een bepaald **sjabloon**. De beschikbare rollen zijn Eigenaar, Lezer en Inzender. Meer informatie vindt u in het gedeelte [toegangscontrole](#access-control-for-a-tenant-resource-provider) hierboven.
 
 ![Sjabloon delen](media/share-template-portal2b.png)  <br />
 
@@ -136,6 +137,6 @@ Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu de gebruikers of groep
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

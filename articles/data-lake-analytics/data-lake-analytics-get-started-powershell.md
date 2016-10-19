@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,18 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="09/21/2016"
    ms.author="edmaca"/>
+
 
 # Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure PowerShell
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het gebruik van Azure PowerShell voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
+Informatie over het gebruik van Azure PowerShell voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md) en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een taak ontwikkelen die een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Vereisten
 
@@ -125,7 +124,8 @@ Het volgende PowerShell-script laat zien hoe u de standaardnaam van Data Lake St
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    echo $dataLakeStoreName
 
 >[AZURE.NOTE] De Azure Portal biedt een gebruikersinterface voor het kopiëren van de bestanden met voorbeeldgegevens naar het Data Lake Store-standaardaccount. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account) voor instructies.
 
@@ -133,7 +133,7 @@ Data Lake Analytics heeft ook toegang tot Azure Blob-opslag.  Zie [Azure PowerSh
 
 ##Data Lake Analytics-taken verzenden
 
-De Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
+Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
 
 **Een Data Lake Analytics-taakscript maken**
 
@@ -177,13 +177,10 @@ De Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de sla
         $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
         $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
         
-        Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
-                        
-        While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
-            Write-Host "Job status: "$t.State"..."
-            Start-Sleep -seconds 5
-        }
-        
+        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
+
+        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+
         Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
     In het script wordt het U-SQL-scriptbestand opgeslagen in c:\tutorials\data-lake-analytics\copyFile.usql. Werk het bestandspad dienovereenkomstig bij.
@@ -212,6 +209,6 @@ Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand w
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

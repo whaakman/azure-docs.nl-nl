@@ -6,15 +6,16 @@
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="azure active directory user, azure service management, azure ad user account" />
+   keywords="Azure Active Directory-gebruiker, Azure Service Management, Azure AD-gebruikersaccount" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
+
 
 # Runbooks met Azure Service Management en Resource Manager verifiëren
 
@@ -89,6 +90,6 @@ U moet deze regels na [controlepunten](http://technet.microsoft.com/library/dn46
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

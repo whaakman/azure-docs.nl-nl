@@ -16,14 +16,14 @@ Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer in SSMS bent ver
 
 3. In het queryvenster kunt u de volgende Transact-SQL-instructie bewerken en gebruiken om dbo-machtigingen aan een opgegeven gebruiker toe te kennen. 
 
-    '''ALTER ROLE db_owner ADD MEMBER user1;
+    ```ALTER ROLE db_owner ADD MEMBER gebruiker1;
+    ```
 
-     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Sep16_HO3-->
 
 

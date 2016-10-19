@@ -8,10 +8,11 @@ De volgende tabel bevat de vereisten voor VPN-gateways op basis van beleid en ro
 | **Verificatiemethode**                 |    Vooraf gedeelde sleutel  | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit |
 | **Maximumaantal S2S-verbindingen**       | 1                              | 10                                                                    | 10                                | 30                               |
 | **Maximumaantal P2S-verbindingen**       | Niet ondersteund                  | 128                                                                   | 128                               | 128                              |
-|**Ondersteuning voor actieve routering (BGP)**           | Niet ondersteund                  | Niet ondersteund                                                         | Niet ondersteund                     | Niet ondersteund                    |
+|**Ondersteuning voor actieve routering (BGP)**           | Niet ondersteund                  | Niet ondersteund                                                         | Ondersteund                     | Ondersteund                   |
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

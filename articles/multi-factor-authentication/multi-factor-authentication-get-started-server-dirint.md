@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Adreslijstintegratie tussen Azure Multi-Factor Authentication en Active Directory" 
-    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u de Azure Multi-Factor Authentication-server kunt integreren met Active Directory zodat u de mappen kunt synchroniseren." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Adreslijstintegratie tussen Azure Multi-Factor Authentication en Active Directory"
+    description="Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u de Azure Multi-Factor Authentication-server kunt integreren met Active Directory zodat u de mappen kunt synchroniseren."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Adreslijstintegratie tussen Azure MFA-server en Active Directory
 
-In de sectie Adreslijstintegratie kunt u de server configureren voor integratie met Active Directory of een andere LDAP-directory.  Hier kunt u kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en de automatische synchronisatie van gebruikers instellen. 
+In de sectie Adreslijstintegratie kunt u de server configureren voor integratie met Active Directory of een andere LDAP-directory.  Hier kunt u kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en de automatische synchronisatie van gebruikers instellen.
 
 ## Instellingen
 De Azure Multi-Factor Authentication-server is standaard geconfigureerd om gebruikers te importeren uit of te synchroniseren met Active Directory.  Op dit tabblad kunt u het standaardgedrag negeren en een binding maken met een andere LDAP-directory, een ADAM-directory of specifieke Active Directory-domeincontroller.  U kunt hier ook LDAP-verificatie gebruiken om een proxy op LDAP uit te voeren of LDAP-binding gebruiken als een RADIUS-doel, pre-authenticatie voor IIS-authenticatie gebruiken of primaire authenticatie voor de gebruikersportal gebruiken.  De volgende tabel beschrijft de afzonderlijke instellingen.
@@ -67,7 +68,7 @@ Kenmerken kunnen indien nodig worden aangepast voor een specifieke directory.  H
 | Functie | Beschrijving |
 | ------- | ----------- |
 | Unieke id | Voer de kenmerknaam van het kenmerk in die fungeert als de unieke id van de container, beveiligingsgroep en gebruikersrecords.  In Active Directory is dit doorgaans objectGUID.  In andere LDAP-implementaties kan dit entryUUID of iets soortgelijks zijn.  De standaardwaarde is objectGUID. |
-| Knoppen  ... (Kenmerk selecteren) | Naast elk kenmerkveld bevindt zich een knop '...' die het dialoogvenster Kenmerk selecteren weergeeft, waarin een kenmerk uit een lijst kan worden geselecteerd. <br><br>Dialoogvenster Kenmerk selecteren.<br><br>Opmerking: kenmerken kunnen handmatig worden ingevoerd en hoeven niet overeen te komen met een kenmerk in de lijst met kenmerken. |
+| ... De Select Attribute-knoppen (Kenmerk selecteren) | Naast elk kenmerkveld bevindt zich een knop '...' die het dialoogvenster Kenmerk selecteren weergeeft, waarin een kenmerk uit een lijst kan worden geselecteerd. <br><br>Dialoogvenster Kenmerk selecteren.<br><br>Opmerking: kenmerken kunnen handmatig worden ingevoerd en hoeven niet overeen te komen met een kenmerk in de lijst met kenmerken. |
 | Type unieke id | Selecteer het type van het kenmerk Unieke id.  In Active Directory heeft het kenmerk objectGUID het type GUID.  In andere LDAP-implementaties kan dit het type ASCII-bytematrix of Tekenreeks zijn.  De standaardwaarde is GUID. <br><br>Opmerking: Het is belangrijk dat u dit correct instelt omdat naar synchronisatie-items wordt verwezen met hun unieke id en het type unieke id wordt gebruikt om het object rechtstreeks in de map te vinden.  Wanneer dit op Tekenreeks wordt ingesteld terwijl de directory de waarde eigenlijk als een bytematrix van ASCII-tekens opslaat, zal de synchronisatie niet juist verlopen. |
 | DN-naam | Voer de kenmerknaam in van het kenmerk dat de DN-naam voor elke record bevat.  In Active Directory is dit doorgaans distinguishedName.  In andere LDAP-implementaties kan het entryDN of iets soortgelijks zijn.  De standaardwaarde is distinguishedName. <br><br>Opmerking: Als er geen kenmerk bestaat dat alleen de DN-naam bevat, kan het kenmerk adspath worden gebruikt.  Het gedeelte LDAP://<server>/ van het pad wordt automatisch verwijderd, waardoor alleen de DN-naam van het object overblijft. |
 | Containernaam | Voer de kenmerknaam in van het kenmerk dat de naam in een containerrecord bevat.  De waarde van dit kenmerk wordt weergegeven in de containerhiërarchie bij het importeren vanuit Active Directory of bij het toevoegen van synchronisatie-items.  De standaardwaarde is name. <br><br>Opmerking: Als verschillende containers andere kenmerken voor hun namen gebruiken, kunnen meerdere containernaamkenmerken worden opgegeven, gescheiden door puntkomma's.  Het eerste containernaamkenmerk dat in een containerobject wordt gevonden, wordt gebruikt om de naam ervan weer te geven. |
@@ -90,7 +91,7 @@ Kenmerken kunnen indien nodig worden aangepast voor een specifieke directory.  H
 | Mobiele telefoon | Voer de kenmerknaam in van het kenmerk dat het mobiel telefoonnummer in een gebruikersrecord bevat.  De standaardwaarde is mobile. |
 | Fax | Voer de kenmerknaam in van het kenmerk dat het faxnummer in een gebruikersrecord bevat.  De standaardwaarde is facsimileTelephoneNumber. |
 | IP-telefoon | Voer de kenmerknaam in van het kenmerk dat het IP-telefoonnummer in een gebruikersrecord bevat.  De standaardwaarde is ipPhone. |
-| Aangepast telefoonnummer | Voer de kenmerknaam in van het kenmerk dat een aangepast telefoonnummer in  |
+| Aangepast telefoonnummer | Voer de kenmerknaam in van het kenmerk dat een aangepast telefoonnummer in |
 |  | een gebruikersrecord bevat.  Standaard is dit veld leeg. |
 | Toestelnummer | Voer de kenmerknaam in van het kenmerk dat het toestelnummer in een gebruikersrecord bevat.  De waarde van het veld Toestelnummer zal alleen worden gebruikt als het toestelnummer voor het primaire telefoonnummer.  Standaard is dit veld leeg. <br><br>Opmerking: Als het kenmerk Toestelnummer niet wordt opgegeven, kunnen toestelnummers worden opgenomen als onderdeel van het telefoonkenmerk.  Het toestelnummer moet worden voorafgegaan door een 'x', zodat het kan worden geparseerd.  Het nummer 020-123-4567 x890 resulteert bijvoorbeeld in 020-123-4567 als het telefoonnummer en 890 als het toestelnummer. |
 | Knop Standaardwaarden herstellen | Klik op de knop Standaardwaarden herstellen om alle kenmerken opnieuw in te stellen op hun standaardwaarde.  De standaardinstellingen werken doorgaans juist met het normale Active Directory- of ADAM-schema. |
@@ -126,7 +127,7 @@ Met de knop **Verwijderen** kan de beheerder een of meer synchronisatie-items ui
 
 >[AZURE.WARNING]Nadat een synchronisatie-itemrecord is verwijderd, kan het niet worden hersteld. Als u het per ongeluk hebt verwijderd, moet u het synchronisatie-itemrecord opnieuw toevoegen.
 
-De synchronisatie-items worden verwijderd van de Multi-Factor Authentication-server.  De service van de Multi-Factor Authentication-server zal de synchronisatie-items niet langer verwerken. 
+De synchronisatie-items worden verwijderd van de Multi-Factor Authentication-server.  De service van de Multi-Factor Authentication-server zal de synchronisatie-items niet langer verwerken.
 
 Met de knoppen Omhoog en Omlaag kan de beheerder de volgorde van de synchronisatie-items wijzigen.  De volgorde is belangrijk omdat dezelfde gebruiker lid kan zijn van meer dan één synchronisatie-item (bijvoorbeeld van een container en een beveiligingsgroep).  De instellingen die bij de synchronisatie op de gebruiker worden toegepast, zijn afkomstig van het eerste synchronisatie-item in de lijst waaraan de gebruiker is gekoppeld.  Daarom moeten de synchronisatie-items in volgorde van prioriteit worden geplaatst.
 
@@ -138,6 +139,7 @@ Extra Multi-Factor Authentication-servers kunnen worden ingesteld om te fungeren
 ![Multi-Factor Auth-servers](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Sep16_HO3-->
 
 

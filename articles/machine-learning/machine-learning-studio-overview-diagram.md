@@ -1,11 +1,11 @@
 <properties
     pageTitle="Overzichtsdiagram van de mogelijkheden van Machine Learning Studio | Microsoft Azure"
     description="Een afdrukbaar diagram van de mogelijkheden van Azure Machine Learning Studio dat laat zien hoe u met Studio een predictive analytics-experiment opzet en dit in de Azure-cloud implementeert."
-    keywords="machine learning studio,overview diagram,download"
+    keywords="Machine Learning Studio, overzichtsdiagram, downloaden"
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/22/2016"
+    ms.date="09/21/2016"
     ms.author="haining;garye" />
+
 
 
 # Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
@@ -37,7 +38,7 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio][studio-overview]
 
-[studio-overzicht]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
+[studio-overview]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
 
 
 ## Meer hulp bij Machine Learning Studio
@@ -50,6 +51,6 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

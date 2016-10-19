@@ -3,7 +3,7 @@
     description="Volg deze zelfstudie om aan de slag te gaan met Azure Mobile Apps voor Xamarin.Forms-ontwikkeling"
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Een Xamarin.Forms-app maken
 
@@ -30,36 +31,28 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies o
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal 10 gratis Mobile Apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 * Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies. 
 
 * Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
  
->[AZURE.NOTE] Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke en eenvoudige Mobile App maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+>[AZURE.NOTE] Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke en eenvoudige Mobile App maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
-## Een nieuwe back-end voor Azure Mobile Apps maken
+## Een nieuwe back-end voor mobiele apps van Azure maken
 
-Volg deze stappen voor het maken van een nieuwe back-end voor Mobile Apps.
+Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 
-U hebt nu een back-end voor Azure Mobile Apps ingericht, die kan worden gebruikt door uw mobiele clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
+U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
 
 ## Het serverproject configureren
 
 Volg onderstaande stappen voor het configureren van het serverproject voor het gebruik van de Node.js- of .NET-back-end.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## (Optioneel) Uw back-endproject lokaal testen
-
-Als u hierboven een .NET-back-endconfiguratie hebt gekozen, kunt u eventueel de back-end lokaal testen.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
 
 ##De Xamarin.Forms-oplossing downloaden en uitvoeren
 
@@ -100,9 +93,10 @@ Typ in de app zinvolle tekst, zoals _Xamarin leren kennen_, en klik vervolgens o
 
 ![][10]
 
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
 
->[AZURE.NOTE] U vindt de code die toegang geeft tot de back-end voor mobiele apps, in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
+>[AZURE.NOTE]
+> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
 
 ##(Optioneel) Het Android-project uitvoeren
 
@@ -126,9 +120,10 @@ Typ in de app zinvolle tekst, zoals _Xamarin leren kennen_, en klik vervolgens o
 
 ![][11]
 
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
 
-> [AZURE.NOTE] U vindt de code die toegang geeft tot de back-end voor mobiele apps, in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
+> [AZURE.NOTE]
+> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
 
 
 ##(Optioneel) Het Windows-project uitvoeren
@@ -148,19 +143,25 @@ Deze sectie gaat over het uitvoeren van het project Xamarin WinApp voor Windows-
 
 Typ in de app zinvolle tekst, zoals _Xamarin leren kennen_, en klik vervolgens op de knop **+**.
 
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
 
 ![][12]
 
-> [AZURE.NOTE] U vindt de code die toegang geeft tot de back-end voor mobiele apps, in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
+> [AZURE.NOTE]
+> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
 
 ##Volgende stappen
 
-* [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-forms-get-started-users.md)  
-Informatie over het verifiëren van gebruikers van uw app met een id-provider.
-* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-forms-get-started-push.md)  
-Informatie over het toevoegen van pushmeldingen aan uw app.
-* [De beheerde client gebruiken voor mobiele apps van Azure](app-service-mobile-dotnet-how-to-use-client-library.md)  
+* [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-users.md)  
+Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
+
+* [Pushmeldingen toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-push.md)  
+Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
+
+* [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
+
+* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Informatie over het werken met de SDK voor beheerde clients in uw  Xamarin-app. 
 
 
@@ -187,6 +188,6 @@ Informatie over het werken met de SDK voor beheerde clients in uw  Xamarin-app.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -12,8 +12,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
+
 
 # Programmeerhandleiding voor Event Hubs
 
@@ -23,7 +24,7 @@ In dit onderwerp wordt beschreven hoe u kunt programmeren met Azure Event Hubs m
 
 Het verzenden van gebeurtenissen naar een Event Hub verloopt via HTTP POST of via een AMQP 1.0-verbinding. Welke van deze twee methoden er het beste kan worden toegepast, is afhankelijk van het specifieke scenario. AMQP 1.0-verbindingen zijn brokered verbindingen in Service Bus. Ze zijn met name geschikt voor scenario‘s met vaak voorkomende hogere berichtvolumes en lagere latentievereisten, omdat ze een permanent berichtenkanaal bieden.
 
-Event Hubs worden gemaakt en beheerd via de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Wanneer de beheerde .NET-API‘s worden gebruikt, zijn de klassen [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) en [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) de primaire constructs voor het publiceren van gegevens naar Event Hubs. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) biedt het AMQP-communicatiekanaal dat wordt gebruikt voor het verzenden van gebeurtenissen naar de Event Hub. De klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) vertegenwoordigt een gebeurtenis en wordt gebruikt om berichten te publiceren naar een Event Hub. Deze klasse bevat de hoofdtekst, bepaalde metagegevens en headerinformatie over de gebeurtenis. Tijdens het doorgeven van het object via een Event Hub worden er nog andere eigenschappen aan het [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)-object toegevoegd.
+U maakt en beheert Event Hubs met behulp van de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Wanneer de beheerde .NET-API‘s worden gebruikt, zijn de klassen [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) en [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) de primaire constructs voor het publiceren van gegevens naar Event Hubs. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) biedt het AMQP-communicatiekanaal dat wordt gebruikt voor het verzenden van gebeurtenissen naar de Event Hub. De klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) vertegenwoordigt een gebeurtenis en wordt gebruikt om berichten te publiceren naar een Event Hub. Deze klasse bevat de hoofdtekst, bepaalde metagegevens en headerinformatie over de gebeurtenis. Tijdens het doorgeven van het object via een Event Hub worden er nog andere eigenschappen aan het [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)-object toegevoegd.
 
 ## Aan de slag
 
@@ -187,6 +188,6 @@ Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

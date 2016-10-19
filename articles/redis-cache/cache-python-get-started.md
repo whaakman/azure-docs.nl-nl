@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Azure Redis-cache gebruiken met behulp van Python
@@ -70,6 +70,6 @@ Vervang `<name>` door de cachenaam en `key` door uw toegangssleutel.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

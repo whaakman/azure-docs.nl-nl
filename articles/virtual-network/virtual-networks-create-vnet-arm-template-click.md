@@ -3,7 +3,7 @@
    description="Informatie over het maken van een virtueel netwerk met een ARM-sjabloon | Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"/>
@@ -15,7 +15,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.author="jdial"/>
+
 
 # Een virtueel netwerk maken met een ARM-sjabloon
 
@@ -40,6 +41,6 @@ Als u de ARM-sjabloon rechtstreeks vanuit GitHub wilt implementeren zonder deze 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

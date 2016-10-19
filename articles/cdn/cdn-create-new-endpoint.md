@@ -1,5 +1,5 @@
 <properties
-     pageTitle="Azure CDN gebruiken"
+     pageTitle="Azure CDN gebruiken | Microsoft Azure"
      description="In dit onderwerp leert u hoe u het Content Delivery Network (CDN) voor Azure inschakelt. In deze zelfstudie wordt uitgelegd hoe u een nieuw CDN-profiel en -eindpunt maakt."
      services="cdn"
      documentationCenter=""
@@ -12,8 +12,9 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="05/24/2016" 
+     ms.date="07/28/2016" 
      ms.author="casoper"/>
+
 
 # Azure CDN gebruiken  
 
@@ -67,7 +68,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
     
     > [AZURE.NOTE] De **Poort van oorsprong** is alleen van invloed op de poort die door het eindpunt wordt gebruikt om informatie op te halen bij de oorsprong.  Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de **Poort van oorsprong**.  
     >
-    > Eindpunten van **Azure CDN van Akamai** staan niet het volledige TCP-poortbereik voor oorsprongen toe.  Zie [Informatie over het gedrag van Azure CDN van Akamai](cdn-akamai-behavior-details.md) voor een volledige lijst met oorsprongspoorten die niet zijn toegestaan.  
+    > Eindpunten van **Azure CDN van Akamai** staan niet het volledige TCP-poortbereik voor oorsprongen toe.  Zie [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
     >
     > Voor de toegang tot CDN-inhoud via HTTPS gelden de volgende beperkingen:
     > 
@@ -99,6 +100,6 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
