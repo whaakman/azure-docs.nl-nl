@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="mobile-unity-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
+
 
 # Aan de slag met Azure Mobile Engagement voor Unity Android-implementatie
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Unity-toepassing bij implementatie op een Android-apparaat.
-Deze zelfstudie maakt gebruik van de bekende Unity-zelfstudie 'Roll a Ball' als uitgangspunt. Volg de stappen in deze [zelfstudie](mobile-engagement-unity-roll-a-ball.md) voordat u doorgaat met de Mobile Engagement-integratie we in de onderstaande zelfstudie presenteren. 
+Deze zelfstudie maakt gebruik van de bekende Unity-zelfstudie 'Roll a Ball' als uitgangspunt. Volg de stappen in deze [zelfstudie](mobile-engagement-unity-roll-a-ball.md) voordat u doorgaat met de Mobile Engagement-integratie die we in de onderstaande zelfstudie presenteren. 
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
@@ -29,7 +30,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 + [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 + Google Android SDK
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started) voor meer informatie.
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw Android-app
 
@@ -75,7 +76,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
         using Microsoft.Azure.Engagement.Unity;
 
-3. Voeg het volgende toe aan de methode `Start()`.
+3. Het volgende toevoegen aan de methode `Start()`
     
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
@@ -153,6 +154,7 @@ Zorg voor dat Android SDK is geïnstalleerd op uw computer voordat u deze Unity-
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,3 +1,8 @@
-       Now navigate to the Keys blade of your DocumentDB account as we will use these values in the web application we create next.
+  Navigeer naar de blade DocumentDB-account en klik op **Sleutels**. Deze waarden gebruiken we in de webtoepassing die we nu gaan maken.
 
-       ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+![Schermopname van Azure Portal waarin een DocumentDB-account wordt weergegeven met de knop Sleutels gemarkeerd op de blade DocumentDB-account en de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels](./media/documentdb-keys/keys.png)
+
+
+<!--HONumber=Sep16_HO3-->
+
+

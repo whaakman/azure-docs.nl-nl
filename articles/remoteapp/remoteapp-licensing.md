@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
+
 
 
 # Hoe werkt licentieverlening in Azure RemoteApp?
 
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 U bent klaar met het instellen van uw Azure RemoteApp-service, u hebt sjablonen gemaakt en kunt apps voor uw gebruikers gaan publiceren. U hoeft nu nog maar een ding te regelen: de licentieverlening. Maar hoe werkt licentieverlening voor RemoteApp en de apps die u via RemoteApp deelt?
 
@@ -37,6 +40,6 @@ Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

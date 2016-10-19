@@ -12,10 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 Uw abonnement op Azure RemoteApp omvat drie sjablooninstallatiekopieën:
 
@@ -57,11 +61,11 @@ Office 365 is de meest aangevraagde toepassing en om deze reden hebben we een 'a
 Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat de volgende onderdelen van Microsoft Office 365 ProPlus, naast de onderdelen die worden beschreven in de installatiekopie van Windows Server 2012 R2:
 
 
-- Access
+- Toegang
 - Excel
 - Lync
 - OneNote
-- OneDrive voor Bedrijven
+- OneDrive voor Bedrijven (de synchronisatie-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +98,7 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 - Excel
 - Lync
 - OneNote
-- OneDrive voor Bedrijven
+- OneDrive voor Bedrijven (de synchronisatie-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
@@ -106,6 +110,6 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

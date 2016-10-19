@@ -6,7 +6,6 @@
 
 - Klik op **Verwijderen** en verwijder alle schijven van de virtuele machine.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

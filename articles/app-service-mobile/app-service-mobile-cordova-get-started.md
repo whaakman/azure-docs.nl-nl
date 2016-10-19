@@ -7,7 +7,7 @@
     manager="erikre"
     editor=""
     tags=""
-    keywords="cordova,javascript,mobile,client" />
+    keywords="cordova,javascript,mobiel,client" />
 
 <tags
     ms.service="app-service-mobile"
@@ -15,8 +15,9 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Een Apache Cordova-app maken
 
@@ -42,6 +43,8 @@ U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreek
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+[Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
+
 ## Het serverproject configureren
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
@@ -59,7 +62,7 @@ Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfst
 
 Meer informatie over belangrijke concepten met Azure App Service.
 
-* [Verificatie]
+* [Authentication]
 * [Pushmeldingen]
 
 Informatie over het gebruik van de SDK's.
@@ -76,15 +79,14 @@ Informatie over het gebruik van de SDK's.
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Verificatie toevoegen]: app-service-mobile-cordova-get-started-users.md
 [Pushmeldingen toevoegen]: app-service-mobile-cordova-get-started-push.md
-[Verificatie]: app-service-mobile-auth.md
-[Pushmeldingen]: ../notification-hubs/notification-hubs-overview.md
+[Authentication]: app-service-mobile-auth.md
+[Pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

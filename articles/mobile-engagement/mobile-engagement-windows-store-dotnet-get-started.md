@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="piyushjo" />
+    ms.date="08/12/2016"
+    ms.author="piyushjo;ricksal" />
 
 # Aan de slag met Azure Mobile Engagement voor universele Windows-apps
 
@@ -23,14 +23,12 @@
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een universele Windows-toepassing.
 Deze zelfstudie laat een eenvoudig broadcast-scenario met Mobile Engagement zien. In deze zelfstudie maakt u een lege universele Windows-app die basisgegevens verzamelt en pushmeldingen ontvangt via Windows Notification Service (WNS).
 
-Voor deze zelfstudie hebt u het volgende nodig:
+## Vereisten
 
-+ Visual Studio 2013
-+ NuGet-pakket van [MicrosoftAzure.MobileEngagement]
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started) voor meer informatie.
 
-##<a id="setup-azme"></a>Mobile Engagement instellen voor uw universele Windows-app
+## Mobile Engagement instellen voor uw universele Windows-app
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -38,23 +36,23 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement universele Windows SDK-integratie](mobile-engagement-windows-store-sdk-overview.md).
 
-We gaan een eenvoudige app maken met Visual Studio ter illustratie van de integratie.
+U maakt een eenvoudige app met Visual Studio ter illustratie van de integratie.
 
 ###Een nieuw project voor een universele Windows-app maken
 
-In de volgende stappen wordt ervan uitgegaan dat u Visual Studio 2015 gebruikt, hoewel de stappen hetzelfde zijn in eerdere versies van Visual Studio. 
+In de volgende stappen wordt ervan uitgegaan dat u Visual Studio 2015 gebruikt, hoewel de stappen hetzelfde zijn in eerdere versies van Visual Studio.
 
 1. Start Visual Studio en selecteer **New Project** in het scherm **Home**.
 
-2. Selecteer in het pop-upvenster **Windows 8** -> **Universal** -> **Blank App (Universal Windows 8.1)**. Vul de velden **Name** en **Solution name** in voor de app en klik vervolgens op **OK**.
+2. Selecteer in het pop-upvenster **Windows** -> **Universal** -> **Blank App (Universal Windows)** (Universele lege Windows-app (Universeel Windows)). Vul de velden **Name** en **Solution name** in voor de app en klik vervolgens op **OK**.
 
     ![][1]
 
-U hebt nu een nieuwe universele Windows-app gemaakt waarin de Azure Mobile Engagement SDK is geïntegreerd.
+U hebt nu een universele Windows-app gemaakt waarin u vervolgens de Azure Mobile Engagement SDK integreert.
 
 ###Uw app verbinden met de back-end van Mobile Engagement
 
-1. Installeer het NuGet-pakket van [MicrosoftAzure.MobileEngagement] in het project. Als u ontwikkelt voor zowel Windows als Windows Phone, moet u dit doen voor beide projecten. Voor Windows 8.x en Windows Phone 8.1 plaatst hetzelfde NuGet-pakket de juiste platform-specifieke binaire bestanden in elk project.
+1. Installeer het [MicrosoftAzure.MobileEngagement] Nuget-pakket in uw project. Als u ontwikkelt voor zowel het Windows- als het Windows Phone-platform, moet u dit voor beide projecten doen. Voor Windows 8.x en Windows Phone 8.1 plaatst hetzelfde NuGet-pakket de juiste platformspecifieke binaire bestanden in elk project.
 
 2. Open **Package.appxmanifest** en zorg dat de volgende mogelijkheid is toegevoegd:
 
@@ -66,7 +64,7 @@ U hebt nu een nieuwe universele Windows-app gemaakt waarin de Azure Mobile Engag
 
     ![][3]
 
-    >[AZURE.TIP] Als u een app maakt voor zowel Windows als Windows Phone, moet u nog steeds twee Mobile Engagement-toepassingen maken, een voor elk ondersteund platform. Dit zorgt ervoor dat uw doelgroep correct wordt gesegmenteerd en dat u de juiste meldingen naar ieder platform kunt sturen.
+    >[AZURE.TIP] Als u een app maakt voor zowel Windows als Windows Phone, moet u nog steeds twee Mobile Engagement-toepassingen maken, een voor elk ondersteund platform. Met twee apps zorgt u ervoor dat u de juiste segmentering van de doelgroep kunt maken en op de juiste wijze gerichte meldingen voor elk platform kunt verzenden.
 
 4. In het bestand `App.xaml.cs`:
 
@@ -74,7 +72,7 @@ U hebt nu een nieuwe universele Windows-app gemaakt waarin de Azure Mobile Engag
 
             using Microsoft.Azure.Engagement;
 
-    b. Voeg een specifieke methode toe voor de initialisatie en instelling van Engagement:
+    b. Voeg een methode toe die de overeenkomst initialiseert:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -109,7 +107,7 @@ U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagem
 
         using Microsoft.Azure.Engagement.Overlay;
 
-2. Verander de basisklasse van **MainPage** van **Page** in **EngagementPageOverlay**:
+2. Wijzig de basisklasse van **MainPage** van **Page** (Pagina) in **EngagementPageOverlay**:
 
         class MainPage : EngagementPageOverlay
 
@@ -120,8 +118,8 @@ U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagem
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
     b. Vervang de **Page** in de XML-tagnaam met **engagement:EngagementPageOverlay**.
-    
-> [AZURE.IMPORTANT] Als uw pagina de methode `OnNavigatedTo` overschrijft, roept u `base.OnNavigatedTo(e)` aan. Anders wordt de activiteit niet gerapporteerd (de `EngagementPage` roept `StartActivity` aan binnen de methode `OnNavigatedTo`). Dit is vooral belangrijk in een Windows Phone-project waarbij de standaardsjabloon een methode `OnNavigatedTo` heeft. 
+
+> [AZURE.IMPORTANT] Als uw pagina de methode `OnNavigatedTo` negeert, zorg er dan voor dat u `base.OnNavigatedTo(e)` aanroept. Anders wordt de activiteit niet gemeld `EngagementPage`-aanroepen `StartActivity` binnen de methode `OnNavigatedTo`). Dit is vooral belangrijk in een Windows Phone-project waarbij de standaardsjabloon een methode `OnNavigatedTo` heeft.
 
 ##<a id="monitor"></a>App verbinden met realtime-bewaking
 
@@ -148,16 +146,16 @@ Roep in `App.xaml.cs` **EngagementReach.Instance.Init(e);** aan in de functie **
            EngagementReach.Instance.Init(e);
         }
 
-Nu bent u klaar voor het verzenden van een toast-melding. Nu controleren we of u hebt deze basisintegratie juist hebt uitgevoerd.
+U kunt nu een pop-upmelding verzenden. Vervolgens controleren we of u deze basisintegratie juist hebt uitgevoerd.
 
 ###Mobile Engagement toegang verlenen om meldingen te verzenden
 
-1. Open het [ontwikkelaarscentrum voor Windows Store] in uw webbrowser, meld u aan en maak een account indien nodig.
-2. Klik op **Dashboard** in de rechterbovenhoek hoek en klik vervolgens op **Create a new app** in het menu aan de linkerkant. 
+1. Open het [ontwikkelaarscentrum voor Windows Store] in uw webbrowser, meld u aan, en maak indien nodig een account.
+2. Klik op **Dashboard** in de rechterbovenhoek hoek en klik vervolgens op **Create a new app** in het menu aan de linkerkant.
 
     ![][9]
 
-2. Maak uw app door de naam ervan te reserveren. 
+2. Maak uw app door de naam ervan te reserveren.
 
     ![][10]
 
@@ -165,27 +163,27 @@ Nu bent u klaar voor het verzenden van een toast-melding. Nu controleren we of u
 
     ![][11]
 
-4. Klik in de sectie Push notifications op de koppeling **Live Services site**. 
+4. Klik in het gedeelte met pushmeldingen op de koppeling **Live Services site** (Live Services-site).
 
     ![][12]
 
-5. U gaat naar het gedeelte Push credentials. Zorg dat u zich in de sectie **App Settings** bevindt en kopieer uw **Package SID** en **Client secret**.
+5. Navigeer naar het gedeelte voor pushreferenties. Zorg dat u zich in de sectie **App Settings** bevindt en kopieer uw **Package SID** en **Client secret**.
 
     ![][13]
 
-6. Navigeer naar de **Instellingen** van uw Mobile Engagement-portal en klik op de sectie **Native pushbericht** aan de linkerkant. Klik vervolgens op de knop **Bewerken** om uw **Beveiligings-id van pakket (SID)** en uw **Geheime sleutel** in te voeren, zoals hieronder weergegeven:
+6. Navigeer naar de **Instellingen** van uw Mobile Engagement-portal en klik op de sectie **Native pushbericht** aan de linkerkant. Klik vervolgens op de knop **Edit** (Bewerken) om uw **Package security identifier (SID)** (Beveiligings-id van pakket (SID)) en uw **Secret Key** (Geheime sleutel) in te voeren, zoals hier weergegeven:
 
     ![][6]
 
-8. Controleer ten slotte of u de app in Visual Studio hebt gekoppeld aan de app die u in de App store hebt gemaakt. U moet klikken op **Associate App with Store** in Visual Studio om dit te doen.
-
+8. Controleer ten slotte of u de app in Visual Studio hebt gekoppeld aan de app die u in de App store hebt gemaakt. Klik in Visual Studio op **Associate App with Store** (App koppelen aan Store).
     ![][7]
 
 ##<a id="send"></a>Een melding verzenden naar uw app
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Als de toepassing wordt uitgevoerd, wordt een melding in de app weergegeven. Als de app is gesloten, wordt een toast-melding weergegeven. Als u wel een in-app-melding ziet maar geen toast-melding terwijl u de app uitvoert in de foutopsporingsmodus in Visual Studio, gebruikt u **Lifecycle events -> Suspend** op de werkbalk om ervoor te zorgen dat de app daadwerkelijk wordt onderbroken. Als u alleen op de knop Start hebt geklikt bij het opsporen van fouten in de toepassing in Visual Studio, wordt de app niet altijd onderbroken; daardoor wordt er geen toast-melding weergegeven, maar wel een in-app-melding.  
+Als de app wordt uitgevoerd, ziet u een melding in de app. Als de app is gesloten, ziet u een pop-upmelding.
+Als u wel een in-app-melding maar geen pop-upmelding ziet terwijl u de app uitvoert in de foutopsporingsmodus in Visual Studio, gebruikt u **Lifecycle events (Levenscyclusgebeurtenissen) -> Suspend (Onderbreken)** op de werkbalk om ervoor te zorgen dat de app wordt onderbroken. Als u op de knop Start hebt geklikt bij het opsporen van fouten in de toepassing in Visual Studio, wordt de app niet altijd onderbroken; daardoor wordt er geen pop-upmelding weergegeven maar wel een in-app-melding.  
 
 ![][8]
 
@@ -211,8 +209,6 @@ Als de toepassing wordt uitgevoerd, wordt een melding in de app weergegeven. Als
 
 
 
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

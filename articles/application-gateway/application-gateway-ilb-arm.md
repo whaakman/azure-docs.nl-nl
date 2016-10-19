@@ -3,7 +3,7 @@
    description="Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway met een interne load balancer (ILB) voor Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/19/2016"
+   ms.author="gwallace"/>
 
 
 # Een toepassingsgateway met een interne load balancer (ILB) maken met behulp van Azure Resource Manager
@@ -24,7 +24,7 @@
 
 Azure Application Gateway kan worden geconfigureerd met een internetgerichte VIP of met een intern eindpunt dat geen toegang heeft tot het internet. Dit heet ook wel een ILB-eindpunt (interne load balancer). Het is een goed idee om de gateway te configureren met een ILB als u interne line-of-business-toepassingen gebruikt die geen toegang hebben tot het internet. Ook is dit handig als u services en lagen gebruikt in een toepassing met meerdere lagen die zich binnen een beveiligingsgrens bevinden, en als deze toepassing geen toegang heeft tot het internet, maar er wel round-robinbelastingverdeling, sessiepersistentie of SSL-beëindiging (Secure Sockets Layer) vereist is.
 
-Dit artikel begeleidt u door de stappen voor het configureren van een toepassingsgateway met een ILB.
+In dit artikel worden de stappen beschreven voor het configureren van een toepassingsgateway met een ILB.
 
 ## Voordat u begint
 
@@ -43,10 +43,10 @@ Dit artikel begeleidt u door de stappen voor het configureren van een toepassing
 
 
 
-## Een nieuwe toepassingsgateway maken
+## Een toepassingsgateway maken
 
 Het verschil tussen het gebruik van Azure Classic en Azure Resource Manager zit hem in de volgorde waarin u de toepassingsgateway maakt en in de items die u moet configureren.
-Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat, afzonderlijk geconfigureerd en vervolgens samengesteld om de toepassingsgatewayresource te maken.
+Met Resource Manager worden alle items waaruit een toepassingsgateway bestaat afzonderlijk geconfigureerd en vervolgens samengesteld om de toepassingsgatewayresource te maken.
 
 
 Dit zijn de stappen voor het maken van een toepassingsgateway:
@@ -63,13 +63,13 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 
 ### Stap 1
 
-        PS C:\> Login-AzureRmAccount
+    Login-AzureRmAccount
 
 ### Stap 2
 
 Controleer de abonnementen voor het account.
 
-        PS C:\> get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 
@@ -78,7 +78,7 @@ U wordt gevraagd om u te verifiëren met uw referenties.<BR>
 Kies welk Azure-abonnement u wilt gebruiken. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Stap 4
@@ -109,7 +109,7 @@ Hiermee maakt u voor de regio VS - west een virtueel netwerk met de naam appgwvn
 
 ### Stap 3
 
-    $subnet=$vnet.subnets[0]
+    $subnet = $vnet.subnets[0]
 
 Hiermee wijst u het subnetobject toe aan de variabele $subnet voor gebruik in de volgende stappen.
 
@@ -119,14 +119,14 @@ Hiermee wijst u het subnetobject toe aan de variabele $subnet voor gebruik in de
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Hiermee maakt u voor de toepassingsgateway een IP-configuratie met de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Elk exemplaar gebruikt één IP-adres.
+Hiermee maakt u voor de toepassingsgateway een IP-configuratie met de naam gatewayIP01. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
 
 
 ### Stap 2
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50. Dit zijn de IP-adressen waardoor het netwerkverkeer van het frond-end-IP-eindpunt binnenkomt. U gaat de bovenstaande IP-adressen vervangen om uw eigen toepassings-IP-adreseindpunten toe te voegen.
+Hiermee configureert u de back-end-IP-adrespool met de naam pool01. Gebruik hiervoor de IP-adressen 134.170.185.46, 134.170.188.221 en 134.170.185.50. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. U vervangt de bovenstaande IP-adressen om uw eigen toepassings-IP-adreseindpunten toe te voegen.
 
 ### Stap 3
 
@@ -240,6 +240,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

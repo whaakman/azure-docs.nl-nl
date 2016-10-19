@@ -13,8 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
+
 
 # Azure Automation-integratiemodules
 
@@ -27,6 +28,8 @@ Een PowerShell-module is een groep PowerShell-cmdlets, zoals **Get-Date** of **C
 ## Wat is een Azure Automation-integratiemodule?
 
 Een integratiemodule verschilt niet heel veel van een PowerShell-module. Het is gewoon een PowerShell-module die desgewenst één extra bestand bevat: een metagegevensbestand waarin een Azure Automation-verbindingstype wordt opgegeven dat moet worden gebruikt met de cmdlets van de module in runbooks. Optioneel bestand of niet, deze PowerShell-modules kunnen in Azure Automation worden geïmporteerd om de bijbehorende cmdlets beschikbaar te maken voor gebruik in runbooks en de bijbehorende DSC-resources beschikbaar te maken voor gebruik in DSC-configuraties. Achter de schermen worden deze modules in Azure Automation opgeslagen en bij de uitvoeringstijd van runbooktaken en DSC-compilatietaken worden ze in de Azure Automation-sandboxes geladen waar runbooks worden uitgevoerd en DSC-configuraties worden gecompileerd.  Eventuele DSC-resources in modules worden ook automatisch op de Automation DSC-pull-server geplaatst, zodat ze kunnen worden opgehaald door machines waarmee wordt geprobeerd DSC-configuraties toe te passen.  Een aantal Azure PowerShell-modules worden gebruiksklaar in Azure Automation geleverd zodat u meteen aan de slag kunt gaan met het automatiseren van Azure-beheer, maar u kunt eenvoudig PowerShell-modules importeren voor elk systeem, elke service of elk hulpprogramma waarmee u wilt integreren. 
+
+>[AZURE.NOTE] Bepaalde modules worden geleverd als ‘algemene modules’ in de service Automation. Wanneer u een Automation-account maakt, zijn deze algemene modules beschikbaar en klaar voor gebruik. Wij werken ze soms bij, waarbij de nieuwe versies automatisch in uw Automation-account beschikbaar komen. Als u niet wilt dat ze automatisch worden bijgewerkt, kunt u altijd dezelfde module zelf importeren. Die krijgt voorrang op de ‘algemene module’-versie van die module die we bij de service meeleveren. 
 
 De indeling waarin u een integratiemodulepakket importeert, is een gecomprimeerd bestand met dezelfde naam als de module en met een ZIP-extensie. Het bevat de Windows PowerShell-module en ondersteunende bestanden, inclusief een manifestbestand (.psd1) als de module die een heeft.
 
@@ -203,10 +206,9 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
 ## Volgende stappen
 
 - Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
-- Zie [Een Windows PowerShell-module schrijven](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx) voor meer informatie over het maken van PowerShell-modules
+- Zie [Een Windows PowerShell-module schrijven](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) voor meer informatie over het maken van PowerShell-modules.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

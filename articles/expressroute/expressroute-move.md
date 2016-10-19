@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
+
 
 # ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel
 
@@ -112,6 +113,6 @@ Volg de instructies in [Een ExpressRoute-circuit verplaatsen van het klassieke n
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -6,19 +6,20 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="azure powershell, powershell script tutorial, powershell automation"/>
+    keywords="azure powershell, zelfstudie powershell-script, powershell-automatisering"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
+
 
 # Mijn eerste PowerShell-runbook
 
-> [AZURE.SELECTOR] - [Grafisch](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Grafisch](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)  
 
 In deze zelfstudie wordt stap voor stap het maken van een [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) in Azure Automation beschreven. We beginnen met een eenvoudig runbook dat we testen en publiceren terwijl we uitleggen hoe u de status van de runbooktaak kunt bijhouden. Vervolgens wijzigen we het runbook zodat Azure-resources daadwerkelijk worden beheerd, in dit geval door een virtuele machine van Azure te starten. Vervolgens maken we het runbook krachtiger door runbookparameters toe te voegen.
 
@@ -106,7 +107,7 @@ We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets
     ``` 
 <br>
 4.  Klik op **Testvenster** zodat we het runbook kunnen testen.
-5.  Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer waarin basisinformatie uit uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is. <br> ![Verifiëren](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
+5.  Klik op **Start** om de test te starten. Zodra deze is voltooid, ontvangt u uitvoer zoals hieronder afgebeeld, waarin basisinformatie van uw account wordt weergegeven. Hiermee wordt bevestigd dat de referentie geldig is. <br> ![Verifiëren](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## Stap 6: code toevoegen om een virtuele machine te starten
 
@@ -117,7 +118,7 @@ Nu ons runbook verifieert voor ons Azure-abonnement, kunnen we resources beheren
     ```
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
      ```
 <br>
@@ -137,7 +138,7 @@ Met ons runbook wordt momenteel de virtuele machine gestart die we hebben hardge
     )
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationID `$Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
+     -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint 
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
      ```
 <br> 
@@ -167,6 +168,6 @@ PowerShell-runbooks hebben dezelfde levenscyclus, mogelijkheden en beheer als Po
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -12,7 +12,7 @@
     ms.workload="identity" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Aan de slag met Azure Multi-Factor Authentication en Active Directory Federation Services
@@ -55,6 +55,7 @@ Voor meer informatie over het instellen van Azure Multi-Factor Authentication of
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=ago16_HO4-->
 
 

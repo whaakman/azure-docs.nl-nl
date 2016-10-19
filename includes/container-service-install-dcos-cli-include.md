@@ -18,6 +18,7 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
+
 >[AZURE.NOTE] Dit is voor als u met op DC/OS gebaseerde ACS-clusters werkt. U hoeft dit niet te doen voor op Swarm gebaseerde ACS-clusters.
 
 Eerst [maakt u verbinding met uw op DC/OS gebaseerde ACS-cluster](../articles/container-service/container-service-connect.md). Als u dit hebt gedaan, kunt u met de onderstaande opdrachten de DC/OS CLI installeren op de clientcomputer:
@@ -47,6 +48,6 @@ dcos --help
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

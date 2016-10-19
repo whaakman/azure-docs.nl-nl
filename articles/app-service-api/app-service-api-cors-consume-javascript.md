@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
-    ms.author="tdykstra"/>
+    ms.date="08/27/2016"
+    ms.author="rachelap"/>
 
 # Een API-app van JavaScript gebruiken met CORS
 
@@ -24,7 +24,7 @@ Dit artikel bestaat uit twee gedeelten:
 
 * Eerst wordt in de sectie [CORS configureren](#corsconfig) in grote lijnen uitgelegd hoe u CORS configureert voor een API-app, web-app of mobiele app. Deze informatie heeft ook betrekking op alle frameworks die door App Service worden ondersteund, waaronder .NET, Node.js en Java. 
 
-* Vanaf de sectie [Vervolg van de zelfstudie Aan de slag met .NET](#tutorialstart) is het artikel een zelfstudie. Hierin leert u hoe CORS-ondersteuning wordt toegepast, door voort te bouwen op wat u hebt gedaan in [de eerste zelfstudie Aan de slag met API-apps](app-service-api-dotnet-get-started.md). 
+* Vanaf de sectie [Vervolg van de zelfstudie Aan de slag met .NET](#tutorialstart) is het artikel een zelfstudie. Hierin leert u hoe CORS-ondersteuning wordt toegepast, door voort te bouwen op wat u hebt gedaan in [de eerste zelfstudie Aan de slag met API Apps](app-service-api-dotnet-get-started.md). 
 
 ## <a id="corsconfig"></a> CORS configureren in Azure App Service
 
@@ -68,7 +68,7 @@ Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenscha
 
 ## <a id="tutorialstart"></a> Vervolg van de zelfstudie Aan de slag met .NET
 
-Als u de reeks Aan de slag met Node.js of Java voor API-apps volgt, hebt u de Aan de slag-reeks nu voltooid. Ga naar de sectie [Volgende stappen](#next-steps) voor suggesties voor meer informatiebronnen over API-apps.
+Als u de reeks Aan de slag met Node.js of Java voor API-apps volgt, hebt u de Aan de slag-reeks nu voltooid. Ga naar de sectie [Volgende stappen](#next-steps) voor suggesties voor meer informatiebronnen over API Apps.
 
 De rest van dit artikel is een vervolg van de reeks Aan de slag met .NET. Er wordt van uitgegaan dat u [de eerste zelfstudie](app-service-api-dotnet-get-started.md) met succes hebt voltooid.
 
@@ -80,8 +80,7 @@ In de [voorbeeldtoepassing ToDoList](https://github.com/Azure-Samples/app-servic
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
-            var apiEndpoint = "http://localhost:46439";
-        
+
             $http.defaults.useXDomain = true;
             delete $http.defaults.headers.common['X-Requested-With']; 
         
@@ -287,6 +286,6 @@ In dit artikel hebt u gezien hoe u App Service CORS-ondersteuning kunt inschakel
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

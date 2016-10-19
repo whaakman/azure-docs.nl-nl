@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/29/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
+
 
 # Gegevens uit Azure Blob-opslag laden in Azure SQL Data Warehouse (Azure Data Factory)
 
@@ -212,7 +213,7 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 
 - [Zelfstudie: aan de slag met Azure Data Factory][] Dit is de belangrijkste zelfstudie voor het verwerken van gegevens met Azure Data Factory. In deze zelfstudie maakt u uw eerste pijplijn voor het maandelijks transformeren en analyseren van weblogboeken met behulp van HDInsight. Opmerking: deze zelfstudie omvat geen kopieeractiviteit.
 - [Zelfstudie: gegevens kopiëren van Azure Storage-blob naar Azure SQL Database][]. In deze zelfstudie maakt u een pijplijn in Azure Data Factory om gegevens te kopiëren van een Azure Storage-blob naar SQL Data Warehouse.
-- [Zelfstudie: praktijkscenario][]. Dit is een uitgebreide zelfstudie voor het gebruik van Azure Data Factory.
+
 
 <!--Image references-->
 
@@ -225,11 +226,10 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Aan de slag met Azure Data Factory (Data Factory-Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Inleiding tot Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Voorbeeldgegevens laden in SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Voorbeeldgegevens laden in SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Zelfstudie: praktijkscenario]: ../data-factory/data-factory-tutorial.md
-[Zelfstudie: gegevens kopiëren van Azure Storage-blob naar Azure SQL Database]: ../data-factory/data-factory-get-started
+[Zelfstudie: gegevens kopiëren van Azure Storage-blob naar Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Zelfstudie: aan de slag met Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
@@ -241,6 +241,6 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

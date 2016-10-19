@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/16/2016"
     ms.author="markvi"/>
+
 
 # Aan de slag met Azure Active Directory Premium
 
@@ -23,7 +24,7 @@ U kunt zich op verschillende manieren registreren voor Active Directory Premium:
 
 **Azure of Office 365** - Als Azure- of Office 365-abonnee kunt u Active Directory Premium online kopen. Zie [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Azure Active Directory Premium aanschaffen - bestaande klanten) of [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Azure Active Directory Premium aanschaffen - nieuwe klanten) voor gedetailleerde instructies.  
 
-**Enterprise Mobility Suite** - Met Enterprise Mobility Suite kunnen organisaties voordelig gebruikmaken van de volgende services die zijn gecombineerd in één licentieabonnement: Active Directory Premium, Azure Rights Management, Microsoft Intune. Zie de website van [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) voor meer informatie. Klik [hier](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) voor een gratis proefversie van 30 dagen.
+**Enterprise Mobility Suite** - Met Enterprise Mobility + Security (voorheen Enterprise Mobility Suite) kunnen organisaties voordelig gebruikmaken van de volgende services die zijn gecombineerd in één licentieabonnement: Active Directory Premium, Azure Rights Management, Microsoft Intune. Zie de website van [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) (Engelstalig) voor meer informatie. Klik [hier](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) voor een gratis proefversie van 30 dagen.
 
 
 **Microsoft Volume Licensing** - Azure Active Directory Premium is beschikbaar via een [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 of meer licenties) of het [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)-programma (5-250 licenties).
@@ -164,6 +165,6 @@ De beschikbaarheid van services en functies voor een Microsoft-cloudservice vari
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

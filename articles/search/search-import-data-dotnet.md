@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Gegevens uploaden naar Azure Search met behulp van de .NET SDK
@@ -207,6 +207,6 @@ Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

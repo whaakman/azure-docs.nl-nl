@@ -36,7 +36,6 @@ Als u een video wilt bekijken over het koppelen, initialiseren en formatteren va
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

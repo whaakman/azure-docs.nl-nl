@@ -17,14 +17,14 @@ Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer met SSMS bent ve
 3. In het queryvenster kunt u de volgende Transact-SQL-instructie bewerken en gebruiken om een contained-gebruiker in de gebruikersdatabase te maken. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
-     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Sep16_HO3-->
 
 

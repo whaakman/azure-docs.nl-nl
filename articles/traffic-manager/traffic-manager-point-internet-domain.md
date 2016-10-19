@@ -3,7 +3,7 @@
    description="Aan de hand van dit artikel kunt u een domeinnaam van uw bedrijf laten wijzen naar een Traffic Manager-domeinnaam."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
+
 
 # Het internetdomein van een bedrijf naar een Traffic Manager-domein laten wijzen
 
@@ -37,6 +38,6 @@ Alle aanvragen voor *www.contoso.com* worden nu doorgestuurd naar *contoso.traff
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

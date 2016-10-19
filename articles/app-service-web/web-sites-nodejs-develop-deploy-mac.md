@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Een Node.js-web-app maken in Azure App Service
@@ -66,13 +66,13 @@ Volg deze stappen als u een web-app in Azure App Service wilt maken en Git-publi
 
 6. Selecteer een **Resourcegroep** of maak een nieuwe.
 
-    Zie [De Azure Portal gebruiken om Azure-resources te beheren](../resource-group-portal.md) voor meer informatie over resourcegroepen.
+    Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
 
 7. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
 
     Zie [Overzicht van Azure App Service-plannen](../azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie over App Service-plannen
 
-8. Klik op **Maken**.
+8. Klik op **Create**.
    
     ![][portal-quick-create2]
 
@@ -227,6 +227,6 @@ In het [Node.js Developer Center](/develop/nodejs/) vindt u meer informatie over
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

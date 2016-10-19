@@ -1,9 +1,9 @@
 <properties
    pageTitle="Gegevens analyseren met Azure Machine Learning | Microsoft Azure"
-   description="Zelfstudie voor het gebruik van Azure Machine Learning met Azure SQL Data Warehouse om oplossingen te ontwikkelen."
+   description="Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -13,29 +13,30 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="09/14/2016"
+   ms.author="kevin;barbkess;sonyama"/>
+
 
 # Gegevens analyseren met Azure Machine Learning
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-In deze zelfstudie leert u hoe u met Azure Machine Learning een voorspellend Machine Learning-model maakt op basis van uw Azure SQL Data Warehouse-gegevens. In deze zelfstudie maakt u een gerichte marketingcampagne voor Adventure Works, de fietsenwinkel, door te voorspellen of een klant een fiets waarschijnlijk wel of niet zal kopen.
+In deze zelfstudie wordt gebruikgemaakt van Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse. U maakt een gerichte marketingcampagne voor Adventure Works, de fietsenwinkel, door te voorspellen of een klant een fiets waarschijnlijk wel of niet zal kopen.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
+
 
 ## Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-- SQL Data Warehouse met voorbeelddatabase AdventureWorksDW.
+- Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][].
 
-In [Een SQL Data Warehouse maken][] ziet u hoe u een database inricht met voorbeeldgegevens. Als u wel een SQL Data Warehouse-database hebt maar nog geen voorbeeldgegevens, dan kunt u [handmatig voorbeeldgegevens laden][].
-
-
-## Stap 1: Gegevens ophalen
-U leest de gegevens uit de weergave dbo.vTargetMail in de database AdventureWorksDW.
+## 1. Gegevens ophalen
+De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
 1. Meld u aan bij [Azure Machine Learning Studio][] en klik op My experiments.
 2. Klik op **+NEW** (Nieuw) en selecteer **Blank Experiment** (Leeg experiment).
@@ -72,8 +73,8 @@ Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de mod
 ![Geïmporteerde gegevens weergeven][3]
 
 
-## Stap 2: Gegevens wissen
-Nu gaat u kolommen verwijderen die niet relevant zijn voor het model.
+## 2. De gegevens opschonen
+Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
 
 1. Sleep de module **Project Columns** (Projectkolommen) naar het canvas.
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.
@@ -83,7 +84,7 @@ Nu gaat u kolommen verwijderen die niet relevant zijn voor het model.
 ![Overbodige kolommen verwijderen][5]
 
 
-## Stap 3: model maken
+## 3. Het model maken
 U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen en 20% om het model te testen. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
@@ -98,7 +99,7 @@ U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen 
 ![Te voorspellen kolom selecteren][8]
 
 
-## Stap 4: model beoordelen
+## 4. Het model scoren
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
 
 1. Sleep de module **Score Model** (Model beoordelen) naar het canvas.
@@ -126,30 +127,28 @@ Door de kolom BikeBuyer (werkelijk) te vergelijken met de kolom Scored Labels (v
 Raadpleeg [Inleiding tot Machine Learning in Azure][] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Azure Machine Learning Studio]:https://studio.azureml.net/
 [Inleiding tot Machine Learning in Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[handmatig voorbeeldgegevens laden]: sql-data-warehouse-get-started-manually-load-samples.md
+[voorbeeldgegevens handmatig laden]: sql-data-warehouse-load-sample-databases.md
 [Een SQL Data Warehouse maken]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/03/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Ik gebruik Mobile Services. Welke voordelen heeft App Service voor mijn bestaande projecten?
 
@@ -64,6 +65,6 @@ Volg deze [zelfstudie](app-service-mobile-migrating-from-mobile-services.md) als
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

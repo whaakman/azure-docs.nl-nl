@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/14/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Aan de slag met Mobile Services
@@ -26,7 +26,7 @@
 
 Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een Xamarin Android-app met Azure Mobile Services. In deze zelfstudie maakt u een nieuwe mobiele service en een eenvoudige _takenlijst_-app die app-gegevens opslaat in de nieuwe mobiele service. De mobiele service die u gaat maken, gebruikt de ondersteunde .NET-talen met behulp van Visual Studio voor bedrijfslogica op de server en voor het beheren van de mobiele service. Voor het maken van een mobiele service waarmee u uw bedrijfslogica op de server in JavaScript kunt schrijven, zie de [JavaScript back-endversie] van dit onderwerp.
 
->[AZURE.NOTE]In dit onderwerp wordt beschreven hoe u een nieuw mobiele-serviceproject maakt met behulp van de klassieke Azure Portal. Met behulp van Visual Studio 2013 Update 2 kunt u ook een nieuw mobiele-serviceproject toevoegen aan een bestaande Visual Studio-oplossing. Zie voor meer informatie [Snelstartgids: een mobiele service (.NET-back-end) toevoegen](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]In dit onderwerp wordt beschreven hoe u een nieuw mobiele-serviceproject maakt met behulp van de klassieke Azure-portal. Met behulp van Visual Studio 2013 Update 2 kunt u ook een nieuw mobiele-serviceproject toevoegen aan een bestaande Visual Studio-oplossing. Zie voor meer informatie [Snelstartgids: een mobiele service (.NET-back-end) toevoegen](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 Hieronder ziet u een schermafbeelding van de voltooide app:
 
@@ -89,7 +89,8 @@ De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app
 
     Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. De items die in de tabel zijn opgeslagen, worden geretourneerd door de mobiele service en de gegevens worden weergegeven in de lijst.
 
-    > [AZURE.NOTE] U kunt de code die toegang heeft tot uw mobiele service, bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
+    > [AZURE.NOTE]
+    > U kunt de code die toegang heeft tot uw mobiele service, bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
 
 ## Volgende stappen
 Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook diverse andere belangrijke taken uitvoert:
@@ -130,12 +131,12 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript en HTML]: mobile-services-win8-javascript/
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Klassieke Azure-portal]: https://manage.windowsazure.com/
 [klassieke portal]: https://manage.windowsazure.com/
 [JavaScript back-endversie]: mobile-services-android-get-started.md
 [Problemen met een Mobile Services .NET-back-end oplossen]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

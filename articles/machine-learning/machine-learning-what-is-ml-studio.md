@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="09/09/2016"
     ms.author="garye"/>
+
 
 # Wat is Azure Machine Learning Studio?
 
@@ -29,7 +30,7 @@ In Machine Learning Studio komen gegevens, wetenschap, predictive analytics, clo
 
 Wanneer u een predictive analytics-model ontwikkelt, gebruikt u doorgaans gegevens uit een of meer bronnen. U transformeert en analyseert deze gegevens met diverse functies voor gegevensmanipulatie en statistische functies, en genereert een set resultaten. Het ontwikkelen van een model als dit is een iteratief proces. Terwijl u de verschillende functies en de bijbehorende parameters aanpast, worden de resultaten geconvergeerd tot u een afdoende getraind en doeltreffend model hebt.
 
-**Azure Machine Learning Studio** beschikt over een interactieve, visuele werkruimte om eenvoudig een predictive analytics-model te bouwen, te testen en te herhalen. U sleept ***gegevenssets*** en ***analysemodules*** naar een interactief ***canvas*** en verbindt deze met elkaar om een ***experiment*** op te zetten, dat u vervolgens kunt ***uitvoeren*** in Machine Learning Studio. Als u het modelontwerp wilt herhalen, kunt u het experiment ***bewerken***, desgewenst een kopie ervan ***opslaan*** en het opnieuw uitvoeren. Wanneer u klaar bent, kunt u het ***trainingsexperiment*** converteren naar een ***voorspellend experiment*** en dit vervolgens ***publish*** als ***webservice***, zodat het model ook voor anderen toegankelijk is.
+**Azure Machine Learning Studio** beschikt over een interactieve, visuele werkruimte om eenvoudig een predictive analytics-model te bouwen, te testen en te herhalen. U sleept ***gegevenssets*** en analyse***modules*** naar een interactief canvas en verbindt deze met elkaar om een ***experiment*** op te zetten, dat u vervolgens uitvoert in Machine Learning Studio. Als u het modelontwerp wilt herhalen, kunt u het experiment bewerken, desgewenst een kopie ervan opslaan en het opnieuw uitvoeren. Wanneer u klaar bent, kunt u het ***trainingsexperiment*** converteren naar een ***voorspellend experiment*** en dit vervolgens ***publiceren*** als webservice, zodat het model ook voor anderen toegankelijk is.
 
 >[AZURE.TIP] Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
 
@@ -47,6 +48,7 @@ Bovenaan ziet u drie tabbladen: **Start** (waar u begint), **Studio** en **Galle
 
 Als u op het tabblad **Studio** klikt, wordt u gevraagd om u aan te melden met uw Microsoft-account of met uw werk- of schoolaccount. Wanneer u bent aangemeld, ziet u links de volgende tabbladen:
 
+- **PROJECTS**: verzamelingen van experimenten, gegevenssets, kladblokken en andere resources die één project vertegenwoordigen
 - **EXPERIMENTS**: experimenten die zijn gemaakt, uitgevoerd en als concept zijn opgeslagen
 - **WEB SERVICES**: webservices die u hebt geïmplementeerd vanuit uw experimenten
 - **NOTEBOOKS**: Jupyter-notitieblokken die u hebt gemaakt
@@ -107,7 +109,7 @@ Voor hulp bij het navigeren door het uitgebreide scala aan machine learning-algo
 
 Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine Learning Studio implementeren als webservice. Voor meer informatie over dit proces raadpleegt u [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) (Een Azure Machine Learning-webservice implementeren).
 
-[ml-studio-overzicht]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
+[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
@@ -117,6 +119,6 @@ Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

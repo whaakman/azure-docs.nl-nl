@@ -14,9 +14,9 @@
 
 4. In het projectdashboard onder **Mobiele API's** klikt u op **Google Cloud Messaging**, klikt u vervolgens op de volgende pagina op **API inschakelen** en accepteert u de servicevoorwaarden. 
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![GCM inschakelen](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![GCM inschakelen](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. Klik in het projectdashboard op**Referenties** > **Referentie maken** > **API-sleutel**. 
 
@@ -30,7 +30,6 @@
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -13,13 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
-    ms.author="robinsh"/>
+    ms.date="07/26/2016"
+    ms.author="micurd;robinsh"/>
+
 
 
 # Over Azure-opslagaccounts
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Overzicht
 
@@ -87,7 +90,7 @@ Elk object dat u in Azure Storage opslaat, heeft een uniek URL-adres. De naam va
 
 Als de naam van uw opslagaccount bijvoorbeeld *mystorageaccount* is, zijn de standaardeindpunten voor uw opslagaccount:
 
-- Blob-service: http://*mystorageaccount*.blob.core.windows.net
+- Blob service: http://*mystorageaccount*.blob.core.windows.net
 
 - Tabelservice: http://*mystorageaccount*.table.core.windows.net
 
@@ -111,7 +114,7 @@ Een *affiniteitsgroep* is een geografische groepering van uw Azure-services en v
 
 Wanneer u een opslagaccount maakt, genereert Azure twee 512-bits opslagtoegangssleutels, die worden gebruikt voor verificatie wanneer het opslagaccount wordt geopend. Dankzij de twee opslagtoegangssleutels biedt Azure u de mogelijkheid de sleutels opnieuw te genereren zonder onderbreking van uw opslagservice of de toegang hiertoe.
 
-> [AZURE.NOTE] We raden u aan uw opslagtoegangssleutels met niemand anders te delen. Om toegang te verlenen tot opslagresources zonder uw opslagtoegangssleutels uit handen te geven, kunt u een *Shared Access Signature* gebruiken. Een Shared Access Signature biedt toegang tot een resource in uw account gedurende een door u gedefinieerde periode en met de machtigingen die u opgeeft. Zie [Shared Access Signatures: inzicht in het SAS-model](storage-dotnet-shared-access-signature-part-1.md) voor meer informatie.
+> [AZURE.NOTE] We raden u aan uw opslagtoegangssleutels met niemand anders te delen. Om toegang te verlenen tot opslagresources zonder uw opslagtoegangssleutels uit handen te geven, kunt u een *Shared Access Signature* gebruiken. Een Shared Access Signature biedt toegang tot een resource in uw account gedurende een door u gedefinieerde periode en met de machtigingen die u opgeeft. Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie.
 
 In de [klassieke Azure Portal](https://manage.windowsazure.com) gebruikt u **Sleutels beheren** op het dashboard of de pagina **Opslag** om de toegangssleutels voor opslag te bekijken, te kopiëren en opnieuw te genereren die worden gebruikt voor toegang tot de services Blob, Table en Queue.
 
@@ -177,6 +180,6 @@ Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

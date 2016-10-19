@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
+
 
 #Inleiding tot Apache Storm op HDInsight: realtime analyses voor Hadoop
 
@@ -109,7 +110,7 @@ Storm op HDInsight wordt geleverd met een 24-uurs ondersteuning op ondernemingsn
 
 ##Algemene gebruiksvoorbeelden voor realtime analyses
 
-Hier volgen enkele algemene scenario's waarvoor u Apache Storm op HDInsight kunt gebruiken. Lees [How companies are using Storm](https://storm.incubator.apache.org/documentation/Powered-By.html) (Hoe bedrijven Storm gebruiken) voor informatie over praktijkscenario's.
+Hier volgen enkele algemene scenario's waarvoor u Apache Storm op HDInsight kunt gebruiken. Lees [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Hoe bedrijven Storm gebruiken) voor informatie over praktijkscenario's.
 
 * Internet der dingen (IoT)
 * Fraudedetectie
@@ -162,7 +163,7 @@ Zie [C#-topologieën met Visual Studio ontwikkelen voor Apache Storm op HDInsigh
 
 De meeste Java-voorbeelden die u tegenkomt, zijn gewoon Java of Trident. Trident is een abstractie op hoog niveau waarmee u gemakkelijker bepaalde bewerkingen kunt uitvoeren, zoals samenvoegen, verzamelen, groeperen en filteren. Trident voert echter bewerkingen uit op batches tuples, terwijl een onbewerkte Java-oplossing een stream tuple voor tuple verwerkt.
 
-Zie de [Trident-zelfstudie](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) op apache.org voor meer informatie over Trident.
+Zie de [Trident-zelfstudie](https://storm.apache.org/documentation/Trident-tutorial.html) op apache.org voor meer informatie over Trident.
 
 Zie de [lijst met voorbeelden van Storm-topologieën](hdinsight-storm-example-topology.md) of de Storm Starter-voorbeelden op uw HDInsight-cluster voor voorbeelden van Java- en Trident-topologieën.
 
@@ -206,6 +207,12 @@ Wanneer uw topologie afhankelijk is van de berekening van een top N-waarde, zoal
 
 Zie het [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java)-voorbeeld voor een voorbeeld hiervan.
 
+##Wat voor type logboekregistratie gebruikt Storm?
+
+Storm gebruikt Apache Log4j om informatie in een logboek te registreren. Standaard wordt een grote hoeveelheid gegevens geregistreerd en kan het lastig zijn om de informatie te doorzoeken. U kunt een configuratiebestand voor logboekregistratie opnemen als onderdeel van uw Storm-topologie om de werking van de logboekregistratie te bepalen.
+
+Zie het voorbeeld van een [op Java gebaseerde woordentelling](hdinsight-storm-develop-java-topology.md) voor Storm op HDInsight, voor een voorbeeldtopologie die aantoont hoe u de logboekregistratie moet configureren.
+
 ##Volgende stappen
 
 Meer informatie over realtime analyseoplossingen met Apache Storm in HDInsight:
@@ -214,13 +221,13 @@ Meer informatie over realtime analyseoplossingen met Apache Storm in HDInsight:
 
 * [Voorbeeldtopologieën van Storm op HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

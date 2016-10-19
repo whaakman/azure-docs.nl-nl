@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Aan de slag met Azure Cloud Services en ASP.NET
@@ -60,7 +60,7 @@ De instructies in de zelfstudie zijn van toepassing op een van de volgende produ
 * Visual Studio 2013
 * Visual Studio 2015
 
-Als u deze niet hebt, wordt Visual Studio 2015 automatisch geïnstalleerd wanneer u de Azure SDK installeert. 
+Als u deze niet hebt, wordt Visual Studio 2015 automatisch geïnstalleerd wanneer u de Azure SDK installeert.
 
 ## Toepassingsarchitectuur
 
@@ -229,7 +229,7 @@ U gebruikt een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deplo
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Laat het bestand open, zodat u het kunt bewerken.
 
 2. Klik in het linkerdeelvenster van de [klassieke Azure Portal](http://manage.windowsazure.com) op **SQL-databases** en klik daarna achtereenvolgens op de database die u voor deze zelfstudie hebt gemaakt, op het tabblad **Dashboard** en op **Verbindingsreeksen weergeven**.
@@ -314,10 +314,10 @@ Het bestand *ServiceConfiguration.Cloud.cscfg* bevat de waarden die u in Visual 
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Als u Visual Studio 2015 gebruikt, vervangt u "v11.0" door "MSSQLLocalDB".
 
 2. Sla uw wijzigingen op.
@@ -589,7 +589,7 @@ if (imagesBlobContainer.CreateIfNotExists())
 }
 ```
 
-Met vergelijkbare code wordt er een verwijzing naar de *afbeeldingen*wachtrij opgehaald en een nieuwe wachtrij gemaakt. In dit geval is er geen machtigingswijziging nodig.
+Met vergelijkbare code wordt er een verwijzing naar de *afbeeldingen* wachtrij opgehaald en een nieuwe wachtrij gemaakt. In dit geval is er geen machtigingswijziging nodig.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -624,7 +624,7 @@ blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeco
 imagesBlobContainer = blobClient.GetContainerReference("images");
 ```
 
-Door vergelijkbare code wordt een verwijzing naar de *afbeeldingen*wachtrij opgehaald.
+Door vergelijkbare code wordt een verwijzing naar de *afbeeldingen* wachtrij opgehaald.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -835,7 +835,7 @@ Het `RoleEnvironment`-object wordt verstrekt door Azure wanneer u een toepassing
 
 De toepassing gebruikt de Azure RoleEnvironment onder meer voor het ophalen van verbindingsreekswaarden die zijn opgeslagen in de *.cscfg*-bestanden. Een andere oorzaak van deze uitzondering kan dan ook te maken hebben met een ontbrekende verbindingsreeks. Controleer of u de instelling StorageConnectionString in het project ContosoAdsWeb voor zowel de cloudconfiguratie als de lokale configuratie hebt gemaakt en of u ook in het project ContosoAdsWorker beide verbindingsreeksen voor beide configuraties hebt gemaakt. Als u in de hele oplossing een zoekopdracht **Find All** uitvoert voor StorageConnectionString, moet u deze in 6 bestanden 9 maal vinden.
 
-### Cannot override to port xxx. New port below minimum allowed value 8080 for protocol http
+### Kan niet overschrijven naar poort xxx. Nieuwe poort onder minimaal toegestane waarde 8080 voor http-protocol
 
 Wijzig het poortnummer dat door het webproject wordt gebruikt. Klik met de rechtermuisknop op het project ContosoAdsWeb en klik vervolgens op **Properties**. Klik op het tabblad **Web** en wijzig het poortnummer in de instelling **Project Url**.
 
@@ -868,9 +868,10 @@ Zie de volgende bronnen voor meer informatie:
 * [Deel 1 Azure Cloud Services: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloudservices beheren](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=ago16_HO4-->
 
 

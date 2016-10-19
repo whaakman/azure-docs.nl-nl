@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="nitinme"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
+
 
 
 # Aan de slag: een Apache Spark-cluster in HDInsight maken en interactieve query's uitvoeren met Spark SQL
@@ -26,7 +27,7 @@ Leer hoe u een Apache Spark-cluster in HDInsight maakt en vervolgens een [Jupyte
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-**Vereisten:**
+## Vereisten
 
 - **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -38,16 +39,21 @@ Leer hoe u een Apache Spark-cluster in HDInsight maakt en vervolgens een [Jupyte
     
     -  Voor een Windows-computer: [SSH gebruiken met HDInsight (Hadoop) op basis van Linux via Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
+>[AZURE.NOTE] In dit artikel wordt een Azure Resource Manager-sjabloon gebruikt om een Spark-cluster te maken dat gebruikmaakt van [Azure Storage-blobs als de clusteropslag](hdinsight-hadoop-use-blob-storage.md). U kunt ook een Spark-cluster maken dat gebruikmaakt van [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) als een extra opslag, naast de Azure Storage-blobs als de standaardopslag. Zie [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Een HDInsight-cluster maken met Data Lake Store) voor instructies.
+
+### Vereisten voor toegangsbeheer
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Een Spark-cluster maken
 
-In deze sectie maakt u een HDInsight versie 3.4-cluster (Spark versie 1.6.1) met behulp van een Azure ARM-sjabloon. Zie [Versiebeheer van HDInsight-onderdelen](hdinsight-component-versioning.md) voor meer informatie over de versies van HDInsight en de bijbehorende SLA’s. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
+In deze sectie maakt u een HDInsight versie 3.4-cluster (Spark versie 1.6.1) met behulp van een Azure Resource Manager-sjabloon. Zie [Versiebeheer van HDInsight-onderdelen](hdinsight-component-versioning.md) voor meer informatie over de versies van HDInsight en de bijbehorende SLA’s. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
 
-1. Klik op de volgende afbeelding om in de Azure Portal een ARM-sjabloon te openen.         
+1. Klik op de volgende afbeelding om de sjabloon in de Azure-portal te openen.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    De ARM-sjabloon bevindt zich in een openbare blobcontainer, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
+    De sjabloon bevindt zich in een openbare blobcontainer, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
    
 2. Voer op de blade Parameters het volgende in:
 
@@ -121,7 +127,7 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
     Plak het volgende codevoorbeeld in een lege cel en druk op **SHIFT + ENTER**. Dit codevoorbeeld registreert de gegevens in een tijdelijke tabel genaamd **hvac**.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -173,6 +179,8 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
 
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [Analyse van Application Insights-telemetriegegevens met behulp van Spark in HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Toepassingen maken en uitvoeren
 
 * [Een zelfstandige toepassing maken met behulp van Scala](hdinsight-apache-spark-create-standalone-application.md)
@@ -202,16 +210,16 @@ In dit artikel gebruikt u de PySpark-kernel. In het artikel [Beschikbare kernels
 
 [hdinsight-versies]: hdinsight-component-versioning.md
 [hdinsight-uploaden-gegevens]: hdinsight-upload-data.md
-[hdinsight-opslag]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-aankoop-opties]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-lid-aanbiedingen]: http://azure.microsoft.com/pricing/member-offers/
-[Azure-gratis-proefversie]: http://azure.microsoft.com/pricing/free-trial/
-[Azure-beheerportal]: https://manage.windowsazure.com/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-management-portal]: https://manage.windowsazure.com/
 [Azure-maken-opslagaccount]: storage-create-storage-account.md
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Een opslagaccount in de Azure Portal maken, beheren of verwijderen | Microsoft Azure"
-    description="Maak een nieuw opslagaccount, beheer de toegangssleutels van uw account of verwijder een opslagaccount in de Azure Portal. Meer informatie over Standard en Premium Storage-accounts."
+    pageTitle="Een opslagaccount in de Azure-portal maken, beheren of verwijderen | Microsoft Azure"
+    description="Maak een nieuw opslagaccount, beheer de toegangssleutels van uw account of verwijder een opslagaccount in de Azure-portal. Meer informatie over Standard en Premium Storage-accounts."
     services="storage"
     documentationCenter=""
     authors="robinsh"
@@ -13,13 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
-    ms.author="robinsh"/>
+    ms.date="07/26/2016"
+    ms.author="micurd;robinsh"/>
+
 
 
 # Over Azure-opslagaccounts
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Overzicht
 
@@ -39,7 +42,7 @@ Elk object dat u in Azure Storage opslaat, heeft een uniek URL-adres. De naam va
 
 Als de naam van uw opslagaccount bijvoorbeeld *mystorageaccount* is, zijn de standaardeindpunten voor uw opslagaccount:
 
-- Blob-service: http://*mystorageaccount*.blob.core.windows.net
+- Blob service: http://*mystorageaccount*.blob.core.windows.net
 
 - Tabelservice: http://*mystorageaccount*.table.core.windows.net
 
@@ -51,11 +54,11 @@ Als de naam van uw opslagaccount bijvoorbeeld *mystorageaccount* is, zijn de sta
 
 De URL voor het openen van een object in een opslagaccount wordt samengesteld door de locatie van het object in de opslagaccount toe te voegen aan het eindpunt. Een blobadres kan bijvoorbeeld de volgende indeling hebben: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagaccount. Voor klassieke opslagaccounts raadpleegt u [Een aangepaste domeinnaam configureren voor het eindpunt voor Blob Storage](storage-custom-domain-name.md) voor meer informatie. Voor ARM-opslagaccounts is deze mogelijkheid niet toegevoegd aan de [Azure Portal](https://portal.azure.com), maar u kunt deze configureren met PowerShell. Zie de cmdlet [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) voor meer informatie.  
+U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagaccount. Zie [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) (Een aangepaste domeinnaam configureren voor het eindpunt van Blob Storage) voor meer informatie over klassieke opslagaccounts. Voor Resource Manager-opslagaccounts is deze mogelijkheid niet toegevoegd aan de [Azure-portal](https://portal.azure.com), maar u kunt deze configureren met PowerShell. Zie de cmdlet [Set AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) voor meer informatie.  
 
 ## Een opslagaccount maken
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Selecteer in het menu Hub achtereenvolgens **Nieuw** -> **Gegevens en opslag** -> **Opslagaccount**.
 
@@ -63,7 +66,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
     > [AZURE.NOTE] Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
     >  
-    > De naam van uw opslagaccount moet uniek zijn binnen Azure. Er wordt een waarschuwing weergegeven in de Azure Portal als de opslagaccountnaam die u kiest, al wordt gebruikt.
+    > De naam van uw opslagaccount moet uniek zijn binnen Azure. Er wordt een waarschuwing weergegeven in de Azure-portal als de opslagaccountnaam die u kiest, al wordt gebruikt.
 
 4. Geef het implementatiemodel op dat moet worden gebruikt: **Resource Manager** of **Klassiek**. **Resource Manager** is het aanbevolen implementatiemodel. Zie [Resource Manager-implementatie en klassieke implementatie begrijpen](../resource-manager-deployment-model.md) voor meer informatie.
 
@@ -79,9 +82,9 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
 7. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
 
-8. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [De Azure Portal gebruiken om Azure-resources te beheren](../azure-portal/resource-group-portal.md) voor meer informatie over resourcegroepen.
+8. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Azure Resource Manager overview](../resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
 
-9. Selecteer de geografische locatie voor het opslagaccount.
+9. Selecteer de geografische locatie voor het opslagaccount. Zie [Azure-regio’s](https://azure.microsoft.com/regions/#services) voor meer informatie over welke services beschikbaar zijn in welke regio.
 
 10. Klik op **Maken** om het opslagaccount te maken.
 
@@ -89,7 +92,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
 ### De configuratie van uw account wijzigen
 
-Nadat u uw opslagaccount hebt gemaakt, kunt u de configuratie ervan wijzigen. U kunt bijvoorbeeld de replicatie-optie aanpassen die voor het account wordt gebruikt of de toegangslaag voor een Blob Storage-account wijzigen. Navigeer in de [Azure Portal](https://portal.azure.com) naar uw opslagaccount, klik op **Alle instellingen** en klik vervolgens op **Configuratie** om de accountconfiguratie te bekijken en/of te wijzigen.
+Nadat u uw opslagaccount hebt gemaakt, kunt u de configuratie ervan wijzigen. U kunt bijvoorbeeld de replicatie-optie aanpassen die voor het account wordt gebruikt of de toegangslaag voor een Blob Storage-account wijzigen. Navigeer in de [Azure-portal](https://portal.azure.com) naar uw opslagaccount, klik op **Alle instellingen** en klik vervolgens op **Configuratie** om de accountconfiguratie te bekijken en/of te wijzigen.
 
 > [AZURE.NOTE] Afhankelijk van de prestatielaag die u hebt gekozen bij het maken van het opslagaccount, zijn sommige replicatieopties mogelijk niet beschikbaar.
 
@@ -101,11 +104,11 @@ Voor Blob Storage-accounts brengt het wijzigen van de toegangslaag naast wijzigi
 
 Wanneer u een opslagaccount maakt, genereert Azure twee 512-bits opslagtoegangssleutels, die worden gebruikt voor verificatie wanneer het opslagaccount wordt geopend. Dankzij de twee opslagtoegangssleutels biedt Azure u de mogelijkheid de sleutels opnieuw te genereren zonder onderbreking van uw opslagservice of de toegang hiertoe.
 
-> [AZURE.NOTE] We raden u aan uw opslagtoegangssleutels met niemand anders te delen. Om toegang te verlenen tot opslagresources zonder uw opslagtoegangssleutels uit handen te geven, kunt u een *Shared Access Signature* gebruiken. Een Shared Access Signature biedt toegang tot een resource in uw account gedurende een door u gedefinieerde periode en met de machtigingen die u opgeeft. Zie [Shared Access Signatures: inzicht in het SAS-model](storage-dotnet-shared-access-signature-part-1.md) voor meer informatie.
+> [AZURE.NOTE] We raden u aan uw opslagtoegangssleutels met niemand anders te delen. Om toegang te verlenen tot opslagresources zonder uw opslagtoegangssleutels uit handen te geven, kunt u een *Shared Access Signature* gebruiken. Een Shared Access Signature biedt toegang tot een resource in uw account gedurende een door u gedefinieerde periode en met de machtigingen die u opgeeft. Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie.
 
 #### Opslagtoegangssleutels bekijken en kopiëren
 
-Navigeer in de [Azure Portal](https://portal.azure.com) naar uw opslagaccount, klik op **Alle instellingen** en klik vervolgens op **Toegangssleutels** om de toegangssleutels van uw account te bekijken, te kopiëren en opnieuw te genereren. De blade **Toegangssleutels** bevat ook vooraf geconfigureerde verbindingsreeksen die gebruikmaken van uw primaire en secundaire sleutels. U kunt deze reeksen kopiëren voor gebruik in uw toepassingen.
+Navigeer in de [Azure-portal](https://portal.azure.com) naar uw opslagaccount, klik op **Alle instellingen** en klik vervolgens op **Toegangssleutels** om de toegangssleutels van uw account te bekijken, te kopiëren en opnieuw te genereren. De blade **Toegangssleutels** bevat ook vooraf geconfigureerde verbindingsreeksen die gebruikmaken van uw primaire en secundaire sleutels. U kunt deze reeksen kopiëren voor gebruik in uw toepassingen.
 
 #### Opslagtoegangssleutels opnieuw genereren
 
@@ -131,7 +134,7 @@ Dit is het proces voor roulatie van uw toegangssleutels voor opslag:
 
 ## Een opslagaccount verwijderen
 
-Als u een opslagaccount dat u niet langer gebruikt  wilt verwijderen, gaat u in de [Azure Portal](https://portal.azure.com) naar het opslagaccount en klikt u op **Verwijderen**. Als u een opslagaccount verwijdert, wordt het hele account verwijderd, inclusief alle gegevens in het account.
+Als u een opslagaccount wilt verwijderen dat u niet langer gebruikt, gaat u in de [Azure-portal](https://portal.azure.com) naar het opslagaccount en klikt u op **Verwijderen**. Als u een opslagaccount verwijdert, wordt het hele account verwijderd, inclusief alle gegevens in het account.
 
 > [AZURE.WARNING] Het is niet mogelijk om een verwijderd opslagaccount te herstellen of om inhoud terug te halen die het account vóór verwijdering bevatte. Zorg ervoor dat u een back-up maakt van alles dat u wilt opslaan, voordat u het account verwijdert. Dit geldt ook voor alle resources in het account: als u blobs, tabellen, wachtrijen of bestanden verwijdert, worden deze permanent verwijderd.
 
@@ -139,9 +142,9 @@ Als u een opslagaccount wilt verwijderen dat is gekoppeld aan een virtuele machi
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Als het opslagaccount gebruikmaakt van het klassieke implementatiemodel, kunt u de schijf van de virtuele machine verwijderen via de volgende stappen in de [Azure Portal](https://manage.windowsazure.com):
+Als het opslagaccount gebruikmaakt van het klassieke implementatiemodel, kunt u de schijf van de virtuele machine via de volgende stappen in de [Azure-portal](https://manage.windowsazure.com) verwijderen:
 
-1. Navigeer naar de [Klassieke Azure Portal](https://manage.windowsazure.com).
+1. Navigeer naar de [klassieke Azure-portal](https://manage.windowsazure.com).
 2. Navigeer naar het tabblad Virtuele machines.
 3. Klik op het tabblad Schijven.
 4. Selecteer de gegevensschijf en klik vervolgens op Schijf verwijderen.
@@ -159,6 +162,6 @@ Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documen
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

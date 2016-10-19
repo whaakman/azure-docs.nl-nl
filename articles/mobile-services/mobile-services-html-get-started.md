@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-html5"
     ms.devlang="javascript"
     ms.topic="get-started-article" 
-    ms.date="11/30/2015"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
@@ -49,7 +49,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om deze zelfstudie te voltooien
     U kunt elke willekeurige webserver gebruiken voor het hosten van de app, maar dit zijn de webservers die worden ondersteund door de gedownloade scripts.  
 
 + Een webbrowser met ondersteuning voor HTML5.
-+ Een Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank) voor meer informatie. 
++ Een Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank) voor meer informatie. 
 
 
 ## <a name="create-new-service"> </a>Een nieuwe mobiele service maken
@@ -62,7 +62,7 @@ Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een
 
 In deze sectie maakt u een nieuwe HTML-app die is verbonden met uw mobiele service.
 
-1.  Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1.  Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 
 2. Klik op het tabblad Quick Start op **Windows** onder **Platform kiezen** en vouw **Een nieuwe HTML-app maken** uit.
@@ -109,7 +109,7 @@ De laatste fase van deze zelfstudie is het hosten en uitvoeren van uw nieuwe app
 
     > [AZURE.NOTE] U kunt de code die toegang heeft tot uw mobiele service bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het bestand page.js.
 
-4. Klik in de [klassieke Azure Portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
+4. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
 
     ![][11]
 
@@ -150,7 +150,7 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 <!-- URLs. -->
 [Verificatie toevoegen aan uw app]: mobile-services-html-get-started-users.md
 
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [webplatforminstallatieprogramma voor Windows]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [meest recente versie van Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Mobile Services HTML/Instructies voor conceptuele verwijzing in JavaScript]: mobile-services-html-how-to-use-client-library.md
@@ -159,6 +159,6 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Aan de slag met Azure Mobile Engagement"
+    pageTitle="Aan de slag met Azure Mobile Engagement voor Android-apps"
     description="Informatie over het gebruik van Azure Mobile Engagement met analyses en pushmeldingen voor Android-apps."
     services="mobile-engagement"
     documentationCenter="android"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="Java"
     ms.topic="hero-article"
-    ms.date="05/12/2016"
+    ms.date="08/10/2016"
     ms.author="piyushjo;ricksal" />
 
 # Aan de slag met Azure Mobile Engagement voor Android-apps
@@ -29,7 +29,7 @@ Voltooiing van deze zelfstudie vereist de [Android-hulpprogramma's voor ontwikke
 
 Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 
-> [AZURE.IMPORTANT] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started) voor meer informatie.
+> [AZURE.IMPORTANT] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started) voor meer informatie.
 
 ## Mobile Engagement instellen voor uw Android-app
 
@@ -37,17 +37,17 @@ Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 
 ## Uw app verbinden met de back-end van Mobile Engagement
 
-Deze zelfstudie toont een 'basisintegratie', de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement Android SDK-integratie](mobile-engagement-android-sdk-overview.md)
+Deze zelfstudie toont een 'basisintegratie', de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. U maakt een eenvoudige app met Android Studio ter illustratie van de integratie.
 
-We gaan een eenvoudige app maken met Android Studio ter illustratie van de integratie.
+De volledige integratiedocumentatie is te vinden in de [Mobile Engagement Android SDK-integratie](mobile-engagement-android-sdk-overview.md).
 
-### Een nieuw Android-project maken
+### Een Android-project maken
 
 1. Start **Android Studio** en selecteer **Start a new Android Studio project** in het pop-upvenster.
 
     ![][1]
 
-2. Geef een naam voor de app en het bedrijfsdomein op. Maak een notitie van wat u invult, want u hebt de informatie later nog nodig. Klik op **Next**.
+2. Geef een naam voor de app en het bedrijfsdomein op. Schrijf op wat u invult, omdat u deze gegevens later nodig hebt. Klik op **Volgende**.
 
     ![][2]
 
@@ -57,7 +57,7 @@ We gaan een eenvoudige app maken met Android Studio ter illustratie van de integ
 
     ![][3]
 
-4. Selecteer hier **Blank Activity**, dit wordt het enige scherm voor deze app. Klik vervolgens op **Next**.
+4. Selecteer hier **Blank Activity** (Blanco activiteit). Dit is het enige scherm voor deze app. Klik vervolgens op **Next** (Volgende).
 
     ![][4]
 
@@ -69,7 +69,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
 
 ### De SDK-bibliotheek opnemen in uw project
 
-1. Download [Mobile Engagement Android SDK].
+1. Download de [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Pak het bestand uit in een map op uw computer.
 3. Zoek de JAR-bibliotheek voor de huidige versie van deze SDK en kopieer die naar het Klembord.
 
@@ -79,7 +79,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
 
       ![][7]
 
-5. Synchroniseer uw project om de bibliotheek te laden.
+5. Synchroniseer het project om de bibliotheek te laden.
 
       ![][8]
 
@@ -100,7 +100,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
 
       ![][9]
 
-4. Plak deze in de parameter `setConnectionString` en vervang het voorbeeld zoals hieronder weergegeven:
+4. Plak deze in de `setConnectionString`-parameter, waarbij u de gehele tekenreeks vervangt die in de volgende code wordt weergegeven:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
@@ -115,7 +115,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. Voeg het volgende toe tussen de tags `<application>` en `</application>` om de agent-service te declareren:
+2. Voeg deze code toe tussen de tags `<application>` en `</application>` om de agentservice te declareren:
 
         <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -123,11 +123,11 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
             android:label="<Your application name>"
             android:process=":Engagement"/>
 
-3. In de code die u zojuist hebt geplakt, vervangt u `"<Your application name>"` in het label. Dit wordt weergegeven in het menu **Instellingen**, waar gebruikers de services kunnen zien die worden uitgevoerd op het apparaat. U kunt bijvoorbeeld het woord 'Service' aan dat label toevoegen.
+3. Vervang in de code die u hebt geplakt `"<Your application name>"` in het label, dat wordt weergegeven in het menu **Settings** (Instellingen) waar u de services kunt zien die worden uitgevoerd op het apparaat. U kunt bijvoorbeeld het woord 'Service' aan dat label toevoegen.
 
 ### Een scherm naar Mobile Engagement verzenden
 
-Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm (activiteit) naar de back-end van Mobile Engagement sturen.
+U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en om ervoor te zorgen dat de gebruikers actief zijn.
 
 Ga naar **MainActivity.java** en voeg het volgende toe ter vervanging van de basisklasse van **MainActivity** met **EngagementActivity**:
 
@@ -136,11 +136,11 @@ Ga naar **MainActivity.java** en voeg het volgende toe ter vervanging van de bas
 > [AZURE.NOTE] Als de basisklasse niet *Activity* is, raadpleegt u [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Geavanceerde Android-rapportages) voor het overnemen van verschillende klassen.
 
 
-U moet de volgende regel voor dit eenvoudige voorbeeldscenario uitcommentariëren (uitsluiten):
+Maak de volgende regel onzichtbaar voor dit eenvoudige voorbeeldscenario:
 
     // setSupportActionBar(toolbar);
 
-Als u dit wilt behouden, raadpleeg dan [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)  (Geavanceerde Android-rapportages).
+Als u de `ActionBar` in uw app wilt behouden, verwijzen wij u naar [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Geavanceerde Android-rapportages).
 
 ## App verbinden met realtime-bewaking
 
@@ -148,8 +148,8 @@ Als u dit wilt behouden, raadpleeg dan [Advanced Android Reporting](mobile-engag
 
 ## Pushmeldingen en in-app-berichten inschakelen
 
-Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
-In de volgende secties stelt u de app in om die te ontvangen.
+Tijdens een campagne kunt u met Mobile Engagement met uw gebruikers communiceren en ze bereiken met pushmeldingen en in-app-berichten. Deze module heet REACH in de Mobile Engagement-portal.
+In de volgende gedeelten stelt u de app in om die meldingen en berichten te ontvangen.
 
 ### SDK-bronnen naar uw project kopiëren
 
@@ -186,6 +186,6 @@ Ga naar [Android SDK](mobile-engagement-android-sdk-overview.md) voor uitgebreid
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

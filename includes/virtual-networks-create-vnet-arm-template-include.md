@@ -22,7 +22,7 @@ U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets 
     
 6. Controleer de inhoud onder **Resources** en let op het volgende:
 
-    - **Type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval **Microsoft.Network/virtualNetworks**, die een VNet vertegenwoordigen.
+    - **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval **Microsoft.Network/virtualNetworks**, die een VNet vertegenwoordigen.
     - **Naam**. Naam voor de resource. Let op het gebruik van **[parameters('vnetName')]**. Deze geeft aan of de naam wordt geleverd als invoer door de gebruiker of een parameterbestand tijdens implementatie.
     - **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt gebruik van de adresruimte en de subneteigenschappen tijdens het aanmaken van het VNet.
 
@@ -58,7 +58,6 @@ U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets 
 11. Sla het bestand op.
   
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

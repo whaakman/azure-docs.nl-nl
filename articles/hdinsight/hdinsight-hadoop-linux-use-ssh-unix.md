@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/25/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
+
 
 #SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X
 
@@ -25,7 +26,9 @@
 
 Met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kunt u via de opdrachtregelinterface op afstand bewerkingen uitvoeren op uw HDInsight-clusters op basis van Linux. Dit document bevat informatie over het gebruik van SSH met HDInsight op Linux-, Unix- of OS X-clients.
 
-> [AZURE.NOTE] In de stappen in dit artikel wordt ervan uitgegaan dat u een Linux-, Unix- of OS X-client gebruikt. Hoewel deze stappen kunnen worden uitgevoerd op een Windows-client als u een pakket hebt geïnstalleerd dat `ssh` en `ssh-keygen` biedt (zoals Git voor Windows), kunt u voor Windows-clients het beste de stappen in [SSH gebruiken met HDInsight (Hadoop) op basis van Linux via Windows](hdinsight-hadoop-linux-use-ssh-windows.md) volgen.
+> [AZURE.NOTE] In de stappen in dit artikel wordt ervan uitgegaan dat u een Linux-, Unix- of OS X-client gebruikt. Deze stappen kunnen worden uitgevoerd op een Windows-client als u een pakket hebt geïnstalleerd dat `ssh` en `ssh-keygen` bevat, zoals [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Als SSH niet op uw Windows-client is geïnstalleerd, volgt u de stappen in [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows](hdinsight-hadoop-linux-use-ssh-windows.md) voor informatie over het installeren en gebruiken van PuTTY.
 
 ##Vereisten
 
@@ -126,7 +129,7 @@ Open een terminalsessie en gebruik de SSH-opdracht om verbinding met het hoofdkn
 
 * **Gebruikersnaam**: de SSH-gebruikersnaam die u hebt opgegeven toen u het cluster hebt gemaakt.
 
-In het volgende voorbeeld maakt de gebruiker **me** verbinding met het hoofdknooppunt 0 van **mijncluster**:
+In het volgende voorbeeld maakt de gebruiker **me** verbinding met het primaire hoofdknooppunt van **mijncluster**:
 
     ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -138,7 +141,7 @@ Als u een SSH-sleutel hebt gebruikt die is beveiligd met een wachtwoordzin, word
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Als u verbinding maakt met het adres voor het hoofdknooppunt en er geen poort is opgegeven, gebruikt SSH standaard poort 22, waarmee verbinding wordt gemaakt met het hoofdknooppunt 0 op het HDInsight-cluster. Als u poort 23 gebruikt, maakt u verbinding met hoofdknooppunt 1. Zie [Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md) voor meer informatie over de hoofdknooppunten.
+Als u verbinding maakt met het adres voor het hoofdknooppunt en er geen poort is opgegeven, gebruikt SSH standaard poort 22, waarmee verbinding wordt gemaakt met het primaire hoofdknooppunt op het HDInsight-cluster. Als u poort 23 gebruikt, maakt u verbinding met het secundaire hoofdknooppunt. Zie [Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md) voor meer informatie over de hoofdknooppunten.
 
 ###Verbinding maken met werkrolknooppunten
 
@@ -193,9 +196,9 @@ Gebruik de volgende stappen om verbinding te maken met de werkrolknooppunten voo
 
     > [AZURE.NOTE] Als u een wachtwoord gebruikt voor de verificatie van uw SSH-sessie, wordt u gevraagd het wachtwoord opnieuw invoeren. Als u een SSH-sleutel gebruikt, wordt de verbinding voltooid zonder prompts.
 
-4. Zodra de sessie actief is, verandert de terminalprompt van `username@hn0-clustername` in `username@wk0-clustername` om aan te geven dat verbonden bent met het werkrolknooppunt. Alle opdrachten die u op dit moment uitvoert, worden uitgevoerd onder het werkrolknooppunt.
+4. Zodra de sessie actief is, verandert de terminalprompt van `username@hn#-clustername` in `username@wk#-clustername` om aan te geven dat verbonden bent met het werkrolknooppunt. Alle opdrachten die u op dit moment uitvoert, worden uitgevoerd onder het werkrolknooppunt.
 
-4. Zodra u de acties op het werkrolknooppunt hebt uitgevoerd, gebruikt u de opdracht `exit` om de sessie op het werkrolknooppunt te sluiten. Hiermee keert u terug naar de prompt `username@hn0-clustername`.
+4. Zodra u de acties op het werkrolknooppunt hebt uitgevoerd, gebruikt u de opdracht `exit` om de sessie op het werkrolknooppunt te sluiten. Hiermee keert u terug naar de prompt `username@hn#-clustername`.
 
 ##Meer accounts toevoegen
 
@@ -227,7 +230,7 @@ Gebruik de volgende stappen om verbinding te maken met de werkrolknooppunten voo
 
 ##<a id="tunnel"></a>SSH-tunneling
 
-SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt vervolgens naar de aangevraagde resource gerouteerd, alsof deze afkomstig is van het hoofdknooppunt van het HDInsight-cluster.
+SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt vervolgens naar de aangevraagde resource gerouteerd, alsof de aanvraag afkomstig is van het hoofdknooppunt van het HDInsight-cluster.
 
 > [AZURE.IMPORTANT] Een SSH-tunnel is vereist voor toegang tot de webgebruikersinterface voor bepaalde Hadoop-services. De gebruikersinterface van bijvoorbeeld Taakgeschiedenis of Resource Manager is alleen toegankelijk via een SSH-tunnel.
 
@@ -247,6 +250,6 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

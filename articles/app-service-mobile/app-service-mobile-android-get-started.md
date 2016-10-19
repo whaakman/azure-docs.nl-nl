@@ -3,7 +3,7 @@
     description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Android-ontwikkeling."
     services="app-service\mobile"
     documentationCenter="android"
-    authors="ysxu"
+    authors="yuaxu"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="yuaxu;ricksal"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #Een Android-app maken
 
@@ -32,7 +33,6 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * De [Android-hulpprogramma's voor ontwikkelaars](https://developer.android.com/sdk/index.html), waaronder Integrated Development Environment van Android Studio en het meest recente Android-platform.
 * Azure Mobile Android SDK, waarnaar automatisch wordt verwezen als onderdeel van het snelstartproject dat u hebt gedownload.
-* Een pc met [Visual Studio Community 2013] of hoger&mdash; is niet vereist voor een back-end voor Node.js.
 * Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Een nieuwe back-end voor mobiele apps van Azure maken
@@ -56,6 +56,6 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

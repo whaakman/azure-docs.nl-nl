@@ -13,14 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
+
 
 # Beveiligingsbeheer in Azure
 
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
 
-Hoewel al deze mogelijkheden voor toegang en beheer uitgebreide opties bieden, kan deze verscheidenheid voor een cloudimplementatie aanzienlijke risico’s met zich meebrengen, waardoor beheeracties moeilijk zijn te beheren, te volgen en te controleren. Deze verscheidenheid kan ook leiden tot beveiligingsrisico's, omdat er ongereglementeerde toegang plaatsvindt tot clienteindpunten die worden gebruikt voor het beheer van cloudservices. Het gebruik van algemene of persoonlijke werkstations voor het ontwikkelen en beheren van infrastructuur brengt onvoorspelbare bedreigingen met zich mee voor bijvoorbeeld websurfen (denk aan waterhole-aanvallen) of e-mail (zoals social engineering en phishing).
+Hoewel meerdere mogelijkheden voor toegang en beheer uitgebreide opties bieden, kan deze verscheidenheid voor een cloudimplementatie aanzienlijke risico's met zich meebrengen. Het beheren, volgen en controleren van beheeracties kan hierdoor worden bemoeilijkt. Deze verscheidenheid kan ook leiden tot beveiligingsrisico's, omdat er ongereglementeerde toegang plaatsvindt tot clienteindpunten die worden gebruikt voor het beheer van cloudservices. Het gebruik van algemene of persoonlijke werkstations voor het ontwikkelen en beheren van infrastructuur brengt onvoorspelbare bedreigingen met zich mee voor bijvoorbeeld surfen op internet (denk aan waterhole-aanvallen) of e-mail (zoals social engineering en phishing).
 
 ![][1]
 
@@ -118,7 +119,7 @@ Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die b
 
 In het algemeen sluit het beveiligen van werkstations van beheerders voor gebruik met de cloud aan bij de uitgangspunten die gelden voor elk ander on-premises werkstation, zoals een minimale build en beperkte machtigingen. Sommige unieke aspecten van cloudbeheer lijken meer op extern beheer of out-of-band-enterprise-beheer. Hierbij horen het gebruiken en controleren van referenties, verbeterde beveiliging van externe toegang, en bedreigingsdetectie en -respons.
 
-### Verificatie
+### Authentication
 
 U kunt Azure-aanmeldingsbeperkingen gebruiken om de bron-IP-adressen te beperken die toegang hebben tot beheerhulpprogramma's, en om toegangsaanvragen te controleren. Om Azure te helpen beheerclients (werkstations en/of toepassingen) te identificeren, kunt u zowel SMAPI (via door de klant ontwikkelde hulpprogramma's, zoals Windows PowerShell-cmdlets) als de Azure-beheerportal zo configureren dat, in aanvulling op SSL-certificaten, ook installatie van beheercertificaten op de clients verplicht is. We raden u ook aan Multi-Factor Authentication verplicht te stellen voor beheerderstoegang.
 
@@ -197,7 +198,7 @@ Ga er niet van uit dat er na het 'dichttimmeren' van een werkstation niet meer a
 
 | Niet doen | Wel doen |
 | ----- | ----- |
-| Verzend referenties voor beheerderstoegang of andere geheime informatie niet via e-mail (bijvoorbeeld SSL- of beheercertificaten) | Waarborg de vertrouwelijkheid door gebruikersnamen en wachtwoorden voor accounts mondeling door te geven (maar spreek ze niet op iemands voicemail in), voer een externe installatie van client/server-certificaten uit (via een gecodeerde sessie), voer downloads uit vanaf een beveiligde netwerkshare of distribueer gegevens handmatig via verwisselbare media. |
+| Verzend referenties voor beheerderstoegang of andere geheime informatie (bijvoorbeeld SSL- of beheercertificaten) niet via e-mail | Waarborg de vertrouwelijkheid door gebruikersnamen en wachtwoorden voor accounts mondeling door te geven (maar spreek ze niet op iemands voicemail in), voer een externe installatie van client/server-certificaten uit (via een gecodeerde sessie), voer downloads uit vanaf een beveiligde netwerkshare of distribueer gegevens handmatig via verwisselbare media. |
 | | Beheer de levenscycli van uw beheercertificaat proactief. |
 | Sla wachtwoorden niet op in toepassingsopslag (zoals een spreadsheet, een SharePoint-site of een bestandsshare) als ze niet zijn versleuteld of er geen hash-bewerking op is uitgevoerd. | Stel richtlijnen voor beveiligingsbeheer en beleid voor het beperken van het systeem op en pas deze toe op uw ontwikkelomgeving. |
 | | Gebruik [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751)-regels voor het opslaan van certificaten om correcte toegang tot Azure SSL-/TLS-sites te waarborgen. |
@@ -249,6 +250,6 @@ Naast de specifieke items waarnaar in dit artikel wordt verwezen, zijn ook de vo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

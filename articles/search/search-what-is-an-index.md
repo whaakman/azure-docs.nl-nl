@@ -12,8 +12,9 @@ authors="ashmaka"
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
+
 
 # Een Azure Search-index maken
 > [AZURE.SELECTOR]
@@ -24,7 +25,7 @@ authors="ashmaka"
 
 ## Wat is een index?
 
-Een *index* is een permanente opslag van *documenten* en andere constructies die worden gebruikt door een Azure Search-service. Een document bestaat uit gegevens die kunnen worden doorzocht in uw index. Een e-commercedetailhandel heeft bijvoorbeeld een document voor elk item dat wordt verkocht, een nieuwsbureau heeft een document voor elk artikel, enzovoort. Deze begrippen aan betrouwbaardere database-equivalenten toewijzen: een *index* lijkt conceptueel gezien op een *tabel* en *documenten* lijken ruwweg op *rijen* in een tabel.
+Een *index* is een permanente opslag van *documenten* en andere constructies die worden gebruikt door een Azure Search-service. Een document is een eenheid die bestaat uit gegevens die kunnen worden doorzocht in uw index. Een e-commercedetailhandel heeft bijvoorbeeld een document voor elk item dat wordt verkocht, een nieuwsbureau heeft een document voor elk artikel, enzovoort. Deze begrippen aan betrouwbaardere database-equivalenten toewijzen: een *index* lijkt conceptueel gezien op een *tabel* en *documenten* lijken ruwweg op *rijen* in een tabel.
 
 Wanneer u documenten toevoegt of uploadt en zoekopdrachten naar Azure Search verzendt, worden uw aanvragen naar een specifieke index in uw zoekservice verzonden.
 
@@ -72,6 +73,6 @@ Als u de vereisten voor gegevensopslag wilt wijzigen, kunt u de capaciteit vergr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

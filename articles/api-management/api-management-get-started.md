@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Uw eerste API beheren in Azure API Management
@@ -133,11 +133,11 @@ Voor het maken van aanroepen naar een API moeten ontwikkelaars zich eerst abonne
 
 Bewerkingen kunnen rechtstreeks vanuit de ontwikkelaarsportal worden aangeroepen. Deze biedt een gemakkelijke manier om de bewerkingen van een API te bekijken en te testen. In deze zelfstudiestap roept u de bewerking **Twee gehele getallen toevoegen** van de basisrekenmachine-API aan. Klik op **ontwikkelaarsportal** in het menu rechtsboven in de publicatieportal.
 
-![Ontwikkelaarsportal][api-management-developer-portal-menu]
+![ontwikkelaarsportal][api-management-developer-portal-menu]
 
 Klik op **API's** in het bovenste menu en klik vervolgens op **Basisrekenmachine** om de beschikbare bewerkingen te bekijken.
 
-![Ontwikkelaarsportal][api-management-developer-portal-calc-api]
+![ontwikkelaarsportal][api-management-developer-portal-calc-api]
 
 Noteer de voorbeeldbeschrijvingen en -parameters die samen met de API en de bewerkingen zijn geïmporteerd, om documentatie te bieden voor de ontwikkelaars die deze bewerking gaan gebruiken. Deze beschrijvingen kunnen ook worden toegevoegd wanneer bewerkingen handmatig worden toegevoegd.
 
@@ -186,7 +186,7 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 ## <a name="next-steps"> </a>Volgende stappen
 
--   Bekijk de andere onderwerpen in de zelfstudie [Aan de slag met geavanceerde API-configuratie][].
+- Meer informatie over [Uw API beveiligen met frequentielimieten](api-management-howto-product-with-rules.md).
 
 [Gratis proefversie van Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 [Meldingen en e-mailsjablonen configureren in Azure API Management]: api-management-howto-configure-notifications.md
 [Antwoorden]: api-management-howto-add-operations.md#responses
 [Een product maken en publiceren]: api-management-howto-add-products.md
-[Aan de slag met geavanceerde API-configuratie]: api-management-get-started-advanced.md
 [API Management-prijzen]: http://azure.microsoft.com/pricing/details/api-management/
 
 [klassieke Azure-portal]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

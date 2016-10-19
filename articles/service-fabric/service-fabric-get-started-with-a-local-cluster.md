@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
 De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waarmee u snel uw toepassingen kunt implementeren en beheren op een lokaal cluster. In dit artikel maakt u een lokaal cluster, implementeert u een bestaande toepassing en werkt u de toepassing bij naar een nieuwe versie vanuit Windows PowerShell.
@@ -39,7 +40,7 @@ Met behulp van de SDK kunt u op twee manieren een lokaal cluster instellen: via 
     & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
     ```
 
-    De installatie van het cluster duurt enkele ogenblikken. Nadat de installatie is voltooid, ziet u uitvoer die er ongeveer als volgt uitziet:
+    Het installeren van een cluster duurt even. Nadat Setup is voltooid, ziet u soortgelijke uitvoer als deze:
 
     ![Cluster-installatieuitvoer][cluster-setup-success]
 
@@ -66,7 +67,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
     cd c:\ServiceFabric\
     ```
 
-4. [Download de toepassing WordCount](http://aka.ms/servicefabric-wordcountapp) naar de locatie die u hebt gemaakt.
+4. [Download de toepassing WordCount](http://aka.ms/servicefabric-wordcountapp) naar de locatie die u hebt gemaakt.  Opmerking: de browser Microsoft Edge slaat het bestand met de extensie *.zip* op.  Wijzig de bestandsextensie in *.sfpkg*.
 
 5. Verbinding maken met het lokale cluster:
 
@@ -74,7 +75,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Roep de SDK-implementatieopdracht aan voor het maken van een nieuwe toepassing door een naam en een pad voor het toepassingspakket op te geven.
+6. Maak een nieuwe toepassing door de SDK-implementatieopdracht te gebruiken met een naam en pad naar het toepassingspakket.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,11 +85,11 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
 
     ![Een toepassing implementeren in het lokale cluster][deploy-app-to-local-cluster]
 
-7. Ga naar [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html) om de toepassing te zien. U ziet ongeveer het volgende:
+7. Ga naar [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html) om de toepassing te zien. U ziet het volgende:
 
     ![De UI van de geïmplementeerde toepassing][deployed-app-ui]
 
-    De toepassing WordCount is zeer eenvoudig. Het bevat JavaScript-code aan de clientzijde voor het genereren van willekeurige "woorden" van vijf tekens, die vervolgens worden doorgegeven aan de toepassing via ASP.NET Web API. Een stateful service houdt het aantal woorden bij dat wordt geteld. Ze worden gepartitioneerd op basis van het eerste teken van het woord.
+    De toepassing WordCount is zeer eenvoudig. Het bevat JavaScript-code aan de clientzijde voor het genereren van willekeurige "woorden" van vijf tekens, die vervolgens worden doorgegeven aan de toepassing via ASP.NET Web API. Een stateful service houdt het aantal getelde woorden bij. Ze worden gepartitioneerd op basis van het eerste teken van het woord. U vindt de broncode voor de app WordCount in de [voorbeelden waarmee u aan de slag kunt gaan](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     De toepassing die we hebben geïmplementeerd, bevat vier partities. Woorden die beginnen met A tot G worden in de eerste partitie opgeslagen, woorden die beginnen met H tot N worden in de tweede partitie opgeslagen, enzovoort.
 
@@ -101,7 +102,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
     Get-ServiceFabricApplication
     ```
 
-    Ervan uitgaande dat u alleen de WordCount app hebt geïmplementeerd, ziet u ongeveer het volgende:
+    Aannemende dat u alleen de app WordCount hebt geïmplementeerd, ziet u iets dat lijkt op het volgende:
 
     ![Een query uitvoeren op alle geïmplementeerde toepassingen in PowerShell;][ps-getsfapp]
 
@@ -113,7 +114,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
 
     ![Lijst met services voor de toepassing in PowerShell][ps-getsfsvc]
 
-    De toepassing bestaat uit twee services--de web-front-end en de stateful service die de woorden beheert.
+    Deze toepassing bestaat uit twee services: het webfront-end en de stateful service die de woorden beheert.
 
 3. Bekijk de lijst met partities voor WordCountService:
 
@@ -123,7 +124,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
 
     ![De servicepartities in PowerShell weergeven][ps-getsfpartitions]
 
-    De reeks opdrachten die u zojuist hebt gebruikt, zoals alle Service Fabric PowerShell-opdrachten, zijn beschikbaar voor een cluster waarmee u lokaal of op afstand verbinding kunt maken.
+    De reeks opdrachten die u hebt gebruikt, zoals alle Service Fabric PowerShell-opdrachten, zijn beschikbaar voor elk cluster waarmee u verbinding zou kunnen maken, lokaal of op afstand.
 
     U kunt de interactie met het cluster visueel weergeven met het Service Fabric Explorer-webhulpprogramma door te navigeren naar [http://localhost:19080/Explorer](http://localhost:19080/Explorer) in de browser.
 
@@ -134,7 +135,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
 ## Een upgrade van een app uitvoeren
 Service Fabric bevat upgrades zonder downtime door de status van de toepassing te bewaken tijdens de implementatie in het cluster. We gaan een eenvoudige upgrade uitvoeren van de WordCount-toepassing.
 
-De nieuwe versie van de toepassing telt nu alleen woorden die met een klinkerteken beginnen. Tijdens het uitvoeren van de upgrade zijn er twee zichtbare wijzigingen in de werking van de toepassing. Als eerste moet de snelheid waarmee het aantal groeit vertragen, omdat er minder woorden worden geteld. Ten tweede, aangezien de eerste partitie twee klinkers (A en E) bevat en alle andere partities slechts één bevatten, wordt het aantal uiteindelijk hoger.
+De nieuwe versie van de toepassing telt nu alleen woorden die met een klinker beginnen. Tijdens het uitvoeren van de upgrade zijn er twee zichtbare wijzigingen in de werking van de toepassing. Als eerste moet de snelheid waarmee het aantal groeit vertragen, omdat er minder woorden worden geteld. Ten tweede, aangezien de eerste partitie twee klinkers (A en E) bevat en alle andere partities slechts één bevatten, wordt het aantal uiteindelijk hoger.
 
 1. [Download het WordCount v2-pakket](http://aka.ms/servicefabric-wordcountappv2) naar dezelfde locatie waar u het v1-pakket hebt gedownload.
 
@@ -144,7 +145,7 @@ De nieuwe versie van de toepassing telt nu alleen woorden die met een klinkertek
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
-    De uitvoer in PowerShell moet er ongeveer als volgt uitziet als de upgrade begint.
+    U ziet uitvoer in PowerShell die er, als de upgrade van start gaat, ongeveer uitziet zoals hier is aangegeven.
 
     ![Voortgang van de upgrade in PowerShell][ps-appupgradeprogress]
 
@@ -154,7 +155,7 @@ De nieuwe versie van de toepassing telt nu alleen woorden die met een klinkertek
 
     Terwijl de upgrade wordt uitgevoerd in elk domein, wordt er statuscontroles uitgevoerd om ervoor te zorgen dat de toepassing correct werkt.
 
-4. Als u de eerdere query voor de set met services die zijn opgenomen in de fabric:/WordCount-toepassing opnieuw uitvoert, ziet u dat de versie van WordCountService wordt gewijzigd, maar de versie van WordCountWebService niet:
+4. Als u de eerdere query voor de set met services in de toepassing fabric:/WordCount opnieuw uitvoert, ziet u dat de versie van WordCountService is gewijzigd, maar de versie van WordCountWebService niet:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -168,10 +169,67 @@ De nieuwe versie van de toepassing telt nu alleen woorden die met een klinkertek
 
     ![De nieuwe versie van de toepassing bekijken in de browser][deployed-app-ui-v2]
 
+## Opschonen
+
+Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Toepassingen blijven op de achtergrond uitgevoerd worden tot u deze verwijdert.  Afhankelijk van de aard van uw apps, kan een app die wordt uitgevoerd een aanzienlijke hoeveelheid resources op uw computer in beslag nemen. U hebt verschillende mogelijkheden om toepassingen en het cluster te beheren:
+
+1. Voer het volgende uit als u een afzonderlijke toepassing en alle bijbehorende gegevens wilt verwijderen:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Of verwijder de toepassing uit het menu **ACTIES** van Service Fabric Explorer of het contextmenu in de weergave van de lijst met toepassing in het linkerdeelvenster.
+
+    ![Een toepassing verwijderen in Service Fabric Explorer][sfe-delete-application]
+
+2. Nadat de toepassing uit het cluster is verwijderd, kunt u de registratie van versies 1.0.0 en 2.0.0 van het toepassingstype WordCount ongedaan maken. Verwijderen houdt in dat de toepassingspakketten, met inbegrip van de code en configuratie, worden verwijderd uit het archief van de installatiekopie van het cluster.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    Of kies in Service Fabric Explorer de optie **Unprovision Type** (Type inrichting verwijderen) voor de toepassing.
+
+3. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
+
+4. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het lokale cluster alleen als u van plan bent het lokale cluster een tijd niet te gebruiken of als u resources moet vrijmaken.
+
+## Clustermodus met één knooppunt en met vijf knooppunten
+
+Wanneer u werkt met het lokale cluster om toepassingen te ontwikkelen, moet u vaak snel dezelfde bewerkingen uitvoeren, zoals code schrijven, fouten opsporen, code wijzigen, fouten opsporen, enz. Het lokale cluster kan in twee modi worden uitgevoerd om dit proces te optimaliseren: met één knooppunt of met vijf knooppunten. Beide clustermodi hebben hun eigen voordelen.
+In de clustermodus met vijf knooppunten kunt u werken met een echt cluster. U kunt failover-scenario's testen en werken met meerdere exemplaren en replica's van uw services.
+De clustermodus met één knooppunt is geoptimaliseerd voor snelle implementaties en om snel services te registreren. Zo kunt u snel code valideren met de runtime Service Fabric.
+
+De clustermodi met één knooppunt en met vijf knooppunten zijn geen emulatoren of simulatoren. Dit cluster wordt uitgevoerd op dezelfde platformcode als de code op clusters voor meerdere machines.
+
+> [AZURE.NOTE] Deze functie is beschikbaar in SDK-versie 5.2 en hoger.
+
+Als u de clustermodus wilt wijzigen in een cluster met één knooppunt, gebruikt u de Local Cluster Manager van Service Fabric of gebruikt u PowerShell op de volgende manier:
+
+1. Start een nieuw PowerShell-venster als beheerder.
+
+2. Voer het installatiescript van het  cluster uit wat in de SDK-map staat:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Het installeren van een cluster duurt even. Nadat Setup is voltooid, ziet u soortgelijke uitvoer als deze:
+    
+    ![Cluster-installatieuitvoer][cluster-setup-success-1-node]
+
+Als u de Local Cluster Manager van Service Fabric gebruikt, gaat u als volgt te werk:
+
+![De clustermodus wijzigen][switch-cluster-mode]
+
+> [AZURE.WARNING] Wanneer u de clustermodus wijzigt, wordt het huidige cluster verwijderd van uw systeem en wordt een nieuw cluster gemaakt. De gegevens die u moet hebben opgeslagen in het cluster worden verwijderd wanneer u de clustermodus wijzigt.
+
 ## Volgende stappen
 - Nu u een aantal vooraf gemaakt toepassen hebt geïmplementeerd een upgrade hebt uitgevoerd, kunt u [proberen zelf toepassingen te ontwikkelen in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Alle acties die zijn uitgevoerd op het lokale cluster in dit artikel kunnen ook worden uitgevoerd op een [Azure-cluster](service-fabric-cluster-creation-via-portal.md).
-- De upgrade die is uitgevoerd in dit artikel is zeer eenvoudig. Zie de [upgradedocumentatie](service-fabric-application-upgrade.md) voor meer informatie over de kracht en flexibiliteit van Service Fabric-upgrades.
+- De upgrade die wij in dit artikel hebben uitgevoerd was zeer eenvoudig. Zie de [upgradedocumentatie](service-fabric-application-upgrade.md) voor meer informatie over de kracht en flexibiliteit van Service Fabric-upgrades.
 
 <!-- Images -->
 
@@ -189,9 +247,12 @@ De nieuwe versie van de toepassing telt nu alleen woorden die met een klinkertek
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[toepassing van sfe verwijderen]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

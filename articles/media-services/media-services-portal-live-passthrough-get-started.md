@@ -13,16 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="09/05/2016" 
     ms.author="juliako"/>
+
 
 
 #Live streamen met on-premises coderingsprogramma's via Azure Portal
 
+> [AZURE.SELECTOR]
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
 Deze zelfstudie bevat de stappen voor het maken van een **kanaal** via Azure Portal dat is geconfigureerd voor een doorvoerlevering. 
-
-Azure Media Services in Azure Portal is momenteel als preview-versie beschikbaar.   
-
 
 ##Vereisten
 
@@ -75,12 +78,13 @@ Als u de meldingen en fouten wilt weergeven die door Azure Portal zijn gegeneree
 
 ##Streaming-eindpunten configureren 
 
-Media Services biedt dynamische pakketten zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
+Media Services biedt dynamische pakketten, zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
 Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-eenheid voor het streaming-eindpunt hebben van waaruit u uw inhoud wilt leveren.  
 
 Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
 
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 1. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
 
 2. Klik op het standaardstreaming-eindpunt. 
@@ -89,7 +93,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
 
 3. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
 
-    ![Streaming-eenheden](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+    ![Streaming-eenheden](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
 
@@ -134,9 +138,13 @@ Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate stream
 
     Hierop wordt een doorvoerkanaal gemaakt met het RTMP-opnameprotocol.
 
-    Ook wordt met het kanaal een standaard live gebeurtenis/programma toegevoegd, gestart en gepubliceerd. Deze gebeurtenis wordt geconfigureerd met een archiefvenster van acht uur. 
+##Gebeurtenissen maken
 
-    Als u meer gebeurtenissen wilt toevoegen, klikt u op de knop **Live gebeurtenis**.
+1. Selecteer een kanaal waaraan u een gebeurtenis wilt toevoegen.
+2. Klik op de knop **Live gebeurtenis**.
+
+![Gebeurtenis](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##URL’s voor opnemen ophalen
 
@@ -144,7 +152,7 @@ Wanneer het kanaal is gemaakt, kunt u URL’s voor opnemen ophalen die u aan het
 
 ![Gemaakt](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Een gebeurtenis bekijken
+##De gebeurtenis bekijken
 
 Als u een gebeurtenis wilt bekijken, klikt u op **Bekijken** in Azure Portal of kopieert u de streaming-URL en gebruikt u een speler van uw keuze. 
  
@@ -167,7 +175,9 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Media Services-leertrajecten
+##Volgende stap
+
+Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -177,6 +187,6 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

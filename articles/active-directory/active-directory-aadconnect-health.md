@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren
 
@@ -47,6 +48,7 @@ De volgende video biedt een overzicht van Azure AD Connect Health voor AD FS
 >[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health voor synchroniseren](active-directory-aadconnect-health-sync.md)
+
 Met Azure AD Connect Health voor synchroniseren wordt informatie gecontroleerd en geboden over de synchronisaties die worden uitgevoerd tussen uw on-premises Active Directory en Azure Active Directory. Azure AD Connect Health voor synchroniseren biedt de volgende set kernfuncties:
 
 - Controle met waarschuwingen over de status van Azure AD Connect-servers of Sync Engine
@@ -56,13 +58,25 @@ Met Azure AD Connect Health voor synchroniseren wordt informatie gecontroleerd e
 
 De volgende video biedt een overzicht van Azure AD Connect Health voor synchroniseren
 
-[Azure Active Directory Connect Health: de synchronisatie-engine controleren](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
+## [Azure AD Connect Health voor AD DS (voorbeeld)](active-directory-aadconnect-health-adds.md)
+
+Azure AD Connect Health voor AD DS biedt bewaking voor domeincontrollers die geïnstalleerd zijn in Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2. Een eenvoudige en voordelige statusagent-installatie, waarmee u uw on-premises AD DS-omgeving rechtstreeks vanuit de cloud kunt bewaken. Azure AD Connect Health voor AD DS biedt de volgende set kernfuncties:
+
+- Bewakingswaarschuwingen om te detecteren wanneer domeincontrollers niet in orde zijn, samen met e-mailmeldingen voor kritieke waarschuwingen.
+- Dashboard voor domeincontrollers, waarmee u snel inzicht krijgt in de (operationele) status van uw domeincontrollers.
+- Dashboard voor replicatiestatus, met meest recente replicatiegegevens, samen met koppelingen naar gidsen voor het oplossen van problemen wanneer er fouten worden gedetecteerd.
+- Snel overal toegang tot grafieken met prestatiegegevens van populaire prestatiemeteritems, vereist voor het oplossen van problemen en bewakingsdoeleinden.
+
+De volgende video biedt een overzicht van Azure AD Connect Health voor AD DS
+
+>[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
 ## Aan de slag met Azure AD Connect Health
 Het is heel eenvoudig om aan de slag te gaan met Azure AD Connect Health. Volg de onderstaande stappen:
 
-1. [Installeer Azure AD Premium](active-directory-get-started-premium) of [start een proefversie](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Installeer Azure AD Premium](active-directory-get-started-premium.md) of [start een proefversie](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 2. [Download en installeer Azure AD Connect Health-agents](#download-and-install-azure-ad-connect-health-agent) op uw servers voor identiteiten.
 
@@ -79,17 +93,21 @@ Het is heel eenvoudig om aan de slag te gaan met Azure AD Connect Health. Volg d
 
 - Als u aan de slag wilt gaan met Azure AD Connect Health voor synchroniseren, downloadt en installeert u de [nieuwste versie van Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  De statusagent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).  Azure AD Connect ondersteunt een upgrade die u in plaats van eerdere versies kunt installeren.
 
+- Als u aan de slag wilt gaan met Azure AD Connect Health voor AD DS, kunt u de nieuwste versie van de agent hier downloaden: [Download Azure AD Connect Health Agent for AD DS (De Azure AD Connect Health-agent voor AD DS downloaden).](http://go.microsoft.com/fwlink/?LinkID=820540)
+[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 ## Portal voor Azure AD Connect Health
-In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de prestaties controleren en het gebruik analyseren. Via de koppeling https://aka.ms/aadconnecthealth gaat u naar de hoofdblade van Azure AD Connect Health.  Een blade kunt u zien als een venster. Op de hoofdblade ziet u Snel starten, services in Azure AD Connect Health en extra configuratie-opties. Hieronder vindt u een schermafbeelding met een korte uitleg van elk van deze onderdelen.  Nadat u de agents hebt geïmplementeerd, worden de service-id's weergegeven van de services die met Azure AD Connect Health worden gecontroleerd.
+In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de prestaties controleren en het gebruik analyseren. Via de koppeling https://aka.ms/aadconnecthealth gaat u naar de hoofdblade van Azure AD Connect Health.  Een blade kunt u zien als een venster. Op de hoofdblade ziet u Snel starten, services in Azure AD Connect Health en extra configuratie-opties. Hieronder vindt u een schermafbeelding met een korte uitleg van elk van deze onderdelen.  Nadat u de agents hebt geïmplementeerd, identificeert de Health-service automatisch de services die met Azure AD Connect Health worden bewaakt.
 
-![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
+![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 
 - **Snel starten** - hiermee opent u de blade Snel starten. Hier kunt u de Azure AD Connect Health-agent downloaden door Hulpmiddelen ophalen te selecteren. Ook kunt u de documentatie openen en feedback geven.
 
 - **Active Directory Federation Services** - dit verwijst naar alle AD FS-services die momenteel worden gecontroleerd door Azure AD Connect Health. Door een van de exemplaren te selecteren, wordt er een blade geopend met informatie over dat servicesexemplaar.  Deze informatie omvat een overzicht, eigenschappen, waarschuwingen, controle en gebruiksanalyses. U kunt [hier](active-directory-aadconnect-health-adfs.md) meer lezen over de functionaliteit.
 
 - **Azure Active Directory Connect (Sync)** - dit verwijst naar de Azure AD Connect- servers die momenteel door Azure AD Connect Health worden gecontroleerd. Als u het item selecteert, wordt er een blade geopend met informatie over uw Azure AD Connect-servers. U kunt [hier](active-directory-aadconnect-health-sync.md) meer lezen over de functionaliteit.
+ 
+- **Active Directory Domain Services** - dit verwijst naar alle AD DS-forests die momenteel door Azure AD Connect Health worden bewaakt. Als u een van de forests selecteert, wordt een blade geopend met informatie over dat forest.  Deze informatie bevat een overzicht van essentiële gegevens, een dashboard voor domeincontrollers, een dashboard voor replicatiestatus, waarschuwingen en bewaking. U kunt [hier](active-directory-aadconnect-health-adds.md) meer lezen over de functionaliteit.
 
 - **Configureren** - hiermee kunt u de volgende opties in- of uitschakelen:
 
@@ -101,14 +119,15 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 ## Verwante koppelingen
 
 * [Azure AD Connect Health Agent Installation (Engelstalig)](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations (Engelstalig)](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS (Engelstalig)](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect Health gebruiken met AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for Sync (Engelstalig)](active-directory-aadconnect-health-sync.md)
-* [Azure AD Connect Health FAQ (Engelstalig)](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History (Engelstalig)](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
+* [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

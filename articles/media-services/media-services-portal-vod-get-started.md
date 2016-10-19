@@ -1,6 +1,6 @@
 <properties
-    pageTitle=" Aan de slag met het leveren van inhoud op aanvraag met Azure Portal | Microsoft Azure"
-    description="In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal."
+    pageTitle=" Aan de slag met het leveren van inhoud op aanvraag met de Azure Portal | Microsoft Azure"
+    description="In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Portal."
     services="media-services"
     documentationCenter=""
     authors="Juliako"
@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/05/2016"
+    ms.date="08/30/2016"
     ms.author="juliako"/>
 
 
-# Aan de slag met het leveren van inhoud op aanvraag via Azure Portal (preview-versie)
 
-In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal.
+# Aan de slag met het leveren van inhoud-op-aanvraag via de Azure Portal
 
-Azure Media Services in Azure Portal is momenteel als preview-versie beschikbaar. 
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+
+In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Portal.
 
 > [AZURE.NOTE] U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 
@@ -37,10 +38,10 @@ Deze zelfstudie bevat de volgende taken:
 
 ## Een Azure Media Services-account maken
 
-De stappen in deze sectie laten zien hoe u een nieuw AMS-account maakt.
+In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **+Nieuw** > **Media Service + CDN** > **Media Services**.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
 
     ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -52,9 +53,9 @@ De stappen in deze sectie laten zien hoe u een nieuw AMS-account maakt.
     2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
     
     2. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](resource-group-overview.md#resource-groups) voor meer informatie.
-    3. Selecteer in **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
+    3. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
     
-    3. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount in dezelfde geografische regio als uw Media Services-account selecteren of u kunt een nieuw opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
+    3. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
 
         Klik [hier](storage-introduction.md) voor meer informatie over opslag.
 
@@ -72,7 +73,7 @@ De stappen in deze sectie laten zien hoe u een nieuw AMS-account maakt.
 
 U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toegang te krijgen tot het Media Services-account.
 
-1. Selecteer uw account in Azure Portal. 
+1. Selecteer uw account in de Azure Portal. 
 
     Het venster **Instellingen** wordt aan de rechterkant weergegeven. 
 
@@ -85,9 +86,9 @@ U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toe
 
 ## Streaming-eindpunten configureren
 
-Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming aan de clients geleverd. De client kan met Adaptive Bitrate Streaming overschakelen op een hogere of lagere bitrate stream, wanneer de video wordt weergegeven op basis van de huidige bandbreedte, het huidige CPU-gebruik en andere factoren. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
+Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming aan de clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
 
-Media Services biedt dynamische pakketten zodat u uw Adaptive Bitrate MP4-inhoud 'just in time' in de streaming-indelingen kunt leveren die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming, HDS) zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
+Media Services biedt dynamische pakketten zodat u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming, HDS) zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
 
 Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
 
@@ -133,12 +134,11 @@ Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uplo
 
 Nadat het uploaden is voltooid, ziet u de nieuwe asset in het venster **Assets**. 
 
-
 ## Assets coderen
 
 Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties). Als u video's wilt voorbereiden voor Adaptive Bitrate Streaming, moet u de bronvideo coderen in multi-bitrate-bestanden. Gebruik het coderingsprogramma **Media Encoder Standard** om de video's te coderen.  
 
-Media Services biedt ook dynamische pakketten zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
+Media Services biedt ook dynamische pakkettenm zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
 Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
 
@@ -161,7 +161,7 @@ In deze sectie wordt beschreven hoe u uw inhoud codeert met Media Encoder Standa
 
 ### De voortgang van het codering van de taak bewaken
 
-Als u de voortgang van de codering van de taak wilt bewaken, klikt u op **Instellingen** (boven aan de pagina) en selecteert u vervolgens **Taken**.
+Als u de voortgang van de codering van de taak wilt controleren, klikt u op **Instellingen** (boven aan de pagina) en selecteert u vervolgens **Taken**.
 
 ![Taken](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
@@ -210,7 +210,7 @@ De URL wordt toegevoegd aan de lijst met **gepubliceerde URL's**.
 
 ## Inhoud afspelen vanuit de portal
 
-Azure Portal biedt een speler voor het afspelen van inhoud die u kunt gebruiken om uw video te testen.
+De Azure Portal biedt een speler voor het afspelen van inhoud, die u kunt gebruiken om uw video te testen.
 
 Klik op de gewenste video en klik vervolgens op de knop **Afspelen**.
 
@@ -219,9 +219,11 @@ Klik op de gewenste video en klik vervolgens op de knop **Afspelen**.
 Hierbij geldt het volgende:
 
 - De video moet zijn gepubliceerd.
-- Met deze *mediaspeler** wordt afgespeeld vanaf het standaardstreaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, klikt u om de URL te kopiëren en een andere speler te gebruiken. Bijvoorbeeld [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- Met deze **mediaspeler** wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, klikt u om de URL te kopiëren en een andere speler te gebruiken. Bijvoorbeeld [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-##Volgende stappen: Media Services-leertrajecten
+##Volgende stappen
+
+Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -233,6 +235,6 @@ Hierbij geldt het volgende:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

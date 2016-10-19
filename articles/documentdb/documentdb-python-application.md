@@ -1,10 +1,10 @@
 <properties
     pageTitle="De ontwikkeling van een Python Flask-webtoepassing met DocumentDB | Microsoft Azure"
     description="Bekijk een databasezelfstudie over het gebruik van DocumentDB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Toepassingsontwikkeling, databasezelfstudie, python flask, python-webtoepassing, python-webontwikkeling, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
 # De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
 
@@ -43,7 +43,7 @@ In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
 
 Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnstalleerd:
 
-- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+- Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 - [Visual Studio 2013](http://www.visualstudio.com/) of hoger, of [Visual Studio Express]() (de gratis versie). De instructies in deze zelfstudie zijn specifiek geschreven voor Visual Studio 2015. 
 - Python Tools for Visual Studio van [GitHub](http://microsoft.github.io/PTVS/). In deze zelfstudie wordt gebruikgemaakt van Python Tools for VS 2015. 
 - Versie 2.4 of hoger van de Azure Python SDK voor Visual Studio is beschikbaar via [azure.com](https://azure.microsoft.com/downloads/). Wij hebben de Microsoft Azure SDK voor Python 2.7 gebruikt
@@ -182,7 +182,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -390,11 +390,11 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing
 
     ![Schermopname van de geselecteerde zelfstudie in Solution Explorer met de optie Publiceren gemarkeerd](./media/documentdb-python-application/image20.png)
 
-2. Selecteer in het venster **Publish Web** (Publiceren naar het web) de optie **Microsoft Azure Web Apps** (Web-apps van Microsoft Azure) en klik op **Next** (Volgende).
+2. Selecteer in het venster **Publish Web** (Publiceren naar het web) de optie **Microsoft Azure Web Apps** en klik op **Next** (Volgende).
 
     ![Schermopname van het venster Publish Web (Publiceren naar het web) met Microsoft Azure Web Apps (Web-apps van Microsoft Azure) gemarkeerd](./media/documentdb-python-application/image21.png)
 
-3. Klik in het venster **Microsoft Azure Web Apps** (Web-apps van Microsoft Azure) op **New** (Nieuw).
+3. Klik in het venster **Microsoft Azure Web Apps** op **New** (Nieuw).
 
     ![Schermopname van het venster Microsoft Azure Web Apps (Web-apps van Microsoft Azure)](./media/documentdb-python-application/select-existing-website.png)
 
@@ -436,6 +436,6 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

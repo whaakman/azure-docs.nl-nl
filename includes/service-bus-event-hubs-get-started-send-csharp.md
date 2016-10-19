@@ -4,17 +4,17 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 
 1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
 
-    ![][7]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **NuGet-pakketten beheren voor oplossing**. 
 
 3. Klik op het tabblad **Bladeren** en zoek naar `Microsoft Azure Service Bus`. Controleer of de projectnaam (**Afzender**) is opgegeven in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden. 
 
-    ![][8]
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
-    Hiermee wordt een verwijzing naar het <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/"> NuGet-pakket Azure Service Bus-bibliotheek</a> gedownload, geïnstalleerd en toegevoegd.
+    Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
 
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using`-instructies toe:
+4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
 
     ```
     using System.Threading;
@@ -54,7 +54,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     }
     ```
 
-    Deze methode verzendt continu gebeurtenissen naar uw Event Hub, met een interval van 200 ms.
+    Met deze methode worden continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
 
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
 
@@ -66,11 +66,6 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     ```
 
 
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

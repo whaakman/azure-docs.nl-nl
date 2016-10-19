@@ -13,8 +13,9 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
+
 
 # Aan de slag met Azure Search in Java
 > [AZURE.SELECTOR]
@@ -23,7 +24,7 @@
 
 Informatie over het bouwen van een aangepaste Java-zoektoepassing die voor de zoekfunctie gebruikmaakt van Azure Search. In deze zelfstudie wordt de [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) gebruikt om de objecten en bewerkingen in deze oefening te bouwen.
 
-Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in [Azure Portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
+Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in de [Azure-portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
 
 De volgende software is gebruik om deze sample te maken en te testen:
 
@@ -58,7 +59,7 @@ In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit v
 
 Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-sleutel moet opgeven. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure-portal](https://portal.azure.com).
 2. Klik in de snelbalk op de **Search-service** om alle Azure Search-services weer te geven die zijn ingericht voor uw abonnement.
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
@@ -69,7 +70,7 @@ Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-s
 
 ## De voorbeeldbestanden downloaden
 
-1. Ga naar [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) op Github.
+1. Ga naar [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) op Github.
 
 2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op naar de schijf en pak vervolgens alle bestanden in het zip-bestand uit. U kunt de bestanden eventueel uitpakken naar uw Java-werkruimte, zodat u het project later eenvoudig kunt terugvinden.
 
@@ -95,7 +96,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 
 1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
 
-2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in [Azure Portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
+2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
 
 3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens wordt in hetzelfde bestand servicename (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangen door de servicenaam.
 
@@ -205,6 +206,6 @@ Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekij
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

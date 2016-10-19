@@ -13,10 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/18/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
+
 # Wat is Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 
 Azure RemoteApp introduceert de functionaliteit van het on-premises Microsoft RemoteApp-programma, gesteund door Extern-bureaublad-services, in Azure. Met Azure RemoteApp kunt u vanaf een groot aantal verschillende gebruikersapparaten veilige externe toegang bieden tot toepassingen. Azure RemoteApp verzorgt in feite niet-permanente Terminal Server-sessies in de cloud, en u gaat deze gebruiken en delen met uw gebruikers.
 
@@ -81,6 +85,6 @@ Aan de slag Probeer het nu! Deze artikelen helpen u op weg met Azure RemoteApp:
 Wist u dat u niet alleen dit artikel kunt beoordelen en opmerkingen kunt toevoegen, maar zelfs wijzigingen kunt aanbrengen in het artikel zelf? Ontbreekt er iets? Is er iets niet juist? Heb ik iets geschreven dat niet duidelijk is? Blader omhoog en klik op **Edit on GitHub** of **Edit** als u wijzigingen wilt aanbrengen. Deze worden eerst nagekeken en wanneer ze zijn goedgekeurd, worden uw wijzigingen en verbeteringen hier weergegeven.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

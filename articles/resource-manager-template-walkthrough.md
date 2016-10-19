@@ -13,9 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
+
 # Walkthrough voor het Resource Manager-sjabloon
 
 Een van de eerste vragen bij het maken van een sjabloon is: hoe ga ik aan de slag? U kunt met een leeg sjabloon beginnen en dan de basisstructuur volgen die wordt beschreven in het artikel [Sjabloon aanmaken](resource-group-authoring-templates.md#template-format). Voeg vervolgens de resources en juiste parameters en variabelen toe. Een goed alternatief is om aan de slag te gaan via de [snelstartgalerie](https://github.com/Azure/azure-quickstart-templates) en te zoeken naar scenario’s die vergelijkbaar zijn met het scenario dat u wilt maken. U kunt verschillende sjablonen samenvoegen of een bestaande sjabloon aanpassen aan uw eigen scenario. 
@@ -583,6 +584,6 @@ U kunt het sjabloon opnieuw implementeren met behulp van dezelfde opdrachten die
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

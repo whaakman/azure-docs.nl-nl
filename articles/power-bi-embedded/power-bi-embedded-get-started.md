@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Aan de slag met Microsoft Power BI Embedded Preview"
+   pageTitle="Aan de slag met Microsoft Power BI Embedded"
    description="Power BI Embedded, voeg interactieve Power BI-rapporten toe aan uw BI-toepassing (Business Intelligence)"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,28 +13,27 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="07/05/2016"
+   ms.author="mblythe"/>
 
-# Aan de slag met Microsoft Power BI Embedded Preview
 
-**Microsoft Power BI Embedded** is een Azure-service waarmee applicatieontwikkelaars interactieve Power BI-rapporten aan hun eigen toepassingen kunnen toevoegen. **Power BI Embedded** werkt met bestaande toepassingen zonder dat het nodig is die toepassingen opnieuw te ontwerpen of de manier te wijzigen waarop gebruikers zich aanmelden.
+# Aan de slag met Microsoft Power BI Embedded
 
-Zie [Wat is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md) voor meer informatie over Power BI Embedded.
+**Power BI Embedded** is een Azure-service waarmee ontwikkelaars van toepassingen interactieve Power BI-rapporten aan hun eigen toepassingen kunnen toevoegen. **Power BI Embedded** werkt met bestaande toepassingen zonder dat deze opnieuw hoeven te worden ontworpen en zonder de manier te hoeven wijzigen waarop gebruikers zich aanmelden.
 
-Zoals beschreven in [Wat is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md), worden resources voor **Microsoft Power BI Embedded** ingericht via de [Azure ARM API's](https://msdn.microsoft.com/library/mt712306.aspx). In dit geval is de resource die u inricht een **Power BI-werkruimteverzameling**. In de volgende sectie wordt beschreven hoe u een werkruimteverzameling maakt.
+Resources voor **Microsoft Power BI Embedded** worden ingericht via [Azure ARM-API's](https://msdn.microsoft.com/library/mt712306.aspx). In dit geval is de resource die u inricht een **Power BI-werkruimteverzameling**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
 ## Een werkruimteverzameling maken
 Een **werkruimteverzameling** is een Azure-resource op het hoogste niveau en een container voor de inhoud die wordt ingesloten in uw toepassing. U kunt op twee manieren een **werkruimteverzameling** maken:
 
-   -    Handmatig met de Azure Portal
+   -    Handmatig met de Azure-portal
    -    Programmatisch met behulp van de Azure Resource Manager (ARM) API's
 
-Hier volgen de stappen voor het bouwen van een **werkruimteverzameling** met behulp van de Azure Portal.
+Hier volgen de stappen voor het bouwen van een **werkruimteverzameling** met behulp van de Azure-portal.
 
-   1.   Open de **Azure Portal**: [http://portal.azure.com](http://portal.azure.com) en meld u aan.
+   1.   Open de **Azure-portal**: [http://portal.azure.com](http://portal.azure.com) en meld u aan.
 
    2.   Klik op **+ Nieuw** boven in het venster.
 
@@ -47,18 +46,16 @@ Hier volgen de stappen voor het bouwen van een **werkruimteverzameling** met beh
 
    5. Klik op **Maken**.
 
-Het duurt even voordat de **werkruimteverzameling** is ingericht. Wanneer dit is voltooid, wordt u naar de **blade Werkruimteverzameling** gebracht.
+Het duurt even voordat de **werkruimteverzameling** is ingericht. Wanneer dit is voltooid, wordt u naar de blade **Workspace Collection Blade** (Werkruimteverzameling) gebracht.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
-De **blade Maken** bevat informatie die u nodig hebt om de API's aan te roepen die werkruimten maken en om inhoud hierin te implementeren.
-
-In de volgende sectie wordt beschreven hoe **toegangssleutels** worden gebruikt voor het genereren van **app-tokens** die worden gebruikt om uw API-aanvragen te verifiëren.
+De **Creation Blade** (Blade Maken) bevat de informatie die u nodig hebt om de API's aan te roepen die werkruimten maken en om hierin inhoud te implementeren.
 
 <a name="view-access-keys"/>
 ## Toegangssleutels voor Power BI API
 
-Een van de belangrijkste stukjes informatie die nodig zijn om Power BI REST API's aan te roepen, zijn de **toegangssleutels**. Deze worden gebruikt voor het genereren van de **app-tokens** die worden gebruikt om uw API-aanvragen te verifiëren. U geeft uw **toegangssleutels** weer door te klikken op **Toegangssleutels** op de **blade Instellingen**. Meer informatie over **app-tokens** kunt u vinden in [Hoe de stroom voor app-tokens werkt](power-bi-embedded-app-token-flow.md).
+Een van de belangrijkste stukjes informatie die nodig zijn om Power BI REST API's aan te roepen, zijn de **toegangssleutels**. Deze worden gebruikt voor het genereren van de **app-tokens** die worden gebruikt om uw API-aanvragen te verifiëren. U geeft uw **toegangssleutels** weer door te klikken op **Toegangssleutels** op de **blade Instellingen**. Voor meer informatie over **app-tokens** verwijzen wij u naar [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md) (Verifiëren en autoriseren met Power BI Embedded).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -68,7 +65,7 @@ U ziet dat u twee sleutels hebt.
 
 Kopieer deze sleutels en sla ze veilig op in uw toepassing. Het is belangrijk dat u deze sleutels net zo behandelt als wachtwoorden, omdat deze toegang bieden tot de inhoud in uw **werkruimteverzameling**.
 
-Wanneer twee sleutels worden vermeld, hebt u slechts één sleutel nodig. De tweede sleutel biedt u de mogelijk periodiek opnieuw sleutels te genereren, zonder dat toegang tot de service wordt onderbroken.
+Hoewel er twee sleutels worden vermeld, hebt u er slechts één tegelijk nodig. De tweede sleutel biedt u de mogelijk periodiek opnieuw sleutels te genereren, zonder dat toegang tot de service wordt onderbroken.
 
 Nu u een exemplaar van Power BI voor uw toepassing en **toegangssleutels** hebt, kunt u een rapport in uw eigen app importeren. Voordat u een rapport leert importeren, kunt u in de volgende sectie lezen hoe u Power BI-gegevenssets en -rapporten maakt om deze in een app in te sluiten.
 
@@ -102,13 +99,11 @@ In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en ge
 
 ## Zie ook
 - [Aan de slag met het voorbeeld](power-bi-embedded-get-started-sample.md)
-- [Wat is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Verifiëren en autoriseren met Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Prijzen van Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

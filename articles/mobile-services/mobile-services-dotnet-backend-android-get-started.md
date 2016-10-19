@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="03/05/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 
@@ -70,7 +70,7 @@ Nadat u de mobiele service hebt gemaakt, downloadt u uw persoonlijke mobiele-ser
 
 In deze sectie maakt u een nieuwe Android-app die is verbonden met uw mobiele service.
 
-1. Klik in de [klassieke Azure Portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
+1. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
 
 2. Klik op het tabblad Quick Start op **Android** onder **Platform kiezen** en vouw **Een nieuwe Android-app maken** uit.
 
@@ -130,10 +130,10 @@ Nu u de Quick Start hebt voltooid, kunt u nagaan hoe u in Mobile Services ook di
 [Android SDK voor Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Problemen met een Mobile Services .NET-back-end oplossen]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

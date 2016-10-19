@@ -21,7 +21,6 @@ Volg deze stappen als u een nieuwe mobiele service wilt maken.
 U hebt nu een nieuwe mobiele service gemaakt die door uw mobiele apps kan worden gebruikt.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,11 +1,11 @@
-<properties 
-    pageTitle="Nieuwe SQL Database instellen met PowerShell | Microsoft Azure" 
-    description="Ontdek hoe u een nieuwe SQL Database maakt met PowerShell. U kunt algemene database-instellingstaken beheren met PowerShell-cmdlets." 
-    keywords="create new sql database,database setup"
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Nieuwe SQL-database instellen met PowerShell | Microsoft Azure"
+    description="Ontdek hoe u een SQL-database maakt met PowerShell. U kunt algemene database-instellingstaken beheren met PowerShell-cmdlets."
+    keywords="nieuwe sql-database maken,database instellen"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,11 +13,12 @@
     ms.devlang="NA"
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/09/2016"
+    ms.workload="data-management"
+    ms.date="08/19/2016"
     ms.author="sstein"/>
 
-# Maak een nieuwe SQL Database aan en voer algemene database-instellingstaken uit met PowerShell-cmdlets 
+
+# Maak een SQL-database aan en voer algemene database-instellingstaken uit met PowerShell-cmdlets
 
 
 > [AZURE.SELECTOR]
@@ -27,50 +28,48 @@
 
 
 
-Ontdek hoe u een nieuwe SQL Database maakt met PowerShell-cmdlets. (Voor het maken van de elastische databases raadpleegt u [Een nieuwe pool voor elastische database maken met PowerShell](sql-database-elastic-pool-create-powershell.md).)
+Ontdek hoe u een SQL-database maakt met PowerShell-cmdlets. (Voor het maken van de elastische databases raadpleegt u [Een nieuwe pool voor elastische database maken met PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## Database instellen: een resourcegroep, server en firewallregel maken
 
-U hebt nu de mogelijkheid om cmdlets uit te voeren voor uw geselecteerde Azure-abonnement. De volgende stap is om de resourcegroep tot stand te brengen met de server waarin u de database gaat maken. U kunt de volgende opdracht bewerken zodat u welke geldige locatie dan ook kunt gebruiken. Voer **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** uit om een lijst geldige locaties op te halen.
+Wanneer u cmdlets kunt uitvoeren bij uw geselecteerde Azure-abonnement, is de volgende stap om de resourcegroep tot stand te brengen waarin zich de server bevindt waarop de database wordt gemaakt. U kunt de volgende opdracht bewerken zodat u welke geldige locatie dan ook kunt gebruiken. Voer **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** uit om een lijst geldige locaties op te halen.
 
-Voer de volgende opdracht uit om een nieuwe resourcegroep te maken:
+Voer de volgende opdracht uit om een resourcegroep te maken:
 
-    New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
-
-Wanneer u de nieuwe resourcegroep hebt gemaakt, krijgt u informatie te zien, waaronder **ProvisioningState: voltooid**.
+    New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
-### Een server maken 
+### Een server maken
 
-SQL Databases worden in Azure SQL Database-servers gemaakt. Voer **New-AzureRmSqlServer** uit om een nieuwe server te maken. Vervang ServerName door de naam voor uw server. De servernaam moet uniek binnen alle Azure SQL-servers. Er wordt hier dus een foutmelding weergegeven als de servernaam al in gebruik is. Het is ook handig te weten dat deze opdracht enkele minuten in beslag kan nemen. U kunt de opdracht wijzigen om een geldige locatie naar keuze te gebruiken, maar u moet dezelfde locatie gebruiken als de locatie die u hebt gebruikt voor de resourcegroep die u tijdens de vorige stap hebt gemaakt.
+SQL-databases worden in Azure SQL-databaseservers gemaakt. Voer **New-AzureRmSqlServer** uit om een server te maken. De naam voor uw server moet uniek zijn voor alle Azure SQL Databaseservers. U krijgt een foutmelding als de servernaam al in gebruik is. Het is ook handig te weten dat deze opdracht enkele minuten in beslag kan nemen. U kunt de opdracht bewerken en elke geldige locatie naar keuze gebruiken, maar u moet dezelfde locatie gebruiken die u hebt gebruikt voor de resourcegroep die u in de vorige stap hebt gemaakt.
 
-    New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+    New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
-Wanneer u deze opdracht uitvoert, wordt er een venster weergegeven waarin u een **gebruikersnaam** en **wachtwoord** moet opgeven. Dit zijn niet uw Azure-referenties; geef een gebruikersnaam en wachtwoord op voor de beheerder die u wilt aanmaken voor de nieuwe server.
+Wanneer u deze opdracht uitvoert, wordt u gevraagd naar uw gebruikersnaam en wachtwoord. Voer niet uw Azure-referenties in. Voer in plaats daarvan de gebruikersnaam en het wachtwoord in die u wilt maken voor de serverbeheerder. In het script onder aan dit artikel ziet u hoe u de serverreferenties in de code instelt.
 
 De servergegevens worden weergegeven nadat de server is gemaakt.
 
 ### Een serverfirewallregel configureren om toegang tot de server toe te staan
 
-Stel een firewallregel in voor toegang tot de server. Voer de volgende opdracht uit, maar vervang de begin- en eind-IP-adressen door waarden die geldig zijn voor uw computer.
+Als u toegang wilt tot de server, moet u een firewallregel instellen. Voer de volgende opdracht uit, maar vervang het IP-beginadres en het IP-eindadres door geldige waarden voor uw computer.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 De firewallregelgegevens worden weergegeven nadat de regel is gemaakt.
 
-Als u wilt dat andere Azure-services toegang hebben tot de server, voegt u een firewallregel toe en stelt u zowel het StartIpAddress als het EndIpAddress in op 0.0.0.0. Hiermee staat u Azure-verkeer toe tussen Azure-abonnementen en de server.
+Als u wilt dat andere Azure-services toegang hebben tot de server, voegt u een firewallregel toe en stelt u zowel StartIpAddress als EndIpAddress in op 0.0.0.0. Met deze regel u Azure-verkeer toe tussen Azure-abonnementen en de server.
 
 Zie [Azure SQL Database-firewall](sql-database-firewall-configure.md) voor meer informatie.
 
 
-## Een nieuwe SQL-database maken
+## Een SQL-database maken
 
 Nu u een resourcegroep, een server en een firewallregel hebt geconfigureerd, kunt u de server benaderen.
 
-Met de volgende opdracht maakt u een nieuwe (lege) SQL Database op het serviceniveau Standard, met het prestatieniveau S1:
+Met de volgende opdracht maakt u een (lege) SQL-database op het serviceniveau Standard, met prestatieniveau S1:
 
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
@@ -78,50 +77,72 @@ Met de volgende opdracht maakt u een nieuwe (lege) SQL Database op het serviceni
 
 De databasegegevens worden weergegeven nadat de database is gemaakt.
 
-## Een nieuwe SQL-database maken met een PowerShell-script
+## Een SQL-database maken met een PowerShell-script
 
-    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    $ResourceGroupName = "resourcegroupname"
-    $Location = "Japan West"
-    
-    $ServerName = "uniqueservername"
-    
-    $FirewallRuleName = "rule1"
-    $FirewallStartIP = "192.168.0.0"
-    $FirewallEndIp = "192.168.0.0"
-    
-    $DatabaseName = "database1"
-    $DatabaseEdition = "Standard"
-    $DatabasePerfomanceLevel = "S1"
-    
-    
+Met het volgende PowerShell-script maakt u een SQL-database met alle afhankelijke resources. Vervang alle `{variables}` door waarden die specifiek zijn voor uw abonnement en resources (verwijder de **{}** wanneer u de waarden instelt).
+
+    # Sign in to Azure and set the subscription to work with
+    $SubscriptionId = "{subscription-id}"
+
     Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
+
+    # CREATE A RESOURCE GROUP
+    $resourceGroupName = "{group-name}"
+    $rglocation = "{Azure-region}"
     
-    $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $rglocation
     
-    $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
+    # CREATE A SERVER
+    $serverName = "{server-name}"
+    $serverVersion = "12.0"
+    $serverLocation = "{Azure-region}"
     
-    $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
+    $serverAdmin = "{server-admin}"
+    $serverPassword = "{server-password}" 
+    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+    $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
     
-    $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
+    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
     
-    $SqlDatabase
+    # CREATE A SERVER FIREWALL RULE
+    $ip = (Test-Connection -ComputerName $env:COMPUTERNAME -Count 1 -Verbose).IPV4Address.IPAddressToString
+    $firewallRuleName = '{rule-name}'
+    $firewallStartIp = $ip
+    $firewallEndIp = $ip
     
+    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName $firewallRuleName -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
+    
+    
+    # CREATE A SQL DATABASE
+    $databaseName = "{database-name}"
+    $databaseEdition = "{Standard}"
+    $databaseSlo = "{S0}"
+    
+    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $databaseEdition -RequestedServiceObjectiveName $databaseSlo
+    
+   
+    # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
+    #Remove-AzureRmResourceGroup -Name $resourceGroupName
+
+
+
+
 
 
 ## Volgende stappen
-Wanneer u een nieuwe SQL-database hebt gemaakt en u de algemene installatietaken voor de database hebt uitgevoerd, bent u klaar voor het volgende:
+Nadat u een SQL-database hebt gemaakt en de algemene installatietaken voor de database hebt uitgevoerd, bent u klaar voor het volgende:
 
+- [SQL Database beheren met PowerShell](sql-database-manage-powershell.md)
 - [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld-T-SQL-query uitvoeren](sql-database-connect-query-ssms.md)
 
 
-## Aanvullende bronnen
+## Aanvullende resources
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

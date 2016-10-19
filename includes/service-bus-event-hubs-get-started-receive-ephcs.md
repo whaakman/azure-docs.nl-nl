@@ -2,35 +2,39 @@
 
 [EventProcessorHost][] is een .NET-klasse die de het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met [EventProcessorHost][] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van [EventProcessorHost][] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][] ziet u hoe u [EventProcessorHost][] gebruikt met meerdere ontvangers.
 
-U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen gebruiken:
+U moet over een [Azure Storage-account][] beschikken om [EventProcessorHost][] te gebruiken:
 
-1. Meld u aan bij de [Klassieke Azure-portal][] en klik onder aan het scherm op **NIEUW**.
+1. Meld u aan bij [Azure Portal][] en klik op **Nieuw** linksboven in het scherm.
 
-2. Klik op **Data Services**, vervolgens op **Opslag** en **Snelle invoer**, en typ een naam voor uw opslagaccount. Selecteer de gewenste regio en klik op **Opslagaccount maken**.
+2. Klik op **Gegevens en opslag** en klik vervolgens op **Opslagaccount**.
 
-    ![][11]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
-3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **Toegangssleutels beheren**:
+3. Typ op de blade **Opslagaccount maken** een naam voor het opslagaccount. Kies een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. Klik vervolgens op **Maken**.
 
-    ![][12]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
-    Kopieer de primaire toegangssleutel voor gebruik verderop in deze zelfstudie.
+4. Klik in de lijst met opslagaccounts op het zojuist gemaakte opslagaccount.
+
+5. Klik op de blade Opslagaccount op **Toegangssleutels**. Kopieer de waarde van **key1** voor gebruik verderop in deze zelfstudie.
+
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Ontvanger**.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **NuGet-pakketten beheren voor oplossing**.
 
 6. Klik op het tabblad **Bladeren** en zoek naar `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Controleer of de projectnaam (**Ontvanger**) is opgegeven in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
-    Hiermee wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle afhankelijkheden ervan, gedownload, geïnstalleerd en toegevoegd.
+    Door Visual Studio wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle bijbehorende afhankelijkheden, gedownload, geïnstalleerd en toegevoegd.
 
 7. Klik met de rechtermuisknop op het project **Ontvanger**, klik op **Toevoegen** en op **Klasse**. Noem de nieuwe klasse **SimpleEventProcessor** en klik op **Toevoegen** om de klasse te maken.
 
-    ![][15]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. Voeg de volgende instructies toe aan het begin van het bestand SimpleEventProcessor.cs:
 
@@ -115,7 +119,7 @@ U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen
     }
     ```
 
-> [AZURE.NOTE] In deze zelfstudie wordt één exemplaar van [EventProcessorHost][] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][]. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer gebeurtenissen van andere computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost][]-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Voor meer informatie over deze onderwerpen raadpleegt u het [Overzicht van Event Hubs][] en de [Event Hubs-programmeergids][].
+> [AZURE.NOTE] In deze zelfstudie wordt één exemplaar van [EventProcessorHost][] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][]. In die gevallen werken de verschillende instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer gebeurtenissen van andere computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost][]-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Voor meer informatie over deze onderwerpen raadpleegt u het [Overzicht van Event Hubs][] en de [Event Hubs-programmeergids][].
 
 <!-- Links -->
 [Overzicht van Event Hubs]: event-hubs-overview.md
@@ -123,19 +127,8 @@ U hebt u een [Azure Storage-account][] nodig om [EventProcessorHost][] te kunnen
 [Uitgeschaalde gebeurtenisverwerking]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Azure Storage-account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Klassieke Azure-portal]: http://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
-<!-- Images -->
-
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
-
-
-
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,8 +3,8 @@
     description="Ontdek hoe u uw huisstijl kunt toevoegen aan de Azure-aanmeldingspagina en aan de toegangsvensterpagina"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
-    manager="stevenpo"
+    authors="curtand"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
-    ms.author="MarkVi"/>
+    ms.date="09/30/2016"
+    ms.author="curtand"/>
+
 
 # De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
 
@@ -29,7 +30,7 @@ In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het
 
 > [AZURE.NOTE]
 >
-- De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+- De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory of als u Office 365 gebruikt. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
 - De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -46,9 +47,7 @@ Wanneer u een service gebruikt met niet-tenantspecifieke URL’s (bijvoorbeeld h
 
 > [AZURE.NOTE]
 >
-
 - Uw domeinnaam moet als Actief worden weergegeven in het gedeelte **Active Directory** > **Directory** > **Domeinen** van de klassieke Azure Portal waarin u de huisstijl hebt geconfigureerd.
-
 - De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de Microsoft-aanmeldingspagina voor klanten. Als u zich met een persoonlijk Microsoft-account aanmeldt, wordt er door Azure AD een reeks gebruikerstegels met huisstijl weergegeven, maar de huisstijl van uw organisatie wordt niet toegepast op de aanmeldingspagina voor Microsoft-accounts.
 
 
@@ -88,14 +87,33 @@ U kunt de volgende elementen op de aanmeldingspagina aanpassen:
 
 ![][5]
 
- Pagina-element  | Locatie op de pagina
-    ------------- | -------------
-Logo in banner | Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het logo dat wordt weergegeven op de doelsite waarop u zich aanmeldt (bijvoorbeeld Office 365 of Azure).
-Grote afbeelding/achtergrondkleur | Wordt aan de linkerkant van de pagina weergegeven. Vervangt de afbeelding die wordt weergegeven op de doelsite waarop u zich aanmeldt. In plaats van de grote afbeelding kan de achtergrondkleur worden weergegeven als de verbinding een lage bandbreedte heeft of het scherm erg smal is.
-Tekst van aanmeldingspagina | Wordt boven de paginavoettekst weergegeven als u handige informatie wilt verstrekken voordat iemand zich aanmeldt met een werk- of schoolaccount. U kunt bijvoorbeeld het telefoonnummer van de helpdesk weergeven of een juridische mededeling.
+
+
+| Pagina-element  | Locatie op de pagina |
+|:--            | ---                  |
+|Logo in banner    | Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het logo dat wordt weergegeven op de doelsite waarop u zich aanmeldt (bijvoorbeeld Office 365 of Azure).|
+|Grote afbeelding/achtergrondkleur | Wordt aan de linkerkant van de pagina weergegeven. Vervangt de afbeelding die wordt weergegeven op de doelsite waarop u zich aanmeldt. In plaats van de grote afbeelding kan de achtergrondkleur worden weergegeven als de verbinding een lage bandbreedte heeft of het scherm erg smal is.|
+|Aangemeld blijven | Dit wordt weergegeven onder het tekstvak voor het wachtwoord. |
+|Tekst van aanmeldingspagina | Wordt boven de paginavoettekst weergegeven als u handige informatie wilt verstrekken voordat iemand zich aanmeldt met een werk- of schoolaccount. U kunt bijvoorbeeld het telefoonnummer van de helpdesk weergeven of een juridische mededeling.|
+
 
 > [AZURE.NOTE]
 Alle elementen zijn optioneel. Als u bijvoorbeeld een logo wilt weergeven in de banner, maar geen grote afbeelding wilt gebruiken, wordt uw logo weergegeven op de aanmeldingspagina en de afbeelding voor de doelsite (in dit geval de Office 365-afbeelding van een snelweg in Californië).
+
+
+Op de aanmeldingspagina kunnen gebruikers er met het selectievakje **Aangemeld blijven** voor zorgen dat ze aangemeld blijven als ze hun browser sluiten en opnieuw openen. Dit heeft geen invloed op de levensduur van de sessie. U kunt het selectievakje op de aanmeldingspagina van Azure Active Directory verbergen.
+
+Of het selectievakje wordt weergegeven, hangt af van wat er bij **KMSI verbergen** is ingesteld.
+
+![][9]
+
+
+Als u het selectievakje wilt verbergen, stelt u deze instelling in op **Verborgen**. 
+
+> [AZURE.NOTE] Of sommige functies van SharePoint Online en Office 2010 beschikbaar zijn, hangt ervan of gebruikers dit selectievakje wel of niet kunnen inschakelen. Als u deze instelling instelt op Verborgen, krijgen uw gebruikers mogelijk extra en onverwachte prompts te zien om zich aan te melden.
+
+
+
 
 U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aangepaste elementen hebt geconfigureerd, kunt u meer versies configureren voor verschillende talen. U kunt ook een combinatie van verschillende elementen gebruiken. U kunt bijvoorbeeld:
 
@@ -107,7 +125,7 @@ U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aan
 
 ## De pagina met het toegangspaneel aanpassen
 
-De pagina met het toegangspaneel is als het ware een portalpagina voor snelle toegang tot de cloud-apps waar de beheerder u toegang toe heeft verleend. Op deze pagina worden uw apps weergegeven als toepassingstegels waarop kan worden geklikt. 
+De pagina met het toegangspaneel is als het ware een portalpagina voor snelle toegang tot de cloud-apps waar de beheerder u toegang toe heeft verleend. Op deze pagina worden uw apps weergegeven als toepassingstegels waarop kan worden geklikt.
 
 
 In de volgende schermafbeelding ziet u een voorbeeld van een pagina met een toegangspaneel nadat deze is aangepast.
@@ -118,14 +136,14 @@ In de volgende schermafbeelding ziet u een voorbeeld van een pagina met een toeg
 
 In de klassieke Azure Portal kunt u per directory één standaardset aanpasbare elementen configureren. Wanneer de standaardset is opgeslagen, kan een beheerder vertaalde versies van elk element toevoegen voor gebruik in andere taalgebieden. Alle aanpasbare elementen zijn optioneel.
 
-Als u bijvoorbeeld een standaardlogo voor in de banner configureert, maar geen grote afbeelding, wordt in de rechterbovenhoek van de aanmeldingspagina uw logo weergegeven. Daarbij wordt de standaardafbeelding van de site weergegeven. 
+Als u bijvoorbeeld een standaardlogo voor in de banner configureert, maar geen grote afbeelding, wordt in de rechterbovenhoek van de aanmeldingspagina uw logo weergegeven. Daarbij wordt de standaardafbeelding van de site weergegeven.
 
 Stel dat de volgende configuratie wordt gebruikt:
 
-- Een standaardlogo voor in de banner en aanmeldingspaginatekst in het Engels 
-- Een taalspecifieke aanmeldingspaginatekst in het Duits 
+- Een standaardlogo voor in de banner en aanmeldingspaginatekst in het Engels
+- Een taalspecifieke aanmeldingspaginatekst in het Duits
 
-Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, maar de Duitse tekst. 
+Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, maar de Duitse tekst.
 
 Hoewel u technisch gezien een afzonderlijke set zou kunnen configureren voor elke taal die door Azure AD wordt ondersteund, doet u er verstandig aan om het aantal variaties klein te houden. Dit vereenvoudigt het onderhoud en houdt de prestaties goed.
 
@@ -180,8 +198,8 @@ U doet er verstandig aan om te experimenteren met een testtenant voordat u wijzi
 
 **Controleren of uw huisstijl is toegepast:**
 
-1. Open een InPrivate- of Incognito-browsersessie. 
-2. Ga naar https://outlook.com/contoso.com en vervang contoso.com door het domein dat u hebt aangepast. 
+1. Open een InPrivate- of Incognito-browsersessie.
+2. Ga naar https://outlook.com/contoso.com en vervang contoso.com door het domein dat u hebt aangepast.
 
 Dit geldt ook voor domeinen met de volgende indeling: contoso.onmicrosoft.com.
 
@@ -221,9 +239,10 @@ Achtergrondkleur van de aanmeldingspagina | De achtergrondkleur van de aanmeldin
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO5-->
 
 

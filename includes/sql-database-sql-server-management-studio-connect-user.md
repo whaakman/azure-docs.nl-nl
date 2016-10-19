@@ -33,14 +33,13 @@ Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database 
       ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Verbindingsfouten oplossen
+## Verbindingsfouten oplossen
 
 De meest voorkomende oorzaak van verbindingsfouten zijn fouten in de servernaam (onthoud, <*servernaam*> is de naam van de logische server, niet van de database), de gebruikersnaam of het wachtwoord, plus het feit dat de server om veiligheidsoverwegingen geen verbinding toestaat. 
 
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

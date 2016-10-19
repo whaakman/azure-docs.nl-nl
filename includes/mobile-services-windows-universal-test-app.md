@@ -13,7 +13,6 @@
     
     Na het starten van de app worden de gegevens die in de vorige stap zijn opgeslagen, vanuit de mobiele service geladen.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

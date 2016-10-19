@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter=""
     authors="adrianhall"
-    manager="dwrede"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,12 +13,13 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="krisagh"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>Wat zijn Mobile Apps?
 
-Azure App Service is een volledig beheerd PaaS (Platform as a Service) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor web-, mobiele en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+# <a name="getting-started"> </a>Wat is Mobile Apps?
+
+Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor mobiele, web- en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -87,7 +88,7 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [verificatiefuncties]: ./app-service-mobile-auth.md
 [gegevensfuncties]: ./app-service-mobile-offline-data-sync.md
-[functies voor pushmeldingen]: ../notification-hubs/notification-hubs-overview.md
+[functies voor pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -99,12 +100,12 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [implementatieopties]: ../app-service-web/web-sites-deploy.md
 [hybride verbindingen]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [virtuele netwerken]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service-omgevingen]: ../app-service-web/app-service-app-service-environment-intro.md
 [leeroverzicht]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

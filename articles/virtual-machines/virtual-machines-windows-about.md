@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/10/2016"
+    ms.date="09/27/2016"
     ms.author="cynthn"/>
+
 
 #Over virtuele Windows-machines in Azure
 
@@ -42,6 +43,6 @@ Omdat de zelfstudie u helpt snel een virtuele machine te maken, wordt er slechts
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

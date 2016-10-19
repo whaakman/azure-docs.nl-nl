@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Een groot deel van de workload van een datawarehouse bestaat uit het laden van g
 
 - Dit laadproces wordt vaak aangeduid met de term 'ETL' (Extract, Transform and Load: extraheren, transformeren en laden). Gegevens moeten gewoonlijk worden getransformeerd zodat deze consistent zijn met andere gegevens in het datawarehouse. Voorheen gebruikten bedrijven meestal specifieke ETL-servers om de transformaties uit te voeren. Maar omdat MPP (Massively Parallel Processing) zo snel is, kunt u de gegevens nu eerst in SQL Data Warehouse laden en daarna de transformaties uitvoeren. Dit proces wordt aangeduid met de term 'ELT' (Extract, Load and Transform: extraheren, laden en transformeren) en is hard op weg om de nieuwe norm voor datawarehouse-workload te worden.
 
-> [AZURE.NOTE] Met SQL Server CTP2 kunt u nu in realtime analyses uitvoeren op een OLTP-tabel. U hebt nog steeds een datawarehouse nodig voor het opslaan en analyseren van gegevens, maar het biedt wel mogelijkheden voor analyses in realtime.
+> [AZURE.NOTE] Met SQL Server 2016 kunt u nu in realtime analyses uitvoeren op een OLTP-tabel. U hebt nog steeds een datawarehouse nodig voor het opslaan en analyseren van gegevens, maar het biedt wel mogelijkheden voor analyses in realtime.
 
 ### Query's voor rapportage en analyse
 Query's voor rapportage en analyse worden vaak onderverdeeld in kleine, middelgrote en grote query's op basis van een aantal criteria. Meestal gebeurt dit op basis van tijd. In de meeste datawarehouses bestaat de workload uit een combinatie van kort- en langlopende query's. Het is in elk geval belangrijk om de verdeling en frequentie van de query's (elk uur, dagelijks, einde van de maand, einde van het kwartaal, enzovoort) te bepalen . Alleen met een goed inzicht in de gemengde workload van query's, in combinatie met de gelijktijdigheid van taken, kan de juiste capaciteit voor een datawarehouse worden gepland.
@@ -59,15 +59,13 @@ Een manier om gegevens beschikbaar te maken voor analyse en rapportage is om geg
 - Voor analyses kunt u een analysekubus van het datawarehouse maken en analyses op het datawarehouse uitvoeren, of gegevens vooraf verwerken en naar de analyseserver exporteren voor verdere analyse.
 
 ## Volgende stappen
-Zie het [overzicht voor ontwikkelaars][] om aan de slag te gaan met de ontwikkeling van uw datawarehouse.
-
-## Boeken
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) door Karthik Ramachandran, Istvan Szededi en Richard L. Saltzer (Manning Publications). [Hoofdstuk 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maken][] en [voorbeeldgegevens laden][].
 
 <!--Image references-->
 
 <!--Article references-->
-[overzicht voor ontwikkelaars]: sql-data-warehouse-overview-develop.md
+[voorbeeldgegevens laden]: ./sql-data-warehouse-load-sample-databases.md
+[een SQL Data Warehouse maken]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -75,6 +73,6 @@ Zie het [overzicht voor ontwikkelaars][] om aan de slag te gaan met de ontwikkel
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO4-->
 
 

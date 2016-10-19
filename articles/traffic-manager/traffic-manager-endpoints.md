@@ -3,7 +3,7 @@
    description="Dit artikel helpt u bij het toevoegen, verwijderen, inschakelen en uitschakelen van eindpunten vanuit Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
+
 
 # Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
 
@@ -67,9 +68,9 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 [Methode voor failover-routering configureren](traffic-manager-configure-failover-routing-method.md)
 
-[Methode voor round-robinroutering configureren](traffic-manager-configure-round-robin-routing-method.md)
+[Routeringsmethode voor round robin configureren](traffic-manager-configure-round-robin-routing-method.md)
 
-[Methode voor prestatieroutering configureren](traffic-manager-configure-performance-routing-method.md)
+[Routeringsmethode voor prestaties configureren](traffic-manager-configure-performance-routing-method.md)
 
 [Problemen met Traffic Manager in gedegradeerde status oplossen](traffic-manager-troubleshooting-degraded.md)
 
@@ -77,6 +78,6 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

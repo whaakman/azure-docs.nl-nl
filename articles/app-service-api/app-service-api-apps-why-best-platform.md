@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
-    ms.author="tdykstra"/>
+    ms.date="08/23/2016" 
+    ms.author="rachelap"/>
 
 # Overzicht van API Apps
 
@@ -36,7 +36,7 @@ Hierna ziet u een aantal belangrijke voordelen van API Apps:
 
 - **Visual Studio-integratie**: specifieke hulpprogramma's in Visual Studio stroomlijnen het maken, implementeren, gebruiken en beheren van apps en het opsporen van fouten. Zie [Aankondiging van Azure SDK 2.8.1 voor .NET](/blog/announcing-azure-sdk-2-8-1-for-net/) voor meer informatie.
 
-- **Integratie met Logic Apps**: API-apps die u maakt, kunnen worden gebruikt door [Logic Apps van App Service](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Zie [Uw aangepaste API gebruiken die op App Service wordt gehost met logische apps](../app-service-logic/app-service-logic-custom-hosted-api.md) en [Nieuwe previewschemaversie 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md) voor meer informatie.
+- **Integratie met Logic Apps**: API Apps die u maakt, kunnen worden gebruikt door [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Zie [Uw aangepaste API gebruiken die op App Service wordt gehost met logische apps](../app-service-logic/app-service-logic-custom-hosted-api.md) en [Nieuwe previewschemaversie 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md) voor meer informatie.
 
 Daarnaast kunt u met een API-app gebruikmaken van functies die worden aangeboden door [Web Apps](../app-service-web/app-service-web-overview.md) en [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Het omgekeerde geldt ook: als u een web-app of mobiele app gebruikt om een API te hosten, kan deze app gebruikmaken van functies van API Apps, zoals Swagger-metagegevens voor het genereren van clientcode en CORS voor browsertoegang in meerdere domeinen. Het enige verschil tussen de drie app-typen (API, web, mobiel) is de naam en het pictogram van deze apps in de Azure-portal.
 
@@ -65,6 +65,6 @@ Begin een thread in het [API Apps-forum](https://social.msdn.microsoft.com/Forum
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

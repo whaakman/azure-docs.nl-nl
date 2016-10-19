@@ -4,10 +4,9 @@ Om te beginnen moet u uw ontwikkelomgeving instellen door [Azure SDK voor Visual
 
 Als Visual Studio niet bij u is geïnstalleerd, gebruikt u de koppeling voor Visual Studio 2015 zodat Visual Studio samen met de SDK wordt geïnstalleerd.
 
->[AZURE.NOTE] Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een half uur of meer.
+>[AZURE.NOTE] Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een halfuur of meer.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

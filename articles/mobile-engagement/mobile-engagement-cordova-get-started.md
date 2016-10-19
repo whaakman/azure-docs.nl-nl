@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-phonegap"
     ms.devlang="js"
     ms.topic="hero-article" 
-    ms.date="04/04/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Aan de slag met Azure Mobile Engagement voor Cordova/Phonegap
@@ -24,7 +24,7 @@ In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te kr
 
 In deze zelfstudie maken we een lege Cordova-app met een Mac en integreren we vervolgens de Mobile Engagement SDK. Deze app verzamelt analytische basisgegevens en ontvangt pushmeldingen via Apple Push Notification System (APNS) voor iOS en Google Cloud Messaging (GCM) voor Android. We implementeren de app op een iOS- of Android-apparaat voor testdoeleinden. 
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
@@ -241,6 +241,6 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

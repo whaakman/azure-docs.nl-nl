@@ -14,8 +14,9 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
+
 
 # Wat zijn de vooraf geconfigureerde Azure IoT Suite-oplossingen?
 
@@ -28,13 +29,13 @@ Elke vooraf geconfigureerde oplossing is een volledige totaalimplementatie die g
 
 U kunt niet alleen de oplossingen in Azure implementeren en uitvoeren, maar ook de volledige broncode downloaden en vervolgens de oplossing aanpassen en uitbreiden, zodat deze aan uw specifieke IoT-vereisten voldoet.
 
-> [AZURE.NOTE] Als u een van de vooraf geconfigureerde oplossingen wilt implementeren, gaat u naar [Microsoft Azure IoT Suite][lnk-azureiotsuite]. In het artikel [Get started with the IoT preconfigured solutions][lnk-preconf-get-started] (Aan de slag met de vooraf geconfigureerde IoT-oplossingen) vindt u meer informatie over het implementeren en uitvoeren van een van de oplossingen.
+> [AZURE.NOTE] Als u een van de vooraf geconfigureerde oplossingen wilt implementeren, gaat u naar [Microsoft Azure IoT Suite][lnk-azureiotsuite]. In het artikel [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] (Aan de slag met de vooraf geconfigureerde IoT-oplossingen) vindt u meer informatie over het implementeren en uitvoeren van een van de oplossingen.
 
 De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn toegewezen:
 
 | Oplossing | Gegevensopname | Apparaat-id | Opdracht en controle | Regels en acties | Predictive analytics |
 |------------------------|-----|-----|-----|-----|-----|
-| [Externe controle][lnk-preconf-get-started] | Ja | Ja | Ja | Ja | -   |
+| [Externe controle][lnk-getstarted-preconfigured] | Ja | Ja | Ja | Ja | -   |
 | [Voorspeld onderhoud][lnk-predictive-maintenance] | Ja | Ja | Ja | Ja | Ja |
 
 - *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
@@ -111,16 +112,13 @@ De oplossingsportal is een webgebaseerde gebruikersinterface die naar de cloud w
 - Opdrachten naar specifieke apparaten verzenden.
 - Regels en acties beheren.
 
-In deze vooraf geconfigureerde oplossing maakt de oplossingsportal deel uit van de **back-end van de IoT-oplossing** en van de **verwerkings- en bedrijfsconnectiviteit** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+In deze vooraf geconfigureerde oplossing maakt de oplossingsportal deel uit van de **back-end van de IoT-oplossing** en van de **verwerkings- en bedrijfsconnectiviteit** in de typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
 ## Volgende stappen
 
 Zie [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.
 
-Bekijk deze resources voor meer informatie over vooraf geconfigureerde IoT-oplossingen:
-
-- [Get started with the IoT preconfigured solutions][lnk-preconf-get-started] (Aan de slag met de vooraf geconfigureerde IoT-oplossingen) 
-- [Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud][lnk-predictive-maintenance]
+Nu u weet wat een vooraf geconfigureerde oplossing is, kunt u aan de slag met het implementeren van de vooraf geconfigureerde *externe controle* als oplossing: [Aan de slag met de vooraf geconfigureerde oplossingen][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,15 +126,13 @@ Bekijk deze resources voor meer informatie over vooraf geconfigureerde IoT-oplos
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Oct16_HO1-->
 
 

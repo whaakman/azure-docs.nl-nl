@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Aan de slag met Azure Mobile Engagement voor iOS in Swift"
+    pageTitle="Aan de slag met Azure Mobile Engagement voor iOS in Swift | Microsoft Azure"
     description="Informatie over het gebruik van Azure Mobile Engagement met analyses en pushmeldingen voor iOS-apps."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/20/2016"
     ms.author="piyushjo" />
+
 
 # Aan de slag met Azure Mobile Engagement voor iOS-apps in Swift
 
@@ -25,15 +26,15 @@ In deze zelfstudie maakt u een lege iOS-app die basisgegevens verzamelt en pushm
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-+ XCode 6 of XCode 7, die u vanuit de Mac App Store kunt installeren.
++ XCode 8, die u vanuit de Mac App Store kunt installeren.
 + De [Mobile Engagement iOS SDK].
 + Pushmeldingcertificaat (.p12), dat u kunt verkrijgen via Apple Dev Center.
 
-> [AZURE.NOTE] In deze zelfstudie wordt gebruikgemaakt van Swift versie 2.0. 
+> [AZURE.NOTE] In deze zelfstudie wordt gebruikgemaakt van Swift versie 3.0. 
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Engagement-zelfstudies voor iOS-apps.
 
-> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started) voor meer informatie.
+> [AZURE.NOTE] U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started) voor meer informatie.
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 
@@ -61,17 +62,15 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
 
     ![][2]
 
-5. Open het tabblad `Build Phases` en voeg in het menu `Link Binary With Libraries` de frameworks toe, zoals hieronder weergegeven. **Opmerking** U moet `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` opnemen:
+5. Open het tabblad `Build Phases` en voeg in het menu `Link Binary With Libraries` de frameworks toe, zoals hieronder weergegeven:
 
     ![][3]
 
-6. In **XCode 7** voegt u `libxml2.tbd` toe in plaats van `libxml2.dylib`.
-
-7. Maak een bridging header om de Objective C-API's van de SDK te kunnen gebruiken. U doet dit door naar File > New > File > iOS > Source > Header File te gaan.
+8. Maak een bridging header om de Objective C-API's van de SDK te kunnen gebruiken. U doet dit door naar File > New > File > iOS > Source > Header File te gaan.
 
     ![][4]
 
-8. Bewerk het bridging-headerbestand om de Objective-C-code van Mobile Engagement beschikbaar te maken voor uw Swift-code, en voeg de volgende import toe:
+9. Bewerk het bridging-headerbestand om de Objective-C-code van Mobile Engagement beschikbaar te maken voor uw Swift-code, en voeg de volgende import toe:
 
         /* Mobile Engagement Agent */
         #import "AEModule.h"
@@ -80,19 +79,20 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
         #import "EngagementAgent.h"
         #import "EngagementTableViewController.h"
         #import "EngagementViewController.h"
+        #import "AEUserNotificationHandler.h"
         #import "AEIdfaProvider.h"
 
-9. Controleer onder Build Settings of de instellingen voor het bouwen van de Objective-C Bridging Header onder Swift Compiler - Code Generation een pad naar deze header bevatten. Dit is een voorbeeld van een pad: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (afhankelijk van het pad)**
+10. Controleer onder Build Settings of de instellingen voor het bouwen van de Objective-C Bridging Header onder Swift Compiler - Code Generation een pad naar deze header bevatten. Dit is een voorbeeld van een pad: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (afhankelijk van het pad)**
 
     ![][6]
 
-10. Ga terug naar de Azure-portal op de pagina *Verbindingsgegevens* van de app en kopieer de verbindingsreeks.
+11. Ga terug naar de Azure-portal op de pagina *Verbindingsgegevens* van de app en kopieer de verbindingsreeks.
 
     ![][5]
 
-11. Plak nu de verbindingsreeks in de gemachtigde `didFinishLaunchingWithOptions`.
+12. Plak nu de verbindingsreeks in de gemachtigde `didFinishLaunchingWithOptions`.
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
             [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -101,7 +101,7 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
 
 ##<a id="monitor"></a>Realtime-bewaking inschakelen
 
-Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm (activiteit) naar de back-end van Mobile Engagement sturen.
+U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn.
 
 1. Open het bestand **ViewController.swift** en vervang de basisklasse van **ViewController** met **EngagementViewController**:
 
@@ -156,8 +156,9 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 1. Binnen de `didFinishLaunchingWithOptions` maakt u een Reach-module en geeft die door aan uw bestaande initialisatieregel voor Engagement:
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+        {
+            let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
             EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
             [...]
             return true
@@ -166,29 +167,32 @@ In de volgende secties stelt u de app in om die te ontvangen.
 ###Ontvangen van APNS-pushmeldingen inschakelen voor de app
 1. Voeg de volgende regel toe aan de methode `didFinishLaunchingWithOptions`:
 
-        /* Ask user to receive push notifications */
         if #available(iOS 8.0, *)
         {
-           let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-           application.registerUserNotificationSettings(settings)
-           application.registerForRemoteNotifications()
+            if #available(iOS 10.0, *)
+            {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+            }else
+            {
+                let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+            }
+            application.registerForRemoteNotifications()
         }
         else
         {
-           application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+            application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
         }
 
 2. Voeg de methode `didRegisterForRemoteNotificationsWithDeviceToken` als volgt toe:
 
-        func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-        {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             EngagementAgent.shared().registerDeviceToken(deviceToken)
         }
 
 3. Voeg de methode `didReceiveRemoteNotification:fetchCompletionHandler:` als volgt toe:
 
-        func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-        {
+        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
         }
 
@@ -207,6 +211,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

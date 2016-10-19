@@ -4,7 +4,6 @@ Stel u vragen via de Azure-forums. - [Ga naar MSDN](http://go.microsoft.com/fwli
 
 Geef vragen een tag met het trefwoord `azure-functions`. - [Ga naar Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
