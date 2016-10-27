@@ -190,6 +190,6 @@ Nadat u een DNS-zone hebt gemaakt, maakt u [recordsets en records](dns-getstarte
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

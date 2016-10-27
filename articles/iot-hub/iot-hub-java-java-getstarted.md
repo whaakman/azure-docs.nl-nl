@@ -497,6 +497,6 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

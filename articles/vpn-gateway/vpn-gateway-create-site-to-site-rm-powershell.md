@@ -70,7 +70,7 @@ Geef het abonnement op dat u wilt gebruiken.
 
 ## 2. Een virtueel netwerk en een gatewaysubnet maken
 
-In de voorbeelden wordt een gatewaysubnet van /28 gebruikt. Hoewel het mogelijk is om een gatewaysubnet van slechts /29 te maken, wordt dit niet aanbevolen. We raden u aan om een gatewaysubnet van /27 of groter (/26/25 enzovoort) te maken, zodat u ruimte hebt om extra functievereisten toe te voegen. 
+In de voorbeelden wordt een gatewaysubnet van /28 gebruikt. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor hebt u genoeg adressen voor mogelijke aanvullende toekomstige configuraties.
 
 Als u al een virtueel netwerk hebt met een gatewaysubnet van /29 of groter, kunt u verdergaan met [De lokale netwerkgateway toevoegen](#localnet).
 
@@ -226,6 +226,6 @@ Volg de onderstaande instructies als u de voorvoegsels voor de gateway van een l
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -17,7 +17,7 @@
     ms.author="rachelap"/>
 
 
-# Overzicht van Web Apps
+# <a name="web-apps-overview"></a>Overzicht van Web Apps
 
 *App Service Web Apps* is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en web-apps. Met deze PaaS-aanbieding ([Platform-as-a-Service](https://en.wikipedia.org/wiki/Platform_as_a_service)) van Microsoft Azure kunt u zich concentreren op uw bedrijfslogica terwijl Azure zorgt voor de infrastructuur die nodig is om uw apps uit te voeren en te schalen.
 
@@ -27,7 +27,7 @@ In de volgende 5 minuten durende video maakt u kennis met Azure App Service Web 
 
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-## Wat is een web-app in App Service?
+## <a name="what-is-a-web-app-in-app-service?"></a>Wat is een web-app in App Service?
 
 In App Service is een *web-app* het geheel van rekenresources die door Azure worden verstrekt voor het hosten van een website of web-app.  
 
@@ -37,7 +37,7 @@ De code kan zijn geschreven in elke taal die of elk framework dat wordt onderste
 
 Voor voorbeelden van typische toepassingsscenario's waarvoor u Web Apps kunt gebruiken, raadpleegt u [Web-app-scenario's](https://azure.microsoft.com/documentation/scenarios/web-app/) en de sectie **Scenario's en aanbevelingen** van [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 
-## Waarom Web Apps gebruiken?
+## <a name="why-use-web-apps?"></a>Waarom Web Apps gebruiken?
 
 Hier volgen enkele belangrijke functies van Azure App Service die van toepassing zijn op Web Apps:
 
@@ -59,7 +59,7 @@ Bovendien kan een web-app gebruikmaken van functies die worden aangeboden door [
 
 Naast Web Apps in App Service biedt Azure nog andere services die kunnen worden gebruikt voor het hosten van websites en web-apps. Voor de meeste scenario's is Web Apps de beste keuze.  Voor microservice-architectuur kunt u wellicht [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) gebruiken. Hebt u meer controle nodig over de virtuele machines waarop uw code wordt uitgevoerd, dan kunt u [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) overwegen. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](choose-web-site-cloud-service-vm.md) voor meer informatie over hoe u moet kiezen tussen deze Azure-services.
 
-## Aan de slag
+## <a name="getting-started"></a>Aan de slag
 
 Volg de zelfstudie [In vijf minuten uw eerste web-app implementeren in Azure](app-service-web-get-started.md) als u standaardcode voor een nieuwe web-app in App Service wilt gaan implementeren. U hebt een gratis Azure-account nodig.
 
@@ -67,6 +67,6 @@ Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Az
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

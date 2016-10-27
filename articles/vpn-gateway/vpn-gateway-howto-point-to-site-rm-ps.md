@@ -13,19 +13,20 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 
-# Een punt-naar-site-verbinding met een VNet configureren met behulp van PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Een punt-naar-site-verbinding met een VNet configureren met behulp van PowerShell
 
 > [AZURE.SELECTOR]
 - [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassiek - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Klassiek - Klassieke portal](vpn-gateway-point-to-site-create.md)
 
 Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. 
 
-Dit artikel begeleidt u bij het maken van een VNet met een punt-naar-site-verbinding in het **Resource Manager-implementatiemodel**. Voor deze stappen is PowerShell vereist. U kunt deze oplossing op dit moment niet end-to-end maken in de Azure-portal.
+Dit artikel begeleidt u bij het maken van een VNet met een punt-naar-site-verbinding in het **Resource Manager-implementatiemodel**. Voor deze stappen is PowerShell vereist. U kunt deze oplossing op dit moment niet volledig maken in de Azure-portal.
 
 Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres nodig. Er wordt een VPN-verbinding tot stand gebracht door de verbinding te starten vanaf de clientcomputer. Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over VPN Gateways](vpn-gateway-vpn-faq.md#point-to-site-connections) en [Planning en ontwerp](vpn-gateway-plan-design.md).
 
@@ -42,7 +43,7 @@ Voor punt-naar-site-verbindingen hebt u geen VPN-apparaat of openbaar IP-adres n
 ![Punt-naar-site-diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "point-to-site")
 
 
-## Over deze configuratie
+## <a name="about-this-configuration"></a>Over deze configuratie
 
 In dit scenario maakt u een virtueel netwerk met een punt-naar-site-verbinding. De instructies helpen u ook bij het genereren van certificaten die u nodig hebt voor deze configuratie. Een P2S-verbinding bestaat uit de volgende onderdelen: een VNet met een VPN-gateway, een basiscertificaat in een CER-bestand (openbare sleutel), een clientcertificaat en de VPN-configuratie op de client. 
 
@@ -62,13 +63,13 @@ Voor deze configuratie gebruikt u de volgende waarden. De variabelen worden inge
 - VpnType: **op route gebaseerd**
 
 
-## Voordat u begint
+## <a name="before-beginning"></a>Voordat u begint
 
 - Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
     
 - Installeer de Azure Resource Manager PowerShell-cmdlets (1.0.2 of later). Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
 
-## <a name="declare"></a>Deel 1: Aanmelden en variabelen instellen
+## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>Deel 1: Aanmelden en variabelen instellen
 
 In deze sectie meldt u zich aan en declareert u de waarden die voor deze configuratie worden gebruikt. De opgegeven waarden worden in de voorbeeldscripts gebruikt. Wijzig de waarden zodat ze overeenkomen met uw omgeving. U kunt ook de gedeclareerde waarden gebruiken en de stappen bij wijze van oefening doorlopen.
 
@@ -105,7 +106,7 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
         $P2SRootCertName = "ARMP2SRootCert.cer"
 
 
-## Deel 2: Een VNet configureren 
+## <a name="part-2---configure-a-vnet"></a>Deel 2: Een VNet configureren 
 
 
 1. Maak een resourcegroep.
@@ -132,15 +133,15 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
         $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-## Deel 3: Vertrouwde certificaten toevoegen
+## <a name="part-3---add-trusted-certificates"></a>Deel 3: Vertrouwde certificaten toevoegen
 
 Azure gebruikt certificaten om clients te verifiëren die via P2S verbinding willen maken. U kunt het CER-bestand (de openbare sleutel) voor een basiscertificaat importeren naar Azure. Wanneer u een met Base64 gecodeerd X.509 (.cer)-bestand aan Azure toevoegt, geeft u bij Azure aan dat deze het basiscertificaat dat het bestand vertegenwoordigt, moet vertrouwen.
 
 Als u gebruikmaakt van een bedrijfsoplossing kunt u de bestaande certificaatketen gebruiken. Als u geen bedrijfs-CA-oplossing gebruikt, kunt u een zelfondertekend basiscertificaat maken. Makecert is één methode om een zelfondertekend certificaat te maken. Zie voor instructies voor het maken van een zelfondertekend basiscertificaat met *makecert* het artikel [Werken met zelfondertekende basiscertificaten voor punt-naar-site-configuraties](vpn-gateway-certificates-point-to-site.md).
 
-Ongeacht hoe u het CER-bestand hebt verkregen, u moet het certificaat uploaden naar Azure en clientcertificaten genereren om te installeren op de clients waarmee u verbinding wilt maken. U installeert het zelfondertekende certificaat niet rechtstreeks op de client. Hoe u clientcertificaten genereert, leest u verderop, in de sectie [Clientconfiguratie](#cc) van dit artikel.
+Ongeacht hoe u het CER-bestand hebt verkregen, moet u het certificaat uploaden naar Azure en clientcertificaten genereren om te installeren op de clients waarmee u verbinding wilt maken. U installeert het zelfondertekende certificaat niet rechtstreeks op de client. Hoe u clientcertificaten genereert, leest u verderop, in de sectie [Clientconfiguratie](#cc) van dit artikel.
         
-U kunt maximaal 20 vertrouwde basiscertificaten toevoegen aan Azure. U verkrijgt de openbare sleutel door het certificaat te exporteren als een met Base64 gecodeerd X.509-bestand (.cer). Een manier om te exporteren naar cer. is door **certmger.msc** te openen en het certificaat te zoeken in de map Personal/Certificates. Klik met de rechtermuisknop en exporteer zonder de persoonlijke sleutel als 'Base-64 gecodeerde X.509 (.CER)'. Noteer het pad waarnaar u het .cer-bestand hebt geëxporteerd. Dit is een voorbeeld van het verkrijgen van de Base64-tekenreeksweergave van uw certificaat. 
+U kunt maximaal 20 vertrouwde basiscertificaten toevoegen aan Azure. U verkrijgt de openbare sleutel door het certificaat te exporteren als een met Base64 gecodeerd X.509-bestand (.cer). Een manier om te exporteren naar cer. is door **certmgr.msc** te openen en het certificaat te zoeken in de map Personal/Certificates. Klik met de rechtermuisknop en exporteer zonder de persoonlijke sleutel als 'Base-64 gecodeerde X.509 (.CER)'. Noteer het pad waarnaar u het .cer-bestand hebt geëxporteerd. Dit is een voorbeeld van het verkrijgen van de Base64-tekenreeksweergave van uw certificaat. 
 
 Voeg het vertrouwde certificaat toe aan Azure. U moet het pad naar uw eigen .cer-bestand gebruiken voor deze stap. Besteed met name aandacht aan de variabele $P2SRootCertName = "ARMP2SRootCert.cer" die u hebt ingesteld in deel 1 van dit artikel. Als de naam van uw certificaat verschilt, pas deze dan dienovereenkomstig aan.
     
@@ -149,7 +150,7 @@ Voeg het vertrouwde certificaat toe aan Azure. U moet het pad naar uw eigen .cer
         $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
         $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 
-## Deel 4: De VPN-gateway maken
+## <a name="part-4---create-the-vpn-gateway"></a>Deel 4: De VPN-gateway maken
 
 Configureer en maak de virtuele netwerkgateway voor uw VNet. De *-GatewayType* moet **Vpn** zijn en het *-VpnType* moet **RouteBased** zijn. Dit kan maximaal 45 minuten duren.
 
@@ -158,7 +159,7 @@ Configureer en maak de virtuele netwerkgateway voor uw VNet. De *-GatewayType* m
         -VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
         -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
-## Deel 5: Het configuratiepakket voor de VPN-client downloaden
+## <a name="part-5---download-the-vpn-client-configuration-package"></a>Deel 5: Het configuratiepakket voor de VPN-client downloaden
 
 Clients die met een P2S-verbinding maken met Azure, moeten zowel een certificaat als een VPN-clientconfiguratiepakket hebben geïnstalleerd. Configuratiepakketten voor VPN-clients zijn beschikbaar voor Windows-clients. Het VPN-clientpakket bevat informatie om de VPN-clientsoftware te configureren die in Windows is ingebouwd en specifiek is voor het VPN waarmee u verbinding wilt maken. Met het pakket wordt geen andere software geïnstalleerd. Zie de [Veelgestelde vragen over de VPN Gateway](vpn-gateway-vpn-faq.md#point-to-site-connections) voor meer informatie.
 
@@ -177,15 +178,15 @@ Clients die met een P2S-verbinding maken met Azure, moeten zowel een certificaat
 
     ![VPN-client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Deel 6: Het clientcertificaat genereren
+## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>Deel 6: Het clientcertificaat genereren
 
 Nu gaat u de clientcertificaten genereren. U kunt een uniek certificaat genereren voor elke client die verbinding maakt of u kunt hetzelfde certificaat gebruiken op meerdere clients. Het voordeel van het genereren van unieke clientcertificaten is de mogelijkheid tot het intrekken van één certificaat, indien nodig. Anders moet u, als alle clients hetzelfde certificaat gebruiken en u het certificaat voor één van de clients moet intrekken, nieuwe certificaten genereren en installeren voor alle clients die het certificaat gebruiken om te verifiëren.
 
-- Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling 'naam@uwdomein.com', in plaats van de NetBIOS-indeling 'DOMEIN\gebruikersnaam'. 
+- Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling 'name@yourdomain.com',, in plaats van de NetBIOS-indeling 'DOMEIN\gebruikersnaam'. 
 
 - Als u een zelfondertekend certificaat gebruikt, raadpleegt u [Werken met zelfondertekende basiscertificaten voor punt-naar-site-configuraties](vpn-gateway-certificates-point-to-site.md) om een clientcertificaat te genereren.
 
-## Deel 7: Het clientcertificaat installeren
+## <a name="part-7---install-the-client-certificate"></a>Deel 7: Het clientcertificaat installeren
 
 Installeer een clientcertificaat op elke computer die u met het virtueel netwerk wilt verbinden. Er is een clientcertificaat vereist voor verificatie. U kunt het installeren van het clientcertificaat automatiseren of u kunt het handmatig installeren. De stappen leiden u door het handmatig exporteren en installeren van het clientcertificaat.
 
@@ -194,7 +195,7 @@ Installeer een clientcertificaat op elke computer die u met het virtueel netwerk
 3. Kopieer het *PFX*-bestand naar de clientcomputer. Dubbelklik op de clientcomputer op het *.pfx*-bestand om het te installeren. Voer het wachtwoord in wanneer dit wordt aangevraagd. Wijzig de installatielocatie niet.
 
 
-## Deel 8: Verbinding maken met Azure
+## <a name="part-8---connect-to-azure"></a>Deel 8: Verbinding maken met Azure
 
 1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Klik op **Verbinden**. Er verschijnt mogelijk een pop-upbericht dat verwijst naar het certificaat. Klik in dat geval op **Doorgaan** om verhoogde bevoegdheden te gebruiken. 
 
@@ -206,7 +207,7 @@ Installeer een clientcertificaat op elke computer die u met het virtueel netwerk
 
     ![VPN-client 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Deel 9: De verbinding controleren
+## <a name="part-9---verify-your-connection"></a>Deel 9: De verbinding controleren
 
 1. Als u wilt controleren of uw VPN-verbinding actief is, opent u een opdrachtprompt met verhoogde bevoegdheid en voert u *ipconfig/all* in.
 
@@ -223,17 +224,17 @@ Installeer een clientcertificaat op elke computer die u met het virtueel netwerk
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
-## Een vertrouwd basiscertificaat toevoegen of verwijderen
+## <a name="to-add-or-remove-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat toevoegen of verwijderen
 
 Certificaten worden gebruikt om VPN-clients voor punt-naar-site-VPN's te verifiëren. Via de volgende stappen kunt u basiscertificaten toevoegen en verwijderen. Wanneer u een met Base64 gecodeerd X.509 (.cer)-bestand aan Azure toevoegt, geeft u bij Azure aan dat deze het basiscertificaat dat het bestand vertegenwoordigt, moet vertrouwen. 
 
 U kunt vertrouwde basiscertificaten toevoegen of verwijderen via PowerShell of in de Azure-portal. Als u dit wilt doen in de Azure-portal, gaat u naar uw **Virtuele netwerkgateway > Instellingen > Punt-naar-site-configuratie > Basiscertificaten**. De volgende stappen helpen u bij het uitvoeren van deze taken met PowerShell. 
 
-### Een vertrouwd basiscertificaat toevoegen
+### <a name="add-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat toevoegen
 
 U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure. Volg de volgende stappen om een basiscertificaat toe te voegen.
 
-1. Maak en bereid het nieuwe basiscertificaat voor dat u aan Azure gaat toevoegen. Exporteer de openbare sleutel als een met Base-64 X.509 gecodeerde (. CER) en open het bestand met een teksteditor. Kopieer vervolgens alleen de onderstaande sectie. 
+1. Maak en bereid het nieuwe basiscertificaat voor dat u aan Azure gaat toevoegen. Exporteer de openbare sleutel als een met Base-64 gecodeerd X.509-certificaat (.CER) en open het bestand met een teksteditor. Kopieer vervolgens alleen de onderstaande sectie. 
  
     Kopieer de waarden, zoals weergegeven in het volgende voorbeeld:
 
@@ -255,7 +256,7 @@ U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure
         Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
         -VirtualNetworkGatewayName "GW"
 
-### Een vertrouwd basiscertificaat verwijderen
+### <a name="to-remove-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat verwijderen
 
 U kunt vertrouwde basiscertificaat verwijderen uit Azure. Wanneer u een vertrouwd certificaat verwijdert, kunnen de clientcertificaten die zijn gegenereerd op basis van het basiscertificaat geen verbinding meer maken met Azure via punt-naar-site. Als u wilt dat clients verbinding kunnen maken, moeten deze een nieuw clientcertificaat installeren dat is gegenereerd op basis van een certificaat dat wordt vertrouwd in Azure.
 
@@ -275,11 +276,11 @@ U kunt vertrouwde basiscertificaat verwijderen uit Azure. Wanneer u een vertrouw
         Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
         -VirtualNetworkGatewayName "GW"
 
-## De lijst met ingetrokken clientcertificaten beheren
+## <a name="to-manage-the-list-of-revoked-client-certificates"></a>De lijst met ingetrokken clientcertificaten beheren
 
 U kunt clientcertificaten intrekken. Met de certificaatintrekkingslijst kunt u selectief punt-naar-site-verbinding weigeren op basis van afzonderlijke clientcertificaten. Als u een .cer-basiscertificaat uit Azure verwijdert, wordt de toegang ingetrokken voor alle clientcertificaten die zijn gegenereerd/ondertekend door het ingetrokken basiscertificaat. Als u een bepaald clientcertificaat wilt intrekken, en niet het basiscertificaat, is dat mogelijk. Op die manier zijn andere certificaten die zijn gegenereerd op basis van het basiscertificaat nog steeds geldig. De algemene procedure is het basiscertificaat te gebruiken om de toegang te beheren op het team- of organisatieniveau, terwijl u ingetrokken clientcertificaten gebruikt voor nauwkeuriger toegangsbeheer bij afzonderlijke gebruikers.
 
-### Een clientcertificaat intrekken
+### <a name="revoke-a-client-certificate"></a>Een clientcertificaat intrekken
 
 1. Zoek de vingerafdruk van het clientcertificaat dat u wilt intrekken.
 
@@ -295,7 +296,7 @@ U kunt clientcertificaten intrekken. Met de certificaatintrekkingslijst kunt u s
 
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
-### Een clientcertificaat reactiveren
+### <a name="reinstate-a-client-certificate"></a>Een clientcertificaat reactiveren
 
 U kunt een clientcertificaat opnieuw activeren door de vingerafdruk te verwijderen uit de lijst met ingetrokken clientcertificaten.
 
@@ -308,7 +309,7 @@ U kunt een clientcertificaat opnieuw activeren door de vingerafdruk te verwijder
 
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U kunt een virtuele machine toevoegen aan het virtuele netwerk. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor de stappen.
 
@@ -316,6 +317,6 @@ U kunt een virtuele machine toevoegen aan het virtuele netwerk. Zie [Een virtuel
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

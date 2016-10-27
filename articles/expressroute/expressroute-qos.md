@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # QoS-vereisten voor ExpressRoute
 
@@ -30,7 +31,6 @@ De volgende tabel bevat een lijst van DSCP-markeringen die worden gebruikt door 
 | **Spraak** | EF (46) | Skype / Lync voice |
 | **Interactief** | AF41 (34) | Video |
 |   | AF21 (18) | Apps delen | 
-|   | CS3 (24) | SIP-signalering |
 | **Standaard** | AF11 (10) | Bestandsoverdracht|
 |   | CS0 (0) | Overige| 
 
@@ -52,6 +52,6 @@ De volgende tabel bevat een lijst van DSCP-markeringen die worden gebruikt door 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

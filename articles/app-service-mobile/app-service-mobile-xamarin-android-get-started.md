@@ -17,11 +17,11 @@
     ms.author="adrianha" />
 
 
-#Een Xamarin.Android-app maken
+#<a name="create-a-xamarin.android-app"></a>Een Xamarin.Android-app maken
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Overzicht
+##<a name="overview"></a>Overzicht
 
 Deze zelfstudie laat zien hoe u een back-endservice toevoegt aan een Xamarin.Android-app in de cloud. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie.
 
@@ -31,33 +31,33 @@ Hieronder ziet u een schermafbeelding van de voltooide app:
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Apps-zelfstudies voor Xamarin.Android-apps.
 
-##Vereisten
+##<a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, meld u zich aan voor een proefversie van Azure en ontvangt u maximaal 10 gratis mobiele apps. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-* Visual Studio met Xamarin. Zie [Installeren en instellen voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) voor instructies.  
- 
->[AZURE.NOTE] Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+* Visual Studio met Xamarin. Zie [Installeren en instellen voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) voor instructies.
 
-## Een nieuwe back-end voor mobiele apps van Azure maken
+>[AZURE.NOTE]Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile).  U kunt onmiddellijk een tijdelijke mobiele starter-app in App Service maken. U hebt geen creditcard nodig en u doet geen toezeggingen.
 
-Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
+## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
+
+Volg deze stappen voor het maken van een back-end voor mobiele apps.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
+U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Download vervolgens een serverproject voor een eenvoudige back-end voor takenlijsten en publiceer deze naar Azure.
 
-## Het serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## De Xamarin.Android-app downloaden en uitvoeren
+## <a name="download-and-run-the-xamarin.android-app"></a>De Xamarin.Android-app downloaden en uitvoeren
 
 1. Klik onder **Het Xamarin.Android-project downloaden en uitvoeren** op de knop **Downloaden**.
 
-    Er wordt een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+    Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 
 2. Druk op de toets **F5** om het project te bouwen en de app te starten.
 
@@ -65,18 +65,16 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
 
     ![][10]
 
-    Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens verschijnen in de lijst.
+    Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens verschijnen in de lijst.
 
     > [AZURE.NOTE] U kunt de code die toegang heeft tot de back-end van uw mobiele app bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
 
-##Volgende stappen
+##<a name="next-steps"></a>Volgende stappen
 
-* [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-android-get-started-users.md)  
-Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
-* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)  
-Informatie over het toevoegen van pushmeldingen aan uw app.
-* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app. 
+* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
+* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 
 <!-- Images. -->
@@ -92,6 +90,6 @@ Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app.
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

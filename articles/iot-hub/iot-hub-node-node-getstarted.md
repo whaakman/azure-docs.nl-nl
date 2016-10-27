@@ -31,7 +31,7 @@ Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Node.js-c
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-+ Node.js-versie 0.12.x of hoger. <br/> In het gedeelte [Uw ontwikkelingsomgeving voorbereiden][lnk-dev-setup] staat beschreven hoe u Node.js voor deze handleiding moet installeren op Windows of Linux.
++ Node.js versie 0.10.x of hoger.
 
 + Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount aanmaken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
 
@@ -314,6 +314,6 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

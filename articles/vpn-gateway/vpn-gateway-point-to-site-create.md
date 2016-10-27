@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc"/>
 
 
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klassiek - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Klassiek - Klassieke portal](vpn-gateway-point-to-site-create.md)
 
 Met een punt-naar-site (P2S)-configuratie kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. Een P2S-verbinding is nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk.
@@ -196,6 +197,6 @@ Bekijk de pagina [Virtual Network Documentation](https://azure.microsoft.com/doc
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

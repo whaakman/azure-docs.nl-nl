@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="07/22/2016" 
+    ms.date="10/11/2016" 
     ms.author="sdanie"/>
 
 
@@ -34,7 +34,7 @@ U leert het volgende:
 -   Toegang krijgen tot gegevens uit een database met behulp van Entity Framework.
 -   De doorvoer van gegevens verbeteren en de belasting van de database verminderen door gegevens op te slaan en op te halen met Azure Redis-cache.
 -   Een in Redis gesorteerde set gebruiken om de beste vijf teams op te halen.
--   De Azure-resources voor de toepassing inrichten met een ARM-sjabloon.
+-   De Azure-resources voor de toepassing inrichten met een Resource Manager-sjabloon.
 -   De toepassing publiceren in Azure met Visual Studio.
 
 ## Vereisten
@@ -853,6 +853,6 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

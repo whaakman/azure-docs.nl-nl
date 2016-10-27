@@ -38,9 +38,6 @@ In [Prijzen van App Service](https://azure.microsoft.com/pricing/details/app-ser
 ## Hybride connectors 
 Met de hybride connectoren kunt u het bereik verder uitbreiden in de onderneming, met connectiviteit voor [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) en WebSphere MQ. 
 
-## EAI- en EDI-services
-Voor het bouwen van essentiële zakelijke apps is meer nodig dan alleen connectiviteit. Het toonaangevende implementatieplatform van Microsoft, BizTalk Server, vormt de basis van BizTalk API Apps. BizTalk API Apps biedt geavanceerde integratiemogelijkheden die eenvoudig kunnen worden vastgemaakt aan Web Apps, Mobile Apps en Logic Apps. Voorbeelden van deze integratiemogelijkheden zijn [validatie](app-service-logic-xml-validator.md), [extractie](app-service-logic-xpath-extract.md), [transformatie](app-service-logic-transform-xml-documents.md), [encoders](app-service-logic-connector-jsonencoder.md), [handelspartnerbeheer](app-service-logic-connector-tpm.md) en ondersteuning voor EDI-indelingen zoals [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) en [AS2](app-service-logic-connector-as2.md).
-
 Aanvullende bronnen: [Business-to-business connectors and API apps](app-service-logic-b2b-connectors.md) Business-to-business-connectors en API Apps)  
 [Create a B2B process (Een B2B-proces maken)](app-service-logic-create-a-b2b-process.md)  
 [Create a trading partner agreement (Een handelspartnerovereenkomst maken)](app-service-logic-create-a-trading-partner-agreement.md)  
@@ -56,6 +53,6 @@ Zie [Connectors and API Apps List](app-service-logic-connectors-list.md) (Lijst 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
 
-# Partners en peeringlocaties voor ExpressRoute
+# <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
 In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
 
-## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>ExpressRoute-connectiviteitsproviders
 
 ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende kaart bevat een lijst van Azure-regio's en ExpressRoute-locaties. ExpressRoute-locaties zijn locaties waarop Microsoft samenwerkt met verschillende serviceproviders.
 
@@ -46,22 +46,22 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 |---|---|---|---|
 |**Cloud van de Amerikaanse overheid**|VS (overheid) - Iowa, VS (overheid) - Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China Noord, China Oost|Beijing, Shanghai|
-|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn+, Frankfurt|
+|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn, Frankfurt|
 
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
 
-## Locaties van connectiviteitsproviders
+## <a name="connectivity-provider-locations"></a>Locaties van connectiviteitsproviders
 
 > [AZURE.SELECTOR]
 [Locaties per provider](expressroute-locations.md#connectivity-provider-locations)
 [Providers per locatie](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Productie-Azure
+### <a name="production-azure"></a>Productie-Azure
 | **Locatie**  | **Serviceproviders** |
 |---------------|-----------------------|
-| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -71,7 +71,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Londen** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
 | **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **Melbourne** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix+ |
 | **Mumbai** | Tata Communications |
@@ -81,16 +81,16 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** betekent binnenkort beschikbaar
 
-### Nationale cloudomgevingen
+### <a name="national-cloud-environments"></a>Nationale cloudomgevingen
 
-#### Cloud van de Amerikaanse overheid
+#### <a name="us-government-cloud"></a>Cloud van de Amerikaanse overheid
 
 | **Locatie**  |**Serviceproviders** |
 |---------------|--------------------|
@@ -99,22 +99,22 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### China
+#### <a name="china"></a>China
 
 | **Locatie**  | **Serviceproviders** |
 |---------------|-----------------------|
-| **Peking** | China Telecom |
+| **Beijing** | China Telecom |
 | **Shanghai** |  China Telecom |
 Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) voor meer informatie.
 
-#### Duitsland
+#### <a name="germany"></a>Duitsland
 
 | **Locatie**  | **Serviceproviders** |
 |---------------|-----------------------|
-| **Berlijn** | Colt+, e-shelter+ |
-| **Frankfurt** | Colt, Equinix+, Interxion |
+| **Berlijn** | Colt, e-shelter |
+| **Frankfurt** | Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
 
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
 
@@ -131,7 +131,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 - Vraag een ExpressRoute-circuit aan met het exchange-punt wanneer uw connectiviteitsprovider verbinding maakt met Microsoft.
     - Volg de stappen in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken) om connectiviteit in te stellen.
 
-|**Locatie**|**Exchange**|**Connectiveitsproviders**|
+|**Locatie**|**Exchange**|**Connectiviteitsproviders**|
 |-------------|------------|-------------------------|
 | **New York** | Equinix | Lightower |
 | **Seattle** | Equinix | Alaska Communications |
@@ -139,17 +139,17 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 | **Singapore** | Equinix | 1CLOUDSTAR |
 | **Washington DC** | Equinix | Lightower |
 
-## ExpressRoute-SI's
+## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
 
 Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.
 
-|**Continent**|**System integrators**|
+|**Continent**|**Systeemintegratie**|
 |-------------|---------------------|
 | **Azië** | Avanade Inc., OneAs1a|
 | **Europa** | Avanade Inc., Dotnet Solutions|
 | **VS** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 - Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
@@ -159,6 +159,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

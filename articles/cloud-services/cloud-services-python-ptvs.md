@@ -18,11 +18,11 @@
 
 
 
-# Python-web- en -werkrollen met Python-tools voor Visual Studio
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
 
 Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
  - Visual Studio 2013 of 2015
  - [Python Tools for Visual Studio][] (PTVS)
@@ -31,7 +31,7 @@ Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen m
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Wat zijn Python-web- en -werkrollen?
+## <a name="what-are-python-web-and-worker-roles?"></a>Wat zijn Python-web- en -werkrollen?
 
 Azure biedt drie compute-modellen voor het uitvoeren van toepassingen: [Web Apps in Azure App Service][uitvoeringsmodel voor websites], [Azure Virtual Machines][uitvoeringsmodel voor virtuele machines] en [Azure Cloud Services][uitvoeringsmodel voor cloudservices]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
 
@@ -42,7 +42,7 @@ Als uw scenario slechts een ongecompliceerde website-front-end omvat, kunt u ove
 <br />
 
 
-## Een project maken
+## <a name="project-creation"></a>Een project maken
 
 In Visual Studio kunt u **Azure Cloud Service** selecteren in het dialoogvenster **Nieuw project** onder **Python**.
 
@@ -62,7 +62,7 @@ U kunt op elk gewenst moment web- of werkrollen toevoegen aan een bestaande clou
 
 Uw cloudservice kan rollen bevatten die zijn geïmplementeerd in verschillende talen.  U kunt bijvoorbeeld een Python-webrol hebben die is geïmplementeerd met Django, met Python of met C#-werkrollen.  U kunt eenvoudig communiceren tussen uw rollen met behulp van de Service Bus-wachtrijen of opslagwachtrijen.
 
-## Python installeren op de cloudservice
+## <a name="install-python-on-the-cloud-service"></a>Python installeren op de cloudservice
 
 >[AZURE.WARNING] De installatiescripts die met Visual Studio zijn geïnstalleerd, werken niet (op het moment dat dit artikel voor het laatst werd bijgewerkt). Deze sectie beschrijft een tijdelijke oplossing.
 
@@ -113,7 +113,7 @@ De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol w
 </Runtime>
 ```
 
-#### Voorbeeld van ServiceDefinition.csdef
+#### <a name="sample-servicedefinition.csdef"></a>Voorbeeld van ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol w
 
 Maak vervolgens de bestanden **PrepPython.ps1** en **PipInstaller.ps1** in de map **./bin** van uw rol.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Dit script installeert Python. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 geïnstalleerd; anders wordt Python 3.5 geïnstalleerd.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Met dit script wordt pip aangeroepen en worden alle afhankelijkheden in het bestand **requirements.txt** geïnstalleerd. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### LaunchWorker.ps1 wijzigen
+#### <a name="modify-launchworker.ps1"></a>LaunchWorker.ps1 wijzigen
 
 >[AZURE.NOTE] In het geval van een project met een **werkrol** is het bestand **LauncherWorker.ps1** vereist om het opstartbestand uit te voeren. Bij een project met een **webrol** wordt het opstartbestand in plaats daarvan gedefinieerd in de projecteigenschappen.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
 De Visual Studio-sjablonen zouden in de map **./bin** een bestand **ps.cmd** moeten hebben gemaakt. Dit shellscript roept de bovenstaande PowerShell-wrapperscripts aan en biedt logboekregistratie op basis van de naam van de aangeroepen PowerShell-wrapper. Als dit bestand niet is gemaakt, ziet u hieronder wat het moet bevatten. 
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Lokaal uitvoeren
+## <a name="run-locally"></a>Lokaal uitvoeren
 
 Als u uw cloudserviceproject instelt als opstartproject en op F5 drukt, wordt de cloudservice in de lokale Azure-emulator uitgevoerd.
 
@@ -309,7 +309,7 @@ Voor foutopsporing in uw web- en werkrollen kunt u het rolproject instellen als 
 
 ![Eigenschappen van opstartprojecten in de oplossing](./media/cloud-services-python-ptvs/startup.png)
 
-## Publiceren naar Azure
+## <a name="publish-to-azure"></a>Publiceren naar Azure
 
 Om te publiceren, klikt u met de rechtermuisknop op het cloudserviceproject in de oplossing en selecteert u vervolgens **Publiceren**.
 
@@ -325,11 +325,11 @@ De voortgang wordt gedeeltelijk weergegeven in het uitvoervenster. Vervolgens zi
 
 De implementatie duurt enkele minuten. Daarna worden uw web- en/of werkrollen uitgevoerd in Azure.
 
-### Logboeken onderzoeken
+### <a name="investigate-logs"></a>Logboeken onderzoeken
 
 Nadat de virtuele machine van de cloudservice wordt gestart en Python installeert, kunt u de logboeken controleren op foutberichten. Deze logboeken bevinden zich in de map **C:\Resources\Directory\{role}\LogFiles**. **PrepPython.err.txt** bevat ten minste één fout doordat het script probeert te detecteren of Python is geïnstalleerd. Mogelijk geeft **PipInstaller.err.txt** ook aan dat de versie van pip is verouderd.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie de documentatie bij PTVS voor meer informatie over het werken met web- en werkrollen in Python-tools voor Visual Studio:
 
@@ -355,14 +355,14 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 [Blob-service]: ../storage/storage-python-how-to-use-blob-storage.md
 [Queue-service]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tabelservice]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus-wachtrijen]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Service Bus-onderwerpen]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus-wachtrijen]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus-onderwerpen]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Documentatie bij Python-tools voor Visual Studio]: http://aka.ms/ptvsdocs
+[Python Tools voor Visual Studio]: http://aka.ms/ptvs
+[Documentatie Python Tools voor Visual Studio]: http://aka.ms/ptvsdocs
 [Cloudserviceprojecten]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK-tools voor VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK-tools voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -371,6 +371,6 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

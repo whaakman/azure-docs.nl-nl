@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Zelfstudie: een pijplijn maken met de wizard Kopiëren" 
+    pageTitle="Zelfstudie: een pijplijn maken met de wizard Kopiëren | Microsoft Azure" 
     description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory." 
     services="data-factory" 
     documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" **
+    ms.tgt_pltfrm="na"
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="09/16/2016" 
@@ -24,6 +24,7 @@
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -120,7 +121,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Monitor starten en toepassing beheren 
-12. Op de pagina **Implementatie** klikt u op de koppeling: **Klik hier om de kopieerpijplijn te bewaken**.
+12. Klik op de pagina **Implementatie** op de koppeling: `Click here to monitor copy pipeline`.
 
     ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Volg de instructies in [Pijplijnen bewaken en beheren met de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het bewaken van de pijplijn die u hebt gemaakt. Klik op het pictogram **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om het segment weer te geven. 
@@ -139,6 +140,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

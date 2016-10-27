@@ -57,15 +57,15 @@ Azure Machine Learning heeft twee soorten services:
 * Request Response-service (RRS): een schaalbare webservice met weinig latentie die wordt gebruikt om een interface te creëren voor staatloze modellen die worden gemaakt en geïmplementeerd vanuit Machine Learning Studio.
 * Batchuitvoeringsservice (BES): een asynchrone service die een batch voor gegevensrecords scoort.
 
-Er zijn verschillende manieren om de REST-API te gebruiken en toegang te krijgen tot de webservice. U kunt bijvoorbeeld een toepassing schrijven in C#, R of Python met behulp van de voorbeeldcode die wordt gegenereerd tijdens de implementatie van de webservice. 
+Er zijn verschillende manieren om de REST-API te gebruiken en toegang te krijgen tot de webservice. U kunt bijvoorbeeld een toepassing schrijven in C#, R of Python met behulp van de voorbeeldcode die wordt gegenereerd tijdens de implementatie van de webservice.
 
-De voorbeeldcode is beschikbaar op: de verbruikspagina voor de webservice in de portal van de Azure Machine Learning-webservices, de API Help-pagina in het dashboard van de webservice in Machine Learning Studio. 
+De voorbeeldcode is beschikbaar op: de verbruikspagina voor de webservice in de portal van de Azure Machine Learning-webservices, de API Help-pagina in het dashboard van de webservice in Machine Learning Studio.
 
 Of u kunt de Microsoft Excel-voorbeeldwerkmap gebruiken die voor u is gemaakt (ook beschikbaar op het webservicedashboard in Studio).
 
 **Wat zijn de belangrijkste updates in de nieuwe Azure ML-webservices?**
 
-Raadpleeg de [gerelateerde documentatie](machine-learning-whats-new.md) voor meer informatie over de nieuwe Azure Machine Learning-webservices. 
+Raadpleeg de [gerelateerde documentatie](machine-learning-whats-new.md) voor meer informatie over de nieuwe Azure Machine Learning-webservices.
 
 ## Vragen over Machine Learning Studio
 
@@ -266,7 +266,7 @@ Zie [Machine Learning Module-foutcodes](https://msdn.microsoft.com/library/azure
 
 **Wat is de schaalbaarheid van de webservice?**
 
-Het standaardeindpunt is momenteel voorzien van 20 gelijktijdige RRS-aanvragen per eindpunt. Dit kan worden geschaald tot 200 gelijktijdige aanvragen per eindpunt en elke webservice kan tot 10.000 eindpunten per webservice worden geschaald, zoals beschreven in [API-eindpunten schalen](machine-learning-scaling-endpoints.md). Voor BES kunnen op elk eindpunt 40 aanvragen tegelijk worden verwerkt; extra aanvragen worden in de wachtrij geplaatst. De aanvragen in de wachtrij worden automatisch uitgevoerd terwijl de wachtrij afneemt.
+Het standaardeindpunt is momenteel voorzien van 20 gelijktijdige RRS-aanvragen per eindpunt. Dit kan worden geschaald tot 200 gelijktijdige aanvragen per eindpunt. Elke webservice kan tot 10.000 eindpunten per webservice worden geschaald, zoals beschreven in [Een webservice schalen](machine-learning-scaling-webservice.md). Voor BES kunnen op elk eindpunt 40 aanvragen tegelijk worden verwerkt; extra aanvragen worden in de wachtrij geplaatst. De aanvragen in de wachtrij worden automatisch uitgevoerd terwijl de wachtrij afneemt.
 
 
 **Worden R-taken verdeeld over knooppunten?**
@@ -355,7 +355,7 @@ Terwijl u Machine Learning Studio evalueert, kunt u de gratis factureringslaag g
 
 Als u hebt besloten dat Azure Machine Learning aan uw behoeften voldoet, kunt u zich registreren voor de Standard-laag. U moet beschikken over een Microsoft Azure-abonnement om u te kunnen registreren.
 
-In de standaardlaag wordt er maandelijks een bedrag in rekening gebracht voor elke werkruimte die u in Machine Learning Studio definieert. Wanneer u een experiment in Studio uitvoert, worden rekenresources gefactureerd wanneer u een experiment uitvoert. Wanneer u een klassieke webservice implementeert, worden de transacties en rekenuren gefactureerd op basis van betalen per gebruik. 
+In de standaardlaag wordt er maandelijks een bedrag in rekening gebracht voor elke werkruimte die u in Machine Learning Studio definieert. Wanneer u een experiment in Studio uitvoert, worden rekenresources gefactureerd wanneer u een experiment uitvoert. Wanneer u een klassieke webservice implementeert, worden de transacties en rekenuren gefactureerd op basis van betalen per gebruik.
 
 De nieuwe Machine Learning-webservices introduceren abonnementen waarmee de kosten beter te voorspellen zijn. Het bieden van een prijs per laag zorgt voor lagere tarieven voor klanten die veel capaciteit nodig hebben.
 
@@ -370,7 +370,7 @@ Zie [Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machi
 **Is er een gratis proefversie van Machine Learning?**
 
  Azure Machine Learning biedt een optie voor een gratis abonnement (zie [Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machine-learning/) voor details) en Machine Learning Studio biedt een snelle proefversie van 8 uur (meld u aan bij [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) voor deze proefversie).
- 
+
  Als u zich registreert voor een gratis proefversie van Azure, kunt u bovendien alle Azure-services een maand proberen. Ga naar [Veelgestelde vragen over de gratis proefversie van Azure](/pricing/free-trial-faq/) voor meer informatie over de gratis proefversie van Azure.
 
 **Wat is een transactie?**
@@ -383,7 +383,7 @@ Ja, de RRS- en BES-transacties worden bij elkaar opgeteld en verrekend met uw ab
 
 **Wat is een API-rekenuur?**
 
-Een API-rekenuur is de factureringseenheid voor de tijd die het kost om API-aanroepen uit te voeren met behulp van de rekenresources. Al uw aanroepen worden bij elkaar opgeteld voor factureringsdoeleinden. 
+Een API-rekenuur is de factureringseenheid voor de tijd die het kost om API-aanroepen uit te voeren met behulp van de rekenresources. Al uw aanroepen worden bij elkaar opgeteld voor factureringsdoeleinden.
 
 **Hoe lang duurt een productie-API-aanroep gewoonlijk?**
 
@@ -391,17 +391,17 @@ De duur van productie-API-aanroepen kan aanzienlijk variëren, gewoonlijk tussen
 
 **Wat is een Studio-rekenuur?**
 
-Een Studio-rekenuur is de factureringseenheid voor de totale tijd die de experimenten nodig hebben voor het gebruik van rekenresources in Studio. 
+Een Studio-rekenuur is de factureringseenheid voor de totale tijd die de experimenten nodig hebben voor het gebruik van rekenresources in Studio.
 
 **Waarvoor is in de nieuwe webservices de laag dev/test bedoeld ?**
 
 De nieuwe Azure ML-webservices bieden meerdere lagen die u kunt gebruiken om een abonnement in te richten. De laag dev/test heeft beperkte inbegrepen hoeveelheden, waarmee u een experiment kunt testen als nieuwe webservice zonder dat er kosten in rekening worden gebracht. U hebt de mogelijkheid om het uit te proberen en te zien hoe het werkt.
 
-**Zijn er afzonderlijke opslagkosten?** 
+**Zijn er afzonderlijke opslagkosten?**
 
 Voor de gratis laag van Machine Learning is geen afzonderlijke opslag vereist of toegestaan. Voor de Standard-laag van Machine Learning moeten gebruikers een Azure-opslagaccount hebben. Azure-opslag wordt [afzonderlijk gefactureerd](https://azure.microsoft.com/pricing/details/storage/).
 
-**Hoe werkt de hoge beschikbaarheid van de Machine Learning-ondersteuning?** 
+**Hoe werkt de hoge beschikbaarheid van de Machine Learning-ondersteuning?**
 
 De duur van productie-API-aanroepen kan aanzienlijk variëren, gewoonlijk tussen de honderden milliseconden en een paar seconden. Het kan echter ook minuten duren, afhankelijk van de complexiteit van de gegevensverwerking en het Machine Learning-model. De beste manier om de duur van productie-API-aanroepen te schatten is om een model te benchmarken in de Machine Learning-service.
 
@@ -409,7 +409,7 @@ De duur van productie-API-aanroepen kan aanzienlijk variëren, gewoonlijk tussen
 
 De Machine Learning-service is een multitenant-service en de werkelijke rekenresources die worden gebruikt op de back-end, variëren en zijn geoptimaliseerd voor prestaties en voorspelbaarheid.
 
-### Beheer van nieuwe webservices 
+### Beheer van nieuwe webservices
 
 **Wat gebeurt er als ik mijn plan verwijderen?**
 
@@ -419,29 +419,29 @@ Opmerking: een plan dat wordt gebruikt in een webservice kan niet worden verwijd
 
 **Wat is een planexemplaar?**
 
-Een planexemplaar is een eenheid opgenomen hoeveelheden die u kunt toevoegen aan uw abonnement. Als u een factureringscategorie voor uw abonnement selecteert, heeft deze één exemplaar. Als u meer opgenomen hoeveelheden nodig hebt, kunt u exemplaren van het geselecteerde abonnement toevoegen aan uw plan. 
+Een planexemplaar is een eenheid opgenomen hoeveelheden die u kunt toevoegen aan uw abonnement. Als u een factureringscategorie voor uw abonnement selecteert, heeft deze één exemplaar. Als u meer opgenomen hoeveelheden nodig hebt, kunt u exemplaren van het geselecteerde abonnement toevoegen aan uw plan.
 
 **Hoeveel planexemplaren kan ik toevoegen?**
 
 U kunt in een abonnement één exemplaar hebben voor de laag dev/test.
 
-Aan de lagen S1, S2 en S3 kunt u zoveel exemplaren toevoegen als nodig is. 
+Aan de lagen S1, S2 en S3 kunt u zoveel exemplaren toevoegen als nodig is.
 
 Opmerking: afhankelijk van het verwachte gebruik is het misschien goedkoper om een upgrade uit te voeren naar een hogere laag met opgenomen hoeveelheden dan om exemplaren aan de huidige laag toe te voegen.
 
 **Wat gebeurt er als ik planlagen wijzig (een upgrade/downgrade uitvoer)?**
 
-Het oude plan wordt verwijderd en het huidige gebruik wordt naar rato gefactureerd. Voor de rest van de periode wordt een nieuw plan gemaakt met de volledige opgenomen hoeveelheden van de laag waarvoor een upgrade of downgrade is uitgevoerd. 
+Het oude plan wordt verwijderd en het huidige gebruik wordt naar rato gefactureerd. Voor de rest van de periode wordt een nieuw plan gemaakt met de volledige opgenomen hoeveelheden van de laag waarvoor een upgrade of downgrade is uitgevoerd.
 
 Opmerking: opgenomen hoeveelheden worden per periode toegewezen en ongebruikte hoeveelheden kunnen niet worden meegenomen naar de volgende periode.
 
 **Wat gebeurt er wanneer ik het aantal planexemplaren verhoog?**
 
-Hoeveelheden worden naar rato opgenomen. Het duurt maximaal 24 uur voordat deze van kracht gaan. 
+Hoeveelheden worden naar rato opgenomen. Het duurt maximaal 24 uur voordat deze van kracht gaan.
 
 **Wat gebeurt er wanneer ik een planexemplaar verwijder?**
 
-Het exemplaar wordt verwijderd uit het abonnement en u wordt naar rato gefactureerd. 
+Het exemplaar wordt verwijderd uit het abonnement en u wordt naar rato gefactureerd.
 
 
 ### Registreren voor de plannen van de nieuwe webservices
@@ -450,9 +450,9 @@ Het exemplaar wordt verwijderd uit het abonnement en u wordt naar rato gefacture
 
 Er zijn twee manieren om abonnementen te maken.
 
-Wanneer u de eerste keer een nieuwe webservice implementeert, kunt u een bestaand plan kiezen of een nieuw plan maken. 
+Wanneer u de eerste keer een nieuwe webservice implementeert, kunt u een bestaand plan kiezen of een nieuw plan maken.
 
-Plannen die op deze manier zijn gemaakt, zijn voor uw standaardregio en de webservice wordt in deze regio geïmplementeerd. 
+Plannen die op deze manier zijn gemaakt, zijn voor uw standaardregio en de webservice wordt in deze regio geïmplementeerd.
 
 Als u services wilt implementeren in andere regio's dan de standaardregio, kunt u abonnementen definiëren voordat u de service implementeert.
 
@@ -460,7 +460,7 @@ In dit geval kunt u zich aanmelden bij de Azure Machine Learning-webservicesport
 
 **Welk plan moet ik kiezen om mee te beginnen?**
 
-U wordt aangeraden te beginnen met de Standard-laag S1 en het serviceverbruik bij te houden. Als u merkt dat u de opgenomen hoeveelheden erg snel verbruikt, kunt u exemplaren toevoegen of naar een hogere laag gaan voor een beter kortingstarief. Op deze manier kunt u uw abonnement gedurende de factureringscyclus aanpassen aan uw wensen. 
+U wordt aangeraden te beginnen met de Standard-laag S1 en het serviceverbruik bij te houden. Als u merkt dat u de opgenomen hoeveelheden erg snel verbruikt, kunt u exemplaren toevoegen of naar een hogere laag gaan voor een beter kortingstarief. Op deze manier kunt u uw abonnement gedurende de factureringscyclus aanpassen aan uw wensen.
 
 **In welke regio's zijn de nieuwe plannen beschikbaar?**
 
@@ -478,21 +478,21 @@ Ja. Planprijzen variëren per regio. Wanneer u een webservice implementeert in e
 
 **Hoe kan ik controleren of mijn webserviceverbruik de limiet overschrijdt?**
 
-Op de pagina Plannen in de Azure Machine Learning-webservicesportal kunt u het verbruik van al uw plannen bekijken. Meld u aan bij de portal en klik op de menuoptie Plannen. 
+Op de pagina Plannen in de Azure Machine Learning-webservicesportal kunt u het verbruik van al uw plannen bekijken. Meld u aan bij de portal en klik op de menuoptie Plannen.
 
-In de kolommen Transacties en Compute van de tabel ziet u de opgenomen hoeveelheden van het plan en het percentage dat is verbruikt. 
+In de kolommen Transacties en Compute van de tabel ziet u de opgenomen hoeveelheden van het plan en het percentage dat is verbruikt.
 
 **Wat gebeurt er wanneer ik de opgenomen hoeveelheden in de laag dev/test heb verbruikt?**
 
 Services waaraan een dev/test-laag is toegewezen, worden stopgezet tot de volgende periode of totdat u ze verplaatst naar een van de betaalde lagen.
 
-**Hoe worden de prijzen voor RRS- en BES-werkbelastingen (Request Response en batches) berekend voor klassieke webservices en overschrijdingen van nieuwe webservices?** 
+**Hoe worden de prijzen voor RRS- en BES-werkbelastingen (Request Response en batches) berekend voor klassieke webservices en overschrijdingen van nieuwe webservices?**
 
-Bij een RRS-workload worden kosten in rekening gebracht voor elke API-transactieaanroep die u maakt, en voor de rekentijd die is gekoppeld aan deze aanvragen. De RRS-kosten voor de productie-API-transacties worden berekend als het totale aantal API-aanroepen dat u maakt, vermenigvuldigd met de prijs per 1000 transacties (naar rato van afzonderlijke transacties). De RRS-kosten voor de productie-API-rekenuren worden berekend als de hoeveelheid tijd die het kost om elke API-aanroep uit te voeren, vermenigvuldigd met het totale aantal API-transacties vermenigvuldigd met de prijs per productie-API-rekenuur. 
+Bij een RRS-workload worden kosten in rekening gebracht voor elke API-transactieaanroep die u maakt, en voor de rekentijd die is gekoppeld aan deze aanvragen. De RRS-kosten voor de productie-API-transacties worden berekend als het totale aantal API-aanroepen dat u maakt, vermenigvuldigd met de prijs per 1000 transacties (naar rato van afzonderlijke transacties). De RRS-kosten voor de productie-API-rekenuren worden berekend als de hoeveelheid tijd die het kost om elke API-aanroep uit te voeren, vermenigvuldigd met het totale aantal API-transacties vermenigvuldigd met de prijs per productie-API-rekenuur.
 
 Bijvoorbeeld: voor 1.000.000 API-transacties voor Standard S1-overschrijding, die elk 0,72 seconden duren om uit te voeren, is het resultaat: (1.000.000 * $0,50/1k aan API-transacties) $500 aan productie-API-transactiekosten en (1.000.000 * 0,72 sec * $2/u) $400 aan productie-API-rekenuren. Dit is een totaal van $900.
 
-Voor een BES-workload worden op dezelfde manier kosten in rekening gebracht. De API-transactiekosten vertegenwoordigen echter het aantal batchtaken dat u verzendt, en de kosten voor de rekenuren vertegenwoordigen de tijd die is gekoppeld aan deze batchtaken. De BES-kosten voor de productie-API-transacties worden berekend als het totale aantal taken dat u verzendt, vermenigvuldigd met de prijs per 1000 transacties (naar rato van afzonderlijke transacties). De BES-kosten voor de productie-API-rekenuren worden berekend als de hoeveelheid tijd die het kost om elke rij in de taak uit te voeren, vermenigvuldigd met het totale aantal rijen in de taak vermenigvuldigd met de prijs per productie-API-rekenuur. Als u de Machine Learning-calculator gebruikt, geeft de transactiemeter het aantal taken weer dat u wilt verzenden. Het veld Tijd per transactie geeft de totale tijd weer die nodig is om alle rijen in elke taak uit te voeren. 
+Voor een BES-workload worden op dezelfde manier kosten in rekening gebracht. De API-transactiekosten vertegenwoordigen echter het aantal batchtaken dat u verzendt, en de kosten voor de rekenuren vertegenwoordigen de tijd die is gekoppeld aan deze batchtaken. De BES-kosten voor de productie-API-transacties worden berekend als het totale aantal taken dat u verzendt, vermenigvuldigd met de prijs per 1000 transacties (naar rato van afzonderlijke transacties). De BES-kosten voor de productie-API-rekenuren worden berekend als de hoeveelheid tijd die het kost om elke rij in de taak uit te voeren, vermenigvuldigd met het totale aantal rijen in de taak vermenigvuldigd met de prijs per productie-API-rekenuur. Als u de Machine Learning-calculator gebruikt, geeft de transactiemeter het aantal taken weer dat u wilt verzenden. Het veld Tijd per transactie geeft de totale tijd weer die nodig is om alle rijen in elke taak uit te voeren.
 
 Bijvoorbeeld: als u, bij Standard S1-overschrijding, 100 taken met elk 500 rijen per dag verzendt die elk 0,72 seconden nodig hebben om te worden uitgevoerd, zijn de maandelijkse overschrijdingskosten (100 taken per dag = 3100 taken/maand * $0,50/1K aan API-transacties) $1,55 aan production-API-transactiekosten en (500 rijen * 0,72 sec * 3100 taken * $2/uur) $620 aan productie-API-rekenuren. Dit is een totaal van $621,55.
 
@@ -505,30 +505,30 @@ Ja, klassieke webservices zijn nog steeds beschikbaar in Azure Machine Learning.
 
 **Wat is inbegrepen bij de gratis laag van Machine Learning?**
 
-De gratis laag van Azure Machine Learning is bedoeld om een gedetailleerde inleiding te bieden tot Azure Machine Learning Studio. Het enige wat u nodig hebt om u te registreren, is een Microsoft-account. De gratis laag omvat gratis toegang tot één Azure Machine Learning Studio-werkruimte per [Microsoft-account](https://www.microsoft.com/account/default.aspx). Het bevat de mogelijkheid om maximaal 10 GB opslagruimte te gebruiken en de mogelijkheid om modellen uit te voeren als faserings-API's. Werkbelastingen uit een gratis laag worden niet gedekt door een SLA en zijn alleen bedoeld voor ontwikkeling en persoonlijk gebruik. Werkbelastingen uit een gratis laag hebben geen toegang tot gegevens door verbinding te maken met een on-premises SQL-server. 
+De gratis laag van Azure Machine Learning is bedoeld om een gedetailleerde inleiding te bieden tot Azure Machine Learning Studio. Het enige wat u nodig hebt om u te registreren, is een Microsoft-account. De gratis laag omvat gratis toegang tot één Azure Machine Learning Studio-werkruimte per [Microsoft-account](https://www.microsoft.com/account/default.aspx). Het bevat de mogelijkheid om maximaal 10 GB opslagruimte te gebruiken en de mogelijkheid om modellen uit te voeren als faserings-API's. Werkbelastingen uit een gratis laag worden niet gedekt door een SLA en zijn alleen bedoeld voor ontwikkeling en persoonlijk gebruik. Werkbelastingen uit een gratis laag hebben geen toegang tot gegevens door verbinding te maken met een on-premises SQL-server.
 
 **Wat is inbegrepen bij de Standard-laag en wat bij de gratis laag van Azure Machine Learning?**
 
 De Standard-laag van Azure Machine Learning is een betaalde productieversie van Azure Machine Learning Studio. De maandelijkse kosten voor Azure ML Studio worden voor een hele maand per werkruimte gefactureerd en voor gedeeltelijke maanden naar rato. Azure ML Studio-experimenturen worden voor actieve experimenten per rekenuur gefactureerd. Facturering voor gedeeltelijke uren is naar rato.  
 
-De Azure ML API-service wordt gefactureerd afhankelijk van of het een klassieke webservice of een nieuwe webservice betreft. 
+De Azure ML API-service wordt gefactureerd afhankelijk van of het een klassieke webservice of een nieuwe webservice betreft.
 
-De volgende kosten worden bij elkaar opgeteld per werkruimte voor uw abonnement. 
+De volgende kosten worden bij elkaar opgeteld per werkruimte voor uw abonnement.
 
 * Machine Learning-werkruimte-abonnement: het Machine Learning-werkruimte-abonnement is een maandelijks bedrag waarmee u toegang krijgt tot een ML Studio-werkruimte en is vereist om experimenten uit te voeren in de studio en om de productie-API's te gebruiken.
 * Studio-experimenturen: met deze meter worden alle rekenkosten voor actieve experimenten in ML Studio en actieve productie-API-aanroepen in de faseringsomgeving bij elkaar opgeteld.
 * Krijg toegang tot gegevens door verbinding te maken met een on-premises SQL-server in de modellen voor training en scoren.
-* Voor klassieke webservices: 
+* Voor klassieke webservices:
     * Rekenuren productie-API: deze meter bevat rekenkosten voor webservices die actief zijn in productie.
     * Transacties productie-API (in duizenden): deze meter bevat kosten per aanroep naar de productiewebservice.
 
-Naast de voorgenoemde kosten worden er, in het geval van nieuwe webservices, kosten verrekend voor het geselecteerde plan: 
+Naast de voorgenoemde kosten worden er, in het geval van nieuwe webservices, kosten verrekend voor het geselecteerde plan:
 
 * Standard S1/S2/S3 API-plan (eenheden): deze meter vertegenwoordigt het type exemplaar dat is geselecteerd voor nieuwe webservices
 * Standard S1/S2/S3 overschrijding API-rekenuren: deze meter bevat rekenkosten voor het uitvoeren van de nieuwe webservices in productie nadat de opgenomen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
 * Standard S1/S2/S3 overschrijding API-transacties (in duizenden): deze meter bevat kosten per aanroep naar de nieuwe productiewebservice nadat de inbegrepen hoeveelheden in bestaande exemplaren zijn verbruikt. Het extra gebruik wordt verrekend tegen het overschrijdingstarief dat is gekoppeld aan de planlaag S1/S2/S3.
-* Inbegrepen aantal API-rekenuren: in de nieuwe webservices vertegenwoordigt deze meter het inbegrepen aantal API-rekenuren 
-* Inbegrepen aantal API-transacties (in duizenden): in de nieuwe webservices vertegenwoordigt deze meter het inbegrepen aantal API-transacties 
+* Inbegrepen aantal API-rekenuren: in de nieuwe webservices vertegenwoordigt deze meter het inbegrepen aantal API-rekenuren
+* Inbegrepen aantal API-transacties (in duizenden): in de nieuwe webservices vertegenwoordigt deze meter het inbegrepen aantal API-transacties
 
 
 **Hoe registreer ik me voor de gratis laag van Azure ML?**
@@ -547,7 +547,7 @@ Nee. De Standard-laag is gelijk aan de versie van de Machine Learning-service di
 
 **Kan ik mijn Machine Learning-modellen in de gratis laag implementeren als API‘s?**
 
-Ja. U kunt Machine Learning-modellen uitvoeren in faserings-API-services als onderdeel van de gratis laag. U moet de Standard-laag gebruiken om de faserings-API-service in productie te krijgen en een productie-eindpunt te krijgen voor de uitgevoerde service. 
+Ja. U kunt Machine Learning-modellen uitvoeren in faserings-API-services als onderdeel van de gratis laag. U moet de Standard-laag gebruiken om de faserings-API-service in productie te krijgen en een productie-eindpunt te krijgen voor de uitgevoerde service.
 
 **Wat is het verschil tussen de gratis proefversie van Azure en de gratis laag van Azure Machine Learning?**
 
@@ -593,6 +593,6 @@ Toegang voor gasten is een beperkte proefversie waarmee u gratis en zonder verif
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

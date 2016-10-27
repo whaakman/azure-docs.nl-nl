@@ -13,10 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
-# ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het klassieke implementatiemodel
+
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het klassieke implementatiemodel
 
 
 > [AZURE.SELECTOR]
@@ -31,26 +32,25 @@ De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft vers
 
 >[AZURE.IMPORTANT] ExpressRoute-circuits moeten vooraf worden geconfigureerd voordat u de onderstaande instructies volgt. Zorg ervoor dat u de handleidingen hebt gevolgd [om een ExpressRoute-circuit te maken](expressroute-howto-circuit-classic.md) en [routering te configureren](expressroute-howto-routing-classic.md) voordat u de volgende stappen volgt.
 
-## Limieten en beperkingen
+## <a name="limits-and-limitations"></a>Limieten en beperkingen
 
-- **Transitroutering wordt niet ondersteund:** u kunt niet (via Azure) routeren tussen uw lokale netwerk dat is verbonden via site-naar-site-VPN en uw lokale netwerk dat is verbonden via ExpressRoute.
-- **Punt-naar-site wordt niet ondersteund:** u kunt punt-naar-site-VPN-verbindingen naar het hetzelfde VNet dat is verbonden met ExpressRoute, niet inschakelen. Punt-naar-site-VPN en ExpressRoute kunnen niet worden gecombineerd voor hetzelfde VNet.
-- **Geforceerde tunneling kan niet worden ingeschakeld op de site-naar-site-VPN-gateway:** u kunt alle internetverkeer alleen terugsturen naar uw on-premises netwerk via ExpressRoute. 
-- **Alleen gateways met standaardprestaties of hoge prestaties:** u moet een gateway met standaardprestaties of hoge prestaties gebruiken voor de ExpressRoute-gateway en de site-naar-site-VPN-gateway. Zie [Gateway-SKU's](../vpn-gateway/vpn-gateway-about-vpngateways.md) voor informatie over gateway-SKU's.
-- **Alleen op route gebaseerde VPN-gateway:** u moet een op route gebaseerde VPN-gateway gebruiken. Zie [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) voor informatie over de op route gebaseerde VPN-gateway.
-- **Statische route vereist:** als uw lokale netwerk is verbonden met ExpressRoute en een site-naar-site-VPN, moet u in uw lokale netwerk een statische route hebben geconfigureerd voor het routeren van de site-naar-site-VPN-verbinding met het openbare internet.
-- **De ExpressRoute-gateway moet als eerste worden geconfigureerd:** u moet de ExpressRoute-gateway maken voordat u de site-naar-site-VPN-gateway toevoegt.
+- **Transitroutering wordt niet ondersteund.** U kunt niet (via Azure) routeren tussen uw lokale netwerk dat is verbonden via site-naar-site-VPN en uw lokale netwerk dat is verbonden via ExpressRoute.
+- **Punt-naar-site wordt niet ondersteund.** U kunt geen punt-naar-site-VPN-verbindingen inschakelen naar het hetzelfde VNet dat is verbonden met ExpressRoute. Punt-naar-site-VPN en ExpressRoute kunnen niet worden gecombineerd voor hetzelfde VNet.
+- **Geforceerde tunneling kan niet worden ingeschakeld op de site-naar-site VPN-gateway.** U kunt alle internetverkeer alleen via ExpressRoute terug naar uw on-premises netwerk ‘forceren’.
+- **Basic SKU-gateway wordt niet ondersteund.** U moet een niet-basic SKU-gateway gebruiken voor zowel de [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) als de [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Alleen een op route gebaseerde VPN-gateway wordt ondersteund.** U moet een op route gebaseerde [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) gebruiken.
+- **Statische route moet worden geconfigureerd voor de VPN-gateway.** Als uw lokale netwerk is verbonden met ExpressRoute en een site-naar-site-VPN, moet u in uw lokale netwerk een statische route hebben geconfigureerd voor het routeren van de site-naar-site-VPN-verbinding met het openbare internet.
+- **ExpressRoute gateway moet eerst worden geconfigureerd.** U moet eerst de ExpressRoute-gateway maken voordat u de site-naar-site-VPN-gateway kunt toevoegen.
 
+## <a name="configuration-designs"></a>Configuratie-ontwerpen
 
-## Configuratie-ontwerpen
-
-### Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
 
 U kunt een site-naar-site-VPN-verbinding configureren als een back-up voor ExpressRoute. Dit geldt alleen voor virtuele netwerken die zijn gekoppeld aan het pad voor persoonlijke Azure-peering. Er is geen op VPN gebaseerde failoveroplossing voor services die toegankelijk zijn via openbare Azure- en Microsoft-peerings. Het ExpressRoute-circuit is altijd de primaire koppeling. Gegevens worden alleen via het site-naar-site-VPN-pad geleid als het ExpressRoute-circuit niet beschikbaar is. 
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
 
 U kunt uw netwerk zodanig configureren dat sommige sites rechtstreeks verbinding maken met Azure via site-naar-site-VPN en sommige sites verbinding maken via ExpressRoute. 
 
@@ -58,7 +58,7 @@ U kunt uw netwerk zodanig configureren dat sommige sites rechtstreeks verbinding
 
 >[AZURE.NOTE] U kunt een virtueel netwerk niet configureren als transitrouter.
 
-## De stappen selecteren die u gaat gebruiken
+## <a name="selecting-the-steps-to-use"></a>De stappen selecteren die u gaat gebruiken
 
 Er zijn twee sets met procedures waaruit u kunt kiezen om verbindingen te configureren die naast elkaar kunnen worden gebruikt. Welke configuratieprocedure u selecteert, is afhankelijk van het gegeven of u een bestaand virtueel netwerk hebt waarmee u verbinding wilt maken, of of u een nieuw virtueel netwerk wilt maken.
 
@@ -74,7 +74,7 @@ Er zijn twee sets met procedures waaruit u kunt kiezen om verbindingen te config
     In deze procedure moet u uw gateway verwijderen en vervolgens nieuwe gateways configureren om verbindingen te maken die naast elkaar kunnen worden gebruikt. Dit betekent dat u tijdens het verwijderen en opnieuw maken van uw gateway en verbindingen rekening moet houden met uitvaltijd voor uw cross-premises verbindingen. U hoeft uw virtuele machines of services echter niet te migreren naar een nieuw virtueel netwerk. Terwijl u uw gateway configureert, kunnen uw virtuele machines en services nog steeds communiceren via de load balancer, mits ze hiervoor zijn geconfigureerd.
 
 
-## <a name="new"></a>Een nieuw virtueel netwerk en naast elkaar bestaande verbindingen maken
+## <a name="<a-name="new"></a>to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Een nieuw virtueel netwerk en naast elkaar bestaande verbindingen maken
 
 Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressRoute-verbindingen die naast elkaar kunnen worden gebruikt.
 
@@ -114,7 +114,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
 
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 
-4. <a name="gw"></a>Maak een ExpressRoute-gateway. Zorg ervoor dat u de GatewaySKU instelt op *Standard* of *HighPerformance* en het GatewayType op *DynamicRouting*.
+4. <a name="gw"></a>Maak een ExpressRoute-gateway. Zorg ervoor dat u de GatewaySKU opgeeft als *Standard*, *HighPerformance* of *UltraPerformance* en het GatewayType als *DynamicRouting*.
 
     Gebruik het volgende voorbeeld, waarbij u de waarden vervangt door uw eigen waarden.
 
@@ -124,7 +124,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
 
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. <a name="vpngw"></a>Maak vervolgens uw site-naar-site-VPN-gateway. De GatewaySKU moet zijn ingesteld op *Standard* of *HighPerformance* en het GatewayType op *DynamicRouting*.
+6. <a name="vpngw"></a>Maak vervolgens uw site-naar-site-VPN-gateway. De GatewaySKU moet zijn ingesteld op *Standard*, *HighPerformance* of *UltraPerformance* en het GatewayType op *DynamicRouting*.
 
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
@@ -159,7 +159,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
 
         New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>
 
-    > [AZURE.NOTE] Als uw lokale netwerk meerdere routes heeft, kunt u ze doorgeven als een matrix.  $MyLocalNetworkAddress = @('10.1.2.0/24', '10.1.3.0/24', '10.2.1.0/24')  
+    > [AZURE.NOTE] Als uw lokale netwerk meerdere routes heeft, kunt u ze doorgeven als een matrix.  $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")  
 
 
     Gebruik de cmdlet `Get-AzureVirtualNetworkGateway` om de instellingen van de gateway van het virtuele netwerk op te halen, waaronder de gateway-ID en het openbare IP-adres. Zie het volgende voorbeeld
@@ -184,7 +184,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Naast elkaar bestaande verbindingen configureren voor een bestaand VNet
+## <a name="<a-name="add"></a>to-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Naast elkaar bestaande verbindingen configureren voor een bestaand VNet
 
 Als u een bestaand virtueel netwerk hebt, controleert u de grootte van het gatewaysubnet. Als het gatewaysubnet /28 of /29 is, moet u eerst de gateway van het virtuele netwerk verwijderen en het gatewaysubnet vergroten. In de stappen in dit gedeelte wordt beschreven hoe u dat doet.
 
@@ -221,12 +221,12 @@ Als het gatewaysubnet /27 of groter is en het virtuele netwerk is verbonden via 
 
 6. U hebt op dit moment een VNet zonder gateways. Als u nieuwe gateways wilt maken en uw verbindingen wilt voltooien, kunt u doorgaan met [Stap 4 - Een ExpressRoute-gateway maken](#gw). Deze stap vindt u in de voorgaande reeks stappen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md)
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

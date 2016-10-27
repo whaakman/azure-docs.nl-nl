@@ -1,14 +1,14 @@
 <properties
     pageTitle=".NET-toepassing met meerdere lagen | Microsoft Azure"
     description="Een .NET-zelfstudie waarmee u in Azure een app met meerdere lagen kunt ontwikkelen die Service Bus-wachtrijen gebruikt voor communicatie tussen lagen."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# .NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
+# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
 
-## Inleiding
+## <a name="introduction"></a>Inleiding
 
 Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt. Bij deze stappen wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure.
 
@@ -38,7 +38,7 @@ In de volgende schermafbeelding wordt de voltooide toepassing weergegeven.
 
 ![][0]
 
-## Scenario-overzicht: communicatie tussen rollen
+## <a name="scenario-overview:-inter-role-communication"></a>Scenario-overzicht: communicatie tussen rollen
 
 Als u een order wilt indienen voor verwerking, moet het front-end UI-onderdeel, dat wordt uitgevoerd in de webrol, communiceren met de logica van de middelste laag, die wordt uitgevoerd in de werkrol. In dit voorbeeld wordt Service Bus Brokered Messaging gebruikt voor communicatie tussen de lagen.
 
@@ -60,7 +60,7 @@ Dit communicatiemechanisme heeft verschillende voordelen ten opzichte van Direct
 
 In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt geïmplementeerd.
 
-## De ontwikkelomgeving instellen
+## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 
 Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
 
@@ -74,18 +74,18 @@ Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen
 
 6.  Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
-## Een naamruimte maken
+## <a name="create-a-namespace"></a>Een naamruimte maken
 
 De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Een webrol maken
+## <a name="create-a-web-role"></a>Een webrol maken
 
 In dit gedeelte maakt u de front-end van uw toepassing. U maakt eerst de pagina's die door uw toepassing worden weergegeven.
 Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-wachtrij en waarmee statusinformatie over de wachtrij wordt weergegeven.
 
-### Het project maken
+### <a name="create-the-project"></a>Het project maken
 
 1.  Start Microsoft Visual Studio met administratorbevoegdheden. U kunt Visual Studio starten met administratorbevoegdheden door met de rechtermuisknop op het programmapictogram **Visual Studio** te klikken en vervolgens te klikken op **Als administrator uitvoeren**. Voor de Azure-rekenemulator, die verderop in dit artikel wordt besproken, is vereist dat Visual Studio wordt gestart met administratorbevoegdheden.
 
@@ -123,7 +123,7 @@ Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-
 
 9.  Klik in **Solution Explorer** met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **OnlineOrder.cs**. Klik vervolgens op **Toevoegen**.
 
-### De code voor de webrol schrijven
+### <a name="write-the-code-for-your-web-role"></a>De code voor de webrol schrijven
 
 In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden weergegeven.
 
@@ -231,7 +231,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
 
     ![][17]
 
-### De code schrijven voor het indienen van items aan een Service Bus-wachtrij
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>De code schrijven voor het indienen van items aan een Service Bus-wachtrij
 
 Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een klasse die de verbindingsgegevens van de Service Bus-wachtrij bevat. Vervolgens initialiseert u de verbinding vanuit Global.aspx.cs. Tot slot werkt u de verzendcode bij die u eerder hebt gemaakt in HomeController.cs, zodat items daadwerkelijk naar een Service Bus-wachtrij worden verzonden.
 
@@ -353,7 +353,7 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
 
     ![][18]
 
-## De werkrol maken
+## <a name="create-the-worker-role"></a>De werkrol maken
 
 U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt de Visual Studio-projectsjabloon **Werkrol met Service Bus-wachtrij** gebruikt. U hebt al de vereiste referenties ontvangen van de portal.
 
@@ -412,7 +412,7 @@ U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt 
 
     ![][20]
 
-## Volgende stappen  
+## <a name="next-steps"></a>Volgende stappen  
 
 Zie de volgende resources voor meer informatie over Service Bus:  
 
@@ -432,7 +432,7 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
   [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-  [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
 
@@ -465,6 +465,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
   
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

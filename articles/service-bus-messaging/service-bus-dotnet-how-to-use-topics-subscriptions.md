@@ -1,14 +1,14 @@
 <properties
     pageTitle="Service Bus-onderwerpen gebruiken met .NET | Microsoft Azure"
     description="Meer informatie over het gebruik van Service Bus-onderwerpen en -abonnementen met .NET in Azure. Codevoorbeelden zijn geschreven voor .NET-toepassingen."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,7 +17,7 @@
     ms.author="sethm"/>
 
 
-# Service Bus-onderwerpen en -abonnementen gebruiken
+# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Service Bus-onderwerpen en -abonnementen gebruiken
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -27,11 +27,11 @@ In dit artikel wordt beschreven hoe u Service Bus-onderwerpen en -abonnementen g
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## De toepassing configureren voor het gebruik van Service Bus
+## <a name="configure-the-application-to-use-service-bus"></a>De toepassing configureren voor het gebruik van Service Bus
 
 Wanneer u een toepassing maakt die gebruikmaakt van Service Bus, moet u een verwijzing naar de Service Bus-assembly toevoegen en de bijbehorende naamruimten opnemen. De eenvoudigste manier om dit te doen, is het juiste [NuGet](https://www.nuget.org)-pakket te downloaden.
 
-## Het Service Bus NuGet-pakket ophalen
+## <a name="get-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket ophalen
 
 Het [Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is de eenvoudigste manier om de Service Bus-API op te halen en om de toepassing te configureren met alle benodigde Service Bus-afhankelijkheden. Ga als volgt te werk om het Service Bus NuGet-pakket in uw project te installeren:
 
@@ -42,7 +42,7 @@ Het [Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.Servi
 
 U bent nu klaar om code te schrijven voor Service Bus.
 
-## Een Service Bus-verbindingsreeks maken
+## <a name="create-a-service-bus-connection-string"></a>Een Service Bus-verbindingsreeks maken
 
 Service Bus maakt gebruik van een verbindingsreeks om eindpunten en referenties op te slaan. U kunt de verbindingsreeks in een configuratiebestand plaatsen in plaats van hiervoor hard-coding te gebruiken:
 
@@ -51,7 +51,7 @@ Service Bus maakt gebruik van een verbindingsreeks om eindpunten en referenties 
 
 In beide gevallen kunt u de verbindingsreeks ophalen met de `CloudConfigurationManager.GetSetting`-methode (zie verderop in dit artikel).
 
-### De verbindingsreeks configureren
+### <a name="configure-your-connection-string"></a>De verbindingsreeks configureren
 
 U kunt met het serviceconfiguratiemechanisme configuratie-instellingen dynamisch wijzigen vanuit de [Azure Portal][] zonder dat u de toepassing opnieuw hoeft te implementeren. Voeg bijvoorbeeld een `Setting`-label toe aan het **.csdef**-bestand (het bestand met de servicedefinitie), zoals wordt weergegeven in het volgende voorbeeld.
 
@@ -84,7 +84,7 @@ Vervolgens geeft u waarden op in het bestand met de serviceconfiguratie (.cscfg)
 
 Gebruik de SAS-sleutelnaam (Shared Access Signature) en sleutelwaarden die zijn opgehaald via de portal zoals eerder beschreven.
 
-### De verbindingsreeks configureren bij gebruik van Azure Websites of Azure Virtual Machines
+### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>De verbindingsreeks configureren bij gebruik van Azure Websites of Azure Virtual Machines
 
 Bij gebruik van Azure Websites of Azure Virtual Machines wordt het aanbevolen het .NET-configuratiesysteem te gebruiken (bijvoorbeeld Web.config). U slaat de verbindingsreeks op met het `<appSettings>`-element.
 
@@ -99,7 +99,7 @@ Bij gebruik van Azure Websites of Azure Virtual Machines wordt het aanbevolen he
 
 Gebruik de SAS-naam en sleutelwaarden die u hebt opgehaald via de [Azure Portal][], zoals eerder beschreven.
 
-## Een onderwerp maken
+## <a name="create-a-topic"></a>Een onderwerp maken
 
 U kunt voor Service Bus-onderwerpen en -abonnementen beheerbewerkingen uitvoeren met de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Deze klasse biedt methoden voor het maken, opsommen en verwijderen van onderwerpen.
 
@@ -148,13 +148,13 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 > [AZURE.NOTE] U kunt de [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx)-methode voor [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx)-objecten gebruiken om te controleren of een onderwerp met een opgegeven naam al in een naamruimte bestaat.
 
-## Een abonnement maken
+## <a name="create-a-subscription"></a>Een abonnement maken
 
 U kunt ook onderwerpabonnementen maken met de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Abonnementen hebben een naam en kunnen een optioneel filter hebben waarmee de verzameling berichten wordt beperkt die aan de virtuele wachtrij van het abonnement wordt doorgegeven.
 
 > [AZURE.IMPORTANT] Om de berichten door een abonnement te kunnen laten ontvangen, moet u dat abonnement maken voordat u berichten naar het onderwerp verzendt. Als er geen abonnementen voor een onderwerp zijn, worden deze berichten door het onderwerp verwijderd.
 
-### Een abonnement maken met het standaardfilter (MatchAll)
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
 
 Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Bij gebruik van het **MatchAll**-filter worden alle berichten die naar het onderwerp worden gepubliceerd, in de virtuele wachtrij van het abonnement geplaatst. Met het volgende voorbeeld maakt u een abonnement met de naam AllMessages en wordt het standaardfilter **MatchAll** gebruikt.
 
@@ -171,7 +171,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 }
 ```
 
-### Abonnementen met filters maken
+### <a name="create-subscriptions-with-filters"></a>Abonnementen met filters maken
 
 U kunt ook filters instellen waarmee u kunt opgeven welke berichten die naar een onderwerp worden verzonden, moeten worden weergegeven in een bepaald onderwerpabonnement.
 
@@ -203,7 +203,7 @@ namespaceManager.CreateSubscription("TestTopic",
 
 Wanneer er nu een bericht naar `TestTopic` wordt verzonden, wordt het altijd bezorgd bij ontvangers die zijn geabonneerd op het **AllMessages**-onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op het **HighMessages**- en **LowMessages**-onderwerpabonnement (afhankelijk van de inhoud van het bericht).
 
-## Berichten verzenden naar een onderwerp
+## <a name="send-messages-to-a-topic"></a>Berichten verzenden naar een onderwerp
 
 Voor het verzenden van een bericht naar een Service Bus-onderwerp maakt een toepassing een [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)-object met de verbindingsreeks.
 
@@ -239,7 +239,7 @@ for (int i=0; i<5; i++)
 
 Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een onderwerp, maar er is een limiet voor de totale grootte van de berichten in een onderwerp. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB. Als partitioneren is ingeschakeld, is de bovengrens hoger. Zie [Partitioned messaging entities](service-bus-partitioning.md) (Gepartitioneerde berichtentiteiten) voor meer informatie.
 
-## Berichten van een abonnement ontvangen
+## <a name="how-to-receive-messages-from-a-subscription"></a>Berichten van een abonnement ontvangen
 
 De aanbevolen manier om berichten te ontvangen van een abonnement is het gebruik van een [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx)-object. [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx)-objecten kunnen werken in twee verschillende modi: [*ReceiveAndDelete* en *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
@@ -286,7 +286,7 @@ Client.OnMessage((message) =>
 
 In dit voorbeeld wordt de [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx)-callback geconfigureerd met een [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx)-object. [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) wordt ingesteld op **false** om handmatig beheer van het aanroepen van [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) in te schakelen voor het ontvangen bericht. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) is ingesteld op 1 minuut, zodat de client maximaal één minuut wacht voordat de functie voor automatisch verlengen wordt beëindigd en de client een nieuwe aanroep maakt om op berichten te controleren. Met deze eigenschapswaarde wordt het aantal keren gereduceerd dat de client toerekenbare aanroepen maakt waarmee geen berichten worden opgehaald.
 
-## Het vastlopen van de toepassing en onleesbare berichten afhandelen
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen
 
 Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing het bericht om de een of andere reden niet kan verwerken, kan de methode [Abandon](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) voor het ontvangen bericht worden aangeroepen (in plaats van de methode [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Dit zorgt ervoor dat Service Bus het bericht in het abonnement ontgrendelt en het beschikbaar maakt om opnieuw te worden ontvangen, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
 
@@ -294,7 +294,7 @@ Daarnaast is er een time-out gekoppeld aan een bericht dat in het abonnement is 
 
 In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de aanvraag [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) is uitgegeven, wordt het bericht opnieuw bij de toepassing bezorgd wanneer de toepassing opnieuw wordt gestart. Dit wordt vaak *Ten minste eenmaal verwerken* genoemd; dat wil zeggen dat elk bericht ten minste één keer wordt verwerkt maar dat hetzelfde bericht in sommige situaties opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Dit wordt vaak bereikt met de [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)-eigenschap van het bericht dat gelijk blijft bij meerdere bezorgingspogingen.
 
-## Onderwerpen en abonnementen verwijderen
+## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
 
 Het volgende voorbeeld laat zien hoe u het onderwerp **TestTopic** uit de **HowToSample**-servicenaamruimte verwijdert.
 
@@ -309,7 +309,7 @@ Als een onderwerp wordt verwijderd, worden ook alle abonnementen verwijderd die 
 namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
@@ -317,7 +317,7 @@ Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd
 -   [Voorbeeld van onderwerpfilters][]
 -   API-naslaginformatie voor [SqlFilter][].
 -   Bouw een werktoepassing op waarmee berichten naar en van een Service Bus-wachtrij worden verzonden en ontvangen: [Service Bus Brokered Messaging .NET-zelfstudie][].
--   Service Bus-voorbeelden: downloaden van [Azure-voorbeelden][] of raadpleeg het [overzicht](../service-bus/service-bus-samples.md).
+-   Service Bus-voorbeelden: downloaden van [Azure-voorbeelden][] of raadpleeg het [overzicht](service-bus-samples.md).
 
   [Azure Portal]: https://portal.azure.com
 
@@ -332,6 +332,6 @@ Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

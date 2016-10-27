@@ -16,6 +16,7 @@
     ms.date="08/10/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Aan de slag met Azure Mobile Engagement voor Android-apps
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -33,7 +34,7 @@ Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 
 ## Mobile Engagement instellen voor uw Android-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ## Uw app verbinden met de back-end van Mobile Engagement
 
@@ -186,6 +187,6 @@ Ga naar [Android SDK](mobile-engagement-android-sdk-overview.md) voor uitgebreid
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

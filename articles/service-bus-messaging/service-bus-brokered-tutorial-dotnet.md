@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus Brokered Messaging .NET-zelfstudie | Microsoft Azure"
     description="Brokered Messaging .NET-zelfstudie"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
     ms.author="sethm" />
 
 
-# Service Bus Brokered Messaging .NET-zelfstudie
+# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Service Bus Brokered Messaging .NET-zelfstudie
 
 Azure Service Bus biedt twee uitgebreide oplossingen voor berichtverzending. De eerste via een gecentraliseerde ‘relayservice’, die wordt uitgevoerd in de cloud en tal van verschillende transportprotocollen en standaarden voor webservices ondersteunt, met inbegrip van SOAP, WS-* en REST. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
 
@@ -24,21 +24,21 @@ De tweede oplossing voor berichtverzending geeft ‘brokered messaging’-mogeli
 
 Deze zelfstudie is bedoeld om u een overzicht van en praktische ervaring met wachtrijen te geven, een van de belangrijkste onderdelen van Service Bus Brokered Messaging. Wanneer u de onderwerpen in deze zelfstudie hebt doorlopen, hebt u een toepassing die een lijst met berichten vult, een wachtrij maakt en berichten naar die wachtrij verzendt. Tot slot ontvangt de toepassing de berichten uit de wachtrij en geeft deze weer, waarna hij de resources opschoont en zichzelf afsluit. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een bijbehorende zelfstudie waarin wordt beschreven hoe u een toepassing bouwt die de Service Bus Relay gebruikt.
 
-## Inleiding en vereisten
+## <a name="introduction-and-prerequisites"></a>Inleiding en vereisten
 
 Wachtrijen maken gebruik van het FIFO-principe (first in, first out) voor de berichtbezorging naar een of meer concurrerende consumenten. FIFO wil zeggen dat doorgaans wordt verwacht dat berichten door de ontvangers worden ontvangen en verwerkt in de tijdsvolgorde waarin ze aan de wachtrij zijn toegevoegd, en dat elk bericht slechts door één berichtenconsument ontvangen en verwerkt wordt. Een belangrijk voordeel van het gebruik van wachtrijen is dat *tijdelijke ontkoppeling* van toepassingsonderdelen kan worden bereikt: met andere woorden, de producenten en consumenten hoeven de berichten niet op hetzelfde moment te verzenden en te ontvangen, omdat berichten blijvend worden opgeslagen in de wachtrij. Een bijkomend voordeel is *load leveling*, waardoor producenten en consumenten berichten met verschillende snelheden kunnen verzenden en ontvangen.
 
 Hieronder volgen enkele administratieve en vereiste stappen die u moet uitvoeren voordat u met de zelfstudie begint. De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
-### Een servicenaamruimte maken en een SAS-sleutel ophalen
+### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Een servicenaamruimte maken en een SAS-sleutel ophalen
 
-De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](../service-bus/service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
+De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 De volgende stap is het maken van een Visual Studio-project en het schrijven van twee hulpfuncties die een door komma's gescheiden lijst met berichten in een sterk getypeerd [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [lijst](https://msdn.microsoft.com/library/6sh2ey19.aspx)-object laden.
 
-### Een Visual Studio-project maken
+### <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
 1. Open Visual Studio als beheerder door met de rechtermuisknop op het programma in het menu Start te klikken en vervolgens op **Als administrator uitvoeren**.
 
@@ -95,7 +95,7 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
 
 1. Blader naar het Data.csv-bestand dat u hebt gemaakt in stap 6. Klik op het bestand en klik vervolgens op **Toevoegen**. Zorg ervoor dat **Alle bestanden (*.*)** in de lijst met bestandstypen is geselecteerd.
 
-### Een methode maken die een lijst met berichten parseert
+### <a name="create-a-method-that-parses-a-list-of-messages"></a>Een methode maken die een lijst met berichten parseert
 
 1. Declareer twee variabelen in de `Program`-klasse voor de `Main()`-methode. De een van het type **DataTable**, die de lijst met berichten in Data.csv bevat. De ander van het type lijstobject, sterk getypeerd naar [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Deze laatste is de lijst met brokered berichten die in de volgende stappen van de zelfstudie wordt gebruikt.
 
@@ -158,7 +158,7 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     }
     ```
 
-### Een methode maken die de lijst met berichten laadt
+### <a name="create-a-method-that-loads-the-list-of-messages"></a>Een methode maken die de lijst met berichten laadt
 
 1. Definieer buiten `Main()` een `GenerateMessages()`-methode die het door `ParseCSVFile()` geretourneerde **DataTable**-object in een sterk getypeerde tabel met brokered berichten laadt. De methode retourneert vervolgens het **Lijst**-object, zoals in het volgende voorbeeld. 
 
@@ -194,7 +194,7 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     }
     ```
 
-### Gebruikersreferenties verkrijgen
+### <a name="obtain-user-credentials"></a>Gebruikersreferenties verkrijgen
 
 1. Maak eerst drie globale tekenreeksvariabelen die deze waarden bevatten. Declareer deze variabelen direct na de vorige declaraties voor variabelen, bijvoorbeeld:
 
@@ -244,11 +244,11 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     }
     ```
 
-### De oplossing bouwen
+### <a name="build-the-solution"></a>De oplossing bouwen
 
 Klik in het menu **Ontwikkelen** in Visual Studio op **Oplossing ontwikkelen** of druk op **Ctrl + Shift + B** om de juistheid van uw werk tot nu toe te controleren.
 
-## Beheerreferenties maken
+## <a name="create-management-credentials"></a>Beheerreferenties maken
 
 In deze stap definieert u de beheerbewerkingen die u gebruikt om SAS-referenties (Shared Access Signature) te maken waarmee uw toepassing wordt toegestaan.
 
@@ -280,7 +280,7 @@ In deze stap definieert u de beheerbewerkingen die u gebruikt om SAS-referenties
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
-### Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 Uw code zou er nu als volgt uit moeten zien:
 
@@ -388,11 +388,11 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Berichten naar de wachtrij verzenden
+## <a name="send-messages-to-the-queue"></a>Berichten naar de wachtrij verzenden
 
 In deze stap maakt u een wachtrij en verzendt u vervolgens de berichten in de lijst met brokered berichten naar die wachtrij.
 
-### Een wachtrij maken en berichten naar de wachtrij verzenden
+### <a name="create-queue-and-send-messages-to-the-queue"></a>Een wachtrij maken en berichten naar de wachtrij verzenden
 
 1. Maak eerst de wachtrij aan. Noem deze bijvoorbeeld `myQueue` en declareer hem direct na de beheerbewerkingen die u in de vorige stap in de `Queue()`-methode hebt toegevoegd:
 
@@ -433,11 +433,11 @@ In deze stap maakt u een wachtrij en verzendt u vervolgens de berichten in de li
     }
     ```
 
-## Berichten ontvangen uit de wachtrij
+## <a name="receive-messages-from-the-queue"></a>Berichten ontvangen uit de wachtrij
 
 In deze stap verkrijgt u de lijst met berichten uit de wachtrij die u in de vorige stap hebt gemaakt.
 
-### Een ontvanger maken en berichten uit de wachtrij ontvangen
+### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Een ontvanger maken en berichten uit de wachtrij ontvangen
 
 Ga in de `Queue()`-methode weer door de wachtrij en ontvang de berichten met behulp van de methode [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx), waarbij elk bericht naar de console wordt afgedrukt. Voeg de volgende code toe direct na de code die u in de vorige stap hebt toegevoegd:
 
@@ -456,7 +456,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 
 Let op: de `Thread.Sleep` wordt alleen gebruikt om de berichtverwerking te simuleren en u hebt deze in een echte berichverzendingstoepassing waarschijnlijk niet nodig.
 
-### De wachtrijmethode beëindigen en resources opschonen
+### <a name="end-the-queue-method-and-clean-up-resources"></a>De wachtrijmethode beëindigen en resources opschonen
 
 Voeg direct na de vorige code de volgende code toe om de MessageFactory en wachtrijresources op te schonen:
 
@@ -466,7 +466,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### De wachtrijmethode aanroepen
+### <a name="call-the-queue-method"></a>De wachtrijmethode aanroepen
 
 De laatste stap is het toevoegen van een instructie die de `Queue()`-methode vanuit `Main()` aanroept. Voeg de volgende gemarkeerde coderegel toe aan het einde van Main():
     
@@ -485,7 +485,7 @@ public static void Main(string[] args)
 }
 ```
 
-### Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 De volgende code bevat de volledige **QueueSample**-toepassing.
 
@@ -636,27 +636,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## De  QueueSample-toepassing bouwen en uitvoeren
+## <a name="build-and-run-the-queuesample-application"></a>De  QueueSample-toepassing bouwen en uitvoeren
 
 Nu u de voorgaande stappen hebt voltooid, kunt u de **QueueSample**-toepassing bouwen en uitvoeren.
 
-### De  QueueSample-toepassing bouwen
+### <a name="build-the-queuesample-application"></a>De  QueueSample-toepassing bouwen
 
 Klik in het menu **Ontwikkelen** in Visual Studio op **Oplossing ontwikkelen** of druk op **Ctrl + Shift + B**. Als er fouten optreden, controleer dan of uw code klopt met het complete voorbeeld dat aan het einde van de vorige stap wordt weergegeven.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u geleerd hoe u een Service Bus-clienttoepassing en -service maakt met behulp van de mogelijkheden voor Service Bus Brokered Messaging. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een vergelijkbare zelfstudie waarin gebruik wordt gemaakt van Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging).
 
 Zie de volgende onderwerpen voor meer informatie over [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
 - [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-- [Grondbeginselen van Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus-architectuur](../service-bus/service-bus-architecture.md)
+- [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus-architectuur](service-bus-architecture.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

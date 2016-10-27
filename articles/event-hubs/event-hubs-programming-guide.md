@@ -16,17 +16,17 @@
     ms.author="sethm" />
 
 
-# Programmeerhandleiding voor Event Hubs
+# <a name="event-hubs-programming-guide"></a>Programmeerhandleiding voor Event Hubs
 
 In dit onderwerp wordt beschreven hoe u kunt programmeren met Azure Event Hubs met behulp van de Azure .NET SDK. Er wordt uitgegaan van een basisbegrip van Event Hubs. Zie het [Overzicht van Event Hubs](event-hubs-overview.md) voor een conceptueel overzicht van Event Hubs.
 
-## Gebeurtenisuitgevers
+## <a name="event-publishers"></a>Gebeurtenisuitgevers
 
 Het verzenden van gebeurtenissen naar een Event Hub verloopt via HTTP POST of via een AMQP 1.0-verbinding. Welke van deze twee methoden er het beste kan worden toegepast, is afhankelijk van het specifieke scenario. AMQP 1.0-verbindingen zijn brokered verbindingen in Service Bus. Ze zijn met name geschikt voor scenario‘s met vaak voorkomende hogere berichtvolumes en lagere latentievereisten, omdat ze een permanent berichtenkanaal bieden.
 
 U maakt en beheert Event Hubs met behulp van de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Wanneer de beheerde .NET-API‘s worden gebruikt, zijn de klassen [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) en [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) de primaire constructs voor het publiceren van gegevens naar Event Hubs. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) biedt het AMQP-communicatiekanaal dat wordt gebruikt voor het verzenden van gebeurtenissen naar de Event Hub. De klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) vertegenwoordigt een gebeurtenis en wordt gebruikt om berichten te publiceren naar een Event Hub. Deze klasse bevat de hoofdtekst, bepaalde metagegevens en headerinformatie over de gebeurtenis. Tijdens het doorgeven van het object via een Event Hub worden er nog andere eigenschappen aan het [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)-object toegevoegd.
 
-## Aan de slag
+## <a name="get-started"></a>Aan de slag
 
 De .NET-klassen die ondersteuning bieden voor Event Hubs, worden aangeboden in de Microsoft.ServiceBus.dll-assembly. Downloaden van het [Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is de eenvoudigste manier om te verwijzen naar de Service Bus-API en om de toepassing te configureren met alle Service Bus-afhankelijkheden. U kunt echter ook de [Pakketbeheerconsole](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio gebruiken. Hiervoor voert u de volgende opdracht uit in het venster voor de [Pakketbeheerconsole](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
@@ -34,7 +34,7 @@ De .NET-klassen die ondersteuning bieden voor Event Hubs, worden aangeboden in d
 Install-Package WindowsAzure.ServiceBus
 ```
 
-## Een Event Hub maken
+## <a name="create-an-event-hub"></a>Een Event Hub maken
 
 U kunt de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) gebruiken om Event Hubs te maken. Bijvoorbeeld:
 
@@ -53,7 +53,7 @@ Voor alle bewerkingen met betrekking tot het maken van Event Hubs, inclusief [Cr
 
 De klasse [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) bevat gegevens over een Event Hub, zoals de autorisatieregels, het bewaarinterval voor het bericht, de partitie-id‘s, de status en het pad U kunt deze klasse gebruiken om de metagegevens voor een Event Hub bij te werken.
 
-## Een Event Hubs-client maken
+## <a name="create-an-event-hubs-client"></a>Een Event Hubs-client maken
 
 De primaire klasse voor interactie met Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx). Deze klasse biedt mogelijkheden voor zowel verzenden als ontvangen. U kunt deze klasse instantiëren met behulp van de methode [Create](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx), zoals wordt weergegeven in het volgende voorbeeld.
 
@@ -84,19 +84,19 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 Houd er rekening mee dat extra [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)-objecten die zijn gemaakt op basis van een MessagingFactory-exemplaar, gebruikmaken van dezelfde onderliggende TCP-verbinding. Voor deze objecten geldt daarom een doorvoerlimiet aan clientzijde. De methode [Create](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) maakt gebruik van één MessagingFactory. Als u van één afzender een zeer hoge doorvoersnelheid nodig hebt, kunt u meerdere MessagingFactory-exemplaren maken en vervolgens van elk MessagingFactory-exemplaar één [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)-object.
 
-## Gebeurtenissen verzenden naar een Event Hub
+## <a name="send-events-to-an-event-hub"></a>Gebeurtenissen verzenden naar een Event Hub
 
 U kunt gebeurtenissen verzenden naar een Event Hub door een [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)-exemplaar te maken en dit te verzenden via de methode [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx). Deze methode heeft één [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)-instantieparameter en verzendt deze synchroon naar een Event Hub.
 
-## Gebeurtenisserialisatie
+## <a name="event-serialization"></a>Gebeurtenisserialisatie
 
 De klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) heeft [vier overbelaste constructors](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.eventdata.aspx) die verschillende parameters hebben, zoals een object en serializer, een bytematrix of een stroom. Het is ook mogelijk om de klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) te instantiëren en de hoofdstroom later in te stellen. Als u JSON gebruikt met [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx), kunt u **Encoding.UTF8.GetBytes()** gebruiken om de bytematrix op te halen voor een met JSON gecodeerde tekenreeks.
 
-## Partitiesleutel
+## <a name="partition-key"></a>Partitiesleutel
 
 De klasse [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) heeft een eigenschap [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) waarmee de afzender een waarde kan opgeven die wordt gehasht om een partitietoewijzing te produceren. Gebruik van een partitiesleutel zorgt ervoor dat alle gebeurtenissen met dezelfde sleutel naar dezelfde partitie in de Event Hub worden verzonden. Vaak gebruikte partitiesleutels zijn gebruikerssessie-id's en unieke afzender-id‘s. De eigenschap [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) is optioneel en kan worden opgegeven bij het gebruik van de methode [Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) of de methode [Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Als u geen waarde opgeeft voor [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx), worden verzonden gebeurtenissen gedistribueerd naar partities die gebruikmaken van een round robin-model.
 
-## Batchbewerkingen voor het verzenden van gebeurtenissen
+## <a name="batch-event-send-operations"></a>Batchbewerkingen voor het verzenden van gebeurtenissen
 
 Het verzenden van gebeurtenissen in batches kan de doorvoer aanzienlijk verhogen. De methode [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) heeft een **IEnumerable**-parameter van het type [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Hierbij wordt de hele batch als een atomic-bewerking verzonden naar de Event Hub.
 
@@ -106,11 +106,11 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 
 Let op: één batch mag niet groter zijn dan de limiet van 256 kB voor een gebeurtenis. Daarnaast maakt elk bericht in de batch gebruik van dezelfde uitgever-id. Het is de verantwoordelijkheid van de afzender om ervoor te zorgen dat de batch de maximale gebeurtenisgrootte niet overschrijdt. Als dit wel gebeurt, wordt aan clientzijde een **Verzendfout** gegenereerd.
 
-## Asynchroon verzenden en op schaal verzenden
+## <a name="send-asynchronously-and-send-at-scale"></a>Asynchroon verzenden en op schaal verzenden
 
 U kunt ook gebeurtenissen asynchroon verzenden naar een Event Hub. Asynchroon verzenden kan de snelheid verhogen waarmee een client gebeurtenissen verzendt. Zowel de methode [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx) als de methode [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) is beschikbaar in asynchrone versies die een [Taak](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)-object retourneren. Hoewel dit de doorvoer kan verhogen, kan het er ook voor zorgen dat de client gebeurtenissen blijft verzenden terwijl deze wordt beperkt door de Event Hubs-service. Bij onjuiste implementatie kan dit resulteren in fouten of verloren berichten. Daarnaast kunt u voor de client de eigenschap [RetryPolicy](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.cliententity.retrypolicy.aspx) gebruiken om de opties van de client voor direct opnieuw proberen te beheren.
 
-## Partitieafzender maken
+## <a name="create-a-partition-sender"></a>Partitieafzender maken
 
 Hoewel gebeurtenissen meestal naar een Event Hub worden verzonden met behulp van een partitiesleutel, wilt u in sommige gevallen gebeurtenissen wellicht rechtstreeks naar een bepaalde partitie verzenden. Bijvoorbeeld:
 
@@ -120,11 +120,11 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 
 [CreatePartitionedSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.createpartitionedsender.aspx) retourneert een [EventHubSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubsender.aspx)-object dat u kunt gebruiken om gebeurtenissen te publiceren in een specifieke Event Hub-partitie.
 
-## Gebeurtenisconsumers
+## <a name="event-consumers"></a>Gebeurtenisconsumers
 
 Event Hubs heeft twee primaire modellen voor gebeurtenisgebruik: directe ontvangers en abstracties van een hoger niveau, zoals [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx). Directe ontvangers zijn verantwoordelijk voor hun eigen coördinatie van de toegang tot partities binnen een consumergroep.
 
-### Directe consumer
+### <a name="direct-consumer"></a>Directe consumer
 
 De meest directe manier om een partitie in een consumergroep te lezen, is met behulp van de klasse [EventHubReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.aspx). Als u een instantie van deze klasse wilt maken, moet u een exemplaar van de klasse [EventHubConsumerGroup](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.aspx) gebruiken. In het volgende voorbeeld moet de partitie-id worden opgegeven bij het maken van de ontvanger voor de consumergroep.
 
@@ -151,7 +151,7 @@ De berichten worden in een specifieke partitie ontvangen in de volgorde waarin z
 
 Let op: een afzonderlijke partitie in een consumergroep mag niet meer dan 5 lezers tegelijk hebben. Wanneer lezers verbinding maken of de verbinding verbreken, kunnen hun sessies gedurende enkele minuten actief blijven voordat wordt herkend dat de verbinding is verbroken. Gedurende deze tijd kan het opnieuw verbinding maken met een partitie mislukken. Zie [Directe ontvangers voor Service Bus Event Hubs](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) voor een compleet voorbeeld van het schrijven van een directe ontvanger voor Event Hubs.
 
-### Gebeurtenisprocessorhost
+### <a name="event-processor-host"></a>Gebeurtenisprocessorhost
 
 Met de klasse [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) worden gegevens uit Event Hubs verwerkt. Gebruik deze implementatie bij het bouwen van gebeurtenislezers op het .NET-platform. [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) biedt een thread-veilige, beveiligde runtimeomgeving met meerdere processen voor implementaties van gebeurtenisprocessors die ook beheer biedt van controlepunten en partitielease.
 
@@ -171,13 +171,13 @@ In de loop van de tijd komt er een evenwicht tot stand. Dankzij deze dynamische 
 
 Met de klasse [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) wordt ook een op Azure Storage gebaseerd mechanisme van controlepunten geïmplementeerd. Hiermee wordt de offset opgeslagen op basis van partitie, zodat elke consumer kan bepalen wat het laatste controlepunt van de vorige consumer was. Terwijl partities via leases schakelen tussen knooppunten, maakt dit synchronisatiemechanisme de verschuiving van werklasten mogelijk.
 
-## Uitgever intrekken
+## <a name="publisher-revocation"></a>Uitgever intrekken
 
 Naast de geavanceerde runtimeonderdelen van [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) maken Event Hubs het intrekken van uitgevers mogelijk om ervoor te zorgen dat specifieke uitgevers geen gebeurtenis kunnen verzenden naar een Event Hub. Deze onderdelen zijn vooral nuttig als een token van een uitgever is aangetast of als dit niet naar behoren functioneert vanwege een software-update. In deze gevallen kan de uitgever-id, die onderdeel is van het bijbehorende SAS-token, worden geblokkeerd voor het uitgeven van gebeurtenissen.
 
-Zie het voorbeeld [Op grote schaal veilig publiceren met Service Bus Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) voor meer informatie over het intrekken van uitgevers en over het als uitgever verzenden naar Event Hubs.
+Zie het voorbeeld [Op grote schaal veilig publiceren met Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) voor meer informatie over het intrekken van uitgevers en over het als uitgever verzenden naar Event Hubs.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
@@ -188,6 +188,6 @@ Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

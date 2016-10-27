@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="10/10/2016"
     ms.author="kgremban"/>
 
 
 # Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement
 
 > [AZURE.SELECTOR]
-- [Azure Portal](role-based-access-control-azure-portal.md)
-- [Klassieke Azure-portal](role-based-access-control-configure.md)
+- [Toegang beheren per gebruiker of groep](role-based-access-control-manage-assignments.md)
+- [Toegang beheren per resource](role-based-access-control-configure.md)
 
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. In dit artikel leest u hoe u met RBAC kunt werken in de Azure Portal. Zie [Wat is op rollen gebaseerd toegangsbeheer](role-based-access-control-what-is.md) als u meer informatie wilt over het beheren van toegang met RBAC.
 
@@ -31,9 +31,8 @@ U kunt zien wie toegang heeft tot een resource, resourcegroep of abonnement op d
 1. Selecteer **Resourcegroepen** op de linkernavigatiebalk.  
     ![Resourcegroepen - pictogram](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Selecteer de naam van de resourcegroep op de blade **Resourcegroepen**.
-3. Selecteer **Gebruikers** rechtsboven van de blade met resourcegroepen.  
-    ![Gebruikers - pictogram](./media/role-based-access-control-configure/users_icon.png)
-4. Op de blade **Gebruikers** worden alle gebruikers, groepen en toepassingen weergegeven aan wie/waaraan toegang is verleend tot de resourcegroep.  
+3. Selecteer **Toegangsbeheer (IAM)** in het menu links.  
+4. Op de blade Toegangsbeheer worden alle gebruikers, groepen en toepassingen weergegeven aan wie/waaraan toegang is verleend tot de resourcegroep.  
 
     ![Schermafbeelding van de blade Gebruikers - overgenomen en toegewezen toegang](./media/role-based-access-control-configure/view-access.png)
 
@@ -45,8 +44,7 @@ U ziet dat aan bepaalde gebruikers de toegang is **Toegewezen** en dat voor ande
 ## Toegang voor toevoegen
 U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is.
 
-1. Selecteer **Toevoegen** op de blade **Gebruikers**.  
-    ![Toevoegen - pictogram](./media/role-based-access-control-configure/add_icon.png)  
+1. Selecteer **Toevoegen** op de blade Toegangsbeheer.  
 2. Selecteer de rol die u wilt toewijzen op de blade **Rol selecteren**.
 3. Selecteer de gebruiker, groep of toepassing in de directory aan wie/waaraan u toegang wilt verlenen. U kunt zoeken in de directory met weergavenamen, e-mailadressen en object-id's.  
 
@@ -59,9 +57,8 @@ Nadat u een roltoewijzing hebt toegevoegd, wordt deze weergegeven op de blade **
 
 ## Toegang verwijderen
 
-1. Selecteer de roltoewijzing op de blade **Gebruikers**.
+1. Selecteer de roltoewijzing op de blade Toegangsbeheer.
 2. Selecteer **Verwijderen** op de blade Toewijzingdetails.  
-    ![Verwijderen - pictogram](./media/role-based-access-control-configure/remove_icon.png)
 3. Selecteer **Ja** om het verwijderen te bevestigen.  
     ![Schermafbeelding van de blade Gebruikers - verwijderen uit rol](./media/role-based-access-control-configure/remove-access1.png)
 
@@ -83,6 +80,6 @@ U kunt rollen toewijzen en toegang beheren met Azure RBAC-opdrachten met andere 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

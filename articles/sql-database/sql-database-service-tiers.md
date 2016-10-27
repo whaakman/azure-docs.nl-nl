@@ -85,12 +85,13 @@ Als u de servicelaag hebt vastgesteld voor uw pool, bent u klaar om te bepalen v
 - Lees [Elastische pools controleren, beheren en van formaat veranderen](sql-database-elastic-pool-manage-portal.md) en [De prestaties van individuele databases bewaken](sql-database-single-database-monitor.md).
 - Nu u bekend bent met de lagen van SQL Database, kunt u ze uitproberen met een [gratis account](https://azure.microsoft.com/pricing/free-trial/) en leren [hoe u uw eerste SQL-database maakt](sql-database-get-started.md).
 
-## Aanvullende resources
+## Aanvullende bronnen
 
-Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant software as a service (SaaS)-databasetoepassingen, [Ontwerppatronen voor multitenant SaaS-toepassingen met Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Videocursus van Microsoft Virtual Academy over elastische databasemogelijkheden in Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 
