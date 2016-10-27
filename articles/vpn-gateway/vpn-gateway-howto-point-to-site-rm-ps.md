@@ -69,7 +69,7 @@ Voor deze configuratie gebruikt u de volgende waarden. De variabelen worden inge
     
 - Installeer de Azure Resource Manager PowerShell-cmdlets (1.0.2 of later). Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
 
-## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>Deel 1: Aanmelden en variabelen instellen
+## <a name="declare"></a>Deel 1: Aanmelden en variabelen instellen
 
 In deze sectie meldt u zich aan en declareert u de waarden die voor deze configuratie worden gebruikt. De opgegeven waarden worden in de voorbeeldscripts gebruikt. Wijzig de waarden zodat ze overeenkomen met uw omgeving. U kunt ook de gedeclareerde waarden gebruiken en de stappen bij wijze van oefening doorlopen.
 
@@ -178,7 +178,7 @@ Clients die met een P2S-verbinding maken met Azure, moeten zowel een certificaat
 
     ![VPN-client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>Deel 6: Het clientcertificaat genereren
+## <a name="cc"></a>Deel 6: Het clientcertificaat genereren
 
 Nu gaat u de clientcertificaten genereren. U kunt een uniek certificaat genereren voor elke client die verbinding maakt of u kunt hetzelfde certificaat gebruiken op meerdere clients. Het voordeel van het genereren van unieke clientcertificaten is de mogelijkheid tot het intrekken van één certificaat, indien nodig. Anders moet u, als alle clients hetzelfde certificaat gebruiken en u het certificaat voor één van de clients moet intrekken, nieuwe certificaten genereren en installeren voor alle clients die het certificaat gebruiken om te verifiëren.
 

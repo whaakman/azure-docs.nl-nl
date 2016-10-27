@@ -18,7 +18,7 @@
     ms.author="syamk"/>
 
 
-# <a name="<a-name="_toc395783175"></a>build-a-node.js-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met DocumentDB
+# <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -43,7 +43,7 @@ Door deze zelfstudie te volgen, bouwt u een eenvoudige webtoepassing voor taakbe
 
 Hebt u geen tijd om de zelfstudie te voltooien en wilt u gewoon de volledige oplossing downloaden? Geen probleem, u kunt de complete voorbeeldoplossing downloaden van [GitHub][].
 
-## <a name="<a-name="_toc395783176"></a>prerequisites"></a><a name="_Toc395783176"></a>Vereisten
+## <a name="_Toc395783176"></a>Vereisten
 
 > [AZURE.TIP] Voor deze zelfstudie wordt ervan uitgegaan dat u ervaring hebt met Node.js en Azure Websites
 
@@ -54,7 +54,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het vol
 - [Express generator](http://www.expressjs.com/starter/generator.html) (te installeren via `npm install express-generator -g`)
 - [Git][].
 
-## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
+## <a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
 
 Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: een nieuwe Node.js-toepassing maken](#_Toc395783178).
 
@@ -62,7 +62,7 @@ Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat 
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="<a-name="_toc395783178"></a>step-2:-learn-to-create-a-new-node.js-application"></a><a name="_Toc395783178"></a>Stap 2: Een nieuwe Node.js-toepassing maken
+## <a name="_Toc395783178"></a>Stap 2: Een nieuwe Node.js-toepassing maken
 
 Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebruikt om een eenvoudig Hello World Node.js-project te maken.
 
@@ -85,7 +85,7 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
 
     ![Node.js leren - Schermopname van de toepassing Hello World in een browservenster](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="<a-name="_toc395783179"></a>step-3:-install-additional-modules"></a><a name="_Toc395783179"></a>Stap 3: Aanvullende modules installeren
+## <a name="_Toc395783179"></a>Stap 3: Aanvullende modules installeren
 
 Het bestand **package.json** is een van de bestanden die zijn gemaakt in de hoofdmap van het project. Dit bestand bevat een lijst met aanvullende modules die u nodig hebt voor uw Node.js-toepassing. Later, wanneer u deze toepassing implementeert naar Azure Websites, wordt dit bestand gebruikt om te bepalen welke modules ter ondersteuning van uw toepassing moeten worden geïnstalleerd op Azure. Voor deze zelfstudie moeten u nog twee pakketten installeren.
 
@@ -103,7 +103,7 @@ Het bestand **package.json** is een van de bestanden die zijn gemaakt in de hoof
 
     Hiermee wordt bij Node (en later bij Azure) aangegeven dat de toepassing afhankelijk is van deze aanvullende modules.
 
-## <a name="<a-name="_toc395783180"></a>step-4:-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Stap 4: De DocumentDB-service in een knooppunttoepassing gebruiken
+## <a name="_Toc395783180"></a>Stap 4: De DocumentDB-service in een knooppunttoepassing gebruiken
 
 Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het echte werk beginnen, namelijk het schrijven van code met Azure DocumentDB.
 
@@ -434,7 +434,7 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
 
 7. Tot slot slaat u het bestand **app.js** op en sluit u het bestand.
  
-## <a name="<a-name="_toc395783181"></a>step-5:-build-a-user-interface"></a><a name="_Toc395783181"></a>Stap 5: Een gebruikersinterface maken
+## <a name="_Toc395783181"></a>Stap 5: Een gebruikersinterface maken
 
 U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebruikers kunnen communiceren met de toepassing. De Express-toepassing die is gemaakt, gebruikt **Jade** als weergave-engine. Raadpleeg [http://jade-lang.com/](http://jade-lang.com/) voor meer informatie over Jade.
 
@@ -530,7 +530,7 @@ U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebr
 
     Sla het bestand **style.css** op en sluit het.
 
-## <a name="<a-name="_toc395783181"></a>step-6:-run-your-application-locally"></a><a name="_Toc395783181"></a>Stap 6: De toepassing lokaal uitvoeren
+## <a name="_Toc395783181"></a>Stap 6: De toepassing lokaal uitvoeren
 
 1. Als u de toepassing wilt testen op uw lokale machine, voert u `npm start` uit in een terminal om uw toepassing te starten en start u een browser met een pagina die er ongeveer uitziet als de onderstaande afbeelding:
 
@@ -545,7 +545,7 @@ U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebr
 
 4. Als u een taak wilt voltooien, schakelt u het selectievakje in de kolom Complete (Voltooid) in en klikt u vervolgens op **Update tasks** (Taken bijwerken).
 
-## <a name="<a-name="_toc395783182"></a>step-7:-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Stap 7: Uw project voor de ontwikkeling van een toepassing implementeren op Azure Websites
+## <a name="_Toc395783182"></a>Stap 7: Uw project voor de ontwikkeling van een toepassing implementeren op Azure Websites
 
 1. Als dit nog niet hebt gedaan, schakelt u een git-opslagplaats voor uw Azure-website in. In het onderwerp [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) vindt u hiervoor de instructies.
 
@@ -559,7 +559,7 @@ U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebr
 
 4. Over een paar seconden zal GIT de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Volgende stappen
+## <a name="_Toc395637775"></a>Volgende stappen
 
 Gefeliciteerd. U hebt zojuist uw eerste Node.js Express-webtoepassing met Azure DocumentDB gemaakt en gepubliceerd naar Azure Websites.
 

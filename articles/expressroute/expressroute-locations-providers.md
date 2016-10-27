@@ -20,7 +20,7 @@
 
 In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
 
-## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>ExpressRoute-connectiviteitsproviders
+## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
 
 ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende kaart bevat een lijst van Azure-regio's en ExpressRoute-locaties. ExpressRoute-locaties zijn locaties waarop Microsoft samenwerkt met verschillende serviceproviders.
 
@@ -114,7 +114,7 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 | **Berlijn** | Colt, e-shelter |
 | **Frankfurt** | Colt, Equinix, Interxion |
 
-## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
+## <a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
 
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
 

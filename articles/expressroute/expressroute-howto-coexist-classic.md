@@ -184,7 +184,7 @@ Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressR
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="<a-name="add"></a>to-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Naast elkaar bestaande verbindingen configureren voor een bestaand VNet
+## <a name="add"></a>Naast elkaar bestaande verbindingen configureren voor een bestaand VNet
 
 Als u een bestaand virtueel netwerk hebt, controleert u de grootte van het gatewaysubnet. Als het gatewaysubnet /28 of /29 is, moet u eerst de gateway van het virtuele netwerk verwijderen en het gatewaysubnet vergroten. In de stappen in dit gedeelte wordt beschreven hoe u dat doet.
 

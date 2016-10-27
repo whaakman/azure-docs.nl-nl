@@ -256,7 +256,7 @@ Bij verkeer tussen verschillende virtuele netwerken van Azure worden alleen kost
 
 Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en site-naar-site-VPN-verbindingen die naast elkaar kunnen worden gebruikt configureren](../expressroute/expressroute-howto-coexist-classic.md)
 
-## <a name="<a-name="bgp"></a>bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
