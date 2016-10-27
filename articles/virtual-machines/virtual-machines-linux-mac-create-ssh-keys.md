@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/08/2016"
+    ms.date="10/06/2016"
     ms.author="v-livech"/>
 
 
@@ -24,7 +24,7 @@ Met een SSH-sleutelpaar kunt u virtuele machines in Azure maken die voor verific
 
 ## Lijst met snelle opdrachten
 
-Vervang in de volgende opdrachtvoorbeelden de waarden tussen &lt; en &gt; door de waarden van uw eigen omgeving.
+Vervang in de volgende opdrachtvoorbeelden de waarden tussen &lt; en &gt; door de waarden van uw eigen omgeving.  Begin met het wijzigen van mappen, `cd ~/.ssh/` zodat al uw ssh-sleutels worden gemaakt in die map.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -65,11 +65,11 @@ $
 
 ## Inleiding
 
-Het gebruik van openbare en persoonlijke SSH-sleutels is de eenvoudigste manier om u aan te melden bij uw Linux-servers. [Cryptografie met openbare sleutels](https://en.wikipedia.org/wiki/Public-key_cryptography) biedt een veel veiligere manier van aanmelding bij uw virtuele Linux- of BSD-machines in Azure dan wachtwoorden, die aanzienlijk eenvoudiger met brute kracht kunnen worden aangevallen. Uw openbare sleutel kan worden gedeeld met iedereen, maar alleen u (of uw lokale beveiligingsinfrastructuur) beschikt over uw persoonlijke sleutel.  De persoonlijke SSH-sleutel moet een [zeer veilig wachtwoord ](https://www.xkcd.com/936/) (bron:[xkcd.com](https://xkcd.com)) hebben om het te beschermen.  Dit wachtwoord dient alleen voor toegang tot de persoonlijke SSH-sleutel en **is niet** het wachtwoord voor het gebruikersaccount.  Wanneer u een wachtwoord aan uw SSH-sleutel toevoegt, wordt de persoonlijke sleutel gecodeerd, zodat deze niet kan worden gebruikt zonder het wachtwoord om deze te ontgrendelen.  Als een aanvaller uw persoonlijke sleutel zou stelen en deze geen wachtwoord zou hebben, zou de aanvaller in staat zijn om de persoonlijke sleutel te gebruiken voor aanmelding bij de servers waarop de bijbehorende openbare sleutel is geïnstalleerd.  Als een persoonlijke sleutel is beveiligd met een wachtwoord, kan deze niet worden gebruikt door de aanvaller. Zo beschikt u over een extra beveiligingslaag voor uw infrastructuur in Azure.
+Het gebruik van openbare en persoonlijke SSH-sleutels is de eenvoudigste manier om u aan te melden bij uw Linux-servers. [Cryptografie met openbare sleutels](https://en.wikipedia.org/wiki/Public-key_cryptography) biedt een veel veiligere manier van aanmelding bij uw virtuele Linux- of BSD-machines in Azure dan wachtwoorden, die aanzienlijk eenvoudiger met een brute force-aanval kunnen worden aangevallen. Uw openbare sleutel kan worden gedeeld met iedereen, maar alleen u (of uw lokale beveiligingsinfrastructuur) beschikt over uw persoonlijke sleutel.  De persoonlijke SSH-sleutel moet een [zeer veilig wachtwoord ](https://www.xkcd.com/936/) (bron:[xkcd.com](https://xkcd.com)) hebben om het te beschermen.  Dit wachtwoord dient alleen voor toegang tot de persoonlijke SSH-sleutel en **is niet** het wachtwoord voor het gebruikersaccount.  Wanneer u een wachtwoord aan uw SSH-sleutel toevoegt, wordt de persoonlijke sleutel gecodeerd, zodat deze niet kan worden gebruikt zonder het wachtwoord om deze te ontgrendelen.  Als een aanvaller uw persoonlijke sleutel zou stelen en deze geen wachtwoord zou hebben, zou de aanvaller in staat zijn om de persoonlijke sleutel te gebruiken voor aanmelding bij de servers waarop de bijbehorende openbare sleutel is geïnstalleerd.  Als een persoonlijke sleutel is beveiligd met een wachtwoord, kan deze niet worden gebruikt door de aanvaller. Zo beschikt u over een extra beveiligingslaag voor uw infrastructuur in Azure.
 
 
 
-In dit artikel worden *ssh-rsa*-sleutelbestanden gemaakt, die worden aanbevolen voor implementaties in de Resource Manager.  *ssh-rsa*-sleutels zijn in de [portal](https://portal.azure.com) vereist voor zowel klassieke als Resource Manager-implementaties.
+In dit artikel worden *ssh-rsa*-sleutelbestanden gemaakt, die worden aanbevolen voor implementaties in Resource Manager.  *ssh-rsa*-sleutels zijn in de [portal](https://portal.azure.com) vereist voor zowel klassieke als Resource Manager-implementaties.
 
 
 ## SSH-sleutels maken
@@ -79,7 +79,7 @@ Azure vereist openbare en persoonlijke sleutels van ten minste 2048 bits in ssh-
 
 ## ssh-keygen gebruiken
 
-Met deze opdracht wordt een met een wachtwoord beveiligd (versleuteld) SSH-sleutelpaar gemaakt met 2048-bits RSA waaraan opmerkingen worden toegevoegd om het gemakkelijk te kunnen identificeren.
+Met deze opdracht wordt een met een wachtwoord beveiligd (versleuteld) SSH-sleutelpaar gemaakt met 2048-bits RSA waaraan opmerkingen worden toegevoegd om het gemakkelijk te kunnen identificeren.  Begin met het wijzigen van mappen, `cd ~/.ssh/` zodat al uw ssh-sleutels worden gemaakt in die map.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -102,12 +102,12 @@ Als u het klassieke implementatiemodel gebruikt (klassieke Azure-portal of de Az
 Een PEM-sleutel maken op basis van een bestaande openbare SSH-sleutel:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Overzicht van ssh-keygen
 
-Elke stap in detail uitgelegd.  Voer eerst `ssh-keygen` uit.
+Elke stap in detail uitgelegd.  Begin met het wijzigen van de directory `~/.ssh` en voer dan `ssh-keygen` uit.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -154,7 +154,7 @@ Sleutelwachtwoord:
 
 ## ssh-agent gebruiken voor het opslaan van het wachtwoord van uw persoonlijke sleutel
 
-Om te voorkomen dat u het wachtwoord van uw persoonlijke sleutelbestand bij elke SSH-aanmelding moet opgeven, kunt u `ssh-agent` gebruiken om het wachtwoord van uw persoonlijke sleutelbestand in de cache te plaatsen. Als u een Mac gebruikt, worden de wachtwoorden van uw persoonlijke sleutels veilig opgeslagen door de OSX Sleutelhangertoegang wanneer u `ssh-agent` aanroept.
+Om te voorkomen dat u het wachtwoord van uw persoonlijke sleutelbestand bij elke SSH-aanmelding moet opgeven, kunt u `ssh-agent` gebruiken om het wachtwoord van uw persoonlijke sleutelbestand in de cache te plaatsen. Als u een Mac gebruikt, worden de wachtwoorden van uw persoonlijke sleutels veilig opgeslagen door Sleutelhangertoegang van OSX wanneer u `ssh-agent` aanroept.
 
 Controleer eerst of `ssh-agent` wordt uitgevoerd.
 
@@ -208,7 +208,7 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 ```
 
-Deze SSH-configuratie biedt u afzonderlijke secties voor de elke server, zodat elke server kan beschikken over een eigen toegewezen sleutelpaar. De standaardinstellingen (`Host *`) zijn voor alle hosts die niet overeenkomen met een van de specifieke hosts die hoger in het configuratiebestand staan.
+Deze SSH-configuratie bevat afzonderlijke secties voor elke server, zodat elke server kan beschikken over een eigen toegewezen sleutelpaar. De standaardinstellingen (`Host *`) zijn voor alle hosts die niet overeenkomen met een van de specifieke hosts die hoger in het configuratiebestand staan.
 
 
 ### Uitleg van configuratiebestand
@@ -238,7 +238,7 @@ Wanneer `ssh fedora22` wordt uitgevoerd, zoekt en laadt SSH eerst instellingen u
 
 ## Volgende stappen
 
-De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met de nieuwe openbare SSH-sleutel.  Virtuele Azure-machines die zijn gemaakt met een openbare SSH-sleutel voor aanmelding, zijn beter beveiligd dan virtuele machines die zijn gemaakt met een wachtwoord als standaardaanmeldingsmethode.  Virtuele Azure-machines die zijn gemaakt met behulp van SSH-sleutels zijn standaard geconfigureerd met wachtwoorden uitgeschakeld, waarmee aanvallen met brute kracht om wachtwoorden te raden worden voorkomen.
+De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met de nieuwe openbare SSH-sleutel.  Virtuele Azure-machines die zijn gemaakt met een openbare SSH-sleutel voor aanmelding, zijn beter beveiligd dan virtuele machines die zijn gemaakt met een wachtwoord als standaardaanmeldingsmethode.  Virtuele Azure-machines die zijn gemaakt met behulp van SSH-sleutels zijn standaard geconfigureerd met wachtwoorden uitgeschakeld, waarmee brute force-aanvallen om wachtwoorden te raden worden voorkomen.
 
 - [Een beveiligde virtuele Linux-machine maken met een Azure-sjabloon](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Een beveiligde virtuele Linux-machine maken met de Azure Portal](virtual-machines-linux-quick-create-portal.md)
@@ -246,6 +246,6 @@ De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

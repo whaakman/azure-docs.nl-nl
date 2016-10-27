@@ -1,31 +1,35 @@
-## Load Balancer differences
+## <a name="load-balancer-differences"></a>Verschillen in Load Balancer
 
-There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
+Er zijn verschillende opties voor het distribueren van netwerkverkeer met behulp van Microsoft Azure. Deze opties werken verschillend. Ze hebben een eigen functieset en ondersteunen verschillende scenario's. Ze kunnen elk afzonderlijk worden gebruikt, maar ook worden gecombineerd.
 
-- **Azure Load Balancer** works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- **Azure Load Balancer** werkt via de transportlaag (laag 4 in de referentiestack van het OSI-netwerk). Deze service biedt distributie van verkeer op netwerkniveau tussen exemplaren van een toepassing die in hetzelfde datacenter van Azure wordt uitgevoerd.
 
-- **Application Gateway** works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- **Application Gateway** werkt via de toepassingslaag (laag 7 in de referentiestack van het OSI-netwerk). Deze service fungeert als een omgekeerde proxyservice, beëindigt de clientverbinding en stuurt aanvragen door naar back-endeindpunten.
 
-- **Traffic Manager** works at the DNS level.  It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.
+- **Traffic Manager** werkt op DNS-niveau.  Er wordt gebruikgemaakt van DNS-antwoorden om verkeer van eindgebruikers door te sturen naar wereldwijd gedistribueerde eindpunten. Clients maken vervolgens rechtstreeks verbinding met deze eindpunten.
 
-The following table summarizes the features offered by each service:
+In de volgende tabel ziet u een overzicht van de functies die elke service biedt:
 
 | Service | Azure Load Balancer | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Transport level (Layer 4) | Application level (Layer 7) | DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps, and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | Supported via probes | Supported via probes | Supported via HTTP/HTTPS GET | 
+|Technologie| Transportniveau (laag 4) | Toepassingsniveau (laag 7) | DNS-niveau |
+| Ondersteunde toepassingsprotocollen | Alle | HTTP en HTTPS |  Alle (voor eindpuntbewaking is een HTTP-eindpunt vereist) |
+| Eindpunten | Azure-VM's en Cloud Services-rolinstanties | Een intern Azure- IP-adres of een openbaar internet- IP-adres | Azure-VM's, Cloud Services, Azure-web-apps en externe eindpunten |
+| VNet-ondersteuning | Kan worden gebruikt voor internetgerichte en interne (VNet-)toepassingen | Kan worden gebruikt voor internetgerichte en interne (VNet-)toepassingen |    Ondersteunt alleen internetgerichte toepassingen |
+Eindpuntbewaking | Ondersteund via tests | Ondersteund via tests | Ondersteund via HTTP/HTTPS GET | 
 
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
+Azure Load Balancer en Application Gateway routeren beide netwerkverkeer naar eindpunten, maar ze hebben verschillende gebruiksscenario's voor hoe het verkeer moet worden afgehandeld. In de volgende tabel wordt het verschil tussen de twee load balancers weergegeven:
 
 | Type | Azure Load Balancer | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5-tuple(source IP, source port, destination IP, destination port, protocol type) | Round Robin<br>Routing based on URL | 
-| Load balancing mode (source IP /sticky sessions) |  2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines | Cookie-based affinity<br>Routing based on URL |
-| Health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes | 
-| SSL offloading | Not supported | Supported | 
+| Protocollen | UDP/TCP | HTTP/HTTPS |
+| IP-reservering | Ondersteund | Niet ondersteund | 
+| Load balancing-modus | 5-tuple (bron-IP, bronpoort, doel-IP, doelpoort, protocoltype) | Round robin<br>Routering op basis van URL | 
+| Load balancing-modus (bron-IP/vergrendelde sessies) |  2-tuple (bron-IP en doel-IP), 3-tuple (bron-IP, doel-IP en poort). Kan omhoog of omlaag worden geschaald op basis van het aantal virtuele machines | Affiniteit op basis van cookies<br>Routering op basis van URL |
+| Statuscontroles | Standaard: testinterval - 15 seconden. Uit rotatie gehaald: 2 doorlopende fouten. Ondersteunt door de gebruiker gedefinieerde tests | Inactieve testinterval - 30 seconden. Eruit gehaald na 5 opeenvolgende live verkeersfouten of het mislukken van één test in de inactieve modus. Ondersteunt door de gebruiker gedefinieerde tests | 
+| SSL-offloading | Niet ondersteund | Ondersteund | 
   
+
+<!--HONumber=Oct16_HO3-->
+
+

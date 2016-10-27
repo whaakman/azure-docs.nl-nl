@@ -19,28 +19,28 @@
    ms.author="rogardle"/>
 
 
-# Taakverdelingscontainers in een Azure Container Service-cluster
+# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Taakverdelingscontainers in een Azure Container Service-cluster
 
 In dit artikel wordt beschreven hoe een interne load balancer in een met DC/OS beheerde Azure Container Service wordt gemaakt met Marathon-LB. Hiermee kunt u uw toepassingen horizontaal schalen. U kunt hiermee ook gebruikmaken van de clusters met openbare en persoonlijke agents door de load balancers in het openbare cluster en uw toepassingscontainers in het persoonlijke cluster te plaatsen.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 [Implementeer een exemplaar van Azure Container Service](container-service-deployment.md) met orchestrator-type DC/OS en [zorg dat de client verbinding kan maken met uw cluster](container-service-connect.md). 
 
-## Taakverdeling
+## <a name="load-balancing"></a>Taakverdeling
 
 Er zijn twee taakverdelingslagen in de Container Service-cluster die we gaan bouwen: 
 
   1. de Azure Load Balancer biedt openbare toegangspunten (voor de eindgebruikers). Dit wordt automatisch aangeboden door de Azure Container Service en is standaard geconfigureerd om poorten 80 en 443 van 8080 open te stellen.
   2. De Marathon Load Balancer (marathon-lb) routeert binnenkomende aanvragen naar de containerinstanties die deze aanvragen bedienen. Als we de containers schalen met onze webservice, past marathon-lb zich dynamisch aan. Deze taakverdeling is geen standaardvoorziening in uw Container Service, maar is heel gemakkelijk te installeren.
 
-## Marathon Load Balancer
+## <a name="marathon-load-balancer"></a>Marathon Load Balancer
 
 Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de containers die u hebt geïmplementeerd. De Marathon-taakverdeling past zich ook aan het verlies van een container of agent aan. Als dit gebeurt, wordt de container door Apache Mesos elders opnieuw gestart en marathon-lb wordt aangepast.
 
 Om de Marathon Load Balancer te installeren kunt u de DC/OS web UI of de opdrachtregel gebruiken.
 
-### Installeer Marathon-LB met DC/OS Web UI
+### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installeer Marathon-LB met DC/OS Web UI
 
   1. Klik op “Universe”
   2. Zoek naar “Marathon-LB”
@@ -48,7 +48,7 @@ Om de Marathon Load Balancer te installeren kunt u de DC/OS web UI of de opdrach
 
 ![marathon-lb via the DC/OS Web Interface installeren](./media/dcos/marathon-lb-install.png)
 
-### Marathon-LB met de DC/OS CLI installeren
+### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Marathon-LB met de DC/OS CLI installeren
 
 Na de installatie van de DC/OS CLI en ervoor te hebben gezorgd dat u verbinding kunt maken met uw cluster, voert u de volgende opdrcht uit op uw clientcomputer:
 
@@ -58,7 +58,7 @@ dcos package install marathon-lb
 
 Met deze opdracht wordt de load balancer automatisch geïnstalleerd in het cluster met openbare agents.
 
-## Een webtoepassing met taakverdeling implementeren
+## <a name="deploy-a-load-balanced-web-application"></a>Een webtoepassing met taakverdeling implementeren
 
 Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implementeren waarvan we de taken willen verdelen. Voor dit voorbeeld implementeren we een eenvoudige webserver met behulp van de volgende configuratie:
 
@@ -105,14 +105,14 @@ Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implemen
 
 Het is goed om te weten dat Marathon standaard in het persoonlijke cluster wordt geïmplementeerd. Dat betekent dat de bovengenoemde implementatie alleen toegankelijk is via de load balancer. Dit is gewoonlijk het gewenste gedrag.
 
-### Implementeren met de DC/OS Web UI
+### <a name="deploy-using-the-dc/os-web-ui"></a>Implementeren met de DC/OS Web UI
 
-  1. Ga naar de Marathon-pagina op http://localhost/marathon (na instelling van uw [SSH-tunnel](container-service-connect.md) en klik `Create Appliction`
+  1. Ga naar de Marathon-pagina op http://localhost/marathon (na instelling van uw [SSH-tunnel](container-service-connect.md) en klik op `Create Appliction`
   2. Klik in het dialoogvenster `New Application` op `JSON Mode` in de rechterbovenhoek
   3. Plak bovenstaande JSON in de editor
-  4. Klik `Create Appliction`
+  4. Klik op `Create Appliction`
 
-### Implementeren met de DC/OS CLI
+### <a name="deploy-using-the-dc/os-cli"></a>Implementeren met de DC/OS CLI
 
 Om deze toepassing te implementeren met de DC/OS CLI moet u gewoon de bovenstaande JSON kopiëren in een bestand met de naam `hello-web.json` en uitvoeren:
 
@@ -120,12 +120,12 @@ Om deze toepassing te implementeren met de DC/OS CLI moet u gewoon de bovenstaan
 dcos marathon app add hello-web.json
 ```
 
-## Azure Load Balancer
+## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet de FQDN van de taakverdeling van uw agent kunnen bereiken en telkens u vernieuwt bereikt u één van de drie webservers volgens round-robin. Als u echter een andere poort gebruikt, dient u een round-robinregel en een probe toevoegen aan de taakverdeling voor de gebruikte poort. Dit kan vanuit de [Azure CLI](../xplat-cli-azure-resource-manager.md), met de opdrachten `azure lb rule create` en `azure lb probe create`. Dit kan ook met de Azure Portal.
+Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet de FQDN van de taakverdeling van uw agent kunnen bereiken en telkens u vernieuwt bereikt u één van de drie webservers volgens round-robin. Als u echter een andere poort gebruikt, dient u een round-robinregel en een probe toevoegen aan de taakverdeling voor de gebruikte poort. Dit kan vanuit de [Azure CLI](../xplat-cli-azure-resource-manager.md), met de opdrachten `azure network lb rule create` en `azure network lb probe create`. Dit kan ook met de Azure Portal.
 
 
-## Overige scenario's
+## <a name="additional-scenarios"></a>Overige scenario's
 
 U hebt een scenario nodig waarbij u gebruikmaakt van verschillende domeinen om over verschillende services te kunnen beschikken. Bijvoorbeeld:
 
@@ -140,12 +140,12 @@ Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423
 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie de DC/OS-documentatie voor meer informatie over [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

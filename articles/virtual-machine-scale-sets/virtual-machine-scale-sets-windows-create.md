@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="Een virtuele-machineschaalset maken met PowerShell | Microsoft Azure"
+    description="Een virtuele-machineschaalset maken met PowerShell"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Een virtuele-machineschaalset voor Windows maken met Azure PowerShell
 
-It should take about 30 minutes to do the steps in this article.
+Met deze stappen kunt u virtuele-machineschaalsets in Azure maken door de blanco opties in te vullen. Raadpleeg [Overzicht van virtuele-machineschaalsets](virtual-machine-scale-sets-overview.md) voor meer informatie over schaalsets.
 
-## Step 1: Install Azure PowerShell
+Het duurt circa 30 minuten om de stappen in de artikel te voltooien.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+## <a name="step-1:-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
 
-## Step 2: Create resources
+Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 
-Create the resources that are needed for your new virtual machine scale set.
+## <a name="step-2:-create-resources"></a>Stap 2: Resources maken
 
-### Resource group
+Maak de resources die nodig zijn voor uw nieuwe schaalset.
 
-A virtual machine scale set must be contained in a resource group.
+### <a name="resource-group"></a>Resourcegroep
 
-1.  Get a list of available locations and the services that are supported:
+Een virtuele-machineschaalset moet zijn opgenomen in een resourcegroep.
+
+1. Een lijst met de beschikbare locaties en ondersteunde services bekijken:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
 
         Name                AvailableServices
         ----                -----------------
@@ -62,19 +63,19 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
+2. Kies een handige locatie, vervang de waarde van **$locName** door de naam van die locatie en maak de volgende variabele:
 
         $locName = "location name from the list, such as Central US"
 
-3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
+3. Vervang de waarde van **$rgName** door de naam die u wilt gebruiken voor de nieuwe resourcegroep en maak de variabele: 
 
         $rgName = "resource group name"
         
-4. Create the resource group:
+4. De resourcegroep maken:
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ A virtual machine scale set must be contained in a resource group.
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Storage account
+### <a name="storage-account"></a>Storage-account
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+Een virtuele machine gebruikt een opslagaccount voor het opslaan van de besturingssysteemschijf en diagnostische gegevens die voor schalen worden gebruikt. Indien mogelijk kunt u het beste een afzonderlijk opslagaccount gebruiken voor elke virtuele machine in een schaalset. Als dit niet mogelijk is, plan dan niet meer dan 20 VM's per opslagaccount. In het voorbeeld in dit artikel worden drie opslagaccounts gemaakt voor drie virtuele machines.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. Vervang de waarde van **$saName** door de gewenste naam voor het opslagaccount. Test of de naam uniek is. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    Als het antwoord **True** is, is de gewenste naam uniek.
 
-3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
+3. Vervang de waarde van **$saType** door het gewenste type voor het opslagaccount en maak de variabele:  
 
         $saType = "storage account type"
         
-    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+    Mogelijke waarden zijn: Standard_LRS, Standard_GRS, Standard_RAGRS en Premium_LRS.
         
-4. Create the account:
+4. Het account maken:
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,93 +125,93 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Herhaal stappen 1 tot 4 om drie opslagaccounts te maken, bijvoorbeeld myst1, myst2 en myst3.
 
-### Virtual network
+### <a name="virtual-network"></a>Virtueel netwerk
 
-A virtual network is required for the virtual machines in the scale set.
+Voor de virtuele machines in de schaalset is een virtueel netwerk vereist.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. Vervang de waarde van **$subnetName** door de naam die u wilt gebruiken voor het subnet in het virtuele netwerk en maak de variabele: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
-2. Create the subnet configuration:
+2. De subnetconfiguratie maken:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-    The address prefix may be different in your virtual network.
+    Het adresvoorvoegsel kan anders zijn in uw virtuele netwerk.
 
-3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
+3. Vervang de waarde van **$netName** door de naam die u wilt gebruiken voor het virtuele netwerk en maak de variabele: 
 
         $netName = "virtual network name"
         
-4. Create the virtual network:
+4. Het virtuele netwerk maken:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Public IP address
+### <a name="public-ip-address"></a>Openbaar IP-adres
 
-Before a network interface can be created, you need to create a public IP address.
+Voordat u een netwerkinterface kunt maken, moet u een openbaar IP-adres maken.
 
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
+1. Vervang de waarde van **$domName** door het label van de domeinnaam dat u wilt gebruiken met uw openbare IP-adres en maak de variabele:  
 
         $domName = "domain name label"
         
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    Het label mag alleen letters, cijfers en koppeltekens bevatten, en het laatste teken moet een letter of cijfer zijn.
     
-2. Test whether the name is unique:
+2. Testen of de naam uniek is:
     
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **True**, your proposed name is unique.
+    Als het antwoord **True** is, is de gewenste naam uniek.
 
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
+3. Vervang de waarde van **$pipName** door de naam die u wilt gebruiken voor het openbare IP-adres en maak de variabele. 
 
         $pipName = "public ip address name"
         
-4. Create the public IP address:
+4. Het openbare IP-adres maken:
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Network interface
+### <a name="network-interface"></a>Netwerkinterface
 
-Now that you have the public IP address, you can create the network interface.
+Nu u een openbaar IP-adres hebt gemaakt, kunt u een netwerkinterface maken.
 
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
+1. Vervang de waarde van **$nicName** door de naam die u wilt gebruiken voor de netwerkinterface en maak de variabele: 
 
         $nicName = "network interface name"
         
-2. Create the network interface:
+2. De netwerkinterface maken:
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration of the scale set
+### <a name="configuration-of-the-scale-set"></a>Configuratie van de schaalset
 
-You have all the resources that you need for the scale set configuration, so let's create it.  
+U hebt alle benodigde resources voor het configureren van de schaalset. We kunnen deze nu gaan maken.  
 
-1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
+1. Vervang de waarde van **$ipName** door de naam die u wilt gebruiken voor de IP-configuratie en maak de variabele: 
 
         $ipName = "IP configuration name"
         
-2. Create the IP configuration:
+2. De IP-configuratie maken:
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
+2. Vervang de waarde van **$vmssConfig** door de naam die u wilt gebruiken voor de schaalsetconfiguratie en maak de variabele:   
 
         $vmssConfig = "Scale set configuration name"
         
-3. Create the configuration for the scale set:
+3. De configuratie voor de schaalset maken:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    Dit voorbeeld toont een schaalset die wordt gemaakt met drie virtuele machines. Raadpleeg [Overzicht van virtuele-machineschaalsets](virtual-machine-scale-sets-overview.md) voor meer informatie over de capaciteit van schaalsets. Deze stap omvat ook het instellen van de grootte (waarnaar wordt verwezen met SkuName) van de virtuele machines in de set. Bekijk [Grootten voor virtuele machines](../virtual-machines/virtual-machines-windows-sizes.md) om een grootte te vinden die aansluit bij uw behoeften.
     
-4. Add the network interface configuration to the scale set configuration:
+4. De configuratie van de netwerkinterface toevoegen aan de configuratie van de schaalset:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,59 +224,59 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### <a name="operating-system-profile"></a>Profiel van besturingssysteem
 
-1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
+1. Vervang de waarde van **$computerName** door het voorvoegsel van de computernaam dat u wilt gebruiken en maak de variabele: 
 
         $computerName = "computer name prefix"
         
-2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+2. Vervang de waarde van **$adminName** door de naam van het administrator-account op de virtuele machines en maak de variabele:
 
         $adminName = "administrator account name"
         
-3. Replace the value of **$adminPassword** with the account password and then create the variable:
+3. Vervang de waarde van **$adminPassword** door het accountwachtwoord en maak de variabele:
 
         $adminPassword = "password for administrator accounts"
         
-4. Create the operating system profile:
+4. Het profiel van het besturingssysteem maken:
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Storage profile
+#### <a name="storage-profile"></a>Opslagprofiel
 
-1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
+1. Vervang de waarde van **$storageProfile** door de naam die u wilt gebruiken voor het opslagprofiel en maak de variabele:  
 
         $storageProfile = "storage profile name"
         
-2. Create the variables that define the image to use:  
+2. De variabelen maken die de gewenste installatiekopie definiëren:  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Raadpleeg [Door installatiekopieën van virtuele Azure-machines navigeren en deze selecteren met Windows PowerShell en Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) voor meer informatie over het gebruiken van andere installatiekopieën.
         
-3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. Vervang de waarden van **$vhdContainers** door een lijst met paden naar de locaties waar de virtuele vaste schijven zijn opgeslagen, zoals https://mystorage.blob.core.windows.net/vhds, en maak de variabele:
        
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
-4. Create the storage profile:
+4. Het opslagprofiel maken:
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Virtual machine scale set
+### <a name="virtual-machine-scale-set"></a>Schaalset voor virtuele machines
 
-Finally, you can create the scale set.
+Nu kunt u de schaalset maken.
 
-1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
+1. Vervang de waarde van **$vmssName** door de naam van de virtuele-machineschaalset en maak de variabele:
 
         $vmssName = "scale set name"
         
-2. Create the scale set:
+2. De schaalset maken:
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    U zou iets moeten zien dat lijkt op dit voorbeeld van een succesvolle implementatie:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,19 +284,19 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Step 3: Explore resources
+## <a name="step-3:-explore-resources"></a>Stap 3: Resources verkennen
 
-Use these resources to explore the virtual machine scale set that you just created:
+Gebruik deze resources om de door u gemaakte virtuele-machineschaalset te verkennen:
 
-- Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure PowerShell - Use this command to get information:
+- Azure Portal: er is maar beperkte informatie beschikbaar via de portal.
+- [Azure Resource Explorer](https://resources.azure.com/): u kunt het beste dit programma gebruiken om de huidige status van uw schaalset te bekijken.
+- Azure PowerShell: gebruik de volgende opdracht om informatie op te halen:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -307,8 +305,14 @@ Use these resources to explore the virtual machine scale set that you just creat
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
-- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- Gebruik de informatie in [Virtuele machines beheren in een virtuele-machineschaalset](virtual-machine-scale-sets-windows-manage.md) om de schaalset die u net hebt gemaakt, te beheren
+- Ga na of u automatisch schalen wilt inschakelen voor uw schaalset aan de hand van [Automatisch schalen en virtuele-machineschaalsets](virtual-machine-scale-sets-autoscale-overview.md)
+- Raadpleeg [Verticaal automatisch schalen met virtuele-machineschaalsets](virtual-machine-scale-sets-vertical-scale-reprovision.md) voor meer informatie over verticaal schalen
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

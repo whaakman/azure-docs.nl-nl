@@ -1,14 +1,14 @@
 <properties
     pageTitle="Overzicht van Service Bus-berichtenservice | Microsoft Azure"
     description="Service Bus-berichtenservice: flexibele levering van gegevens in de cloud"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Service Bus-berichtenservice: flexibele levering van gegevens in de cloud
+# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Service Bus-berichtenservice: flexibele levering van gegevens in de cloud
 
 De Microsoft Azure Service Bus is een betrouwbare service voor de levering van informatie. Het doel van deze service is om communicatie te vergemakkelijken. Wanneer twee of meer partijen informatie willen uitwisselen, hebben ze een communicatiemechanisme nodig. De Service Bus is een brokered communicatiemechanisme, of een communicatiemechanisme van derden. Het is vergelijkbaar met een postservice in de fysieke wereld. Postservices maken het gemakkelijk om verschillende soorten brieven en pakketten met tal van verschillende leveringsgaranties overal ter wereld te leveren.
 
@@ -28,7 +28,7 @@ De afzender van het bericht kan ook een aantal verschillende leveringskenmerken 
 
 Service Bus ondersteunt twee verschillende berichtpatronen: *Relay* en *Brokered* Messaging.
 
-## Service Bus Relay
+## <a name="service-bus-relay"></a>Service Bus Relay
 
 Het [Relay](../service-bus-relay/service-bus-relay-overview.md)-onderdeel van Service Bus is een gecentraliseerde service (echter met maximale taakverdeling) die ondersteuning biedt voor tal van verschillende transportprotocollen en webservicestandaarden, waaronder SOAP, WS-* en zelfs REST. De [Relay-service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) biedt tal van verschillende Relay-connectiviteitsopties en kan helpen bij het onderhandelen over directe peer-to-peer-verbindingen wanneer dit mogelijk is. Service Bus is geoptimaliseerd voor .NET-ontwikkelaars die gebruikmaken van WCF (Windows Communication Foundation), zowel op het gebied van prestaties als op het gebied van bruikbaarheid, en biedt volledige toegang tot de bijbehorende Relay-service via SOAP- en REST-interfaces. Daardoor kunnen SOAP- of REST-programmeeromgevingen worden geïntegreerd met Service Bus.
 
@@ -38,7 +38,7 @@ U start de verbinding tussen uw on-premises service en de Relay-service met een 
 
 Service Bus Relay biedt veel voordelen. Hiervoor is echter wel vereist dat de server en client allebei op hetzelfde moment online zijn om berichten te kunnen verzenden en ontvangen. Dit is niet optimaal voor HTTP-communicatie, waarbij de aanvragen doorgaans mogelijk geen lange levensduur hebben, noch voor clients die maar zo nu en dan verbinding maken, zoals browsers, mobiele toepassingen enzovoort. Brokered Messaging ondersteunt ontkoppelde communicatie en heeft voordelen op zich. Clients en servers kunnen wanneer nodig verbinding maken en hun bewerkingen asynchroon uitvoeren.
 
-## Brokered Messaging
+## <a name="brokered-messaging"></a>Brokered Messaging
 
 In tegenstelling tot het Relay-schema kan [Brokered Messaging](service-bus-queues-topics-subscriptions.md) worden beschouwd als asynchroon, of 'tijdelijk losgekoppeld'. Producenten (afzenders) en consumenten (ontvangers) hoeven niet gelijktijdig online te zijn. De berichteninfrastructuur slaat berichten veilig op in een 'broker' (zoals een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen. Hierdoor kunnen de onderdelen van de gedistribueerde toepassing worden losgekoppeld - hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van een onderdeel - zonder dat dit van invloed is op het hele systeem. Bovendien hoeft de ontvangende toepassing slechts op bepaalde tijdstippen gedurende de dag online te zijn. Denk bijvoorbeeld aan een systeem voor voorraadbeheer, dat alleen aan het einde van de dag hoeft te worden uitgevoerd.
 
@@ -46,19 +46,18 @@ De belangrijkste onderdelen van de Brokered Messaging-infrastructuur van Service
 
 Net als bij de Relay-infrastructuur wordt de Brokered Messaging-functie aangeboden voor programmeurs van WCF en .NET Framework en via REST.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtenservice
 
-- [Grondbeginselen van Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
-- [Service Bus-architectuur](../service-bus/service-bus-architecture.md)
 - [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
-- [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Service Bus-onderwerpen en -abonnementen gebruiken](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

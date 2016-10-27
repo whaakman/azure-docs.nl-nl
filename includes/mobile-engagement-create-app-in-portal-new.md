@@ -1,3 +1,4 @@
+
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 2. Klik op **Nieuw**, daarna op **Web en mobiel** en daarna op **Mobile Engagement**.
@@ -38,6 +39,6 @@
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

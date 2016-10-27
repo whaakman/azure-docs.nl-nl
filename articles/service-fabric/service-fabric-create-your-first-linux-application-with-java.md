@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="10/04/2016"
    ms.author="seanmck"/>
 
 
@@ -21,8 +21,9 @@
 # Uw eerste Azure Service Fabric-toepassing maken
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van Java.
 
@@ -49,6 +50,7 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de app via de terminal te maken.
 
   ```bash
+  cd myapp
   gradle
   ```
 
@@ -59,13 +61,12 @@ Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale clust
 1. Maak verbinding met het lokale cluster van Service Fabric.
 
     ```bash
-    azuresfcli servicefabric cluster connect
+    azure servicefabric cluster connect
     ```
 
 2. Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
@@ -92,7 +93,7 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 
 ## Een toepassing maken en implementeren met behulp van de invoegtoepassing Eclipse Neon
 
-Als u de Service-invoegtoepassing voor Eclipse Neon hebt geïnstalleerd, kunt u Service Fabric-toepassingen maken, bouwen en implementeren met behulp van Java.
+Als u de Service-invoegtoepassing voor Eclipse Neon hebt geïnstalleerd, kunt u Service Fabric-toepassingen maken, bouwen en implementeren met behulp van Java.  Kies bij het installeren van Eclipse voor **Eclipse IDE voor Java-ontwikkelaars**.
 
 ### De toepassing maken
 
@@ -121,6 +122,7 @@ Uw app wordt binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de st
 ## Volgende stappen
 
 - [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Interactie aangaan met Service Fabric-clusters met de Azure-CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -129,6 +131,6 @@ Uw app wordt binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de st
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

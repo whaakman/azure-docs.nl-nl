@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus Brokered Messaging REST-zelfstudie | Microsoft Azure"
     description="Brokered Messaging REST-zelfstudie"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,23 +16,25 @@
     ms.author="sethm" />
 
 
-# Service Bus Brokered Messaging REST-zelfstudie
+# <a name="service-bus-brokered-messaging-rest-tutorial"></a>Service Bus Brokered Messaging REST-zelfstudie
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In deze zelfstudie kunt u leren hoe u een eenvoudige op REST gebaseerde Azure Service Bus-wachtrij en onderwerp/abonnement maakt.
 
-## Een naamruimte maken
+## <a name="create-a-namespace"></a>Een naamruimte maken
 
-De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](../service-bus/service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
+De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Een consoleclient maken
+## <a name="create-a-console-client"></a>Een consoleclient maken
 
 Met Service Bus-wachtrijen kunt u berichten in een ‘first-in, first-out’-wachtrij opslaan. Onderwerpen en abonnementen implementeren een patroon van publiceren/abonneren: u maakt een onderwerp aan en vervolgens een of meer abonnementen die aan dit onderwerp gekoppeld zijn. Wanneer berichten naar het onderwerp worden verzonden, worden ze onmiddellijk naar de abonnees van dit onderwerp verzonden.
 
 De code in deze zelfstudie doet het volgende:
 
-- Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](../service-bus/service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
+- Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
 
 - Hij maakt een wachtrij, verzendt een bericht naar de wachtrij en leest het bericht uit de wachtrij.
 
@@ -46,7 +48,7 @@ Omdat de service een REST-stijl-webservice is, zijn er geen speciale typen betro
 
 Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u vervolgens een eenvoudige Visual Studio-consoletoepassing.
 
-### Een consoletoepassing maken
+### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 1. Start Visual Studio als beheerder door met de rechtermuisknop op het programma in het menu **Start** te klikken en vervolgens op **Als administrator uitvoeren**.
 
@@ -147,11 +149,11 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
     Console.ReadLine();
     ```
 
-## Beheerreferenties maken
+## <a name="create-management-credentials"></a>Beheerreferenties maken
 
 De volgende stap is het schrijven van een methode die de naamruimte en SAS-sleutel verwerkt die u in de vorige stap heeft opgegeven, en die een SAS-token retourneert. In dit voorbeeld wordt een SAS-token aangemaakt dat een uur geldig is.
 
-### Een GetSASToken()-methode maken
+### <a name="create-a-getsastoken()-method"></a>Een GetSASToken()-methode maken
 
 Plak de volgende code in de `Program`-klasse na de `Main()`-methode:
 
@@ -169,7 +171,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
   return sasToken;
 }
 ```
-## De wachtrij maken
+## <a name="create-the-queue"></a>De wachtrij maken
 
 De volgende stap is het schrijven van een methode die een wachtrij maakt met de REST-stijl-opdracht HTTP PUT.
 
@@ -198,7 +200,7 @@ private static string CreateQueue(string queueName, string token)
 }
 ```
 
-## Een bericht naar de wachtrij verzenden
+## <a name="send-a-message-to-the-queue"></a>Een bericht naar de wachtrij verzenden
 
 In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST een bericht verzendt naar de wachtrij die u in de vorige stap hebt gemaakt.
 
@@ -235,7 +237,7 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
     webClient.Headers.Add("Customer", "12345");
     ```
 
-## Een bericht uit de wachtrij ontvangen en verwijderen
+## <a name="receive-and-delete-a-message-from-the-queue"></a>Een bericht uit de wachtrij ontvangen en verwijderen
 
 De volgende stap is het toevoegen van een methode die een bericht uit de wachtrij ontvangt en verwijdert met de REST-stijl-opdracht HTTP DELETE.
 
@@ -259,11 +261,11 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 }
 ```
 
-## Een onderwerp en een abonnement maken
+## <a name="create-a-topic-and-subscription"></a>Een onderwerp en een abonnement maken
 
 De volgende stap is het schrijven van een methode die een onderwerp maakt met de REST-stijl-opdracht HTTP PUT, waarna u een methode kunt schrijven die een abonnement op dat onderwerp maakt.
 
-### Een onderwerp maken
+### <a name="create-a-topic"></a>Een onderwerp maken
 
 Plak de volgende code direct na de `ReceiveAndDeleteMessage()`-code die u in de vorige stap hebt toegevoegd:
 
@@ -289,7 +291,7 @@ private static string CreateTopic(string topicName)
 }
 ```
 
-### Een abonnement maken
+### <a name="create-a-subscription"></a>Een abonnement maken
 
 De volgende code maakt een abonnement aan op het onderwerp dat u in de vorige stap hebt gemaakt. Voeg de volgende code direct na de `CreateTopic()`-definitie toe:
 
@@ -314,11 +316,11 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 }
 ```
 
-## Berichtresources ophalen
+## <a name="retrieve-message-resources"></a>Berichtresources ophalen
 
 In deze stap voegt u de code toe die de berichteigenschappen ophaalt en vervolgens de berichtverzendingsresources verwijdert die u in de vorige stappen hebt gemaakt.
 
-### Een Atom-feed ophalen met de opgegeven resources
+### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Een Atom-feed ophalen met de opgegeven resources
 
 Voeg de volgende code toe direct na de `CreateSubscription()`-methode die u in de vorige stap hebt toegevoegd:
 
@@ -333,7 +335,7 @@ private static string GetResources(string resourceAddress)
 }
 ```
 
-### Berichtverzendingsentiteiten verwijderen
+### <a name="delete-messaging-entities"></a>Berichtverzendingsentiteiten verwijderen
 
 Voeg de volgende code toe direct na de code die u in de vorige stap hebt toegevoegd:
 
@@ -350,7 +352,7 @@ private static string DeleteResource(string resourceName)
 }
 ```
 
-### De Atom-feed indelen
+### <a name="format-the-atom-feed"></a>De Atom-feed indelen
 
 De `GetResources()`-methode bevat een aanroep voor een `FormatXml()`-methode die de opgehaalde Atom-feed opnieuw indeelt, zodat deze beter leesbaar is. Het volgende is de definitie van `FormatXml()`. Voeg deze code toe direct na de `DeleteResource()`-code die u in de vorige stap hebt toegevoegd:
 
@@ -372,15 +374,15 @@ private static string FormatXml(string inputXml)
 }
 ```
 
-## De toepassing bouwen en uitvoeren.
+## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
 
 U kunt de toepassing nu bouwen en uitvoeren. Klik in het menu **Bouwen** in Visual Studio op **Oplossing bouwen** of druk op **Ctrl + Shift + B**.
 
-### De toepassing uitvoeren
+### <a name="run-the-application"></a>De toepassing uitvoeren
 
 Druk op F5 om de toepassing uit te voeren als er geen fouten zijn. Voer, wanneer u daarom wordt gevraagd, uw naamruimte, SAS-sleutelnaam en SAS-sleutelwaarde in die u in de eerste stap hebt verkregen.
 
-### Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 Het volgende voorbeeld is de volledige code zoals die eruit zou moet zien nadat u alle stappen in deze zelfstudie hebt gevolgd.
 
@@ -618,17 +620,17 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de volgende onderwerpen voor meer informatie:
 
 - [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-- [Grondbeginselen van Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Grondbeginselen van Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus Relay REST-zelfstudie](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

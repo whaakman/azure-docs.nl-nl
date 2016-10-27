@@ -1,14 +1,14 @@
 <properties
     pageTitle="Hybride on-premises/cloudtoepassing (.NET) | Microsoft Azure"
     description="Informatie over het maken van een .NET hybride on-premises/cloudtoepassing met Azure Service Bus Relay."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# Hybride .NET on-premises/cloudtoepassing met Azure Service Bus Relay
+# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure Service Bus Relay
 
-## Inleiding
+## <a name="introduction"></a>Inleiding
 
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
@@ -30,15 +30,15 @@ U leert:
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Hoe Service Bus Relay bij hybride oplossingen hulp biedt
+## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>Hoe Service Bus Relay bij hybride oplossingen hulp biedt
 
 Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die is geschreven voor nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
 
 Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Ze ondervinden dan dat bestaande serviceassets die ze willen gebruiken als bouwstenen voor hun oplossingen, zich binnen de firewall van het bedrijf bevinden en niet gemakkelijk bereikbaar zijn voor de cloudoplossing. Veel interne services worden niet zo gemaakt of gehost dat ze gemakkelijk beschikbaar kunnen worden gemaakt aan de rand van het bedrijfsnetwerk.
 
-Service Bus Relay is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden zonder dat er tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke Service Bus Relay-services worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan Service Bus in de cloud. Ook beveiligt Service Bus deze services tegen onbevoegde toegang door [SAS](../service-bus/service-bus-sas-overview.md)-verificatie (Shared Access Signature) te gebruiken.
+Service Bus Relay is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden zonder dat er tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke Service Bus Relay-services worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan Service Bus in de cloud. Ook beveiligt Service Bus deze services tegen onbevoegde toegang door [SAS](../service-bus-messaging/service-bus-sas-overview.md)-verificatie (Shared Access Signature) te gebruiken.
 
-## Oplossingsscenario
+## <a name="solution-scenario"></a>Oplossingsscenario
 
 In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
 
@@ -50,7 +50,7 @@ Hier volgt een schermopname van de startpagina van de voltooide webtoepassing.
 
 ![][1]
 
-## De ontwikkelomgeving instellen
+## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 
 Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
 
@@ -64,19 +64,19 @@ Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen
 
 6.  Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
-## Een naamruimte maken
+## <a name="create-a-namespace"></a>Een naamruimte maken
 
 Als u Service Bus-functies in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Een on-premises server maken
+## <a name="create-an-on-premises-server"></a>Een on-premises server maken
 
 U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
 
 Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
 
-### Het project maken
+### <a name="create-the-project"></a>Het project maken
 
 1.  Start Microsoft Visual Studio met administratorbevoegdheden. U kunt Visual Studio starten met administratorbevoegdheden door met de rechtermuisknop op het programmapictogram **Visual Studio** te klikken en vervolgens te klikken op **Als administrator uitvoeren**.
 
@@ -229,11 +229,11 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
 
 14. Druk op **Ctrl+Shift+B** of klik in het menu **Bouwen** op **Oplossing opbouwen** en controleer de juistheid van uw werk tot nu toe.
 
-## Een ASP.NET-toepassing maken
+## <a name="create-an-asp.net-application"></a>Een ASP.NET-toepassing maken
 
 In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens worden weergegeven die u uit uw productservice hebt opgehaald.
 
-### Het project maken
+### <a name="create-the-project"></a>Het project maken
 
 1.  Zorg ervoor dat Visual Studio met administratorbevoegdheden wordt uitgevoerd.
 
@@ -265,7 +265,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
     ![][17]
 
-### De webtoepassing wijzigen
+### <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 
 1.  In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
@@ -354,7 +354,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 9.  U kunt de nauwkeurigheid van uw werk tot nu toe controleren door op **Ctrl+Shift+B** te drukken om het project op te bouwen.
 
 
-### De app lokaal uitvoeren
+### <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
 Voer de toepassing uit om te controleren of deze werkt.
 
@@ -364,7 +364,7 @@ Voer de toepassing uit om te controleren of deze werkt.
 
     ![][21]
 
-## De softwareonderdelen samenstellen
+## <a name="put-the-pieces-together"></a>De softwareonderdelen samenstellen
 
 In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toepassing.
 
@@ -442,7 +442,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
 15. Klik op **OK** in het dialoogvenster **Eigenschappenvensters**.
 
-## Het project lokaal uitvoeren
+## <a name="run-the-project-locally"></a>Het project lokaal uitvoeren
 
 Test de toepassing lokaal door in Visual Studio op **F5** te drukken. De on-premises server (**ProductsServer**) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster. De productinventaris bevat nu de gegevens die zijn opgehaald uit het on-premises systeem van de productservice.
 
@@ -452,7 +452,7 @@ Klik op **Vernieuwen** op de pagina **ProductsPortal**. Elke keer dat u de pagin
 
 Sluit beide toepassingen voordat u doorgaat met de volgende stap.
 
-## Het project ProductsPortal in een Azure-web-app implementeren
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Het project ProductsPortal in een Azure-web-app implementeren
 
 De volgende stap is het converteren van de **ProductsPortal**-frontend naar een Azure-web-app. Implementeer eerst het **ProductsPortal**-project waarbij u alle stappen in de sectie [Het webproject implementeren in de Azure-web-app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app) uitvoert. Ga terug naar deze zelfstudie als de implementatie is voltooid en ga door met de volgende stap.
 
@@ -462,7 +462,7 @@ Kopieer de URL van de geïmplementeerde web-app. Deze hebt u in de volgende stap
 
 ![][9] 
 
-### ProductsPortal instellen als web-app
+### <a name="set-productsportal-as-web-app"></a>ProductsPortal instellen als web-app
 
 Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **ProductsPortal** vanuit Visual Studio als een web-app wordt uitgevoerd.
 
@@ -478,7 +478,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 
 7. Klik in het menu Bouwen in Visual Studio op **Oplossing opnieuw opbouwen**.
 
-## De toepassing uitvoeren
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
 2.  Druk op F5 om de toepassing op te bouwen en uit te voeren. De on-premises server (de **ProductsServer**-consoletoepassing) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster (zie de volgende schermopname). U ziet weer dat de productinventaris gegevens bevat die zijn opgehaald uit het on-premises systeem van de productservice en dat die gegevens in de web-app worden weergegeven. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud. 
 
@@ -492,7 +492,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 
     ![][38]
 
-## Volgende stappen  
+## <a name="next-steps"></a>Volgende stappen  
 
 Zie de volgende resources voor meer informatie over Service Bus:  
 
@@ -534,6 +534,6 @@ Zie de volgende resources voor meer informatie over Service Bus:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

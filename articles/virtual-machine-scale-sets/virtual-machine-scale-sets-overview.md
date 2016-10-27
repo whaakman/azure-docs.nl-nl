@@ -1,158 +1,165 @@
 <properties
-	pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
-	description="Learn more about Virtual Machine Scale Sets"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Overzicht van virtuele-machineschaalsets | Microsoft Azure"
+    description="Meer informatie over virtuele-machineschaalsets"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
-# Virtual Machine Scale Sets Overview
 
-Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+# <a name="virtual-machine-scale-sets-overview"></a>Overzicht van virtuele-machineschaalsets
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Bij VM-schaalsets worden alle VM's op dezelfde manier geconfigureerd, waardoor de schaalsets echt automatisch schalen ondersteunen. VM’s hoeven niet vooraf te worden ingericht, waardoor het eenvoudiger wordt om services op grote schaal te bouwen voor big compute, big data en workloads met containers.
 
-Take a look at these videos for more about VM scale sets:
+Voor toepassingen die compute-resources in en uit moeten schalen, worden schaalaanpassingen impliciet verdeeld over fout- en updatedomeinen. Raadpleeg de [aankondiging in het Azure-blog](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/) voor een introductie over VM-schaalsets.
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+Bekijk deze video's voor meer informatie over VM-schaalsets:
 
- - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+ - [Mark Russinovich vertelt over Azure-schaalsets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 
-## Creating and managing VM scale sets
+ - [Guy Bowerman over virtuele-machineschaalsets](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
+## <a name="creating-and-managing-vm-scale-sets"></a>VM-schaalsets maken en beheren
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+U kunt een VM-schaalset maken in [Azure Portal](https://portal.azure.com) door _nieuw_ te selecteren en ‘schaal’ in de zoekbalk te typen. U ziet ‘Virtuele-machineschaalset’ staan in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. 
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with _vmss_ in the title)
+VM-schaalsets kunnen ook worden gedefinieerd en geïmplementeerd met behulp van JSON-sjablonen en [REST API's](https://msdn.microsoft.com/library/mt589023.aspx), net als individuele VM's in Azure Resource Manager. Dit betekent dat alle standaardimplementatiemethoden van Azure Resource Manager kunnen worden toegepast. Zie [Azure Resource Manager-sjablonen samenstellen](../resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 
-In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
+[Hier](https://github.com/Azure/azure-quickstart-templates) in de GitHub-opslagplaats voor Azure Quickstart-sjablonen vindt u een aantal voorbeeldsjablonen voor VM-schaalsets. (Zoek naar sjablonen met _vmss_ in de naam)
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+Op de specifieke pagina's voor de sjablonen ziet u een knop voor portalimplementatie. Als u de VM-schaalset wilt implementeren, klikt u op de knop en vult u vervolgens de vereiste parameters in de portal in. Als u niet zeker weet of een resource hoofdletters of hoofdletters en kleine letters door elkaar ondersteunt, kunt u het beste parameterwaarden met kleine letters gebruiken. U kunt ook deze handige video bekijken waarin de sjabloon voor VM-schaalsets wordt toegelicht:
 
-## Scaling a VM scale set out and in
+[Toelichting sjabloon voor VM-schaalset](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
+## <a name="scaling-a-vm-scale-set-out-and-in"></a>Een VM-schaalset in- en uitschalen
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Als u het aantal virtuele machines in een VM-schaalset wilt verhogen of verlagen, wijzigt u de eigenschap _capaciteit_ en implementeert u de sjabloon opnieuw. Deze gebruiksvriendelijke functie maakt het eenvoudig om uw eigen aangepaste schaallaag te schrijven als u aangepaste schaalgebeurtenissen wilt definiëren die niet door Automatisch schalen van Azure worden ondersteund.
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
+Als u een sjabloon opnieuw wilt implementeren om de capaciteit te wijzigen, kunt u een veel kleinere sjabloon definiëren dat alleen de SKU en bijgewerkte capaciteit bevat. [Hier](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) kunt u een voorbeeld bekijken.
 
-## Monitoring your VM scale set
+Raadpleeg [Automatisch machines schalen in een virtuele-machineschaalset](virtual-machine-scale-sets-windows-autoscale.md) voor een stapsgewijze uitleg van het maken van een schaalset die automatisch wordt geschaald
 
-The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+## <a name="monitoring-your-vm-scale-set"></a>De VM-schaalset controleren
 
-	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+In [Azure Portal](https://portal.azure.com) kunt u een lijst met schaalsets, de basiseigenschappen en de VM's in de set bekijken. Gebruik de [Azure Resource Explorer](https://resources.azure.com) om VM-schaalsets te bekijken voor meer details. VM-schaalsets zijn een resource onder Microsoft.Compute. U kunt ze vanaf deze site bekijken door de volgende koppelingen uit te vouwen:
 
-## VM scale set scenarios
+    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+## <a name="vm-scale-set-scenarios"></a>Scenario's voor VM-schaalsets
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd. Deze scenario's worden toegepast voor een aantal van de hogere Azure-services, zoals Batch, Service Fabric en Azure Container Service.
 
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
+ - **RDP / SSH naar instanties van VM-schaalset**: een VM-schaalset wordt binnen een VNET gemaakt en er worden geen openbare IP-adressen toegewezen aan individuele VM’s in de schaalset. Zo vermijdt u de kosten en overhead van het toewijzen van aparte openbare IP-adressen aan alle staatloze resources in uw compute-raster. Bovendien kunt u gemakkelijk verbinding maken met deze VM's vanaf andere resources in uw VNET, inclusief resources met openbare IP-adressen, zoals load balancers of losstaande virtuele machines.
+
+ - **Verbinding maken met VM's met behulp van NAT-regels:** u kunt een openbaar IP-adres maken, dit toewijzen aan een load balancer en binnenkomende NAT-regels definiëren die een poort van het IP-adres toewijzen aan een poort van een VM in de VM-schaalset. Bijvoorbeeld:
  
-	Source | Source Port | Destination | Destination Port
-	--- | --- | --- | ---
-	Public IP | Port 50000 | vmss\_0 | Port 22
-	Public IP | Port 50001 | vmss\_1 | Port 22
-	Public IP | Port 50002 | vmss\_2 | Port 22
+    Bron | Bronpoort | Doel | Doelpoort
+    --- | --- | --- | ---
+    Openbare IP | Poort 50000 | vmss\_0 | Poort 22
+    Openbare IP | Poort 50001 | vmss\_1 | Poort 22
+    Openbare IP | Poort 50002 | vmss\_2 | Poort 22
 
-	Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+    Hier volgt een voorbeeld van het maken van een VM-schaalset waarbij NAT-regels zijn gebruikt om een SSH-verbinding met elke VM in een schaalset mogelijk te maken via een enkel openbaar IP-adres: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
-	Here's an example of doing the same with RDP and Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+    Hier volgt een voorbeeld van hoe u hetzelfde doet met RDP en Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
- - **Connect to VMs using a "jumpbox"** - If you create a VM scale set and a standalone VM in the same VNET, the standalone VM and the VM scale set VMs can connect to one another using their internal IP addresses as defined by the VNET/Subnet. If you create a public IP address and assign it to the standalone VM you can RDP or SSH to the standalone VM and then connect from that machine to your VM scale set instances. You may notice at this point that a simple VM scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+ - **Verbinding maken met VM's met behulp van een 'jumpbox'**: als u een VM-schaalset en losstaande VM in hetzelfde VNET maakt, kunnen de losse VM en de VM's in de VM-schaalset met elkaar verbinding maken via de interne IP-adressen zoals gedefinieerd in het VNET/Subnet. As u een openbaar IP-adres maakt en dit toewijst aan de losstaande VM, kunt u via RDP of SSH verbinding maken met de losse VM en vervolgens vanaf die machine verbinding maken met de instanties van uw VM-schaalset. Het valt u misschien op dat een eenvoudige VM-schaalset inherent veiliger is dan een eenvoudige losse VM met een openbaar IP-adres in de standaardconfiguratie.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+    [Deze sjabloon geeft een voorbeeld van deze benadering met het maken van een eenvoudig Mesos-cluster dat bestaat uit een losse hoofd-VM die een cluster van VM's gebaseerd op een VM-schaalset aanstuurt.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
+ - **Taken verdelen voor instanties van een VM-schaalset:** als u middels een round robin-benadering taken aan een rekencluster van VM's wilt toewijzen, kunt u een Azure Load Balancer configureren met toepasselijke taakverdelingsregels. U kunt tests definiëren om te verifiëren of uw toepassing wordt uitgevoerd, door poorten te pingen met een opgegeven protocol, interval en aanvraagpad. De Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) ondersteunt ook schaalsets, naast complexere scenario's voor taakverdeling.
 
-	[Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
+    [Hier volgt van een voorbeeld van een VM-schaalset met VM's die worden uitgevoerd op een IIS-webserver, die een load balancer gebruikt om de taken te verdelen die elke VM ontvangt. De schaalset maakt ook gebruik van het HTTP-protocol om een specifieke URL op elke VM te pingen.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Kijk naar het resourcetype Microsoft.Network/loadBalancers en het networkProfile en extensionProfile in de virtualMachineScaleSet)
 
- - **Deploying a VM scale set as a compute cluster in a PaaS cluster manager** - VM scale sets are sometimes described as a next-generation worker role. It's a valid description but it also runs the risk of confusing scale set features with PaaS v1 Worker role features. In a sense VM scale sets provide a true "worker role" or worker resource, in that they provide a generalized compute resource which is platform/runtime independent, customizable and integrates into Azure Resource Manager IaaS.
+ - **Een VM-schaalset implementeren als een rekencluster in PaaS-clusterbeheer**: VM-schaalsets worden soms omschreven als de werkrol van de volgende generatie. Dit is een accurate beschrijving, maar deze kan er wel voor zorgen dat schaalsetfuncties worden verward met PaaS v1-werkrolfuncties. VM-schaalsets bieden een echte werkrol of werkrol-resource in dat opzicht dat ze een algemene compute-resource bieden die losstaat van platform/runtime, aanpasbaar is en integreert met Azure Resource Manager IaaS.
 
-	A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
+    Een PaaS v1-werkrol is beperkt in het kader van ondersteuning voor platform/runtime (alleen Windows-platforminstallatiekopieën), maar omvat wel services als wisselen van VIP, configureerbare upgrade-instellingen en specifieke instellingen voor runtime/toepassingsimplementatie die of _nog_ niet beschikbaar zijn in VM-schaalsets of worden geleverd voor andere, hogere PaaS-services zoals Service Fabric. Dit betekent dat u VM-schaalsets kunt beschouwen als infrastructuur die PaaS ondersteunt. Dit betekent dat PaaS-oplossingen zoals Service Fabric of clusterbeheer zoals Mesos op VM-schaalsets kunnen bouwen als een schaalbare rekenlaag.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+    [Deze sjabloon geeft een voorbeeld van deze benadering met het maken van een eenvoudig Mesos-cluster dat bestaat uit een losse hoofd-VM die een cluster van VM's gebaseerd op een VM-schaalset aanstuurt.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Toekomstige versies van de [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) zullen complexere/sterkere versies van dit scenario implementeren op basis van VM-schaalsets.
 
-## VM scale set performance and scale guidance
+## <a name="vm-scale-set-performance-and-scale-guidance"></a>Richtlijnen voor prestaties en schaal van VM-schaalsets
 
-- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
-- Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
-- If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
-- Plan for no more than 4096 VMs per VNET.
-- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+- Maak niet meer dan 500 VM's in verschillende VM-schaalsets tegelijkertijd.
+- Zorg ervoor dat u maximaal 20 VM's per opslagaccount hebt (tenzij u de eigenschap _overprovision_ heb ingesteld op 'false', dan is 40 het maximum).
+- Spreid de eerste letters van de opslagaccountnamen zo veel mogelijk.  De VMSS-sjablonen in [Azure-snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates/) bieden voorbeelden van hoe u dit doet.
+- Plan niet meer dan 40 VM's in per VM-schaalset voor een enkel opslagaccount als u aangepaste VM's gebruikt.  De installatiekopie dient vooraf naar het opslagaccount gekopieerd te zijn voordat u de VM-schaalset kunt implementeren. Bekijk de veelgestelde vragen voor meer informatie.
+- Plan niet meer dan 4096 VM's per VNET.
+- Het aantal VM's dat u kunt maken, is beperkt tot de kernquota van de regio waarin u ze implementeert. Mogelijk moet u contact opnemen met de klantenservice om uw limiet voor rekenquota te verhogen, zelfs als u nu een hoge limiet voor het aantal cores voor gebruik met cloudservices of IaaS v1 hebt. Als u uw quota wilt opvragen, kunt u de volgende Azure CLI-opdracht uitvoeren: `azure vm list-usage`, en de volgende PowerShell-opdracht: `Get-AzureRmVMUsage` (als u een versie van PowerShell lager dan 1.0 gebruikt, gebruik dan `Get-AzureVMUsage`).
 
-## VM scale set frequently asked questions
+## <a name="vm-scale-set-frequently-asked-questions"></a>Veelgestelde vragen over VM-schaalsets
 
-**Q.** How many VMs can you have in a VM scale set?
+**V:** Hoeveel VM's kan een VM-schaalset bevatten?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
+**A:** 100 als u platforminstallatiekopieën gebruikt die over meerdere opslagaccounts kunnen worden verspreid. Tot 40 als u aangepaste installatiekopieën gebruikt (mits de eigenschap _overprovision_ op 'false' is ingesteld, standaard is het 20). Dit komt omdat aangepaste installatiekopieën momenteel zijn beperkt tot één opslagaccount.
 
-**Q** What other resource limits exist for VM scale sets?
+**V** Gelden er nog andere resourcelimieten voor VM-schaalsets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A:** U kunt binnen 10 minuten niet meer dan 500 VM's per regio maken voor meerdere schaalsets. De bestaande [Servicebeperkingen van het Azure-abonnement](../azure-subscription-service-limits.md) zijn van toepassing.
 
-**Q.** Are Data Disks Supported within VM scale sets?
+**V:** Worden gegevensschijven binnen VM-schaalsets ondersteund?
 
-**A.** Not in the initial release. Your options for storing data are:
+**A:** Niet in de eerste release. Uw opties voor het opslaan van gegevens zijn:
 
-- Azure files (SMB shared drives)
+- Azure-bestanden (gedeelde SMB-stations)
 
-- OS drive
+- Station van het besturingssysteem
 
-- Temp drive (local, not backed by Azure storage)
+- Tijdelijk station (lokaal, niet ondersteund door Azure Storage)
 
-- Azure data service (e.g. Azure tables, Azure blobs)
+- Azure-gegevensservice (bijvoorbeeld Azure-tabellen, Azure-blobs)
 
-- External data service (e.g. remote DB)
+- Externe gegevensservice (bijvoorbeeld externe database)
 
-**Q.** Which Azure regions support VM scale sets?
+**V:** Welke Azure-regio's ondersteunen VM-schaalsets?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**A:** Elke regio die Azure Resource Manager ondersteunt, ondersteunt VM-schaalsets.
 
-**Q.** How do you create a VM scale set using a custom image?
+**V:** Hoe maak ik een VM-schaalset met behulp van een aangepaste installatiekopie?
 
-**A.** Leave the vhdContainers property blank, for example:
+**A:** Laat de eigenschap vhdContainers leeg, bijvoorbeeld:
 
-	"storageProfile": {
-		"osDisk": {
-			"name": "vmssosdisk",
-			"caching": "ReadOnly",
-			"createOption": "FromImage",
-			"image": {
-				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-			},
-			"osType": "Windows"
-		}
-	},
+    "storageProfile": {
+        "osDisk": {
+            "name": "vmssosdisk",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "image": {
+                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
+            },
+            "osType": "Windows"
+        }
+    },
 
 
-**Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
+**V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke VM's worden er dan verwijderd?
 
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
+**A:** Virtuele machines worden gelijkmatig uit upgradedomeinen en foutdomeinen van de schaalset verwijderd om de beschikbaarheid te maximaliseren. De VM's met de hoogste id's worden het eerst verwijderd.
 
-**Q.** How about it if I then increase the capacity from 15 to 18?
+**V:** Wat gebeurt er dan als ik de capaciteit verhoog van 15 naar 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
+**A:** Als u de capaciteit verhoogd naar 18, worden er 3 nieuwe VM's gemaakt. De id van elke VM-instantie wordt oplopend gegenereerd vanaf de vorige hoogste waarde (bijvoorbeeld 20, 21, 22). De VM's worden verdeeld over upgrade- en foutdomeinen.
 
-**Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
+**V:** Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een VM-schaalset gebruik?
 
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A:** Niet direct, maar bij de CustomScript-extensie kunt u uw script laten wachten op de voltooiing van een andere extensie ([bijvoorbeeld door het extensielogboek te controleren](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Meer informatie over de uitvoeringsvolgorde van extensies vindt u in dit blogartikel: [Extensievolgorde bij VM-schaalsets in Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
-**Q.** Do VM scale sets work with Azure availability sets?
+**V:** Maken VM-schaalsets gebruik van beschikbaarheidssets van Azure?
 
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+**A:** Ja. Een VM-schaalset is een impliciete beschikbaarheidsset met vijf foutdomeinen en vijf upgradedomeinen. U hoeft onder virtualMachineProfile niets te configureren. In toekomstige releases gaan VM-schaalsets waarschijnlijk meerdere tenants omvatten, maar een schaalset is momenteel een enkele beschikbaarheidsset.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

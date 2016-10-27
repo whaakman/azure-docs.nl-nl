@@ -4,7 +4,7 @@
     keywords="Toepassingsontwikkeling, databasezelfstudie, python flask, python-webtoepassing, python-webontwikkeling, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="AndrewHoh"
+    authors="syamkmsft"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="08/25/2016"
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
+
+# <a name="python-flask-web-application-development-with-documentdb"></a>De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -39,7 +40,7 @@ In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
 ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-python-application/image1.png)
 
 
-## Vereisten voor de databasezelfstudie
+## <a name="database-tutorial-prerequisites"></a>Vereisten voor de databasezelfstudie
 
 Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnstalleerd:
 
@@ -55,7 +56,7 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 
 - Microsoft Visual C++ Compiler voor Python 2.7 uit het [Microsoft Downloadcentrum][3].
 
-## Stap 1: een DocumentDB-databaseaccount maken
+## <a name="step-1:-create-a-documentdb-database-account"></a>Stap 1: een DocumentDB-databaseaccount maken
 
 Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt u doorgaan met [Stap 2: een nieuwe Python Flask-toepassing maken](#step-2:-create-a-new-python-flask-web-application).
 
@@ -64,7 +65,7 @@ Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt 
 <br/>
 U kunt nu zien hoe u een compleet nieuwe Python Flask-toepassing maakt.
 
-## Stap 2: een nieuwe Python Flask-webtoepassing maken
+## <a name="step-2:-create-a-new-python-flask-web-application"></a>Stap 2: een nieuwe Python Flask-webtoepassing maken
 
 1. Wijs in het menu **Bestand** van Visual Studio de optie **Nieuw** aan en klik vervolgens op **Project**.
 
@@ -88,9 +89,9 @@ U kunt nu zien hoe u een compleet nieuwe Python Flask-toepassing maakt.
 
     Wanneer de omgeving is geïnstalleerd, verschijnt de volgende tekst in het uitvoervenster: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
-## Stap 3: de Python Flask-webtoepassing wijzigen
+## <a name="step-3:-modify-the-python-flask-web-application"></a>Stap 3: de Python Flask-webtoepassing wijzigen
 
-### De Python Flask-pakketten aan uw project toevoegen
+### <a name="add-the-python-flask-packages-to-your-project"></a>De Python Flask-pakketten aan uw project toevoegen
 
 Zodra het project is ingesteld, moet u de vereiste Flask-pakketten toevoegen aan uw project, inclusief pydocumentdb, het Python-pakket voor DocumentDB.
 
@@ -119,7 +120,7 @@ Zodra het project is ingesteld, moet u de vereiste Flask-pakketten toevoegen aan
 
     > [AZURE.NOTE] In uitzonderlijke gevallen wordt er een fout in het uitvoervenster weergegeven. Als dit gebeurt, controleert u of de fout verband houdt met de opschoonbewerking. Soms mislukt de opschoonbewerking maar wordt de installatie wel gewoon voltooid (schuif naar boven in het uitvoervenster om dit te controleren). U kunt uw installatie controleren door [de virtuele omgeving te verifiëren](#verify-the-virtual-environment). Als de installatie is mislukt maar de controle is geslaagd is, kunt u zonder problemen doorgaan.
 
-### De virtuele omgeving verifiëren
+### <a name="verify-the-virtual-environment"></a>De virtuele omgeving verifiëren
 
 Zorg ervoor dat alles juist is geïnstalleerd.
 
@@ -130,7 +131,7 @@ Zorg ervoor dat alles juist is geïnstalleerd.
 
 3. Stop de foutopsporing voor de website door in Visual Studio op **Shift**+**F5** te drukken.
 
-### Database-, verzamelings- en documentdefinities maken
+### <a name="create-database,-collection,-and-document-definitions"></a>Database-, verzamelings- en documentdefinities maken
 
 U kunt nu de stemtoepassing maken door nieuwe bestanden toe te voegen en andere bestanden bij te werken.
 
@@ -149,7 +150,7 @@ class VoteForm(Form):
 ```
 
 
-### De vereiste imports toevoegen aan views.py
+### <a name="add-the-required-imports-to-views.py"></a>De vereiste imports toevoegen aan views.py
 
 1. Vouw in Solution Explorer de map **tutorial** uit en open het bestand **views.py**. 
 2. Voeg de volgende importinstructies boven aan het bestand **views.py** toe en sla het bestand vervolgens op. Hiermee worden de PythonSDK van DocumentDB en de Flask-pakketten geïmporteerd.
@@ -161,7 +162,7 @@ class VoteForm(Form):
     ```
 
 
-### De database, de verzameling en het document maken
+### <a name="create-database,-collection,-and-document"></a>De database, de verzameling en het document maken
 
 - Voeg de volgende code toe aan het eind van het bestand **views.py**. Hiermee wordt de database gemaakt die door het formulier wordt gebruikt. Verwijder de bestaande code in **views.py** niet. U kunt de code gewoon aan het eind toevoegen.
 
@@ -203,7 +204,7 @@ def create():
 > [AZURE.TIP] De methode **CreateCollection** maakt voor de derde parameter gebruik van de optionele parameter **RequestOptions**. Deze kan worden gebruikt om het aanbiedingstype (OfferType) voor de verzameling op te geven. Als er geen waarde voor OfferType is opgegeven, wordt het standaard-OfferType gebruikt om de verzameling te maken. Zie [Prestatieniveaus in DocumentDB](documentdb-performance-levels.md) voor meer informatie over DocumentDB-aanbiedingstypen (OfferType).
 
 
-### De database, de verzameling en het document lezen en het formulier verzenden
+### <a name="read-database,-collection,-document,-and-submit-form"></a>De database, de verzameling en het document lezen en het formulier verzenden
 
 - Voeg de volgende code toe aan het eind van het bestand **views.py**. Deze code wordt gebruikt om het formulier in te stellen en de database, de verzameling en het documenten te lezen. Verwijder de bestaande code in **views.py** niet. U kunt de code gewoon aan het eind toevoegen.
 
@@ -255,7 +256,7 @@ def vote():
 ```
 
 
-### De HTML-bestanden maken
+### <a name="create-the-html-files"></a>De HTML-bestanden maken
 
 1. Klik in de map **tutorial** in Solution Explorer met de rechtermuisknop op de map **templates** en klik vervolgens op **Toevoegen** en **Nieuw item**. 
 2. Selecteer **HTML-pagina** en typ in het naamvak **create.html**. 
@@ -323,7 +324,7 @@ def vote():
     {% endblock %}
     ```
 
-### Een configuratiebestand toevoegen en \_\_init\_\_.py wijzigen
+### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Een configuratiebestand toevoegen en de \_\_init\_\_.py wijzigen
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project **tutorial** en klik op **Toevoegen** en **Nieuw item**, selecteer **het lege Python-bestand** en noem het bestand **config.py**. Dit configuratiebestand is nodig voor de formulieren in Flask. U kunt dit bestand ook gebruiken om een geheime sleutel te verstrekken. Deze sleutel is echter niet nodig voor deze zelfstudie.
 
@@ -361,7 +362,7 @@ def vote():
     ![Schermopname van het Solution Explorer-venster in Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Stap 4: de webtoepassing lokaal uitvoeren
+## <a name="step-4:-run-your-web-application-locally"></a>Stap 4: de webtoepassing lokaal uitvoeren
 
 1. Bouw de oplossing op door op **Ctrl**+**Shift**+**B** te drukken.
 2. Zodra de opbouwbewerking is voltooid, start u de website door op **F5** te drukken. Uw scherm ziet er nu als volgt uit:
@@ -382,7 +383,7 @@ def vote():
 
 6. Stop de foutopsporing voor het project door op Shift + F5 te drukken.
 
-## Stap 5: de webtoepassing implementeren naar Azure Websites
+## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Stap 5: de webtoepassing implementeren naar Azure Websites
 
 Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing implementeren naar Azure Websites.
 
@@ -408,15 +409,15 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing
 
 3. Over een paar seconden zal Visual Studio de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-## Problemen oplossen
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als dit de eerste Python-app is die u op uw computer uitvoert, moet u ervoor zorgen dat de variabele PATH de volgende mappen (of gelijkwaardige installatielocaties) bevat:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
-Als er een foutbericht wordt weergegeven op de stempagina en u het project een andere naam dan **tutorial** hebt gegeven, moet u ervoor zorgen dat **\_\_init\_\_.py** naar de juiste projectnaam verwijst in de regel: `import tutorial.view`.
+Als er een foutbericht wordt weergegeven op uw stempagina en u het project een andere naam dan **zelfstudie** hebt gegeven, moet u ervoor zorgen dat **\_\_init\_\_.py** verwijst naar de juiste projectnaam in de regel: `import tutorial.view`.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Gefeliciteerd. U hebt zojuist uw eerste Python-webtoepassing met Azure DocumentDB gemaakt en gepubliceerd naar Azure Websites.
 
@@ -431,11 +432,11 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
-  [Webplatforminstallatieprogramma voor Windows]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Webplatforminstallatieprogramma voor Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure Portal]: http://portal.azure.com
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

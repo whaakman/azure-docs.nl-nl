@@ -13,50 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/26/2016"
+    ms.date="10/12/2016"
     ms.author="juliako"/>
 
 
-# Uw omgeving instellen
+# <a name="set-up-your-environment"></a>Uw omgeving instellen
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
 
 De volgende stappen beschrijven de vereisten voor het ontwikkelen met Azure Media Services.
 
-## Een Media Services-account maken
+## <a name="create-a-media-services-account"></a>Een Media Services-account maken
 
-Gebruik de klassieke Azure-portal, .NET-SDK of de REST API voor het maken van een Azure Media Services-account.
+Gebruik Azure Portal, de .NET-SDK of de REST API voor het maken van een Azure Media Services-account.
 
 <a id="setup_dev_env"></a>
-## De ontwikkelomgeving instellen  
+## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen  
 
 Kies .NET of de REST API voor uw ontwikkelomgeving.
 
 [AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 <a id="connect"></a>
-## Verbinding maken via een programma
+## <a name="connect-programmatically"></a>Verbinding maken via een programma
 
 Kies .NET of de REST API om via een programma verbinding te maken met Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Volgende stappen: Azure Media Services-leertrajecten
+##<a name="next-steps:-azure-media-services-learning-paths"></a>Volgende stappen: Azure Media Services-leertrajecten
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Feedback geven
+##<a name="provide-feedback"></a>Feedback geven
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

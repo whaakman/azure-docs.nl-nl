@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/13/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
 
 
@@ -139,6 +139,6 @@ U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies e
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -12,18 +12,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/16/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 
-# Een StorSimple-apparaat implementeren (Update 2)
+# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Een StorSimple-apparaat implementeren (Update 2)
 
 > [AZURE.SELECTOR]
 - [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA-release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 
 Welkom bij de implementatie van Microsoft Azure StorSimple-apparaten. Deze zelfstudies voor implementatie zijn van toepassing op StorSimple 8000 Series Update 2. Deze reeks zelfstudies bevat een configuratiecontrolelijst, configuratievereisten en gedetailleerde configuratiestappen voor uw StorSimple-apparaat.
 
@@ -36,18 +36,18 @@ U hebt beheerdersbevoegdheden nodig om het installatie- en configuratieproces ui
 
 > [AZURE.NOTE] De StorSimple-implementatiegegevens die zijn gepubliceerd op de website van Microsoft Azure zijn alleen van toepassing op apparaten uit de StorSimple 8000-serie. Voor volledige informatie over apparaten uit de 7000-serie gaat u naar: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Raadpleeg de [Introductiehandleiding van het StorSimple-systeem](http://onlinehelp.storsimple.com/111_Appliance/) voor informatie over de implementatie van de 7000-serie.
 
-## Implementatiestappen
+## <a name="deployment-steps"></a>Implementatiestappen
 
 Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configureren en te verbinden met uw StorSimple Manager-service. Naast de verplichte stappen zijn er nog optionele stappen en procedures die u tijdens de implementatie misschien nodig hebt. In de stapsgewijze implementatie-instructies wordt aangeven wanneer u deze optionele stappen moet uitvoeren.
 
 
 | Stap                                                                                   | Beschrijving                                                                                                                                                   |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Vereisten**                                                                      | Deze moeten zijn worden voltooid ter voorbereiding van de implementatie.                                                                                        |
+| **VEREISTEN**                                                                      | Deze moeten zijn worden voltooid ter voorbereiding van de implementatie.                                                                                        |
 | [Configuratiecontrolelijst voor implementatie](#deployment-configuration-checklist)                                                     | Gebruik deze controlelijst om informatie te verzamelen en te registreren voorafgaand aan en tijdens de implementatie.                                                                       |
 | [Vereisten voor implementatie](#deployment-prerequisites)                                                               | Hiermee wordt gecontroleerd of de omgeving gereed is voor implementatie.                                                                                                     |
 |                                                                                        |                                                                                                                                                               |
-| **Stapsgewijze implementatie**                                                                   | Deze stappen zijn vereist om uw StorSimple-apparaat in productie te nemen.                                                                                      |
+| **STAPSGEWIJZE IMPLEMENTATIE**                                                                   | Deze stappen zijn vereist om uw StorSimple-apparaat in productie te nemen.                                                                                      |
 | [Stap 1: een nieuwe service maken](#step-1-create-a-new-service)                                                         | Stel cloudbeheer en -opslag voor uw StorSimple-apparaat in. *U kunt deze stap overslaan als u al een service voor andere StorSimple-apparaten hebt*.                |
 | [Stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key)                                               | Gebruik deze sleutel om uw StorSimple-apparaat te registreren en te verbinden met de managementservice.                                                                         |
 | [Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | Verbind het apparaat met uw netwerk en registreer het bij Azure om de installatie met behulp van de managementservice te voltooien.                                            |
@@ -57,25 +57,25 @@ Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configurere
 | [Stap 7: een volume koppelen, initialiseren en formatteren](#step-7-mount-initialize-and-format-a-volume)</br>[Optioneel: MPIO configureren](storsimple-configure-mpio-windows-server.md)            | Verbind uw servers met de iSCSI-opslag die is geleverd door het apparaat. U kunt MPIO desgewenst configureren om ervoor te zorgen dat uw servers koppelings-, netwerk- en interfacefouten kunnen tolereren.                                                                                                                                                              |
 | [Stap 8: een back-up maken](#step-8-take-a-backup)                                                                  | Stel een back-upbeleid in om uw gegevens te beschermen.                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
-| **Overige procedures**                                                                   | Mogelijk moet u deze procedures raadplegen tijdens de implementatie van uw oplossing.                                                                                        |
+| **OVERIGE PROCEDURES**                                                                   | Mogelijk moet u deze procedures raadplegen tijdens de implementatie van uw oplossing.                                                                                        |
 | [Een nieuw opslagaccount voor de service configureren](#configure-a-new-storage-account-for-the-service)                                      |                                                                                                                                                               |
 | [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console)                                    |                                                                                                                                                               |
 | [Het IQN ophalen van een Windows Server-host](#get-the-iqn-of-a-windows-server-host)                                                   |                                                                                                                                                               |
 | [Een handmatige back-up maken](#create-a-manual-backup)                                                                 | 
 
 
-## Configuratiecontrolelijst voor implementatie
+## <a name="deployment-configuration-checklist"></a>Configuratiecontrolelijst voor implementatie
 
 Voordat u uw apparaat implementeert, moet u informatie verzamelen om de software op uw StorSimple-apparaat te configureren. De implementatie van het StorSimple-apparaat in uw omgeving verloopt gestroomlijnder wanneer u deze gegevens zoveel mogelijk op voorhand voorbereidt. Download en gebruik deze controlelijst om de configuratiegegevens te noteren terwijl u het apparaat implementeert.
 
 - [Configuratiecontrolelijst voor implementatie van StorSimple downloaden](http://www.microsoft.com/download/details.aspx?id=49159)
 
 
-## Vereisten voor implementatie
+## <a name="deployment-prerequisites"></a>Vereisten voor implementatie
 
 In de volgende secties worden de configuratievereisten voor de StorSimple Manager-service en het StorSimple-apparaat toegelicht.
 
-### Voor de StorSimple Manager-service
+### <a name="for-the-storsimple-manager-service"></a>Voor de StorSimple Manager-service
 
 Zorg voordat u begint voor het volgende:
 
@@ -87,26 +87,26 @@ Zorg voordat u begint voor het volgende:
 
 - U hebt toegang tot terminalemulatiesoftware, zoals PuTTY.
 
-### Voor het apparaat in het datacenter
+### <a name="for-the-device-in-the-datacenter"></a>Voor het apparaat in het datacenter
 
 Zorg voordat u het apparaat configureert, dat uw apparaat volledig is uitgepakt, is gemonteerd op het rek en volledig is bekabeld voor voeding, netwerk- en seriële toegang zoals is beschreven in:
 
--  [Unpack, rack mount, and cable your 8100 device (Een 8100-apparaat uitpakken, op het rek monteren en bekabelen)](storsimple-8100-hardware-installation.md)
--  [Unpack, rack mount, and cable your 8600 device (Een 8600-apparaat uitpakken, op het rek monteren en bekabelen)](storsimple-8600-hardware-installation.md)
+-  [Een 8100-apparaat uitpakken, op het rek monteren en bekabelen](storsimple-8100-hardware-installation.md)
+-  [Een 8600-apparaat uitpakken, op het rek monteren en bekabelen](storsimple-8600-hardware-installation.md)
 
 
-### Voor het netwerk in het datacenter
+### <a name="for-the-network-in-the-datacenter"></a>Voor het netwerk in het datacenter
 
 Zorg voordat u begint voor het volgende:
 
 - De poorten in de firewall van het netwerkcentrum zijn geopend om iSCSI- en cloud-verkeer toe te staan, zoals is beschreven in [Netwerkvereisten voor uw StorSimple-apparaat](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 
-## Stapsgewijze implementatie
+## <a name="step-by-step-deployment"></a>Stapsgewijze implementatie
 
 Gebruik de volgende stapsgewijze instructies om uw StorSimple-apparaat te implementeren in het datacenter.
 
-## Stap 1: een nieuwe service maken
+## <a name="step-1:-create-a-new-service"></a>Stap 1: een nieuwe service maken
 
 Met een StorSimple Manager-service kunt u meerdere StorSimple-apparaten beheren. Voer de volgende stappen uit om een nieuw exemplaar van de StorSimple Manager-service uit te voeren.
 
@@ -117,7 +117,7 @@ Met een StorSimple Manager-service kunt u meerdere StorSimple-apparaten beheren.
 > * Als u niet automatisch een opslagaccount hebt gemaakt, gaat u naar [Een nieuw opslagaccount voor de service configureren](#configure-a-new-storage-account-for-the-service) voor gedetailleerde instructies. 
 > * Als u het automatisch maken van een opslagaccount hebt ingeschakeld, gaat u naar [Stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key).
 
-## Stap 2: de serviceregistratiesleutel ophalen
+## <a name="step-2:-get-the-service-registration-key"></a>Stap 2: de serviceregistratiesleutel ophalen
 
 Wanneer de StorSimple Manager-service bedrijfsklaar is, moet u de serviceregistratiesleutel ophalen. Deze sleutel wordt gebruikt om het StorSimple-apparaat te registreren en te verbinden met de service.
 
@@ -126,13 +126,13 @@ Voer de volgende stappen uit in de beheerportal.
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
 
-## Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple
+## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple
 
 Gebruik Windows PowerShell voor StorSimple om de eerste installatie van uw StorSimple-apparaat uit te voeren zoals wordt uitgelegd in de volgende procedure. U moet terminalemulatiesoftware gebruiken om deze stap uit te voeren. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console) voor meer informatie.
 
 [AZURE.INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## Stap 4: minimale apparaatconfiguratie voltooien
+## <a name="step-4:-complete-minimum-device-setup"></a>Stap 4: minimale apparaatconfiguratie voltooien
 
 Voor de minimale apparaatconfiguratie van uw StorSimple-apparaat moet u het volgende doen: 
 
@@ -144,7 +144,7 @@ Voer de volgende stappen in de beheerportal uit om de minimale configuratie van 
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## Stap 5: een volumecontainer maken
+## <a name="step-5:-create-a-volume-container"></a>Stap 5: een volumecontainer maken
 
 Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. U moet een volumecontainer maken voordat u de volumes op uw StorSimple-apparaat kunt gaan inrichten. 
 
@@ -152,7 +152,7 @@ Voer de volgende stappen uit in de beheerportal om een volumecontainer te maken.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## Stap 6: een volume maken
+## <a name="step-6:-create-a-volume"></a>Stap 6: een volume maken
 
 Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume op het StorSimple-apparaat voor uw servers inrichten. Voer de volgende stappen uit in de beheerportal om een volume te maken.
 
@@ -160,7 +160,7 @@ Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume op het StorS
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## Stap 7: een volume koppelen, initialiseren en formatteren
+## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Stap 7: een volume koppelen, initialiseren en formatteren
 
 De volgende stappen worden uitgevoerd op uw Windows Server-host. 
 
@@ -177,7 +177,7 @@ Als u besluit geen MPIO te configureren, voer dan de volgende stappen uit om uw 
 
 [AZURE.INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## Stap 8: een back-up maken
+## <a name="step-8:-take-a-backup"></a>Stap 8: een back-up maken
 
 Back-ups bieden tijdgebonden bescherming van volumes en verbeteren de herstelmogelijkheden met minimale hersteltijden. U kunt twee soorten back-ups uitvoeren op een StorSimple-apparaat: lokale momentopnamen en cloudmomentopnamen. Beide back-uptypen kunnen **gepland** of **handmatig** zijn. 
 
@@ -187,7 +187,7 @@ Voer de volgende stappen uit in de beheerportal om een geplande back-up te maken
 
 U kunt op elk moment een handmatige back-up maken. Voor procedures gaat u naar [Een handmatige back-up maken](#create-a-manual-backup). 
 
-## Een nieuw opslagaccount voor de service configureren
+## <a name="configure-a-new-storage-account-for-the-service"></a>Een nieuw opslagaccount voor de service configureren
 
 Dit is een optionele stap die u alleen hoeft uit te voeren als u het automatisch maken van een opslagaccount met uw service niet hebt ingeschakeld. U hebt een Microsoft Azure Storage-account nodig om een StorSimple-volumecontainer te maken.
 
@@ -198,21 +198,21 @@ Voer de volgende stappen uit op de pagina **StorSimple Manager-service** van de 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 
-## PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat
+## <a name="use-putty-to-connect-to-the-device-serial-console"></a>PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat
 
 U moet terminalemulatiesoftware, zoals PuTTY, gebruiken om verbinding te maken met Windows PowerShell voor StorSimple. U kunt PuTTY gebruiken wanneer u het apparaat rechtstreeks benadert via de seriële console of door een Telnet-sessie te openen vanaf een externe computer.
 
 [AZURE.INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 
-## Updates zoeken en toepassen
+## <a name="scan-for-and-apply-updates"></a>Updates zoeken en toepassen
 
 Het bijwerken van een apparaat kan enkele uren duren. Voer de volgende stappen uit als u wilt scannen op updates en deze wilt toepassen op uw apparaat.
 <!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
-#### Uw apparaat bijwerken
+#### <a name="to-update-your-device"></a>Uw apparaat bijwerken
 
 1.  Klik op de pagina **Snel starten** van het apparaat op **Apparaten**. Selecteer het fysieke apparaat, klik op **Onderhoud** en vervolgens op **Updates zoeken**.  
 
@@ -226,20 +226,20 @@ Het bijwerken van een apparaat kan enkele uren duren. Voer de volgende stappen u
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
-## Het IQN ophalen van een Windows Server-host
+## <a name="get-the-iqn-of-a-windows-server-host"></a>Het IQN ophalen van een Windows Server-host
 
 Voer de volgende stappen uit om de IQN (iSCSI Qualified Name) van een Windows-host te verkrijgen waarop Windows Server® 2012 wordt uitgevoerd.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
-## Een handmatige back-up maken
+## <a name="create-a-manual-backup"></a>Een handmatige back-up maken
 
 Voer de volgende stappen uit in de beheerportal als u voor één volume op het StorSimple-apparaat een handmatige back-up op aanvraag wilt maken.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - Configureer een [virtueel apparaat](storsimple-virtual-device-u2.md).
 
@@ -248,6 +248,6 @@ Voer de volgende stappen uit in de beheerportal als u voor één volume op het S
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

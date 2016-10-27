@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/12/2016"
+    ms.date="10/05/2016"
     ms.author="asteen"/>
 
 
@@ -62,8 +62,8 @@ Voordat u het gebruik van de selfservice voor wachtwoordherstel kunt inschakelen
 ### Stap 1: een beleid voor het opnieuw instellen van wachtwoorden configureren
 Als u beleid voor het opnieuw instellen van wachtwoorden door gebruikers wilt configureren, volgt u de volgende stappen:
 
-1.  Open een browser naar keuze en ga naar de [Azure-beheerportal](https://manage.windowsazure.com).
-2.  In de [Azure-beheerportal](https://manage.windowsazure.com) gaat u naar de **Active Directory-extensie** op de navigatiebalk aan de linkerzijde.
+1.  Open een browser naar keuze en ga naar de [klassieke Azure Portal](https://manage.windowsazure.com).
+2.  In de [klassieke Azure Portal](https://manage.windowsazure.com) gaat u naar de **Active Directory-extensie** op de navigatiebalk aan de linkerzijde.
 
     ![Wachtwoordbeheer in Azure AD][001]
 
@@ -94,7 +94,7 @@ Als u beleid voor het opnieuw instellen van wachtwoorden door gebruikers wilt co
 ### Stap 2: contactgegevens toevoegen voor uw testgebruiker
 U hebt verschillende mogelijkheden voor het opgeven van gegevens van gebruikers in uw organisatie voor het uitvoeren van wachtwoordherstel.
 
--   Gebruikers bewerken in de [Azure-beheerportal](https://manage.windowsazure.com) of de [Office 365-beheerportal](https://portal.microsoftonline.com)
+-   Gebruikers bewerken in de [klassieke Azure Portal](https://manage.windowsazure.com) of de [Office 365-beheerportal](https://portal.microsoftonline.com)
 -   Gebruik AAD Connect om gebruikerseigenschappen met Azure AD te synchroniseren via een on-premises Active Directory-domein
 -   Windows PowerShell gebruiken om gebruikerseigenschappen te bewerken
 -   Stel gebruikers in staat om hun eigen gegevens te registreren door ze naar de registratieportal te leiden op [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
@@ -212,10 +212,10 @@ Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of 
 
 Als het versienummer hoger is dan of gelijk is aan **1.0.0419.0911** of als u Azure AD Connect installeert, kunt u doorgaan naar [Stap 2: het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- > [AZURE.NOTE] Als dit de eerste keer is dat u het Azure AD Connect-hulpprogramma installeert, wordt aangeraden dat u enkele aanbevolen procedures uitvoert om uw omgeving voor te bereiden op de directorysynchronisatie.  Voordat u het hulpprogramma Azure AD Connect installeert, moet u directorysynchronisatie inschakelen via de [Office 365-beheerportal](https://portal.microsoftonline.com) of de [Azure-beheerportal](https://manage.windowsazure.com).  Zie [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md) voor meer informatie.
+ > [AZURE.NOTE] Als dit de eerste keer is dat u het Azure AD Connect-hulpprogramma installeert, wordt aangeraden dat u enkele aanbevolen procedures uitvoert om uw omgeving voor te bereiden op de directorysynchronisatie.  Voordat u het hulpprogramma Azure AD Connect installeert, moet u directorysynchronisatie inschakelen via de [Office 365-beheerportal](https://portal.microsoftonline.com) of de [klassieke Azure Portal](https://manage.windowsazure.com).  Zie [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md) voor meer informatie.
 
 
-### Stap 2: Wachtwoord terugschrijven inschakelen in Azure AD Connect
+### Stap 2: wachtwoord terugschrijven inschakelen in Azure AD Connect
 Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terugschrijven inschakelen.  U kunt dit op twee manieren doen.  U kunt Wachtwoord terugschrijven inschakelen via het scherm Optionele functies van de Azure AD Connect-installatiewizard, of u kunt het inschakelen via Windows PowerShell.
 
 #### Wachtwoord terugschrijven inschakelen via de configuratiewizard
@@ -227,17 +227,17 @@ Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terug
 
 4.  Voltooi de wizard. Op de laatste pagina wordt een overzicht weergegeven van de wijzigingen. In dit overzicht staat ook dat de configuratie van Wachtwoord terugschrijven is gewijzigd.
 
-> [AZURE.NOTE] U kunt Wachtwoord terugschrijven te allen tijde weer uitschakelen door deze wizard opnieuw uit te voeren en de optie uit te schakelen, of door **Wachtwoorden terugschrijven naar on-premises directory** in te stellen op **Nee** in het gedeelte **Beleid voor het opnieuw instellen van wachtwoorden van gebruikers** van het tabblad **Configureren** van uw directory in de [Azure-beheerportal](https://manage.windowsazure.com).  Zie [Aanpassen: Azure AD-wachtwoordbeheer](active-directory-passwords-customize.md) voor meer informatie over het aanpassen van de ervaring bij het opnieuw instellen van wachtwoorden.
+> [AZURE.NOTE] U kunt Wachtwoord terugschrijven te allen tijde weer uitschakelen door deze wizard opnieuw uit te voeren en de optie uit te schakelen, of door **Wachtwoorden terugschrijven naar on-premises directory** in te stellen op **Nee** in het gedeelte **Beleid voor het opnieuw instellen van wachtwoorden van gebruikers** van het tabblad **Configureren** van uw directory in de [klassieke Azure Portal](https://manage.windowsazure.com).  Zie [Aanpassen: Azure AD-wachtwoordbeheer](active-directory-passwords-customize.md) voor meer informatie over het aanpassen van de ervaring bij het opnieuw instellen van wachtwoorden.
 
 #### Wachtwoord terugschrijven inschakelen met Windows PowerShell
 1.  Op uw **Directory Sync-computer** opent u een nieuw **verhoogd Windows PowerShell-venster**.
-2.  Als de module nog niet is geladen, typt u in de `Import-Module ADSync`-opdracht om de Azure AD Connect-cmdlets naar uw huidige sessie te laden.
-3.  Haal de lijst AAD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`
-4.  De huidige status van terugschrijven voor de huidige connector ophalen door de volgende cmdlet uit te voeren: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
-5.  Wachtwoord terugschrijven inschakelen door de cmdlet uit te voeren: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
+2.  Als de module nog niet is geladen, typt u in de `import-module ADSync`-opdracht om de Azure AD Connect-cmdlets naar uw huidige sessie te laden.
+3.  Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+4.  De huidige status van terugschrijven voor de huidige connector ophalen door de volgende cmdlet uit te voeren: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
+5.  Wachtwoord terugschrijven inschakelen door de cmdlet uit te voeren: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [AZURE.NOTE] Als u wordt gevraagd om een referentie, zorgt u ervoor dat het beheerdersaccount dat u opgeeft voor AzureADCredential een **cloudbeheerdersaccount is (gemaakt in Azure AD)** en geen gefedereerd account (gemaakt in on-premises AD en gesynchroniseerd met Azure AD).
-> [AZURE.NOTE] U kunt Wachtwoord terugschrijven uitschakelen via PowerShell door de bovenstaande instructies uit te voeren, maar door `$false` over te slaan of door de instelling **Wachtwoorden terugschrijven naar on-premises directory** in te stellen op **Nee** in het gedeelte **Beleid voor het opnieuw instellen van wachtwoorden van gebruikers** van het tabblad **Configureren** van uw directory in de [Azure-beheerportal](https://manage.windowsazure.com).
+> [AZURE.NOTE] U kunt Wachtwoord terugschrijven uitschakelen via PowerShell door de bovenstaande instructies uit te voeren, maar door `$false` over te slaan of door de instelling **Wachtwoorden terugschrijven naar on-premises directory** in te stellen op **Nee** in het gedeelte **Beleid voor het opnieuw instellen van wachtwoorden van gebruikers** van het tabblad **Configureren** van uw directory in de [klassieke Azure Portal](https://manage.windowsazure.com).
 
 #### Controleren of de configuratie is voltooid
 Wanneer de configuratie is voltooid, krijgt u het bericht Terugschrijven voor wachtwoord opnieuw instellen is ingeschakeld te zien in het Windows PowerShell-venster, of u krijgt een voltooiingsbericht te zien in de gebruikersinterface van de configuratie.
@@ -362,6 +362,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

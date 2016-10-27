@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc" />
 
 
@@ -36,6 +36,7 @@ Elk virtueel netwerk kan maar één virtuele netwerkgateway per type gateway heb
 ## Gateway-SKU's
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Op beleid gebaseerde VPN-verbindingen kunnen alleen worden gemaakt voor gateways met behulp van de basis-SKU.
 Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor informatie over gateway-SKU's.
 
 In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen.
@@ -84,14 +85,14 @@ U kunt de volgende VNets verbinden:
 
 - in dezelfde of verschillende regio's
 - in dezelfde of verschillende abonnementen 
-- in de dezelfde of verschillende implementatiemodellen
+- in dezelfde of verschillende implementatiemodellen
 
 
 ![VNet-naar-VNet-verbinding](./media/vpn-gateway-about-vpngateways/demov2v.png "vnet-to-vnet")
 
 #### Verbindingen tussen implementatiemodellen
 
-Azure heeft momenteel twee implementatiemodellen: klassiek en Resource Manager. Als u eerder enige tijd met Azure hebt gewerkt, hebt u waarschijnlijk Azure-VM's en -rolinstanties in een klassiek VNet. De nieuwere VM's en rolinstanties werken mogelijk in een VNet dat is gemaakt in Resource Manager. U kunt de VNets verbinden zodat de resources in het ene VNet direct met de resources in het andere kunnen communiceren.
+Azure heeft momenteel twee implementatiemodellen: klassiek en Resource Manager. Als u al langer met Azure hebt gewerkt, hebt u waarschijnlijk Azure-VM's en -rolinstanties in een klassiek VNet. De nieuwere VM's en rolinstanties werken mogelijk in een VNet dat is gemaakt in Resource Manager. U kunt de VNets verbinden zodat de resources in het ene VNet direct met de resources in het andere kunnen communiceren.
 
 #### VNet-peering
 
@@ -152,6 +153,6 @@ De VPN-gatewayconfiguratie plannen. Zie [VPN-gateway plannen en ontwerpen](vpn-g
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

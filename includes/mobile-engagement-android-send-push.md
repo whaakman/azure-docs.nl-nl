@@ -1,5 +1,5 @@
 
-###Manifestbestand bijwerken om meldingen in te schakelen
+###<a name="update-manifest-file-to-enable-notifications"></a>Manifestbestand bijwerken om meldingen in te schakelen
 
 Kopieer de onderstaande resources voor in-app-meldingen naar uw Manifest.xml tussen de labels `<application>` en `</application>`.
 
@@ -45,7 +45,7 @@ Kopieer de onderstaande resources voor in-app-meldingen naar uw Manifest.xml tus
             </intent-filter>
         </receiver>
 
-###Een pictogram voor meldingen opgeven
+###<a name="specify-an-icon-for-notifications"></a>Een pictogram voor meldingen opgeven
 
 Plak het volgende XML-fragment in het bestand Manifest.xml tussen de labels `<application>` en `</application>`.
 
@@ -62,9 +62,9 @@ Voor echte apps kunt u een pictogram gebruiken dat geschikt is voor meldingen vo
 >[AZURE.TIP] Om er zeker van te zijn dat de juiste resoluties voor pictogrammen worden gebruikt, kunt u [deze voorbeelden](https://www.google.com/design/icons) bekijken.
 Schuif omlaag naar de sectie **Melding**, klik op een pictogram en klik vervolgens op `PNGS` om de drawable-set voor het pictogram te downloaden. U kunt zien welke drawable-mappen met welke resolutie moeten worden gebruikt voor elke versie van het pictogram.
 
-###Ontvangen van GCM-pushmeldingen inschakelen voor de app
+###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>Ontvangen van GCM-pushmeldingen inschakelen voor de app
 
-1. Plak het volgende in uw Manifest.xml tussen de labels `<application>` en `</application>` nadat u het `project number` hebt vervangen dat u hebt opgehaald uit de Google Play-console. De \n is opzettelijk dus zorg ervoor dat het projectnummer hiermee eindigt.
+1. Plak het volgende in uw Manifest.xml tussen de labels `<application>` en `</application>` nadat u de **Afzender-id** hebt vervangen dat u hebt opgehaald uit de Firebase-projectconsole. De \n is opzettelijk dus zorg ervoor dat het projectnummer hiermee eindigt.
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -96,6 +96,6 @@ Schuif omlaag naar de sectie **Melding**, klik op een pictogram en klik vervolge
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

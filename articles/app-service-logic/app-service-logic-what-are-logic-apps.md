@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Wat zijn Logic Apps?" 
-    description="Meer informatie over Logic Apps in App Service" 
+    description="Meer informatie over App Service Logic Apps" 
     authors="kevinlam1" 
     manager="dwrede" 
     editor="" 
@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article" 
-    ms.date="07/12/2016"
+    ms.date="10/12/2016"
     ms.author="klam"/>
 
-#Wat zijn Logic Apps?
+
+# <a name="what-are-logic-apps?"></a>Wat zijn Logic Apps?
 
 Logic Apps biedt een manier om schalbare integraties en workflows in de cloud te vereenvoudigen en te implementerne. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom.  Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocols.  een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties acties, conversies en voorwaardleijke logica beginnen.
 
@@ -41,7 +42,7 @@ Zoals eerder vermeld kunt u met Logic Apps bedrijfsprocessen automatiseren. Hier
 
 Dergelijke scenario's kunnen worden geconfigureerd via de visuele ontwerper, zonder dat hiervoor ook maar één regel code hoeft te worden geschreven. Ga nu aan de slag met het [bouwen van een logische app][maken].  Na het schrijven - kan een logische app[snel worden geïmplementeerd en opnieuw geconfigureerd](app-service-logic-create-deploy-template.md) over verschillende omgevingen en regio’s.
 
-## Waarom Logic Apps?
+## <a name="why-logic-apps?"></a>Waarom Logic Apps?
 
 Logic App brengt snelheid en schaalbaarheid naar de integratieruimte van de onderneming.  Het gebruiksgemak van de ontwerper, de diversiteit van beschikbare triggers en acties en krachtige beheerstools maken het centraliseren van uw API’s eenvoudiger dan ooit.  Aangezien bedrijven steeds meer streven naar digitalisering, kunt u met Logic Apps oude en ultramoderne systemen met elkaar verbinden.
 
@@ -57,7 +58,7 @@ Bovendien kunt u met onze [Enterprise Integration Account][biztalk] schalen naar
 
 - **Echte paardenkracht bij integratie** - Start eenvoudig en groei wanneer dat nodig is. Met Logic Apps kunt u de kracht van BizTalk, de toonaangevende integratieoplossing van Microsoft, gebruiken om integratieprofessionals de oplossingen te laten bouwen die ze nodig hebben. Meer informatie over het [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
 
-## Concept van Logic Apps
+## <a name="logic-app-concepts"></a>Concept van Logic Apps
 
 In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic Apps. 
 
@@ -67,23 +68,23 @@ In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic App
 -  **Acties** - Elke stap na de trigger in een werkstroom wordt een actie genoemd. Elke actie verwijst normaal naar een bewerking op uw beheerde connector of aangepaste API-apps.
 - **Enterprise Integration Pack** - Voor meer geavanceerde integratiescenario’s omvat Logic Apps functies van BizTalk. BizTalk is Microsoft’s toonaangevende integratieplatform. De Enterprise Integration Pack-connectoren zorgen ervoor dat u gemakkelijk validering, transpformatie en meer kunt opnemen in uw Logic App-workflows.
 
-## Aan de slag  
+## <a name="getting-started"></a>Aan de slag  
 
 - Als u aan de slag wilt met Logic Apps, volgt u de zelfstudie [Create a Logic App][maken] (Een logische app maken).  
 - [Algemene voorbeelden en scenario's weergeven](app-service-logic-examples-and-scenarios.md)
-- [Met Logic Apps kunt u bedrijfsprocessen automatiseren.](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Met Logic Apps kunt u bedrijfsprocessen automatiseren](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Meer informatie over hoe u Logic Apps kunt integreren in uw systemen](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [maken]: app-service-logic-create-a-logic-app.md
-[beheerdeapi‘s]: ../connectors/apis-list.md
+[managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-enterprise-integration-accounts.md
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [sjablonen]: app-service-logic-use-logic-app-templates.md
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

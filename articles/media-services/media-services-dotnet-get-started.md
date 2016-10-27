@@ -13,32 +13,31 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
+    ms.date="10/11/2016"
     ms.author="juliako"/>
 
 
-# Aan de slag met het leveren van inhoud on demand met .NET SDK
 
+# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Aan de slag met het leveren van inhoud on demand met .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 >[AZURE.NOTE]
 > U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. 
  
-##Overzicht 
+##<a name="overview"></a>Overzicht 
 
 In deze zelfstudie leert u een eenvoudige toepassing voor de levering van VoD-inhoud (Video-on-Demand) te implementeren met Azure Media Services door gebruik te maken van de Azure Media Services (AMS) SDK voor .NET.
 
 
 In deze zelfstudie maakt u kennis met de algemene werkstroom voor Media Services en de meest algemene programmeerobjecten en -taken die zijn vereist voor het ontwikkelen van Media Services. Wanneer u de zelfstudie hebt voltooid, kunt u een voorbeeldmediabestand streamen of progressief downloaden dat u hebt eerder hebt geüpload, gecodeerd of gedownload.
 
-## Wat u leert
+## <a name="what-you'll-learn"></a>Wat u leert
 
 De zelfstudie laat zien hoe u de volgende taken uitvoert:
 
-1.  Een Media Services-account maken (met de klassieke Azure-portal).
-2.  Het streaming-eindpunt configureren (met de portal).
+1.  Een Media Services-account (met Azure Portal).
+2.  Een streaming-eindpunt configureren (met Azure Portal).
 3.  Een Visual Studio-project maken en configureren.
 5.  Verbinding maken met het Azure Media Services-account.
 6.  Een nieuwe asset maken en een videobestand uploaden.
@@ -46,7 +45,7 @@ De zelfstudie laat zien hoe u de volgende taken uitvoert:
 8.  De asset publiceren en URL's voor streamen en progressief downloaden ophalen.
 9.  Testen door uw inhoud af te spelen.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
@@ -58,74 +57,78 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
 
 
-##Voorbeeld downloaden
+##<a name="download-sample"></a>Voorbeeld downloaden
 
 U kunt [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/) een voorbeeld ophalen en uitvoeren.
 
-##Een Media Services-account maken met de portal
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
 
-1. Klik in de klassieke Azure-portal achtereenvolgens op **Nieuw**, **Media Service** en **Snelle invoer**.
+In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
-    ![Media Services voor snelle invoer](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
 
-2. Voer bij **NAAM** de naam van het nieuwe account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
+    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. Selecteer bij **REGIO** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven.
+3. Voer bij **MEDIA SERVICES-ACCOUNT MAKEN** de vereiste waarden in.
 
-4. Selecteer bij **OPSLAGACCOUNT** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount in dezelfde geografische regio als uw Media Services-account selecteren of u kunt een nieuw opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt.
+    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    
+    1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
+    2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
+    
+    2. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](resource-group-overview.md#resource-groups) voor meer informatie.
+    3. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
+    
+    3. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
 
-5. Als u een nieuw opslagaccount hebt gemaakt, voert u bij **NAAM VAN NIEUW OPSLAGACCOUNT** een naam voor het opslagaccount in. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
+        Klik [hier](storage-introduction.md) voor meer informatie over opslag.
 
-6. Klik onder aan het formulier op **Snelle invoer**.
+    4. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
+    
+7. Klik op **Maken** onder in het formulier.
 
-U kunt de status van het proces in het berichtgedeelte aan de onderkant van het venster bewaken.
+    Als het account is gemaakt, wordt de status gewijzigd in **Actief**. 
 
-Als het account is gemaakt, wordt de status gewijzigd in **Actief**.
+    ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-Onder aan de pagina wordt de knop **SLEUTELS BEHEREN** weergegeven. Als u op deze knop klikt, wordt een dialoogvenster met de naam van het Media Services-account en de primaire en secundaire sleutel weergegeven. U hebt de accountnaam en de gegevens van de primaire sleutel nodig om programmatisch toegang te krijgen tot het Media Services-account.
+    Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
 
-![Media Services-pagina](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Streaming-eindpunten configureren met Azure Portal
 
-Wanneer u dubbelklikt op de accountnaam, wordt standaard de pagina **Quick Start** weergegeven. Met deze pagina kunt u bepaalde beheertaken uitvoeren die ook beschikbaar zijn op andere pagina's van de portal. U kunt bijvoorbeeld via deze pagina een videobestand uploaden of u via de pagina INHOUD.
+Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming aan de clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
 
-##Een streaming-eindpunt configureren met de portal
-
-Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. De client kan met Adaptive Bitrate Streaming overschakelen op een hogere of lagere bitrate stream, wanneer de video wordt weergegeven op basis van de huidige bandbreedte, het huidige CPU-gebruik en andere factoren. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
-
-U kunt dynamische pakketten met Media Services maken, zodat u uw Adaptive Bitrate MP4-inhoud of met Smooth Streaming gecodeerde inhoud in de streaming-indelingen kunt leveren die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming, HDS) zonder dat u opnieuw verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
+Media Services biedt dynamische pakketten zodat u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming, HDS) zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
 
 Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
 
-- Codeer of transcodeer uw tussentijds (bron)bestand in een set Adaptive Bitrate MP4-bestanden of Adaptive Bitrate Smooth Streaming-bestanden (de coderingsstappen worden verderop in deze zelfstudie uitgelegd).
-- Haal ten minste één streaming-eenheid op voor het **streaming-eindpunt** van waaruit u uw inhoud wilt leveren.
+- Codeer uw tussentijds (bron)bestand in een set Adaptive Bitrate MP4-bestanden (de coderingsstappen worden verderop in deze zelfstudie uitgelegd).  
+- Maak ten minste één streaming-eenheid voor het *streaming-eindpunt* van waaruit u uw inhoud wilt leveren. De volgende stappen laten zien hoe u het aantal streaming-eenheden wijzigt.
 
 Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
-Ga als volgt te werk als u het aantal eenheden wilt wijzigen dat voor streaming is gereserveerd:
-
-1. Klik in de [portal](https://manage.windowsazure.com/) op **Media Services**. Klik vervolgens op de naam van de mediaservice.
-
-2. Selecteer de pagina STREAMING-EINDPUNTEN. Klik vervolgens op het streaming-eindpunt dat u wilt wijzigen.
-
-3. Geef het aantal streaming-eenheden op door op het tabblad SCHAAL te klikken en vervolgens de schuifregelaar voor **gereserveerde capaciteit** te verplaatsen.
-
-    ![De pagina Schaal](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
-
-4. Druk op **OPSLAAN** om uw wijzigingen op te slaan.
-
-Het duurt ongeveer twintig minuten tot de toewijzing van nieuwe eenheden is voltooid.
-
->[AZURE.NOTE] Als u op dit moment van een positieve waarde voor de streaming-eenheden naar geen streaming-eenheden gaat, kan het streamen voor maximaal één uur worden uitgeschakeld.
->
-> Het hoogste aantal eenheden dat is opgegeven voor de periode van 24 uur, wordt gebruikt bij het berekenen van de kosten. Zie [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107) (Informatie over Media Services-prijzen) voor informatie over prijzen.
+Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
 
 
+1. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
 
-##Maak en configureer een Visual Studio-project.
+2. Klik op het standaardstreaming-eindpunt. 
+
+    Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
+
+3. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
+
+    ![Streaming-eenheden](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+
+4. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
+
+    >[AZURE.NOTE]Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
+
+##<a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
 1. Maak een nieuwe C#-consoletoepassing in Visual Studio 2013, Visual Studio 2012 of Visual Studio 2010 SP1. Geef de **naam**, **locatie** en **naam van de oplossing** op en klik vervolgens op **OK**.
 
-2. Gebruik het[windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet-pakket om **Azure Media Services .NET SDK Extensions** te installeren.  Media Services .NET SDK Extensions bevat een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en het u gemakkelijker maken om met Media Services toepassingen te ontwikkelen. Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
+2. Gebruik het [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet-pakket om **Azure Media Services .NET SDK Extensions** te installeren.  Media Services .NET SDK Extensions bevat een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en het u gemakkelijker maken om met Media Services toepassingen te ontwikkelen. Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
 
 3. Voeg een verwijzing naar de System.Configuration-assembly toe. Deze assembly bevat de klasse **System.Configuration.ConfigurationManager** die wordt gebruikt voor toegang tot de configuratiebestanden, bijvoorbeeld App.config.
 
@@ -155,7 +158,7 @@ Het duurt ongeveer twintig minuten tot de toewijzing van nieuwe eenheden is volt
 
 6. Maak een nieuwe map in de projectdirectory en kopieer het MP4- of WMV-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad C:\VideoFiles gebruikt.
 
-##Verbinding met het Azure Media Services-account maken
+##<a name="connect-to-the-media-services-account"></a>Verbinding met het Azure Media Services-account maken
 
 Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-programmeertaken de klasse **CloudMediaContext** gebruiken: verbinding maken met het Media Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende objecten: assets, assetbestanden, taken, toegangsbeleid, locators enzovoort.
 
@@ -210,7 +213,7 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
             }
         }
 
-##Een nieuwe asset maken en een videobestand uploaden
+##<a name="create-a-new-asset-and-upload-a-video-file"></a>Een nieuwe asset maken en een videobestand uploaden
 
 In Media Services moet u uw digitale bestanden uploaden naar (of opnemen in) een asset. De entiteit **Asset** kan video, audio, afbeeldingen, verzamelingen miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens over deze bestanden) bevatten.  Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming. De bestanden in de asset worden **assetbestanden** genoemd.
 
@@ -246,9 +249,9 @@ Voeg de volgende methode toe aan de klasse Program.
     }
 
 
-##Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden
+##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden
 
-Nadat assets zijn opgenomen in Media Services, kan de media worden gecodeerd, transmuxed, van een watermerk worden voorzien enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd en elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand.
+Nadat assets zijn opgenomen in Media Services, kan de media worden gecodeerd, transmuxed, van een watermerk worden voorzien enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd. Elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand.
 
 Zoals eerder al is aangegeven, wordt bij het werken met Azure Media Services meestal Adaptive Bitrate Streaming aan de clients geleverd. Met Media Services kunt u een dynamisch pakket met een van de volgende indelingen van MP4-bestanden met een adaptieve bitsnelheid maken: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH en HDS (alleen voor licentiehouders van Adobe PrimeTime/Access).
 
@@ -298,7 +301,7 @@ Voeg de volgende methode toe aan de klasse Program.
         return outputAsset;
     }
 
-##De asset publiceren en URL's ophalen voor streamen en progressief downloaden
+##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>De asset publiceren en URL's ophalen voor streamen en progressief downloaden
 
 Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden.
 
@@ -392,7 +395,7 @@ Voeg de volgende methode toe aan de klasse Program.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Testen door uw inhoud af te spelen  
+##<a name="test-by-playing-your-content"></a>Testen door uw inhoud af te spelen  
 
 Zodra u het programma uitvoert dat in de vorige sectie is gedefinieerd, worden er URL's in het consolevenster weergegeven die vergelijkbaar zijn met de volgende URL's.
 
@@ -434,16 +437,16 @@ Gebruik [Azure Media Services Player](http://amsplayer.azurewebsites.net/azureme
 Als u het progressief downloaden wilt testen, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome of Safari).
 
 
-##Volgende stappen: Media Services-leertrajecten
+##<a name="next-steps:-media-services-learning-paths"></a>Volgende stappen: Media Services-leertrajecten
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Feedback geven
+##<a name="provide-feedback"></a>Feedback geven
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-### Zoekt u iets anders?
+### <a name="looking-for-something-else?"></a>Zoekt u iets anders?
 
 Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of het onderwerp op een andere manier niet aan uw behoeften voldoet, kunt u ons via de onderstaande Disqus-thread feedback geven.
 
@@ -457,6 +460,6 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -4,7 +4,7 @@
     keywords="asp.net mvc-zelfstudie, ontwikkelen van webtoepassingen, mvc-webtoepassing, asp net mvc zelfstudie stapsgewijs"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -16,7 +16,8 @@
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
 
@@ -44,7 +45,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het vol
 
 Alle schermopnamen in dit artikel zijn gemaakt in Visual Studio 2013 met update 4 en de Azure SDK voor .NET versie 2.5.1. Als uw systeem is geconfigureerd met verschillende versies, is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
-## <a name="_Toc395637761"></a>Stap 1: een DocumentDB-databaseaccount maken
+## <a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
 
 Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt u doorgaan met [Een nieuwe ASP.NET MVC-toepassing maken](#_Toc395637762).
 
@@ -55,7 +56,7 @@ Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt 
 <br/>
 U kunt nu zien hoe u een compleet nieuwe ASP.NET MVC-toepassing maakt. 
 
-## <a name="_Toc395637762"></a>Stap 2: een nieuwe ASP.NET MVC-toepassing maken
+## <a name="_Toc395637762"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
 
 Nu u een account hebt, kunt u een nieuw ASP.NET-project maken.
 
@@ -117,7 +118,7 @@ Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunnen
     ![Schermopname van de twee verwijzingen die zijn toegevoegd aan het JSON-gegevensproject in Solution Explorer](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="_Toc395637763"></a>Stap 4: de ASP.NET MVC-toepassing instellen
+## <a name="_Toc395637763"></a>Stap 4: De ASP.NET MVC-toepassing instellen
  
 U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassing:
 
@@ -199,7 +200,7 @@ Laten we nu de **V**, de weergaven, in MVC maken:
 - [Een weergave toevoegen voor het bewerken van items](#_Toc395888515).
 
 
-#### <a name="AddItemIndexView"></a>Een weergave voor een itemindex toevoegen
+#### <a name="AddItemIndexView"></a>Een weergave toevoegen voor een itemindex
 
 1. Vouw in **Solution Explorer** de map **Weergaven** uit en klik met de rechtermuisknop op de lege map **Item** die Visual Studio voor u heeft gemaakt toen u **ItemController** hebt toegevoegd. Klik vervolgens op **Toevoegen** en **Weergave**.
 
@@ -228,7 +229,7 @@ We kunnen op ongeveer dezelfde manier als voor de weergave **Itemindex** nu een 
     - Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
     - Laat het vak **Data context class** (Gegevenscontextklasse) leeg.
     - Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
-    - Klik op **Toevoegen**.
+    - Klik op **Add**.
 
 #### <a name="_Toc395888515"></a>Een weergave toevoegen voor het bewerken van items
 
@@ -538,7 +539,7 @@ Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken
 
 Meer hoeft u niet te doen om uw toepassing uit te voeren, onvolledige **Items** weer te geven, nieuwe **Items** toe te voegen en **Items** te bewerken.
 
-## <a name="_Toc395637773"></a>Stap 6: de toepassing lokaal uitvoeren
+## <a name="_Toc395637773"></a>Stap 6: De toepassing lokaal uitvoeren
 
 Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
@@ -564,7 +565,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
 4. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-## <a name="_Toc395637774"></a>Stap 7: de toepassing implementeren naar Azure Websites
+## <a name="_Toc395637774"></a>Stap 7: De toepassing implementeren naar Azure Websites
 
 Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app implementeren naar Azure Websites. Als u **Host in the cloud** (In de cloud hosten) hebt geselecteerd toen u het lege ASP.NET MVC-project hebt gemaakt, kunt u de web-app vrij eenvoudig met Visual Studio implementeren en doet Visual Studio het meeste werk voor u. 
 
@@ -587,13 +588,13 @@ Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschik
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[webplatforminstallatieprogramma van Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
+[Webplatforminstallatieprogramma voor Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [Voorkomen van aanvraagvervalsing op meerdere sites]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Eenvoudige CRUD-bewerkingen in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 
