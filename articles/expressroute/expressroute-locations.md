@@ -12,11 +12,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
 
-# Partners en peeringlocaties voor ExpressRoute
+# <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
 In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
 
@@ -46,22 +46,23 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 |---|---|---|---|
 |**Cloud van de Amerikaanse overheid**|VS (overheid) - Iowa, VS (overheid) - Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China Noord, China Oost|Beijing, Shanghai|
-|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn+, Frankfurt|
+|**Duitsland**|Duitsland Centraal, Duitsland Oost|Berlijn, Frankfurt|
 
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
 
-## Locaties van connectiviteitsproviders
+## <a name="connectivity-provider-locations"></a>Locaties van connectiviteitsproviders
 
 > [AZURE.SELECTOR]
 [Locaties per provider](expressroute-locations.md#connectivity-provider-locations)
 [Providers per locatie](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Productie-Azure
+### <a name="production-azure"></a>Productie-Azure
 
 | **Serviceprovider**  |**Microsoft Azure** | **Office 365 en CRM Online** | **Locaties** |
 |-----------------------|--------------------|----------------|---------------|
+| **AARNet** | Ondersteund | Ondersteund | Melbourne, Sydney |
 | **[Aryaka Networks]( http://www.aryaka.com/)** | Ondersteund | Ondersteund | Amsterdam, Silicon Valley, Singapore, Tokio, Washington DC |
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Ondersteund | Ondersteund | Amsterdam, Chicago, Dallas, Londen, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Ondersteund | Ondersteund | Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
@@ -73,7 +74,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Ondersteund | Ondersteund | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Ondersteund | Ondersteund | Amsterdam, Atlanta, Chicago, Dallas, Hongkong, Londen, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **euNetworks** |  Ondersteund | Ondersteund | Amsterdam |
-| **GÉANT** | Binnenkort beschikbaar | Binnenkort beschikbaar | Amsterdam+ |
+| **GÉANT** | Ondersteund | Ondersteund | Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Ondersteund | Ondersteund | Osaka, Tokio |
 | **[InterCloud]( https://www.intercloud.com/)** | Ondersteund | Ondersteund | Amsterdam, Londen, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Ondersteund | Ondersteund | Amsterdam, Londen |
@@ -99,9 +100,9 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 
  **+** betekent binnenkort beschikbaar
 
-### Nationale cloudomgevingen
+### <a name="national-cloud-environments"></a>Nationale cloudomgevingen
 
-#### Cloud van de Amerikaanse overheid
+#### <a name="us-government-cloud"></a>Cloud van de Amerikaanse overheid
 
 | **Serviceprovider**  |**Microsoft Azure** | **Office 365** | **Locaties** |
 |-----------------------|--------------------|----------------|---------------|
@@ -110,20 +111,20 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Ondersteund | Ondersteund | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Ondersteund | Ondersteund | Chicago, Dallas+, New York, Washington DC |
 
-#### China
+#### <a name="china"></a>China
 
 | **Serviceprovider**  |**Microsoft Azure** | **Office 365** | **Locaties** |
 |-----------------------|--------------------|----------------|---------------|
 | **China Telecom** | Ondersteund | Niet ondersteund | Beijing, Shanghai|
 Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) voor meer informatie.
 
-#### Duitsland
+#### <a name="germany"></a>Duitsland
 
 | **Serviceprovider**  |**Microsoft Azure** | **Office 365** | **Locaties** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Ondersteund | Niet ondersteund | Berlijn+, Frankfurt|
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Binnenkort beschikbaar | Niet ondersteund | Frankfurt+|
-| **e-shelter** | Binnenkort beschikbaar | Niet ondersteund | Berlijn+|
+| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Ondersteund | Niet ondersteund | Berlijn, Frankfurt|
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Ondersteund | Niet ondersteund | Frankfurt|
+| **e-shelter** | Ondersteund | Niet ondersteund | Berlijn|
 | **Interxion** | Ondersteund | Niet ondersteund | Frankfurt|
 
 ## <a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
@@ -143,7 +144,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 - Vraag een ExpressRoute-circuit aan met het exchange-punt wanneer uw connectiviteitsprovider verbinding maakt met Microsoft.
     - Volg de stappen in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken) om connectiviteit in te stellen.
 
-|**Connectiveitsprovider**|**Exchange**|**Locaties**|
+|**Connectiviteitsprovider**|**Exchange**|**Locaties**|
 |---|---|---|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapore|
 |**Alaska Communications**|Equinix|Seattle|
@@ -151,7 +152,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 
-## ExpressRoute-SI's
+## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
 
 Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.
 
@@ -164,7 +165,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | VS |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | VS |
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 - Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
@@ -174,6 +175,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO2-->
 
 

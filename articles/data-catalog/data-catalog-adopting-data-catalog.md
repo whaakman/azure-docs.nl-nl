@@ -3,7 +3,7 @@
     description="Dit artikel bevat een benadering en proces voor organisaties die overwegen om over te stappen op Azure Data Catalog, met inbegrip van het definiëren van een visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden en het kiezen van een proefproject."
     services="data-catalog"
     documentationCenter=""
-    authors="spelluru"
+    authors="steelanddata"
     manager="NA"
     editor=""
     tags=""/>
@@ -13,12 +13,12 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/25/2016"
-    ms.author="spelluru"/>
+    ms.date="10/11/2016"
+    ms.author="maroche"/>
 
 
 # Overstappen op Azure Data Catalog
-Dit artikel helpt u aan de slag te gaan met de overstap op **Azure Data Catalog** in uw organisatie. Als u wilt overstappen op **Azure Data Catalog**, wilt u zich richten op drie essentiële items: het definiëren van uw visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden binnen uw organisatie en het kiezen van een proefproject.
+Dit artikel helpt u aan de slag te gaan met de overstap op **Azure Data Catalog** in uw organisatie. Als u wilt overstappen op **Azure Data Catalog**, richt u zich op drie essentiële items: het definiëren van uw visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden binnen uw organisatie en het kiezen van een proefproject.
 
 ## Introductie van de Azure Data Catalog
 In de wereld van werk hebben mensen tegenwoordig andere verwachtingen van hoe ze deskundige informatie over gegevensassets willen kunnen vinden. Vandaag de dag verwachten mensen dat ze snel hulp en advies kunnen krijgen over een breed scala aan onderwerpen via het wijdverbreide gebruik van sociale media-programma's zoals Yammer op de werkplek. **Azure Data Catalog** helpt bedrijven en teams informatie over zakelijke gegevensassets samen te voegen in een centrale opslagplaats, waar gebruikers van gegevens beschikbare gegevensbronnen kunnen detecteren en kennis kunnen opdoen die is bijgedragen door deskundigen.
@@ -30,13 +30,13 @@ Dit artikel biedt een benadering om aan de slag te gaan met **Azure Data Catalog
 **Azure Data Catalog** is een volledig beheerde service in Azure en een catalogus met informatie van de hele onderneming (metagegevens) waarmee gegevensbronnen via self-service kunnen worden gedetecteerd. Met Data Catalog registreert, detecteert, annoteert en maakt u verbinding met gegevensassets. Data Catalog is bedoeld voor het beheren van ongelijksoortige gegevensassets zodat ze gemakkelijk te vinden zijn. Hierdoor kunnen gebruikers meer informatie krijgen over de gegevensassets die ze vinden en verbinding maken met deze gegevensassets. Dit leidt tot sneller inzicht en een hogere meerwaarde voor organisaties. Zie voor meer informatie [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 
 ## Plan voor overstap op Azure Data Catalog
-In een plan voor de overstap op **Azure Data Catalog** wordt omschreven hoe de voordelen van het gebruik van de Data Catalog-service worden gecommuniceerd naar belanghebbenden en gebruikers, alsmede welke soorten training u biedt aan gebruikers van de service. Een belangrijke factor voor een succesvolle overstap op Data Catalog is hoe effectief u de meerwaarde van de service communiceert naar gebruikers en belanghebbenden. De primaire doelgroep van een eerste overstapplan zijn de gebruikers van de service. Het maakt niet uit hoe betrokken belanghebbenden zijn, want als de gebruikers of klanten van uw aanbod van Data Catalog het niet dagelijks gebruiken, is de overstap niet geslaagd. Daarom wordt er in dit artikel van uitgegaan dat belanghebbenden betrokken zijn, en wordt de nadruk gelegd op het maken van een plan om de gebruiker te laten overstappen op Data Catalog.
-Bij een effectief overstapplan maken mensen kennis met de mogelijkheden van Data Catalog en krijgen ze de informatie en begeleiding om dit te bereiken. Gebruikers moeten begrijpen hoeveel meerwaarde Data Catalog biedt zodat ze kunnen slagen in hun werk. Wanneer mensen zien hoe ze met behulp van Data Catalog meer resultaten met gegevens kunnen behalen, wordt duidelijk wat de meerwaarde is van een overstap op Data Catalog. Verandering is moeilijk, dus een doeltreffend plan moet rekening houden met de uitdagingen van verandering.
+In een plan voor de overstap op **Azure Data Catalog** wordt omschreven hoe de voordelen van het gebruik van de Data Catalog-service worden gecommuniceerd naar belanghebbenden en gebruikers, en welke soorten training u biedt aan gebruikers van de service. Een belangrijke factor voor een succesvolle overstap op Data Catalog is hoe effectief u de meerwaarde van de service communiceert naar gebruikers en belanghebbenden. De primaire doelgroepen van een eerste overstapplan zijn de gebruikers van de service. Het maakt niet uit hoe betrokken belanghebbenden zijn, want als de gebruikers of klanten van Data Catalog dit niet dagelijks gebruiken, is de overstap niet geslaagd. Daarom wordt er in dit artikel van uitgegaan dat belanghebbenden betrokken zijn en wordt de nadruk gelegd op het maken van een plan om de gebruiker te laten overstappen op Data Catalog.
+Bij een effectief overstapplan maken mensen kennis met de mogelijkheden van Data Catalog en krijgen ze de informatie en begeleiding om dit te bereiken. Gebruikers moeten begrijpen hoeveel meerwaarde Data Catalog biedt zodat ze kunnen slagen in hun werk. Wanneer mensen zien hoe ze met behulp van Data Catalog meer resultaten kunnen behalen met gegevens, wordt het heel duidelijk wat de meerwaarde is van een overstap op Data Catalog. Verandering is moeilijk, dus een doeltreffend plan moet rekening houden met de uitdagingen van verandering.
 
-Met een overstapplan kunt u communiceren wat mensen absoluut nodig hebben om te slagen en hun doelstellingen te realiseren. In een gebruikelijk plan wordt uitgelegd hoe Data Catalog de levens van gebruikers eenvoudiger maakt en zijn de volgende onderdelen opgenomen:
+Met een overstapplan kunt u communiceren wat mensen absoluut nodig hebben om te slagen en hun doelstellingen te realiseren. In een typerend plan wordt uitgelegd hoe Data Catalog de levens van gebruikers eenvoudiger maakt. In het plan zijn de volgende onderdelen opgenomen:
 
--   **Uitleg visie** - aan de hand van de visie kunt u het overstapplan kort en bondig bespreken met gebruikers en beheerders. Het is uw korte presentatie.
--   **Testteam en gebruikers met invloed** - als u leert van een testteam en gebruikers met invloed, kunt u de introductie van Data Catalog aan teams en gebruikers verfijnen. Gebruikers met invloed kunnen medegebruikers coachen. Hiermee kunt u ook bepalen welke factoren de overstap blokkeren en stimuleren.
+-   **Uitleg visie**: Aan de hand van de visie kunt u het overstapplan kort en bondig bespreken met gebruikers en beheerders. Het is uw korte presentatie.
+-   **Testteam en gebruikers met invloed**: Als u leert van een testteam en gebruikers met invloed, kunt u de introductie van Data Catalog aan teams en gebruikers verfijnen. Gebruikers met invloed kunnen medegebruikers coachen. Hiermee kunt u ook bepalen welke factoren de overstap blokkeren en stimuleren.
 -   **Plan voor communicatie en enthousiasme** - dit helpt gebruikers begrijpen hoe Data Catalog ze kan helpen, en kan zorgen voor organische acceptatie binnen teams en uiteindelijk de hele organisatie.
 -   **Trainingsplan** - uitgebreide training leidt over het algemeen tot een succesvolle overstap en goede resultaten.
 
@@ -49,17 +49,17 @@ Hier volgen enkele tips voor het definiëren van uw visie:
 
 -   **De belangrijkste stimulans voor implementatie identificeren** - denk na over de specifieke behoeften voor beheer van gegevensbronnen in het bedrijf waaraan Data Catalog kan voldoen. Dit helpt u ook om aan te geven wat de belangrijkste voordelen zijn van het gebruik van Data Catalog. Mogelijk zijn er bijvoorbeeld algemene gegevensbronnen waar alle nieuwe medewerkers mee moeten leren werken, of belangrijke en complexe gegevensbronnen waarvan slechts enkele personen diepgaande kennis hebben. **Azure Data Catalog** kan ervoor zorgen dat deze gegevensbronnen sneller worden gedetecteerd en begrepen, zodat deze bekende knelpunten direct en vroeg in de overstap op de service kunnen worden verholpen.
 
--   **Wees helder en duidelijk** - als iedereen de visie duidelijk begrijpt, denkt iedereen met elkaar mee over de waarde die Data Catalog toevoegt aan de organisatie en hoe de visie ondersteuning biedt voor organisatiedoelstellingen.
+-   **Wees helder en duidelijk**: Als iedereen de visie goed begrijpt, denken alle betrokkenen met elkaar mee over de waarde die Data Catalog toevoegt aan de organisatie en over de wijze waarop de visie ondersteuning biedt voor organisatiedoelstellingen.
 
 -   **Inspireer mensen tot het gebruik van Data Catalog** - uw visie en communicatieplan dienen ter inspiratie, zodat mensen inzien dat ze met Data Catalog gegevensbronnen kunnen vinden en verbinden om zo meer te bereiken met gegevens.
 
--   **Stel specifieke doelen en maak een tijdlijn** - hiermee zorgt u ervoor dat uw overstapplan specifieke, haalbare doelen bevat. Met een tijdlijn blijft iedereen gefocust en kunt u succes meten aan de hand van controlepunten.
+-   **Geef specifieke doelen en een tijdlijn op**: Hiermee zorgt u ervoor dat uw overstapplan specifieke, haalbare doelen bevat. Met een tijdlijn blijft iedereen gefocust en kunt u succes meten aan de hand van controlepunten.
 
 Hier vindt u een voorbeeld van een visie voor een overstapplan naar Data Catalog voor het fictieve bedrijf Adventure Works.
 
-**Azure Data Catalog** zorgt ervoor dat het financiële team van Adventure Works kan samenwerken aan belangrijke databronnen, zodat elk teamlid de gegevens die ze nodig heeft eenvoudig kan vinden en haar kennis kan delen met het hele team.
+**Azure Data Catalog** zorgt ervoor dat het financiële team van Adventure Works kan samenwerken aan belangrijke databronnen, zodat alle teamleden de gegevens die ze nodig hebben, eenvoudig kunnen vinden en hun kennis kunnen delen met het hele team.
 
-Zodra u een heldere visie hebt gemaakt, moet u een geschikt proefproject bepalen voor Data Catalog. Over het algemeen zijn er verschillende scenario's voor Data Catalog. Daarom bevat de volgende sectie een aantal tips om te relevante gebruiksvoorbeelden te herkennen.
+Zodra u een heldere visie hebt gemaakt, moet u een geschikt proefproject bepalen voor Data Catalog. Er zijn verschillende scenario's voor Data Catalog. Daarom bevat de volgende sectie een aantal tips om relevante gebruiksvoorbeelden te herkennen.
 
 ## Zakelijke gebruiksvoorbeelden van Data Catalog identificeren
 Om gebruiksvoorbeelden te identificeren die relevant voor Data Catalog zijn, spreekt u met experts van verschillende bedrijfseenheden over relevante gebruiksvoorbeelden en op te lossen zakelijke problemen. Kijk welke problemen anderen hebben bij het identificeren van en inzicht krijgen in gegevensassets. Bijvoorbeeld, leren teams pas meer over gegevensassets nadat ze verschillende mensen binnen de organisatie hebben gevraagd wie relevante gegevensbronnen heeft?
@@ -91,7 +91,7 @@ Dit zijn slechts enkele gebruiksvoorbeelden voor **Azure Data Catalog**. Voor me
 Wanneer u enkele gebruiksvoorbeelden voor Data Catalog hebt geïdentificeerd, komen er algemene scenario's naar voren. In de volgende sectie wordt beschreven hoe u uw eerste proefproject identificeert op basis van een gebruiksvoorbeeld.
 
 ## Een proefproject van Data Catalog kiezen
-Een belangrijke succesfactor is vereenvoudigen en klein beginnen. Een goed gedefinieerde proef met een beperkt bereik zorgt ervoor dat het project vooruitgang boekt, maar niet te complex is of te veel deelnemers heeft. Het is echter ook belangrijk om verschillende soorten gebruikers te hebben, van vroege gebruikers tot sceptici. Gebruikers die open staan voor de oplossing helpen u bij het verfijnen van uw toekomstige communicatie en plan voor het wekken van enthousiasme. Sceptici helpen u bij het identificeren en oplossen van problemen met blokkeringen. Zodra sceptici voorstanders worden, kunt u hun feedback gebruiken om succesfactoren te identificeren.
+Een belangrijke succesfactor is vereenvoudigen en klein beginnen. Een goed gedefinieerde proef met een beperkt bereik zorgt ervoor dat het project vooruitgang boekt, maar niet te complex is of te veel deelnemers heeft. Het is echter ook belangrijk om verschillende soorten gebruikers te hebben, van vroege gebruikers tot sceptici. Gebruikers die open staan voor de oplossing, helpen u bij het verfijnen van uw toekomstige communicatie en plan voor het wekken van enthousiasme. Sceptici helpen u bij het identificeren en oplossen van problemen met blokkeringen. Zodra sceptici voorstanders worden, kunt u hun feedback gebruiken om succesfactoren te identificeren.
 
 Uw proefplan moet rekening houden met zakelijke doelstellingen die u wilt behalen met Data Catalog. Terwijl u leert van de eerste proef, kunt u uw gebruikersgroep uitbreiden. Een eerste gesloten proef is handig om meetbaar succes tot stand te brengen, maar het einddoel is organische of zeer snelle groei. Met organische groei van Data Catalog hebben gebruikers controle over het gebruik van hun eigen gegevens. Daarmee kunnen ze anderen beïnvloeden en aansporen om over te stappen op en bij te dragen aan de catalogus.
 
@@ -105,7 +105,7 @@ In uw eerste proefproject neemt u enkele personen op die gegevens produceren en 
 
 **Gegevensgebruikers** zijn mensen met expertise over het gebruik van gegevens om bedrijfsproblemen op te lossen. Nancy is bijvoorbeeld een bedrijfsanalist die gegevensbronnen van SQL Server bij Adventure Works gebruikt om gegevens te analyseren.
 
-Een van de bedrijfsproblemen die **Azure Data Catalog** oplost is het verbinden van **Gegevensproducenten** met **Gegevensgebruikers**. Data Catalog doet dit door te fungeren als een centrale opslagplaats voor informatie over zakelijke gegevensbronnen. Met behulp van Data Catalog registreert David gegevensbronnen van Adventure Works en SQL Server. Via crowdsourcing kan elke gebruiker die deze gegevensbron detecteert haar mening over de gegevens delen. Ook kan ze gebruikmaken van de gegevens die ze heeft gedetecteerd. Bijvoorbeeld, Nancy detecteert de gegevensbronnen door in de catalogus te zoeken en deelt haar gespecialiseerde kennis over de gegevens.  Anderen in de organisatie profiteren nu van de gedeelde kennis door gewoon in de catalogus met gegevens te zoeken.
+Een van de bedrijfsproblemen die **Azure Data Catalog** oplost, is het verbinden van **gegevensproducenten** met **gegevensgebruikers**. Data Catalog doet dit door te fungeren als een centrale opslagplaats voor informatie over zakelijke gegevensbronnen. Met behulp van Data Catalog registreert David gegevensbronnen van Adventure Works en SQL Server. Via crowdsourcing kan elke gebruiker die deze gegevensbron detecteert haar mening over de gegevens delen. Ook kan ze gebruikmaken van de gegevens die ze heeft gedetecteerd. Bijvoorbeeld, Nancy detecteert de gegevensbronnen door in de catalogus te zoeken en deelt haar gespecialiseerde kennis over de gegevens.  Anderen in de organisatie profiteren nu van de gedeelde kennis door gewoon in de catalogus met gegevens te zoeken.
 
 -   Zie voor meer informatie over het registreren van gegevensbronnen [Gegevensbronnen registreren](data-catalog-get-started.md#exercise-2-registering-data-sources).
 
@@ -121,7 +121,7 @@ In de volgende sectie wordt een voorbeeldproject van het bedrijf Adventure Works
 ### Een voorbeeldproject
 In dit voorbeeld maakt bedrijfsanalist Nancy rapporten voor haar team met behulp van gegevens uit een SQL Server-database. Het probleem is dat ze pas na het praten met verschillende collega’s heeft ontdekt dat de gegevensbron bestaat. Ze zou deze gegevensbronnen snel hebben gevonden als ze waren geregistreerd en aangetekend in een centrale locatie zoals **Azure Data Catalog**.
 
-Als u wilt laten zien hoe eenvoudig Nancy en haar team waardevolle gegevensbronnen kunnen vinden, gebruikt u het hulpprogramma voor registratie van gegevensbronnen om de catalogus met informatie (metagegevens) over de gegevensbronnen te vullen. Op deze manier is de informatie over de database beschikbaar voor het team en de onderneming, in plaats van slechts enkele personen. Nadat gegevensbronnen zijn geregistreerd in Data Catalog, kunnen Nancy en haar team de gegevensbronnen die ze gebruiken eenvoudig vinden. Het resultaat is een uitgebreidere en relevante gegevenscatalogus voor haar team en de onderneming. Als er steeds meer teams overstappen op Data Catalog, zijn gegevensbronnen binnen het bedrijf steeds gemakkelijker te vinden en gebruiken. Daardoor ontstaat er een meer gegevensgerichte cultuur waarin u meer kunt bereiken met uw gegevens.
+Als u wilt laten zien hoe eenvoudig Nancy en haar team waardevolle gegevensbronnen kunnen vinden, gebruikt u het hulpprogramma voor registratie van gegevensbronnen om de catalogus met informatie (metagegevens) over de gegevensbronnen te vullen. Op deze manier is de informatie over de database beschikbaar voor het team en de onderneming, in plaats van slechts enkele personen. Nadat de relevante gegevensbronnen zijn geregistreerd in Data Catalog, kunnen Nancy en haar team deze bronnen gemakkelijk gebruiken. Het resultaat is een uitgebreidere en relevante gegevenscatalogus voor haar team en de onderneming. Als er steeds meer teams overstappen op Data Catalog, zijn gegevensbronnen binnen het bedrijf steeds gemakkelijker te vinden en gebruiken. Daardoor ontstaat er een meer gegevensgerichte cultuur waarin u meer kunt bereiken met uw gegevens.
 
 Zie voor meer informatie over het hulpprogramma voor de registratie van gegevensbronnen [Aan de slag met Azure Data Catalog](data-catalog-get-started.md).
 
@@ -176,6 +176,6 @@ In dit artikel is beschreven hoe u aan de slag kunt met **Azure Data Catalog** i
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

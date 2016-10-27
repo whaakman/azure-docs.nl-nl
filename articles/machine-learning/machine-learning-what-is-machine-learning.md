@@ -69,7 +69,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kunt u snel 
     * [Webservices implementeren](machine-learning-publish-a-machine-learning-web-service.md)
     * [Modellen trainen en opnieuw trainen via API's](machine-learning-retrain-models-programmatically.md)
     * [Webservice-eindpunten beheren](machine-learning-create-endpoint.md)
-    * [Webservices schalen](machine-learning-scaling-endpoints.md)
+    * [Een webservice schalen](machine-learning-scaling-webservice.md)
     * [Webservices gebruiken](machine-learning-consume-web-services.md)
 
 ## Belangrijkste termen en begrippen op het gebied van machine learning
@@ -128,6 +128,6 @@ U kunt zich de basiskennis van predictive analytics en machine learning eigen ma
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

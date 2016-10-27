@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Aan de slag met Azure Mobile Engagement voor Windows Phone Silverlight-apps
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -34,7 +35,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw Windows Phone-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 
@@ -170,6 +171,6 @@ Er moet nu een melding op uw apparaat worden weergegeven, als een in-app-melding
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

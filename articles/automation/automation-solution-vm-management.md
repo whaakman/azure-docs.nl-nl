@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 
 # Oplossing voor VM's starten/stoppen buiten kantooruren [Preview] in Automation
 
-Met de oplossing voor het starten en stoppen van VM's buiten kantooruren (Preview) worden uw virtuele machines voor Azure Resource Manager volgens een door de gebruiker gedefinieerde planning gestart en gestopt. De oplossing biedt inzicht in het slagen van de Automation-taken waarmee uw virtuele machines worden gestart en gestopt met OMS Log Analytics.  
+Met de oplossing voor het starten en stoppen van VM's buiten kantooruren [Preview] worden uw virtuele machines voor Azure Resource Manager volgens een door de gebruiker gedefinieerde planning gestart en gestopt. De oplossing biedt inzicht in het slagen van de Automation-taken waarmee uw virtuele machines worden gestart en gestopt met OMS Log Analytics.  
 
 ## Vereisten
 
@@ -76,8 +76,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Hiermee wordt het abonneme
 
 Planning | Beschrijving|
 ---------|------------|
-StartByResourceGroup-schema-MS-Mgmt | Planning voor runbook StartByResourceGroup.|
-StopByResourceGroup-Schedule-MS-Mgmt | Planning voor runbook StopByResourceGroup.|
+StartByResourceGroup-schema-MS-Mgmt | Planning voor runbook StartByResourceGroup, die de VM’s opstart die door deze oplossing worden beheerd.|
+StopByResourceGroup-Schedule-MS-Mgmt | Planning voor runbook StopByResourceGroup, die de VM’s afsluit die door deze oplossing worden beheerd.|
 
 ### Referenties
 
@@ -92,7 +92,7 @@ Voer de volgende stappen uit om de oplossing voor VM's starten/stoppen buiten ka
 1. Selecteer in het beginscherm in de Azure Portal de tegel **Marketplace**.  Als de tegel niet meer aan het beginscherm is vastgemaakt, selecteert u **Nieuw** in het linker navigatiedeelvenster.  
 2. Typ in de Marketplace-blade **VM starten** in het zoekvak en selecteer vervolgens de oplossing **VM's starten/stoppen buiten kantooruren [Preview]** in de zoekresultaten.  
 3. Controleer de samenvattingsgegevens in de blade **VM's starten/stoppen buiten kantooruren [Preview]** voor de geselecteerde oplossing en klik vervolgens op **Maken**.  
-4. De blade **Oplossing toevoegen** wordt weergegeven, waarin u wordt gevraagd de oplossing te configureren voordat u deze in uw Automation-abonnement kunt importeren.<br><br> ![Blade Oplossing toevoegen voor VM-beheer](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+4. De blade **Oplossing toevoegen** wordt weergegeven. Hierin wordt u gevraagd de oplossing te configureren voordat u deze in uw Automation-abonnement kunt importeren.<br><br> ![Blade Oplossing toevoegen voor VM-beheer](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 5.  Selecteer op de blade **Oplossing toevoegen** de optie **Werkruimte**. Hier selecteert u een OMS-werkruimte die is gekoppeld aan hetzelfde Azure-abonnement als dat van het Automation-account of u maakt een nieuwe OMS-werkruimte.  Als u geen OMS-werkruimte hebt, kunt u **Nieuwe werkruimte maken** selecteren en op de blade **OMS-werkruimte** het volgende uitvoeren: 
    - Geef een naam op voor de nieuwe **OMS-werkruimte**.
    - Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
@@ -113,7 +113,7 @@ Voer de volgende stappen uit om de oplossing voor VM's starten/stoppen buiten ka
 
 8. Selecteer ten slotte op de blade **Oplossing toevoegen** de optie **Configuratie**. De blade **Parameters** wordt weergegeven.  Op de blade **Parameters** wordt u het volgende gevraagd:  
    - Geef de **namen van de doel-ResourceGroup** op. Dit is een resourcegroepnaam die VM's bevat die met deze oplossing moeten worden beheerd.  U kunt meer dan één naam invoeren en de namen scheiden met een puntkomma (de waarden zijn hoofdlettergevoelig).  Jokertekens worden ondersteund als de bewerking moet worden gericht op VM's in alle resourcegroepen in het abonnement.
-   - Selecteer een **planning**. Dit is een periodieke datum en tijd voor het starten en stoppen van de VM's in de doelresourcegroep(en).
+   - Selecteer een **planning**. Dit is een periodieke datum en tijd voor het starten en stoppen van de VM's in de doelresourcegroep(en).  
 
 10. Zodra u klaar bent met het configureren van de eerste instellingen die zijn vereist voor de oplossing, selecteert u **Maken**.  Alle instellingen worden gevalideerd en vervolgens wordt geprobeerd de oplossing te implementeren in uw abonnement.  Dit proces kan enkele seconden duren en u kunt de voortgang bijhouden onder **Meldingen** in het menu. 
 
@@ -128,6 +128,9 @@ Wanneer u de VM-beheeroplossing toevoegt, wordt in de OMS-werkruimte de tegel **
 In het Automation-account kunt u de oplossing openen en beheren door de tegel **Oplossingen** te selecteren en door vervolgens op de blade **Oplossingen** de oplossing **Start-Stop-VM[Workspace]** in de lijst te selecteren.<br><br> ![Lijst met Automation-oplossingen](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Als u de oplossing selecteert, wordt de oplossingsblade **Start-Stop-VM[Workspace]** weergegeven. Hier kunt u belangrijke details controleren zoals de tegel **StartStopVM**, zoals in uw OMS-werkruimte, waarop een telling en grafische weergave worden getoond van de runbooktaken voor de oplossing die zijn gestart en die zijn voltooid.<br><br> ![Blade VM-oplossing Automation](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+Vanaf hier kunt u ook uw OMS-werkruimte openen en verdere analyse van de taakrecords uitvoeren.  Klik op **Alle instellingen** en selecteer in de blade **Instellingen** de optie **Snel starten**. Kies vervolgens op de blade **Snel starten** voor **OMS-portal**.   Hiermee opent u een nieuw tabblad of een nieuwe browsersessie en stelt u uw OMS-werkruimte voor die aan Automation-account en abonnement is gekoppeld.  
+
 
 ### E-mailmeldingen configureren
 
@@ -150,6 +153,10 @@ Als u de variabelen wilt configureren die eerder zijn besproken, voert u de volg
 2. Selecteer op de blade **Instellingen** onder de sectie **Automation-resources** de optie **Assets**. 
 3. Selecteer op de blade **Assets** de tegel **Variabelen** en selecteer op de blade **Variabelen** de variabele die hierboven wordt vermeld. Wijzig vervolgens de waarde ervan door de omschrijving te volgen die ervoor is opgegeven in de eerdere sectie [Variabelen](##variables).  
 4. Klik op **Opslaan** om de wijzigingen van de variabele op te slaan.   
+
+### De planning voor opstarten en afsluiten wijzigen
+
+Voor het beheren van de planning voor opstarten en afsluiten in deze oplossing volgt u dezelfde stappen zoals beschreven in [Een runbook in Azure Automation plannen](automation-scheduling-a-runbook.md).  Denk eraan dat u de planningsconfiguratie niet kunt wijzigen.  U moet de bestaande planning uitschakelen, dan een nieuwe maken en deze vervolgens koppelen aan de runbook **StartByResourceGroup-MS-Mgmt-VM** of **StopByResourceGroup-MS-Mgmt-VM** waarop u de planning wilt toepassen.   
 
 ## Log Analytics-records
 
@@ -224,6 +231,6 @@ Taakstatus gedurende een periode weergeven voor runbooks StartVM en StopVM | Cat
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

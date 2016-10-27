@@ -1,6 +1,6 @@
 <properties
-   pageTitle="URL-based content routing overview | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule ."
+   pageTitle="Overzicht routering op URL gebaseerde inhoud | Microsoft Azure"
+   description="Deze pagina biedt een overzicht van de routering van op URL gebaseerde inhoud van de toepassingsgateway, de UrlPathMap-configuratie en de PathBasedRouting-regel."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,27 +9,28 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
    ms.author="gwallace"/>
 
-# URL Path Based Routing overview
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool, and DefaultServerPool.
+# <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
+
+Met op URL-pad gebaseerde routering kunt u verkeer routeren naar back-endserverpools die zijn gebaseerd op de URL-paden van de aanvraag. Een van de scenario's is het routeren van aanvragen voor verschillende inhoudstypen naar verschillende back-endserverpools.
+In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contoso.com van drie back-endserverpools: VideoServerPool, ImageServerPool en DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video* are routed to VideoServerPool, and http://contoso.com/images* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Aanvragen voor http://contoso.com/video* worden gerouteerd naar VideoServerPool en http://contoso.com/images* naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
 
-## UrlPathMap configuration element
+## <a name="urlpathmap-configuration-element"></a>Configuratie-element UrlPathMap
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
+UrlPathMap-element wordt gebruikt om padpatronen op te geven voor back-endservergroepstoewijzingen. Het volgende codevoorbeeld is het fragment van het urlPathMap-element van het sjabloonbestand.
 
-	"urlPathMaps": [
-	{
+    "urlPathMaps": [
+    {
     "name": "<urlPathMapName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
     "properties": {
@@ -56,20 +57,20 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
         ],
 
     }
-	}
-	
+    }
+    
 
->[AZURE.NOTE] PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
+>[AZURE.NOTE] PathPattern: deze instelling is een lijst van padpatronen voor aanpassing. Elk hiervan moet beginnen met / en de enige plaats waar een "*" is toegestaan, is aan het einde na een "/". De tekenreeks die is ingevoerd in de padvergelijking, bevat geen tekst na de eerste ? of # en die tekens zijn hier niet toegestaan. 
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+U kunt een [Resource Manager-sjabloon met op URL gebaseerde routering](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) bekijken voor meer informatie.
 
-## PathBasedRouting rule
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting-regel
 
-RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
-Snippet of PathBasedRouting rule:
+RequestRoutingRule van type PathBasedRouting wordt gebruikt voor het verbinden van een listener met een urlPathMap. Alle aanvragen die zijn ontvangen voor deze listener, worden gerouteerd op basis van een beleid dat is opgegeven in urlPathMap.
+Fragment van PathBasedRouting-regel:
 
-	"requestRoutingRules": [
-  	{
+    "requestRoutingRules": [
+    {
 
     "name": "<ruleName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
@@ -83,7 +84,13 @@ Snippet of PathBasedRouting rule:
         },
 
     }
-	
-## Next steps
+    
+## <a name="next-steps"></a>Volgende stappen
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
+Nadat u meer hebt geleerd over routering van op URL gebaseerde inhoud, gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-portal.md) om een toepassingsgateway te maken met URL-routeringsregels.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

@@ -1,4 +1,4 @@
-### Uw verbinding controleren met behulp van PowerShell
+### <a name="to-verify-your-connection-by-using-powershell"></a>Uw verbinding controleren met behulp van PowerShell
 
 U kunt controleren of uw verbinding is geslaagd door de cmdlet `Get-AzureRmVirtualNetworkGatewayConnection` te gebruiken, met of zonder `-Debug`. 
 
@@ -34,18 +34,16 @@ U kunt controleren of uw verbinding is geslaagd door de cmdlet `Get-AzureRmVirtu
             "egressBytesTransferred": 4142431
           }
 
-### Uw verbinding controleren met behulp van de Azure-portal
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Uw verbinding controleren met behulp van de Azure-portal
 
-U kunt de verbindingsstatus weergeven door naar de verbinding te navigeren in de Azure-portal. Er zijn meerdere manieren om dit te doen. Hieronder volgt één manier om naar de verbinding te navigeren.
+U kunt de verbindingsstatus weergeven door naar de verbinding te navigeren in de Azure-portal. Er zijn meerdere manieren om dit te doen. De volgende stappen tonen één manier om te navigeren naar uw verbinding en deze te controleren.
 
-1. Ga in de [Azure-portal](http://portal.azure.com) naar **Virtuele netwerkgateways**. Klik op de naam van uw gateway.
-2. Klik in het deelvenster onder **Instellingen** op **Verbindingen**. U ziet de status van elke verbinding.
-3. Klik voor meer informatie over de verbinding op de naam van de verbinding. Bekijk de **Verbindingsstatus** op de pagina Essentials voor uw verbinding. De status is 'Geslaagd' en 'Verbonden' wanneer u verbinding hebt gemaakt. U kunt de gegevensstroom controleren door **Gegevens in** en **Gegevens uit** te bekijken.
+1. Klik in [Azure Portal](http://portal.azure.com) op **Alle resources** en navigeer naar de virtuele netwerkgateway.
+2. Klik op de blade voor uw virtuele netwerkgateway op **Verbindingen**. U ziet de status van elke verbinding.
+3. Klik op de naam van de verbinding die u wilt controleren om **Essentials** te openen. In Essentials kunt u meer informatie weergeven over de verbinding. Wanneer u verbinding hebt gemaakt, is de **status** Geslaagd en Verbonden.
 
-    In het onderstaande voorbeeld is de **Verbindingsstatus** 'Niet verbonden'. 
+    ![Verbinding controleren](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-    ![Verbinding controleren](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

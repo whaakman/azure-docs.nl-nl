@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API | Microsoft Azure" 
-    description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u .NET API." 
+    pageTitle="Zelfstudie: een pijplijn maken met Copy Activity in .NET API | Microsoft Azure" 
+    description="In deze zelfstudie maakt u een Azure Data Factory-pijplijn met Copy Activity. Hiervoor gebruikt u .NET API." 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -24,13 +24,14 @@
 - [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 
-In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met een .NET API. In de pijplijn in de gegevensfactory wordt gebruikgemaakt van een kopieeractiviteit om gegevens van Azure-blobopslag te kopiëren naar Azure SQL Database.
+In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met een .NET API. In de pijplijn in de gegevensfactory wordt gebruikgemaakt van Copy Activity om gegevens van Azure-blobopslag te kopiëren naar Azure SQL Database.
 
-Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.   
+Met Copy Activity wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over Copy Activity.   
 
 > [AZURE.NOTE] 
 > Dit artikel behandelt niet de volledige Data Factory .NET API. Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK. 
@@ -106,7 +107,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
         Install-Package Microsoft.Azure.Management.DataFactories
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-6. Voeg de volgende **appSetttings**-sectie toe aan het **App.config**-bestand. Deze instellingen worden gebruikt door de Help-methode: **GetAuthorizationHeader**. 
+6. Voeg de volgende sectie **appSetttings** toe aan het bestand **App.config**. Deze instellingen worden gebruikt door de Help-methode: **GetAuthorizationHeader**. 
 
     Vervang de waarden voor **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** en **&lt;Tenant ID&gt;** door uw eigen waarden. 
 
@@ -121,7 +122,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
             <add key="SubscriptionId" value= "Subscription ID" />
             <add key="ActiveDirectoryTenantId" value="tenant ID" />
         </appSettings>
-6. Voeg de volgende **gebruiks**instructies toe aan het bronbestand (Program.cs) in het project.
+6. Voeg de volgende **using**-instructies toe aan het bronbestand (Program.cs) in het project.
 
         using System.Threading;
         using System.Configuration;
@@ -133,7 +134,8 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure;
-6. Voeg de volgende code die een instantie van **DataPipelineManagementClient**-klasse maakt toe aan de **hoofd**methode. U gebruikt dit object om een gegevensfactory, een gekoppelde service, een gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.    
+6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken.
+ U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.    
 
             // create data factory management client
             string resourceGroupName = "ADFTutorialResourceGroup";
@@ -153,7 +155,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     > 
     > Werk de naam van de gegevensfactory (**dataFactoryName**) bij zodat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten. 
 
-7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de **hoofd**methode.
+7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de methode **Main**.
 
             // create a data factory
             Console.WriteLine("Creating a data factory");
@@ -169,7 +171,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                 }
             );
 
-8. Voeg de volgende code die een **gekoppelde Azure Storage-service** maakt toe aan de **hoofd**methode. 
+8. Voeg de volgende code die een **gekoppelde Azure Storage-service** maakt toe aan de methode **Main**. 
 
     > [AZURE.IMPORTANT] Vervang **storageaccountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account. 
 
@@ -188,7 +190,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                     }
                 }
             );
-9. Voeg de volgende code die een **gekoppelde Azure SLQ-service** maakt toe aan de **hoofd**methode.
+9. Voeg de volgende code die een **gekoppelde Azure SLQ-service** maakt toe aan de methode **Main**.
  
     > [AZURE.IMPORTANT] Vervang **servername**, **databasename**, **username** en **password** door de namen van uw Azure SQL-server, database, gebruiker en wachtwoord.  
 
@@ -207,7 +209,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                     }
                 }
             );
-10. Voeg de volgende code die **gegevenssets voor invoer en uitvoer** maakt toe aan de **hoofd**methode. 
+10. Voeg de volgende code die **gegevenssets voor invoer en uitvoer** maakt toe aan de methode **Main**. 
 
             // create input and output datasets
             Console.WriteLine("Creating input and output datasets");
@@ -284,7 +286,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                     }
                 });
 
-11. Voeg de volgende code die **een pijplijn maakt en activeert** toe aan de **hoofd**methode. Deze pijplijn heeft een **CopyActivity** die **BlobSource** als een bron neemt en **BlobSink** als een sink.
+11. Voeg de volgende code die **een pijplijn maakt en activeert** toe aan de methode **Main**. Deze pijplijn heeft een **CopyActivity** die **BlobSource** als een bron neemt en **BlobSink** als een sink.
 
             // create a pipeline
             Console.WriteLine("Creating a pipeline");
@@ -339,7 +341,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                     }
                 }); 
 
-12. Voeg de volgende code toe aan de **hoofd**methode om de status van een gegevenssegment van de uitvoergegevensset te achterhalen. In dit voorbeeld wordt alleen een segment verwacht.   
+12. Voeg de volgende code toe aan de methode **Main** om de status van een gegevenssegment van de uitvoergegevensset te achterhalen. In dit voorbeeld wordt alleen een segment verwacht.   
  
             // Pulling status within a timeout threshold
             DateTime start = DateTime.Now;
@@ -373,7 +375,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                 }
             }
 
-14. Voeg de volgende code toe om details van de uitvoering van een gegevenssegment naar de **hoofd**methode te achterhalen.
+14. Voeg de volgende code toe om details van de uitvoering van een gegevenssegment naar de methode **Main** te achterhalen.
 
             Console.WriteLine("Getting run details of a data slice");
 
@@ -405,7 +407,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
 
-13. Voeg de volgende Help-methode toe die door de **hoofd**methode wordt gebruikt voor de **Program**-klasse.  
+13. Voeg de volgende Help-methode toe die door de methode **Main** wordt gebruikt voor de klasse **Program**.  
  
         public static string GetAuthorizationHeader()
         {
@@ -455,13 +457,13 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
 ## Volgende stappen
 
-- Lees het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md). Dit artikel biedt gedetailleerde informatie over de kopieeractiviteit die u tijdens deze zelfstudie hebt gemaakt.
+- Lees het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md). Dit artikel biedt gedetailleerde informatie over Copy Activity die u tijdens deze zelfstudie hebt gemaakt.
 - Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK. Dit artikel behandelt niet de volledige Data Factory .NET API. 
 
  
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

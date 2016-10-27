@@ -18,7 +18,7 @@
 
 
 
-#Live streamen met on-premises coderingsprogramma's via Azure Portal
+#<a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
 
 > [AZURE.SELECTOR]
 - [Portal]( media-services-portal-live-passthrough-get-started.md)
@@ -27,12 +27,12 @@
 
 Deze zelfstudie bevat de stappen voor het maken van een **kanaal** via Azure Portal dat is geconfigureerd voor een doorvoerlevering. 
 
-##Vereisten
+##<a name="prerequisites"></a>Vereisten
 
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 - Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
-- Een Media Services-account. Zie [Een Media Services-account maken](media-services-create-account.md) voor meer informatie over het maken van een Media Services-account.
+- Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 - Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
 
 Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
@@ -42,7 +42,7 @@ Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
 - [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md)
 
 
-##<a id="scenario"></a>Algemeen scenario voor live streamen
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Algemeen scenario voor live streamen
 
 In de volgende stappen worden de taken beschreven voor het maken van algemene toepassingen voor live streamen die kanalen gebruiken die zijn geconfigureerd voor doorvoerlevering. In deze zelfstudie wordt getoond hoe een doorvoerkanaal en live gebeurtenissen worden gemaakt en beheerd.
 
@@ -70,13 +70,13 @@ In de volgende stappen worden de taken beschreven voor het maken van algemene to
 
 >[AZURE.IMPORTANT] Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md) voor meer informatie over de concepten en overwegingen ten aanzien van live streamen met on-premises coderingsprogramma's en doorvoerkanalen.
 
-##Meldingen en fouten weergeven
+##<a name="to-view-notifications-and-errors"></a>Meldingen en fouten weergeven
 
 Als u de meldingen en fouten wilt weergeven die door Azure Portal zijn gegenereerd, klikt u op het pictogram Melding.
 
 ![Meldingen](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-##Streaming-eindpunten configureren 
+##<a name="configure-streaming-endpoints"></a>Streaming-eindpunten configureren 
 
 Media Services biedt dynamische pakketten, zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
@@ -99,7 +99,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
 
     >[AZURE.NOTE]Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
     
-##Doorvoerkanalen en gebeurtenissen maken en starten
+##<a name="create-and-start-pass-through-channels-and-events"></a>Doorvoerkanalen en gebeurtenissen maken en starten
 
 Een kanaal is gekoppeld aan gebeurtenissen/programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren gebeurtenissen. 
     
@@ -119,7 +119,7 @@ Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gear
 
 Als u de gearchiveerde inhoud wilt behouden maar deze niet langer voor streaming beschikbaar mag zijn, verwijdert u de streaming-locator.
 
-###De portal gebruiken om een kanaal te maken 
+###<a name="to-use-the-portal-to-create-a-channel"></a>De portal gebruiken om een kanaal te maken 
 
 In deze secties ziet u hoe u de optie **Snelle invoer** gebruikt om een doorvoerkanaal te maken.
 
@@ -138,7 +138,7 @@ Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate stream
 
     Hierop wordt een doorvoerkanaal gemaakt met het RTMP-opnameprotocol.
 
-##Gebeurtenissen maken
+##<a name="create-events"></a>Gebeurtenissen maken
 
 1. Selecteer een kanaal waaraan u een gebeurtenis wilt toevoegen.
 2. Klik op de knop **Live gebeurtenis**.
@@ -146,13 +146,13 @@ Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate stream
 ![Gebeurtenis](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 
-##URL’s voor opnemen ophalen
+##<a name="get-ingest-urls"></a>URL’s voor opnemen ophalen
 
 Wanneer het kanaal is gemaakt, kunt u URL’s voor opnemen ophalen die u aan het live coderingsprogramma levert. Het coderingsprogramma gebruikt deze URL's voor het invoeren van een live stream.
 
 ![Gemaakt](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##De gebeurtenis bekijken
+##<a name="watch-the-event"></a>De gebeurtenis bekijken
 
 Als u een gebeurtenis wilt bekijken, klikt u op **Bekijken** in Azure Portal of kopieert u de streaming-URL en gebruikt u een speler van uw keuze. 
  
@@ -160,14 +160,14 @@ Als u een gebeurtenis wilt bekijken, klikt u op **Bekijken** in Azure Portal of 
 
 De live gebeurtenis wordt automatisch geconverteerd naar inhoud op aanvraag wanneer deze wordt gestopt.
 
-##Opruimen
+##<a name="clean-up"></a>Opruimen
 
 Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md) voor meer informatie over doorvoerkanalen.
 
 - Een kanaal kan alleen worden gestopt, wanneer alle gebeurtenissen/programma's op het kanaal zijn gestopt.  Nadat het kanaal is gestopt, worden hiervoor geen kosten meer in rekening gebracht. Als u het kanaal opnieuw wilt starten, wordt dezelfde URL voor opnemen gebruikt, zodat u het coderingsprogramma niet opnieuw hoeft te configureren.
 - Een kanaal kan alleen worden verwijderd, wanneer alle live gebeurtenissen op het kanaal zijn verwijderd.
 
-##Gearchiveerde inhoud weergeven
+##<a name="view-archived-content"></a>Gearchiveerde inhoud weergeven
 
 Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gearchiveerde inhoud als video op aanvraag streamen, mits u de asset niet hebt verwijderd. Een asset kan niet worden verwijderd als deze wordt gebruikt door een gebeurtenis. U moet eerst de gebeurtenis verwijderen. 
 
@@ -175,18 +175,18 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Volgende stap
+##<a name="next-step"></a>Volgende stap
 
 Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Feedback geven
+##<a name="provide-feedback"></a>Feedback geven
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

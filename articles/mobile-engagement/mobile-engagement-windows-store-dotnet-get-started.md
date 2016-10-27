@@ -16,6 +16,7 @@
     ms.date="08/12/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Aan de slag met Azure Mobile Engagement voor universele Windows-apps
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -30,7 +31,7 @@ Deze zelfstudie laat een eenvoudig broadcast-scenario met Mobile Engagement zien
 
 ## Mobile Engagement instellen voor uw universele Windows-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 
@@ -209,6 +210,6 @@ Als u wel een in-app-melding maar geen pop-upmelding ziet terwijl u de app uitvo
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

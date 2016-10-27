@@ -18,49 +18,49 @@
 
 
 
-#Een Xamarin.iOS-app maken
+#<a name="create-a-xamarin.ios-app"></a>Een Xamarin.iOS-app maken
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Overzicht
+##<a name="overview"></a>Overzicht
 
 Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Xamarin.iOS-app met een back-end voor mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor mobiele apps als een eenvoudige Xamarin.iOS-app voor _takenlijsten_ die app-gegevens opslaat in Azure.
 
 Het volgen van deze zelfstudie is een vereiste voor alle andere Xamarin.iOS- zelfstudies over het gebruik van de Mobile Apps-functie in Azure App Service.
 
-##Vereisten
+##<a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, meldt u zich aan voor een proefversie van Azure en krijgt u maximaal tien gratis mobiele apps die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 * Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 
 * Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
 
->[AZURE.NOTE] Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Daar kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
+>[AZURE.NOTE]Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). U kunt onmiddellijk een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
 
-## Een nieuwe back-end voor mobiele apps van Azure maken
+## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 
-Volg deze stappen voor het maken van een nieuwe back-end voor Mobile Apps.
+Volg deze stappen voor het maken van een back-end voor mobiele apps.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Het serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 
-U hebt nu een back-end voor Azure Mobile Apps ingericht, die kan worden gebruikt door uw mobiele clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
+U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Download vervolgens een serverproject voor een eenvoudige back-end voor takenlijsten en publiceer deze naar Azure.
 
-Volg onderstaande stappen voor het configureren van het serverproject voor het gebruik van de Node.js- of .NET-back-end.
+Volg de onderstaande stappen voor het configureren van het serverproject voor het gebruik van de Node.js- of .NET-back-end.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## De Xamarin iOS-app downloaden en uitvoeren
+## <a name="download-and-run-the-xamarin.ios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
 
 1. Open de [Azure Portal] in een browservenster.
 
-2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
+2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
 
-    Er wordt een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+    Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 
 3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (of Visual Studio).
 
@@ -74,24 +74,21 @@ Volg onderstaande stappen voor het configureren van het serverproject voor het g
 
     ![][10]
 
-    Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+    Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
 
 >[AZURE.NOTE]U kunt de code die toegang geeft tot uw back-end voor mobiele apps, controleren om gegevens in het QSTodoService.cs C#-bestand op te vragen en in te voegen.
 
-##Volgende stappen
+##<a name="next-steps"></a>Volgende stappen
 
+* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-ios-get-started-users.md)
-  <br/>Informatie over het verifiëren van gebruikers van uw app met een id-provider.
-
-* [Pushmeldingen toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-push.md)
-  <br/>Ontdek hoe u een zeer eenvoudige pushmelding verzendt naar uw app.
+* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
+* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Aan de slag met back-ends voor mobiele apps]:#getting-started
 [Een nieuwe back-end voor mobiele apps maken]:#create-new-service
 [Volgende stappen]:#next-steps
-
-
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -104,6 +101,6 @@ Volg onderstaande stappen voor het configureren van het serverproject voor het g
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Aan de slag met Event Hubs
+# <a name="get-started-with-event-hubs"></a>Aan de slag met Event Hubs
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Inleiding
+## <a name="introduction"></a>Inleiding
 
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
@@ -39,7 +39,7 @@ Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
-## De toepassingen uitvoeren
+## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
 U kunt nu de toepassingen gaan uitvoeren.
 
@@ -71,13 +71,12 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 Druk op **Ctrl+C** in het venster **Afzender** om de Afzender-toepassing te beëindigen en druk op **Enter** in het venster Ontvanger om die toepassing af te sluiten.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u naar de volgende scenario's gaan:
 
 - Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][].
 - Het voorbeeld [Verwerking van de gebeurtenis Uitschalen met Event Hubs][].
-- Een [oplossing voor berichten in de wachtrij][] met behulp van Service Bus-wachtrijen.
 - [Event Hubs-overzicht][]
 
 <!-- Images. -->
@@ -87,16 +86,16 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Klassieke Azure-portal]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Gebeurtenisprocessorhost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs-overzicht]: event-hubs-overview.md
 [voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Verwerking van de gebeurtenis Uitschalen met Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[oplossing voor berichten in de wachtrij]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[oplossing voor berichten in de wachtrij]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

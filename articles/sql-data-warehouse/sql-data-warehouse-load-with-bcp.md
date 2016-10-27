@@ -3,7 +3,7 @@
    description="Informatie over BCP en het gebruik van BCP voor datawarehousescenario's."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
-# Gegevens laden met BCP
+
+# <a name="load-data-with-bcp"></a>Gegevens laden met bcp
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 
@@ -41,7 +43,7 @@ In deze zelfstudie leert u hoe u het volgende kunt doen:
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
@@ -51,11 +53,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 >[AZURE.NOTE] U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][].
 
-## Gegevens importeren in SQL Data Warehouse
+## <a name="import-data-into-sql-data-warehouse"></a>Gegevens importeren in SQL Data Warehouse
 
 In deze zelfstudie maakt u een tabel in Azure SQL Data Warehouse en importeert u gegevens in de tabel.
 
-### Stap 1: een tabel maken in Azure SQL Data Warehouse
+### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Stap 1: een tabel maken in Azure SQL Data Warehouse
 
 Open een opdrachtprompt en voer de volgende query voor het maken van een tabel op uw exemplaar uit met SQLCMD:
 
@@ -77,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] Zie [Tabeloverzicht][] of [Syntaxis voor CREATE TABLE][] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
 
-### Stap 2: een brongegevensbestand maken
+### <a name="step-2:-create-a-source-data-file"></a>Stap 2: een brongegevensbestand maken
 
 Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt.
 
@@ -98,7 +100,7 @@ Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbesta
 
 > [AZURE.NOTE] Denk eraan dat de bestandscodering UTF-8 niet wordt ondersteund in bcp.exe. Gebruik ASCII-bestanden of bestanden met de bestandscodering UTF-16 als u bcp.exe gebruikt.
 
-### Stap 3: verbinding maken en de gegevens importeren
+### <a name="step-3:-connect-and-import-the-data"></a>Stap 3: verbinding maken en de gegevens importeren
 Met BCP kunt u verbinding maken en de gegevens importeren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 
 ```sql
@@ -128,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Stap 4: statistieken maken voor uw zojuist geladen gegevens
+### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
 
 Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
 
@@ -142,10 +144,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## Gegevens uit SQL Data Warehouse exporteren
+## <a name="export-data-from-sql-data-warehouse"></a>Gegevens uit SQL Data Warehouse exporteren
 In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. U exporteert de eerder gemaakte gegevens naar een nieuw gegevensbestand met de naam DimDate2_export.txt.
 
-### Stap 1: de gegevens exporteren
+### <a name="step-1:-export-the-data"></a>Stap 1: de gegevens exporteren
 
 Met het hulpprogramma BCP kunt u verbinding maken en gegevens exporteren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 
@@ -171,7 +173,7 @@ U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bes
 
 >[AZURE.NOTE] Vanwege de aard van gedistribueerde systemen kan de gegevensvolgorde per SQL Data Warehouse-database verschillen. In plaats van de hele tabel te exporteren kunt u ook een query voor het extraheren van gegevens schrijven met de functie **queryout** van BCP.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [Gegevens laden in SQL Data Warehouse][] voor een overzicht van het laden.
 Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor ontwikkelaars.
 
@@ -185,7 +187,7 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 [Statistieken]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[BCP]: https://msdn.microsoft.com/library/ms162802.aspx
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [Syntaxis voor CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
@@ -193,6 +195,6 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][] voor meer tips voor 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

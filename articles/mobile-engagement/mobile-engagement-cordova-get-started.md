@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Aan de slag met Azure Mobile Engagement voor Cordova/Phonegap
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -38,7 +39,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw Cordova-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 
@@ -241,6 +242,6 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

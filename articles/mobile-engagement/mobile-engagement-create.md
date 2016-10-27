@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/19/2016"  
+    ms.date="10/10/2016"  
     ms.author="piyushjo"/>
 
 
@@ -28,13 +28,11 @@ U moet een minimale set 'basisintegratie' toevoegen om gegevens te kunnen verzam
 
 ##Mobile Engagement instellen voor uw mobiele app in Azure
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Navigeer naar uw Mobile Engagement-portal.
 
-Als u wilt beginnen met het bewaken en controleren en beheren van uw toepassing, gaat u naar de Mobile Engagement-portal door te klikken op de knop **Engage** onderaan.
-
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+Als u wilt beginnen met het bewaken, controleren en beheren van uw toepassing, gaat u naar de Mobile Engagement-portal door te klikken op de knop **Engagement-portal** in de balk bovenaan.
 
 Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, maken en beheren, gebruikers bereiken enzovoort:    
 
@@ -51,6 +49,6 @@ Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, ma
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

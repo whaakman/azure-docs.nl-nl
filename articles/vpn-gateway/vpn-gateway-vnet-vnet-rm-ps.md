@@ -175,7 +175,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
     In dit voorbeeld wordt een virtueel netwerk gemaakt met de naam TestVNet1. Er worden ook drie subnetten gemaakt, GatewaySubnet, FrontEnd en BackEnd. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway. 
 
-    In het volgende voorbeeld worden de variabelen gebruikt die u eerder hebt ingesteld. In dit voorbeeld maakt het gatewaysubnet gebruik van een /27. Hoewel u een gatewaysubnet ook kunt maken met een subnet van slechts /29, wordt dit niet aanbevolen. Een iets groter subnet wordt aanbevolen, bijvoorbeeld een /27 of /26. Op die manier kunt u bestaande of toekomstige configuraties benutten waarvoor mogelijk een groter gatewaysubnet is vereist. 
+    In het volgende voorbeeld worden de variabelen gebruikt die u eerder hebt ingesteld. In dit voorbeeld maakt het gatewaysubnet gebruik van een /27. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor hebt u genoeg adressen voor mogelijke aanvullende toekomstige configuraties. 
 
         $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
         $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -236,7 +236,7 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
         $GWIPconfName4 = "gwipconf4"
         $Connection41 = "VNet4toVNet1"
 
-    Controleer voordat u verder gaat of u nog bent verbonden met abonnement 1.
+    Controleer voordat u verdergaat of u nog bent verbonden met Abonnement 1.
 
 2. Een nieuwe resourcegroep maken
 
@@ -413,11 +413,11 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
 
 ### Stap 7: De gateways verbinden
 
-Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is deze stap opgesplitst in twee PowerShell-sessies, aangeduid als [abonnement 1] en [abonnement 5].
+Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is deze stap opgesplitst in twee PowerShell-sessies, aangeduid als [Abonnement 1] en [Abonnement 5].
 
-1. **[Abonnement 1]** De gateway van virtueel netwerk verkrijgen voor abonnement 1
+1. **[Abonnement 1]** De gateway van virtueel netwerk verkrijgen voor Abonnement 1
 
-    Zorg dat u zich aanmeldt bij en verbinding maakt met abonnement 1.
+    Zorg dat u zich aanmeldt bij en verbinding maakt met Abonnement 1.
 
         $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 
@@ -439,7 +439,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
         $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
 
-    Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van abonnement 1.
+    Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van Abonnement 1.
 
         $vnet5gw.Name
         $vnet5gw.Id
@@ -455,7 +455,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
     In deze stap maakt u de verbinding van TestVNet1 naar TestVNet5. Het verschil is hier dat $vnet5gw niet rechtstreeks kan worden verkregen omdat het zich in een ander abonnement bevindt. U moet een nieuw PowerShell-object maken met de waarden die in de bovenstaande stappen zijn gecommuniceerd vanuit Abonnement 1. Gebruik onderstaand voorbeeld. Vervang de naam, de id en de gedeelde sleutel door uw eigen waarden. Het belangrijkste is dat de gedeelde sleutel voor beide verbindingen moet overeenkomen. Het kan even duren voordat de verbinding is gemaakt.
 
-    Zorg dat u verbinding maakt met abonnement 1. 
+    Zorg dat u verbinding maakt met Abonnement 1. 
     
         $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
         $vnet5gw.Name = "VNet5GW"
@@ -465,7 +465,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
 4. **[Abonnement 5]** De verbinding tussen TestVNet5 en TestVNet1 maken
 
-    Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet5 naar TestVNet1. Hier moet op dezelfde manier een PowerShell-object worden gemaakt op basis van de waarden die zijn verkregen van abonnement 1. Zorg in deze stap dat de gedeelde sleutels overeenkomen.
+    Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet5 naar TestVNet1. Hier moet op dezelfde manier een PowerShell-object worden gemaakt op basis van de waarden die zijn verkregen van Abonnement 1. Zorg in deze stap dat de gedeelde sleutels overeenkomen.
 
     Zorg dat u verbinding maakt met abonnement 5.
 
@@ -475,6 +475,9 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
 ## <a name="verify"></a>Een verbinding controleren
+
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
@@ -487,6 +490,6 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

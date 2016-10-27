@@ -1,8 +1,8 @@
- >[AZURE.WARNING] Koppeling van een netwerkbeveiligingsgroep (NSG) naar het *GatewaySubnet* zorgt ervoor dat de VPN-gateway niet meer werkt zoals verwacht. Koppel GEEN NSG's aan gateway-subnetten.
+>[AZURE.IMPORTANT] Als u met gatewaysubnetten werkt, vermijd dan om een netwerkbeveiligingsgroep (NSG) te koppelen aan het gatewaysubnet. Een koppeling van een netwerkbeveiligingsgroep naar dit subnet zorgt er mogelijk voor dat uw VPN-gateway niet meer werkt zoals verwacht. Raadpleeg voor meer informatie over netwerkbeveiligingsgroepen [Wat is een netwerkbeveiligingsgroep?](../articles/virtual-network/virtual-networks-nsg.md)
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

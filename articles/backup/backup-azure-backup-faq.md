@@ -18,10 +18,10 @@
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 
-# Veelgestelde vragen over de Azure Backup-service
+# <a name="azure-backup-service--faq"></a>Veelgestelde vragen over de Azure Backup-service
 
 > [AZURE.SELECTOR]
-- [Veelgestelde vragen over Backup in de klassieke modus](backup-azure-backup-faq.md)
+- [Veelgestelde vragen over Backup voor de klassieke modus](backup-azure-backup-faq.md)
 - [Veelgestelde vragen over Backup voor de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
 
 Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. Vragen over Azure Backup kunt u stellen in de sectie Disqus van dit of een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -59,7 +59,7 @@ U kunt het beste de [nieuwste](http://aka.ms/azurebackup_agent) Azure Backup-age
 Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, meldt u zich aan bij de Azure Portal en downloadt u de kluisreferentiebestanden uit uw kluis. 
 
 ## Is er een limiet voor het aantal kluizen dat voor elk Azure-abonnement kan worden gemaakt? <br/>
-Ja. Vanaf augustus 2016 kunt u 25 kluizen (25 back-upkluizen en 25 Recovery Services-kluizen) per abonnement maken. Als u meer kluizen nodig hebt, maakt u een nieuw abonnement.
+Ja. U kunt vanaf september 2016 25 back-upkluizen per abonnement maken. U kunt per abonnement maximaal 25 Recovery Services-kluizen per ondersteunde regio van Azure Backup maken. Als u meer kluizen nodig hebt, maakt u een nieuw abonnement.
 
 ## Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis? <br/>
 Ja, u kunt maximaal vijftig machines per kluis registreren. Voor virtuele machines van Azure IaaS geldt een limiet van 200 VM's per kluis. Als u meer machines moet registreren, maakt u een nieuwe kluis.
@@ -124,7 +124,7 @@ Voor een probleemloze beveiliging van de on-premises- of workloadgegevens die na
 - \*.microsoftonline.com
 - \*.windows.net
 
-##Kan ik de Azure Backup-agent installeren op een virtuele machine van Azure waarvan de Azure Backup-service al een back-up heeft gemaakt met de VM-extensie? <br/>
+## Kan ik de Azure Backup-agent installeren op een virtuele machine van Azure waarvan de Azure Backup-service al een back-up heeft gemaakt met de VM-extensie? <br/>
 Absoluut. Azure Backup biedt back-ups op VM-niveau voor de virtuele machines van Azure door gebruik te maken van de VM-extensie. U kunt de Azure Backup-agent Windows-gastbesturingssysteem installeren om bestanden en mappen dat gastbesturingssysteem te beveiligen.
 
 ## Kan ik de Azure Backup-agent op een virtuele machine van Azure installeren om back-ups van bestanden en mappen te maken die zich in de tijdelijke opslag van de virtuele machine van Azure bevinden? <br/>
@@ -263,6 +263,6 @@ U kunt de bovenstaande kenmerken beter niet instellen voor de cachemap of de VHD
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

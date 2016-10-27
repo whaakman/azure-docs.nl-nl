@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="09/15/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
 
-#Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,16 +26,16 @@
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie.
 
-##Overzicht
+##<a name="overview"></a>Overzicht
 
 In deze zelfstudie wordt u begeleid bij de stappen voor het maken van een **kanaal** dat een single-bitrate livestream ontvangt, en het coderen van deze stream naar een multi-bitrate stream.
 
 Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor meer conceptuele informatie over kanalen die zijn ingeschakeld voor live codering.
 
 
-##Algemeen scenario voor live streamen
+##<a name="common-live-streaming-scenario"></a>Algemeen scenario voor live streamen
 
 In de onderstaande stappen worden de taken beschreven voor het maken van algemene toepassingen voor het maken van livestreams.
 
@@ -43,17 +43,17 @@ In de onderstaande stappen worden de taken beschreven voor het maken van algemen
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises livecoderingsprogramma dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP, Smooth Streaming of RTP (MPEG-TS). Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
 
-    Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
+Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 
 1. Maak en start een kanaal.
 
 1. Haal de URL voor opnemen voor het kanaal op.
 
-    De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
+De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
 
 1. Haal de voorbeeld-URL voor het kanaal op.
 
-    Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
+Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 
 2. Maak een asset.
 3. Als u wilt dat de asset dynamisch worden versleuteld tijdens het afspelen, gaat u als volgt te werk:
@@ -63,14 +63,14 @@ In de onderstaande stappen worden de taken beschreven voor het maken van algemen
 3. Maak een programma en geef op dat de asset die u hebt gemaakt, moet worden gebruikt.
 1. Publiceer de asset die aan het programma is gekoppeld door een OnDemand-locator te maken.
 
-    Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
+Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
 
 1. Start het programma wanneer u klaar bent om te streamen en te archiveren.
 2. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
 1. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
 1. Verwijder het programma (en verwijder desgewenst de asset).
 
-## Wat u leert
+## <a name="what-you'll-learn"></a>Wat u leert
 
 In dit onderwerp wordt beschreven hoe u verschillende bewerkingen op kanalen en programma's met Media Services .NET SDK uitvoert. Aangezien veel bewerkingen langlopend zijn, worden er .NET API's gebruikt waarmee langlopende bewerkingen worden beheerd.
 
@@ -86,37 +86,37 @@ In het onderwerp wordt beschreven hoe u het volgende doet:
 1. Schoon het kanaal en alle bijbehorende resources op.
 
 
-##Vereisten
+##<a name="prerequisites"></a>Vereisten
 
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
-- U hebt een Azure-account nodig om deze zelfstudie te voltooien. 
-    
-    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web Apps in Azure App Service.
-- Een Media Services-account. Zie [Account maken](media-services-create-account.md) voor meer informatie over het maken van een Media Services-account.
+- U hebt een Azure-account nodig om deze zelfstudie te voltooien.
+
+Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web Apps in Azure App Service.
+- Een Media Services-account. Zie [Account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
 - U moet Media Services .NET SDK versie 3.2.0.0 of hoger gebruiken.
 - Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
-##Overwegingen
+##<a name="considerations"></a>Overwegingen
 
 - De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 - Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
 
-##Voorbeeld downloaden
+##<a name="download-sample"></a>Voorbeeld downloaden
 
 U kunt [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) een voorbeeld ophalen en uitvoeren.
 
 
-##Setup voor de ontwikkeling met Media Services SDK voor .NET
+##<a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Setup voor de ontwikkeling met Media Services SDK voor .NET
 
 1. Maak een consoletoepassing met Visual Studio.
 1. Gebruik het Media Services NuGet-pakket om de Media Services SDK voor .NET aan uw consoletoepassing toe te voegen.
 
-##Verbinding met Media Services maken
+##<a name="connect-to-media-services"></a>Verbinding met Media Services maken
 Als best practice moet u een app.config-bestand gebruiken om de Media Services-naam en de accountsleutel op te slaan.
 
->[AZURE.NOTE]Als u de waarden voor de naam en de sleutel wilt zoeken, gaat u naar de klassieke Azure-portal, selecteert u uw Media Service-account en klikt u onder aan het portalvenster op het pictogram SLEUTELS BEHEREN. Door op het pictogram naast elk tekstvak te klikken, wordt de waarde gekopieerd naar het systeemklembord.
+>[AZURE.NOTE]Om de waarden voor Naam en Sleutel te vinden, gaat u naar Azure Portal en selecteert u uw account. Het venster Instellingen wordt aan de rechterkant weergegeven. Selecteer Sleutels in het venster Instellingen. Door op het pictogram naast elk tekstvak te klikken, wordt de waarde gekopieerd naar het systeemklembord.
 
 Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op voor uw Media Services-accountnaam en de accountsleutel.
 
@@ -130,7 +130,7 @@ Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op 
     </configuration>
      
     
-##Voorbeeld van code
+##<a name="code-example"></a>Voorbeeld van code
 
     using System;
     using System.Collections.Generic;
@@ -519,22 +519,22 @@ Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op 
     }   
 
 
-##Volgende stap
+##<a name="next-step"></a>Volgende stap
 
 Media Services-leertrajecten bekijken.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Feedback geven
+##<a name="provide-feedback"></a>Feedback geven
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Zoekt u iets anders?
+### <a name="looking-for-something-else?"></a>Zoekt u iets anders?
 
 Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of het onderwerp op een andere manier niet aan uw behoeften voldoet, kunt u ons via de onderstaande Disqus-thread feedback geven.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

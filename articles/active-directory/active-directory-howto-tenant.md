@@ -33,41 +33,40 @@ Maar hoe kunt u een Azure AD-tenant verkrijgen?  De procedure kan enigszins afwi
 - [Geen van de bovenstaande abonnementen hebt en de procedure vanaf het begin wilt uitvoeren](#start-from-scratch)
 
 ## Een bestaand Office 365-abonnement gebruiken
-Als u een bestaand Office 365-abonnement hebt, maar geen Azure-abonnement (en u zich niet kunt aanmelden bij de [Azure Management Portal](https://manage.windowsazure.com)), volgt u [deze instructies](https://technet.microsoft.com/library/dn832618.aspx) om toegang te krijgen tot uw Azure AD-tenant.
+Als u een bestaand Office 365-abonnement hebt, beschikt u al over een Azure AD-tenant. U kunt u aanmelden bij [Azure Portal](https://portal.azure.com) met uw O365-account en Azure AD gebruiken.
 
 ## Een MSA Azure-abonnement gebruiken
-Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw afzonderlijke Microsoft-account, hebt u al een tenant.  De [Azure Management Portal](https://manage.windowsazure.com) bevat een tenant met de naam Standaardtenant onder Alle items en Active Directory.  U kunt deze tenant naar wens gebruiken, maar mogelijk wilt u een beheerdersaccount voor de organisatie maken.
+Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw afzonderlijke Microsoft-account, hebt u al een tenant.  Wanneer u zich bij [Azure Portal](https://portal.azure.com) aanmeldt, wordt u automatisch aangemeld bij uw standaardtenant. U kunt deze tenant naar wens gebruiken, maar mogelijk wilt u een beheerdersaccount voor de organisatie maken.
 
 Voer hiervoor de volgende stappen uit.  U kunt ook een nieuwe tenant en een beheerder in deze tenant maken via een vergelijkbare procedure.
 
-1.  Meld u aan bij de [Azure Management Portal](https://manage.windowsazure.com) met uw afzonderlijke account
-2.  Ga naar de sectie Active Directory van de portal (op de linkernavigatiebalk)
-3.  Selecteer de vermelding Standaarddirectory in de lijst met beschikbare directory's
-4.  Klik op de koppeling Gebruikers boven aan de pagina.  U ziet één gebruiker in de lijst met de waarde Microsoft-account in de kolom Afkomstig uit
-5.  Klik op Gebruiker toevoegen onder aan de pagina
-6.  Geef in het formulier Gebruiker toevoegen de volgende informatie op:
-    - Type gebruiker: nieuwe gebruiker in uw organisatie
+1.  Meld u aan bij [Azure Portal](https://portal.azure.com) met uw afzonderlijke account
+2.  Ga naar de sectie Azure Active Directory van de portal (op de linkernavigatiebalk onder **Meer services**)
+3.  U moet automatisch worden aangemeld bij de standaarddirectory. Als dit niet het geval is, kunt u van directory wisselen door in de rechterbovenhoek op uw accountnaam te klikken.
+4.  Kies in de sectie **Snelle taken** de optie **Een gebruiker toevoegen**.
+5.  Geef in het formulier Gebruiker toevoegen de volgende informatie op:
+
+    - Naam: (kies de gewenste waarde)
     - Gebruikersnaam: (kies een gebruikersnaam op voor deze beheerder)
-    - Voornaam/Achternaam/Weergavenaam: (kies de gewenste waarden)
+    - Profiel: (vul de gewenste waarden in voor de voornaam, achternaam, functie en afdeling)
     - Rol: hoofdbeheerder
-    - Alternatief e-mailadres: (geef de juiste waarden op)
-    - Optioneel: Multi-Factor Authentication inschakelen
-    - Klik ten slotte op de groene knop MAKEN om het maken van de gebruiker te voltooien (en het tijdelijke wachtwoord weer te geven).
-7.  Wanneer u het formulier Gebruiker toevoegen hebt ingevuld en het tijdelijke wachtwoord voor de nieuwe gebruiker met beheerdersrechten hebt ontvangen, noteert u dit wachtwoord omdat u zich moet aanmelden met deze nieuwe gebruiker om het wachtwoord te wijzigen. U kunt het wachtwoord ook rechtstreeks naar de gebruiker verzenden via een alternatief e-mailbericht.
-8.  Als u het tijdelijke wachtwoord wilt wijzigen, meldt u zich aan bij https://login.microsoftonline.com met dit nieuwe gebruikersaccount en wijzigt u het wachtwoord als u hierom wordt gevraagd.
+
+6.  Wanneer u het formulier Gebruiker toevoegen hebt ingevuld en het tijdelijke wachtwoord voor de nieuwe gebruiker met beheerdersrechten hebt ontvangen, noteert u dit wachtwoord omdat u zich moet aanmelden met deze nieuwe gebruiker om het wachtwoord te wijzigen. U kunt het wachtwoord ook rechtstreeks naar de gebruiker verzenden via een alternatief e-mailbericht.
+7.  Klik op **Maken** om de nieuwe gebruiker te maken.
+8.  Als u het tijdelijke wachtwoord wilt wijzigen, meldt u zich aan bij [https://login.microsoftonline.com](https://login.microsoftonline.com) met dit nieuwe gebruikersaccount en wijzigt u het wachtwoord als u hierom wordt gevraagd.
 
 
 ## Een Azure-abonnement voor de organisatie gebruiken
-Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  De [Azure Management Portal](https://manage.windowsazure.com) bevat een tenant onder Alle items en Active Directory.  U kunt deze tenant naar wens gebruiken.  Mogelijk wilt u ook een nieuwe tenant maken met de knop Nieuw linksonder in de portal.
+Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In [Azure Portal](https://portal.azure.com) vindt u een tenant wanneer u naar Meer services en Azure Active Directory navigeert.  U kunt deze tenant naar wens gebruiken. 
 
 
 ## De procedure vanaf het begin uitvoeren
-U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt.  Ga naar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) om u aan te melden voor Azure met een nieuwe organisatie.  Wanneer u de procedure hebt voltooid, hebt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In de [Azure Management Portal](https://manage.windowsazure.com) kunt u uw tenant zoeken door naar Active Directory in het linkernavigatievenster te gaan.
+U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt.  Ga naar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) om u aan te melden voor Azure met een nieuwe organisatie.  Wanneer u de procedure hebt voltooid, hebt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In [Azure Portal](https://portal.azure.com) kunt u uw tenant zoeken door in het linkernavigatievenster naar Azure Active Directory te gaan.
 
 Tijdens de aanmeldingsprocedure voor Azure moet u uw creditcardgegevens opgeven.  U kunt gerust doorgaan. Er worden namelijk geen kosten in rekening gebracht voor het publiceren van toepassingen in Azure AD of het maken van nieuwe tenants.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

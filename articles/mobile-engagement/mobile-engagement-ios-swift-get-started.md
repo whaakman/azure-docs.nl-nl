@@ -38,7 +38,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Engage
 
 ##<a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 
@@ -211,6 +211,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

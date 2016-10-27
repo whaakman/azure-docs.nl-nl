@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 
 # Vereisten en controlelijst voor ExpressRoute  
@@ -68,6 +69,6 @@ Als u CRM Online op ExpressRoute wilt gaan inschakelen, raadpleeg dan de volgend
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

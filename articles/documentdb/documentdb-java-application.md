@@ -4,7 +4,7 @@
     keywords="Toepassingsontwikkeling, databasezelfstudie, java-toepassing, java-webtoepassing zelfstudie, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="java"
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -15,9 +15,10 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="08/24/2016"
-    ms.author="anhoh"/>
+    ms.author="denlee"/>
 
-# Een Java-webtoepassing met DocumentDB bouwen
+
+# <a name="build-a-java-web-application-using-documentdb"></a>Een Java-webtoepassing met DocumentDB bouwen
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -36,7 +37,7 @@ In deze zelfstudie over het maken van een Java-toepassing wordt uitgelegd hoe u 
 
 > [AZURE.TIP] In deze zelfstudie voor het ontwikkelen van toepassingen wordt ervan uitgegaan dat u ervaring met Java hebt. Als u niet bekend bent met Java of de [vereiste hulpprogramma's](#Prerequisites), is het raadzaam het volledige [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-project via GitHub te downloaden. Vervolgens kunt u [de instructies aan het eind van dit artikel gebruiken](#GetProject) om het project op te bouwen. Zodra u klaar bent, kunt u het artikel lezen voor meer informatie over de code in de context van het project.  
 
-##<a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
+##<a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
 Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag gaat, moet u beschikken over het volgende:
 
 - Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
@@ -46,15 +47,15 @@ Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag 
 
 Als u deze hulpprogramma's voor het eerst installeert, kunt u op coreservlets.com in de Quick Start-sectie van het artikel[Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Zelfstudie: TomCat7 installeren en gebruiken met Eclipse) een overzicht van het installatieproces vinden.
 
-##<a id="CreateDB"></a>Stap 1: een DocumentDB-databaseaccount maken
+##<a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Stap 1: Een DocumentDB-databaseaccount maken
 
-Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: de Java JSP-toepassing maken](#CreateJSP).
+Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: De Java JSP-toepassing maken](#CreateJSP).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-##<a id="CreateJSP"></a>Stap 2: de Java JSP-toepassing maken
+##<a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Stap 2: De Java JSP-toepassing maken
 
 De JSP-toepassing maken:
 
@@ -81,7 +82,7 @@ De JSP-toepassing maken:
 
     ![Hello World – Zelfstudie Java-toepassing](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>Stap 3: de DocumentDB Java SDK installeren ##
+##<a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Stap 3: De DocumentDB Java SDK installeren ##
 
 De eenvoudigste manier om de Java DocumentDB SDK en de bijbehorende afhankelijkheden op te halen, is via [Apache Maven](http://maven.apache.org/).
 
@@ -109,7 +110,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
 5. Klik op **OK** zodat Maven de DocumentDB Java SDK installeert.
 6. Sla het bestand pom.xml op.
 
-##<a id="UseService"></a>Stap 4: de DocumentDB-service in een Java-toepassing gebruiken
+##<a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Stap 4: De DocumentDB-service in een Java-toepassing gebruiken
 
 1. Laten we eerst het object TodoItem definiëren:
 
@@ -359,7 +360,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
         }
 
 
-##<a id="Wire"></a>Stap 5: de rest van het project voor de ontwikkeling van een Java-toepassing aan elkaar koppelen
+##<a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Stap 5: De rest van het project voor de ontwikkeling van een Java-toepassing aaneen koppelen
 
 Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruikersinterface te bouwen en deze te verbinden met onze DAO.
 
@@ -736,7 +737,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
 
 6. Zodra het item wordt weergegeven, kunt u bijwerken of het item is voltooid door het selectievakje in of uit te schakelen en op **Taken bijwerken** te klikken.
 
-##<a id="Deploy"></a>Stap 6: de Java-toepassing implementeren naar Azure Websites
+##<a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Stap 6: De Java-toepassing implementeren naar Azure Websites
 
 Met Azure Websites kunt u heel eenvoudig, alsof u de toepassing als een WAR-bestand exporteert, Java-toepassingen implementeren en uploaden via broncodebeheer (bijvoorbeeld GIT) of FTP.
 
@@ -751,7 +752,7 @@ Met Azure Websites kunt u heel eenvoudig, alsof u de toepassing als een WAR-best
     Zodra het WAR-bestand is geüpload naar de map webapps, detecteert de runtime-omgeving dat u het bestand hebt toegevoegd en wordt het bestand automatisch geladen.
 4. Als u het voltooide product wilt weergeven, navigeert u naar http://UW\_SITE\_NAAM.azurewebsites.net/azure-documentdb-java-sample/ en begint u met het toevoegen van uw taken.
 
-##<a id="GetProject"></a>Het project ophalen van GitHub
+##<a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Het project ophalen van GitHub
 
 Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-project op GitHub. Als u het todo-project wilt importeren in Eclipse, moet u over de software en resources beschikken die worden vermeld in de sectie [Vereisten](#Prerequisites) en gaat u als volgt te werk:
 
@@ -782,6 +783,6 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

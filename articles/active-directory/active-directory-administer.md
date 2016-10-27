@@ -14,14 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
+    ms.date="10/10/2016"
     ms.author="markvi"/>
+
 
 # Uw Azure AD-directory beheren
 
 ## Wat is een Azure AD-tenant?
 
-Met betrekking tot fysieke werklocaties kan het woord 'tenant' worden gedefinieerd als een groep die of een bedrijf dat een gebouw gebruikt. Uw organisatie is bijvoorbeeld eigenaar van een kantoorgebouw. Samen met de gebouwen van andere organisaties staat uw gebouw in een straat. Uw organisatie kan worden gezien als de huurder ('tenant') van het gebouw. Het gebouw maakt deel uit van de activa van uw organisatie, biedt uw organisatie onderdak en zorgt ervoor dat u veilig zaken kunt doen. Het gebouw is bovendien gescheiden van de andere bedrijfsgebouwen in uw straat. Er is een duidelijke scheiding tussen uw bedrijfsmiddelen en die van de andere organisaties in de straat.
+Met betrekking tot fysieke werklocaties kan het woord 'tenant' worden gedefinieerd als een groep die of een bedrijf dat een gebouw gebruikt. Uw organisatie is bijvoorbeeld eigenaar van een kantoorgebouw. Samen met de gebouwen van andere organisaties staat uw gebouw in een straat. Uw organisatie kan worden gezien als de 'huurder' tenant van het gebouw. Het gebouw maakt deel uit van de activa van uw organisatie, biedt uw organisatie onderdak en zorgt ervoor dat u veilig zaken kunt doen. Het gebouw is bovendien gescheiden van de andere bedrijfsgebouwen in uw straat. Er is een duidelijke scheiding tussen uw bedrijfsmiddelen en die van de andere organisaties in de straat.
 
 Met betrekking tot werklocaties in de cloud kan een tenant worden gedefinieerd als een client of organisatie die een bepaald exemplaar van de gebruikte cloudservice in eigendom heeft en beheert. Met betrekking tot het identiteitsplatform dat door Microsoft Azure wordt geleverd, is een tenant het eigen exemplaar van Azure Active Directory (Azure AD) dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen en in eigendom neemt.
 
@@ -151,6 +152,6 @@ Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

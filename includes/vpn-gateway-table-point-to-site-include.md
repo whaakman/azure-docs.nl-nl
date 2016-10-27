@@ -1,12 +1,11 @@
-|  | **Klassieke implementatie**  |  **Implementatie van Resource Manager**  |
-|----------------------------------------|--------------|------------------------|
-| **Klassieke portal** | [Artikel](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Niet ondersteund |
-| **Azure Portal** |  Ondersteund  |  Niet ondersteund  |
-| **PowerShell** | Ondersteund | [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Implementatiemodel/-methode**|**Azure Portal**| **Klassieke portal** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Klassiek** |  [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Artikel](../articles/vpn-gateway/point-to-site-create.md)  | Ondersteund |
+|**Resource Manager** |Niet ondersteund| Niet ondersteund   | [Artikel](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

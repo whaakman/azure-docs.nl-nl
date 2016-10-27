@@ -12,17 +12,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="10/10/2016"
    ms.author="osamazia"/>
 
 
-# Asymmetrische routering met meerdere netwerkpaden
+# <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrische routering met meerdere netwerkpaden
 
 In dit artikel wordt uitgelegd hoe uitgaand en binnenkomend netwerkverkeer verschillende routes kan nemen wanneer er meerdere paden beschikbaar zijn tussen netwerkbron en -bestemming.
 
 Om asymmetrische routering te begrijpen, moet u twee concepten begrijpen. Het ene is het effect van meerdere netwerkpaden. Het andere is hoe apparaten, zoals een firewall, hun staat behouden (keep state). Dit soort apparaten worden stateful apparaten genoemd. Door een combinatie van deze twee factoren ontstaan scenario's waarin verkeer wordt verwijderd door een stateful apparaat, omdat het stateful apparaat niet heeft gedetecteerd dat verkeer afkomstig was van het apparaat zelf.
 
-## Meerdere netwerkpaden
+## <a name="multiple-network-paths"></a>Meerdere netwerkpaden
 
 Wanneer een bedrijfsnetwerk maar één koppeling met internet heeft via de internetprovider, loopt al het verkeer naar en van internet via hetzelfde pad. Bedrijven schaffen vaak meerdere aansluitingen aan, als redundante paden, ter verbetering van de uptime van het netwerk. In die gevallen is het mogelijk dat verkeer dat buiten het netwerk naar internet gaat via de ene koppeling gaat, en het retourverkeer via een andere koppeling komt. Dit wordt doorgaans asymmetrische routering genoemd. Bij asymmetrische routering neemt het terugkerende netwerkverkeer een andere weg dan de uitgaande stroom.
 
@@ -35,13 +35,13 @@ Elke router berekent onderweg van bron naar doel het beste pad om een bestemming
 -   Routering tussen externe netwerken is gebaseerd op een routeringsprotocol, het Border Gateway Protocol (BGP). BGP kijkt naar aankondigingen van neighbors en voert hier een aantal stappen op uit om het beste pad naar de bestemming te bepalen. Het beste pad wordt opgeslagen in de routeringstabel.
 -   De routeringspaden worden beïnvloed door de lengte van een subnetmasker dat aan een route is gekoppeld. Als een router meerdere aankondigingen voor hetzelfde IP-adres maar met verschillende subnetmaskers ontvangt, krijgt de aankondiging met het langere subnetmasker de voorkeur, omdat deze als een meer specifieke route wordt beschouwd.
 
-## Stateful apparaten
+## <a name="stateful-devices"></a>Stateful apparaten
 
 Routers kijken naar de IP-header van een pakket voor routeringsdoeleinden. Er zijn echter apparaten die nog dieper in het pakket kijken. Normaal gesproken kijken deze apparaten naar Layer4- (Transmission Control Protocol of TCP; of User Datagram Protocol of UDP), of zelfs Layer7-headers (toepassingslaag). Dergelijke apparaten zijn beveiligingsapparaten of apparaten die de bandbreedte optimaliseren. 
 
 Een firewall is een algemeen voorbeeld van een stateful apparaat. De firewall bepaalt op basis van verschillende velden, zoals protocol, TCP/UDP-poort en URL-headers, of een pakket de interfaces mag passeren. Dit niveau van pakketinspectie betekent een grote verwerkingsbelasting voor het apparaat. Om de prestaties te verbeteren, inspecteert de firewall het eerste pakket van een stroom. Als het pakket mag doorgaan, worden de stroomgegevens in de statustabel van de firewall bewaard. Alle volgende pakketten met betrekking tot deze stroom zijn toegestaan op basis van de eerste beslissing. Een pakket dat deel uitmaakt van een bestaande stroom, kan aankomen bij de firewall. Als de firewall geen eerdere statusinformatie over het pakket heeft, wordt het pakket door de firewall geweigerd.
 
-## Asymmetrische routering met ExpressRoute
+## <a name="asymmetric-routing-with-expressroute"></a>Asymmetrische routering met ExpressRoute
 
 Wanneer u via ExpressRoute verbinding maakt met Microsoft, verandert het netwerk als volgt:
 
@@ -57,29 +57,29 @@ Vervolgens schakelt u ExpressRoute in, en gebruikt u services die door Microsoft
 
 Als u ervoor kiest om dezelfde NAT-pool (Network Address Translation) te gebruiken voor ExpressRoute en voor internet, treden er vergelijkbare problemen op met de clients in uw netwerk met persoonlijke IP-adressen. Aanvragen voor services zoals Windows Update verlopen via internet omdat IP-adressen voor deze services niet worden verzonden via ExpressRoute. Het retourverkeer keert echter terug via ExpressRoute. Als Microsoft een IP-adres met hetzelfde subnetmasker van internet en ExpressRoute ontvangt, verkiest het ExpressRoute boven internet. Als een firewall of een ander stateful apparaat aan de rand van uw netwerk en gericht op ExpressRoute geen eerdere informatie over de stroom heeft, worden de pakketten die behoren tot deze gegevensstroom verwijderd.
 
-## Oplossingen voor asymmetrische routering
+## <a name="asymmetric-routing-solutions"></a>Oplossingen voor asymmetrische routering
 
 Er zijn in feite twee oplossingen voor het probleem van asymmetrische routering. De ene is routering en de andere is het gebruik van brongebaseerde NAT (SNAT).
 
-### Routering
+### <a name="routing"></a>Routering
 
 Zorg ervoor dat uw openbare IP-adressen zijn aangekondigd aan de juiste WAN-koppelingen (Wide Area Network). Als u bijvoorbeeld internet wilt gebruiken voor verificatieverkeer en ExpressRoute voor uw e-mailverkeer, dan moet u uw openbare IP-adressen voor AD FS (Active Directory Federation Services) niet aankondigen via ExpressRoute. Evenzo moet u ervoor zorgen dat u een on-premises AD FS-server niet blootstelt aan IP-adressen die de router via ExpressRoute ontvangt. Routes die worden ontvangen via ExpressRoute zijn specifieker, zodat ExpressRoute het voorkeurspad wordt voor verificatieverkeer naar Microsoft. Dit veroorzaakt asymmetrische routering.
 
 Als u ExpressRoute wilt gebruiken voor verificatie, zorg dan dat u openbare IP-adressen van ADFS via ExpressRoute aankondigt zonder NAT. Op deze manier loopt het verkeer dat afkomstig is van Microsoft en naar een on-premises AD FS-server gaat via ExpressRoute. Retourverkeer van de klant naar Microsoft maakt gebruik van ExpressRoute omdat het de voorkeursroute is via internet.
 
-### Brongebaseerde NAT
+### <a name="source-based-nat"></a>Brongebaseerde NAT
 
 Een andere oplossing voor problemen met asymmetrische routering is het gebruik van SNAT. U hebt bijvoorbeeld het openbare IP-adres van een on-premises SMTP-server (Simple Mail Transfer Protocol) niet via ExpressRoute aangekondigd omdat u voor dit type communicatie internet wilt gebruiken. Een aanvraag die afkomstig is van Microsoft en vervolgens naar uw on-premises SMTP-server gaat, passeert via internet. U verzendt de inkomende aanvraag via SNAT naar een intern IP-adres. Terugkerend verkeer van de SMTP-server gaat naar de edge-firewall (die u voor NAT gebruikt) in plaats van via ExpressRoute. Het retourverkeer gaat terug via internet.
 
 
 ![Brongebaseerde NAT-netwerkconfiguratie](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
-## Detectie van asymmetrische routering
+## <a name="asymmetric-routing-detection"></a>Detectie van asymmetrische routering
 
 Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het verwachte pad loopt. Als u verwacht dat verkeer van de on-premises SMTP-server naar Microsoft via het internetpad gaat, dan loopt de verwachte traceroute van de SMTP-server naar Office 365. Zo wordt gevalideerd of het verkeer inderdaad uw netwerk verlaat richting internet en niet richting ExpressRoute.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

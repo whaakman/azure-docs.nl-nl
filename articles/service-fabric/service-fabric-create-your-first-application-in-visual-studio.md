@@ -21,8 +21,9 @@
 # Uw eerste Azure Service Fabric-toepassing maken
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 De Service Fabric SDK bevat een invoegtoepassing voor Visual Studio voor sjablonen en hulpprogramma's om Service Fabric-toepassingen te maken, te implementeren en foutopsporing uit te voeren. In dit onderwerp vindt u meer informatie over het maken van uw eerste toepassing in Visual Studio.
 
@@ -70,7 +71,7 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 
 ## De toepassing implementeren en fouten opsporen in de toepassing
 
-Nu u een toepassing hebt, kunt proberen deze uit te voeren.
+Nu u een toepassing hebt, kunt u proberen deze uit te voeren.
 
 1. Druk op F5 in Visual Studio om de toepassing voor foutopsporing te implementeren.
 
@@ -148,14 +149,14 @@ Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden
 [5]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer.png
 [6]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail.png
 [7]: ./media/service-fabric-create-your-first-application-in-visual-studio/runasync-breakpoint.png
-[sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
-[systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
+[sfx-stop-knooppunt]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
+[systray-starten-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [toepassing van sfe verwijderen]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 
