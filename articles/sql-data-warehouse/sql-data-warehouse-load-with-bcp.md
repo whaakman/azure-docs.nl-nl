@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="mausher;barbkess"/>
 
 
 
@@ -57,7 +57,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 In deze zelfstudie maakt u een tabel in Azure SQL Data Warehouse en importeert u gegevens in de tabel.
 
-### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>Stap 1: een tabel maken in Azure SQL Data Warehouse
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Stap 1: een tabel maken in Azure SQL Data Warehouse
 
 Open een opdrachtprompt en voer de volgende query voor het maken van een tabel op uw exemplaar uit met SQLCMD:
 
@@ -79,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] Zie [Tabeloverzicht][] of [Syntaxis voor CREATE TABLE][] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
 
-### <a name="step-2:-create-a-source-data-file"></a>Stap 2: een brongegevensbestand maken
+### <a name="step-2-create-a-source-data-file"></a>Stap 2: een brongegevensbestand maken
 
 Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt.
 
@@ -100,7 +100,7 @@ Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbesta
 
 > [AZURE.NOTE] Denk eraan dat de bestandscodering UTF-8 niet wordt ondersteund in bcp.exe. Gebruik ASCII-bestanden of bestanden met de bestandscodering UTF-16 als u bcp.exe gebruikt.
 
-### <a name="step-3:-connect-and-import-the-data"></a>Stap 3: verbinding maken en de gegevens importeren
+### <a name="step-3-connect-and-import-the-data"></a>Stap 3: verbinding maken en de gegevens importeren
 Met BCP kunt u verbinding maken en de gegevens importeren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 
 ```sql
@@ -130,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
 
 Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
 
@@ -147,7 +147,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ## <a name="export-data-from-sql-data-warehouse"></a>Gegevens uit SQL Data Warehouse exporteren
 In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. U exporteert de eerder gemaakte gegevens naar een nieuw gegevensbestand met de naam DimDate2_export.txt.
 
-### <a name="step-1:-export-the-data"></a>Stap 1: de gegevens exporteren
+### <a name="step-1-export-the-data"></a>Stap 1: de gegevens exporteren
 
 Met het hulpprogramma BCP kunt u verbinding maken en gegevens exporteren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 

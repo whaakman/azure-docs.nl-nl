@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -41,17 +41,17 @@ Voordat u met deze zelfstudie begint, moet u beschikken over:
 
 > [AZURE.NOTE] Als het opslagaccount en het datawarehouse in dezelfde regio worden gemaakt, verbeteren de prestaties.
 
-## <a name="step-1:-sign-in-to-data-platform-studio-with-your-azure-account"></a>Stap 1: Aanmelden bij DPS met uw Azure-account
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Stap 1: Aanmelden bij DPS met uw Azure-account
 Open de webbrowser en navigeer naar de website van [Data Platform Studio](https://www.dataplatformstudio.com/). Meld u aan met hetzelfde Azure-account dat u hebt gebruikt om het opslagaccount en het datawarehouse te maken. Als uw e-mailadres is gekoppeld aan een werk- of schoolaccount en aan een Microsoft-account, kiest u het account waarmee u toegang hebt tot uw resources.
 
 > [AZURE.NOTE] Als dit de eerste keer is dat u DPS gebruikt, wordt u gevraagd om de toepassing toestemming te geven om de Azure-resources te beheren.
 
-## <a name="step-2:-start-the-import-wizard"></a>Stap 2: Wizard Importeren starten
+## <a name="step-2-start-the-import-wizard"></a>Stap 2: Wizard Importeren starten
 Selecteer in het hoofdvenster van DPS de koppeling Importeren naar Azure SQL Data Warehouse om de wizard Importeren te starten.
 
 ![][1]
 
-## <a name="step-3:-install-the-data-platform-studio-gateway"></a>Stap 3: DPS-gateway installeren
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>Stap 3: DPS-gateway installeren
 Als u verbinding wilt maken met uw on-premises SQL Server-database, moet u de DPS-gateway installeren. De gateway is een clientagent voor toegang tot de on-premises omgeving, waarmee gegevens worden uitgepakt en geüpload naar uw opslagaccount. De gegevens worden niet verwerkt op de servers van Redgate. De gateway installeren:
 
 1.  Klik op de koppeling **Gateway maken**
@@ -63,28 +63,28 @@ Als u verbinding wilt maken met uw on-premises SQL Server-database, moet u de DP
 
 Zodra de gateway is geïnstalleerd, wordt de status ervan gewijzigd naar Verbonden en kunt u Volgende selecteren.
 
-## <a name="step-4:-identify-the-source-database"></a>Stap 4: De brondatabase identificeren
+## <a name="step-4-identify-the-source-database"></a>Stap 4: De brondatabase identificeren
 Voer in het tekstvak *Servernaam invoeren* de naam in van de server die de database host, en selecteer **Volgende**. Selecteer vervolgens in de vervolgkeuzelijst de database waaruit u gegevens wilt importeren.
 
 ![][3]
 
 De geselecteerde database wordt met DPS gecontroleerd op tabellen die kunnen worden geïmporteerd. Met DPS worden standaard alle tabellen in de database geïmporteerd. U kunt tabellen selecteren of de selectie van tabellen opheffen door de koppeling Alle tabellen uit te vouwen. Selecteer de knop Volgende om door te gaan.
 
-## <a name="step-5:-choose-a-storage-account-to-stage-the-data"></a>Stap 5: Een opslagaccount kiezen om de gegevens in klaar te zetten
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Stap 5: Een opslagaccount kiezen om de gegevens in klaar te zetten
 DPS vraagt u om een locatie om de gegevens in klaar te zetten. Kies een bestaand opslagaccount in uw abonnement en selecteer **Volgende**.
 
 > [AZURE.NOTE] Met DPS wordt een nieuwe blobcontainer gemaakt in het gekozen opslagaccount. Voor elke import wordt een afzonderlijke map gebruikt.
 
 ![][4]
 
-## <a name="step-6:-select-a-data-warehouse"></a>Stap 6: Een datawarehouse selecteren
+## <a name="step-6-select-a-data-warehouse"></a>Stap 6: Een datawarehouse selecteren
 Vervolgens selecteert u [Azure SQL-datawarehouse](http://aka.ms/sqldw) om de gegevens in te importeren. Nadat u de database hebt geselecteerd, moet u de referenties invoeren om verbinding te maken met de database. Selecteer vervolgens **Volgende**.
 
 ![][5]
 
 > [AZURE.NOTE] De doelgegevenstabellen worden samengevoegd in het datawarehouse. U wordt gewaarschuwd als de tabelnaam vereist dat bestaande tabellen in het datawarehouse worden overschreven. U kunt ervoor kiezen om bestaande objecten in het datawarehouse te verwijderen. Dit doet u door te tikken op Alle bestaande objecten verwijderen voor het importeren.
 
-## <a name="step-7:-import-the-data"></a>Stap 7: De gegevens importeren
+## <a name="step-7-import-the-data"></a>Stap 7: De gegevens importeren
 In DPS wordt bevestigd dat u de gegevens wilt importeren. Klik op de knop Importeren starten om te beginnen met het importeren van gegevens.
 
 ![][6]
