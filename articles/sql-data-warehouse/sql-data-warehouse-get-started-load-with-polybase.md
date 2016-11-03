@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
     ![Hulpprogramma's van Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Stap 1: voorbeeldgegevens toevoegen aan Azure Blob Storage
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Stap 1: voorbeeldgegevens toevoegen aan Azure Blob Storage
 
 Als u gegevens wilt laden, moet u voorbeeldgegevens in een Azure Blob Storage plaatsen. In deze stap vult u een Azure Storage Blob met voorbeeldgegevens. Later gaat u PolyBase gebruiken om deze voorbeeldgegevens in de SQL Data Warehouse-database te laden.
 
-### <a name="a.-prepare-a-sample-text-file"></a>A. Een voorbeeldtekstbestand voorbereiden
+### <a name="a-prepare-a-sample-text-file"></a>A. Een voorbeeldtekstbestand voorbereiden
 
 Bereid als volgt een voorbeeldtekstbestand voor:
 
@@ -70,7 +70,7 @@ Bereid als volgt een voorbeeldtekstbestand voor:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Het eindpunt van de blob-service zoeken
+### <a name="b-find-your-blob-service-endpoint"></a>B. Het eindpunt van de blob-service zoeken
 
 Zoek als volgt het eindpunt van de blob-service:
 
@@ -84,7 +84,7 @@ Zoek als volgt het eindpunt van de blob-service:
 
     ![Eindpunt van blob-service](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Uw Azure-opslagsleutel zoeken
+### <a name="c-find-your-azure-storage-key"></a>C. Uw Azure-opslagsleutel zoeken
 
 Zoek als volgt uw Azure-opslagsleutel:
 
@@ -95,7 +95,7 @@ Zoek als volgt uw Azure-opslagsleutel:
 
     ![Azure-opslagsleutel kopiëren](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Het voorbeeldbestand kopiëren naar Azure Blob-opslag
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Het voorbeeldbestand kopiëren naar Azure Blob-opslag
 
 Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
 
@@ -113,7 +113,7 @@ Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
 
 Zie ook [Aan de slag met het AzCopy-opdrachtregelprogramma][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. De Blob Storage-container verkennen
+### <a name="e-explore-your-blob-storage-container"></a>E. De Blob Storage-container verkennen
 
 Controleer als volgt het bestand dat naar Blob Storage is geüpload:
 
@@ -126,7 +126,7 @@ Controleer als volgt het bestand dat naar Blob Storage is geüpload:
     ![Azure Storage-blob weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Stap 2: een externe tabel voor de voorbeeldgegevens maken
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Stap 2: een externe tabel voor de voorbeeldgegevens maken
 
 In deze sectie maakt u een externe tabel waarin de voorbeeldgegevens worden gedefinieerd.
 
@@ -216,7 +216,7 @@ In SQL Server-objectverkenner in Visual Studio ziet u de externe bestandsindelin
 
 ![Externe tabel weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Stap 3: gegevens laden in SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Stap 3: gegevens laden in SQL Data Warehouse
 
 Nadat de externe tabel is gemaakt, kunt u de gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
 
 SQL Data Warehouse bevat geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor hoge queryprestaties is het dan ook belangrijk dat u voor elke kolom in elke tabel statistieken maakt nadat de tabel de eerste keer is geladen. Het is ook belangrijk dat de statistieken worden bijgewerkt wanneer gegevens substantieel zijn gewijzigd.
 

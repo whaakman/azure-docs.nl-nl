@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende resourc
 
    + **AZCopy**: u hebt AZCopy nodig om de voorbeeldgegevens van de lokale client te kopiëren naar uw Azure Storage-blob. Zie de [documentatie van AZCopy][] voor installatie-instructies.
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Stap 1: Voorbeeldgegevens kopiëren naar Azure Storage-blob
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Stap 1: Voorbeeldgegevens kopiëren naar Azure Storage-blob
 
 Als u beschikt over alle benodigde onderdelen, bent u klaar om de voorbeeldgegevens te kopiëren naar uw Azure Storage-blob.
 
@@ -63,13 +63,13 @@ Als u beschikt over alle benodigde onderdelen, bent u klaar om de voorbeeldgegev
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Stap 2: resources verbinden met Azure Data Factory
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Stap 2: resources verbinden met Azure Data Factory
 
 Nu de gegevens zijn opgeslagen, kunt u de Azure Data Factory-pijplijn maken om de gegevens te kunnen verplaatsen van de Azure Blob-opslag naar SQL Data Warehouse.
 
 Open [Azure Portal][] en selecteer uw gegevensfactory in het menu aan de linkerkant.
 
-### <a name="step-2.1:-create-linked-service"></a>Stap 2.1: gekoppelde service maken
+### <a name="step-21-create-linked-service"></a>Stap 2.1: gekoppelde service maken
 
 Koppel uw Azure-opslagaccount en SQL Data Warehouse aan uw gegevensfactory.  
 
@@ -90,7 +90,7 @@ Koppel uw Azure-opslagaccount en SQL Data Warehouse aan uw gegevensfactory.
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Step 2.2: de gegevensset definiëren
+### <a name="step-22-define-the-dataset"></a>Step 2.2: de gegevensset definiëren
 
 Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat houdt in dat u de structuur moet definiëren van de gegevens die worden verplaatst van de opslag naar het datawarehouse.  U kunt meer lezen over het aanmaakproces
 
@@ -148,7 +148,7 @@ Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Stap 3: een pijplijn maken en uitvoeren
+## <a name="step-3-create-and-run-your-pipeline"></a>Stap 3: een pijplijn maken en uitvoeren
 
 Tot slot moet u een pijplijn in Azure Data Factory instellen en uitvoeren.  Dit is de bewerking waarmee de daadwerkelijke gegevensverplaatsing wordt voltooid.  Een volledig overzicht van de bewerkingen die u met SQL Data Warehouse en Azure Data Factory kunt uitvoeren vindt u [hier][Move data to and from Azure SQL Data Warehouse using Azure Data Factory] (Gegevens van en naar Azure SQL Data Warehouse verplaatsen met Azure Data Factory).
 
