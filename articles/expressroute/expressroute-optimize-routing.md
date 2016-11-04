@@ -1,21 +1,21 @@
-<properties
-   pageTitle="ExpressRoute-routering optimaliseren | Microsoft Azure"
-   description="Deze pagina bevat gedetailleerde informatie over het optimaliseren van routering wanneer een klant meerdere ExpressRoute-circuits heeft die Microsoft verbinden met het bedrijfsnetwerk van de klant."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: ExpressRoute-routering optimaliseren | Microsoft Docs
+description: Deze pagina bevat gedetailleerde informatie over het optimaliseren van routering wanneer een klant meerdere ExpressRoute-circuits heeft die Microsoft verbinden met het bedrijfsnetwerk van de klant.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute-routering optimaliseren
 Als u meerdere ExpressRoute-circuits hebt, hebt u meer dan één pad om verbinding te maken met Microsoft. Dat betekent dat suboptimale routering kan plaatsvinden, met andere woorden, dat verkeer soms een langer pad aflegt om Microsoft te bereiken en Microsoft om uw netwerk te bereiken. Hoe langer het netwerkpad, hoe groter de latentie. Latentie heeft een directe invloed op toepassingsprestaties en gebruikerservaring. In dit artikel wordt dit probleem geïllustreerd en wordt uitgelegd hoe u routering optimaliseert met behulp van de standaardrouteringstechnologieën.
 
@@ -39,13 +39,17 @@ Er zijn twee oplossingen voor het probleem. Voor de eerste oplossing adverteert 
 
 Voor de tweede oplossing blijft u beide voorvoegsels op beide ExpressRoute-circuits adverteren en geeft u daarnaast aan welk voorvoegsel zich het dichtst bij welk kantoor bevindt. Omdat we BGP AS-padtoevoeging ondersteunen, kunt u het AS-pad voor uw voorvoegsel configureren om routering te beïnvloeden. In dit voorbeeld kunt u het AS-pad voor 172.2.0.0/31 in VS - oost verlengen zodat het ExpressRoute-circuit in VS - west de voorkeur krijgt voor verkeer dat is bestemd voor dit voorvoegsel (omdat ons netwerk 'denkt' dat het pad naar dit voorvoegsel korter is in het westen). En zo verlengt u ook het AS-pad voor 172.2.0.2/31 in VS - west, zodat het ExpressRoute-circuit in VS - oost de voorkeur krijgt. Routering is geoptimaliseerd voor beide kantoren. Als bij dit ontwerp één ExpressRoute-circuit wordt verbroken, kan Exchange Online u nog steeds bereiken via een ander ExpressRoute-circuit en uw WAN. 
 
->[AZURE.IMPORTANT] We verwijderen persoonlijke AS-nummers in het AS-pad voor voorvoegsels die binnenkomen op Microsoft-peering. U moet openbare AS-nummers aan het AS-pad toevoegen om routering voor Microsoft-peering te beïnvloeden.
+> [!IMPORTANT]
+> We verwijderen persoonlijke AS-nummers in het AS-pad voor voorvoegsels die binnenkomen op Microsoft-peering. U moet openbare AS-nummers aan het AS-pad toevoegen om routering voor Microsoft-peering te beïnvloeden.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Hoewel de hier getoonde voorbeelden voor Microsoft- en openbare peerings zijn, ondersteunen we dezelfde mogelijkheden voor persoonlijke peering. De AS-padtoevoeging werkt ook binnen één ExpressRoute-circuit om de selectie van primaire en secundaire paden te beïnvloeden.
-
-
+> [!IMPORTANT]
+> Hoewel de hier getoonde voorbeelden voor Microsoft- en openbare peerings zijn, ondersteunen we dezelfde mogelijkheden voor persoonlijke peering. De AS-padtoevoeging werkt ook binnen één ExpressRoute-circuit om de selectie van primaire en secundaire paden te beïnvloeden.
+> 
+> 
 
 <!--HONumber=Oct16_HO3-->
 

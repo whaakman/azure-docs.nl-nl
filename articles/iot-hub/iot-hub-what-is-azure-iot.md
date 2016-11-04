@@ -1,32 +1,30 @@
-<properties
- pageTitle="Azure-oplossingen voor het Internet of Things | Microsoft Azure"
- description="Een overzicht van IoT op Azure met onder andere een voorbeeldarchitectuur voor een oplossing en hoe deze zich verhoudt tot Azure IoT Hub, apparaat-SDK’s en vooraf geconfigureerde oplossingen"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Azure-oplossingen voor het Internet of Things | Microsoft Docs
+description: Een overzicht van IoT op Azure met onder andere een voorbeeldarchitectuur voor een oplossing en hoe deze zich verhoudt tot Azure IoT Hub, apparaat-SDK’s en vooraf geconfigureerde oplossingen
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Volgende stappen
-
 Azure IoT-Hub is een Azure-service voor beveiligde en betrouwbare bidirectionele communicatie tussen de back-end van uw toepassing en miljoenen apparaten. Het stelt de back-end van de toepassing in staat om:
 
-- telemetrie op schaal van uw apparaten te ontvangen;
-- gegevens van uw apparaten naar een processor voor streaming-gebeurtenissen te routeren;
-- uploads van bestanden vanaf apparaten te ontvangen;
-- cloud-naar-apparaat-opdrachten naar specifieke apparaten te verzenden.
+* telemetrie op schaal van uw apparaten te ontvangen;
+* gegevens van uw apparaten naar een processor voor streaming-gebeurtenissen te routeren;
+* uploads van bestanden vanaf apparaten te ontvangen;
+* cloud-naar-apparaat-opdrachten naar specifieke apparaten te verzenden.
 
 Met IoT-Hub kunt u zelf de back-end van uw oplossing implementeren. IoT-Hub bevat bovendien een register met apparaat-id’s dat wordt gebruikt voor het inrichten van apparaten, hun beveiligingsreferenties en hun rechten om verbinding maken met de hub. Zie [Wat is IoT-Hub?][lnk-iot-hub] voor meer informatie over IoT-Hub.
 

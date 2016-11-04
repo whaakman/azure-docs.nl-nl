@@ -1,34 +1,32 @@
-<properties
-   pageTitle="Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp | Microsoft Azure"
-   description="Lees hoe u een Office 365-app deelt met uw gebruikers met behulp van Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="guscatalano"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp | Microsoft Docs
+description: Lees hoe u een Office 365-app deelt met uw gebruikers met behulp van Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: guscatalano
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="guscatal;elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: guscatal;elizapo
 
-
-
+---
 # Dezelfde Office 365-ervaring op elk apparaat met Azure RemoteApp
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> 
+> 
 
 In dit artikel wordt uitgelegd hoe u Office 365 implementeert op elk apparaat in uw bedrijf. Uw gebruikers beschikken op Android, Apple en Windows over dezelfde mogelijkheden en gebruikersinterface.
 
 We kunnen dit met Azure RemoteApp bewerkstelligen door Office 365 te hosten op schaalbare virtuele machines in Azure, waarmee gebruikers verbinding kunnen maken. Deze set van virtuele machines noemen we een 'cloudverzameling'.
 
 ## Een cloudverzameling maken
-
 Ga nadat u een Azure-account hebt gemaakt eerst naar **RemoteApp** door op de koppeling aan de linkerkant te klikken.
 ![Azure RemoteApp in de Azure-portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
@@ -50,7 +48,6 @@ Nu kunt u ook op **Gebruikerstoegang** klikken om meer gebruikers toe te voegen 
 Nu gaan we proberen verbinding te maken met Office 365.
 
 ## Verbinding maken met Office 365
-
 Ga naar [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), schuif naar beneden en klik op **Clients downloaden** om de Azure RemoteApp-client op uw apparaat te installeren. De onderstaande schermafbeeldingen zijn voor Windows.
 
 Zodra de toepassing wordt gestart, wordt u gevraagd om u aan te melden met uw Microsoft-account (voorheen een 'Live-ID'). Gebruik nu uw Azure-account. Wanneer u bent aangemeld, ziet u een melding over nieuwe uitnodigingen. Klik op de melding, waarna een lijst zoals hieronder wordt weergegeven. Accepteer de uitnodiging die overeenkomt met het e-mailadres de eigenaar van uw Azure-account.
@@ -70,8 +67,6 @@ Wanneer u op een van deze toepassing klikt, wordt deze gestart op de virtuele ma
 ![starten](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

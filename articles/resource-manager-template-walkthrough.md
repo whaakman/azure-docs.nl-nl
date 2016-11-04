@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Walkthrough voor Resource Manager-sjablonen | Microsoft Azure"
-   description="Een stapsgewijze walkthrough voor een Resource Manager-sjabloon waarmee een basis Azure IaaS-architectuur wordt ingericht."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Walkthrough voor Resource Manager-sjablonen | Microsoft Docs
+description: Een stapsgewijze walkthrough voor een Resource Manager-sjabloon waarmee een basis Azure IaaS-architectuur wordt ingericht.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: ''
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
 
+---
 # Walkthrough voor het Resource Manager-sjabloon
-
 Een van de eerste vragen bij het maken van een sjabloon is: hoe ga ik aan de slag? U kunt met een leeg sjabloon beginnen en dan de basisstructuur volgen die wordt beschreven in het artikel [Sjabloon aanmaken](resource-group-authoring-templates.md#template-format). Voeg vervolgens de resources en juiste parameters en variabelen toe. Een goed alternatief is om aan de slag te gaan via de [snelstartgalerie](https://github.com/Azure/azure-quickstart-templates) en te zoeken naar scenario’s die vergelijkbaar zijn met het scenario dat u wilt maken. U kunt verschillende sjablonen samenvoegen of een bestaande sjabloon aanpassen aan uw eigen scenario. 
 
 Hier volgt een algemene infrastructuur als voorbeeld:
@@ -33,10 +31,12 @@ In dit onderwerp worden de stappen beschreven voor het maken van een Resource Ma
 
 Dat is echter veel om in één keer op te zetten, dus u maakt en implementeert eerst een opslagaccount. Wanneer u het maken van opslagaccounts onder de knie hebt, kunt u de andere resources toevoegen en het sjabloon opnieuw implementeren om de infrastructuur te voltooien.
 
->[AZURE.NOTE] U kunt alle soorten editors gebruiken bij het maken van het sjabloon. Visual Studio biedt hulpprogramma's waardoor het maken van sjablonen eenvoudiger wordt, maar u hebt Visual Studio niet nodig voor deze zelfstudie. Voor een zelfstudie over het gebruiken van Visual Studio voor het maken van een webtoepassings- en SQL Database-implementatie, ziet u [Azure-resourcegroepen maken en implementeren met Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> U kunt alle soorten editors gebruiken bij het maken van het sjabloon. Visual Studio biedt hulpprogramma's waardoor het maken van sjablonen eenvoudiger wordt, maar u hebt Visual Studio niet nodig voor deze zelfstudie. Voor een zelfstudie over het gebruiken van Visual Studio voor het maken van een webtoepassings- en SQL Database-implementatie, ziet u [Azure-resourcegroepen maken en implementeren met Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Het Resource Manager-sjabloon maken
-
 Het sjabloon is een JSON-bestand waarin alle resources worden beschreven die u wilt implementeren. Hierin kunt u ook de parameters definiëren die worden opgegeven tijdens de implementatie, variabelen die zijn samengesteld op basis van andere waarden en expressies en uitvoer van de implementatie. 
 
 U begint met het meest eenvoudige sjabloon:
@@ -162,14 +162,15 @@ De waarde die u opgeeft voor **type** bevat de resourceprovider en het resourcet
 ```
 
 Als u gebruikmaakt van Azure CLI kunt u ook de volgende opdracht uitvoeren:
+
 ```
     azure provider list
 ```
 Gezien het feit dat u in dit onderwerp werkt met opslagaccounts, virtuele machines en virtuele netwerken, gaat u aan de slag met:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 Als u wilt zien welke resourcetypen er zijn voor een bepaalde provider, voert de volgende PowerShell-opdracht uit:
 
@@ -387,7 +388,7 @@ Bekijk de [REST-API voor netwerkinterfaces](https://msdn.microsoft.com/library/a
 U maakt twee virtuele machines met de functie copyIndex(), net als bij het maken van de [netwerkinterfaces](#network-interface).
 Het aanmaakproces voor de virtuele machine is afhankelijk van het opslagaccount, de netwerkinterface en de beschikbaarheidsset. Deze virtuele machine wordt gemaakt vanuit een Marketplace-installatiekopie, zoals gedefinieerd in de `storageProfile`-eigenschap. `imageReference` wordt gebruikt om de installatiekopie-uitgever, aanbieding, SKU en versie te definiëren. Ten slotte wordt er een diagnostisch profiel geconfigureerd om diagnostiek in te schakelen voor de virtuele machine. 
 
-Als u op zoek bent naar de relevante eigenschappen voor een Marketplace-installatiekopie, volgt u het artikel [Installatiekopieën van virtuele Linux-machines selecteren](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) of [Installatiekopieën van virtuele Windows-machines selecteren](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+Als u op zoek bent naar de relevante eigenschappen voor een Marketplace-installatiekopie, volgt u het artikel [Installatiekopieën van virtuele Linux-machines selecteren](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) of [Installatiekopieën van virtuele Windows-machines selecteren](virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 ```json
 {
@@ -448,12 +449,14 @@ Als u op zoek bent naar de relevante eigenschappen voor een Marketplace-installa
 }
 ```
 
->[AZURE.NOTE] Als er sprake is van installatiekopieën die zijn gepubliceerd door **externe leveranciers**, moet u een andere eigenschap opgeven met de naam `plan`. Een voorbeeld kunt u vinden in [dit sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) uit de snelstartgalerie. 
+> [!NOTE]
+> Als er sprake is van installatiekopieën die zijn gepubliceerd door **externe leveranciers**, moet u een andere eigenschap opgeven met de naam `plan`. Een voorbeeld kunt u vinden in [dit sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) uit de snelstartgalerie. 
+> 
+> 
 
 U bent klaar met het definiëren van de resources voor uw sjabloon.
 
 ## Parameters
-
 In het gedeelte Parameters geeft u de waarden op die kunnen worden opgegeven bij het implementeren van het sjabloon. Geef alleen parameters op voor waarden die volgens u moeten worden gewijzigd tijdens de implementatie. U kunt een standaardwaarde opgeven voor een parameter die wordt gebruikt indien deze niet is opgegeven tijdens de implementatie. Ook kunt u de toegestane waarden opgeven, zoals weergegeven voor de **imageSKU**-parameter.
 
 ```json
@@ -554,7 +557,6 @@ In het gedeelte Parameters geeft u de waarden op die kunnen worden opgegeven bij
 ```
 
 ## Variabelen
-
 In het gedeelte Variabelen kunt u waarden opgeven die op meer dan één plaats in uw sjabloon worden gebruikt, of waarden die zijn samengesteld uit andere expressies of variabelen. Variabelen worden vaak gebruikt om de syntaxis van sjablonen te vereenvoudigen.
 
 ```json
@@ -577,12 +579,9 @@ Het sjabloon is nu klaar! U kunt uw sjabloon vergelijken met het volledige sjabl
 U kunt het sjabloon opnieuw implementeren met behulp van dezelfde opdrachten die u hebt gebruikt bij het implementeren van het opslagaccount. U hoeft het opslagaccount niet te verwijderen vóór het opnieuw implementeren, omdat Resource Manager het opnieuw maken van resources die al bestaan en die niet zijn gewijzigd, overslaat.
 
 ## Volgende stappen
-
-- De [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is een uitstekend hulpprogramma voor het visualiseren van ARM-sjablonen, omdat deze mogelijk te groot worden om te begrijpen door slechts het JSON-bestand te lezen.
-- Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
-- Voor meer informatie over het implementeren van een sjabloon ziet u [Een resourcegroep implementeren met een Azure Resource Manager-sjabloon](resource-group-template-deploy.md)
-
-
+* De [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is een uitstekend hulpprogramma voor het visualiseren van ARM-sjablonen, omdat deze mogelijk te groot worden om te begrijpen door slechts het JSON-bestand te lezen.
+* Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
+* Voor meer informatie over het implementeren van een sjabloon ziet u [Een resourcegroep implementeren met een Azure Resource Manager-sjabloon](resource-group-template-deploy.md)
 
 <!--HONumber=Sep16_HO3-->
 

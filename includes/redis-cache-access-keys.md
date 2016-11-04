@@ -3,13 +3,11 @@ Voor het maken van een verbinding met een exemplaar van Azure Redis Cache, hebbe
 ![Instellingen van Redis-cache](media/redis-cache-access-keys/redis-cache-settings.png)
 
 ### Hostnaam en poorten
-
 Klik op **Eigenschappen** als u de hostnaam en poorten wilt weergeven.
 
 ![Eigenschappen van Redis-cache](media/redis-cache-access-keys/redis-cache-properties.png)
 
 ### Toegangssleutels
-
 Klik op **Toegangssleutels** als u de toegangssleutels wilt ophalen.
 
 ![Toegangssleutels voor Azure Redis-cache](media/redis-cache-access-keys/redis-cache-access-keys.png)

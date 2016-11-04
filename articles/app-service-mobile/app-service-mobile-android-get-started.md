@@ -1,34 +1,30 @@
-<properties
-    pageTitle="Een Android-app maken in Azure App Service Mobile Apps | Microsoft Azure"
-    description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Android-ontwikkeling."
-    services="app-service\mobile"
-    documentationCenter="android"
-    authors="yuaxu"
-    manager="erikre"
-    editor=""/>
+---
+title: Een Android-app maken in Azure App Service Mobile Apps | Microsoft Docs
+description: Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Android-ontwikkeling.
+services: app-service\mobile
+documentationcenter: android
+author: yuaxu
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: yuaxu
 
-
-#Een Android-app maken
-
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+---
+# Een Android-app maken
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overzicht
-
-Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Android-app met een back-end voor een mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor een mobiele app als een eenvoudige Android-app voor _takenlijsten_ die app-gegevens opslaat in Azure.
+Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Android-app met een back-end voor een mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor een mobiele app als een eenvoudige Android-app voor *takenlijsten* die app-gegevens opslaat in Azure.
 
 Het volgen van deze zelfstudie is een vereiste voor alle andere Android-zelfstudies over het gebruik van de functie Mobile Apps in Azure App Service.
 
 ## Vereisten
-
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * De [Android-hulpprogramma's voor ontwikkelaars](https://developer.android.com/sdk/index.html), waaronder Integrated Development Environment van Android Studio en het meest recente Android-platform.
@@ -36,17 +32,13 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Een nieuwe back-end voor mobiele apps van Azure maken
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Het serverproject configureren
-
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## De Android-app downloaden en uitvoeren
-
-[AZURE.INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
-
+[!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- Images. -->
 

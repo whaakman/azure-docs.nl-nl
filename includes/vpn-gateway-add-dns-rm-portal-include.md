@@ -4,7 +4,7 @@ Met deze instellingen kunt u de DNS-server opgeven die u wilt gebruiken voor de 
 2. Op de pagina **DNS-servers**, onder **DNS-servers**, selecteert u **Aangepaste DNS**.
 3. In het veld **Primaire DNS-server** voert u het IP-adres in van de DNS-server die u wilt gebruiken voor naamomzetting.
 4. Klik op **Opslaan** boven aan de blade om uw configuratie op te slaan.
-
+   
     ![Aangepaste DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
 <!--HONumber=Sep16_HO3-->

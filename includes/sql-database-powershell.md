@@ -1,11 +1,11 @@
 
 ## Een PowerShell-sessie starten
-
 Eerst moet u de nieuwste [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installeren en uitvoeren. Zie [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor gedetailleerde informatie.
 
-
->[AZURE.NOTE] Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../articles/resource-group-overview.md) gebruikt. Daarom worden in voorbeelden de [Azure SQL Database PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) voor Resource Manager gebruikt. De [cmdlets van Azure SQL Database (klassiek)](https://msdn.microsoft.com/library/azure/dn546723.aspx) van het bestaande klassieke implementatiemodel worden ondersteund voor compatibiliteit met eerdere versies, maar we raden u aan om de Resource Manager-cmdlets te gebruiken.
-
+> [!NOTE]
+> Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../articles/resource-group-overview.md) gebruikt. Daarom worden in voorbeelden de [Azure SQL Database PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) voor Resource Manager gebruikt. De [cmdlets van Azure SQL Database (klassiek)](https://msdn.microsoft.com/library/azure/dn546723.aspx) van het bestaande klassieke implementatiemodel worden ondersteund voor compatibiliteit met eerdere versies, maar we raden u aan om de Resource Manager-cmdlets te gebruiken.
+> 
+> 
 
 Wanneer u de cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) uitvoert, wordt er een aanmeldingsscherm geopend waarin u uw referenties kunt invoeren. Gebruik de referenties waarmee u zich aanmeldt bij de Azure-portal.
 

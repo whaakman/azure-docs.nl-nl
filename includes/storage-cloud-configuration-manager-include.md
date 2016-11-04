@@ -12,7 +12,6 @@ In het volgende voorbeeld ziet u hoe u een verbindingsreeks ophaalt uit een conf
 
 Het gebruik van Azure Configuration Manager is optioneel. U kunt ook een API gebruiken, zoals de [ConfigurationManager-klasse](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) van .NET Framework.
 
-
 <!--HONumber=Sep16_HO3-->
 
 

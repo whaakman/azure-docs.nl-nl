@@ -1,14 +1,14 @@
 Azure bepaalt dat uw toepassing Python gebruikt **als beide volgende voorwaarden waar zijn**:
 
-- bestand requirements.txt in de hoofdmap
-- elk bestand .py in de hoofdmap OF een runtime.txt die Python specificeert
+* bestand requirements.txt in de hoofdmap
+* elk bestand .py in de hoofdmap OF een runtime.txt die Python specificeert
 
 Wanneer dit het geval is, wordt een implementatiescript gebruikt dat specifiek is voor Python en waarmee de standaard synchronisatie van bestanden wordt uitgevoerd, evenals extra Python-bewerkingen zoals:
 
-- Automatisch beheer van virtuele omgeving
-- Installatie van pakketten die zijn vermeld in requirements.txt met behulp van pip
-- Maken van de juiste web.config op basis van de geselecteerde Python-versie
-- Verzamelen van statische bestanden voor Django-toepassingen
+* Automatisch beheer van virtuele omgeving
+* Installatie van pakketten die zijn vermeld in requirements.txt met behulp van pip
+* Maken van de juiste web.config op basis van de geselecteerde Python-versie
+* Verzamelen van statische bestanden voor Django-toepassingen
 
 U kunt bepaalde aspecten van de standaard implementatiestappen beheren zonder dat u het script hoeft aan te passen.
 
@@ -25,7 +25,7 @@ Voor meer controle over de implementatie kunt u het standaard implementatiescrip
     \.deployment
     \deploy.cmd
 
-U kunt de [Azure-opdrachtregelinterface][] gebruiken om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
+U kunt de [Azure-opdrachtregelinterface][Azure-opdrachtregelinterface] gebruiken om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
 
     azure site deploymentscript --python
 

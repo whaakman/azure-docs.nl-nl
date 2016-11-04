@@ -1,49 +1,41 @@
-<properties
-   pageTitle="Gegevens vanuit csv-bestand laden in Azure SQL-database (bcp) | Microsoft Azure"
-   description="Maak bij een kleine gegevensomvang gebruik van bcp om gegevens in de Azure SQL-database te importeren."
-   services="sql-database"
-   documentationCenter="NA"
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Gegevens vanuit csv-bestand laden in Azure SQL-database (bcp) | Microsoft Docs
+description: Maak bij een kleine gegevensomvang gebruik van bcp om gegevens in de Azure SQL-database te importeren.
+services: sql-database
+documentationcenter: NA
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/13/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/13/2016
+ms.author: carlrab
 
-
-
+---
 # Gegevens vanuit csv laden in Azure SQL Data Warehouse (platte bestanden)
-
 U kunt het opdrachtregelhulpprogramma bcp gebruiken om gegevens uit een csv-bestand te importeren in Azure SQL Database.
 
 ## Voordat u begint
-
 ### Vereisten
-
 Voor deze zelfstudie hebt u het volgende nodig:
 
-- Een logische Azure SQL-databaseserver en -database
-- Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
-- Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
+* Een logische Azure SQL-databaseserver en -database
+* Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
+* Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 
-U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][].
+U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Downloadcentrum].
 
 ### Gegevens in ASCII- of UTF-16-indeling
-
 Als u deze zelfstudie wilt uitvoeren met uw eigen gegevens, moeten deze zijn gecodeerd in de ASCII- of UTF-16-indeling, omdat de indeling UTF-8 niet wordt ondersteund in BCP. 
 
 ## 1. Een doeltabel maken
-
 Definieer een tabel in SQL Database als de doeltabel. De kolommen in de tabel moeten overeenkomen met de gegevens in elke rij van het gegevensbestand.
 
 Open een opdrachtprompt en voer de volgende opdracht uit met sqlcmd.exe om een tabel te maken:
-
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -59,7 +51,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2. Een brongegevensbestand maken
-
 Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt. Dit zijn gegevens in ASCII-indeling.
 
 ```
@@ -98,24 +89,22 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 De resultaten horen er als volgt uit te zien:
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
-
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ## Volgende stappen
-
 Zie [SQL Server-database migreren](sql-database-cloud-migrate.md) om een SQL-serverdatabase te migreren.
 
 <!--MSDN references-->

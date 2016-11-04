@@ -1,44 +1,45 @@
-<properties
-   pageTitle="Gegevens analyseren met Azure Machine Learning | Microsoft Azure"
-   description="Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="kevinvngo"
-   manager="barbkess"
-   editor=""/>
+---
+title: Gegevens analyseren met Azure Machine Learning | Microsoft Docs
+description: Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: kevinvngo
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/14/2016"
-   ms.author="kevin;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/14/2016
+ms.author: kevin;barbkess;sonyama
 
-
+---
 # Gegevens analyseren met Azure Machine Learning
-
-> [AZURE.SELECTOR]
-- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> [!div class="op_single_selector"]
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> 
+> 
 
 In deze zelfstudie wordt gebruikgemaakt van Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse. U maakt een gerichte marketingcampagne voor Adventure Works, de fietsenwinkel, door te voorspellen of een klant een fiets waarschijnlijk wel of niet zal kopen.
 
-> [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-- Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][].
+* Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Een SQL Data Warehouse maken] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][voorbeeldgegevens handmatig laden].
 
 ## 1. Gegevens ophalen
 De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
-1. Meld u aan bij [Azure Machine Learning Studio][] en klik op My experiments.
+1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning Studio] en klik op My experiments.
 2. Klik op **+NEW** (Nieuw) en selecteer **Blank Experiment** (Leeg experiment).
 3. Voer een naam in voor uw experiment: Targeted Marketing.
 4. Sleep de module **Reader** van het deelvenster met modules naar het canvas.
@@ -68,36 +69,31 @@ FROM [dbo].[vTargetMail]
 Voer het experiment uit door onder experimentencanvas op **RUN** (UITVOEREN) te klikken.
 ![Het experiment uitvoeren][1]
 
-
 Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de module Reader en selecteert u **Visualize** (Visualiseren) om de geïmporteerde gegevens te zien.
 ![Geïmporteerde gegevens weergeven][3]
-
 
 ## 2. De gegevens opschonen
 Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
 
 1. Sleep de module **Project Columns** (Projectkolommen) naar het canvas.
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.
-![Projectkolommen][4]
-
+   ![Projectkolommen][4]
 3. Sluit twee kolommen uit: CustomerAlternateKey en GeographyKey.
-![Overbodige kolommen verwijderen][5]
-
+   ![Overbodige kolommen verwijderen][5]
 
 ## 3. Het model maken
 U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen en 20% om het model te testen. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
 2. Typ 0,8 in Fraction of rows in the first output dataset (Fractie van rijen in de eerste gegevensset) in het deelvenster Properties (Eigenschappen).
-![Gegevens splitsen in trainings- en testset][6]
+   ![Gegevens splitsen in trainings- en testset][6]
 3. Sleep de module **Two-Class Boosted Decision Tree** (Beslissingsstructuur op basis van twee klassen) naar het canvas.
 4. Sleep de module **Train Model** (Model trainen) naar het canvas en geef de invoer op. Klik vervolgens in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten).
-      - Eerste invoer: ML-algoritme.
-      - Tweede invoer: de gegevens waarmee u het algoritme wilt trainen.
-![Verbinding maken met de module Train Model (Model trainen)][7]
+   * Eerste invoer: ML-algoritme.
+   * Tweede invoer: de gegevens waarmee u het algoritme wilt trainen.
+     ![Verbinding maken met de module Train Model (Model trainen)][7]
 5. Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
-![Te voorspellen kolom selecteren][8]
-
+   ![Te voorspellen kolom selecteren][8]
 
 ## 4. Het model scoren
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
@@ -108,23 +104,22 @@ Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen
 3. Kopieer en plak de modules Train Model en Score Model naar het canvas.
 4. Sleep het model **Evaluate Model** (Model evalueren) naar het canvas om de twee algoritmen te vergelijken.
 5. **Voer het experiment uit**.
-![Het experiment uitvoeren][10]
+   ![Het experiment uitvoeren][10]
 6. Klik op de uitvoerpoort onder in de module Evaluate Model (Model evalueren) en klik op Visualize (Visualiseren).
-![Evaluatieresultaten visualiseren][11]
+   ![Evaluatieresultaten visualiseren][11]
 
 De verstrekte metrische gegevens zijn de ROC-curve, het precisie-/oproepdiagram en de liftcurve. Als u deze metrische gegevens bekijkt, ziet u dat het eerste model beter presteert dan het tweede. Als u de voorspellingen van het eerste model wilt zien, klikt u op de uitvoerpoort van de module Score Model en op Visualize (Visualiseren).
 ![Scoreresultaten visualiseren][12]
 
 U ziet dat er twee of meer kolommen aan de testgegevensset zijn toegevoegd.
 
-- Scored Probabilities (Berekende kansen): de waarschijnlijkheid dat een klant een fiets koopt.
-- Scored Labels (Berekende Labels): de classificatie die door het model is uitgevoerd: fietskoper (1) of niet (0). Deze drempelwaarde voor waarschijnlijkheid voor labeling is ingesteld op 50% en kan worden aangepast.
+* Scored Probabilities (Berekende kansen): de waarschijnlijkheid dat een klant een fiets koopt.
+* Scored Labels (Berekende Labels): de classificatie die door het model is uitgevoerd: fietskoper (1) of niet (0). Deze drempelwaarde voor waarschijnlijkheid voor labeling is ingesteld op 50% en kan worden aangepast.
 
 Door de kolom BikeBuyer (werkelijk) te vergelijken met de kolom Scored Labels (voorspelling), ziet u hoe goed het model heeft gepresteerd. In de volgende stappen kunt u dit model gebruiken om voorspellingen te doen voor nieuwe klanten, en dit model publiceren als een webservice of resultaten opslaan in SQL Data Warehouse.
 
 ## Volgende stappen
-
-Raadpleeg [Inleiding tot Machine Learning in Azure][] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
+Raadpleeg [Inleiding tot Machine Learning in Azure][Inleiding tot Machine Learning in Azure] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png

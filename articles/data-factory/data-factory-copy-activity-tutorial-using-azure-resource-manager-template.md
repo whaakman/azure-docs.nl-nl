@@ -1,53 +1,51 @@
-<properties
-    pageTitle="Zelfstudie: een pijplijn maken met de Resource Manager-sjabloon | Microsoft Azure"
-    description="In deze zelfstudie maakt u met behulp van een Azure Resource Manager-sjabloon een Azure Data Factory-pijplijn met een kopieerbewerking."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: 'Zelfstudie: een pijplijn maken met de Resource Manager-sjabloon | Microsoft Docs'
+description: In deze zelfstudie maakt u met behulp van een Azure Resource Manager-sjabloon een Azure Data Factory-pijplijn met een kopieerbewerking.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/10/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/10/2016
+ms.author: spelluru
 
-
+---
 # <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Zelfstudie: met behulp van een Azure Resource Manager-sjabloon een pijplijn maken met een kopieerbewerking
-> [AZURE.SELECTOR]
-- [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
-- [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
+> [!div class="op_single_selector"]
+> * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> 
+> 
 
 In deze zelfstudie wordt uitgelegd hoe u een Azure-gegevensfactory maakt en controleert met een Azure Resource Manager-sjabloon. Met de pijplijn in de gegevensfactory worden gegevens gekopieerd van Azure Blob Storage naar Azure SQL Database.
 
 ## <a name="prerequisites"></a>Vereisten
-- Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
-- Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer. In deze zelfstudie gebruikt u PowerShell om Data Factory-entiteiten te implementeren. 
-- Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen (optioneel).
-
+* Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
+* Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer. In deze zelfstudie gebruikt u PowerShell om Data Factory-entiteiten te implementeren. 
+* Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen (optioneel).
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
-
 In deze zelfstudie maakt u een gegevensfactory met de volgende Data Factory-entiteiten:
 
-Entiteit | Beschrijving  
------- | ----------- 
-Een gekoppelde Azure Storage-service | Koppelt uw Azure Storage-account aan de gegevensfactory. Azure Storage is de brongegevensopslag en Azure SQL Database de opvanggegevensopslag voor de kopieerbewerking in de handleiding. Het geeft de opslagaccount aan die de invoergegevens voor de kopieerbewerking bevat. 
-Een gekoppelde Azure SQL Database-service| Koppelt uw Azure SQL-database aan de gegevensfactory. Het geeft de Azure SQL-database aan die de uitvoergegevens voor de kopieerbewerking bevat. 
-Azure Blob-invoergegevensset | Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. 
-Azure SQL-uitvoergegevensset | Verwijst naar de gekoppelde Azure SQL-service. De gekoppelde Azure SQL-service verwijst naar een Azure SQL-server en de Azure SQL-gegevensset bevat de naam van de tabel met de uitvoergegevens. 
-Gegevenspijplijn | De pijplijn heeft één activiteit van het type Kopiëren waarbij de Azure Blob-gegevensset als invoer en de Azure SQL-gegevensset als uitvoer wordt genomen. Met de kopieerbewerking worden gegevens van een Azure-blob naar een tabel in de Azure SQL-database gekopieerd.  
+| Entiteit | Beschrijving |
+| --- | --- |
+| Een gekoppelde Azure Storage-service |Koppelt uw Azure Storage-account aan de gegevensfactory. Azure Storage is de brongegevensopslag en Azure SQL Database de opvanggegevensopslag voor de kopieerbewerking in de handleiding. Het geeft de opslagaccount aan die de invoergegevens voor de kopieerbewerking bevat. |
+| Een gekoppelde Azure SQL Database-service |Koppelt uw Azure SQL-database aan de gegevensfactory. Het geeft de Azure SQL-database aan die de uitvoergegevens voor de kopieerbewerking bevat. |
+| Azure Blob-invoergegevensset |Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. |
+| Azure SQL-uitvoergegevensset |Verwijst naar de gekoppelde Azure SQL-service. De gekoppelde Azure SQL-service verwijst naar een Azure SQL-server en de Azure SQL-gegevensset bevat de naam van de tabel met de uitvoergegevens. |
+| Gegevenspijplijn |De pijplijn heeft één activiteit van het type Kopiëren waarbij de Azure Blob-gegevensset als invoer en de Azure SQL-gegevensset als uitvoer wordt genomen. Met de kopieerbewerking worden gegevens van een Azure-blob naar een tabel in de Azure SQL-database gekopieerd. |
 
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Er zijn twee soorten activiteiten: [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) en [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md). In deze zelfstudie maakt u een pijplijn met één activiteit (kopiëren).
 
@@ -82,7 +80,6 @@ De Resource Manager-sjabloon op het hoogste niveau voor het definiëren van een 
     }
 
 Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud:
-
 
     {
         "contentVersion": "1.0.0.0",
@@ -267,10 +264,13 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM.json** in de map **C:\ADF
         ]
       }
 
-## <a name="parameters-json"></a>JSON-bestand met parameters 
+## <a name="parameters-json"></a>JSON-bestand met parameters
 Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat. 
 
-> [AZURE.IMPORTANT] Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey**.  
+> [!IMPORTANT]
+> Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey**.  
+> 
+> 
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -290,33 +290,36 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
         }
     }
 
-> [AZURE.IMPORTANT] Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.  
+> [!IMPORTANT]
+> Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.  
+> 
+> 
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
 1. Open **Azure PowerShell** en voer de volgende opdracht uit:
-    - Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
-    - Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
-    - Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. 
+   * Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
+   * Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
+   * Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. 
 2. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt.
-
+   
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 1. Meld u met uw Azure-account aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **Gegevensfactory's** (of) klik op **Meer services** en vervolgens op **Gegevensfactory's** onder de categorie **Informatie en analytische gegevens**.
-
+   
     ![Het menu voor gegevensfactory's](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Zoek op de pagina **Gegevensfactory's** naar uw gegevensfactory. 
-
+   
     ![Naar de gegevensfactory zoeken](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. Klik op uw Azure-gegevensfactory. De startpagina voor de gegevensfactory wordt weergegeven.
-
+   
     ![De startpagina voor de gegevensfactory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
 5. Klik op de tegel **Diagram** om de diagramweergave van uw gegevensfactory te bekijken.
-
+   
     ![De diagramweergave van de gegevensfactory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
 6. Dubbelklik in de diagramweergave op de gegevensset **SQLOutputDataset**. De status van het segment wordt weergegeven. Wanneer de kopieerbewerking is voltooid, stelt u de status in op **Gereed**.
-
+   
     ![Uitvoersegment met de status Gereed](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
 7. Wanneer het segment de status **Gereed** heeft, controleert u of de gegevens naar de tabel **emp** in de Azure SQL-database zijn gekopieerd.
 
@@ -324,9 +327,7 @@ Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md)
 
 U kunt ook de app voor bewaking en beheer gebruiken om uw gegevenspijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van de toepassing.
 
-
 ## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteiten in de sjabloon
-
 ### <a name="define-data-factory"></a>Een gegevensfactory definiëren
 U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het volgende voorbeeld wordt weergegeven:  
 
@@ -339,7 +340,7 @@ U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het vo
     }
 
 De variabele dataFactoryName wordt als volgt gedefinieerd: 
-      
+
     "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 
 Het is een unieke tekenreeks op basis van de resourcegroep-id.  
@@ -373,7 +374,7 @@ In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [
     }
 
 De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
-    
+
 #### <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service
 U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.  
 
@@ -397,7 +398,6 @@ De tekenreeks connectionString maakt gebruik van de parameters sqlServerName, da
 
 #### <a name="azure-blob-dataset"></a>De Azure Blob-gegevensset
 U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
-
 
     {
         "type": "datasets",
@@ -526,7 +526,7 @@ U definieert een pijplijn waarmee gegevens uit de Azure Blob-gegevensset naar de
         }
     }
 
-## <a name="reuse-the-template"></a>De sjabloon hergebruiken 
+## <a name="reuse-the-template"></a>De sjabloon hergebruiken
 U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Met de pijplijn worden gegevens gekopieerd van een Azure Storage-account naar een Azure SQL-database die zijn opgegeven via parameters. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.     
 
 Voorbeeld:  
@@ -540,9 +540,6 @@ Voorbeeld:
 De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.  
 
 U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bijvoorbeeld veel gegevensfactory's maken met een of meer pijplijnen die dezelfde logica implementeren, maar elke gegevensfactory maakt gebruik van andere Azure Storage- en Azure SQL Database-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken.   
-
-
-
 
 <!--HONumber=Oct16_HO3-->
 

@@ -1,57 +1,51 @@
-<properties
-    pageTitle="Azure AD B2C | Microsoft Azure"
-    description="Een .NET-web-API maken met Azure Active Directory B2C, beveiligd met OAuth 2.0-toegangstokens voor verificatie."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: Azure AD B2C | Microsoft Docs
+description: Een .NET-web-API maken met Azure Active Directory B2C, beveiligd met OAuth 2.0-toegangstokens voor verificatie.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 07/22/2016
+ms.author: dastrock
 
-
+---
 # Azure Active Directory B2C: een .NET-web-API maken
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Met Azure Active Directory (Azure AD) B2C kunt u een web-API beveiligen met OAuth 2.0-toegangstokens. Met deze tokens kunnen client-apps die gebruikmaken van Azure AD B2C, worden geverifieerd bij de API. In dit artikel wordt uitgelegd hoe u een .NET-Model-View-Controller (MVC)-API voor een 'takenlijst' maakt, waarmee gebruikers taken kunnen maken, ophalen, bijwerken en verwijderen. De web-API is beveiligd met Azure AD B2C en biedt geverifieerde gebruikers alleen de mogelijkheid om hun takenlijst te beheren.
 
 ## Een Azure AD B2C-directory maken
-
 Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
 
 ## Een app maken
-
 Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken. Zorg ervoor dat:
 
-- U een **web-app** of **web-API** in de toepassing opneemt.
-- U de **URI voor omleiden** `https://localhost:44316/` gebruikt voor de web-app. Dit is de standaardlocatie van de web-app-client voor dit codevoorbeeld.
-- U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze later nodig.
-
- [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+* U een **web-app** of **web-API** in de toepassing opneemt.
+* U de **URI voor omleiden** `https://localhost:44316/` gebruikt voor de web-app. Dit is de standaardlocatie van de web-app-client voor dit codevoorbeeld.
+* U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze later nodig.
+  
+  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Het beleid maken
-
 In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door een [beleid](active-directory-b2c-reference-policies.md). De client in dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
 
-- Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** in de blade met identiteitsproviders.
-- Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
-- Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-- Kopieert u de **Naam** van elk beleid nadat u dit hebt gemaakt. U hebt deze beleidsnamen later nodig.
+* Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** in de blade met identiteitsproviders.
+* Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
+* Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
+* Kopieert u de **Naam** van elk beleid nadat u dit hebt gemaakt. U hebt deze beleidsnamen later nodig.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Nadat u de drie beleidsregels hebt gemaakt, kunt u uw app maken.
 
 ## De code downloaden
-
 De code voor deze zelfstudie [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Als u het voorbeeld wilt maken terwijl u aan het werk bent, kunt u [een basisproject downloaden als zip-bestand](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). U kunt het basisproject ook klonen:
 
 ```
@@ -63,7 +57,6 @@ De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureAD
 Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp` is een MVC-webtoepassing waarmee de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen.
 
 ## De web-app voor taken configureren
-
 Wanneer een gebruiker met `TaskWebApp` werkt, verzendt de client aanvragen naar Azure AD en worden tokens teruggestuurd waarmee de web-API `TaskService` kan worden aangeroepen. Als u de gebruiker wilt aanmelden en tokens wilt ophalen, moet u bepaalde informatie over uw app opgeven voor `TaskWebApp`. Open in het project `TaskWebApp` het bestand `web.config` in de hoofdmap van het project en vervang de waarden in de sectie `<appSettings>`.  De waarden `AadInstance`, `RedirectUri` en `TaskServiceUrl` kunt u ongewijzigd laten.
 
 ```
@@ -86,7 +79,6 @@ Wanneer een gebruiker met `TaskWebApp` werkt, verzendt de client aanvragen naar 
 In dit artikel wordt het bouwen van de `TaskWebApp`-client niet besproken.  Zie [onze zelfstudie voor .NET-web-apps](active-directory-b2c-devquickstarts-web-dotnet.md) voor meer informatie over het bouwen van een web-app met Azure AD B2C.
 
 ## De API beveiligen
-
 Wanneer u een client hebt die de API aanroept namens gebruikers, kunt u `TaskService` beveiligen met Bearer-tokens van OAuth 2.0. De API kan tokens accepteren en valideren met behulp van de Microsoft Open Web Interface voor .NET-bibliotheek (OWIN).
 
 ### OWIN installeren
@@ -118,7 +110,6 @@ Open het bestand `web.config` in de hoofdmap van het `TaskService`-project en ve
 
 ### Een OWIN-opstartklasse toevoegen
 Voeg een OWIN-opstartklasse toe aan het `TaskService`-project met de naam `Startup.cs`.  Klik met de rechtermuisknop op het project, selecteer achtereenvolgens **Toevoegen** en **Nieuw item** en zoek naar OWIN.
-
 
 ```C#
 // Startup.cs
@@ -203,11 +194,9 @@ public IEnumerable<Models.Task> Get()
 ```
 
 ## De voorbeeld-app uitvoeren
-
 Bouw ten slotte `TaskWebApp` en `TaskService` en voer deze uit. Registreer u bij de app met een e-mailadres of gebruikersnaam. Maak een paar taken in de takenlijst van de gebruiker en bekijk hoe deze zelfs bewaard blijven in de API nadat u de client hebt gestopt en opnieuw hebt gestart.
 
 ## Het beleid bewerken
-
 Nadat u een API hebt beveiligd met behulp van Azure AD B2C, kunt u experimenteren met het beleid voor de app en de effecten hiervan (of het gebrek daaraan) op de API bekijken. U kunt de toepassingsclaims in het beleid bewerken en de beschikbare gebruikersgegevens in de web-API wijzigen. Claims die u toevoegt, zijn beschikbaar in uw .NET MVC-web-API in het `ClaimsPrincipal`-object, zoals eerder in dit artikel is beschreven.
 
 <!--

@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Een query uitvoeren op uw Azure Search-index met Azure Portal | Microsoft Azure | Gehoste service voor zoeken in de cloud"
-    description="Een zoekopdracht in de Search Explorer van Azure Portal uitvoeren."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Een query uitvoeren op uw Azure Search-index met Azure Portal | Microsoft Docs
+description: Een zoekopdracht in de Search Explorer van Azure Portal uitvoeren.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="NA"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"
-/>
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
+---
 # Een query uitvoeren op uw Azure Search-index met Azure Portal
-> [AZURE.SELECTOR]
-- [Overzicht](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overzicht](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 In dit artikel wordt beschreven hoe u een query op de Azure Search-index kunt uitvoeren in Azure Portal.
 
@@ -41,14 +41,12 @@ Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaak
 
 ## III. Beginnen met zoeken
 1. Als u wilt zoeken in uw Azure Search-index, begint u te typen in het veld *Querytekenreeks* en kiest u vervolgens **Zoeken**.
- * Wanneer u de Search Explorer gebruikt, kunt u een van de [queryparameters](https://msdn.microsoft.com/library/dn798927.aspx) opgeven
-
+   
+   * Wanneer u de Search Explorer gebruikt, kunt u een van de [queryparameters](https://msdn.microsoft.com/library/dn798927.aspx) opgeven
 2. De queryresultaten worden in de sectie *Resultaten* weergegeven in de onbewerkte JSON zoals u die zou ontvangen in een HTTP-antwoordtekst als u een zoekaanvraag zou doen in de Azure Search REST-API.
 3. De queryreeks worden automatisch verdeeld in de juiste aanvraag-URL om een HTPP-aanvraag te verzenden naar de Azure Search REST-API.
 
 ![](./media/search-explorer/search-bar.png)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

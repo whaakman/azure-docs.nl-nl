@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Overzicht Stretch Database | Microsoft Azure"
-    description="Informatie over hoe Stretch Database uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud migreert."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+---
+title: Overzicht Stretch Database | Microsoft Docs
+description: Informatie over hoe Stretch Database uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud migreert.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
-
+---
 # Overzicht Stretch Database
-
 Stretch Database migreert uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud.
 
 Als u meteen met Stretch Database aan de slag wilt, bekijk dan [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
@@ -41,9 +39,8 @@ U kunt uw belangrijkste toepassingen met een gerust hart veilig in de cloud plaa
 ## Wat doet Stretch Database?
 Nadat u Stretch Database voor een SQL Server-exemplaar hebt ingeschakeld, begint een database, en ten minste één tabel, Stretch Database onopvallend op de achtergrond uw koude gegevens naar Azure te migreren.
 
--   Als u koude gegevens in een afzonderlijke tabel hebt opgeslagen, kunt u de gehele tabel migreren.
-
--   Als uw tabel zowel actuele als koude gegevens bevat, kunt u een filterfunctie opgeven om de rijen te selecteren die u wilt migreren.
+* Als u koude gegevens in een afzonderlijke tabel hebt opgeslagen, kunt u de gehele tabel migreren.
+* Als uw tabel zowel actuele als koude gegevens bevat, kunt u een filterfunctie opgeven om de rijen te selecteren die u wilt migreren.
 
 **U hoeft bestaande query's en klantenapps niet te wijzigen.** Zelfs tijdens de gegevensmigratie heeft u naadloos toegang tot lokale en externe gegevens. Bij externe query's treedt er een korte latentietijd op, maar deze latentie merkt u alleen wanneer u koude gegevens opvraagt.
 
@@ -56,12 +53,12 @@ Nadat u Stretch Database voor een SQL Server-exemplaar hebt ingeschakeld, begint
 ## Is Stretch Database iets voor u?
 Als u het volgende kunt beamen, kan Stretch Database wellicht aan uw wensen voldoen en uw problemen oplossen.
 
-|Als u een zakelijke besluitvormer bent|Als u een DBA bent|
-|------------------------------|-------------------|
-|Ik moet transactionele gegevens lange tijd bewaren.|Mijn tabellen worden te groot.|
-|Soms moet ik query’s op de koude gegevens uitvoeren.|Mijn gebruikers zeggen dat ze toegang tot koude gegevens willen, maar ze gebruiken deze zelden.|
-|Ik heb apps, waaronder oudere apps, die ik niet wil bijwerken.|Ik moet steeds meer extra opslag kopen.|
-|Ik wil geld besparen op opslag.|Ik kan in de SLA geen back-up maken van dergelijke grote tabellen of ze herstellen.|
+| Als u een zakelijke besluitvormer bent | Als u een DBA bent |
+| --- | --- |
+| Ik moet transactionele gegevens lange tijd bewaren. |Mijn tabellen worden te groot. |
+| Soms moet ik query’s op de koude gegevens uitvoeren. |Mijn gebruikers zeggen dat ze toegang tot koude gegevens willen, maar ze gebruiken deze zelden. |
+| Ik heb apps, waaronder oudere apps, die ik niet wil bijwerken. |Ik moet steeds meer extra opslag kopen. |
+| Ik wil geld besparen op opslag. |Ik kan in de SLA geen back-up maken van dergelijke grote tabellen of ze herstellen. |
 
 ## Welke databases en tabellen zijn geschikt voor Stretch Database?
 Stretch Database is bedoeld voor transactionele databases met een grote hoeveelheid koude gegevens, die doorgaans in een klein aantal tabellen zijn opgeslagen. Deze tabellen kunnen meer dan een miljard rijen bevatten.

@@ -1,50 +1,57 @@
-<properties
-   pageTitle="Gegevens laden in SQL Data Warehouse | Microsoft Azure met behulp van Data Platform Studio van Redgate"
-   description="Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario's."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="twounder"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Gegevens laden in SQL Data Warehouse | Microsoft Docs
+description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario's.
+services: sql-data-warehouse
+documentationcenter: NA
+author: twounder
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="mausher;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: mausher;barbkess
 
-
-
+---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Gegevens laden met behulp van Data Platform Studio van Redgate
-
-> [AZURE.SELECTOR]
-- [Redgate](sql-data-warehouse-load-with-redgate.md)
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-- [BCP](sql-data-warehouse-load-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)
+> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 
 In deze zelfstudie ziet u hoe u [DPS van Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) (Data Platform Studio) kunt gebruiken om gegevens te verplaatsen van een on-premises SQL-server naar Azure SQL Data Warehouse. Met DPS worden de meest geschikte compatibiliteitscorrecties en optimalisaties toegepast. Daarom is het de snelste manier om aan de slag te gaan met SQL Data Warehouse.
 
-> [AZURE.NOTE] [Redgate](http://www.red-gate.com) is al lange tijd een Microsoft-partner en levert verschillende SQL Server-hulpprogramma's. Deze functie in DPS is gratis beschikbaar voor commercieel en niet-commercieel gebruik.
+> [!NOTE]
+> [Redgate](http://www.red-gate.com) is al lange tijd een Microsoft-partner en levert verschillende SQL Server-hulpprogramma's. Deze functie in DPS is gratis beschikbaar voor commercieel en niet-commercieel gebruik.
+> 
+> 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 ### <a name="create-or-identify-resources"></a>Resources maken of identificeren
-
 Voordat u met deze zelfstudie begint, moet u beschikken over:
 
-- **Een on-premise SQL Server-database**: de gegevens die u wilt importeren naar SQL Data Warehouse, moeten afkomstig zijn van een on-premises SQL-server (versie 2008R2 of hoger). Met DPS kunnen gegevens niet rechtstreeks worden geïmporteerd uit een Azure SQL-database of uit tekstbestanden.
-- **Azure-opslagaccount**: met DPS worden de gegevens klaargezet in de Azure Blob-opslag voordat ze in SQL Data Warehouse worden geladen. Het opslagaccount moet het standaardimplementatiemodel Resource Manager gebruiken in plaats van het klassieke implementatiemodel. Als u geen opslagaccount hebt, leert u hoe u er een kunt maken. 
-- **SQL Data Warehouse**: in deze zelfstudie wordt getoond hoe gegevens worden verplaatst van een on-premises SQL-server naar SQL Data Warehouse. U hebt daarom een onlinedatawarehouse nodig. Als u nog geen datawarehouse hebt, leert u hoe u er een moet inrichten om een SQL-datawarehouse te maken.
+* **Een on-premise SQL Server-database**: de gegevens die u wilt importeren naar SQL Data Warehouse, moeten afkomstig zijn van een on-premises SQL-server (versie 2008R2 of hoger). Met DPS kunnen gegevens niet rechtstreeks worden geïmporteerd uit een Azure SQL-database of uit tekstbestanden.
+* **Azure-opslagaccount**: met DPS worden de gegevens klaargezet in de Azure Blob-opslag voordat ze in SQL Data Warehouse worden geladen. Het opslagaccount moet het standaardimplementatiemodel Resource Manager gebruiken in plaats van het klassieke implementatiemodel. Als u geen opslagaccount hebt, leert u hoe u er een kunt maken. 
+* **SQL Data Warehouse**: in deze zelfstudie wordt getoond hoe gegevens worden verplaatst van een on-premises SQL-server naar SQL Data Warehouse. U hebt daarom een onlinedatawarehouse nodig. Als u nog geen datawarehouse hebt, leert u hoe u er een moet inrichten om een SQL-datawarehouse te maken.
 
-> [AZURE.NOTE] Als het opslagaccount en het datawarehouse in dezelfde regio worden gemaakt, verbeteren de prestaties.
+> [!NOTE]
+> Als het opslagaccount en het datawarehouse in dezelfde regio worden gemaakt, verbeteren de prestaties.
+> 
+> 
 
 ## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>Stap 1: Aanmelden bij DPS met uw Azure-account
 Open de webbrowser en navigeer naar de website van [Data Platform Studio](https://www.dataplatformstudio.com/). Meld u aan met hetzelfde Azure-account dat u hebt gebruikt om het opslagaccount en het datawarehouse te maken. Als uw e-mailadres is gekoppeld aan een werk- of schoolaccount en aan een Microsoft-account, kiest u het account waarmee u toegang hebt tot uw resources.
 
-> [AZURE.NOTE] Als dit de eerste keer is dat u DPS gebruikt, wordt u gevraagd om de toepassing toestemming te geven om de Azure-resources te beheren.
+> [!NOTE]
+> Als dit de eerste keer is dat u DPS gebruikt, wordt u gevraagd om de toepassing toestemming te geven om de Azure-resources te beheren.
+> 
+> 
 
 ## <a name="step-2-start-the-import-wizard"></a>Stap 2: Wizard Importeren starten
 Selecteer in het hoofdvenster van DPS de koppeling Importeren naar Azure SQL Data Warehouse om de wizard Importeren te starten.
@@ -54,12 +61,15 @@ Selecteer in het hoofdvenster van DPS de koppeling Importeren naar Azure SQL Dat
 ## <a name="step-3-install-the-data-platform-studio-gateway"></a>Stap 3: DPS-gateway installeren
 Als u verbinding wilt maken met uw on-premises SQL Server-database, moet u de DPS-gateway installeren. De gateway is een clientagent voor toegang tot de on-premises omgeving, waarmee gegevens worden uitgepakt en geüpload naar uw opslagaccount. De gegevens worden niet verwerkt op de servers van Redgate. De gateway installeren:
 
-1.  Klik op de koppeling **Gateway maken**
+1. Klik op de koppeling **Gateway maken**
 2. Download en installeer de gateway met behulp van het geleverde installatieprogramma
 
 ![][2]
 
-> [AZURE.NOTE] De gateway kan worden geïnstalleerd op elke computer met netwerktoegang tot de SQL Server-brondatabase. De gateway heeft toegang tot de SQL Server-database via Windows-verificatie met de referenties van de huidige gebruiker.
+> [!NOTE]
+> De gateway kan worden geïnstalleerd op elke computer met netwerktoegang tot de SQL Server-brondatabase. De gateway heeft toegang tot de SQL Server-database via Windows-verificatie met de referenties van de huidige gebruiker.
+> 
+> 
 
 Zodra de gateway is geïnstalleerd, wordt de status ervan gewijzigd naar Verbonden en kunt u Volgende selecteren.
 
@@ -73,7 +83,10 @@ De geselecteerde database wordt met DPS gecontroleerd op tabellen die kunnen wor
 ## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>Stap 5: Een opslagaccount kiezen om de gegevens in klaar te zetten
 DPS vraagt u om een locatie om de gegevens in klaar te zetten. Kies een bestaand opslagaccount in uw abonnement en selecteer **Volgende**.
 
-> [AZURE.NOTE] Met DPS wordt een nieuwe blobcontainer gemaakt in het gekozen opslagaccount. Voor elke import wordt een afzonderlijke map gebruikt.
+> [!NOTE]
+> Met DPS wordt een nieuwe blobcontainer gemaakt in het gekozen opslagaccount. Voor elke import wordt een afzonderlijke map gebruikt.
+> 
+> 
 
 ![][4]
 
@@ -82,7 +95,10 @@ Vervolgens selecteert u [Azure SQL-datawarehouse](http://aka.ms/sqldw) om de geg
 
 ![][5]
 
-> [AZURE.NOTE] De doelgegevenstabellen worden samengevoegd in het datawarehouse. U wordt gewaarschuwd als de tabelnaam vereist dat bestaande tabellen in het datawarehouse worden overschreven. U kunt ervoor kiezen om bestaande objecten in het datawarehouse te verwijderen. Dit doet u door te tikken op Alle bestaande objecten verwijderen voor het importeren.
+> [!NOTE]
+> De doelgegevenstabellen worden samengevoegd in het datawarehouse. U wordt gewaarschuwd als de tabelnaam vereist dat bestaande tabellen in het datawarehouse worden overschreven. U kunt ervoor kiezen om bestaande objecten in het datawarehouse te verwijderen. Dit doet u door te tikken op Alle bestaande objecten verwijderen voor het importeren.
+> 
+> 
 
 ## <a name="step-7-import-the-data"></a>Stap 7: De gegevens importeren
 In DPS wordt bevestigd dat u de gegevens wilt importeren. Klik op de knop Importeren starten om te beginnen met het importeren van gegevens.
@@ -100,20 +116,20 @@ Als het importeren is voltooid, wordt er in DPS een overzicht weergegeven van de
 ## <a name="next-steps"></a>Volgende stappen
 Als u de gegevens in SQL Data Warehouse wilt verkennen, begint u met het bekijken van:
 
-- [Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)][]
-- [Gegevens visualiseren met Power BI][]
+* [Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)][Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)]
+* [Gegevens visualiseren met Power BI][Gegevens visualiseren met Power BI]
 
 Voor meer informatie over Data Platform Studio van Redgate:
 
-- [Ga naar de DPS-startpagina](http://www.dataplatformstudio.com/)
-- [Bekijk een demonstratie van DPS op Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Ga naar de DPS-startpagina](http://www.dataplatformstudio.com/)
+* [Bekijk een demonstratie van DPS op Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Zie voor een overzicht van andere manieren om te migreren en uw gegevens in SQL Data Warehouse te laden:
 
-- [Migrate your solution to SQL Data Warehouse][] (Uw oplossing migreren naar SQL Data Warehouse)
-- [Load data into Azure SQL Data Warehouse](./sql-data-warehouse-overview-load.md) (Gegevens laden in Azure SQL Data Warehouse)
+* [Migrate your solution to SQL Data Warehouse][Migrate your solution to SQL Data Warehouse] (Uw oplossing migreren naar SQL Data Warehouse)
+* [Load data into Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) (Gegevens laden in Azure SQL Data Warehouse)
 
-Zie het [Overzicht van SQL Data Warehouse voor ontwikkelaars](./sql-data-warehouse-overview-develop.md) voor meer tips voor ontwikkelaars.
+Zie het [Overzicht van SQL Data Warehouse voor ontwikkelaars](sql-data-warehouse-overview-develop.md) voor meer tips voor ontwikkelaars.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png

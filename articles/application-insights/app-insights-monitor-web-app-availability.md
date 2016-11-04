@@ -1,23 +1,21 @@
-<properties
-    pageTitle="De beschikbaarheid en reactiesnelheid van een website bewaken | Microsoft Azure"
-    description="Stel webtests in Application Insights in. Ontvang een waarschuwing wanneer een website niet meer beschikbaar is of traag reageert."
-    services="application-insights"
-    documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+---
+title: De beschikbaarheid en reactiesnelheid van een website bewaken | Microsoft Docs
+description: Stel webtests in Application Insights in. Ontvang een waarschuwing wanneer een website niet meer beschikbaar is of traag reageert.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/07/2016"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/07/2016
+ms.author: awills
 
-
+---
 # De beschikbaarheid en reactiesnelheid van een website bewaken
-
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Visual Studio Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
 ![Voorbeeld van een webtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
@@ -32,7 +30,6 @@ Er zijn twee soorten webtests:
 Per toepassingsresource kunt u maximaal 10 webtests maken.
 
 ## <a name="create"></a>1. Een resource aanmaken voor uw testrapporten
-
 Sla deze stap over als u voor deze toepassing al [een Application Insights-resource hebt ingesteld][start] en u de beschikbaarheidsrapporten op dezelfde plaats wilt weergeven.
 
 Meld u aan bij [Microsoft Azure](http://azure.com), ga naar het [Azure-portal](https://portal.azure.com) en maak een Application Insights-resource.
@@ -42,37 +39,30 @@ Meld u aan bij [Microsoft Azure](http://azure.com), ga naar het [Azure-portal](h
 Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
 ## <a name="setup"></a>2. Een URL-pingtest aanmaken
-
 Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hierop om voor uw toepassing de blade Webtests te openen. Voeg vervolgens een webtest toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **De URL** moet vanaf het openbare internet zichtbaar zijn. De URL kan een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
-- **Afhankelijke aanvragen parseren**: afbeeldingen, scripts, stijlbestanden en andere resources van de pagina worden als onderdeel van de test aangevraagd. De vastgelegde reactietijd omvat ook de tijden hiervoor. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test.
-- **Nieuwe pogingen inschakelen**: als de test mislukt, wordt deze na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. (Deze instelling wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.)
-- **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
-- **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
-
-- **Criteria voor succes**:
-
+* **De URL** moet vanaf het openbare internet zichtbaar zijn. De URL kan een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
+* **Afhankelijke aanvragen parseren**: afbeeldingen, scripts, stijlbestanden en andere resources van de pagina worden als onderdeel van de test aangevraagd. De vastgelegde reactietijd omvat ook de tijden hiervoor. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test.
+* **Nieuwe pogingen inschakelen**: als de test mislukt, wordt deze na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. (Deze instelling wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.)
+* **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
+* **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
+* **Criteria voor succes**:
+  
     **Timeout van de test**: verlaag deze waarde om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.
-
+  
     **HTTP-antwoord**: de geretourneerde statuscode die staat voor een geslaagde test. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
-
+  
     **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' We testen of dit in elke reactie optreedt. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
-
-
-- Standaard ontvangt u een **waarschuwing** als er op drie locaties gedurende vijf minuten fouten worden geregistreerd. Als er slechts op één locatie een fout wordt geregistreerd, kan dat ook aan het netwerk liggen en niet per se aan uw site. U kunt de drempel wijzigen om de testgevoeligheid te verhogen of te verlagen. Ook kunt u wijzigen naar wie de e-mails worden verzonden.
-
+* Standaard ontvangt u een **waarschuwing** als er op drie locaties gedurende vijf minuten fouten worden geregistreerd. Als er slechts op één locatie een fout wordt geregistreerd, kan dat ook aan het netwerk liggen en niet per se aan uw site. U kunt de drempel wijzigen om de testgevoeligheid te verhogen of te verlagen. Ook kunt u wijzigen naar wie de e-mails worden verzonden.
+  
     U kunt een [webhook](../azure-portal/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
 
 ### Meer URL’s testen
-
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
-
 ## <a name="monitor"></a>3. De testresultaten bekijken
-
 Na 1-2 minuten worden de resultaten weergegeven in de blade Webtest.
 
 ![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -81,9 +71,7 @@ Klik op een balk op de samenvattingschart voor een detailoverzicht van deze peri
 
 In deze grafieken staan de resultaten van alle webtests die voor deze toepassing zijn uitgevoerd.
 
-
 ## <a name="failures"></a>Als u mislukte tests ziet
-
 Klik op een rode punt.
 
 ![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
@@ -100,23 +88,17 @@ De test wordt vanaf verschillende locaties uitgevoerd. Kies een test met een sla
 
 ![Op een specifieke webtest klikken](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
-
 Scroll omlaag naar **Mislukte tests** en kies een resultaat.
 
 Klik op het resultaat om het in de portal te bekijken en na te gaan waarom de test is mislukt.
 
 ![Resultaat van uitgevoerde webtest](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
 
-
 U kunt het resultatenbestand ook downloaden en bekijken in Visual Studio.
-
 
 *Zien de resultaten er goed uit, maar is de test toch mislukt?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
 
-
-
 ## Webtests met meerdere stappen
-
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
 
 Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
@@ -124,46 +106,39 @@ Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visu
 U kunt in uw tests geen gecodeerde functies gebruiken. De scenariostappen moeten als script worden verwerkt in het .webtest-bestand.
 
 #### 1. Een scenario opnemen
-
 Gebruik Visual Studio Enterprise of Ultimate om een websessie op te nemen. 
 
 1. Maak een project om de webprestaties te testen.
-
+   
     ![Maak in Visual Studio een project vanaf de sjabloon Web Performance en Load Test.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
-
 2. Open het bestand .webtest en begin met opnemen.
-
+   
     ![Open het bestand .webtest en klik op Opnemen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
-
 3. Voer de gebruikersacties uit die u in uw test wilt simuleren: open de website, plaats een product in de winkelwagen, enzovoort. Stop vervolgens de test.
-
+   
     ![De webtestrecorder wordt uitgevoerd in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
-
+   
     Zorg ervoor dat het scenario niet te lang duurt. Er geldt een limiet van 100 stappen en 2 minuten.
-
 4. Bewerk de test als volgt:
- - Voeg validaties toe om de ontvangen tekst en reactiecodes te controleren.
- - Verwijder alle overbodige interacties. U kunt ook afhankelijke aanvragen voor afbeeldingen of naar advertentie- of trackingsites verwijderen.
-
-    U kunt alleen het testscript bewerken. U kunt geen aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe aan de test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
-
+   
+   * Voeg validaties toe om de ontvangen tekst en reactiecodes te controleren.
+   * Verwijder alle overbodige interacties. U kunt ook afhankelijke aanvragen voor afbeeldingen of naar advertentie- of trackingsites verwijderen.
+     
+     U kunt alleen het testscript bewerken. U kunt geen aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe aan de test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
 5. Voer de test uit in Visual Studio om er zeker van te zijn dat deze werkt.
-
+   
     De webtestrunner opent een webbrowser en herhaalt de acties die u hebt opgenomen. Controleer of de test werkt zoals verwacht.
-
+   
     ![Open in Visual Studio het bestand .webtest en klik op Uitvoeren.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
 #### 2. De webtest uploaden naar Application Insights
-
 1. Maak in de Application Insights-portal een nieuwe webtest.
-
+   
     ![Kies op de blade Webtests de optie Toevoegen.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
-
 2. Selecteer de test met meerdere stappen en upload het .webtest-bestand.
-
+   
     ![Selecteer de webtest met meerdere stappen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
-
+   
     Stel de testlocaties, frequentie en waarschuwingsparameters op dezelfde manier in als voor pingtests.
 
 Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
@@ -174,9 +149,7 @@ Vergeet niet dat alle resources van een pagina correct moeten laden om de test d
 
 De webtest moet volledig zijn opgenomen in het .webtest-bestand. U kunt in de test geen gecodeerde functies gebruiken.
 
-
 ### Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
-
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
 ![Een webtest met parameters](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -186,37 +159,31 @@ Wanneer u de test uitvoert, moet EndTime altijd de huidige tijd zijn. StartTime 
 Web Test invoegtoepassingen bieden de manier om parameters voor tijden toe te voegen.
 
 1. Voeg een webtestinvoegtoepassing toe voor elke gewenste variabele parameterwaarde. Kies in de werkbalk van de webtest de optie **Webtestinvoegtoepassing toevoegen**.
-
+   
     ![Kies Webtestinvoegtoepassing toevoegen en selecteer een type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
-
+   
     In dit voorbeeld gebruiken we twee exemplaren van de invoegtoepassing Date Time. Een exemplaar is voor "15 minuten geleden" en een ander voor “nu”.
-
 2. Open de eigenschappen van elke invoegtoepassing. Geef de invoegtoepassing een naam en stel deze zodanig in dat de huidige tijd wordt gebruikt. Stel voor een van de toepassingen Minuten toevoegen in op -15.
-
+   
     ![Naam instellen > Huidige tijd gebruiken > Minuten toevoegen.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
-
 3. Gebruik in de webtestparameters {{plug-in name}} om te verwijzen naar de naam van de invoegtoepassing.
-
+   
     ![Gebruik in de testparameter {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Upload uw test nu naar de portal. Het gebruikt de dynamische waarden bij elke uitvoering van de test.
 
 ## Omgaan met aanmelden
-
 Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de aanmelding te simuleren, zodat u pagina’s na het aanmelden kunt testen. Welke aanpak u gebruikt, hangt af van het type beveiliging van de app.
 
 In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. Beperk indien mogelijk de machtigingen voor dit testaccount, zodat webtests echte gebruikers niet beïnvloeden.
 
 ### Eenvoudige gebruikersnaam en wachtwoord
-
 Een webtest op de gebruikelijke manier registreren. Verwijder eerst de cookies.
 
 ### SAML-verificatie
-
 Gebruik de beschikbare SAML-invoegtoepassing voor webtests.
 
 ### Clientgeheim
-
 Als uw app een aanmeldroute heeft die een klantgeheim omvat, gebruik dan deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key. 
 
 Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
@@ -230,21 +197,18 @@ Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
 Zorg ervoor dat de webtest een eigenlijke client is - dit wil zeggen: een eigen app in AAD heeft - en zijn clientId + App Key gebruikt. Uw service onder de test heeft ook een eigen app in AAD: de appID URI van deze app wordt weergegeven in het “resource”-veld tijdens de webtest. 
 
 ### Open verificatie
-
 Een voorbeeld van open verificatie is het aanmelden met uw Microsoft- of Google-account. Veel apps die OAuth gebruiken, bieden een alternatief met clientgeheim, zodat uw eerste tactiek moet zijn deze mogelijkheid te onderzoeken. 
 
 Als uw test moet aanmelden met OAuth, is de algemene benadering:
 
- * Gebruik een hulpprogramma zoals Fiddler om het verkeer tussen de webbrowser, de verificatiesite en uw app te onderzoeken. 
- * Voer twee of meer aanmeldingen uit via verschillende apparaten en browsers, of met lange periodes ertussen (zodat de tokens verlopen).
- * Vergelijk de verschillende sessies om te bepalen welk token is doorgegeven door de verificatiesite en daarna, na het aanmelden, wordt doorgegeven aan uw appserver. 
- * Neem een webtest op met Visual Studio. 
- * Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
- (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
-
+* Gebruik een hulpprogramma zoals Fiddler om het verkeer tussen de webbrowser, de verificatiesite en uw app te onderzoeken. 
+* Voer twee of meer aanmeldingen uit via verschillende apparaten en browsers, of met lange periodes ertussen (zodat de tokens verlopen).
+* Vergelijk de verschillende sessies om te bepalen welk token is doorgegeven door de verificatiesite en daarna, na het aanmelden, wordt doorgegeven aan uw appserver. 
+* Neem een webtest op met Visual Studio. 
+* Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
+  (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
 ## <a name="edit"></a> Een test bewerken of uitschakelen
-
 Open een afzonderlijke test om deze te bewerken of uit te schakelen.
 
 ![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -252,71 +216,58 @@ Open een afzonderlijke test om deze te bewerken of uit te schakelen.
 Mogelijk wilt u uw webtests uitschakelen wanneer u onderhoud gaat uitvoeren aan uw service.
 
 ## Prestatietests
-
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
 Open in de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test maakt, wordt u uitgenodigd om verbinding te maken met een Visual Studio Team Services-account of om er een te maken. 
 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
-
 ## Automatisering
-
 * Gebruik [PowerShell-scripts](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) om automatisch een webtest in te stellen. 
 * Stel een [webhook](../azure-portal/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## Vragen? Problemen?
-
 * *Kan ik code aanroepen via mijn webtest?*
-
+  
     Nee. De stappen van de test moeten zich in het bestand .webtest bevinden. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.
-
 * *Wordt HTTPS ondersteund?*
-
+  
     ondersteunen TLS 1.1 en TLS 1.2.
-
 * *Is er een verschil tussen webtests en beschikbaarheidstests?*
-
+  
     De twee termen worden door elkaar gebruikt.
-
 * *Ik wil graag beschikbaarheidstests gebruiken voor onze interne server die achter een firewall wordt uitgevoerd.*
-
+  
     Uw firewall configureren om aanvragen van de [IP-adressen van webtestagents](app-insights-ip-addresses.md#availability) toe te staan.
-
 * *Het uploaden van een webtest met meerdere stappen mislukt*
-
+  
     Er is een limiet van 300 K.
-
+  
     Lussen worden niet ondersteund.
-
+  
     Verwijzingen naar andere webtests worden niet ondersteund.
-
+  
     Gegevensbronnen worden niet ondersteund.
-
-    
 * *Mijn test met meerdere stappen wordt niet voltooid*
-
+  
     Er is een limiet van 100 aanvragen per test.
-
+  
     De test wordt gestopt als deze meer dan twee minuten wordt uitgevoerd.
-
 * *Hoe voer ik een test uit met clientcertificaten?*
-
+  
     Dat wordt niet ondersteund.
 
-
 ## <a name="video"></a>Video
-
-> [AZURE.VIDEO monitoring-availability-with-application-insights]
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
+> 
+> 
 
 ## <a name="next"></a>Volgende stappen
-
 [Diagnostische logboeken zoeken][diagnostic]
 
 [Probleemoplossing][qna]
 
 [IP-adressen van de webtest-agents](app-insights-ip-addresses.md)
-
 
 <!--Link references-->
 

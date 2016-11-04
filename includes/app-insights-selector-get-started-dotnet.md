@@ -7,14 +7,14 @@ Met [Visual Studio Application Insights](../articles/application-insights/app-in
 
 Installeer de SDK en voeg bewaking toe voor andere gegevens:
 
-> [AZURE.SELECTOR]
-- [De SDK installeren](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [Gebruikers- en paginagegevens toevoegen](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Uitzonderingen](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Afhankelijkheden](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Beschikbaarheid](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
-
-
+> [!div class="op_single_selector"]
+> * [De SDK installeren](../articles/application-insights/app-insights-asp-net.md#selector1)
+> * [Gebruikers- en paginagegevens toevoegen](../articles/application-insights/app-insights-javascript.md#selector1)
+> * [Uitzonderingen](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+> * [Afhankelijkheden](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+> * [Beschikbaarheid](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

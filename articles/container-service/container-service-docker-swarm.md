@@ -1,26 +1,24 @@
-<properties
-   pageTitle="Containerbeheer in Azure Container Service met Docker Swarm | Microsoft Azure"
-   description="Containers implementeren in een Docker Swarm in Azure Container Service"
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+---
+title: Containerbeheer in Azure Container Service met Docker Swarm | Microsoft Docs
+description: Containers implementeren in een Docker Swarm in Azure Container Service
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: nepeters
 
-
+---
 # Containerbeheer met Docker Swarm
-
 Docker Swarm biedt een omgeving voor het implementeren van beperkte workloads in een gegroepeerde set Docker-hosts. Docker Swarm maakt gebruik van de systeemeigen Docker API. De werkstroom voor het beheer van containers in een Docker Swarm is bijna identiek aan de werkstroom op een enkele containerhost. Dit document bevat enkele eenvoudige voorbeelden van de implementatie van beperkte workloads in een Azure Container Service-exemplaar van Docker Swarm. Zie [Docker Swarm op Docker.com](https://docs.docker.com/swarm/) voor uitgebreidere documentatie bij Docker Swarm.
 
 Vereisten voor de oefeningen in dit document:
@@ -30,9 +28,7 @@ Vereisten voor de oefeningen in dit document:
 [Verbinding maken met het Swarm-cluster in Azure Container Service](container-service-connect.md)
 
 ## Een nieuwe container implementeren
-
 Als u in de Docker Swarm een nieuwe container wilt maken, gebruikt u de opdracht `docker run` (waarbij u ervoor zorgt dat u een SSH-tunnel naar de masters hebt geopend overeenkomstig de bovenstaande vereisten). In dit voorbeeld wordt een container van gemaakt op basis van de `yeasy/simple-web`-installatiekopie:
-
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
@@ -41,7 +37,6 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 ```
 
 Nadat de container is gemaakt, gebruikt u `docker ps` om informatie over de container te retourneren. U ziet hier dat de Swarm-agent wordt vermeld die als host fungeert voor de container:
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -52,15 +47,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 U hebt nu toegang tot de toepassing die wordt uitgevoerd in deze container via de openbare DNS-naam van de load balancer van de Swarm-agent. U kunt deze informatie vinden in Azure Portal:  
 
-
 ![Echte bezoekresultaten](media/real-visit.jpg)  
 
 De Load Balancer heeft standaard de poorten 80, 8080 en 443 open. Als u via een andere poort verbinding wilt maken, moet u die poort openen in de Azure Load Balancer voor de Agent-pool.
 
 ## Meerdere containers implementeren
-
 Als meerdere containers worden gestart, door 'docker run' meermaals uit te voeren, kunt u de opdracht `docker ps` gebruiken om te zien op welke hosts de containers worden uitgevoerd. In het voorbeeld hieronder zijn drie containers gelijkmatig verdeeld over de drie Swarm-agents:  
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -72,7 +64,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```  
 
 ## Containers implementeren met behulp van Docker Compose
-
 U kunt Docker Compose gebruiken om de implementatie en configuratie van meerdere containers te automatiseren. Hiervoor moet een SSH-tunnel (Secure Shell-tunnel) zijn gemaakt en moet de variabele DOCKER_HOST zijn ingesteld (zie de bovenstaande vereisten).
 
 Maak een docker-compose.yml-bestand op het lokale systeem. Gebruik dit [voorbeeld](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) om dit te doen.
@@ -93,7 +84,6 @@ rest:
 
 Voer `docker-compose up -d` uit om de containerimplementaties te starten:
 
-
 ```bash
 user@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
@@ -110,7 +100,6 @@ Creating compose_web_1
 
 Tot slot wordt de lijst met actieve containers geretourneerd. Deze lijst bevat de containers die zijn geïmplementeerd met behulp van Docker Compose:
 
-
 ```bash
 user@ubuntu:~/compose$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
@@ -121,10 +110,7 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 Uiteraard kunt u `docker-compose ps` gebruiken om alleen de containers te onderzoeken die in uw bestand `compose.yml` zijn gedefinieerd.
 
 ## Volgende stappen
-
 [Meer informatie over Docker Swarm](https://docs.docker.com/swarm/)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

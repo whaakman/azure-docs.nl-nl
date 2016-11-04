@@ -1,44 +1,36 @@
-<properties
-    pageTitle="De Application Insights-SDK toevoegen om uw Node.js-app te bewaken | Microsoft Azure"
-    description="Analyseer het gebruik, de beschikbaarheid en de prestaties van uw on-premises webtoepassing of Microsoft Azure-webtoepassing met Application Insights."
-    services="application-insights"
-    documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+---
+title: De Application Insights-SDK toevoegen om uw Node.js-app te bewaken | Microsoft Docs
+description: Analyseer het gebruik, de beschikbaarheid en de prestaties van uw on-premises webtoepassing of Microsoft Azure-webtoepassing met Application Insights.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/30/2016"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/30/2016
+ms.author: awills
 
-
-
+---
 # De Application Insights-SDK toevoegen om uw Node.js-app te bewaken
-
 *Application Insights verkeert momenteel in de preview-fase.*
 
 Met [Visual Studio Application Insights](app-insights-overview.md) wordt uw live-toepassing bewaakt om u te helpen bij het [detecteren en onderzoeken van prestatieproblemen en -uitzonderingen](app-insights-detect-triage-diagnose.md) en om te [ontdekken hoe uw app wordt gebruikt](app-insights-overview-usage.md). De tool werkt voor apps die worden gehost op uw eigen on-premises IIS-servers, op virtuele Azure-machines en in Azure-webtoepassingen.
-
-
 
 Met de SDK kunt u automatisch de snelheid en reacties van binnenkomende HTTP-aanvragen verzamelen, net als de prestatiemeteritems (CPU, geheugen, RPS) en onverwerkte uitzonderingen. Bovendien kunt u aangepaste aanroepen toevoegen om de afhankelijkheden, meetgegevens en andere gebeurtenissen bij te houden.
 
 ![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-windows-services/10-perf.png)
 
-
 #### Voordat u begint
-
 U hebt de volgende zaken nodig:
 
 * Visual Studio 2013 of later. Later is beter.
 * Een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](http://live.com).
 
 ## <a name="add"></a>Een Application Insights-resource maken
-
 Meld u aan bij de [Azure Portal][portal] en maak een nieuwe Application Insights-resource. Een [resource][rolls] in Azure is een exemplaar van een service. In deze resource wordt de telemetrie van uw app geanalyseerd en aan u gepresenteerd.
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,20 +38,16 @@ Meld u aan bij de [Azure Portal][portal] en maak een nieuwe Application Insights
 Kies Overige als het toepassingstype. Op basis van het gekozen toepassingstype wordt de standaardinhoud van de resourceblades bepaald, net als de eigenschappen die zichtbaar zijn in [Metrics Explorer][metrics].
 
 #### De instrumentatiesleutel kopiëren
-
 De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin in de SDK om gegevens om te leiden naar de resource.
 
 ![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-windows-services/02-props-asp.png)
 
-
 ## <a name="sdk"></a> De SDK installeren in uw toepassing
-
 ```
 npm install applicationinsights --save
 ```
 
 ## Gebruik
-
 Hiermee schakelt u de bewaking van aanvragen, het bijhouden van onverwerkte uitzonderingen en de systeemprestatiebewaking (CPU/geheugen/RPS) in.
 
 ```javascript
@@ -72,16 +60,11 @@ De instrumentatiesleutel kan ook worden ingesteld in de omgevingsvariabele APPIN
 
 U kunt de SDK uitproberen zonder telemetrie te verzenden. Stel de instrumentatiesleutel hiertoe in op een niet-lege tekenreeks.
 
-
 ## <a name="run"></a> Uw project uitvoeren
-
 Start uw toepassing en probeer deze uit. Open verschillende pagina’s om telemetrie te genereren.
 
-
 ## <a name="monitor"></a> Uw telemetrie weergeven
-
 Ga naar de [Azure Portal](https://portal.azure.com) en blader naar uw Application Insights-resource.
-
 
 Zoek naar gegevens op de pagina Overzicht. Aanvankelijk ziet u slechts één of twee punten. Bijvoorbeeld:
 
@@ -90,35 +73,25 @@ Zoek naar gegevens op de pagina Overzicht. Aanvankelijk ziet u slechts één of 
 Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie over metrische gegevens.][perf]
 
 #### Zijn er geen gegevens?
-
 * Gebruik de toepassing om verschillende pagina's te openen, zodat er telemetrie wordt gegenereerd.
 * Open de tegel [Zoeken](app-insights-diagnostic-search.md) om afzonderlijke gebeurtenissen te bekijken. Soms kan het even duren voordat de metrische gegevens van gebeurtenissen zijn opgehaald.
 * Wacht een paar seconden en klik op **Vernieuwen**. De grafieken worden regelmatig vernieuwd, maar u kunt ze ook handmatig vernieuwen als u op bepaalde gegevens wacht.
 * Zie [Probleemoplossing][qna].
 
 ## Uw app publiceren
-
 Implementeer nu uw toepassing naar IIS of naar Azure en bekijk hoe de gegevens worden verzameld.
 
-
 #### Ziet u geen gegevens nadat u uw app naar uw server hebt gepubliceerd?
-
 Open deze poorten voor uitgaand verkeer in de firewall van uw server:
 
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
+* `dc.services.visualstudio.com:443`
+* `f5.services.visualstudio.com:443`
 
 #### Problemen op uw buildserver?
-
 Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-
-
-## Aangepast gebruik 
-
+## Aangepast gebruik
 ### Automatisch verzamelen uitschakelen
-
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -130,7 +103,6 @@ appInsights.setup("<instrumentation_key>")
 ```
 
 ### Aangepaste bewaking
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -144,7 +116,6 @@ client.trackTrace("trace message");
 [Meer informatie over de telemetrie-API](app-insights-api-custom-events-metrics.md).
 
 ### Meerdere instrumentatiesleutels gebruiken
-
 ```javascript
 import appInsights = require("applicationinsights");
 
@@ -157,9 +128,7 @@ otherClient.trackEvent("custom event");
 ```
 
 ## Voorbeelden
-
 ### Afhankelijkheid bijhouden
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -176,7 +145,6 @@ client.trackDependency("dependency name", "command name", elapsedTime, success);
 
 
 ### Handmatig alle GET-aanvragen bijhouden
-
 ```javascript
 var http = require("http");
 var appInsights = require("applicationinsights");
@@ -214,11 +182,8 @@ server.on("listening", () => {
 ```
 
 ## Volgende stappen
-
 * [Telemetrie in de portal bewaken](app-insights-dashboards.md)
 * [Analysequery’s schrijven over uw telemetrie](app-insights-analytics-tour.md)
-
-
 
 <!--Link references-->
 

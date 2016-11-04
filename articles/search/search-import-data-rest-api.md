@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Gegevens uploaden naar Azure Search met behulp van de REST-API | Microsoft Azure | Gehoste service voor zoeken in de cloud"
-    description="Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de REST-API"
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: Gegevens uploaden naar Azure Search met behulp van de REST-API | Microsoft Docs
+description: Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de REST-API
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Gegevens uploaden naar Azure Search met behulp van de REST-API
-> [AZURE.SELECTOR]
-- [Overzicht](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overzicht](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 In dit artikel wordt beschreven hoe u met behulp van de [Azure Search REST-API](https://msdn.microsoft.com/library/azure/dn798935.aspx) gegevens in een Azure Search-index importeert.
 
@@ -39,8 +40,8 @@ Als u met behulp van de REST-API een HTTP-aanvraag bij uw service doet, moet *el
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-  - De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
-  - Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
 Als u gegevens in een index wilt importeren, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
@@ -49,12 +50,12 @@ Wanneer u de REST-API gebruikt, doet u HTTP POST-aanvragen met JSON-aanvraagteks
 
 Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet worden geïndexeerd. Elk van deze objecten bevat de sleutel van het document en bepaalt de gewenste indexeringsbewerking (uploaden, samenvoegen, verwijderen, enzovoort). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
 
-@search.action | Beschrijving | Vereiste velden voor elk document | Opmerkingen
---- | --- | --- | ---
-`upload` | Een `upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. | sleutel, plus andere velden die u wilt definiëren | Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde.
-`merge` | Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. | sleutel, plus andere velden die u wilt definiëren | Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat, gedraagt deze bewerking zich als `upload` met een nieuw document. | sleutel, plus andere velden die u wilt definiëren | -
-`delete` | Het opgegeven document wordt uit de index verwijderd. | alleen sleutel | Alle andere velden worden genegeerd. Als u een afzonderlijk veld uit een document wilt verwijderen, gebruikt u `merge` en stelt u het veld expliciet in op null.
+| @search.action | Beschrijving | Vereiste velden voor elk document | Opmerkingen |
+| --- | --- | --- | --- |
+| `upload` |Een `upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. |sleutel, plus andere velden die u wilt definiëren |Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde. |
+| `merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat, gedraagt deze bewerking zich als `upload` met een nieuw document. |sleutel, plus andere velden die u wilt definiëren |- |
+| `delete` |Het opgegeven document wordt uit de index verwijderd. |alleen sleutel |Alle andere velden worden genegeerd. Als u een afzonderlijk veld uit een document wilt verwijderen, gebruikt u `merge` en stelt u het veld expliciet in op null. |
 
 ## III. De HTTP-aanvraag en de hoofdtekst opstellen
 Nu u de benodigde veldwaarden voor uw indexbewerkingen hebt verzameld, kunt u de hoofdtekst voor uw HTTP-aanvraag en JSON-aanvraag opstellen om de gegevens te importeren.
@@ -67,7 +68,6 @@ U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juis
     api-key: [admin key]
 
 #### Aanvraagtekst
-
 ```JSON
 {
     "value": [
@@ -154,7 +154,10 @@ Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïn
 }
 ```
 
-> [AZURE.NOTE] Dit betekent vaak dat de belasting van uw zoekservice een punt bereikt waarbij indexeringsaanvragen `503`-antwoorden retourneren. In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
+> [!NOTE]
+> Dit betekent vaak dat de belasting van uw zoekservice een punt bereikt waarbij indexeringsaanvragen `503`-antwoorden retourneren. In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
+> 
+> 
 
 #### 429
 Statuscode `429` wordt geretourneerd wanneer u het quotum van het aantal documenten per index hebt overschreden.
@@ -162,14 +165,15 @@ Statuscode `429` wordt geretourneerd wanneer u het quotum van het aantal documen
 #### 503
 Statuscode `503` wordt geretourneerd als geen van de items in de aanvraag zijn geïndexeerd. Deze fout betekent dat het systeem zwaar belast wordt en uw aanvraag op dit moment niet kan worden verwerkt.
 
-> [AZURE.NOTE] In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
+> [!NOTE]
+> In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
+> 
+> 
 
 Zie [Documenten toevoegen, bijwerken of verwijderen](https://msdn.microsoft.com/library/azure/dn798930.aspx) voor meer informatie over bewerkingen en antwoorden voor een geslaagde of mislukte bewerking. Zie [HTTP-statuscodes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
 
 ## Volgende
 Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

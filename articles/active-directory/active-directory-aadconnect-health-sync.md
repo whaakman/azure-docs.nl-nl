@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Azure AD Connect Health gebruiken met synchronisatie | Microsoft Azure"
-    description="Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe u synchronisatie met Azure AD Connect kunt controleren."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Azure AD Connect Health gebruiken met synchronisatie | Microsoft Docs
+description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe u synchronisatie met Azure AD Connect kunt controleren.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # Azure AD Connect Health for Sync gebruiken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
 
@@ -44,8 +43,8 @@ U kunt dit wijzigen door te klikken op 'Instellingen' en de Azure AD Connect Hea
 ## Inzicht in synchronisatie
 Aan de nieuwste versie van Azure AD Connect Health voor synchroniseren zijn de volgende nieuwe mogelijkheden toegevoegd:
 
-- Latentie van de synchronisatiebewerkingen
-- Trend van objectwijziging
+* Latentie van de synchronisatiebewerkingen
+* Trend van objectwijziging
 
 ### Synchronisatielatentie
 Met deze functie wordt een grafische trend weergegeven van de latentie van de synchronisatiebewerkingen (import, export, enzovoort) voor connectoren.  Dit biedt een snelle en eenvoudige manier om niet alleen inzicht te krijgen in de latentie van uw bewerkingen (handig als er een grote set wijzigingen moet worden uitgevoerd), maar het is ook een manier om onregelmatigheden in de latentie te ontdekken die nader moeten worden onderzocht.
@@ -60,7 +59,6 @@ Deze functie biedt een grafisch weergegeven trend van het aantal wijzigingen dat
 ![Synchronisatielatentie](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## Verwante koppelingen
-
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)
 * [De Azure AD Connect Health-agent installeren](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
@@ -68,9 +66,6 @@ Deze functie biedt een grafisch weergegeven trend van het aantal wijzigingen dat
 * [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
 * [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-
 
 <!--HONumber=Sep16_HO4-->
 

@@ -1,15 +1,13 @@
 ## De ARM-sjabloon implementeren met PowerShell
-
 Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met PowerShell.
 
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../articles/powershell-install-configure.md) en volgt u de instructies helemaal tot aan het einde om u aan te melden bij Azure en uw abonnement te selecteren.
-
-3. Voer indien nodig de **`New-AzureRmResourceGroup`** cmdlet om een nieuwe resourcegroep te maken. De onderstaande opdracht maakt een resourcegroep met de naam *TestRG* in de Azure-regio in *het midden van de VS* . Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
-
+2. Voer indien nodig de **`New-AzureRmResourceGroup`** cmdlet om een nieuwe resourcegroep te maken. De onderstaande opdracht maakt een resourcegroep met de naam *TestRG* in de Azure-regio in *het midden van de VS* . Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-        
+   
     Dit is de verwachte uitvoer voor de bovenstaande opdracht:
-
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -19,14 +17,13 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-
-4. Voer de **`New-AzureRmResourceGroupDeployment`** cmdlet uit om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd.
-
+3. Voer de **`New-AzureRmResourceGroupDeployment`** cmdlet uit om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd.
+   
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-            
+   
     Dit is de verwachte uitvoer voor de bovenstaande opdracht:
-        
+   
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
         ProvisioningState : Succeeded
@@ -43,16 +40,14 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
                             subnet1Name      String                     FrontEnd
                             subnet2Prefix    String                     192.168.2.0/24
                             subnet2Name      String                     BackEnd
-        
+   
         Outputs           :
-
-5. Voer de **`Get-AzureRmVirtualNetwork`** cmdlet uit om de eigenschappen van de nieuwe VNet te bekijken, zoals hieronder weergegeven.
-
+4. Voer de **`Get-AzureRmVirtualNetwork`** cmdlet uit om de eigenschappen van de nieuwe VNet te bekijken, zoals hieronder weergegeven.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-        
+
     Dit is de verwachte uitvoer voor de bovenstaande opdracht:
-        
+
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus

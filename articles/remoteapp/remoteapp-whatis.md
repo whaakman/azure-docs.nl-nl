@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Wat is Azure RemoteApp? | Microsoft Azure" 
-    description="Lees hoe u apps en resources op apparaten deelt via Azure RemoteApp." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" 
-    editor=""/>
+---
+title: Wat is Azure RemoteApp? | Microsoft Docs
+description: Lees hoe u apps en resources op apparaten deelt via Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Wat is Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> 
+> 
 
 Azure RemoteApp introduceert de functionaliteit van het on-premises Microsoft RemoteApp-programma, gesteund door Extern-bureaublad-services, in Azure. Met Azure RemoteApp kunt u vanaf een groot aantal verschillende gebruikersapparaten veilige externe toegang bieden tot toepassingen. Azure RemoteApp verzorgt in feite niet-permanente Terminal Server-sessies in de cloud, en u gaat deze gebruiken en delen met uw gebruikers.
 
@@ -37,23 +37,20 @@ Azure RemoteApp maakt deel uit van de [Microsoft Virtual Desktop Infrastructure]
 ## Azure RemoteApp-verzamelingen
 Er zijn twee soorten [Azure RemoteApp verzamelingen](remoteapp-collections.md):
 
-
-- Een **cloudverzameling** wordt gehost in en slaat gegevens voor programma's op in de cloud. Gebruikers hebben toegang tot apps door zich aan te melden met hun Microsoft-account- of bedrijfsreferenties die zijn gesynchroniseerd of verenigd met Azure Active Directory.
-
+* Een **cloudverzameling** wordt gehost in en slaat gegevens voor programma's op in de cloud. Gebruikers hebben toegang tot apps door zich aan te melden met hun Microsoft-account- of bedrijfsreferenties die zijn gesynchroniseerd of verenigd met Azure Active Directory.
+  
     Kies een cloudverzameling als de toepassing die u wilt delen geen verbinding nodig heeft met resources in het particuliere netwerk van uw bedrijf (bijvoorbeeld via een VPN-apparaat). Als de toepassing resources gebruikt op internet, in OneDrive of Azure, kunt u een cloudverzameling gebruiken. Het is ook het snelst gemaakt.
-
-- Een **hybride verzameling** wordt gehost in en slaat gegevens op in de Azure-cloud, maar biedt gebruikers ook toegang tot gegevens en resources die zijn opgeslagen in uw lokale netwerk. Gebruikers hebben toegang tot apps door zich aan te melden met hun bedrijfsreferenties die zijn gesynchroniseerd of verenigd met Azure Active Directory.
-
+* Een **hybride verzameling** wordt gehost in en slaat gegevens op in de Azure-cloud, maar biedt gebruikers ook toegang tot gegevens en resources die zijn opgeslagen in uw lokale netwerk. Gebruikers hebben toegang tot apps door zich aan te melden met hun bedrijfsreferenties die zijn gesynchroniseerd of verenigd met Azure Active Directory.
+  
     Kies een hybride verzameling als u een verbinding nodig hebt met resources in het particuliere netwerk van uw bedrijf. Bijvoorbeeld, als de toepassing toegang moet hebben tot:
-
-    - Bestandsservers op het intranet
-    - Quicken
-    - Databases achter een firewall
-
+  
+  * Bestandsservers op het intranet
+  * Quicken
+  * Databases achter een firewall
+    
     Dit is doorgaans nuttiger voor grote bedrijven met veel resources in hun particuliere netwerken die niet naar de cloud kunnen worden verplaatst.
 
 De verschillende verzamelingen hebben verschillende opties, waaronder netwerken. Zoek daarom uit [welke verzameling](remoteapp-collections.md) het meest geschikt is voor u. 
-
 
 ### Een verzameling bijwerken
 Een van de belangrijkste verschillen tussen een hybride verzameling en een cloudverzameling is de manier waarop software-updates worden afgehandeld. Met een cloudverzameling die gebruikmaakt van de vooraf geïnstalleerde installatiekopie van Office 365 ProPlus of Office 2013, hoeft u zich geen zorgen te maken over updates. De service onderhoudt zichzelf en de updates worden met vaste regelmatig uitgevoerd, zowel voor de apps als voor het besturingssysteem.
@@ -72,18 +69,16 @@ Zie [Uw apps openen in Azure RemoteApp](remoteapp-clients.md) voor meer informat
 ## Volgende stappen
 Aan de slag Probeer het nu! Deze artikelen helpen u op weg met Azure RemoteApp:
 
-- [What kind of collection do you need for Azure RemoteApp? (Wat voor verzameling hebt u nodig voor Azure RemoteApp?)](remoteapp-collections.md)
-- [Create an Azure RemoteApp image (Een installatiekopie maken voor Azure RemoteApp)](remoteapp-imageoptions.md)
-- [How to create a cloud collection of Azure RemoteApp (Een cloudverzameling maken van Azure RemoteApp)](remoteapp-create-cloud-deployment.md)
-- [How to create a hybrid cloud collection of Azure RemoteApp (Een hybride cloudverzameling maken van Azure RemoteApp)](remoteapp-create-hybrid-deployment.md)
-- [How does licensing work in Azure RemoteApp? (Hoe werkt licentieverlening in Azure RemoteApp?)](remoteapp-licensing.md)
-- [Best practices for using Azure RemoteApp (Aanbevolen procedures voor het gebruik van Azure RemoteApp)](remoteapp-bestpractices.md)
-- [Azure RemoteApp FAQ (Veelgestelde vragen over Azure RemoteApp)](remoteapp-faq.md)
- 
+* [What kind of collection do you need for Azure RemoteApp? (Wat voor verzameling hebt u nodig voor Azure RemoteApp?)](remoteapp-collections.md)
+* [Create an Azure RemoteApp image (Een installatiekopie maken voor Azure RemoteApp)](remoteapp-imageoptions.md)
+* [How to create a cloud collection of Azure RemoteApp (Een cloudverzameling maken van Azure RemoteApp)](remoteapp-create-cloud-deployment.md)
+* [How to create a hybrid cloud collection of Azure RemoteApp (Een hybride cloudverzameling maken van Azure RemoteApp)](remoteapp-create-hybrid-deployment.md)
+* [How does licensing work in Azure RemoteApp? (Hoe werkt licentieverlening in Azure RemoteApp?)](remoteapp-licensing.md)
+* [Best practices for using Azure RemoteApp (Aanbevolen procedures voor het gebruik van Azure RemoteApp)](remoteapp-bestpractices.md)
+* [Azure RemoteApp FAQ (Veelgestelde vragen over Azure RemoteApp)](remoteapp-faq.md)
 
-### Help ons u te helpen 
+### Help ons u te helpen
 Wist u dat u niet alleen dit artikel kunt beoordelen en opmerkingen kunt toevoegen, maar zelfs wijzigingen kunt aanbrengen in het artikel zelf? Ontbreekt er iets? Is er iets niet juist? Heb ik iets geschreven dat niet duidelijk is? Blader omhoog en klik op **Edit on GitHub** of **Edit** als u wijzigingen wilt aanbrengen. Deze worden eerst nagekeken en wanneer ze zijn goedgekeurd, worden uw wijzigingen en verbeteringen hier weergegeven.
-
 
 <!--HONumber=Sep16_HO3-->
 

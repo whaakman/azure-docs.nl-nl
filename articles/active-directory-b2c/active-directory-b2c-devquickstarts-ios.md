@@ -1,61 +1,58 @@
-<properties
-    pageTitle="Azure Active Directory B2C: een web-API aanroepen vanuit een iOS-toepassing met bibliotheken van derden | Microsoft Azure"
-    description="In dit artikel wordt beschreven hoe u een iOS-takenlijst-app maakt die een Node.js-web-API aanroept met behulp van OAuth 2.0-bearer-tokens die een bibliotheek van derden gebruiken"
-    services="active-directory-b2c"
-    documentationCenter="ios"
-    authors="brandwe"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: 'Azure Active Directory B2C: een web-API aanroepen vanuit een iOS-toepassing met bibliotheken van derden | Microsoft Docs'
+description: In dit artikel wordt beschreven hoe u een iOS-takenlijst-app maakt die een Node.js-web-API aanroept met behulp van OAuth 2.0-bearer-tokens die een bibliotheek van derden gebruiken
+services: active-directory-b2c
+documentationcenter: ios
+author: brandwe
+manager: mbaldwin
+editor: ''
 
-<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: objectivec
+ms.topic: hero-article
+ms.date: 07/26/2016
+ms.author: brandwe
 
-    ms.date="07/26/2016"
-    ms.author="brandwe"/>
-
-
+---
 # Azure AD B2C: een web-API aanroepen vanuit een iOS-toepassing die een bibliotheek van derden gebruikt
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zoals OAuth2 en OpenID Connect. Ontwikkelaars kunnen daardoor gebruikmaken van elke gewenste bibliotheek die ze met onze services willen integreren. We willen ontwikkelaars graag helpen bij het gebruik van ons platform met andere bibliotheken. Daarom hebben we een aantal scenario's ontwikkeld om te demonstreren hoe ontwikkelaars bibliotheken van derden kunnen configureren om verbinding te maken met het Microsoft Identity-platform. De meeste bibliotheken die de [OAuth2-specificatie RFC6749](https://tools.ietf.org/html/rfc6749) implementeren, kunnen verbinding maken met het Microsoft Identity-platform.
 
-
 Als u nog geen ervaring hebt met OAuth2 of OpenID Connect, zal een groot gedeelte van deze voorbeeldconfiguratie u niet veel zeggen. U wordt geadviseerd eerst een beknopt [overzicht van het hier gedocumenteerde protocol te bekijken](active-directory-b2c-reference-protocols.md).
 
-> [AZURE.NOTE]
-    Voor sommige functies van ons platform die een expressie in deze standaarden hebben, zoals Voorwaardelijke toegang en Intune-beleidsbeheer, moet u onze Microsoft Azure Identity-bibliotheken (open source) gebruiken. 
-   
+> [!NOTE]
+> Voor sommige functies van ons platform die een expressie in deze standaarden hebben, zoals Voorwaardelijke toegang en Intune-beleidsbeheer, moet u onze Microsoft Azure Identity-bibliotheken (open source) gebruiken. 
+> 
+> 
+
 Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het B2C-platform.  Lees de informatie over [B2C-beperkingen](active-directory-b2c-limitations.md) als u wilt weten of u het B2C-platform moet gebruiken.
 
-
 ## Een Azure AD B2C-directory maken
-
 Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u verdergaat.
 
 ## Een app maken
-
 Vervolgens maakt u een app in uw B2C-directory. Hiermee voorziet u Azure AD van de informatie die nodig is om veilig te communiceren met uw app. Zowel de app als de web-API worden in dit geval aangegeven met één **toepassings-id** omdat ze samen één logische app vormen. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken. Zorg ervoor dat:
 
-- U een **mobiel apparaat** opneemt in de toepassing.
-- U de **toepassings-id** kopieert die is toegewezen aan uw app. Deze hebt u ook later nodig.
+* U een **mobiel apparaat** opneemt in de toepassing.
+* U de **toepassings-id** kopieert die is toegewezen aan uw app. Deze hebt u ook later nodig.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Het beleid maken
-
 In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat één Identity-ervaring: een gecombineerde aanmelding/registratie. U moet deze beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Wanneer u het beleid maakt:
 
-- Kiest u **Weergavenaam** en registratiekenmerken in het beleid.
-- Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-- Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt de beleidsnaam later nodig.
+* Kiest u **Weergavenaam** en registratiekenmerken in het beleid.
+* Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
+* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt de beleidsnaam later nodig.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Nadat u beleidsregels hebt gemaakt, kunt u de app maken.
 
-
 ## De code downloaden
-
 De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c).  Om verder te gaan, kunt u [de app downloaden als een ZIP](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/archive/master.zip) of deze klonen:
 
 ```
@@ -69,11 +66,9 @@ git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-na
 ```
 
 ## De bibliotheek van derden nxoauth2 downloaden en een werkruimte starten
-
 Voor dit scenario gebruikt u de OAuth2Client vanuit GitHub, een OAuth2-bibliotheek voor Mac OS X en iOS (Cocoa & Cocoa touch). Deze bibliotheek is gebaseerd op concept 10 van de OAuth2-specificatie. Hiermee wordt het systeemeigen toepassingsprofiel geïmplementeerd met ondersteuning van het verificatie-eindpunt van de eindgebruiker. Dit is alles wat u nodig hebt voor integratie met het Microsoft Identity-platform.
 
 ### De bibliotheek aan uw project toevoegen met CocoaPods
-
 CocoaPods is een hulpmiddel voor afhankelijkheidsbeheer voor Xcode-projecten. Hiermee worden bovenstaande installatiestappen automatisch beheerd.
 
 ```
@@ -83,11 +78,11 @@ Voeg het volgende aan de podfile toe:
 
 ```
  platform :ios, '8.0'
- 
+
  target 'SampleforB2C' do
- 
+
  pod 'NXOAuth2Client'
- 
+
  end
 ```
 
@@ -101,7 +96,6 @@ $ open SampleforB2C.xcworkspace
 ```
 
 ## De structuur van het project
-
 Voor dit project is in het raamwerk de volgende structuur gemaakt:
 
 * Een **modelweergave** met een taakvenster
@@ -111,11 +105,9 @@ Voor dit project is in het raamwerk de volgende structuur gemaakt:
 U zult naar diverse bestanden in het project gaan om verificatie toe te voegen. Andere onderdelen van de code, zoals de Visual-code, hebben geen betrekking op Identity en zijn al voor u gemaakt.
 
 ## Het `settings.plist`-bestand voor de toepassing maken
-
 Het is eenvoudiger om de toepassing te configureren als er een centrale locatie voor de configuratiewaarden is. Het is dan ook duidelijker wat elke instelling in uw toepassing doet. U gebruikt de *eigenschappenlijst* als een manier om deze waarden aan de toepassing door te geven.
 
 * Het `settings.plist`-bestand onder `Supporting Files` in uw toepassingswerkruimte maken of openen
-
 * Voer de volgende waarden in (deze worden zo dadelijk besproken)
 
 ```xml
@@ -149,10 +141,9 @@ Het is eenvoudiger om de toepassing te configureren als er een centrale locatie 
 
 Hier volgt een gedetailleerde beschrijving.
 
-
 U ziet dat u voor `authURL`, `loginURL`, `bhh` en `tokenURL` de naam van uw tenant moet invullen. Dit is de tenantnaam van uw B2C-tenant die aan u is toegewezen. Bijvoorbeeld `kidventusb2c.onmicrosoft.com`Als u onze Microsoft Azure Identity-bibliotheken (open source) gebruikt, worden deze gegevens voor u opgehaald via ons eindpunt voor metagegevens. Deze waarden zijn al voor u uitgepakt.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 De waarde `keychain` is de container die de bibliotheek NXOAuth2Client gebruikt voor het maken van een sleutelhanger waarin uw tokens worden opgeslagen. Als u eenmalige aanmelding wilt instellen voor verschillende toepassingen, kunt u dezelfde sleutelhanger opgeven in elk van uw toepassingen en het gebruik van deze sleutelhanger vereisen in uw XCode-rechten. Dit wordt beschreven in de Apple-documentatie.
 
@@ -165,7 +156,6 @@ De overige waarden zijn vereist om de bibliotheek te gebruiken; hiermee worden s
 Nu het `settings.plist`-bestand is gemaakt, hebt u code nodig om het te lezen.
 
 ## Een AppData-klasse instellen om de instellingen te lezen
-
 U gaat een eenvoudig bestand maken dat het hierboven gemaakte `settngs.plist`-bestand parseert en de instellingen in de toekomst beschikbaar maakt voor elke klasse. Omdat u niet telkens wanneer een klasse deze gegevens nodig heeft, een nieuwe kopie van de gegevens wilt maken, gaat u een Singleton-patroon gebruiken en telkens hetzelfde exemplaar retourneren wanneer om de instellingen wordt gevraagd
 
 * Maak een `AppData.h`-bestand:
@@ -229,13 +219,10 @@ U gaat een eenvoudig bestand maken dat het hierboven gemaakte `settngs.plist`-be
 
 Nu hebt u eenvoudig toegang tot de gegevens door `  AppData *data = [AppData getInstance];` in een van de klassen aan te roepen, zoals u hieronder ziet.
 
-
-
 ## De NXOAuth2Client-bibliotheek in uw AppDelegate instellen
-
 U moet enkele waarden instellen voor de NXOAuthClient-bibliotheek. Als dat is gebeurd, kunt u het verkregen token gebruiken om de REST API aan te roepen. Omdat u weet dat `AppDelegate` wordt aangeroepen wanneer u de toepassing laadt, is het handig om de configuratiewaarden ook in dat bestand neer te zetten.
-* Bestand `AppDelegate.m` openen
 
+* Bestand `AppDelegate.m` openen
 * Importeer enkele headerbestanden die u later gaat gebruiken.
 
 ```objc
@@ -249,9 +236,7 @@ U moet een AccountStore maken en hieraan de gegevens doorgeven die u zojuist heb
 
 Er zijn een aantal dingen waarmee u op dit moment rekening moet houden met betrekking tot de B2C-service om deze code begrijpelijker te maken:
 
-
 1. Azure AD B2C gebruikt het *beleid* dat door de queryparameters is verstrekt, om uw aanvraag af te handelen. Azure Active Directory kan zo als een onafhankelijke service fungeren, alleen voor uw toepassing. Om deze extra queryparameters te kunnen verstrekken, moet u aan de methode `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` de parameters uit het aangepast beleid doorgeven. 
-
 2. Azure AD B2C gebruikt bereiken op nagenoeg dezelfde manier als andere OAuth2-servers. Maar omdat het gebruik van B2C evenzeer gaat over het verifiëren van een gebruiker als over de toegang tot resources, zijn bepaalde bereiken absoluut vereist voor een correcte werking van de stroom. Dit is het `openid`-bereik. De Microsoft Identity-SDK's verstrekken het `openid`-bereik automatisch. U ziet dat dus niet in de SDK-configuratie. Omdat u een bibliotheek van derden gebruikt, moet u dit bereik echter opgeven.
 
 ```objc
@@ -293,7 +278,6 @@ Vervolgens moet u ervoor zorgen dat u deze in de AppDelegate aanroept onder de m
 
 
 ## Een `LoginViewController`-klasse maken die u gaat gebruiken voor de afhandeling van verificatieaanvragen
-
 Hier wordt een webweergave gebruikt voor aanmelding bij het account. Op die manier kan de gebruiker om extra factoren worden gevraagd, zoals een sms-bericht (indien geconfigureerd) en kunnen er foutberichten aan de gebruiker worden getoond. Hier wordt de webweergave ingesteld. De code voor de afhandeling van de callbacks die vanuit de Microsoft Identity-service plaatsvinden in de webweergave, wordt later geschreven.
 
 * Een `LoginViewController.h`-klasse maken
@@ -309,11 +293,12 @@ Hier wordt een webweergave gebruikt voor aanmelding bij het account. Op die mani
 
 U gaat alle hieronder genoemde methoden maken.
 
-> [AZURE.NOTE] 
-    Zorg ervoor dat u de `loginView` verbindt met de werkelijke webweergave in uw storyboard. Anders hebt u geen webweergave die kan worden weergegeven wanneer er een verificatie moet worden uitgevoerd.
+> [!NOTE]
+> Zorg ervoor dat u de `loginView` verbindt met de werkelijke webweergave in uw storyboard. Anders hebt u geen webweergave die kan worden weergegeven wanneer er een verificatie moet worden uitgevoerd.
+> 
+> 
 
 * Een `LoginViewController.m`-klasse maken
-
 * Enkele variabelen toevoegen waarin de status wordt opgeslagen tijden de verificatie
 
 ```objc
@@ -419,8 +404,6 @@ U hebt code nodig om de redirectURL van de webweergave af te handelen. Als dit n
 
 U maakt dezelfde methode als in de `AppDelegate` hierboven, maar dit keer voegt u enkele `NSNotification`s toe om ons te laten weten wat er in de service gebeurt. Er wordt een waarnemer ingesteld die ons vertelt wanneer er iets met het token verandert. Zodra u het token hebt, keert de gebruiker terug naar de `masterView`.
 
-
-
 ```objc
 - (void)setupOAuth2AccountStore {
   [[NSNotificationCenter defaultCenter]
@@ -499,9 +482,7 @@ U gaat een methode maken die wordt aangeroepen wanneer er een verificatieaanvraa
 
 U hebt nu de belangrijkste manier gemaakt waarop u met de toepassing communiceert voor aanmelding. Nadat u zich hebt aangemeld, moet u de tokens gebruiken die u hebt ontvangen. Daarvoor maakt u ondersteunende code die REST API's aanroept om deze bibliotheek te gebruiken.
 
-
 ## Een `GraphAPICaller`-klasse maken om de aanvragen voor een REST API af te handelen
-
 Telkens wanneer uw app wordt geladen, wordt er ook een configuratie geladen. Zodra u een token hebt, moet u daar iets mee doen. 
 
 * Een `GraphAPICaller.h`-bestand maken
@@ -633,21 +614,16 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 ```
 
 ## De voorbeeld-app uitvoeren
-
 Ontwikkel en voer ten slotte de app uit in Xcode. Registreer u of meld u aan bij de app en maak taken voor een aangemelde gebruiker. Meld u af en meld u opnieuw aan als een andere gebruiker, en maak taken voor die gebruiker.
 
 U ziet dat de taken per gebruiker op de API worden opgeslagen, omdat de API de identiteit van de gebruiker afleidt uit het toegangstoken dat het ontvangt.
 
-
 ## Volgende stappen
-
 Nu kunt u verder met geavanceerdere B2C-onderwerpen. U kunt het volgende proberen:
 
 [Een Node.js-web-API aanroepen vanuit een Node.js-web-app]()
 
 [De UX voor een B2C-app aanpassen]()
-
-
 
 <!--HONumber=Oct16_HO1-->
 

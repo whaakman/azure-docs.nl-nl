@@ -1,89 +1,79 @@
-<properties
-    pageTitle="Aan de slag met Azure Mobile Services en Sencha"
-    description="Volg deze zelfstudie, zodat u kunt gaan ontwikkelen met Mobile Services en het mobiele app-framework Sencha HTML5."
-    services="mobile-services"
-    documentationCenter=""
-    authors="ggailey777"
-    manager="dwrede"
-    editor=""/>
+---
+title: Aan de slag met Azure Mobile Services en Sencha
+description: Volg deze zelfstudie, zodat u kunt gaan ontwikkelen met Mobile Services en het mobiele app-framework Sencha HTML5.
+services: mobile-services
+documentationcenter: ''
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-sencha"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-sencha
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # <a name="getting-started"> </a>Aan de slag met Mobile Services en Sencha Touch
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[!INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-##Overzicht
-
+## Overzicht
 Deze zelfstudie laat zien hoe u Azure Mobile Services in uw Sencha Touch-toepassing kunt gebruiken. U maakt een eenvoudige *takenlijst*-app met Sencha Touch die gebruikmaakt van een mobiele service die u via de klassieke Azure Portal definieert. Deze zelfstudie is bedoeld voor gemiddelde tot gevorderde ontwikkelaars van web-apps die een goede kennis hebben van JavaScript en bekend zijn met het Sencha Touch-framework.
 
 Als u liever een video bekijkt, gebruik dan deze clip. De video toont dezelfde stappen als deze zelfstudie. In de video legt Arthur Kay uit hoe u een Sencha Touch-toepassing maakt met een Azure Mobile Services-back-end.
 
-> [AZURE.VIDEO getting-started-with-sencha-touch]
-
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Windows-Azure-for-Sencha-Touch/player]
+> 
+> 
 
 Hieronder ziet u een schermafbeelding van de voltooide app:
 
 ![][0]
 
-##Vereisten
-
-- Download en installeer [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
-
-- Download en installeer [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
-
-- Java Runtime Environment (JRE) of Java Development Kit (als u Android-apps maakt).
-- Ruby en SASS gem.
+## Vereisten
+* Download en installeer [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+* Download en installeer [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+* Java Runtime Environment (JRE) of Java Development Kit (als u Android-apps maakt).
+* Ruby en SASS gem.
 
 ## <a name="create-new-service"> </a>Een nieuwe mobiele service maken
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
-
-##Een takentabel maken
-
+## Een takentabel maken
 Nadat u uw mobiele service hebt gemaakt, kunt u in de klassieke Azure Portal een eenvoudige Quick Start volgen om een nieuwe databasetabel te maken voor gebruik in uw mobiele service.
 
 1. Klik in de [klassieke Azure-portal] op **Mobile Services** en klik vervolgens op de mobiele service die u zojuist hebt gemaakt.
-
 2. Klik op het tabblad Quick Start op **HTML** onder **Platform kiezen** en vouw **Een nieuwe HTML-app maken** uit.
-
+   
     ![Mobiele Quick Start voor HTML](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
-
+   
     U ziet nu de drie eenvoudige stappen om een HTML-app te maken en te hosten die is verbonden met uw mobiele service.
-
+   
     ![Mobiele Quick Start voor HTML](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
-
 3. Klik op **Takentabel maken** om een tabel te maken voor het opslaan van app-gegevens.
-
-    > [AZURE.NOTE] Download de HTML-app NIET van de klassieke Azure Portal. In plaats daarvan gaat u in onderstaande sectie handmatig een Sencha Touch-toepassing maken.
-
-
-1. Houd rekening met de **app-sleutel** en de **app-URL** in de klassieke Azure Portal. U gebruikt deze in andere gedeelten van deze zelfstudie.
-
+   
+   > [!NOTE]
+   > Download de HTML-app NIET van de klassieke Azure Portal. In plaats daarvan gaat u in onderstaande sectie handmatig een Sencha Touch-toepassing maken.
+   > 
+   > 
+4. Houd rekening met de **app-sleutel** en de **app-URL** in de klassieke Azure Portal. U gebruikt deze in andere gedeelten van deze zelfstudie.
+   
     ![App-sleutel](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
-
-1. Controleer op het tabblad **Configureren** of `localhost` al wordt vermeld in de lijst **Aanvragen van hostnamen toestaan** onder **Cross-origin-resource delen (CORS)**. Als dat niet het geval is, typt u `localhost` in het veld **Hostnaam** en klikt u vervolgens op **Opslaan**.
-
+5. Controleer op het tabblad **Configureren** of `localhost` al wordt vermeld in de lijst **Aanvragen van hostnamen toestaan** onder **Cross-origin-resource delen (CORS)**. Als dat niet het geval is, typt u `localhost` in het veld **Hostnaam** en klikt u vervolgens op **Opslaan**.
+   
     ![CORS voor lokale host instellen](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
-##Uw Touch-toepassing genereren
-
+## Uw Touch-toepassing genereren
 Met Sencha Cmd kunt u eenvoudig een Sencha Touch-sjabloontoepassing genereren. Dit is een uitstekende manier om een toepassing zeer snel gebruiksklaar te hebben.
 
 In de map waar u het Touch-framework hebt geïnstalleerd, voert u de volgende opdracht uit:
@@ -92,30 +82,28 @@ In de map waar u het Touch-framework hebt geïnstalleerd, voert u de volgende op
 
 Hiermee wordt een sjabloon voor de Touch-toepassing met de toepassingsnaam Basic gegenereerd. Als u uw toepassing wilt starten, navigeert u in uw browser naar de map /pad/naar/toepassing. De standaard Touch-voorbeeldtoepassing moet worden weergegeven.
 
-##De Sencha Touch-extensies voor Azure installeren
-
+## De Sencha Touch-extensies voor Azure installeren
 De extensie voor Azure wordt handmatig of als Sencha-pakket geïnstalleerd. U bepaalt zelf welke methode u wilt gebruiken.
 
-###Handmatige installatie
-
+### Handmatige installatie
 In de meeste Touch-toepassingen kunt u een externe bibliotheek van klassen toevoegen. Dit doet u door het pakket te downloaden, dit in de toepassingsmap uit te pakken en het Touch-laadprogramma met de locatie van de bibliotheek te configureren.
 
 U kunt de Azure-extensies handmatig aan uw toepassing toevoegen door de volgende stappen te volgen:
 
 1. Download het pakket met de Azure-extensies [hier](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). (U kunt uw id voor de Sencha Forums gebruiken om toegang tot dit gedeelte te krijgen.)
-
 2. Kopieer het pakket met de Azure-extensies uit de downloadmap naar de plek waar u het wilt opslaan en pak het uit:
-
+   
         $ cd /path/to/application
         $ mv /download-location/azure.zip .
         $ unzip azure.zip
-
+   
     Hiermee maakt u een **Azure**-map met de gehele pakketbron, voorbeelden en documentatie. De bron wordt opgeslagen in de map **azure/src**.
 
-
-###Installatie als Sencha-pakket
-
-> [AZURE.NOTE] U kunt deze methode alleen gebruiken als u uw toepassing hebt gegenereerd met behulp van de opdracht <code>sencha generate app</code>.
+### Installatie als Sencha-pakket
+> [!NOTE]
+> U kunt deze methode alleen gebruiken als u uw toepassing hebt gegenereerd met behulp van de opdracht <code>sencha generate app</code>.
+> 
+> 
 
 Alle toepassingen die door Sencha Cmd worden gegenereerd, hebben in de hoofdmap een map 'packages'. De locatie van deze map kan worden geconfigureerd. Maar ongeacht de locatie dient de map 'packages' als opslag voor alle pakketten die door uw toepassing worden gebruikt (of door meerdere toepassingen als u een Sencha-werkruimte hebt gemaakt).
 
@@ -124,30 +112,28 @@ Aangezien Ext.Azure een Sencha Cmd-pakket is, kan de broncode eenvoudig via Senc
 Als u het pakket met de Azure-extensies vanuit de opslagplaats met Sencha-pakketten wilt downloaden en installeren, moet u de pakketnaam aan het bestand **app.json** toevoegen en uw toepassing bouwen:
 
 1. Voeg het Azure-pakket toe aan de sectie met vereisten van het bestand app.json:
-
+   
         {
             "name": "Basic",
             "requires": [
                 "touch-azure"
             ]
         }
-
 2. Bouw uw toepassing opnieuw door gebruik te maken van **Sencha Cmd** om het pakket op te halen en te installeren:
-
+   
         $ sencha app build
 
 Zowel de **Sencha-app voor bouwen** als de **Sencha-app voor vernieuwen** voert nu de stappen uit die nodig zijn voor de integratie van het pakket in uw toepassing. Na het wijzigen van de pakketvereisten moet u doorgaans **Sencha-app vernieuwen** uitvoeren, zodat de metagegevens die ter ondersteuning van de dev-modus zijn vereist, worden bijgewerkt.
 
 Welke opdracht u ook uitvoert, het pakket wordt door Sencha Cmd gedownload en uitgevouwen in de map 'packages'. Hierna wordt er in uw werkruimte een map 'packages/touch-azure' weergegeven.
 
-##Azure opnemen en configureren
-
+## Azure opnemen en configureren
 **Bestandsnaam**: app.js
 
 De Azure-extensie is nu gedownload en geïnstalleerd in uw toepassingsmap. De volgende stap is dat uw toepassing weet waar de bronbestanden te vinden zijn en deze bestanden vereist:
 
 1. Configureer het Sencha-laadprogramma met de locatie van de broncode:
-
+   
         Ext.Loader.setConfig({
             enabled : true,
             paths   : {
@@ -155,59 +141,52 @@ De Azure-extensie is nu gedownload en geïnstalleerd in uw toepassingsmap. De vo
                 'Ext.azure' : '/path-to/azure-for-touch/azure/src'
             }
         });
-
-
 2. De Azure-klassenbestanden vereisen:
-
+   
         Ext.application({
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             // ...
-
+   
         });
-
-
 3. Azure configureren
-
+   
     Het Azure-pakket wordt geïnitialiseerd door de methode **Ext.Azure.init** aan te roepen in de startsectie van uw toepassing. Met deze methode wordt er een configuratieobject doorgegeven met mobiele servicereferenties, evenals andere referenties en functies die u wilt gebruiken.
-
+   
     Hoewel u het configuratieobject rechtstreeks aan de init-methode kunt doorgeven, raden we u aan een configuratie-eigenschap van een Sencha-toepassing met de naam **azure** te maken en alle relevante informatie daarin te plaatsen. Vervolgens kunt u deze eigenschapswaarde aan de methode Ext.Azure.init doorgeven.
-
+   
     Wanneer u in Azure een mobiele service maakt (zie [Aan de slag met Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)), worden aan die service een toepassingssleutel en een URL toegewezen. Deze informatie moet aan uw Azure-pakket worden opgegeven, zodat dit verbinding kan maken met uw service.
-
+   
     In dit voorbeeld wordt een zeer eenvoudige Azure-configuratie en -initialisatie weergegeven met alleen de toepassingssleutel en de URL:
-
+   
         Ext.application({
             name: 'Basic',
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             azure: {
                 appKey: 'myazureservice-access-key',
                 appUrl: 'myazure-service.azure-mobile.net'
             },
-
+   
             launch: function() {
-
+   
                 // Call Azure initialization
-
+   
                 Ext.Azure.init(this.config.azure);
-
+   
            }
         });
-
+   
     Raadpleeg de Ext.Azure API-documentatie voor meer informatie over de configuratieopties van Azure.
-
 
 Gefeliciteerd. Uw toepassing heeft nu toegang tot uw mobiele service.
 
-##De taken-app bouwen
-
+## De taken-app bouwen
 U hebt nu uw toepassing geconfigureerd en de Azure-extensie opgenomen. Ook hebt u deze voorzien van uw mobiele-servicereferenties. Nu kunt u verdergaan met het maken van een Touch-toepassing die gebruikmaakt van uw mobiele service voor het weergeven en bewerken van uw takenlijstgegevens die in de service zijn opgeslagen.
 
-###De gegevensproxy van Azure configureren
-
+### De gegevensproxy van Azure configureren
 **Bestandsnaam:** app/model/TodoItem.js
 
 Uw Touch-toepassing communiceert met uw mobiele service via een gegevensproxy. De proxy voert al het werk uit. Deze verzendt aanvragen naar de mobiele service en ontvangt gegevens van de mobiele service. Als de proxy in combinatie met een Touch-gegevensmodel en -archief wordt gebruikt, hoeft u de externe gegevens niet meer te verwerken en in uw toepassing op te nemen. Dit wordt door Touch zelf gedaan.
@@ -253,8 +232,7 @@ De Azure-proxy stelt automatisch alle HTTP-headers in met de juiste CRUD-bewerki
     });
 
 
-###Uw taken opslaan
-
+### Uw taken opslaan
 **Bestandsnaam**: app/store/TodoItems.js
 
 Sencha Touch-archieven worden gebruikt om verzamelingen van gegevensrecords (modellen) op te slaan. Deze kunnen worden gebruikt als bronnen voor Touch-onderdelen, zodat u de records op verschillende manieren kunt weergeven. U kunt bijvoorbeeld gebruikmaken van rasters, grafieken en lijsten.
@@ -279,8 +257,7 @@ Er zijn ook enkele extra configuratieopties voor het archief. Zo kunt u de pagin
     });
 
 
-###Uw taken bekijken en bewerken
-
+### Uw taken bekijken en bewerken
 **Bestandsnaam**: app/view/DataItem.js
 
 Nu u de structuur van elke taak hebt gedefinieerd en een archief hebt gemaakt om alle records in te plaatsen, moet u bedenken hoe u deze informatie aan de gebruiker van de app wilt weergegeven. Normaal gesproken wordt de informatie aan de gebruiker weergegeven met behulp van **Weergaven**. Een weergave kan bestaan uit een willekeurig aantal Touch-onderdelen die afzonderlijk of in combinatie met andere onderdelen worden gebruikt.
@@ -357,8 +334,7 @@ Onderstaande weergave bestaat uit een lijstitem waarmee wordt gedefinieerd hoe e
     });
 
 
-###Uw primaire weergave maken
-
+### Uw primaire weergave maken
 **Bestandsnaam**: app/view/Main.js
 
 Nu u de indeling van een afzonderlijk takenitem (hierboven) hebt gedefinieerd, gaan we een volledige gebruikersinterface rond de lijst maken. In deze interface worden de daadwerkelijke lijst met items, de toepassingsnaam en een knop om een nieuwe taak toe te voegen, gedefinieerd.
@@ -424,8 +400,7 @@ Nu u de indeling van een afzonderlijk takenitem (hierboven) hebt gedefinieerd, g
         }
     });
 
-###Ervoor zorgen dat alles met elkaar werkt
-
+### Ervoor zorgen dat alles met elkaar werkt
 **Bestandsnaam**: app/controller/Main.js
 
 De laatste stap in het maken van onze toepassing heeft betrekking op hoe er wordt gereageerd op klikken/tikken op knoppen (Verwijderen, Opslaan, enzovoort) en op de logica achter al deze aanvragen. Sencha Touch maakt gebruik van controllers die naar deze gebeurtenissen luisteren en dienovereenkomstig reageren.
@@ -581,12 +556,10 @@ De laatste stap in het maken van onze toepassing heeft betrekking op hoe er word
         }
     });
 
-###Alles samenvoegen
-
+### Alles samenvoegen
 **Bestandsnaam**: app.js
 
 Tijdens de laatste stap voltooit u de bewerking van het hoofdtoepassingsbestand en geeft u informatie op over de gedefinieerde modellen, archieven, weergaven en controllers. De bronbestanden voor deze resources worden automatisch in de toepassing geladen. Ten slotte wordt de startmethode aangeroepen. Deze maakt de primaire toepassingsweergave 'Basic.main.View' en geeft deze weer.
-
 
     Ext.Loader.setConfig({
         enabled : true,
@@ -663,63 +636,52 @@ Tijdens de laatste stap voltooit u de bewerking van het hoofdtoepassingsbestand 
         }
     });
 
-###Uw Sencha Touch-app hosten en uitvoeren
-
+### Uw Sencha Touch-app hosten en uitvoeren
 De laatste fase van deze zelfstudie is het hosten en uitvoeren van uw nieuwe app op uw lokale computer.
 
-  1. Blader in de terminal naar de locatie van uw uitgepakte toepassing.
+1. Blader in de terminal naar de locatie van uw uitgepakte toepassing.
+2. Als u Sencha Cmd wilt gebruiken, voert u de volgende opdrachten uit:
+   
+   * *Sencha-app vernieuwen*: hiermee zoekt Sencha Cmd naar alle app-afhankelijkheden en worden eventuele benodigde pakketten gedownload (bijvoorbeeld [Sencha Touch-extensies voor Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
+   * *Sencha web starten*: hiermee start een lokale webserver met het testen van de toepassing.
+   
+   ![Sencha web starten](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
+3. Open de URL die in uw terminal in een webbrowser wordt vermeld, om de app te starten (bijvoorbeeld http://localhost:1841).
+4. Typ een stukje zinvolle tekst in de app, zoals 'Voltooi de zelfstudie', en klik vervolgens op **Toevoegen**.
+   
+   ![Nieuwe taak](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
+   
+   Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel.
+5. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de takentabel.
+   
+   ![Takentabel](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+   
+   U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.
+   
+   ![In de takentabel bladeren](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
-  2. Als u Sencha Cmd wilt gebruiken, voert u de volgende opdrachten uit:
-
-    * *Sencha-app vernieuwen*: hiermee zoekt Sencha Cmd naar alle app-afhankelijkheden en worden eventuele benodigde pakketten gedownload (bijvoorbeeld [Sencha Touch-extensies voor Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
-
-    * *Sencha web starten*: hiermee start een lokale webserver met het testen van de toepassing.
-
-    ![Sencha web starten](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
-
-  3. Open de URL die in uw terminal in een webbrowser wordt vermeld, om de app te starten (bijvoorbeeld http://localhost:1841).
-
-  4. Typ een stukje zinvolle tekst in de app, zoals 'Voltooi de zelfstudie', en klik vervolgens op **Toevoegen**.
-
-    ![Nieuwe taak](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
-
-    Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel.
-
-  5. Klik in de [klassieke Azure-portal] op het tabblad **Gegevens** en klik vervolgens op de takentabel.
-
-    ![Takentabel](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
-
-    U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.
-
-    ![In de takentabel bladeren](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
-
-##Volgende stappen
+## Volgende stappen
 Nu u de instructiehandleiding hebt voltooid, kunt u nagaan hoe u met Sencha aanvullende belangrijke taken uitvoert in Mobile Services.
 
 [Download](https://github.com/arthurakay/sencha-touch-azure-example) een voltooide voorbeeld-app met extra stijlen en functies om te zien wat u nog meer met Sencha Touch kunt doen.
 
 Hier vindt u meer informatie over de Sencha Touch-extensies voor Azure:
 
-  * [Overzicht](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) van een voorbeeld-app
-  * Hulp via de [Sencha Forums](http://www.sencha.com/forum)
-  * Door de [Sencha-documentatie](http://docs.sencha.com/) bladeren
-  * Sencha gebruiken met Azure Mobile Services: [(video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+* [Overzicht](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) van een voorbeeld-app
+* Hulp via de [Sencha Forums](http://www.sencha.com/forum)
+* Door de [Sencha-documentatie](http://docs.sencha.com/) bladeren
+* Sencha gebruiken met Azure Mobile Services: [(video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
+## Aanvullende resources
+* [Sencha Touch downloaden](http://pages.sencha.com/touch-for-azure.html)
+* [Sencha Touch-extensies voor Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
-##Aanvullende resources
-
-  * [Sencha Touch downloaden](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch-extensies voor Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
-
-
-##Samenvatting
-
+## Samenvatting
 Het voorbeeld dat hier wordt beschreven, vindt u in de Sencha Touch-extensie voor een Azure-pakket. Het is het basisgegevensvoorbeeld in de map met voorbeelden. U vindt hier nog enkele voorbeelden die andere functies van deze extensie belichten. De voorbeelden zijn voorzien van gedetailleerde opmerkingen en uitleg.
 
 Voor meer informatie over hoe u aan de slag kunt gaan met Sencha Touch, raadpleegt u de volledige set [handleidingen](http://docs.sencha.com/touch/#!/guide)
 
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png

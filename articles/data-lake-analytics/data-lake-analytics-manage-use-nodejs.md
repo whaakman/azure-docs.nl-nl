@@ -1,50 +1,44 @@
-<properties
-   pageTitle="Azure Data Lake Analytics beheren met Azure SDK voor Node.js | Azure"
-   description="Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure SDK voor Node.js"
-   services="data-lake-analytics"
-   documentationCenter=""
-   authors="edmacauley"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Azure Data Lake Analytics beheren met Azure SDK voor Node.js | Microsoft Docs
+description: Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure SDK voor Node.js
+services: data-lake-analytics
+documentationcenter: ''
+author: edmacauley
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="05/16/2016"
-   ms.author="edmaca"/>
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 05/16/2016
+ms.author: edmaca
 
-
+---
 # Azure Data Lake Analytics beheren met Azure SDK voor Node.js
-
-
-[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 U kunt de Azure SDK voor Node.js gebruiken voor het beheren van Azure Data Lake Analytics-accounts, taken en -catalogussen. Voor informatie over het beheer met andere hulpprogramma’s klikt u op het tabblad Select bovenaan.
 
 Momenteel wordt ondersteund:
 
-  *  **Node.js versie: 0.10.0 of hoger**
-  *  **REST-API-versie voor Account: 2015-10-01-preview**
-  *  **REST-API-versie voor Catalog: 2015-10-01-preview**
-  *  **REST-API-versie voor Job: 2016-03-20-preview**
+* **Node.js versie: 0.10.0 of hoger**
+* **REST-API-versie voor Account: 2015-10-01-preview**
+* **REST-API-versie voor Catalog: 2015-10-01-preview**
+* **REST-API-versie voor Job: 2016-03-20-preview**
 
 ## Functies
-
-- Accountbeheer: maken, ophalen, weergeven, bijwerken en verwijderen.
-- Taakbeheer: verzenden, ophalen, weergeven, annuleren.
-- Catalogusbeheer: ophalen, weergeven, maken (geheimen), bijwerken (geheimen) en verwijderen (geheimen).
+* Accountbeheer: maken, ophalen, weergeven, bijwerken en verwijderen.
+* Taakbeheer: verzenden, ophalen, weergeven, annuleren.
+* Catalogusbeheer: ophalen, weergeven, maken (geheimen), bijwerken (geheimen) en verwijderen (geheimen).
 
 ## Installeren
-
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
 ## Verifiëren met Azure Active Directory
-
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -54,7 +48,6 @@ npm install azure-arm-datalake-analytics
  ```
 
 ## De Data Lake Analytics-client maken
-
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -63,7 +56,6 @@ var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credential
 ```
 
 ## Een Data Lake Analytics-account maken
-
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -113,7 +105,6 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 ```
 
 ## Een lijst met taken ophalen
-
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -140,11 +131,8 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ```
 
 ## Zie ook
-
-- [Microsoft Azure SDK voor Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK voor Node.js - Data Lake Store-beheer](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
+* [Microsoft Azure SDK voor Node.js](https://github.com/azure/azure-sdk-for-node)
+* [Microsoft Azure SDK voor Node.js - Data Lake Store-beheer](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
 <!--HONumber=Sep16_HO3-->
 

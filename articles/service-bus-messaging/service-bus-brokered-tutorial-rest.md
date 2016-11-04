@@ -1,61 +1,51 @@
-<properties 
-    pageTitle="Service Bus Brokered Messaging REST-zelfstudie | Microsoft Azure"
-    description="Brokered Messaging REST-zelfstudie"
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/27/2016"
-    ms.author="sethm" />
+---
+title: Service Bus Brokered Messaging REST-zelfstudie | Microsoft Docs
+description: Brokered Messaging REST-zelfstudie
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/27/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Service Bus Brokered Messaging REST-zelfstudie
-
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In deze zelfstudie kunt u leren hoe u een eenvoudige op REST gebaseerde Azure Service Bus-wachtrij en onderwerp/abonnement maakt.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
+De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](../service-bus/service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
-De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
-
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-console-client"></a>Een consoleclient maken
-
 Met Service Bus-wachtrijen kunt u berichten in een ‘first-in, first-out’-wachtrij opslaan. Onderwerpen en abonnementen implementeren een patroon van publiceren/abonneren: u maakt een onderwerp aan en vervolgens een of meer abonnementen die aan dit onderwerp gekoppeld zijn. Wanneer berichten naar het onderwerp worden verzonden, worden ze onmiddellijk naar de abonnees van dit onderwerp verzonden.
 
 De code in deze zelfstudie doet het volgende:
 
-- Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
-
-- Hij maakt een wachtrij, verzendt een bericht naar de wachtrij en leest het bericht uit de wachtrij.
-
-- Hij maakt een onderwerp, een abonnement op dat onderwerp en verzendt en leest het bericht van het abonnement.
-
-- Hij haalt alle gegevens over de wachtrij, het onderwerp en het abonnement uit de Service Bus op, met inbegrip van abonnementsregels.
-
-- Hij verwijdert de resources van de wachtrij, het onderwerp en het abonnement.
+* Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](../service-bus/service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
+* Hij maakt een wachtrij, verzendt een bericht naar de wachtrij en leest het bericht uit de wachtrij.
+* Hij maakt een onderwerp, een abonnement op dat onderwerp en verzendt en leest het bericht van het abonnement.
+* Hij haalt alle gegevens over de wachtrij, het onderwerp en het abonnement uit de Service Bus op, met inbegrip van abonnementsregels.
+* Hij verwijdert de resources van de wachtrij, het onderwerp en het abonnement.
 
 Omdat de service een REST-stijl-webservice is, zijn er geen speciale typen betrokken, want de gehele uitwisseling bestaat uit tekenreeksen. Dit betekent dat het Visual Studio-project niet naar Service Bus-bibliotheken mag verwijzen.
 
 Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u vervolgens een eenvoudige Visual Studio-consoletoepassing.
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
-
 1. Start Visual Studio als beheerder door met de rechtermuisknop op het programma in het menu **Start** te klikken en vervolgens op **Als administrator uitvoeren**.
-
-1. Maak een nieuw consoletoepassingsproject. Klik in het menu **Bestand** op **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw Project** op **Visual C#** (kijk bij **Andere talen** als **Visual C#** niet wordt weergegeven), selecteer het sjabloon **Consoletoepassing** en geef het de naam **Microsoft.ServiceBus.Samples**. Gebruik de standaardlocatie. Klik op **OK** om het project aan te maken.
-
-1. Zorg ervoor dat uw `using`-instructies in Program.cs er als volgt uitzien:
-
+2. Maak een nieuw consoletoepassingsproject. Klik in het menu **Bestand** op **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw Project** op **Visual C#** (kijk bij **Andere talen** als **Visual C#** niet wordt weergegeven), selecteer het sjabloon **Consoletoepassing** en geef het de naam **Microsoft.ServiceBus.Samples**. Gebruik de standaardlocatie. Klik op **OK** om het project aan te maken.
+3. Zorg ervoor dat uw `using`-instructies in Program.cs er als volgt uitzien:
+   
     ```
     using System;
     using System.Globalization;
@@ -65,68 +55,65 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
     using System.Text;
     using System.Xml;
     ```
-
-1. Wijzig indien nodig de standaard Visual Studio-naam van de naamruimte voor het programma in `Microsoft.ServiceBus.Samples`.
-
-1. Voeg in de `Program`-klasse de volgende globale variabelen toe:
-    
+4. Wijzig indien nodig de standaard Visual Studio-naam van de naamruimte voor het programma in `Microsoft.ServiceBus.Samples`.
+5. Voeg in de `Program`-klasse de volgende globale variabelen toe:
+   
     ```
     static string serviceNamespace;
     static string baseAddress;
     static string token;
     const string sbHostName = "servicebus.windows.net";
     ```
-
-1. Plak de volgende code in `Main()`:
-
+6. Plak de volgende code in `Main()`:
+   
     ```
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
-    
+   
     Console.Write("Enter your SAS key: ");
     string SASKey = Console.ReadLine();
-    
+   
     baseAddress = "https://" + serviceNamespace + "." + sbHostName + "/";
     try
     {
         token = GetSASToken("RootManageSharedAccessKey", SASKey);
-    
+   
         string queueName = "Queue" + Guid.NewGuid().ToString();
-    
+   
         // Create and put a message in the queue
         CreateQueue(queueName, token);
         SendMessage(queueName, "msg1");
         string msg = ReceiveAndDeleteMessage(queueName);
-    
+   
         string topicName = "Topic" + Guid.NewGuid().ToString();
         string subscriptionName = "Subscription" + Guid.NewGuid().ToString();
         CreateTopic(topicName);
         CreateSubscription(topicName, subscriptionName);
         SendMessage(topicName, "msg2");
-    
+   
         Console.WriteLine(ReceiveAndDeleteMessage(topicName + "/Subscriptions/" + subscriptionName));
-    
+   
         // Get an Atom feed with all the queues in the namespace
         Console.WriteLine(GetResources("$Resources/Queues"));
-    
+   
         // Get an Atom feed with all the topics in the namespace
         Console.WriteLine(GetResources("$Resources/Topics"));
-    
+   
         // Get an Atom feed with all the subscriptions for the topic we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions"));
-    
+   
         // Get an Atom feed with all the rules for the topic and subscription we just created
         Console.WriteLine(GetResources(topicName + "/Subscriptions/" + subscriptionName + "/Rules"));
-    
+   
         // Delete the queue we created
         DeleteResource(queueName);
-    
+   
         // Delete the topic we created
         DeleteResource(topicName);
-    
+   
         // Get an Atom feed with all the topics in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Topics"));
-    
+   
         // Get an Atom feed with all the queues in the namespace, it shouldn't have the one we created now
         Console.WriteLine(GetResources("$Resources/Queues"));
     }
@@ -144,17 +131,15 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
             }
         }
     }
-    
+   
     Console.WriteLine("\nPress ENTER to exit.");
     Console.ReadLine();
     ```
 
 ## <a name="create-management-credentials"></a>Beheerreferenties maken
-
 De volgende stap is het schrijven van een methode die de naamruimte en SAS-sleutel verwerkt die u in de vorige stap heeft opgegeven, en die een SAS-token retourneert. In dit voorbeeld wordt een SAS-token aangemaakt dat een uur geldig is.
 
 ### <a name="create-a-getsastoken()-method"></a>Een GetSASToken()-methode maken
-
 Plak de volgende code in de `Program`-klasse na de `Main()`-methode:
 
 ```
@@ -172,7 +157,6 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 }
 ```
 ## <a name="create-the-queue"></a>De wachtrij maken
-
 De volgende stap is het schrijven van een methode die een wachtrij maakt met de REST-stijl-opdracht HTTP PUT.
 
 Plak de volgende code direct na de `GetSASToken()`-code die u in de vorige stap hebt toegevoegd:
@@ -201,11 +185,10 @@ private static string CreateQueue(string queueName, string token)
 ```
 
 ## <a name="send-a-message-to-the-queue"></a>Een bericht naar de wachtrij verzenden
-
 In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST een bericht verzendt naar de wachtrij die u in de vorige stap hebt gemaakt.
 
 1. Plak de volgende code direct na de `CreateQueue()`-code die u in de vorige stap hebt toegevoegd:
-
+   
     ```
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
@@ -215,22 +198,20 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
         Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
         WebClient webClient = new WebClient();
         webClient.Headers[HttpRequestHeader.Authorization] = token;
-    
+   
         webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
     }
     ```
-
-1. Standaard brokered berichten worden in een `BrokerProperties`-HTTP-header gezet. De eigenschappen van de broker moeten worden geserialiseerd in JSON-indeling. Om een **TimeToLive**-waarde van 30 seconden op te geven en een berichtlabel ‘M1’ aan het bericht toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
-
+2. Standaard brokered berichten worden in een `BrokerProperties`-HTTP-header gezet. De eigenschappen van de broker moeten worden geserialiseerd in JSON-indeling. Om een **TimeToLive**-waarde van 30 seconden op te geven en een berichtlabel ‘M1’ aan het bericht toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
+   
     ```
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
-
+   
     Houd er rekening mee dat brokered-berichteigenschappen zijn en worden toegevoegd. De verzendaanvraag moet daarom een API-versie opgeven die ondersteuning biedt voor alle brokered-berichteigenschappen die deel uitmaken van de aanvraag. Als de opgegeven API-versie een brokered-berichteigenschap niet ondersteunt, wordt die eigenschap genegeerd.
-
-1. Aangepaste berichteigenschappen worden gedefinieerd als een set van sleutel-/waardeparen. Elke aangepaste eigenschap wordt in een eigen TPPT-header opgeslagen. Om de aangepaste eigenschappen ‘Prioriteit’ en ‘Klant’ toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
-
+3. Aangepaste berichteigenschappen worden gedefinieerd als een set van sleutel-/waardeparen. Elke aangepaste eigenschap wordt in een eigen TPPT-header opgeslagen. Om de aangepaste eigenschappen ‘Prioriteit’ en ‘Klant’ toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
+   
     ```
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
@@ -238,7 +219,6 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
     ```
 
 ## <a name="receive-and-delete-a-message-from-the-queue"></a>Een bericht uit de wachtrij ontvangen en verwijderen
-
 De volgende stap is het toevoegen van een methode die een bericht uit de wachtrij ontvangt en verwijdert met de REST-stijl-opdracht HTTP DELETE.
 
 Plak de volgende code direct na de `SendMessage()`-code die u in de vorige stap hebt toegevoegd:
@@ -262,11 +242,9 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 ```
 
 ## <a name="create-a-topic-and-subscription"></a>Een onderwerp en een abonnement maken
-
 De volgende stap is het schrijven van een methode die een onderwerp maakt met de REST-stijl-opdracht HTTP PUT, waarna u een methode kunt schrijven die een abonnement op dat onderwerp maakt.
 
 ### <a name="create-a-topic"></a>Een onderwerp maken
-
 Plak de volgende code direct na de `ReceiveAndDeleteMessage()`-code die u in de vorige stap hebt toegevoegd:
 
 ```
@@ -292,7 +270,6 @@ private static string CreateTopic(string topicName)
 ```
 
 ### <a name="create-a-subscription"></a>Een abonnement maken
-
 De volgende code maakt een abonnement aan op het onderwerp dat u in de vorige stap hebt gemaakt. Voeg de volgende code direct na de `CreateTopic()`-definitie toe:
 
 ```
@@ -317,11 +294,9 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 ```
 
 ## <a name="retrieve-message-resources"></a>Berichtresources ophalen
-
 In deze stap voegt u de code toe die de berichteigenschappen ophaalt en vervolgens de berichtverzendingsresources verwijdert die u in de vorige stappen hebt gemaakt.
 
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Een Atom-feed ophalen met de opgegeven resources
-
 Voeg de volgende code toe direct na de `CreateSubscription()`-methode die u in de vorige stap hebt toegevoegd:
 
 ```
@@ -336,7 +311,6 @@ private static string GetResources(string resourceAddress)
 ```
 
 ### <a name="delete-messaging-entities"></a>Berichtverzendingsentiteiten verwijderen
-
 Voeg de volgende code toe direct na de code die u in de vorige stap hebt toegevoegd:
 
 ```
@@ -353,7 +327,6 @@ private static string DeleteResource(string resourceName)
 ```
 
 ### <a name="format-the-atom-feed"></a>De Atom-feed indelen
-
 De `GetResources()`-methode bevat een aanroep voor een `FormatXml()`-methode die de opgehaalde Atom-feed opnieuw indeelt, zodat deze beter leesbaar is. Het volgende is de definitie van `FormatXml()`. Voeg deze code toe direct na de `DeleteResource()`-code die u in de vorige stap hebt toegevoegd:
 
 ```
@@ -375,15 +348,12 @@ private static string FormatXml(string inputXml)
 ```
 
 ## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
-
 U kunt de toepassing nu bouwen en uitvoeren. Klik in het menu **Bouwen** in Visual Studio op **Oplossing bouwen** of druk op **Ctrl + Shift + B**.
 
 ### <a name="run-the-application"></a>De toepassing uitvoeren
-
 Druk op F5 om de toepassing uit te voeren als er geen fouten zijn. Voer, wanneer u daarom wordt gevraagd, uw naamruimte, SAS-sleutelnaam en SAS-sleutelwaarde in die u in de eerste stap hebt verkregen.
 
 ### <a name="example"></a>Voorbeeld
-
 Het volgende voorbeeld is de volledige code zoals die eruit zou moet zien nadat u alle stappen in deze zelfstudie hebt gevolgd.
 
 ```
@@ -621,15 +591,11 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-
 Raadpleeg de volgende onderwerpen voor meer informatie:
 
-- [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-- [Grondbeginselen van Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus Relay REST-zelfstudie](../service-bus-relay/service-bus-relay-rest-tutorial.md)
-
-
-
+* [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
+* [Grondbeginselen van Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus Relay REST-zelfstudie](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 <!--HONumber=Oct16_HO3-->
 

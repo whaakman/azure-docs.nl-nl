@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Een query uitvoeren in uw Azure Search-index met behulp van de REST-API | Gehoste service voor zoeken in de cloud"
-    description="Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Een query uitvoeren in uw Azure Search-index met behulp van de REST-API | Microsoft Docs
+description: Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
-> [AZURE.SELECTOR]
-- [Overzicht](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overzicht](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 In dit artikel wordt beschreven hoe u een query uitvoert in uw index met behulp van de [Azure Search REST-API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -36,8 +36,8 @@ Een belangrijk onderdeel van elke zoekbewerking in de REST-API van Azure Search 
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
- - De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
- - Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
 U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
@@ -50,10 +50,7 @@ Voor zowel POST als GET moet u in de aanvraag-URL de *servicenaam*, de *indexnaa
 
 De indeling voor POST is hetzelfde, maar met alleen de api-versie in de queryreeksparameters.
 
-
-
 #### Voorbeelden van query 's
-
 Hier volgen een paar voorbeeldquery's op een index met de naam "hotels". Deze query's worden weergegeven in zowel de GET als POST-indeling.
 
 Zoeken in de hele index op de term 'budget' en alleen het veld `hotelName` retourneren:
@@ -100,6 +97,7 @@ Nu u uw query hebt geformuleerd als onderdeel van uw HTTP-aanvraag-URL (voor GET
 
 #### Aanvragen en aanvraagheaders
 U moet twee aanvraagheaders definiëren voor GET en drie voor POST:
+
 1. De `api-key`-header moet worden ingesteld op de querysleutel uit stap I hierboven. U kunt ook een administratorsleutel gebruiken voor de `api-key`-header, maar het wordt aanbevolen de querysleutel te gebruiken aangezien deze exclusieve alleen-lezentoegang biedt tot indexen en documenten.
 2. De `Accept`-header moet worden ingesteld op `application/json`.
 3. Alleen voor POST moet de `Content-Type`-header ook worden ingesteld op `application/json`.
@@ -159,8 +157,6 @@ Als een queryaanvraag is gelukt, wordt de statuscode `200 OK` weergegeven. De zo
 ```
 
 Ga naar de sectie "Antwoord" van [Documenten zoeken](https://msdn.microsoft.com/library/azure/dn798927.aspx) voor meer informatie. Zie [HTTP-statuscodes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

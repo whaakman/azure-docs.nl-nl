@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Azure AD Connect Health gebruiken met AD DS | Microsoft Azure"
-    description="Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe AD DS kunt controleren."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+---
+title: Azure AD Connect Health gebruiken met AD DS | Microsoft Docs
+description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe AD DS kunt controleren.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-
+---
 # Azure AD Connect Health gebruiken met AD DS
 De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. Ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2.
 
@@ -52,7 +51,6 @@ Deze functie biedt grafische trends van verschillende prestatiemeters, die voort
 Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter andere meters opnemen door op de filteropdracht te klikken en de gewenste meters te (de)selecteren. Als u klikt op de grafiek van een prestatiemeter, wordt een nieuwe blade geopend. Deze bevat de gegevenspunten voor elke bewaakte domeincontroller.
 
 ## Verwante koppelingen
-
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)
 * [De Azure AD Connect Health-agent installeren](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
@@ -60,8 +58,6 @@ Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter ande
 * [Azure AD Connect Health for Sync gebruiken](active-directory-aadconnect-health-sync.md)
 * [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
 
 <!--HONumber=Oct16_HO1-->
 

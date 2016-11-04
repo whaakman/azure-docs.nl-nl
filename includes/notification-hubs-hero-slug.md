@@ -5,7 +5,6 @@ Als u al bekend bent met Notification Hubs, selecteert u een ander onderwerp in 
 
 We nemen uw feedback heel serieus. Als u problemen ondervindt tijdens het voltooien van dit onderwerp of aanbevelingen hebt voor het verbeteren van de inhoud ervan, zouden we het op prijs stellen als uw uw feedback onder aan de pagina geeft.
 
-
 <!--HONumber=Sep16_HO3-->
 
 

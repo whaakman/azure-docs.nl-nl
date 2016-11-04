@@ -1,46 +1,47 @@
-<properties
-    pageTitle="Uw eerste gegevensfactory bouwen (Resource Manager-sjabloon) | Microsoft Azure"
-    description="In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn op basis van een Azure Resource Manager-sjabloon."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Uw eerste gegevensfactory bouwen (Resource Manager-sjabloon) | Microsoft Docs
+description: In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn op basis van een Azure Resource Manager-sjabloon.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="10/12/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 10/12/2016
+ms.author: spelluru
 
-
+---
 # <a name="tutorial:-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: bouw uw eerste Azure-gegevensfactory op basis van een Azure Resource Manager-sjabloon
-> [AZURE.SELECTOR]
-- [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
-- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> 
+> 
 
 In dit artikel gebruikt u een Azure Resource Manager-sjabloon om uw eerste Azure-gegevensfactory te maken.
 
 ## <a name="prerequisites"></a>Vereisten
-- Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
-- Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
-- Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
+* Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
+* Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
+* Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
-Entiteit | Beschrijving  
------- | ----------- 
-Een gekoppelde Azure Storage-service | Koppelt uw Azure Storage-account aan de gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. 
-Een gekoppelde HDInsight-service op aanvraag| Koppelt een HDInsight-cluster op aanvraag aan de gegevensfactory. Het cluster wordt automatisch voor u gemaakt om gegevens te verwerken en wordt verwijderd nadat de verwerking is voltooid.
-Azure Blob-invoergegevensset | Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. 
-Azure Blob-uitvoergegevensset | Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de uitvoergegevens bevat. 
-Gegevenspijplijn | De gegevenspijplijn bevat één activiteit van het type HDInsightHive die de invoergegevensset gebruikt en de uitvoergegevensset produceert.   
+| Entiteit | Beschrijving |
+| --- | --- |
+| Een gekoppelde Azure Storage-service |Koppelt uw Azure Storage-account aan de gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. |
+| Een gekoppelde HDInsight-service op aanvraag |Koppelt een HDInsight-cluster op aanvraag aan de gegevensfactory. Het cluster wordt automatisch voor u gemaakt om gegevens te verwerken en wordt verwijderd nadat de verwerking is voltooid. |
+| Azure Blob-invoergegevensset |Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de invoergegevens bevat. |
+| Azure Blob-uitvoergegevensset |Verwijst naar de gekoppelde Azure Storage-service. De gekoppelde service verwijst naar een Azure Storage-account en in de Azure Blob-gegevensset vindt u de container, map en bestandsnaam in de opslag die de uitvoergegevens bevat. |
+| Gegevenspijplijn |De gegevenspijplijn bevat één activiteit van het type HDInsightHive die de invoergegevensset gebruikt en de uitvoergegevensset produceert. |
 
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Er zijn twee soorten activiteiten: [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) en [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md). In deze zelfstudie maakt u een pijplijn met één activiteit (kopiëren).
 
@@ -242,12 +243,18 @@ Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetS
         ]
     }
 
-> [AZURE.NOTE] In [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Zelfstudie: met behulp van een Azure Resource Manager-sjabloon een pijplijn maken met een kopieerbewerking) vindt u een ander voorbeeld van een Resource Manager-sjabloon voor het maken van een Azure-gegevensfactory.  
+> [!NOTE]
+> In [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Zelfstudie: met behulp van een Azure Resource Manager-sjabloon een pijplijn maken met een kopieerbewerking) vindt u een ander voorbeeld van een Resource Manager-sjabloon voor het maken van een Azure-gegevensfactory.  
+> 
+> 
 
-## <a name="parameters-json"></a>JSON-bestand met parameters 
+## <a name="parameters-json"></a>JSON-bestand met parameters
 Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat.  
 
-> [AZURE.IMPORTANT] Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey** in dit parameterbestand. 
+> [!IMPORTANT]
+> Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey** in dit parameterbestand. 
+> 
+> 
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -280,41 +287,45 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
         }
     }
 
-> [AZURE.IMPORTANT] Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren. 
+> [!IMPORTANT]
+> Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren. 
+> 
+> 
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
-
 1. Open **Azure PowerShell** en voer de volgende opdracht uit: 
-    - Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
-    - Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
-    - Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
-1. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
-
+   * Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
+   * Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
+   * Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
+2. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
+   
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
- 
-1.  Wanneer u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren** en selecteert u **Gegevensfactory’s**.
-        ![Bladeren -> Gegevensfactory's](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2.  Klik op de blade **Gegevensfactory’s** op de gegevensfactory (**TutorialFactoryARM**) die u hebt gemaakt.   
-2.  Klik op de blade **Gegevensfactory** van uw gegevensfactory op **Diagram**.
-        ![De tegel Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4.  In de **diagramweergave** ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
-    
-    ![Diagramweergave](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-8. Dubbelklik in de diagramweergave op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
-
+1. Wanneer u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren** en selecteert u **Gegevensfactory’s**.
+       ![Bladeren -> Gegevensfactory's](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+2. Klik op de blade **Gegevensfactory’s** op de gegevensfactory (**TutorialFactoryARM**) die u hebt gemaakt.   
+3. Klik op de blade **Gegevensfactory** van uw gegevensfactory op **Diagram**.
+       ![De tegel Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+4. In de **diagramweergave** ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
+   
+   ![Diagramweergave](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+5. Dubbelklik in de diagramweergave op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
+   
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft. Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
-
+6. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft. Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
+   
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
-10. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
+7. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
 
 Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor instructies over het gebruik van Azure Portal-blades om de pijplijn en gegevenssets te bewaken die u tijdens deze zelfstudie hebt gemaakt.
 
 U kunt ook de app voor bewaking en beheer gebruiken om uw gegevenspijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van de toepassing. 
 
-> [AZURE.IMPORTANT] Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
+> [!IMPORTANT]
+> Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
+> 
+> 
 
 ## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteiten in de sjabloon
 ### <a name="define-data-factory"></a>Een gegevensfactory definiëren
@@ -329,7 +340,7 @@ U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het vo
     }
 
 De variabele dataFactoryName wordt als volgt gedefinieerd: 
-      
+
       "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
 
 Het is een unieke tekenreeks op basis van de resourcegroep-id.  
@@ -337,11 +348,11 @@ Het is een unieke tekenreeks op basis van de resourcegroep-id.
 ### <a name="defining-data-factory-entities"></a>Data Factory-entiteiten definiëren
 De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd: 
 
-- [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
-- [Een gekoppelde HDInsight-service op aanvraag](#hdinsight-on-demand-linked-service)
-- [De Azure Blob-invoergegevensset](#azure-blob-input-dataset)
-- [De Azure Blob-uitvoergegevensset](#azure-blob-output-dataset)
-- [De gegevenspijplijn met een kopieerbewerking](#data-pipeline)
+* [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
+* [Een gekoppelde HDInsight-service op aanvraag](#hdinsight-on-demand-linked-service)
+* [De Azure Blob-invoergegevensset](#azure-blob-input-dataset)
+* [De Azure Blob-uitvoergegevensset](#azure-blob-output-dataset)
+* [De gegevenspijplijn met een kopieerbewerking](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
 In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service. 
@@ -363,7 +374,7 @@ In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [
       }
 
 De tekenreeks **connectionString** maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
-    
+
 #### <a name="hdinsight-on-demand-linked-service"></a>Een gekoppelde HDInsight-service op aanvraag
 Zie het artikel [Compute linked services (Gekoppelde services verwerken)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde HDInsight-service op aanvraag.  
 
@@ -388,15 +399,13 @@ Zie het artikel [Compute linked services (Gekoppelde services verwerken)](data-f
 
 Houd rekening met de volgende punten: 
 
-- Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
-- U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
-- Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
-
+* Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
+* U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
+* Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
+  
     Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
 Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
-
-
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
 U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
@@ -515,7 +524,7 @@ U definieert een pijplijn waarmee gegevens worden omgezet door een Hive-script u
         }
       }
 
-## <a name="reuse-the-template"></a>De sjabloon hergebruiken 
+## <a name="reuse-the-template"></a>De sjabloon hergebruiken
 U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.     
 
 Voorbeeld:  
@@ -568,17 +577,12 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 ## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |
-| :---- | :---- |
-| [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) | Dit artikel bevat een lijst van activiteiten voor gegevenstransformatie (zoals de HDInsight Hive-transformatie die u in deze zelfstudie hebt gebruikt) die door Azure Data Factory worden ondersteund. |
-| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) | In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
-| [Pijplijnen](data-factory-create-pipelines.md) | Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
-| [Gegevenssets](data-factory-create-datasets.md) | Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory.
-| [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) | In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. 
-
-  
-
-
-
+|:--- |:--- |
+| [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) |Dit artikel bevat een lijst van activiteiten voor gegevenstransformatie (zoals de HDInsight Hive-transformatie die u in deze zelfstudie hebt gebruikt) die door Azure Data Factory worden ondersteund. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
+| [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
+| [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
+| [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
 
 <!--HONumber=Oct16_HO3-->
 

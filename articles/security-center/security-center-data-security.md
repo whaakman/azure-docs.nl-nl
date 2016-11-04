@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Gegevensbeveiliging in Azure Security Center | Microsoft Azure"
-   description="In dit document wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure Security Center."
-   services="security-center"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor=""/>
+---
+title: Gegevensbeveiliging in Azure Security Center | Microsoft Docs
+description: In dit document wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure Security Center.
+services: security-center
+documentationcenter: na
+author: YuriDio
+manager: swadhwa
+editor: ''
 
-<tags
-   ms.service="security-center"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/08/2016"
-   ms.author="yurid"/>
+ms.service: security-center
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/08/2016
+ms.author: yurid
 
-
+---
 # Gegevensbeveiliging in Azure Security Center
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over uw Azure-resources, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. We doen er alles aan om de privacy van gegevens te beschermen en deze gegevens te beveiligen. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service. 
 
@@ -25,10 +24,10 @@ In dit artikel wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure
 ## Gegevensbronnen
 Azure Security Center analyseert gegevens uit de volgende bronnen:
 
-- Azure Services: leest informatie over de configuratie van de Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van die service.
-- Netwerkverkeer: leest steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/doel-IP/poort, pakketgrootte en netwerkprotocol.
-- Oplossingen van partners: verzamelt beveiligingswaarschuwingen van geïntegreerde partneroplossingen, zoals firewalls en antimalwareoplossingen. Deze gegevens worden opgeslagen in de Azure Security Center-opslag, die zich momenteel in de Verenigde Staten bevindt.
-- Uw virtuele machines: Azure Security Center kan configuratie-informatie en informatie over beveiligingsgebeurtenissen verzamelen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines met behulp van gegevensverzamelingsagents. Zie het gedeelte 'Gegevensverzameling beheren' hieronder voor meer informatie.  
+* Azure Services: leest informatie over de configuratie van de Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van die service.
+* Netwerkverkeer: leest steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/doel-IP/poort, pakketgrootte en netwerkprotocol.
+* Oplossingen van partners: verzamelt beveiligingswaarschuwingen van geïntegreerde partneroplossingen, zoals firewalls en antimalwareoplossingen. Deze gegevens worden opgeslagen in de Azure Security Center-opslag, die zich momenteel in de Verenigde Staten bevindt.
+* Uw virtuele machines: Azure Security Center kan configuratie-informatie en informatie over beveiligingsgebeurtenissen verzamelen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines met behulp van gegevensverzamelingsagents. Zie het gedeelte 'Gegevensverzameling beheren' hieronder voor meer informatie.  
 
 Bovendien wordt informatie over beveiligingswaarschuwingen, aanbevelingen en de status van de beveiliging opgeslagen in de Azure Security Center-opslag, die zich momenteel in de Verenigde Staten bevindt. Deze informatie omvat mogelijk gerelateerde configuratie-informatie en beveiligingsgebeurtenissen die indien nodig zijn verzameld van uw virtuele machines om u de beveiligingswaarschuwing, aanbeveling of de beveiligingsstatus door te geven.
 
@@ -42,7 +41,6 @@ Bovendien wordt informatie over beveiligingswaarschuwingen, aanbevelingen en de 
 **Gegevenslocatie**: voor elke regio waarin de virtuele machines worden uitgevoerd, wordt een opslagaccount opgegeven. Hierdoor kunt u gegevens in dezelfde regio opslaan als de virtuele machine waarvan de gegevens worden verzameld. Deze gegevens, inclusief crashdumpbestanden, worden permanent opgeslagen in uw opslagaccount. De service slaat ook informatie op over beveiligingswaarschuwingen, inclusief waarschuwingen van geïntegreerde oplossingen van partners, aanbevelingen en de beveiligingsstatus, in de Azure Security Center-opslag, die zich momenteel in de Verenigde Staten bevindt.
 
 ## Gegevensverzameling van virtuele machines beheren
-
 Wanneer u ervoor kiest om Azure Security Center in te schakelen, wordt gegevensverzameling ingeschakeld voor elk van uw abonnementen. U kunt gegevensverzameling uitschakelen in het gedeelte 'Beveiligingsbeleid' in het dashboard van Azure Security Center. Wanneer gegevensverzameling is ingeschakeld, levert Azure Security Center de Azure Monitoring Agent op alle bestaande virtuele machines en op nieuwe VM‘s die worden gemaakt. De Azure Security Monitoring-extensie scant op verschillende aan beveiliging gerelateerde configuraties en legt deze vast in [Event Tracing voor Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)-traceringen (ETW). Bovendien worden door het besturingssysteem gebeurtenislogboekgebeurtenissen gegenereerd tijdens het uitvoeren van de machine. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. De Azure Monitoring Agent leest gebeurtenislogboekvermeldingen en ETW-traceringen en kopieert deze naar uw opslagaccount voor analyse. 
 
 Voor elke regio waarin u virtuele machines uitvoert, wordt een opslagaccount opgegeven, waarin de gegevens die worden verzameld van virtuele machines in diezelfde regio worden opgeslagen. Hierdoor kunt u eenvoudig gegevens in hetzelfde geografische gebied bewaren met het oog op privacy en ten behoeve van de onafhankelijkheid van de gegevens. U kunt opslagaccounts configureren voor elke regio in het gedeelte 'Beveiligingsbeleid' in het dashboard van Azure Security Center.
@@ -51,19 +49,15 @@ De Azure Monitoring Agent kopieert ook crashdumpbestanden naar uw opslagaccount.
 
 U kunt op elk gewenst moment gegevensverzameling van virtuele machines uitschakelen. Alle Monitoring Agents die eerder door Azure Security Center zijn geïnstalleerd, worden dan verwijderd.
 
-
 ## Volgende stappen
-
 In dit document hebt u geleerd hoe gegevens worden beheerd en beveiligd in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-- [Plannings- en bedieningsgids voor het Azure Beveiligingscentrum](security-center-planning-and-operations-guide.md): leer de ontwerpoverwegingen kennen en plan hiervoor bij de overstap naar Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) (Beveiligingsstatus controleren in Azure Security Center): meer informatie over het controleren van de status van uw Azure-resources
-- [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
-- [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
-- [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
-- [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
-
-
+* [Plannings- en bedieningsgids voor het Azure Beveiligingscentrum](security-center-planning-and-operations-guide.md): leer de ontwerpoverwegingen kennen en plan hiervoor bij de overstap naar Azure Security Center.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md) (Beveiligingsstatus controleren in Azure Security Center): meer informatie over het controleren van de status van uw Azure-resources
+* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
+* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
+* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
 
 <!--HONumber=Sep16_HO3-->
 

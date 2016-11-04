@@ -1,36 +1,32 @@
-<properties
-    pageTitle="Een Cordova-app maken in Azure App Service Mobile Apps| Microsoft Azure"
-    description="Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Apache Cordova-ontwikkeling."
-    services="app-service\mobile"
-    documentationCenter="javascript"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="cordova,javascript,mobiel,client" />
+---
+title: Een Cordova-app maken in Azure App Service Mobile Apps| Microsoft Docs
+description: Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Apache Cordova-ontwikkeling.
+services: app-service\mobile
+documentationcenter: javascript
+author: adrianhall
+manager: erikre
+editor: ''
+tags: ''
+keywords: cordova,javascript,mobiel,client
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-html"
-    ms.devlang="javascript"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: adrianha
 
-
-#Een Apache Cordova-app maken
-
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+---
+# Een Apache Cordova-app maken
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overzicht
-
-Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Apache Cordova-app met een back-end voor mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor een mobiele app als een eenvoudige Apache Cordova-app voor _takenlijsten_ die app-gegevens opslaat in Azure.
+Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Apache Cordova-app met een back-end voor mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor een mobiele app als een eenvoudige Apache Cordova-app voor *takenlijsten* die app-gegevens opslaat in Azure.
 
 Het volgen van deze zelfstudie is een vereiste voor alle andere Apache Cordova-zelfstudies over het gebruik van de functie Mobile Apps in Azure App Service.
 
 ## Vereisten
-
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een pc met [Visual Studio Community 2015] of hoger.
@@ -40,21 +36,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreeks gebruiken.  Dit is handig bij het voltooien van de zelfstudie op een Mac-computer.  Het compileren van Apache Cordova-clienttoepassingen via de opdrachtregel wordt niet behandeld in deze zelfstudie.
 
 ## Een nieuwe back-end voor mobiele apps van Azure maken
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
 ## Het serverproject configureren
-
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## De Apache Cordova-app downloaden en uitvoeren
-
-[AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
+[!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
 ## Volgende stappen
-
 Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfstudies:
 
 * [Verificatie toevoegen] aan uw Apache Cordova-app.

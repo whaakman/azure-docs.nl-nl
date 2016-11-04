@@ -1,26 +1,25 @@
-<properties
-    pageTitle="Azure RemoteApp-licentieverlening | Microsoft Azure"
-    description="Informatie over licentieverlening in Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp-licentieverlening | Microsoft Docs
+description: Informatie over licentieverlening in Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Hoe werkt licentieverlening in Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> 
+> 
 
 U bent klaar met het instellen van uw Azure RemoteApp-service, u hebt sjablonen gemaakt en kunt apps voor uw gebruikers gaan publiceren. U hoeft nu nog maar een ding te regelen: de licentieverlening. Maar hoe werkt licentieverlening voor RemoteApp en de apps die u via RemoteApp deelt?
 
@@ -37,8 +36,6 @@ Voor andere apps moet u ervoor zorgen dat u beschikt over de licentie om de app 
 Dat klinkt logisch, toch? U kunt elke app publiceren waarvoor u het wettelijk recht hebt om dat te doen. En u moet er zeker van zijn dat u het recht hebt om uw programma’s te delen.
 
 Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken in een cloudverzameling. U kunt *wel* een volumelicentieovereenkomst gebruiken om toepassingen in uw hybride verzameling te activeren (met uitzondering van Office). Daarvoor moet u ze alleen installeren op uw sjablooninstallatiekopie van het volumelicentiemedium. Lees de informatie van de leverancier van de toepassing voor het installeren van licenties in een omgeving met extern bureaublad.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

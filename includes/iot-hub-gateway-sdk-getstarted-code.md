@@ -1,5 +1,4 @@
 ## Typische uitvoer
-
 Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand door de Hello World-sjabloon. Voor de leesbaarheid zijn tekens voor nieuwe regels en tabs toegevoegd:
 
 ```
@@ -31,11 +30,9 @@ Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand 
 ```
 
 ## Codefragmenten
-
 Dit deel behandelt enkele belangrijke onderdelen van de code in de Hello World-sjabloon.
 
 ### Het maken van de gateway
-
 De ontwikkelaar moet het *gatewayproces* schrijven. Dit programma maakt de interne infrastructuur (de broker), laadt modules en stelt alles in om correct te werken. De SDK biedt de **Gateway_Create_From_JSON**-functie waarmee u een gateway vanuit een JSON-bestand kunt opstarten. Om de functie **Gateway_Create_From_JSON** te gebruiken, moet u dit pad doorgeven aan een JSON-bestand dat de te laden modules specificeert. 
 
 U vindt de code voor het gatewayproces in de Hello World-sjabloon in het bestand [main.c][lnk-main-c]. Het stuk hieronder geeft een verkorte versie van de gatewayprocescode weer voor een betere leesbaarheid. Het programma maakt een gateway en wacht dan tot de gebruiker op **ENTER** drukt alvorens het de gateway afbreekt. 
@@ -61,13 +58,14 @@ int main(int argc, char** argv)
 
 Het JSON-instellingenbestand bevat een lijst met te laden modules. Elke module moet het volgende specificeren:
 
-- **module_name**: een unieke modulenaam.
-- **module_path**: het pad naar de bibliotheek met de module. Voor Linux is dit een .so-bestand, voor Windows een .dll-bestand.
-- **args**: alle configuratie-informatie die de module nodig heeft.
+* **module_name**: een unieke modulenaam.
+* **module_path**: het pad naar de bibliotheek met de module. Voor Linux is dit een .so-bestand, voor Windows een .dll-bestand.
+* **args**: alle configuratie-informatie die de module nodig heeft.
 
 Het JSON-bestand bevat ook de koppelingen tussen de modules die worden doorgegeven aan de broker. Een koppeling heeft twee eigenschappen:
-- **bron**: de naam van een module van het gedeelte `modules`, of '\*'.
-- **sink**: de naam van een module van het gedeelte `modules`
+
+* **bron**: de naam van een module van het gedeelte `modules`, of '\*'.
+* **sink**: de naam van een module van het gedeelte `modules`
 
 Elke koppeling definieert de route en richting van een bericht. Berichten van module `source` moeten worden geleverd aan module `sink`. De `source` kan worden ingesteld op '\*'. Hiermee wordt aangegeven dat berichten van alle modules worden ontvangen door `sink`.
 
@@ -99,7 +97,6 @@ Het volgende voorbeeld toont het JSON-instellingenbestand gebruikt om de Hello W
 ```
 
 ### Hello World-module berichtpublicatie
-
 U vindt de code gebruikt door de “hello world”-module om berichten te publiceren in het bestand ['hello_world.c'][lnk-helloworld-c]. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
 
 ```
@@ -109,7 +106,7 @@ int helloWorldThread(void *param)
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
-    
+
     // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
@@ -121,7 +118,7 @@ int helloWorldThread(void *param)
 
     // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
-    
+
     // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
@@ -149,7 +146,6 @@ int helloWorldThread(void *param)
 ```
 
 ### Hello World-module berichtverwerking
-
 De Hello World-module moet nooit berichten verwerken die andere modules publiceren voor de broker. Dit maakt implementatie van de berichtcallback in de Hello World-module een no-op-functie.
 
 ```
@@ -160,7 +156,6 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### Loggermodule berichtpublicatie en -verwerking
-
 De loggermodule ontvangt berichten van de broker en schrijft ze weg naar een bestand. Deze module publiceert nooit berichten. Daarom roept de code van de loggermodule nooit de functie **Broker_Publish** aan.
 
 De functie **Logger_Recieve** in het bestand [logger.c][lnk-logger-c] is de callback die de broker aanroept om berichten aan de loggermodule te leveren. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
@@ -205,11 +200,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## Volgende stappen
-
 Zie voor meer informatie over het gebruik van de Gateway SDK:
 
-- [IoT Gateway SDK – apparaat-naar-cloudberichten verzenden met een gesimuleerd apparaat met Linux][lnk-gateway-simulated].
-- [Azure IoT Gateway SDK][lnk-gateway-sdk] op GitHub.
+* [IoT Gateway SDK – apparaat-naar-cloudberichten verzenden met een gesimuleerd apparaat met Linux][lnk-gateway-simulated].
+* [Azure IoT Gateway SDK][lnk-gateway-sdk] op GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c

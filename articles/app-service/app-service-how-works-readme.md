@@ -1,25 +1,23 @@
-<properties 
-    pageTitle="De werking van Azure App Service" 
-    description="Lees hoe App Service werkt" 
-    keywords="App Service, Azure App Service, schaal, schaalbaar, App Service-abonnement, kosten App Service"
-    services="app-service" 
-    documentationCenter="" 
-    authors="yochay" 
-    manager="wpickett" 
-    editor=""/>
+---
+title: De werking van Azure App Service
+description: Lees hoe App Service werkt
+keywords: App Service, Azure App Service, schaal, schaalbaar, App Service-abonnement, kosten App Service
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="hero-article" 
-    ms.date="02/10/2016" 
-    ms.author="yochay"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 02/10/2016
+ms.author: yochay
 
-
+---
 # <a name="how-app-service-works"></a>De werking van App Service
-
 Azure App Service is een cloudservice die is ontworpen om de praktische problemen op te lossen waar engineers tegenwoordig tegenaan lopen. App Service is gericht op het bieden van optimale productiviteit van ontwikkelaars, waarbij ze ook toepassingen voor de cloud kunnen leveren. Daarnaast bevat App Service de functies en frameworks die nodig zijn om LOB-bedrijfstoepassingen te maken en ontwikkelaars ondersteuning te bieden voor de populairste programmeertalen (.NET, Java, PHP, Node.JS en Python).
 Ontwikkelaars kunnen met App Service:
 
@@ -28,7 +26,9 @@ Ontwikkelaars kunnen met App Service:
 * API's implementeren en publiceren met API Apps.
 * Zakelijke toepassingen met elkaar verbinden in werkstromen en gegevens transformeren met Logic Apps.
 
->[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+> 
+> 
 
 Alle app-typen worden gemaakt op het schaalbare en flexibele platform voor web-apps, waarmee ontwikkelaars kunnen werken aan de volledige levenscyclus, van app-ontwerp tot app-onderhoud. De levenscyclusmogelijkheden maken het volgende mogelijk:
 
@@ -38,12 +38,10 @@ Alle app-typen worden gemaakt op het schaalbare en flexibele platform voor web-a
 * Asynchrone taken en batchtaken uitvoeren: voer code uit in een achtergrondproces of activeer uw code op basis van gebeurtenissen (zoals berichten die terechtkomen in een Azure-opslagwachtrij) en geplande tijden (CRON).
 * De app schalen: gebruik een van de vele opties om uw service automatisch horizontaal en verticaal te schalen op basis van gebruik van verkeer en resourceverbruik. Persoonlijke omgevingen configureren die specifiek zijn voor uw apps   
 * De app onderhouden: gebruik een groot aantal functies voor foutopsporing en diagnose om problemen te voorkomen en efficiënt op te lossen in realtime (met functies zoals automatisch herstel en livefoutopsporing) of later door logboeken en geheugendumps te analyseren.
- 
+
 Met alle mogelijkheden van App Service samen kunnen ontwikkelaars zich richten op hun code en snel een stabiele, zeer schaalbare productiestatus bereiken. Met de functies API-app en Logische app kunnen ontwikkelaars zakelijke toepassingen maken waarmee de compatibiliteit tussen bedrijfsoplossingen en de integratie tussen on-premises oplossingen en cloudoplossingen kan worden verbeterd.  
 
-[AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
-
-
+[!INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
 <!--HONumber=Oct16_HO3-->
 

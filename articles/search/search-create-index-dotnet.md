@@ -1,30 +1,30 @@
-<properties
-    pageTitle="Een index voor Azure Search maken met behulp van de .NET SDK | Microsoft Azure | Gehoste service voor zoeken in de cloud"
-    description="Een index in code maken met behulp van de Azure Search .NET SDK."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags="azure-portal"/>
+---
+title: Een index voor Azure Search maken met behulp van de .NET SDK | Microsoft Docs
+description: Een index in code maken met behulp van de Azure Search .NET SDK.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: azure-portal
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # Een index voor Azure Search maken met behulp van de .NET SDK
-> [AZURE.SELECTOR]
-- [Overzicht](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
-- [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+> [!div class="op_single_selector"]
+> * [Overzicht](search-what-is-an-index.md)
+> * [Portal](search-create-index-portal.md)
+> * [.NET](search-create-index-dotnet.md)
+> * [REST](search-create-index-rest-api.md)
+> 
+> 
 
 Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) voor Azure Search met behulp van de [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
@@ -41,12 +41,13 @@ Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om aanvragen te
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-  - De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
-  - Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
 Als u een index wilt maken, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
 <a name="CreateSearchServiceClient"></a>
+
 ## II. Een instantie van de klasse SearchServiceClient maken
 Als u de Azure Search .NET SDK wilt gebruiken, moet u een instantie van de klasse `SearchServiceClient` maken. Deze klasse heeft verschillende constructors. De gewenste constructor krijgt u de naam van uw zoekservice en een `SearchCredentials`-object als parameters. `SearchCredentials` verpakt uw api-sleutel.
 
@@ -61,9 +62,13 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 `SearchServiceClient` heeft een `Indexes`-eigenschap. Deze eigenschap bevat alle methoden die u nodig hebt om een index voor Azure Search te maken, weergeven, bijwerken of verwijderen.
 
-> [AZURE.NOTE] De klasse `SearchServiceClient` beheert verbindingen met uw zoekservice. Als u wilt voorkomen dat er te veel verbindingen worden geopend, kunt u proberen één instantie van `SearchServiceClient` in uw toepassing te delen, indien mogelijk. De bijbehorende methoden zijn thread-safe om delen in te schakelen.
+> [!NOTE]
+> De klasse `SearchServiceClient` beheert verbindingen met uw zoekservice. Als u wilt voorkomen dat er te veel verbindingen worden geopend, kunt u proberen één instantie van `SearchServiceClient` in uw toepassing te delen, indien mogelijk. De bijbehorende methoden zijn thread-safe om delen in te schakelen.
+> 
+> 
 
 <a name="DefineIndex"></a>
+
 ## III. Een index voor Azure Search definiëren met behulp van de klasse `Index`
 Uw index is met één aanroep naar de methode `Indexes.Create` gemaakt. Deze methode gebruikt een `Index`-object als parameter voor uw Azure Search-index. U moet een `Index`-object maken en dit als volgt initialiseren:
 
@@ -102,7 +107,10 @@ In een index van het type `DataType.String` moet precies één veld zijn aangewe
 
 De bovenstaande indexdefinitie maakt gebruik van een aangepaste taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie [het onderwerp Language support (Taalondersteuning) op MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
 
-> [AZURE.NOTE]  Als u `AnalyzerName.FrLucene` opgeeft in de constructor, wordt het `Field` automatisch van het type `DataType.String` en is `IsSearchable` ingesteld op `true`.
+> [!NOTE]
+> Als u `AnalyzerName.FrLucene` opgeeft in de constructor, wordt het `Field` automatisch van het type `DataType.String` en is `IsSearchable` ingesteld op `true`.
+> 
+> 
 
 ## IV. De index maken
 Nu u een geïnitialiseerd `Index`-object hebt, kunt u de index maken door `Indexes.Create` aan te roepen op uw `SearchServiceClient`-object:
@@ -119,12 +127,13 @@ Als u klaar bent met een index en deze weer wilt verwijderen, roept u de `Indexe
 serviceClient.Indexes.Delete("hotels");
 ```
 
-> [AZURE.NOTE] In de voorbeeldcode in dit artikel is voor het gemak gebruikgemaakt van de synchrone methoden van de Azure Search .NET SDK. Het wordt aanbevolen in uw eigen toepassingen asynchrone methoden te gebruiken, zodat de toepassingen schaalbaar zijn en goed reageren. In de bovenstaande voorbeelden kunt u bijvoorbeeld `CreateAsync` en `DeleteAsync` gebruiken in plaats van `Create` en `Delete`.
+> [!NOTE]
+> In de voorbeeldcode in dit artikel is voor het gemak gebruikgemaakt van de synchrone methoden van de Azure Search .NET SDK. Het wordt aanbevolen in uw eigen toepassingen asynchrone methoden te gebruiken, zodat de toepassingen schaalbaar zijn en goed reageren. In de bovenstaande voorbeelden kunt u bijvoorbeeld `CreateAsync` en `DeleteAsync` gebruiken in plaats van `Create` en `Delete`.
+> 
+> 
 
 ## Volgende
 Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,38 +1,41 @@
-<properties
-    pageTitle="Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren | Microsoft Azure"
-    description="Informatie over het verbeteren van de latentie, het bandbreedteverbruik en de webservicewerklast voor API Management-serviceaanroepen."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren | Microsoft Docs
+description: Informatie over het verbeteren van de latentie, het bandbreedteverbruik en de webservicewerklast voor API Management-serviceaanroepen.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
-
 Bewerkingen in API Management kunnen worden geconfigureerd voor het opslaan van antwoorden in de cache. Door het opslaan van antwoorden in de cache kan de API-latentie, het bandbreedteverbruik en de webservicewerklast aanzienlijk worden verminderd voor gegevens die niet vaak wijzigen.
 
 In deze handleiding wordt getoond hoe u het opslaan van antwoorden in de cache toevoegt voor uw API en beleidsregels configureert voor de bewerkingen voor de voorbeeld-Echo-API. U kunt de bewerking vervolgens aanroepen vanuit de ontwikkelaarsportal om te controleren of opslaan in de cache werkt.
 
->[AZURE.NOTE] Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
+> [!NOTE]
+> Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
+> 
+> 
 
 ## Vereisten
-
-Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][] in de zelfstudie [Aan de slag met Azure API Management][].
+Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Service-exemplaar van API Management maken] in de zelfstudie [Aan de slag met Azure API Management][Aan de slag met Azure API Management].
 
 ## <a name="configure-caching"> </a>Een bewerking voor opslaan in cache configureren
-
 In deze stap controleert u de cache-instellingen van de bewerking **GET Resource (in cache)** van de voorbeeld-Echo-API.
 
->[AZURE.NOTE] Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie [Aan de slag met Azure API Management][] voor meer informatie.
+> [!NOTE]
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie [Aan de slag met Azure API Management][Aan de slag met Azure API Management] voor meer informatie.
+> 
+> 
 
 Klik om aan de slag te gaan op **Beheren** in de klassieke Azure-portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
@@ -59,7 +62,6 @@ Met **Duur** wordt het vervalinterval opgegeven van de antwoorden in de cache. I
 Met de cacheconfiguratie in dit voorbeeld wordt met de eerste aanvraag voor de bewerking **GET Resource (in cache)** een antwoord geretourneerd van de back-endservice. Dit antwoord wordt in de cache opgeslagen, met een sleutel per de opgegeven headers en querytekenreeksparameters. Voor volgende aanroepen voor de bewerking, met overeenkomende parameters, wordt het antwoord geretourneerd dat in de cache is opgeslagen, tot het cacheduurinterval is verlopen.
 
 ## <a name="caching-policies"> </a>De cachebeleidsregels controleren
-
 In deze stap controleert u de cache-instellingen voor de bewerking **GET Resource (in cache)** van de voorbeeld-Echo-API.
 
 Wanneer er cache-instellingen zijn geconfigureerd voor een bewerking op het tabblad **Opslaan in cache**, worden cachebeleidsregels toegevoegd voor de bewerking. Deze beleidsregels kunnen worden bekeken en bewerkt in de beleidseditor.
@@ -89,10 +91,12 @@ De beleidsdefinitie voor deze bewerking bevat de beleidsregels waarmee de cachec
         </outbound>
     </policies>
 
->[AZURE.NOTE] Wijzigingen die via de beleidseditor in de cachebeleidsregels worden aangebracht, worden weergegeven op het tabblad **Opslaan in cache** van een bewerking en vice versa.
+> [!NOTE]
+> Wijzigingen die via de beleidseditor in de cachebeleidsregels worden aangebracht, worden weergegeven op het tabblad **Opslaan in cache** van een bewerking en vice versa.
+> 
+> 
 
 ## <a name="test-operation"> </a>Een bewerking aanroepen en het opslaan in de cache testen
-
 Als u het opslaan in de cache in werking wilt zien, kunnen we de bewerking aanroepen vanuit de ontwikkelaarsportal. Klik op **ontwikkelaarsportal** in het menu rechtsboven.
 
 ![Ontwikkelaarsportal][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Klik op **API's** in het bovenste menu en selecteer **Echo-API**.
 
 ![Echo-API][api-management-apis-echo-api]
 
->Als er slechts één API is geconfigureerd of zichtbaar is voor uw account, gaat u wanneer u op API's klikt rechtstreeks naar de bewerkingen voor die API.
+> Als er slechts één API is geconfigureerd of zichtbaar is voor uw account, gaat u wanneer u op API's klikt rechtstreeks naar de bewerkingen voor die API.
+> 
+> 
 
 Selecteer de bewerking **GET Resource (in cache)** en klik op **Console openen**.
 
@@ -128,9 +134,8 @@ Voer **25** in het veld **param2** in en klik vervolgens op **HTTP Get**.
 Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omdat de bewerkingsresultaten een sleutel per querytekenreeks hebben, is het vorige antwoord in de cache niet geretourneerd.
 
 ## <a name="next-steps"> </a>Volgende stappen
-
--   Zie [Cachebeleidsregels][] in [Naslaginformatie over beleid voor API Management][] voor meer informatie over cachebeleidsregels.
--   Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
+* Zie [Cachebeleidsregels][Cachebeleidsregels] in [Naslaginformatie over beleid voor API Management][Naslaginformatie over beleid voor API Management] voor meer informatie over cachebeleidsregels.
+* Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

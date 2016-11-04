@@ -1,5 +1,7 @@
-> [AZURE.IMPORTANT]
-U kunt hiervoor geen toepassingen gebruiken die zijn geregistreerd op het tabblad **Toepassingen** van de klassieke [Azure Management Portal](https://manage.windowsazure.com/).
+> [!IMPORTANT]
+> U kunt hiervoor geen toepassingen gebruiken die zijn geregistreerd op het tabblad **Toepassingen** van de klassieke [Azure Management Portal](https://manage.windowsazure.com/).
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

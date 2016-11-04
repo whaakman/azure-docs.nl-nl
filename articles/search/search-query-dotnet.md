@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK | Microsoft Azure | Gehoste service voor zoeken in de cloud"
-    description="Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-/>
+---
+title: Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK | Microsoft Docs
+description: Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
-> [AZURE.SELECTOR]
-- [Overzicht](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overzicht](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 In dit artikel wordt beschreven hoe u een query uitvoert in uw index met behulp van de [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
@@ -38,8 +38,8 @@ Nu u een Azure Search-index hebt gemaakt, bent u bijna zover om query's uit te g
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-  - De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
-  - Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
 U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
@@ -61,12 +61,11 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 Zoeken met de .NET SDK is net zo eenvoudig als het aanroepen van de `Documents.Search`-methode op uw `SearchIndexClient`. Deze methode heeft een aantal parameters, waaronder de zoektekst, en een `SearchParameters`-object dat kan worden gebruikt om de query te verfijnen.
 
 #### Typen query 's
-De twee belangrijkste [querytypen](search-query-overview.md#types-of-queries) die u zult gebruiken zijn `search` en `filter`. Een `search`-query zoekt naar een of meer voorwaarden in alle _doorzoekbare_ velden in de index. Een `filter`-query evalueert een Booleaanse expressie op alle _filterbare_ velden in een index.
+De twee belangrijkste [querytypen](search-query-overview.md#types-of-queries) die u zult gebruiken zijn `search` en `filter`. Een `search`-query zoekt naar een of meer voorwaarden in alle *doorzoekbare* velden in de index. Een `filter`-query evalueert een Booleaanse expressie op alle *filterbare* velden in een index.
 
 Zoekopdrachten en filters worden allebei uitgevoerd met behulp van de `Documents.Search`-methode. Een zoekopdracht kan worden doorgegeven aan de `searchText`-parameter, terwijl een filterexpressie kan worden doorgegeven in de eigenschap `Filter` van de `SearchParameters`-klasse. Als u wilt filteren zonder te zoeken, geeft u `"*"` door voor de `searchText`-parameter. Om te zoeken zonder te filteren, stelt u de eigenschap `Filter` niet in of geeft u niet door aan een `SearchParameters`-instantie.
 
 #### Voorbeelden van query 's
-
 De volgende voorbeeldcode laat zien hoe u op verschillende manieren een query kunt uitvoeren in de index "hotels", die is gedefinieerd in [Een Azure Search-index maken met behulp van de .NET SDK](search-create-index-dotnet.md#DefineIndex). De documenten die worden geretourneerd met de zoekresultaten zijn instanties van de klasse `Hotel`, die is gedefinieerd in [Gegevens importeren in Azure Search met behulp van de .NET SDK](search-import-data-dotnet.md#HotelClass). De voorbeeldcode maakt gebruik van een `WriteDocuments`-methode om de zoekresultaten in de console uit te voeren. Deze methode wordt in de volgende sectie beschreven.
 
 ```csharp
@@ -162,8 +161,6 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten uit te voeren. U moet ook zoekresultaten in uw eigen toepassing weergeven. Zie [dit voorbeeld op GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) voor een voorbeeld van hoe zoekresultaten in een ASP.NET MVC-gebaseerde webtoepassing worden weergegeven.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

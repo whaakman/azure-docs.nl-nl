@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Veelgestelde vragen over Recovery Services-kluis | Microsoft Azure"
-   description="In deze versie van de veelgestelde vragen wordt de openbare evaluatieversie van de Azure Backup-service behandeld. Antwoorden op veelgestelde vragen over Backup-agent, het maken, bewaren, terugzetten en beveiligen van back-ups en andere veelgestelde vragen over Azure Backup."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="back-upoplossing; Backup-service"/>
+---
+title: Veelgestelde vragen over Recovery Services-kluis | Microsoft Docs
+description: In deze versie van de veelgestelde vragen wordt de openbare evaluatieversie van de Azure Backup-service behandeld. Antwoorden op veelgestelde vragen over Backup-agent, het maken, bewaren, terugzetten en beveiligen van back-ups en andere veelgestelde vragen over Azure Backup.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: back-upoplossing; Backup-service
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
-
+---
 # Recovery Services-kluis - veelgestelde vragen
-
-> [AZURE.SELECTOR]
-- [Veelgestelde vragen over Backup voor de klassieke modus](backup-azure-backup-faq.md)
-- [Veelgestelde vragen over Backup voor de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Veelgestelde vragen over Backup voor de klassieke modus](backup-azure-backup-faq.md)
+> * [Veelgestelde vragen over Backup voor de Resource Manager-modus](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Dit artikel bevat informatie over de Recovery Services-kluis en vormt een aanvulling op [Veelgestelde vragen over Azure Backup](backup-azure-backup-faq.md). Veelgestelde vragen over Azure Backup bevat de volledige serie vragen en antwoorden over de Azure Backup-service.  
 
@@ -43,8 +43,6 @@ Back-ups van klassieke virtuele machines in de back-upkluis worden niet automati
 1. Ga in de back-upkluis naar het tabblad **Beveiligde Items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**. 
 2. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en het netwerk die corresponderen met de virtuele machine ook naar de Resource Manager modus worden gemigreerd. 
 3. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Meer informatie over het [inschakelen van back-ups in de Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
-
-
 
 <!--HONumber=Sep16_HO5-->
 

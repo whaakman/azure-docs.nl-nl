@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Mobile Engagement-concepten | Microsoft Azure"
-    description="Azure Mobile Engagement-concepten"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+---
+title: Mobile Engagement-concepten | Microsoft Docs
+description: Azure Mobile Engagement-concepten
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # Azure Mobile Engagement-concepten
-
 Mobile Engagement definieert een aantal algemene concepten voor alle ondersteunde platforms. Dit artikel biedt een korte beschrijving van deze concepten.
 
 Dit artikel is een goede start als u niet bekend bent met Mobile Engagement. Lees ook de documentatie voor het specifieke platform dat u gebruikt, omdat daarin meer details en voorbeelden worden gegeven voor bepaalde concepten, inclusief eventuele beperkingen.
@@ -80,13 +78,10 @@ Extra's zijn op dezelfde manier gestructureerd als JSON-objecten: ze zijn gemaak
 De volledige structuur van sleutel-waardeparen wordt opgeslagen als een JSON-object. Toch wordt alleen het eerste niveau van sleutels/waarden opgesplitst om rechtstreeks toegankelijk te zijn voor bepaalde geavanceerde functies zoals segmenten (u kunt bijvoorbeeld eenvoudig een segment definiëren genaamd 'SF-fans' dat bestaat uit alle gebruikers die in de afgelopen maand minstens 10 keer de gebeurtenis met de naam 'content_viewed' hebben verstuurd met de extra sleutel 'content_type ingesteld op de waarde 'sf'). Het is dus raadzaam om alleen extra's te verzenden die bestaan uit eenvoudige lijsten met sleutel-waardeparen met scalaire waarden (bijvoorbeeld tekenreeksen, datums, gehele getallen of Booleaanse waarde).
 
 ## Volgende stappen
-
-- [Overzicht van universele Windows-SDK voor Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Overzicht van Windows Phone Silverlight-SDK voor Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [iOS-SDK voor Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Android-SDK voor Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
-
+* [Overzicht van universele Windows-SDK voor Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+* [Overzicht van Windows Phone Silverlight-SDK voor Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+* [iOS-SDK voor Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+* [Android-SDK voor Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
 <!--HONumber=Sep16_HO3-->
 

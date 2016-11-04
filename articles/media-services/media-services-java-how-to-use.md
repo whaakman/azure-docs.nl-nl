@@ -1,47 +1,39 @@
-<properties 
-    pageTitle="Aan de slag met het leveren van inhoud op aanvraag met Java | Microsoft Azure" 
-    description="Hierin wordt beschreven hoe u Azure Media Services gebruikt om algemene taken uit te voeren, inclusief codering, versleutelen en het streamen van resources." 
-    services="media-services" 
-    documentationCenter="java" 
-    authors="juliako" 
-    manager="erikre" 
-/>
+---
+title: Aan de slag met het leveren van inhoud op aanvraag met Java | Microsoft Docs
+description: Hierin wordt beschreven hoe u Azure Media Services gebruikt om algemene taken uit te voeren, inclusief codering, versleutelen en het streamen van resources.
+services: media-services
+documentationcenter: java
+author: juliako
+manager: erikre
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article"
-    ms.date="10/12/2016"   
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/12/2016
+ms.author: juliako
 
-
+---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Aan de slag met het leveren van inhoud op aanvraag met Java
+[!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-##<a name="setting-up-an-azure-account-for-media-services"></a>Een Azure-Account instellen voor Media Services
-
+## <a name="setting-up-an-azure-account-for-media-services"></a>Een Azure-Account instellen voor Media Services
 Als u een Media Services-account wilt maken, gebruikt u Azure Portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in Azure Portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
 
-##<a name="setting-up-for-media-services-development"></a>Configureren voor het ontwikkelen van toepassingen met Media Services
-
+## <a name="setting-up-for-media-services-development"></a>Configureren voor het ontwikkelen van toepassingen met Media Services
 Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met de Media Services SDK voor Java.
 
-###<a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereisten
+* Een Media Services-account in een nieuw of bestaand Azure-abonnement. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie.
+* De Azure-beheerbibliotheken voor Java, die u kunt installeren vanuit het [Azure Java Developer Center][Azure Java Developer Center].
 
--   Een Media Services-account in een nieuw of bestaand Azure-abonnement. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie.
--   De Azure-beheerbibliotheken voor Java, die u kunt installeren vanuit het [Azure Java Developer Center][].
-
-##<a name="how-to:-use-media-services-with-java"></a>Procedure: Media Services gebruiken met Java
-
+## <a name="how-to:-use-media-services-with-java"></a>Procedure: Media Services gebruiken met Java
 De volgende code geeft aan hoe u een asset maakt, een mediabestand naar de asset uploadt, een taak uitvoert met de opdracht om de asset te transformeren en een locator maakt om uw video te streamen.
 
 U moet een Media Services-account instellen voordat u deze code kunt gebruiken. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het instellen van een account.
 
 Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt ook gebruik van een lokaal opgeslagen bestand. U moet zelf het bestand aanleveren dat moet worden gebruikt.
-
 
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -171,7 +163,7 @@ Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt oo
     // Retrieve the list of Media Processors that match the name
     ListResult<MediaProcessorInfo> mediaProcessors = mediaService
                               .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
-    
+
               // Use the latest version of the Media Processor
               MediaProcessorInfo mediaProcessor = null;
               for (MediaProcessorInfo info : mediaProcessors) {
@@ -179,37 +171,37 @@ Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt oo
                       mediaProcessor = info;
                   }
               }
-    
+
               System.out.println("Using Media Processor: " + mediaProcessor.getName() + " " + mediaProcessor.getVersion());
-    
+
               // Create a task with the specified Media Processor
               String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
               String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
                       + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
                       + " assetName=\"" + outputAssetName + "\">JobOutputAsset(0)</outputAsset></taskBody>";
-    
+
               Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                       .setConfiguration(encodingPreset).setName("Encoding");
-    
+
               // Create the Job; this automatically schedules and runs it.
               Job.Creator jobCreator = Job.create()
                       .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
                       .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
               JobInfo job = mediaService.create(jobCreator);
-            
+
               String jobId = job.getId();
               System.out.println("Created Job with Id: " + jobId);
-    
+
               // Check to see if the Job has completed
               checkJobStatus(jobId);
               // Done with the Job
-    
+
               // Retrieve the output Asset
               ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
               return outputAssets.get(0);
           }
-        
-    
+
+
           public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
               // Get the .ISM AssetFile
               ListResult<AssetFileInfo> assetFiles = mediaService.list(AssetFile.list(asset.getAssetFilesLink()));
@@ -220,63 +212,59 @@ Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt oo
                       break;
                   }
               }
-    
+
               AccessPolicyInfo originAccessPolicy;
               LocatorInfo originLocator = null;
-    
+
               // Create a 30-day readonly AccessPolicy
               double durationInMinutes = 60 * 24 * 30;
               originAccessPolicy = mediaService.create(
                       AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
-    
+
               // Create a Locator using the AccessPolicy and Asset
               originLocator = mediaService
                       .create(Locator.create(originAccessPolicy.getId(), asset.getId(), LocatorType.OnDemandOrigin));
-    
+
               // Create a Smooth Streaming base URL
               return originLocator.getPath() + streamingAssetFile.getName() + "/manifest";
           }
-    
+
           private static void checkJobStatus(String jobId) throws InterruptedException, ServiceException {
               boolean done = false;
               JobState jobState = null;
               while (!done) {
                   // Sleep for 5 seconds
                   Thread.sleep(5000);
-                
+
                   // Query the updated Job state
                   jobState = mediaService.get(Job.get(jobId)).getState();
                   System.out.println("Job state: " + jobState);
-    
+
                   if (jobState == JobState.Finished || jobState == JobState.Canceled || jobState == JobState.Error) {
                       done = true;
                   }
               }
           }
-    
+
     }
 
 
-##<a name="media-services-learning-paths"></a>Media Services-leertrajecten
+## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="provide-feedback"></a>Feedback geven
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##<a name="provide-feedback"></a>Feedback geven
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-##<a name="additional-resources"></a>Aanvullende resources
-
-Zie [Azure-bibliotheken voor Java-documentatie][] voor Javadoc-documentatie voor Media Services.
+## <a name="additional-resources"></a>Aanvullende resources
+Zie [Azure-bibliotheken voor Java-documentatie][Azure-bibliotheken voor Java-documentatie] voor Javadoc-documentatie voor Media Services.
 
 <!-- URLs. -->
 
-  [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
-  [Azure-bibliotheken voor Java-documentatie]: http://dl.windowsazure.com/javadoc/
-  [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure-bibliotheken voor Java-documentatie]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
- 
+
 
 
 

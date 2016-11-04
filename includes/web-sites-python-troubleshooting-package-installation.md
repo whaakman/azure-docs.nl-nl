@@ -3,22 +3,20 @@ Sommige pakketten kunnen niet worden geïnstalleerd met pip wanneer ze worden ui
 In deze sectie zullen we kijken naar manieren om dit probleem op te lossen.
 
 ### Wheels aanvragen
-
 Als de pakketinstallatie een compiler vereist, dient u contact op te nemen met de eigenaar van het pakket om te vragen of wheels beschikbaar gesteld kunnen worden voor het pakket.
 
-Met de recente beschikbaarheid van [Microsoft Visual C++ Compiler voor Python 2.7][] is het nu eenvoudiger geworden om pakketten met systeemeigen code voor Python 2.7 te bouwen.
+Met de recente beschikbaarheid van [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler voor Python 2.7] is het nu eenvoudiger geworden om pakketten met systeemeigen code voor Python 2.7 te bouwen.
 
 ### Wheels bouwen (vereist Windows)
-
 Opmerking: wanneer u deze optie gebruikt, dient u ervoor te zorgen dat u het pakket compileert met behulp van een Python-omgeving die overeenkomt met het platform of de architectuur of versie die wordt gebruikt op de web-app in Azure App Service (Windows/32-bits/2.7 of 3.4).
 
 Als het pakket niet wordt geïnstalleerd omdat het een compiler vereist, kunt u de compiler installeren op uw lokale computer en een wheel bouwen voor het pakket dat u vervolgens kunt opnemen in de opslagplaats.
 
-Gebruikers van Mac-/ Linux: als u geen toegang hebt tot een Windows-computer, raadpleegt u [Een virtuele machine met Windows maken][] voor het maken van een VM op Azure.  U kunt deze gebruiken om de wheels te bouwen, deze toevoegen aan de opslagplaats en de VM desgewenst verwijderen. 
+Gebruikers van Mac-/ Linux: als u geen toegang hebt tot een Windows-computer, raadpleegt u [Een virtuele machine met Windows maken][Een virtuele machine met Windows maken] voor het maken van een VM op Azure.  U kunt deze gebruiken om de wheels te bouwen, deze toevoegen aan de opslagplaats en de VM desgewenst verwijderen. 
 
-Voor Python 2.7 kunt u [Microsoft Visual C++ Compiler voor Python 2.7][] installeren.
+Voor Python 2.7 kunt u [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler voor Python 2.7] installeren.
 
-Voor Python 3.4 kunt u [Microsoft Visual C++ 2010 Express][] installeren.
+Voor Python 3.4 kunt u [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express] installeren.
 
 Om wheels te bouwen, hebt u het wheel-pakket nodig:
 
@@ -40,7 +38,6 @@ Als u alle afhankelijkheden wilt opnemen in de map \wheelhouse en de Python Pack
     --no-index
 
 ### Installatie aanpassen
-
 U kunt het implementatiescript aanpassen om een pakket te installeren in de virtuele omgeving met behulp van een alternatief installatieprogramma zoals easy\_install.  Zie deploy.cmd voor een voorbeeld met opmerkingen.  Zorg ervoor dat dergelijke pakketten niet zijn opgenomen in requirements.txt om te voorkomen dat pip ze installeert.
 
 Voeg dit toe aan het implementatiescript:
@@ -54,7 +51,6 @@ Voeg dit toe aan het implementatiescript:
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### De virtuele omgeving opnemen in de opslagplaats (vereist Windows)
-
 Opmerking: wanneer u deze optie gebruikt, dient u ervoor te zorgen dat u een virtuele omgeving gebruikt die overeenkomst met het platform of de architectuur of versie die wordt gebruikt op de web-app in Azure App Service (Windows/32-bits/2.7 of 3.4).
 
 Als u de virtuele omgeving opneemt in de opslagplaats, kunt u voorkomen u dat het implementatiescript op Azure beheeractiviteiten uitvoert bij de virtuele omgeving door een leeg bestand te maken:
@@ -62,7 +58,6 @@ Als u de virtuele omgeving opneemt in de opslagplaats, kunt u voorkomen u dat he
     .skipPythonDeployment
 
 Het is raadzaam dat u de bestaande virtuele omgeving op de app verwijdert, om te voorkomen dat er bestanden overblijven uit de periode dat de virtuele omgeving automatisch werd beheerd.
-
 
 [Een virtuele machine met Windows maken]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler voor Python 2.7]: http://aka.ms/vcpython27

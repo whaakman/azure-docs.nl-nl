@@ -1,64 +1,61 @@
-<properties
-    pageTitle="Zelfstudie - Aan de slag met de Azure Batch-bibliotheek voor .NET | Microsoft Azure"
-    description="Leer de basisconcepten van Azure Batch en hoe u voor de Batch-service ontwikkelt aan de hand van een voorbeeldscenario."
-    services="batch"
-    documentationCenter=".net"
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+---
+title: Zelfstudie - Aan de slag met de Azure Batch-bibliotheek voor .NET | Microsoft Docs
+description: Leer de basisconcepten van Azure Batch en hoe u voor de Batch-service ontwikkelt aan de hand van een voorbeeldscenario.
+services: batch
+documentationcenter: .net
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="batch"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-compute"
-    ms.date="08/15/2016"
-    ms.author="marsma"/>
+ms.service: batch
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-compute
+ms.date: 08/15/2016
+ms.author: marsma
 
+---
 # Aan de slag met de Azure Batch-bibliotheek voor .NET
-
-> [AZURE.SELECTOR]
-- [.NET](batch-dotnet-get-started.md)
-- [Python](batch-python-tutorial.md)
+> [!div class="op_single_selector"]
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+> 
+> 
 
 Ontdek in dit artikel de basisbeginselen van [Azure Batch][azure_batch] en de [Batch .NET][net_api]-bibliotheek aan de hand van een stapsgewijze C#-voorbeeldtoepassing. U leert hier hoe deze voorbeeldtoepassing gebruikmaakt van de Batch-service voor het verwerken van een parallelle workload in de cloud, en hoe deze samenwerkt met [Azure Storage](../storage/storage-introduction.md) voor het faseren en ophalen van bestanden. U leert algemene werkstroomtechnieken voor Batch-toepassingen. U krijgt hier ook een elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
 
 ![Werkstroom van de Batch-oplossing (basis)][11]<br/>
 
 ## Vereisten
-
 In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van C# en Visual Studio. Er wordt ook van uitgegaan dat u voldoet aan de vereisten voor het maken van een account die hieronder zijn opgegeven voor Azure en de Batch- en Storage-services.
 
 ### Accounts
+* **Azure-account**: als u nog geen Azure-abonnement hebt, [maakt u een gratis Azure-account][azure_free_account].
+* **Batch-account**: als u al een Azure-abonnement hebt, [maakt u een Azure Batch-account](batch-account-create-portal.md).
+* **Opslagaccount**: zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
 
-- **Azure-account**: als u nog geen Azure-abonnement hebt, [maakt u een gratis Azure-account][azure_free_account].
-- **Batch-account**: als u al een Azure-abonnement hebt, [maakt u een Azure Batch-account](batch-account-create-portal.md).
-- **Opslagaccount**: zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
-
-> [AZURE.IMPORTANT] Batch ondersteunt momenteel *alleen* het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> [!IMPORTANT]
+> Batch ondersteunt momenteel *alleen* het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> 
+> 
 
 ### Visual Studio
-
 U moet beschikken over **Visual Studio 2015** om het voorbeeldproject te kunnen maken. U vindt gratis en evaluatieversies van Visual Studio in het [overzicht van Visual Studio 2015-producten][visual_studio].
 
 ### *DotNetTutorial*-codevoorbeeld
-
 Het [DotNetTutorial][github_dotnettutorial]-voorbeeld is een van de vele codevoorbeelden die u vindt in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt het voorbeeld downloaden door te klikken op de knop **ZIP downloaden** op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure-batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de oplossing in deze map:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### Azure Batch Explorer (optioneel)
-
 [Azure Batch Explorer][github_batchexplorer] is een gratis hulpprogramma dat is opgenomen in de opslagplaats [azure-batch-samples][github_samples] in GitHub. Hoewel het niet is vereist om deze zelfstudie te voltooien, kan het nuttig zijn bij de ontwikkeling en foutopsporing van uw Batch-oplossingen.
 
 ## Overzicht DotNetTutorial-voorbeeldproject
-
 Het *DotNetTutorial*-codevoorbeeld is een Visual Studio 2015-oplossing die uit twee projecten bestaat: **DotNetTutorial** en **TaskApplication**.
 
-- **DotNetTutorial** is de clienttoepassing die met de Batch- en Storage-services communiceert voor het uitvoeren van een parallelle workload op rekenknooppunten (virtuele machines). DotNetTutorial wordt uitgevoerd op uw lokale werkstation.
-
-- **TaskApplication** is het programma dat op rekenknooppunten in Azure wordt uitgevoerd om het echte werk te verrichten. In het voorbeeld parseert `TaskApplication.exe` de tekst in een bestand dat van Azure Storage is gedownload (het invoerbestand). Daarna creëert het een tekstbestand (het uitvoerbestand) met daarin een lijst van de eerste drie woorden die het invoerbestand bevat. Nadat TaskApplication het uitvoerbestand heeft gemaakt, wordt het bestand geüpload naar Azure Storage. Hierdoor is het voor de clienttoepassing beschikbaar als download. TaskApplication wordt parallel uitgevoerd op meerdere rekenknooppunten in de Batch-service.
+* **DotNetTutorial** is de clienttoepassing die met de Batch- en Storage-services communiceert voor het uitvoeren van een parallelle workload op rekenknooppunten (virtuele machines). DotNetTutorial wordt uitgevoerd op uw lokale werkstation.
+* **TaskApplication** is het programma dat op rekenknooppunten in Azure wordt uitgevoerd om het echte werk te verrichten. In het voorbeeld parseert `TaskApplication.exe` de tekst in een bestand dat van Azure Storage is gedownload (het invoerbestand). Daarna creëert het een tekstbestand (het uitvoerbestand) met daarin een lijst van de eerste drie woorden die het invoerbestand bevat. Nadat TaskApplication het uitvoerbestand heeft gemaakt, wordt het bestand geüpload naar Azure Storage. Hierdoor is het voor de clienttoepassing beschikbaar als download. TaskApplication wordt parallel uitgevoerd op meerdere rekenknooppunten in de Batch-service.
 
 Het volgende diagram illustreert de primaire bewerkingen die worden uitgevoerd door de clienttoepassing *DotNetTutorial*, en de toepassing die wordt uitgevoerd door de taken, *TaskApplication*. Deze basiswerkstroom is typerend voor vele rekenoplossingen die met Batch worden gemaakt. Hoewel hierin niet elke beschikbare functie in de Batch-service wordt getoond, bevat vrijwel elk Batch-scenario soortgelijke processen.
 
@@ -79,7 +76,6 @@ Het volgende diagram illustreert de primaire bewerkingen die worden uitgevoerd d
 Zoals al is vermeld, voert niet elke Batch-oplossing exact deze stappen uit en kan een oplossing ook veel meer stappen bevatten. De voorbeeldtoepassing *DotNetTutorial* toont echter de algemene processen die u in een Batch-oplossing terugvindt.
 
 ## Het *DotNetTutorial*-voorbeeldproject maken
-
 Voordat u het voorbeeld met succes kunt uitvoeren, moet u in het *DotNetTutorial*-project in het bestand `Program.cs` Batch- en Storage-accountreferenties opgeven. Als u dit nog niet hebt gedaan, opent u de oplossing in Visual Studio door te dubbelklikken op het oplossingsbestand `DotNetTutorial.sln`. U kunt de oplossing ook vanuit Visual Studio openen met het menu **Bestand > Openen > Project/Oplossing**.
 
 Open `Program.cs` in het project *DotNetTutorial*. Voeg daarna uw referenties toe zoals deze boven in het bestand zijn vermeld:
@@ -99,7 +95,10 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-> [AZURE.IMPORTANT] Zoals eerder vermeld, moet u in Azure Storage momenteel de referenties voor een **algemeen** opslagaccount opgeven. Uw Batch-toepassingen gebruiken Blob Storage in het opslagaccount van het type **voor algemeen gebruik**. Geef niet de referenties op voor een opslagaccount die is gemaakt door het accounttype *Blob Storage* te selecteren.
+> [!IMPORTANT]
+> Zoals eerder vermeld, moet u in Azure Storage momenteel de referenties voor een **algemeen** opslagaccount opgeven. Uw Batch-toepassingen gebruiken Blob Storage in het opslagaccount van het type **voor algemeen gebruik**. Geef niet de referenties op voor een opslagaccount die is gemaakt door het accounttype *Blob Storage* te selecteren.
+> 
+> 
 
 U vindt uw Batch- en Storage-accountreferenties op de accountblade van elke service in [Azure Portal][azure_portal]:
 
@@ -108,22 +107,24 @@ U vindt uw Batch- en Storage-accountreferenties op de accountblade van elke serv
 
 Nu dat u het project met uw referenties hebt bijgewerkt, klikt u met de rechtermuisknop op de oplossing in Solution Explorer en klikt u op **Build Solution** (Oplossing bouwen). Bevestig het herstel van alle NuGet-pakketten als dit wordt gevraagd.
 
-> [AZURE.TIP] Als de NuGet-pakketten niet automatisch worden hersteld of als in foutberichten wordt gemeld dat de pakketten niet kunnen worden hersteld, controleert u of [NuGet Package Manager][nuget_packagemgr] is geïnstalleerd. Schakel vervolgens het downloaden van ontbrekende pakketten in. Zie [Enabling Package Restore During Build][nuget_restore] (Pakket herstellen inschakelen tijdens bouwen) om het downloaden van pakketten in te schakelen.
+> [!TIP]
+> Als de NuGet-pakketten niet automatisch worden hersteld of als in foutberichten wordt gemeld dat de pakketten niet kunnen worden hersteld, controleert u of [NuGet Package Manager][nuget_packagemgr] is geïnstalleerd. Schakel vervolgens het downloaden van ontbrekende pakketten in. Zie [Enabling Package Restore During Build][nuget_restore] (Pakket herstellen inschakelen tijdens bouwen) om het downloaden van pakketten in te schakelen.
+> 
+> 
 
 In de volgende secties wordt de voorbeeldtoepassing uitgesplitst in de stappen die met de toepassing worden uitgevoerd om een workload in de Batch-service te verwerken en worden die stappen in detail besproken. Bij het lezen van de rest van dit artikel kunt u het best de geopende oplossing in Visual Studio raadplegen omdat niet elke regel in de code van het voorbeeld wordt besproken.
 
 Navigeer naar de bovenkant van de methode `MainAsync` in het bestand `Program.cs` van het *DotNetTutorial*-project om bij stap 1 te starten. Elke stap hieronder volgt min of meer de voortgang van de methodeaanroepen in `MainAsync`.
 
 ## Stap 1: opslagcontainers maken
-
 ![Containers maken in Azure Storage][1]
 <br/>
 
 Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat de clienttoepassing *DotNetTutorial* doet, is drie containers maken in [Azure Blob Storage](../storage/storage-introduction.md):
 
-- **application**: in deze container worden de toepassing die door de taken wordt uitgevoerd, evenals alle afhankelijkheden hiervan, zoals DLL-bestanden, opgeslagen.
-- **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer* container.
-- **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer* container.
+* **application**: in deze container worden de toepassing die door de taken wordt uitgevoerd, evenals alle afhankelijkheden hiervan, zoals DLL-bestanden, opgeslagen.
+* **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer* container.
+* **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer* container.
 
 Om met een opslagaccount te communiceren en containers te maken, gebruiken we de [Azure Storage-clientbibliotheek voor .NET][net_api_storage]. We maken een verwijzing naar het account met [CloudStorageAccount][net_cloudstorageaccount] en van hieruit maken we een [CloudBlobClient][net_cloudblobclient]:
 
@@ -178,10 +179,12 @@ private static async Task CreateContainerIfNotExistAsync(
 
 Zodra de containers zijn gemaakt, kan de toepassing nu de bestanden uploaden die door de taken worden gebruikt.
 
-> [AZURE.TIP] [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) (Blob Storage gebruiken met .NET) biedt een goed overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
+> [!TIP]
+> [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) (Blob Storage gebruiken met .NET) biedt een goed overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
+> 
+> 
 
 ## Stap 2: taaktoepassings- en gegevensbestanden uploaden
-
 ![Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers][2]
 <br/>
 
@@ -223,8 +226,8 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
 
 Er zijn in `Program.cs` twee methoden die betrokken zijn bij het uploadproces:
 
-- `UploadFilesToContainerAsync`: deze methode retourneert een verzameling [ResourceFile][net_resourcefile]-objecten (zie hieronder) en roept intern `UploadFileToContainerAsync` aan om elk bestand te uploaden dat in de parameter *filePaths* wordt doorgegeven.
-- `UploadFileToContainerAsync`: dit is de methode die daadwerkelijk het bestand uploadt en de [ResourceFile][net_resourcefile]-objecten maakt. Nadat het bestand is geüpload, krijgt deze methode een Shared Access Signature (SAS) voor het bestand en retourneert deze een ResourceFile-object dat het bestand vertegenwoordigt. Ook Shared Access Signatures worden hieronder besproken.
+* `UploadFilesToContainerAsync`: deze methode retourneert een verzameling [ResourceFile][net_resourcefile]-objecten (zie hieronder) en roept intern `UploadFileToContainerAsync` aan om elk bestand te uploaden dat in de parameter *filePaths* wordt doorgegeven.
+* `UploadFileToContainerAsync`: dit is de methode die daadwerkelijk het bestand uploadt en de [ResourceFile][net_resourcefile]-objecten maakt. Nadat het bestand is geüpload, krijgt deze methode een Shared Access Signature (SAS) voor het bestand en retourneert deze een ResourceFile-object dat het bestand vertegenwoordigt. Ook Shared Access Signatures worden hieronder besproken.
 
 ```
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -259,28 +262,27 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### ResourceFiles
-
 [ResourceFile][net_resourcefile] levert aan taken in Batch de URL naar een bestand in Azure Storage dat naar een rekenknooppunt wordt gedownload voordat deze taak wordt uitgevoerd. De eigenschap [ResourceFile.BlobSource][net_resourcefile_blobsource] geeft de volledige URL van het bestand zoals dit zich in Azure Storage bevindt. De URL kan ook een Shared Access Signature (SAS) bevatten, die veilige toegang tot het bestand biedt. De meeste typen taken in Batch .NET bevatten een eigenschap *ResourceFiles*, waaronder:
 
-- [CloudTask][net_task]
-- [StartTask][net_pool_starttask]
-- [JobPreparationTask][net_jobpreptask]
-- [JobReleaseTask][net_jobreltask]
+* [CloudTask][net_task]
+* [StartTask][net_pool_starttask]
+* [JobPreparationTask][net_jobpreptask]
+* [JobReleaseTask][net_jobreltask]
 
 De DotNetTutorial-voorbeeldtoepassing gebruikt niet de taaktypen JobPreparationTask of JobReleaseTask. Meer informatie hierover vindt u in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Jobvoorbereidings- en jobvoltooiingstaken uitvoeren op Azure Batch-rekenknooppunten).
 
 ### Shared Access Signature (SAS)
-
 Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een URL, beveiligde toegang bieden tot containers en blobs in Azure Storage. De DotNetTutorial-toepassing maakt gebruik van Shared Access Signature-URL's voor blobs en containers en toont aan hoe u deze SAS-tekenreeksen van de Storage-service kunt ophalen.
 
-- **Shared Access Signatures voor blobs**: StartTask van de pool in DotNetTutorial maakt gebruik van Shared Access Signatures voor blobs wanneer het de binaire bestanden van toepassingen en invoergegevensbestanden uit Storage downloadt (zie stap 3 hieronder). De methode `UploadFileToContainerAsync` in het bestand `Program.cs` van DotNetTutorial bevat de code die de Shared Access Signature van elke blob verkrijgt. Dit gebeurt door het aanroepen van [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+* **Shared Access Signatures voor blobs**: StartTask van de pool in DotNetTutorial maakt gebruik van Shared Access Signatures voor blobs wanneer het de binaire bestanden van toepassingen en invoergegevensbestanden uit Storage downloadt (zie stap 3 hieronder). De methode `UploadFileToContainerAsync` in het bestand `Program.cs` van DotNetTutorial bevat de code die de Shared Access Signature van elke blob verkrijgt. Dit gebeurt door het aanroepen van [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+* **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer* container in Azure Storage. Hiertoe maakt TaskApplication gebruik van een Shared Access Signature voor containers die schrijftoegang biedt tot de container als deel van het pad wanneer TaskApplication het bestand uploadt. De Shared Access Signature voor containers wordt op een vergelijkbare manier verkregen als de Shared Access Signature voor blobs. In DotNetTutorial zult u zien dat de Help-methode `GetContainerSasUrl` hiervoor [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] aanroept om dit te doen. Meer informatie over hoe TaskApplication de Shared Access Signature voor containers gebruikt, vindt u in 'Stap 6: taken controleren'.
 
-- **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer* container in Azure Storage. Hiertoe maakt TaskApplication gebruik van een Shared Access Signature voor containers die schrijftoegang biedt tot de container als deel van het pad wanneer TaskApplication het bestand uploadt. De Shared Access Signature voor containers wordt op een vergelijkbare manier verkregen als de Shared Access Signature voor blobs. In DotNetTutorial zult u zien dat de Help-methode `GetContainerSasUrl` hiervoor [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] aanroept om dit te doen. Meer informatie over hoe TaskApplication de Shared Access Signature voor containers gebruikt, vindt u in 'Stap 6: taken controleren'.
-
-> [AZURE.TIP] Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met Blob Storage), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw opslagaccount.
+> [!TIP]
+> Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met Blob Storage), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw opslagaccount.
+> 
+> 
 
 ## Stap 3: Batch-pool maken
-
 ![Batch-pool maken][3]
 <br/>
 
@@ -344,20 +346,28 @@ private static async Task CreatePoolAsync(
 
 Wanneer u een pool maakt met [CreatePool][net_pool_create], geeft u meerdere parameters op, zoals het aantal rekenknooppunten, de [grootte van de knooppunten](../cloud-services/cloud-services-sizes-specs.md) en het besturingssysteem van de knooppunten. In *DotNetTutorial* gebruiken we [CloudServiceConfiguration][net_cloudserviceconfiguration] om Windows Server 2012 R2 op te geven vanuit [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Door echter een [VirtualMachineConfiguration][net_virtualmachineconfiguration] op te geven, kunt u pools van knooppunten maken die zijn gemaakt op basis van installatiekopieën van Marketplace, die zowel Windows- als Linux-installatiekopieën bevatten. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
 
-> [AZURE.IMPORTANT] De rekenresources in Batch worden in rekening gebracht. Om uw kosten te beperken, kunt u `targetDedicated` verlagen naar 1 voordat u het voorbeeld uitvoert.
+> [!IMPORTANT]
+> De rekenresources in Batch worden in rekening gebracht. Om uw kosten te beperken, kunt u `targetDedicated` verlagen naar 1 voordat u het voorbeeld uitvoert.
+> 
+> 
 
 Samen met deze fysieke knooppunteigenschappen kunt u ook [StartTask][net_pool_starttask] voor de pool opgeven. StartTask wordt in elk knooppunt uitgevoerd wanneer dat knooppunt aan de pool wordt toegevoegd en telkens wanneer dat knooppunt opnieuw wordt opgestart. StartTask is met name nuttig voor het installeren van toepassingen in rekenknooppunten voordat taken worden uitgevoerd. Als bijvoorbeeld uw taken gegevens verwerken met behulp van Python-scripts, kunt u StartTask gebruiken om Python te installeren in de rekenknooppunten.
 
 In deze voorbeeldtoepassing kopieert StartTask de bestanden die het van Storage downloadt (die zijn opgegeven met behulp van de eigenschap [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) vanuit de StartTask-werkmap naar de gedeelde map waartoe *alle* taken die in het knooppunt worden uitgevoerd toegang hebben. In wezen worden hierdoor `TaskApplication.exe` en al de afhankelijkheden ervan gekopieerd naar de gedeelde map in elk knooppunt wanneer het knooppunt aan de pool wordt toegevoegd, zodat alle taken die in het knooppunt worden uitgevoerd er toegang toe hebben.
 
-> [AZURE.TIP] De functie voor **toepassingspakketten** van Azure Batch biedt een andere manier om uw toepassing in rekenknooppunten in een pool te krijgen. Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie.
+> [!TIP]
+> De functie voor **toepassingspakketten** van Azure Batch biedt een andere manier om uw toepassing in rekenknooppunten in een pool te krijgen. Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie.
+> 
+> 
 
 Opmerkelijk in het bovenstaande codefragment is ook het gebruik van twee omgevingsvariabelen in de eigenschap *CommandLine* van StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` en `%AZ_BATCH_NODE_SHARED_DIR%`. Elk rekenknooppunt in een Batch-pool wordt automatisch geconfigureerd met meerdere omgevingsvariabelen die specifiek zijn voor Batch. Elke proces dat door een taak wordt uitgevoerd, heeft toegang tot deze omgevingsvariabelen.
 
-> [AZURE.TIP] Zie de secties [Omgevingsinstellingen voor taken](batch-api-basics.md#environment-settings-for-tasks) en [Bestanden en mappen](batch-api-basics.md#files-and-directories) in [Overzicht van Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer informatie over de omgevingsvariabelen die beschikbaar zijn in rekenknooppunten in een Batch-pool en voor meer informatie over taakwerkmappen.
+> [!TIP]
+> Zie de secties [Omgevingsinstellingen voor taken](batch-api-basics.md#environment-settings-for-tasks) en [Bestanden en mappen](batch-api-basics.md#files-and-directories) in [Overzicht van Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer informatie over de omgevingsvariabelen die beschikbaar zijn in rekenknooppunten in een Batch-pool en voor meer informatie over taakwerkmappen.
+> 
+> 
 
 ## Stap 4: Batch-job maken
-
 ![Een Batch-job maken][4]<br/>
 
 Een Batch-**job** is een verzameling taken en is gekoppeld aan een pool van rekenknooppunten. De taken in een job worden uitgevoerd op de rekenknooppunten van de gekoppelde pool.
@@ -385,7 +395,6 @@ private static async Task CreateJobAsync(
 Nu een job is gemaakt, worden er taken aan toegevoegd die het werk verrichten.
 
 ## Stap 5: taken toevoegen aan job
-
 ![Taken toevoegen aan job][5]<br/>
 *(1) Taken worden toegevoegd aan de job, (2) de taken worden gepland om op knooppunten te worden uitgevoerd en (3) de taken downloaden de te verwerken gegevensbestanden*
 
@@ -430,14 +439,15 @@ private static async Task<List<CloudTask>> AddTasksAsync(
 }
 ```
 
-> [AZURE.IMPORTANT] Wanneer ze toegang krijgen tot omgevingsvariabelen zoals `%AZ_BATCH_NODE_SHARED_DIR%` of een toepassing uitvoeren die niet op het `PATH` van het knooppunt wordt gevonden, moeten taakopdrachtregels het voorvoegsel `cmd /c` krijgen. Hiermee wordt de opdrachtinterpreter expliciet uitgevoerd en krijgt deze de instructie om te beëindigen nadat uw opdracht is uitgevoerd. Deze vereiste is niet nodig als uw taken een toepassing uitvoeren op het `PATH` van het knooppunt (zoals *robocopy.exe* of *powershell.exe*) en er geen omgevingsvariabelen worden gebruikt.
+> [!IMPORTANT]
+> Wanneer ze toegang krijgen tot omgevingsvariabelen zoals `%AZ_BATCH_NODE_SHARED_DIR%` of een toepassing uitvoeren die niet op het `PATH` van het knooppunt wordt gevonden, moeten taakopdrachtregels het voorvoegsel `cmd /c` krijgen. Hiermee wordt de opdrachtinterpreter expliciet uitgevoerd en krijgt deze de instructie om te beëindigen nadat uw opdracht is uitgevoerd. Deze vereiste is niet nodig als uw taken een toepassing uitvoeren op het `PATH` van het knooppunt (zoals *robocopy.exe* of *powershell.exe*) en er geen omgevingsvariabelen worden gebruikt.
+> 
+> 
 
 In de `foreach`-lus in het bovenstaande codefragment kunt u zien dat de opdrachtregel voor de taak zodanig is opgesteld dat drie opdrachtregelargumenten worden doorgegeven aan *TaskApplication.exe*:
 
 1. Het **eerste argument** is het pad van het te verwerken bestand. Dit is het lokale pad naar het bestand, zoals zich dit op het knooppunt bevindt. Toen het ResourceFile-object `UploadFileToContainerAsync` voor het eerst werd gemaakt, werd de bestandsnaam voor deze eigenschap gebruikt (als een parameter voor de constructor ResourceFile). Dit geeft aan dat het bestand kan worden gevonden in dezelfde map als *TaskApplication.exe*.
-
 2. Het **tweede argument** geeft aan dat de eerste *N* woorden naar het uitvoerbestand moeten worden geschreven. In het voorbeeld is dit in code vastgelegd, zodat de eerste drie woorden naar het uitvoerbestand worden geschreven.
-
 3. Het **derde argument** is de Shared Access Signature (SAS) die schrijftoegang tot de **uitvoer**container in Azure Storage biedt. *TaskApplication.exe* maakt gebruik van deze Shared Access Signature-URL wanneer het uitvoerbestand naar Azure Storage uploadt. U vindt de code hiervoor in de methode `UploadFileToContainer` in het bestand `Program.cs` van het TaskApplication-project:
 
 ```csharp
@@ -476,7 +486,6 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ```
 
 ## Stap 6: taken controleren
-
 ![Taken controleren][6]<br/>
 *De clienttoepassing (1) controleert taken op de status Voltooid en Geslaagd en (2) de taken uploaden resultaatgegevens naar Azure Storage.*
 
@@ -485,9 +494,7 @@ Wanneer aan een job taken worden toegevoegd, worden deze automatisch in de wacht
 Binnen de methode `MonitorTasks` in het DotNetTutorial-bestand `Program.cs` zijn er drie Batch .NET-concepten die discussies garanderen. Ze worden hieronder weergegeven in de volgorde waarin ze voorkomen:
 
 1. **ODATADetailLevel**: [ODATADetailLevel][net_odatadetaillevel] opgeven in lijstbewerkingen (zoals het verkrijgen van een lijst met taken van een job) is essentieel om Batch-toepassingen goed te laten presteren. Voeg het artikel [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Efficiënt query's uitvoeren op de Azure Batch-service) toe aan uw leeslijst als u van plan bent een of andere vorm van statuscontrole uit te voeren in uw Batch-toepassingen.
-
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] biedt Batch .NET-toepassingen met Help-hulpprogramma's voor het controleren van taakstatuswaarden. In `MonitorTasks` wacht *DotNetTutorial* tot alle taken binnen een bepaalde tijd [TaskState.Completed][net_taskstate] hebben bereikt. Daarna wordt de job beëindigd.
-
 3. **TerminateJobAsync**: Door een job te beëindigen met [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (of de blokkering JobOperations.TerminateJob), wordt deze job gemarkeerd als voltooid. Het is essentieel om dit te doen als uw Batch-oplossing gebruikmaakt van een [JobReleaseTask][net_jobreltask]. Dit is een speciaal type taak, dat wordt beschreven in [Job preparation and completion tasks](batch-job-prep-release.md) (Jobvoorbereidings- en jobvoltooiingstaken).
 
 De methode `MonitorTasks` uit het *DotNetTutorial*-bestand `Program.cs` wordt hieronder weergegeven:
@@ -582,7 +589,6 @@ private static async Task<bool> MonitorTasks(
 ```
 
 ## Stap 7: taakuitvoer downloaden
-
 ![Taakuitvoer downloaden uit Storage][7]<br/>
 
 Nu de taak is voltooid, kan de uitvoer van de taken worden gedownload uit Azure Storage. Dat gebeurt met een aanroep van `DownloadBlobsFromContainerAsync` in het *DotNetTutorial*-bestand `Program.cs`:
@@ -615,10 +621,12 @@ private static async Task DownloadBlobsFromContainerAsync(
 }
 ```
 
-> [AZURE.NOTE] De aanroep van `DownloadBlobsFromContainerAsync` in de *DotNetTutorial*-toepassing geeft aan dat de bestanden naar uw map `%TEMP%` moeten worden gedownload. U kunt eventueel deze uitvoerlocatie wijzigen.
+> [!NOTE]
+> De aanroep van `DownloadBlobsFromContainerAsync` in de *DotNetTutorial*-toepassing geeft aan dat de bestanden naar uw map `%TEMP%` moeten worden gedownload. U kunt eventueel deze uitvoerlocatie wijzigen.
+> 
+> 
 
 ## Stap 8: containers verwijderen
-
 Omdat gegevens die zich in Azure Storage bevinden, in rekening worden gebracht, doet u er altijd goed aan alle blobs te verwijderen die niet langer nodig zijn voor uw Batch-taken. In het DotNetTutorial-bestand `Program.cs` wordt dit gedaan met drie aanroepen naar de Help-methode `DeleteContainerAsync`:
 
 ```csharp
@@ -650,7 +658,6 @@ private static async Task DeleteContainerAsync(
 ```
 
 ## Stap 9: de job en de pool verwijderen
-
 In de laatste stap wordt de gebruiker gevraagd de job en de pool te verwijderen die door de DotNetTutorial-toepassing zijn gemaakt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten *wel* in rekening gebracht. Daarom is het raadzaam om knooppunten alleen toe te wijzen als dat nodig is. Het verwijderen van ongebruikte pools kan een onderdeel zijn van uw onderhoudsprocedure.
 
 [JobOperations][net_joboperations] en [PoolOperations][net_pooloperations] van BatchClient hebben beide overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer de gebruiker de verwijdering bevestigt:
@@ -673,10 +680,12 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT] Houd er rekening mee dat rekenresources in rekening worden gebracht. Door ongebruikte pools te verwijderen, beperkt u uw kosten tot een minimum. Denk er ook aan dat een pool alle rekenknooppunten in die pool verwijdert en dat alle gegevens in de knooppunten onherstelbaar zijn nadat de pool wordt verwijderd.
+> [!IMPORTANT]
+> Houd er rekening mee dat rekenresources in rekening worden gebracht. Door ongebruikte pools te verwijderen, beperkt u uw kosten tot een minimum. Denk er ook aan dat een pool alle rekenknooppunten in die pool verwijdert en dat alle gegevens in de knooppunten onherstelbaar zijn nadat de pool wordt verwijderd.
+> 
+> 
 
 ## Het *DotNetTutorial*-voorbeeld uitvoeren
-
 Wanneer u de voorbeeldtoepassing uitvoert, lijkt de uitvoer van de console op die hieronder. Bij het uitvoeren wordt bij `Awaiting task completion, timeout in 00:30:00...` gewacht wanneer de rekenknooppunten van de pool worden gestart. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Azure Storage Explorer][storage_explorers] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
 
 Wanneer u de toepassing uitvoert in de standaardconfiguratie, bedraagt de uitvoeringstijd doorgaans **ongeveer 5 minuten**.
@@ -713,14 +722,13 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## Volgende stappen
-
 Breng gerust wijzigingen aan in *DotNetTutorial* en *TaskApplication* om met verschillende rekenscenario's te experimenteren. Probeer bijvoorbeeld een uitvoeringsvertraging toe te voegen aan *TaskApplication*, bijvoorbeeld met [Thread.Sleep][net_thread_sleep], om langlopende taken te simuleren en ze in de portal te controleren. Probeer meer taken toe te voegen of het aantal rekenknooppunten aan te passen. Voeg logica toe om te controleren op een bestaande pool en het gebruik ervan toe te staan om de uitvoeringssnelheid te verhogen (*hint*: bekijk het bestand `ArticleHelpers.cs` in het project [Microsoft.Azure.Batch.Samples.Common][github_samples_common] in [azure-batch-samples][github_samples]).
 
 Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd om kennis te maken met de aanvullende functies van de Batch-service.
 
-- Lees het [Overzicht van Batch-functies voor ontwikkelaars](batch-api-basics.md), dat aan te bevelen is voor alle nieuwe Batch-gebruikers.
-- Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Development in-depth** (Ontwikkeling nader bekeken) in het [Batch-leertraject][batch_learning_path].
-- Bekijk een andere implementatie van de verwerking van de workload 'eerste N woorden' met behulp van Batch in het voorbeeld [TopNWords][github_topnwords].
+* Lees het [Overzicht van Batch-functies voor ontwikkelaars](batch-api-basics.md), dat aan te bevelen is voor alle nieuwe Batch-gebruikers.
+* Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Development in-depth** (Ontwikkeling nader bekeken) in het [Batch-leertraject][batch_learning_path].
+* Bekijk een andere implementatie van de verwerking van de workload 'eerste N woorden' met behulp van Batch in het voorbeeld [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
