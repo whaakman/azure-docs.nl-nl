@@ -1,59 +1,59 @@
-# [Overview](cdn-overview.md)
-## [Azure CDN Best practices](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-# Get Started
-## [Using Azure CDN](cdn-create-new-endpoint.md)
-## Get started with Azure CDN development
+# [Overzicht](cdn-overview.md)
+## [Best practices voor Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+# Aan de slag
+## [Azure CDN gebruiken](cdn-create-new-endpoint.md)
+## Aan de slag met Azure CDN-ontwikkeling
 ### [.NET](cdn-app-dev-net.md)
 ### [Node.js](cdn-app-dev-node.md)
 
-# How To
-## Integrate
-### [Integrate with Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrate with Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Integrate with Storage](cdn-create-a-storage-account-with-cdn.md)
-### [Cross-origin resource sharing](cdn-cors.md)
+# Procedures
+## Integreren
+### [Met Web Apps integreren](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Met Cloud Services integreren](cdn-cloud-service-with-cdn.md)
+### [Met Storage integreren](cdn-create-a-storage-account-with-cdn.md)
+### [Cross-origin-resources delen](cdn-cors.md)
 
-## Manage
-### [Manage with PowerShell](cdn-manage-powershell.md)
-### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
-### [Restrict access by country](cdn-restrict-access-by-country.md)
-### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
-### [Override behavior with rules](cdn-rules-engine.md)
-### [Get real-time alerts](cdn-real-time-alerts.md)
+## Beheren
+### [Beheren met PowerShell](cdn-manage-powershell.md)
+### TTL (Time to Live) configureren
+#### [Web Apps/Cloud Services, ASP.NET of IIS-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Inhoud van de Storage-blobservice](cdn-manage-expiration-of-blob-content.md)
+### [Een aangepast domein aan CDN toewijzen](cdn-map-content-to-custom-domain.md)
+### [Toegang beperken per land](cdn-restrict-access-by-country.md)
+### [De prestaties verbeteren door bestanden te comprimeren](cdn-improve-performance.md)
+### Cache-inhoud op queryreeks
+#### [Standaardlaag](cdn-query-string.md)
+#### [Premiumlaag](cdn-query-string-premium.md)
+### [Assets in cache verwijderen](cdn-purge-endpoint.md)
+### [Assets in cache vooraf laden](cdn-preload-endpoint.md)
+### [Gedrag overschrijven met regels](cdn-rules-engine.md)
+### [Real-time waarschuwingen](cdn-real-time-alerts.md)
 
-## Automate
-### [Manage with PowerShell](cdn-manage-powershell.md)
+## Automatiseren
+### [Beheren met PowerShell](cdn-manage-powershell.md)
 
-## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
+## Analyseren
+### [Gebruikspatronen analyseren](cdn-analyze-usage-patterns.md)
+### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
+### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
+### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
 
-## Develop
-### Get started with Azure CDN development
+## Ontwikkelen
+### Aan de slag met Azure CDN-ontwikkeling
 #### [.NET](cdn-app-dev-net.md)
 #### [Node.js](cdn-app-dev-node.md)
 
-## Troubleshoot
-### [Troubleshoot 404 status](cdn-troubleshoot-endpoint.md)
-### [Troubleshoot file compression](cdn-troubleshoot-compression.md)
+## Problemen oplossen
+### [Problemen met 404-status oplossen](cdn-troubleshoot-endpoint.md)
+### [Problemen met bestandscompressie oplossen](cdn-troubleshoot-compression.md)
 
-# Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt634456.aspx)
+# Naslaginformatie
+## [Naslaginformatie over REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-# Related
+# Verwant
 
-# Resources
-## [Azure CDN POP Locations](cdn-pop-locations.md)
+# Bronnen
+## [Azure CDN POP-locaties](cdn-pop-locations.md)
 
 
 <!--HONumber=Nov16_HO2-->
