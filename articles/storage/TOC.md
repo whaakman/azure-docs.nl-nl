@@ -1,12 +1,12 @@
-# Overview
+# Overzicht
 
-## [Introduction](storage-introduction.md)
-## [Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Inleiding](storage-introduction.md)
+## [Prijzen voor Storage](https://azure.microsoft.com/pricing/details/storage/blobs/)
 
-# Get Started
+# Aan de slag
 
-## [Quick start guide](storage-getting-started-guide.md)
-## [Create a storage account](storage-create-storage-account.md)
+## [Aan de slag](storage-getting-started-guide.md)
+## [Een opslagaccount maken](storage-create-storage-account.md)
 
 ## Blob Storage
 ### [.NET](storage-dotnet-how-to-use-blobs.md)
@@ -44,21 +44,21 @@
 ### [PHP](storage-php-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## [Storage samples](storage-samples.md)
+## [Voorbeelden van Storage](storage-samples.md)
 
-# How To
+# Procedures
 
 
-## Storage Accounts
-### [General storage accounts](storage-create-storage-account.md)
-### [Blob storage accounts](storage-blob-storage-tiers.md)
-### [Premium Storage accounts](storage-premium-storage.md)
+## Opslagaccounts
+### [Algemene opslagaccounts](storage-create-storage-account.md)
+### [Blob Storage-accounts](storage-blob-storage-tiers.md)
+### [Premium Storage-accounts](storage-premium-storage.md)
 
 
 ## Blob Storage
 
 
-### Tutorials
+### Zelfstudies
 #### [.NET](storage-dotnet-how-to-use-blobs.md)
 #### [Java](storage-java-how-to-use-blob-storage.md)
 #### [Node.js](storage-nodejs-how-to-use-blob-storage.md)
@@ -69,20 +69,20 @@
 #### [iOS](storage-ios-how-to-use-blob-storage.md)
 #### [Xamarin](storage-xamarin-blob-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
-#### [Hot and cool tiers](storage-blob-storage-tiers.md)
-#### [Custom domains](storage-custom-domain-name.md)
-#### [Import/Export service for Blob storage](storage-import-export-service.md)
-#### [Anonymous access to blobs](storage-manage-access-to-resources.md)
+### Concepten
+#### [Overzicht van services](https://msdn.microsoft.com/library/dd179376.aspx)
+#### [Warme en koude lagen](storage-blob-storage-tiers.md)
+#### [Aangepaste domeinen](storage-custom-domain-name.md)
+#### [Import-/exportservice voor Blob Storage](storage-import-export-service.md)
+#### [Anonieme toegang tot blobs](storage-manage-access-to-resources.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
+### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 
 
 ## Queue Storage
 
 
-### Tutorials
+### Zelfstudies
 #### [.NET](storage-dotnet-how-to-use-queues.md)
 #### [Java](storage-java-how-to-use-queue-storage.md)
 #### [Node.js](storage-nodejs-how-to-use-queues.md)
@@ -91,15 +91,15 @@
 #### [PHP](storage-php-how-to-use-queues.md)
 #### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
-### [Concepts](https://msdn.microsoft.com/library/dd179353.aspx)
+### [Concepten](https://msdn.microsoft.com/library/dd179353.aspx)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
+### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 
 
 ## Table Storage
 
 
-### Tutorials
+### Zelfstudies
 #### [.NET](storage-dotnet-how-to-use-tables.md)
 #### [Java](storage-java-how-to-use-table-storage.md)
 #### [Node.js](storage-nodejs-how-to-use-table-storage.md)
@@ -108,160 +108,160 @@
 #### [PHP](storage-php-how-to-use-table-storage.md)
 #### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/library/dd179463.aspx)
-#### [Table design guide](storage-table-design-guide.md)
+### Concepten
+#### [Overzicht van services](https://msdn.microsoft.com/library/dd179463.aspx)
+#### [Handleiding voor tabelontwerp](storage-table-design-guide.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
+### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 
 
 ## File Storage
 
 
-### Tutorials
+### Zelfstudies
 #### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
 #### [Linux](storage-how-to-use-files-linux.md)
 #### [Java](storage-java-how-to-use-file-storage.md)
 #### [C++](storage-c-plus-plus-how-to-use-files.md)
 #### [Python](storage-python-how-to-use-file-storage.md)
 
-### Concepts
-#### [Service overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
-#### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### Concepten
+#### [Overzicht van services](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+#### [Problemen met Azure-bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
 
-### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
+### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 
 
-## Virtual Machine Disks
+## Schijven virtuele machine
 
 ### Premium Storage
-#### [High-performance storage for VM workloads](storage-premium-storage.md)
-#### [Migrating to Premium Storage](storage-migration-to-premium-storage.md)
-#### [Design for high performance](storage-premium-storage-performance.md)
+#### [Krachtige opslag voor VM-workloads](storage-premium-storage.md)
+#### [Migreren naar Premium Storage](storage-migration-to-premium-storage.md)
+#### [Ontwerp voor hoge prestaties](storage-premium-storage-performance.md)
 
-### Standard Storage
-#### Troubleshoot disk deletion errors
-##### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-##### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
-#### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
-
-
-## Develop with Storage
-
-### [Samples](storage-samples.md)
-### General development
-#### [Configure connection strings](storage-configure-connection-string.md)
-#### [Use the Storage Emulator](storage-use-emulator.md)
-#### [Set and retrieve properties and metadata](storage-properties-metadata.md)
+### Standaardopslag
+#### Schijfverwijderingsfouten oplossen
+##### [In een implementatie van Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
+##### [In een klassieke implementatie](storage-cannot-delete-storage-account-container-vhd.md)
+#### [Back-ups maken van VM-schijven met incrementele momentopnamen](storage-incremental-snapshots.md)
 
 
-## Manage Storage
+## Ontwikkelen met Storage
+
+### [Voorbeelden](storage-samples.md)
+### Algemene ontwikkeling
+#### [Verbindingsreeksen configureren](storage-configure-connection-string.md)
+#### [De opslagemulator gebruiken](storage-use-emulator.md)
+#### [Eigenschappen en metagegevens instellen en ophalen](storage-properties-metadata.md)
+
+
+## Storage beheren
 
 ### [Azure PowerShell](storage-powershell-guide-full.md)
 ### [Azure CLI](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
 
 
-## Performance & Availability
+## Prestaties en beschikbaarheid
 
-### [Replication](storage-redundancy.md)
-### [Scalability and performance targets](storage-scalability-targets.md)
-### [Performance and scalability checklist](storage-performance-checklist.md)
-### [Concurrency](storage-concurrency.md)
+### [Replicatie](storage-redundancy.md)
+### [Schaalbaarheids- en prestatiedoelen](storage-scalability-targets.md)
+### [Controlelijst voor prestaties en schaalbaarheid](storage-performance-checklist.md)
+### [Gelijktijdigheid](storage-concurrency.md)
 
 
-## Security
+## Beveiliging
 
-### [Storage security guide](storage-security-guide.md)
-### [Encryption for data at rest](storage-service-encryption.md)
-### Client-side encryption
+### [Gids voor opslagbeveiliging](storage-security-guide.md)
+### [Versleuteling van data-at-rest](storage-service-encryption.md)
+### Clientversleuteling
 #### [Azure Key Vault](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-#### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+#### [Zelfstudie: blobs versleutelen en ontsleutelen met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 
-### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Gedeelde sleutelverificatie](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-### [Anonymous access to blobs](storage-manage-access-to-resources.md)
+### [Anonieme toegang tot blobs](storage-manage-access-to-resources.md)
 
 
-## Monitor & Troubleshoot
+## Controleren en problemen oplossen
 
-### Metrics & Logging
+### Metrische gegevens & logboekregistratie
 #### [Storage Analytics](storage-analytics.md)
-#### [Enable and view metrics](storage-enable-and-view-metrics.md)
-#### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting.md)
-#### [Troubleshooting tutorial](storage-e2e-troubleshooting.md)
+#### [Meetwaarden inschakelen en weergeven](storage-enable-and-view-metrics.md)
+#### [Controleren, problemen vaststellen en problemen oplossen](storage-monitoring-diagnosing-troubleshooting.md)
+#### [Zelfstudie voor problemen oplossen](storage-e2e-troubleshooting.md)
 
-### Troubleshoot disk deletion errors
-#### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
+### Schijfverwijderingsfouten oplossen
+#### [In een implementatie van Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
+#### [In een klassieke implementatie](storage-cannot-delete-storage-account-container-vhd.md)
 
-### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
-### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
-
-
-## Transfer Data
-
-### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
-### [Import/Export service for Blob storage](storage-import-export-service.md)
+### [Problemen met het opslaan van bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
+### [Richtlijnen voor herstel na noodgeval](storage-disaster-recovery-guidance.md)
 
 
+## Gegevens overdragen
 
-# Reference
-
-## REST APIs
-### [Blob, Queue, Table, and File](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-### [Resource Provider](https://docs.microsoft.com/rest/api/storage/)
-### [Import/Export](https://msdn.microsoft.com/library/azure/dn529096.aspx)
-
-## .NET APIs
-### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-### [Resource Provider](https://docs.microsoft.com/dotnet/api/)
-### [Data Movement](https://docs.microsoft.com/dotnet/api/)
-
-## [Node.js API](http://azure.github.io/azure-storage-node/)
-## [Java API](https://docs.microsoft.com/java/api/index)
-## [C++ API](http://azure.github.io/azure-storage-cpp/)
-## [PowerShell Reference](https://docs.microsoft.com/powershell/)
-## [Azure CLI Reference](https://docs.microsoft.com/cli/azure/storage)
+### [Gegevens verplaatsen van en naar opslag](storage-moving-data.md)
+### [AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
+### [Import-/exportservice voor Blob Storage](storage-import-export-service.md)
 
 
 
-# Related
+# Naslaginformatie
 
-## Classic Portal
-### [Create storage account](storage-create-storage-account-classic-portal.md)
-### [Enable and view metrics](storage-enable-and-view-metrics-classic-portal.md)
-### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
-### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
+## REST-API’s
+### [Blob, wachtrij, tabel en bestand](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+### [Resourceprovider](https://docs.microsoft.com/rest/api/storage/)
+### [Import/export](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+
+## .NET-API 's
+### [Blob, wachtrij, tabel en bestand](https://docs.microsoft.com/dotnet/api/)
+### [Resourceprovider](https://docs.microsoft.com/dotnet/api/)
+### [Gegevensverplaatsing](https://docs.microsoft.com/dotnet/api/)
+
+## [Node.js-API](http://azure.github.io/azure-storage-node/)
+## [Java-API](https://docs.microsoft.com/java/api/index)
+## [C++-API](http://azure.github.io/azure-storage-cpp/)
+## [PowerShell-referentie](https://docs.microsoft.com/powershell/)
+## [Azure CLI-referentie](https://docs.microsoft.com/cli/azure/storage)
 
 
 
-# Resources
+# Verwant
 
-## Azure Storage Explorer
-### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
-### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
+## Klassieke portal
+### [Opslagaccount maken](storage-create-storage-account-classic-portal.md)
+### [Meetwaarden inschakelen en weergeven](storage-enable-and-view-metrics-classic-portal.md)
+### [Controleren, problemen vaststellen en problemen oplossen](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
+### [Zelfstudie voor problemen oplossen](storage-e2e-troubleshooting-classic-portal.md)
 
-## [Azure Storage client tools](storage-explorers.md)
 
-## Community support
+
+# Bronnen
+
+## Azure Opslagverkenner
+### [Opslagverkenner (preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+### [Blobs beheren met Opslagverkenner (preview)](../vs-azure-tools-storage-explorer-blobs.md)
+
+## [Azure Storage-clienthulpprogramma’s](storage-explorers.md)
+
+## Ondersteuning voor community
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-### [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+### [MSDN-forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
-## Nuget packages
-### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-### [Azure Storage Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
+## Nuget-pakketten
+### [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+### [Azure Storage-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 ### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 
-## Source code
+## Broncode
 
 ### .NET
-#### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-#### [Data Movement](https://docs.microsoft.com/dotnet/api/)
-#### [Resource Provider](https://docs.microsoft.com/dotnet/api/)
+#### [Blob, wachtrij, tabel en bestand](https://docs.microsoft.com/dotnet/api/)
+#### [Gegevensverplaatsing](https://docs.microsoft.com/dotnet/api/)
+#### [Resourceprovider](https://docs.microsoft.com/dotnet/api/)
 
 ### [Node.js](http://azure.github.io/azure-storage-node/)
 ### [Java](https://github.com/Azure/azure-storage-java)

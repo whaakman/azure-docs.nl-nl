@@ -1,33 +1,33 @@
-# Overview
-## [ACS introduction](container-service-intro.md)
-# Get Started
+# Overzicht
+## [Inleiding tot ACS](container-service-intro.md)
+# Aan de slag
 
-## [Deploy an ACS cluster](container-service-deployment.md)
-## [Connect with an ACS cluster](container-service-connect.md)
-## [Scale an ACS cluster](container-service-scale.md)
+## [Een ACS-cluster implementeren](container-service-deployment.md)
+## [Verbinding maken met een ACS-cluster](container-service-connect.md)
+## [Een ACS-cluster schalen](container-service-scale.md)
 
-# How To
+# Procedures
 
-## Manage with DC/OS
-### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
-### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [DC/OS Agent pools](container-service-dcos-agents.md)
-### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance containers in DC/OS](container-service-load-balancing.md)
-### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## Manage with Docker Swarm
-### [Docker Swarm Overview](container-service-docker-swarm.md)
+## Beheren met DC/OS
+### [Containerbeheer - web-UI van DC/OS](container-service-mesos-marathon-ui.md)
+### [Containerbeheer - REST-API van DC/OS](container-service-mesos-marathon-rest.md)
+### [Agentpools van DC/OS](container-service-dcos-agents.md)
+### [Openbare toegang van DC/OS inschakelen](container-service-enable-public-access.md)
+### [Taakverdelingscontainers in DC/OS](container-service-load-balancing.md)
+### [App-/gebruikerspecifieke Orchestrator in DC/OS](container-service-application-specific-marathon.md)
+### [Controleren met Datadog (DC/OS)](container-service-monitoring.md)
+### [Controleren met Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
+## Beheren met Docker Swarm
+### [Overzicht van Docker Swarm](container-service-docker-swarm.md)
 
-# Reference
+# Naslaginformatie
 
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST-API](https://go.microsoft.com/fwlink/p/?linkid=833499)
 
-# Resources
+# Bronnen
 
-## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Beschikbaarheid in regio’s](https://azure.microsoft.com/regions/services/)
+## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

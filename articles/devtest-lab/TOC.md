@@ -1,35 +1,35 @@
-# Overview
-## [What is DevTest Labs?](devtest-lab-overview.md)
-## [Why DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs concepts](devtest-lab-concepts.md)
+# Overzicht
+## [Wat is DevTest Labs?](devtest-lab-overview.md)
+## [Waarom DevTest Labs?](devtest-lab-why.md)
+## [DevTest Labs-concepten](devtest-lab-concepts.md)
 
-# Get Started
-## [Create a lab](devtest-lab-create-lab.md)
-## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
-## [Create a lab for training](devtest-lab-training-lab.md)
-## [FAQ](devtest-lab-faq.md)
+# Aan de slag
+## [Een lab maken](devtest-lab-create-lab.md)
+## [VM-artefacten maken](devtest-lab-add-vm-with-artifacts.md)
+## [Een lab maken voor training](devtest-lab-training-lab.md)
+## [Veelgestelde vragen](devtest-lab-faq.md)
 
-# How To
-## Manage Labs
-### [Add lab owners and users](devtest-lab-add-devtest-user.md)
-### [Define lab policies](devtest-lab-set-lab-policy.md)
-### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Configure cost management](devtest-lab-configure-cost-management.md)
-### [Configure virtual networks](devtest-lab-configure-vnet.md)
+# Procedures
+## Labs beheren
+### [Eigenaars en gebruikers van een lab toevoegen](devtest-lab-add-devtest-user.md)
+### [Beleid voor lab maken](devtest-lab-set-lab-policy.md)
+### [Machtigingen verlenen voor beleid](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
+### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
 
-## Manage Artifacts
-### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
-### [Create custom artifacts](devtest-lab-artifact-author.md)
+## Artefacten beheren
+### [Een artefactenopslagplaats toevoegen](devtest-lab-add-artifact-repo.md)
+### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
 
-## Manage VM bases
-### [Create custom image](devtest-lab-create-template.md)
-### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
-### [Manage formulas](devtest-lab-manage-formulas.md)
-### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
+## VM-basissen beheren
+### [Aangepaste installatiekopie maken](devtest-lab-create-template.md)
+### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
+### [Formules beheren](devtest-lab-manage-formulas.md)
+### [Installatiekopieën met formules vergelijken](devtest-lab-comparing-vm-base-image-types.md)
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+# Bronnen
+## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 
 
 
