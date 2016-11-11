@@ -1,68 +1,68 @@
-# Overview
-## [What is RemoteApp?](remoteapp-whatis.md)
-## [How does licensing work?](remoteapp-licensing.md)
-## [FAQ](remoteapp-faq.md)
-## [What's new?](remoteapp-whatsnew.md)
-## [What's coming?](remoteapp-roadmap.md)
-## [Azure service limits](../azure-subscription-service-limits.md)
-## Will my app work?
-### [App requirements](remoteapp-appreqs.md)
-### [OneDrive for Business](remoteapp-onedrive.md)
+# Overzicht
+## [Wat is RemoteApp?](remoteapp-whatis.md)
+## [Hoe werkt licentieverlening?](remoteapp-licensing.md)
+## [Veelgestelde vragen](remoteapp-faq.md)
+## [Nieuwe functies](remoteapp-whatsnew.md)
+## [Wat kunt u verwachten?](remoteapp-roadmap.md)
+## [Beperkingen van Azure-service](../azure-subscription-service-limits.md)
+## Werkt mijn app?
+### [App-vereisten](remoteapp-appreqs.md)
+### [OneDrive voor Bedrijven](remoteapp-onedrive.md)
 ### [SQL Azure](remoteapp-sql.md)
 ### [Office 365](remoteapp-o365.md)
 ### [Outlook 2013](remoteapp-outlook.md)
-### [Using App-V apps](remoteapp-appv.md)
-### [QuickBooks on Azure RemoteApp](remoteapp-quickbooks.md)
+### [App-V-apps gebruiken](remoteapp-appv.md)
+### [QuickBooks op Azure RemoteApp](remoteapp-quickbooks.md)
 ### [Microsoft Dynamics AX](https://mbs.microsoft.com/customersource/global/ax/learning/documentation/msdax2012r3azremappprg)
-### [Secure Apps and resources](remoteapp-secure.md)
+### [Beveiligde apps en resources](remoteapp-secure.md)
 
 
-# Get Started
-## Real world scenarios
-### [Run any app on any device](remoteapp-anyapp.md)
-### [Run Office 365 on any device](remoteapp-tutorial-o365anywhere.md)
+# Aan de slag
+## Praktijkvoorbeelden
+### [Elke app uitvoeren op een willekeurig apparaat](remoteapp-anyapp.md)
+### [Office 365 uitvoeren op een willekeurig apparaat](remoteapp-tutorial-o365anywhere.md)
 
-# How To
+# Procedures
 
-## Create a RemoteApp collection
-### [Which collection do you need?](remoteapp-collections.md)
-### [Create a cloud collection](remoteapp-create-cloud-deployment.md)
-### [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
-### [Update your collection](remoteapp-update.md)
-### [Create a RemoteApp image](remoteapp-imageoptions.md)
-### [What is in the template image?](remoteapp-images.md)
-### [Image requirements](remoteapp-imagereqs.md)
-### [Upload an image](remoteapp-uploadimage.md)
-### [Create an image from an Azure VM](remoteapp-image-on-azurevm.md)
-## Configure a Virtual Network
-### [Plan your VNET](remoteapp-planvnet.md)
-### [Port and URL info](remoteapp-ports.md)
-### [Validate your VNET](remoteapp-vnet.md)
-### [Migrate to an Azure VNET](remoteapp-migratevnet.md)
-## Publish applications
-### [How to publish an app](remoteapp-publish.md)
-## Manage users
-### [How to add users](remoteapp-user.md)
-### [Configure Active Directory](remoteapp-ad.md)
-### [Change the Azure AD tenant](remoteapp-changetenant.md)
-### [Office 365 user accounts](remoteapp-o365user.md)
-### [Secure Data](remoteapp-secureaccess.md)
-### [User data](remoteapp-upd.md)
-## Client experience
-### [Supported clients](remoteapp-clients.md)
-### [Configure redirection](remoteapp-redirection.md)
-### [Client best practices](remoteapp-clientbestpractices.md)
-## Automate RemoteApp
-### [RemoteApp PowerShell cmdlets](remoteapp-tutorial-arawithpowershell.md)
-### [Manage RemoteApp with Azure Automation](automation-manage-remote-app.md)
-## Stay current with RemoteApp
+## Een RemoteApp-verzameling maken
+### [Welke verzameling hebt u nodig?](remoteapp-collections.md)
+### [Een cloudverzameling maken](remoteapp-create-cloud-deployment.md)
+### [Een hybride verzameling maken](remoteapp-create-hybrid-deployment.md)
+### [Uw verzameling bijwerken](remoteapp-update.md)
+### [Een RemoteApp-installatiekopie maken](remoteapp-imageoptions.md)
+### [Wat is opgenomen in de sjablooninstallatiekopie?](remoteapp-images.md)
+### [Vereisten voor installatiekopieën](remoteapp-imagereqs.md)
+### [Een installatiekopie uploaden](remoteapp-uploadimage.md)
+### [Een installatiekopie maken van een Azure VM](remoteapp-image-on-azurevm.md)
+## Een virtueel netwerk configureren
+### [Uw VNET plannen](remoteapp-planvnet.md)
+### [Poort- en URL-gegevens](remoteapp-ports.md)
+### [Uw VNET valideren](remoteapp-vnet.md)
+### [Migreren naar een Azure VNET](remoteapp-migratevnet.md)
+## Toepassingen publiceren
+### [Een app publiceren](remoteapp-publish.md)
+## Gebruikers beheren
+### [Gebruikers toevoegen](remoteapp-user.md)
+### [Active Directory configureren](remoteapp-ad.md)
+### [De Azure AD-tenant wijzigen](remoteapp-changetenant.md)
+### [Office 365-gebruikersaccounts](remoteapp-o365user.md)
+### [Beveiligde gegevens](remoteapp-secureaccess.md)
+### [Gebruikersgegevens](remoteapp-upd.md)
+## Clientervaring
+### [Ondersteunde clients](remoteapp-clients.md)
+### [Omleiding configureren](remoteapp-redirection.md)
+### [Aanbevolen procedures voor clients](remoteapp-clientbestpractices.md)
+## RemoteApp automatiseren
+### [PowerShell-cmdlets van RemoteApp](remoteapp-tutorial-arawithpowershell.md)
+### [RemoteApp beheren met Azure Automation](automation-manage-remote-app.md)
+## Actueel blijven met RemoteApp
 ### [Forums](http://feedback.azure.com/forums/247748-azure-remoteapp)
 ### [Feedback](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Support](https://azure.microsoft.com/support/plans/)
-### [Service status](https://azure.microsoft.com/status/)
-## Troubleshoot
-### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
-### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+### [Ondersteuning](https://azure.microsoft.com/support/plans/)
+### [Servicestatus](https://azure.microsoft.com/status/)
+## Problemen oplossen
+### [Problemen met een hybride verzameling oplossen](remoteapp-hybridtrouble.md)
+### [Problemen met een cloudverzameling oplossen](remoteapp-cloudtrouble.md)
 
 
 <!--HONumber=Nov16_HO2-->

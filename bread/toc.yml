@@ -6,16 +6,16 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/active-directory-whatis
     items:
-      - name: "Connect"
+      - name: "Verbinding maken"
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
-      - name: "Develop"
+      - name: "Ontwikkelen"
         tocHref: /azure/active-directory/develop/
         topicHref: azure/active-directory/develop/
       - name: "Privileged Identity Management"
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-  - name: "Active Directory B2C"
+  - name: "Active Directory business-to-consumer"
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/active-directory-b2c-overview
   - name: "Active Directory Domain Services"
@@ -30,16 +30,16 @@
   - name: "App Service"
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: "API Apps"
+  - name: "API-apps"
     tocHref: /azure/app-service-api/
     topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
   - name: "Logic Apps"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: "App Service Mobile"
+  - name: "App Service - Mobiel"
     tocHref: /azure/app-service-mobile/
     topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: "App Service Web"
+  - name: "App Service - Web"
     tocHref: /azure/app-service-web/
     topicHref: /azure/app-service-web/app-service-web-overview
   - name: "Application Gateway"
@@ -48,13 +48,13 @@
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "Automation"
+  - name: "Automatisering"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
   - name: "Functions"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
-  - name: "Government"
+  - name: "Overheid"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/documentation-government-overview
   - name: "Portal"
@@ -66,19 +66,19 @@
   - name: "Azure Stack"
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/azure-stack-poc
-  - name: "Supportability"
+  - name: "Ondersteuning"
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
-  - name: "Backup"
+  - name: "Back-up maken"
     tocHref: /azure/backup/
     topicHref: /azure/backup/backup-introduction-to-azure-backup
   - name: "Batch"
     tocHref: /azure/batch/
     topicHref: /azure/batch/batch-technical-overview
-  - name: "Billing"
+  - name: "Facturering"
     tocHref: /azure/billing/
     topicHref: /azure/billing/../billing-use-existing-office-365-account-azure-subscription
-  - name: "Biztalk Services"
+  - name: "BizTalk Services"
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
   - name: "Cache"
@@ -87,7 +87,7 @@
   - name: "CDN"
     tocHref: /azure/cdn/
     topicHref: /azure/cdn/cdn-overview
-  - name: "Cloud Services"
+  - name: "Cloudservices"
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/cloud-services-choose-me
   - name: "Cognitive Services"
@@ -126,7 +126,7 @@
   - name: "Expressroute"
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/expressroute-introduction
-  - name: "Guidance"
+  - name: "Richtlijnen"
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/guidance-resiliency-overview
   - name: "HDInsight"
@@ -141,7 +141,7 @@
   - name: "Key Vault"
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/key-vault-whatis
-  - name: "Load Balancer"
+  - name: "Load balancer"
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/load-balancer-overview
   - name: "Log Analytics"
@@ -150,10 +150,10 @@
   - name: "Machine Learning"
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/machine-learning-faq
-  - name: "Marketplace Consumer"
+  - name: "Marketplace-klant"
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
-  - name: "Marketplace Publishing"
+  - name: "Marketplace-publicatie"
     tocHref: /azure/marketplace-publishing/
     topicHref: /azure/marketplace-publishing/
   - name: "Media Services"
@@ -165,17 +165,17 @@
   - name: "Mobile Services"
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: "Monitoring And Diagnostics"
+  - name: "Controle en diagnose"
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/monitoring-and-diagnostics/../azure-portal/monitoring-get-started
-  - name: "Multi-Factor Authentication"
+  - name: "Meervoudige verificatie"
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
     items:
-      - name: "User Guide"
+      - name: "Gebruikershandleiding"
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
-  - name: "Notification Hubs"
+  - name: "Meldingshubs"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview
   - name: "Operations Management Suite"
@@ -187,13 +187,13 @@
   - name: "Redis Cache"
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq
-  - name: "Remoteapp"
+  - name: "RemoteApp"
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/remoteapp-whatis
-  - name: "Resiliency"
+  - name: "Flexibiliteit"
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
-  - name: "Resource Health"
+  - name: "Status van resources"
     tocHref: /azure/resource-health/
     topicHref: /azure/resource-health/
   - name: "Scheduler"
@@ -202,7 +202,7 @@
   - name: "Search"
     tocHref: /azure/search/
     topicHref: /azure/search/search-what-is-azure-search
-  - name: "Security"
+  - name: "Beveiliging"
     tocHref: /azure/security/
     topicHref: /azure/security/azure-security-getting-started
   - name: "Security Center"
@@ -211,7 +211,7 @@
   - name: "Service Bus"
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/../service-bus-messaging/service-bus-queues-topics-subscriptions
-  - name: "Service Bus Messaging"
+  - name: "Service Bus-berichten"
     tocHref: /azure/service-bus-messaging/
     topicHref: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
   - name: "Service Bus Relay"
@@ -244,10 +244,10 @@
   - name: "Traffic Manager"
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/traffic-manager-overview
-  - name: "Virtual Machine Scale Sets"
+  - name: "Schaalsets voor virtuele machines"
     tocHref: /azure/virtual-machine-scale-sets/
     topicHref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-  - name: "Virtual Machines"
+  - name: "Virtuele machines"
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
     items:
@@ -255,14 +255,14 @@
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/virtual-machines-linux-azure-overview
         items:
-          - name: "Classic Deployment"
+          - name: "Klassieke implementatie"
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: "Windows"
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/virtual-machines-windows-about
         items:
-          - name: "Classic Deployment"
+          - name: "Klassieke implementatie"
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
   - name: "Virtual Network"

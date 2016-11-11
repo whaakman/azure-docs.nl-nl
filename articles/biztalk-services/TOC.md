@@ -1,42 +1,42 @@
-# Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+# Overzicht
+## [Overzicht van hybride verbindingen](integration-hybrid-connection-overview.md)
 
-# Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
-# How To
+# Aan de slag
+## [BizTalk Services maken met de Azure Portal](biztalk-provision-services.md)
+# Procedures
 
-## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
-### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
+## Plannen en ontwerpen
+### [Grafiek van edities](biztalk-editions-feature-chart.md)
+### [Takenlijst voor beheer en ontwikkelaar](biztalk-services-administration-and-development-task-list.md)
 
-## Backup
-### [Backup and restore](biztalk-backup-restore.md)
+## Back-up maken
+### [Back-up en herstel](biztalk-backup-restore.md)
 
-## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
+## Configureren
+### [BizTalk Services: beperking](biztalk-throttling-thresholds.md)
+### [De tabbladen Dashboard, Controleren, Schaal, Configureren en Hybride verbinding controleren](biztalk-dashboard-monitor-scale-tabs.md)
 
-## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+## Integreren
+### [Hybride verbindingen maken en beheren](integration-hybrid-connection-create-manage.md)
 
-## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
+## Migreren
+### [BizTalk Server EDI-oplossingen migreren naar BizTalk Services](biztalk-migrating-to-edi-guide.md)
 
-## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
+## Controleren
+### [BizTalk Services: servicestatusgrafiek](biztalk-service-state-chart.md)
 
-## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
+## Beveiligen
+### [Naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)
 
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+## Problemen oplossen
+### [Problemen oplossen met bewerkingslogboeken](biztalk-troubleshoot-using-ops-logs.md)
 
-# Reference
+# Naslaginformatie
 
-# Related
+# Verwant
 
-# Resources
-## [Release Notes](biztalk-release-notes.md)
+# Bronnen
+## [Releaseopmerkingen](biztalk-release-notes.md)
 
 
 <!--HONumber=Nov16_HO2-->

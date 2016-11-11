@@ -1,79 +1,81 @@
-# Overview
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
-## [What is Azure Automation?](automation-intro.md)
-## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-## [Release notes](https://azure.microsoft.com/updates/?product=automation)
-# Get started
-## [Security in Azure Automation](automation-security-overview.md)
-## [My first runbook](automation-first-runbook-graphical.md)
-## [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
-## [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
-## [Role-based access control in Azure Automation](automation-role-based-access-control.md)
-## [Azure Automation training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+# Overzicht
+## [Wat is Azure Automation?](automation-intro.md)
+## [Beveiliging in Azure Automation](automation-security-overview.md)
 
-# How to
-## Process Automation (Runbooks)
-### [Start a runbook](automation-starting-a-runbook.md)
-### [Start a runbook from a web call](automation-webhooks.md)
-### [Scheduling a runbook in Azure Automation](automation-scheduling-a-runbook.md)
-### [Running runbooks in your datacenter](automation-hybrid-runbook-worker.md)
-### [Runbook input parameters](automation-runbook-input-parameters.md)
-### [Track a runbook job](automation-runbook-execution.md)
-### [Runbook settings](automation-runbook-settings.md)
-### [Managing Azure Automation data](automation-managing-data.md)
-## Author runbooks
-### [Runbook types](automation-runbook-types.md)
-### [Create and import runbooks](automation-creating-importing-runbook.md)
-### [Edit textual runbooks](automation-edit-textual-runbook.md)
-### [Edit graphical runbooks](automation-graphical-authoring-intro.md)
-### [Test a runbook](automation-testing-runbook.md)
-### [Learning PowerShell Workflow](automation-powershell-workflow.md)
-### [Child runbooks](automation-child-runbooks.md)
-### [Runbook output](automation-runbook-output-and-messages.md)
-### [Source control integration](automation-source-control-integration.md)
-## Configuration Management (DSC)
+# Aan de slag
+## [Runbook maken](automation-first-runbook-graphical.md)
+## [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
+## [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
+## [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
+
+
+# Procedures
+## Runbooks maken
+### [Runbooktypen](automation-runbook-types.md)
+### [Runbooks maken en importeren](automation-creating-importing-runbook.md)
+### [Tekstrunbooks bewerken](automation-edit-textual-runbook.md)
+### [Grafische runbooks bewerken](automation-graphical-authoring-intro.md)
+### [Een runbook testen](automation-testing-runbook.md)
+### [PowerShell Workflow leren kennen](automation-powershell-workflow.md)
+### [Onderliggende runbooks](automation-child-runbooks.md)
+### [Runbook-uitvoer](automation-runbook-output-and-messages.md)
+### [Integratie van bronbeheer](automation-source-control-integration.md)
+## Runbooks automatiseren
+### [Een runbook starten](automation-starting-a-runbook.md)
+### [Een runbook starten vanuit een webaanroep](automation-webhooks.md)
+### [Een runbook plannen](automation-scheduling-a-runbook.md)
+### [Runbooks uitvoeren in uw datacenter](automation-hybrid-runbook-worker.md)
+### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
+### [Een runbook-taak volgen](automation-runbook-execution.md)
+### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
+### [Azure Automation-gegevens beheren](automation-managing-data.md)
+## Configuration Management (DSC) implementeren
 ### [Desired State Configuration (DSC)](automation-dsc-overview.md)
-### [Getting started](automation-dsc-getting-started.md)
-### [Onboarding machines for management](automation-dsc-onboarding.md)
-### [Compiling DSC configurations](automation-dsc-compile.md)
-### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
-## Authenticate
-### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
+### [Aan de slag](automation-dsc-getting-started.md)
+### [Onboarding van machines voor beheer](automation-dsc-onboarding.md)
+### [DSC-configuraties compileren](automation-dsc-compile.md)
+### [Doorlopende implementatie met Chocolatey](automation-dsc-cd-chocolatey.md)
+## Verificatie instellen
+### [Beheer van Azure-services en Resource Manager](automation-sec-configure-aduser-account.md)
 ### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ### [Azure RunAs account](automation-sec-configure-azure-runas-account.md)
-## Automation assets
-### [Certificates](automation-certificates.md)
-### [Connections](automation-connections.md)
-### [Credentials](automation-credentials.md)
-### [Integration Modules](automation-integration-modules.md)
-### [Schedules](automation-schedules.md)
-### [Variables](automation-variables.md)
-## Scenarios
-### [Runbook gallery](automation-runbook-gallery.md)
-### [Start/Stop virtual machines](automation-solution-startstopvm-graphical.md)
-### [Start/Stop virtual machines with PowerShell](automation-solution-startstopvm-psworkflow.md)
-### [Create Amazon Web Service VM](automation-scenario-aws-deployment.md)
-### [Remediate Azure VM alert](automation-azure-vm-alert-integration.md)
-### [Start/Stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
-### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
-## Solutions
-### [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
+## Automatiseringsactiva beheren
+### [Certificaten](automation-certificates.md)
+### [Verbindingen](automation-connections.md)
+### [Referenties](automation-credentials.md)
+### [Integratiemodules](automation-integration-modules.md)
+### [Schema’s](automation-schedules.md)
+### [Variabelen](automation-variables.md)
+## Scenario's automatiseren
+### [Runbook-galerie](automation-runbook-gallery.md)
+### [Virtuele machines starten/stoppen](automation-solution-startstopvm-graphical.md)
+### [Virtuele machines met PowerShell starten/stoppen](automation-solution-startstopvm-psworkflow.md)
+### [Een Amazon Web Service-VM maken](automation-scenario-aws-deployment.md)
+### [Een Azure VM-waarschuwing verhelpen](automation-azure-vm-alert-integration.md)
+### [VM starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
+### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
+### [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 
-## Manage
-### [Forward job logs and status to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md)
-## Migrate
-### [Migrate from Orchestrator](automation-orchestrator-migration.md)
-### [Move Automation Account](automation-migrate-account-subscription.md)
-# Reference
-## [Automation cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Classic Deployment Rest Reference](https://msdn.microsoft.com/library/azure/mt163781)
-# Resources
-## Troubleshooting
-### [Troubleshooting tips for common errors in Azure Automation](automation-troubleshooting-automation-errors.md)
-### [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+## [Controle](automation-manage-send-joblogs-log-analytics.md)
 
+## Migreren
+### [Migreren vanuit Orchestrator](automation-orchestrator-migration.md)
+### [Automation-account verplaatsen](automation-migrate-account-subscription.md)
 
+## Problemen oplossen
+### [Veelvoorkomende problemen oplossen](automation-troubleshooting-automation-errors.md)
+### [Runbook-taak onderbroken](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+
+# Naslaginformatie
+## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)
+## [PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
+## [REST API voor Resource Manager](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [Klassieke implementatie Rest](https://msdn.microsoft.com/library/azure/mt163781)
+
+# Bronnen
+## [Azure Automation-training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
+## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
 
