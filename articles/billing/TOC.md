@@ -1,0 +1,40 @@
+# Aan de slag
+## [Gratis account maken](https://azure.microsoft.com/free/)
+## [Aanmelden met Office 365-account](../billing-use-existing-office-365-account-azure-subscription.md)
+## [Abonnementsprijzen](https://azure.microsoft.com/pricing/)
+## [Ondersteunde landen en valuta](../billing-countries-and-currencies.md)
+## [Limieten en quota](../azure-subscription-service-limits.md)
+## [Veelgestelde vragen](../billing-subscription-faq.md)
+# Procedures
+## Gebruik en kosten bijhouden
+### [Factuur- en gebruiksgegevens downloaden](../billing-download-azure-invoice-daily-usage-date.md)
+### [Meer informatie over uw factuur](billing-understand-your-bill.md)
+### [Meer informatie over externe servicekosten](../billing-understand-your-azure-marketplace-charges.md)
+### [Meldingen voor facturering instellen](../billing-set-up-alerts.md)
+### [Verschuldigd bedrag betalen](../billing-azure-subscription-past-due-balance.md)
+## Abonnementen beheren
+### [Beheerdersrollen beheren](../billing-add-change-azure-subscription-administrator.md)
+### [Eigendom van het abonnement overdragen](../billing-subscription-transfer.md)
+### [Een uitgeschakeld abonnement opnieuw activeren](../billing-subscription-become-disable.md)
+### [Upgrade uitvoeren van een gratis abonnement](../billing-upgrade-azure-subscription.md)
+### [Overschakelen naar een ander abonnement](../billing-how-to-switch-azure-offer.md)
+### [Abonnement annuleren](../billing-how-to-cancel-azure-subscription.md)
+## Account beheren
+### [Profiel bewerken](../billing-how-to-change-azure-account-profile.md)
+### [Betalingsgegevens bijwerken](../billing-how-to-change-credit-card.md)
+### [Office 365-tenant koppelen](../billing-add-office-365-tenant-to-azure-subscription.md)
+# Naslaginformatie
+## [API-overzicht](../billing-usage-rate-card-overview.md)
+## [Naslaginformatie over de REST-API](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [Partneroplossing: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Partneroplossing: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
+# Problemen oplossen
+## [Registratieproblemen](../billing-troubleshoot-azure-sign-up-issues.md)
+## [Geweigerde kaart](../billing-credit-card-fails-during-azure-sign-up.md)
+## [Aanmeldingsproblemen](../billing-cannot-login-subscription.md)
+# Ondersteuning
+## [Contact opnemen met ondersteuning](../billing-how-to-create-billing-support-ticket.md)
+
+<!--HONumber=Nov16_HO2-->
+
+
