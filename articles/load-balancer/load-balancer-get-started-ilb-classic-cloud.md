@@ -1,44 +1,48 @@
 ---
-title: Create an internal load balancer for cloud services in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
+title: Een interne load balancer voor cloudservices maken in het klassieke implementatiemodel | Microsoft Docs
+description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85e22954c19d7d51579029c7426f0ee79b780504
 
 ---
-# Get started creating an internal load balancer (classic) for cloud services
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
-<BR>
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Aan de slag met het maken van een interne load balancer (klassiek) voor cloudservices
+
+[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
-## Configure internal load balancer for cloud services
-Internal load balancer is supported for both virtual machines and cloud services. An internal load balancer endpoint created in a cloud service that is outside a regional virtual network will be accessible only within the cloud service.
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Een interne load balancer configureren voor cloudservices
 
-The internal load balancer configuration has to be set during the creation of the first deployment in the cloud service, as shown in the sample below.
+Een interne load balancer wordt ondersteund voor zowel virtuele machines als cloudservices. Een eindpunt van een interne load balancer in een cloudservice buiten een regionaal virtueel netwerk is alleen toegankelijk in de cloudservice.
+
+De interne load balancer moet worden geconfigureerd wanneer de eerste implementatie in de cloudservice wordt gemaakt, zoals u in het voorbeeld hieronder kunt zien.
 
 > [!IMPORTANT]
-> A prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the Internal Load Balancing.
-> 
-> 
+> Om de volgende stappen uit te kunnen voeren, moet er al een virtueel netwerk voor de cloudimplementatie zijn gemaakt. U hebt de naam van het virtuele netwerk en van het subnet nodig om de Interne taakverdeling te kunnen maken.
 
-### Step 1
-Open the service configuration file (.cscfg) for your cloud deployment in Visual Studio and add the following section to create the Internal Load Balancing under the last "`</Role>`" item for the network configuration.
+### <a name="step-1"></a>Stap 1
 
+Open het serviceconfiguratiebestand (.cscfg) voor de cloudimplementatie in Visual Studio en voeg de volgende sectie toe om de Interne taakverdeling te maken onder het laatste '`</Role>`'-item van de netwerkconfiguratie.
+
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="name of the load balancer">
@@ -46,10 +50,11 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
+U gaat nu de waarden voor het netwerkconfiguratiebestand toevoegen om te zien hoe het eruitziet. In het voorbeeld wordt ervan uitgegaan dat u een subnet test_vnet hebt gemaakt met subnet 10.0.0.0/24 met de naam test_subnet en een statisch IP-adres 10.0.0.4. De load balancer wordt testLB genoemd.
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
-
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="testLB">
@@ -57,30 +62,43 @@ Let's add the values for the network configuration file to show how it will look
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
-For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+Voor meer informatie over het load balancer-schema raadpleegt u [Add Load Balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Load balancer toevoegen).
 
-### Step 2
-Change the service definition (.csdef) file to add endpoints to the Internal Load Balancing. The moment a role instance is created, the service definition file will add the role instances to the Internal Load Balancing.
+### <a name="step-2"></a>Stap 2
 
+Wijzig het servicedefinitiebestand (.csdef) om eindpunten aan de Interne taakverdeling toe te voegen. Op het moment dat er een rolinstantie wordt gemaakt, voegt het servicedefinitiebestand de rolinstanties aan de Interne taakverdeling toe.
+
+```xml
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
       </Endpoints>
     </WorkerRole>
+```
 
-Following the same values from the example above, let's add the values to the service definition file.
+U gaat nu met dezelfde waarden uit bovenstaand voorbeeld de waarden aan het servicedefinitiebestand toevoegen.
 
-    <WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+```xml
+    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
       </Endpoints>
     </WorkerRole>
+```
 
-The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.
+Het netwerkverkeer krijgt een gelijke taakverdeling met load balancer testLB die poort 80 gebruikt voor binnenkomende aanvragen en verzendt naar werkrolinstanties, eveneens op poort 80.
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Volgende stappen
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Een distributiemodus voor de load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
+
+[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

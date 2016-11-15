@@ -4,19 +4,23 @@ description: In deze zelfstudie ziet u hoe u een Java-web-app implementeert in A
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d6e73cc3-8b71-4742-a197-3edeabc6a289
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+
 
 ---
-# Een Java web-app maken in Azure App Service
+# <a name="create-a-java-web-app-in-azure-app-service"></a>Een Java web-app maken in Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 In deze zelfstudie ziet u hoe u met behulp van de [Azure Portal] een Java-[web-app maakt in Azure App Service]. De Azure Portal is een webinterface waarmee u Azure-resources kunt beheren.
@@ -28,7 +32,7 @@ In deze zelfstudie ziet u hoe u met behulp van de [Azure Portal] een Java-[web-a
 > 
 > 
 
-## Opties voor Java-toepassingen
+## <a name="java-application-options"></a>Opties voor Java-toepassingen
 Er zijn verschillende manieren waarop u een Java-toepassing kunt instellen in een web-app van App Service. 
 
 1. Maak een app en configureer **Toepassingsinstellingen**.
@@ -48,7 +52,7 @@ Er zijn verschillende manieren waarop u een Java-toepassing kunt instellen in ee
      
      In dergelijke gevallen kunt u een app maken met de Azure Portal en vervolgens de juiste runtime-bestanden handmatig opgeven. De bestanden tellen dan wel mee voor het opslagruimtequotom van uw App Service-plan. Voor meer informatie raadpleegt u [Een aangepaste Java-web-app uploaden naar Azure].
 
-## <a name="portal"></a> Een Java-web-app maken en configureren
+## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a> Een Java-web-app maken en configureren
 In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java configureert met de blade **Toepassingsinstellingen** van de portal.
 
 1. Meld u aan bij de [Azure Portal].
@@ -67,7 +71,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
 6. Klik op **Create**.
    
     ![Web-app maken][newwebapp2]
-7. Klik op **Web-apps > {uw web-app}** wanneer de web-app is gemaakt.
+7. Klik op **Web Apps > {uw web-app}** wanneer de web-app is gemaakt.
    
     ![Web-app selecteren][selectwebapp]
 8. Klik op de blade **Web-app** op **Instellingen**.
@@ -85,7 +89,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
     
     Op de webpagina wordt bevestigd dat u een op Java gebaseerde web-app hebt gemaakt.
 
-## <a name="marketplace"></a> Een Java-sjabloon gebruiken uit Azure Marketplace
+## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Een Java-sjabloon gebruiken uit Azure Marketplace
 In deze sectie wordt beschreven hoe u Azure Marketplace gebruikt om een Java-web-app te maken. Dezelfde algemene werkwijze kan ook worden gebruikt om een op Java gebaseerde mobiele app of API-app te maken. 
 
 1. Meld u aan bij de [Azure Portal]
@@ -131,7 +135,7 @@ In deze sectie wordt beschreven hoe u Azure Marketplace gebruikt om een Java-web
 
 Nu u de web-app met een app-container hebt gemaakt, gaat u naar de sectie [Volgende stappen](#next-steps) voor meer informatie over het uploaden van de toepassing naar de web-app.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit stadium hebt u een werkende Java-toepassingsserver in uw web-app in Azure App Service. Als u uw eigen code in de web-app wilt implementeren, raadpleegt u [Een toepassing of webpagina toevoegen aan uw Java-web-app].
 
 In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van Java-toepassingen in Azure.
@@ -154,7 +158,7 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
 [selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
-[versions]: ./media/web-sites-java-get-started/versions.png
+[versies]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
@@ -165,6 +169,6 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

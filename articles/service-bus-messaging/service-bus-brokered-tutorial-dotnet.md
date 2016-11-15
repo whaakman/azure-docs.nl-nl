@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Service Bus Brokered Messaging .NET-zelfstudie
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Service Bus Brokered Messaging .NET-zelfstudie
 Azure Service Bus biedt twee uitgebreide oplossingen voor berichtverzending. De eerste via een gecentraliseerde ‘relayservice’, die wordt uitgevoerd in de cloud en tal van verschillende transportprotocollen en standaarden voor webservices ondersteunt, met inbegrip van SOAP, WS-* en REST. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
 
 De tweede oplossing voor berichtverzending geeft ‘brokered messaging’-mogelijkheden. Deze kunnen worden beschouwd als functies voor asynchrone of ontkoppelde berichtverzending, die ondersteuning bieden voor publiceren-abonneren, tijdelijke ontkoppeling en scenario's voor taakverdeling met behulp van de Service Bus-infrastructuur voor berichtverzending. Ontkoppelde communicatie heeft veel voordelen; clients en servers kunnen bijvoorbeeld naar behoefte verbinding maken en hun bewerkingen asynchroon uitvoeren.
 
-Deze zelfstudie is bedoeld om u een overzicht van en praktische ervaring met wachtrijen te geven, een van de belangrijkste onderdelen van Service Bus Brokered Messaging. Wanneer u de onderwerpen in deze zelfstudie hebt doorlopen, hebt u een toepassing die een lijst met berichten vult, een wachtrij maakt en berichten naar die wachtrij verzendt. Tot slot ontvangt de toepassing de berichten uit de wachtrij en geeft deze weer, waarna hij de resources opschoont en zichzelf afsluit. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een bijbehorende zelfstudie waarin wordt beschreven hoe u een toepassing bouwt die de Service Bus Relay gebruikt.
+Deze zelfstudie is bedoeld om u een overzicht van en praktische ervaring met wachtrijen te geven, een van de belangrijkste onderdelen van Service Bus Brokered Messaging. Wanneer u de onderwerpen in deze zelfstudie hebt doorlopen, hebt u een toepassing die een lijst met berichten vult, een wachtrij maakt en berichten naar die wachtrij verzendt. Tot slot ontvangt de toepassing de berichten uit de wachtrij en geeft deze weer, waarna hij de resources opschoont en zichzelf afsluit. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een bijbehorende zelfstudie waarin wordt beschreven hoe u een toepassing bouwt die de Service Bus WCF Relay gebruikt.
 
 ## <a name="introduction-and-prerequisites"></a>Inleiding en vereisten
 Wachtrijen maken gebruik van het FIFO-principe (first in, first out) voor de berichtbezorging naar een of meer concurrerende consumenten. FIFO wil zeggen dat doorgaans wordt verwacht dat berichten door de ontvangers worden ontvangen en verwerkt in de tijdsvolgorde waarin ze aan de wachtrij zijn toegevoegd, en dat elk bericht slechts door één berichtenconsument ontvangen en verwerkt wordt. Een belangrijk voordeel van het gebruik van wachtrijen is dat *tijdelijke ontkoppeling* van toepassingsonderdelen kan worden bereikt: met andere woorden, de producenten en consumenten hoeven de berichten niet op hetzelfde moment te verzenden en te ontvangen, omdat berichten blijvend worden opgeslagen in de wachtrij. Een bijkomend voordeel is *load leveling*, waardoor producenten en consumenten berichten met verschillende snelheden kunnen verzenden en ontvangen.
@@ -29,7 +33,7 @@ Wachtrijen maken gebruik van het FIFO-principe (first in, first out) voor de ber
 Hieronder volgen enkele administratieve en vereiste stappen die u moet uitvoeren voordat u met de zelfstudie begint. De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Een servicenaamruimte maken en een SAS-sleutel ophalen
-De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](../service-bus/service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
+De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Nu u de voorgaande stappen hebt voltooid, kunt u de **QueueSample**-toepassing b
 Klik in het menu **Ontwikkelen** in Visual Studio op **Oplossing ontwikkelen** of druk op **Ctrl + Shift + B**. Als er fouten optreden, controleer dan of uw code klopt met het complete voorbeeld dat aan het einde van de vorige stap wordt weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een Service Bus-clienttoepassing en -service maakt met behulp van de mogelijkheden voor Service Bus Brokered Messaging. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een vergelijkbare zelfstudie waarin gebruik wordt gemaakt van Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging).
+In deze zelfstudie hebt u geleerd hoe u een Service Bus-clienttoepassing en -service maakt met behulp van de mogelijkheden voor Service Bus Brokered Messaging. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een vergelijkbare zelfstudie waarin gebruik wordt gemaakt van Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging).
 
 Zie de volgende onderwerpen voor meer informatie over [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-* [Grondbeginselen van Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus-architectuur](../service-bus/service-bus-architecture.md)
+* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus-architectuur](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

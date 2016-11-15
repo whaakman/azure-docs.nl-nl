@@ -1,12 +1,12 @@
 ---
-title: Gegevens laden in SQL Data Warehouse | Microsoft Docs
-description: Informatie over BCP en het gebruik van BCP voor datawarehousescenario's.
+title: Gegevens laden in SQL Data Warehouse met behulp van BCP | Microsoft Docs
+description: Informatie over BCP en het gebruik van BCP voor datawarehousescenario&quot;s.
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>Gegevens laden met bcp
@@ -25,7 +29,7 @@ ms.author: mausher;barbkess
 > 
 > 
 
-**[BCP][BCP]** is een opdrachtregelprogramma voor het bulksgewijs laden van gegevens. Hiermee kunt u gegevens kopiëren van en naar SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt BCP om veel rijen in SQL Data Warehouse-tabellen te importeren of gegevens uit SQL Server-tabellen te exporteren naar gegevensbestanden. Voor het gebruik van BCP is geen kennis van Transact-SQL vereist, behalve wanneer u de optie queryout wilt gebruiken.
+**[BCP][bcp]** is een opdrachtregelprogramma voor het bulksgewijs laden van gegevens. Hiermee kunt u gegevens kopiëren van en naar SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt BCP om veel rijen in SQL Data Warehouse-tabellen te importeren of gegevens uit SQL Server-tabellen te exporteren naar gegevensbestanden. Voor het gebruik van BCP is geen kennis van Transact-SQL vereist, behalve wanneer u de optie queryout wilt gebruiken.
 
 Met BCP kunt u snel en eenvoudig kleinere gegevenssets verplaatsen van en naar een SQL Data Warehouse-database. De exacte aanbevolen hoeveelheid gegevens die u kunt laden/extraheren met BCP is afhankelijk van uw netwerkverbinding met het Azure-datacentrum.  Over het algemeen kunt u dimensietabellen probleemloos laden en extraheren met BCP. Voor grote hoeveelheden gegevens wordt BCP echter niet aangeraden.  Als u veel gegevens wilt laden en extraheren, kunt u het beste Polybase gebruiken. Dit hulpprogramma is beter geschikt voor de uitgebreide parallelle verwerkingsarchitectuur van SQL Data Warehouse.
 
@@ -201,6 +205,6 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][Overzicht van SQL Data
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

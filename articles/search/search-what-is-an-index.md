@@ -1,10 +1,10 @@
 ---
-title: Een Azure Search-index maken | Microsoft Docs
+title: Een Azure Search-index maken | Microsoft Azure | Gehoste service voor zoeken in de cloud
 description: Wat is een index in Azure Search en hoe wordt deze gebruikt?
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -12,9 +12,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+
 
 ---
-# Een Azure Search-index maken
+# <a name="create-an-azure-search-index"></a>Een Azure Search-index maken
 > [!div class="op_single_selector"]
 > * [Overzicht](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -23,19 +27,19 @@ ms.author: ashmaka
 > 
 > 
 
-## Wat is een index?
+## <a name="what-is-an-index"></a>Wat is een index?
 Een *index* is een permanente opslag van *documenten* en andere constructies die worden gebruikt door een Azure Search-service. Een document is een eenheid die bestaat uit gegevens die kunnen worden doorzocht in uw index. Een e-commercedetailhandel heeft bijvoorbeeld een document voor elk item dat wordt verkocht, een nieuwsbureau heeft een document voor elk artikel, enzovoort. Deze begrippen aan betrouwbaardere database-equivalenten toewijzen: een *index* lijkt conceptueel gezien op een *tabel* en *documenten* lijken ruwweg op *rijen* in een tabel.
 
 Wanneer u documenten toevoegt of uploadt en zoekopdrachten naar Azure Search verzendt, worden uw aanvragen naar een specifieke index in uw zoekservice verzonden.
 
-## Veldtypen en kenmerken in een Azure Search-index
+## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Veldtypen en kenmerken in een Azure Search-index
 Bij het definiëren van het schema moet u de naam, het type en de kenmerken van elk veld in de index opgeven. Het veldtype classificeert de gegevens die in dat veld worden opgeslagen. Kenmerken worden ingesteld op afzonderlijke velden om op te geven hoe het veld wordt gebruikt. De volgende tabellen bevatten de typen en kenmerken die u kunt opgeven.
 
-### Veldtypen
+### <a name="field-types"></a>Veldtypen
 | Type | Beschrijving |
 | --- | --- |
 | *Edm.String* |Tekst die van tokens kan worden voorzien om te zoeken in de volledige tekst (woordafbreking, afleiding, enzovoort). |
-| *Verzameling (Edm.String)* |Een lijst met tekenreeksen die van tokens kan worden voorzien om te zoeken in de volledige tekst. Er is geen theoretische bovengrens voor het aantal items in een verzameling, maar de bovengrens van 16 MB voor de nettolading geldt voor alle verzamelingen. |
+| *Collection(Edm.String)* |Een lijst met tekenreeksen die van tokens kan worden voorzien om te zoeken in de volledige tekst. Er is geen theoretische bovengrens voor het aantal items in een verzameling, maar de bovengrens van 16 MB voor de nettolading geldt voor alle verzamelingen. |
 | *Edm.Boolean* |Bevat de waarden waar/niet waar. |
 | *Edm.Int32* |32-bits waarden van een heel getal. |
 | *Edm.Int64* |64-bits waarden van een heel getal. |
@@ -45,7 +49,7 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 
 U vindt meer gedetailleerde informatie over ondersteunde Azure-Search[-gegevenstypen op MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-### Veldkenmerken
+### <a name="field-attributes"></a>Veldkenmerken
 | Kenmerk | Beschrijving |
 | --- | --- |
 | *Sleutel* |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
@@ -57,11 +61,14 @@ U vindt meer gedetailleerde informatie over ondersteunde Azure-Search[-gegevenst
 
 U vindt meer gedetailleerde informatie over Azure-Search[-indexkenmerken op MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-## Richtlijnen voor het definiëren van een indexschema
+## <a name="guidance-for-defining-an-index-schema"></a>Richtlijnen voor het definiëren van een indexschema
 Bij het ontwerpen van uw index moet u in de planningsfase de tijd nemen om elke beslissing goed te overwegen. Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://msdn.microsoft.com/library/azure/dn798941.aspx) moeten worden toegewezen. Als u een index wilt wijzigen nadat deze is geïmplementeerd, moet u de gegevens opnieuw opbouwen en laden.
 
 Als u de vereisten voor gegevensopslag wilt wijzigen, kunt u de capaciteit vergroten of verkleinen door partities toe te voegen of te verwijderen. Zie[Uw zoekservice in Azure beheren](search-manage.md) of [Servicelimieten](search-limits-quotas-capacity.md) voor meer informatie.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

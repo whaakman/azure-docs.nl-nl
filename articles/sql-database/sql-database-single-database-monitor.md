@@ -1,13 +1,13 @@
 ---
 title: Databaseprestaties bewaken in Azure SQL Database | Microsoft Docs
-description: Lees meer over de opties voor het bewaken van uw database met Azure-hulpprogramma's en dynamische beheerweergave.
+description: Lees meer over de opties voor het bewaken van uw database met Azure-hulpprogramma&quot;s en dynamische beheerweergave.
 keywords: database bewaken, prestaties van clouddatabase
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+
 
 ---
-# Databaseprestaties bewaken in Azure SQL Database
+# <a name="monitoring-database-performance-in-azure-sql-database"></a>Databaseprestaties bewaken in Azure SQL Database
 Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. Bewaking helpt u om te bepalen of de database te veel capaciteit heeft of juist problemen heeft omdat resources volledig worden benut. Vervolgens kunt u beslissen of u het prestatieniveau en de [servicelaag](sql-database-service-tiers.md) van uw database moet aanpassen. U kunt een database bewaken met grafische hulpprogramma's in de [Azure-portal](https://portal.azure.com) of met [dynamische beheerweergaven](https://msdn.microsoft.com/library/ms188754.aspx) van SQL.
 
-## Databases bewaken via de Azure-portal
+## <a name="monitor-databases-using-the-azure-portal"></a>Databases bewaken via de Azure-portal
 In de [Azure-portal](https://portal.azure.com/) kunt u het verbruik van een individuele database bewaken door de database te selecteren en op de grafiek **Bewaking** te klikken. Nu wordt een venster **Metrische gegevens** geopend, dat u kunt wijzigen door op de knop **Grafiek bewerken** te klikken. Voeg de volgende metrische gegevens toe:
 
 * CPU-percentage
@@ -38,7 +42,7 @@ Als u bijvoorbeeld verwacht dat de workload van de database zal toenemen, kunt u
 
 Aan de hand van de prestatiewaarden kunt u ook bepalen of u misschien moet downgraden naar een lager prestatieniveau. Stel dat u een Standard S2-database gebruikt en alle prestatiewaarden aangeven dat de database gemiddeld nooit meer dan 10% gebruikt. Het is dan waarschijnlijk dat de database in Standard S1 goed werkt. Houd echter wel rekening met workloads die pieken of fluctueren, voordat u besluit om over te stappen op een lager prestatieniveau.
 
-## Databases bewaken via DMV's
+## <a name="monitor-databases-using-dmvs"></a>Databases bewaken via DMV's
 Dezelfde metrische gegevens die in de portal worden weergegeven, zijn ook beschikbaar via systeemweergaven: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) in de logische **hoofd**database van de server en [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in de gebruikersdatabase. Gebruik **sys.resource_stats** als u voor een langere periode minder gedetailleerde gegevens wilt bewaken. Gebruik **sys.dm_db_resource_stats** als u gedurende kortere tijd meer gedetailleerde gegevens wilt bewaken. Zie [Richtlijnen voor Azure SQL Database-prestaties](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats) voor meer informatie.
 
 > [!NOTE]
@@ -48,6 +52,9 @@ Dezelfde metrische gegevens die in de portal worden weergegeven, zijn ook beschi
 
 Voor pools voor elastische database kunt u afzonderlijke databases in de pool bewaken met de technieken die in deze sectie zijn beschreven. U kunt echter ook de groep als geheel bewaken. Zie [Een pool voor elastische database bewaken en beheren](sql-database-elastic-pool-manage-portal.md) voor meer informatie.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

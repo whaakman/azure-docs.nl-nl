@@ -5,8 +5,8 @@ services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+
 
 ---
-# Een virtuele machine van Azure versleutelen
+# <a name="encrypt-an-azure-virtual-machine"></a>Een virtuele machine van Azure versleutelen
 Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
 
 ![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
@@ -42,10 +46,10 @@ Er zijn een aantal manieren om de vereisten te installeren en de versleuteling t
 > 
 > 
 
-## Azure PowerShell installeren en configureren
+## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
 Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](../powershell-install-configure.md) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
 
-## Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
+## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
 Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle vereisten voor het versleutelen van uw Azure Virtual Machines.
 
 1. Ga naar de GitHub-pagina met het [installatiescript voor vereisten voor Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -70,7 +74,7 @@ Uw scherm ziet er nu als volgt uit.
 
 Het bovenste venster wordt het ‘scriptvenster' genoemd en het onderste venster de 'console'. Deze termen zullen we verderop in dit artikel gebruiken.
 
-## Voer de PowerShell-opdracht met vereisten voor Azure Disk Encryption uit.
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Voer de PowerShell-opdracht met vereisten voor Azure Disk Encryption uit.
 Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de volgende informatie:
 
 * **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
@@ -108,7 +112,7 @@ Het resultaat van het script ziet er als volgt uit:
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
 
-## De virtuele machine van Azure versleutelen
+## <a name="encrypt-the-azure-virtual-machine"></a>De virtuele machine van Azure versleutelen
 U kunt nu uw virtuele machine versleutelen. Als uw virtuele machine zich in dezelfde resourcegroep bevindt als uw Key Vault, kunt u verdergaan naar het gedeelte met de stappen voor het versleutelen. Als uw virtuele machine zich niet in dezelfde resourcegroep bevindt als uw Key Vault, moet u het volgende invullen in de console in de PowerShell ISE:
 
 **$resourceGroupName = <’Virtual_Machine_RG’>**
@@ -122,7 +126,7 @@ Druk op **ENTER**. U ziet nu de naam van de resourcegroep waar uw virtuele machi
 
 ![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
 
-### Stappen voor het versleutelen
+### <a name="encryption-steps"></a>Stappen voor het versleutelen
 PowerShell heeft als eerste de naam van de virtuele machine nodig die u wilt versleutelen. Typ in de console:
 
 **$vmName = <’your_vm_name’>**
@@ -167,7 +171,7 @@ In de blade **Schijven** ziet u dat de **Versleuteling** is **Ingeschakeld**.
 
 ![Schijfeigenschappen](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt versleutelen. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md): ontdek hoe u de status van uw Azure-bronnen kunt monitoren.
@@ -175,6 +179,9 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): lees blogberichten over de beveiliging en naleving van Azure
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

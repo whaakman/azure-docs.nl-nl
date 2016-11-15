@@ -2,11 +2,11 @@
 title: Aan de slag met Azure Search in NodeJS | Microsoft Docs
 description: Stappen voor het bouwen van een zoektoepassing op een door Azure gehoste service voor zoeken in de cloud, waarbij gebruik wordt gemaakt van de programmeertaal NodeJS.
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
+
 
 ---
-# Aan de slag met Azure Search in NodeJS
+# <a name="get-started-with-azure-search-in-nodejs"></a>Aan de slag met Azure Search in NodeJS
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -29,7 +33,7 @@ We hebben [NodeJS](https://nodejs.org), NPM, [Sublime Text 3](http://www.sublime
 
 Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikken. U kunt zich hiervoor aanmelden in de [Azure-portal](https://portal.azure.com). Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor stapsgewijze instructies.
 
-## Over de gegevens
+## <a name="about-the-data"></a>Over de gegevens
 In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
 
 In deze toepassing zorgt het programma **DataIndexer** er met een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) voor dat de index wordt gebouwd en geladen en dat de gefilterde USGS-gegevensset uit een openbare Azure SQL-database wordt opgehaald. De programmacode bevat de referenties en gegevens voor verbinding met de onlinegegevensbron. U hoeft verder niets te configureren.
@@ -41,7 +45,7 @@ In deze toepassing zorgt het programma **DataIndexer** er met een [indexeerfunct
 
 <a id="sub-2"></a>
 
-## De servicenaam en API-sleutel van uw Azure Search-service zoeken
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>De servicenaam en API-sleutel van uw Azure Search-service zoeken
 Zodra u de service hebt gemaakt, keert u terug naar de portal om de URL of `api-key` op te halen. Verbindingen met uw Search-service vereisen dat u zowel over de URL als een `api-key` beschikt om de aanroep te verifiëren.
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
@@ -49,10 +53,10 @@ Zodra u de service hebt gemaakt, keert u terug naar de portal om de URL of `api-
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
    
-    ![][3]
+      ![][3]
 5. Kopieer de service-URL, een beheersleutel en een querysleutel. Deze voegt u in een later stadium toe aan het bestand config.js file.
 
-## De voorbeeldbestanden downloaden
+## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
 Gebruik een van de volgende methoden om het voorbeeld te downloaden.
 
 1. Ga naar [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo).
@@ -60,7 +64,7 @@ Gebruik een van de volgende methoden om het voorbeeld te downloaden.
 
 Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor de bestanden in deze map.
 
-## Werk het bestand config.js bij met de URL van de Search-service en uw API-sleutel.
+## <a name="update-the-configjs-with-your-search-service-url-and-apikey"></a>Werk het bestand config.js bij met de URL van de Search-service en uw API-sleutel.
 Gebruik de URL en API-sleutel die u eerder hebt gekopieerd om de URL, beheersleutel en querysleutel in het configuratiebestand op te geven.
 
 Beheersleutels bieden u de volledige controle over de servicebewerkingen, inclusief het maken of verwijderen van een index en het laden van documenten. Querysleutels kunnen daarentegen alleen leesbewerkingen uitvoeren en worden doorgaans gebruikt door clienttoepassingen die verbinding maken met Azure Search.
@@ -71,7 +75,7 @@ De volgende afbeelding is een schermopname van het bestand **config.js**. Het be
 
 ![][5]
 
-## Een runtime-omgeving voor het voorbeeld hosten
+## <a name="host-a-runtime-environment-for-the-sample"></a>Een runtime-omgeving voor het voorbeeld hosten
 Voor dit voorbeeld hebt u een HTTP-server nodig. Deze kunt u globaal installeren met npm.
 
 Gebruik voor de volgende opdrachten een PowerShell-venster.
@@ -80,13 +84,13 @@ Gebruik voor de volgende opdrachten een PowerShell-venster.
 2. Typ `npm install`.
 3. Typ `npm install -g http-server`.
 
-## Bouw de index en voer de toepassing uit
+## <a name="build-the-index-and-run-the-application"></a>Bouw de index en voer de toepassing uit
 1. Typ `npm run indexDocuments`.
 2. Typ `npm run build`.
 3. Typ `npm run start_server`.
 4. Ga in uw browser naar `http://localhost:8080/index.html`
 
-## Zoeken in USGS-gegevens
+## <a name="search-on-usgs-data"></a>Zoeken in USGS-gegevens
 De USGS-gegevensset bevat records die relevant zijn voor de staat Rhode Island. Als u op **Search** (Zoeken) klikt terwijl het zoekvak leeg is, worden de bovenste 50 vermeldingen weergegeven. Dit is de standaardinstelling.
 
 Als u een zoekterm invoert, geeft u de zoekmachine iets om mee te werken. Voer een regionale naam in. 'Roger Williams' was de eerste gouverneur van Rhode Island. Er zijn verschillende parken, gebouwen en scholen naar hem vernoemd.
@@ -99,7 +103,7 @@ U kunt ook de volgende termen proberen:
 * Pembroke
 * goose +cape
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Dit is de eerste Azure Search-zelfstudie op basis van NodeJS en de USGS-gegevensset. In de loop van de tijd zal deze zelfstudie worden uitgebreid om aanvullende zoekfuncties te demonstreren die u mogelijk wilt gebruiken in uw aangepaste oplossingen.
 
 Als u al enige ervaring met Azure Search hebt, kunt u dit voorbeeld gebruiken als springplank om een suggestiefunctie (type-ahead of automatisch aangevulde query's), filters en facetnavigatie uit te proberen. U kunt ook de pagina met zoekresultaten verbeteren door tellers toe te voegen document in batch te verwerken, zodat gebruikers door de resultaten kunnen bladeren.
@@ -115,6 +119,6 @@ Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekij
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Aan de slag met Azure IoT Hub voor C# | Microsoft Docs
-description: Instructiehandleiding voor Azure IoT Hub met C#. Gebruik Azure IoT Hub en C# in combinatie met de Microsoft Azure IoT SDK's voor het implementeren van een Internet of Things-oplossing.
+description: Instructiehandleiding voor Azure IoT Hub met C#. Gebruik Azure IoT Hub en C# in combinatie met de Microsoft Azure IoT SDK&quot;s voor het implementeren van een Internet of Things-oplossing.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97c5d3c3e78ce6ec23f260bd26a0b41dc7c7197a
+
 
 ---
-# Aan de slag met Azure IoT Hub voor .NET
+# <a name="get-started-with-azure-iot-hub-for-net"></a>Aan de slag met Azure IoT Hub voor .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Windows-consoletoepassingen:
 
 * **CreateDeviceIdentity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat verbonden kan worden.
 * **ReadDeviceToCloudMessages**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat.
-* **SimulatedDevice**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt, en verzendt iedere seconde een telemetriebericht via het AMQPS-protocol.
+* **SimulatedDevice**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt, en verzendt iedere seconde een telemetriebericht via het AMQP-protocol.
 
 > [!NOTE]
 > Raadpleeg het artikel [IoT-Hub SDK's][lnk-hub-sdks] voor meer  informatie over de verschillende SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
@@ -33,13 +37,13 @@ Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Windows-c
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Microsoft Visual Studio 2015.
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount aanmaken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
+* Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis proefaccount][lnk-free-trial] maken.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 U hebt nu uw IoT-hub gemaakt, en u hebt de hostnaam en de verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
 
-## Een apparaat-id maken
+## <a name="create-a-device-identity"></a>Een apparaat-id maken
 In dit gedeelte gaat u een Windows-consoletoepassing maken die een apparaat-id maakt in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het registers met apparaat-id’s. Raadpleeg het gedeelte 'Register met apparaat-id’s' in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
 1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **CreateDeviceIdentity**.
@@ -89,11 +93,11 @@ In dit gedeelte gaat u een Windows-consoletoepassing maken die een apparaat-id m
 > 
 > 
 
-## Apparaat-naar-cloud-berichten ontvangen
-In dit gedeelte maakt u een Windows-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub geeft een [Azure Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt weer waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. Raadpleeg de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] om te ontdekken hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. Zie voor meer informatie over het verwerken van Event Hubs-berichten de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial]. (Deze zelfstudie is van toepassing op eindpunten die compatibel zijn met Event Hubs in IoT Hub.)
+## <a name="receive-devicetocloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
+In dit gedeelte maakt u een Windows-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub geeft een [Azure Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt weer waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. Raadpleeg de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] om te ontdekken hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. Zie voor meer informatie over het verwerken van Event Hubs-berichten de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial]. (Deze zelfstudie is van toepassing op eindpunten die compatibel zijn met event hubs in IoT Hub.)
 
 > [!NOTE]
-> Het met Event Hubs compatibele eindpunt voor het lezen van apparaat-naar-cloud-bericht maakt altijd gebruik van het AMQPS-protocol.
+> Het met Event Hub compatibele eindpunt voor het lezen van apparaat-naar-cloud-berichten maakt altijd gebruik van het AMQP-protocol.
 > 
 > 
 
@@ -101,7 +105,7 @@ In dit gedeelte maakt u een Windows-consoletoepassing die apparaat-naar-cloud-be
    
     ![Nieuw Windows Classic Desktop-project in Visual C#][10]
 2. Klik in Solution Explorer met de rechtermuisknop op het project **ReadDeviceToCloudMessages** en kies **Manage NuGet Packages**.
-3. In het venster **NuGet Package Manager** zoekt u **WindowsAzure.ServiceBus**. Accepteer de gebruikersvoorwaarden en klik op **Install**. Met deze procedure wordt een verwijzing naar de [Azure Service Bus][lnk-servicebus-nuget], inclusief alle afhankelijkheden ervan, gedownload, geïnstalleerd en toegevoegd. Met dit pakket kan de toepassing verbinding maken met het eindpunt dat compatibel is met Event Hubs op uw IoT-hub.
+3. In het venster **NuGet Package Manager** zoekt u **WindowsAzure.ServiceBus**. Accepteer de gebruikersvoorwaarden en klik op **Install**. Met deze procedure wordt een verwijzing naar de [Azure Service Bus][lnk-servicebus-nuget], inclusief alle afhankelijkheden ervan, gedownload, geïnstalleerd en toegevoegd. Met dit pakket kan de toepassing verbinding maken met het eindpunt dat compatibel is met event hubs op uw IoT-hub.
 4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
    
         using Microsoft.ServiceBus.Messaging;
@@ -151,7 +155,7 @@ In dit gedeelte maakt u een Windows-consoletoepassing die apparaat-naar-cloud-be
         }  
         Task.WaitAll(tasks.ToArray());
 
-## Een gesimuleerde apparaattoepassing maken
+## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In dit gedeelte maakt u een Windows-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten verzendt naar een IoT-hub.
 
 1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **SimulatedDevice**.
@@ -203,7 +207,7 @@ In dit gedeelte maakt u een Windows-consoletoepassing die een apparaat simuleert
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
    
-   Met de **Create**-methode maakt u standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT-Hub. Als u het HTTPS-protocol wilt gebruiken, dient u de **Create**-methode te overschrijven. Zo kunt u zelf het protocol bepalen. Als u het HTTPS-protocol gebruikt, moet u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toevoegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
+   Met de **Create**-methode maakt u standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT-Hub. Als u het HTTP-protocol wilt gebruiken, dient u de **Create**-methode te overschrijven. Zo kunt u zelf het protocol bepalen. Als u het HTTP-protocol gebruikt, dient u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toe te voegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
 
 In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-apparaatclient. U kunt ook de Visual Studio-extensie [Connected Service for Azure IoT Hub][lnk-connected-service] gebruiken om de benodigde code toe te voegen aan de clienttoepassing van uw apparaat.
 
@@ -212,27 +216,27 @@ In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-appara
 > 
 > 
 
-## De toepassingen uitvoeren
+## <a name="run-the-applications"></a>De toepassingen uitvoeren
 U kunt nu de toepassingen gaan uitvoeren.
 
 1. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Klik op **Multiple startup projects** (Meerdere opstartprojecten) en klik vervolgens op **Start** als de actie voor beide projecten **ProcessDeviceToCloudMessages** en **SimulatedDevice**.
    
-   ![Eigenschappen van opstartprojecten][41]
+    ![Eigenschappen van opstartprojecten][41]
 2. Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw gesimuleerde apparaat verzendt naar uw IoT-hub. De console-uitvoer van de **ReadDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
    
-   ![Console-uitvoer van apps][42]
+    ![Console-uitvoer van apps][42]
 3. De tegel **Usage** in de [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de hub:
    
-    ![Tegel Usage in de Azure Portal][43]
+    ![Tegel Usage in Azure Portal][43]
 
-## Volgende stappen
-In deze handleiding, hebt u een IoT-hub geconfigureerd in de portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. 
+## <a name="next-steps"></a>Volgende stappen
+In deze handleiding hebt u een IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. 
 
 Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
 
 * [Connecting your device (Uw apparaat verbinden)][lnk-connect-device]
 * [Getting started with device management (Aan de slag met apparaatbeheer)][lnk-device-management]
-* [Getting started with the Gateway SDK (Aan de slag met de Gateway-SDK)][lnk-gateway-SDK]
+* [Aan de slag met de IoT-gateway-SDK][lnk-gateway-SDK]
 
 Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-berichten verwerken)][lnk-process-d2c-tutorial] voor meer informatie over het uitbreiden van uw IoT-oplossing en het op schaal verwerken van apparaat-naar-cloud-berichten.
 
@@ -266,6 +270,6 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

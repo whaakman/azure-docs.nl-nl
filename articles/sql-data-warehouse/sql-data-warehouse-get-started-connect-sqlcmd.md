@@ -1,33 +1,38 @@
 ---
-title: Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs
-description: Query’s uitvoeren bij Azure SQL Data Warehouse met het opdrachtregelhulpprogramma sqlcmd.
+title: "Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs"
+description: "Query’s uitvoeren bij Azure SQL Data Warehouse met het opdrachtregelhulpprogramma sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Query’s uitvoeren bij Azure SQL Data Warehouse (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 In dit scenario maakt u gebruik van het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om een query uit te voeren bij een Azure SQL Data Warehouse.  
 
-## 1. Verbinding maken
+## <a name="1-connect"></a>1. Verbinding maken
 U gaat als volgt aan de slag met [sqlcmd][sqlcmd]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingstekenreeks moet de volgende parameters bevatten:
 
 * **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
@@ -60,7 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2. Query’s uitvoeren
+## <a name="2-query"></a>2. Query’s uitvoeren
 Wanneer verbinding is gemaakt, kunt u elke ondersteunde Transact-SQL-instructie voor het exemplaar uitvoeren.  In dit voorbeeld worden query's in de interactieve modus verzonden.
 
 ```sql
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
@@ -95,6 +100,6 @@ Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschi
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

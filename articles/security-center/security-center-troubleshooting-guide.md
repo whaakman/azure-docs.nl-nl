@@ -5,21 +5,25 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 10/18/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0413d5c87d6df4d07b0e3197599aad154b589bb2
+
 
 ---
-# Handleiding voor het oplossen van problemen met Azure Security Center
+# <a name="azure-security-center-troubleshooting-guide"></a>Handleiding voor het oplossen van problemen met Azure Security Center
 Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders waarvan hun organisaties Azure Security Center gebruiken en die problemen moeten oplossen die betrekking hebben op Security Center.
 
-## Handleiding voor het oplossen van problemen
+## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) van het onderdeel met de fout te raadplegen. Met controlelogboeken kunt u het volgende bepalen:
 
 * Welke bewerkingen er hebben plaatsgevonden
@@ -30,7 +34,7 @@ In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben
 
 In het controlelogboek staan alle schrijfbewerkingen (PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (GET) in.
 
-## Problemen oplossen met de installatie van de controleagent in Windows
+## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Problemen oplossen met de installatie van de controleagent in Windows
 De controleagent van Security Center wordt gebruikt om gegevens te verzamelen. Nadat het verzamelen van gegevens is ingeschakeld en de agent juist is geïnstalleerd op de doelcomputer, worden als het goed is deze processen uitgevoerd:
 
 * ASMAgentLauncher.exe - Azure Monitoring Agent 
@@ -50,7 +54,7 @@ U kunt ook meer informatie over het installatieproces krijgen door de logboekbes
 > 
 > 
 
-## Problemen oplossen met de installatie van de controleagent in Linux
+## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Problemen oplossen met de installatie van de controleagent in Linux
 Bij het oplossen van problemen met de installatie van VM-agent op een Linux-systeem, moet u controleren of de uitbreiding is gedownload naar/var/lib/waagent/. U kunt de onderstaande opdracht uitvoeren om te controleren of deze is geïnstalleerd:
 
 `cat /var/log/waagent.log` 
@@ -64,12 +68,12 @@ In een werkend systeem ziet u een verbinding met het mdsd-proces op TCP 29130. D
 
 `netstat -plantu | grep 29130`
 
-## Contact opnemen met Microsoft-ondersteuning
+## <a name="contacting-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 Bepaalde problemen kunnen worden geïdentificeerd aan de hand van de richtlijnen in dit artikel. Andere problemen vindt u ook beschreven in het openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) van Security Center. Als u echter meer problemen wilt oplossen, kunt u als volgt een nieuwe ondersteuningaanvraag openen in de Azure-portal: 
 
 ![Microsoft-ondersteuning](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Gids voor de planning en werking van Azure Security Center): leer de ontwerpoverwegingen kennen en leer hiervoor te plannen voor de overstap naar Azure Security Center.
@@ -79,6 +83,9 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

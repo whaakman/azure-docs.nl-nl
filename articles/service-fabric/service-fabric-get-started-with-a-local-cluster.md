@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
 De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waarmee u snel uw toepassingen kunt implementeren en beheren op een lokaal cluster. In dit artikel maakt u een lokaal cluster, implementeert u een bestaande toepassing en werkt u de toepassing bij naar een nieuwe versie vanuit Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waa
 > 
 > 
 
-## Een lokaal cluster maken
+## <a name="create-a-local-cluster"></a>Een lokaal cluster maken
 Een Service Fabric-cluster vertegenwoordigt een aantal hardwareresources waarvoor u toepassingen kunt implementeren. Een cluster bestaat meestal uit vijf tot vele duizenden computers. De Service Fabric SDK bevat echter een clusterconfiguratie die op één machine kan worden uitgevoerd.
 
 Het is belangrijk om te weten of het lokale Fabric Service-cluster geen emulator of simulator is. Dit cluster wordt uitgevoerd op dezelfde platformcode als de code op clusters voor meerdere machines. Het enige verschil is dat er platformbewerkingen worden uitgevoerd die doorgaans worden verdeeld over vijf machines op één computer.
@@ -49,7 +53,7 @@ Met behulp van de SDK kunt u op twee manieren een lokaal cluster instellen: via 
    
     U kunt nu een toepassing implementeren in uw cluster.
 
-## Een app implementeren
+## <a name="deploy-an-application"></a>Een app implementeren
 De Service Fabric SDK bevat een uitgebreide reeks frameworks en ontwikkelaarstools voor het maken van toepassingen.  Zie [uw eerste Service Fabric-toepassing maken in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) als u meer wilt weten over  het maken van toepassingen in Visual Studio.
 
 In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount genoemd), zodat we ons kunnen richten op het platform, inclusief de implementatie, bewaking en upgrade.
@@ -89,7 +93,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
    
     De toepassing die we hebben geïmplementeerd, bevat vier partities. Woorden die beginnen met A tot G worden in de eerste partitie opgeslagen, woorden die beginnen met H tot N worden in de tweede partitie opgeslagen, enzovoort.
 
-## Details en de status van de toepassing weergeven
+## <a name="view-application-details-and-status"></a>Details en de status van de toepassing weergeven
 Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power Shell bekijken.
 
 1. Een query uitvoeren op alle toepassingen in het cluster:
@@ -129,7 +133,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
    > 
    > 
 
-## Een upgrade van een app uitvoeren
+## <a name="upgrade-an-application"></a>Een upgrade van een app uitvoeren
 Service Fabric bevat upgrades zonder downtime door de status van de toepassing te bewaken tijdens de implementatie in het cluster. We gaan een eenvoudige upgrade uitvoeren van de WordCount-toepassing.
 
 De nieuwe versie van de toepassing telt nu alleen woorden die met een klinker beginnen. Tijdens het uitvoeren van de upgrade zijn er twee zichtbare wijzigingen in de werking van de toepassing. Als eerste moet de snelheid waarmee het aantal groeit vertragen, omdat er minder woorden worden geteld. Ten tweede, aangezien de eerste partitie twee klinkers (A en E) bevat en alle andere partities slechts één bevatten, wordt het aantal uiteindelijk hoger.
@@ -162,7 +166,7 @@ De nieuwe versie van de toepassing telt nu alleen woorden die met een klinker be
    
     ![De nieuwe versie van de toepassing bekijken in de browser][deployed-app-ui-v2]
 
-## Opschonen
+## <a name="cleaning-up"></a>Opschonen
 Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Toepassingen blijven op de achtergrond uitgevoerd worden tot u deze verwijdert.  Afhankelijk van de aard van uw apps, kan een app die wordt uitgevoerd een aanzienlijke hoeveelheid resources op uw computer in beslag nemen. U hebt verschillende mogelijkheden om toepassingen en het cluster te beheren:
 
 1. Voer het volgende uit als u een afzonderlijke toepassing en alle bijbehorende gegevens wilt verwijderen:
@@ -185,7 +189,7 @@ Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt
 3. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
 4. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het lokale cluster alleen als u van plan bent het lokale cluster een tijd niet te gebruiken of als u resources moet vrijmaken.
 
-## Clustermodus met één knooppunt en met vijf knooppunten
+## <a name="1-node-and-5-node-cluster-mode"></a>Clustermodus met één knooppunt en met vijf knooppunten
 Wanneer u werkt met het lokale cluster om toepassingen te ontwikkelen, moet u vaak snel dezelfde bewerkingen uitvoeren, zoals code schrijven, fouten opsporen, code wijzigen, fouten opsporen, enz. Het lokale cluster kan in twee modi worden uitgevoerd om dit proces te optimaliseren: met één knooppunt of met vijf knooppunten. Beide clustermodi hebben hun eigen voordelen.
 In de clustermodus met vijf knooppunten kunt u werken met een echt cluster. U kunt failover-scenario's testen en werken met meerdere exemplaren en replica's van uw services.
 De clustermodus met één knooppunt is geoptimaliseerd voor snelle implementaties en om snel services te registreren. Zo kunt u snel code valideren met de runtime Service Fabric.
@@ -219,7 +223,7 @@ Als u de Local Cluster Manager van Service Fabric gebruikt, gaat u als volgt te 
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Nu u een aantal vooraf gemaakt toepassen hebt geïmplementeerd een upgrade hebt uitgevoerd, kunt u [proberen zelf toepassingen te ontwikkelen in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Alle acties die zijn uitgevoerd op het lokale cluster in dit artikel kunnen ook worden uitgevoerd op een [Azure-cluster](service-fabric-cluster-creation-via-portal.md).
 * De upgrade die wij in dit artikel hebben uitgevoerd was zeer eenvoudig. Zie de [upgradedocumentatie](service-fabric-application-upgrade.md) voor meer informatie over de kracht en flexibiliteit van Service Fabric-upgrades.
@@ -240,12 +244,12 @@ Als u de Local Cluster Manager van Service Fabric gebruikt, gaat u als volgt te 
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
-[toepassing van sfe verwijderen]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

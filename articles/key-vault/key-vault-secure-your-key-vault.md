@@ -2,11 +2,11 @@
 title: Uw Key Vault beveiligen | Microsoft Docs
 description: Toegangsmachtigingen voor Key Vault voor het beheer van kluizen, sleutels en geheimen beheren. Verificatie- en autorisatiemodel voor Key Vault en informatie over het beveiligen van uw Key Vault
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# Uw Key Vault beveiligen
+# <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Omdat deze gegevens vertrouwelijk en essentieel voor uw bedrijf zijn, is het belangrijk om de toegang tot uw Key Vaults te beveiligen, zodat alleen gemachtigde toepassingen en gebruikers toegang hebben tot Key Vault. In dit artikel wordt een overzicht gegeven van het toegangsmodel van Key Vault, verificatie en autorisatie worden uitgelegd en met een voorbeeld wordt veilige toegang tot Key Vault voor uw cloud-toepassingen geïllustreerd.
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 Toegang tot een Key Vault wordt geregeld via twee afzonderlijke interfaces: de beheerlaag en de gegevenslaag. Voor beide lagen is juiste verificatie en autorisatie vereist voordat een aanroeper (een gebruiker of een toepassing) toegang kan krijgen tot Key Vault. Met verificatie wordt de identiteit van de aanroeper vastgesteld, terwijl autorisatie bepaalt welke bewerkingen de aanroeper mag uitvoeren.
 
 Voor verificatie gebruiken zowel de beheerlaag als de gegevenslaag Azure Active Directory. Voor autorisatie gebruikt het beheervlak op rollen gebaseerd toegangsbeheer (RBAC), terwijl de gegevenslaag het toegangsbeleid van Key Vault gebruikt.
@@ -36,7 +40,7 @@ Hier volgt een kort overzicht van de onderwerpen die aan bod komen:
 
 [Voorbeeld](#example): in dit voorbeeld wordt beschreven hoe u het toegangsbeheer voor uw Key Vault zo instelt dat drie verschillende teams (beveiligingsteam, ontwikkelaars/operators en auditors) specifieke taken uitvoeren om een toepassing in Azure te ontwikkelen, beheren en controleren.
 
-## Verificatie met Azure Active Directory
+## <a name="authentication-using-azure-active-directory"></a>Verificatie met Azure Active Directory
 Wanneer u een Key Vault maakt in een Azure-abonnement, is het automatisch gekoppeld aan de tenant van Azure Active Directory voor dat abonnement. Alle aanroepers (gebruikers en toepassingen) moeten in deze tenant worden geregistreerd voor toegang tot de Key Vault. Een toepassing of een gebruiker moet worden geverifieerd met Azure Active Directory voor toegang tot de Key Vault. Dit geldt voor toegang tot zowel de beheerlaag als de gegevenslaag. In beide gevallen kan een toepassing op twee manieren toegang krijgen tot de Key Vault:
 
 * **Toegang voor gebruikers en toepassingen**: meestal is dit voor toepassingen die de Key Vault gebruiken namens een aangemelde gebruiker. Azure PowerShell en Azure Portal zijn voorbeelden van dit type toegang. Er zijn twee manieren om toegang te verlenen aan gebruikers: u kunt gebruikers toegang geven tot de Key Vault wanneer ze een willekeurige toepassing gebruiken of alleen wanneer ze een bepaalde toepassing gebruiken (aangeduid als samengestelde identiteit). 
@@ -52,7 +56,7 @@ Het gebruik van één enkel verificatiemechanisme voor de beheer- en gegevenslaa
 * Als een gebruiker het bedrijf verlaat, verliest hij onmiddellijk de toegang tot alle Key Vaults in de organisatie
 * Organisaties kunnen de verificatie aanpassen via de opties in Azure Active Directory (bijvoorbeeld door Multi-Factor Authentication in te schakelen voor extra beveiliging)
 
-## De beheer- en gegevenslaag
+## <a name="management-plane-and-data-plane"></a>De beheer- en gegevenslaag
 Azure Key Vault is een Azure-service die beschikbaar is via het Azure Resource Manager-implementatiemodel. Als u een Key Vault hebt gemaakt, krijgt u een virtuele container waarin u andere objecten (zoals sleutels, geheimen en certificaten) kunt maken. U krijgt vervolgens toegang tot uw Key Vault via de beheer- en gegevenslaag om specifieke bewerkingen uit te voeren. De interface van de beheerlaag wordt gebruikt voor het beheren van uw Key Vault zelf. U kunt bijvoorbeeld kenmerken van de Key Vault maken, verwijderen en bijwerken, en toegangsbeleid voor de gegevenslaag instellen. De gegevenslaag wordt gebruikt voor het toevoegen, verwijderen, wijzigen en gebruiken van sleutels, geheimen en certificaten die zijn opgeslagen in uw Key Vault.
 
 U opent de interfaces van de beheer- en gegevenslaag via verschillende eindpunten (zie tabel). De tweede kolom in de tabel beschrijft de DNS-namen voor deze eindpunten in verschillende Azure-omgevingen. De derde kolom beschrijft de bewerkingen die u vanaf elke toegangslaag kunt uitvoeren. Elke toegangslaag heeft ook een eigen mechanisme voor toegangsbeheer. Het toegangsbeheer voor de beheerlaag wordt ingesteld met behulp van toegangsbeheer op basis van rollen (RBAC) in Azure Resource Manager. Het toegangsbeheer voor de gegevenslaag wordt ingesteld met toegangsbeleid van Key Vault.
@@ -64,10 +68,10 @@ U opent de interfaces van de beheer- en gegevenslaag via verschillende eindpunte
 
 Het toegangsbeheer van de beheerlaag en het toegangsbeheer van de gegevenslaag werken onafhankelijk van elkaar. Als u bijvoorbeeld toegang wilt verlenen aan een toepassing voor het gebruik van sleutels in een Key Vault, hoeft u alleen toegangsmachtigingen toe te kennen aan de gegevenslaag met toegangsbeleid van Key Vault. Er is voor deze toepassing geen toegang tot de beheerlaag vereist. Als u echter wilt dat een gebruiker eigenschappen en tags van de Vault kan lezen, maar geen toegang heeft tot de sleutels, geheimen of certificaten, kunt u deze gebruiker leestoegang geven met RBAC. Hiervoor is geen toegang tot de gegevenslaag vereist.
 
-## Toegangsbeheer voor de beheerlaag
+## <a name="management-plane-access-control"></a>Toegangsbeheer voor de beheerlaag
 De beheerlaag bestaat uit bewerkingen die invloed hebben op de Key Vault zelf. U kunt bijvoorbeeld een Key Vault maken of verwijderen. U kunt een lijst met Vaults krijgen in een abonnement. U kunt eigenschappen van de Key Vault (zoals SKU en tags) ophalen en toegangsbeleid voor de Key Vault instellen waarmee de gebruikers en toepassingen die toegang hebben tot sleutels en geheimen in de Key Vault, worden beheerd. Het toegangsbeheer voor de beheerlaag gebruikt RBAC. Zie de volledige lijst met bewerkingen die in Key Vault kunnen worden uitgevoerd via de beheerlaag, in de tabel in de voorgaande sectie. 
 
-### Toegangsbeheer op basis van rollen (RBAC)
+### <a name="rolebased-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
 Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en toepassingen in deze directory kunnen worden gemachtigd om resources te beheren in het Azure-abonnement dat gebruikmaakt van het Azure Resource Manager-implementatiemodel. Dit type toegangsbeheer wordt toegangsbeheer op basis van rollen (RBAC) genoemd. Voor het beheren van deze toegang kunt u [Azure Portal](https://portal.azure.com/), de [Azure CLI-tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) of de [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx) gebruiken.
 
 Met het Azure Resource Manager-model maakt u uw Key Vault in een resourcegroep en beheert u de toegang tot de beheerlaag van deze Key Vault met Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep machtigen om Key Vaults in een bepaalde resourcegroep te beheren.
@@ -79,12 +83,12 @@ U kunt toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaa
 > 
 > 
 
-## Toegangsbeheer voor de gegevenslaag
+## <a name="data-plane-access-control"></a>Toegangsbeheer voor de gegevenslaag
 De gegevenslaag van een Key Vault bestaat uit de bewerkingen die invloed hebben op de objecten in een Key Vault, zoals sleutels, geheimen en certificaten.  Dit zijn onder andere sleutelbewerkingen, zoals sleutels maken, importeren, bijwerken, sorteren, herstellen en er back-ups van maken, cryptografische bewerkingen, zoals ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken, en tags en andere kenmerken voor sleutels instellen. Voor geheimen gaat het om bewerkingen zoals ophalen, instellen, sorteren en verwijderen.
 
 U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of toepassing heeft inzendersrechten (RBAC) voor de beheerlaag van een Key Vault nodig om toegangsbeleid voor die Key Vault in te stellen. Een gebruiker, groep of toepassing kan worden gemachtigd om bepaalde bewerkingen voor sleutels of geheimen in een Key Vault uit te voeren. Kay Vault ondersteunt maximaal 16 vermeldingen van toegangsbeleid voor een Key Vault. Maak een Azure Active Directory-beveiligingsgroep en voeg gebruikers toe aan die groep om meerdere gebruikers in een Key Vault toegang te geven tot de gegevenslaag.
 
-### Toegangsbeleid van Key Vault
+### <a name="key-vault-access-policies"></a>Toegangsbeleid van Key Vault
 Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en certificaten afzonderlijk toekennen. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure Portal](https://portal.azure.com/), de [Azure CLI-hulpprogramma's](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) of de [Key Vault-beheer REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) gebruiken om toegangsbeleid in te stellen voor Key Vault.
 
 > [!IMPORTANT]
@@ -92,7 +96,7 @@ Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en 
 > 
 > 
 
-## Voorbeeld
+## <a name="example"></a>Voorbeeld
 Stel dat u een toepassing ontwikkelt die gebruikmaakt van een certificaat voor SSL, Azure Storage voor het opslaan van gegevens, en een RSA 2048 bits-sleutel voor tekenbewerkingen. Stel dat deze toepassing wordt uitgevoerd in een VM (of een schaalset voor VM’s). U kunt een Key Vault gebruiken voor het opslaan van alle geheimen van de toepassing en Key Vault voor het opslaan van het bootstrap-certificaat dat door de toepassing wordt gebruikt voor verificatie met Azure Active Directory.
 
 Hier volgt een overzicht van de sleutels en geheimen die kunnen worden opgeslagen in een Key Vault.
@@ -199,7 +203,7 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
 > 
 > 
 
-## Bronnen
+## <a name="resources"></a>Bronnen
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
@@ -237,7 +241,7 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
   
   Koppelingen naar referentiedocumentatie voor PowerShell-cmdlets voor het beheren van toegangsbeleid voor Key Vault.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor een inleidende zelfstudie voor beheerders.
 
 Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) voor meer informatie over de gebruiksregistratie voor Key Vault.
@@ -246,6 +250,9 @@ Zie [Over sleutels en geheimen](https://msdn.microsoft.com/library/azure/dn90362
 
 Ga naar de [forums van Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault) als u vragen hebt over Key Vault
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
