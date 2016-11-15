@@ -2,12 +2,12 @@
 title: Hadoop-toepassingen installeren op HDInsight | Microsoft Docs
 description: Informatie over het installeren van HDInsight-toepassingen op HDInsight-toepassingen.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+
 
 ---
-# HDInsight-toepassingen installeren
+# <a name="install-hdinsight-applications"></a>HDInsight-toepassingen installeren
 Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. In dit artikel leert u een gepubliceerde toepassing installeren. Zie voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md). 
 
 Momenteel is er één gepubliceerde toepassing:
@@ -31,15 +35,15 @@ Momenteel is er één gepubliceerde toepassing:
 
 De instructies in dit artikel zijn bestemd voor gebruik met Azure Portal. U kunt ook de Azure Resource Manager-sjabloon exporteren vanuit de portal of een kopie van de Resource Manager-sjabloon van leveranciers verkrijgen, en Azure PowerShell en Azure CLI gebruiken om de sjabloon te implementeren.  Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Als u HDInsight-toepassingen wilt installeren op een bestaand HDInsight-cluster, hebt u een HDInsight-cluster nodig. Zie [Clusters maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) voor informatie over het maken van een cluster. U kunt ook HDInsight-toepassingen installeren wanneer u een HDInsight-cluster maakt.
 
-## Toepassingen installeren in bestaande clusters
+## <a name="install-applications-to-existing-clusters"></a>Toepassingen installeren in bestaande clusters
 De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HDInsight-cluster installeert.
 
 **Een HDInsight-toepassing installeren**
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Bladeren** en vervolgens op **HDInsight-clusters**.
 3. Klik op een HDInsight-cluster.  Als u deze niet hebt, maakt u die eerst.  Zie [Clusters maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Klik op de blade **Instellingen** onder de categorie **Algemeen** op **Toepassingen**. Op de blade **Geïnstalleerde apps** vindt u een lijst van de geïnstalleerde toepassingen. 
@@ -56,7 +60,7 @@ De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HD
 
 U kunt de installatiestatus zien in de portalmeldingen (klik boven aan de portal op het belpictogram). Nadat de toepassing is geïnstalleerd, wordt de toepassing weergegeven op de blade Geïnstalleerde apps.
 
-## Toepassingen installeren tijdens het maken van het cluster
+## <a name="install-applications-during-cluster-creation"></a>Toepassingen installeren tijdens het maken van het cluster
 U hebt ook de optie HDInsight-toepassingen te installeren wanneer u een cluster maakt. Tijdens het proces worden HDInsight-toepassingen geïnstalleerd nadat het cluster is gemaakt en actief is. De volgende procedure beschrijft hoe u HDInsight-toepassingen installeert wanneer u een cluster maakt.
 
 **Een HDInsight-toepassing installeren**
@@ -77,12 +81,12 @@ U hebt ook de optie HDInsight-toepassingen te installeren wanneer u een cluster 
 9. Klik op **Resourcegroep** om een bestaande resourcegroep te selecteren of klik op **Nieuw** om een nieuwe resourcegroep te maken
 10. Op de blade **Nieuw HDInsight-cluster** zorgt u ervoor dat **Vastmaken aan Startboard** is geselecteerd en vervolgens klikt u op **Maken**. 
 
-## Lijst van geïnstalleerde HDInsight-apps en -eigenschappen
+## <a name="list-installed-hdinsight-apps-and-properties"></a>Lijst van geïnstalleerde HDInsight-apps en -eigenschappen
 De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een cluster en de eigenschappen van elke geïnstalleerde toepassing.
 
 **HDInsight-toepassingen en weergave-eigenschappen weergeven**
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Bladeren** en vervolgens op **HDInsight-clusters**.
 3. Klik op een HDInsight-cluster.
 4. Klik op de blade **Instellingen** onder de categorie **Algemeen** op **Toepassingen**. Op de blade Geïnstalleerde apps vindt u een lijst van de geïnstalleerde toepassingen. 
@@ -97,15 +101,15 @@ De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een
    * SSH-eindpunt: u kunt [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) gebruiken om verbinding te maken met het edge-knooppunt. De SSH-referenties zijn dezelfde als de SSH-gebruikersreferenties die u hebt geconfigureerd voor het cluster.
 6. Als u een toepassing wilt verwijderen, klikt u met de rechtermuisknop op de toepassing en klikt u vervolgens op **Verwijderen** in het contextmenu.
 
-## Verbinding maken met het edge-knooppunt
+## <a name="connect-to-the-edge-node"></a>Verbinding maken met het edge-knooppunt
 U kunt verbinding maken met het edge-knooppunt door middel van HTTP en SSH. Informatie over het eindpunt kunt u vinden in de [portal](#list-installed-hdinsight-apps-and-properties). Zie [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van SSH. 
 
 De HTTP-eindpuntreferenties zijn de HTTP-gebruikersreferenties die u hebt geconfigureerd voor het HDInsight-cluster. De SSH-eindpuntreferenties zijn de SSH-referenties die u hebt geconfigureerd voor het HDInsight-cluster.
 
-## Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 Zie [Problemen met de installatie oplossen](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
 * [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): informatie over het publiceren van aangepaste HDInsight-toepassingen in Azure Marketplace.
 * [MSDN: een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): informatie over het definiëren van HDInsight-toepassingen.
@@ -113,6 +117,9 @@ Zie [Problemen met de installatie oplossen](hdinsight-apps-install-custom-applic
 * [Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informatie over het aanroepen van Resource Manager-sjablonen om HDInsight-clusters te maken.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Lege edge-knooppunten gebruiken in HDInsight): meer informatie over het gebruik van een leeg edge-knooppunt om toegang te krijgen tot het HDInsight-cluster, HDInsight toepassingen te testen en HDInsight-toepassingen te hosten.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

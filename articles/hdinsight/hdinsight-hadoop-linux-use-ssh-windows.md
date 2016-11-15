@@ -2,12 +2,12 @@
 title: SSH-sleutels met Hadoop gebruiken op Linux-clusters van Windows | Microsoft Docs
 description: Informatie over het maken en gebruiken van SSH-sleutels voor de verificatie bij HDInsight-clusters op basis van Linux. Verbinding maken met clusters van Windows-clients via de PuTTY SSH-client.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/30/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d98b40b91f3f84aa717ed2f295fb9c341fe4a38
+
 
 ---
-# SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows
+# <a name="use-ssh-with-linuxbased-hadoop-on-hdinsight-from-windows"></a>SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows
 > [!div class="op_single_selector"]
 > * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 > * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -33,7 +37,7 @@ Met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kunt u via 
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * **PuTTY** en **PuTTYGen** voor Windows-clients. Deze hulpprogramma's zijn beschikbaar via [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * Een moderne webbrowser met ondersteuning voor HTML5.
 
@@ -43,20 +47,20 @@ OF
   
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-## Wat is SSH?
+## <a name="what-is-ssh"></a>Wat is SSH?
 SSH is een hulpprogramma waarmee u zich kun aanmelden bij een externe server en op afstand opdrachten kunt uitvoeren. Met HDInsight op basis van Linux brengt SSH een versleutelde verbinding met het hoofdknooppunt van het cluster tot stand en wordt er een opdrachtregel weergegeven die u kunt gebruiken om opdrachten in te voeren. Opdrachten worden dan rechtstreeks uitgevoerd op de server.
 
-### SSH-gebruikersnaam
+### <a name="ssh-user-name"></a>SSH-gebruikersnaam
 Een SSH-gebruikersnaam is de naam die u gebruikt voor de verificatie bij het HDInsight-cluster. Wanneer u tijdens het maken van het cluster een SSH-gebruikersnaam opgeeft, wordt deze gebruiker gemaakt op alle knooppunten in het cluster. Zodra het cluster is gemaakt, kunt u deze gebruikersnaam gebruiken om verbinding te maken met de hoofdknooppunten van het HDInsight-cluster. Vanaf de hoofdknooppunten kunt u vervolgens verbinding maken met de afzonderlijke werkrolknooppunten.
 
-### SSH-wachtwoord of openbare sleutel
+### <a name="ssh-password-or-public-key"></a>SSH-wachtwoord of openbare sleutel
 Een SSH-gebruiker kan een wachtwoord of een openbare sleutel voor verificatie gebruiken. Een wachtwoord is gewoon een verzonnen reeks tekens, terwijl een openbare sleutel deel uitmaakt van een cryptografisch sleutelpaar dat wordt gegenereerd om u op unieke wijze te identificeren.
 
 Een sleutel is veiliger dan een wachtwoord, maar om een sleutel te genereren moet u extra stappen uitvoeren. Daarnaast moet u de bestanden bewaren op een beveiligde locatie. Als iemand zich toegang tot uw sleutelbestanden weet te verschaffen, heeft diegene ook toegang tot uw account. Of als u de sleutelbestanden verliest, kunt u zich niet aanmelden bij uw account.
 
 Een sleutelpaar bestaat uit een openbare sleutel (die wordt verzonden naar de HDInsight-server) en een persoonlijke sleutel (die wordt bewaard op de clientcomputer). Als u via SSH verbinding met de HDInsight-server maakt, gebruikt de SSH-client de persoonlijke sleutel op uw computer voor de verificatie bij de server.
 
-## Een SSH-sleutel maken
+## <a name="create-an-ssh-key"></a>Een SSH-sleutel maken
 Gebruik de volgende informatie als u van plan bent SSH-sleutels voor uw cluster te gebruiken. Als u van plan bent een wachtwoord te gebruiken, kunt u deze sectie overslaan.
 
 1. Open PuTTYGen.
@@ -89,7 +93,7 @@ Gebruik de volgende informatie als u van plan bent SSH-sleutels voor uw cluster 
    > 
    > 
 
-## Een HDInsight-cluster op basis van Linux maken
+## <a name="create-a-linuxbased-hdinsight-cluster"></a>Een HDInsight-cluster op basis van Linux maken
 Wanneer u een op Linux gebaseerd HDInsight-cluster maakt, moet u de openbare sleutel opgeven die eerder is gemaakt. Er zijn twee manieren om een HDInsight-cluster op basis van Linux te maken vanaf Windows-clients:
 
 * **Azure Portal**: maakt gebruik van een webportal om het cluster te maken.
@@ -97,7 +101,7 @@ Wanneer u een op Linux gebaseerd HDInsight-cluster maakt, moet u de openbare sle
 
 Voor elk van deze methoden is de openbare sleutel vereist. Zie [Op Linux gebaseerde HDInsight-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md) voor de volledige informatie over het maken van een HDInsight-cluster op basis van Linux.
 
-### Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 Wanneer u [Azure Portal][Preview Portal] gebruikt om een HDInsight-cluster op basis van Linux te maken, moet u een **SSH-gebruikersnaam** opgeven en kiest u ervoor om een **WACHTWOORD** of **OPENBARE SSH-SLEUTEL** op te geven.
 
 Als u **OPENBARE SSH-SLEUTEL** selecteert, kunt u de openbare sleutel (weergegeven in het veld voor het plakken van de **openbare sleutel in het geautoriseerde OpenSSH-sleutelbestand\_** in PuttyGen,) in het veld **Openbare SSH-sleutel** plakken of **Een bestand selecteren** selecteren om naar het bestand met de openbare sleutel te bladeren en dit te selecteren.
@@ -106,12 +110,12 @@ Als u **OPENBARE SSH-SLEUTEL** selecteert, kunt u de openbare sleutel (weergegev
 
 Zo maakt u een aanmelding voor de opgegeven gebruiker en kan deze zich verifiëren middels een wachtwoord of SSH-sleutel.
 
-### Azure-opdrachtregelinterface voor Mac, Linux en Windows
+### <a name="azure-commandline-interface-for-mac-linux-and-windows"></a>Azure-opdrachtregelinterface voor Mac, Linux en Windows
 U kunt de [Azure CLI voor Mac, Linux en Windows](../xplat-cli-install.md) gebruiken om een nieuw cluster met de opdracht `azure hdinsight cluster create` te maken.
 
 Zie [Hadoop Linux-clusters in HDInsight inrichten met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over het gebruik van deze opdracht.
 
-## Verbinding maken met een HDInsight-cluster dat is gebaseerd op Linux
+## <a name="connect-to-a-linuxbased-hdinsight-cluster"></a>Verbinding maken met een HDInsight-cluster dat is gebaseerd op Linux
 1. Open PuTTY.
    
     ![Putty-interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
@@ -140,7 +144,7 @@ Zie [Hadoop Linux-clusters in HDInsight inrichten met aangepaste opties](hdinsig
 > 
 > 
 
-### Verbinding maken met werkrolknooppunten
+### <a name="connect-to-worker-nodes"></a>Verbinding maken met werkrolknooppunten
 De werkrolknooppunten zijn niet rechtstreeks toegankelijk van buiten het Azure-datacentrum, maar ze zijn wel via SSH toegankelijk vanaf het hoofdknooppunt van het cluster.
 
 Als u een SSH-sleutel hebt opgegeven toen u uw gebruikersaccount hebt gemaakt, moet u de volgende stappen uitvoeren om de persoonlijke sleutel te gebruiken voor de verificatie bij het cluster als u verbinding met de werkrolknooppunten wilt maken:
@@ -182,7 +186,7 @@ Als u een SSH-sleutel hebt opgegeven toen u uw gebruikersaccount hebt gemaakt, m
 9. Zodra de sessie actief is, verandert de prompt voor uw PuTTY-sessie van `username@hn#-clustername` in `username@wn#-clustername` om aan te geven dat u verbonden bent met het werkrolknooppunt. Alle opdrachten die u op dit moment uitvoert, worden uitgevoerd onder het werkrolknooppunt.
 10. Zodra u de acties op het werkrolknooppunt hebt uitgevoerd, gebruikt u de opdracht `exit` om de sessie op het werkrolknooppunt te sluiten. Hiermee keert u terug naar de prompt `username@hn#-clustername`.
 
-## Meer accounts toevoegen
+## <a name="add-more-accounts"></a>Meer accounts toevoegen
 Als u meer accounts aan uw cluster moet toevoegen, voert u de volgende stappen uit:
 
 1. Genereer een nieuwe openbare en persoonlijke sleutel voor het nieuwe gebruikersaccount, zoals eerder beschreven.
@@ -204,7 +208,7 @@ Als u meer accounts aan uw cluster moet toevoegen, voert u de volgende stappen u
         sudo chown -hR <username>:<username> /home/<username>/.ssh
 6. U kunt zich nu met het nieuwe gebruikersaccount en de nieuwe persoonlijke sleutel verifiëren bij de server.
 
-## <a id="tunnel"></a>SSH-tunneling
+## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunneling
 SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt vervolgens naar de aangevraagde resource gerouteerd, alsof deze afkomstig is van het hoofdknooppunt van het HDInsight-cluster.
 
 > [!IMPORTANT]
@@ -214,7 +218,7 @@ SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvrag
 
 Zie [SSH-tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces van ](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie over het maken en gebruiken van een SSH-tunnel.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u MapReduce gebruikt met Hadoop op HDInsight.
 
 * [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
@@ -225,6 +229,6 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

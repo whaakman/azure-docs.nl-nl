@@ -1,12 +1,12 @@
 ---
 title: Aan de slag met Data Lake Store met REST API| Microsoft Docs
-description: WebHDFS REST-API's gebruiken om bewerkingen uit te voeren in Data Lake Store
+description: WebHDFS REST-API&quot;s gebruiken om bewerkingen uit te voeren in Data Lake Store
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+
 
 ---
-# Aan de slag met Azure Data Lake Store met REST-API's
+# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Aan de slag met Azure Data Lake Store met REST-API's
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -35,15 +39,15 @@ In dit artikel leest u hoe u WebHDFS REST-API's en Data Lake Store REST-API's ge
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 * [cURL](http://curl.haxx.se/). In dit artikel wordt cURL gebruikt om te laten zien hoe u REST API-aanroepen maakt voor een Data Lake Store-account.
 
-## Hoe verifieer ik met Azure Active Directory?
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.
 
-### Eindgebruikersverificatie (interactief)
+### <a name="enduser-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
 In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden en worden alle bewerkingen uitgevoerd in de context van de gebruiker. Voer de volgende stappen uit voor interactieve verificatie.
 
 1. Leid de gebruiker via de toepassing om naar de volgende URL:
@@ -73,18 +77,18 @@ In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden 
    > 
 3. Het antwoord is een JSON-object dat een toegangstoken (bijvoorbeeld `"access_token": "<ACCESS_TOKEN>"`) en een vernieuwingstoken (bijvoorbeeld `"refresh_token": "<REFRESH_TOKEN>"`) bevat. Uw toepassing gebruikt het toegangstoken om toegang te krijgen tot Azure Data Lake Store en het vernieuwingstoken om een nieuw toegangstoken op te halen wanneer het oude is verlopen.
    
-        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before": "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 4. Wanneer het toegangstoken is verlopen, kunt u als volgt met het vernieuwingstoken een nieuw toegangstoken aanvragen:
    
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-           -F grant_type=refresh_token \
-           -F resource=https://management.core.windows.net/ \
-           -F client_id=<CLIENT-ID> \
-           -F refresh_token=<REFRESH-TOKEN>
+             -F grant_type=refresh_token \
+             -F resource=https://management.core.windows.net/ \
+             -F client_id=<CLIENT-ID> \
+             -F refresh_token=<REFRESH-TOKEN>
 
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
 
-### Service-naar-serviceverificatie (niet interactief)
+### <a name="servicetoservice-authentication-noninteractive"></a>Service-naar-serviceverificatie (niet interactief)
 In dit scenario verstrekt de toepassing zijn eigen referenties om bewerkingen uit te voeren. Daarvoor moet u een POST-aanvraag uitgeven, zoals in het voorbeeld hieronder. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -99,7 +103,7 @@ De uitvoer van deze aanvraag bevat een verificatietoken (in de onderstaande uitv
 
 In dit artikel wordt de **niet-interactieve** benadering gebruikt. Zie [Service-naar-service-aanroepen met referenties](https://msdn.microsoft.com/library/azure/dn645543.aspx) voor meer informatie over niet-interactieve (service-naar-service) aanroepen.
 
-## Een Data Lake Store-account maken
+## <a name="create-a-data-lake-store-account"></a>Een Data Lake Store-account maken
 Deze bewerking is gebaseerd op de REST-API-aanroep die [hier](https://msdn.microsoft.com/library/mt694078.aspx) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -114,9 +118,9 @@ Vervang \<`REDACTED`\> in de bovenstaande opdracht door het verificatietoken dat
         "department": "finance"
         },
     "properties": {}
-    }   
+    }    
 
-## Mappen maken in een Data Lake Store-account
+## <a name="create-folders-in-a-data-lake-store-account"></a>Mappen maken in een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -129,7 +133,7 @@ Als de bewerking is geslaagd, wordt een antwoord van de volgende strekking weerg
 
     {"boolean":true}
 
-## Mappen weergeven in Data Lake Store-account
+## <a name="list-folders-in-a-data-lake-store-account"></a>Mappen weergeven in Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -157,7 +161,7 @@ Als de bewerking is geslaagd, wordt een antwoord van de volgende strekking weerg
     }
     }
 
-## Gegevens uploaden naar een Data Lake Store-account
+## <a name="upload-data-into-a-data-lake-store-account"></a>Gegevens uploaden naar een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) wordt gedefinieerd.
 
 Gegevens uploaden met de WebHDFS REST-API is een proces dat uit twee stappen bestaat, zoals hieronder wordt uitgelegd.
@@ -188,7 +192,7 @@ Gegevens uploaden met de WebHDFS REST-API is een proces dat uit twee stappen bes
         ...
         ...
 
-## Gegevens lezen uit een Data Lake Store-account
+## <a name="read-data-from-a-data-lake-store-account"></a>Gegevens lezen uit een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) wordt gedefinieerd.
 
 Het lezen van gegevens uit een Data Lake Store is een proces dat uit twee stappen bestaat.
@@ -212,7 +216,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     Hello, Data Lake Store user!
 
-## Bestandsnamen wijzigen in een Data Lake Store-account
+## <a name="rename-a-file-in-a-data-lake-store-account"></a>Bestandsnamen wijzigen in een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) wordt gedefinieerd.
 
 Als u de naam van een bestand wil wijzigen, gebruikt u de volgende cURL-opdracht. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -226,7 +230,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     {"boolean":true}
 
-## Een bestand verwijderen uit een Data Lake Store-account
+## <a name="delete-a-file-from-a-data-lake-store-account"></a>Een bestand verwijderen uit een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht als u een bestand wilt verwijderen. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -240,7 +244,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     {"boolean":true}
 
-## Een Data Lake Store-account verwijderen
+## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
 Deze bewerking is gebaseerd op de REST-API-aanroep die [hier](https://msdn.microsoft.com/library/mt694075.aspx) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht als u een Data Lake Store-account wilt verwijderen. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -253,9 +257,12 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
     ...
     ...
 
-## Zie ook
-* [Open Source Big Data applications compatible with Azure Data Lake Store (Open Source Big Data-toepassingen die compatibel zijn met Azure Data Lake Store)](data-lake-store-compatible-oss-other-applications.md)
+## <a name="see-also"></a>Zie ook
+* [Open Source Big Data-toepassingen die compatibel zijn met Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Azure BizTalk Services maken in de Azure Portal | Microsoft Docs
+title: Azure BizTalk Services maken in Azure Portal | Microsoft Docs
 description: Meer informatie over het inrichten of maken van Azure BizTalk Services in de Azure Portal; MABS, WABS
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+
 
 ---
-# BizTalk Services maken met de Azure Portal
+# <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
 Azure BizTalk Services maken in de Azure Portal
 
 > [!TIP]
@@ -24,7 +28,7 @@ Azure BizTalk Services maken in de Azure Portal
 > 
 > 
 
-## Een BizTalk Service maken
+## <a name="create-a-biztalk-service"></a>Een BizTalk Service maken
 Afhankelijk van de versie die u kiest, zijn mogelijk niet alle BizTalk Service-instellingen beschikbaar.
 
 1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -112,12 +116,12 @@ Als u klaar bent, wordt de Azure BizTalk Service gemaakt. Deze kunt u nu gebruik
 
 Afhankelijk van de status van de BizTalk Service zijn er bepaalde bewerkingen die niet kunnen worden voltooid. Ga naar de [statusgrafiek van BizTalk Services](biztalk-service-state-chart.md) voor een lijst van deze bewerkingen.
 
-## Stappen na de inrichting
+## <a name="postprovisioning-steps"></a>Stappen na de inrichting
 * [Het certificaat installeren op een lokale computer](#InstallCert)
 * [Een certificaat dat gereed is voor productie toevoegen](#AddCert)
 * [De Access Control-naamruimte ophalen](#ACS)
 
-#### <a name="InstallCert"></a>Het certificaat installeren op een lokale computer
+#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Het certificaat installeren op een lokale computer
 Bij het inrichten van de BizTalk Service wordt er een zelfondertekend certificaat gemaakt en gekoppeld aan uw BizTalk Service-abonnement. U moet dit certificaat downloaden en installeren op de computers waarop u BizTalk Service-toepassingen wilt implementeren of waarmee u berichten wilt verzenden naar een BizTalk Service-eindpunt.
 
 1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -127,14 +131,14 @@ Bij het inrichten van de BizTalk Service wordt er een zelfondertekend certificaa
    ![SSL-certificaat wijzigen][QuickGlance]
 5. Dubbelklik op het certificaat en doorloop de wizard om het certificaat te installeren. Zorg ervoor dat u het certificaat installeert in het archief van de **vertrouwde basiscertificeringsinstanties**.
 
-#### <a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
+#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
 Het zelfondertekende certificaat wordt automatisch gemaakt wanneer BizTalk Services wordt gemaakt. Het is alleen bedoeld voor gebruik in ontwikkelomgevingen. Vervang het in productiescenario's door een certificaat dat gereed is voor productie.
 
 1. Selecteer op het tabblad **Dashboard** de optie **SSL-certificaat bijwerken**.
 2. Blader naar uw persoonlijke SSL-certificaat (*Certificaatnaam*.pfx) dat de naam van uw BizTalk Service bevat, voer het wachtwoord in en klik op het vinkje.
 
-#### <a name="ACS"></a>De Access Control-naamruimte ophalen
-1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>De Access Control-naamruimte ophalen
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecteer **BIZTALK SERVICES** in het navigatiedeelvenster links. Selecteer vervolgens uw BizTalk Service.
 3. Selecteer in de taakbalk **Verbindingsgegevens**:  
    ![Verbindingsgegevens selecteren][ACSConnectInfo]
@@ -156,7 +160,7 @@ De Access Control Service-identiteit is een set referenties waarmee toepassingen
 
 [Uw ACS-naamruimte beheren](https://msdn.microsoft.com/library/azure/hh674478.aspx) geeft een lijst weer met de volgende richtlijnen en aanbevelingen.
 
-## Uitleg van de vereisten
+## <a name="requirements-explained"></a>Uitleg van de vereisten
 Deze vereisten zijn niet van toepassing op de editie Free.
 
 <table border="1">
@@ -168,9 +172,9 @@ Deze vereisten zijn niet van toepassing op de editie Free.
 <td>Azure-abonnement</td>
 <td>Het abonnement bepaalt wie zich kan aanmelden bij de Azure Portal. De accounthouder maakt het abonnement via <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-abonnementen</a>.
 <br/><br/>
-Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedereen die is gemachtigd. De houder van uw Azure-account kan bijvoorbeeld een abonnement met de naam <em>BizTalkServiceAbonnement</em> maken en de BizTalk-beheerders binnen uw bedrijf (bijvoorbeeld ContosoBTSBeheerders@live.com) toegang geven tot dit abonnement. In dit scenario melden de BizTalk-beheerders zich aan bij de Azure Portal en hebben zij volledige beheerdersrechten voor alle gehoste services in het abonnement, waaronder Azure BizTalk Services. De BizTalk-beheerders zijn niet de houders van het Azure-account en hebben daarom geen toegang tot factureringsgegevens.
+Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedereen die is gemachtigd. De houder van uw Azure-account kan bijvoorbeeld een abonnement met de naam <em>BizTalkServiceAbonnement</em> maken en de BizTalk-beheerders binnen uw bedrijf (bijvoorbeeld ContosoBTSAdmins@live.com)) toegang geven tot dit abonnement. In dit scenario melden de BizTalk-beheerders zich aan bij de Azure Portal en hebben zij volledige beheerdersrechten voor alle gehoste services in het abonnement, waaronder Azure BizTalk Services. De BizTalk-beheerders zijn niet de houders van het Azure-account en hebben daarom geen toegang tot factureringsgegevens.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Abonnementen en opslagaccounts beheren in de Azure Portal</a> geeft u meer informatie.
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Abonnementen en opslagaccounts beheren in Azure Portal</a> geeft u meer informatie.
 </td>
 </tr>
 <tr>
@@ -240,7 +244,7 @@ Er kan een nieuw of ander certificaat worden toegevoegd nadat de BizTalk Service
 
 
 
-## Hybride verbindingen
+## <a name="hybrid-connections"></a>Hybride verbindingen
 Wanneer u een Azure BizTalk Service maakt, is het tabblad **Hybride verbindingen** beschikbaar:
 
 ![Tabblad Hybride verbindingen][HybridConnectionTab]
@@ -249,10 +253,10 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
 
  Zie [Hybride verbindingen](integration-hybrid-connection-overview.md) voor meer informatie, waaronder het maken en beheren van hybride verbindingen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: statusgrafiek](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
@@ -271,6 +275,6 @@ Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

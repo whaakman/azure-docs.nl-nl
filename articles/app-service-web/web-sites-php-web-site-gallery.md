@@ -1,22 +1,26 @@
 ---
 title: Een WordPress-web-app maken in Azure App Service | Microsoft Docs
-description: Ontdek hoe u via de Azure Portal een nieuwe Azure-web-app maakt voor een WordPress-blog.
+description: Ontdek hoe u via Azure Portal een nieuwe Azure-web-app maakt voor een WordPress-blog.
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 193ae094-0d7c-4749-a09b-ff4b1240149e
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+
 
 ---
-# Een WordPress-web-app maken in Azure App Service
+# <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Een WordPress-web-app maken in Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 In deze zelfstudie gaat u een WordPress-blogsite implementeren vanuit Azure Marketplace.
@@ -42,7 +46,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 > 
 > 
 
-## WordPress selecteren en configureren voor Azure App Service
+## <a name="select-wordpress-and-configure-for-azure-app-service"></a>WordPress selecteren en configureren voor Azure App Service
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **Nieuw**.
    
@@ -59,10 +63,10 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
 6. Als u meerdere abonnementen hebt, kiest u het abonnement dat u wilt gebruiken. 
 7. Selecteer een **Resourcegroep** of maak een nieuwe.
    
-    Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
+    Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 8. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
    
-    Zie [Overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie over App Service-plannen 
+    Zie [Overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie over App Service-plannen    
 9. Klik op **Database** en geef op de blade **Nieuwe MySQL-database** de vereiste waarden op om uw MySQL-database te configureren.
    
     a. Voer een nieuwe naam in of laat de standaardnaam staan.
@@ -81,8 +85,8 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
     
      ![Voortgangsindicator](./media/web-sites-php-web-site-gallery/progress.png)
 
-## De WordPress-web-app starten en beheren
-1. Wanneer de web-app is gemaakt, navigeert u in de Azure Portal naar de resourcegroep waarin u de toepassing hebt gemaakt. Hier ziet u de web-app en de database.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>De WordPress-web-app starten en beheren
+1. Wanneer de web-app is gemaakt, navigeert u in Azure Portal naar de resourcegroep waarin u de toepassing hebt gemaakt. Hier ziet u de web-app en de database.
    
     De extra resource met het pictogram van een gloeilampje is [Application Insights](/services/application-insights/), een resource die bewakingsservices voor uw web-app biedt.
 2. Klik op de blade **Resourcegroep** op de regel van de web-app.
@@ -99,12 +103,12 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
    
     ![WordPress-site](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 U hebt gezien hoe u een PHP-web-app uit de galerie maakt en implementeert. In het [PHP-ontwikkelaarscentrum](/develop/php/) vindt u meer informatie over het gebruik van PHP in Azure.
 
 Voor meer informatie over werken met App Service-web-apps klikt u op de koppelingen aan de linkerkant van de pagina (in brede browservensters) of boven aan de pagina (in smalle browservensters). 
 
-## Wat is er gewijzigd
+## <a name="whats-changed"></a>Wat is er gewijzigd
 * Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
@@ -113,6 +117,6 @@ Voor meer informatie over werken met App Service-web-apps klikt u op de koppelin
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

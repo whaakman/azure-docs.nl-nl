@@ -1,68 +1,72 @@
 ---
-title: Aan de slag met Microsoft Azure Multi-Factor Authentication in de cloud
+title: Aan de slag met Azure MFA in de cloud | Microsoft Docs
 description: Dit is de pagina Azure Multi-Factor Authentication waarop wordt beschreven hoe u aan de slag kunt met Azure MFA in de cloud.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
-
+editor: yossib
+ms.assetid: 6b2e6549-1a26-4666-9c4a-cbe5d64c4e66
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 10/17/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+
 
 ---
-# Aan de slag met Azure Multi-Factor Authentication in de cloud
-In het volgende artikel leert u hoe u aan de slag gaat met Azure Multi-Factor Authentication in de cloud.
+# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Aan de slag met Azure Multi-Factor Authentication in de cloud
+In het volgende artikel staat beschreven hoe u aan de slag gaat met Azure Multi-Factor Authentication in de cloud.
 
 > [!NOTE]
-> De volgende documentatie bevat informatie over hoe u het voor gebruikers mogelijk maakt de **klassieke Azure-Portal** te gebruiken. Als u zoekt naar informatie over het instellen van Azure Multi-Factor Authentication voor O365-gebruikers, raadpleegt u [Setup multi-factor authentication voor Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US) (Multi-Factor Authentication instellen voor Office 365).
+> De volgende documentatie bevat informatie over hoe u het voor gebruikers mogelijk maakt de **klassieke Azure Portal** te gebruiken. Ga naar [Multi-Factor Authentication instellen voor Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US) als u op zoek bent naar informatie over het instellen van Azure Multi-Factor Authentication voor O365-gebruikers.
 > 
 > 
 
 ![MFA in de Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Aan de volgende vereisten moet worden voldaan voordat u Azure Multi-Factor Authentication voor uw gebruikers kunt inschakelen.
 
-* [U moet u aanmelden voor een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/): als u nog geen Azure-abonnement hebt, moet u er een nemen. Als u net begint en Azure MFA gebruikt, kunt u een proefabonnement nemen
-* [U moet een Multi-Factor Authentication-provider maken](multi-factor-authentication-get-started-auth-provider.md) en deze toewijzen aan uw adreslijst of [licenties toewijzen aan gebruikers](multi-factor-authentication-get-started-assign-licenses.md)
+1. [U moet u aanmelden voor een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/): als u nog geen Azure-abonnement hebt, moet u er een nemen. Als u net begint en Azure MFA gebruikt, kunt u een proefabonnement nemen
+2. [U moet een Multi-Factor Authentication-provider maken](multi-factor-authentication-get-started-auth-provider.md) en deze toewijzen aan uw adreslijst of [licenties toewijzen aan gebruikers](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [!NOTE]
 > Licenties zijn beschikbaar voor gebruikers die Azure MFA, Azure AD Premium of Enterprise Mobility Suite (EMS) hebben.  MFA maakt deel uit van Azure AD Premium en EMS. Als u voldoende licenties hebt, hoeft u geen Multi-Factor Authentication-provider te maken.
 > 
 > 
 
-## Multi-Factor Authentication voor gebruikers inschakelen
-Als u Multi-Factor Authentication wilt inschakelen voor een gebruiker, wijzigt u eenvoudigweg de status van de gebruiker van uitgeschakeld in ingeschakeld.  Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+## <a name="turn-on-twostep-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
+Verander de status van de gebruiker van Uitgeschakeld naar Ingeschakeld om verificatie in twee stappen te activeren.  Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Gebruik de volgende procedure om MFA in te schakelen voor uw gebruikers.
 
-### Multi-Factor Authentication inschakelen
-- - -
-1. Meld u als beheerder aan bij de **klassieke Azure-portal**.
+### <a name="to-turn-on-multifactor-authentication"></a>Multi-Factor Authentication inschakelen
+1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Klik aan de linkerkant op **Active Directory**.
-3. Klik onder **Adreslijst** op de adreslijst voor de gebruiker die u wilt inschakelen.
+3. Klik onder Adreslijst op de adreslijst voor de gebruiker die u wilt inschakelen.
    ![Klik op Adreslijst](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4. Klik aan de bovenkant op **Gebruikers**.
-5. Klik onder aan de pagina op **Multi-Factor Authentication beheren**.
+5. Klik onder aan de pagina op **Multi-Factor Authentication beheren**. Er wordt een nieuw browsertabblad geopend.
    ![Klik op Adreslijst](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Hiermee wordt een nieuw browsertabblad geopend.  Zoek naar de gebruiker die u wilt inschakelen voor Multi-Factor Authentication. Mogelijk moet u de weergave bovenaan wijzigen. Zorg ervoor dat de status **Uitgeschakeld** is.
+6. Zoek naar de gebruiker waarvoor u verificatie in twee stappen wilt inschakelen. Mogelijk moet u de weergave bovenaan wijzigen. Zorg ervoor dat de status **Uitgeschakeld is.**
    ![Gebruiker inschakelen](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7. Plaats een **vinkje** in het vak naast hun naam.
 8. Klik op aan de rechterkant op **Inschakelen**.
    ![Gebruiker inschakelen](./media/multi-factor-authentication-get-started-cloud/user1.png)
 9. Klik op **Multi-Factor Auth inschakelen**.
    ![Gebruiker inschakelen](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-10. U zou nu moeten zien dat de status van de gebruiker is gewijzigd van **Uitgeschakeld** in **Ingeschakeld**.
+10. De status van de gebruiker zou moeten zijn gewijzigd van **Uitgeschakeld** in **Ingeschakeld**.
     ![Gebruikers inschakelen](./media/multi-factor-authentication-get-started-cloud/user.png)
-11. Nadat u uw gebruikers hebt ingeschakeld, wordt aanbevolen ze hierover te informeren via e-mail.  U zou hen ook moeten informeren over hoe ze hun niet-browser-apps moeten gebruiken om te voorkomen dat ze worden geblokkeerd.
 
-## Inschakelen van Multi-Factor Authentication automatiseren met PowerShell
+Nadat u uw gebruikers hebt ingeschakeld, dient u ze hierover te informeren via e-mail. De volgende keer dat ze zich proberen aan te melden, worden ze gevraagd om hun account aan te melden voor verificatie in twee stappen. Zodra ze verificatie in twee stappen gaan gebruiken, moeten ze ook wachtwoorden instellen voor toepassingen om te voorkomen dat niet-browsertoepassingen worden geblokkeerd.
+
+## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>PowerShell gebruiken om het inschakelen van verificatie in twee stappen te automatiseren
 Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](../powershell-install-configure.md) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
 
 * Ingeschakeld
@@ -70,34 +74,39 @@ Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD Power
 * Uitgeschakeld  
 
 > [!IMPORTANT]
-> Houd er rekening mee dat wanneer u rechtstreeks vanuit de status Uitgeschakeld naar de status Afgedwongen gaat, oudere verificatieclients niet meer werken omdat de gebruiker de registratieprocedure voor MFA niet heeft doorlopen en dus geen [app-wachtwoord](multi-factor-authentication-whats-next.md#app-passwords) heeft gekregen.  Als u oudere verificatieclients hebt en app-wachtwoorden vereist zijn, dan is het raadzaam om van een status Uitgeschakeld naar een status Ingeschakeld te gaan.  Gebruikers kunnen zich dan registeren en krijgen hun app-wachtwoorden.   
+> We raden het af gebruikers rechtstreeks van de status Uitgeschakeld naar de status Afgedwongen te verplaatsen. Niet-browsertoepassingen werken dan niet meer omdat de gebruiker de MFA-registratie niet heeft doorlopen en geen [toepassingswachtwoord](multi-factor-authentication-whats-next.md#app-passwords) heeft verkregen. Als u niet-browsertoepassingen hebt en toepassingswachtwoorden nodig hebt, is het raadzaam om van de status Uitgeschakeld naar de status Ingeschakeld te gaan. Dit stelt gebruikers in staat om hun toepassingswachtwoorden te registreren en op te halen. Vervolgens kunt u ze naar de status Afgedwongen verplaatsen.
 > 
 > 
 
+Het gebruik van PowerShell is dan een optie om bulksgewijs gebruikers in te schakelen. Momenteel bevat Azure Portal geen functie voor het bulksgewijs inschakelen van gebruikers, en dus moet u elke gebruiker afzonderlijk selecteren. Dit kan veel tijd kosten als u een groot aantal gebruikers hebt. Als u een PowerShell-script maakt met behulp van het onderstaande, kunt u door een lijst met gebruikers gaan en ze inschakelen.
+
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
+        $st.RelyingParty = "\*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Het gebruik van PowerShell is dan een optie om bulksgewijs gebruikers in te schakelen.  Momenteel bevat de Azure-portal geen functie voor het bulksgewijs inschakelen van gebruikers, en dus moet u elke gebruiker afzonderlijk selecteren.  Dit kan veel tijd kosten als u een groot aantal gebruikers hebt.  Als u een PowerShell-script maakt met behulp van het bovenstaande, kunt u door een lijst met gebruikers gaan en ze inschakelen.  Hier volgt een voorbeeld:
+Hier volgt een voorbeeld:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
+        $st.RelyingParty = "\*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
 
 
-Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+Zie voor meer informatie [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
-## Volgende stappen
-Nu dat u Multi-Factor Authentication in de cloud hebt ingesteld, kunt u uw implementatie gaan configureren en instellen.  Zie [Azure Multi-Factor Authentication configureren.]
+## <a name="next-steps"></a>Volgende stappen
+Nu dat u Multi-Factor Authentication in de cloud hebt ingesteld, kunt u uw implementatie configureren en instellen. Zie [Azure Multi-Factor Authentication configureren](multi-factor-authentication-whats-next.md) voor meer informatie.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

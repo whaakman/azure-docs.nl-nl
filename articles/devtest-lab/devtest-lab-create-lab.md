@@ -5,8 +5,8 @@ services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 8b6d3e70-6528-42a4-a2ef-449575d0f928
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+
 
 ---
-# Een lab maken in Azure DevTest Labs
-## Vereisten
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Een lab maken in Azure DevTest Labs
+## <a name="prerequisites"></a>Vereisten
 Als u een lab wilt maken, hebt u het volgende nodig:
 
 * Een Azure-abonnement. Zie [Azure aanschaffen](https://azure.microsoft.com/pricing/purchase-options/) of [Gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie over Azure-aankoopopties. U moet de eigenaar van het abonnement zijn om het lab te maken.
 
-## Stappen voor het maken van een lab in Azure DevTest Labs
+## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Stappen voor het maken van een lab in Azure DevTest Labs
 In de volgende stappen ziet u hoe u de Azure-portal kunt gebruiken om een lab te maken in Azure DevTest Labs. 
 
 1. Meld u aan bij de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -43,7 +47,7 @@ In de volgende stappen ziet u hoe u de Azure-portal kunt gebruiken om een lab te
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren:
 
 * [Toegang tot een lab beveiligen](devtest-lab-add-devtest-user.md).
@@ -52,6 +56,9 @@ Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren
 * [Aangepaste artefacten maken voor uw virtuele machines](devtest-lab-artifact-author.md).
 * [Een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

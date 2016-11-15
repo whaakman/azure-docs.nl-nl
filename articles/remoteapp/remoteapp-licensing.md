@@ -2,10 +2,10 @@
 title: Azure RemoteApp-licentieverlening | Microsoft Docs
 description: Informatie over licentieverlening in Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Hoe werkt licentieverlening in Azure RemoteApp?
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Hoe werkt licentieverlening in Azure RemoteApp?
 > [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
@@ -37,6 +41,9 @@ Dat klinkt logisch, toch? U kunt elke app publiceren waarvoor u het wettelijk re
 
 Houd er rekening mee dat u geen CAL of volumelicentieovereenkomst kunt gebruiken in een cloudverzameling. U kunt *wel* een volumelicentieovereenkomst gebruiken om toepassingen in uw hybride verzameling te activeren (met uitzondering van Office). Daarvoor moet u ze alleen installeren op uw sjablooninstallatiekopie van het volumelicentiemedium. Lees de informatie van de leverancier van de toepassing voor het installeren van licenties in een omgeving met extern bureaublad.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

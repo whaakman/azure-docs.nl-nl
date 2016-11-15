@@ -2,11 +2,11 @@
 title: Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp | Microsoft Docs
 description: Lees hoe u een Windows-app deelt met uw gebruikers met behulp van Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 961d40ca-9673-4977-aa54-d6b22fc61ce1
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d46e4de6f8e1491671d4d5dfb73bacecefa2b118
+
 
 ---
-# Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
+# <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
 > [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
@@ -33,14 +37,14 @@ In dit artikel gaan we Access delen met al uw gebruikers. U kunt echter ELKE wil
 Aangezien Access een database is en we willen dat die database nuttig is, gaan we enkele extra stappen uitvoeren om gebruikers toegang te geven tot de Access-gegevensshare. Als uw app geen database is of uw gebruikers geen toegang hoeven te hebben tot een bestandsshare, kunt u die stappen in deze zelfstudie overslaan.
 
 > [!NOTE]
-> <a name="note"></a>U hebt een Azure-account nodig om deze zelfstudie te voltooien.
+> <a name="note"></a>U hebt een Azure-account nodig om deze zelfstudie te voltooien:
 > 
 > * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): u ontvangt tegoeden die u kunt gebruiken om betaalde Azure-services uit te proberen, en zelfs nadat u alle tegoeden hebt gebruikt, kunt u het account houden en gratis Azure-services zoals Websites gebruiken. Er wordt nooit iets op uw creditcard in rekening gebracht, tenzij u expliciet de instellingen wijzigt en vraagt of de kosten op uw creditcard in rekening kunnen worden gebracht.
 > * U kunt [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
 > 
 > 
 
-## Een verzameling maken in RemoteApp
+## <a name="create-a-collection-in-remoteapp"></a>Een verzameling maken in RemoteApp
 Eerst maakt u een verzameling. De verzameling fungeert als een container voor uw apps en gebruikers. Elke verzameling is gebaseerd op een installatiekopie: u kunt uw eigen installatiekopie maken of de installatiekopie gebruiken die deel uitmaakt van uw abonnement. In deze zelfstudie gebruiken we de installatiekopie van het Office 2013-proefabonnement, omdat deze de app bevat die we willen delen.
 
 1. Schuif in de Azure-portal omlaag in de navigatiestructuur aan de linkerkant tot u RemoteApp ziet. Open die pagina.
@@ -57,7 +61,7 @@ Hiermee start u het maken van de verzameling, maar dit kan een uur duren.
 
 U kunt nu uw gebruikers toevoegen.
 
-## De app delen met gebruikers
+## <a name="share-the-app-with-users"></a>De app delen met gebruikers
 Zodra uw verzameling is gemaakt, kunt u Access gaan publiceren aan uw gebruikers en de gebruikers toevoegen die toegang moeten hebben.
 
 Als u bent weggegaan van het Azure RemoteApp-knooppunt terwijl de verzameling werd gemaakt, gaat u eerst weer terug naar het knooppunt vanaf de startpagina van Azure.
@@ -75,7 +79,7 @@ Als u bent weggegaan van het Azure RemoteApp-knooppunt terwijl de verzameling we
 1. Nu is het tijd om uw gebruikers te vertellen over deze nieuwe apps en hoe ze toegang hiertoe hebben. U doet dit door uw gebruikers een e-mail te sturen met de URL voor het downloaden van de extern bureaublad-client.
    ![De clientdownload-URL voor RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
 
-## Toegang tot Access configureren
+## <a name="configure-access-to-access"></a>Toegang tot Access configureren
 Sommige apps hebben nog extra configuratie nodig nadat u ze via RemoteApp hebt geïmplementeerd. Voor Access houdt dit in dat we een bestandsshare op Azure gaan maken waartoe elke gebruiker toegang heeft. Als u dit niet wilt doen, kunt u een [hybride verzameling](remoteapp-create-hybrid-deployment.md) maken (in plaats van onze cloudverzameling) die uw gebruikers toegang biedt tot bestanden en informatie op uw lokale netwerk. Vervolgens laten we onze gebruikers weten dat ze een lokaal station op hun computer moeten toewijzen aan het Azure-bestandssysteem.
 
 Het eerste deel doet u als beheerder. Vervolgens hebben we een aantal stappen voor uw gebruikers.
@@ -83,7 +87,7 @@ Het eerste deel doet u als beheerder. Vervolgens hebben we een aantal stappen vo
 1. Publiceer eerst de opdrachtregelinterface (cmd.exe). Op het tabblad **Publiceren** kiest u **cmd** en klikt u op **Publiceren > Programma publiceren met behulp van pad**.
 2. Voer de naam in van de app en het pad. In deze zelfstudie gebruikt u 'Verkenner' als de naam en '%SYSTEMDRIVE%\windows\explorer.exe' als het pad.
    ![Publiceer het bestand cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Nu gaat u een Azure-[opslagaccount](../storage/storage-create-storage-account.md) maken. We hebben die van ons 'accessstorage' genoemd, dus kies een naam die zinvol voor u is. (Er kan slechts één 'accessstorage' zijn.) ![Ons Azure-opslagaccount.](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Nu gaat u een Azure-[opslagaccount](../storage/storage-create-storage-account.md) maken. We hebben die van ons 'accessstorage' genoemd, dus kies een naam die zinvol voor u is. (Om met Highlander te spreken: er kan slechts één 'accessstorage' zijn.) ![Ons Azure-opslagaccount](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Ga terug naar uw dashboard zodat u het pad naar uw opslag kunt ophalen (eindpuntlocatie). U gaat dit straks gebruiken, dus kopieer het ergens.
    ![Het pad van het opslagaccount](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Nadat het opslagaccount is gemaakt, hebt u de primaire toegangssleutel nodig. Klik op **Toegangssleutels beheren** en kopieer de primaire toegangssleutel.
@@ -113,7 +117,7 @@ Nu is de gebruiker aan zet. Laat uw gebruikers eerst een [RemoteApp-client](remo
 Nu kunt u Access op al uw apparaten gebruiken, maar zorg er wel voor dat u een RemoteApp-client installeert.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u hebt geleerd hoe een verzameling maakt, kunt u proberen een [verzameling te maken die gebruikmaakt van Office 365](remoteapp-tutorial-o365anywhere.md). U kunt ook een [hybride verzameling](remoteapp-create-hybrid-deployment.md) maken die toegang heeft tot uw lokale netwerk.
 
 <!--Image references-->
@@ -121,6 +125,6 @@ Nu u hebt geleerd hoe een verzameling maakt, kunt u proberen een [verzameling te
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

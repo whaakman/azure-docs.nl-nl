@@ -7,14 +7,18 @@ documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
-
+ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: documentdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/24/2016
+ms.date: 11/02/2016
 ms.author: denlee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>Een Java-webtoepassing met DocumentDB bouwen
@@ -40,7 +44,7 @@ In deze zelfstudie over het maken van een Java-toepassing wordt uitgelegd hoe u 
 > 
 > 
 
-## <a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
+## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
 Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag gaat, moet u beschikken over het volgende:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
@@ -50,14 +54,14 @@ Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag 
 
 Als u deze hulpprogramma's voor het eerst installeert, kunt u op coreservlets.com in de Quick Start-sectie van het artikel[Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Zelfstudie: TomCat7 installeren en gebruiken met Eclipse) een overzicht van het installatieproces vinden.
 
-## <a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Stap 1: Een DocumentDB-databaseaccount maken
+## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Stap 1: Een DocumentDB-databaseaccount maken
 Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: De Java JSP-toepassing maken](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Stap 2: De Java JSP-toepassing maken
+## <a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Stap 2: De Java JSP-toepassing maken
 De JSP-toepassing maken:
 
 1. Als eerste moet u een Java-project maken. Start Eclipse en klik achtereenvolgens op **File** (Bestand), **New** (Nieuw) en **Dynamic Web Project** (Dynamisch webproject). Als er geen **dynamisch webproject** beschikbaar is, gaat u als volg te werk: klik achtereenvolgens op **File** (Bestand), **New** (Nieuw), **Project**, vouw **Web** uit en klik op **Dynamic Web Project** (Dynamische webproject) en **Next** (Volgende).
@@ -79,7 +83,7 @@ De JSP-toepassing maken:
    
     ![Hello World – Zelfstudie Java-toepassing](./media/documentdb-java-application/image12.png)
 
-## <a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Stap 3: De DocumentDB Java SDK installeren
+## <a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Stap 3: De DocumentDB Java SDK installeren
 De eenvoudigste manier om de Java DocumentDB SDK en de bijbehorende afhankelijkheden op te halen, is via [Apache Maven](http://maven.apache.org/).
 
 Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar een Maven-project:
@@ -101,12 +105,12 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-documentdb</artifactId>
-            <version>1.5.1</version>
+            <version>1.9.1</version>
         </dependency>
 6. Klik op **OK** zodat Maven de DocumentDB Java SDK installeert.
 7. Sla het bestand pom.xml op.
 
-## <a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Stap 4: De DocumentDB-service in een Java-toepassing gebruiken
+## <a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Stap 4: De DocumentDB-service in een Java-toepassing gebruiken
 1. Laten we eerst het object TodoItem definiëren:
    
         @Data
@@ -124,14 +128,10 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
    
-        private static DocumentClient documentClient;
+        private static DocumentClient documentClient = new DocumentClient(HOST, MASTER_KEY,
+                        ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
    
         public static DocumentClient getDocumentClient() {
-            if (documentClient == null) {
-                documentClient = new DocumentClient(HOST, MASTER_KEY,
-                        ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
-            }
-   
             return documentClient;
         }
 3. U kunt nu een Data Access-object (DAO) maken om de ToDo-items naar DocumentDB te abstraheren.
@@ -344,7 +344,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
             return true;
         }
 
-## <a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Stap 5: De rest van het project voor de ontwikkeling van een Java-toepassing aaneen koppelen
+## <a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Stap 5: De rest van het project voor de ontwikkeling van een Java-toepassing aaneen koppelen
 Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruikersinterface te bouwen en deze te verbinden met onze DAO.
 
 1. Laten we eerst een controller bouwen waarmee we onze DAO kunnen aanroepen:
@@ -715,7 +715,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
 5. Mooi. Nu hoeft de toepassing alleen nog maar te worden getest. Voer de toepassing lokaal uit en voeg enkele Todo-items toe door de itemnaam en categorie in te vullen en op **Taak toevoegen** te klikken.
 6. Zodra het item wordt weergegeven, kunt u bijwerken of het item is voltooid door het selectievakje in of uit te schakelen en op **Taken bijwerken** te klikken.
 
-## <a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Stap 6: De Java-toepassing implementeren naar Azure Websites
+## <a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Stap 6: De Java-toepassing implementeren naar Azure Websites
 Met Azure Websites kunt u heel eenvoudig, alsof u de toepassing als een WAR-bestand exporteert, Java-toepassingen implementeren en uploaden via broncodebeheer (bijvoorbeeld GIT) of FTP.
 
 1. Als u de toepassing wilt exporteren als een WAR, klikt u met de rechtermuisknop op uw project in **Projectverkenner** en klikt u achtereenvolgens op **Exporteren** en **WAR-bestand**.
@@ -729,7 +729,7 @@ Met Azure Websites kunt u heel eenvoudig, alsof u de toepassing als een WAR-best
     Zodra het WAR-bestand is geüpload naar de map webapps, detecteert de runtime-omgeving dat u het bestand hebt toegevoegd en wordt het bestand automatisch geladen.
 4. Als u het voltooide product wilt weergeven, navigeert u naar http://UW\_SITE\_NAAM.azurewebsites.net/azure-documentdb-java-sample/ en begint u met het toevoegen van uw taken.
 
-## <a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Het project ophalen van GitHub
+## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Het project ophalen van GitHub
 Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-project op GitHub. Als u het todo-project wilt importeren in Eclipse, moet u over de software en resources beschikken die worden vermeld in de sectie [Vereisten](#Prerequisites) en gaat u als volgt te werk:
 
 1. Installeer [Project Lombok](http://projectlombok.org/). Lombok wordt gebruikt om de constructors, getters, setters in het project te genereren. Zodra u het bestand lombok.jar hebt gedownload, dubbelklikt u op het bestand om het te installeren of installeert u het bestand vanaf de opdrachtregel.
@@ -759,6 +759,6 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,8 +5,8 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Overzicht van Azure Event Hubs
@@ -25,7 +29,7 @@ Azure Event Hubs is een gebeurtenisverwerkingsservice die in de cloud zeer grote
 
 Een Event Hub wordt gemaakt op het niveau van de Event Hubs-naamruimte en is vergelijkbaar met Service Bus-wachtrijen en -onderwerpen. Event Hubs maakt gebruikt van AMQP en HTTP als primaire API-interfaces. Het volgende diagram geeft de relatie tussen Event Hubs en Service Bus weer.
 
-![Event Hubs](./media/event-hubs-overview/IC741188.png)
+![Event Hubs](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Conceptueel overzicht
 Event Hubs biedt berichtstromen via een gepartitioneerd gebruikspatroon. Wachtrijen en onderwerpen maken gebruik van een model op basis van [concurrerend gebruik](https://msdn.microsoft.com/library/dn568101.aspx), waarbij elke consumer uit dezelfde wachtrij of resource probeert te lezen. Deze concurrentie voor resources resulteert uiteindelijk in complexiteit en schaallimieten voor toepassingen die de stroom verwerken. Event Hubs daarentegen maakt gebruik van een model op basis van gepartitioneerd gebruik, waarbij elke consumer slechts een specifieke subset of partitie van de berichtenstroom leest. Dit patroon maakt een horizontale schaal voor de verwerking van gebeurtenissen mogelijk en biedt andere stroomgerichte functies die niet beschikbaar zijn in wachtrijen en onderwerpen.
@@ -48,13 +52,13 @@ In de context van Event Hubs worden berichten aangeduid als *gebeurtenisgegevens
 ## <a name="event-publisher"></a>Gebeurtenisuitgever
 Een *gebeurtenisuitgever* is een entiteit die gebeurtenissen of gegevens naar een Event Hub verzendt. Gebeurtenisuitgevers kunnen gebeurtenissen publiceren met HTTPS of AMQP 1.0. Gebeurtenisuitgevers gebruiken een Shared Access Signature-token (SAS) om zichzelf te identificeren bij een Event Hub en kunnen een unieke identiteit hebben of een algemene SAS-token gebruiken. Dit hangt af van de vereisten van het scenario.
 
-Zie [Shared Access Signature-verificatie met Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) voor meer informatie over werken met SAS.
+Zie [Shared Access Signature-verificatie met Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) voor meer informatie over werken met SAS.
 
 ### <a name="common-publisher-tasks"></a>Algemene uitgeverstaken
 In deze sectie worden algemene taken voor gebeurtenisuitgevers beschreven.
 
 #### <a name="acquire-a-sas-token"></a>Een SAS-token ophalen
-Shared Access Signature (SAS) is het verificatiemechanisme voor Event Hubs. Service Bus biedt SAS-beleid op het niveau van de naamruimte en Event Hub. Een SAS-token wordt gegenereerd uit een SAS-sleutel en is een SHA-hash of URL. gecodeerd in een specifieke indeling. Service Bus kan de hash opnieuw genereren met de naam van de sleutel (het beleid) en de token, en op deze manier de afzender verifiëren. Normaal gesproken worden SAS-tokens voor gebeurtenisuitgevers alleen gemaakt met bevoegdheden voor **verzenden** voor een specifieke Event Hub. Dit URL-mechanisme met SAS-token vormt de basis voor de uitgeversidentificatie die in het uitgeversbeleid wordt geïntroduceerd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) voor meer informatie over werken met SAS.
+Shared Access Signature (SAS) is het verificatiemechanisme voor Event Hubs. Service Bus biedt SAS-beleid op het niveau van de naamruimte en Event Hub. Een SAS-token wordt gegenereerd uit een SAS-sleutel en is een SHA-hash of URL. gecodeerd in een specifieke indeling. Service Bus kan de hash opnieuw genereren met de naam van de sleutel (het beleid) en de token, en op deze manier de afzender verifiëren. Normaal gesproken worden SAS-tokens voor gebeurtenisuitgevers alleen gemaakt met bevoegdheden voor **verzenden** voor een specifieke Event Hub. Dit URL-mechanisme met SAS-token vormt de basis voor de uitgeversidentificatie die in het uitgeversbeleid wordt geïntroduceerd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) voor meer informatie over werken met SAS.
 
 #### <a name="publishing-an-event"></a>Een gebeurtenis publiceren
 U kunt een gebeurtenis publiceren met AMQP 1.0 of HTTPS. Service Bus biedt een [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx)-klasse voor het publiceren van gebeurtenissen naar een Event Hub vanaf .NET-clients. Voor andere runtimes en platforms kunt u een AMQP 1.0-client gebruiken, zoals [Apache Qpid](http://qpid.apache.org/). U kunt gebeurtenissen afzonderlijk of batchgewijs publiceren. Eén publicatie (exemplaar met gebeurtenisgegevens) heeft een limiet van 256 kB, ongeacht of het om één gebeurtenis of om een batch gaat. Als u grotere gebeurtenissen publiceert, resulteert dit in een fout. Het is voor uitgevers een best practice om niets te weten over de partities binnen Event Hub en alleen een *partitiesleutel* (zie volgende sectie) of hun identiteit via de SAS-token op te geven.
@@ -115,7 +119,7 @@ De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare d
 * Inkomende gegevens: maximaal 1 MB per seconde of 1000 gebeurtenissen per seconde.
 * Uitgaande gegevens: maximaal 2 MB per seconde.
 
-De inkomende gegevens worden beperkt door de capaciteit die door het aantal aangeschafte doorvoereenheden wordt geleverd. Als u meer gegevens verzendt, resulteert dit in de uitzondering 'quotum overschreden'. Het quotum is 1 MB per seconde of 1000 gebeurtenissen per seconde, afhankelijk van wat het eerst wordt bereikt. Bij de uitgaande gegevens doen zich geen quotumgerelateerde uitzonderingen voor, maar de gegevensoverdracht is beperkt tot de capaciteit van de aangeschafte doorvoereenheden: 2 MB per seconde per doorvoereenheid. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte waarin de Event Hub is gemaakt. Als u meer doorvoereenheden wilt, past u de betreffende instelling in de [klassieke Azure Portal][klassieke Azure Portal] aan op de pagina **Naamruimten** op het tabblad **Schaal**. U kunt deze instelling ook wijzigen met de Azure-API's.
+De inkomende gegevens worden beperkt door de capaciteit die door het aantal aangeschafte doorvoereenheden wordt geleverd. Als u meer gegevens verzendt, resulteert dit in de uitzondering 'quotum overschreden'. Het quotum is 1 MB per seconde of 1000 gebeurtenissen per seconde, afhankelijk van wat het eerst wordt bereikt. Bij de uitgaande gegevens doen zich geen quotumgerelateerde uitzonderingen voor, maar de gegevensoverdracht is beperkt tot de capaciteit van de aangeschafte doorvoereenheden: 2 MB per seconde per doorvoereenheid. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte waarin de Event Hub is gemaakt. Als u meer doorvoereenheden wilt, past u de betreffende instelling in de [klassieke Azure-portal][klassieke Azure-portal] aan op de pagina **Naamruimten** op het tabblad **Schaal**. U kunt deze instelling ook wijzigen met de Azure-API's.
 
 Partities zijn een concept voor gegevensordening. Doorvoereenheden zijn uitsluitend een capaciteitsconcept. Doorvoereenheden worden per uur in rekening gebracht en zijn vooraf aangeschaft. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. U kunt voor een Event Hubs-naamruimte maximaal 20 doorvoereenheden aanschaffen. Per Azure-account geldt een limiet van 20 doorvoereenheden. Deze doorvoereenheden worden verdeeld over alle Event Hubs in een bepaalde naamruimte.
 
@@ -130,7 +134,7 @@ In Event Hubs kunt u gebeurtenisuitgevers nauwkeurig beheren met behulp van *uit
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Het is niet nodig om van tevoren uitgeversnamen te maken. De namen moeten echter wel overeenkomen met het SAS-token dat wordt gebruikt wanneer een gebeurtenis wordt gepubliceerd. Hiermee wordt voor onafhankelijke uitgeversidentiteiten gezorgd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md) voor meer informatie over SAS. Als u uitgeversbeleid gebruikt, is de waarde **Partitiesleutel** ingesteld op de naam van de uitgever. Voor een goede werking moeten deze waarden overeenkomen.
+Het is niet nodig om van tevoren uitgeversnamen te maken. De namen moeten echter wel overeenkomen met het SAS-token dat wordt gebruikt wanneer een gebeurtenis wordt gepubliceerd. Hiermee wordt voor onafhankelijke uitgeversidentiteiten gezorgd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) voor meer informatie over SAS. Als u uitgeversbeleid gebruikt, is de waarde **Partitiesleutel** ingesteld op de naam van de uitgever. Voor een goede werking moeten deze waarden overeenkomen.
 
 ## <a name="summary"></a>Samenvatting
 Azure Event Hubs is een verwerkingsservice voor grote hoeveelheden gebeurtenissen en telemetriegegevens. Deze kan worden gebruikt voor monitoring van algemene toepassingen en gebruikerswerkstromen op elke schaal. Event Hubs biedt mogelijkheden voor klein- en grootschalige scenario’s voor publiceren/abonneren. Hierbij fungeert de service als toegangspunt voor big data. Met uitgeversspecifieke identiteiten en intrekkingslijsten kunnen deze mogelijkheden worden uitgebreid naar algemene scenario’s voor het internet der dingen (IoT). Zie de [Programmeerhandleiding voor Event Hubs](event-hubs-programming-guide.md) voor meer informatie over het ontwikkelen van Event Hubs-toepassingen.
@@ -141,12 +145,12 @@ Nu u bekend bent met de concepten van Event Hubs, kunt u verdergaan met de volge
 * Aan de slag met een [Event Hubs-zelfstudie].
 * Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs].
 
-[Klassieke Azure Portal]: http://manage.windowsazure.com
+[klassieke Azure-portal]: http://manage.windowsazure.com
 [Event Hubs-zelfstudie]: event-hubs-csharp-ephcs-getstarted.md
 [voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

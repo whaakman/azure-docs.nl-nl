@@ -5,8 +5,8 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e2b93d8788f8f36ff6bc04a33d1f35a86cd49973
+
 
 ---
-# Een Azure DNS-zone maken met CLI
+# <a name="create-an-azure-dns-zone-using-cli"></a>Een Azure DNS-zone maken met CLI
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
@@ -28,33 +32,33 @@ In dit artikel wordt uitgelegd welke stappen u moet uitvoeren om een DNS-zone me
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## Voordat u begint
+## <a name="before-you-begin"></a>Voordat u begint
 Deze instructies hebben betrekking op Microsoft Azure CLI. Zorg ervoor dat u bijwerkt naar de nieuwste Azure CLI (0.9.8 of later) om de Azure DNS-opdrachten te kunnen gebruiken. Typ `azure -v` om te controleren welke versie van Azure CLI momenteel op uw computer is geïnstalleerd.
 
-## Stap 1: Azure CLI instellen
-### 1. Azure CLI installeren
+## <a name="step-1-set-up-azure-cli"></a>Stap 1: Azure CLI instellen
+### <a name="1-install-azure-cli"></a>1. Azure CLI installeren
 U kunt Azure CLI installeren voor Windows, Linux of MAC. De volgende stappen moeten worden voltooid voordat u Azure DNS met Azure CLI kunt beheren. Lees [Azure CLI installeren](../xplat-cli-install.md) voor meer informatie. Voor de DNS-opdrachten hebt u Azure CLI versie 0.9.8 of later nodig.
 
 Alle netwerkprovideropdrachten voor CLI kunt u weergeven met de volgende opdracht:
 
     azure network
 
-### 2. Naar de CLI-modus schakelen
+### <a name="2-switch-cli-mode"></a>2. Naar de CLI-modus schakelen
 Azure DNS maakt gebruik van Azure Resource Manager. Zorg ervoor dat u overschakelt naar de CLI-modus om de ARM-opdrachten te kunnen gebruiken.
 
     azure config mode arm
 
-### 3. Aanmelden bij uw Azure-account
+### <a name="3-sign-in-to-your-azure-account"></a>3. Aanmelden bij uw Azure-account
 U wordt gevraagd om u te verifiëren met u referenties. Houd er rekening mee dat u alleen ORGID-accounts kunt gebruiken.
 
     azure login -u "username"
 
-### 4. Het abonnement selecteren
+### <a name="4-select-the-subscription"></a>4. Het abonnement selecteren
 Kies welk Azure-abonnement u wilt gebruiken.
 
     azure account set "subscription name"
 
-### 5. Een resourcegroep maken
+### <a name="5-create-a-resource-group"></a>5. Een resourcegroep maken
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Aangezien alle DNS-resources globaal en niet regionaal zijn, is de keuze van de locatie voor de resourcegroep niet van invloed op Azure DNS.
 
 U kunt deze stap overslaan als u een bestaande resourcegroep gebruikt.
@@ -62,41 +66,41 @@ U kunt deze stap overslaan als u een bestaande resourcegroep gebruikt.
     azure group create -n myresourcegroup --location "West US"
 
 
-### 6. Registreren
+### <a name="6-register"></a>6. Registreren
 De Azure DNS-service wordt beheerd door de Microsoft.Network-resourceprovider. Uw Azure-abonnement moet worden geregistreerd voor het gebruik van deze resourceprovider voordat u Azure DNS kunt gebruiken. Dit is een eenmalige bewerking voor elk abonnement.
 
     azure provider register --namespace Microsoft.Network
 
 
-## Stap 2: een DNS-zone maken
+## <a name="step-2-create-a-dns-zone"></a>Stap 2: een DNS-zone maken
 Een DNS-zone wordt gemaakt met de opdracht `azure network dns zone create`. U kunt eventueel ook een DNS-zone en tags maken. Tags bevatten een lijst met naam/waarde-paren en worden door Azure Resource Manager gebruikt om resources te labelen voor facturerings- of groeperingsdoeleinden. Zie [Tags gebruiken om uw Azure-resources te organiseren](../resource-group-using-tags.md) voor meer informatie over tags.
 
 Zonenamen moeten in Azure DNS worden opgegeven zonder een afsluitende **'.'**. Bijvoorbeeld als '**contoso.com**' in plaats van '**contoso.com.**'.
 
-### Een DNS-zone maken
+### <a name="to-create-a-dns-zone"></a>Een DNS-zone maken
 In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*.
 
 Gebruik het voorbeeld om uw DNS-zone te maken door de waarden te vervangen voor uw eigen DNS-zone.
 
     azure network dns zone create myresourcegroup contoso.com
 
-### Een DNS-zone en tags maken
+### <a name="to-create-a-dns-zone-and-tags"></a>Een DNS-zone en tags maken
 Azure DNS CLI ondersteunt tags van DNS-zones die zijn opgegeven met de optionele parameter *-Tag*. in het volgende voorbeeld kunt u zien hoe u DNS-zone met twee tags maakt, project = demo en env = test.
 
 Gebruik het voorbeeld hieronder om een DNS-zone en tags te maken, door de waarden te vervangen door uw eigen waarden.
 
     azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
-## Records weergeven
+## <a name="view-records"></a>Records weergeven
 Wanneer u een DNS-zone maakt, wordt de volgende DNS-records gemaakt:
 
 * De SOA-record (Start of Authority). Deze is aanwezig in de hoofdmap van elke DNS-zone.
 * De gezaghebbende naamserverrecords (NS). Deze laten zien welke servers de zone hosten. Azure DNS maakt gebruik van een groep naamservers, waardoor er verschillende naamservers kunnen worden toegewezen aan verschillende zones in Azure DNS. Zie [Een domein aan Azure DNS overdragen](dns-domain-delegation.md) voor meer informatie.
 
 Gebruik `azure network dns-record-set show` om deze records weer te geven.<BR>
-*Gebruik: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
+*Gebruik: network dns record-set show <resource-group> <dns-zone-name><name> <type>*
 
-Als u in het onderstaande voorbeeld de opdracht uitvoert met de resourcegroep *myresourcegroup*, de recordsetnaam*"@"* (voor een hoofdmaprecord) en het type *SOA*, leidt dit tot de volgende uitvoer:
+Als u in het onderstaande voorbeeld de opdracht uitvoert met de resourcegroep *myresourcegroup*, de recordsetnaam *"@"* (voor een hoofdmaprecord) en het type *SOA*, leidt dit tot de volgende uitvoer:
 
     azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
     info:    Executing command network dns-record-set show
@@ -138,7 +142,7 @@ Als u de NS-records wilt weergeven die u met deze zone hebt gemaakt, gebruikt u 
 > 
 > 
 
-## Test
+## <a name="test"></a>Test
 U kunt uw DNS-zone testen door gebruik te maken van DNS-hulpprogramma's, zoals nslookup, DIG of de PowerShell-cmdlet `Resolve-DnsName`.
 
 Als u uw domein nog niet hebt gedelegeerd voor het gebruik van de nieuwe zone in Azure DNS, moet u de DNS-query rechtstreeks op een van de naamservers voor uw zone richten. De naamservers voor uw zone worden gegeven in de NS-records, zoals vermeld door 'azure network dns record-set show' hierboven. Zorg ervoor dat u in de onderstaande opdracht de juiste waarden voor uw zone vervangt.
@@ -148,17 +152,17 @@ In volgende voorbeeld wordt met DIG een query op het domein contoso.com uitgevoe
      <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
-    Got answer:
+     Got answer:
     ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
-    flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-    WARNING: recursion requested but not available
+     flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+     WARNING: recursion requested but not available
 
-    OPT PSEUDOSECTION:
-    EDNS: version: 0, flags:; udp: 4000
-    QUESTION SECTION:
+     OPT PSEUDOSECTION:
+     EDNS: version: 0, flags:; udp: 4000
+      QUESTION SECTION:
     contoso.com.                        IN      A
 
-    AUTHORITY SECTION:
+     AUTHORITY SECTION:
     contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
     msnhst.microsoft.com. 6 900 300 604800 300
 
@@ -167,9 +171,12 @@ In volgende voorbeeld wordt met DIG een query op het domein contoso.com uitgevoe
     WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
     MSG SIZE  rcvd: 120
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nadat u een DNS-zone hebt gemaakt, maakt u [recordsets en records](dns-getstarted-create-recordset-cli.md) om namen om te zetten voor uw internetdomein.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

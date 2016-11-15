@@ -1,22 +1,26 @@
 ---
-title: Live streamen met on-premises coderingsprogramma's via Azure Portal | Microsoft Docs
+title: Live streamen met on-premises coderingsprogramma&quot;s via Azure Portal | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij het maken van een kanaal dat is geconfigureerd voor een doorvoerlevering.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
+# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +34,7 @@ Deze zelfstudie bevat de stappen voor het maken van een **kanaal** via Azure Por
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
-* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
 
 Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
@@ -39,7 +43,7 @@ Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
 * [Overzicht van live streamen met Azure Media Services](media-services-manage-channels-overview.md)
 * [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Algemeen scenario voor live streamen
+## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Algemeen scenario voor live streamen
 In de volgende stappen worden de taken beschreven voor het maken van algemene toepassingen voor live streamen die kanalen gebruiken die zijn geconfigureerd voor doorvoerlevering. In deze zelfstudie wordt getoond hoe een doorvoerkanaal en live gebeurtenissen worden gemaakt en beheerd.
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
@@ -97,7 +101,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
    > 
    > 
 
-## <a name="create-and-start-pass-through-channels-and-events"></a>Doorvoerkanalen en gebeurtenissen maken en starten
+## <a name="create-and-start-passthrough-channels-and-events"></a>Doorvoerkanalen en gebeurtenissen maken en starten
 Een kanaal is gekoppeld aan gebeurtenissen/programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren gebeurtenissen. 
 
 U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Gebeurtenissen kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
@@ -121,15 +125,16 @@ In deze secties ziet u hoe u de optie **Snelle invoer** gebruikt om een doorvoer
 
 Zie [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md) voor meer informatie over doorvoerkanalen.
 
-1. Klik in het venster **Instellingen** op **Live streamen**. 
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Klik in het venster **Instellingen** op **Live streamen**. 
    
     ![Aan de slag](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Het venster **Live streamen** wordt weergegeven.
-2. Klik op **Snelle invoer** om een doorvoerkanaal te maken met het RTMP-opnameprotocol.
+3. Klik op **Snelle invoer** om een doorvoerkanaal te maken met het RTMP-opnameprotocol.
    
     Het venster **EEN NIEUW KANAAL MAKEN** wordt weergegeven.
-3. Geef het nieuwe kanaal een naam en klik op **Maken**. 
+4. Geef het nieuwe kanaal een naam en klik op **Maken**. 
    
     Hierop wordt een doorvoerkanaal gemaakt met het RTMP-opnameprotocol.
 
@@ -172,6 +177,9 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -3,12 +3,12 @@ title: Uw eerste virtuele Windows-machine maken | Microsoft Docs
 description: Informatie over het maken van uw eerste virtuele Windows-machine met behulp van de Azure Portal.
 keywords: Virtuele Windows-machine,een virtuele machine maken,virtuele computer,een virtuele machine instellen
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 785e17eb-4a13-4f06-b70f-4bd496d0ec5d
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,14 +16,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/06/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+
 
 ---
-# Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
+# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
 Deze zelfstudie leert u hoe eenvoudig het is om in enkele minuten een virtuele Windows-machine (VM) te maken met behulp van de Azure Portal.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-## Een installatiekopie voor de virtuele machine kiezen in de marketplace
+## <a name="choose-the-vm-image-from-the-marketplace"></a>Een installatiekopie voor de virtuele machine kiezen in de marketplace
 Als voorbeeld gebruiken we een installatiekopie voor Windows Server 2012 R2 Datacenter, maar dat is slechts een van de vele installatiekopieën die Azure biedt. Uw opties voor installatiekopieën zijn afhankelijk van uw abonnement. Sommige bureaubladinstallatiekopieën zijn beschikbaar voor [MSDN-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
@@ -34,14 +38,14 @@ Als voorbeeld gebruiken we een installatiekopie voor Windows Server 2012 R2 Data
    
     ![Schermafbeelding van het implementatiemodel dat voor de virtuele machine moet worden geselecteerd](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
-## De virtuele Windows-machine maken
+## <a name="create-the-windows-virtual-machine"></a>De virtuele Windows-machine maken
 Nadat u de installatiekopie hebt geselecteerd, kunt u de standaardinstellingen gebruiken en snel de virtuele machine maken.
 
 1. Voer op de blade **Grondbeginselen** een **Naam** in voor de virtuele machine. De naam moet 1-15 tekens lang zijn en mag geen speciale tekens bevatten.
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de VM. 
    
     Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-3. Selecteer een bestaande [Resourcegroep](../resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. Typ een Azure-datacenter**locatie**, zoals **VS - west**. 
+3. Selecteer een bestaande [Resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) of typ de gewenste naam voor een nieuwe resourcegroep. Typ een Azure-datacenter**locatie**, zoals **VS - west**. 
 4. Wanneer u klaar bent, klikt u op **OK** om door te gaan naar de volgende sectie. 
    
     ![Schermafbeelding met de instellingen op de blade **Grondbeginselen** voor het configureren van een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
@@ -56,7 +60,7 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u de standaardinstellingen g
     ![Schermafbeelding van de pagina Samenvatting, met de gekozen configuratie voor de virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 8. Terwijl Azure de virtuele machine maakt, kunt u de voortgang volgen in **Virtuele machines** in het menu Hub. 
 
-## Verbinding maken met de virtuele machine en aanmelden
+## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Verbinding maken met de virtuele machine en aanmelden
 1. Klik in het menu Hub op **Virtuele machines**.
 2. Selecteer de virtuele machine in de lijst.
 3. Klik op de blade voor de virtuele machine op **Verbinden**. Er wordt nu een Remote Desktop Protocol-bestand (RDP-bestand) gemaakt en gedownload. Een RDP-bestand is een soort snelkoppeling om verbinding te maken met uw computer. Uit oogpunt van gemak is het mogelijk een goed idee om het bestand op uw bureaublad op te slaan. **Open** dit bestand om verbinding te maken met de virtuele machine.
@@ -76,18 +80,21 @@ Als u problemen ondervindt wanneer u verbinding probeert te maken, raadpleegt u 
 
 U kunt de virtuele machine nu net zo gebruiken als elke andere server.
 
-## Optioneel: de VM stoppen
+## <a name="optional-stop-the-vm"></a>Optioneel: de VM stoppen
 Het is een goed idee om de virtuele machine te stoppen als u deze niet gebruikt. Zo voorkomt u dat de kosten oplopen. Klik op **Stoppen** en klik vervolgens op **Ja**.
 
 ![Schermafbeelding met de knop voor het stoppen van een VM](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 
 Als u de VM opnieuw wilt opstarten of weer in gebruik wilt nemen, klikt u op de knop **Starten**.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * U kunt experimenteren met de nieuwe VM door [IIS te installeren](virtual-machines-windows-hero-role.md). In deze zelfstudie leert u ook hoe u poort 80 opent voor inkomend webverkeer met behulp van een netwerkbeveiligingsgroep (NSG). 
 * U kunt ook [een Windows-VM maken met behulp van PowerShell](virtual-machines-windows-ps-create.md) of [ een virtuele Linux-machine maken](virtual-machines-linux-quick-create-cli.md) met behulp van de Azure CLI.
 * Bekijk het artikel [Een virtuele Windows-machine maken met behulp van een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md) als u belangstelling hebt voor het automatiseren van implementaties.
 
-<!---HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

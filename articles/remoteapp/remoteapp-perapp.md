@@ -2,11 +2,11 @@
 title: Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview) | Microsoft Docs
 description: Lees hoe u in Azure RemoteApp apps naar afzonderlijke gebruikers kunt publiceren, in plaats van afhankelijk van groepen.
 services: remoteapp-preview
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: piotrci
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+
 
 ---
-# Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview)
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview)
 > [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
@@ -42,7 +46,7 @@ Dit is nu als een beperkte preview-functie mogelijk in Azure RemoteApp. Hier vol
    * Deze functie biedt geen veilige vergrendeling van toepassingen maar beperkt alleen de zichtbaarheid in de toepassingsfeed.
    * Als u gebruikers van toepassingen wilt isoleren, moet u daar afzonderlijke verzamelingen voor gebruiken.
 
-## PowerShell-cmdlets van Azure RemoteApp ophalen
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>PowerShell-cmdlets van Azure RemoteApp ophalen
 Als u de nieuwe preview-functionaliteit wilt uitproberen, moet u Azure PowerShell-cmdlets gebruiken. Het is momenteel niet mogelijk om de nieuwe toepassingspublicatiemodus in te schakelen met Azure Management Portal.
 
 Controleer eerst of de [Azure PowerShell-module](../powershell-install-configure.md) is geïnstalleerd.
@@ -53,7 +57,7 @@ Start daarna de PowerShell-console in de beheerdersmodus en voer de volgende cmd
 
 U wordt gevraagd naar uw Azure-gebruikersnaam en -wachtwoord. Wanneer u bent aangemeld, kunt u Azure RemoteApp-cmdlets uitvoeren binnen uw Azure-abonnementen.
 
-## Controleren welke modus voor een verzameling is ingeschakeld
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>Controleren welke modus voor een verzameling is ingeschakeld
 Voer de volgende cmdlet uit:
 
         Get-AzureRemoteAppCollection <collectionName>
@@ -65,14 +69,14 @@ De eigenschap AclLevel kan de volgende waarden hebben:
 * Verzameling: De oorspronkelijke publicatiemodus. Alle gebruikers zien alle gepubliceerde apps.
 * Toepassing: De nieuwe publicatiemodus. Gebruikers zien alleen de apps die rechtstreeks naar hen zijn gepubliceerd.
 
-## Overschakelen naar toepassingspublicatiemodus
+## <a name="how-to-switch-to-application-publishing-mode"></a>Overschakelen naar toepassingspublicatiemodus
 Voer de volgende cmdlet uit:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
 Toepassingspublicatiestatus blijft behouden: in eerste instantie zien alle gebruikers alle oorspronkelijke gepubliceerde apps.
 
-## Een lijst weergeven van gebruikers die een specifieke toepassing kunnen zien
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Een lijst weergeven van gebruikers die een specifieke toepassing kunnen zien
 Voer de volgende cmdlet uit:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
@@ -81,24 +85,27 @@ Hiermee wordt een lijst weergegeven van alle gebruikers die de toepassing kunnen
 
 Opmerking: u kunt de toepassingsaliassen (in de bovenstaande syntaxis 'app alias' genoemd) zien door Get-AzureRemoteAppProgram - CollectionName <collectionName> uit te voeren.
 
-## Een toepassing toewijzen aan een gebruiker
+## <a name="how-to-assign-an-application-to-a-user"></a>Een toepassing toewijzen aan een gebruiker
 Voer de volgende cmdlet uit:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 De gebruiker ziet nu de toepassing in de Azure RemoteApp-client en kan hiermee verbinding maken.
 
-## Een toepassing verwijderen van een gebruiker
+## <a name="how-to-remove-an-application-from-a-user"></a>Een toepassing verwijderen van een gebruiker
 Voer de volgende cmdlet uit:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Feedback geven
+## <a name="providing-feedback"></a>Feedback geven
 We waarderen uw feedback en suggesties met betrekking tot deze preview-functie. Zou u de [enquête](http://www.instant.ly/s/FDdrb) willen invullen om ons te laten weten wat u ervan vindt?
 
-## Hebt u nog geen gelegenheid gehad om de preview-functie uit te proberen?
+## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Hebt u nog geen gelegenheid gehad om de preview-functie uit te proberen?
 Als u nog niet hebt deelgenomen aan de preview, kunt u deze [enquête](http://www.instant.ly/s/AY83p) gebruiken om toegang aan te vragen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

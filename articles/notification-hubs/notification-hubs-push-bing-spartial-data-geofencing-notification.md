@@ -7,7 +7,7 @@ keywords: pushmelding,pushmelding
 author: dend
 manager: yuaxu
 editor: dend
-
+ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -15,9 +15,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc946619fa3134594d3891ffdf78417d054293e3
+
 
 ---
-# Pushmeldingen met geofencing verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens
+# <a name="geofenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Pushmeldingen met geofencing verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens
 > [!NOTE]
 > U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02) voor meer informatie.
 > 
@@ -25,14 +29,14 @@ ms.author: dendeli
 
 In deze zelfstudie leert u hoe u locatiegebaseerde pushmeldingen kunt verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens. Deze gegevens worden uit een toepassing in het universele Windows-platform gehaald.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Ten eerste moet u ervoor zorgen dat u beschikt over alle vereiste software en services:
 
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) of hoger ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) kan ook worden gebruikt). 
 * Meest recente versie van de [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Bing Maps Dev Center-account](https://www.bingmapsportal.com/) (u kunt gratis een account maken en dit koppelen aan uw Microsoft-account). 
 
-## Aan de slag
+## <a name="getting-started"></a>Aan de slag
 U begint met het maken van het project. Open in Visual Studio een nieuw project van het type **Lege app (Universeel Windows)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -49,7 +53,7 @@ U moet de volgende parameters opgeven om hiermee aan de slag te gaan:
 
 U gaat nu dieper in op de instellingen voor de bovenstaande elementen.
 
-## De gegevensbron instellen
+## <a name="setting-up-the-data-source"></a>De gegevensbron instellen
 U kunt dit doen in het Bing Kaarten Dev Center. Klik op **Gegevensbronnen** in de bovenste navigatiebalk en selecteer **Gegevensbronnen beheren**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -103,7 +107,7 @@ Dit antwoord ontvangt u alleen als het punt zich binnen de opgegeven grenzen bev
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## De UWP-toepassing instellen
+## <a name="setting-up-the-uwp-application"></a>De UWP-toepassing instellen
 Nu de gegevensbron gereed is, gaat u aan de slag met de UWP-toepassing die al eerder is geopend.
 
 U moet ten eerste de locatieservices inschakelen voor de toepassing. Dubbelklik hiervoor op het bestand `Package.appxmanifest` in **Solution Explorer**.
@@ -200,7 +204,7 @@ Tijdens de implementatie worden de locatiecoördinaten weergegeven in het venste
         });
     }
 
-## De back-end instellen
+## <a name="setting-up-the-backend"></a>De back-end instellen
 Download het [.NET-back-endvoorbeeld via GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Wanneer het downloaden is voltooid, opent u de map `NotifyUsers` en vervolgens het bestand `NotifyUsers.sln`.
 
 Stel het project `AppBackend` in als **StartUp Project** open het.
@@ -306,7 +310,7 @@ Maak in `NotificationsController.cs` een controle aan vóór de switch-instructi
 
 Daardoor worden er alleen meldingen verzonden wanneer het punt zich binnen de grenzen bevindt.
 
-## Pushmeldingen testen in de UWP-app
+## <a name="testing-push-notifications-in-the-uwp-app"></a>Pushmeldingen testen in de UWP-app
 Ga terug naar de UWP-app. Hier kunt u nu meldingen testen. Maak in de klasse `LocationHelper` een nieuwe functie (`SendLocationToBackend`):
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -376,7 +380,7 @@ Omdat u niet de echte coördinaten doorgeeft (die misschien niet binnen de grenz
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## Wat nu?
+## <a name="whats-next"></a>Wat nu?
 Er zijn een aantal stappen die u naast de bovenstaande stappen mogelijk moet uitvoeren om ervoor te zorgen dat de oplossing klaar is voor productie.
 
 U moet er ten eerste voor zorgen dat de geofences dynamisch zijn. Hiervoor moet u extra bewerkingen uitvoeren met de Bing-API zodat u nieuwe grenzen kunt uploaden in de bestaande gegevensbron. Zie de [Bing Spatial Data Services-API-documentatie](https://msdn.microsoft.com/library/ff701734.aspx) voor meer informatie over dit onderwerp.
@@ -387,6 +391,9 @@ In de bovenstaande oplossing wordt een scenario beschreven waarin u mogelijk vee
 
 Zie onze [documentatieportal](https://azure.microsoft.com/documentation/services/notification-hubs/) voor meer informatie over Notification Hubs-mogelijkheden.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

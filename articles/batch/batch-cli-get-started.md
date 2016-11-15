@@ -2,11 +2,11 @@
 title: Aan de slag met Azure Batch CLI | Microsoft Docs
 description: Een korte inleiding in de Batch-opdrachten in Azure CLI voor het beheren van Azure Batch-serviceresources
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+
 
 ---
-# Aan de slag met Azure Batch CLI
+# <a name="get-started-with-azure-batch-cli"></a>Aan de slag met Azure Batch CLI
 Met de platformonafhankelijke Azure-opdrachtregelinterface (Azure CLI) kunt u Batch-accounts en -resources beheren, zoals groepen en taken in Linux-, Mac- en Windows-opdrachtshells. Met de Azure-opdrachtregelinterface kunt u veel dezelfde taken uitvoeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch Powershell-cmdlets, en scripts voor deze taken uitvoeren.
 
 Dit artikel is gebaseerd op Azure CLI-versie 0.10.5.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * [Azure CLI installeren](../xplat-cli-install.md)
 * [Koppel de Azure-opdrachtregelinterface aan uw Azure-abonnement](../xplat-cli-connect.md)
 * Overschakelen naar de **Resource Manager-modus**: `azure config mode arm`
@@ -31,7 +35,7 @@ Dit artikel is gebaseerd op Azure CLI-versie 0.10.5.
 > 
 > 
 
-## Opdracht Help
+## <a name="command-help"></a>Opdracht Help
 U kunt voor elke opdracht in de Azure-opdrachtregelinterface Help-tekst weergeven door `-h` als enige optie toe te voegen na de opdracht. Bijvoorbeeld:
 
 * Als u hulp nodig hebt bij de opdracht `azure`, voert u in: `azure -h`
@@ -40,7 +44,7 @@ U kunt voor elke opdracht in de Azure-opdrachtregelinterface Help-tekst weergeve
 
 Gebruik bij twijfel de opdrachtregeloptie `-h` voor hulp bij een willekeurige Azure CLI-opdracht.
 
-## Batch-account maken
+## <a name="create-a-batch-account"></a>Batch-account maken
 Gebruik:
 
     azure batch account create [options] <name>
@@ -58,7 +62,7 @@ Maakt een nieuw Batch-account met de opgegeven parameters. U moet minstens één
 > 
 > 
 
-### Gekoppeld opslagaccount (autostorage)
+### <a name="linked-storage-account-autostorage"></a>Gekoppeld opslagaccount (autostorage)
 U kunt (optioneel) een opslagaccount voor **Algemeen gebruik** koppelen aan uw Batch-account terwijl u dit account maakt. De [toepassingspakketten](batch-application-packages.md)-functie van Batch maakt gebruik van blob-opslag in een gekoppeld opslagaccount voor Algemeen gebruik. Dit geldt ook voor de [Batch-bestandsconventies-.NET](batch-task-output.md)-bibliotheek. Deze optionele functies helpen u bij het implementeren van de toepassingen die uw Batch-taken uitvoeren en het behouden van de gegevens die deze toepassingen produceren.
 
 Als een bestaand Azure Storage-account wilt koppelen aan een Batch-account terwijl u dit account maakt, geeft u de `--autostorage-account-id`-optie op. Voor deze optie is de volledig gekwalificeerde resource-id van het opslagaccount vereist.
@@ -71,7 +75,7 @@ Gebruik vervolgens de **URL**-waarde voor de `--autostorage-account-id`-optie. D
 
     azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
-## Batch-account verwijderen
+## <a name="delete-a-batch-account"></a>Batch-account verwijderen
 Gebruik:
 
     azure batch account delete [options] <name>
@@ -82,10 +86,10 @@ Voorbeeld:
 
 Verwijdert het opgegeven Batch-account. Als u hierom wordt gevraagd, bevestigt u dat u het account wilt verwijderen (het kan enige tijd duren voordat het account is verwijderd).
 
-## Toegangssleutels voor accounts beheren
+## <a name="manage-account-access-keys"></a>Toegangssleutels voor accounts beheren
 U hebt een toegangssleutel nodig om [resources te maken en aan te passen](#create-and-modify-batch-resources) in het Batch-account.
 
-### Lijst met toegangssleutels
+### <a name="list-access-keys"></a>Lijst met toegangssleutels
 Gebruik:
 
     azure batch account keys list [options] <name>
@@ -96,7 +100,7 @@ Voorbeeld:
 
 Vermeldt de accountsleutels voor het opgegeven Batch-account.
 
-### Een nieuwe toegangssleutel genereren
+### <a name="generate-a-new-access-key"></a>Een nieuwe toegangssleutel genereren
 Gebruik:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
@@ -107,10 +111,10 @@ Voorbeeld:
 
 Genereert opnieuw de opgegeven accountsleutel voor het opgegeven Batch-account.
 
-## Batch-resources maken en wijzigen
+## <a name="create-and-modify-batch-resources"></a>Batch-resources maken en wijzigen
 U kunt de Azure-opdrachtregelinterface gebruiken om Batch-resources zoals groepen, rekenknooppunten en taken te maken, te lezen, bij te werken en te verwijderen (CRUD). Voor deze CRUD-bewerkingen moeten de Batch-accountnaam, de toegangssleutel en het eindpunt worden opgegeven. U kunt deze opgeven met de opties `-a`, `-k` en `-u`, of u kunt [omgevingsvariabelen](#credential-environment-variables) instellen die automatisch worden gebruikt voor de opdrachtregelinterface (indien ingevuld).
 
-### Omgevingsvariabelenreferentie
+### <a name="credential-environment-variables"></a>Omgevingsvariabelenreferentie
 U kunt de omgevingsvariabelen `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` en `AZURE_BATCH_ENDPOINT` instellen in plaats van de opties `-a`, `-k` en `-u` op te geven op de opdrachtregel voor elke opdracht die u uitvoert. De Batch-opdrachtregelinterface gebruikt deze variabelen (indien ingesteld) zodat u de opties `-a`, `-k` en `-u` kunt weglaten. In de rest van dit artikel wordt ervan uitgegaan dat u deze omgevingsvariabelen gebruikt.
 
 > [!TIP]
@@ -118,7 +122,7 @@ U kunt de omgevingsvariabelen `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` en
 > 
 > 
 
-### JSON-bestanden
+### <a name="json-files"></a>JSON-bestanden
 Als u Batch-resources maakt, zoals groepen en taken, kunt u een JSON-bestand opgeven dat de configuratie van de nieuwe resource bevat, in plaats van de bijbehorende parameters op te geven als opdrachtregelopties. Bijvoorbeeld:
 
 `azure batch pool create my_batch_pool.json`
@@ -132,7 +136,7 @@ Raadpleeg de documentatie op MSDN [Batch REST-API-naslaginformatie][rest_api] om
 > 
 > 
 
-## Een groep maken
+## <a name="create-a-pool"></a>Een groep maken
 Gebruik:
 
     azure batch pool create [options] [json-file]
@@ -160,7 +164,7 @@ Een groep verwijderen met:
 > 
 > 
 
-## Een taak maken
+## <a name="create-a-job"></a>Een taak maken
 Gebruik:
 
     azure batch job create [options] [json-file]
@@ -175,13 +179,13 @@ Een taak verwijderen met:
 
     azure batch job delete [job-id]
 
-## Lijst met groepen, taken en andere resources
+## <a name="list-pools-jobs-tasks-and-other-resources"></a>Lijst met groepen, taken en andere resources
 Elk Batch-resourcetype ondersteunt een `list`-opdracht die een query uitvoert voor het Batch-account, en vermeldt een lijst met resources van dit type. U kunt bijvoorbeeld de groepen in uw account vermelden en de taken in een taak:
 
     azure batch pool list
     azure batch task list --job-id "job001"
 
-### Resources efficiënt vermelden
+### <a name="listing-resources-efficiently"></a>Resources efficiënt vermelden
 Voor een snellere uitvoering van query‘s kunt u de componentopties **Selecteren**, **Filteren** en **Uitbreiden** opgeven voor `list`-bewerkingen. Gebruik deze opties om de hoeveelheid gegevens die worden geretourneerd via de Batch-service, te beperken. Omdat filteren aan de serverzijde plaatsvindt, worden alleen de gegevens geretourneerd waarin u bent geïnteresseerd. Gebruik deze componenten om bandbreedte (en dus tijd) te besparen tijdens het uitvoeren van lijstbewerkingen.
 
 Deze query retourneert bijvoorbeeld alleen groepen waarvan de id begint met renderTask:
@@ -196,7 +200,7 @@ De Batch-opdrachtregelinterface ondersteunt alle drie de componenten die worden 
 
 Zie [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Efficiënt query‘s uitvoeren voor de Azure Batch-service) voor details over de drie componenten en het hiermee uitvoeren van lijstquery‘s.
 
-## Beheer van toepassingspakketten
+## <a name="application-package-management"></a>Beheer van toepassingspakketten
 Toepassingspakketten bieden een vereenvoudigde manier om toepassingen te implementeren op de rekenknooppunten in groepen. Met de Azure-opdrachtregelinterface kunt u toepassingspakketten uploaden, pakketversies beheren en pakketten verwijderen.
 
 Een nieuwe toepassing maken en een pakketversie toevoegen:
@@ -217,7 +221,7 @@ Stel de **standaardversie** voor de toepassing in:
 
     azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
-### Een toepassingspakket implementeren
+### <a name="deploy-an-application-package"></a>Een toepassingspakket implementeren
 U kunt een of meer toepassingspakketten voor implementatie opgeven wanneer u een nieuwe groep maakt. Wanneer u een pakket opgeeft tijdens het maken van een groep, wordt dit pakket geïmplementeerd op elk knooppunt dat wordt gekoppeld aan de groep. Pakketten worden ook geïmplementeerd als een knooppunt opnieuw wordt gestart of teruggezet.
 
 Geef de optie voor `--app-package-ref` op als u een groep maakt, zodat een toepassingspakket wordt geïmplementeerd naar de knooppunten van de groep wanneer deze lid worden van de groep. De optie `--app-package-ref` accepteert een met puntkomma's gescheiden lijst van toepassings-id's die naar de rekenknooppunten worden geïmplementeerd.
@@ -233,7 +237,7 @@ Zie [Application deployment with Azure Batch application packages](batch-applica
 > 
 > 
 
-### De toepassingspakketten van een groep bijwerken
+### <a name="update-a-pools-application-packages"></a>De toepassingspakketten van een groep bijwerken
 Voor het bijwerken van de toepassingen die zijn toegewezen aan een bestaande groep, kunt u de opdracht `azure batch pool set` met de optie `--app-package-ref` gebruiken:
 
     azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
@@ -249,7 +253,7 @@ Als u een nieuw toepassingspakket wilt implementeren naar rekenknooppunten die z
 
 Denk er wel aan dat u voorafgaand aan de implementatie de toepassing al moet hebben geconfigureerd met een standaardversie (`azure batch application set [options] --default-version <version-id>`).
 
-## Tips voor probleemoplossing
+## <a name="troubleshooting-tips"></a>Tips voor probleemoplossing
 Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het oplossen van problemen met Azure CLI. Hiermee worden wellicht niet alle problemen opgelost, maar het kan helpen bij het bepalen van een mogelijke oorzaak en u naar de juiste Help-resources verwijzen.
 
 * Gebruik `-h` om **Help-tekst** weer te geven voor elke willekeurige CLI-opdracht
@@ -258,7 +262,7 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 * Het [Batch-forum op MSDN][batch_forum] is een geweldig hulpmiddel en wordt nauwkeurig bewaakt door Batch-teamleden. Plaats hier uw vraag als u problemen ondervindt of hulp nodig hebt met een bepaalde bewerking.
 * Niet elk Batch-resourcebewerking wordt momenteel ondersteund in de Azure-opdrachtregelinterface. U kunt momenteel bijvoorbeeld niet de *versie* van een toepassingspakket voor een groep opgeven, maar alleen de pakket-id. In dergelijke gevallen moet u mogelijk een `--json-file` opgeven voor de opdracht in plaats van opdrachtregelopties te gebruiken. Zorg ervoor dat u beschikt over de meest recente CLI-versie om te kunnen profiteren van toekomstige verbeteringen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor informatie over het gebruik van deze functie voor het beheren en implementeren van de toepassingen die u uitvoert op Batch-rekenknooppunten.
 * Zie [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Efficiënt query's uitvoeren op de Azure Batch-service) voor meer informatie over het verminderen van het aantal items en het type informatie dat wordt geretourneerd voor query's naar Batch.
 
@@ -268,6 +272,7 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

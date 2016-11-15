@@ -4,9 +4,9 @@ description: Informatie over het gebruik van Azure Mobile Engagement met analyse
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 7ddfbac3-8d13-4ebe-b061-c865f357297f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
+
 
 ---
-# Aan de slag met Azure Mobile Engagement voor Unity iOS-implementatie
+# <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Aan de slag met Azure Mobile Engagement voor Unity iOS-implementatie
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Unity-toepassing bij implementatie op een iOS-apparaat.
@@ -33,11 +37,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
 > 
 > 
 
-## <a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
-### Het Unity-pakket importeren
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+### <a name="import-the-unity-package"></a>Het Unity-pakket importeren
 1. Download het [Mobile Engagement Unity-pakket](https://aka.ms/azmeunitysdk) en sla het op uw lokale computer op. 
 2. Ga naar **Assets -> Import Package -> Custom Package** en selecteer het pakket dat u in de vorige stap hebt gedownload. 
    
@@ -49,13 +53,13 @@ Voor deze zelfstudie hebt u het volgende nodig:
    
     ![][72] 
 
-### De EngagementConfiguration bijwerken
+### <a name="update-the-engagementconfiguration"></a>De EngagementConfiguration bijwerken
 1. Open het scriptbestand **EngagementConfiguration** in de SDK-map en werk **IOS\_CONNECTION\_STRING** bij met de verbindingsreeks die u eerder hebt verkregen van de Azure-portal.  
    
     ![][73]
 2. Sla het bestand op. 
 
-### De app voor eenvoudig bijhouden configureren
+### <a name="configure-the-app-for-basic-tracking"></a>De app voor eenvoudig bijhouden configureren
 1. Open het script **PlayerController** dat is  gekoppeld aan het object Player om het te bewerken. 
 2. Voeg het volgende toe met de instructie:
    
@@ -65,7 +69,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### De app implementeren en uitvoeren
+### <a name="deploy-and-run-the-app"></a>De app implementeren en uitvoeren
 1. Sluit een iOS-apparaat aan op de computer. 
 2. Open **File -> Build Settings**. 
    
@@ -90,10 +94,10 @@ Voor deze zelfstudie hebt u het volgende nodig:
     ![][75]
 9. Voer nu de app uit in XCode, zodat het pakket wordt geïmplementeerd op het aangesloten apparaat. Nu moet u de Unity-game zien op uw telefoon. 
 
-## <a id="monitor"></a>App verbinden met realtime-bewaking
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
 Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
 U hoeft verder niets te configureren in uw app als deze is al ingesteld voor het ontvangen van meldingen.
 
@@ -115,6 +119,6 @@ U hoeft verder niets te configureren in uw app als deze is al ingesteld voor het
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

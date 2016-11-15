@@ -2,13 +2,13 @@
 title: Taakverdelingscontainers in een Azure Container Service-cluster | Microsoft Docs
 description: Verdeel taken over meerdere containers in een Azure Container Service-cluster.
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Containers, Micro-services, DC/OS, Azure
-
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Taakverdelingscontainers in een Azure Container Service-cluster
@@ -35,14 +39,14 @@ Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de contai
 
 Om de Marathon Load Balancer te installeren kunt u de DC/OS web UI of de opdrachtregel gebruiken.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Installeer Marathon-LB met DC/OS Web UI
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Installeer Marathon-LB met DC/OS Web UI
 1. Klik op “Universe”
 2. Zoek naar “Marathon-LB”
 3. Klik op “Installeren”
 
 ![marathon-lb via the DC/OS Web Interface installeren](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Marathon-LB met de DC/OS CLI installeren
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Marathon-LB met de DC/OS CLI installeren
 Na de installatie van de DC/OS CLI en ervoor te hebben gezorgd dat u verbinding kunt maken met uw cluster, voert u de volgende opdrcht uit op uw clientcomputer:
 
 ```bash
@@ -97,13 +101,13 @@ Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implemen
 
 Het is goed om te weten dat Marathon standaard in het persoonlijke cluster wordt geïmplementeerd. Dat betekent dat de bovengenoemde implementatie alleen toegankelijk is via de load balancer. Dit is gewoonlijk het gewenste gedrag.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Implementeren met de DC/OS Web UI
+### <a name="deploy-using-the-dcos-web-ui"></a>Implementeren met de DC/OS Web UI
 1. Ga naar de Marathon-pagina op http://localhost/marathon (na instelling van uw [SSH-tunnel](container-service-connect.md) en klik op `Create Appliction`
 2. Klik in het dialoogvenster `New Application` op `JSON Mode` in de rechterbovenhoek
 3. Plak bovenstaande JSON in de editor
 4. Klik op `Create Appliction`
 
-### <a name="deploy-using-the-dc/os-cli"></a>Implementeren met de DC/OS CLI
+### <a name="deploy-using-the-dcos-cli"></a>Implementeren met de DC/OS CLI
 Om deze toepassing te implementeren met de DC/OS CLI moet u gewoon de bovenstaande JSON kopiëren in een bestand met de naam `hello-web.json` en uitvoeren:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Volgende stappen
 Zie de DC/OS-documentatie voor meer informatie over [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

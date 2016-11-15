@@ -1,8 +1,8 @@
 De Azure Backup-service heeft twee soorten kluizen: de Backup-kluis en de Recovery Services-kluis. De Backup-kluis was er het eerst. Vervolgens kwam de Recovery Services-kluis ter ondersteuning van de uitgebreide Resource Manager-implementaties. Microsoft raadt u aan Resource Manager-implementaties te gebruiken, tenzij u specifiek een klassieke implementatie wenst.
 
-| **Implementatie** | **Portal** | **Kluis** |
+| **Implementatie** | **Portal** | **Vault** |
 | --- | --- | --- |
-| Klassiek |[Klassiek](https://manage.windowsazure.com) |Back-up |
+| Klassiek |[Klassiek](https://manage.windowsazure.com) |Back-up maken |
 | Resource Manager |[Azure](https://portal.azure.com) |Recovery Services |
 
 > [!NOTE]
@@ -10,6 +10,8 @@ De Azure Backup-service heeft twee soorten kluizen: de Backup-kluis en de Recove
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

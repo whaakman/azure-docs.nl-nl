@@ -1,13 +1,13 @@
 ---
-title: Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways voor Azure Virtual Network| Microsoft Docs
+title: Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways voor Azure Virtual Networks | Microsoft Docs
 description: Dit artikel gaat over VPN-apparaten en IPSec-parameters voor S2S VPN Gateway-verbindingen en bevat koppelingen naar configuratie-instructies en voorbeelden.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
+editor: 
 tags: azure-resource-manager, azure-service-management
-
+ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+
 
 ---
-# Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
+# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
 U hebt een VPN-apparaat nodig om een S2S-VPN-verbinding (site-naar-site) te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod. 
 
 > [!NOTE]
@@ -34,7 +38,7 @@ Zie het gedeelte [Niet-gevalideerde VPN-apparaten](#additionaldevices) als het a
   * Dynamische routering = RouteBased
 * De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties. 
 
-## <a name="devicetable"></a>Gevalideerde VPN-apparaten
+## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Gevalideerde VPN-apparaten
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren. 
 
 Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
@@ -66,10 +70,10 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 
 (*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN-verbindingen.
 
-## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
+## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
 Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Controleer of uw VPN-apparaat voldoet aan de minimale vereisten die worden beschreven in de sectie Gatewayvereisten van het artikel [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) (Over VPN-gateways). Apparaten die voldoen aan de minimumvereisten zouden ook met VPN-gateways moeten werken. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
 
-## Voorbeelden van het bewerken van apparaatconfiguraties
+## <a name="editing-device-configuration-samples"></a>Voorbeelden van het bewerken van apparaatconfiguraties
 Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving. 
 
 **U bewerkt een voorbeeld als volgt:**
@@ -91,13 +95,13 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal als **IP-adres van gateway**. |
 | &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
 
-## IPsec-parameters
+## <a name="ipsec-parameters"></a>IPsec-parameters
 > [!NOTE]
 > Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, is er momenteel geen enkele manier waarop u vanuit de Azure VPN-gateway een specifieke combinatie kunt opgeven of selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u MSS vastzetten op 1350.
 > 
 > 
 
-### Configuratie IKE fase 1
+### <a name="ike-phase-1-setup"></a>Configuratie IKE fase 1
 | **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
 | --- | --- | --- |
 | IKE-versie |IKEv1 |IKEv2 |
@@ -107,7 +111,7 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | Hash-algoritme |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Levensduur (tijd) van beveiligingskoppeling (SA) fase 1 |28.800 seconden |10.800 seconden |
 
-### Configuratie IKE fase 2
+### <a name="ike-phase-2-setup"></a>Configuratie IKE fase 2
 | **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
 | --- | --- | --- |
 | IKE-versie |IKEv1 |IKEv2 |
@@ -120,10 +124,10 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 
 (*) Azure Gateway als IKE-responder accepteert PFS DH-groep 1, 2, 5, 14, 24.
 
-### Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways
+### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways
 In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verificatie. De aanbiedingen staan in volgorde van voorkeur waarin de aanbieding is gepresenteerd of geaccepteerd.
 
-| **Aanbiedingen voor IPSec-SA-codering en -verificatie** | **Azure-gateway als initiator** | **Azure-Gateway als antwoorder** |
+| **Aanbiedingen voor IPSec-SA-codering en -verificatie** | **Azure-gateway als initiator** | **Azure-gateway als antwoorder** |
 | --- | --- | --- |
 | 1 |ESP AES_256 SHA |ESP AES_128 SHA |
 | 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
@@ -147,6 +151,9 @@ In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verifica
 * U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en VPN-gateways met hoge prestaties. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist.  Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
 * Gebruik voor cross-premises connectiviteit via internet de standaardinstellingen voor Azure VPN-gateways met versleuteling en hash-algoritmen die in de tabel hierboven worden vermeld, om beveiliging van uw kritieke communicatie te waarborgen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

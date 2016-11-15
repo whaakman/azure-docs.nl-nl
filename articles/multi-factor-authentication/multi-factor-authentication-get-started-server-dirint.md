@@ -2,11 +2,11 @@
 title: Adreslijstintegratie tussen Azure Multi-Factor Authentication en Active Directory
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u de Azure Multi-Factor Authentication-server kunt integreren met Active Directory zodat u de mappen kunt synchroniseren.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da64189de722b5ee3552530bb1276539e5c6c323
+
 
 ---
-# Adreslijstintegratie tussen Azure MFA-server en Active Directory
+# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Adreslijstintegratie tussen Azure MFA-server en Active Directory
 In de sectie Adreslijstintegratie kunt u de server configureren voor integratie met Active Directory of een andere LDAP-directory.  Hier kunt u kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en de automatische synchronisatie van gebruikers instellen.
 
-## Instellingen
+## <a name="settings"></a>Instellingen
 De Azure Multi-Factor Authentication-server is standaard geconfigureerd om gebruikers te importeren uit of te synchroniseren met Active Directory.  Op dit tabblad kunt u het standaardgedrag negeren en een binding maken met een andere LDAP-directory, een ADAM-directory of specifieke Active Directory-domeincontroller.  U kunt hier ook LDAP-verificatie gebruiken om een proxy op LDAP uit te voeren of LDAP-binding gebruiken als een RADIUS-doel, pre-authenticatie voor IIS-authenticatie gebruiken of primaire authenticatie voor de gebruikersportal gebruiken.  De volgende tabel beschrijft de afzonderlijke instellingen.
 
 ![Instellingen](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
@@ -45,7 +49,7 @@ De volgende tabel beschrijft de LDAP-configuratie-instellingen.
 | Maximale grootte query |Geef de maximale grootte op voor het maximum aantal gebruikers dat bij een directory-zoekopdracht wordt geretourneerd.  Deze limiet moet overeenkomen met de configuratie in de LDAP-directory.  Voor grote zoekopdrachten waarbij wisselgeheugengebruik niet wordt ondersteund, zal bij import en synchronisatie worden geprobeerd gebruikers in batches op te halen.  Als de maximale grootte hier hoger is dan de limiet die is geconfigureerd in de LDAP-directory, is het mogelijk dat sommige gebruikers ontbreken. |
 | Knop Testen |Klik op de knop Testen om de binding met de LDAP-server te testen.  <br><br> Opmerking: De optie Specifieke LDAP-configuratie gebruiken hoeft niet te worden geselecteerd om de binding te testen.  Hiermee kan de binding worden getest alvorens de LDAP-configuratie te gebruiken. |
 
-## Filters
+## <a name="filters"></a>Filters
 Met behulp van filters kunt u criteria instellen om records te kwalificeren bij het uitvoeren van een directoryzoekopdracht.  Door het filter in te stellen, kunt u het bereik bepalen van de objecten die u wilt synchroniseren.  
 
 ![Filters](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
@@ -56,7 +60,7 @@ Azure Multi-Factor Authentication heeft de volgende drie opties:
 * **Beveiligingsgroepfilter** - Geef de filtercriteria op die worden gebruikt om beveiligingsgroeprecords te kwalificeren bij het uitvoeren van een directoryzoekopdracht.  Voor Active Directory en ADAM wordt doorgaans (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) gebruikt.  Voor andere LDAP-directory's moeten filtercriteria worden gebruikt die elk type beveiligingsgroepsobject kwalificeren, afhankelijk van het directory-schema.  <br>Opmerking: als dit veld leeg blijft, wordt standaard (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) gebruikt.
 * **Gebruikersfilter** - Geef de filtercriteria op die worden gebruikt om gebruikersrecords te kwalificeren bij het uitvoeren van een directoryzoekopdracht.  Voor Active Directory en ADAM wordt doorgaans (&(objectClass=user)(objectCategory=person)) gebruikt.  Voor andere LDAP-mappen moet (objectClass=inetOrgPerson) of iets soortgelijks worden gebruikt, afhankelijk van het Active Directory-schema. <br>Opmerking: als dit veld leeg blijft, wordt standaard (&(objectCategory=person)(objectClass=user)) gebruikt.
 
-## Kenmerken
+## <a name="attributes"></a>Kenmerken
 Kenmerken kunnen indien nodig worden aangepast voor een specifieke directory.  Hierdoor kunt u aangepaste kenmerken toevoegen en de synchronisatie afstemmen op alleen de kenmerken die u nodig hebt.  De waarde voor elk kenmerkveld moet de naam van het kenmerk zijn, zoals deze in het Active Directory-schema is gedefinieerd.  Gebruik de onderstaande tabel voor meer informatie.
 
 ![Kenmerken](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
@@ -96,7 +100,7 @@ Als u kenmerken wilt bewerken, klikt u gewoon op de knop Bewerken op het tabblad
 
 ![Kenmerken bewerken](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## Synchronisatie
+## <a name="synchronization"></a>Synchronisatie
 Synchronisatie houdt de Azure Multi-Factor-gebruikersdatabase gesynchroniseerd met de gebruikers in Active Directory of een andere Lightweight Directory Access Protocol (LDAP)-directory.  Het proces is vergelijkbaar met het handmatig importeren van gebruikers uit Active Directory, maar pollt periodiek naar te verwerken wijzigingen in Active Directory-gebruikers en -beveiligingsgroepen.  Het kan ook gebruikers uitschakelen of verwijderen die uit een container of beveiligingsgroep zijn verwijderd en gebruikers verwijderen uit Active Directory.
 
 De Multi-Factor Authentication-service ADSync is een Windows-service die de periodieke polling van Active Directory uitvoert.  Verwar dit niet met Azure AD Sync of Azure AD Connect.  Hoewel de Multi-Factor Authentication-service ADSync is gebouwd op een vergelijkbare codebasis, is deze service specifiek voor de Azure Multi-Factor Authentication-server.  Deze service wordt geïnstalleerd met een status Gestopt en wordt gestart door de service van de Multi-Factor Authentication-server wanneer deze is geconfigureerd om te worden uitgevoerd.  Als u een Multi-Factor Authentication-serverconfiguratie met meerdere servers hebt, kan de Multi-Factor Authentication-service ADSync slechts op één server worden uitgevoerd.
@@ -135,11 +139,14 @@ Met de knoppen Omhoog en Omlaag kan de beheerder de volgorde van de synchronisat
 > 
 > 
 
-## Multi-Factor Auth-servers
+## <a name="multifactor-auth-servers"></a>Multi-Factor Auth-servers
 Extra Multi-Factor Authentication-servers kunnen worden ingesteld om te fungeren als een back-up-RADIUS-proxy, LDAP-proxy of voor IIS-authenticatie. De configuratie van de synchronisatie wordt gedeeld tussen alle agents. De service van de Multi-Factor Authentication-server kan echter slechts op één van deze agents worden uitgevoerd. Op dit tabblad kunt u de Multi-Factor Authentication-server selecteren die voor synchronisatie moet worden ingeschakeld.
 
 ![Multi-Factor Auth-servers](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

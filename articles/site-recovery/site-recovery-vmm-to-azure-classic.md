@@ -2,24 +2,28 @@
 title: Hyper-V virtuele machines in VMM-clouds repliceren naar Azure | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u Hyper-V virtuele machines op Hyper-V-hosts in System Center VMM-clouds naar Azure repliceert.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/06/2016
+ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4743f1335856bcfc7a44d76841d3be83693ad063
+
 
 ---
-# Hyper-V virtuele machines in VMM-clouds repliceren naar Azure
+# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure"></a>Hyper-V virtuele machines in VMM-clouds repliceren naar Azure
 > [!div class="op_single_selector"]
-> * [Azure-portal](site-recovery-vmm-to-azure.md)
-> * [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klassieke portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Klassiek](site-recovery-deploy-with-powershell.md)
 > 
@@ -27,38 +31,38 @@ ms.author: raynew
 
 De Azure Site Recovery-service draagt bij aan de bedrijfscontinuïteit en de strategie voor herstel na noodgevallen (BCDR) door de replicatie, failover en het herstel van virtuele machines en fysieke servers in te delen. Machines kunnen worden gerepliceerd naar Azure of een secundaire on-premises datacentrum. Lees voor een snel overzicht [Wat is Azure Site Recovery?](site-recovery-overview.md).
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 In dit artikel wordt beschreven hoe u Site Recovery implementeert om Hyper-V virtuele machines op Hyper-V-hostservers in VMM-privéclouds naar Azure repliceren.
 
 Het artikel bevat vereisten voor het scenario en laat u zien hoe u een Site Recovery-kluis instelt, Azure Site Recovery Provider op de bron-VMM-server installeert, de server in de kluis registreert, een Azure Storage-account toevoegt, de Azure Recovery Services-agent op Hyper-V-hostservers installeert, beveiligingsinstellingen voor VMM-clouds configureert die worden toegepast op alle beveiligde virtuele machines en vervolgens beveiliging voor die virtuele machines inschakelt. Test tenslotte de failover om te controleren of alles naar verwachting werkt.
 
 U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
 
-## Architectuur
+## <a name="architecture"></a>Architectuur
 ![Architectuur](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Azure Site Recovery Provider wordt op de VMM geïnstalleerd tijdens de implementatie van Site Recovery en de VMM-server wordt in de Site Recovery-kluis geregistreerd. Provider communiceert met Site Recovery om de replicatie-indeling af te handelen.
 * De Azure Recovery Services-agent wordt tijdens de implementatie van Site Recovery op Hyper-V-hostservers geïnstalleerd. De agent verwerkt de gegevensreplicatie naar Azure Storage.
 
-## Vereisten voor Azure
+## <a name="azure-prerequisites"></a>Vereisten voor Azure
 In Azure hebt u het volgende nodig.
 
 | **Vereiste** | **Details** |
 | --- | --- |
 | **Azure-account** |U hebt een [Microsoft Azure](https://azure.microsoft.com/)-account nodig. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) over prijzen voor Site Recovery. |
-| **Azure-opslag** |U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan. Gerepliceerde gegevens worden opgeslagen in Azure Storage en Azure VM's worden bij een failover ingezet. <br/><br/>U hebt een [standaard geografisch redundant opslagaccount](../storage/storage-redundancy.md#geo-redundant-storage) nodig. Het account moet zich in dezelfde regio bevinden als de Site Recovery-service en moet zijn gekoppeld aan hetzelfde abonnement. Houd er rekening mee dat replicatie naar Premium Storage-accounts momenteel niet wordt ondersteund en dus niet moet worden gebruikt.<br/><br/>[Meer informatie over](../storage/storage-introduction.md) Azure Storage. |
+| **Azure Storage** |U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan. Gerepliceerde gegevens worden opgeslagen in Azure Storage en Azure VM's worden bij een failover ingezet. <br/><br/>U hebt een [standaard geografisch redundant opslagaccount](../storage/storage-redundancy.md#geo-redundant-storage) nodig. Het account moet zich in dezelfde regio bevinden als de Site Recovery-service en moet zijn gekoppeld aan hetzelfde abonnement. Houd er rekening mee dat replicatie naar Premium Storage-accounts momenteel niet wordt ondersteund en dus niet moet worden gebruikt.<br/><br/>[Meer informatie](../storage/storage-introduction.md) over Azure-opslag. |
 | **Azure-netwerk** |U hebt een virtueel Azure-netwerk nodig waarmee Azure VM's verbinding maken wanneer failover plaatsvindt. Het virtuele Azure-netwerk moet zich in dezelfde regio bevinden als de Site Recovery-kluis. |
 
-## Vereisten voor on-premises
+## <a name="onpremises-prerequisites"></a>Vereisten voor on-premises
 Dit is wat u on-premises nodig hebt.
 
 | **Vereiste** | **Details** |
 | --- | --- |
 | **VMM** |U moet ten minste één VMM-server hebben die als fysieke of virtuele zelfstandige server of als virtueel cluster is geïmplementeerd. <br/><br/>Op de VMM-server moet System Center 2012 R2 met de meest recente cumulatieve updates worden uitgevoerd.<br/><br/>Er moet ten minste één cloud zijn geconfigureerd op de VMM-server.<br/><br/>De broncloud die u wilt beveiligen, moet een of meer VMM-hostgroepen bevatten.<br/><br/>Meer informatie over het instellen van VMM-clouds in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Overzicht: privéclouds maken met System Center 2012 SP1 VMM) in het blog van Keith Mayer. |
-| **Hyper-V** |U hebt een of meer Hyper-V-hostservers of -clusters in de VMM-cloud nodig. De hostserver moet een of meer VM's hebben. <br/><br/>Op de Hyper-V-server moet ten minste Windows Server 2012 R2 met de Hyper-V-rol worden uitgevoerd en bovendien moeten de meest recente updates zijn geïnstalleerd.<br/><br/>Alle Hyper-V-servers met VM's die u wilt beveiligen, moeten zich in een VMM-cloud bevinden.<br/><br/>Als u Hyper-V in een cluster uitvoert, wordt die clusterbroker niet automatisch gemaakt als u een cluster op basis van een statisch IP-adres hebt. U moet de clusterbroker handmatig configureren. [Meer informatie](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in het blog van Aidan Finn. |
+| **Hyper-V** |U hebt een of meer Hyper-V-hostservers of -clusters in de VMM-cloud nodig. De hostserver moet een of meer VM's hebben. <br/><br/>Op de Hyper-V-server moet ten minste **Windows Server 2012 R2** met de Hyper-V-rol of **Microsoft Hyper-V Server 2012 R2** worden uitgevoerd en moeten de meest recente updates zijn geïnstalleerd.<br/><br/>Alle Hyper-V-servers met VM's die u wilt beveiligen, moeten zich in een VMM-cloud bevinden.<br/><br/>Als u Hyper-V in een cluster uitvoert, wordt die clusterbroker niet automatisch gemaakt als u een cluster op basis van een statisch IP-adres hebt. U moet de clusterbroker handmatig configureren. [Meer informatie](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in het blog van Aidan Finn. |
 | **Beveiligde machines** |VM's die u wilt beveiligen, moeten voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
 
-## Vereisten voor netwerktoewijzing
+## <a name="network-mapping-prerequisites"></a>Vereisten voor netwerktoewijzing
 Wanneer u virtuele machines in Azure beveiligt, zorgen de koppelingen van netwerktoewijzingen tussen VM-netwerken op de bron-VMM-server en doel-Azure-netwerken voor het volgende:
 
 * Alle machines met failover in hetzelfde netwerk kunnen met worden verbonden, ongeacht van welk herstelplan ze deel uitmaken.
@@ -78,7 +82,7 @@ Tref als volgt voorbereidingen voor netwerktoewijzing:
    * [Stel logische netwerken in](https://technet.microsoft.com/library/jj721568.aspx).
    * [Stel VM-netwerken in](https://technet.microsoft.com/library/jj721575.aspx).
 
-## Stap 1: Een Site Recovery-kluis maken
+## <a name="step-1-create-a-site-recovery-vault"></a>Stap 1: Een Site Recovery-kluis maken
 1. Meld u aan bij de [beheerportal](https://portal.azure.com) vanuit de VMM-server die u wilt registreren.
 2. Klik op **Data Services** > **Recovery Services** > **Site Recovery-kluis**.
 3. Klik op **Nieuw maken** > **Snelle invoer**.
@@ -90,18 +94,18 @@ Tref als volgt voorbereidingen voor netwerktoewijzing:
 
 Controleer de statusbalk om te bevestigen dat de kluis is gemaakt. De kluis wordt als **Actief** weergegeven op de hoofdpagina van Recovery Services.
 
-## Stap 2: Een kluisregistratiesleutel genereren
+## <a name="step-2-generate-a-vault-registration-key"></a>Stap 2: Een kluisregistratiesleutel genereren
 Genereer een registratiesleutel in de kluis. Nadat u Azure Site Recovery Provider hebt gedownload en op de VMM-server hebt geïnstalleerd, gebruikt u deze sleutel om de VMM-server in de kluis te registreren.
 
 1. Klik op de pagina **Recovery Services** op de kluis om de pagina Snel starten te openen. Snel starten kan ook op elk gewenst moment worden geopend met het pictogram.
    
     ![Pictogram Snel starten](./media/site-recovery-vmm-to-azure-classic/qs-icon.png)
 2. Selecteer in de vervolgkeuzelijst **Tussen een on-premises VMM-site en Microsoft Azure**.
-3. Klik in **VMM-servers voorbereiden** op het **Registratiesleutel genereren**-bestand. Het sleutelbestand wordt automatisch gegenereerd en is geldig tot 5 dagen nadat het is gegenereerd. Als u geen toegang tot Azure-portal hebt vanaf de VMM-server, moet u dit bestand naar de server kopiëren.
+3. Klik in **VMM-servers voorbereiden** op het **Registratiesleutel genereren**-bestand. Het sleutelbestand wordt automatisch gegenereerd en is geldig tot 5 dagen nadat het is gegenereerd. Als u geen toegang tot Azure Portal hebt vanaf de VMM-server, moet u dit bestand naar de server kopiëren.
    
     ![Registratiesleutel](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## Stap 3: Azure Site Recovery Provider installeren
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>Stap 3: Azure Site Recovery Provider installeren
 1. Klik in **Snel starten** > **VMM-servers voorbereiden** op **Microsoft Azure Site Recovery Provider downloaden voor installatie op VMM-servers** om de meest recente versie van het Provider-installatiebestand op te halen.
 2. Voer dit bestand op de bron-VMM-server uit.
    
@@ -146,7 +150,7 @@ Genereer een registratiesleutel in de kluis. Nadat u Azure Site Recovery Provide
 
 Na de registratie worden door Azure Site Recovery metagegevens van de VMM-server opgehaald. De server wordt weergegeven op het tabblad **VMM-servers** op de pagina **Servers** in de kluis.
 
-### Installatie vanaf de opdrachtregel
+### <a name="command-line-installation"></a>Installatie vanaf de opdrachtregel
 Azure Site Recovery Provider kan ook worden geïnstalleerd met de volgende opdrachtregel. Deze methode kan worden gebruikt om Provider in Server Core voor Windows Server 2012 R2 te installeren.
 
 1. Download het Provider-installatiebestand en de registratiesleutel naar een map. Bijvoorbeeld: C:\ASR.
@@ -173,7 +177,7 @@ Gebruik daarbij de volgende parameters:
 * **/proxyUsername** : een optionele parameter waarmee de proxygebruikersnaam wordt opgegeven.
 * **/proxyPassword** : een optionele parameter waarmee het proxywachtwoord wordt opgegeven.  
 
-## Stap 4: Een Azure Storage-account maken
+## <a name="step-4-create-an-azure-storage-account"></a>Stap 4: Een Azure Storage-account maken
 1. Als u geen Azure Storage-account hebt, klikt u op **Een Azure Storage-account toevoegen** om een account te maken.
 2. Maak een account waarvoor geo-replicatie is ingeschakeld. Het account moet zich in dezelfde regio bevinden als de Azure Site Recovery-service en moet zijn gekoppeld aan hetzelfde abonnement.
    
@@ -184,7 +188,7 @@ Gebruik daarbij de volgende parameters:
 > 
 > 
 
-## Stap 5: De Azure Recovery Services-agent installeren
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>Stap 5: De Azure Recovery Services-agent installeren
 Installeer de Azure Recovery Services-agent op elke Hyper-V-hostserver in de VMM-cloud.
 
 1. Klik op **Snel starten** > **Azure Site Recovery Services-agent downloaden en op hosts installeren** om de meest recente versie van het agentinstallatiebestand op te halen.
@@ -199,12 +203,12 @@ Installeer de Azure Recovery Services-agent op elke Hyper-V-hostserver in de VMM
    
     ![MARS-agent registreren](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### Installatie vanaf de opdrachtregel
+### <a name="command-line-installation"></a>Installatie vanaf de opdrachtregel
 U kunt de Microsoft Azure Recovery Services-agent ook installeren vanaf de opdrachtregel met de volgende opdracht:
 
     marsagentinstaller.exe /q /nu
 
-## Stap 6: Cloudbeveiligingsinstellingen configureren
+## <a name="step-6-configure-cloud-protection-settings"></a>Stap 6: Cloudbeveiligingsinstellingen configureren
 Nadat de VMM-server is geregistreerd, kunt u cloudbeveiligingsinstellingen configureren. U hebt de optie **Cloudgegevens synchroniseren met de kluis** ingeschakeld toen u Provider installeerde, zodat alle clouds op de VMM-server worden weergegeven op het tabblad <b>Beveiligde items</b> in de kluis.
 
 ![Gepubliceerde cloud](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -225,7 +229,7 @@ Nadat u de instellingen hebt opgeslagen, wordt een taak gemaakt. De taak kan wor
 
 Cloudinstellingen kunnen nadat ze zijn opgeslagen worden gewijzigd op het tabblad **Configureren**. Als u de doellocatie of het doelopslagaccount wilt wijzigen, moet u de cloudconfiguratie verwijderen en de cloud vervolgens opnieuw configureren. Houd er rekening mee dat als u het opslagaccount wijzigt, de wijziging alleen geldt voor virtuele machines die zijn ingeschakeld voor beveiliging nadat het opslagaccount is gewijzigd. Bestaande virtuele machines worden niet gemigreerd naar het nieuwe opslagaccount.
 
-## Stap 7: Netwerktoewijzing configureren
+## <a name="step-7-configure-network-mapping"></a>Stap 7: Netwerktoewijzing configureren
 Controleer voordat u met de netwerktoewijzing begint of de virtuele machines op de bron-VMM-server zijn verbonden met een VM-netwerk. Maak ook een of meer virtuele Azure-netwerken. Er kunnen meerdere VM-netwerken worden toegewezen aan één Azure-netwerk.
 
 1. Klik op de pagina Snel starten op **Netwerken toewijzen**.
@@ -246,7 +250,7 @@ Als het doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde 
 > 
 > 
 
-## Stap 8: Beveiliging voor virtuele machines inschakelen
+## <a name="step-8-enable-protection-for-virtual-machines"></a>Stap 8: Beveiliging voor virtuele machines inschakelen
 Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beveiliging voor virtuele machines in de cloud inschakelen. Houd rekening met het volgende:
 
 * Virtuele machines moeten voldoen aan [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements).
@@ -274,7 +278,7 @@ Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beve
   
   * Als het aantal netwerkadapters op de bronmachine kleiner is dan of gelijk is aan het aantal adapters dat is toegestaan voor de grootte van de doelmachine, heeft het doel hetzelfde aantal adapters als de bron.
   * Als het aantal adapters voor de virtuele bronmachine meer is dan is toegestaan voor de doelgrootte, wordt het maximum voor de doelgrootte gebruikt.
-  * Als een bronmachine bijvoorbeeld twee netwerkadapters heeft en met de grootte van de doelmachine vier netwerkadapters worden ondersteund, heeft de doelcomputer twee adapters. Als de bronmachine twee adapters heeft, maar met de ondersteunde doelgrootte slechts één wordt ondersteund, heeft de doelcomputer slechts één adapter.    
+  * Als een bronmachine bijvoorbeeld twee netwerkadapters heeft en met de grootte van de doelmachine vier netwerkadapters worden ondersteund, heeft de doelcomputer twee adapters. Als de bronmachine twee adapters heeft, maar met de ondersteunde doelgrootte slechts één wordt ondersteund, heeft de doelcomputer slechts één adapter.     
 * **Netwerk van de virtuele doelmachine**: het netwerk waarmee de virtuele machine verbinding maakt, wordt bepaald door de netwerktoewijzing van het netwerk van de virtuele bronmachine. Als de virtuele bronmachine meer dan een netwerkadapter heeft en er bronnetwerken worden toegewezen aan verschillende doelnetwerken, moet u tussen een van de doelnetwerken kiezen.
 * **Subnet van elke netwerkadapter**: voor elke netwerkadapter kunt u het subnet selecteren waarmee de virtuele machine bij failover moet worden verbonden.
 * **Doel-IP-adres**: als de netwerkadapter van de virtuele bronmachine is geconfigureerd voor gebruik van een statisch IP-adres, kunt u het IP-adres voor de virtuele doelmachine opgeven. Gebruik deze functie om het IP-adres van een virtuele bronmachine te behouden na een failover. Als er geen IP-adres is opgegeven, wordt er een willekeurig beschikbaar IP-adres aan de netwerkadapter gegeven op het moment van failover. Als het doel-IP-adres is opgegeven, maar het adres al door een andere virtuele machine in Azure wordt gebruikt, mislukt de failover.  
@@ -286,7 +290,7 @@ Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beve
 > 
 > 
 
-## De implementatie testen
+## <a name="test-the-deployment"></a>De implementatie testen
 Als u uw implementatie wilt testen, kunt u een testfailover voor één virtuele machine uitvoeren of een herstelplan maken dat bestaat uit meerdere virtuele machines en een testfailover voor het plan uitvoeren.  
 
 Met een testfailover wordt uw failover- en herstelmechanisme in een geïsoleerd netwerk gesimuleerd. Houd rekening met het volgende:
@@ -299,7 +303,7 @@ Met een testfailover wordt uw failover- en herstelmechanisme in een geïsoleerd 
 > 
 > 
 
-### Een herstelplan maken
+### <a name="create-a-recovery-plan"></a>Een herstelplan maken
 1. Voeg op het tabblad **Herstelplannen** een nieuw plan toe. Geef een naam op, geef **VMM** op bij **Brontype** en geef in **Bron** de bron-VMM-server op. Azure is het doel.
    
     ![Herstelplan maken](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -312,7 +316,7 @@ Met een testfailover wordt uw failover- en herstelmechanisme in een geïsoleerd 
 
 Nadat een herstelplan is gemaakt, wordt het weergegeven op het tabblad **Herstelplannen**. U kunt ook [Azure Automation-runbooks](site-recovery-runbook-automation.md) aan het herstelplan toevoegen om acties tijdens de failover te automatiseren.
 
-### Een testfailover uitvoeren
+### <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 Er zijn twee manieren om een testfailover naar Azure uit te voeren.
 
 * **Testfailover zonder een Azure-netwerk**: bij dit type testfailover wordt gecontroleerd of de virtuele machine correct in Azure wordt ingesteld. De virtuele machine wordt niet verbonden met een Azure-netwerk na een failover.
@@ -329,9 +333,9 @@ Ga als volgt te werk om een testfailover uit te voeren:
    
     ![Geen netwerk](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Als voor de cloud gegevensversleuteling is ingeschakeld, selecteert u in **Versleutelingssleutel** het certificaat dat is uitgegeven tijdens de installatie van Provider op de VMM-server als u de optie voor het inschakelen van gegevensversleuteling voor een cloud hebt ingeschakeld.
-4. Op het tabblad **Taken** kunt u de voortgang van de failover volgen. U moet ook de testreplica van de virtuele machine in de Azure-portal kunnen zien. Als u klaar bent om toegang tot virtuele machines te krijgen vanaf uw on-premises netwerk, kunt u een Extern bureaublad-verbinding naar de virtuele machine starten.
+4. Op het tabblad **Taken** kunt u de voortgang van de failover volgen. U moet ook de testreplica van de virtuele machine in Azure Portal kunnen zien. Als u klaar bent om toegang tot virtuele machines te krijgen vanaf uw on-premises netwerk, kunt u een Extern bureaublad-verbinding naar de virtuele machine starten.
 5. Wanneer de fase **Testen voltooien** van de failover is bereikt, klikt u op **Test voltooien** om de testfailover te voltooien. U kunt inzoomen op het tabblad **Taak** om de voortgang en status van de failover bij te houden en de benodigde acties uit te voeren.
-6. Na de failover wordt de testreplica van de virtuele machine in de Azure-portal weergegeven. Als u vanuit uw on-premises netwerk toegang hebt tot virtuele machines, kunt u ook een Extern bureaublad-verbinding naar de virtuele machine starten. Ga als volgt te werk:
+6. Na de failover wordt de testreplica van de virtuele machine in Azure Portal weergegeven. Als u vanuit uw on-premises netwerk toegang hebt tot virtuele machines, kunt u ook een Extern bureaublad-verbinding naar de virtuele machine starten. Ga als volgt te werk:
    
    1. Controleer of de virtuele machines zijn gestart.
    2. Als u na de failover verbinding wilt maken met de virtuele machine in Azure met Extern bureaublad, schakelt u Verbinding met extern bureaublad in op de virtuele machine voordat u de testfailover uitvoert. U moet ook een RDP-eindpunt op de virtuele machine toevoegen. U kunt hiervoor een [Azure Automation-runbook](site-recovery-runbook-automation.md) gebruiken.
@@ -343,9 +347,12 @@ Ga als volgt te werk om een testfailover uit te voeren:
 
 >
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [herstelplannen maken](site-recovery-create-recovery-plans.md) en [failover](site-recovery-failover.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

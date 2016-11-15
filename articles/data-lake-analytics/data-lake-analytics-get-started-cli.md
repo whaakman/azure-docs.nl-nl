@@ -2,11 +2,11 @@
 title: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface | Microsoft Docs
 description: 'Informatie over het gebruik van de Azure-opdrachtregelinterface voor het maken van een Data Lake Store-account, het maken van een Data Lake Analytics-taak met U-SQL, en het verzenden van de taak. '
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 651021d4-4591-4c48-b1ef-3ebc4606d66d
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+
 
 ---
-# Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het gebruik van de Azure CLI voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md) en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een taak ontwikkelen die een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
@@ -37,10 +41,10 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
   
         azure config mode arm
 
-## Een Data Lake Analytics-account maken
+## <a name="create-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 U moet een Data Lake Analytics-account hebben voordat u taken kunt uitvoeren. Om een Data Lake Analytics-account te maken, moet u het volgende opgeven:
 
-* **Azure Resource Group**: een Data Lake Analytics-account moet worden gemaakt binnen een Azure-resourcegroep. Met [Azure Resource Manager](../resource-group-overview.md) kunt u met de resources in uw toepassing als groep gebruiken. U kunt alle resources voor uw toepassing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking.  
+* **Azure Resource Group**: een Data Lake Analytics-account moet worden gemaakt binnen een Azure-resourcegroep. Met [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kunt u met de resources in uw toepassing als groep gebruiken. U kunt alle resources voor uw toepassing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking.  
   
     Het opsommen van de resourcegroepen in uw abonnement:
   
@@ -71,7 +75,7 @@ U moet een Data Lake Analytics-account hebben voordat u taken kunt uitvoeren. Om
         azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
         azure datalake analytics account list
-        azure datalake analytics account show "<Data Lake Analytics Account Name>"          
+        azure datalake analytics account show "<Data Lake Analytics Account Name>"            
 
 ![Data Lake Analytics-account weergeven](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
@@ -80,19 +84,19 @@ U moet een Data Lake Analytics-account hebben voordat u taken kunt uitvoeren. Om
 > 
 > 
 
-## Gegevens uploaden naar Data Lake Store
+## <a name="upload-data-to-data-lake-store"></a>Gegevens uploaden naar Data Lake Store
 In deze zelfstudie verwerkt u een aantal zoeklogboeken.  Het zoeklogboek kan worden opgeslagen in de Data Lake Store of Azure Blob-opslag. 
 
-De Azure Portal biedt een gebruikersinterface waarmee u een aantal voorbeeldbestanden kunt kopiëren naar het Data Lake-standaardaccount, waaronder een zoeklogboekbestand. Zie [Brongegevens voorbereiden](data-lake-analytics-get-started-portal.md#prepare-source-data) om de gegevens te uploaden naar het Data Lake Store-standaardaccount.
+Azure Portal biedt een gebruikersinterface waarmee u een aantal voorbeeldbestanden kunt kopiëren naar het Data Lake-standaardaccount, waaronder een zoeklogboekbestand. Zie [Brongegevens voorbereiden](data-lake-analytics-get-started-portal.md#prepare-source-data) om de gegevens te uploaden naar het Data Lake Store-standaardaccount.
 
 Om bestanden te uploaden met de opdrachtregelinterface gebruikt u de volgende opdracht:
 
-    azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
-    azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
+      azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
+      azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
 Data Lake Analytics heeft ook toegang tot Azure Blob-opslag.  Zie [De Azure CLI gebruiken met Azure Storage](../storage/storage-azure-cli.md) voor informatie over het uploaden van gegevens naar Azure Blob-opslag.
 
-## Data Lake Analytics-taken verzenden
+## <a name="submit-data-lake-analytics-jobs"></a>Data Lake Analytics-taken verzenden
 Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
 
 **Een Data Lake Analytics-taakscript maken**
@@ -138,9 +142,11 @@ Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag m
 
 U kunt de volgende opdrachten gebruiken om taken weer te geven, informatie over taken weer te geven en taken te annuleren:
 
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-    azure datalake analytics job list "<Data Lake Analytics Account Name>"
-    azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
+azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+azure datalake analytics job list "<Data Lake Analytics Account Name>"
+azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
 
 Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand weer te geven en te downloaden:
 
@@ -148,7 +154,7 @@ Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand w
     azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
     azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
 * Zie [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) voor een complexere query.
 * Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.
@@ -156,6 +162,9 @@ Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand w
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
 * Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

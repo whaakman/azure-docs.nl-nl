@@ -1,13 +1,13 @@
 ---
-title: Aan de slag met Azure Search | Microsoft Docs
+title: Aan de slag met Azure Search in | Microsoft Docs
 description: Ontdek hoe u uw eerste Azure Search-index kunt maken in deze zelfstudie en met DocumentDB-voorbeeldgegevens. Deze oefening bevindt zich in de portal, bevat geen code, en maakt gebruik van de wizard Gegevens importeren.
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+
 
 ---
-# Aan de slag met Azure Search in de portal
+# <a name="get-started-with-azure-search-in-the-portal"></a>Aan de slag met Azure Search in de portal
 Met deze inleiding zonder code kunt u aan de slag met Microsoft Azure Search en maakt u gebruik van de ingebouwde mogelijkheden in de portal. 
 
 In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbeelddatabase](#apdx-sampledata) beschikt. U kunt deze database heel eenvoudig maken aan de hand van onze gegevens en instructies. U kunt de stappen in deze zelfstudie ook aanpassen aan uw bestaande gegevens in een DocumentDB-database of SQL Database.
@@ -27,17 +31,17 @@ In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbe
 > 
 > 
 
-## Uw service vinden
+## <a name="find-your-service"></a>Uw service vinden
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 2. Open het servicedashboard van uw Azure Search-service. U kunt het dashboard op verschillende manieren vinden.
    
    * Klik in de snelbalk op **Services zoeken**. Elke ingerichte service in uw abonnement wordt in de snelbalk weergegeven. Als er een zoekservice is gedefinieerd, ziet u **Services zoeken** in de lijst.
    * Klik in de snelbalk op **Bladeren** en typ "zoeken" in het zoekvak om een lijst weer te geven met alle zoekservices die in uw abonnementen zijn gemaakt.
 
-## Controleren of er voldoende ruimte is
+## <a name="check-for-space"></a>Controleren of er voldoende ruimte is
 Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie indexen drie gegevensbronnen en drie indexeerfuncties. Zorg ervoor dat er voldoende ruimte is voor extra items voordat u begint. In deze zelfstudie wordt van elk object één exemplaar gemaakt.
 
-## Een index laden en gegevens laden
+## <a name="create-an-index-and-load-data"></a>Een index laden en gegevens laden
 Zoekopdrachten worden over een *index* herhaald met doorzoekbare gegevens, metagegevens en constructies, die worden gebruikt om bepaald zoekgedrag te optimaliseren. Als eerste definieert u een index en vult u deze index.
 
 U kunt op verschillende manieren een index maken. Als de gegevens in een archief staan waar u met Azure Search bij kunt, zoals Azure SQL Database, SQL Server op een virtuele machine van Azure of DocumentDB, kunt u heel eenvoudig een index maken en vullen met behulp van de *indexeerfunctie*.
@@ -48,7 +52,7 @@ Voordat u doorgaat, maakt u een [DocumentDB-voorbeelddatabase](#apdx-sampledata)
 
 <a id="defineDS"></a>
 
-#### Stap 1: De gegevensbron definiëren
+#### <a name="step-1-define-the-data-source"></a>Stap 1: De gegevensbron definiëren
 1. Klik op het dashboard van uw Azure Search-service op **Gegevens importeren** in de opdrachtbalk om een wizard te starten waarmee u een index maakt en deze vervolgens vult.
    
     ![][7]
@@ -61,7 +65,7 @@ Zoals u ziet, wordt de query overgeslagen. Dit is omdat we deze keer het bijhoud
 
 Klik op **OK** om deze stap van de wizard te voltooien.
 
-#### Stap 2: De index definiëren
+#### <a name="step-2-define-the-index"></a>Stap 2: De index definiëren
 Klik in de wizard op **Index** en bekijk het ontwerpoppervlak dat wordt gebruikt om een Azure Search-index te maken. In een index moeten minimaal een naam en een verzameling van velden zijn opgenomen, waarbij één veld is gemarkeerd als de documentsleutel. Omdat we werken met een DocumentDB-gegevensset, worden de velden automatisch door de wizard herkend en wordt de index vooraf geladen met velden en toewijzingen voor gegevenstypen. 
 
   ![][3]
@@ -96,7 +100,7 @@ De volgende schermafbeelding is een illustratie van een index die is gebouwd vol
 
 Klik op **OK** om deze stap van de wizard te voltooien.
 
-#### Stap 3: De indexeerfunctie definiëren
+#### <a name="step-3-define-the-indexer"></a>Stap 3: De indexeerfunctie definiëren
 Klik in de wizard**Gegevens importeren** op **Indexeerfunctie** > **Naam**, typ een naam voor de indexeerfunctie en gebruik de standaardinstellingen voor alle andere waarden. Dit object definieert een uitvoerbaar proces. Als u dit hebt gemaakt, kunt u een terugkerend schema instellen, maar in dit geval gebruikt u de standaardoptie om de indexeerfunctie een keer uit te voeren zodra u op **OK** klikt. 
 
 De invoer van al uw importgegevens moet helemaal zijn ingevuld en klaar voor gebruik zijn.
@@ -105,12 +109,12 @@ De invoer van al uw importgegevens moet helemaal zijn ingevuld en klaar voor geb
 
 Om de wizard uit te voeren, klikt u op **OK** om het importeren te starten en de wizard te sluiten.
 
-## Voortgang controleren
+## <a name="check-progress"></a>Voortgang controleren
 Om de voortgang te bekijken, gaat u terug naar het servicedashboard. Schuif omlaag en dubbelklik op de tegel **Indexeerfuncties** om de lijst met indexeerfuncties te openen. Als het goed is, wordt de indexeerfunctie die u zojuist hebt gemaakt weergegeven in de lijst en wordt de status 'wordt uitgevoerd' of voltooid weergegeven, samen met het aantal geïndexeerde documenten in Azure Search.
 
   ![][6]
 
-## Een query op de index uitvoeren
+## <a name="query-the-index"></a>Een query op de index uitvoeren
 U hebt nu een zoekindex die gereed is om op te vragen. 
 
 **Search explorer** is een queryprogramma dat is ingebouwd in de portal. Het biedt een zoekvak zodat u kunt controleren of een zoekopdracht de invoer retourneert van de gegevens die u verwacht. 
@@ -121,7 +125,7 @@ U hebt nu een zoekindex die gereed is om op te vragen.
 4. Voer een aantal query's voor zoekopdrachten in volledige tekst uit. U kunt de resultaten van uw zoekopdrachten met jokertekens bekijken om vertrouwd te raken met artiesten, fotoalbums en genres die u gebruikt in uw zoekopdracht.
 5. Probeer andere zoekopdrachten met de [voorbeelden aan het einde van dit artikel](https://msdn.microsoft.com/library/azure/dn798927.aspx) om ideeën op te doen en uw zoekopdracht te wijzigen om zoekreeksen te gebruiken die kunnen worden gevonden in uw index.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nadat u de wizard één keer hebt uitgevoerd, kunt u teruggaan en de afzonderlijke onderdelen weergeven of wijzigen, zoals de index, indexeerfunctie of de gegevensbron. Bepaalde wijzigingen die u aanbrengt, zoals het wijzigen van het gegevensveldtype, zijn niet toegestaan in de index. De meeste eigenschappen en instellingen kunnen echter wel worden gewijzigd. Als u afzonderlijke onderdelen wilt weergeven, klikt u op **Index**, **Indexeerfunctie** of op de tegel **Gegevensbronnen** op uw dashboard om een lijst met bestaande objecten weer te geven.
 
 Voor meer informatie over andere functies die in dit artikel worden vermeld, gaat u naar deze koppelingen:
@@ -139,14 +143,14 @@ U kunt deze dezelfde werkstroom met de wizard importeren voor andere gegevensbro
 > 
 > 
 
-## Bijlage: Voorbeeldgegevens in DocumentDB maken
+## <a name="appendix-create-sample-data-in-documentdb"></a>Bijlage: Voorbeeldgegevens in DocumentDB maken
 In deze sectie maken we een kleine database in DocumentDB die kan worden gebruikt voor het uitvoeren van de taken in deze zelfstudie.
 
 De volgende instructies bevatten algemene richtlijnen. Deze zijn echter niet volledig. Als u meer hulp nodig hebt met DocumentDB-navigatie in de portal of taken, raadpleegt u de DocumentDB-documentatie. De meeste opdrachten die u nodig hebt vindt u in de opdrachtbalk van de service boven in het dashboard of in de databaseblade. 
 
   ![][1]
 
-### musisctoredb voor deze zelfstudie maken
+### <a name="create-musicstoredb-for-this-tutorial"></a>musisctoredb voor deze zelfstudie maken
 1. [Klik hier](https://github.com/HeidiSteen/azure-search-get-started-sample-data) om een ZIP-bestand met de JSON-muziekgegevensbestanden te downloaden. We bieden 246 JSON-documenten voor deze gegevensset.
 2. Voeg DocumentDB aan uw abonnement toe en open vervolgens het servicedashboard.
 3. Klik op **Database toevoegen** om een nieuwe database te maken met een id van `musicstoredb`. Deze wordt weergegeven in de databasetegel verderop in de pagina nadat deze is gemaakt.
@@ -155,10 +159,10 @@ De volgende instructies bevatten algemene richtlijnen. Deze zijn echter niet vol
 6. Klik op **Documentverkenner**.
 7. Klik op **Uploaden**.
 8. Navigeer in **Document uploaden** naar de lokale map met de JSON-bestanden die u eerder hebt gedownload. Selecteer JSON-bestanden in batches van 100 of minder.
-   * 1. json
-   * 1. json
+   * 386. json
+   * 387. json
    * . . .
-   * 1. json
+   * 486. json
 9. Herhaal dit om de volgende batch bestanden op te halen, totdat u het laatste bestand, 669.json hebt geüpload.
 10. Klik op **Queryverkenner** om te controleren of de gegevens zijn geüpload om te voldoen aan de vereisten van de Documentverkenner.
 
@@ -177,6 +181,6 @@ Als het goed is, ontvangt u JSON-uitvoer, beginnend met documentnummer 386 en ei
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

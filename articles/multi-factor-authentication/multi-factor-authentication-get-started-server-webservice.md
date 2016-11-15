@@ -2,11 +2,11 @@
 title: Aan de slag met de webservice voor mobiele apps voor de MFA-server
 description: De Azure Multi-Factor Authentication-app biedt een extra optie voor verificatie buiten de band.  Hierdoor kan de MFA-server pushmeldingen naar gebruikers sturen.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+
 
 ---
-# Aan de slag met de webservice voor mobiele apps voor de MFA-server
+# <a name="getting-started-the-mfa-server-mobile-app-web-service"></a>Aan de slag met de webservice voor mobiele apps voor de MFA-server
 De Azure Multi-Factor Authentication-app biedt een extra optie voor verificatie buiten de band. In plaats van tijdens het aanmelden een automatisch telefoongesprek of SMS-bericht met de gebruiker tot stand te brengen, stuurt Azure Multi-Factor Authentication een melding naar de Azure Multi-Factor Authentication-app op de smartphone of tablet van de gebruiker. De gebruiker hoeft in de app enkel op 'Verifiëren' te tikken (of een pincode in te voeren en op 'Verifiëren te tikken) om zich aan te melden.
 
 Voor het gebruik van de Azure Multi-Factor Authentication-app is het volgende vereist om de app correct te laten communiceren met de webservice voor mobiele apps:
@@ -40,19 +44,19 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 3. De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 4. De Azure Multi-Factor Authentication-app voor eindgebruikers activeren
 
-## De webservice-SDK installeren
+## <a name="install-the-web-service-sdk"></a>De webservice-SDK installeren
 Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram voor de webservice-SDK, en klik op de knop Install Web Service SDK (Webservice-SDK installeren)... en volg de aanwijzingen die worden gegeven. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
-## De webservice voor mobiele apps installeren
+## <a name="install-the-mobile-app-web-service"></a>De webservice voor mobiele apps installeren
 Voordat u de webservice voor mobiele apps installeert, moet u op het volgende letten:
 
 * Als de gebruikersportal van Azure Multi-Factor Authentication al is geïnstalleerd op de internetgerichte server, kunnen de gebruikersnaam, het wachtwoord en de URL uit het bestand web.config van de gebruikersportal naar de webservice-SDK worden gekopieerd.
 * Het is handig om een webbrowser te openen op de internetgerichte webserver en te navigeren naar de URL van de webservice-SDK die in het bestand web.config is ingevoerd. Als de browser de webservice kan bereiken, wordt u normaal om referenties gevraagd. Geef de gebruikersnaam en het wachtwoord op precies zoals deze in het bestand web.config zijn ingevoerd. Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 * Als zich vóór de webserver van de webservice voor mobiele apps een omgekeerde proxy of firewall bevindt en SSL-offloading wordt uitvoert, kunt u het bestand web.config van de webservice voor mobiele apps bewerken en de volgende sleutel toevoegen aan de sectie <appSettings>, zodat de webservice voor mobiele apps http in plaats van https kan gebruiken. SSL is echter nog steeds vereist vanuit de mobiele app naar de firewall/omgekeerde proxy. <add key="SSL_REQUIRED" value="false"/>
 
-### De webservice voor mobiele apps installeren
+### <a name="to-install-the-mobile-app-web-service"></a>De webservice voor mobiele apps installeren
 <ol>
 
 <li>Open Windows Verkenner op de Azure Multi-Factor Authentication-server en navigeer naar de map waarin de Azure Multi-Factor Authentication-server is geïnstalleerd (bijvoorbeeld C:\Program Files\Azure Multi-Factor Authentication). Kies de 32-bits- of 64-bitsversie van het Azure-installatiebestand MultiFactorAuthenticationPhoneAppWebServiceSetup dat geschikt is voor de server waarop de webservice voor mobiele apps wordt geïnstalleerd. Kopieer het installatiebestand naar de internetgerichte server.</li>
@@ -71,10 +75,10 @@ Voordat u de webservice voor mobiele apps installeert, moet u op het volgende le
 
 <li>Open op een computer een webbrowser en navigeer naar de URL waar de webservice voor mobiele apps is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/PA). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.</li>
 
-### De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
+### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Factor Authentication-server voor gebruik met de gebruikersportal configureren.
 
-#### De instellingen voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 1. Klik op de Azure Multi-Factor Authentication-server op het pictogram Gebruikersportal. Als gebruikers hun verificatiemethoden mogen bepalen, schakelt u op het tabblad Instellingen onder Toestaan dat gebruikers de methode selecteren de optie Mobiele app in. Als deze functie niet is ingeschakeld, moeten eindgebruikers contact opnemen met uw helpdesk om de activering van de mobiele App te voltooien.
 2. Schakel het selectievakje Toestaan dat gebruikers de mobiele app activeren in.
 3. Schakel het selectievakje Registreren van gebruikers toestaan in.
@@ -85,6 +89,6 @@ Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Fact
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

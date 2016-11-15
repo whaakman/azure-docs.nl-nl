@@ -1,72 +1,76 @@
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
+title: Aan de slag met het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de Azure CLI | Microsoft Docs
+description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de Azure CLI
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a346c1b2d430eceb4aa1b8bc94fbbe89394556
+
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure CLI
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Aan de slag met het maken van een internetgerichte load balancer (klassiek) via de Azure CLI
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Step by step creating an Internet facing load balancer using CLI
-This guide shows how to create an Internet load balancer based on the scenario above.
+## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een internetgerichte load balancer met behulp van CLI
+In deze handleiding wordt beschreven hoe u een internetgerichte load balancer maakt op basis van bovenstaand scenario.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to classic mode, as shown below.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
    
         azure config mode asm
    
-    Expected output:
+    Verwachte uitvoer:
    
         info:    New mode is asm
 
-## Create endpoint and load balancer set
-The scenario assumes the virtual machines "web1" and "web2" were created.
-This guide will create a load balancer set using port 80 as public port and port 80 as local port. A probe port is also configured on port 80 and named the load balancer set "lbset".
+## <a name="create-endpoint-and-load-balancer-set"></a>Set met eindpunten en load balancer maken
+In het scenario wordt ervan uitgegaan dat de virtuele machines 'web1' en 'web2' al zijn gemaakt.
+In deze handleiding wordt een set met gelijke taakverdeling gemaakt die poort 80 als openbare poort en 80 als lokale poort gebruikt. Er is ook een testpoort geconfigureerd op poort 80 en de naam van de set met gelijke taakverdeling is 'lbset'.
 
-### Step 1
-Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1".
+### <a name="step-1"></a>Stap 1
+Maak de eerste set met een eindpunt en gelijke taakverdeling met behulp van `azure network vm endpoint create` voor de virtuele machine 'web1'.
 
     azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
 
-Parameters used:
+Gebruikte parameters:
 
-**-k** - local virtual machine port<br>
-**-o** - protocol<BR>
-**-t** - probe port<BR>
-**-b** - load balancer name<BR>
+**-k**: poort van lokale virtuele machine<br>
+**-o**: protocol<BR>
+**-t**: testpoort<BR>
+**-b**: naam van load balancer<BR>
 
-## Step 2
-Add a second virtual machine "web2" to the load balancer set.
+## <a name="step-2"></a>Stap 2
+Voeg de tweede virtuele machine 'web2' aan de set met gelijke taakverdeling toe.
 
     azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
-## Step 3
-Verify the load balancer configuration using `azure vm show` .
+## <a name="step-3"></a>Stap 3
+Controleer de configuratie van de load balancer met behulp van `azure vm show`.
 
     azure vm show web1
 
-The output will be:
+De uitvoer is:
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -110,29 +114,35 @@ The output will be:
     data:    Network Endpoints 2 port 58081
     info:    vm show command OK
 
-## Create a remote desktop endpoint for a virtual machine
-You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Een eindpunt voor een extern bureaublad maken voor een virtuele machine
+U kunt met `azure vm endpoint create` een eindpunt voor een extern bureaublad maken om voor een bepaalde virtuele machine netwerkverkeer van een openbare poort door te sturen naar een lokale poort.
 
     azure vm endpoint create web1 54580 -k 3389
 
 
-## Remove virtual machine from load balancer
-You have to delete the endpoint associated to the load balancer set from the virtual machine. Once the endpoint is removed, the virtual machine doesn't belong to the load balancer set anymore.
+## <a name="remove-virtual-machine-from-load-balancer"></a>Virtuele machine verwijderen uit load balancer
+U moet het eindpunt dat is gekoppeld aan de set met gelijke taakverdeling, verwijderen van de virtuele machine. Wanneer het eindpunt is verwijderd, maakt de virtuele machine geen deel meer uit van de set met gelijke taakverdeling.
 
- Using the example above, you can remove the endpoint created for virtual machine "web1" from load balancer "lbset" using the command `azure vm endpoint delete`.
+ Op basis van bovenstaand voorbeeld kunt u het eindpunt dat is gemaakt voor de virtuele machine 'web1', met de opdracht `azure vm endpoint delete` verwijderen uit de load balancer 'lbset'.
 
     azure vm endpoint delete web1 tcp-80-80
 
 
 > [!NOTE]
-> You can explore more options to manage endpoints using the command `azure vm endpoint --help`
+> U kunt meer opties voor het beheren van eindpunten verkennen met de opdracht `azure vm endpoint --help`
 > 
 > 
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+## <a name="next-steps"></a>Volgende stappen
+[Aan de slag met het configureren van een interne load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

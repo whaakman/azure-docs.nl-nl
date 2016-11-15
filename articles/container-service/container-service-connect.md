@@ -2,13 +2,13 @@
 title: Verbinding maken met een Azure Container Service-cluster | Microsoft Docs
 description: Verbinding maken met een Azure Container Service-cluster met een SSH-tunnel
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, DC/OS, Azure
-
+ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+
 
 ---
-# Verbinding maken met een Azure Container Service-cluster
+# <a name="connect-to-an-azure-container-service-cluster"></a>Verbinding maken met een Azure Container Service-cluster
 DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar Voor het beheren van deze eindpunten moet u een SSH-tunnel (Secure Shell) maken. Nadat een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In dit document vindt u instructies voor het maken van een SSH-tunnel in Linux, OS X en Windows.
 
 > [!NOTE]
@@ -26,7 +30,7 @@ DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Se
 > 
 > 
 
-## Een SSH-tunnel maken in Linux of OS X
+## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Een SSH-tunnel maken in Linux of OS X
 Het eerste wat u doet wanneer u een SSH-tunnel in Linux of OS X maakt, is het lokaliseren van de openbare DNS-naam van masters met gelijke taakverdeling. Hiervoor vouwt u de resourcegroep uit zodat elke resource wordt weergegeven. Zoek en selecteer het openbare IP-adres van de master. Hiermee opent u een blade die informatie bevat over het openbare IP-adres, dat de DNS-naam omvat. Bewaar deze naam voor later gebruik. <br />
 
 ![Openbare DNS-naam](media/pubdns.png)
@@ -46,7 +50,7 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 > 
 > 
 
-## DC/OS-tunnel
+## <a name="dcos-tunnel"></a>DC/OS-tunnel
 Wanneer u een tunnel wilt openen naar de DC/OS-gerelateerde eindpunten, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
@@ -61,7 +65,7 @@ U hebt nu toegang tot de DC/OS-gerelateerde eindpunten op:
 
 U kunt ook de REST API's voor elke toepassing via deze tunnel bereiken.
 
-## Swarm-tunnel
+## <a name="swarm-tunnel"></a>Swarm-tunnel
 Wanneer u een tunnel wilt openen naar het Swarm-eindpunt, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
@@ -74,7 +78,7 @@ U kunt nu uw omgevingsvariabele DOCKER_HOST als volgt instellen. U kunt uw Docke
 export DOCKER_HOST=:2375
 ```
 
-## Een SSH-tunnel maken in Windows
+## <a name="create-an-ssh-tunnel-on-windows"></a>Een SSH-tunnel maken in Windows
 Er zijn meerdere opties voor het maken van SSH-tunnels in Windows. In dit document wordt beschreven hoe u dit met PuTTY kunt doen.
 
 Download PuTTY naar uw Windows-systeem en voer de toepassing uit.
@@ -113,12 +117,15 @@ Wanneer u de tunnel voor DC/OS hebt geconfigureerd, hebt u toegang tot het gerel
 
 Wanneer u de tunnel voor Docker Swarm hebt geconfigureerd, hebt u toegang tot het Swarm-cluster via de Docker CLI. U moet eerst een Windows-omgevingsvariabele configureren genaamd `DOCKER_HOST` met een waarde van ` :2375`.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Containers implementeren en beheren met DC/OS of Swarm:
 
 * [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
 * [Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

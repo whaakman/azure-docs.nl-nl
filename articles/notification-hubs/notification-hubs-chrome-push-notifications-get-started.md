@@ -3,21 +3,25 @@ title: Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs | Mi
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar een Chrome-app.
 services: notification-hubs
 keywords: mobiele pushmeldingen,pushmeldingen,pushmelding,pushmeldingen chroom
-documentationcenter: ''
-author: wesmc7777
+documentationcenter: 
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 600b1b7e5f3987c9a0acc33b7049f7118442b931
+
 
 ---
-# Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
+# <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 In dit onderwerp wordt beschreven hoe u met Azure Notification Hubs pushmeldingen naar een Chrome-app kunt verzenden in de context van de Google Chrome-browser. In deze zelfstudie maken we een Chrome-app die pushmeldingen ontvangt via [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). 
@@ -42,34 +46,34 @@ De zelfstudie leidt u door deze eenvoudige stappen om pushmeldingen in te schake
 
 Het configureren van GCM en Azure Notification Hubs werkt op dezelfde manier als de configuratie voor Android, aangezien [Google Cloud Messaging voor Chrome] niet meer bestaat. Hetzelfde GCM ondersteunt nu Android-apparaten en Chrome-exemplaren.
 
-## <a id="register"></a>Google Cloud Messaging inschakelen
+## <a name="a-idregisteraenable-google-cloud-messaging"></a><a id="register"></a>Google Cloud Messaging inschakelen
 1. Navigeer naar de [Google Cloud Console]-website, log in op uw Google-account en klik op vervolgens op de knop **Create Project** (Project maken). Geef een geschikte **Project Name** op en klik vervolgens op de knop **Create**.
    
-    ![Google Cloud Console - Project maken][1]
+       ![Google Cloud Console - Create Project][1]
 2. Noteer het **Project Number** op de pagina **Projects** van het project dat u zojuist hebt gemaakt. U gebruikt deze als de **GCM afzender-id** in de Chrome-app om uzelf te registreren bij GCM.
    
-    ![Google Cloud Console - Projectnummer][2]
+       ![Google Cloud Console - Project Number][2]
 3. Klik in het linkerdeelvenster op **API's & auth** en schuif omlaag. Klik op de wisselknop om **Google Cloud Messaging for Android** in te schakelen. U hoeft **Google Cloud Messaging for Chrome** niet in te schakelen.
    
-    ![Google Cloud Console - Serversleutel][3]
+       ![Google Cloud Console - Server Key][3]
 4. Klik in het linkerdeelvenster op **Credentials** > **Create New Key** > **Server Key** > **Create**.
    
-    ![Google Cloud Console - Referenties][4]
+       ![Google Cloud Console - Credentials][4]
 5. Noteer de waarde van de **API-sleutel** van de server. U configureert deze in de volgende stap in uw Notification Hub, zodat u puhmeldingen naar GCM kunt verzenden.
    
-    ![Google Cloud Console - API-sleutel][5]
+       ![Google Cloud Console - API Key][5]
 
-## <a id="configure-hub"></a>Uw Notification Hub configureren
+## <a name="a-idconfigurehubaconfigure-your-notification-hub"></a><a id="configure-hub"></a>Uw Notification Hub configureren
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6.   Selecteer in de blade **Instellingen** **Notification Services** en vervolgens **Google (GCM)**. Voer de API-sleutel in en sla uw invoer op.
+&emsp;&emsp;6.   Selecteer op de blade **Instellingen** **Notification Services** en vervolgens **Google (GCM)**. Voer de API-sleutel in en sla uw invoer op.
 
 &emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
-## <a id="connect-app"></a>Uw Chrome-app verbinden met de Notification Hub
+## <a name="a-idconnectappaconnect-your-chrome-app-to-the-notification-hub"></a><a id="connect-app"></a>Uw Chrome-app verbinden met de Notification Hub
 De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreeksen om uw app te registreren voor het ontvangen en verzenden van pushmeldingen. LK
 
-### Een nieuwe Chrome-app maken
+### <a name="create-a-new-chrome-app"></a>Een nieuwe Chrome-app maken
 Het onderstaande voorbeeld is gebaseerd op het [Chrome App GCM-voorbeeld] waarin op de aanbevolen manier een Chrome-app wordt gemaakt. We zullen de stappen bespreken die specifiek betrekking hebben op Azure Notification Hubs. 
 
 > [!NOTE]
@@ -354,26 +358,26 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
    * **registrationPayload** definieert de XML-nettolading van de registratie. Zie [REST-API maken voor de registratie van NH] voor meer informatie. We werken de registratie-id hierin bij met de informatie die we van GCM ontvangen.
    * **client** is een exemplaar van **XMLHttpRequest** die we gebruiken voor het maken van de HTTP POST-aanvraag. Let op: de `Authorization`-header wordt bijgewerkt met `sasToken`. Als deze aanroep is voltooid, wordt dit exemplaar van de Chrome-app geregistreerd bij Azure Notification Hubs.
 
-De algehele mappenstructuur voor dit project moet er als volgt uitzien:     ![Google Chrome-app - mappenstructuur][21]
+De algehele mappenstructuur voor dit project moet er als volgt uitzien:        ![Google Chrome-app - mappenstructuur][21]
 
-### Uw Chrome-app instellen en testen
+### <a name="set-up-and-test-your-chrome-app"></a>Uw Chrome-app instellen en testen
 1. Open uw Chrome-browser. Open **Chrome-extensies** en schakel **Modus voor ontwikkelaars** in.
    
-    ![Google Chrome - Modus voor ontwikkelaars inschakelen][16]
+       ![Google Chrome - Enable Developer Mode][16]
 2. Klik op **Uitgepakte extensie laden** en navigeer naar de map waarin u de bestanden hebt gemaakt. U kunt eventueel ook het **hulpprogramma Chrome Apps& Extensions Developer** gebruiken. Dit hulpprogramma is zelf een Chrome-app (geïnstalleerd via de Chrome Web Store) en biedt geavanceerde mogelijkheden voor foutopsporing tijdens de ontwikkeling van uw Chrome-app.
    
-    ![Google Chrome - Uitgepakte extensie laden][17]
+       ![Google Chrome - Load Unpacked Extension][17]
 3. Als de Chrome-app foutloos is gemaakt, wordt uw app weergegeven.
    
-    ![Google Chrome - Chrome-app weergeven][18]
+       ![Google Chrome - Chrome App Display][18]
 4. Voer het **projectnummer** in dat u eerder hebt ontvangen van de **Google Cloud Console** als de afzender-id en klik op **Registreren bij GCM**. Het volgende bericht wordt weergegeven: **Registratie bij GCM is voltooid.**
    
-    ![Google Chrome - Chrome-app aanpassen][19]
+       ![Google Chrome - Chrome App Customization][19]
 5. Voer de **Naam van de Notification Hub** en de **DefaultListenSharedAccessSignature** in die u eerder hebt ontvangen van de portal en klik op **Registreren bij Azure Notification Hub**. Als het goed is, wordt het volgende bericht weergegeven: **Registratie van Notification Hub gelukt!**, evenals de details van het registratie-antwoord dat de registratie-id van Azure Notification Hubs bevat.
    
-    ![Google Chrome - Details voor de Notification Hub opgeven][20]  
+       ![Google Chrome - Specify Notification Hub Details][20]  
 
-## <a name="send"></a>Een melding naar uw Chrome-app verzenden
+## <a name="a-namesendasend-a-notification-to-your-chrome-app"></a><a name="send"></a>Een melding naar uw Chrome-app verzenden
 Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassing. 
 
 > [!NOTE]
@@ -387,7 +391,7 @@ Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassin
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Hiermee voegt u een verwijzing in naar de Azure Service Bus-SDK met het <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet-pakket</a>.
+       This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
 4. Open `Program.cs` en voeg de volgende `using` instructie toe:
    
         using Microsoft.Azure.NotificationHubs;
@@ -400,7 +404,7 @@ Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassin
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-    Vervang de tijdelijke aanduiding `<hub name>` door de naam van de Notification Hub die wordt weergegeven in de [portal](https://portal.azure.com) in de blade Notification Hub. Vervang ook de tijdelijke aanduiding voor de verbindingsreeks door de verbindingsreeks genaamd `DefaultFullSharedAccessSignature` die u hebt verkregen in de sectie voor het configureren van uw Notification Hub.
+       Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
    
    > [!NOTE]
    > Zorg ervoor dat u de verbindingsreeks met het toegangsrecht **Full** (Volledig) gebruikt, dus niet **Listen** (Luisteren). Met de verbindingsreeks met het toegangsrecht **Listen** kunnen geen pushmeldingen worden verzonden.
@@ -413,10 +417,10 @@ Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassin
 7. Zorg ervoor dat Chrome wordt uitgevoerd en start de consoletoepassing.
 8. De volgende meldingspop-up wordt op uw bureaublad weergegeven.
    
-    ![Google Chrome - Melding][13]
+       ![Google Chrome - Notification][13]
 9. U kunt ook al uw meldingen zien in het venster Chrome-meldingen in de taakbalk (in Windows) als Chrome wordt uitgevoerd.
    
-    ![Google Chrome - Lijst met meldingen][14]
+       ![Google Chrome - Notifications List][14]
 
 > [!NOTE]
 > Hiervoor hoeft u de Chrome-app niet te starten of te openen in de browser (de Chrome-browser zelf moet wel worden uitgevoerd). U kunt ook een geconsolideerde weergave van al uw meldingen bekijken in het venster Chrome-berichten.
@@ -456,11 +460,11 @@ Zie [Azure Notification Hubs voor belangrijk nieuws] als u gebruikers wilt indel
 <!-- URLs. -->
 [Chrome App Notification Hub Sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google Cloud Console]: http://cloud.google.com/console
-[Klassieke Azure-portal]: https://manage.windowsazure.com/
+[Klassieke Azure Portal]: https://manage.windowsazure.com/
 [Overzicht van Notification Hubs]: notification-hubs-push-notification-overview.md
 [Overzicht van Chrome-apps]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM-voorbeeld]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
-[Installeerbare Webapps]: https://developers.google.com/chrome/apps/docs/
+[Installeerbare webtoepassingen]: https://developers.google.com/chrome/apps/docs/
 [Chrome-apps op mobiele apparaten]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [REST-API maken voor de registratie van NH]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [crypto-js library]: http://code.google.com/p/crypto-js/
@@ -471,6 +475,6 @@ Zie [Azure Notification Hubs voor belangrijk nieuws] als u gebruikers wilt indel
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

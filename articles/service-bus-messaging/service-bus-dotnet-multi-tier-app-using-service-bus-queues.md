@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+
 
 ---
-# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
+# <a name="net-multitier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
 ## <a name="introduction"></a>Inleiding
 Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt. Bij deze stappen wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure.
 
@@ -35,7 +39,7 @@ In de volgende schermafbeelding wordt de voltooide toepassing weergegeven.
 
 ![][0]
 
-## <a name="scenario-overview:-inter-role-communication"></a>Scenario-overzicht: communicatie tussen rollen
+## <a name="scenario-overview-interrole-communication"></a>Scenario-overzicht: communicatie tussen rollen
 Als u een order wilt indienen voor verwerking, moet het front-end UI-onderdeel, dat wordt uitgevoerd in de webrol, communiceren met de logica van de middelste laag, die wordt uitgevoerd in de werkrol. In dit voorbeeld wordt Service Bus Brokered Messaging gebruikt voor communicatie tussen de lagen.
 
 Met behulp van Brokered Messaging tussen de weblaag en de middelste laag worden de twee onderdelen losgekoppeld. In tegenstelling tot Direct Messaging (dat wil zeggen, TCP of HTTP) hoeft de weblaag niet rechtstreeks verbinding te maken met de middelste laag. In plaats daarvan worden werkeenheden, als berichten, naar Service Bus gepusht. Daar worden ze veilig bewaard totdat de middelste laag gereed is om ze te ontvangen en te verwerken.
@@ -406,6 +410,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

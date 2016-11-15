@@ -1,23 +1,27 @@
 ---
-title: Een DocumentDB-account maken met Azure Portal | Microsoft Docs
+title: Een DocumentDB-account maken | Microsoft Docs
 description: Bouw een NoSQL-database met Azure DocumentDB. Volg deze instructies om een DocumentDB-account te maken en bouw uw razendsnelle, wereldwijde NoSQL-database.
 keywords: een database maken
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 0e7f8488-7bb7-463e-b6fd-3ae91a02c03a
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 10/17/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b512a8d3f9b02ec2ec079486e04951ce02ba48c1
+
 
 ---
-# Een DocumentDB NoSQL-account maken met Azure Portal
+# <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Een DocumentDB NoSQL-account maken met Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](documentdb-create-account.md)
 > * [Azure CLI en Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
@@ -33,8 +37,8 @@ U kunt een DocumentDB-account maken met Azure Portal, Azure Resource Manager-sja
 
 Bent u niet bekend met DocumentDB? Bekijk [deze](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vier minuten durende video van Scott Hanselman om te zien hoe u de meest algemene taken in de online portal uitvoert.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
-2. Klik in de snelbalk achtereenvolgens op **Nieuw**, **Gegevens en opslag** en **DocumentDB (NoSQL)**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Klik in de snelbalk achtereenvolgens op **Nieuw**, **Databases** en **DocumentDB (NoSQL)**. 
    
    ![Schermopname van Azure Portal waarbij Meer services en DocumentDB (NoSQL) zijn gemarkeerd](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. In de blade **Nieuw account** geeft u de gewenste configuratie op voor het DocumentDB-account.
@@ -47,7 +51,7 @@ Bent u niet bekend met DocumentDB? Bekijk [deze](https://azure.microsoft.com/doc
      * **DocumentDB**: de API van DocumentDB is beschikbaar via .NET-, Java-, Node.js-, Python- en JavaScript-[SDK's](documentdb-sdk-dotnet.md), evenals HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), en biedt programmatische toegang tot alle functionaliteit van DocumentDB. 
      * **MongoDB**: DocumentDB biedt ook [ondersteuning op protocolniveau](documentdb-protocol-mongodb.md) voor **MongoDB**-API's. Als u de optie MongoDB-API kiest, kunt u bestaande MongoDB-SDK's en [hulpmiddelen](documentdb-mongodb-mongochef.md) gebruiken voor communicatie met DocumentDB. U kunt uw bestaande MongoDB-apps [zonder codewijzigingen](documentdb-connect-mongodb-account.md) [verplaatsen](documentdb-import-data.md) om DocumentDB te gebruiken. U kunt dan profiteren van een volledig beheerde database als een service, met onbeperkte schaal, globale replicatie en andere functies.
    * Selecteer als **Abonnement** het Azure-abonnement dat u voor het DocumentDB-account wilt gebruiken. Als uw account slechts één abonnement heeft, wordt dit account standaard geselecteerd.
-   * In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een nieuwe resourcegroep gemaakt. Zie [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md) (De Azure-portal gebruiken om uw Azure-resources te beheren) voor meer informatie.
+   * In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een nieuwe resourcegroep gemaakt. Zie [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md) (Azure Portal gebruiken om uw Azure-resources te beheren) voor meer informatie.
    * Gebruik **Locatie** om de geografische locatie op te geven waar uw DocumentDB-account moet worden gehost. 
 4. Zodra de opties voor het nieuwe DocumentDB-account zijn geconfigureerd, klikt u op **Maken**. Controleer de hub Meldingen als u de status van de implementatie wilt bekijken.  
    
@@ -65,26 +69,29 @@ Bent u niet bekend met DocumentDB? Bekijk [deze](https://azure.microsoft.com/doc
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-## Volgende stappen
-Nu u een DocumentDB-account hebt, gaat u in de volgende stap de DocumentDB-database bouwen. 
+## <a name="next-steps"></a>Volgende stappen
+Nu u een DocumentDB-account hebt, gaat u in de volgende stap een DocumentDB-verzameling en -database bouwen. 
 
-Gebruik een van de volgende manieren om een database te bouwen:
+Gebruik een van de volgende manieren om een nieuwe verzameling en database te bouwen:
 
-* Met de Azure-portal, zoals is beschreven in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md) (Een DocumentDB-database maken met de Azure-portal).
+* Met Azure Portal, zoals is beschreven in [Een DocumentDB-verzameling maken met Azure Portal](documentdb-create-collection.md).
 * Met de allesomvattende zelfstudies, die ook voorbeeldgegevens bevatten: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) of [Python](documentdb-python-application.md).
 * Met de [.NET](documentdb-dotnet-samples.md#database-examples)-, [Node.js](documentdb-nodejs-samples.md#database-examples)- of [Python](documentdb-python-samples.md#database-examples)-voorbeeldcode die beschikbaar is in GitHub.
 * Met de [.NET](documentdb-sdk-dotnet.md)-, [Node.js](documentdb-sdk-node.md)-, [Java](documentdb-sdk-java.md)-, [Python](documentdb-sdk-python.md)- en [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx)-SDK's.
 
-Nadat de database is gemaakt, moet u [een of meer verzamelingen toevoegen ](documentdb-create-collection.md) aan de database en vervolgens [documenten toevoegen](documentdb-view-json-document-explorer.md) aan de verzamelingen.
+Nadat de database en verzameling zijn gemaakt, gaat u [documenten toevoegen](documentdb-view-json-document-explorer.md) aan de verzamelingen.
 
 Wanneer er documenten in een verzameling staan, kunt u [DocumentDB SQL](documentdb-sql-query.md) gebruiken om [query's uit te voeren](documentdb-sql-query.md#executing-queries) voor uw documenten. U kunt query's uitvoeren met behulp van de [Queryverkenner](documentdb-query-collections-query-explorer.md) in de portal, de [REST-API](https://msdn.microsoft.com/library/azure/dn781481.aspx) of een van de [SDK's](documentdb-sdk-dotnet.md).
 
-### Meer informatie
+### <a name="learn-more"></a>Meer informatie
 Raadpleeg de volgende informatie voor meer informatie over DocumentDB:
 
 * [Leertraject voor DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Hiërarchisch DocumentDB-resourcemodel en -concepten](documentdb-resources.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

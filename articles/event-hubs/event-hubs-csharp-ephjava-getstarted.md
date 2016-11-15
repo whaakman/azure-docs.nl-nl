@@ -2,11 +2,11 @@
 title: Aan de slag met Event Hubs in C# | Microsoft Docs
 description: Volg deze zelfstudie om aan de slag te gaan met Azure Event Hubs; verzenden van gebeurtenissen in C# en ze in Java ontvangen met behulp van de EventProcessorHost.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Aan de slag met Event Hubs
@@ -49,7 +53,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u naar de volgende scenario's gaan:
 
 * Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][voorbeeldtoepassing die gebruikmaakt van Event Hubs].
-* Het voorbeeld [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Verwerking van de gebeurtenis Uitschalen met Event Hubs].
+* Het voorbeeld van de [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Verwerking van de gebeurtenis Uitschalen met Event Hubs].
 * [Event Hubs-overzicht][Event Hubs-overzicht]
 
 <!-- Images. -->
@@ -64,6 +68,6 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Getting started with Operations Management Suite Security and Audit Solution | Microsoft Docs
-description: This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud.
+title: Aan de slag met Beveiliging en controle van Operations Management Suite | Microsoft Docs
+description: In dit document leest u hoe u met de mogelijkheden van Beveiliging en controle van Operations Management Suite uw hybride cloud kunt bewaken.
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,171 +14,178 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
-# Getting started with Operations Management Suite Security and Audit Solution
-This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
+# <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Aan de slag met Beveiliging en controle van Operations Management Suite
+In dit document worden alle opties beschreven, zodat u snel aan de slag kunt met de mogelijkheden van Beveiliging en controle van Operations Management Suite (OMS).
 
-## What is OMS?
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+## <a name="what-is-oms"></a>Wat is OMS?
+Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen. Lees het artikel [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx) voor meer informatie over OMS.
 
-## OMS Security and Audit dashboard
-The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
+## <a name="oms-security-and-audit-dashboard"></a>OMS-dashboard Beveiliging en controle
+De oplossing OMS Beveiliging en controle geeft een uitgebreid overzicht van de IT-beveiliging van uw organisatie met ingebouwde zoekquery's voor belangrijke problemen die uw aandacht nodig hebben. Het dashboard **Beveiliging en controle** is het startscherm voor alles wat betrekking heeft op beveiliging in OMS. Het zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven. Voer deze stappen uit voor toegang tot het dashboard **Beveiliging en controle**:
 
-1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
-2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
-3. The **Security and Audit** dashboard will appear:
+1. Klik in het hoofddashboard **Microsoft Operations Management Suite** op de tegel **Instellingen** aan de linkerkant.
+2. Klik op de blade **Instellingen** onder **Oplossingen** op de optie **Beveiliging en controle**.
+3. Het dashboard **Beveiliging en controle** wordt weergegeven:
    
-    ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
+    ![OMS-dashboard Beveiliging en controle](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
-
-> [!NOTE]
-> The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
-> 
-> 
-
-Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
-
-The OMS Security and Audit dashboard is organized in four major categories:
-
-* **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
-* **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
-* **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
-* **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
-* **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
+Als u dit dashboard voor het eerst opent en er geen apparaten met OMS worden bewaakt, staan er in de tegels geen gegevens die van de agent zijn verkregen. Nadat u de agent hebt geïnstalleerd, kan het even duren voordat de gegevens zijn ingevuld. Het is dus mogelijk dat bepaalde gegevens ontbreken, omdat het uploaden naar de cloud nog niet is voltooid.  In dat geval is het normaal dat sommige tegels geen concrete gegevens bevatten. Lees [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) (Windows-computers rechtstreeks met OMS verbinden) voor meer informatie over het installeren van de OMS-agent in een Windows-systeem en [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) (Linux-computers verbinden met OMS) voor meer informatie over het uitvoeren van deze taak in een Linux-systeem.
 
 > [!NOTE]
-> for more information on how OMS keeps your data secure, read How OMS secures your data.
+> De informatie wordt door de agent verzameld op basis van de huidige gebeurtenissen die zijn ingeschakeld, bijvoorbeeld computernaam, IP-adres en gebruikersnaam. Maar er worden geen document-/bestandsgegevens, databasenaam of persoonlijke gegevens verzameld.   
 > 
 > 
 
-## Security domains
-When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
+Oplossingen omvatten een verzameling logische, visualisatie- en gegevensverzamelingsregels waarmee klanten hun belangrijkste uitdagingen kunnen aangaan. Beveiliging en controle is één oplossing. Andere oplossingen kunnen afzonderlijk worden toegevoegd. Lees het artikel [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) (Oplossingen toevoegen) voor meer informatie over het toevoegen van een nieuwe oplossing.
+
+Het OMS-dashboard Beveiliging en controle is ingedeeld in vier hoofdcategorieën:
+
+* **Beveiligingsdomeinen**: in dit gebied kunt u beveiligingsrecords voor een periode doornemen, malware-evaluaties, update-evaluaties, de netwerkbeveiliging, identiteits- en toegangsinformatie en computers met beveiligingsgebeurtenissen bekijken en snel toegang krijgen tot het Azure Security Center-dashboard.
+* **Problemen die aandacht vereisen**: met deze optie kunt u snel het aantal actieve problemen en de ernst van deze problemen vaststellen.
+* **Detecties (preview)**: hiermee kunt u aanvalspatronen identificeren door beveiligingswaarschuwingen te visualiseren wanneer de aanvallen op uw resources plaatsvinden.
+* **Bedreigingsinformatie**: hiermee kunt u aanvalspatronen identificeren door het totale aantal servers met schadelijk uitgaand IP-verkeer, het type schadelijke dreigingen en een kaart waarop wordt aangegeven waar deze IP-adressen van afkomstig zijn te visualiseren. 
+* **Algemene beveiligingsquery's**: met deze optie krijgt u een lijst van de meest voorkomende beveiligingsquery's, die u kunt gebruiken om uw omgeving te bewaken. Wanneer u op een van deze query's klikt, wordt de blade **Zoeken** geopend met de resultaten voor deze query.
 
 > [!NOTE]
-> data retention is according to the OMS pricing plan. For more information visit the [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) pricing page.
+> Lees 'How OMS secures your data' (Uw gegevens beveiligen met OMS) voor meer informatie over hoe uw gegevens met OMS worden beveiligd.
 > 
 > 
 
-Incident response and forensics investigation scenarios will directly benefit from the results available in the **Security Records over Time** tile.
-
-![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
-
-When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
-
-![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
-
-The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
+## <a name="security-domains"></a>Beveiligingsdomeinen
+Bij het bewaken van resources is het belangrijk dat u snel toegang kunt krijgen tot de huidige status van uw omgeving. Het is echter ook belangrijk dat u gebeurtenissen die in het verleden zijn opgetreden, kunt herleiden voor beter inzicht in wat er op een bepaald punt in tijd in uw omgeving gebeurt. 
 
 > [!NOTE]
-> for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
+> Gegevensretentie vindt plaats volgens de prijsstelling voor OMS. Ga voor meer informatie naar de pagina met prijzen van [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx).
 > 
 > 
 
-### Antimalware assessment
-This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
+Scenario’s voor incidentresponses en forensisch onderzoek kunnen direct worden verbeterd met de resultaten die beschikbaar zijn in de tegel **Beveiligingsrecords in de loop van de tijd**.
 
-![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
+![Beveiligingsrecords in de loop van de tijd](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
+Wanneer u op deze tegel klikt, wordt de blade **Zoeken** geopend met alle queryresultaten voor **Beveiligingsgebeurtenissen** (Type = SecurityEvents). De gegevens zijn gebaseerd op de afgelopen zeven dagen, zoals hieronder is weergegeven:
 
-![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
+![Beveiligingsrecords in de loop van de tijd](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
+
+Het zoekresultaat is verdeeld over twee deelvensters. In het linkerdeelvenster zijn het aantal gevonden gebeurtenissen, de computers waarop deze gebeurtenissen zijn gevonden, het aantal accounts die op deze computers zijn aangetroffen en de soorten activiteiten uitgesplitst. In het rechterdeelvenster staan het totale aantal resultaten en een chronologische weergave van de beveiligingsgebeurtenissen met de naam en gebeurtenisactiviteit van de computer. U kunt ook op **Meer weergeven** klikken om meer informatie over deze gebeurtenis te bekijken, zoals de gebeurtenisgegevens, de gebeurtenis-id en de gebeurtenisbron.
 
 > [!NOTE]
-> *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
+> Lees [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx) (Engelstalig) voor meer informatie over zoekquery’s in OMS.
 > 
 > 
 
-If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
+### <a name="antimalware-assessment"></a>Antimalware-evaluatie
+Met deze optie kunt u snel computers met onvoldoende beveiliging en computers die door malware zijn aangetast identificeren. De evaluatiestatus voor malware en gedetecteerde bedreigingen op de bewaakte servers worden gelezen en vervolgens worden de gegevens voor verwerking naar de OMS-service in de cloud verzonden. Servers waarop bedreigingen zijn gedetecteerd en servers met onvoldoende beveiliging worden weergegeven in het dashboard voor malware-evaluatie, dat toegankelijk is via de tegel **Antimalware-evaluatie**. 
 
-### Update assessment
-This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
+![malware-evaluatie](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+Wanneer u op de blade **Zoeken** klikt, wordt net als bij andere live-tegels in het OMS-dashboard het queryresultaat weergegeven. Als u voor deze optie op de optie **Geen rapportage** onder **Beveiligingsstatus** klikt, wordt in het queryresultaat deze ene vermelding weergegeven met de naam en de positie van de computer, zoals hieronder is weergegeven:
+
+![zoekresultaat](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
+> *positie* is een beoordeling die de status van de beveiliging (ingeschakeld, uitgeschakeld, bijgewerkt enzovoort) en gevonden bedreigingen weergeeft. Als dit als nummer wordt weergegeven, vergemakkelijkt dit aggregaties.
 > 
 > 
 
-### Identity and Access
-Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
+Als u op de naam van de computer klikt, wordt de beveiligingsstatus voor deze computer chronologisch weergegeven. Dat is heel handig voor scenario's waarin u moet weten of de antimalware ooit is geïnstalleerd en op een bepaald moment is verwijderd.   
+
+### <a name="update-assessment"></a>Update-evaluatie
+Met deze optie kunt u snel de algemene blootstelling aan mogelijke beveiligingsproblemen vaststellen en bepalen of en hoe essentieel deze updates zijn voor uw omgeving. Met de oplossing OMS Beveiliging en controle worden deze updates alleen gevisualiseerd. De werkelijke gegevens zijn afkomstig van [Oplossingen voor systeemupdates](https://technet.microsoft.com/library/mt484096.aspx). Dit is een andere module van OMS. Hier ziet u een voorbeeld van de updates:
+
+![systeemupdates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
 > [!NOTE]
-> currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
+> Lees [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx) (Servers bijwerken met de oplossing voor systeemupdates) voor meer informatie over de update-oplossing.
 > 
 > 
 
-By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
+### <a name="identity-and-access"></a>Identiteit en toegang
+Identiteit moet de controlelaag voor uw onderneming zijn. Het beveiligen van uw identiteit moet de hoogste prioriteit hebben. De omheining rond bedrijven vormde vroeger een van de primaire verdedigingslinies. Doordat gegevens en apps steeds vaker naar de cloud worden verplaatst, is identiteit tegenwoordig de nieuwe omheining. 
 
-When you click in the **Identity and Access** tile you will see the following dashboard:
+> [!NOTE]
+> De gegevens zijn momenteel alleen gebaseerd op aanmeldingsgegevens van beveiligingsgebeurtenissen (gebeurtenis-is 4624). In de toekomst worden Office365-aanmeldingen en Azure AD-gegevens ook opgenomen.
+> 
+> 
 
-![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
+Door uw identiteitsactiviteiten te bewaken, kunt u proactieve maatregelen treffen voordat een incident plaatsvindt of reactieve maatregelen nemen om een aanvalspoging te stoppen. Op het dashboard **Identiteit en toegang** vindt u een overzicht van uw identiteitsstatus, waaronder het aantal mislukte aanmeldingspogingen, het gebruikersaccount dat voor deze pogingen is gebruikt, accounts die zijn vergrendeld, accounts met een gewijzigd of opnieuw ingesteld wachtwoord en het aantal accounts dat op dat moment is aangemeld. 
 
-The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
+Wanneer u op de tegel **Identiteit en toegang** klikt, wordt het volgende dashboard geopend:
 
-![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
+![identiteit en toegang](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-The detailed report provides important information about this event, including: the target computer, the type of logon (in this case Network logon), the activity (in this case event 4625) and a comprehensive timeline of each attempt. 
+U kunt de informatie in dit dashboard onmiddellijk gebruiken om mogelijk verdachte activiteiten vast te stellen. Er is bijvoorbeeld 338 keer geprobeerd om aan te melden als **beheerder** en alle pogingen zijn mislukt. Dit kan worden veroorzaakt door een beveiligingsaanval op dit account. Als u op dit account klikt, wordt meer informatie weergegeven waarmee u de doelresource van deze mogelijke aanval kunt vaststellen:
 
-### Computers
-This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
+![zoekresultaten](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
+
+In het gedetailleerde rapport staat belangrijke informatie over deze gebeurtenis, waaronder: de doelcomputer, het type aanmelding (in dit geval netwerkaanmelding), de activiteit (in dit geval gebeurtenis 4625) en een uitgebreide tijdlijn van elke poging. 
+
+### <a name="computers"></a>Computers
+Deze tegel kan worden gebruikt voor toegang tot alle computers met actieve beveiligingsgebeurtenissen. Wanneer u op deze tegel klikt, ziet u een lijst met computers met beveiligingsgebeurtenissen en het aantal gebeurtenissen op elke computer:
 
 ![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-You can continue your investigation by clicking on each computer and review the security events that were flagged.
+U kunt uw onderzoek voortzetten door op elke computer te klikken en de gebeurtenissen die zijn gemarkeerd te controleren.
 
-### Azure Security Center
-This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
+### <a name="azure-security-center"></a>Azure Security Center
+Deze tegel is in feite een snelkoppeling voor toegang tot het Azure Security Center-dashboard. Lees [Aan de slag met Azure Security Center](../security-center/security-center-get-started.md) voor meer informatie over deze oplossing.
 
-## Notable issues
-The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
+## <a name="notable-issues"></a>Problemen die aandacht vereisen
+Het belangrijkste doel van deze groep opties is een snel overzicht te geven van de problemen u in uw omgeving door ze in te delen in de categorieën Kritiek, Waarschuwing en Ter informatie. De tegel voor het type actieve problemen is een visualisatie van deze problemen, maar u kunt er niet meer informatie mee bekijken. Daarvoor dient het onderste gedeelte van deze tegel. Daarin staan de naam van het probleem (NAAM), het aantal objecten waarvoor het probleem is opgetreden (AANTAL) en hoe kritiek het is (ERNST).
 
-![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
+![Problemen die aandacht vereisen](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
+Deze problemen zijn al aan bod gekomen in andere gebieden van de groep **Beveiligingsdomeinen** die het doel van deze weergave versterkt: de belangrijkste problemen in uw omgeving op één plek visualiseren.
 
-## Detections (Preview)
-The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
+## <a name="detections-preview"></a>Detecties (preview)
+Deze optie heeft als belangrijkste doel de IT-afdeling toestaan mogelijke bedreigingen voor de omgeving en de ernst van deze bedreigingen vast te stellen.
 
-![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+![Bedreigingsinformatie](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
+Deze optie kan tijdens een onderzoek naar de incidentrespons ook worden gebruikt om de evaluatie uit te voeren en meer informatie te verkrijgen over de aanval.
 
 > [!NOTE]
-> For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Bekijk [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Azure Security Center en Microsoft Operations Management Suite gebruiken voor een incidentrespons) voor meer informatie over het gebruik van OMS voor incidentresponses.
 > 
 > 
 
-## Threat Intelligence
-The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
+## <a name="threat-intelligence"></a>Bedreigingsinformatie
+Met de nieuwe sectie Bedreigingsinformatie van de oplossing Beveiliging en controle kunt u aanvalspatronen op verschillende manieren visualiseren: het totale aantal servers met schadelijk uitgaand IP-verkeer, het type schadelijke dreigingen en een kaart waarop wordt aangegeven waar deze IP-adressen van afkomstig zijn. U kunt in de kaart werken en op de IP-adressen klikken voor meer informatie.
 
-Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
+Gele punaises op de kaart geven inkomend verkeer van schadelijke IP-adressen aan. Het is niet ongebruikelijk dat voor servers die verbinding hebben met internet schadelijk inkomend verkeer wordt aangegeven. Het is wel raadzaam deze pogingen te controleren om er zeker van te zijn dat ze zijn mislukt. Deze indicatoren zijn gebaseerd op IIS-logboeken, WireData en logboeken van Windows Firewall.  
 
-![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+![Bedreigingsinformatie](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## Common security queries
-The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
+## <a name="common-security-queries"></a>Algemene beveiligingsquery's
+Met de lijst met beschikbare algemene beveiligingquery's kunt u snel toegang krijgen tot informatie over de resource en deze aan te passen op basis van de behoeften van uw omgeving. Deze algemene query's zijn onder meer:
 
-* All Security Activities
-* Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
-* Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
-* Log on Activity by Computer
-* Accounts who terminated Microsoft antimalware on any computer
-* Computers where the Microsoft antimalware process was terminated
-* Computers where "hash.exe" was executed (replace with different process name)
-* All Process names that were executed
-* Log on Activity by Account
-* Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
+* Alle beveiligingsactiviteiten
+* Beveiligingsactiviteiten op computer computer01.contoso.com (vervangen door uw eigen computernaam)
+* Beveiligingsactiviteiten op computer computer01.contoso.com voor account Beheerder (vervangen door uw eigen computer- en accountnaam)
+* Aanmeldingsactiviteit per computer
+* Accounts waarmee Microsoft Antimalware op een computer is beëindigd
+* Computers waarop het Microsoft Antimalware-proces is beëindigd
+* Computers waarop hash.exe is uitgevoerd (vervangen door een andere procesnaam)
+* Alle procesnamen die zijn uitgevoerd
+* Aanmeldingsactiviteit per account
+* Accounts die op afstand worden aangemeld bij computer computer01.contoso.com (vervangen door uw eigen computernaam)
 
-## See also
-In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
+## <a name="see-also"></a>Zie ook
+In dit document hebt u kennis gemaakt met de oplossing Beveiliging en controle van OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
 
-* [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-* [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
-* [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
+* [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
+* [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
+* [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

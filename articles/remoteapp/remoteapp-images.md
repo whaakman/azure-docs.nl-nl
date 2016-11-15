@@ -1,11 +1,11 @@
 ---
-title: Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp? | Microsoft Docs
-description: Meer informatie over de inhoud van de sjablooninstallatiekopieën die worden geleverd bij Azure RemoteApp.
+title: "Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp? | Microsoft Docs"
+description: "Meer informatie over de inhoud van de sjablooninstallatiekopieën die worden geleverd bij Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+
 
 ---
-# Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
+# <a name="what-is-in-the-azure-remoteapp-template-images"></a>Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
 > [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
@@ -36,7 +40,7 @@ Uw abonnement op Azure RemoteApp omvat drie sjablooninstallatiekopieën:
 
 Lees verder voor meer informatie over de inhoud van elke installatiekopie.
 
-## Windows Server 2012 R2 ('de vanilla-installatiekopie')
+## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 ('de vanilla-installatiekopie')
 Deze installatiekopie is gebaseerd op het besturingssysteem Microsoft Windows Server 2012 R2 Datacenter en bevat de volgende rollen en functies om te voldoen aan de vereisten voor Azure RemoteApp-sjablooninstallatiekopieën:
 
 * .NET Framework 4.5, 3.5.1, 3.5
@@ -55,7 +59,7 @@ In deze installatiekopie zijn ook de volgende toepassingen geïnstalleerd:
 * Microsoft System Center 2012 Endpoint Protection
 * Microsoft Windows Media Player
 
-## Microsoft Office 365 ProPlus (abonnement vereist)
+## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (abonnement vereist)
 Office 365 is de meest aangevraagde toepassing en om deze reden hebben we een 'aangepaste' installatiekopie voor u gemaakt.
 
 Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat de volgende onderdelen van Microsoft Office 365 ProPlus, naast de onderdelen die worden beschreven in de installatiekopie van Windows Server 2012 R2:
@@ -86,7 +90,7 @@ Volledige functionaliteit van Office 365 ProPlus-apps is alleen beschikbaar voor
 
 Houd er rekening mee dat u een aparte licentie nodig hebt voor Office 365 ProPlus Visio Pro en Project Pro (deze hebben elk een eigen licentie).
 
-## Microsoft Office 2013 Professional Plus (alleen proefversie)
+## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (alleen proefversie)
 U kunt de service met de installatiekopie van het Office 2013 testen gedurende de gratis proefperiode.
 
 Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat de volgende onderdelen van Microsoft Office 2013 Professional Plus, naast de onderdelen die worden beschreven in de installatiekopie van Windows Server 2012 R2:
@@ -108,6 +112,9 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,39 +1,81 @@
 ---
-title: Aan de slag met Data Lake Analytics met .NET SDK | Microsoft Docs
+title: Aan de slag met Azure Data Lake Analytics met .NET SDK | Microsoft Docs
 description: 'Informatie over het gebruik van de SDK voor .NET voor het maken van Data Lake Store-accounts, het maken van Data Lake Analytics-taken en het verzenden van taken die zijn geschreven in U-SQL. '
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+
 
 ---
-# Zelfstudie: Aan de slag met Data Lake Analytics met .NET SDK
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Zelfstudie: Aan de slag met Data Lake Analytics met .NET SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het gebruik van de Azure.NET SDK voor het inzenden van taken die zijn geschreven in [U-SQL](data-lake-analytics-u-sql-get-started.md) naar Data Lake Analytics. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een C#-consoletoepassing ontwikkelen voor het inzenden van een U-SQL-taak die een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan dit artikel.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 * **Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012 met Visual C++ geïnstalleerd**.
 * **Microsoft Azure SDK voor .NET versie 2.5 of hoger**.  U kunt dit installeren met het [Webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Een Azure Data Lake Analytics-account**. Zie [Data Lake Analytics beheren met behulp van Azure.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
 
-## Consoletoepassing maken
+## <a name="create-console-application"></a>Consoletoepassing maken
 In deze zelfstudie verwerkt u een aantal zoeklogboeken.  Het zoeklogboek kan worden opgeslagen in de Data Lake Store of Azure Blob-opslag. 
 
 Een voorbeeld van een zoeklogboek is te vinden in een openbare Azure Blob-container. In de toepassing downloadt u het bestand naar uw werkstation en uploadt het vervolgens naar het Data Lake Store-standaardaccount van uw Data Lake Analytics-account.
+
+**Een U-SQL-script maken**
+
+Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
+
+Maak een **SampleUSQLScript.txt**-bestand met het volgende U-SQL-script en plaats het bestand op het pad **C:\temp\**.  Het pad wordt vastgelegd in de .NET-toepassing die u in de volgende procedure maakt.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+Dit U-SQL-script leest het brongegevensbestand met **Extractors.Tsv()** en maakt vervolgens een CSV-bestand met **Outputters.Csv()**. 
+
+In het C#-programma dient u het bestand **/Samples/Data/SearchLog.tsv** en de map **/Output/** voor te bereiden.    
+
+Het is eenvoudiger om relatieve paden te gebruiken voor bestanden die zijn opgeslagen in Data Lake-standaardaccounts. Maar u kunt ook absolute paden gebruiken.  Bijvoorbeeld 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekoppelde Storage-accounts.  De syntaxis voor bestanden die zijn opgeslagen in het gekoppelde Azure Storage-account is:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> Er is een bekend probleem met de Azure Data Lake-service.  Als de voorbeeldapp wordt onderbroken of als er een fout in optreedt, moet u de Data Lake Store- & Data Lake Analytics-accounts die door het script worden gemaakt mogelijk handmatig verwijderen.  Als u niet vertrouwd bent met Azure Portal, leest u eerst [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voordat u aan de slag gaat.       
+> 
+> 
 
 **Een toepassing maken**
 
@@ -46,40 +88,7 @@ Een voorbeeld van een zoeklogboek is te vinden in een openbare Azure Blob-contai
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. Voeg een nieuw bestand genaamd **SampleUSQLScript.txt** toe aan het project en plak het volgende U-SQL-script. Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    Dit U-SQL-script leest het brongegevensbestand met **Extractors.Tsv()** en maakt vervolgens een CSV-bestand met **Outputters.Csv()**. 
-   
-    In het C#-programma moet u het bestand **/Samples/Data/SearchLog.tsv** en de map **/Output/** voorbereiden.    
-   
-    Het is eenvoudiger om relatieve paden te gebruiken voor bestanden die zijn opgeslagen in Data Lake-standaardaccounts. Maar u kunt ook absolute paden gebruiken.  Bijvoorbeeld 
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekoppelde Storage-accounts.  De syntaxis voor bestanden die zijn opgeslagen in het gekoppelde Azure Storage-account is:
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > Er is een bekend probleem met de Azure Data Lake-service.  Als de voorbeeldapp wordt onderbroken of als er een fout in optreedt, moet u de Data Lake Store- & Data Lake Analytics-accounts die door het script worden gemaakt mogelijk handmatig verwijderen.  Als u niet vertrouwd bent met de Portal, leest u eerst [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voordat u aan de slag gaat.       
-   > 
-   > 
-5. Plak de volgende code in Program.cs:
+4. Plak de volgende code in Program.cs:
    
         using System;
         using System.IO;
@@ -134,7 +143,7 @@ Een voorbeeld van een zoeklogboek is te vinden in een openbare Azure Blob-contai
                 // Download job output
                 DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
 
-                WaitForNewline("Job output downloaded. You can now exit.");
+                  WaitForNewline("Job output downloaded. You can now exit.");
             }
 
             public static ServiceClientCredentials AuthenticateAzure(
@@ -237,7 +246,7 @@ Een voorbeeld van een zoeklogboek is te vinden in een openbare Azure Blob-contai
     ![U-SQL .NET SDK-uitvoer van Azure Data Lake Analytics-taak](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
 2. Controleer het uitvoerbestand.  De standaardnaam voor het pad en het bestand is c:\Temp\SearchLog-from-Data-Lake.csv.
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
 * Zie [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) voor een complexere query.
 * Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.
@@ -245,6 +254,9 @@ Een voorbeeld van een zoeklogboek is te vinden in een openbare Azure Blob-contai
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
 * Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

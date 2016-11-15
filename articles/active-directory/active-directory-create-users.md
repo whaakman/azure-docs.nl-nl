@@ -2,11 +2,11 @@
 title: Nieuwe gebruikers toevoegen aan Azure Active Directory | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen of gebruikersinformatie kunt wijzigen in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3673727-6bec-4fdc-87a4-d65b213c4c3c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+
 
 ---
-# Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
 Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen in uw organisatie en hoe u gebruikers met een Microsoft-account kunt toevoegen. Zie [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md) (Engelstalig) voor meer informatie over het toevoegen van gebruikers van andere directory's in Azure Active Directory of over het toevoegen van gebruikers van partnerbedrijven. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
-## Een gebruiker toevoegen
+## <a name="add-a-user"></a>Een gebruiker toevoegen
 1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com) met een account met globale beheerdersrechten voor de directory.
 2. Selecteer **Active Directory** en selecteer vervolgens de naam van de organisatiedirectory.
 3. Selecteer de tab **Gebruikers** en selecteer vervolgens in de opdrachtbalk **Gebruiker toevoegen**.
@@ -34,12 +38,12 @@ Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd h
 > [!IMPORTANT]
 > Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
 > 
-> * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u **eerst** bijvoorbeeld egbertborsboom@contoso.onmicrosoft.com, **gevolgd door** egbertborsboom@contoso.com.
-> * Voeg egbertborsboom@contoso.com **niet** toe voordat u egbertborsboom@contoso.onmicrosoft.com toevoegt. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
+> * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com, toe, **gevolgd door** geoffgrisso@contoso.com.
+> * Voeg **niet** eerst geoffgrisso@contoso.com en dan geoffgrisso@contoso.onmicrosoft.com. toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
 > 
 > 
 
-## Gebruikersgegevens wijzigen
+## <a name="change-user-information"></a>Gebruikersgegevens wijzigen
 U kunt elk gebruikerskenmerk wijzigen, behalve de object-ID.
 
 1. Open uw directory.
@@ -48,7 +52,7 @@ U kunt elk gebruikerskenmerk wijzigen, behalve de object-ID.
 
 Als de gebruiker die u wijzigt, is gesynchroniseerd met uw on-premises Active Directory-service, kunt u de gebruikersinformatie niet wijzigen met deze procedure. Gebruik uw beheerhulpprogramma's voor on-premises Active Directory om de gebruiker te wijzigen.
 
-## Beheer van gastgebruikers en beperkingen
+## <a name="guest-user-management-and-limitations"></a>Beheer van gastgebruikers en beperkingen
 Gastaccounts zijn accounts van gebruikers uit andere directory's. Ze zijn uitgenodigd voor uw directory zodat ze toegang hebben tot SharePoint-documenten, toepassingen of andere Azure-resources. Bij een gastaccount in een directory is het onderliggende UserType-kenmerk ingesteld op "Gast." Gewone gebruikers (met name de leden van uw directory) hebben het UserType-kenmerk "Lid."
 
 Gasten hebben een beperkte set rechten in de directory. Deze rechten beperken de mogelijkheden van gasten om informatie over andere gebruikers in de directory te bekijken. Gastgebruikers kunnen echter wel communiceren met de gebruikers en groepen van de resources waarmee ze werken. Gastgebruikers hebben de volgende mogelijkheden:
@@ -60,7 +64,7 @@ Gasten hebben een beperkte set rechten in de directory. Deze rechten beperken de
 * Een lijst samenstellen met geverifieerde domeinen in de directory
 * Instemmen met toepassingen zodat ze dezelfde toegang hebben als leden in uw directory
 
-## Toegangsbeleid instellen voor gasten
+## <a name="set-guest-user-access-policies"></a>Toegangsbeleid instellen voor gasten
 De tab **Configureren** van een directory bevat opties voor het beheren van toegang van gastgebruikers. Deze opties kunnen alleen worden gewijzigd in de klassieke Azure-portal door een hoofdbeheerder van de directory. Op dit moment is er geen PowerShell- of API-methode beschikbaar.
 
 Als u het tabblad **Configureren** wilt openen in de klassieke Azure-portal, selecteert u **Active Directory** en vervolgens de naam van de directory.
@@ -71,11 +75,11 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 ![Opties voor het beheren van toegang voor gastgebruikers][2]
 
-## Volgend onderwerp
-* [Add users from other directories or partner companies in Azure Active Directory (Engelstalig)](active-directory-create-users-external.md)
-* [Azure AD beheren (Engelstalig artikel)](active-directory-administer.md)
-* [Wachtwoorden beheren in Azure AD (Engelstalig)](active-directory-manage-passwords.md)
-* [Groepen beheren in Azure AD (Engelstalig artikel)](active-directory-manage-groups.md)
+## <a name="whats-next"></a>Volgend onderwerp
+* [Gebruikers vanuit andere mappen of partnerbedrijven toevoegen in Azure Active Directory](active-directory-create-users-external.md)
+* [Administering Azure AD](active-directory-administer.md) (Azure AD beheren)
+* [Manage passwords in Azure AD](active-directory-manage-passwords.md) (Wachtwoorden beheren in Azure AD)
+* [Groepen beheren in Azure Active Directory](active-directory-manage-groups.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
@@ -83,6 +87,6 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -4,9 +4,9 @@ description: Informatie over het gebruik van Azure Mobile Engagement met analyse
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# Aan de slag met Azure Mobile Engagement voor Xamarin.iOS-apps
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Aan de slag met Azure Mobile Engagement voor Xamarin.iOS-apps
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Xamarin.iOS-toepassing.
@@ -32,15 +36,15 @@ Voor deze zelfstudie hebt u het volgende nodig:
 > 
 > 
 
-## <a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding.
 
 We gaan een eenvoudige app maken met Xamarin ter illustratie van de integratie.
 
-### Een nieuw Xamarin.iOS-project maken
+### <a name="create-a-new-xamarinios-project"></a>Een nieuw Xamarin.iOS-project maken
 1. Start Xamarin Studio. Ga naar **File** -> **New** -> **Solution**. 
    
     ![][1]
@@ -61,7 +65,7 @@ We gaan een eenvoudige app maken met Xamarin ter illustratie van de integratie.
 
 Xamarin Studio maakt de demo-app waarin we Mobile Engagement gaan integreren. 
 
-### Uw app verbinden met de back-end van Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
 1. Klik met de rechtermuisknop op de map **Packages** in het venster Solution en selecteer **Add Packages…**.
    
     ![][5]
@@ -79,7 +83,7 @@ Xamarin Studio maakt de demo-app waarin we Mobile Engagement gaan integreren.
                     };
         EngagementAgent.Init (config);
 
-## <a id="monitor"></a>Realtime-bewaking inschakelen
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Realtime-bewaking inschakelen
 Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn, moet u ten minste één scherm naar de back-end van Mobile Engagement sturen.
 
 1. Open **ViewController.cs** en voeg het volgende toe met de instructie:
@@ -87,14 +91,14 @@ Om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruik
         using Microsoft.Azure.Engagement.Xamarin;
 2. Verander de klasse waarvan `ViewController` overneemt van `UIViewController` naar `EngagementViewController`. 
 
-## <a id="monitor"></a>App verbinden met realtime-bewaking
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
 Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
 In de volgende secties stelt u de app in om die te ontvangen.
 
-### Uw toepassingsgemachtigde wijzigen
+### <a name="modify-your-application-delegate"></a>Uw toepassingsgemachtigde wijzigen
 1. Open **AppDelegate.cs** en voeg het volgende toe met de instructie:
    
         using System; 
@@ -140,7 +144,7 @@ In de volgende secties stelt u de app in om die te ontvangen.
     ![][7]
 5. In hetzelfde bestand **Info.plist** moeten **Enable Background Modes** en **Remote Notifications** zijn ingeschakeld. 
    
-    ![][8]
+     ![][8]
 6. Voer de app uit op het apparaat dat u hebt gekoppeld aan dit publicatieprofiel. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

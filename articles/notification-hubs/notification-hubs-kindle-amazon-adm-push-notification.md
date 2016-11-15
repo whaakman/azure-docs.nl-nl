@@ -2,34 +2,38 @@
 title: Aan de slag met Azure Notification Hubs voor Kindle-apps | Microsoft Docs
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing.
 services: notification-hubs
-documentationcenter: ''
-author: wesmc7777
+documentationcenter: 
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
+
 
 ---
-# Aan de slag met Azure Notification Hubs voor Kindle-apps
+# <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing.
 U maakt een lege Kindle-app die pushmeldingen ontvangt via Amazon Device Messaging (ADM).
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Download de Android-SDK (aannemende dat u Eclipse gebruikt) van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>.
 * Volg de stappen in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Uw ontwikkelingsomgeving instellen</a> om uw ontwikkelingsomgeving voor Kindle in te stellen.
 
-## Een nieuwe app toevoegen aan de portal voor ontwikkelaars
+## <a name="add-a-new-app-to-the-developer-portal"></a>Een nieuwe app toevoegen aan de portal voor ontwikkelaars
 1. Maak een app in de [Amazon-portal voor ontwikkelaars].
    
     ![][0]
@@ -46,7 +50,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
    
     ![][4]
 
-## Maak een API-sleutel.
+## <a name="create-an-api-key"></a>Maak een API-sleutel.
 1. Open een opdrachtprompt met beheerdersbevoegdheden.
 2. Navigeer naar de map Android SDK.
 3. Voer de volgende opdracht in:
@@ -58,10 +62,10 @@ Voor deze zelfstudie hebt u het volgende nodig:
 5. Kopieer de **MD5**-vingerafdruk.
 6. Klik in de portal voor ontwikkelaars op het tabblad **Berichten**, klik op **Android/Kindle** en voer de naam in van het pakket voor uw app (bijvoorbeeld **com.sample.notificationhubtest**) en de **MD5**-waarde en klik vervolgens op **API-sleutel genereren**.
 
-## Referenties aan de hub toevoegen
+## <a name="add-credentials-to-the-hub"></a>Referenties aan de hub toevoegen
 Voeg in de portal het clientgeheim en de client-id in op het tabblad **Configureren** van uw Notification Hub.
 
-## Uw toepassing instellen
+## <a name="set-up-your-application"></a>Uw toepassing instellen
 > [!NOTE]
 > Wanneer u een toepassing maakt, gebruikt u ten minste API-niveau 17.
 > 
@@ -121,7 +125,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
             </intent-filter>
         </receiver>
 
-## De ADM-berichtenhandler maken
+## <a name="create-your-adm-message-handler"></a>De ADM-berichtenhandler maken
 1. Maak een nieuwe klasse die eigenschappen overneemt van `com.amazon.device.messaging.ADMMessageHandlerBase` en geef deze de naam `MyADMMessageHandler`, zoals wordt weergegeven in de volgende afbeelding:
    
     ![][6]
@@ -139,7 +143,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
-        private static NotificationHub hub;
+          private static NotificationHub hub;
         public static NotificationHub getNotificationHub(Context context) {
             Log.v("com.wa.hellokindlefire", "getNotificationHub");
             if (hub == null) {
@@ -163,22 +167,22 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
             private void sendNotification(String msg) {
                 Context ctx = getApplicationContext();
    
-             mNotificationManager = (NotificationManager)
+                mNotificationManager = (NotificationManager)
                     ctx.getSystemService(Context.NOTIFICATION_SERVICE);
    
             PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainActivity.class), 0);
+                  new Intent(ctx, MainActivity.class), 0);
    
             NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(ctx)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Notification Hub Demo")
-                .setStyle(new NotificationCompat.BigTextStyle()
+                  new NotificationCompat.Builder(ctx)
+                  .setSmallIcon(R.mipmap.ic_launcher)
+                  .setContentTitle("Notification Hub Demo")
+                  .setStyle(new NotificationCompat.BigTextStyle()
                          .bigText(msg))
-                .setContentText(msg);
+                  .setContentText(msg);
    
-            mBuilder.setContentIntent(contentIntent);
-            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+             mBuilder.setContentIntent(contentIntent);
+             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
 4. Voeg de volgende code toe aan de methode `OnMessage()`:
    
@@ -193,11 +197,11 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
             }
 6. Voeg de volgende code toe aan de methode `OnUnregistered`:
    
-           try {
-               getNotificationHub(getApplicationContext()).unregister();
-           } catch (Exception e) {
-               Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-           }
+         try {
+             getNotificationHub(getApplicationContext()).unregister();
+         } catch (Exception e) {
+             Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+         }
 7. Voeg in de methode `MainActivity` de volgende importinstructie toe:
    
         import com.amazon.device.messaging.ADM;
@@ -211,7 +215,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
             new AsyncTask() {
                   @Override
                   protected Object doInBackground(Object... params) {
-                     try {                       MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                     try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
                      } catch (Exception e) {
                          Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
                          return e;
@@ -221,11 +225,11 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
                }.execute(null, null, null);
         }
 
-## Uw API-sleutel aan uw app toevoegen
+## <a name="add-your-api-key-to-your-app"></a>Uw API-sleutel aan uw app toevoegen
 1. Maak in Eclipse een nieuw bestand met de naam **api_key.txt** in de map van uw project.
 2. Open het bestand en kopieer de API-sleutel die u in de Amazon-portal voor ontwikkelaars hebt gegenereerd.
 
-## De app uitvoeren
+## <a name="run-the-app"></a>De app uitvoeren
 1. Start de emulator.
 2. Veeg in de emulator vanaf de bovenkant en klik op **Instellingen**. Klik vervolgens op **Mijn account** en meld u aan met een geldig Amazon-account.
 3. Voer vervolgens de app uit in Eclipse.
@@ -237,7 +241,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
 
         adb shell  date -s "yyyymmdd.hhmmss"
 
-## Een bericht verzenden
+## <a name="send-a-message"></a>Een bericht verzenden
 Een bericht verzenden met .NET:
 
         static void Main(string[] args)
@@ -264,6 +268,6 @@ Een bericht verzenden met .NET:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

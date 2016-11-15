@@ -4,9 +4,9 @@ description: Ontdek hoe u Azure Mobile Engagement gebruikt met analyses en pushm
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+
 
 ---
-# Aan de slag met Azure Mobile Engagement voor web-apps
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Aan de slag met Azure Mobile Engagement voor web-apps
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp wordt beschreven hoe u met Azure Mobile Engagement uw gebruik van web-apps leert te begrijpen.
@@ -33,15 +37,15 @@ Deze Web SDK bevindt zich nog in de previewfase en ondersteunt momenteel alleen 
 > 
 > 
 
-## Mobile Engagement instellen voor uw web-app
+## <a name="setup-mobile-engagement-for-your-web-app"></a>Mobile Engagement instellen voor uw web-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 Deze zelfstudie toont een 'basisintegratie'. Dit is de minimale set die vereist is voor het verzamelen van gegevens.
 
 We gaan een elementaire web-app maken met Visual Studio ter illustratie van de integratie, maar u kunt de stappen ook volgen met elke webtoepassing die buiten Visual Studio is gemaakt. 
 
-### Een nieuwe web-app maken
+### <a name="create-a-new-web-app"></a>Een nieuwe web-app maken
 In de volgende stappen wordt ervan uitgegaan dat u Visual Studio 2015 gebruikt, hoewel de stappen hetzelfde zijn in eerdere versies van Visual Studio. 
 
 1. Start Visual Studio en selecteer **New Project** in het scherm **Home**.
@@ -50,7 +54,7 @@ In de volgende stappen wordt ervan uitgegaan dat u Visual Studio 2015 gebruikt, 
 
 U hebt nu een nieuw, leeg web-app-project gemaakt waarin wij de Web SDK van Azure Mobile Engagement gaan integreren.
 
-### Uw app verbinden met de back-end van Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
 1. Maak een nieuwe map genaamd **javascript** in uw oplossing en voeg het Web SDK JS-bestand **azure-engagement.js** eraan toe. 
 2. Voeg met de volgende code een nieuw bestand met de naam **main.js** toe aan deze javascript-map. Zorg ervoor dat u de verbindingstekenreeks bijwerkt. Dit `azureEngagement`-object wordt gebruikt voor toegang tot Web SDK-methoden. 
    
@@ -61,7 +65,7 @@ U hebt nu een nieuw, leeg web-app-project gemaakt waarin wij de Web SDK van Azur
    
     ![Visual Studio met js-bestanden][1]
 
-## Realtime-bewaking inschakelen
+## <a name="enable-realtime-monitoring"></a>Realtime-bewaking inschakelen
 U dient ten minste één activiteit naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn. Een activiteit in de context van een web-app is een webpagina. 
 
 1. Maak een nieuwe pagina met de naam **home.html** in uw oplossing en stel deze in als de startpagina van uw web-app. 
@@ -84,12 +88,12 @@ U dient ten minste één activiteit naar de back-end van Mobile Engagement te st
         </body>
         </html>
 
-## App verbinden met realtime-bewaking
+## <a name="connect-app-with-realtime-monitoring"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-![][2]
+  ![][2]
 
-## Analyse uitbreiden
+## <a name="extend-analytics"></a>Analyse uitbreiden
 Dit zijn alle methoden die momenteel bij Web SDK beschikbaar zijn die u voor analyses kunt gebruiken:
 
 1. Activiteiten/webpagina's:
@@ -114,6 +118,6 @@ Dit zijn alle methoden die momenteel bij Web SDK beschikbaar zijn die u voor ana
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 
