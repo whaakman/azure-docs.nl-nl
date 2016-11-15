@@ -1,12 +1,12 @@
 ---
-title: Aan de slag met Azure App Service Mobile Apps voor Xamarin iOS-apps | Microsoft Docs
+title: Aan de slag met Azure App Service Mobile Apps voor Xamarin.iOS-apps | Microsoft Docs
 description: Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.iOS-ontwikkeling.
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+
 
 ---
-# <a name="create-a-xamarin.ios-app"></a>Een Xamarin.iOS-app maken
+# <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
@@ -48,11 +52,11 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.ios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
+## <a name="download-and-run-the-xamarinios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
 1. Open de [Azure Portal] in een browservenster.
 2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
    
-    Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+      Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (of Visual Studio).
    
     ![][9]
@@ -92,6 +96,6 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

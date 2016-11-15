@@ -1,10 +1,12 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### Het virtuele apparaat configureren en registreren
+Het virtuele apparaat configureren en registreren
+
 1. Selecteer het virtuele StorSimple-apparaat dat u zojuist hebt gemaakt op de pagina **Apparaten**. 
 2. Klik op **Apparaatinstelling voltooien**. Hiermee wordt de wizard Apparaat configureren gestart.
    
     ![Instelling van StorSimple-apparaat voltooien op de pagina Apparaten](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    
 3. Voer de **gegevensversleutelingssleutel van de service** in het betreffende vak in.
 4. Voer het wachtwoord voor Snapshot Manager en het apparaatbeheerderswachtwoord in met de lengte en instellingen die zijn opgegeven.
 5. Klik op het vinkje om de initiële configuratie en de registratie van het virtuele apparaat te voltooien. 
@@ -15,6 +17,8 @@ Nadat de configuratie en de registratie zijn voltooid, komt het apparaat online.
 
 ![Onlinefase voor het virtuele StorSimple-apparaat](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

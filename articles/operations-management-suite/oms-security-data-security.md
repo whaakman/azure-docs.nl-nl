@@ -1,12 +1,12 @@
 ---
-title: Operations Management Suite Security and Audit Solution Data Security | Microsoft Docs
-description: This document explains how data is managed and safeguarded in Operations Management Suite Security and Audit Solution.
+title: Gegevensbeveiliging in de oplossing Beveiliging en controle in Operations Management Suite | Microsoft Docs
+description: In dit document wordt uitgelegd hoe gegevens worden beheerd en bewaakt in de oplossing Beveiliging en controle in Operations Management Suite.
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 9cdf7deb-2a30-4672-b89f-71179ee8326a
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,46 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d81d3ff9c91d0056c69f5f190d3dfaa507c1e340
+
 
 ---
-# Operations Management Suite Security and Audit solution data security
-To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
+# <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Gegevensbeveiliging in de oplossing Beveiliging en controle in Operations Management Suite
+Om klanten te helpen bedreigingen te voorkomen, ze te detecteren en erop te reageren, verzamelt en verwerkt de [oplossing Beveiliging en controle in Operations Management Suite (OMS)](operations-management-suite-overview.md) gegevens over uw resources waaronder:
 
-* Security event log
-* Event Tracing for Windows (ETW) events
-* AppLocker auditing events
-* Windows Firewall log
-* Advanced Threat Analytics events
-* Results of baseline assessment
-* Results of antimalware assessment
-* Results of update/patch assessment
-* Syslogs streams that are explicitly enabled on the agent
+* Beveiligingslogboek
+* ETW-gebeurtenissen (Event Tracing for Windows)
+* Controlegebeurtenissen AppLocker
+* Windows Firewall-logboek
+* Advanced Threat Analytics-gebeurtenissen
+* Resultaten van de evaluatie van de basislijn
+* Resultaten van de antimalware-evaluatie
+* Resultaten van de evaluatie van updates/patching
+* Syslogs-streams die expliciet zijn ingeschakeld op de agent
 
-We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
-This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
+We doen er alles aan om de privacy van gegevens te beschermen en deze gegevens te beveiligen. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
+In dit artikel wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Beveiliging en controle in OMS.
 
-## Data sources
-OMS Security and Audit Solution analyze data from your Virtual Machines and physical computers where the OMS Agent is installed. OMS Security and Audit Solution can collect configuration information about security events, such as Windows event, audit logs, IIS logs and syslog messages. Examples of such data are: operating system type and version, running processes, machine name, IP addresses, logged in user, and tenant ID.  
+## <a name="data-sources"></a>Gegevensbronnen
+Met de oplossing Beveiliging en controle in OMS worden gegevens geanalyseerd die afkomstig zijn van uw virtuele machines en fysieke computers waarop OMS Agent is geïnstalleerd. Met de oplossing Beveiliging en controle in OMS worden configuratiegegevens over beveiligingsgebeurtenissen verzameld, zoals Windows-gebeurtenissen, controlelogboeken, IIS-logboeken en syslog-berichten. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-id.  
 
-## Data protection
-**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
+## <a name="data-protection"></a>Gegevensbeveiliging
+**Scheiding van gegevens**: gegevens worden op een logische manier apart van elkaar gehouden, in elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service. 
 
-**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to your own data.
+**Gegevenstoegang**: om aanbevelingen voor beveiliging te bieden en mogelijke bedreigingen te onderzoeken, kunnen medewerkers van Microsoft toegang hebben tot gegevens die door services worden verzameld of geanalyseerd. We voldoen aan de [voorwaarden voor Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) en de [Privacyverklaring](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), die stellen dat Microsoft niet de klantgegevens gebruikt of gegevens ervan afleidt voor reclame- of vergelijkbare commerciële doeleinden. Om aanbevelingen voor beveiliging te bieden en mogelijke bedreigingen te onderzoeken, kunnen medewerkers van Microsoft toegang hebben tot gegevens die door services worden verzameld of geanalyseerd. We gebruiken klantgegevens alleen indien nodig om u Azure-services te bieden, met inbegrip van doeleinden die compatibel zijn met het leveren van die services. U behoudt alle rechten op uw eigen gegevens.
 
-**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Gegevensgebruik**: Microsoft gebruikt informatie over patronen en bedreigingen die worden gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; wij doen dit in overeenstemming met de privacyverplichtingen beschreven in onze [Privacyverklaring](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
 > [!NOTE]
-> Data location is configured at the OMS workspace level, during the workspace creation, which is part of the initial OMS Security and Audit configuration process.
+> Gegevenslocatie is geconfigureerd op het niveau van de OMS-werkruimte, tijdens het maken van de werkruimte, dat deel uitmaakt van het eerste configuratieproces voor Beveiliging en controle in OMS.
 > 
 > 
 
-## See also
-In this document, you learned how data is managed and safeguarded in OMS. To learn more about OMS Security and Audit solution, see:
+## <a name="see-also"></a>Zie ook
+In dit document hebt u geleerd hoe gegevens worden beheerd en bewaakt in OMS. Voor meer informatie over de oplossing Beveiliging en controle in OMS, zie:
 
-* [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-* [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
-* [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
+* [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
+* [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
+* [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -6,14 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Meerdere sites in Application Gateway hosten
@@ -25,7 +29,7 @@ Aanvragen voor http://contoso.com worden naar ContosoServerPool gerouteerd en aa
 
 Op dezelfde manier kunnen twee subdomeinen van hetzelfde bovenliggende domein worden gehost op dezelfde gateway-implementatie. Voorbeelden van subdomeinen die worden gehost op één toepassingsgateway-implementatie, zijn http://blog.contoso.com en http://app.contoso.com.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Hostheaders en Servernaamindicatie (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>Hostheaders en Servernaamindicatie (SNI)
 Er zijn drie algemene mechanismen om het hosten van meerdere sites in te schakelen op dezelfde infrastructuur.
 
 1. Het is mogelijk meerdere webtoepassingen te hosten, elk op een uniek IP-adres.
@@ -117,6 +121,9 @@ Er is geen wijziging vereist in de routeringsregel. De routeringsregel Basic moe
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u meer hebt geleerd over het hosten van meerdere sites, gaat u naar [Een toepassingsgateway maken met het hosten van meerdere sites](application-gateway-create-multisite-azureresourcemanager-powershell.md) om een toepassingsgateway te maken met de mogelijkheid om meer dan één webtoepassing te ondersteunen.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

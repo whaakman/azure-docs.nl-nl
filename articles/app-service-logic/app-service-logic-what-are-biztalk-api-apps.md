@@ -2,11 +2,11 @@
 title: Wat zijn connectors en BizTalk API Apps?
 description: Meer informatie over API Apps, connectors en BizTalk API Apps
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
-# Wat zijn connectors en BizTalk API Apps?
+# <a name="what-are-connectors-and-biztalk-api-apps"></a>Wat zijn connectors en BizTalk API Apps?
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Een *connector* is een type API-app dat gericht is op connectiviteit. Connectors worden, zoals elke andere API App, gebruikt vanuit Web Apps, Mobile Apps en Logic Apps. Met connectors kunt u eenvoudig verbinding maken met bestaande services en kunt u eenvoudig verificatie beheren, bewaking bieden, analyses uitvoeren, en meer.
@@ -31,7 +35,7 @@ Er zijn verschillende service’lagen’ beschikbaar. De categorie Alles bevat a
 
 In [Prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/) vindt u een beschrijving van de servicecategorieën en leest u wat is opgenomen in deze categorieën. In de volgende secties vindt u een beschrijving van de verschillende categorieën van BizTalk API Apps en connectors.
 
-## Hybride connectors
+## <a name="hybrid-connectors"></a>Hybride connectors
 Met de hybride connectoren kunt u het bereik verder uitbreiden in de onderneming, met connectiviteit voor [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) en WebSphere MQ. 
 
 Aanvullende bronnen: [Business-to-business connectors and API apps](app-service-logic-b2b-connectors.md) Business-to-business-connectors en API Apps)  
@@ -39,12 +43,15 @@ Aanvullende bronnen: [Business-to-business connectors and API apps](app-service-
 [Create a trading partner agreement (Een handelspartnerovereenkomst maken)](app-service-logic-create-a-trading-partner-agreement.md)  
 [Track your B2B messages (Uw B2B-berichten bijhouden)](app-service-logic-track-b2b-messages.md)  
 
-## Regels
+## <a name="rules"></a>Regels
 Bedrijfsregels bestaan uit het beleid en de beslissingen die de bedrijfsprocessen regelen. Normaal gesproken zijn regels dynamisch en veranderen ze na verloop van tijd om verschillende redenen, bijvoorbeeld als gevolg van bedrijfsplannen, regelgevingen en diverse andere redenen. In [BizTalk Rules](app-service-logic-use-biztalk-rules.md) kunt u dit beleid loskoppelen van uw toepassingscode en het wijzigingsproces eenvoudiger en sneller maken.
 
-## Lijst met connectors en API Apps
+## <a name="connector-and-api-app-list"></a>Lijst met connectors en API Apps
 Zie [Connectors and API Apps List](app-service-logic-connectors-list.md) (Lijst met connectors en API Apps) voor een volledige lijst met connectors en API Apps die in elke categorie zijn opgenomen, waaronder de standaardconnectors, BizTalk EAI, premium-connectors, enzovoort.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,21 +1,25 @@
 ---
-title: Analyse van Trends in Visual Studio | Microsoft Docs
+title: Trends analyseren in Visual Studio | Microsoft Docs
 description: Trends analyseren, visualiseren en verkennen in uw Application Insights Telemetry in Visual Studio.
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 10/25/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+
 
 ---
-# Trends analyseren in Visual Studio
+# <a name="analyzing-trends-in-visual-studio"></a>Trends analyseren in Visual Studio
 Het hulpprogramma Application Insights Trends visualiseert hoe belangrijke telemetriegebeurtenissen van uw toepassing wijzigen gedurende een periode, zodat u snel problemen en afwijkingen kunt identificeren. Door een koppeling naar meer gedetailleerde diagnostische gegevens, kan Trends u helpen bij het verbeteren de prestaties van uw app, de oorzaken van uitzonderingen traceren en inzicht verwerven over uw aangepaste gebeurtenissen.
 
 ![Voorbeeld Trends-venster](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
@@ -25,7 +29,7 @@ Het hulpprogramma Application Insights Trends visualiseert hoe belangrijke telem
 > 
 > 
 
-## Open Application Insights Trends
+## <a name="open-application-insights-trends"></a>Open Application Insights Trends
 Het venster Application Insights Trends openen:
 
 * Kies in de Application Insights-werkbalkknop **Explore Telemetry Trends** of
@@ -34,7 +38,7 @@ Het venster Application Insights Trends openen:
 
 U wordt nu mogelijk gevraagd om een resource te selecterne. Klik op **Een resource selecteren**, meld u aan met een Azure-abonnement en kies vervolgens een Application Insights-bron in de lijst waarvoor u telemetrietrends wilt analyseren.
 
-## Kies een trendanalyse
+## <a name="choose-a-trend-analysis"></a>Kies een trendanalyse
 ![Menu van algemene typen trendanalyse](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
 Ga aan de slag door één van de vijf algemene trendanalyses te selecteren, waarbij telkens gegevens van de afgelopen 24 uur worden geanalyseerd:
@@ -47,8 +51,8 @@ Ga aan de slag door één van de vijf algemene trendanalyses te selecteren, waar
 
 Deze vooraf gemaakte analyses zijn later vanaf de knop **Algemene types telemetrieanalyses weergeven** knop in de linkerbovenhoek van het venster Trends beschikbaar.
 
-## Trends in uw toepassing visualiseren
-Application Insights Trends maakt een tijdreeksvisualisatie vanaf de telemetrie van uw app. Elke keer reeksvisualisatie geeft een soort telemetrie, gegroepeerd op een eigenschap van die telemetrie over een bepaalde tijdspanne. U wilt bijvoorbeeld serveraanvragen bekijken gegroepeerd op het land waarvan ze afkomstig zijn, gedurende de afgelopen 24 uur. In dit voorbeeld zou elke bel in de weergave een telling van het aantal serveraanvragen voor een bepaald land / regio gedurende één uur voorstellen.
+## <a name="visualize-trends-in-your-application"></a>Trends in uw toepassing visualiseren
+Application Insights Trends maakt een tijdreeksvisualisatie vanaf de telemetrie van uw app. Elke keer reeksvisualisatie geeft een soort telemetrie, gegroepeerd op een eigenschap van die telemetrie over een bepaalde tijdspanne. U wilt bijvoorbeeld serveraanvragen bekijken gegroepeerd op het land waarvan ze afkomstig zijn, gedurende de afgelopen 24 uur. In dit voorbeeld zou elke bel in de weergave een telling van het aantal serveraanvragen voor een bepaald land / regio gedurende één uur voorstellen.
 
 Gebruik de besturingselementen aan de bovenkant van het venster om aan te passen welke typen telemetrie worden weergeven. Kies eerst de telemetrietypes waarin u bent geïnteresseerd:
 
@@ -69,7 +73,7 @@ U kunt als volgt tussen de bellen in de visualisatie navigeren:
 > 
 > 
 
-## Filteren
+## <a name="filter"></a>Filteren
 Ontdek meer specifieke trends met de filterbesturingselementen aan de onderkant van het venster. Klik op de filternaam om het filter toe te passen. U kunt snel schakelen tussen verschillende filters voor het detecteren van trends die in een dimensie van uw telemetrie kunnen worden verborgen. Als u een filter in één dimensie toepast, zoals uitzonderingstype, blijven filters in andere dimensies aanklikbaar hoewel ze uitgegrijsd worden weergegeven. Klik opnieuw op de filters om ze te deselecteren. Ctrl-klik om meerdere filters in dezelfde dimensie selecteren.
 
 ![Trendfilters](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
@@ -85,7 +89,7 @@ Om één van deze filters te deselecteren klikt u op de knop **Geselecteerde fil
 
 ![Meerdere filters](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-## Afwijkingen vinden
+## <a name="find-anomalies"></a>Afwijkingen vinden
 Het hulpprogramma Trends kan bellen van gebeurtenissen aangeven die afwijken van andere bellen in dezelfde tijdreeksen. Kies in de vervolgkeuzelijst Weergavetype **Aantal in tijdsinterval (afwijkingen markeren)** of **Percentages in tijdsinterval (afwijkingen markeren)**. Rode bellen zijn afwijkend. Afwijkingen worden gedefinieerd als bellen met aantallen / percentages die 2.1 maal de standaardafwijking van aantallen / percentages opgetreden in de afgelopen twee tijdsintervallen (48 uur als u de afgelopen 24 uur bekijkt).
 
 ![Gekleurde punten geven aan afwijkingen aan](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
@@ -95,13 +99,16 @@ Het hulpprogramma Trends kan bellen van gebeurtenissen aangeven die afwijken van
 > 
 > 
 
-## <a name="next"></a>Volgende stappen
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Volgende stappen
 |  |  |
 | --- | --- |
 | **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Telemetrie zoeken, data in CodeLens bekijken en configureren van Application Insights. Allen vanuit Visual Studio. |![Klik met de rechtermuisknop op het project en kies Application Insights > Zoeken.](./media/app-insights-visual-studio-trends/34.png) |
 | **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
