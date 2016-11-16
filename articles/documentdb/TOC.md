@@ -36,7 +36,7 @@
 ### [Gegevens automatisch laten verlopen](documentdb-time-to-live.md)
 ### [Uw indexen aanpassen](documentdb-indexing-policies.md)
 ### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
-### [Back-up en herstel](documentdb-online-backup-and-restore.md)
+### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
 ### [Prestatieniveaus](documentdb-performance-levels.md)
 ### [Resourcequota](documentdb-limits.md)
 ### [Quota verhogen](documentdb-increase-limits.md)
@@ -96,8 +96,10 @@
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/documentdb/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [MSDN-forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [Service-updates](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [DocumentDB vragen](documentdb-community.md#contact-the-team)
 ## [Community-portal](documentdb-community.md)
 ## [Gebeurtenissen en opnamen](documentdb-community.md#events-and-recordings)

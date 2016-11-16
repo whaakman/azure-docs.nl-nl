@@ -105,7 +105,7 @@
 ### [Overzicht](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [REST-API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
 ## Prestaties
@@ -136,6 +136,9 @@
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners
 ### [Business Intelligence](sql-data-warehouse-partner-business-intelligence.md)

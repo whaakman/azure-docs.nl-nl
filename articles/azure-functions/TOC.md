@@ -1,47 +1,51 @@
-# [Overview](functions-overview.md)
+# Overzicht
+## [Wat is Azure Functions?](functions-overview.md)
+# Aan de slag
+## [Uw eerste functie maken](functions-create-first-azure-function.md)
+## [Een webhookfunctie maken](functions-create-a-web-hook-or-api-function.md)
+## [Een met Azure verbonden functie maken](functions-create-an-azure-connected-function.md)
+## [Een functie voor gebeurtenisverwerking maken](functions-create-an-event-processing-function.md)
+# Procedures
+## Plannen en ontwerpen
+### [Kiezen tussen Flow, Logic Apps, Functions en WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+### [Kies tussen verbruik en het App Service-plan](functions-scale.md)
 
-# Get Started
-## [Create your first function](functions-create-first-azure-function.md)
-## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
-## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
-## [Create an event processing function](functions-create-an-event-processing-function.md)
-# How To
-## Plan and design
-### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
-
-## Develop
-### [Develop function apps](functions-reference.md)
+## Ontwikkelen
+### [Functie-apps ontwikkelen](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
-### [Work with triggers and bindings](functions-triggers-bindings.md)
-#### [Event Hub bindings](functions-bindings-event-hubs.md)
-#### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
-#### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
-#### [Notification Hub output binding](functions-bindings-notification-hubs.md)
-#### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
+### [Werken met triggers en bindingen](functions-triggers-bindings.md)
+#### [Event Hub-bindingen](functions-bindings-event-hubs.md)
+#### [HTTP- en webhook-bindingen](functions-bindings-http-webhook.md)
+#### [Mobile Apps-bindingen](functions-bindings-mobile-apps.md)
+#### [Notification Hub-uitvoerbinding](functions-bindings-notification-hubs.md)
+#### [Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen](functions-bindings-service-bus.md)
 #### Storage
-##### [Blob bindings](functions-bindings-storage-blob.md)
-##### [Queue bindings](functions-bindings-storage-queue.md)
-##### [Table bindings](functions-bindings-storage-table.md)
-#### [Timer trigger](functions-bindings-timer.md)
-#### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
-### [Develop and debug locally](functions-run-local.md)
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+##### [Blob-bindingen](functions-bindings-storage-blob.md)
+##### [Wachtrijbindingen](functions-bindings-storage-queue.md)
+##### [Tabelbindingen](functions-bindings-storage-table.md)
+#### [Timertrigger](functions-bindings-timer.md)
+#### [Twilio-uitvoerbinding](functions-bindings-twilio.md)
+### [Een functie maken vanuit de Azure Portal](functions-create-first-azure-function-azure-portal.md)
+### [Azure Functions testen](functions-test-a-function.md)
+### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
+### [Azure Functions gebruiken voor het uitvoeren van een geplande opschoontaak](functions-scenario-database-table-cleanup.md)
 
-## Manage
-### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
+## Beheren
+### [Instellingen configureren voor een functie-app](functions-how-to-use-azure-function-app-settings.md)
 
-## Deploy
-### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+## Implementeren
+### [Doorlopende implementatie voor Azure Functions](functions-continuous-deployment.md)
 
+# Naslaginformatie
+## [.NET-API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+# Bronnen
+## [Prijzen](https://azure.microsoft.com/pricing/details/functions/)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

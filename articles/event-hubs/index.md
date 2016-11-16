@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Event Hubs Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 69ae7c09af46b933899692e81d60e040a1c02eb5
+ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
+---
+#<a name="event-hubs-documentation"></a>Documentatie over Event Hubs
+
+Event Hubs is een zeer schaalbare service voor binnenkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' voor een gebeurtenissenpijplijn. Zodra gegevens zijn verzameld in een Event Hub, kunnen die worden omgezet en opgeslagen met een realtime-analyseprovider of batching-/opslagadapter.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Event Hubs</h3>
+                        <h3>Meer informatie over Azure Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Event Hubs Video Library</h3>
+                        <h3>Videobibliotheek voor Azure Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with the Event Hubs programming guide</h3>
+                        <h3>Aan de slag met de programmeerhandleiding voor Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Event Hubs using the Azure portal</h3>
+                        <h3>Aan de slag met Event Hubs met de Azure-portal</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +86,16 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
 
 ---
 
-##Reference
+##<a name="reference"></a>Naslaginformatie
 
-###.NET
+###<a name="net"></a>.NET
 [.NET Managed Reference](/dotnet/api)
 
-###AMQP 
-[AMQP 1.0 protocol guide](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
+###<a name="amqp"></a>AMQP 
+[AMQP 1.0-protocolhandleiding](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
 
-###REST
-[Event Hubs REST API Reference](/rest/api/eventhub)
+###<a name="rest"></a>REST
+[Naslaginformatie over de REST API voor Event Hubs](/rest/api/eventhub)
 
 
 
@@ -99,7 +103,12 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Event Hubs Documentation
-        </div>
+Documentatie over Event Hubs downloaden </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,13 +1,11 @@
 # Overzicht
-## [Inleiding](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Wat is Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justitie en openbare veiligheid](documentation-government-overview-jps.md)
 ## [Ministerie van Defensie](documentation-government-overview-dod.md)
 
 # Aan de slag
-## [Proefversie](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Prijzen](https://azure.microsoft.com/pricing/)
-## [Ontwikkelaarsgids](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Ontwikkelaarsgids](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
 
 # Procedures
 ## Plannen
@@ -16,11 +14,12 @@
 ## Beheren
 ### [Installatiekopieën](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
-### [Marketplace - Partners](documentation-government-manage-marketplace-partners.md)
-### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
-### [Abonnement in Azure Government gebruiken](documentation-government-manage-subscriptions.md)
-## Services
-### [Samenvatting](documentation-government-services.md)
+### [Marketplace voor partners](documentation-government-manage-marketplace-partners.md)
+### [Abonnement](documentation-government-manage-subscriptions.md)
+
+# Naslaginformatie
+## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+## [Services](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
@@ -28,8 +27,9 @@
 ### [Beveiliging en identiteit](documentation-government-services-securityandidentity.md)
 ### [Controle en beheer](documentation-government-services-monitoringandmanagement.md)
 
-
-
+# Resources
+## [Proefversie](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Prijzen](https://azure.microsoft.com/pricing/)
 
 
 <!--HONumber=Nov16_HO2-->

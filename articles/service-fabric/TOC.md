@@ -184,15 +184,18 @@
 ## [Gegevens](https://go.microsoft.com/fwlink/p/?linkid=833404)
 ## [Gegevensinterfaces](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [Systeem](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [REST-API](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [Java-API](https://go.microsoft.com/fwlink/p/?linkid=833410)
 ## [Voorbeeldcode](http://aka.ms/servicefabricsamples)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+## [Java-API](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/servicefabric/)
 
 # Bronnen
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
+## [Prijzen](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
 <!--HONumber=Nov16_HO2-->

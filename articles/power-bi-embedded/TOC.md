@@ -1,38 +1,37 @@
-# Overview
-## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
+# Overzicht
+## [Wat is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
+## [Nieuw in Power BI Embedded](power-bi-embedded-whats-new.md)
 
-# Get started
-## [Get started with Power BI Embedded](power-bi-embedded-get-started.md)
-## [Get started with a sample](power-bi-embedded-get-started-sample.md)
+# Aan de slag
+## [Aan de slag met Power BI Embedded](power-bi-embedded-get-started.md)
+## [Aan de slag met een voorbeeld](power-bi-embedded-get-started-sample.md)
+## [Veelgestelde vragen](power-bi-embedded-faq.md)
 
-# How to 
-## Plan and design
-### [Common scenarios](power-bi-embedded-scenarios.md)
+# Procedures
+## Plannen en ontwerpen
+### [Algemene scenario's](power-bi-embedded-scenarios.md)
 
-## Manage
-### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
-### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+## Beheren
+### [Verbinding maken met een gegevensbron](power-bi-embedded-connect-datasource.md)
+### [Een Power BI-rapport insluiten met een IFrame](power-bi-embedded-iframe.md)
+### [Werken met rapporten](power-bi-embedded-interact-with-reports.md)
 
-## Secure
-### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
-### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
+## Beveiligen
+### [Verifiëren en autoriseren](power-bi-embedded-app-token-flow.md)
+### [Beveiliging op rijniveau in Power BI Embedded](power-bi-embedded-rls.md)
 
-# Reference
-## [.NET API reference](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [JavaScript SDK](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/mt712303)
-## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
+# Naslaginformatie
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [.NET SDK downloaden](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST](/rest/api/powerbiembedded/)
 
-# Related 
 
-# Resources
-## [FAQ](power-bi-embedded-faq.md)
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+# Bronnen
+## [Voorbeelden](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Power BI-community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->

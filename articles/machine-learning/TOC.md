@@ -1,215 +1,218 @@
-# Overview
-## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
-## [Frequently asked questions](machine-learning-faq.md)
-## [What's new?](machine-learning-whats-new.md)
-## [Get help from live chat](machine-learning-live-chat.md)
+# Overzicht
+## [Wat is Machine Learning?](machine-learning-what-is-machine-learning.md)
+## [Nieuwe functies](machine-learning-whats-new.md)
+## [Hulp krijgen via live chats](machine-learning-live-chat.md)
 ## Machine Learning Studio
-### [What's the Studio?](machine-learning-what-is-ml-studio.md)
-### [Studio capabilities](machine-learning-studio-overview-diagram.md)
-### [Infographic: ML basics](machine-learning-basics-infographic-with-algorithm-examples.md)
+### [Wat is de Studio?](machine-learning-what-is-ml-studio.md)
+### [Studiocapaciteiten](machine-learning-studio-overview-diagram.md)
+### [Infographic: basiskennis van ML](machine-learning-basics-infographic-with-algorithm-examples.md)
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
-### [Tools and Utilities](machine-learning-data-science-environment-setup.md)
-### [Walkthroughs](data-science-process-walkthroughs.md)
-# Get Started
-## [Create your first experiment](machine-learning-create-experiment.md)
-## Walkthrough
-### [Create a predictive solution](machine-learning-walkthrough-develop-predictive-solution.md)
-### [1: Create a workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
-### [2: Upload data](machine-learning-walkthrough-2-upload-data.md)
-### [3: Create experiment](machine-learning-walkthrough-3-create-new-experiment.md)
-### [4: Train and evaluate](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-### [5: Deploy web service](machine-learning-walkthrough-5-publish-web-service.md)
-### [6: Access web service](machine-learning-walkthrough-6-access-web-service.md)
-## Data Science for Beginners
-### [1: Five questions](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-### [2: Is your data ready?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-### [3: Ask the right question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-### [4: Predict an answer](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-### [5: Copy other people's work](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-# How To
-## Business understanding
-### [Identify scenarios](machine-learning-data-science-plan-your-environment.md)
-### [View sample scenarios](machine-learning-data-science-plan-sample-scenarios.md)
-## Tools and utilities
-### [Setup environments](machine-learning-data-science-environment-setup.md)
-### [Setup virtual machines](machine-learning-data-science-virtual-machines.md)
-### [Customize Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
-### Setup a virtual machine
-#### [DS VM overview](machine-learning-data-science-virtual-machine-overview.md)
-#### [How to use the DS VM](machine-learning-data-science-vm-do-ten-things.md)
-#### [Provision the DS VM](machine-learning-data-science-provision-vm.md)
-#### [Setup Azure VM](machine-learning-data-science-setup-virtual-machine.md)
-#### [Setup SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
-#### [Provision Linux VM](machine-learning-data-science-linux-dsvm-intro.md)
-#### [Use Linux VM](machine-learning-data-science-linux-dsvm-walkthrough.md)
-### Manage a workspace
-#### [Create a workspace](machine-learning-create-workspace.md)
-#### [Manage a workspace](machine-learning-manage-workspace.md)
-#### [Troubleshoot](machine-learning-troubleshooting-creating-ml-workspace.md)
-#### [Deploy using ARM](machine-learning-deploy-with-resource-manager-template.md)
-#### [Create in another region](machine-learning-multi-geo.md)
-## Data acquisition and understanding
-### Load data into storage
-#### [Overview](machine-learning-data-science-ingest-data.md)
-#### [Blob storage](machine-learning-data-science-move-azure-blob.md)
-#### [Use Storage Explorer](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
-#### [Use AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
-#### [Use Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
-#### [Use SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-#### [Move to a VM](machine-learning-data-science-move-sql-server-virtual-machine.md)
-#### [Move to SQL database](machine-learning-data-science-move-sql-azure.md)
-#### [Load into hive tables](machine-learning-data-science-move-hive-tables.md)
-#### [Load from on-prem SQL](machine-learning-data-science-move-sql-azure-adf.md)
-### Import training data
-#### [Overview](machine-learning-data-science-import-data.md)
-#### [From a local file](machine-learning-import-data-from-local-file.md)
-#### [From online sources](machine-learning-import-data-from-online-sources.md)
-#### [From an experiment](machine-learning-import-data-from-an-experiment.md)
-#### [Use SQL partition tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
-#### [Use on-prem SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
-### Explore and visualize data
-#### [Prepare data](machine-learning-data-science-prepare-data.md)
-#### Explore data
-##### [Overview](machine-learning-data-science-explore-data.md)
-##### [Use Pandas](machine-learning-data-science-explore-data-blob.md)
-##### [Use SQL VM](machine-learning-data-science-explore-data-sql-server.md)
-##### [Use Hive tables](machine-learning-data-science-explore-data-hive-tables.md)
-#### Sample data
-##### [Overview](machine-learning-data-science-sample-data.md)
-##### [Use blob storage](machine-learning-data-science-sample-data-blob.md)
-##### [Use SQL Server](machine-learning-data-science-sample-data-sql-server.md)
-##### [Use Hive tables](machine-learning-data-science-sample-data-hive.md)
-#### Process data
-##### [Access with Python](machine-learning-python-data-access.md)
-##### [Process blob data](machine-learning-data-science-process-data-blob.md)
-##### [Use Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
-##### [Use SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
-##### [Use data pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Use Spark
-##### [Overview](machine-learning-data-science-spark-overview.md)
-##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Score models](machine-learning-data-science-spark-model-consumption.md)
-##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md)
-## Modeling
-### Feature engineering
-#### [Overview](machine-learning-data-science-create-features.md)
-#### [Use Pandas](machine-learning-data-science-create-features-blob.md)
-#### [Use SQL+Python](machine-learning-data-science-create-features-sql-server.md)
-#### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
-#### [TDSP overview](machine-learning-data-science-select-features.md)
-### Create and train models
-#### [Create your first experiment](machine-learning-create-experiment.md)
-#### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
-#### [Manage iterations](machine-learning-manage-experiment-iterations.md)
-#### Select algorithms
-##### [Choose algorithms](machine-learning-algorithm-choice.md)
-##### [Algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md)
-##### [Use linear regression](machine-learning-linear-regression-in-azure.md)
-##### [Use text analytics](machine-learning-text-analytics-module-tutorial.md)
-##### [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-#### Evaluate and interpret results
-##### [Evaluate performance](machine-learning-evaluate-model-performance.md)
-##### [Optimize parameters](machine-learning-algorithm-parameters-optimize.md)
-##### [Interpret results](machine-learning-interpret-model-results.md)
-##### [Debug](machine-learning-debug-models.md)
-#### Using R and Python
-##### [Execute R scripts](machine-learning-extend-your-experiment-with-r.md)
-##### [Author custom R modules](machine-learning-custom-r-modules.md)
-##### [Execute Python scripts](machine-learning-execute-python-scripts.md)
-## Deployment
-### [Overview](machine-learning-deploy-consume-web-service-guide.md)
-### Deploy models
-#### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
-#### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
-#### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
-#### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publish to Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
-#### [Use web service parameters](machine-learning-web-service-parameters.md)
-#### [Enable logging](machine-learning-web-services-logging.md)
-### Manage web services
-#### [Create endpoints](machine-learning-create-endpoint.md)
-#### [Use Web Services portal](machine-learning-manage-new-webservice.md)
-#### [Manage with APIs](machine-learning-manage-web-service-endpoints-using-api-management.md)
-#### [Scaling](machine-learning-scaling-webservice.md)
-### Retrain models
-#### [Overview](machine-learning-retrain-machine-learning-model.md)
-#### [Retrain programmatically](machine-learning-retrain-models-programmatically.md)
-#### [Retrain a Classic web service](machine-learning-retrain-a-classic-web-service.md)
-#### [Retrain with PowerShell](machine-learning-retrain-new-web-service-using-powershell.md)
-#### [Retrain an existing web service](machine-learning-retrain-existing-resource-manager-based-web-service.md)
-#### [Troubleshoot](machine-learning-troubleshooting-retraining-models.md)
-### Consume models
-#### [Overview](machine-learning-connect-to-azure-machine-learning-web-service.md)
-#### [Use Excel](machine-learning-consuming-from-excel.md)
-#### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
-#### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
-# Examples
-## [Sample experiments](machine-learning-sample-experiments.md)
-## [Sample datasets](machine-learning-use-sample-datasets.md)
-## [Customer churn example](machine-learning-azure-ml-customer-churn-scenario.md)
-## APIs
-### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
-### [Text analytics](machine-learning-apps-text-analytics.md)
+### [Overzicht](http://aka.ms/datascienceprocess)
+### [Levenscyclus](data-science-process-overview.md)
+### [Hulpprogramma's](machine-learning-data-science-environment-setup.md)
+### [Rondleidingen](data-science-process-walkthroughs.md)
+## [Scenario's identificeren](machine-learning-data-science-plan-your-environment.md)
+## [Voorbeeldscenario's weergeven](machine-learning-data-science-plan-sample-scenarios.md)
+## Voorbeelden
+### [Voorbeeldexperimenten](machine-learning-sample-experiments.md)
+### [Voorbeeldgegevenssets](machine-learning-use-sample-datasets.md)
+### [Voorbeeld van klantverloop](machine-learning-azure-ml-customer-churn-scenario.md)
+## API's
+### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection.md)
+### [Tekstanalyse](machine-learning-apps-text-analytics.md)
 ### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-### Recommendations
-#### [Overview](machine-learning-recommendation-api-sample-application.md)
-#### [Quick start](machine-learning-recommendation-api-quick-start-guide.md)
-#### [Reference](machine-learning-recommendation-api-documentation.md)
-#### [Use JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-#### [FAQ](machine-learning-recommendation-api-faq.md)
+### Aanbevelingen
+#### [Overzicht](machine-learning-recommendation-api-sample-application.md)
+#### [Snel starten](machine-learning-recommendation-api-quick-start-guide.md)
+#### [Naslaginformatie](machine-learning-recommendation-api-documentation.md)
+#### [JavaScript gebruiken](machine-learning-recommendation-api-javascript-integration.md)
+#### [Veelgestelde vragen](machine-learning-recommendation-api-faq.md)
 ## Cortana Analytics
-### Predictive maintenance
-#### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
-#### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
-#### [Technical guide](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Vehicle telemetry
-#### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
+### Voorspellend onderhoud
+#### [Overzicht](cortana-analytics-playbook-predictive-maintenance.md)
+#### [Architectuur](cortana-analytics-architecture-predictive-maintenance.md)
+#### [Technische handleiding](cortana-analytics-technical-guide-predictive-maintenance.md)
+### Voertuigtelemetrie
+#### [Overzicht](cortana-analytics-playbook-vehicle-telemetry.md)
 #### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
-#### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Data Science Process
-### [Use Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-## Web services
-### [Examples with R](machine-learning-r-csharp-web-service-examples.md)
-### [Binary Classifier](machine-learning-r-csharp-binary-classifier.md)
-### [Cluster Model](machine-learning-r-csharp-cluster-model.md)
-### [Multivariate Linear Regression](machine-learning-r-csharp-multivariate-linear-regression.md)
-### [Forecasting - Exponential Smoothing](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-### [Forecasting - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-### [Forecasting - ARIMA](machine-learning-r-csharp-arima.md)
-### [Survival Analysis](machine-learning-r-csharp-survival-analysis.md)
-### [Lexicon Based Sentiment Analysis](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-### [Difference in Proportions Test](machine-learning-r-csharp-difference-in-two-proportions.md)
+#### [Instellen](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+## Het proces van wetenschappelijke gegevens
+### [Hadoop-clusters gebruiken](machine-learning-data-science-process-hive-walkthrough.md)
+### [Hadoop gebruiken met 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+### [SQL Server gebruiken](machine-learning-data-science-process-sql-walkthrough.md)
+### [SQL Data Warehouse gebruiken](machine-learning-data-science-process-sqldw-walkthrough.md)
+## Webservices
+### [Voorbeelden met R](machine-learning-r-csharp-web-service-examples.md)
+### [Binaire classificatie](machine-learning-r-csharp-binary-classifier.md)
+### [Clustermodel](machine-learning-r-csharp-cluster-model.md)
+### [Multidimensionale lineaire regressie](machine-learning-r-csharp-multivariate-linear-regression.md)
+### [Prognoses - Exponentieel vloeiend maken](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+### [Prognoses - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+### [Prognose - ARIMA](machine-learning-r-csharp-arima.md)
+### [Overlevingsanalyse](machine-learning-r-csharp-survival-analysis.md)
+### [Op woordenlijsten gebaseerde sentimentanalyse](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+### [Verschil in verhoudingen testen](machine-learning-r-csharp-difference-in-two-proportions.md)
 ### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
 ### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
-### [Marketplace FAQ](machine-learning-marketplace-faq.md)
-# Reference
-## [R quick start](machine-learning-r-quickstart.md)
-## [PowerShell overview](machine-learning-powershell-module.md)
-## [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [Web service REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
-## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
-# Related
+### [Veelgestelde vragen over Marketplace](machine-learning-marketplace-faq.md)
+
+# Aan de slag
+## [Uw eerste experiment opzetten](machine-learning-create-experiment.md)
+## [Een voorspellende oplossing maken](machine-learning-walkthrough-develop-predictive-solution.md)
+### [1: Een werkruimte maken](machine-learning-walkthrough-1-create-ml-workspace.md)
+### [2: Gegevens uploaden](machine-learning-walkthrough-2-upload-data.md)
+### [3: Experiment maken](machine-learning-walkthrough-3-create-new-experiment.md)
+### [4: Trainen en evalueren](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+### [5: Webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md)
+### [6: Webservice openen](machine-learning-walkthrough-6-access-web-service.md)
+## Wetenschappelijke gegevens voor beginners
+### [1: Vijf vragen](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+### [2: Zijn de gegevens klaar?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+### [3: De juiste vraag stellen](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+### [4: Een antwoord voorspellen](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+### [5: Werk van anderen kopiëren](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+## [Veelgestelde vragen](machine-learning-faq.md)
+
+# Procedures
+## Hulpprogramma's installeren 
+### [Omgevingen instellen](machine-learning-data-science-environment-setup.md)
+### [Virtuele machines instellen](machine-learning-data-science-virtual-machines.md)
+### [Hadoop aanpassen](machine-learning-data-science-customize-hadoop-cluster.md)
+## Een virtuele machine instellen
+### [Overzicht van DS-VM](machine-learning-data-science-virtual-machine-overview.md)
+### [De DS-VM gebruiken](machine-learning-data-science-vm-do-ten-things.md)
+### [De DS-VM inrichten](machine-learning-data-science-provision-vm.md)
+### [Azure-VM instellen](machine-learning-data-science-setup-virtual-machine.md)
+### [SQL-VM instellen](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+### [Linux-VM inrichten](machine-learning-data-science-linux-dsvm-intro.md)
+### [Linux-VM gebruiken](machine-learning-data-science-linux-dsvm-walkthrough.md)
+## Een werkruimte beheren
+### [Een werkruimte maken](machine-learning-create-workspace.md)
+### [Een werkruimte beheren](machine-learning-manage-workspace.md)
+### [Problemen oplossen](machine-learning-troubleshooting-creating-ml-workspace.md)
+### [Implementeren met ARM](machine-learning-deploy-with-resource-manager-template.md)
+### [Maken in een andere regio](machine-learning-multi-geo.md)
+## Gegevens laden in opslag
+### [Overzicht](machine-learning-data-science-ingest-data.md)
+### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
+### [Opslagverkenner gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+### [AzCopy gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
+### [Python gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
+### [SSIS gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
+### [Verplaatsen naar een VM](machine-learning-data-science-move-sql-server-virtual-machine.md)
+### [Verplaatsen naar een SQL-database](machine-learning-data-science-move-sql-azure.md)
+### [In hive-tabellen laden](machine-learning-data-science-move-hive-tables.md)
+### [Laden uit on-premises SQL](machine-learning-data-science-move-sql-azure-adf.md)
+## Trainingsgegevens importeren
+### [Overzicht](machine-learning-data-science-import-data.md)
+### [Uit een lokaal bestand](machine-learning-import-data-from-local-file.md)
+### [Uit onlinebronnen](machine-learning-import-data-from-online-sources.md)
+### [Uit een experiment](machine-learning-import-data-from-an-experiment.md)
+### [SQL-partitietabellen gebruiken](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
+### [On-premises SQL gebruiken](machine-learning-use-data-from-an-on-premises-sql-server.md)
+## Gegevens verkennen en visualiseren
+### [Gegevens voorbereiden](machine-learning-data-science-prepare-data.md)
+### Gegevens verkennen
+#### [Overzicht](machine-learning-data-science-explore-data.md)
+#### [Pandas gebruiken](machine-learning-data-science-explore-data-blob.md)
+#### [SQL-VM gebruiken](machine-learning-data-science-explore-data-sql-server.md)
+#### [Hive-tabellen gebruiken](machine-learning-data-science-explore-data-hive-tables.md)
+### Voorbeeldgegevens
+#### [Overzicht](machine-learning-data-science-sample-data.md)
+#### [Blob Storage gebruiken](machine-learning-data-science-sample-data-blob.md)
+#### [SQL Server gebruiken](machine-learning-data-science-sample-data-sql-server.md)
+#### [Hive-tabellen gebruiken](machine-learning-data-science-sample-data-hive.md)
+### Gegevens verwerken
+#### [Openen met Python](machine-learning-python-data-access.md)
+#### [Blob-gegevens verwerken](machine-learning-data-science-process-data-blob.md)
+#### [Azure Data Lake gebruiken](machine-learning-data-science-process-data-lake-walkthrough.md)
+#### [SQL-VM gebruiken](machine-learning-data-science-process-sql-server-virtual-machine.md)
+#### [Data Pipeline gebruiken](machine-learning-automated-data-pipeline-cheat-sheet.md)
+### Spark gebruiken
+#### [Overzicht](machine-learning-data-science-spark-overview.md)
+#### [Gegevens verkennen](machine-learning-data-science-spark-data-exploration-modeling.md)
+#### [Scoremodellen](machine-learning-data-science-spark-model-consumption.md)
+#### [Geavanceerde gegevensverkenning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+#### [Scala en Spark gebruiken](machine-learning-data-science-process-scala-walkthrough.md)
+## Modelgegevens
+### Functie-engineering
+#### [Overzicht](machine-learning-data-science-create-features.md)
+#### [Pandas gebruiken](machine-learning-data-science-create-features-blob.md)
+#### [SQL + Python gebruiken](machine-learning-data-science-create-features-sql-server.md)
+#### [Hive-query's gebruiken](machine-learning-data-science-create-features-hive.md)
+#### [TDSP-overzicht](machine-learning-data-science-select-features.md)
+### Modellen maken en trainen
+#### [Uw eerste experiment opzetten](machine-learning-create-experiment.md)
+#### [Converteren naar score](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Iteraties beheren](machine-learning-manage-experiment-iterations.md)
+#### Algoritmen selecteren
+##### [Algoritmen kiezen](machine-learning-algorithm-choice.md)
+##### [Overzichtskaart algoritmen](machine-learning-algorithm-cheat-sheet.md)
+##### [Lineaire regressie gebruiken](machine-learning-linear-regression-in-azure.md)
+##### [Tekstanalyse gebruiken](machine-learning-text-analytics-module-tutorial.md)
+##### [Algoritmeverwijzing](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+#### Resultaten evalueren en interpreteren
+##### [Prestaties evalueren](machine-learning-evaluate-model-performance.md)
+##### [Parameters optimaliseren](machine-learning-algorithm-parameters-optimize.md)
+##### [Resultaten interpreteren](machine-learning-interpret-model-results.md)
+##### [Foutopsporing](machine-learning-debug-models.md)
+#### R en Python gebruiken
+##### [R-scripts uitvoeren](machine-learning-extend-your-experiment-with-r.md)
+##### [Aangepaste R-modules schrijven](machine-learning-custom-r-modules.md)
+##### [Python-scripts uitvoeren](machine-learning-execute-python-scripts.md)
+## Implementeren
+### [Overzicht](machine-learning-deploy-consume-web-service-guide.md)
+### Modellen implementeren
+#### [Hoe werkt het?](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Een nieuwe webservice implementeren](machine-learning-webservice-deploy-a-web-service.md)
+#### [Een webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Externe gegevens gebruiken](machine-learning-web-services-that-use-import-export-modules.md)
+#### [Implementeren in meerdere regio's](machine-learning-how-to-deploy-to-multiple-regions.md)
+#### [Publiceren naar Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
+#### [Webserviceparameters gebruiken](machine-learning-web-service-parameters.md)
+#### [Logboekregistratie inschakelen](machine-learning-web-services-logging.md)
+### Webservices beheren
+#### [Eindpunten maken](machine-learning-create-endpoint.md)
+#### [Web Services-portal gebruiken](machine-learning-manage-new-webservice.md)
+#### [Beheren met API's](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Schalen](machine-learning-scaling-webservice.md)
+### Modellen opnieuw trainen
+#### [Overzicht](machine-learning-retrain-machine-learning-model.md)
+#### [Programmatisch opnieuw trainen](machine-learning-retrain-models-programmatically.md)
+#### [Een klassieke webservice opnieuw trainen](machine-learning-retrain-a-classic-web-service.md)
+#### [Opnieuw trainen met PowerShell](machine-learning-retrain-new-web-service-using-powershell.md)
+#### [Een bestaande webservice opnieuw trainen](machine-learning-retrain-existing-resource-manager-based-web-service.md)
+#### [Problemen oplossen](machine-learning-troubleshooting-retraining-models.md)
+### Modellen gebruiken
+#### [Overzicht](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Excel gebruiken](machine-learning-consuming-from-excel.md)
+#### [Excel-invoegtoepassing gebruiken](machine-learning-excel-add-in-for-web-services.md)
+#### [Een web-appsjabloon gebruiken](machine-learning-consume-web-service-with-web-app-template.md)
+
+#Naslaginformatie
+## [R snel starten](machine-learning-r-quickstart.md)
+## [PowerShell-overzicht](machine-learning-powershell-module.md)
+## [PowerShell gebruiken om modellen te maken](machine-learning-create-models-and-endpoints-with-powershell.md)
+## [REST API-webservice](https://msdn.microsoft.com/library/azure/dn950030.aspx)
+## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
+
+# Verwant
+## Cortana Intelligence-galerie
+### [Overzicht](machine-learning-gallery-how-to-use-contribute-publish.md)
+### [Bedrijfstakken](machine-learning-gallery-industries.md)
+### [Oplossingen](machine-learning-gallery-solutions.md)
+### [Experimenten](machine-learning-gallery-experiments.md)
+### [Jupyter Notebooks](machine-learning-gallery-jupyter-notebooks.md)
+### [Wedstrijden](machine-learning-gallery-competitions.md)
+### [Veelgestelde vragen over wedstrijden](machine-learning-competition-faq.md)
+### [Zelfstudies](machine-learning-gallery-tutorials.md)
+### [Verzamelingen](machine-learning-gallery-collections.md)
+### [Aangepaste modules](machine-learning-gallery-custom-modules.md)
+
 # Resources
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
-## Cortana Intelligence Gallery
-### [Overview](machine-learning-gallery-how-to-use-contribute-publish.md)
-### [Industries](machine-learning-gallery-industries.md)
-### [Solutions](machine-learning-gallery-solutions.md)
-### [Experiments](machine-learning-gallery-experiments.md)
-### [Jupyter Notebooks](machine-learning-gallery-jupyter-notebooks.md)
-### [Competitions](machine-learning-gallery-competitions.md)
-### [Competitions FAQ](machine-learning-competition-faq.md)
-### [Tutorials](machine-learning-gallery-tutorials.md)
-### [Collections](machine-learning-gallery-collections.md)
-### [Custom Modules](machine-learning-gallery-custom-modules.md)
+
 
 <!--HONumber=Nov16_HO2-->
 

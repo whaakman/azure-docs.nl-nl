@@ -1,70 +1,67 @@
-# Overview
-## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+# Overzicht
+## [Overzicht van Azure Data Lake Store](data-lake-store-overview.md)
+## [Azure Data Lake Store vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Azure Data Lake Store gebruiken voor de verwerking van big data](data-lake-store-data-scenarios.md)
+## [Open-sourcetoepassingen die met Azure Data Lake Store kunnen samenwerken](data-lake-store-compatible-oss-other-applications.md)
 
-# Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
-## [Using Node.js](data-lake-store-manage-use-nodejs.md)
+# Aan de slag
+## [Portal gebruiken](data-lake-store-get-started-portal.md)
+## [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
+## [.NET SDK gebruiken](data-lake-store-get-started-net-sdk.md)
+## [Java SDK gebruiken](data-lake-store-get-started-java-sdk.md)
+## [REST API gebruiken](data-lake-store-get-started-rest-api.md)
+## [Azure CLI gebruiken](data-lake-store-get-started-cli.md)
+## [Node.js gebruiken](data-lake-store-manage-use-nodejs.md)
 
-# How to
-## Copy Data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
-### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+# Procedures
+## Gegevens kopiëren
+### [Azure Data Factory gebruiken](../data-factory/data-factory-azure-datalake-connector.md)
+### [AdlCopy gebruiken](data-lake-store-copy-data-azure-storage-blob.md)
+### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
+### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
+### [Gegevens uploaden uit offlinebronnen](data-lake-store-offline-bulk-data-upload.md)
 
-## Develop
-### [Using PowerShell](data-lake-store-get-started-powershell.md)
-### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-### [Using REST API](data-lake-store-get-started-rest-api.md)
-### [Using Azure CLI](data-lake-store-get-started-cli.md)
-### [Using Node.js](data-lake-store-manage-use-nodejs.md)
+## Ontwikkelen
+### [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
+### [.NET SDK gebruiken](data-lake-store-get-started-net-sdk.md)
+### [Java SDK gebruiken](data-lake-store-get-started-java-sdk.md)
+### [REST API gebruiken](data-lake-store-get-started-rest-api.md)
+### [Azure CLI gebruiken](data-lake-store-get-started-cli.md)
+### [Node.js gebruiken](data-lake-store-manage-use-nodejs.md)
 
-## Secure Data
-### [Security overview](data-lake-store-security-overview.md)
-### [Access control in Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
- 
-## Integrate with Azure Services
-### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
-### [Use with Power BI](data-lake-store-power-bi.md)
-### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
-### [More Azure integration options](data-lake-store-integrate-with-other-services.md)
+## Beveiligde gegevens
+### [Beveiligingsoverzicht](data-lake-store-security-overview.md)
+### [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md)
+### [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
+### [Verificatie van service-tot-service](data-lake-store-authenticate-using-active-directory.md)
+### [Verificatie van de eindgebruiker](data-lake-store-end-user-authenticate-using-active-directory.md)
 
-## Manage
-### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
+## Integreren met Azure-services
+### [Gebruiken met Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+### [Met Portal een HDInsight-cluster maken met toegang tot Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Met PowerShell een HDInsight-cluster maken met toegang tot Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Met een Resource Manager-sjabloon een HDInsight-cluster maken met toegang tot Data Lake Store](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Gebruiken met Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Gebruiken met Stream Analytics](data-lake-store-stream-analytics.md)
+### [Gebruiken met Power BI](data-lake-store-power-bi.md)
+### [Gebruiken met Data Catalog](data-lake-store-with-data-catalog.md)
+### [Meer integratie-opties van Azure](data-lake-store-integrate-with-other-services.md)
 
-# Reference
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## Beheren
+### [Toegang tot diagnostische logboeken](data-lake-store-diagnostic-logs.md)
+
+# Naslaginformatie
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
-# Related
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
-
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# Bronnen
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Stack Overflow-forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Feedback geven op UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Data Lake Store-blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Azure Search Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: cdfe04908d68292d07eeb9c20a4772d11fa30eff
+ms.openlocfilehash: d3ef28f2cb1459410ec90982fff94fbbced55f72
 
-Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple REST API or .NET SDK without managing search infrastructure or becoming an expert in search.
+---
+# <a name="azure-search-documentation"></a>Documentatie voor Azure Search
+
+Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en infrastructuurbeheer wordt gedelegeerd aan Microsoft, zodat u een kant-en-klare-service hebt die u kunt vullen met uw gegevens en vervolgens kunt gebruiken om zoekfunctionaliteit toe te voegen aan uw web- of mobiele toepassing. Met Azure Search kunt u gemakkelijk een krachtige zoekfunctie toevoegen aan uw toepassingen met behulp van een eenvoudige REST API of .NET SDK zonder dat u een zoekinfrastructuur hoeft te beheren of een expert hoeft te worden op het gebied van zoeken.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Search</h3>
+                        <h3>Meer informatie over Azure Search</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Search Video Library</h3>
+                        <h3>Videobibliotheek voor Azure Search</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure Search using the Azure Portal</h3>
+                        <h3>Aan de slag met Event Hubs en de Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Search Index</h3>
+                        <h3>Een Azure Search-index maken</h3>
                     </div>
                 </div>
             </div>
@@ -83,19 +87,24 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 ---
 
-## Reference
+## <a name="reference"></a>Naslaginformatie
 
-### .NET 
-[.NET Managed Reference API](/dotnet/api/) 
+### <a name="net"></a>.NET 
+[Managed Reference-API voor .NET](/dotnet/api/) 
 
-### REST 
-[Search REST API Reference](/rest/api/searchmanagement/) 
+### <a name="rest"></a>REST 
+[Naslaginformatie over de Search REST API](/rest/api/searchmanagement/) 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Search Documentation
-        </div>
+Documentatie voor Azure Search downloaden </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
