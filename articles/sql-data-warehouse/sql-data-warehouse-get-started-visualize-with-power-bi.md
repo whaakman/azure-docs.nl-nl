@@ -1,27 +1,32 @@
 ---
-title: SQL Data Warehouse-gegevens visualiseren met Power BI | Microsoft Docs
+title: SQL Data Warehouse-gegevens visualiseren met Power BI | Microsoft Azure
 description: SQL Data Warehouse-gegevens visualiseren met Power BI
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Gegevens visualiseren met Power BI
+# <a name="visualize-data-with-power-bi"></a>Gegevens visualiseren met Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ In deze zelfstudie leert u hoe u Power BI gebruikt om verbinding te maken met SQ
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse die vooraf is geladen met de AdventureWorksDW-dataware. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Een SQL Data Warehouse maken] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][voorbeeldgegevens handmatig laden].
 
-## 1. Verbinding maken met uw database
+## <a name="1-connect-to-your-database"></a>1. Verbinding maken met uw database
 Ga als volgt te werk om Power BI te openen en verbinding te maken met de database AdventureWorksDW:
 
-1. Meld u aan bij de [Azure-portal][Azure-portal].
+1. Meld u aan bij de [Azure Portal][Azure Portal].
 2. Klik op **SQL-databases** en kies de SQL Data Warehouse-database AdventureWorks.
    
     ![De database zoeken][1]
@@ -56,7 +61,7 @@ Ga als volgt te werk om Power BI te openen en verbinding te maken met de databas
    
     ![AdventureWorksDW wordt geopend in Power BI][5]
 
-## 2. Een rapport maken
+## <a name="2-create-a-report"></a>2. Een rapport maken
 Nu kunt u Power BI gebruiken om de voorbeeldgegevens uit AdventureWorksDW te analyseren. Voor de analyse heeft AdventureWorksDW een weergave die AggregateSales wordt genoemd. Deze weergave bevat enkele van de belangrijkste metrische gegevens om de verkoopcijfers van het bedrijf te analyseren.
 
 1. Als u een kaart wilt maken van de totale verkoop op postcode, klikt u in het rechterdeelvenster met velden op de weergave AggregateSales om deze uit te vouwen. Klik op de kolommen PostalCode en SalesAmount om deze te selecteren.
@@ -83,7 +88,7 @@ Nu kunt u Power BI gebruiken om de voorbeeldgegevens uit AdventureWorksDW te ana
 
 U kunt de voortgang op elk moment opslaan door op **Bestand** te klikken en **Opslaan** te selecteren.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u met behulp van de voorbeeldgegevens wat hebt kunnen oefenen, gaat u leren hoe u kunt [ontwikkelen][ontwikkelen], [laden][laden] of [migreren][migreren]. Of neem eens een kijkje op de [website van Power BI][website van Power BI].
 
 <!--Image references-->
@@ -109,11 +114,11 @@ Nu u met behulp van de voorbeeldgegevens wat hebt kunnen oefenen, gaat u leren h
 [Een SQL Data Warehouse maken]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [website van Power BI]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

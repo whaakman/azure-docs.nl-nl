@@ -1,17 +1,14 @@
 # Overzicht
 ## [Wat is Azure Security Center?](security-center-intro.md)
-## [Overzicht van services](https://azure.microsoft.com/services/security-center/)
-## [Prijzen](security-center-pricing.md)
-## [Veelgestelde vragen](security-center-faq.md)
 ## [Inzichten krijgen met Power BI](security-center-powerbi.md)
 ## [Gegevensbeveiliging](security-center-data-security.md)
-## Algemene scenario's
+## Scenario's
 ### [Reageren op incidenten](security-center-incident-response.md)
 
 # Aan de slag
 ## [Snel starten](security-center-get-started.md)
 ## [Planning en bewerkingen](security-center-planning-and-operations-guide.md)
-## [Security Center en SQL-database](security-center-sql-database.md)
+## [Veelgestelde vragen](security-center-faq.md)
 
 # Procedures
 
@@ -59,10 +56,14 @@
 ## [REST-API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Verwant
-## [Informatie over Azure-beveiliging](../security/azure-security-getting-started.md)
+## [Azure Security](/azure/security/)
 
-# Bronnen
+# Resources
 ## [Blog over veiligheid, privacy en naleving met betrekking tot Azure](http://blogs.msdn.com/b/azuresecurity/)
+## [Prijzen](security-center-pricing.md)
+## [Overzicht van services](https://azure.microsoft.com/services/security-center/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=security-center)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

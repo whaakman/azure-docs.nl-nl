@@ -2,11 +2,11 @@
 title: Eindpunten beheren in Azure Traffic Manager | Microsoft Docs
 description: Dit artikel helpt u bij het toevoegen, verwijderen, inschakelen en uitschakelen van eindpunten vanuit Azure Traffic Manager.
 services: traffic-manager
-documentationcenter: ''
+documentationcenter: 
 author: sdwheeler
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 038270d1-28ba-4078-9c5d-37fc5d683be6
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,24 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cbdd48397319cb840b05570ba90093ff8f6887b0
 
 ---
-# Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
+
+# <a name="add-disable-enable-or-delete-endpoints"></a>Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
+
 De functie Web Apps in Azure App Service biedt al failover- en round-robinverkeersroutering voor websites in een datacenter, ongeacht de websitemodus. Met Azure Traffic Manager kunt u failover- en round-robinverkeersroutering opgeven voor websites en cloudservices in verschillende datacenters. Het eerste dat u moet doen om deze functionaliteit te gebruiken, is het cloudservice- of website-eindpunt toevoegen aan Traffic Manager.
 
 > [!NOTE]
 > Met de klassieke Azure Portal kunt u geen externe locaties of Traffic Manager-profielen als eindpunten toevoegen. U moet gebruikmaken van [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) in REST-API of van [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) in Windows PowerShell.
-> 
-> 
 
 U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traffic Manager-profiel. Eindpunten zijn zowel cloudservices als websites. Als u een eindpunt uitschakelt, blijft het onderdeel van het profiel, maar het profiel gedraagt zich alsof het eindpunt er niet in is opgenomen. Deze actie is erg handig als u een eindpunt dat in de onderhoudsmodus staat of opnieuw wordt geïmplementeerd, tijdelijk wilt verwijderen. Zodra het eindpunt opnieuw actief is, kan het worden ingeschakeld.
 
 > [!NOTE]
 > Het uitschakelen van een eindpunt heeft geen invloed op de implementatiestatus in Azure. Een eindpunt met een goede status blijft actief en is in staat om verkeer te verwerken, zelfs als het in Traffic Manager is uitgeschakeld. Bovendien heeft het uitschakelen van een eindpunt in een bepaald profiel geen invloed op de status ervan in een ander profiel.
-> 
-> 
 
-## Een cloudservice- of website-eindpunt toevoegen
+## <a name="to-add-a-cloud-service-or-website-endpoint"></a>Een cloudservice- of website-eindpunt toevoegen
+
 1. Zoek in het deelvenster Traffic Manager in de klassieke Azure Portal het Traffic Manager-profiel met de eindpuntinstellingen die u wilt wijzigen. Klik vervolgens op de pijl rechts van de profielnaam. Hiermee opent u de instellingenpagina voor het profiel.
 2. Klik boven aan de pagina op **Eindpunten** om de eindpunten weer te geven die al deel uitmaken van uw configuratie.
 3. Klik onder aan de pagina op **Toevoegen** om naar de pagina **Service-eindpunten toevoegen** te gaan. De cloudservices worden op deze pagina standaard onder **Service-eindpunten** weergegeven.
@@ -42,22 +44,23 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 > [!NOTE]
 > Als u de methode *Failover* voor verkeersroutering gebruikt en een eindpunt toevoegt of verwijdert, moet u de failover-prioriteitenlijst op de configuratiepagina zodanig aanpassen dat de gewenste failover-volgorde wordt gebruikt. Zie voor meer informatie [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md) (Failover-verkeersroutering configureren).
-> 
-> 
 
-## Een eindpunt uitschakelen
+## <a name="to-disable-an-endpoint"></a>Een eindpunt uitschakelen
+
 1. Zoek in het deelvenster Traffic Manager in de klassieke Azure Portal het Traffic Manager-profiel met de eindpuntinstellingen die u wilt wijzigen. Klik vervolgens op de pijl rechts van de profielnaam. Hiermee opent u de instellingenpagina voor het profiel.
 2. Klik boven aan de pagina op **Eindpunten** om de eindpunten weer te geven die deel uitmaken van uw configuratie.
 3. Klik op het eindpunt dat u wilt uitschakelen en klik vervolgens onder aan de pagina op **Uitschakelen**.
 4. Er wordt geen verkeer meer naar het eindpunt geleid op basis van de DNS Time-to-Live (TTL) die voor de Traffic Manager-domeinnaam is geconfigureerd. U kunt de TTL wijzigen via de pagina Configuratie van het Traffic Manager-profiel.
 
-## Een eindpunt inschakelen
+## <a name="to-enable-an-endpoint"></a>Een eindpunt inschakelen
+
 1. Zoek in het deelvenster Traffic Manager in de klassieke Azure Portal het Traffic Manager-profiel met de eindpuntinstellingen die u wilt wijzigen. Klik vervolgens op de pijl rechts van de profielnaam. Hiermee opent u de instellingenpagina voor het profiel.
 2. Klik boven aan de pagina op **Eindpunten** om de eindpunten weer te geven die deel uitmaken van uw configuratie.
 3. Klik op het eindpunt dat u wilt inschakelen en klik vervolgens onder aan de pagina op **Inschakelen**.
 4. Er wordt weer verkeer naar de service geleid op basis van de instellingen van het profiel.
 
-## Een cloudservice- of website-eindpunt verwijderen
+## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>Een cloudservice- of website-eindpunt verwijderen
+
 1. Zoek in het deelvenster Traffic Manager in de klassieke Azure Portal het Traffic Manager-profiel met de eindpuntinstellingen die u wilt wijzigen. Klik vervolgens op de pijl rechts van de profielnaam. Hiermee opent u de instellingenpagina voor het profiel.
 2. Klik boven aan de pagina op **Eindpunten** om de eindpunten weer te geven die al deel uitmaken van uw configuratie.
 3. Klik op de pagina Eindpunten op de naam van het eindpunt dat u uit het profiel wilt verwijderen.
@@ -65,20 +68,18 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 
 > [!NOTE]
 > Met de klassieke Azure Portal kunt u geen externe locaties of Traffic Manager-profielen als eindpunten verwijderen. U moet Windows PowerShell gebruiken. Zie voor meer informatie [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
-> 
-> 
 
-## Volgende stappen
-[Methode voor failover-routering configureren](traffic-manager-configure-failover-routing-method.md)
+## <a name="next-steps"></a>Volgende stappen
 
-[Routeringsmethode voor round robin configureren](traffic-manager-configure-round-robin-routing-method.md)
+* [Methode voor failover-routering configureren](traffic-manager-configure-failover-routing-method.md)
+* [Routeringsmethode voor round robin configureren](traffic-manager-configure-round-robin-routing-method.md)
+* [Routeringsmethode voor prestaties configureren](traffic-manager-configure-performance-routing-method.md)
+* [Problemen met Traffic Manager in gedegradeerde status oplossen](traffic-manager-troubleshooting-degraded.md)
+* [Bewerkingen op Traffic Manager (REST API-referentiemateriaal)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Routeringsmethode voor prestaties configureren](traffic-manager-configure-performance-routing-method.md)
 
-[Problemen met Traffic Manager in gedegradeerde status oplossen](traffic-manager-troubleshooting-degraded.md)
 
-[Bewerkingen op Traffic Manager (REST API-referentiemateriaal)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

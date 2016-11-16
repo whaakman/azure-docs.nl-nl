@@ -1,4 +1,5 @@
 ## <a name="load-balancer-differences"></a>Verschillen in Load Balancer
+
 Er zijn verschillende opties voor het distribueren van netwerkverkeer met behulp van Microsoft Azure. Deze opties werken verschillend. Ze hebben een eigen functieset en ondersteunen verschillende scenario's. Ze kunnen elk afzonderlijk worden gebruikt, maar ook worden gecombineerd.
 
 * **Azure Load Balancer** werkt via de transportlaag (laag 4 in de referentiestack van het OSI-netwerk). Deze service biedt distributie van verkeer op netwerkniveau tussen exemplaren van een toepassing die in hetzelfde datacenter van Azure wordt uitgevoerd.
@@ -26,6 +27,7 @@ Azure Load Balancer en Application Gateway routeren beide netwerkverkeer naar ei
 | Statuscontroles |Standaard: testinterval - 15 seconden. Uit rotatie gehaald: 2 doorlopende fouten. Ondersteunt door de gebruiker gedefinieerde tests |Inactieve testinterval - 30 seconden. Eruit gehaald na 5 opeenvolgende live verkeersfouten of het mislukken van één test in de inactieve modus. Ondersteunt door de gebruiker gedefinieerde tests |
 | SSL-offloading |Niet ondersteund |Ondersteund |
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

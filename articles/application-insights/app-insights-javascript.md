@@ -1,35 +1,37 @@
 ---
 title: Application Insights voor JavaScript-web-apps | Microsoft Docs
-description: Verzamel tellingen van het aantal paginaweergaven en sessies, webclientgegevens en gebruikspatronen. Detecteer uitzonderingen en prestatieproblemen in JavaScript-webpagina's.
+description: Verzamel tellingen van het aantal paginaweergaven en sessies, webclientgegevens en gebruikspatronen. Detecteer uitzonderingen en prestatieproblemen in JavaScript-webpagina&quot;s.
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+
 
 ---
-# Application Insights voor webpagina’s
-[!INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+# <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
+Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
 
-Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u Visual Studio Application Insights toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. Ook kunt u waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina.
+Application Insights kan met elke webpagina worden gebruikt. Het enige wat u hiervoor hoeft te doen, is een klein stukje JavaScript toevoegen. Als de webservice [Java](app-insights-java-get-started.md) of [ASP.NET](app-insights-asp-net.md) is, kunt u telemetrie van uw server en clients integreren.
 
-U kunt Application Insights voor elke webpagina gebruiken. Het enige wat u hiervoor hoeft te doen, is een klein stukje JavaScript toevoegen. Als de webservice [Java](app-insights-java-get-started.md) of [ASP.NET](app-insights-asp-net.md) is, kunt u telemetrie van uw server en clients integreren.
+![Open de resource van uw app in portal.azure.com en klik op Browser](./media/app-insights-javascript/03.png)
 
-U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig. Als uw team een organisatie-abonnement heeft, vraagt u de eigenaar om uw Microsoft-account hieraan toe te voegen. Omdat er een gratis prijscategorie is, kosten ontwikkeling en kleinschalig gebruik u niets.
+U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig. Als uw team een organisatie-abonnement heeft, vraagt u de eigenaar om uw Microsoft-account hieraan toe te voegen. Ontwikkeling en kleinschalig gebruik kosten u niets.
 
-## Application Insights instellen voor uw webpagina
-De eerste vraag is of u Application Insights aan uw webpagina's moet toevoegen. Mogelijk hebt u dit al gedaan. Als u ervoor hebt gekozen om Application Insights toe te voegen aan uw web-app in het dialoogvenster Nieuw Project in Visual Studio, is het script toen al toegevoegd. In dat geval hoeft u dat nu niet meer te doen.
+## <a name="set-up-application-insights-for-your-web-page"></a>Application Insights instellen voor uw webpagina
+Voeg als volgt het codefragment van de loader toe aan uw webpagina's.
 
-Anders gaat u als volgt te werk om een codefragment aan uw webpagina's toe te voegen.
-
-### Een Application Insights-resource openen
+### <a name="open-or-create-application-insights-resource"></a>Een Application Insights-resource openen of maken
 In de Application Insights-resource worden gegevens over de prestaties en het gebruik van uw pagina weergegeven. 
 
 Meld u aan bij de [Azure Portal](https://portal.azure.com).
@@ -44,7 +46,7 @@ Als u nog geen resource hebt, maakt u er een:
 
 *Heb u op dit moment vragen?* [Meer over het maken van een resource](app-insights-create-new-resource.md).
 
-### Het SDK-script toevoegen aan uw app of webpagina's
+### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Het SDK-script toevoegen aan uw app of webpagina's
 Haal het script voor webpagina's op in Snel starten:
 
 ![Kies op de overzichtsblade van uw app de optie Snel starten, Code ophalen voor het bewaken van mijn webpagina’s. Kopieer het script.](./media/app-insights-javascript/02-monitor-web-page.png)
@@ -58,9 +60,9 @@ Het script bevat de instrumentatiesleutel die de gegevens naar uw Application In
 
 ([Nadere uitleg over het script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
-*(Als u een bekend webpaginaframework gebruikt, is het een goed idee om op zoek te gaan naar een geschikte Application Insights-adapter. Er is bijvoorbeeld [een AngularJS-module](http://ngmodules.org/modules/angular-appinsights).)*
+*(Als u een bekend webpaginaframework gebruikt, is het een goed idee om op zoek te gaan naar een geschikte Application Insights-adapter. Er is bijvoorbeeld een [AngularJS-module](http://ngmodules.org/modules/angular-appinsights).)*
 
-## Gedetailleerde configuratie
+## <a name="detailed-configuration"></a>Gedetailleerde configuratie
 U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld het aantal Ajax-aanroepen dat per paginaweergave wordt gerapporteerd beperken of deze rapportering uitschakelen (om verkeer te beperken). Of u kunt de foutopsporingsmodus zo instellen dat telemetrie snel via de pijplijn wordt verzameld zonder deze telemetrie in een batch op te nemen.
 
 Voor het instellen van deze parameters zoekt u deze regel in het codefragment en voegt u hierna meer items toe, gescheiden door komma's:
@@ -95,21 +97,21 @@ De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/
 
 
 
-## <a name="run"></a>Uw app uitvoeren
+## <a name="a-namerunarun-your-app"></a><a name="run"></a>Uw app uitvoeren
 Voer uw web-app uit, gebruik deze een tijdje om telemetrie te genereren en wacht een paar seconden. U kunt de app zelf op uw ontwikkelcomputer uitvoeren met behulp van de **F5**-toets, maar u kunt de app ook publiceren en door gebruikers laten uitproberen.
 
 Als u de telemetrie wilt controleren die door een web-app naar Application Insights wordt verzonden, gebruikt u de foutopsporingsprogramma's van de browser (in veel browsers opent u deze met **F12**). Gegevens worden verzonden naar dc.services.visualstudio.com.
 
-## Gegevens over uw browserprestaties verkennen
+## <a name="explore-your-browser-performance-data"></a>Gegevens over uw browserprestaties verkennen
 Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de browsers van uw gebruikers.
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/app-insights-javascript/03.png)
 
 *Zijn er nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
 
-De blade Browsers is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
+De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
-## Laadprestaties van de pagina
+## <a name="page-load-performance"></a>Laadprestaties van de pagina
 Bovenaan staat een grafieksegment met laadtijden van pagina’s. De totale hoogte van de grafiek geeft de gemiddelde tijd aan die nodig is voor het laden en weergeven van pagina's van uw app in de browsers van uw gebruikers. De tijd wordt gemeten vanaf het moment dat de browser de eerste HTTP-aanvraag verzendt tot het moment dat alle synchrone gebeurtenissen tijdens het laden zijn verwerkt, met inbegrip van indeling en uitgevoerde scripts. Asynchrone taken, zoals het laden van de webonderdelen van AJAX-aanroepen, zijn niet opgenomen.
 
 De grafiek segmenteert de totale laadtijd van de pagina in de [standaardtijdsinstellingen gedefinieerd door W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
@@ -118,7 +120,7 @@ De grafiek segmenteert de totale laadtijd van de pagina in de [standaardtijdsins
 
 De *netwerkverbindingstijd* is vaak lager dan u verwacht, omdat het een gemiddelde betreft op basis van alle aanvragen van de browser aan de server. Veel afzonderlijke aanvragen hebben een verbindingstijd van 0, omdat er al een actieve verbinding met de server bestaat.
 
-### Worden pagina’s traag geladen?
+### <a name="slow-loading"></a>Worden pagina’s traag geladen?
 Het traag laden van pagina is voor uw gebruikers een belangrijke bron van ergernis. Als de grafiek aangeeft dat pagina’s traag worden geladen, is het eenvoudig om wat diagnostisch onderzoek uit te voeren.
 
 De grafiek toont de gemiddelde paginalaadtijd in uw app. Als u wilt weten of het probleem zich beperkt tot bepaalde pagina's, kijkt u een stukje lager op de blade. Daar ziet u een raster dat gesegmenteerd is op pagina-URL:
@@ -141,7 +143,7 @@ Klik op `...` voor een volledige lijst met eigenschappen voor de betreffende geb
 
 ![](./media/app-insights-javascript/21.png)
 
-## AJAX-prestaties
+## <a name="ajax-performance"></a>AJAX-prestaties
 Zorg ervoor dat eventuele AJAX-aanroepen op uw webpagina's goed worden uitgevoerd. Ze worden vaak gebruikt voor het asynchroon vullen van onderdelen van uw pagina. Hoewel de algemene pagina waarschijnlijk onmiddellijk laadt, kunnen uw gebruikers zich gaan ergeren doordat ze steeds moeten wachten op ladende paginaonderdelen.
 
 AJAX-oproepen vanuit uw webpagina worden op de blade Browsers weergegeven als afhankelijkheden.
@@ -167,17 +169,17 @@ Klik op een rij voor specifieke informatie.
 
 Klik op `...` voor de volledige telemetrie voor een AJAX-aanroep.
 
-### Zijn er geen AJAX-aanroepen gemeld?
+### <a name="no-ajax-calls-reported"></a>Zijn er geen AJAX-aanroepen gemeld?
 AJAX-aanroepen zijn HTTP-aanroepen vanuit het script van de webpagina. Als u constateert dat deze niet worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` of `maxAjaxCallsPerView` instelt.
 
-## Browseruitzonderingen
+## <a name="browser-exceptions"></a>Browseruitzonderingen
 Op de blade Browsers ziet u een grafiek met samenvattingen van uitzonderingen en lager op de blade een raster met typen uitzonderingen.
 
 ![](./media/app-insights-javascript/39.png)
 
 Als u constateert dat er geen browseruitzonderingen worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking` instelt.
 
-## De afzonderlijke paginaweergavegebeurtenissen inspecteren
+## <a name="inspect-individual-page-view-events"></a>De afzonderlijke paginaweergavegebeurtenissen inspecteren
 Meestal wordt telemetrie van paginaweergaven geanalyseerd door Application Insights en ziet u alleen cumulatieve rapporten, het gemiddelde van alle gebruikers. Maar voor foutopsporing kunt u ook zoeken op afzonderlijke paginaweergavegebeurtenissen.
 
 Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Paginaweergave.
@@ -193,14 +195,14 @@ Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina
 
 U kunt ook de krachtige [querytaal van Analytics](app-insights-analytics-tour.md) gebruiken om paginaweergaven te doorzoeken.
 
-### Eigenschappen van paginaweergaven
+### <a name="page-view-properties"></a>Eigenschappen van paginaweergaven
 * **Duur van paginaweergave** 
   
   * Standaard is dit de tijd voor het laden van de pagina, van clientverzoek tot het moment dat de pagina volledig is laden (inclusief hulpbestanden, maar uitgezonderd asynchrone taken zoals AJAX-aanroepen). 
   * Als u `overridePageViewDuration` instelt in de [paginaconfiguratie](#detailed-configuration), is de duur van de paginaweergave het interval tussen de clientaanvraag en het uitvoeren van de eerste `trackPageView`. Als u trackPageView na de initialisatie van het script hebt verplaatst vanaf de normale positie, wordt er een andere waarde weergegeven.
   * Als `overridePageViewDuration` is ingesteld en er een duurargument is opgegeven in de `trackPageView()`-aanroep, wordt in plaats daarvan de waarde van het argument gebruikt. 
 
-## Aangepast telling van het aantal paginaweergaven
+## <a name="custom-page-counts"></a>Aangepast telling van het aantal paginaweergaven
 Standaard wordt er een paginaweergave geteld telkens wanneer er in de clientbrowser een nieuwe pagina wordt geladen.  Maar desgewenst kunt u ook aanvullende paginaweergaven tellen. Op een pagina kan bijvoorbeeld de inhoud worden weergegeven in tabbladen en u wilt een paginaweergave tellen wanneer de gebruiker naar een ander tabblad gaat. Of JavaScript-code op de pagina laadt nieuwe inhoud zonder de browser-URL te wijzigen.
 
 Ga als volgt te werk om op het betreffende punt in uw clientcode een JavaScript-aanroep in te voegen:
@@ -209,22 +211,25 @@ Ga als volgt te werk om op het betreffende punt in uw clientcode een JavaScript-
 
 De naam van de pagina mag dezelfde tekens als een URL bevatten, maar alles na '#' of '?' wordt genegeerd.
 
-## Gebruik bijhouden
+## <a name="usage-tracking"></a>Gebruik bijhouden
 Wilt u weten wat gebruikers met uw app doen?
 
 * [Meer informatie over het bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md).
 
-#### <a name="video"></a> Video: Bijhouden van gebruik
+#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Video: Bijhouden van gebruik
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
 > 
 > 
 
-## <a name="next"></a> Volgende stappen
+## <a name="a-namenexta-next-steps"></a><a name="next"></a> Volgende stappen
 * [Bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
 * [Bouwen-meten-leren](app-insights-overview-usage.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

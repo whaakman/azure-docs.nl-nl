@@ -3,12 +3,12 @@ title: Query uitvoeren voor gegevens uit HDFS-compatibele Blob Storage | Microso
 description: HDInsight gebruikt Azure Blob Storage als het big data-archief voor HDFS. Informatie over het opvragen van gegevens uit Blob Storage en het opslaan van resultaten van de analyse.
 keywords: blob-opslag, hdfs, gestructureerde gegevens, niet-gestructureerde gegevens
 services: hdinsight,storage
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,9 +16,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+
 
 ---
-# HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
+# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
 Informatie over het gebruik van een voordelige Azure Blob Storage met HDInsight, het maken van een Azure Storage-account en de Blob Storage-container om vervolgens de interne gegevens te adresseren.
 
 Azure Blob Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. Via een HDFS-interface (Hadoop Distributed File System) kan de volledige set onderdelen in HDInsight rechtstreeks op gestructureerde of ongestructureerde gegevens in Blob Storage worden uitgevoerd.
@@ -32,7 +36,7 @@ Door gegevens op te slaan in Blob Storage kunt u de HDInsight-clusters die worde
 
 Zie [Aan de slag met HDInsight][hdinsight-get-started] of [HDInsight-clusters maken][hdinsight-creation] voor informatie over het maken van HDInsight-clusters.
 
-## HDInsight-opslagarchitectuur
+## <a name="hdinsight-storage-architecture"></a>HDInsight-opslagarchitectuur
 Het volgende diagram biedt een abstracte weergave van de HDInsight-opslagarchitectuur:
 
 ![Hadoop-clusters gebruiken de HDFS API voor de toegang tot en opslag van gestructureerde en ongestructureerde gegevens in Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -69,7 +73,7 @@ Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunn
 
 Blob Storage kan worden gebruikt voor gestructureerde en ongestructureerde gegevens. De gegevens in Blob Storage-containers worden opgeslagen als sleutel-waardeparen en er is geen maphiërarchie. Maar het slash-teken (/) kan echter worden gebruikt binnen de sleutelnaam deze weergegeven, zodat het lijkt alsof een bestand is opgeslagen in een mapstructuur. De sleutel van de blob kan bijvoorbeeld *input/log1.txt* zijn. Er is niet echt een *invoermap* aanwezig, maar als gevolg van de aanwezigheid van het slash-teken in de naam van de sleutel ziet dit eruit als een bestandspad.
 
-### <a id="benefits"></a>Voordelen van Blob Storage
+### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Voordelen van Blob Storage
 De kosten als gevolg van de verschillende locaties voor de rekenclusters en opslagbronnen worden beperkt door de manier waarop de rekenclusters dicht bij de resources van het opslagaccount in de Azure-regio worden geplaatst. Dankzij het netwerk met hoge snelheid kunnen de rekenknooppunten zich op efficiënte wijze toegang verschaffen tot de gegevens in Azure Blob Storage.
 
 Het opslaan van gegevens in Azure Blob Storage in plaats van HDFS heeft enkele voordelen:
@@ -87,19 +91,19 @@ Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten generere
 > 
 > 
 
-## Blob-containers maken
+## <a name="create-blob-containers"></a>Blob-containers maken
 Als u blobs wilt gebruiken, maakt u eerst een [Azure Storage-account][azure-storage-create]. Als onderdeel hiervan geeft u een Azure-regio op waarin de objecten worden opgeslagen die u met dit account maakt. Het cluster en het opslagaccount moeten worden gehost in dezelfde regio. De SQL Server-database van de Hive-metastore en Oozie-metastore moeten zich ook in dezelfde regio bevinden.
 
 Elke blob die u maakt, behoort tot een container in uw Azure Storage-account, ongeacht de locatie van de blob. Deze container kan een bestaande blob zijn die buiten HDInsight is gemaakt. Het kan echter ook een container zijn die is gemaakt voor een HDInsight-cluster.
 
 In de standaard blob-container wordt clusterspecifieke informatie opgeslagen, zoals de taakgeschiedenis en logboekbestanden. Deel een standaard blob-container niet met meerdere HDInsight-clusters. Hierdoor raakt de taakgeschiedenis mogelijk beschadigd en vertoont het cluster ongewenst gedrag. U kunt voor elk cluster het beste een andere container gebruiken en de gedeelde gegevens in een gekoppeld opslagaccount plaatsen dat is opgegeven in de implementatie van alle relevante cluster, in plaats van het standaardopslagaccount. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. U kunt een standaardopslagcontainer echter opnieuw gebruiken nadat het oorspronkelijke HDInsight-cluster is verwijderd. Voor HBase-clusters kunt u het HBase-tabelschema en de bijbehorende gegevens behouden door een nieuw HBase-cluster te maken met de standaard Blob Storage-container die wordt door een verwijderd HBase-cluster.
 
-### Azure Portal gebruiken
+### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u een bestaand opslagaccount gebruiken of een nieuw opslagaccount maken:
 
 ![gegevensbron voor het maken van hdinsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-### Azure CLI gebruiken
+### <a name="using-azure-cli"></a>Azure CLI gebruiken
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Als u [de Azure CLI hebt geïnstalleerd en geconfigureerd](../xplat-cli-install.md), kan de volgende opdracht worden gebruikt om een opslagaccount en container te maken.
@@ -121,7 +125,7 @@ Gebruik de volgende opdracht om een container te maken:
 
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-### Azure PowerShell gebruiken
+### <a name="using-azure-powershell"></a>Azure PowerShell gebruiken
 Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-install], kunt u het volgende achter de Azure PowerShell-prompt typen om een opslagaccount en container te maken:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -147,7 +151,7 @@ Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-instal
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-## Bestanden in Blob Storage adresseren
+## <a name="address-files-in-blob-storage"></a>Bestanden in Blob Storage adresseren
 Het URI-schema om bestanden in Blob Storage vanuit HDInsight te openen:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -178,7 +182,7 @@ Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containe
 > 
 > 
 
-## Toegang tot blobs met Azure CLI
+## <a name="access-blobs-using-azure-cli"></a>Toegang tot blobs met Azure CLI
 Gebruik de volgende opdracht voor een lijst met blob-gerelateerde opdrachten:
 
     azure storage blob
@@ -199,7 +203,7 @@ Gebruik de volgende opdracht voor een lijst met blob-gerelateerde opdrachten:
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## Toegang tot blobs met Azure PowerShell
+## <a name="access-blobs-using-azure-powershell"></a>Toegang tot blobs met Azure PowerShell
 > [!NOTE]
 > De opdrachten in deze sectie bieden een eenvoudige voorbeeld van het gebruik van PowerShell voor toegang tot gegevens die zijn opgeslagen in blobs. Zie de [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) voor een uitgebreider voorbeeld dat is aangepast voor het werken met HDInsight.
 > 
@@ -211,10 +215,10 @@ Gebruik de volgende opdracht voor een lijst met blob-gerelateerde cmdlets:
 
 ![Lijst met blob-gerelateerde PowerShell-cmdlets.][img-hdi-powershell-blobcommands]
 
-### Bestanden uploaden
+### <a name="upload-files"></a>Bestanden uploaden
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
 
-### Bestanden downloaden
+### <a name="download-files"></a>Bestanden downloaden
 Met het volgende script wordt een blok-blob gedownload naar de huidige map. Voordat u het script uitvoert, wijzigt u de directory in een map waarvoor u over schrijfmachtiging beschikt.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -251,13 +255,13 @@ U kunt de volgende code gebruiken om de naam van de resourcegroep en de clustern
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-### Bestanden verwijderen
+### <a name="delete-files"></a>Bestanden verwijderen
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-### Bestanden in een lijst weergeven
+### <a name="list-files"></a>Bestanden in een lijst weergeven
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-### Hive-query's uitvoeren met een niet-gedefinieerd opslagaccount
+### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Hive-query's uitvoeren met een niet-gedefinieerd opslagaccount
 In dit voorbeeld ziet u hoe u een map uit het opslagaccount weergeeft die niet is gedefinieerd tijdens het creatieproces.
 $clusterName = <HDInsightClusterName>
 
@@ -273,7 +277,7 @@ $clusterName = <HDInsightClusterName>
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u een HDFS-compatibele Azure Blob Storage gebruikt met HDInsight en hebt u geleerd dat Azure Blob Storage een fundamenteel onderdeel van HDInsight is. Zodoende kunt u een schaalbare, duurzame, archiveringsoplossing voor gegevensverzameling bouwen met Azure Blob Storage en HDInsight gebruiken om de informatie te ontsluiten in de opgeslagen gestructureerde en ongestructureerde gegevens.
 
 Ga voor meer informatie naar:
@@ -301,6 +305,6 @@ Ga voor meer informatie naar:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

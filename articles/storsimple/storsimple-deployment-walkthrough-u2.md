@@ -5,20 +5,24 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Een StorSimple-apparaat implementeren (Update 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Een StorSimple-apparaat implementeren (Update 2)
 > [!div class="op_single_selector"]
-> * [Update 2](storsimple-deployment-walkthrough-u2.md)
+> * [Update 2 en hoger ](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA Release](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Zorg voordat u begint voor het volgende:
 
 * De poorten in de firewall van het netwerkcentrum zijn geopend om iSCSI- en cloud-verkeer toe te staan, zoals is beschreven in [Netwerkvereisten voor uw StorSimple-apparaat](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="step-by-step-deployment"></a>Stapsgewijze implementatie
+## <a name="stepbystep-deployment"></a>Stapsgewijze implementatie
 Gebruik de volgende stapsgewijze instructies om uw StorSimple-apparaat te implementeren in het datacenter.
 
-## <a name="step-1:-create-a-new-service"></a>Stap 1: een nieuwe service maken
+## <a name="step-1-create-a-new-service"></a>Stap 1: een nieuwe service maken
 Met een StorSimple Manager-service kunt u meerdere StorSimple-apparaten beheren. Voer de volgende stappen uit om een nieuw exemplaar van de StorSimple Manager-service uit te voeren.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ Met een StorSimple Manager-service kunt u meerdere StorSimple-apparaten beheren.
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>Stap 2: de serviceregistratiesleutel ophalen
+## <a name="step-2-get-the-service-registration-key"></a>Stap 2: de serviceregistratiesleutel ophalen
 Wanneer de StorSimple Manager-service bedrijfsklaar is, moet u de serviceregistratiesleutel ophalen. Deze sleutel wordt gebruikt om het StorSimple-apparaat te registreren en te verbinden met de service.
 
 Voer de volgende stappen uit in de beheerportal.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple
 Gebruik Windows PowerShell voor StorSimple om de eerste installatie van uw StorSimple-apparaat uit te voeren zoals wordt uitgelegd in de volgende procedure. U moet terminalemulatiesoftware gebruiken om deze stap uit te voeren. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console) voor meer informatie.
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Stap 4: minimale apparaatconfiguratie voltooien
+## <a name="step-4-complete-minimum-device-setup"></a>Stap 4: minimale apparaatconfiguratie voltooien
 Voor de minimale apparaatconfiguratie van uw StorSimple-apparaat moet u het volgende doen: 
 
 * De secundaire DNS-server instellen
@@ -130,14 +134,14 @@ Voer de volgende stappen in de beheerportal uit om de minimale configuratie van 
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Stap 5: een volumecontainer maken
+## <a name="step-5-create-a-volume-container"></a>Stap 5: een volumecontainer maken
 Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. U moet een volumecontainer maken voordat u de volumes op uw StorSimple-apparaat kunt gaan inrichten. 
 
 Voer de volgende stappen uit in de beheerportal om een volumecontainer te maken.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Stap 6: een volume maken
+## <a name="step-6-create-a-volume"></a>Stap 6: een volume maken
 Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume op het StorSimple-apparaat voor uw servers inrichten. Voer de volgende stappen uit in de beheerportal om een volume te maken.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ Wanneer u een volumecontainer hebt gemaakt, kunt u een opslagvolume op het StorS
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Stap 7: een volume koppelen, initialiseren en formatteren
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Stap 7: een volume koppelen, initialiseren en formatteren
 De volgende stappen worden uitgevoerd op uw Windows Server-host. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ Als u besluit geen MPIO te configureren, voer dan de volgende stappen uit om uw 
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Stap 8: een back-up maken
+## <a name="step-8-take-a-backup"></a>Stap 8: een back-up maken
 Back-ups bieden tijdgebonden bescherming van volumes en verbeteren de herstelmogelijkheden met minimale hersteltijden. U kunt twee soorten back-ups uitvoeren op een StorSimple-apparaat: lokale momentopnamen en cloudmomentopnamen. Beide back-uptypen kunnen **gepland** of **handmatig** zijn. 
 
 Voer de volgende stappen uit in de beheerportal om een geplande back-up te maken.
@@ -217,6 +221,9 @@ Voer de volgende stappen uit in de beheerportal als u voor één volume op het S
 * Configureer een [virtueel apparaat](storsimple-virtual-device-u2.md).
 * Gebruik de [StorSimple Manager-service](storsimple-manager-service-administration.md) om uw StorSimple-apparaat te beheren.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

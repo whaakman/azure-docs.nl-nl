@@ -1,12 +1,12 @@
 ---
-title: Oplossing voor VM's starten/stoppen buiten kantooruren [Preview] | Microsoft Docs
+title: Oplossing voor VM&quot;s starten/stoppen buiten kantooruren [Preview] | Microsoft Docs
 description: Met de VM-beheeroplossing worden uw virtuele machines voor Azure Resource Manager gestart en gestopt volgens een planning en proactief bewaakt vanuit Log Analytics.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# Oplossing voor VM's starten/stoppen buiten kantooruren [Preview] in Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Oplossing voor VM's starten/stoppen buiten kantooruren [Preview] in Automation
 Met de oplossing voor het starten en stoppen van VM's buiten kantooruren [Preview] worden uw virtuele machines voor Azure Resource Manager volgens een door de gebruiker gedefinieerde planning gestart en gestopt. De oplossing biedt inzicht in het slagen van de Automation-taken waarmee uw virtuele machines worden gestart en gestopt met OMS Log Analytics.  
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * De runbooks werken met een [Uitvoeren als-account voor Azure](automation-sec-configure-azure-runas-account.md).  Het Uitvoeren als-account is de aanbevolen verificatiemethode omdat hiervoor verificatie via een certificaat wordt gebruikt, in plaats van een wachtwoord dat mogelijk vervalt of regelmatig wordt gewijzigd.  
 * Met deze oplossing kunnen alleen VM's worden beheerd die zich in dezelfde abonnement- en resourcegroep bevinden als het Automation-account.  
 * Deze oplossing wordt alleen in de volgende Azure-regio's geïmplementeerd: Australië - zuidoost, VS - oost, Zuidoost-Azië en West-Europa.  De runbooks waarmee de VM-planning wordt beheerd, kunnen op VM's in elke regio zijn gericht.  
 * Voor het verzenden van e-mailmeldingen wanneer de VM-runbooks voor starten en stoppen zijn voltooid, is een Office 365-abonnement voor bedrijven vereist.  
 
-## Oplossingsonderdelen
+## <a name="solution-components"></a>Oplossingsonderdelen
 Deze oplossing bestaat uit de volgende resources die worden geïmporteerd en toegevoegd aan uw Automation-account.
 
-### Runbooks
+### <a name="runbooks"></a>Runbooks
 | Runbook | Beschrijving |
 | --- | --- |
 | CleanSolution-MS-Mgmt-VM |Met dit runbook worden alle opgenomen resources en planningen verwijderd wanneer u de oplossing verwijdert uit uw abonnement. |
@@ -38,7 +42,7 @@ Deze oplossing bestaat uit de volgende resources die worden geïmporteerd en toe
 
 <br>
 
-### Variabelen
+### <a name="variables"></a>Variabelen
 | Variabele | Beschrijving |
 | --- | --- |
 | Runbook **SendMailO365-MS-Mgmt** | |
@@ -65,18 +69,18 @@ Deze oplossing bestaat uit de volgende resources die worden geïmporteerd en toe
 
 <br>
 
-### Planningen
+### <a name="schedules"></a>Planningen
 | Planning | Beschrijving |
 | --- | --- |
 | StartByResourceGroup-schema-MS-Mgmt |Planning voor runbook StartByResourceGroup, die de VM’s opstart die door deze oplossing worden beheerd. |
 | StopByResourceGroup-Schedule-MS-Mgmt |Planning voor runbook StopByResourceGroup, die de VM’s afsluit die door deze oplossing worden beheerd. |
 
-### Referenties
+### <a name="credentials"></a>Referenties
 | Referentie | Beschrijving |
 | --- | --- |
 | O365Credential |Hiermee wordt een geldig Office 365-gebruikersaccount opgegeven om e-mailberichten te verzenden.  Alleen vereist als de variabele SendMailO365-IsSendEmail-MS-Mgmt is ingesteld op **True**. |
 
-## Configuratie
+## <a name="configuration"></a>Configuratie
 Voer de volgende stappen uit om de oplossing voor VM's starten/stoppen buiten kantooruren [Preview] toe te voegen aan uw Automation-account en vervolgens de variabelen te configureren om de oplossing aan te passen.
 
 1. Selecteer in het beginscherm in de Azure Portal de tegel **Marketplace**.  Als de tegel niet meer aan het beginscherm is vastgemaakt, selecteert u **Nieuw** in het linker navigatiedeelvenster.  
@@ -109,10 +113,10 @@ Voer de volgende stappen uit om de oplossing voor VM's starten/stoppen buiten ka
    * Selecteer een **planning**. Dit is een periodieke datum en tijd voor het starten en stoppen van de VM's in de doelresourcegroep(en).  
 9. Zodra u klaar bent met het configureren van de eerste instellingen die zijn vereist voor de oplossing, selecteert u **Maken**.  Alle instellingen worden gevalideerd en vervolgens wordt geprobeerd de oplossing te implementeren in uw abonnement.  Dit proces kan enkele seconden duren en u kunt de voortgang bijhouden onder **Meldingen** in het menu. 
 
-## Verzamelingsfrequentie
+## <a name="collection-frequency"></a>Verzamelingsfrequentie
 Taaklogboek- en taakstroomgegevens voor Automation worden elke vijf minuten in de OMS-opslagplaats opgenomen.  
 
-## De oplossing gebruiken
+## <a name="using-the-solution"></a>De oplossing gebruiken
 Wanneer u de VM-beheeroplossing toevoegt, wordt in de OMS-werkruimte de tegel **Weergave StartStopVM** toegevoegd aan uw OMS-dashboard.  Op deze tegel worden een telling en een grafische weergave getoond van de runbooktaken voor de oplossing die zijn gestart en zijn voltooid.<br><br> ![Tegel Weergave StartStopVM voor VM-beheer](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 In het Automation-account kunt u de oplossing openen en beheren door de tegel **Oplossingen** te selecteren en door vervolgens op de blade **Oplossingen** de oplossing **Start-Stop-VM[Workspace]** in de lijst te selecteren.<br><br> ![Lijst met Automation-oplossingen](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
@@ -121,7 +125,7 @@ Als u de oplossing selecteert, wordt de oplossingsblade **Start-Stop-VM[Workspac
 
 Vanaf hier kunt u ook uw OMS-werkruimte openen en verdere analyse van de taakrecords uitvoeren.  Klik op **Alle instellingen** en selecteer in de blade **Instellingen** de optie **Snel starten**. Kies vervolgens op de blade **Snel starten** voor **OMS-portal**.   Hiermee opent u een nieuw tabblad of een nieuwe browsersessie en stelt u uw OMS-werkruimte voor die aan Automation-account en abonnement is gekoppeld.  
 
-### E-mailmeldingen configureren
+### <a name="configuring-email-notifications"></a>E-mailmeldingen configureren
 Als u e-mailmeldingen wilt inschakelen voor wanneer de runbooks voor het starten en stoppen van VM's zijn voltooid, moet u de referentie **O365Credential** wijzigen en ook minimaal de volgende variabelen:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -142,13 +146,13 @@ Als u de variabelen wilt configureren die eerder zijn besproken, voert u de volg
 3. Selecteer op de blade **Assets** de tegel **Variabelen** en selecteer op de blade **Variabelen** de variabele die hierboven wordt vermeld. Wijzig vervolgens de waarde ervan door de omschrijving te volgen die ervoor is opgegeven in de eerdere sectie [Variabelen](##variables).  
 4. Klik op **Opslaan** om de wijzigingen van de variabele op te slaan.   
 
-### De planning voor opstarten en afsluiten wijzigen
+### <a name="modifying-the-startup-and-shutdown-schedule"></a>De planning voor opstarten en afsluiten wijzigen
 Voor het beheren van de planning voor opstarten en afsluiten in deze oplossing volgt u dezelfde stappen zoals beschreven in [Een runbook in Azure Automation plannen](automation-scheduling-a-runbook.md).  Denk eraan dat u de planningsconfiguratie niet kunt wijzigen.  U moet de bestaande planning uitschakelen, dan een nieuwe maken en deze vervolgens koppelen aan de runbook **StartByResourceGroup-MS-Mgmt-VM** of **StopByResourceGroup-MS-Mgmt-VM** waarop u de planning wilt toepassen.   
 
-## Log Analytics-records
+## <a name="log-analytics-records"></a>Log Analytics-records
 Met Automation worden twee typen records gemaakt in de OMS-opslagplaats.
 
-### Taaklogboeken
+### <a name="job-logs"></a>Taaklogboeken
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Caller |Wie de bewerking heeft gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
@@ -168,7 +172,7 @@ Met Automation worden twee typen records gemaakt in de OMS-opslagplaats.
 | SubscriptionId |Hiermee wordt de abonnements-id van de taak opgegeven. |
 | Time |Datum en tijd van uitvoering van de runbooktaak. |
 
-### Taakstromen
+### <a name="job-streams"></a>Taakstromen
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Caller |Wie de bewerking heeft gestart.  Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
@@ -188,7 +192,7 @@ Met Automation worden twee typen records gemaakt in de OMS-opslagplaats.
 
 Wanneer u een zoekopdracht in logboeken uitvoert, waarmee records met de categorie **JobLogs** of **JobStreams** worden geretourneerd, kunt u de weergave **JobLogs** of **JobStreams** selecteren. Hiermee wordt een set tegels weergegeven waarop de updates worden samengevat die door de zoekopdracht worden geretourneerd.
 
-## Voorbeeldzoekopdrachten in logboeken
+## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords die worden verzameld met deze oplossing. 
 
 | Query’s uitvoeren | Beschrijving |
@@ -197,11 +201,14 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 | Taken zoeken voor runbook StopVM die zijn voltooid |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g |
 | Taakstatus gedurende een periode weergeven voor runbooks StartVM en StopVM |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") |
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Log searches in Log Analytics (Logboekzoekopdrachten in Log Analytics)](../log-analytics/log-analytics-log-searches.md) voor meer informatie over het maken van verschillende zoekquery's en het controleren van de Automation-taaklogboeken met Log Analytics
 * Zie [Track a runbook job (Runbooktaken bijhouden)](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details
 * Zie [Collecting Azure storage data in Log Analytics overview (Overzicht Azure-opslaggegevens verzamelen in Log Analytics)](../log-analytics/log-analytics-azure-storage.md) voor meer informatie over OMS Log Analytics en gegevensverzamelingsbronnen
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

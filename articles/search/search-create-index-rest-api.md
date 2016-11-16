@@ -1,13 +1,13 @@
 ---
-title: Een index voor Azure Search maken met behulp van de REST-API | Microsoft Docs
+title: Een index voor Azure Search maken met behulp van de REST API | Microsoft Docs
 description: Een index in code maken met behulp van de Azure Search HTTP REST-API.
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-manager: ''
-editor: ''
+manager: jhubbard
+editor: 
 tags: azure-portal
-
+ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
+
 
 ---
-# Een index voor Azure Search maken met behulp van de REST-API.
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Een index voor Azure Search maken met behulp van de REST-API.
 > [!div class="op_single_selector"]
 > * [Overzicht](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -32,7 +36,7 @@ Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [e
 
 Als u een index voor Azure Search met behulp van de REST-API wilt maken, verzendt u één HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. De definitie van de index bevindt zich zowel in de aanvraagtekst als de juist-opgemaakte JSON-inhoud.
 
-## I. De admin api-sleutel voor de Azure Search-service vaststellen
+## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om HTTP-aanvragen te verzenden voor het URL-eindpunt van uw service met de REST-API. *Alle* API-aanvragen moeten echter de api-sleutel bevatten die is gegenereerd voor de zoekservice die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -46,7 +50,7 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 Als u een index wilt maken, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
-## II. Een index voor Azure Search definiëren met een goed-opgemaakte JSON
+## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. Een index voor Azure Search definiëren met een goed-opgemaakte JSON
 Als u de index wilt maken, hoeft u maar één HTTP POST-aanvraag bij uw service te doen. De hoofdtekst van uw HTTP POST-aanvraag bevat een JSON-object dat uw Azure Search-index definieert.
 
 1. De eerste eigenschap van dit JSON-object is de naam van de index.
@@ -82,7 +86,7 @@ In een index van het type `Edm.String` moet precies één veld zijn aangewezen a
 
 De bovenstaande indexdefinitie maakt gebruik van een aangepaste taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie [het onderwerp Language support (Taalondersteuning) op MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
 
-## III. De HTTP-aanvraag verzenden
+## <a name="iii-issue-the-http-request"></a>III. De HTTP-aanvraag verzenden
 1. U kunt de indexdefinitie gebruiken als aanvraagtekst. Verzend een HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. In de URL moet de naam van de service gebruiken en de hostnaam gebruiken. Bovendien moet u de juiste `api-version` als een queryreeksparameter opgeven (op het moment van publicatie van dit document is `2015-02-28` de API-versie).
 2. Gebruik in de aanvraagheaders `Content-Type` voor `application/json`. U moet ook de administratorsleutel van de service opgeven, zoals die is gedefinieerd in Stap I in de `api-key`-header.
 
@@ -101,9 +105,12 @@ Als u klaar bent met een index en deze weer wilt verwijderen, roept u de aanvraa
     api-key: [api-key]
 
 
-## Volgende
+## <a name="next"></a>Volgende
 Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

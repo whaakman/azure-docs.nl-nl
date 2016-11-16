@@ -6,8 +6,8 @@ services: documentdb
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+
 
 ---
-# Inleiding tot DocumentDB: een NoSQL JSON-database
-## Wat is DocumentDB?
+# <a name="introduction-to-documentdb-a-nosql-json-database"></a>Inleiding tot DocumentDB: een NoSQL JSON-database
+## <a name="what-is-documentdb"></a>Wat is DocumentDB?
 DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd voor snelle en voorspelbare prestaties, hoge beschikbaarheid, elastisch schalen, globale distributie en een gebruiksvriendelijke manier van ontwikkelen. DocumentDB is een NoSQl-database zonder schema en biedt rijke en vertrouwde mogelijkheden voor SQL-query‘s met consistente lage latenties voor JSON-gegevens. Hierdoor wordt 99% van de leesbewerkingen in minder dan 10 milliseconden verwerkt en 99% van de schrijfbewerkingen in minder dan 15 milliseconden. Door deze unieke voordelen is DocumentDB zeer geschikt voor internet, mobiel, games en IoT, en voor veel andere toepassingen die naadloze schaling en globale replicatie nodig hebben.
 
-## Hoe kan ik meer informatie krijgen over DocumentDB?
+## <a name="how-can-i-learn-about-documentdb"></a>Hoe kan ik meer informatie krijgen over DocumentDB?
 Als u snel meer te weten wilt komen over DocumentDB en een demonstratie wilt bekijken, volgt u de volgende drie stappen: 
 
 1. Bekijk de video [What is DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (Wat is DocumentDB?) waarin u in twee minuten kennismaakt met de voordelen van het gebruik van DocumentDB.
@@ -30,7 +34,7 @@ Als u snel meer te weten wilt komen over DocumentDB en een demonstratie wilt bek
 
 Kom vervolgens terug naar dit artikel waar dieper op de zaken wordt ingegaan.  
 
-## Welke mogelijkheden en belangrijke functies biedt DocumentDB?
+## <a name="what-capabilities-and-key-features-does-documentdb-offer"></a>Welke mogelijkheden en belangrijke functies biedt DocumentDB?
 Azure DocumentDB biedt de volgende belangrijke mogelijkheden en voordelen:
 
 * **Elastische schaalbare doorvoer en opslag:** U kunt uw DocumentDB JSON-database eenvoudig omhoog of omlaag schalen om te voldoen aan de behoeften van uw toepassing. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. DocumentDB ondersteunt containers voor het opslaan van de JSON-gegevens die verzamelingen worden genoemd, waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Wanneer uw toepassing groeit, kunt u DocumentDB probleemloos schalen met voorspelbare prestaties. 
@@ -42,7 +46,7 @@ Azure DocumentDB biedt de volgende belangrijke mogelijkheden en voordelen:
 * **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. U kunt op een eenvoudige en gebruiksvriendelijke manier programmeren voor DocumentDB. Bovendien hebt u geen nieuwe hulpprogramma's nodig en hoeft u geen aangepaste uitbreidingen voor JSON of JavaScript te gebruiken. De volledige databasefunctionaliteit, inclusief CRUD-, query- en JavaScript-verwerking, is toegankelijk via een eenvoudige RESTful HTTP-interface. DocumentDB is geschikt voor bestaande indelingen, talen en standaarden, terwijl daarnaast waardevolle databasemogelijkheden worden geboden.
 * **Automatisch indexeren:** alle documenten in de database worden standaard [automatisch geïndexeerd](documentdb-indexing.md) in DocumentDB, er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](documentdb-indexing-policies.md).
 
-## <a name="data-management"></a>Hoe worden gegevens beheerd in DocumentDB?
+## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Hoe worden gegevens beheerd in DocumentDB?
 JSON-gegevens in Azure DocumentDB worden beheerd via goed gedefinieerde databaseresources. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. DocumentDB biedt voor alle resources een eenvoudig RESTful-programmeermodel op basis van HTTP. 
 
 Het DocumentDB-databaseaccount is een unieke naamruimte die u toegang biedt tot Azure DocumentDB. Voordat u een databaseaccount kunt maken, moet u een Azure-abonnement hebben. Dit abonnement geeft u toegang tot diverse Azure-services. 
@@ -55,7 +59,7 @@ De onderstaande afbeelding toont u relaties tussen de DocumentDB-resources:
 
 Een databaseaccount bestaat uit een set databases die elk meerdere verzamelingen bevatten. Elk verzameling kan opgeslagen procedures, triggers, UDF's, documenten en verwante bijlagen bevatten. Er zijn ook gebruikers aan een database gekoppeld. Elke gebruiker beschikt over een set machtigingen voor toegang tot verschillende andere verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Databases, gebruikers, machtigingen en verzamelingen zijn door het systeem gedefinieerde resources met bekende schema's. Documenten, opgeslagen procedures, triggers, UDF's en bijlagen bevatten echter willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
 
-## <a name="develop"></a> Hoe kan ik apps ontwikkelen met DocumentDB?
+## <a name="a-namedevelopa-how-can-i-develop-apps-with-documentdb"></a><a name="develop"></a> Hoe kan ik apps ontwikkelen met DocumentDB?
 Azure DocumentDB ontsluit resources via een REST API die kan worden aangeroepen via elke taal waarmee HTTP-/HTTPS-aanvragen kunnen worden gemaakt. Daarnaast biedt DocumentDB programmeringsbibliotheken voor verschillende veelgebruikte talen. Dankzij deze bibliotheken kunt u in vele opzichten eenvoudiger met Azure DocumentDB werken, doordat ze de gegevens voor adrescaching, uitzonderingsbeheer, automatische nieuwe pogingen enzovoort verwerken. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen:  
 
 | Downloaden | Documentatie |
@@ -69,19 +73,19 @@ Azure DocumentDB ontsluit resources via een REST API die kan worden aangeroepen 
 
 DocumentDB biedt naast de eenvoudige maak-, lees-, bijwerk- en verwijderbewerkingen een geavanceerde SQL-queryinterface voor het ophalen van JSON-documenten en ondersteuning aan de serverzijde voor de transactionele uitvoering van JavaScript-toepassingslogica. De interfaces voor het uitvoeren van query's en scripts zijn beschikbaar via alle platformbibliotheken en REST API's. 
 
-### SQL-query
+### <a name="sql-query"></a>SQL-query
 Azure DocumentDB biedt ondersteuning voor documentquery's die gebruikmaken van een SQL-taal, die verankerd ligt in het JavaScript-typesysteem, en voor expressies met ondersteuning voor relationele, hiërarchische en ruimtelijke query's. De quertytaal van DocumentDB is een eenvoudige maar krachtige interface om query's op JSON-documenten uit te voeren. De taal ondersteunt een subset van de ANSI SQL-grammatica en zorgt voor een diepe integratie van JavaScript-object-, -matrix-, -objectconstructie- en functieaanroepen. DocumentDB levert het querymodel zonder een expliciet schema of indexeringshints van de ontwikkelaar.
 
 Door de gebruiker gedefinieerde functies (UDF's) kunnen worden geregistreerd met DocumentDB en er kan als onderdeel van een SQL-query naar worden verwezen, waarmee de grammatica ter ondersteuning van aangepaste toepassingslogica wordt uitgebreid. Deze UDF zijn geschreven als JavaScript-programma's en worden uitgevoerd binnen de database. 
 
 Voor .NET-ontwikkelaars bevat DocumentDB een LINQ-queryprovider als onderdeel van de [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx). 
 
-### Transacties en JavaScript uitvoeren
+### <a name="transactions-and-javascript-execution"></a>Transacties en JavaScript uitvoeren
 Met DocumentDB kunt u toepassingslogica schrijven als benoemde programma's die volledig zijn geschreven in JavaScript. Deze programma's worden geregistreerd voor een verzameling en kunnen databasebewerkingen uitvoeren op de documenten binnen een bepaalde verzameling. JavaScript kan worden geregistreerd voor uitvoering als een trigger, opgeslagen procedure of als een door de gebruiker gedefinieerde functie. Met triggers en opgeslagen procedures kunt u documenten maken, lezen, bijwerken en verwijderen, terwijl de functies die door de gebruiker zijn gedefinieerd, worden uitgevoerd als onderdeel van de logica voor het uitvoeren van een query, zonder schrijftoegang tot de verzameling.
 
 De JavaScript-uitvoering in DocumentDB is gemodelleerd naar de concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. Als er tijdens de uitvoering een JavaScript-uitzondering optreedt, wordt de volledige transactie afgebroken.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Hebt u al een Azure-account? Dan kunt u aan de slag met DocumentDB in [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) door [een DocumentDB-databaseaccount te maken](documentdb-create-account.md).
 
 Hebt u geen Azure-account? U kunt:
@@ -96,6 +100,6 @@ Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microso
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

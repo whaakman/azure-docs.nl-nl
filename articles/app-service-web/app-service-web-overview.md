@@ -2,18 +2,22 @@
 title: Overzicht van Web Apps | Microsoft Docs
 description: Lees hoe Azure App Service u helpt bij het ontwikkelen en hosten van web-apps
 services: app-service\web
-documentationcenter: ''
-author: jaime-espinosa
-manager: wpickett
-editor: ''
-
+documentationcenter: 
+author: cephalin
+manager: erikre
+editor: 
+ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
-ms.author: rachelap
+ms.date: 10/28/2016
+ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+
 
 ---
 # <a name="web-apps-overview"></a>Overzicht van Web Apps
@@ -21,14 +25,15 @@ ms.author: rachelap
 
 In de volgende 5 minuten durende video maakt u kennis met Azure App Service Web Apps.
 
-[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
-
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
+>
+>
 
 > [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 > 
 > 
 
-## <a name="what-is-a-web-app-in-app-service?"></a>Wat is een web-app in App Service?
+## <a name="what-is-a-web-app-in-app-service"></a>Wat is een web-app in App Service?
 In App Service is een *web-app* het geheel van rekenresources die door Azure worden verstrekt voor het hosten van een website of web-app.  
 
 Afhankelijk van de gekozen prijscategorie kunnen de rekenresources zich bevinden op gedeelde of toegewezen virtuele machines. De toepassingscode wordt uitgevoerd op een beheerde virtuele machine die is geïsoleerd van andere klanten.
@@ -37,12 +42,12 @@ De code kan zijn geschreven in elke taal die of elk framework dat wordt onderste
 
 Voor voorbeelden van typische toepassingsscenario's waarvoor u Web Apps kunt gebruiken, raadpleegt u [Web-app-scenario's](https://azure.microsoft.com/documentation/scenarios/web-app/) en de sectie **Scenario's en aanbevelingen** van [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 
-## <a name="why-use-web-apps?"></a>Waarom Web Apps gebruiken?
+## <a name="why-use-web-apps"></a>Waarom Web Apps gebruiken?
 Hier volgen enkele belangrijke functies van Azure App Service die van toepassing zijn op Web Apps:
 
 * **Meerdere talen en frameworks**: App Service biedt uitstekende ondersteuning voor ASP.NET, Node.js, Java, PHP en Python. U kunt ook [PowerShell en andere scripts of uitvoerbare bestanden](web-sites-create-web-jobs.md) uitvoeren op virtuele machines van App Service.
 * **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Voer [A/B-tests](app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](../powershell-install-configure.md) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
-* **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../azure-portal/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
+* **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../monitoring-and-diagnostics/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 * **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP, Siebel en Oracle), SaaS-services (zoals Salesforce en Office 365) en internetservices (zoals Facebook en Twitter). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Beveiliging en naleving**: App Service voldoet aan de vereisten van [ISO, SOC en PCI](https://www.microsoft.com/TrustCenter/).
 * **Toepassingssjablonen**: u kunt kiezen uit een uitgebreide lijst met toepassingssjablonen in [Azure Marketplace](https://azure.microsoft.com/marketplace/), waarmee u een wizard kunt gebruiken voor de installatie van populaire open-source software zoals WordPress, Joomla en Drupal.
@@ -57,6 +62,9 @@ Volg de zelfstudie [In vijf minuten uw eerste web-app implementeren in Azure](ap
 
 Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -4,10 +4,10 @@ description: Richt in Azure een virtuele SQL Server-machine in en maak hier verb
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-editor: ''
+editor: 
 manager: jhubbard
 tags: azure-resource-manager
-
+ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
@@ -15,16 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 842b6e0b69661a91ebb997346b34da00576378c2
+
 
 ---
-# Een virtuele SQL Server-machine inrichten in de Azure Portal
+# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
 
-In deze end-to-end zelfstudie wordt getoond hoe u de Azure Portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
+In deze end-to-end zelfstudie wordt getoond hoe u Azure Portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
 
 De galerie met virtuele machines van Azure bevat diverse installatiekopieën met Microsoft SQL Server. Met een paar klikken kunt u in de galerie een van de installatiekopieën voor een virtuele SQL-machine selecteren en inrichten in uw Azure-omgeving.
 
@@ -35,14 +39,14 @@ In deze zelfstudie leert u het volgende:
 * [De virtuele machine openen via Extern bureaublad](#open-the-vm-with-remote-desktop)
 * [Op afstand verbinding maken met SQL Server](#connect-to-sql-server-remotely)
 
-## Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
+## <a name="select-a-sql-vm-image-from-the-gallery"></a>Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
    
    > [!NOTE]
    > Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. Klik in de Azure Portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
+2. Klik in Azure Portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Virtual Machines** van de Marketplace.
 3. Klik op de blade **Nieuw** op de optie **Virtuele machines**.
 4. Klik voor een overzicht van de beschikbare installatiekopieën op **Alle weergeven** op de blade **Virtuele machines**.
    
@@ -60,18 +64,18 @@ In deze zelfstudie leert u het volgende:
    
     ![Virtuele SQL-machines maken met Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## De virtuele machine configureren
+## <a name="configure-the-vm"></a>De virtuele machine configureren
 Er zijn vijf blades voor het configureren van een virtuele SQL Server-machine.
 
 | Stap | Beschrijving |
 | --- | --- |
-| **Basisbeginselen** |[Basisinstellingen configureren](#1-configure-basic-settings) |
+| **Basisinstellingen** |[Basisinstellingen configureren](#1-configure-basic-settings) |
 | **Grootte** |[De grootte van de virtuele machine kiezen](#2-choose-virtual-machine-size) |
 | **Instellingen** |[Optionele kenmerken configureren](#3-configure-optional-features) |
 | **SQL Server-instellingen** |[SQL Server-instellingen configureren](#4-configure-sql-server-settings) |
 | **Samenvatting** |[De samenvatting bekijken](#5-review-the-summary) |
 
-## 1. Basisinstellingen configureren
+## <a name="1-configure-basic-settings"></a>1. Basisinstellingen configureren
 Op de blade **Basisbeginselen** geeft u de volgende gegevens op:
 
 * Voer een unieke **naam** in voor de virtuele machine.
@@ -81,7 +85,7 @@ Op de blade **Basisbeginselen** geeft u de volgende gegevens op:
 * Typ in het vak **Resourcegroep** een naam voor een nieuwe resourcegroep. U kunt ook een bestaande resourcegroep gebruiken door op **Bestaande selecteren** te klikken. Een resourcegroep is een verzameling verwante resources in Azure (virtuele machines, opslagaccounts, virtuele netwerken enz.).
   
   > [!NOTE]
-  > Het is een goed idee om een nieuwe resourcegroep te maken als u het gebruik van SQL Server in Azure alleen wilt testen of hier meer over te weten wilt komen. Als u klaar bent met testen, verwijdert u gewoon de resourcegroep. De virtuele machine en alle resources die aan de resourcegroep zijn gekoppeld, worden dan automatisch verwijderd. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../resource-group-overview.md).
+  > Het is een goed idee om een nieuwe resourcegroep te maken als u het gebruik van SQL Server in Azure alleen wilt testen of hier meer over te weten wilt komen. Als u klaar bent met testen, verwijdert u gewoon de resourcegroep. De virtuele machine en alle resources die aan de resourcegroep zijn gekoppeld, worden dan automatisch verwijderd. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
   > 
   > 
 * Selecteer een **locatie** voor uw implementatie.
@@ -89,7 +93,7 @@ Op de blade **Basisbeginselen** geeft u de volgende gegevens op:
   
     ![Blade SQL-basisbeginselen](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## 2. De grootte van de virtuele machine kiezen
+## <a name="2-choose-virtual-machine-size"></a>2. De grootte van de virtuele machine kiezen
 Bij de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u op de blade **Een grootte kiezen**. De blade geeft in eerste instantie aanbevolen grootten voor de machine weer op basis van de geselecteerde sjabloon. Er wordt ook een schatting gegeven van de maandelijkse kosten voor het uitvoeren van de virtuele machine.
 
 ![Opties voor de grootte van uw virtuele SQL-machine](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
@@ -103,7 +107,7 @@ Voor productieworkloads raden we u aan voor de virtuele machine een grootte te s
 
 Kies de grootte van uw machine en klik vervolgens op **Selecteren**.
 
-## 3. Optionele kenmerken configureren
+## <a name="3-configure-optional-features"></a>3. Optionele kenmerken configureren
 Op de blade **Instellingen** configureert u de Azure-opslag, -netwerken en -bewaking voor de virtuele machine.
 
 * Geef onder **Opslag** het **Schijftype** op (Standard of Premium (SSD)). Voor productieworkloads wordt Premium Storage aanbevolen.
@@ -120,20 +124,20 @@ Op de blade **Instellingen** configureert u de Azure-opslag, -netwerken en -bewa
 
 Klik op **OK** wanneer u klaar bent met het configureren van deze instellingen.
 
-## 4. SQL Server-instellingen configureren
+## <a name="4-configure-sql-server-settings"></a>4. SQL Server-instellingen configureren
 Op de blade **SQL Server-instellingen** configureert u specifieke instellingen en optimalisaties voor SQL Server. U kunt onder meer de volgende instellingen voor SQL Server configureren:
 
 | Instelling |
 | --- |
 | [Connectiviteit](#connectivity) |
-| [Authentication](#authentication) |
+| [Verificatie](#authentication) |
 | [Opslagconfiguratie](#storage-configuration) |
-| [Automatisch patchen](#automated-patching) |
+| [Automatisch patch toepassen](#automated-patching) |
 | [Automatische back-up](#automated-backup) |
-| [Integratie van Azure Sleutelkluis](#azure-key-vault-integration) |
+| [Integratie van Azure Key Vault](#azure-key-vault-integration) |
 | [R Services](#r-services) |
 
-### Connectiviteit
+### <a name="connectivity"></a>Connectiviteit
 Geef onder **SQL-connectiviteit** het gewenste type toegang tot het SQL Server-exemplaar op deze virtuele machine op. Voor deze zelfstudie selecteert u **Openbaar (internet)** om machines of services op internet toe te staan verbinding te maken met SQL Server. Als deze optie is geselecteerd, configureert Azure automatisch de firewall en de netwerkbeveiligingsgroep voor verkeer op poort 1433.  
 
 ![SQL-connectiviteitsopties](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
@@ -160,7 +164,7 @@ In het algemeen kunt u de beveiliging verbeteren door te kiezen voor de meest be
 **Poort** is standaard ingesteld op 1433. U kunt een ander poortnummer opgeven.
 Zie voor meer informatie [Verbinden met een SQL Server-VM (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
-### Verificatie
+### <a name="authentication"></a>Verificatie
 Als u SQL Server-verificatie vereist, klikt u onder **SQL-verificatie** op **Inschakelen**.
 
 ![SQL Server-verificatie](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
@@ -174,7 +178,7 @@ Als u SQL Server-verificatie inschakelt, geeft u een **Aanmeldingsnaam** en een 
 
 Als u SQL Server-verificatie niet inschakelt, kunt u het lokale beheerdersaccount op de virtuele machine gebruiken om verbinding te maken met het SQL Server-exemplaar.
 
-### Opslagconfiguratie
+### <a name="storage-configuration"></a>Opslagconfiguratie
 Klik op **Opslagconfiguratie** om de opslagvereisten op te geven.
 
 ![SQL-opslagconfiguratie](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
@@ -197,14 +201,14 @@ Standaard wordt de opslag in Azure geoptimaliseerd voor 5000 IOP's, 200 MB en 1 
 > 
 > 
 
-### Automatisch patchen
+### <a name="automated-patching"></a>Automatisch patchen
 **Automatisch patchen** is standaard ingeschakeld. Met automatisch patchen kan Azure automatisch een patch uitvoeren voor SQL Server en het besturingssysteem. Geef een dag van de week, een tijd en een periode op voor een onderhoudssessie. Azure voert de patch uit tijdens deze onderhoudssessie. Het onderhoudsschema maakt voor de tijd gebruik van de landinstellingen van de virtuele machine. Als u niet wilt dat Azure een automatische patch uitvoert voor SQL Server en het besturingssysteem, klikt u op **Uitschakelen**.  
 
 ![Automatisch patchen van SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
 Zie voor meer informatie [Automatisch patchen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
-### Automatische back-up
+### <a name="automated-backup"></a>Automatische back-up
 Schakel automatische databaseback-ups in voor alle databases onder **Automatische back-up**. Automatische back-up is standaard uitgeschakeld.
 
 Als u automatische back-up van SQL inschakelt, kunt u het volgende configureren:
@@ -219,7 +223,7 @@ Voor het versleutelen van de back-up klikt u op **Inschakelen**. Geef het **Wach
 
  Zie voor meer informatie [Automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-### Integratie van Azure Sleutelkluis
+### <a name="azure-key-vault-integration"></a>Integratie van Azure Sleutelkluis
 Voor het opslaan van beveiligingsgeheimen in Azure voor versleuteling klikt u op **Integratie van Azure Sleutelkluis**. Klik vervolgens op **Inschakelen**.
 
 ![Integratie van Azure Sleutelkluis in SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
@@ -228,7 +232,7 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 
 | PARAMETER | BESCHRIJVING | VOORBEELD |
 | --- | --- | --- |
-| **Sleutelkluis-URL** |De locatie van de sleutelkluis. |https://contosokeyvault.vault.azure.net/ |
+| **Key Vault-URL** |De locatie van de sleutelkluis. |https://contosokeyvault.vault.azure.net/ |
 | **Principal-naam** |Principal-naam voor de Azure Active Directory-service. Deze naam wordt ook wel aangeduid als de Client-ID. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Principal-geheim** |Principal-geheim voor de Azure Active Directory-service. Dit geheim wordt ook wel aangeduid als het Clientgeheim. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Referentienaam** |**Referentienaam**: de Azure Sleutelkluis-integratie maakt een referentie in SQL Server, zodat de virtuele machine toegang heeft tot de sleutelkluis. Kies een naam voor deze referentie. |mycred1 |
@@ -237,7 +241,7 @@ Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQ
 
 Wanneer u klaar bent met het configureren van de SQL Server-instellingen, klikt u op **OK**.
 
-### R services
+### <a name="r-services"></a>R services
 Voor de SQL Server 2016 Enterprise-editie kunt u gebruikmaken van de optie om [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2016. Klik op **Inschakelen** op de blade **SQL Server-instellingen**.
 
 ![SQL Server R Services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
@@ -247,17 +251,17 @@ Voor de SQL Server 2016 Enterprise-editie kunt u gebruikmaken van de optie om [S
 > 
 > 
 
-## 5. De samenvatting bekijken
+## <a name="5-review-the-summary"></a>5. De samenvatting bekijken
 Op de blade **Samenvatting** controleert u de samenvatting en klikt u op **OK** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze virtuele machine.
 
-U kunt de implementatie bewaken vanuit de Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
+U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 > [!NOTE]
 > Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal 26 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
 > 
 > 
 
-## De virtuele machine openen via Extern bureaublad
+## <a name="open-the-vm-with-remote-desktop"></a>De virtuele machine openen via Extern bureaublad
 Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de virtuele machine:
 
 1. Nadat u de virtuele Azure-machine hebt gemaakt, wordt het pictogram van de virtuele machine weergegeven op uw Azure-dashboard. U kunt de virtuele machine ook vinden door te bladeren door uw bestaande virtuele machines. Klik op de nieuwe virtuele SQL-machine. De blade **Virtuele machine** wordt weergegeven. Hierop ziet u de details van uw virtuele machine.
@@ -274,7 +278,7 @@ Nadat u verbinding hebt gemaakt met de virtuele SQL Server-machine, kunt u SQL S
 
 Met toegang tot de machine kunt u rechtstreeks de instellingen voor de machine en de SQL Server wijzigen op basis van uw vereisten. U kunt bijvoorbeeld de firewallinstellingen configureren of de SQL Server-configuratie-instellingen wijzigen.
 
-## Op afstand verbinding maken met SQL Server
+## <a name="connect-to-sql-server-remotely"></a>Op afstand verbinding maken met SQL Server
 In deze zelfstudie hebben we **Openbare** toegang voor de virtuele machine en **SQL Server-verificatie** geselecteerd. Door deze instellingen is de virtuele machine automatisch geconfigureerd voor het toestaan van SQL Server-verbindingen vanaf elke client via internet (ervan uitgaande dat deze beschikken over de juiste SQL-aanmeldgegevens).
 
 > [!NOTE]
@@ -288,13 +292,16 @@ In de volgende secties ziet u hoe u vanaf een andere computer via internet verbi
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het gebruik van SQL Server in Azure [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) en de [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Bekijk voor een video-overzicht van SQL Server in Azure Virtual Machines [Azure VM is het beste platform voor SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
 [Bekijk het leertraject](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) voor virtuele SQL Server-machines in Azure.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

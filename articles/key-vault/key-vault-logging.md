@@ -2,11 +2,11 @@
 title: Logboekregistratie van Azure Sleutelkluis | Microsoft Docs
 description: Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis.
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+
 
 ---
-# Logboekregistratie van Azure Sleutelkluis
+# <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
 
-## Inleiding
+## <a name="introduction"></a>Inleiding
 Nadat u een of meer sleutelkluizen hebt gemaakt, wilt u wellicht controleren hoe en wanneer uw sleutelkluizen toegankelijk zijn en voor wie. U kunt dit doen door logboekregistratie in te schakelen voor Sleutelkluis. Hierbij wordt de informatie opgeslagen in een Azure-opslagaccount dat u opgeeft. Er wordt automatisch een nieuwe container met de naam **insights-logboeken-auditevent** gemaakt voor het opgegeven opslagaccount en u kunt hetzelfde opslagaccount gebruiken voor het verzamelen van logboeken voor meerdere sleutelkluizen.
 
 U kunt uw logboekgegevens maximaal tien minuten nadat de sleutelkluisbewerking is uitgevoerd, bekijken. In de meeste gevallen gaat het echter veel sneller.  Het is aan u om uw logboeken in uw opslagaccount te beheren:
@@ -40,15 +44,15 @@ De logboeken die u verzamelt, kunnen met behulp van de logboekanalyse van de Ope
 
 Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande sleutelkluis die u hebt gebruikt.  
 * Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
 * Voldoende opslagruimte op Azure voor uw Sleutelkluis-logboeken.
 
-## <a id="connect"></a>Verbinding maken met uw abonnementen
-Start een Azure PowerShell-sessie en meld u aan bij uw Azure-account met de volgende opdracht:  
+## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Verbinding maken met uw abonnementen
+Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
     Login-AzureRmAccount
 
@@ -64,7 +68,7 @@ Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u l
 
 Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor meer informatie over het configureren van Azure PowerShell.
 
-## <a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
+## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
 Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we hier een nieuw opslagaccount, speciaal voor Sleutelkluis-logboeken. Voor het gemak slaan we de details op in een variabele met de naam **sa**. Deze moeten we later namelijk opgeven.
 
 En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de sleutelkluis bevat. In de [zelfstudie Aan de slag](key-vault-get-started.md) heeft deze resourcegroep de naam **ContosoResourceGroup** en we gebruiken hier ook de locatie Oost-Azië. Vervang deze waarden voor uzelf, indien van toepassing:
@@ -77,13 +81,13 @@ En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de s
 > 
 > 
 
-## <a id="identify"></a>De sleutelkluis voor uw logboeken identificeren
+## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>De sleutelkluis voor uw logboeken identificeren
 In de zelfstudie Aan de slag is de naam van de sleutelkluis **ContosoKeyVault**. We gaan deze naam ook hier gebruiken en de details in een variabele met de naam **kv** opslaan:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a id="enable"></a>Logboekregistratie inschakelen
+## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Logboekregistratie inschakelen
 Als u logboekregistratie wilt inschakelen voor Sleutelkluis, gebruikt u de cmdlet Set-AzureRmDiagnosticSetting, samen met de variabelen die we voor ons nieuwe opslagaccount en onze sleutelkluis hebben gemaakt. We moeten de markering **-Ingeschakeld** instellen op **$true** en de categorie instellen op AuditEvent (de enige categorie voor logboekregistratie van Key Vault):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -114,7 +118,7 @@ Wat wordt in het logboek vastgelegd?
 * Bewerkingen voor sleutels en geheimen in de sleutelkluis, zoals het maken, wijzigen of verwijderen van deze sleutels of geheimen; bewerkingen zoals het ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken van sleutels, het ophalen van geheimen en het weergeven van sleutels, geheimen en hun versies.
 * Niet-geverifieerde aanvragen die in een 401-respons resulteren. Dit zijn bijvoorbeeld aanvragen die geen Bearer-token hebben, ongeldige of verlopen aanvragen of aanvragen met een ongeldig token.  
 
-## <a id="access"></a>Toegang tot uw logboeken
+## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Toegang tot uw logboeken
 Sleutelkluis-logboeken worden opgeslagen in de container **insights-logs-auditevent** in het opslagaccount dat u hebt opgegeven. Als u alle blobs in deze container wilt weergeven, typt u:
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
@@ -169,7 +173,7 @@ We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we
 * De status van diagnostische instellingen voor uw sleutelkluisresource opvragen: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Logboekregistratie voor uw sleutelkluisresource uitschakelen: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
+## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
 Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. Dit is een voorbeeld van een logboekvermelding van het uitvoeren van `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -250,7 +254,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 | SecretList |[Geheimen in een kluis weergeven](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Versies van een geheim weergeven](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a id="next"></a>Volgende stappen
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Volgende stappen
 Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een zelfstudie over het gebruik van Azure Key Vault in een webtoepassing.
 
 Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
@@ -259,6 +263,9 @@ Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/d
 
 Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Sleutelkluis instellen met end-to-endsleutelrotatie en -controle) voor een zelfstudie over sleutelrotatie en logboekcontrole met Azure Sleutelkluis.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

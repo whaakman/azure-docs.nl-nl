@@ -2,11 +2,11 @@
 title: IIS-verificatie en Azure Multi-Factor Authentication-server
 description: Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van IIS-verificatie en de Azure Multi-Factor Authentication-server.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+
 
 ---
-# IIS-verificatie
+# <a name="iis-authentication"></a>IIS-verificatie
 Via de IIS-verificatiesectie van de Azure Multi-Factor Authentication-server kunt u IIS-verificatie inschakelen en configureren voor integratie met Microsoft IIS-webtoepassingen. Met de Azure Multi-Factor Authentication-server wordt een invoegtoepassing geïnstalleerd voor het filteren van aanvragen die worden ingediend bij de ISS-webserver om Azure Multi-Factor Authentication te kunnen toevoegen. De IIS-invoegtoepassing biedt ondersteuning voor verificatie op basis van formulier en geïntegreerde Windows-verificatie voor HTTP. Goedgekeurde IP-adressen kunnen ook zo worden geconfigureerd dat interne IP-adressen worden vrijgesteld van verificatie met twee factoren.
 
 ![IIS-authenticatie](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## IIS-verificatie samen gebruiken met Azure Multi-Factor Authentication-server
+## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>IIS-verificatie samen gebruiken met Azure Multi-Factor Authentication-server
 Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op basis van een formulier, moet u de Azure Multi-Factor Authentication-server op de IIS-webserver installeren en de server volgens de onderstaande procedure configureren.
 
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-authenticatie.
@@ -39,7 +43,7 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op 
 13. Zodra de URL- en paginavariabelen zijn gedetecteerd of ingevoerd, worden de websitegegevens weergegeven in het paneel Op formulier gebaseerd.
 14. Zie de sectie IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server meteen hieronder om de configuratie van de IIS-verificatie te voltooien.
 
-## Geïntegreerde Windows-verificatie met Azure Multi-Factor Authentication-server gebruiken
+## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Geïntegreerde Windows-verificatie met Azure Multi-Factor Authentication-server gebruiken
 Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde Windows-verificatie voor HTTP, moet u de Azure Multi-Factor Authentication-server op de IIS-webserver installeren en de server volgens de onderstaande procedure configureren.
 
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
@@ -52,14 +56,14 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde 
 8. Klik op de knop OK.
 9. Zie de sectie [IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) meteen hieronder om de configuratie van de IIS-verificatie te voltooien.
 
-## IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server
+## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server
 Zodra u de URL's en instellingen voor op formulier gebaseerde of HTTP-verificaties hebt ingesteld, moet u de locaties selecteren waar de IIS-invoegtoepassingen van Azure Multi-Factor Authentication moeten worden geladen en ingeschakeld in IIS. Gebruik de volgende procedure:
 
 1. Indien uitgevoerd op IIS 6, klikt u op het tabblad ISAPI- en selecteert u de website waaronder die webtoepassing wordt uitgevoerd (bijvoorbeeld de standaardwebsite) om de invoegtoepassing met de ISAPI-filter van Azure Multi-Factor Authentication voor die site in te schakelen.
 2. Indien uitgevoerd op IIS 7 of hoger, klikt u op het tabblad Systeemeigen Module en selecteert u de server, de website(s) of de toepassing(en) om de IIS-invoegtoepassing op het gewenste niveau/de gewenste niveaus in te schakelen.
 3. Klik op het vak IIS-verificatie inschakelen aan de bovenkant van het scherm. Azure Multi-Factor Authentication is nu de beveiliging van de geselecteerde IIS-toepassing. Zorg ervoor dat gebruikers in de server zijn geïmporteerd. Zie de onderstaande sectie Goedgekeurde IP-adressen als u interne IP-adressen op een lijst met toegestane IP-adressen wilt plaatsen, zodat verificatie met twee factoren niet vereist is bij het aanmelden bij de website vanaf die locaties.
 
-## Goedgekeurde IP-adressen
+## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
 De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u dan het subnet van het kantoor op als een van de goedgekeurde IP-adressen. Gebruik de volgende procedure als u goedgekeurde IP-adressen wilt configureren:
 
 1. Klik op het tabblad Goedgekeurde IP-adressen in de sectie IIS-verificatie.
@@ -67,6 +71,9 @@ De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Fac
 3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje Eén IP-adres, IP-bereik of Subnet.
 4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op de knop OK. De lijst van goedgekeurde IP-adressen is toegevoegd.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

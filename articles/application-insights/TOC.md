@@ -128,27 +128,31 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Naslaginformatie
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [.NET-API](https://docs.microsoft.com/dotnet/api)
+## [JavaScript-API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Analytische gegevens](app-insights-analytics-reference.md)
 ## [Steekproeven](app-insights-sampling.md)
 ## [IP-adressen](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [Gegevensmodel exporteren](app-insights-export-data-model.md)
-## [REST API](https://dev.applicationinsights.io/)
-## [JavaScript-API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Java SDK-API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Migratie van Azure-eindpuntbewaking naar beschikbaarheidstests](app-insights-migrate-azure-endpoint-tests.md)
 ## [Analyses voor ontwikkelaars: talen, platformen en integraties](app-insights-platforms.md)
 ### [Voorbeelden en walkthroughs](app-insights-code-samples.md)
-
 #### [Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Exporteren naar SQL met Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Codevoorbeeld: Geëxporteerde gegevens parseren](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Releaseopmerkingen voor Application Insights SDK voor Windows Phone en Store](app-insights-release-notes-windows.md)
 ## [Releaseopmerkingen voor Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Releaseopmerkingen voor SDK - Application Insights](app-insights-release-notes.md)
+## [REST-API](https://dev.applicationinsights.io/)
 
-# Bronnen
+# Resources
+## [Prijzen](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Ondersteuning](app-insights-get-dev-support.md)
 
 

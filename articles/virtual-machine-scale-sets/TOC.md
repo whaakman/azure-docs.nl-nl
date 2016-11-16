@@ -26,11 +26,12 @@
 ### [Problemen met automatisch schalen oplossen](virtual-machine-scale-sets-troubleshoot.md)
 
 # Naslaginformatie
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [Schaalset REST-API](/rest/api/compute/virtualmachinescalesets)
-## [Schaalset VM’s REST-API](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure Powershell](/powershell/resourcemanager/)
-## [Azure-sjablonen](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Bronnen
+## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

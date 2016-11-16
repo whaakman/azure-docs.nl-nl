@@ -1,13 +1,13 @@
 ---
-title: Een nieuwe elastische groep maken met de Azure-portal | Microsoft Docs
+title: Een nieuwe elastische groep maken met Azure Portal | Microsoft Docs
 description: Een schaalbare groep voor een elastische database toevoegen aan uw SQL Databaseconfiguratie om deze eenvoudiger te kunnen beheren en resources te delen met een groot aantal databases.
 keywords: schaalbare database,databaseconfiguratie
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ninarn
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016
@@ -15,11 +15,15 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f83e1aa30cfee86137c13c3a15c0e989558c0df8
+
 
 ---
-# Een nieuwe groep voor een elastische database maken met de Azure-portal
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Een nieuwe groep voor een elastische database maken met de Azure-portal
 > [!div class="op_single_selector"]
-> * [Azure-portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -34,7 +38,7 @@ U kunt meerdere groepen toevoegen aan een server, maar u kunt geen databases van
 > 
 > 
 
-## Stap 1: een nieuwe groep maken
+## <a name="step-1-create-a-new-pool"></a>Stap 1: een nieuwe groep maken
 In dit artikel ziet u hoe u een nieuwe groep maakt met een bestaande **serverblade** in de portal. Dit is de eenvoudigste manier om bestaande databases naar een groep te verplaatsen. 
 
 > [!NOTE]
@@ -47,7 +51,7 @@ In dit artikel ziet u hoe u een nieuwe groep maakt met een bestaande **serverbla
    
     ![Voeg de groep toe aan een server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
    
-    **OF**
+    **-OF-**
    
     Er wordt een bericht weergegeven dat er aanbevolen pools voor een elastische database zijn voor de server (alleen V12). Klik op het bericht om de groepen die worden aanbevolen op basis van de telemetrie van het databasegebruik te bekijken. Klik vervolgens op de categorie voor meer informatie en om de groep aan te passen. Zie [Aanbevelingen voor groepen begrijpen](#understand-pool-recommendations) verderop in dit onderwerp om te ontdekken hoe de aanbeveling tot stand is gekomen.
    
@@ -58,7 +62,7 @@ In dit artikel ziet u hoe u een nieuwe groep maakt met een bestaande **serverbla
     ![Elastische groep configureren](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 3. Kies een naam voor de elastische groep, of behoud de standaardnaam.
 
-## Stap 2: kies een prijscategorie
+## <a name="step-2-choose-a-pricing-tier"></a>Stap 2: kies een prijscategorie
 De prijscategorie van de pool bepaalt welke functies beschikbaar zijn voor de elastische databases in de pool en het maximumaantal eDTU’s (eDTU MAX) en de opslag (in GB’s) die beschikbaar is in elke database. Zie voor meer informatie de Servicecategorieën.
 
 Om de prijscategorie van de groep te wijzigen, klikt u op **Prijscategorie**. Klik op de gewenste prijscategorie en vervolgens op **Selecteren**.
@@ -70,7 +74,7 @@ Om de prijscategorie van de groep te wijzigen, klikt u op **Prijscategorie**. Kl
 
 ![Een prijscategorie selecteren](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Stap 3: configureer de groep
+## <a name="step-3-configure-the-pool"></a>Stap 3: configureer de groep
 Nadat u de prijscategorie heeft ingesteld, klikt u op Pool configureren. Hier voegt u databases toe en stelt u de eDTU’s en opslag van de pool (in GB’s) in, evenals het minimum- en maximumaantal eDTU’s voor de elastische databases in de pool.
 
 1. Klik op **Groep configureren**
@@ -86,7 +90,7 @@ Nadat u de prijscategorie heeft ingesteld, klikt u op Pool configureren. Hier vo
 4. Klik op **Selectere** in de blade **Groep configureren** nadat u de instellingen heeft gewijzigd.
 5. Klik op **OK** om de groep te maken.
 
-## Aanbevelingen voor groepen begrijpen
+## <a name="understand-pool-recommendations"></a>Aanbevelingen voor groepen begrijpen
 De SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of meerdere groepen aan wanneer deze kosteneffectiever zijn dan het gebruik van individuele databases. Elke aanbeveling wordt geconfigureerd met een unieke subset van de databases van de server die het meest geschikt zijn voor de groep.
 
 ![aanbevolen groep](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
@@ -102,17 +106,20 @@ De service houdt rekening met de laatste 30 dagen telemetrie bij het aanbevelen 
 
 De service beoordeelt wat de resource nodig heeft en hoe kosteneffectief het is om de individuele databases in elke servicecategorie te verplaatsen naar groepen van dezelfde categorie. Alle Standard databases op een server worden bijvoorbeeld beoordeeld op hoe ze in een Standard elastische groep passen. Dit betekent dat de service geen aanbevelingen doet voor het verplaatsen van databases naar een andere categorie, zoals het verplaatsen van een Standard database naar een Premium groep.
 
-### Dynamische aanbevelingen.
+### <a name="dynamic-recommendations"></a>Dynamische aanbevelingen.
 Nadat databases aan de groep zijn toegevoegd, worden dynamische aanbevelingen gegenereerd op basis van het gebruik van de databases die u hebt geselecteerd. Deze aanbevelingen worden weergegeven in de eDTU- en GB-gebruiksgrafiek, evenals in een banner met aanbevelingen bovenaan de blade  **Groep configureren**. Deze aanbevelingen zijn bedoeld om u te helpen bij het maken van een groep die geoptimaliseerd is voor uw specifieke databases.
 
 ![dynamische aanbevelingen](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende bronnen
 * [Een elastische groep in de SQL Database beheren met de portal](sql-database-elastic-pool-manage-portal.md)
 * [Een elastische groep in de SQL Database beheren met PowerShell](sql-database-elastic-pool-manage-powershell.md)
 * [Een elastische groep in de SQL Database beheren met C#](sql-database-elastic-pool-manage-csharp.md)
 * [Uitbreiden met Azure SQL Database](sql-database-elastic-scale-introduction.md) 
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

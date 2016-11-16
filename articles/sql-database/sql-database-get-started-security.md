@@ -1,13 +1,13 @@
 ---
 title: 'SQL Database-zelfstudie: Aan de slag met beveiliging'
 description: Lees hoe u gebruikersaccounts maakt voor toegang tot en beheer van een database.
-keywords: ''
+keywords: 
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3bd8ac5466ae67df0a1865509c8fb897d1374ec
+
 
 ---
-# SQL Database-zelfstudie: SQL Database-gebruikersaccounts maken om toegang tot een database te krijgen en deze te beheren
+# <a name="sql-database-tutorial-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>SQL Database-zelfstudie: SQL Database-gebruikersaccounts maken om toegang tot een database te krijgen en deze te beheren
 > [!div class="op_single_selector"]
 > * [Zelfstudie Aan de slag](sql-database-get-started-security.md)
 > * [Toegang verlenen](sql-database-manage-logins.md)
@@ -41,9 +45,12 @@ In deze zelfstudie leert u hoe u met SQL Server Management Studio (SSMS) de volg
 
 [!INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u deze zelfstudie voor SQL Database hebt voltooid, een gebruikersaccount hebt gemaakt en dit account dbo-machtigingen hebt verleend, kunt u meer gaan lezen over [beveiliging van SQL Database](sql-database-manage-logins.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

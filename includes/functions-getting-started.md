@@ -2,6 +2,8 @@ Azure Functions is een gebeurtenisafhankelijke, compute-on-demand-ervaring die h
 
 Deze video helpt u op weg door te tonen hoe u een functie-app kunt maken, de code kunt wijzigen en hoe u triggers en bindingen kunt gebruiken.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

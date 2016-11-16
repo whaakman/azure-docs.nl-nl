@@ -2,12 +2,12 @@
 title: Op rollen gebaseerd toegangsbeheer in Azure Automation | Microsoft Docs
 description: Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. In dit artikel wordt beschreven hoe u RBAC instelt in Azure Automation.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
 keywords: automatisering rbac, rolgebaseerde toegangscontrole, azure rbac
-
+ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+
 
 ---
-# Op rollen gebaseerd toegangsbeheer in Azure Automation
-## Op rollen gebaseerd toegangsbeheer
+# <a name="rolebased-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
+## <a name="rolebased-access-control"></a>Op rollen gebaseerd toegangsbeheer
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met [RBAC](../active-directory/role-based-access-control-configure.md) kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers, groepen en toepassingen die nodig is om de taken uit te voeren. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure Portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
 
-## RBAC in Automation-accounts
+## <a name="rbac-in-automation-accounts"></a>RBAC in Automation-accounts
 In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen aan gebruikers, groepen en toepassingen bij het Automation-accountbereik. Hieronder vindt u de ingebouwde rollen die worden ondersteund met een Automation-account:  
 
 | **Rol** | **Beschrijving** |
@@ -39,7 +43,7 @@ In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen
 
 In dit artikel wordt een stapsgewijze beschrijving gegeven van het instellen van RBAC in Azure Automation. Maar laten we eerst ingaan op de individuele machtigingen verleend aan de Bijdrager, Lezer, Automation-operator en Beheerder van gebruikerstoegang, zodat we dit beter begrijpen alvorens rechten toe te kennen aan het Automation-account.  Anders kan dit leiden tot onverwachte of ongewenste consequenties.     
 
-## Machtigingen voor de rol van Bijdrager
+## <a name="contributor-role-permissions"></a>Machtigingen voor de rol van Bijdrager
 De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol Bijdrager in Automatisering.
 
 | **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
@@ -62,7 +66,7 @@ De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol Bijdr
 | Automation Runbook Draft Test Job |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
 | Automation Webhook |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) |
 
-## Machtigingen voor de rol van Lezer
+## <a name="reader-role-permissions"></a>Machtigingen voor de rol van Lezer
 De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol van lezer in Automation.
 
 | **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
@@ -74,7 +78,7 @@ De volgende tabel geeft de acties die kunnen worden uitgevoerd door de rol van l
 | Nieuwe roltoewijzing |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Roldefinitie ophalen |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## Rolmachtigingen Automation-operator
+## <a name="automation-operator-role-permissions"></a>Rolmachtigingen Automation-operator
 De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door de rol van operator in Automation.
 
 | **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
@@ -99,7 +103,7 @@ De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door d
 
 Voor meer details geeft [Acties Automation-operator](../active-directory/role-based-access-built-in-roles.md#automation-operator) de acties ondersteund door de rol van Automation-operator op het Automation-account en zijn resources.
 
-## Machtigingen van de rol Beheerder van de Gebruikerstoegang
+## <a name="user-access-administrator-role-permissions"></a>Machtigingen van de rol Beheerder van de Gebruikerstoegang
 De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door de rol van operator in Automation.
 
 | **Resourcetype** | **Lezen** | **Schrijven** | **Verwijderen** | **Andere acties** |
@@ -122,7 +126,7 @@ De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door d
 | Automation Runbook Draft Test Job |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Automation Webhook |![Groene Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## RBAC configureren voor uw Automation-account met Azure Portal
+## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>RBAC configureren voor uw Automation-account met Azure Portal
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en open uw Automation-account via de blade Automation-accounts.  
 2. Klik op het besturingselement **Toegang** in de rechterbovenhoek. Hiermee wordt de blade **Gebruikers** geopend, waar u nieuwe gebruikers, groepen en toepassingen kunt toevoegen om uw Automation-account te beheren en bestaande rollen kunt weergeven die kunnen worden geconfigureerd voor het Automation-account.  
    
@@ -133,7 +137,7 @@ De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door d
 > 
 > 
 
-### Een nieuwe gebruiker toevoegen en een rol toewijzen
+### <a name="add-a-new-user-and-assign-a-role"></a>Een nieuwe gebruiker toevoegen en een rol toewijzen
 1. Klik op de blade Gebruikers op **Toevoegen** om de blade **Toegang toevoegen** te openen waar u een gebruiker, groep of toepassing kunt toevoegen, en hieraan een rol kunt toewijzen.  
    
    ![Gebruiker toevoegen](media/automation-role-based-access-control/automation-02-add-user.png)  
@@ -162,7 +166,7 @@ De volgende tabel geeft de specifieke acties die kunnen worden uitgevoerd door d
    
     ![Meerdere rollen weergeven](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
 
-### Een gebruiker verwijderen
+### <a name="remove-a-user"></a>Een gebruiker verwijderen
 U kunt de toegangsmachtigingen voor een gebruiker verwijderen die het Automation-account niet beheert, of die niet meer voor de organisatie werkt. Hieronder vindt u de stappen voor het verwijderen van een gebruiker: 
 
 1. Selecteer op de blade **Gebruikers** de roltoewijzing die u wilt verwijderen.
@@ -171,12 +175,12 @@ U kunt de toegangsmachtigingen voor een gebruiker verwijderen die het Automation
    
    ![Gebruikers verwijderen](media/automation-role-based-access-control/automation-08-remove-users.png)  
 
-## Gebruiker met toegewezen rol
+## <a name="role-assigned-user"></a>Gebruiker met toegewezen rol
 Wanneer een gebruiker die aan een rol is toegewezen, zich aanmeldt bij zijn/haar Automation-account, ziet deze het account van de eigenaar weergegeven in de lijst met **Standaardmappen**. Als een gebruiker het Automation-account wil bekijken waaraan hij/zij is toegevoegd, moet deze overschakelen van de standaardmap naar de standaardmap van de eigenaar.  
 
 ![Standaardmap](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
-### Gebruikerservaring voor de rol Automation-operator
+### <a name="user-experience-for-automation-operator-role"></a>Gebruikerservaring voor de rol Automation-operator
 Wanneer een gebruiker, aan wie de rol Automation-operator is toegewezen, het Automation-account bekijkt waaraan hij/zij is toegewezen, kan de gebruiker alleen de lijst met runbooks, runbooktaken en planningen weergeven die in het Automation-account zijn gemaakt, maar niet de bijbehorende definitie. De gebruiker kan de runbooktaak starten, stoppen, onderbreken, hervatten of plannen. De gebruiker heeft geen toegang tot andere Automation-resources, zoals configuraties, Hybrid Worker-groepen of DSC-knooppunten.  
 
 ![Geen toegang tot resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
@@ -193,7 +197,7 @@ Deze gebruiker heeft ook geen toegang tot de weergave van de webhooks die aan ee
 
 ![Geen toegang tot webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
-## RBAC configureren voor uw Automation-account met Azure PowerShell
+## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>RBAC configureren voor uw Automation-account met Azure PowerShell
 Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-Account met de volgende [Azure PowerShell-cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md).
 
 • Met [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) wordt een lijst weergegeven van alle RBAC-rollen die beschikbaar zijn in Azure Active Directory. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.  
@@ -221,11 +225,14 @@ Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-A
 
 Vervang in de bovenstaande voorbeelden de **aanmeldnaam**, de **abonnements-id**, de **resourcegroepnaam** en de **Automation-accountnaam** door uw accountgegevens. Kies **Ja** om te bevestigen voordat u verdergaat met het verwijderen van de roltoewijzing voor de gebruiker.   
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [RBAC met Azure PowerShell beheren](../active-directory/role-based-access-control-manage-access-powershell.md) voor informatie over verschillende manieren om RBAC voor Azure Automation te configureren.
 * Zie [Een runbook starten](automation-starting-a-runbook.md) voor informatie over verschillende manieren om een runbook te starten.
 * Raadpleeg [Azure Automation-runbooktypen](automation-runbook-types.md) voor informatie over verschillende typen runbooks
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

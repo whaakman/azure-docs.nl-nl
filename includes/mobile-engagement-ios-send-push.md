@@ -1,4 +1,4 @@
-### Uw pushcertificaat toegang verlenen tot Mobile Engagement
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Uw pushcertificaat toegang verlenen tot Mobile Engagement
 Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toegang geven tot uw certificaat. Dit kunt u doen door uw certificaat te configureren en in te voeren in de Mobile Engagement-portal. Zorg dat u uw .p12-certificaat verkrijgt zoals uitgelegd in de [Apple-documentatie](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Navigeer naar uw Mobile Engagement-portal. Zorg ervoor dat u zich op de juiste locatie bevindt en klik vervolgens op de knop **Engage** onderaan:
@@ -11,7 +11,7 @@ Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toega
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Een melding verzenden naar uw app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Een melding verzenden naar uw app
 We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar de app:
 
 1. Navigeer naar het tabblad **Reach** in uw Mobile Engagement-portal.
@@ -40,6 +40,8 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

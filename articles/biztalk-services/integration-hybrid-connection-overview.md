@@ -2,24 +2,28 @@
 title: Overzicht van hybride verbindingen | Microsoft Docs
 description: Meer informatie over hybride verbindingen, beveiliging, TCP-poorten en ondersteunde configuraties. MABS, WABS.
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
-ms.author: mandia
+ms.date: 10/18/2016
+ms.author: ccompy
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+
 
 ---
-# Overzicht van hybride verbindingen
+# <a name="hybrid-connections-overview"></a>Overzicht van hybride verbindingen
 Inleiding tot hybride verbindingen met een lijst met de ondersteunde configuraties en een lijst met de vereiste TCP-poorten.
 
-## Wat is een hybride verbinding?
+## <a name="what-is-a-hybrid-connection"></a>Wat is een hybride verbinding?
 Hybride verbindingen zijn een functie van Azure BizTalk Services. Hybride verbindingen zijn een eenvoudige en handige manier om de functie Web Apps in Azure App Service (voorheen Websites) en de functie Mobile Apps in Azure App Service (voorheen Mobile Services) te verbinden met on-premises resources achter de firewall.
 
 ![Hybride verbindingen][HCImage]
@@ -44,7 +48,7 @@ Daarnaast bieden hybride verbindingen beheerders in een onderneming controle op 
 * Met instellingen voor groepsbeleid kunnen beheerders hybride verbindingen toestaan op het netwerk. Daarnaast kunnen ze resources opgeven waartoe hybride toepassingen toegang hebben.
 * Gebeurtenis- en auditlogboeken op het bedrijfsnetwerk bieden inzicht in de resources waartoe hybride verbindingen toegang hebben.
 
-## Voorbeeldscenario 's
+## <a name="example-scenarios"></a>Voorbeeldscenario 's
 Hybride verbindingen ondersteunen de volgende combinaties van framework en toepassing:
 
 * .NET Framework-toegang tot SQL Server
@@ -61,7 +65,7 @@ Wanneer u hybride verbindingen gebruikt om toegang te krijgen tot on-premises SQ
 * De `ApplicationIntent=ReadOnly` wordt momenteel niet ondersteund.
 * Mogelijk is SQL-verificatie vereist als end-to-end-autorisatiemethode die wordt ondersteund door de Azure-toepassing en de on-premises SQL Server.
 
-## Beveiliging en poorten
+## <a name="security-and-ports"></a>Beveiliging en poorten
 Hybride verbindingen gebruiken autorisatie via SAS (Shared Access Signature) voor de beveiliging van de verbindingen van de Azure-toepassingen en het on-premises hybride verbindingsbeheer met de hybride verbinding. Er worden aparte verbindingssleutels gemaakt voor de toepassing en het on-premises hybride verbindingsbeheer. Deze verbindingssleutels kunnen onafhankelijk van elkaar worden geactiveerd en ingetrokken.
 
 Hybride verbindingen zorgen voor een naadloze en veilige distributie van de sleutels naar de toepassingen en het on-premises hybride verbindingsbeheer.
@@ -70,7 +74,7 @@ Zie [Hybride verbindingen maken en beheren](integration-hybrid-connection-create
 
 *De autorisatie van toepassingen verloopt gescheiden van de hybride verbinding*. U kunt elke willekeurige geschikte autorisatiemethode gebruiken. De autorisatiemethode is afhankelijk van de end-to-end-autorisatiemethoden die worden ondersteund in de Azure-cloud en de on-premises onderdelen. Stel dat uw Azure-toepassing toegang heeft tot een on-premises SQL Server. In dit scenario is SQL-autorisatie mogelijk de autorisatiemethode die end-to-end wordt ondersteund.
 
-#### TCP-poorten
+#### <a name="tcp-ports"></a>TCP-poorten
 Hybride verbindingen vereisen alleen een uitgaande TCP- of HTTP-verbinding vanuit uw privénetwerk. U hoeft geen firewallpoorten te openen of de configuratie van uw netwerkperimeters te wijzigen om binnenkomende verbindingen in uw netwerk mogelijk te maken.
 
 De volgende TCP-poorten worden gebruikt door hybride verbindingen:
@@ -81,16 +85,15 @@ De volgende TCP-poorten worden gebruikt door hybride verbindingen:
 | 5671 |Wanneer poort 9352 wordt gebruikt voor gegevensverkeer, wordt poort 5671 gebruikt als besturingskanaal. <br/><br/>Sta uitgaande verbindingen via deze poort toe. |
 | 80, 443 |Deze poorten worden gebruikt voor bepaalde gegevensaanvragen naar Azure. Als de poorten 9352 en 5671 niet beschikbaar zijn, worden *de poorten 80 en 443* gebruikt als alternatieve poorten voor de gegevensoverdracht en het besturingskanaal.<br/><br/>Sta uitgaande verbindingen via deze poorten toe. <br/><br/>**Opmerking** Het wordt afgeraden om deze poorten als alternatieve poorten te gebruiken in plaats van de TCP-poorten. In plaats van het systeemeigen TCP voor gegevenskanalen wordt als protocol namelijk HTTP/WebSocket gebruikt. Dit kan leiden tot lagere prestaties. |
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 [Hybride verbindingen maken en beheren](integration-hybrid-connection-create-manage.md)<br/>
-[Verbinding maken tussen een Azure-website en een on-premises resource](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Verbinding maken tussen een Azure-web-apps en een on-premises resource](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
 [Verbinding maken met de on-premises SQL Server vanuit een Azure-web-app](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
-[Azure Mobile Services en hybride verbindingen](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 [REST-API voor het beheren van BizTalk Services op Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
-[Een BizTalk Service maken met de Azure Portal](biztalk-provision-services.md)<br/>
+[Een BizTalk-service maken met Azure Portal](biztalk-provision-services.md)<br/>
 [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
@@ -100,6 +103,6 @@ De volgende TCP-poorten worden gebruikt door hybride verbindingen:
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

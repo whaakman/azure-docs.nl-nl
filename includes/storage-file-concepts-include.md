@@ -1,4 +1,4 @@
-## Wat is Azure File Storage?
+## <a name="what-is-azure-file-storage"></a>Wat is Azure File Storage?
 File Storage biedt gedeelde opslag voor toepassingen die gebruikmaken van het standaard SMB 2.1- of SMB 3.0-protocol. Microsoft Azure Virtual Machines en Cloud Services kunnen bestandsgegevens via gekoppelde shares delen tussen toepassingsonderdelen, en on-premises toepassingen hebben via de File Storage-API toegang tot bestandsgegevens in een share.
 
 Toepassingen die worden uitgevoerd in Azure Virtual Machines of Cloud Services kunnen een File Storage-share koppelen voor toegang tot bestandsgegevens, net zoals een bureaubladtoepassing een gewone SMB-share zou koppelen. Een willekeurig aantal virtuele machines of rollen in Azure kunnen de File Storage-share tegelijkertijd koppelen en gebruiken.
@@ -12,7 +12,7 @@ Veelvoorkomende toepassingen van File Storage zijn onder andere:
 * De opslag op een gedeelde locatie van diagnostische gegevens, zoals logboeken, metrische gegevens en crashdumps 
 * De opslag van hulpprogramma’s en functies die nodig zijn voor de ontwikkeling of het beheer van virtuele machines in Azure of cloudservices
 
-## Concepten van File Storage
+## <a name="file-storage-concepts"></a>Concepten van File Storage
 File Storage bevat de volgende onderdelen:
 
 ![bestanden-concepten][files-concepts]
@@ -33,6 +33,6 @@ Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwij
 
 [bestanden-concepten]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

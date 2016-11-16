@@ -1,12 +1,12 @@
 ---
 title: Uw aangepaste domeinnaam toevoegen aan Azure Active Directory | Microsoft Docs
-description: Hier leest u hoe u de domeinnamen van uw bedrijf kunt toevoegen aan Azure Active Directory en hoe u de domeinnaam kunt verifiëren.
+description: "Hier leest u hoe u de domeinnamen van uw bedrijf kunt toevoegen aan Azure Active Directory en hoe u de domeinnaam kunt verifiëren."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeffsta
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d24af6385c24860f40f6aab633e6212431809aea
+
 
 ---
-# Een aangepaste domeinnaam toevoegen aan Azure Active Directory
+# <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Een aangepaste domeinnaam toevoegen aan Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-domains-add-qzure-portal.md)
-> * [Klassieke Azure-portal](active-directory-add-domain.md)
+> * [Azure Portal](active-directory-domains-add-azure-portal.md)
+> * [Klassieke Azure Portal](active-directory-add-domain.md)
 > 
 > 
 
-U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend is bij uw gebruikers, zoals 'gwenda@contoso.com'. Het proces is eenvoudig:
+U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend is bij uw gebruikers, zoals ‘alice@contoso.com.’ Het proces is eenvoudig:
 
 1. Voeg de aangepaste domeinnaam toe aan uw directory.
 2. Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
@@ -34,8 +38,8 @@ U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zake
 > 
 > 
 
-## Een aangepaste domeinnaam toevoegen aan uw directory
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com/) met een gebruikersaccount met de rechten voor globale beheerder van uw Azure AD-directory.
+## <a name="add-a-custom-domain-name-to-your-directory"></a>Een aangepaste domeinnaam toevoegen aan uw directory
+1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com/) met een gebruikersaccount met de rechten voor globale beheerder van uw Azure AD-directory.
 2. Open in **Active Directory** uw directory en selecteer de tab **Domeinen**.
 3. Selecteer op de opdrachtbalk **Toevoegen**. Voer de naam van uw aangepaste domein in, bijvoorbeeld 'contoso.com'. Zorg ervoor dat u .com, .net of een andere extensie op het hoogste niveau in de naam opneemt en laat het selectievakje voor 'eenmalige aanmelding' (federatie) uitgeschakeld.
 4. Selecteer **Toevoegen**.
@@ -43,7 +47,7 @@ U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zake
 
 Nu u een domeinnaam hebt toegevoegd, moet met Azure AD worden gecontroleerd of uw organisatie de eigenaar is van de domeinnaam. Voordat deze verificatie met Azure AD kan worden uitgevoerd, moet u een DNS-vermelding toevoegen in het DNS-zonebestand voor de domeinnaam. Deze taak wordt voor de domeinnaam uitgevoerd op de website voor domeinnaamregistrar.
 
-## De DNS-vermelding op de domeinnaamregistrar voor het domein toevoegen
+## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>De DNS-vermelding op de domeinnaamregistrar voor het domein toevoegen
 De volgende stap voor het gebruik van de aangepaste domeinnaam met Azure AD bestaat uit het bijwerken van het DNS-zonebestand voor het domein. Hierdoor kan Azure AD verifiëren of uw organisatie eigenaar is van de aangepaste domeinnaam.
 
 1. Meld u aan bij de domeinnaamregistrar voor het domein. Als u geen toegang hebt om de DNS-vermelding bij te werken, vraagt u de persoon die of het team dat wel over deze toegang beschikt om stap 2 uit te voeren en u te laten weten wanneer deze is voltooid.
@@ -51,12 +55,12 @@ De volgende stap voor het gebruik van de aangepaste domeinnaam met Azure AD best
 
 Voor hulp bij het toevoegen van de DMS-vermelding leest u de [Instructies voor het toevoegen van een DNS-vermelding bij populaire DNS-registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-## De domeinnaam verifiëren met Azure AD
+## <a name="verify-the-domain-name-with-azure-ad"></a>De domeinnaam verifiëren met Azure AD
 Als u de DNS-vermelding hebt toegevoegd, kunt u de domeinnaam bij Azure AD verifiëren.
 
 Als u de wizard **Domein toevoegen** nog geopend hebt, selecteert u **Verifiëren** in het derde venster van de wizard. Wanneer u **Verifiëren** selecteert, zoekt Azure AD de DNS-vermelding in het DNS-zonebestand voor het domein. Azure AD kan de domeinnaam alleen verifiëren nadat de DNS-records zijn doorgegeven. Deze doorgifte duurt vaak slechts enkele seconden, maar het kan ook wel eens een uur of langer duren. Als verificatie de eerste keer niet werkt, probeer het dan later nog eens.
 
-Als de wizard **Domein toevoegen** niet meer is geopend, kunt u het domein verifiëren in de [klassieke Azure-portal](https://manage.windowsazure.com/):
+Als de wizard **Domein toevoegen** niet meer is geopend, kunt u het domein verifiëren in de [klassieke Azure Portal](https://manage.windowsazure.com/):
 
 1. Meld u aan met een gebruikersaccount met de rechten voor globale beheerder van uw Azure AD-directory.
 2. Open uw directory en selecteer de tab **Domeinen**.
@@ -65,23 +69,26 @@ Als de wizard **Domein toevoegen** niet meer is geopend, kunt u het domein verif
 
 Nu kunt u [gebruikersnamen toewijzen die uw aangepaste domeinnaam omvatten](active-directory-add-domain-add-users.md).
 
-## Problemen oplossen
+## <a name="troubleshooting"></a>Problemen oplossen
 Als u een aangepaste domeinnaam niet kunt verifiëren, probeert u het volgende. We beginnen met de meest voorkomende en werken de lijst af naar de minst voorkomende.
 
 1. **Wacht een uur**. DNS-records moeten zijn doorgegeven voordat Azure AD het domein kan verifiëren. Dit kan een uur of langer duren.
 2. **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website van de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet verifiëren als de DNS-vermelding niet aanwezig is in het DNS-zonebestand of als deze niet exact overeenkomt met de DNS-vermelding die u van Azure AD hebt gekregen. Als u geen toegang hebt tot de site van de domeinnaamregistrar om de DNS-records voor het domein bij te werken, deel de DNS-vermelding dan met de persoon die of het team dat in uw organisatie deze toegang heeft en vraag om de DNS-vermelding toe te voegen.
 3. **Verwijder de domeinnaam uit andere mappen in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als een domeinnaam eerder is geverifieerd in een andere map, moet de domeinnaam daar eerst uit worden verwijderd voordat deze kan worden geverifieerd in een nieuwe map. Zie [Aangepaste domeinnamen beheren](active-directory-add-manage-domain-names.md) voor meer informatie over het verwijderen van domeinnamen.
 
-## Meer aangepaste domeinnamen toevoegen
+## <a name="add-more-custom-domain-names"></a>Meer aangepaste domeinnamen toevoegen
 Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals contoso.com en contosobank.com, kunt u tot maximaal 900 domeinnamen toevoegen. Gebruik dezelfde stappen in dit artikel om elke domeinnaam toe te voegen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Gebruikersnamen toewijzen die uw aangepaste domeinnaam omvatten](active-directory-add-domain-add-users.md)
 * [Aangepaste domeinnamen beheren](active-directory-add-manage-domain-names.md)
-* [Meer informatie over concepten wat betreft domeinbeheer in Azure AD](active-directory-add-domain-concepts.md)
+* [Meer informatie over concepten met betrekking tot domeinbeheer in Azure AD](active-directory-add-domain-concepts.md)
 * [De huisstijl van uw bedrijf weergeven wanneer uw gebruikers zich aanmelden](active-directory-add-company-branding.md)
-* [PowerShell gebruiken voor het beheren van domeinnamen in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [PowerShell gebruiken voor het beheer van domeinnamen in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -25,6 +25,8 @@ Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepa
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

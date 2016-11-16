@@ -57,7 +57,7 @@
 #### [Een 8600 uitpakken, op een rek monteren en aansluiten](storsimple-8600-hardware-installation.md)
 #### [Ondersteunde hardware voor 10 GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Implementeren 
+### Implementeren
 #### [StorSimple Manager-service](storsimple-manage-service.md)
 #### [Fysiek apparaat in Azure - actueel](storsimple-deployment-walkthrough-u2.md)
 ##### [Fysiek apparaat in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [StorSimple Adapter voor SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Procedures
-### Beheren 
+### Beheren
 #### [StorSimple Manager-service gebruiken](storsimple-manager-service-administration.md)
 ##### [Herstellen vanaf back-up](storsimple-restore-from-backup-set-u2.md)
 ###### [Herstellen vanaf back-up](storsimple-restore-from-backup-set.md)
@@ -160,18 +160,20 @@
 ### [Versie - GA](storsimple-july-2014-release-notes.md)
 
 ## Naslaginformatie
-### [Naslagdocumentatie voor Azure PowerShell-cmdlet](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Naslagdocumentatie voor Windows PowerShell for StorSimple-cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](/powershell/servicemanagement/)
 
-# [StorSimple 5000-7000-serie](http://onlinehelp.storsimple.com)
+# Verwant
+## [StorSimple 5000-7000-serie](http://onlinehelp.storsimple.com)
 
-# Bronnen
-## [Azure Blog](https://azure.microsoft.com/blog/)
-## [Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+# Resources
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Marketingblog](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Ondersteuningsblog](http://blogs.msdn.com/b/storsimple/)
 ## [Mededelingen van derden](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Service-updates](https://azure.microsoft.com/updates/?product=storsimple)
+## [Prijzen](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->

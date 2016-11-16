@@ -2,6 +2,8 @@ Als u de niet-SSL-poort wilt inschakelen, [bladert](../articles/redis-cache/cach
 
 ![Instellingen van Redis-cache](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

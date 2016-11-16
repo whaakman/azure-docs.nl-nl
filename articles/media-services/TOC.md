@@ -1,11 +1,11 @@
 # [Overzicht](media-services-overview.md)
 ## [Concepten](media-services-concepts.md)
-## [Prijzen](https://azure.microsoft.com/pricing/details/media-services/)
-## [Releaseopmerkingen](media-services-release-notes.md)
+
+
 # Aan de slag
 ## [Account maken en beheren](media-services-portal-create-account.md)
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
-## Video on demand
+## Video op aanvraag leveren
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
@@ -166,12 +166,14 @@
 ###[Logica voor opnieuw proberen](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Naslaginformatie
-## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [Media Services REST API](media-services-rest-how-to-use.md)
+## [Releaseopmerkingen](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
 ## [Indelingen en codecs voor Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 ## [Indelingen en codecs voor Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 
-# Verwant
+# Resources
+## [Prijzen](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services-community](media-services-community.md)
 
 

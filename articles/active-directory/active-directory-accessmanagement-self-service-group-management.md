@@ -1,22 +1,26 @@
 ---
-title: Azure Active Directory instellen voor toegangsbeheer met self-service voor toepassingen | Microsoft Docs
+title: Azure Active Directory instellen voor toegangsbeheer met selfservice voor toepassingen | Microsoft Docs
 description: Met groepsbeheer met self-service kunnen gebruikers beveiligingsgroepen of Office 365-groepen maken en beheren in Azure Active Directory. Bovendien biedt het gebruikers de mogelijkheid om het lidmaatschap van een beveiligingsgroep of Office 365-groep aan te vragen.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+
 
 ---
-# Azure Active Directory instellen voor groepsbeheer met self-service
+# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Azure Active Directory instellen voor groepsbeheer met self-service
 Zelfservicegroepsbeheer zorgt ervoor dat gebruikers beveiligingsgroepen of Office 365-groepen kan maken en beheren in de Azure Active Directory (Azure AD). Gebruikers kunnen ook vragen om lidmaatschap van een beveiligingsgroep of Office 365-groep en de eigenaar van de groep kan lidmaatschap goedkeuren of ontkennen. Op deze manier kan dagelijkse beheer van groepslidmaatschap worden overgedragen aan de mensen die de bedrijfscontext voor het desbetreffende lidmaatschap begrijpen. Functies van het zelfservicegroepsbeheer zijn enkel bechikbaar voor beveiligingsgroepen en Office 365-groepen, maar niet voor beveiligingsgroepen met mail of distributielijsten.
 
 Groepsbeheer met self-service bestaat momenteel uit twee kernscenario's: gedelegeerd groepsbeheer en groepsbeheer met self-service.
@@ -26,7 +30,7 @@ Groepsbeheer met self-service bestaat momenteel uit twee kernscenario's: gedeleg
 * **Zelfservicegroepsmanagement**
     Een voorbeeld van dit scenario zijn twee gebruikers die allebei SharePoint Online-sites hebben die ze onafhankelijk hebben ingesteld. Ze willen elkaars teams toegang geven tot hun sites. Hiervoor kunnen ze in Azure AD een groep maken en in SharePoint selecteert elk van hen de groep waartoe ze op hun sites toegang willen verlenen. Wanneer iemand toegang wil, kan dit worden aangevraagd bij het toegangspaneel en na goedkeuring wordt automatisch toegang verleend tot beide SharePoint Online-sites. Later beslist één van hen dat alle personen die de site openen ook toegang moeten krijgen tot een specifieke SaaS-toepassing. De beheerder van de SaaS-toepassing kan toegangsrechten toevoegen voor de toepassing aan de SharePoint Online-site. Vanaf dan verlenen alle goedgekeurde verzoeken toegang tot de twee SharePoint Online-sites en ook tot deze SaaS-toepassing.
 
-## Een groep beschikbaar maken voor self-service door eindgebruikers
+## <a name="making-a-group-available-for-end-user-selfservice"></a>Een groep beschikbaar maken voor self-service door eindgebruikers
 1. Open in het [Klassieke Azure-portal](https://manage.windowsazure.com) uw Azure AD-directory.
 2. Schakel in het tabblad **Configureren** het **Overgedragen groepsbeheer** in.
 3. Schakel **Gebruikers kunnen beveiligingsgroepen maken** of **Gebruikers kunnen Office-groepen maken** in.
@@ -37,15 +41,18 @@ U kunt ook **Gebruikers die zelfservice kunnen gebruiken voor beveiligingsgroepe
 
 U kunt ook het vak **Groep die zelfservice voor beveiligingsgroepen** gebruiken om een eigen naam op te geven voor een groep waarvan de leden zelfservice kunnen gebruiken.
 
-## Aanvullende informatie
+## <a name="additional-information"></a>Aanvullende informatie
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups (Engelstalig)](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets voor het configureren van groepsinstellingen](active-directory-accessmanagement-groups-settings-cmdlets.md)
-* [Article Index for Application Management in Azure Active Directory (Engelstalig)](active-directory-apps-index.md)
-* [What is Azure Active Directory? (Engelstalig)](active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory (Engelstalig)](active-directory-aadconnect.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+* [What is Azure Active Directory?](active-directory-whatis.md) (Wat is Azure Active Directory?)
+* [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

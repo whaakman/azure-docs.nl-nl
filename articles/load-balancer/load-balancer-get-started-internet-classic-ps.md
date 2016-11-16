@@ -1,58 +1,79 @@
 ---
-title: Get started creating an Internet facing load balancer in classic mode using PowerShell | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic mode using PowerShell
+title: Aan de slag met het maken van een internetgerichte load balancer in de klassieke modus met PowerShell | Microsoft Docs
+description: Meer informatie over het maken van een internetgerichte load balancer in de klassieke modus met PowerShell
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7344f2c3eeb7d52f8bc60e564d66b2cc51f10f75
 
 ---
-# Get started creating an Internet facing load balancer (classic) in PowerShell
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Aan de slag met het maken van een internetgerichte load balancer (klassiek) in PowerShell
+
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up load balancer using PowerShell
-To set up a load balancer using powershell, follow the steps below:
+## <a name="set-up-load-balancer-using-powershell"></a>Een load balancer instellen met behulp van PowerShell
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. After creating a virtual machine, you can use PowerShell cmdlets to add a load balancer to a virtual machine within the same cloud service.
+Volg de onderstaande stappen om een load balancer in te stellen met behulp van PowerShell:
 
-In the following example you will add a load balancer set called "webfarm" to cloud service "mytestcloud" (or myctestcloud.cloudapp.net) , adding the endpoints for the load balancer to virtual machines named "web1" and "web2". The load balancer receives network traffic on port 80 and load balances between the virtual machines defined by the local endpoint (in this case port 80) using TCP.
+1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
+2. Nadat u een virtuele machine hebt gemaakt, kunt u PowerShell-cmdlets gebruiken om een load balancer toe te voegen aan een virtuele machine binnen dezelfde cloudservice.
 
-### Step 1
-Create a load balanced endpoint for the first VM "web1"
+In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam 'webfarm' toe aan de cloud service 'mytestcloud' (of myctestcloud.cloudapp.net) en voegt u de eindpunten voor de load balancer toe aan virtuele machines met de naam 'web1' en 'web2'. De load balancer ontvangt netwerkverkeer via poort 80 en verdeelt taken tussen virtuele machines die zijn gedefinieerd door het lokale eindpunt (in dit geval poort 80) met TCP.
 
+### <a name="step-1"></a>Stap 1
+
+Maak een eindpunt met gelijke taakverdeling voor de eerste VM 'web1'
+
+```powershell
     Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-### Step 2
-Create another endpoint for the second VM  "web2" using the same load balancer set name
+### <a name="step-2"></a>Stap 2
 
+Maak een ander eindpunt voor de tweede VM 'web2' met dezelfde naam voor de set met gelijke taakverdeling
+
+```powershell
     Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-## Remove a virtual machine from a load balancer
-You can use Remove-AzureEndpoint to remove a virtual machine endpoint from the load balancer 
+## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Verwijder een virtuele machine uit een load balancer
 
+U kunt Remove-AzureEndpoint gebruiken om het eindpunt van een virtuele machine uit de load balancer te verwijderen
+
+```powershell
     Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+```
 
-## Next steps
-You can also [get started creating an internal load balancer](load-balancer-get-started-ilb-classic-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
+## <a name="next-steps"></a>Volgende stappen
 
-If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
+U kunt ook [aan de slag gaan met het maken van een interne load balancer](load-balancer-get-started-ilb-classic-ps.md) en configureren welk type [distributiemodus](load-balancer-distribution-mode.md) er moet worden gebruikt voor specifiek gedrag voor netwerkverkeer van de load balancer.
+
+Als uw toepassing verbindingen actief moet houden voor servers achter een load balancer, krijgt u meer inzicht in [niet-actieve TCP-time-outinstellingen voor een load balancer](load-balancer-tcp-idle-timeout.md). Op deze manier krijgt u meer informatie over het gedrag van niet-actieve verbindingen wanneer u Azure Load Balancer gebruikt.
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

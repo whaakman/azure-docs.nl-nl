@@ -7,7 +7,7 @@ documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: documentdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+
 
 ---
 # <a name="python-flask-web-application-development-with-documentdb"></a>De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
@@ -57,7 +61,7 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 
 * Microsoft Visual C++ Compiler voor Python 2.7 uit het [Microsoft Downloadcentrum][3].
 
-## <a name="step-1:-create-a-documentdb-database-account"></a>Stap 1: een DocumentDB-databaseaccount maken
+## <a name="step-1-create-a-documentdb-database-account"></a>Stap 1: een DocumentDB-databaseaccount maken
 Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt u doorgaan met [Stap 2: een nieuwe Python Flask-toepassing maken](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -65,7 +69,7 @@ Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt 
 <br/>
 U kunt nu zien hoe u een compleet nieuwe Python Flask-toepassing maakt.
 
-## <a name="step-2:-create-a-new-python-flask-web-application"></a>Stap 2: een nieuwe Python Flask-webtoepassing maken
+## <a name="step-2-create-a-new-python-flask-web-application"></a>Stap 2: een nieuwe Python Flask-webtoepassing maken
 1. Wijs in het menu **Bestand** van Visual Studio de optie **Nieuw** aan en klik vervolgens op **Project**.
    
     Het dialoogvenster **Nieuw project** wordt weergegeven.
@@ -84,7 +88,7 @@ U kunt nu zien hoe u een compleet nieuwe Python Flask-toepassing maakt.
    
     Wanneer de omgeving is geïnstalleerd, verschijnt de volgende tekst in het uitvoervenster: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`.
 
-## <a name="step-3:-modify-the-python-flask-web-application"></a>Stap 3: de Python Flask-webtoepassing wijzigen
+## <a name="step-3-modify-the-python-flask-web-application"></a>Stap 3: de Python Flask-webtoepassing wijzigen
 ### <a name="add-the-python-flask-packages-to-your-project"></a>De Python Flask-pakketten aan uw project toevoegen
 Zodra het project is ingesteld, moet u de vereiste Flask-pakketten toevoegen aan uw project, inclusief pydocumentdb, het Python-pakket voor DocumentDB.
 
@@ -124,7 +128,7 @@ Zorg ervoor dat alles juist is geïnstalleerd.
     ![Het lege Python Flask-webontwikkelingsproject in een browser](./media/documentdb-python-application/image12.png)
 3. Stop de foutopsporing voor de website door in Visual Studio op **Shift**+**F5** te drukken.
 
-### <a name="create-database,-collection,-and-document-definitions"></a>Database-, verzamelings- en documentdefinities maken
+### <a name="create-database-collection-and-document-definitions"></a>Database-, verzamelings- en documentdefinities maken
 U kunt nu de stemtoepassing maken door nieuwe bestanden toe te voegen en andere bestanden bij te werken.
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project **tutorial** en klik vervolgens op **Toevoegen** en **Nieuw item**. Selecteer **het lege Python-bestand** en noem het bestand **forms.py**.  
@@ -142,7 +146,7 @@ class VoteForm(Form):
 ```
 
 
-### <a name="add-the-required-imports-to-views.py"></a>De vereiste imports toevoegen aan views.py
+### <a name="add-the-required-imports-to-viewspy"></a>De vereiste imports toevoegen aan views.py
 1. Vouw in Solution Explorer de map **tutorial** uit en open het bestand **views.py**. 
 2. Voeg de volgende importinstructies boven aan het bestand **views.py** toe en sla het bestand vervolgens op. Hiermee worden de PythonSDK van DocumentDB en de Flask-pakketten geïmporteerd.
    
@@ -152,7 +156,7 @@ class VoteForm(Form):
     import pydocumentdb.document_client as document_client
     ```
 
-### <a name="create-database,-collection,-and-document"></a>De database, de verzameling en het document maken
+### <a name="create-database-collection-and-document"></a>De database, de verzameling en het document maken
 * Voeg de volgende code toe aan het eind van het bestand **views.py**. Hiermee wordt de database gemaakt die door het formulier wordt gebruikt. Verwijder de bestaande code in **views.py** niet. U kunt de code gewoon aan het eind toevoegen.
 
 ```python
@@ -195,7 +199,7 @@ def create():
 > 
 > 
 
-### <a name="read-database,-collection,-document,-and-submit-form"></a>De database, de verzameling en het document lezen en het formulier verzenden
+### <a name="read-database-collection-document-and-submit-form"></a>De database, de verzameling en het document lezen en het formulier verzenden
 * Voeg de volgende code toe aan het eind van het bestand **views.py**. Deze code wordt gebruikt om het formulier in te stellen en de database, de verzameling en het documenten te lezen. Verwijder de bestaande code in **views.py** niet. U kunt de code gewoon aan het eind toevoegen.
 
 ```python
@@ -310,7 +314,7 @@ def vote():
     {% endblock %}
     ```
 
-### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Een configuratiebestand toevoegen en de \_\_init\_\_.py wijzigen
+### <a name="add-a-configuration-file-and-change-the-initpy"></a>Een configuratiebestand toevoegen en de \_\_init\_\_.py wijzigen
 1. Klik in Solution Explorer met de rechtermuisknop op het project **tutorial** en klik op **Toevoegen** en **Nieuw item**, selecteer **het lege Python-bestand** en noem het bestand **config.py**. Dit configuratiebestand is nodig voor de formulieren in Flask. U kunt dit bestand ook gebruiken om een geheime sleutel te verstrekken. Deze sleutel is echter niet nodig voor deze zelfstudie.
 2. Voeg de volgende code toe aan het bestand config.py. In de volgende stap moet u de waarden wijzigen voor **DOCUMENTDB\_HOST** en **DOCUMENTDB\_KEY**.
    
@@ -343,7 +347,7 @@ def vote():
    
     ![Schermopname van het Solution Explorer-venster in Visual Studio](./media/documentdb-python-application/image15.png)
 
-## <a name="step-4:-run-your-web-application-locally"></a>Stap 4: de webtoepassing lokaal uitvoeren
+## <a name="step-4-run-your-web-application-locally"></a>Stap 4: de webtoepassing lokaal uitvoeren
 1. Bouw de oplossing op door op **Ctrl**+**Shift**+**B** te drukken.
 2. Zodra de opbouwbewerking is voltooid, start u de website door op **F5** te drukken. Uw scherm ziet er nu als volgt uit:
    
@@ -359,12 +363,12 @@ def vote():
     ![Schermopname van de pagina met stemresultaten](./media/documentdb-python-application/image19.png)
 6. Stop de foutopsporing voor het project door op Shift + F5 te drukken.
 
-## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>Stap 5: de webtoepassing implementeren naar Azure Websites
+## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Stap 5: de webtoepassing implementeren naar Azure Websites
 Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing implementeren naar Azure Websites.
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project (zorg ervoor dat de toepassing niet meer lokaal wordt uitgevoerd) en selecteer **Publiceren**.  
    
-    ![Schermopname van de geselecteerde zelfstudie in Solution Explorer met de optie Publiceren gemarkeerd](./media/documentdb-python-application/image20.png)
+     ![Schermopname van de geselecteerde zelfstudie in Solution Explorer met de optie Publiceren gemarkeerd](./media/documentdb-python-application/image20.png)
 2. Selecteer in het venster **Publish Web** (Publiceren naar het web) de optie **Microsoft Azure Web Apps** en klik op **Next** (Volgende).
    
     ![Schermopname van het venster Publish Web (Publiceren naar het web) met Microsoft Azure Web Apps (Web-apps van Microsoft Azure) gemarkeerd](./media/documentdb-python-application/image21.png)
@@ -405,6 +409,6 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

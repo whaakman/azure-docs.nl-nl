@@ -2,23 +2,27 @@
 title: Containerbeheer in Azure Container Service via de webgebruikersinterface | Microsoft Docs
 description: Implementeer containers naar een Azure Container Service-cluster met behulp van de webgebruikersinterface van Marathon.
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
-
+ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ae2945b0025da3bc933a1e4a8f10f21fd35cb51c
+
 
 ---
-# Containerbeheer via de webgebruikersinterface
+# <a name="container-management-through-the-web-ui"></a>Containerbeheer via de webgebruikersinterface
 DC/OS biedt een omgeving voor het implementeren en schalen van geclusterde werkbelastingen terwijl de onderliggende hardware wordt onttrokken. Op de DC/OS ligt een framework dat de planning en uitvoering van rekenwerkbelastingen regelt.
 
 Er zijn frameworks beschikbaar voor veel populaire werkbelastingen, maar in dit document wordt specifiek gekeken naar het maken en schalen van containerimplementaties met Marathon. Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is geconfigureerd in Azure Container Service. U hebt ook een externe verbinding met dit cluster nodig. Zie de volgende artikelen voor meer informatie over deze items:
@@ -26,17 +30,17 @@ Er zijn frameworks beschikbaar voor veel populaire werkbelastingen, maar in dit 
 * [Een Azure Container Service-cluster implementeren](container-service-deployment.md)
 * [Verbinding maken met een Azure Container Service-cluster](container-service-connect.md)
 
-## De DC/OS-gebruikersinterface verkennen
+## <a name="explore-the-dcos-ui"></a>De DC/OS-gebruikersinterface verkennen
 Wanneer een SSH-tunnel (Secure Shell) is ingesteld, gaat u naar http://localhost/. Hierdoor wordt de DC/OS-webgebruikersinterface geladen met informatie over het cluster, zoals gebruikte resources, actieve agents en actieve services.
 
 ![DC/OS-webgebruikersinterface](media/dcos/dcos2.png)
 
-## De Marathon-gebruikersinterface verkennen
+## <a name="explore-the-marathon-ui"></a>De Marathon-gebruikersinterface verkennen
 Ga naar http://localhost/Marathon om de Marathon-gebruikersinterface weer te geven. In dit scherm kunt u een nieuwe container of een andere toepassing starten op het DC/OS-cluster in Azure Container Service. U ziet ook informatie over actieve containers en toepassingen.  
 
 ![Marathon-gebruikersinterface](media/dcos/dcos3.png)
 
-## Een met Docker ingedeelde container implementeren
+## <a name="deploy-a-dockerformatted-container"></a>Een met Docker ingedeelde container implementeren
 Voor het implementeren van een nieuwe container via Marathon, klikt u op de knop **Toepassing maken** en voert u de volgende gegevens op het formulier in:
 
 | Veld | Waarde |
@@ -77,7 +81,7 @@ U ziet ook het clusterknooppunt waarop de taak wordt uitgevoerd.
 
 ![DC/OS-webgebruikersinterface: clusterknooppunt van taak](media/dcos/dcos9.png)
 
-## Uw containers schalen
+## <a name="scale-your-containers"></a>Uw containers schalen
 U kunt de Marathon-gebruikersinterface gebruiken om het aantal exemplaren van een container te schalen. Wanneer u dit wilt doen, gaat u naar de pagina **Marathon**, selecteert u de container die u wilt schalen en klikt u op de knop **Schalen**. In het dialoogvenster **Toepassing schalen** voert u het aantal gewenste containerexemplaren in en selecteert u **Toepassing schalen**.
 
 ![Marathon-gebruikersinterface: dialoogvenster Toepassing schalen](media/dcos/dcos10.png)
@@ -88,15 +92,18 @@ Nadat de bewerking voor het aanpassen van de schaal is voltooid, ziet u meerdere
 
 ![DC/OS-webgebruikersinterface: knooppunten](media/dcos/dcos12.png)
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Werken met DC/OS en de Marathon API](container-service-mesos-marathon-rest.md)
 
 Gedetailleerde uitleg over Azure Container Service met Mesos
 
-> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

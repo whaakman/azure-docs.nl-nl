@@ -6,7 +6,7 @@ documentationcenter: .net
 author: mine-msft
 manager: aungoo
 editor: tysonn
-
+ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Aan de slag met Azure File Storage in Windows
@@ -31,7 +35,7 @@ Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targ
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
-## <a name="video:-using-azure-file-storage-with-windows"></a>Video: Azure File Storage gebruiken met Windows
+## <a name="video-using-azure-file-storage-with-windows"></a>Video: Azure File Storage gebruiken met Windows
 Hier volgt een video waarin u ziet hoe u Azure-bestandsshares maakt en gebruikt in Windows.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
@@ -39,31 +43,31 @@ Hier volgt een video waarin u ziet hoe u Azure-bestandsshares maakt en gebruikt 
 > 
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-In deze zelfstudie Aan de slag leert u de grondbeginselen van het gebruik van Microsoft Azure File Storage. In deze zelfstudie leert u het volgende:
+In deze zelfstudie maakt u kennis met de basisprincipes van het werken met Microsoft Azure File Storage. In deze zelfstudie leert u het volgende:
 
 * Azure Portal of PowerShell gebruiken om een nieuwe bestandsshare in Azure te maken, een map toe te voegen, een lokaal bestand te uploaden naar de share en de bestanden in de map weer te geven.
 * De bestandsshare koppelen op dezelfde manier waarop u een SMB-share koppelt.
 * De clientbibliotheek van Azure Storage voor .NET gebruiken om de bestandsshare te openen vanuit een on-premises toepassing. Een consoletoepassing maken en de volgende acties uitvoeren met de bestandsshare:
   * De inhoud van een bestand in de share naar het consolevenster schrijven.
   * Een quotum (maximumgrootte) voor de bestandsshare instellen.
-  * Een Shared Access Signature maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat in de share is gedefinieerd.
+  * Een Shared Access Signature maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat voor de share is gedefinieerd.
   * Een bestand kopiëren naar een ander bestand in hetzelfde opslagaccount.
   * Een bestand kopiëren naar een blob in hetzelfde opslagaccount.
 * Metrische gegevens van Azure Storage gebruiken voor het oplossen van problemen
 
 File Storage wordt nu ondersteund voor alle opslagaccounts. U kunt dus een bestaand opslagaccount gebruiken of een nieuw opslagaccount maken. Zie [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) (Een opslagaccount maken) voor informatie over het maken van een nieuw opslagaccount.
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>De Azure Portal gebruiken om een bestandsshare te beheren
-De [Azure Portal](https://portal.azure.com) geeft klanten een gebruikersinterface voor het beheren van bestandsshares. Vanuit de portal kunt u het volgende:
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Azure Portal gebruiken om een bestandsshare te beheren
+Met [Azure Portal](https://portal.azure.com) beschikken klanten over een gebruikersinterface voor het beheren van bestandsshares. Vanuit de portal kunt u het volgende:
 
 * De bestandsshare maken
 * Bestanden uploaden naar en downloaden van de bestandsshare
 * Het werkelijke gebruik van elke bestandsshare controleren
 * Het quotum van de sharegrootte aanpassen
-* De opdracht `net use` verkrijgen om de bestandsshare te koppelen vanuit een Windows-client
+* De opdracht `net use` uitvoeren om de bestandsshare te koppelen vanuit een Windows-client
 
 ### <a name="create-file-share"></a>Bestandsshare maken
-1. Meld u aan bij de Azure Portal.
+1. Meld u aan bij Azure Portal.
 2. Klik in het navigatiemenu op **Opslagaccounts** of **Opslagaccounts (klassiek)**.
    
     ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
@@ -128,14 +132,18 @@ Nu gaat u de context van het opslagaccount maken. De context bestaat uit de naam
 
 Vervang `storage-account-name` en `storage-account-key` in het volgende voorbeeld door de naam en sleutel van uw opslagaccount.
 
+```powershell
     # create a context for account and key
     $ctx=New-AzureStorageContext storage-account-name storage-account-key
+```
 
 ### <a name="create-a-new-file-share"></a>Een nieuwe bestandsshare maken
 Maak vervolgens de nieuwe share met de naam `logs`.
 
+```powershell
     # create a new share
     $s = New-AzureStorageShare logs -Context $ctx
+```
 
 U hebt nu een bestandsshare in File Storage. Nu gaan we een map en een bestand toevoegen.
 
@@ -147,31 +155,39 @@ U hebt nu een bestandsshare in File Storage. Nu gaan we een map en een bestand t
 ### <a name="create-a-directory-in-the-file-share"></a>Een map maken in de bestandsshare
 Maak vervolgens een map in de share. In het volgende voorbeeld wordt de map `CustomLogs` genoemd.
 
+```powershell
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
+```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>Een lokaal bestand uploaden naar de map
 Upload nu een lokaal bestand naar de map. In het volgende voorbeeld wordt een bestand geüpload vanuit `C:\temp\Log1.txt`. Bewerk het bestandspad zo dat het wijst naar een geldig bestand op uw lokale computer.
 
+```powershell
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+```
 
 ### <a name="list-the-files-in-the-directory"></a>De bestanden in de map weergeven
 Als u het bestand in de map wilt zien, kunt u alle bestanden in de map weergeven. Deze opdracht retourneert de bestanden en eventuele submappen in de map CustomLogs.
 
+```powershell
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+```
 
 Get-AzureStorageFile retourneert een lijst met bestanden en mappen voor elk mapobject dat daaraan is doorgegeven. "Get-AzureStorageFile -Share $s" retourneert een lijst met bestanden en mappen in de hoofdmap. Voor een lijst met bestanden in een submap moet u de submap doorgeven aan Get-AzureStorageFile. Het volgende gebeurt: het eerste deel van de opdracht, tot aan de pipe, retourneert een mapexemplaar van de submap CustomLogs. Daarna wordt dit doorgegeven via Get-AzureStorageFile, en worden de bestanden en mappen in CustomLogs geretourneerd.
 
 ### <a name="copy-files"></a>Bestanden kopiëren
 Vanaf versie 0.9.7 van Azure PowerShell kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. Hieronder ziet u hoe u deze kopieerbewerkingen uitvoert met PowerShell-cmdlets.
 
+```powershell
     # copy a file to the new directory
     Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+```
 
 ## <a name="mount-the-file-share"></a>De bestandsshare koppelen
 Dankzij ondersteuning voor SMB 3.0 ondersteunt File Storage nu versleuteling en permanente ingangen vanuit SMB 3.0-clients. Ondersteuning voor versleuteling houdt in dat SMB 3.0-clients een bestandsshare vanaf elke locatie kunnen koppelen, onder andere vanaf:
@@ -191,11 +207,11 @@ Wanneer een client File Storage opent, hangt de gebruikte SMB-versie af van de S
 | Windows Server 2012 R2 |SMB 3.0 |
 | Windows 10 |SMB 3.0 |
 
-### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>De bestandsshare koppelen van een virtuele machine in Azure waarop Windows wordt uitgevoerd
+### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>De bestandsshare koppelen vanaf een virtuele machine in Azure waarop Windows wordt uitgevoerd
 Als voorbeeld van het koppelen van een Azure-bestandsshare maken we nu een virtuele machine in Azure waarop Windows wordt uitgevoerd en maken we op afstand verbinding om de share te koppelen.
 
-1. Maak eerst een nieuwe virtuele machine in Azure door de instructies te volgen in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) (Een virtuele machine voor Windows maken in de Azure Portal).
-2. Maak daarna op afstand verbinding met de virtuele machine door de instructies te volgen in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md) (Aanmelden bij een virtuele machine met Windows met behulp van de Azure Portal).
+1. Maak eerst een nieuwe virtuele machine in Azure door de instructies te volgen in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) (Een virtuele machine voor Windows maken in Azure Portal).
+2. Maak daarna op afstand verbinding met de virtuele machine door de instructies te volgen in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md) (Aanmelden bij een virtuele machine met Windows met behulp van Azure Portal).
 3. Open een PowerShell-venster op de virtuele machine.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>De referenties van het opslagaccount voor de virtuele machine persistent maken
@@ -203,11 +219,11 @@ Voordat u de bestandsshare kunt koppelen, moet u eerst de referenties van het op
 
     cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
 
-Windows maakt nu opnieuw verbinding met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. U kunt controleren of de share opnieuw is verbonden, door de opdracht `net use` uit te voeren vanuit een PowerShell-venster.
+Windows maakt nu opnieuw verbinding met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. U kunt controleren of de share opnieuw is verbonden door de opdracht `net use` uit te voeren vanuit een PowerShell-venster.
 
 Referenties worden alleen persistent in de context waarin `cmdkey` wordt uitgevoerd. Als u een toepassing ontwikkelt die als een service wordt uitgevoerd, moet u ook de referenties in die context persistent maken.
 
-### <a name="mount-the-file-share-using-the-persisted-credentials"></a>De bestandsshare koppelen met behulp van de persistente referenties
+### <a name="mount-the-file-share-using-the-persisted-credentials"></a>De bestandsshare koppelen met behulp van de persistente referenties 
 Wanneer u een externe verbinding met de virtuele machine hebt, kunt u de opdracht `net use` met de volgende syntaxis uitvoeren om de bestandsshare te koppelen. Vervang `<storage-account-name>` door de naam van uw opslagaccount en `<share-name>` door de naam van de File Storage-share.
 
     net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
@@ -226,7 +242,7 @@ Nu kunt u de File Storage-share, net zoals ieder ander station, gebruiken vanaf 
 
 U kunt de bestandsshare ook koppelen vanuit een functie die wordt uitgevoerd in een Azure-cloudservice, door op afstand verbinding te maken met die functie.
 
-### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>De bestandsshare koppelen vanuit een on-premises client waarop Windows wordt uitgevoerd
+### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>De bestandsshare koppelen vanuit een on-premises client waarop Windows wordt uitgevoerd
 Als u de bestandsshare wilt koppelen vanuit een on-premises client, moet u eerst de volgende stappen uitvoeren:
 
 * Installeer een versie van Windows die ondersteuning biedt voor SMB 3.0. Windows gebruikt SMB 3.0-versleuteling om gegevens veilig over te brengen tussen uw on-premises client en de Azure-bestandsshare in de cloud.
@@ -247,13 +263,13 @@ Ga als volgt te werk om een nieuwe consoletoepassing te maken in Visual Studio e
 2. Geef een naam op voor de consoletoepassing en klik op **OK**.
 3. Wanneer het project is gemaakt, klikt u met de rechtermuisknop op het project in Solution Explorer en kiest u **NuGet-pakketten beheren**. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Azure Storage-clientbibliotheek voor .NET-pakketten en -afhankelijkheden te installeren.
 
-In de codevoorbeelden in dit artikel wordt ook gebruik gemaakt van de [Configuration Manager-bibliotheek van Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx), om de opslagverbindingsreeks op te halen uit het bestand app.config in de consoletoepassing. Met Azure Configuration Manager kunt u de verbindingsreeks in runtime ophalen, ongeacht of de toepassing wordt uitgevoerd in Microsoft Azure of vanuit een bureaublad-, mobiele of webtoepassing.
+In de codevoorbeelden in dit artikel wordt ook gebruikgemaakt van de [Configuration Manager-bibliotheek van Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx), om de opslagverbindingsreeks op te halen uit het bestand app.config in de consoletoepassing. Met Azure Configuration Manager kunt u de verbindingsreeks in runtime ophalen, ongeacht of de toepassing wordt uitgevoerd in Microsoft Azure of vanuit een bureaublad-, mobiele of webtoepassing.
 
 U installeert het Azure Configuration Manager-pakket door in Solution Explorer met de rechtermuisknop op het project te klikken en **NuGet-pakketten beheren** te kiezen. Zoek online naar 'ConfigurationManager' en klik op **Installeren** om het pakket te installeren.
 
 Het gebruik van Azure Configuration Manager is optioneel. U kunt ook een API gebruiken, zoals de [ConfigurationManager-klasse](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) van .NET Framework.
 
-### <a name="save-your-storage-account-credentials-to-the-app.config-file"></a>Uw opslagaccountreferenties opslaan in het bestand app.config
+### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uw opslagaccountreferenties opslaan in het bestand app.config
 Vervolgens slaat u uw referenties op in het bestand app.config van het project. Bewerk het bestand app.config zo dat het op het volgende voorbeeld lijkt, waarbij u `myaccount` vervangt door de naam van het opslagaccount, en `mykey` door de sleutel van het opslagaccount.
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -275,16 +291,19 @@ Vervolgens slaat u uw referenties op in het bestand app.config van het project. 
 ### <a name="add-namespace-declarations"></a>Naamruimtedeclaraties toevoegen
 Open het bestand `program.cs` in Solution Explorer en plaats de volgende naamruimtedeclaraties boven in het bestand.
 
+```csharp
     using Microsoft.Azure; // Namespace for Azure Configuration Manager
     using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
     using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="access-the-file-share-programmatically"></a>Via een programma toegang krijgen tot de bestandsshare
 Vervolgens voegt u de volgende code aan de methode `Main()` (na de hierboven weergegeven code) toe om de verbindingsreeks op te halen. Met deze code wordt een verwijzing opgehaald naar het bestand dat we eerder hebben gemaakt en wordt de inhoud ervan weergegeven in het consolevenster.
 
+```csharp
     // Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
@@ -314,6 +333,7 @@ Vervolgens voegt u de volgende code aan de methode `Main()` (na de hierboven wee
             }
         }
     }
+```
 
 Voer de consoletoepassing uit om de uitvoer te zien.
 
@@ -324,6 +344,7 @@ Door het quotum voor een share in te stellen, kunt u de totale grootte instellen
 
 In onderstaand voorbeeld ziet u hoe u het huidige gebruik voor een share controleert en een quotum voor de share instelt.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -351,12 +372,14 @@ In onderstaand voorbeeld ziet u hoe u het huidige gebruik voor een share control
         share.FetchAttributes();
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
+```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Een Shared Access Signature genereren voor een bestand of bestandsshare
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u een Shared Access Signature (SAS) genereren voor een bestandsshare of voor een afzonderlijk bestand. U kunt op een bestandsshare ook een beleid voor gedeelde toegang maken om handtekeningen voor gedeelde toegang te beheren. Het maken van een beleid voor gedeelde toegang wordt aanbevolen omdat dit een manier biedt om de SAS in te trekken als deze verdacht is.
 
 In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een share en wordt dat beleid vervolgens gebruikt om de beperkingen te verstrekken voor een SAS voor een bestand in de share.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,13 +421,14 @@ In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een 
         fileSas.UploadText("This write operation is authenticated via SAS.");
         Console.WriteLine(fileSas.DownloadText());
     }
+```
 
 Voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang, raadpleegt u [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) en [Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md) (Een SAS maken en gebruiken met Blob Storage).
 
 ### <a name="copy-files"></a>Bestanden kopiëren
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. In de volgende secties ziet u hoe u deze kopieerbewerkingen uitvoert via een programma.
 
-U kunt ook AzCopy gebruiken om één bestand naar een andere te kopiëren of om een blob naar een bestand te kopiëren of andersom. Zie [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) (Gegevensoverdracht met het AzCopy-opdrachtregelprogramma).
+U kunt ook AzCopy gebruiken om een bestand naar een ander bestand te kopiëren of om een blob naar een bestand te kopiëren of omgekeerd. Zie [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) (Gegevensoverdracht met het AzCopy-opdrachtregelprogramma).
 
 > [!NOTE]
 > Als u een blob kopieert naar een bestand of een bestand naar een blob, moet u een Shared Access Signature (SAS) gebruiken om het bronobject te verifiëren, zelfs als u binnen hetzelfde opslagaccount kopieert.
@@ -415,6 +439,7 @@ U kunt ook AzCopy gebruiken om één bestand naar een andere te kopiëren of om 
 
 In het volgende voorbeeld wordt een bestand gekopieerd naar een ander bestand in dezelfde share. Omdat met deze kopieerbewerking bestanden in hetzelfde opslagaccount worden gekopieerd, kunt u verificatie met gedeelde sleutel gebruiken om de kopie te maken.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -454,12 +479,13 @@ In het volgende voorbeeld wordt een bestand gekopieerd naar een ander bestand in
             }
         }
     }
-
+```
 
 **Een bestand kopiëren naar een blob**
 
 In het volgende voorbeeld wordt een bestand gemaakt en vervolgens gekopieerd naar een blob in hetzelfde opslagaccount. In het voorbeeld wordt een SAS voor het bronbestand gemaakt, die tijdens de kopieerbewerking door de service wordt gebruikt om toegang tot het bronbestand te verifiëren.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -501,6 +527,7 @@ In het volgende voorbeeld wordt een bestand gemaakt en vervolgens gekopieerd naa
     // Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
     Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+```
 
 Op dezelfde manier kunt u een blob naar een bestand kopiëren. Als het bronobject een blob is, maakt u een SAS om tijdens de kopieerbewerking de toegang tot de blob te verifiëren.
 
@@ -513,11 +540,14 @@ In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NE
 
 Voeg eerst de volgende `using`-instructies toe aan de reeds eerder vermelde instructies in het bestand program.cs:
 
+```csharp
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+```
 
 Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
 
+```csharp
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -556,7 +586,9 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
     Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
     Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+```
 
+U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing. 
 
 ## <a name="file-storage-faq"></a>Veelgestelde vragen over File Storage
 1. **Wordt verificatie op basis van Active Directory door File Storage ondersteund?**
@@ -576,7 +608,7 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
 5. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?**
    
     Nee. Als u niet over ExpressRoute beschikt, hebt u nog steeds toegang tot de bestandsshare vanaf een on-premises computer, zolang poort 445 (TCP uitgaand) is geopend voor internettoegang. Indien gewenst kunt u ExpressRoute echter met File Storage gebruiken.
-6. **Is een 'Bestandssharewitness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
+6. **Is een 'File Share Witness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
    
     Dit wordt momenteel niet ondersteund.
 7. **File Storage wordt op dit moment toch alleen gerepliceerd via LRS of GRS?**  
@@ -594,7 +626,7 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
 11. **Is het mogelijk om alleen-lezen of alleen-schrijven machtigingen op te geven voor mappen in de share?**
     
     Dit niveau van controle over machtigingen is niet mogelijk wanneer u de bestandsshare koppelt via SMB. U kunt dit echter wel bereiken door een Shared Access Signature (SAS) te maken via de REST API of clientbibliotheken.  
-12. **Mijn prestaties waren slecht tijdens een poging bestanden uit te pakken in File Storage. Wat moet ik doen?**
+12. **Het uitpakken van bestanden in File Storage ging erg traag. Wat moet ik doen?**
     
     Als u veel bestanden wilt overbrengen naar File Storage, kunt u beter gebruikmaken van AzCopy, Azure Powershell (Windows) of de Azure CLI (Linux/Unix). Deze hulpprogramma's zijn geoptimaliseerd voor netwerkoverdracht.
 13. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
@@ -603,6 +635,9 @@ Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in 
 14. **Azure File Storage gebruiken met IBM MQ**
     
     IBM heeft een document uitgegeven om IBM MQ-klanten te helpen bij de configuratie van Azure File Storage met hun service. Voor meer informatie raadpleegt u [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (IBM MQ-wachtrijbeheer voor meerdere instanties instellen met Microsoft Azure File-service.
+15. **Hoe kan ik fouten bij Azure File Storage oplossen?**
+    
+    U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
@@ -626,6 +661,9 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Persisting connections to Microsoft Azure Files (Permanente verbindingen met Microsoft Azure-bestanden)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

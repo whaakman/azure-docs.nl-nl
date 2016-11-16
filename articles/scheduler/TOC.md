@@ -13,19 +13,23 @@
 ### [Hoge beschikbaarheid en betrouwbaarheid](scheduler-high-availability-reliability.md)
 
 ## Ontwikkelen
-### [Complexe schema's met de REST-API](scheduler-advanced-complexity.md)
+### [Complexe schema's met de REST API](scheduler-advanced-complexity.md)
+### [Concepten en terminologie](scheduler-concepts-terms.md)
 
 ## Beveiligen
 ### [Uitgaande verificatie](scheduler-outbound-authentication.md)
 
 # Naslaginformatie
-## [Concepten en terminologie](scheduler-concepts-terms.md)
-## [REST-API](https://msdn.microsoft.com/library/azure/mt629143)
-## [PowerShell-cmdlets](scheduler-powershell-reference.md)
+## [PowerShell-cmdlets van Azure Scheduler](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/scheduler/)
 
 # Bronnen
-## [Video's voor Scheduler](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Service-updates](https://azure.microsoft.com/updates/?product=scheduler)
+## [Prijzen](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 
 <!--HONumber=Nov16_HO2-->

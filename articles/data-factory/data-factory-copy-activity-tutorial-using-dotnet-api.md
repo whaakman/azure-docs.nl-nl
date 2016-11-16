@@ -2,21 +2,25 @@
 title: 'Zelfstudie: een pijplijn maken met Copy Activity in .NET API | Microsoft Docs'
 description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn met Copy Activity. Hiervoor gebruikt u .NET API.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -38,17 +42,17 @@ Met Copy Activity wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit. 
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
 
-### Een toepassing maken in Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
 Maak een Azure Active Directory-toepassing, maak een service-principal voor de toepassing en wijs deze toe aan de rol **Inzender Data Factory**.  
 
 1. Start **PowerShell**. 
-2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.
+2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
    
         Login-AzureRmAccount   
 3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
@@ -95,7 +99,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 * Toepassings-id 
 * Wachtwoord (opgegeven in de eerste opdracht)   
 
-## Walkthrough
+## <a name="walkthrough"></a>Walkthrough
 1. Maak met behulp van Visual Studio 2012/2013/2015 een C# .NET-consoletoepassing.
    1. Open **Visual Studio** 2012/2013/2015.
    2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
@@ -105,25 +109,29 @@ U moet na deze stappen beschikken over de volgende vier waarden:
    6. Selecteer **C:\ADFGetStarted** als de locatie.
    7. Klik op **OK** om het project te maken.
 2. Klik achtereenvolgens op **Tools**, houd de muisaanwijzer op **Nuget Package Manager** en klik op **Package Manager Console**.
-3. Voer in **Package Manager Console** de volgende opdrachten één voor één uit. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. Voer de volgende stappen uit in de **Package Manager Console**: 
+   1. Voer de volgende opdracht uit om het Data Factory-pakket te installeren: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Voer de volgende opdracht uit om het Azure Active Directory-pakket te installeren (u gebruikt de Active Directory API in de code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Voeg de volgende sectie **appSetttings** toe aan het bestand **App.config**. Deze instellingen worden gebruikt door de Help-methode: **GetAuthorizationHeader**. 
    
     Vervang de waarden voor **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** en **&lt;Tenant ID&gt;** door uw eigen waarden. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Voeg de volgende **using**-instructies toe aan het bronbestand (Program.cs) in het project.
    
         using System.Threading;
@@ -137,7 +145,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure;
 6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken.
-   U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.    
+ U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.    
    
             // create data factory management client
             string resourceGroupName = "ADFTutorialResourceGroup";
@@ -346,7 +354,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                            },
                        }
                    }
-               }); 
+               });    
 2. Voeg de volgende code toe aan de methode **Main** om de status van een gegevenssegment van de uitvoergegevensset te achterhalen. In dit voorbeeld wordt alleen een segment verwacht.   
    
            // Pulling status within a timeout threshold
@@ -450,16 +458,19 @@ U moet na deze stappen beschikken over de volgende vier waarden:
        John, Doe
        Jane, Doe
 8. Voer het voorbeeld uit door op **Debug** -> **Start Debugging** te klikken in het menu. Als u **Getting run details of a data slice** ziet, wacht u een paar minuten en drukt u op **ENTER**. 
-9. Gebruik de Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten: 
+9. Gebruik Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten: 
    * Gekoppelde service: **LinkedService_AzureStorage** 
    * Gegevensset: **DatasetBlobSource** en **DatasetBlobDestination**.
    * Pijplijn: **PipelineBlobSample** 
-10. Controleer of er een uitvoerbestand is gemaakt in de map '**apifactoryoutput**' in de **adftutorial**-container.
+10. Controleer of de twee werknemersrecords zijn gemaakt in de tabel "**emp**" in de opgegeven Azure SQL-database.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Lees het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md). Dit artikel biedt gedetailleerde informatie over Copy Activity die u tijdens deze zelfstudie hebt gemaakt.
 * Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK. Dit artikel behandelt niet de volledige Data Factory .NET API. 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

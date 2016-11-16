@@ -2,21 +2,25 @@
 title: Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren | Microsoft Docs
 description: Informatie over het verbeteren van de latentie, het bandbreedteverbruik en de webservicewerklast voor API Management-serviceaanroepen.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+
 
 ---
-# Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
 Bewerkingen in API Management kunnen worden geconfigureerd voor het opslaan van antwoorden in de cache. Door het opslaan van antwoorden in de cache kan de API-latentie, het bandbreedteverbruik en de webservicewerklast aanzienlijk worden verminderd voor gegevens die niet vaak wijzigen.
 
 In deze handleiding wordt getoond hoe u het opslaan van antwoorden in de cache toevoegt voor uw API en beleidsregels configureert voor de bewerkingen voor de voorbeeld-Echo-API. U kunt de bewerking vervolgens aanroepen vanuit de ontwikkelaarsportal om te controleren of opslaan in de cache werkt.
@@ -26,7 +30,7 @@ In deze handleiding wordt getoond hoe u het opslaan van antwoorden in de cache t
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Service-exemplaar van API Management maken] in de zelfstudie [Aan de slag met Azure API Management][Aan de slag met Azure API Management].
 
 ## <a name="configure-caching"> </a>Een bewerking voor opslaan in cache configureren
@@ -37,7 +41,7 @@ In deze stap controleert u de cache-instellingen van de bewerking **GET Resource
 > 
 > 
 
-Klik om aan de slag te gaan op **Beheren** in de klassieke Azure-portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
+Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
 ![Publicatieportal][api-management-management-console]
 
@@ -137,7 +141,7 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 * Zie [Cachebeleidsregels][Cachebeleidsregels] in [Naslaginformatie over beleid voor API Management][Naslaginformatie over beleid voor API Management] voor meer informatie over cachebeleidsregels.
 * Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 
-[api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
+[api-management-beheerconsole]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
 [api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
 [api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
@@ -168,6 +172,6 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,16 +1,20 @@
-### Adresruimte toevoegen
-1. Om extra adresruimte toe te voegen, klikt u op **Alle instellingen** om de blade **Instellingen** te openen. 
-2. Op de blade **Instellingen** klikt u op **Adresruimte** om de blade Adresruimte te openen. Voeg de extra adresruimte toe in deze blade en klik vervolgens op **Opslaan** bovenaan de blade.
+### <a name="to-add-address-space"></a>Adresruimte toevoegen
+1. Als u extra adresruimte wilt toevoegen, gaat u naar het gedeelte **Instellingen** van uw virtuele-netwerk-blade en klikt u op **Adresruimte** om de Adresruimte-blade te openen.
+2. Voeg de extra adresruimte toe en klik vervolgens op **Opslaan** boven aan de blade.
    
-    ![Adresruimte toevoegen](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Adresruimte toevoegen](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
-### Subnetten toevoegen
-1. Om extra subnetten toe te voegen aan uw adresruimten klikt u in de blade **Instellingen** op **Subnetten** om de blade **Subnetten** te openen. 
-2. In de blade Subnetten klikt u op **Toevoegen** om de blade **Subnet toevoegen** te openen. Geef uw nieuwe subnet een naam en voer het adresbereik in. Klik vervolgens op **OK** onderaan de blade. Zodra een subnet is gemaakt, kunt u de blade subnetten gebruiken om al uw subnetten voor een VNet weer te geven.
+### <a name="to-create-subnets"></a>Subnetten maken
+1. Als u subnetten wilt maken, gaat u naar het gedeelte **Instellingen** van uw virtuele-netwerk-blade en klikt u op **Subnetten** om de **Subnetten**-blade te openen. 
+2. In de blade Subnetten klikt u op **+Subnet** om de blade **Subnet toevoegen** te openen. Geef uw subnet een naam en geef het adresbereik op.
+   
+    ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/add_subnet.png)        
+3. Klik op **OK** onder aan de blade om de wijzigingen op te slaan.
+   
+    ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/ok.png)
 
-    ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

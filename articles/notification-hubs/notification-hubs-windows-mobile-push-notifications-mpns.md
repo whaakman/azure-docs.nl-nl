@@ -4,23 +4,27 @@ description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushme
 services: notification-hubs
 documentationcenter: windows
 keywords: pushmelding,pushmelding,windows phone-push
-author: wesmc7777
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
+
 
 ---
-# Pushmeldingen verzenden met Azure Notification Hubs op Windows Phone
+# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Pushmeldingen verzenden met Azure Notification Hubs op Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 > [!NOTE]
 > U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F) voor meer informatie.
 > 
@@ -30,20 +34,20 @@ In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verzen
 In deze zelfstudie maakt u een lege Windows Phone 8-app die pushmeldingen ontvangt via Microsoft Push Notification Service (MPNS). Als u klaar bent, kunt u de Notification Hub gebruiken om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd.
 
 > [!NOTE]
-> De Notification Hubs Windows Phone SDK biedt geen ondersteuning voor het gebruik van Windows Push Notification Service (WNS) met Windows Phone 8.1 Silverlight-apps. Als u WNS (in plaats van MPNS) met Windows Phone 8.1 Silverlight-apps wilt gebruiken, raadpleegt u de [Notification Hubs - Windows Phone Silverlight tutorial](Notification Hubs: zelfstudie voor Windows Phone Silverlight.md) waarin REST API's worden gebruikt.
+> De Notification Hubs Windows Phone SDK biedt geen ondersteuning voor het gebruik van Windows Push Notification Service (WNS) met Windows Phone 8.1 Silverlight-apps. Als u WNS (in plaats van MPNS) met Windows Phone 8.1 Silverlight-apps wilt gebruiken, raadpleegt u de [Notification Hubs - Windows Phone Silverlight tutorial] (Notification Hubs: zelfstudie voor Windows Phone Silverlight) waarin REST API's worden gebruikt.
 > 
 > 
 
 In de zelfstudie wordt een eenvoudig scenario voor het uitzenden met Notification Hubs beschreven.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Visual Studio 2012 Express voor Windows Phone] of een hogere versie.
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor Windows Phone 8-apps.
 
-## Een Notification Hub maken
+## <a name="create-your-notification-hub"></a>Een Notification Hub maken
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -51,7 +55,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
 </li>
 </ol>
 
-&emsp;&emsp;![Azure-portal - Niet-geverifieerde pushmeldingen inschakelen](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+&emsp;&emsp;![Azure Portal - Niet-geverifieerde pushmeldingen inschakelen](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Windows Phone te verzenden.
 
@@ -60,10 +64,10 @@ De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Wind
 > 
 > 
 
-## Uw app verbinden met de Notification Hub
+## <a name="connecting-your-app-to-the-notification-hub"></a>Uw app verbinden met de Notification Hub
 1. Maak een nieuwe Windows Phone 8-toepassing in Visual Studio.
    
-    ![Visual Studio - Nieuw project - Windows Phone-app][13]
+       ![Visual Studio - New Project - Windows Phone App][13]
    
     In Visual Studio 2013 Update 2 of hoger maakt u daarentegen een Windows Phone Silverlight-toepassing.
    
@@ -115,9 +119,9 @@ De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Wind
    > 
 6. Vouw in Solution Explorer **Eigenschappen** uit, open het bestand `WMAppManifest.xml`, klik op het tabblad **Mogelijkheden** en zorg ervoor dat de mogelijkheid **ID_CAP_PUSH_NOTIFICATION** is ingeschakeld.
    
-    ![Visual Studio - Windows Phone-app-mogelijkheden][14]
+       ![Visual Studio - Windows Phone App Capabilities][14]
    
-    Dit zorgt ervoor dat uw app pushmeldingen kan ontvangen. Als u dit niet hebt gedaan, kunnen er geen pushmeldingen naar de app worden verzonden.
+       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Druk op de toets `F5` om de app uit te voeren.
    
     Er wordt een registratiebericht in de app weergegeven.
@@ -128,7 +132,7 @@ De hub is nu gemaakt en geconfigureerd om niet-geverifieerde meldingen voor Wind
    > 
    > 
 
-## Pushmeldingen verzenden vanuit uw back-end
+## <a name="send-push-notifications-from-your-backend"></a>Pushmeldingen verzenden vanuit uw back-end
 U kunt pushmeldingen verzenden via Notification Hubs vanuit elke back-end via de openbare <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST-interface</a>. In deze zelfstudie verzendt u pushmeldingen met een .NET-consoletoepassing. 
 
 Zie [Azure Notification Hubs Notify Users with .NET backend](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) (Met Azure Notification Hubs meldingen naar gebruikers verzenden via een .NET-back-end) voor een voorbeeld van hoe u pushmeldingen verzendt vanuit een ASP.NET WebAPI-back-end die is geïntegreerd met Notification Hubs.  
@@ -137,7 +141,7 @@ Voor een voorbeeld van hoe u pushmeldingen verzendt met [REST API's](https://msd
 
 1. Klik met de rechtermuisknop op de oplossing, selecteer **Toevoegen** en **Nieuw project**. Klik vervolgens onder **Visual C#** op **Windows** en **Consoletoepassing** en klik op **OK**.
    
-    ![Visual Studio - Nieuw project - Consoletoepassing][6]
+       ![Visual Studio - New Project - Console Application][6]
    
     Hiermee voegt u een nieuwe Visual C#-consoletoepassing toe aan de oplossing. U kunt dit ook in een afzonderlijke oplossing doen.
 2. Klik achtereenvolgens op **Extra**, **Library Package Manager** en **Package Manager-console**.
@@ -182,7 +186,7 @@ Voor een voorbeeld van hoe u pushmeldingen verzendt met [REST API's](https://msd
 
 U vindt alle mogelijke nettoladingen in de onderwerpen [pop-upcatalogus] en [tegelcatalogus] op MSDN.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit eenvoudige voorbeeld hebt u pushmeldingen uitgezonden naar al uw Windows Phone 8-apparaten. 
 
 Als u zich op specifieke gebruikers wilt richten, raadpleegt u de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]. 
@@ -223,6 +227,6 @@ Zie [Richtlijnen voor Notification Hubs] voor meer informatie over het gebruik v
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

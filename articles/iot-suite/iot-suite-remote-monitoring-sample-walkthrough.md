@@ -1,13 +1,13 @@
 ---
 title: Walkthrough over vooraf geconfigureerde oplossing voor externe controle | Microsoft Docs
 description: Een beschrijving van de vooraf geconfigureerde oplossing voor externe controle IoT Azure en de bijbehorende architectuur.
-services: ''
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+
 
 ---
-# Walkthrough over vooraf geconfigureerde oplossing voor externe controle
-## Inleiding
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Walkthrough over vooraf geconfigureerde oplossing voor externe controle
+## <a name="introduction"></a>Inleiding
 De [vooraf geconfigureerde oplossing][Ink-preconfigured-solutions] voor externe controle met IoT Suite is een implementatie van een end-to-endoplossing voor controle voor meerdere computers die actief zijn op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. Bovendien kunt u de oplossing gebruiken als uitgangspunt voor uw eigen implementatie. U kunt de oplossing [aanpassen][lnk-customize] zodat deze voldoet aan uw eigen specifieke zakelijke vereisten.
 
 In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
@@ -27,12 +31,12 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten. 
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
 
-## Logische architectuur
+## <a name="logical-architecture"></a>Logische architectuur
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Gesimuleerde apparaten
+## <a name="simulated-devices"></a>Gesimuleerde apparaten
 In de vooraf geconfigureerde oplossing vertegenwoordigt het gesimuleerde apparaat een koelapparaat (zoals een airconditioner of een luchtververser in een gebouw). Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u ook automatisch vier gesimuleerde apparaten in waarop een [Azure-webtaak][lnk-webjobs] wordt uitgevoerd. Met de gesimuleerde apparaten kunt u eenvoudig het gedrag van de oplossing bekijken zonder dat u fysieke apparaten hoeft te implementeren. Zie de zelfstudie [Connect your device to the remote monitoring preconfigured solution][Ink-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle) om een echt fysiek apparaat te implementeren.
 
 Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden naar IoT Hub:
@@ -76,10 +80,10 @@ De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die van het da
 
 De bevestiging van de opdracht voor het apparaat wordt via IoT Hub verzonden naar de back-end van de oplossing.
 
-## IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 De [IoT Hub][Ink-iothub] neemt gegevens op die vanaf de apparaten worden verzonden naar de cloud, en maakt ze beschikbaar voor de ASA-taken (Azure Stream Analytics). Via IoT Hub worden ook opdrachten naar de apparaten verzonden namens de portal voor apparaten. Voor elke stream maakt de ASA-taak gebruik van een afzonderlijke IoT Hub-consumentengroep om de stroom berichten van de apparaten te lezen.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Bij de oplossing voor externe controle worden via [ASA (Azure Stream Analytics)][Ink-asa] apparaatberichten die zijn ontvangen via de IoT Hub, verzonden naar andere back-endonderdelen voor verwerking of opslag. Met verschillende ASA-taken worden specifieke functies uitgevoerd gebaseerd op de inhoud van de berichten.
 
 **Taak 1: apparaatgegevens** filtert berichten met apparaatgegevens uit de binnenkomende berichtenstroom en stuurt deze naar een Event Hub-eindpunt. Via een apparaat worden berichten met apparaatgegevens verzonden bij het opstarten en als reactie op een opdracht **SendDeviceInfo**. Tijdens deze taak wordt gebruikgemaakt van de volgende querydefinitie om berichten over **apparaatgegevens** te identificeren:
@@ -176,26 +180,26 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Event Hubs
+## <a name="event-hubs"></a>Event Hubs
 De ASA-taken voor **apparaatgegevens** en **regels** voeren hun gegevens uit naar Event Hubs die zo kunnen worden doorgestuurd naar de **gebeurtenisprocessor** die actief is in de webtaak.
 
-## Azure-opslag
+## <a name="azure-storage"></a>Azure-opslag
 De oplossing maakt gebruik van Azure Blob-opslag om alle ruwe en samengevatte telemetriegegevens op de apparaten in de oplossing te behouden. Met het dashboard worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Voor het weergeven van waarschuwingen worden met het dashboard de gegevens uit de blobopslag gelezen waarin is vastgelegd wanneer telemetriewaarden de geconfigureerde drempelwaarden hebben overschreden. Bij de oplossing wordt ook gebruikgemaakt van blobopslag om de drempelwaarden vast te leggen die u hebt ingesteld op het dashboard.
 
-## Webtaken
+## <a name="webjobs"></a>Webtaken
 Naast de apparaatsimulatoren hosten de webtaken in de oplossing ook de **gebeurtenisprocessor** die actief is in een Azure-webtaak en die informatieberichten voor het apparaat en opdrachtantwoorden verwerkt. Hierbij:
 
 * Worden berichten met apparaatgegevens gebruikt om het apparaatregister bij te werken (opgeslagen in de DocumentDB-database) met de huidige apparaatgegevens.
 * Worden berichten met reacties op opdrachten gebruikt om de opdrachtgeschiedenis van het apparaat bij te werken (opgeslagen in de DocumentDB-database).
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 De oplossing maakt gebruik van een DocumentDB-database om informatie op te slaan over de apparaten die zijn verbonden aan de oplossing. Deze informatie omvat de apparaatmetagegevens en de opdrachtengeschiedenis die vanuit het dashboard zijn verzonden naar het apparaat.
 
-## Web-apps
-### Het dashboard Externe controle
+## <a name="web-apps"></a>Web-apps
+### <a name="remote-monitoring-dashboard"></a>Het dashboard Externe controle
 Deze pagina in de webtoepassing maakt gebruik van Power BI javascript-besturingselementen (zie [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) om de telemetriegegevens van de apparaten te visualiseren. De oplossing maakt gebruik van de ASA-telemetrietaak om de telemetriegegevens naar de blobopslag te schrijven.
 
-### Portal voor apparaatbeheer
+### <a name="device-administration-portal"></a>Portal voor apparaatbeheer
 Met deze web-app kunt u:
 
 * Nieuwe apparaten inrichten. Met deze actie wordt het unieke apparaat-id ingesteld en de verificatiesleutel gegenereerd. Er wordt informatie over het apparaat geschreven naar het IoT Hub-identiteitsregister en de oplossingsspecifieke DocumentDB-database.
@@ -204,10 +208,10 @@ Met deze web-app kunt u:
 * De opdrachtgeschiedenis voor een apparaat weergeven.
 * Apparaten in- en uitschakelen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 De volgende TechNet-blogberichten bieden meer details over de vooraf geconfigureerde oplossing voor externe controle:
 
-* [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite - achter de schermen - externe controle) ](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite - achter de schermen - externe controle)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 * [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (IoT Suite - externe controle - live- en gesimuleerde apparaten toevoegen)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
@@ -217,13 +221,14 @@ U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen
 
 [Ink-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[Ink-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Ink-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[Ink-connect-rm]: iot-suite-connecting-devices.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

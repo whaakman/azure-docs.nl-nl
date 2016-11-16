@@ -2,11 +2,11 @@
 title: Azure Redis-cache gebruiken | Microsoft Docs
 description: Meer informatie over het verbeteren van de prestaties van uw Azure-toepassingen met Azure Redis-cache
 services: redis-cache,app-service
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+
 
 ---
-# Azure Redis-cache gebruiken
+# <a name="how-to-use-azure-redis-cache"></a>Azure Redis-cache gebruiken
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -36,11 +40,11 @@ Microsoft Azure Redis-cache is beschikbaar in de volgende lagen:
 
 Elke laag verschilt wat functies en prijzen betreft. Zie [Prijsdetails voor caches][Prijsdetails voor caches] voor prijsinformatie.
 
-In deze handleiding wordt beschreven hoe u de client [StackExchange.Redis][StackExchange.Redis] kunt gebruiken met C\#-code. De volgende scenario's worden behandeld: **een cache maken en configureren**, **cacheclients configureren** en **objecten toevoegen aan en verwijderen uit de cache**. Bekijk het gedeelte [Volgende stappen][Volgende stappen] voor meer informatie over het gebruik van Azure Redis-cache.  Zie [Een web-app maken met Redis-cache](cache-web-app-howto.md) voor een stapsgewijze zelfstudie over het maken van een ASP.NET MVC-web-app met Redis-cache.
+In deze handleiding wordt beschreven hoe u de client [StackExchange.Redis][StackExchange.Redis] kunt gebruiken met C\#-code. De volgende scenario's worden behandeld: **een cache maken en configureren**, **cacheclients configureren** en **objecten toevoegen aan en verwijderen uit de cache**. Bekijk het gedeelte [Volgende stappen][Volgende stappen] voor meer informatie over het gebruik van Azure Redis-cache. Zie [Een web-app maken met Redis-cache](cache-web-app-howto.md) voor een stapsgewijze zelfstudie over het maken van een ASP.NET MVC-web-app met Redis-cache.
 
 <a name="getting-started-cache-service"></a>
 
-## Aan de slag met Azure Redis-cache
+## <a name="get-started-with-azure-redis-cache"></a>Aan de slag met Azure Redis-cache
 Het is gemakkelijk om aan de slag te gaan met Azure Redis-cache Allereerst richt u een cache in en configureert u deze. Vervolgens configureert u de cacheclients, zodat deze toegang krijgen tot de cache. Nadat de cacheclients zijn geconfigureerd, kunt u deze gaan gebruiken.
 
 * [De cache maken][De cache maken]
@@ -48,24 +52,24 @@ Het is gemakkelijk om aan de slag te gaan met Azure Redis-cache Allereerst richt
 
 <a name="create-cache"></a>
 
-## Een cache maken
+## <a name="create-a-cache"></a>Een cache maken
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### Voor toegang tot de cache nadat deze is gemaakt
+### <a name="to-access-your-cache-after-its-created"></a>Voor toegang tot de cache nadat deze is gemaakt
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Zie [Azure Redis-cache configureren](cache-configure.md) voor meer informatie over het configureren van uw cache. 
 
 <a name="NuGet"></a>
 
-## De cacheclients configureren
+## <a name="configure-the-cache-clients"></a>De cacheclients configureren
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Nadat uw clientproject is geconfigureerd voor het opslaan in de cache, kunt u de technieken die in de volgende gedeelten worden beschreven, gebruiken om met uw cache te werken.
 
 <a name="working-with-caches"></a>
 
-## Werken met caches
+## <a name="working-with-caches"></a>Werken met caches
 De stappen in deze sectie beschrijven hoe u met uw cache algemene taken uitvoert.
 
 * [Verbinding maken met de cache][Verbinding maken met de cache]
@@ -74,7 +78,7 @@ De stappen in deze sectie beschrijven hoe u met uw cache algemene taken uitvoert
 
 <a name="connect-to-cache"></a>
 
-## Verbinding maken met de cache
+## <a name="connect-to-the-cache"></a>Verbinding maken met de cache
 Als u via een programma met een cache wilt werken, hebt u een verwijzing naar de cache nodig. Voeg het volgende toe boven aan alle bestanden die u wilt gebruiken om met de client StackExchange.Redis toegang te krijgen tot een Azure Redis-cache.
 
     using StackExchange.Redis;
@@ -117,7 +121,7 @@ U kunt een exemplaar van `ConnectionMultiplexer` in uw toepassing delen door een
         }
     }
 
-Zie [Configuratiemodel StackExchange.Redis][Configuratiemodel StackExchange.Redis] voor meer informatie over geavanceerde opties voor de configuratie van verbindingen. 
+Zie [Configuratiemodel StackExchange.Redis][Configuratiemodel StackExchange.Redis] voor meer informatie over geavanceerde opties voor de configuratie van verbindingen.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -140,7 +144,7 @@ Nu u weet hoe u verbinding maakt met een exemplaar van een Azure Redis-cache en 
 
 <a name="add-object"></a>
 
-## Objecten toevoegen aan en ophalen uit de cache
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Objecten toevoegen aan en ophalen uit de cache
 Items kunnen worden opgeslagen in en opgehaald uit de cache met behulp van de `StringSet`- en `StringGet`-methoden.
 
     // If key1 exists, it is overwritten.
@@ -166,7 +170,7 @@ Als u de vervaldatum van een item in de cache wilt opgeven, gebruikt u de parame
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## Werken met .NET-objecten in de cache
+## <a name="work-with-net-objects-in-the-cache"></a>Werken met .NET-objecten in de cache
 Azure Redis-cache kan .NET-objecten en oudere gegevenstypen opslaan in de cache, maar voordat een .NET-object in de cache kan worden opgeslagen, moet het worden geserialiseerd. Dit is de verantwoordelijkheid van de ontwikkelaar van de toepassing. Het geeft de ontwikkelaar flexibiliteit bij de keuze van de serializer.
 
 Een eenvoudige manier om objecten te serialiseren is met de serialisatiemethoden `JsonConvert` in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1). Hiermee serialiseert u van en naar JSON. In het volgende voorbeeld worden gegevens opgehaald en ingesteld met een exemplaar van het object `Employee`.
@@ -191,7 +195,7 @@ Een eenvoudige manier om objecten te serialiseren is met de serialisatiemethoden
 
 <a name="next-steps"></a>
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer informatie over Azure Redis-cache.
 
 * Bekijk de ASP.NET-providers voor Azure Redis-cache.
@@ -201,7 +205,7 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 * Bekijk de [documentatie over de cacheclient StackExchange.Redis][documentatie over de cacheclient StackExchange.Redis].
   * Azure Redis-cache is toegankelijk vanuit veel Redis-clients en ontwikkelingstalen. Zie voor meer informatie [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis-cache kan ook worden gebruikt met services en hulpprogramma’s van derden, zoals Redsmin en Redis Desktop Manager.
-  * Zie [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin) voor meer informatie over Redsmin.
+  * Zie [Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin][Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin] voor meer informatie over Redsmin.
   * Benader en controleer uw gegevens in Azure Redis-cache met een grafische gebruikersinterface die gebruikmaakt van [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 * Zie de [Redis][Redis]-documentatie en lees meer informatie over de [Redis-gegevenstypen][Redis-gegevenstypen] en [een inleiding van vijftien minuten tot de Redis-gegevenstypen][een inleiding van vijftien minuten tot de Redis-gegevenstypen].
 
@@ -250,7 +254,7 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
 [In andere talen ontwikkelen voor Azure Redis-cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [State-provider voor Azure Redis-sessies]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Een cacheclient via een programma configureren]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [State-provider voor Azure-cachesessies]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -280,7 +284,7 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 [Migreren naar Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Voorbeelden van Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Resourcegroepen gebruiken om Azure-resources te beheren]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
+[Resourcegroepen gebruiken om Azure-resources te beheren]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [documentatie over de cacheclient StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -295,6 +299,6 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

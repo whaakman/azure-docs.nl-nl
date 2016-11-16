@@ -4,19 +4,23 @@ description: Leer hoe u een Node.js-toepassing implementeert in een web-app in A
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Een Node.js-web-app maken in Azure App Service
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Een Node.js-web-app maken in Azure App Service
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -31,7 +35,7 @@ In deze zelfstudie ziet u hoe u met behulp van [Git](http://git-scm.com) een een
 
 U leert het volgende:
 
-* Hoe u met behulp van de Azure Portal een web-app maakt in Azure App Service.
+* Hoe u met behulp van Azure Portal een web-app maakt in Azure App Service.
 * Hoe u een Node.js-toepassing in de web-app implementeert door naar de Git-opslagplaats van de web-app te pushen.
 
 Met de voltooide toepassing wordt de korte tekenreeks 'Hello World' in de browser weergegeven.
@@ -47,13 +51,13 @@ In het [Node.js Developer Center](/develop/nodejs/) vindt u zelfstudies en voorb
 > 
 > 
 
-## Een web-app maken en Git-publicatie inschakelen
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Een web-app maken en Git-publicatie inschakelen
 Volg deze stappen als u een web-app in Azure App Service wilt maken en Git-publicatie wilt inschakelen. 
 
 [Git](http://git-scm.com/) is een gedistribueerd versiebeheersysteem waarmee u een Azure-website kunt implementeren. U slaat de code die u voor uw web-app schrijft, op in een lokale Git-opslagplaats en u implementeert uw code in Azure door deze naar een externe opslagplaats te pushen. Deze implementatiemethode is een functie van Web Apps van App Service.  
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
-2. Klik in de linkerbovenhoek van de Azure Portal op het pictogram **+ Nieuw**.
+2. Klik in de linkerbovenhoek van Azure Portal op het pictogram **+ Nieuw**.
 3. Klik op **Web en mobiel** en vervolgens op **Web-app**.
    
     ![][portal-quick-create]
@@ -63,7 +67,7 @@ Volg deze stappen als u een web-app in Azure App Service wilt maken en Git-publi
 5. Selecteer een **Abonnement**.
 6. Selecteer een **Resourcegroep** of maak een nieuwe.
    
-    Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
+    Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 7. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
    
     Zie [Overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie over App Service-plannen
@@ -97,7 +101,7 @@ Volg deze stappen als u een web-app in Azure App Service wilt maken en Git-publi
     
     ![][git-url]
 
-## De toepassing lokaal bouwen en testen
+## <a name="build-and-test-your-application-locally"></a>De toepassing lokaal bouwen en testen
 In deze sectie maakt u een bestand **server.js**, dat een enigszins gewijzigde versie bevat van het 'Hello World'-voorbeeld uit [nodejs.org]. Met de code wordt process.env.PORT toegevoegd als de poort waarnaar moet worden geluisterd bij uitvoering in een Azure-web-app.
 
 1. Maak een map met de naam *helloworld*.
@@ -119,7 +123,7 @@ In deze sectie maakt u een bestand **server.js**, dat een enigszins gewijzigde v
    
     ![Een browser waarin het bericht 'Hello World' wordt weergegeven][helloworld-localhost]
 
-## Uw toepassing publiceren
+## <a name="publish-your-application"></a>Uw toepassing publiceren
 1. Installeer Git als u dat nog niet hebt gedaan.
    
     Op de [downloadpagina van Git](http://git-scm.com/download) vindt u installatie-instructies voor uw platform.
@@ -152,13 +156,13 @@ In deze sectie maakt u een bestand **server.js**, dat een enigszins gewijzigde v
         remote: Deployment successful.
         To https://user@testsite.scm.azurewebsites.net/testsite.git
          * [new branch]      master -> master
-6. Als u uw app wilt bekijken, klikt u op de knop **Bladeren** in het gedeelte **Web-app** van de Azure Portal.
+6. Als u uw app wilt bekijken, klikt u op de knop **Bladeren** in het gedeelte **Web-app** van Azure Portal.
    
     ![Knop Bladeren](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
    
     ![Hello World in Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Wijzigingen in uw toepassing publiceren
+## <a name="publish-changes-to-your-application"></a>Wijzigingen in uw toepassing publiceren
 1. Open het bestand **server.js** in een teksteditor en wijzig 'Hello World\n' in 'Hello Azure\n'. 
 2. Sla het bestand op.
 3. Schakel vanaf de opdrachtregel naar de map **helloworld** en voer de volgende opdrachten uit:
@@ -172,32 +176,32 @@ In deze sectie maakt u een bestand **server.js**, dat een enigszins gewijzigde v
    
     ![Een webpagina waarop 'Hello Azure' wordt weergeven][helloworld-completed]
 
-## Een implementatie terugdraaien
+## <a name="roll-back-a-deployment"></a>Een implementatie terugdraaien
 Op de blade **Web-app** kunt u op **Instellingen > Continue implementatie** klikken als u de implementatiegeschiedenis op de blade **Implementaties** wilt bekijken. Als u wilt terugkeren naar een eerdere implementatie, selecteert u deze en klikt u op de blade **Implementatiedetails** op **Opnieuw implementeren**.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 U hebt een Node.js-toepassing geïmplementeerd in een web-app in Azure App Service. Voor meer informatie over hoe Node.js-toepassingen worden uitgevoerd in web-apps van App Service, raadpleegt u [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) en [Een Node.js-versie opgeven in een Azure-toepassing](../nodejs-specify-node-version-azure-apps.md).
 
 Node.js biedt een uitgebreid ecosysteem van modules die kunnen worden gebruikt door uw toepassingen. Als u wilt weten hoe Web Apps met modules werkt, raadpleegt u [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md).
 
 Als u problemen met uw toepassing ondervindt nadat deze is geïmplementeerd in Azure, raadpleegt u [Fouten opsporen in een Node.js-toepassing in Azure App Service](web-sites-nodejs-debug.md) voor meer informatie over het diagnosticeren van het probleem.
 
-In dit artikel wordt de Azure Portal gebruikt om een web-app te maken. Met de [Azure-opdrachtregelinterface](../xplat-cli-install.md) of [Azure PowerShell](../powershell-install-configure.md) kunt u dezelfde bewerkingen uitvoeren.
+In dit artikel wordt Azure Portal gebruikt om een web-app te maken. Met de [Azure-opdrachtregelinterface](../xplat-cli-install.md) of [Azure PowerShell](../powershell-install-configure.md) kunt u dezelfde bewerkingen uitvoeren.
 
 In het [Node.js Developer Center](/develop/nodejs/) vindt u meer informatie over het ontwikkelen van Node.js-toepassingen in Azure.
 
-[helloworld-voltooid]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
+[helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-[portal-snel-maken]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-[portal-snel-maken2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
-[instellen-git-publicatie]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-[naar-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-[implementatie-onderdeel]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
-[implementatie-referenties]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
+[portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
+[portal-quick-create2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
+[setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
+[go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
+[deployment-part]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
+[deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

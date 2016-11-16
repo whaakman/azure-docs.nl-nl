@@ -22,7 +22,7 @@ Geef in de blade **Nieuwe Redis-cache** de gewenste configuratie voor de cache o
 
 * Voer in **DNS-naam** de cachenaam in die u voor het eindpunt van de cache wilt gebruiken. De cachenaam is een tekenreeks van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De cachenaam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.
 * Selecteer bij **Abonnement** het Azure-abonnement dat u voor de cache wilt gebruiken. Als uw account maar één abonnement heeft, wordt dit automatisch geselecteerd en wordt de vervolgkeuzelijst **Abonnement** niet weergegeven.
-* In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw cache. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/resource-group-overview.md) voor meer informatie. 
+* In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw cache. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-overview.md) voor meer informatie. 
 * Gebruik **Locatie** om de geografische locatie op te geven waar uw cache wordt gehost. Voor de beste prestaties wordt aangeraden de cache te maken in dezelfde regio als de cacheclienttoepassing.
 * Gebruik **Prijscategorie** om de gewenste cachegrootte en -functies te selecteren.
 * Met **Redis-cluster** kunt u caches maken die groter zijn dan 53 GB en kunt u gegevens verdelen over meerdere Redis-knooppunten. Zie [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md) (Clustering voor een Premium Azure Redis Cache configureren) voor meer informatie.
@@ -33,6 +33,8 @@ Klik op **Maken** wanneer de opties voor de nieuwe cache zijn geconfigureerd. He
 
 ![Cache gemaakt](media/redis-cache-create/redis-cache-cache-created.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

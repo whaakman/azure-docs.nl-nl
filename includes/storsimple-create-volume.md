@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### Een volume maken
+#### <a name="to-create-a-volume"></a>Een volume maken
 1. Klik op het apparaat op de pagina **Quick Start** en klik vervolgens op **Een volume toevoegen**. Hiermee start u de wizard Volume toevoegen.
 2. Voer in de wizard onder **Basisinstellingen** de volgende stappen uit:
    
@@ -30,6 +30,8 @@
 
 Als u een video wilt bekijken over het maken van een StorSimple-volume, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

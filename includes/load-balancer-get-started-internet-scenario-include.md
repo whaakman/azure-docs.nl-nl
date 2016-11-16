@@ -1,8 +1,12 @@
-The following tasks will be done in this scenario:
+In dit scenario worden de volgende taken uitgevoerd:
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* Een load balancer maken die netwerkverkeer ontvangt op poort 80 en taakverdelingsverkeer naar virtuele machines 'web1' en 'web2' verzenden
+* NAT-regels voor toegang tot extern bureaublad maken/SSH voor virtuele machines achter de load balancer
+* Statuscontroles maken
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Load balancer-scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+
+
+<!--HONumber=Nov16_HO2-->
+
 

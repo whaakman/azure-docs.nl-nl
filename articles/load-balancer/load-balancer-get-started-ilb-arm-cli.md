@@ -1,173 +1,129 @@
 ---
-title: Create an internal load balancer by using the Azure CLI in Resource Manager | Microsoft Docs
-description: Learn how to create an internal load balancer by using the Azure CLI in Resource Manager
+title: Een interne load balancer maken in Resource Manager met behulp van Azure CLI | Microsoft Docs
+description: Informatie over hoe u met Azure CLI een interne load balancer maakt in Resource Manager
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 16f4dcd7860bf2da1a15ce884fb86500a751e406
+
 
 ---
-# Create an internal load balancer by using the Azure CLI
+# <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Een interne load balancer maken met behulp van Azure CLI
 [!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
+[klassiek implementatiemodel](load-balancer-get-started-ilb-classic-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Deploy the solution by using the Azure CLI
-The following steps show how to create an Internet-facing load balancer by using Azure Resource Manager with CLI. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a resource.
+## <a name="deploy-the-solution-by-using-the-azure-cli"></a>De oplossing implementeren met Azure CLI
+De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een internetgerichte load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
 
-You need to create and configure the following objects to deploy a load balancer:
+U moet de volgende objecten maken en configureren om een load balancer te implementeren:
 
-* **Front-end IP configuration**: contains public IP addresses for incoming network traffic
-* **Back-end address pool**: contains network interfaces (NICs) that enable the virtual machines to receive network traffic from the load balancer
-* **Load-balancing rules**: contains rules that map a public port on the load balancer to port in the back-end address pool
-* **Inbound NAT rules**: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool
-* **Probes**: contains health probes that are used to check the availability of virtual machines instances in the back-end address pool
+* **Front-end-IP-configuratie**: bevat openbare IP-adressen voor inkomend netwerkverkeer
+* **Back-endadresgroep**: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer
+* **Regels voor taakverdeling**: bevat regels die een openbare poort op de load balancer toewijst aan een poort in de back-endadresgroep
+* **Inkomende NAT-regels**: bevat regels die een openbare poort op de load balancer toewijst aan een poort voor een specifieke virtuele machine in de back-endadresgroep
+* **Tests**: bevat statuscontroles die worden gebruikt om de beschikbaarheid van exemplaren van virtuele machines in de back-endadresgroep te controleren
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.md) voor meer informatie.
 
-## Set up CLI to use Resource Manager
-1. If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md). Follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as follows:
+## <a name="set-up-cli-to-use-resource-manager"></a>CLI instellen voor het gebruik van Resource Manager
+1. Zie [Install and configure the Azure CLI](../xplat-cli-install.md) (Azure CLI installeren en configureren) als u Azure CLI nog nooit hebt gebruikt. Volg de instructies tot het punt waar u uw Azure-account en -abonnement selecteert.
+2. Voer de opdracht **azure config mode** als volgt uit om over te schakelen naar de modus Resource Manager.
    
         azure config mode arm
    
-    Expected output:
+    Verwachte uitvoer:
    
         info:    New mode is arm
 
-## Create an internal load balancer step by step
-1. Sign in to Azure.
+## <a name="create-an-internal-load-balancer-step-by-step"></a>Stapsgewijs een interne load balancer maken
+1. Meld u aan bij Azure.
    
         azure login
    
-    When prompted, enter your Azure credentials.
-2. Change the command tools to Azure Resource Manager mode.
+    Voer uw Azure-referenties in wanneer dit wordt gevraagd.
+2. Wijzig de opdrachthulpprogramma's in de modus Azure Resource Manager.
    
         azure config mode arm
 
-## Create a resource group
-All resources in Azure Resource Manager are associated with a resource group. If you haven't done so yet, create a resource group.
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
+Alle resources in Azure Resource Manager zijn gekoppeld aan een resourcegroep. Maak een resourcegroep als u dit nog niet hebt gedaan.
 
     azure group create <resource group name> <location>
 
-## Create an internal load balancer set
-1. Create an internal load balancer
+## <a name="create-an-internal-load-balancer-set"></a>Een interne load balancer-set maken
+1. Een interne load balancer maken
    
-    In the following scenario, a resource group named nrprg is created in East US region.
+    In het volgende scenario wordt een resourcegroep met de naam nrprg gemaakt in de regio VS - oost.
    
-        azure network lb create -n nrprg -l eastus
+        azure network lb create --name nrprg --location eastus
    
    > [!NOTE]
-   > All resources for an internal load balancers, such as virtual networks and virtual network subnets, must be in the same resource group and in the same region.
+   > Alle resources voor een interne load balancer, zoals virtuele netwerken en virtuele subnetten van netwerken, moeten zich in dezelfde resourcegroep en in dezelfde regio bevinden.
    > 
    > 
-2. Create a front-end IP address for the internal load balancer.
+2. Maak een front-end-IP-adres voor de interne load balancer.
    
-    The IP address that you use must be within the subnet range of your virtual network.
+    Het IP-adres dat u gebruikt, moet zich binnen het subnetbereik van het virtuele netwerk bevinden.
    
-        azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
+        azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
+3. Maak de back-endadresgroep.
    
-    Parameters used:
+        azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
    
-   * **-g**: resource group
-   * **-l**: name of the internal load balancer set
-   * **-n**: name of the front end IP
-   * **-a**: private IP address within the subnet range
-   * **-e**: subnet name
-   * **-m**: virtual network name
-3. Create the back-end address pool.
+    Nadat u een front-end-IP-adres en een back-endadresgroep hebt gedefinieerd, kunt u load balancer-regels, inkomende NAT-regels en aangepaste statuscontroles maken.
+4. Maak een load balancer-regel voor de interne load balancer.
    
-        azure network lb address-pool create -g nrprg -l ilbset -n beilb
+    Wanneer u de vorige stappen hebt gevolgd, maakt de opdracht een load balancer-regel voor het luisteren naar poort 1433 in de front-endpool en verzendt deze netwerkverkeer met taakverdeling naar de back-endadresgroep, waarbij ook gebruik wordt gemaakt van poort 1433.
    
-    Parameters used:
+        azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
+5. Maak inkomende NAT-regels.
    
-   * **-g**: resource group
-   * **-l**: name of the internal load balancer set
-   * **-n**: name of the back end address pool
-     
-     After you define a front-end IP address and a back-end address pool, you can create load balancer rules, inbound NAT rules, and customized health probes.
-4. Create a load balancer rule for the internal load balancer.
+    Inkomende NAT-regels worden gebruikt om eindpunten in een load balancer te maken die naar een specifiek exemplaar van een virtuele machine gaan. Met de vorige stappen zijn twee NAT-regels voor een extern bureaublad gemaakt.
    
-    When you follow the previous steps, the command creates a load-balancer rule for listening to port 1433 in the front-end pool and sending load-balanced network traffic to the back-end address pool, also using port 1433.
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
    
-        azure network lb rule create -g nrprg -l ilbset -n ilbrule -p tcp -f 1433 -b 1433 -t feilb -o beilb
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
+6. Maak statuscontroles voor de load balancer.
    
-    Parameters used:
+    Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoor te zorgen dat deze netwerkverkeer kunnen verzenden. Het exemplaar van een virtuele machine met mislukte testcontroles wordt uit de load balancer verwijderd totdat deze weer online komt en een testcontrole bepaalt of deze in orde is.
    
-   * **-g**: resource group
-   * **-l**: name of the internal load balancer set
-   * **-n**: name of the load balancer rule
-   * **-p**: protocol that is used for the rule
-   * **-f**: port that listens to incoming network traffic in the load balancer front end
-   * **-b**: port that receives the network traffic in the back-end address pool
-5. Create inbound NAT rules.
+        azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
    
-    Inbound NAT rules are used to create endpoints in a load balancer that go to a specific virtual machine instance. The previous steps created two NAT rules  for remote desktop.
-   
-        azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule1 -p TCP -f 5432 -b 3389
-   
-        azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule2 -p TCP -f 5433 -b 3389
-   
-    Parameters used:
-   
-   * **-g**: resource group
-   * **-l**: name of the internal load balancer set
-   * **-n**: name of the inbound NAT rule
-   * **-p**: protocol that is used for the rule
-   * **-f**: port that listens to incoming network traffic in the load balancer front end
-   * **-b**: port that receives the network traffic in the back-end address pool
-6. Create health probes for the load balancer.
-   
-    A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy.
-   
-        azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
-   
-    Parameters used:
-   
-   * **-g**: resource group
-   * **-l**: name of the internal load-balancer set
-   * **-n**: name of the health probe
-   * **-p**: protocol used by health probe
-   * **-i**: probe interval in seconds
-   * **-c**: number of checks
+   > [!NOTE]
+   > Het Microsoft Azure-platform gebruikt een statisch, openbaar routeerbaar IPv4-adres voor diverse beheerscenario's. Het IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
+   > Wat Azure interne taakverdeling betreft, wordt dit IP-adres gebruikt door bewakingstests van de load balancer om de status van virtuele machines in een set met gelijke taakverdeling te bepalen. Als er een netwerkbeveiligingsgroep wordt gebruikt om het verkeer naar virtuele Azure-machines in een set met intern gelijke taakverdeling te beperken of wordt toegepast op een subnet in een virtueel netwerk, zorg er dan voor dat er een netwerkbeveiligingsregel wordt toegevoegd om verkeer van 168.63.129.16 toe te staan.
+   > 
+   > 
 
-    >[AZURE.NOTE] The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, because this can cause unexpected behavior.
-    >With respect to Azure internal load balancing, this IP address is used by monitoring probes from the load balancer to determine the health state for virtual machines in a load-balanced set. If a network security group is used to restrict traffic to Azure virtual machines in an internally load-balanced set or is applied to a virtual network subnet, ensure that a network security rule is added to allow traffic from 168.63.129.16.
+## <a name="create-nics"></a>NIC's maken
+U moet NIC's maken (of bestaande wijzigen) en deze koppelen aan NAT-regels, load balancer-regels en tests.
 
-## Create NICs
-You need to create NICs (or modify existing ones) and associate them to NAT rules, load balancer rules, and probes.
-
-1. Create an NIC named *lb-nic1-be*, and then associate it with the *rdp1* NAT rule and the *beilb* back-end address pool.
+1. Maak een NIC met de naam *lb-nic1-be*, en koppel deze vervolgens aan de NAT-regel *rdp1* en de back-endadresgroep *beilb*.
    
-        azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
+        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
    
-    Parameters:
+    Verwachte uitvoer:
    
-   * **-g**: resource group name
-   * **-n**: name for the NIC resource
-   * **--subnet-name**: name of the subnet
-   * **--subnet-vnet-name**: name of the virtual network
-   * **-d**: ID of the back-end pool resource, which starts with /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-   * **-e**: ID of the NAT rule to be associated to the NIC resource--starts with /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
-
-Expected output:
-
         info:    Executing command network nic create
         + Looking up the network interface "lb-nic1-be"
         + Looking up the subnet "nrpvnetsubnet"
@@ -191,31 +147,34 @@ Expected output:
         data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
         data:
         info:    network nic create command OK
-
-1. Create an NIC named *lb-nic2-be*, and then associate it with the *rdp2* NAT rule and the *beilb* back-end address pool.
+2. Maak een NIC met de naam *lb-nic2-be*, en koppel deze vervolgens aan de NAT-regel *rdp2* en de back-endadresgroep *beilb*.
    
-        azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
-2. Create a virtual machine named *DB1*, and then associate it with the NIC named *lb-nic1-be*. A storage account called *web1nrp* is created before the following command runs:
+        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
+3. Maak een virtuele machine met de naam *DB1* en koppel deze vervolgens aan de NIC met de naam *lb-nic1-be*. Voordat onderstaande opdracht wordt uitgevoerd, wordt er een opslagaccount met de naam *web1nrp* gemaakt.
    
-        azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+        azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
    
    > [!IMPORTANT]
-   > VMs in a load balancer need to be in the same availability set. Use `azure availset create` to create an availability set.
+   > Virtuele machines in een load balancer moeten zich in dezelfde beschikbaarheidsset bevinden. Gebruik `azure availset create` om een beschikbaarheidsset te maken.
    > 
    > 
-3. Create a virtual machine (VM) named *DB2*, and then associate it with the NIC named *lb-nic2-be*. A storage account called *web1nrp* was created before running the following command.
+4. Maak een virtuele machine (VM) met de naam *DB2* en koppel deze vervolgens aan de NIC met de naam *lb-nic2-be*. Voordat onderstaande opdracht wordt uitgevoerd, wordt er een opslagaccount met de naam *web1nrp* gemaakt.
    
-        azure vm create --resource-group nrprg --name DB2 --location eastus --vnet-    name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+        azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
-## Delete a load balancer
-To remove a load balancer, use the following command:
+## <a name="delete-a-load-balancer"></a>Een load balancer verwijderen
+Gebruik de volgende opdracht om een load balancer te verwijderen:
 
-    azure network lb delete -g nrprg -n ilbset
+    azure network lb delete --resource-group nrprg --name ilbset
 
-In this example, **nrprg** is the resource group and **ilbset** is the internal load balancer name.
+## <a name="next-steps"></a>Volgende stappen
+[Een distributiemodus voor load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
-## Next steps
-[Configure a load balancer distribution mode by using source IP affinity](load-balancer-distribution-mode.md)
+[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

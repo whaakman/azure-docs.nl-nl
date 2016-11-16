@@ -5,9 +5,11 @@ Als u gebruikmaakt van een Azure-abonnement waar u niet de beheerder/eigenaar va
 
 Zie de volgende documenten voor meer informatie over werken met toegangsbeheer:
 
-* [Aan de slag met toegangsbeheer in de Azure-portal](../articles/active-directory/role-based-access-control-what-is.md)
+* [Aan de slag met toegangsbeheer in Azure Portal](../articles/active-directory/role-based-access-control-what-is.md)
 * [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../articles/active-directory/role-based-access-control-configure.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

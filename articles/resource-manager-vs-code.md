@@ -6,7 +6,7 @@ documentationcenter: na
 author: cmatskas
 manager: timlt
 editor: tysonn
-
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: chmatsk;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+
 
 ---
-# Werken met Azure Resource Manager-sjablonen in Visual Studio Code
+# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Werken met Azure Resource Manager-sjablonen in Visual Studio Code
 Azure Resource Manager-sjablonen zijn JSON-bestanden die een resource en de bijbehorende afhankelijkheden beschrijven. Deze bestanden kunnen soms groot en complex zijn, dus hulpprogrammaondersteuning is belangrijk. Visual Studio Code is een nieuwe, lichte, open-source, platformoverschrijdende code-editor. Het programma ondersteunt het maken en bewerken van Resource Manager-sjablonen via een [nieuwe extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan overal worden uitgevoerd en vereist geen toegang tot internet tenzij u ook uw Resource Manager-sjablonen wilt implementeren.
 
 Als u VS Code nog niet hebt, kunt u het installeren via [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-## De Resource Manager-extensie installeren
+## <a name="install-the-resource-manager-extension"></a>De Resource Manager-extensie installeren
 Als u met de JSON-sjablonen in VS Code wilt werken, moet u een extensie installeren. Met de volgende stappen downloadt en installeert u de taalondersteuning voor Resource Manager JSON-sjablonen:
 
 1. VS Code starten 
@@ -33,7 +37,7 @@ Als u met de JSON-sjablonen in VS Code wilt werken, moet u een extensie installe
    
    Klaar!
 
-## Resource Manager-fragmenten instellen
+## <a name="set-up-resource-manager-snippets"></a>Resource Manager-fragmenten instellen
 In de vorige stappen is de hulpprogrammaondersteuning geïnstalleerd, maar nu moeten we VS Code configureren voor het gebruik van JSON-sjabloonfragmenten.
 
 1. Kopieer de inhoud van het bestand uit de opslagplaats [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) naar het klembord.
@@ -51,7 +55,7 @@ In de vorige stappen is de hulpprogrammaondersteuning geïnstalleerd, maar nu mo
 
 Dat is alles wat u nodig hebt om te starten met het gebruik van de Resource Manager-fragmenten. Nu gaan we deze installatie testen.
 
-## Werken met de sjabloon in VS Code
+## <a name="work-with-template-in-vs-code"></a>Werken met de sjabloon in VS Code
 De makkelijkste manier om aan de slag de gaan met een sjabloon is een Snel starten-sjabloon te pakken. Deze zijn beschikbaar op [Github](https://github.com/Azure/azure-quickstart-templates) of u kunt een eigen sjabloon gebruiken. U kunt via de portal gemakkelijk [een sjabloon exporteren](resource-manager-export-template.md) voor elk van de resourcegroepen. 
 
 1. Als u een sjabloon van een resourcegroep hebt geëxporteerd, opent u de uitgepakte bestanden in VS Code.
@@ -80,10 +84,10 @@ De makkelijkste manier om aan de slag de gaan met een sjabloon is een Snel start
    
     ![foutbericht](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## Uw nieuwe resources implementeren
+## <a name="deploy-your-new-resources"></a>Uw nieuwe resources implementeren
 Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande instructies implementeren: 
 
-### Windows
+### <a name="windows"></a>Windows
 1. Een PowerShell-opdrachtprompt openen 
 2. Om u aan te melden, typt u: 
    
@@ -98,7 +102,7 @@ Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande ins
 4. De parameters in het parameters.json-bestand bijwerken
 5. Voer de Deploy.ps1 uit om uw sjabloon te implementeren in Azure
 
-### OSX/Linux
+### <a name="osxlinux"></a>OSX/Linux
 1. Een terminalvenster openen 
 2. Om u aan te melden, typt u:
    
@@ -111,11 +115,14 @@ Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande ins
    
         azure group deployment create -f <PathToTemplate> 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 * Zie voor meer informatie over de functies van de sjabloon [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
 * Zie voor meer voorbeelden van het werken met Visual Studio Code [Cloud-apps bouwen met Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [-demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
@@ -106,7 +110,7 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 * [Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md) gebruiken
 * [Service Bus-onderwerpen](service-bus-dotnet-how-to-use-topics-subscriptions.md) gebruiken
 * [Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) gebruiken
-* [Voorbeelden van Service Bus](../service-bus/service-bus-samples.md)
+* [Voorbeelden van Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

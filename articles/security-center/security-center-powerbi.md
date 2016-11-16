@@ -5,8 +5,8 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Inzichten verkrijgen van Azure Security Center-gegevens met Power BI
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Inzichten verkrijgen van Azure Security Center-gegevens met Power BI
 U kunt met het [Power BI-dashboard](http://aka.ms/azure-security-center-power-bi) voor Azure Security Center aanbevelingen en beveiligingswaarschuwingen vanaf elke locatie, inclusief uw mobiele apparaat, visualiseren, analyseren en filteren. Gebruik het Power BI-dashboard om trends en aanvalspatronen zichtbaar te maken: bekijk beveiligingswaarschuwingen op resource of bron-IP-adres en niet-opgeloste beveiligingsrisico's op resource of ouderdom. 
 
 U kunt ook adviezen van het Security Center en beveiligingswaarschuwingen met andere data op interessante manieren combineren, bijvoorbeeld om data van [Azure Audit Logs](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) en [Azure SQL Database Auditing](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/) te gebruiken. Ze bieden allebei Power BI Dashboards aan, en u kunt deze data ook exporteren naar Excel voor gemakkelijk rapporteren over de beveiligingsstatus van uw cloudresources.
 
-## Het Azure Security Center-dashboard gebruiken voor toegang tot Power BI
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Het Azure Security Center-dashboard gebruiken voor toegang tot Power BI
 U kunt het Azure Security Center-dashboard ook gebruiken voor toegang tot Power BI-rapporten. Volg de stappen om deze taak uitvoeren: 
 
 1. Klik in het **Azure Security Center**-dashboard op de knop **Verkennen in Power BI**.
@@ -80,7 +84,7 @@ Op dit punt kunt u ook een kopie van het rapport opslaan of het rapport afdrukke
 
 ![Menu Bestand](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Uw Azure Security Center-gegevens verkennen met Power BI-services
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Uw Azure Security Center-gegevens verkennen met Power BI-services
 Maak verbinding met de [Power BI-inhoudspakketservices](https://msit.powerbi.com/groups/me/getdata/services) in Power BI en voer de volgende stappen uit:
 
 1. In het venster **Inhoudspakket voor Power BI** ziet u twee opties zoals hieronder wordt weergegeven.
@@ -107,7 +111,7 @@ Maak verbinding met de [Power BI-inhoudspakketservices](https://msit.powerbi.com
    
     ![Dashboard Beleidsbeheer](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u Power BI in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Plannings- en bedieningsgids voor het Azure Beveiligingscentrum](security-center-planning-and-operations-guide.md): leer hoe u de overstap naar Azure Security Center kunt plannen.
@@ -116,6 +120,9 @@ In dit document hebt u kunnen lezen hoe u Power BI in Azure Security Center gebr
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

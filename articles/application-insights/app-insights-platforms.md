@@ -2,10 +2,10 @@
 title: 'Application Insights: talen, platforms en integraties | Microsoft Docs'
 description: De talen, platforms en integraties die beschikbaar zijn voor Application Insights
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: OlegAnaniev-MSFT
 manager: douge
-
+ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fa0fe7ee7b0a24b679b86dece2a3294004b57815
+
 
 ---
-# Analyses voor ontwikkelaars: talen, platforms en integraties
+# <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: talen, platforms en integraties
 Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
 
-## Talen
+## <a name="languages"></a>Talen
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript-webpagina's](app-insights-web-track-usage.md)
@@ -28,13 +32,13 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Ruby](https://rubygems.org/gems/application_insights)
 * [Overige](#projects)
 
-## Platforms en frameworks
+## <a name="platforms-and-frameworks"></a>Platforms en frameworks
 * [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - voor apps die al live zijn](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET 5](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-* [Azure-web-apps en virtuele Azure-machines](app-insights-azure-web-apps.md)
+* [Azure-web-apps en VM’s](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md) met inbegrip van web- en werkrollen
 * [CRM Online van Microsoft Dynamics](app-insights-sample-mscrm.md)
 * [Docker](app-insights-docker.md)
@@ -53,13 +57,14 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Windows-bureaubladtoepassingen, -services en -werkrollen](app-insights-windows-desktop.md)
 * [Overige](#projects)
 
-## Frameworks voor logboekregistratie
+## <a name="logging-frameworks"></a>Frameworks voor logboekregistratie
 * [Log4Net, NLog of System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J of Logback](app-insights-java-trace-logs.md)
 * [Semantische logboekregistratie (SLAB)](https://github.com/fidmor89/SLAB_AppInsights), kan worden geïntegreerd met het [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Belastingstests in de cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
+* [LogStash-invoegtoepassing](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 
-## Content Management Systems (CMS)
+## <a name="content-management-systems"></a>Content Management Systems (CMS)
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
@@ -67,14 +72,17 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-## Exporteren en gegevensanalyse
+## <a name="export-and-data-analysis"></a>Exporteren en gegevensanalyse
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)
 
-## <a name="projects"></a> Uw eigen SDK bouwen
+## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a> Uw eigen SDK bouwen
 Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf een bouwen. Bekijk de code van de bestaande SDK's die worden beschreven in het [Application Insights SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

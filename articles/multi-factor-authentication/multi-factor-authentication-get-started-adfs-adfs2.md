@@ -1,93 +1,107 @@
 ---
-title: Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0
+title: Azure MFA-Server gebruiken met AD FS 2.0 | Microsoft Docs
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en AD FS 2.0 aan de slag kunt gaan.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
-
+editor: yossib
+ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/04/2016
+ms.date: 10/14/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 639f11856fcb0828db2375e428d9f7efe640b5d7
+
 
 ---
-# Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0
-Als uw organisatie is gefedereerd met Azure Active Directory en u hebt resources die zich on-premises of in de cloud bevinden die u wilt beveiligen, kunt u dit doen door de Azure Multi-Factor Authentication-server te gebruiken en deze te configureren voor gebruik met AD FS, zodat meervoudige verificatie wordt geactiveerd voor waardevolle eindpunten.
+# <a name="secure-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-20"></a>Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met AD FS 2.0
+Dit artikel is voor organisaties die zijn gefedereerd met Azure Active Directory en resources die on-premises of in de cloud zijn, willen beveiligen. Beveilig uw resources met de Azure Multi-Factor Authentication-server en configureer ze om te werken met AD FS zodat de verificatie in twee stappen wordt geactiveerd voor waardevolle eindpunten.
 
-In deze documentatie wordt beschreven hoe u de Azure Multi-Factor Authentication-server gebruikt met AD FS 2.0.  Zie [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md) (Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met Windows Server 2012 R2 AD FS) voor meer informatie over het gebruik van Azure Multi-Factor Authentication met Windows Server 2012 R2 AD FS.
+In deze documentatie wordt beschreven hoe u de Azure Multi-Factor Authentication-server gebruikt met AD FS 2.0.  Meer informatie over [Cloudresources en on-premises resources beveiligen met behulp van de Azure Multi-Factor Authentication-server met Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md).
 
-## AD FS 2.0-proxy
-Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Authentication-server op de ADFS-proxyserver en configureert u de server door de volgende stappen uit te voeren.
+## <a name="secure-ad-fs-20-with-a-proxy"></a>AD FS 2.0 beveiligen met een proxy
+Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Authentication-server op de ADFS-proxyserver en configureert u de server.
 
-### AD FS 2.0 beveiligen met een proxy
-1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-authenticatie.
-2. Klik op het tabblad Op formulier gebaseerd.
-3. Klik op de knop Bewerken....
+### <a name="configure-iis-authentication"></a>IIS-verificatie configureren
+1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram **IIS-verificatie**.
+2. Klik op het tabblad **Op formulier gebaseerd**.
+3. Klik op de knop **Toevoegen...** te klikken.
    <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 4. Als u de gebruikersnaam, het wachtwoord en de domeinvariabelen automatisch wilt detecteren, voert u de aanmeldings-URL (bijvoorbeeld https://sso.contoso.com/adfs/ls) in het dialoogvenster Formulier-gebaseerde website automatisch configureren in en klikt u op OK.
-5. Schakel het selectievakje Azure Multi-Factor Authentication vereisen in voor de gebruikers die zijn of moeten worden geïmporteerd in de server en zijn onderworpen aan meervoudige verificatie. Als een groot aantal gebruikers nog niet is geïmporteerd op de server en/of vrijgesteld zal zijn van meervoudige verificatie, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie.
-6. Als de paginavariabelen niet automatisch kunnen worden gedetecteerd, klikt u op de knop Handmatig opgeven... in het dialoogvenster Formulier-gebaseerde website automatisch configureren.
-7. Voer in het dialoogvenster Formulier-gebaseerde website toevoegen in het veld Indienings-URL de URL naar de aanmeldingspagina van AD FS in (bijvoorbeeld https://sso.contoso.com/adfs/ls) en voer een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps. Zie het Help-bestand voor meer informatie over de indienings-URL.
-8. Stel de indeling van de aanvraag  in op POST of GET.
-9. Voer de gebruikersnaamvariabele (ctl00$ContentPlaceHolder1$UsernameTextBox) en wachtwoordvariabele (ctl00$ContentPlaceHolder1$PasswordTextBox) in. Als uw formulier-gebaseerde aanmeldingspagina een tekstvak voor een domein bevat, voert u de domeinvariabele in. Mogelijk moet u navigeren naar de aanmeldingspagina in een webbrowser, met de rechtermuisknop op de pagina klikken en Bron weergeven selecteren om de namen van de invoervakken op de aanmeldingspagina te vinden.
-10. Schakel het selectievakje Azure Multi-Factor Authentication vereisen in voor de gebruikers die zijn of moeten worden geïmporteerd in de server en zijn onderworpen aan meervoudige verificatie. Als een groot aantal gebruikers nog niet is geïmporteerd in de server en/of vrijgesteld zal zijn van Multi-Factor Authentication, laat u het vakje uitgeschakeld.
+5. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Azure Multi-Factor Authentication-server en/of vrijgesteld zal zijn van verificatie in twee stappen, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie.
+6. Als de paginavariabelen niet automatisch kunnen worden gedetecteerd, klikt u op **Handmatig opgeven...** in het dialoogvenster Formulier-gebaseerde website automatisch configureren.
+7. Voer in het dialoogvenster Formulier-gebaseerde website toevoegen in het veld Indienings-URL de URL naar de aanmeldingspagina van AD FS in (zoals https://sso.contoso.com/adfs/ls) en voer een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps. Zie het Help-bestand voor meer informatie over de indienings-URL.
+8. Stel de indeling van de aanvraag in op “POST of GET”.
+9. Voer de gebruikersnaamvariabele (ctl00$ContentPlaceHolder1$UsernameTextBox) en wachtwoordvariabele (ctl00$ContentPlaceHolder1$PasswordTextBox) in. Als uw formulier-gebaseerde aanmeldingspagina een tekstvak voor een domein bevat, voert u de domeinvariabele in. Mogelijk moet u navigeren naar de aanmeldingspagina in een webbrowser, met de rechtermuisknop op de pagina klikken en **Bron weergeven** selecteren om de namen van de invoervakken op de aanmeldingspagina te vinden.
+10. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Azure Multi-Factor Authentication-server en/of vrijgesteld zal zijn van verificatie in twee stappen, laat u het vakje uitgeschakeld.
     <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
-11. Klik op de knop Geavanceerd... om geavanceerde instellingen te controleren, waaronder de mogelijkheid om een wisselbestand voor aangepaste weigering te selecteren, om geslaagde verificaties voor de website gedurende een bepaalde periode in een cache op te slaan met behulp van cookies en om te selecteren hoe de primaire referenties moeten worden geverifieerd.
-12. Aangezien de AD FS-proxyserver waarschijnlijk niet aan het domein zal worden gekoppeld, gebruikt u waarschijnlijk LDAP om verbinding te maken met de domeincontroller voor het importeren van gebruikers en pre-authenticatie. Klik in het dialoogvenster Geavanceerde op formulier-gebaseerde website op het tabblad Primaire authenticatie en selecteer LDAP-binding voor het authenticatietype Pre-authenticatie.
-13. Als u klaar bent, klikt u op de knop OK om terug te keren naar het dialoogvenster Formulier-gebaseerde website. Zie het Help-bestand voor meer informatie over de geavanceerde instellingen.
-14. Klik op de knop OK om het dialoogvenster te sluiten.
-15. Zodra de URL- en paginavariabelen zijn gedetecteerd of ingevoerd, worden de websitegegevens weergegeven in het deelvenster Op formulier gebaseerd.
-16. Klik op het tabblad Native Module (Systeemeigen module) en selecteer de server, de website die de ADFS-proxy uitvoert (bijvoorbeeld 'Default Web Site' of 'Standaardwebsite') of de ADFS-proxytoepassing (bijvoorbeeld 'ls' onder 'adfs') om de IIS-invoegtoepassing op het gewenste niveau in te schakelen.
-17. Klik op het vak IIS-verificatie inschakelen aan de bovenkant van het scherm.
-18. De IIS-authenticatie is nu ingeschakeld. U moet echter de LDAP-verbinding met de domeincontroller configureren om de pre-authenticatie voor uw Active Directory (AD) via LDAP uit te voeren. Hiertoe klikt u op het pictogram Adreslijstintegratie.
-19. Schakel op het tabblad Instellingen het keuzerondje Specifieke LDAP-configuratie gebruiken in.
-    <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
-20. Klik op de knop Bewerken....
-21. Vul in de velden van het dialoogvenster LDAP-configuratie bewerken de benodigde informatie in om verbinding te maken met de AD-domeincontroller. Beschrijvingen van de velden zijn opgenomen in de onderstaande tabel. Opmerking: deze informatie is ook beschikbaar in het Help-bestand voor de Azure Multi-Factor Authentication-server.
-22. Test de LDAP-verbinding door te klikken op de knop Testen.
-    <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
-23. Als de LDAP-verbindingstest is geslaagd, klikt u op de knop OK.
-24. Daarna klikt u op het pictogram Bedrijfsinstellingen en selecteert u het tabblad Gebruikersnaamomzetting.
-25. Selecteer het keuzerondje Het kenmerk Unieke LDAP-id gebruiken voor overeenkomende gebruikersnamen.
-26. Als gebruikers hun gebruikersnaam invoeren in het AD FS-proxy-aanmeldformulier in de indeling domein\gebruikersnaam, moet de server het domein van de gebruikersnaam kunnen verwijderen bij het maken van de LDAP-query. Dat kan worden gedaan met behulp van een registerinstelling.
-27. Open de Register-editor en ga op een 64-bits-server naar HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor. Op een 32-bits-server verwijdert u het gedeelte 'Wow6432Node' uit het pad. Maak een nieuwe DWORD-registersleutel met de naam UsernameCxz_stripPrefixDomain en stel de waarde in op 1. Azure Multi-Factor Authentication is nu de beveiliging van de AD FS-proxy. Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de onderstaande sectie 'Goedgekeurde IP-adressen' als u interne IP-adressen in een lijst met toegestane IP-adressen wilt plaatsen, zodat tweeledige verificatie niet is vereist bij het aanmelden bij de website vanaf die locaties.
+11. Klik op de knop **Geavanceerd...** om de geavanceerde instellingen te controleren. U kunt de instellingen configureren, met inbegrip van de mogelijkheid om een wisselbestand voor aangepaste weigering te selecteren, om geslaagde verificaties voor de website in een cache op te slaan met behulp van cookies en om te selecteren hoe de primaire referenties moeten worden geverifieerd.
+12. Aangezien de AD FS-proxyserver waarschijnlijk niet aan het domein zal worden gekoppeld, kunt u LDAP gebruiken om verbinding te maken met de domeincontroller voor het importeren van gebruikers en pre-authenticatie. Klik in het dialoogvenster Geavanceerde op formulier-gebaseerde website op het tabblad **Primaire authenticatie** en selecteer **LDAP-binding** voor het authenticatietype Pre-authenticatie.
+13. Als u klaar bent, klikt u op de knop **OK** om terug te keren naar het dialoogvenster Formulier-gebaseerde website. Zie het Help-bestand voor meer informatie over de geavanceerde instellingen.
+14. Klik op de knop **OK** om het dialoogvenster te sluiten.
+15. Zodra de URL- en paginavariabelen zijn gedetecteerd of ingevoerd, worden de websitegegevens weergegeven in het paneel Op formulier gebaseerd.
+16. Klik op het tabblad **Systeemeigen module** en selecteer de server, de website waaronder de AD FS-proxy wordt uitgevoerd (zoals ‘Standaardwebsite’) of de AD FS-proxytoepassing (zoals 'ls' onder 'adfs') om de IIS-invoegtoepassing op het gewenste niveau in te schakelen.
+17. Klik op het vak **IIS-verificatie** inschakelen aan de bovenkant van het scherm.
+18. De IIS-authenticatie is nu ingeschakeld.
+
+### <a name="configure-directory-integration"></a>Adreslijstintegratie configureren
+U hebt IIS-authenticatie ingeschakeld, maar om de pre-authenticatie voor uw Active Directory (AD) via LDAP uit te voeren, moet u de LDAP-verbinding configureren met de domeincontroller.
+
+1. Kik op het pictogram **Adreslijstintegratie**.
+2. Schakel op het tabblad Instellingen het keuzerondje **Specifieke LDAP-configuratie** gebruiken in.
+   <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap1.png)</center>
+3. Klik op de knop **Bewerken...** te klikken.
+4. Vul in de velden van het dialoogvenster LDAP-configuratie bewerken de benodigde informatie in om verbinding te maken met de AD-domeincontroller. Beschrijvingen van de velden zijn opgenomen in de onderstaande tabel. Opmerking: deze informatie is ook beschikbaar in het Help-bestand voor de Azure Multi-Factor Authentication-server.
+5. Test de LDAP-verbinding door te klikken op de knop **Testen**.
+   <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/ldap2.png)</center>
+6. Als de LDAP-verbindingstest is geslaagd, klikt u op de knop **OK**.
+
+### <a name="configure-company-settings"></a>Instellingen van het bedrijf configureren
+1. Daarna klikt u op het pictogram **Bedrijfsinstellingen** en selecteert u het tabblad **Gebruikersnaamomzetting**.
+2. Selecteer het keuzerondje **Het kenmerk Unieke LDAP-id gebruiken voor overeenkomende gebruikersnamen**.
+3. Als gebruikers hun gebruikersnaam invoeren in de opmaak ‘domein\gebruikersnaam’, moet de server het domein van de gebruikersnaam kunnen verwijderen bij het maken van de LDAP-query. Dat kan worden gedaan met behulp van een registerinstelling.
+4. Open de Register-editor en ga op een 64-bits-server naar HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor. Op een 32-bits-server verwijdert u het gedeelte 'Wow6432Node' uit het pad. Maak een DWORD-registersleutel met de naam UsernameCxz_stripPrefixDomain en stel de waarde in op 1. Azure Multi-Factor Authentication is nu de beveiliging van de AD FS-proxy.
+
+Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de [sectie Goedgekeurde IP-adressen](#trusted-ips) als u interne IP-adressen op een lijst met toegestane IP-adressen wilt plaatsen, zodat verificatie in twee stappen niet is vereist bij het aanmelden bij de website vanaf die locaties.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
-## AD FS 2.0 Direct zonder een proxy
-Als u AD FS wilt beveiligen wanneer de AD FS-proxy niet wordt gebruikt, installeert u de Azure Multi-Factor Authentication-server op de AD FS-server en configureert u de server op de AD FS-server door de volgende stappen uit te voeren.
+## <a name="ad-fs-20-direct-without-a-proxy"></a>AD FS 2.0 Direct zonder een proxy
+U kunt AD FS beveiligen wanneer de AD FS-proxy niet wordt gebruikt. Installeer de Multi-Factor Authentication-server op de ADFS-server en configureer de server door de volgende stappen uit te voeren:
 
-### AD FS 2.0 beveiligen zonder een proxy
-1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-authenticatie.
-2. Klik op het tabblad HTTP.
-3. Klik op de knop Bewerken....
-4. Voer in het dialoogvenster Basis-URL toevoegen in het veld Basis-URL de URL in voor de AD FS-website waar de HTTP-verificatie wordt uitgevoerd (bijvoorbeeld https://sso.domain.com/adfs/ls/auth/integrated) en voer een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
+1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram **IIS-verificatie**.
+2. Klik op het tabblad **HTTP**.
+3. Klik op de knop **Toevoegen...** te klikken.
+4. Voer in het dialoogvenster Basis-URL toevoegen in het veld Basis-URL de URL in voor de AD FS-website waar de HTTP-verificatie wordt uitgevoerd (zoals https://sso.domain.com/adfs/ls/auth/integrated). Voer dan een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 5. Pas, indien gewenst, de tijd voor Time-out voor inactiviteit en voor Maximale sessie aan.
-6. Schakel het selectievakje Azure Multi-Factor Authentication vereisen in voor de gebruikers die zijn of moeten worden geïmporteerd in de server en zijn onderworpen aan meervoudige verificatie. Als een groot aantal gebruikers nog niet is geïmporteerd op de server en/of vrijgesteld zal zijn van meervoudige verificatie, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie.
+6. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Azure Multi-Factor Authentication-server en/of vrijgesteld zal zijn van verificatie in twee stappen, laat u het vakje uitgeschakeld. Zie het Help-bestand voor meer informatie over deze functie.
 7. Schakel, indien gewenst, het selectievakje Cookie gebruiken om voltooide authenticaties in de cache op te slaan in.
    <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
-8. Klik op de knop OK.
-9. Klik op het tabblad Native Module (Systeemeigen module) en selecteer de server, de website die ADFS uitvoert (bijvoorbeeld 'Default Web Site' of 'Standaardwebsite') of de ADFS-toepassing (bijvoorbeeld 'ls' onder 'adfs') om de IIS-invoegtoepassing op het gewenste niveau in te schakelen.
-10. Klik op het vak IIS-verificatie inschakelen aan de bovenkant van het scherm. Azure Multi-Factor Authentication is nu de beveiliging van AD FS. Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de onderstaande sectie 'Goedgekeurde IP-adressen' als u interne IP-adressen in een lijst met toegestane IP-adressen wilt plaatsen, zodat tweeledige verificatie niet is vereist bij het aanmelden bij de website vanaf die locaties.
+8. Klik op de knop **OK**.
+9. Klik op het tabblad **Systeemeigen module** en selecteer de server, de website (zoals ‘Standaardwebsite’) of de ADFS-toepassing (bijvoorbeeld 'ls' onder 'adfs') om de IIS-invoegtoepassing op het gewenste niveau in te schakelen.
+10. Klik op het vak **IIS-verificatie** inschakelen aan de bovenkant van het scherm. Azure Multi-Factor Authentication is nu de beveiliging van AD FS.
 
-## Goedgekeurde IP-adressen
-De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u het subnet van het kantoor op als een van de goedgekeurde IP-adressen.
+Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de sectie Goedgekeurde IP-adressen als u interne IP-adressen op een lijst met toegestane IP-adressen wilt plaatsen, zodat verificatie in twee stappen niet is vereist bij het aanmelden bij de website vanaf die locaties.
 
-### Goedgekeurde IP-adressen configureren
-1. Klik op het tabblad Goedgekeurde IP-adressen in de sectie IIS-verificatie.
-2. Klik op de knop Bewerken....
-3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje Eén IP-adres, IP-bereik of Subnet.
-4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als een subnet wilt invoeren, selecteert u het geschikte netmasker en klikt u op de knop OK. Het goedgekeurde IP-adres is nu toegevoegd.
+## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
+De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Als u bijvoorbeeld gebruikers wilt uitsluiten van de verificatie in twee stappen wanneer ze zich aanmelden vanaf het kantoor. Hiervoor geeft u het subnet van de werkplek op als een goedgekeurd IP-adres.
+
+### <a name="to-configure-trusted-ips"></a>Goedgekeurde IP-adressen configureren
+1. Klik op het tabblad **Goedgekeurde IP-adressen** in de sectie IIS-verificatie.
+2. Klik op de knop **Toevoegen...** te klikken.
+3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje **Eén IP-adres**, **IP-bereik** of **Subnet**.
+4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op de knop **OK**. Het goedgekeurde IP-adres is nu toegevoegd.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

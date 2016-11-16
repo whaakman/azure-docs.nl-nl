@@ -1,6 +1,6 @@
 
 
-## Nieuwe databasegebruiker mdb_owner-machtigingen toekennen
+## <a name="grant-new-database-user-dbowner-permissions"></a>Nieuwe databasegebruiker mdb_owner-machtigingen toekennen
 Voer de volgende stappen uit als u een bestaande databasegebruiker db_owner-machtigingen wilt verlenen.
 
 Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer in SSMS bent verbonden met SQL Database en dat u met uw logische server met SQL Database bent verbonden als principal-beheerder op serverniveau of met een gebruikersaccount dat is gemachtigd om gebruikersmachtigingen toe te kennen. 
@@ -18,6 +18,8 @@ Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer in SSMS bent ver
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

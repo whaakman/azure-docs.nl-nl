@@ -8,11 +8,13 @@
 * [App Service-plannen](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 * [Inleiding tot de App Service-omgeving](../articles/app-service-web/app-service-app-service-environment-intro.md)
   * [Oefening: een App Service-omgeving maken](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Ondersteuning voor Azure App Service-ontwikkelingstacks](/blog/windows-azure-websites-development-stacks-support/)
+* [Ondersteuning voor Azure App Service-ontwikkelingsstacks](/blog/windows-azure-websites-development-stacks-support/)
 
-## Video's
+## <a name="videos"></a>Video's
 * [Azure App Service-architectuur](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

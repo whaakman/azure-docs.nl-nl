@@ -1,4 +1,4 @@
-### Mobile Engagement toegang verlenen tot uw GCM-API-sleutel
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Mobile Engagement toegang verlenen tot uw GCM-API-sleutel
 Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toegang geven tot uw API-sleutel. Dit kunt u doen door uw sleutel te configureren en in te voeren in de Mobile Engagement-portal.
 
 1. Controleer in de klassieke Azure-portal of u zich in de app bevindt die we voor dit project gebruiken en klik vervolgens op de knop **Engage** onderaan:
@@ -14,7 +14,7 @@ Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toega
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Een melding verzenden naar uw app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Een melding verzenden naar uw app
 We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar uw app.
 
 1. Navigeer naar het tabblad **REACH** in uw Mobile Engagement-portal.
@@ -42,6 +42,8 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

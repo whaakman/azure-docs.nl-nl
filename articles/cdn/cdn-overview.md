@@ -2,11 +2,11 @@
 title: Overzicht van Azure CDN | Microsoft Docs
 description: Meer informatie over Azure Content Delivery Network (CDN) en hoe u inhoud met een hoge bandbreedte via CDN kunt leveren door blobs en statische inhoud in de cache op te slaan.
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+
 
 ---
-# Overzicht van Azure Content Delivery Network (CDN)
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Overzicht van Azure Content Delivery Network (CDN)
 > [!NOTE]
 > In dit document wordt uitgelegd wat Azure Content Delivery Network (CDN) is, hoe het werkt en wat de functies van elk Azure CDN-product zijn.  Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) als u deze informatie wilt overslaan om rechtstreeks naar een zelfstudie over het maken van een CDN-eindpunt te aan.  Zie [Azure CDN POP-locaties](cdn-pop-locations.md) als u een lijst met de huidige CDN-knooppuntlocaties wilt weergeven.
 > 
@@ -30,7 +34,7 @@ Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de 
 * Grote schaalbaarheid zodat een korte hoge belasting, bijvoorbeeld wanneer een product wordt gestart, beter kan worden verwerkt.
 * Door de gebruikersaanvragen te distribueren en de inhoud uit te voeren vanaf randservers wordt er minder verkeer naar de oorsprong verzonden.
 
-## Hoe werkt het?
+## <a name="how-it-works"></a>Hoe werkt het?
 ![Overzicht van CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Een gebruiker (Els) gebruikt een URL met een speciale domeinnaam, zoals `<endpointname>.azureedge.net`, om een bestand (ook wel een asset genoemd) aan te vragen.  De aanvraag wordt door DNS naar de best presterende POP-locatie (Point-of-Presence) gerouteerd.  Doorgaans is dit het POP dat zie geografisch gezien het dichtst bij de gebruiker bevindt.
@@ -40,20 +44,20 @@ Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de 
 5. Extra gebruikers kunnen dan diezelfde URL gebruiken om hetzelfde bestand aan te vragen en worden mogelijk ook omgeleid naar hetzelfde POP.
 6. Als de TTL voor het bestand niet is verlopen, retourneert de randserver het bestand uit de cache.  Dit resulteert in een snellere, responsievere gebruikerservaring.
 
-## Functies van Azure CDN
+## <a name="azure-cdn-features"></a>Functies van Azure CDN
 Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon**.  De volgende tabel bevat de functies die beschikbaar zijn voor elk product.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) en [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | HTTPS-ondersteuning |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Taakverdeling |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)-beveiliging |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ondersteuning voor aangepaste domeinnamen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Opslaan in cache van queryreeks](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Landen filteren](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Queryreeksen opslaan in cache](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Geofilters](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
 | [Snel leegmaken](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Vooraf laden van assets](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Basisanalyse](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -71,7 +75,7 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) om aan de slag te gaan met CDN.
 
 Als u een bestaande CDN-klant bent, kunt u uw CDN-eindpunten nu beheren via [Microsoft Azure Portal](https://portal.azure.com) of met [PowerShell](cdn-manage-powershell.md).
@@ -82,6 +86,9 @@ Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-n
 
 Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor informatie over de prijzen.
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

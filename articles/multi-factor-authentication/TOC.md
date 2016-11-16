@@ -38,7 +38,7 @@
 ### [IIS-web-apps](multi-factor-authentication-get-started-server-iis.md)
 ### [Extern bureaublad-gateway](multi-factor-authentication-get-started-server-rdg.md)
 
-## Toepassingen ontwikkelen
+## Ontwikkelen 
 ### [Inbouwen in aangepaste apps (SDK)](multi-factor-authentication-sdk.md)
 
 ## Problemen oplossen

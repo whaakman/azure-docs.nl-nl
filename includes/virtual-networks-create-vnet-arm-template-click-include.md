@@ -1,4 +1,4 @@
-## De ARM-sjabloon implementeren met klik om te implementeren
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>De ARM-sjabloon implementeren met klik om te implementeren
 U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naar een door Microsoft beheerde github-opslagplaats en toegankelijk voor de community. Deze sjablonen kunnen rechtstreeks uit de github geïmplementeerd worden of gedownload en gewijzigd worden zodat deze aansluiten op uw behoeften. Volg de onderstaande stappen voor het implementeren van een sjabloon die een VNet met twee subnetten maakt.
 
 1. Vanuit een browser gaat u naar [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
@@ -22,6 +22,8 @@ U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naa
     
      ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

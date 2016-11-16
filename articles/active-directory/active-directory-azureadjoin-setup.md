@@ -2,12 +2,12 @@
 title: Azure AD Join instellen voor gebruikers | Microsoft Docs
 description: Hier wordt uitgelegd hoe beheerders Azure AD Join kunnen instellen voor on-premises directory- en apparaatregistratie.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: bfc5d415-c918-4d8b-afee-b3f41cc28469
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+
 
 ---
-# Azure AD Join instellen in uw organisatie
+# <a name="setting-up-azure-ad-join-in-your-organization"></a>Azure AD Join instellen in uw organisatie
 Voordat u Azure Active Directory Join (Azure AD Join) instelt, moet u uw on-premises directory van gebruikers synchroniseren met de cloud of handmatig beheerde accounts maken in Azure AD.
 
 Gedetailleerde instructies voor het synchroniseren van uw on-premises gebruikers naar Azure AD zijn te vinden in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Engelstalig).
 
 Raadpleeg [Gebruikersaccounts en wachtwoorden](https://msdn.microsoft.com/library/azure/hh967609.aspx) als u handmatig gebruikers wilt maken en beheren in Azure AD.
 
-## Apparaatregistratie instellen
+## <a name="set-up-device-registration"></a>Apparaatregistratie instellen
 1. Meld u als beheerder aan bij de Azure-portal.
 2. Selecteer in het linkerdeelvenster **Active Directory**.
 3. Selecteer uw directory op het tabblad **Directory**.
@@ -46,13 +50,16 @@ Met de volgende drie scenario's kunt u uw gebruikers in staat stellen Azure AD J
 * Gebruikers voegen via een domein een bedrijfsapparaat toe aan de on-premises Active Directory en breiden het apparaat vervolgens uit naar Azure AD.
 * Gebruikers voegen werk- of schoolaccounts toe aan Windows op een persoonlijk apparaat
 
-## Aanvullende informatie
-* [Windows 10 for the enterprise: Ways to use devices for work (Engelstalig)](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join (Engelstalig)](active-directory-azureadjoin-user-upgrade.md)
-* [Learn about usage scenarios for Azure AD Join (Engelstalig)](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Connect domain-joined devices to Azure AD for Windows 10 experiences (Engelstalig)](active-directory-azureadjoin-devices-group-policy.md)
+## <a name="additional-information"></a>Aanvullende informatie
+* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md) (Windows 10 voor de onderneming: manieren om apparaten voor werk te gebruiken)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md) (Cloudmogelijkheden uitbreiden naar Windows 10-apparaten met behulp van Azure Active Directory Join)
+* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) (Gebruiksscenario’s voor Azure AD Join)
+* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md) (Apparaten die lid zijn van een domein verbinden met Azure AD voor Windows 10-ervaringen)
 * [Azure AD Join instellen](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

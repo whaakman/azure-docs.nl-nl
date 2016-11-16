@@ -1,12 +1,12 @@
 ---
-title: Overzicht van prijscategorieën voor Service Bus Premium en Standard Messaging | Microsoft Docs
+title: "Overzicht van prijscategorieën voor Service Bus Premium en Standard Messaging | Microsoft Docs"
 description: Service Bus Premium en Standard Messaging
 services: service-bus
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5f4fccdafd9b47794bf625ac51dc650b6e8752f1
+
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Prijscategorieën voor Service Bus Premium en Standard Messaging
@@ -52,6 +56,9 @@ Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtense
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
 * [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

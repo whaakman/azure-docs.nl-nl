@@ -8,16 +8,16 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Met een abonnement verbinding maken met Azure Portal
+## <a name="connect-to-the-azure-portal-with-a-subscription"></a>Met een abonnement verbinding maken met Azure Portal
 Om verbinding te kunnen maken met Azure Portal hebt u een abonnement nodig.
 
-### Een nieuw account maken
+### <a name="get-a-new-account"></a>Een nieuw account maken
 Kies als u nog geen Azure-account hebt een van de onderstaande opties om een account te krijgen:
 
 * Een [gratis account](https://azure.microsoft.com/get-started/) maken.
 * Een [MSDN-abonnement](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) gebruiken.
 
-### Aanmelden met uw bestaande account
+### <a name="sign-in-by-using-your-existing-account"></a>Aanmelden met uw bestaande account
 Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) en volg deze stappen om verbinding te maken met Azure Portal.
 
 1. Open de browser van uw keuze en maak verbinding met [Azure Portal](https://portal.azure.com/).
@@ -26,6 +26,8 @@ Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) e
    
    ![Aanmelden](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

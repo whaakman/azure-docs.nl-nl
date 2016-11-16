@@ -5,8 +5,8 @@ services: app-service\web
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+
 
 ---
-# Django en MySQL in Azure met Python Tools 2.2 for Visual Studio
+# <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Django en MySQL in Azure met Python Tools 2.2 for Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In deze zelfstudie gebruikt u [Python Tools for Visual Studio](PTVS.md) om een eenvoudige poll-web-app te maken met een van de PTVS-voorbeeldsjablonen. U leert hoe u een MySQL-service gebruikt die wordt gehost in Azure, hoe u de web-app kunt configureren voor het gebruik van MySQL en hoe u de web-app publiceert naar [Azure App Service-web-apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+In deze zelfstudie gebruikt u [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) om een eenvoudige poll-web-app te maken met een van de PTVS-voorbeeldsjablonen. U leert hoe u een MySQL-service gebruikt die wordt gehost in Azure, hoe u de web-app kunt configureren voor het gebruik van MySQL en hoe u de web-app publiceert naar [Azure App Service-web-apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 > [!NOTE]
 > De informatie in deze zelfstudie is ook beschikbaar in de volgende video:
@@ -30,7 +34,7 @@ In deze zelfstudie gebruikt u [Python Tools for Visual Studio](PTVS.md) om een e
 
 Raadpleeg het [Python Developer Center] voor meer artikelen over het ontwikkelen van Azure App Service-web-apps met PTVS met behulp van Bottle-, Flask- en Django-webframeworks, met Azure Table Storage-, MySQL- en SQL Database-services. Dit artikel is gericht op App Service, maar voor het ontwikkelen van [Azure Cloud Services] volgt u soortgelijk stappen.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * Visual Studio 2015
 * [Python 2.7 32-bits] of [Python 3.4 32-bits]
 * [Python Tools 2.2 for Visual Studio]
@@ -47,7 +51,7 @@ Raadpleeg het [Python Developer Center] voor meer artikelen over het ontwikkelen
 > 
 > 
 
-## Het project maken
+## <a name="create-the-project"></a>Het project maken
 In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsjabloon. U maakt een virtuele omgeving en installeert de vereiste pakketten. U maakt een lokale database met behulp van sqlite. Vervolgens voert u de toepassing lokaal uit.
 
 1. Selecteer in Visual Studio **File**, **New Project**.
@@ -76,7 +80,7 @@ In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsja
     
      ![Stemmen in voorbeeld-polls](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
-## Een MySQL-database maken
+## <a name="create-a-mysql-database"></a>Een MySQL-database maken
 Voor de database maakt u een gehoste ClearDB MySQL-database in Azure.
 
 Als alternatief kunt u uw eigen virtuele machine maken die wordt uitgevoerd in Azure, en vervolgens MySQL zelf installeren en beheren.
@@ -84,12 +88,12 @@ Als alternatief kunt u uw eigen virtuele machine maken die wordt uitgevoerd in A
 U kunt een database maken met een gratis abonnement. Ga hiervoor als volgt te werk.
 
 1. Meld u aan bij de [Azure Portal].
-2. Klik boven in het navigatiedeelvenster achtereenvolgens op **NIEUW**, **Gegevens en opslag** en **MySQL-database**. 
+2. Klik boven in het navigatiedeelvenster achtereenvolgens op **NIEUW**, **Gegevens en opslag** en **MySQL-database**.
 3. Configureer de nieuwe MySQL-database door een nieuwe resourcegroep te maken en hiervoor de juiste locatie te selecteren.
 4. Nadat de MySQL-database is gemaakt, klikt u op de databaseblade op **Eigenschappen**.
 5. Gebruik de knop Kopiëren om de waarde van **VERBINDINGSREEKS** op het klembord te plaatsen.
 
-## Het project configureren
+## <a name="configure-the-project"></a>Het project configureren
 In deze sectie configureert u de web-app voor het gebruik van de MySQL-database die u zojuist hebt gemaakt. U kunt ook extra Python-pakketten installeren die vereist zijn voor het gebruik van MySQL-databases met Django. Vervolgens voert u de web-app lokaal uit.
 
 1. Open in Visual Studio **settings.py** vanuit de map *ProjectName*. Plak de verbindingsreeks tijdelijk in de editor. De verbindingsreeks heeft de volgende indeling:
@@ -117,7 +121,7 @@ In deze sectie configureert u de web-app voor het gebruik van de MySQL-database 
     Hiermee maakt u de tabellen voor de MySQL-database die u in de vorige sectie hebt gemaakt. Volg de aanwijzingen voor het maken van een gebruiker. De gebruiker hoeft niet dezelfde te zijn als de gebruiker in de sqlite-database die in de eerste sectie van dit artikel is gemaakt.
 5. Voer de toepassing uit met `F5`. Polls die zijn gemaakt met **Create Sample Polls** en de gegevens die zijn ingediend via stemmen, worden geserialiseerd in de MySQL-database.
 
-## De web-app publiceren naar Azure App Service
+## <a name="publish-the-web-app-to-azure-app-service"></a>De web-app publiceren naar Azure App Service
 De Azure SDK voor .NET biedt een eenvoudige manier om uw web-app in Azure App Service te implementeren.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Publiceren**.
@@ -139,10 +143,10 @@ De Azure SDK voor .NET biedt een eenvoudige manier om uw web-app in Azure App Se
    
     Gefeliciteerd. U hebt uw op MySQL gebaseerde web-app gepubliceerd naar Azure.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Volg deze koppelingen voor meer informatie over Python Tools for Visual Studio, Django en MySQL.
 
-* [Documentatie bij Python Tools for Visual Studio]
+* [Documentatie Python Tools voor Visual Studio]
   * [Webprojecten]
   * [Cloudserviceprojecten]
   * [Foutopsporing op afstand in Microsoft Azure]
@@ -154,18 +158,18 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 <!--Link references-->
 
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK-tools voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Documentatie bij Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
+[Documentatie Python Tools voor Visual Studio]: http://aka.ms/ptvsdocs
 [Foutopsporing op afstand in Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Webprojecten]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Cloudserviceprojecten]: http://go.microsoft.com/fwlink/?LinkId=624028
@@ -175,6 +179,6 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

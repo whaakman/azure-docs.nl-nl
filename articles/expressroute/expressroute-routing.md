@@ -3,30 +3,37 @@ title: Routeringsvereisten voor ExpressRoute | Microsoft Docs
 description: Deze pagina bevat gedetailleerde vereisten voor het configureren en beheren van routering voor ExpressRoute-circuits.
 documentationcenter: na
 services: expressroute
-author: ganesr
-manager: rossort
-editor: ''
-
+author: osamazia
+manager: ganesr
+editor: 
+ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2016
-ms.author: ganesr
+ms.date: 10/19/2016
+ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+
 
 ---
-# Routeringsvereisten voor ExpressRoute
-Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connecitiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de vereisten die hieronder worden beschreven. 
+# <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
+Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten. 
 
 Raadpleeg het artikel [Circuits and routing domains](expressroute-circuit-peerings.md) (Circuits en routeringsdomeinen) voor een beschrijving van de routeringssessies die moeten worden ingesteld om connectiviteit mogelijk te maken.
 
-**Opmerking:** Microsoft biedt geen ondersteuning voor routerredundantieprotocollen (zoals HSRP, VRRP) voor de configuratie van hoge beschikbaarheid. We zijn afhankelijk van twee redundante BGP-sessies per peering voor maximale beschikbaarheid.
+> [!NOTE]
+> Microsoft biedt geen ondersteuning voor routerredundantieprotocollen (zoals HSRP, VRRP) voor de configuratie van hoge beschikbaarheid. We zijn afhankelijk van twee redundante BGP-sessies per peering voor maximale beschikbaarheid.
+> 
+> 
 
-## IP-adressen voor peerings
+## <a name="ip-addresses-used-for-peerings"></a>IP-adressen die worden gebruikt voor peerings
 U moet enkele blokken met IP-adressen reserveren om routering tussen uw netwerk en de MSEE-routers (Microsoft Enterprise Edge) te configureren. In deze sectie vindt u een lijst met vereisten en worden de regels beschreven met betrekking tot hoe u deze IP-adressen kunt verkrijgen en gebruiken.
 
-### IP-adressen voor persoonlijke Azure-peering
+### <a name="ip-addresses-used-for-azure-private-peering"></a>IP-adressen die worden gebruikt voor persoonlijke Azure-peering
 U kunt privé IP-adressen of openbare IP-adressen gebruiken om de peerings te configureren. Het adresbereik dat wordt gebruikt voor het configureren van routes mag geen adresbereiken overlappen die worden gebruikt voor het maken van virtuele netwerken in Azure. 
 
 * U moet een /29-subnet of twee /30-subnetten voor routeringsinterfaces reserveren.
@@ -37,7 +44,7 @@ U kunt privé IP-adressen of openbare IP-adressen gebruiken om de peerings te co
   * Voor beide /30-subnetten moet u het eerste IP-adres van het /30-subnet op de router gebruiken. Microsoft gebruikt het tweede IP-adres van het/30-subnet voor het instellen van een BGP-sessie.
   * Onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als beide BGP-sessies zijn ingesteld.  
 
-#### Voorbeeld voor persoonlijke peering
+#### <a name="example-for-private-peering"></a>Voorbeeld voor persoonlijke peering
 Als u a.b.c.d/29 gebruikt om de peering in te stellen, wordt dit gesplitst in twee /30-subnetten. In onderstaand voorbeeld kijken we hoe het subnet a.b.c.d/29 wordt gebruikt. 
 
 a.b.c.d/29 wordt gesplitst in a.b.c.d/30 en a.b.c.d+4/30 en via de inrichting-API's doorgegeven aan Microsoft. U gaat a.b.c.d+1 gebruiken als de VRF-IP voor de primaire PE en Microsoft gaat a.b.c.d+2 gebruiken als de VRF-IP voor de primaire MSEE. U gaat a.b.c.d+5 gebruiken als de VRF-IP voor de secundaire PE en Microsoft gaat a.b.c.d+6 gebruiken als de VRF-IP voor de secundaire MSEE.
@@ -47,7 +54,7 @@ Stelt u zich een situatie voor waarin u 192.168.100.128/29 selecteert om persoon
 * 192.168.100.128/30 wordt toegewezen aan link1, waarbij de provider 192.168.100.129 gebruikt en Microsoft 192.168.100.130 gebruikt.
 * 192.168.100.132/30 wordt toegewezen aan link2, waarbij provider 192.168.100.133 gebruikt en Microsoft 192.168.100.134 gebruikt.
 
-### IP-adressen voor openbare Azure-peering en Microsoft-peering
+### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP-adressen die worden gebruikt voor openbare Azure-peering en Microsoft-peering
 U moet voor het instellen van de BGP-sessies openbare IP-adressen gebruiken waarvan u eigenaar bent. Microsoft moet het eigenaarschap van de IP-adressen kunnen verifiëren via Routing Internet Registries en Internet Routing Registries. 
 
 * U moet een uniek /29-subnet of twee /30-subnetten gebruiken om de BGP-peering voor elke peering per ExpressRoute-circuit (als u er meer dan één hebt) in te stellen. 
@@ -55,6 +62,16 @@ U moet voor het instellen van de BGP-sessies openbare IP-adressen gebruiken waar
   * Het eerste /30-subnet wordt gebruikt voor de primaire koppeling en het tweede/30-subnet voor de secundaire koppeling.
   * Voor beide /30-subnetten moet u het eerste IP-adres van het /30-subnet op de router gebruiken. Microsoft gebruikt het tweede IP-adres van het/30-subnet voor het instellen van een BGP-sessie.
   * Onze [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als beide BGP-sessies zijn ingesteld.
+
+## <a name="public-ip-address-requirement"></a>Vereiste openbaar IP-adres
+### <a name="private-peering"></a>Persoonlijke peering
+U kunt kiezen om openbare of persoonlijke IPv4-adressen te gebruiken voor persoonlijke peering. We bieden end-to-end-isolatie van uw verkeer, zodat het overlappen van adressen met andere klanten niet mogelijk is in het geval van persoonlijke peering. Deze adressen worden niet geadverteerd naar internet. 
+
+### <a name="public-peering"></a>Openbare peering
+Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. Connectiviteit met Microsoft Azure-services via openbare peering wordt altijd gestart vanuit uw netwerk naar het Microsoft-netwerk. U moet openbare IP-adressen gebruiken voor het verkeer dat bestemd is voor het Microsoft-netwerk.
+
+### <a name="microsoft-peering"></a>Microsoft-peering
+Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en CRM Online. Microsoft ondersteunt bidirectionele connectiviteit op de Microsoft-peering. Verkeer dat is bestemd voor Microsoft Cloud-services, moet geldige openbare IPv4-adressen gebruiken voordat het het Microsoft-netwerk binnenkomt.
 
 Controleer of uw IP-adres en AS-nummer in een van de hieronder vermelde registers op uw naam zijn geregistreerd.
 
@@ -66,23 +83,28 @@ Controleer of uw IP-adres en AS-nummer in een van de hieronder vermelde register
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-## Dynamische route-uitwisseling
+> [!IMPORTANT]
+> Openbare IP-adressen die naar Microsoft zijn geadverteerd via ExpressRoute, mogen niet worden geadverteerd naar internet. Dit kan de connectiviteit met andere Microsoft-services verbreken. Openbare IP-adressen die worden gebruikt door servers in uw netwerk en communiceren met O365-eindpunten in Microsoft, kunnen echter wel worden geadverteerd via ExpressRoute. 
+> 
+> 
+
+## <a name="dynamic-route-exchange"></a>Dynamische route-uitwisseling
 Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden tot stand gebracht tussen de MSEE's en uw routers. Verificatie van BGP-sessies is niet vereist. Indien nodig kan een MD5-hash worden geconfigureerd. Zie [Configure routing](expressroute-howto-routing-classic.md) (Routering configureren) en [Circuit provisioning workflows and circuit states](expressroute-workflows.md) (Werkstromen voor de inrichting van ExpressRoute-circuits en circuittoestanden) voor informatie over het configureren van BGP-sessies.
 
-## Autonome systeemnummers
-Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Aan de peeringzijde (klant of provider) kan de ASN een openbare ASN zijn, als kan worden gecontroleerd dat de ASN van u is, of een privé-ASN.
+## <a name="autonomous-system-numbers"></a>Autonome systeemnummers
+Microsoft gebruikt AS 12076 voor persoonlijke Azure-peering, openbare Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
 
-Er zijn geen vereisten met betrekking tot de symmetrie van de gegevensoverdracht in de primaire en secundaire paden van circuits. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd aan de primaire of secundaire zijde van circuitparen die van u zijn. Route metrics hoeven niet identiek te zijn.
+Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
 
-## Limieten voor route-aggregatie en voorvoegsel
+## <a name="route-aggregation-and-prefix-limits"></a>Limieten voor route-aggregatie en voorvoegsel
 Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door middel van de persoonlijke Azure-peering. Dit aantal kan worden verhoogd tot 10.000 voorvoegsels als de Premium-invoegtoepassing voor ExpressRoute wordt ingeschakeld. We accepteren maximaal 200 voorvoegsels per BGP-sessie voor openbare Azure-peering en Microsoft-peering. 
 
-De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. De provider of de klant moet de standaardroute en privé-IP-adressen (RFC 1918) uit de BGP-aankondigingen voor het openbare peeringpad van Azure en het Microsoft-peeringpad filteren. 
+De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. Provider moet standaardroute- en privé IP-adressen (RFC 1918) uit de paden voor openbare Azure- en Microsoft-peering filteren. 
 
-## Transitroutering en regio-overschrijdende routering
+## <a name="transit-routing-and-crossregion-routing"></a>Transitroutering en regio-overschrijdende routering
 ExpressRoute kan niet worden geconfigureerd als transitrouter. Voor transitrouteringsservices bent u aangewezen op uw connectiviteitsprovider.
 
-## Standaardroutes adverteren
+## <a name="advertising-default-routes"></a>Standaardroutes adverteren
 Standaardroutes zijn alleen toegestaan voor persoonlijke Azure-peeringsessies. In dat geval wordt al het verkeer van de gekoppelde virtuele netwerken omgeleid naar uw netwerk. Wanneer standaardroutes worden geadverteerd naar persoonlijke peering, wordt het internetpad vanuit Azure geblokkeerd. Als u verkeer van en naar internet wilt routeren voor services die worden gehost in Azure, zult u gebruik moeten maken van uw bedrijfsfunctionaliteit. 
 
  Als u connectiviteit met andere Azure-services en infrastructuurservices wilt inschakelen, moet u een van de volgende voorzieningen treffen:
@@ -90,9 +112,12 @@ Standaardroutes zijn alleen toegestaan voor persoonlijke Azure-peeringsessies. I
 * Openbare Azure-peering is ingeschakeld om verkeer om te leiden naar openbare eindpunten
 * U gebruikt door de gebruiker gedefinieerde routering om internetconnectiviteit toe te staan voor elk subnet dat internetconnectiviteit vereist.
 
-**Opmerking:** wanneer standaardroutes worden geadverteerd, wordt de activering van Windows- en andere VM-licenties verbroken. Volg [deze](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) instructies als u dit wilt omzeilen.
+> [!NOTE]
+> Wanneer standaardroutes worden geadverteerd, wordt de activering van Windows- en andere VM-licenties verbroken. Volg [deze](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) instructies als u dit wilt omzeilen.
+> 
+> 
 
-## Ondersteuning voor BGP-community's (Preview)
+## <a name="support-for-bgp-communities-preview"></a>Ondersteuning voor BGP-community's (Preview)
 Deze sectie bevat een overzicht van hoe BGP-community's worden gebruikt met ExpressRoute. Microsoft adverteert routes in de paden voor openbare en Microsoft-peering waarbij de routes zijn gemarkeerd met de juiste communitywaarden. De reden hiervoor en meer informatie over communitywaarden worden hieronder beschreven. Microsoft erkent echter geen communitywaarden die zijn toegevoegd aan routes die worden geadverteerd aan Microsoft.
 
 Als u op willekeurig welke locatie in een geopolitieke regio via ExpressRoute verbinding maakt met Microsoft, hebt u toegang tot alle Microsoft-cloudservices in alle regio's binnen de geopolitieke grenzen. 
@@ -159,13 +184,16 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Configureer uw ExpressRoute-verbinding.
   
   * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken voor het klassieke implementatiemodel) of [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md) (Een ExpressRoute-circuit maken en wijzigen met Azure Resource Manager)
   * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) (Routering configureren voor het klassieke implementatiemodel) of [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md) (Routering configureren voor het Resource Manager-implementatiemodel)
   * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Een klassiek VNet koppelen aan een ExpressRoute-circuit) of [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Een Resource Manager-VNet koppelen aan een ExpressRoute-circuit)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

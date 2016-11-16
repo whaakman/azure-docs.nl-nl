@@ -1,4 +1,4 @@
-#### Een virtueel apparaat maken
+#### <a name="to-create-a-virtual-device"></a>Een virtueel apparaat maken
 1. Ga in Azure Portal naar de **StorSimple Manager**-service.
 2. Ga naar de pagina **Apparaten**. Klik op **Virtueel apparaat maken** aan de onderkant van de pagina **Apparaten**.
 3. Geef in het **dialoogvenster Virtueel apparaat maken** de volgende gegevens op.
@@ -26,6 +26,8 @@
       
       ![Aanmaakfase voor een virtueel StorSimple-apparaat](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

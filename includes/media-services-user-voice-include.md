@@ -4,11 +4,13 @@ Geef via het forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&cl
 * [SDK-clientbibliotheken](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
 * [Coderen en verwerken](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Live streamen](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
-* [Media-analyses](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
+* [Media Analytics](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
-* [REST-API en platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
+* [REST API en platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [VoD streamen](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

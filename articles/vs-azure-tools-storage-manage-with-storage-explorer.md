@@ -5,8 +5,8 @@ services: storage
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5c003c9240d8625d2921666e1361ce0512138bb
+
 
 ---
-# Aan de slag met Opslagverkenner (Preview)
-## Overzicht
+# <a name="getting-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
+## <a name="overview"></a>Overzicht
 Microsoft Azure Storage Exporer (Preview) is een zelfstandige app waardoor u eenvoudig met Azure Storage-gegevens kunt werken via Windows, OSX en Linux. In dit artikel leert u op welke manieren u verbinding kunt maken met Azure Storage-accounts en hoe u deze kunt beheren.
 
 ![Microsoft Azure Storage Explorer (voorbeeld)][15]
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * [Opslagverkenner (preview) downloaden en installeren](http://www.storageexplorer.com)
 
-## Verbinding maken met een opslagaccount of -service
+## <a name="connect-to-a-storage-account-or-service"></a>Verbinding maken met een opslagaccount of -service
 Opslagverkenner (Preview) biedt allerlei manieren om verbinding te maken met opslagaccounts. Dit omvat het verbinden met de opslagaccounts die zijn gekoppeld aan uw Azure-abonnementen, het verbinden met de opslagaccounts en services die worden gedeeld via andere Azure-abonnementen en het verbinden met en beheren van lokale opslag met de Azure-opslagemulator:
 
 * [Verbinding maken met een Azure-abonnement](#connect-to-an-azure-subscription): beheer opslagresources die deel uitmaken van uw Azure-abonnement.
@@ -34,7 +38,7 @@ Opslagverkenner (Preview) biedt allerlei manieren om verbinding te maken met ops
 * [Een account koppelen via SAS](#attach-storage-account-using-sas) - Beheer de opslagresources van een ander Azure-abonnement met een SAS.
 * [Een service koppelen via SAS](#attach-service-using-sas): beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een ander Azure-abonnement. Dit gebeurt middels een SAS.
 
-## Verbinding maken met een Azure-abonnement
+## <a name="connect-to-an-azure-subscription"></a>Verbinding maken met een Azure-abonnement
 > [!NOTE]
 > Als u geen Azure-account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [gebruikmaken van uw voordelen als Visual Studio-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
@@ -53,7 +57,7 @@ Opslagverkenner (Preview) biedt allerlei manieren om verbinding te maken met ops
    
     ![Geselecteerde Azure-abonnementen][4]
 
-## Werken met lokale ontwikkelingsopslag
+## <a name="work-with-local-development-storage"></a>Werken met lokale ontwikkelingsopslag
 Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opslagemulator. Hiermee kunt u code schrijven voor opslag en deze testen zonder dat u een opslagaccount hoeft te hebben geïmplementeerd in Azure (omdat het opslagaccount wordt gesimuleerd door de Azure-opslagemulator).
 
 > [!NOTE]
@@ -74,10 +78,10 @@ Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opsla
    * Resources voor Azure Queue Storage beheren - *Binnenkort beschikbaar*
    * Resources voor Azure Table Storage beheren - *Binnenkort beschikbaar*
 
-## Koppelen aan een extern opslagaccount of de koppeling opheffen
+## <a name="attach-or-detach-an-external-storage-account"></a>Koppelen aan een extern opslagaccount of de koppeling opheffen
 Opslagverkenner (Preview) biedt de mogelijkheid om externe opslagaccounts te koppelen zodat u opslagaccounts eenvoudig kunt delen. In dit gedeelte wordt uitgelegd hoe u externe opslagaccounts koppelt (en hoe u de koppeling opheft).
 
-### De opslagaccountreferenties ophalen
+### <a name="get-the-storage-account-credentials"></a>De opslagaccountreferenties ophalen
 Als u een extern opslagaccount wilt delen, moet de eigenaar van dat account eerst de referenties ontvangen (accountnaam en -sleutel) voor het account en daarna die informatie delen met de persoon die wil verbinden met het (externe) account. U kunt de opslagaccountreferenties verkrijgen via de Azure Portal door deze stappen te volgen: 
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
@@ -91,7 +95,7 @@ Als u een extern opslagaccount wilt delen, moet de eigenaar van dat account eers
    
    ![Toegangssleutels][6]
 
-### Koppelen aan een extern opslagaccount
+### <a name="attach-to-an-external-storage-account"></a>Koppelen aan een extern opslagaccount
 Om een extern opslagaccount te koppelen, moet u de accountaam en -sleutel opgeven. In het gedeelte *De opslagaccountreferenties ophalen* wordt uitgelegd hoe u deze waarden verkrijgt in het Azure-portal. Merk op dat in het portaal de accountsleutel “sleutel 1” wordt genoemd, dus als de Storage Explorer (voorbeeld) vraagt naar een accountsleutel, geeft u (of plakt u) de waarde van “sleutel 1” in. 
 
 1. Selecteer in Storage Explorer (voorbeeld) **Verbinding maken met Azure Storage**.
@@ -108,13 +112,13 @@ Om een extern opslagaccount te koppelen, moet u de accountaam en -sleutel opgeve
    
    ![Resultaat van koppelen met een extern opslagaccount][9]
 
-### De koppeling met een extern opslagaccount opheffen
+### <a name="detach-from-an-external-storage-account"></a>De koppeling met een extern opslagaccount opheffen
 1. Klik met de rechtermuisknop op het externe opslagaccount dat u wilt loskoppelen en selecteer in het contextmenu **Loskoppelen**.
    
    ![Loskoppelen van de opslagoptie][10]
 2. Wanneer het bevestigingsbericht wordt weergegeven, selecteert u **Ja** om het loskoppelen van het externe opslagaccount te bevestigen.
 
-## Een opslagaccount koppelen via SAS
+## <a name="attach-storage-account-using-sas"></a>Een opslagaccount koppelen via SAS
 Een [SAS (Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) biedt de beheerder van een Azure-abonnement de mogelijkheid om tijdelijk toegang te verlenen tot een opslagaccount zonder dat daarvoor de Azure-abonnementsreferenties hoeven worden opgegeven. 
 
 Een voorbeeld: stel gebruiker A is beheerder van een Azure-abonnement en gebruiker A wil gebruiker B een beperkte tijd toegang bieden tot een opslagaccount, met bepaalde machtigingen:
@@ -123,7 +127,7 @@ Een voorbeeld: stel gebruiker A is beheerder van een Azure-abonnement en gebruik
 2. Gebruiker A deelt de SAS met de persoon die toegang wil tot het opslagaccount (gebruiker B, in dit geval).  
 3. Gebruiker B gebruikt Opslagverkenner (Preview) om verbinding te maken met het account van gebruiker A middels de opgegeven SAS. 
 
-### Een SAS ophalen voor het account dat u wilt delen
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Een SAS ophalen voor het account dat u wilt delen
 1. In de Storage Explorer (voorbeeld) klikt u met de rechtermuisknop op het Storage Account dat u wilt delen. Selecteer in het contextmenu de optie **Shared Access Signature ophalen**.
    
    ![Optie SAS-contextmenu ophalen][13]
@@ -132,7 +136,7 @@ Een voorbeeld: stel gebruiker A is beheerder van een Azure-abonnement en gebruik
     ![SAS-dialoogvenster ophalen][14]
 3. Er wordt een tweede dialoogvenster **Shared Access Signature** weergegeven. Hierin staat de SAS. Selecteer **Kopiëren** naast de **verbindingsreeks** om de handtekening naar het klembord te kopiëren. Selecteer **Sluiten** om het dialoogvenster te sluiten.
 
-### Koppelen aan het gedeelde account met behulp van de SAS
+### <a name="attach-to-the-shared-account-using-the-sas"></a>Koppelen aan het gedeelde account met behulp van de SAS
 1. Selecteer in Storage Explorer (voorbeeld) **Verbinding maken met Azure Storage**.
    
    ![Verbinding maken met de optie Azure Storage][23]
@@ -144,10 +148,10 @@ Een voorbeeld: stel gebruiker A is beheerder van een Azure-abonnement en gebruik
    
    ![Resultaat van gekoppeld met een account via SAS][17]
 
-## Een service koppelen via SAS
+## <a name="attach-service-using-sas"></a>Een service koppelen via SAS
 In het gedeelte [Een account koppelen via SAS](#attach-storage-account-using-sas) leest u hoe de beheerder van een Azure-abonnement tijdelijke toegang kan verlenen tot een opslagaccount door een SAS te genereren (en delen) voor het opslagaccount. Op deze manier kunt u ook een SAS genereren voor een bepaalde service (blobcontainer, wachtrij of tabel) binnen een opslagaccount.  
 
-### Een SAS genereren voor de service die u wilt delen
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Een SAS genereren voor de service die u wilt delen
 In deze context is een service een blobcontainer, een wachtrij of een tabel. In de volgende gedeelten wordt uitgelegd hoe u een SAS maakt voor de vermelde service:
 
 * [De SAS ophalen voor een blobcontainer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
@@ -155,7 +159,7 @@ In deze context is een service een blobcontainer, een wachtrij of een tabel. In 
 * De SAS ophalen voor een wachtrij - *binnenkort beschikbaar*
 * De SAS ophalen voor een tabel - *binnenkort beschikbaar*
 
-### Koppelen aan de gedeelde-accountservice met behulp van de SAS
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Koppelen aan de gedeelde-accountservice met behulp van de SAS
 1. Selecteer in Storage Explorer (voorbeeld) **Verbinding maken met Azure Storage**.
    
    ![Verbinding maken met de optie Azure Storage][23]
@@ -167,7 +171,7 @@ In deze context is een service een blobcontainer, een wachtrij of een tabel. In 
    
    ![Resultaat van het koppelen met een gedeelde-service met SAS][20]
 
-## Zoeken naar opslagaccounts
+## <a name="search-for-storage-accounts"></a>Zoeken naar opslagaccounts
 Als u een lange lijst met opslagaccounts hebt, kunt u via het zoekvak boven aan het linkerdeelvenster snel bepaalde opslagaccounts zoeken. 
 
 Wanneer u in het zoekvak typt, worden in het linkerdeelvenster alleen de opslagaccounts weergegeven die overeenkomen met de zoekwaarde die u tot dan toe hebt ingevoerd. In de volgende schermafbeelding ziet u een voorbeeld van een zoekopdracht. De naam van het opslagaccount moet de tekst "tarcher" bevatten.
@@ -176,7 +180,7 @@ Wanneer u in het zoekvak typt, worden in het linkerdeelvenster alleen de opslaga
 
 Als u de zoekopdracht wilt wissen, klikt u op **x** in het zoekvak.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Azure Blob Storage-resources beheren met Opslagverkenner (Preview)](vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
@@ -202,6 +206,6 @@ Als u de zoekopdracht wilt wissen, klikt u op **x** in het zoekvak.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

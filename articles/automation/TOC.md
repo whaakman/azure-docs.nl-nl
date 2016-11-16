@@ -73,6 +73,11 @@
 ## [Klassieke implementatie Rest](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Bronnen
+## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Service-updates](https://azure.microsoft.com/updates/?product=automation) 
 ## [Azure Automation-training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

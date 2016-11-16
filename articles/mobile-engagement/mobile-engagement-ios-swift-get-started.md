@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,9 +14,13 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
-# Aan de slag met Azure Mobile Engagement voor iOS-apps in Swift
+# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Aan de slag met Azure Mobile Engagement voor iOS-apps in Swift
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een iOS-toepassing.
@@ -40,18 +44,18 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Engage
 > 
 > 
 
-## <a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
-Deze zelfstudie toont een 'basisintegratie', de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement iOS SDK-integratie](mobile-engagement-ios-sdk-overview.md).
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement iOS SDK-integratie](mobile-engagement-ios-sdk-overview.md).
 
 We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
 
-### Een nieuw iOS-project maken
+### <a name="create-a-new-ios-project"></a>Een nieuw iOS-project maken
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### Uw app verbinden met de back-end van Mobile Engagement
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
 1. Download de [Mobile Engagement iOS SDK].
 2. Pak het .tar.gz-bestand uit in een map op uw computer.
 3. Klik met de rechtermuisknop op het project en selecteer Add files to...
@@ -87,29 +91,29 @@ We gaan een eenvoudige app maken met XCode ter illustratie van de integratie:
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a id="monitor"></a>Realtime-bewaking inschakelen
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Realtime-bewaking inschakelen
 U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn.
 
 1. Open het bestand **ViewController.swift** en vervang de basisklasse van **ViewController** met **EngagementViewController**:
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>App verbinden met realtime-bewaking
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
 Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
 In de volgende secties stelt u de app in om die te ontvangen.
 
-### Ontvangen van achtergrond-pushmeldingen inschakelen voor de app
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Ontvangen van achtergrond-pushmeldingen inschakelen voor de app
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### De Reach-bibliotheek toevoegen aan uw project
+### <a name="add-the-reach-library-to-your-project"></a>De Reach-bibliotheek toevoegen aan uw project
 1. Klik met de rechtermuisknop op het project.
 2. Selecteer `Add file to ...`
 3. Navigeer naar de map waar u de SDK hebt uitgepakt.
@@ -140,7 +144,7 @@ In de volgende secties stelt u de app in om die te ontvangen.
         #import "AEViewControllerUtil.h"
         #import "AEWebAnnouncementJsBridge.h"
 
-### Uw toepassingsgemachtigde wijzigen
+### <a name="modify-your-application-delegate"></a>Uw toepassingsgemachtigde wijzigen
 1. Binnen de `didFinishLaunchingWithOptions` maakt u een Reach-module en geeft die door aan uw bestaande initialisatieregel voor Engagement:
    
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
@@ -151,7 +155,7 @@ In de volgende secties stelt u de app in om die te ontvangen.
             return true
         }
 
-### Ontvangen van APNS-pushmeldingen inschakelen voor de app
+### <a name="enable-your-app-to-receive-apns-push-notifications"></a>Ontvangen van APNS-pushmeldingen inschakelen voor de app
 1. Voeg de volgende regel toe aan de methode `didFinishLaunchingWithOptions`:
    
         if #available(iOS 8.0, *)
@@ -196,6 +200,6 @@ In de volgende secties stelt u de app in om die te ontvangen.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -7,11 +7,11 @@
 2. Klik met de rechtermuisknop op het eerste item in de lijst (`Information Property List`) en voeg een nieuwe rij toe.
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
-3. In de nieuwe rij doet u het volgende: `Required background modes`
+3. In de nieuwe rij voert u het volgende in: `Required background modes`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
 4. Klik op de pijl-links om de rij uit te vouwen.
-5. Voeg de volgende waarde toe aan het item 0. `App downloads content in response to push notifications`
+5. Voeg de volgende waarde toe aan het item 0: `App downloads content in response to push notifications`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
 6. Zodra u de wijziging hebt aangebracht, moet de XML van info.plist de volgende sleutel en waarde bevatten:
@@ -24,6 +24,8 @@
    
    * Schakel **Pushmeldingen** in Doelen > uw doelnaam > Mogelijkheden in.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

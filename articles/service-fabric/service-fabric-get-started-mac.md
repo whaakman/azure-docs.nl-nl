@@ -1,12 +1,12 @@
 ---
 title: Uw ontwikkelomgeving instellen in Mac OS X | Microsoft Docs
-description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Mac OS X.
+description: Installeer de runtime, SDK en hulpprogramma&quot;s en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Mac OS X.
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Uw ontwikkelomgeving instellen in Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 U kunt Service Fabric-toepassingen bouwen voor uitvoering op Linux-clusters met behulp van Mac OS X. In dit artikel wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, bieden we een vooraf geconfigureerde virtuele Ubuntu-machine met Vagrant en VirtualBox. Voordat u aan de slag gaat, hebt u het volgende nodig:
 
 * [Vagrant (v1.8.4 of hoger)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## De lokale virtuele machine maken
+## <a name="create-the-local-vm"></a>De lokale virtuele machine maken
 Ga als volgt te werk om de lokale virtuele machine te maken met een Service Fabric-cluster met 5-knooppunten:
 
 1. Kloon de Vagrantfile-opslagplaats
@@ -67,7 +71,7 @@ Ga als volgt te werk om de lokale virtuele machine te maken met een Service Fabr
    
     ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
 
-## De Service Fabric-invoegtoepassing installeren voor Eclipse Neon (optioneel)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon (optioneel)
 Service Fabric biedt een invoegtoepassing voor de Eclipse Neon IDE die het proces van het maken en implementeren van Java-services kan vereenvoudigen.
 
 1. Zorg ervoor dat u in Eclips Buildship versie 1.0.17 of hoger hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-bijwerken].
@@ -79,7 +83,7 @@ Service Fabric biedt een invoegtoepassing voor de Eclipse Neon IDE die het proce
 5. Kies de Service Fabric-invoegtoepassing en klik op Next.
 6. Doorloop de installatie en accepteer de gebruiksrechtovereenkomst.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste Service Fabric-toepassing voor Linux maken](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -96,6 +100,6 @@ Service Fabric biedt een invoegtoepassing voor de Eclipse Neon IDE die het proce
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Aan de slag met de SDK-Gateway in IoT-Hub | Microsoft Docs
-description: In dit overzicht van de Azure IoT Hub Gateway SDK wordt Linux gebruikt om de belangrijkste concepten te illustreren die u moet kennen wanneer u de Azure IoT Hub Gateway SDK gebruikt.
+title: Aan de slag met de SDK-Gateway in IoT Hub | Microsoft Docs
+description: In dit overzicht van de Azure IoT Gateway SDK wordt Linux gebruikt om de belangrijkste concepten te illustreren die u moet kennen wanneer u de Azure IoT ateway SDK gebruikt.
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+
 
 ---
-# IoT Gateway-SDK (bèta) - Aan de slag met Linux
+# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Gateway SDK (bèta) - Aan de slag met Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## Het voorbeeld maken
+## <a name="how-to-build-the-sample"></a>Het voorbeeld maken
 Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om met de SDK in Linux te werken.
 
 1. Open een shell.
@@ -31,7 +35,7 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
 > 
 > 
 
-## Het voorbeeld uitvoeren
+## <a name="how-to-run-the-sample"></a>Het voorbeeld uitvoeren
 1. De uitvoer van het script **build.sh** wordt gegenereerd in de map **build** in de lokale kopie van de opslagplaats **azure-iot-gateway-sdk**. Dit omvat de twee modules die in dit voorbeeld worden gebruikt.
    
     Het bouwscript plaatst **liblogger_hl.so** in de map **build/modules/logger/** en **libhello_world_hl.so** in de map **build/modules/hello_world/**. Gebruik deze paden voor de waarde van **modulepad** zoals weergegeven in het bestand met JSON-instellingen hieronder.
@@ -46,7 +50,9 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -54,7 +60,9 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],
@@ -81,6 +89,6 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

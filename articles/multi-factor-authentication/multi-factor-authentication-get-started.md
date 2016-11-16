@@ -1,52 +1,58 @@
 ---
-title: Azure Multi-Factor Authentication - Aan de slag
-description: 'Kies de Multi-Factor Authentication-beveiligingsoplossing die bij u past door uzelf de vraag te stellen: ''Wat wil ik beveiligen en waar bevinden zich mijn gebruikers?''.  Kies vervolgens de cloud, MFA-Server of AD FS.'
+title: Azure MFA-cloud versus -server | Microsoft Docs
+description: 'Kies de Multi-Factor Authentication-beveiligingsoplossing die bij u past door uzelf de vraag te stellen: &quot;Wat wil ik beveiligen en waar bevinden zich mijn gebruikers?&quot;.  Kies vervolgens de cloud, MFA-Server of AD FS.'
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
-
+editor: yossib
+ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 10/14/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72347099d980f2ca73f39f984787197e1f87e45a
+
 
 ---
-# De Multi-Factor-beveiligingsoplossing kiezen die bij u past
-Omdat er verschillende versies van Azure Multi-Factor Authentication zijn, moet er een aantal dingen worden bepaald om te kunnen beoordelen welke versie voor u de beste is.  Die dingen zijn:
+# <a name="choose-the-azure-multifactor-authentication-solution-for-you"></a>Kies de Azure Multi-Factor Authentication-oplossing die bij u past
+Omdat er verschillende versies van Azure Multi-Factor Authentication (MFA) zijn, moet u een aantal vragen beantwoorden om te kunnen beoordelen welke versie voor u de beste is.  Deze vragen zijn:
 
 * [Wat wil ik beveiligen?](#what-am-i-trying-to-secure)
 * [Waar bevinden de gebruikers zich?](#where-are-the-users-located)
+* [Welke functies heb ik nodig?](#what-featured-do-i-need)
 
-In de volgende secties vindt u richtlijnen die u helpen om elk van deze twee vragen te beantwoorden.
+In de volgende secties vindt u richtlijnen die u helpen om elk van deze vragen te beantwoorden.
 
-## Wat wil ik beveiligen?
-Om te bepalen welke Multi-Factor Authentication-oplossing de juiste is, moet eerst de vraag worden beantwoord wat u wilt beveiligen met een tweede verificatiemethode.  Is het een toepassing die deel uitmaakt van Azure?  Of is het bijvoorbeeld een systeem voor externe toegang?  Door te bepalen wat we willen beveiligen, kan de vraag worden beantwoord waar Multi-Factor Authentication moet worden ingeschakeld.  
+## <a name="what-am-i-trying-to-secure"></a>Wat wil ik beveiligen?
+Om te bepalen welke oplossing voor verificatie in twee stappen de juiste is, moet eerst de vraag worden beantwoord wat u wilt beveiligen met een tweede verificatiemethode.  Is het een toepassing die deel uitmaakt van Azure?  Of een systeem met externe toegang?  Door te bepalen wat we willen beveiligen, kan de vraag worden beantwoord waar Multi-Factor Authentication moet worden ingeschakeld.  
 
 | Wat wilt u beveiligen | Multi-factor Authentication in de cloud | Multi-Factor Authentication-server |
 | --- |:---:|:---:|
-| Eigen Microsoft-apps |* |* |
-| SaaS-apps in de app-galerie |* |* |
-| IIS-toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD |* |* |
-| IIS-toepassingen die niet zijn gepubliceerd via toepassingsproxy van Azure AD | |* |
-| Externe toegang zoals VPN, RDG | |* |
+| Eigen Microsoft-apps |● |● |
+| SaaS-apps in de app-galerie |● |● |
+| IIS-toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD |● |● |
+| IIS-toepassingen die niet zijn gepubliceerd via toepassingsproxy van Azure AD | |● |
+| Externe toegang zoals VPN, RDG | |● |
 
-## Waar bevinden de gebruikers zich?
-Afhankelijk van waar onze gebruikers zich bevinden, kunnen we vervolgens bepalen wat de juiste oplossing is, of Multi-Factor Authentication in de cloud is of on-premises via de MFA Server.
+## <a name="where-are-the-users-located"></a>Waar bevinden de gebruikers zich?
+Als we vervolgens kijken waar onze gebruikers zich bevinden, kunnen we bepalen wat de juiste oplossing is, in de cloud of on-premises via de MFA Server.
 
-| Locatie van gebruikers | Oplossing |
-| --- |:--- |
-| Azure Active Directory |Multi-factor Authentication in de cloud |
-| Azure AD en on-premises AD dat gebruikmaakt van federatie met AD FS |Zowel MFA in de cloud als MFA Server zijn beschikbare opties |
-| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - geen wachtwoordsynchronisatie |Zowel MFA in de cloud als MFA Server zijn beschikbare opties |
-| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - met wachtwoordsynchronisatie |Multi-factor Authentication in de cloud |
-| On-premises Active Directory |Multi-Factor Authentication-server |
+| Locatie van gebruikers | Multi-factor Authentication in de cloud | Multi-Factor Authentication-server |
+| --- |:---:|:---:|
+| Azure Active Directory |● | |
+| Azure AD en on-premises AD dat gebruikmaakt van federatie met AD FS |● |● |
+| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - geen wachtwoordsynchronisatie |● |● |
+| Azure AD en on-premises AD dat gebruikmaakt van DirSync, Azure AD Sync, Azure AD Connect - met wachtwoordsynchronisatie |● | |
+| On-premises Active Directory | |● |
 
-De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authentication in de cloud met de functies van de Multi-Factor Authentication-server.
+## <a name="what-features-do-i-need"></a>Welke functies heb ik nodig?
+De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authentication die beschikbaar zijn in de cloud met de functies die beschikbaar zijn met de Multi-Factor Authentication-server.
 
 | Multi-factor Authentication in de cloud | Multi-Factor Authentication-server |
 | --- |:---:|:---:|
@@ -69,7 +75,7 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 | Voorwaardelijke toegang |● |
 | Cache | |
 
-Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-premises MFA-server de beste oplossing is, kunnen we beginnen met het instellen en gebruiken van Azure Multi-Factor Authentication.   **Selecteer het pictogram dat bij uw scenario past.**
+Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-premises MFA-server de beste oplossing is, kunnen we beginnen met het instellen en gebruiken van Azure Multi-Factor Authentication. **Selecteer het pictogram dat bij uw scenario past.**
 
 <center>
 
@@ -81,6 +87,6 @@ Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-pre
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

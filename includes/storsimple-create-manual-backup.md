@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### Een handmatige back-up maken
+#### <a name="to-create-a-manual-backup"></a>Een handmatige back-up maken
 1. Ga op de pagina **Apparaten** naar het tabblad **Back-upbeleid**. Dit tabblad bevat alle back-upbeleid in tabelvorm, met inbegrip van het beleid voor het volume waarvan u een back-up wilt maken.
 2. Selecteer het beleid door ergens in de bijbehorende rij te klikken (niet in de eerste kolom). Klik onder aan de pagina op **Back-up maken**. De knop wordt uitgebreid om de back-upopties weer te geven: lokale momentopname en cloudmomentopname. 
 3. Wanneer u een van deze opties kiest, wordt u gevraagd dit te bevestigen. Klik op **Ja**. 
@@ -18,6 +18,8 @@
    
    De back-up moet worden weergegeven in de lijst met back-upsets die in de catalogus wordt weergegeven.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

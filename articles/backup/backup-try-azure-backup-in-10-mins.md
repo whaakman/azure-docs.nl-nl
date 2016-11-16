@@ -2,12 +2,12 @@
 title: Leer hoe u een back-up maakt van bestanden en mappen in Windows naar Azure met Azure Backup aan de hand van het Resource Manager-implementatiemodel | Microsoft Docs
 description: Leer hoe u een back-up maakt van Windows Server-gegevens door het maken van een kluis, het installeren van de Recovery Services-agent en door een back-p van te maken van uw bestanden en mappen in Azure.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
+editor: 
 keywords: hoe een back-up maken; back-up maken
-
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+
 
 ---
-# Eerste blik: een back-up maken van bestanden en mappen in Azure Backup met behulp van het Resource Manager-implementatiemodel
+# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>Eerste blik: een back-up maken van bestanden en mappen in Azure Backup met behulp van het Resource Manager-implementatiemodel
 In dit artikel wordt uitgelegd hoe u een back-up maakt van bestanden en mappen op uw Windows Server (of Windows-client) in Azure met behulp van de Resource Manager van Azure Backup. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt. Als u met Azure Backup wilt leren werken, bent u hier op de goede plek.
 
 Als u meer wilt weten over Azure Backup, lees dan dit [overzicht](backup-introduction-to-azure-backup.md).
@@ -32,13 +36,13 @@ Voor het maken van back-ups van bestanden en mappen in Azure moet u de volgende 
 
 ![Hoe maakt u een back-up van uw Windows-machine met Azure Backup?](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## Stap 1: Neem een abonnement op Azure
+## <a name="step-1-get-an-azure-subscription"></a>Stap 1: Neem een abonnement op Azure
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan waarmee u toegang hebt tot alle services van Azure.
 
-## Stap 2: Maak een Recovery Services-kluis
+## <a name="step-2-create-a-recovery-services-vault"></a>Stap 2: Maak een Recovery Services-kluis
 Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Services-kluis maken in de regio waar u de gegevens wilt opslaan. U moet ook bepalen op welke manier u uw opslag wilt repliceren. 
 
-### Een Recovery Services-kluis maken
+### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
 2. Klik in het menu Hub op **Bladeren**, typ in de lijst met resources **Recovery Services** en klik vervolgens op **Recovery Services-kluizen**.
    
@@ -58,7 +62,7 @@ Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Ser
    
     Als u uw kluis niet in de lijst ziet nadat u deze hebt gemaakt, klik dan op **Vernieuwen**. Wanneer de lijst is vernieuwd, klikt u op de naam van de kluis.
 
-### De redundantie van de opslag bepalen
+### <a name="to-determine-storage-redundancy"></a>De redundantie van de opslag bepalen
 Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag wordt gerepliceerd.
 
 1. Klik op de nieuwe kluis om het dashboard te openen.
@@ -74,7 +78,7 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
 Wanneer u eenmaal een kluis hebt gemaakt, kunt u uw infrastructuur gaan voorbereiden voor het maken van back-ups van bestanden en mappen. Download hiervoor de Microsoft Azure Recovery Service-agent en de kluisreferenties.
 
-## Stap 3 - Bestanden downloaden
+## <a name="step-3-download-files"></a>Stap 3 - Bestanden downloaden
 1. Klik op **Instellingen** op het dashboard van de Recovery Services-kluis.
    
     ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -87,18 +91,18 @@ Wanneer u eenmaal een kluis hebt gemaakt, kunt u uw infrastructuur gaan voorbere
 4. Selecteer **On-premises** in het menu Waar wordt uw workload uitgevoerd?
 5. Selecteer **Bestanden en mappen** in het menu Waarvan wilt u een back-up maken? en klik op vervolgens op **OK**.
 
-### De Recovery Services-agent downloaden
+### <a name="download-the-recovery-services-agent"></a>De Recovery Services-agent downloaden
 1. Klik op **Agent voor Windows Server of Windows Client downloaden** in de blade **Infrastructuur voorbereiden**.
    
     ![infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 2. Klik op **Opslaan** in het downloadpop-upvenster. Standaard wordt het bestand **MARSagentinstaller.exe** opgeslagen in de map Downloads.
 
-### Kluisreferenties downloaden
+### <a name="download-vault-credentials"></a>Kluisreferenties downloaden
 1. Klik op **Download > Opslaan** op de blade Infrastructuur voorbereiden.
    
     ![infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## Stap 4 - De agent installeren en registreren
+## <a name="step-4-install-and-register-the-agent"></a>Stap 4 - De agent installeren en registreren
 > [!NOTE]
 > Het maken van back-ups via de Azure Portal is binnenkort beschikbaar. Op dit moment kunt u on-premises met de Microsoft Azure Recovery Services Agent back-ups maken van uw bestanden en mappen.
 > 
@@ -120,7 +124,7 @@ Wanneer u eenmaal een kluis hebt gemaakt, kunt u uw infrastructuur gaan voorbere
 
 De agent wordt nu geïnstalleerd en uw computer wordt geregistreerd bij de kluis. U kunt nu uw back-up configureren en plannen.
 
-## Stap 5: Maak een back-up van uw bestanden en mappen
+## <a name="step-5-back-up-your-files-and-folders"></a>Stap 5: Maak een back-up van uw bestanden en mappen
 Als u voor het eerst een back-up maakt, moet u twee belangrijke taken uitvoeren:
 
 * De back-up plannen
@@ -128,7 +132,7 @@ Als u voor het eerst een back-up maakt, moet u twee belangrijke taken uitvoeren:
 
 U dient de Microsoft Azure Recovery Services-agent te gebruiken voor het uitvoeren van de eerste back-up.
 
-### De back-up plannen
+### <a name="to-schedule-the-backup"></a>De back-up plannen
 1. Open de Microsoft Azure Recovery Services-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
    
     ![De Azure Recovery Services-agent starten](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
@@ -158,7 +162,7 @@ U dient de Microsoft Azure Recovery Services-agent te gebruiken voor het uitvoer
 10. Lees de informatie op de pagina Bevestiging en klik vervolgens op **Voltooien**.
 11. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
-### Voor de eerste keer een back-up maken van bestanden en mappen
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Voor de eerste keer een back-up maken van bestanden en mappen
 1. Klik in de Recovery Services-agent op **Nu een back-up maken** om de eerste seeding via het netwerk te voltooien.
    
     ![Nu back-up maken van Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
@@ -169,14 +173,17 @@ Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegev
 
 ![IR voltooid](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Vragen?
+## <a name="questions"></a>Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [back-ups maken van Windows-machines](backup-configure-vault.md).
 * Wanneer u eenmaal een back-up hebt gemaakt van uw bestanden en mappen, kunt u [uw kluizen en servers beheren](backup-azure-manage-windows-server.md).
 * Als u een back-up moet herstellen, [zet de bestanden dan terug naar een Windows-machine](backup-azure-restore-windows-server.md) aan de hand van dit artikel.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,11 +2,11 @@
 title: Azure CDN gebruiken | Microsoft Docs
 description: In dit onderwerp leert u hoe u het Content Delivery Network (CDN) voor Azure inschakelt. In deze zelfstudie wordt uitgelegd hoe u een nieuw CDN-profiel en -eindpunt maakt.
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+
 
 ---
-# Azure CDN gebruiken
+# <a name="using-azure-cdn"></a>Azure CDN gebruiken
 In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-p
 > 
 > 
 
-## Nieuwe CDN-profielen maken
+## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
 Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of meer CDN-eindpunten.  Mogelijk wilt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria.
 
 > [!NOTE]
@@ -36,7 +40,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Nieuwe CDN-eindpunten maken
+## <a name="create-a-new-cdn-endpoint"></a>Nieuwe CDN-eindpunten maken
 **Een nieuw CDN-eindpunt maken**
 
 1. Navigeer in [Azure Portal](https://portal.azure.com) naar uw CDN-profiel.  Mogelijk hebt u het profiel in de vorige stap vastgemaakt aan het dashboard.  Als dit niet het geval is, kunt u het dashboard zoeken door op **Bladeren** en vervolgens **CDN-profielen** te klikken en op het profiel te klikken die u aan het eindpunt wilt toevoegen.
@@ -88,7 +92,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
     > 
     > 
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [Het cachegedrag van aanvragen beheren met queryreeksen](cdn-query-string.md)
 * [CDN-inhoud toewijzen aan een aangepast domein](cdn-map-content-to-custom-domain.md)
 * [Vooraf assets op een Azure CDN-eindpunt laden](cdn-preload-endpoint.md)
@@ -102,6 +106,6 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

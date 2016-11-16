@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Voorvoegsels toevoegen of verwijderen - geen gatewayverbinding
+### <a name="a-namenoconnectionahow-to-add-or-remove-prefixes-no-gateway-connection"></a><a name="noconnection"></a>Voorvoegsels toevoegen of verwijderen - geen gatewayverbinding
 * Gebruik het onderstaande voorbeeld om aanvullende adresvoorvoegsels **toe te voegen** aan een lokale netwerkgateway die u hebt gemaakt, maar die nog geen gatewayverbinding heeft. Wijzig de waarden in die van uzelf.
   
         $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -10,7 +10,7 @@
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
         -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### <a name="withconnection"></a>Voorvoegsels toevoegen of verwijderen - bestaande gatewayverbinding
+### <a name="a-namewithconnectionahow-to-add-or-remove-prefixes-existing-gateway-connection"></a><a name="withconnection"></a>Voorvoegsels toevoegen of verwijderen - bestaande gatewayverbinding
 Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Wanneer u uw voorvoegsels bijwerkt, moet u eerst de verbinding verwijderen, de voorvoegsels wijzigen, en vervolgens een nieuwe verbinding maken. Zorg dat u de waarden in de onderstaande voorbeelden door uw eigen waarden vervangt.
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen
         -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 3. Maak de verbinding. In dit voorbeeld configureren we een IPsec-verbindingstype. Wanneer u uw verbinding opnieuw maakt, gebruikt u het verbindingstype dat is opgegeven voor uw configuratie. Zie de pagina [PowerShell-cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) voor aanvullende verbindingstypen.
    
-    Stel de variabele in voor VirtualNetworkGateway.
+     Stel de variabele in voor VirtualNetworkGateway.
    
         $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
    
@@ -46,6 +46,6 @@ Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

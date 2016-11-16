@@ -5,8 +5,8 @@ services: app-service\api
 documentationcenter: node
 author: bradygaster
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+
 
 ---
-# Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 In deze zelfstudie ziet u hoe u met behulp van [Git](http://git-scm.com) een eenvoudige [Node.js](http://nodejs.org)-API maakt en implementeert in een [API-app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). U kunt elk besturingssysteem gebruiken waarop Node.js kan worden uitgevoerd en u doet al het werk met opdrachtregelhulpprogramma's zoals cmd.exe of bash.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 1. Een Microsoft Azure-account ([open hier een gratis account](https://azure.microsoft.com/pricing/free-trial/))
 2. [Node.js](http://nodejs.org) is geïnstalleerd (in dit voorbeeld wordt uitgegaan van Node.js-versie 4.2.2)
 3. [Git](https://git-scm.com/) is geïnstalleerd
@@ -29,7 +33,7 @@ In deze zelfstudie ziet u hoe u met behulp van [Git](http://git-scm.com) een een
 
 App Service ondersteunt vele manieren voor het implementeren van uw code in een API-app, maar in deze zelfstudie wordt de Git-methode gebruikt. Er wordt van uitgegaan dat u basiskennis hebt van het werken met Git. Zie voor meer informatie over andere implementatiemethoden [Een app implementeren in Azure App Service](../app-service-web/web-sites-deploy.md).
 
-## De voorbeeldcode halen
+## <a name="get-the-sample-code"></a>De voorbeeldcode halen
 1. Open een opdrachtregelinterface die Node.js- en Git-opdrachten kan uitvoeren.
 2. Navigeer naar een map die u kunt gebruiken als lokale Git-opslagplaats en kloon de [GitHub-opslagplaats met de voorbeeldcode](https://github.com/Azure-Samples/app-service-api-node-contact-list).
    
@@ -37,7 +41,7 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
    
     De voorbeeld-API biedt twee eindpunten: een Get-aanvraag aan `/contacts` retourneert een lijst met namen en e-mailadressen in JSON-indeling. `/contacts/{id}` retourneert alleen de geselecteerde contactpersoon.
 
-## Node.js-code ondersteunen (automatisch genereren) op basis van Swagger-metagegevens
+## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Node.js-code ondersteunen (automatisch genereren) op basis van Swagger-metagegevens
 [Swagger](http://swagger.io/) is een bestandsindeling voor metagegevens die een RESTful-API beschrijft. Azure App Service biedt [ingebouwde ondersteuning voor Swagger-metagegevens](app-service-api-metadata.md). In deze sectie van de zelfstudie wordt een API-ontwikkelingswerkstroom getoond waarin u eerst Swagger-metagegevens maakt en deze vervolgens gebruikt om automatisch servercode voor de API te genereren. 
 
 > [!NOTE]
@@ -45,14 +49,14 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
 > 
 > 
 
-### Swaggerize installeren en uitvoeren
+### <a name="install-and-execute-swaggerize"></a>Swaggerize installeren en uitvoeren
 1. Voer de volgende opdrachten uit voor het installeren van de NPM-modules **yo** en **generator-swaggerize**.
    
         npm install -g yo
         npm install -g generator-swaggerize
    
     Swaggerize is een hulpprogramma dat servercode genereert voor een API die wordt beschreven op basis van een Swagger-metagegevensbestand. Het Swagger-bestand dat u gaat gebruiken, heet *api.json* en bevindt zich in de map *start* van de opslagplaats die u hebt gekloond.
-2. Navigeer naar de map *start* en voer vervolgens de opdracht `yo swaggerize` uit. Swaggerize stelt u een aantal vragen.  Bij **what to call this project** voert u 'contactlist' in, bij **path to swagger document** voert u 'api.json' in en bij **Express, Hapi, or Restify** voert u 'express' in.
+2. Navigeer naar de map *start* en voer vervolgens de opdracht `yo swaggerize` uit. Swaggerize stelt u een aantal vragen.  Bij **what to call this project** voert u 'ContactList' in, bij **path to swagger document** voert u 'api.json' in en bij **Express, Hapi, or Restify** voert u 'express' in.
    
         yo swaggerize
    
@@ -63,8 +67,8 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
     Swaggerize maakt een toepassingsmap, genereert handlers en configuratiebestanden, en genereert vervolgens een **package.json**-bestand. De engine voor snelle weergave wordt gebruikt voor het genereren van de Swagger-Helppagina.  
 3. Als de opdracht `swaggerize` mislukt met de fout 'unexpected token' of 'invalid escape sequence', lost u de oorzaak van de fout op door het gegenereerde *package.json*-bestand te bewerken. In de regel `regenerate` onder `scripts` wijzigt u de backslash die voorafgaat aan *api.json*, in een gewone slash, zodat de regel eruitziet als in het volgende voorbeeld:
    
-        "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-4. Navigeer naar de map met de gegenereerde code (in dit geval de submap *ContactList*).
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+4. Navigeer naar de map met de gegenereerde code (in dit geval de submap */start/ContactList*).
 5. Voer `npm install` uit.
    
         npm install
@@ -79,7 +83,7 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
    
     ![Swaggerize-UI installeren](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-### De gegenereerde code aanpassen
+### <a name="customize-the-scaffolded-code"></a>De gegenereerde code aanpassen
 1. Kopieer de map **lib** in de map **start** naar de map **ContactList** die door de gegenereerde code is gemaakt. 
 2. Vervang de code in het bestand **handlers/contacts.js** door de volgende code. 
    
@@ -140,7 +144,7 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
         server.listen(port, function () { // fifth and final change
         });
 
-### Testen met de API door deze lokaal uit te voeren
+### <a name="test-with-the-api-running-locally"></a>Testen met de API door deze lokaal uit te voeren
 1. Activeer de server met behulp van het uitvoerbare bestand voor de Node.js-opdrachtregel. 
    
         node server.js
@@ -157,8 +161,8 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
    
     ![Swagger-UI](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Een nieuwe API-app maken
-In deze sectie gebruikt u de Azure Portal voor het maken van een nieuwe API-app in Azure. Deze API-app vertegenwoordigt de rekenresources die Azure biedt om uw code uit te voeren. In latere secties implementeert u uw code in de nieuwe API-app.
+## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Een nieuwe API-app maken
+In deze sectie gebruikt u Azure Portal voor het maken van een nieuwe API-app in Azure. Deze API-app vertegenwoordigt de rekenresources die Azure biedt om uw code uit te voeren. In latere secties implementeert u uw code in de nieuwe API-app.
 
 1. Blader naar de [Azure Portal](https://portal.azure.com/). 
 2. Klik op **Nieuw > Web en mobiel > API-app**. 
@@ -171,7 +175,7 @@ In deze sectie gebruikt u de Azure Portal voor het maken van een nieuwe API-app 
     Als u een naam opgeeft die iemand anders al gebruikt, ziet u aan de rechterkant een rood uitroepteken.
 4. Klik in de vervolgkeuzelijst **Resourcegroep** op **Nieuw** en voer vervolgens bij **Nieuwe naam resourcegroep** 'NodejsAPIAppGroup' of desgewenst een andere naam in. 
    
-    Een [resourcegroep](../resource-group-overview.md) is een verzameling Azure-resources, zoals API-apps, databases en virtuele machines. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
+    Een [resourcegroep](../azure-resource-manager/resource-group-overview.md) is een verzameling Azure-resources, zoals API-apps, databases en virtuele machines. Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
 5. Klik op **App Service-plan/Locatie** en vervolgens op **Nieuw**.
    
     ![Een App Service-plan maken](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
@@ -189,7 +193,7 @@ In deze sectie gebruikt u de Azure Portal voor het maken van een nieuwe API-app 
 9. Klik op de blade **App Service-plan** op **OK**.
 10. Klik op de blade **API-app** op **Maken**.
 
-## De nieuwe API-app instellen voor Git-implementatie
+## <a name="set-up-your-new-api-app-for-git-deployment"></a>De nieuwe API-app instellen voor Git-implementatie
 U implementeert uw code in de API-app door doorvoeracties naar een Git-opslagplaats in Azure App Service te pushen. In deze sectie van de zelfstudie maakt u de referenties en de Git-opslagplaats in Azure die u voor de implementatie gaat gebruiken.  
 
 1. Nadat uw API-app is gemaakt, klikt u op de startpagina van de portal op **App Services > {uw API-app}**. 
@@ -217,7 +221,7 @@ U implementeert uw code in de API-app door doorvoeracties naar een Git-opslagpla
 
 Nu u een API-app hebt met een Git-opslagplaats als back-up, kunt u code in de opslagplaats pushen om de code in de API-app te implementeren. 
 
-## De API-code implementeren in Azure
+## <a name="deploy-your-api-code-to-azure"></a>De API-code implementeren in Azure
 In deze sectie maakt u een lokale Git-opslagplaats met uw servercode voor de API. Vervolgens pusht u uw code vanuit die opslagplaats naar de opslagplaats in Azure die u eerder hebt gemaakt.
 
 1. Kopieer de map `ContactList` naar een locatie die u kunt gebruiken voor een nieuwe lokale Git-opslagplaats. Als u het eerste deel van de zelfstudie hebt gedaan, kopieert u `ContactList` uit de map `start`. Zo niet, dan kopieert u `ContactList` uit de map `end`.
@@ -237,7 +241,7 @@ In deze sectie maakt u een lokale Git-opslagplaats met uw servercode voor de API
         git commit -m "initial revision"
    
     ![Uitvoer van GIT-doorvoer](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Voer de opdracht uit om uw code naar Azure te pushen. Wanneer u wordt gevraagd om een wachtwoord, voert u het wachtwoord in dat u eerder in de Azure Portal hebt gemaakt.
+5. Voer de opdracht uit om uw code naar Azure te pushen. Wanneer u wordt gevraagd om een wachtwoord, voert u het wachtwoord in dat u eerder in Azure Portal hebt gemaakt.
    
         git push azure master
    
@@ -252,7 +256,7 @@ In deze sectie maakt u een lokale Git-opslagplaats met uw servercode voor de API
    
     Nadat de implementatie is voltooid, wordt op de blade **Implementaties** aangegeven dat de implementatie van de codewijzigingen in uw API-app is gelukt. 
 
-## Testen door de API in Azure uit te voeren
+## <a name="test-with-the-api-running-in-azure"></a>Testen door de API in Azure uit te voeren
 1. Kopieer de **URL** in het gedeelte **Essentials** van de blade van uw API-app. 
    
     ![Implementatie voltooid](media/app-service-api-nodejs-api-app/deployment-completed.png)
@@ -265,9 +269,12 @@ In deze sectie maakt u een lokale Git-opslagplaats met uw servercode voor de API
 
 Nu u continue aanlevering hebt ingesteld, kunt u codewijzigingen aanbrengen en deze implementeren in Azure door simpelweg doorvoeracties naar uw Azure Git-opslagplaats te pushen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 U hebt nu een API-app gemaakt en er Node.js-API-code in geïmplementeerd. In de volgende zelfstudie ziet u hoe u [API-apps met behulp van CORS kunt gebruiken vanuit JavaScript-clients](app-service-api-cors-consume-javascript.md).
 
-<!--HONumber=ago16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

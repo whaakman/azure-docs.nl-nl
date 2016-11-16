@@ -2,19 +2,23 @@
 title: Een virtuele-machineschaalset maken met PowerShell | Microsoft Docs
 description: Een virtuele-machineschaalset maken met PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Een virtuele-machineschaalset voor Windows maken met Azure PowerShell
@@ -22,41 +26,18 @@ Met deze stappen kunt u virtuele-machineschaalsets in Azure maken door de blanco
 
 Het duurt circa 30 minuten om de stappen in de artikel te voltooien.
 
-## <a name="step-1:-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
+## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
 Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 
-## <a name="step-2:-create-resources"></a>Stap 2: Resources maken
+## <a name="step-2-create-resources"></a>Stap 2: Resources maken
 Maak de resources die nodig zijn voor uw nieuwe schaalset.
 
 ### <a name="resource-group"></a>Resourcegroep
 Een virtuele-machineschaalset moet zijn opgenomen in een resourcegroep.
 
-1. Een lijst met de beschikbare locaties en ondersteunde services bekijken:
+1. Haal een lijst op met beschikbare locaties waar resources kunnen worden geplaatst:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Kies een handige locatie, vervang de waarde van **$locName** door de naam van die locatie en maak de volgende variabele:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Voor de virtuele machines in de schaalset is een virtueel netwerk vereist.
 4. Het virtuele netwerk maken:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Openbaar IP-adres
-Voordat u een netwerkinterface kunt maken, moet u een openbaar IP-adres maken.
-
-1. Vervang de waarde van **$domName** door het label van de domeinnaam dat u wilt gebruiken met uw openbare IP-adres en maak de variabele:  
-   
-        $domName = "domain name label"
-   
-    Het label mag alleen letters, cijfers en koppeltekens bevatten, en het laatste teken moet een letter of cijfer zijn.
-2. Testen of de naam uniek is:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Als het antwoord **True** is, is de gewenste naam uniek.
-3. Vervang de waarde van **$pipName** door de naam die u wilt gebruiken voor het openbare IP-adres en maak de variabele. 
-   
-        $pipName = "public ip address name"
-4. Het openbare IP-adres maken:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Netwerkinterface
-Nu u een openbaar IP-adres hebt gemaakt, kunt u een netwerkinterface maken.
-
-1. Vervang de waarde van **$nicName** door de naam die u wilt gebruiken voor de netwerkinterface en maak de variabele: 
-   
-        $nicName = "network interface name"
-2. De netwerkinterface maken:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Configuratie van de schaalset
 U hebt alle benodigde resources voor het configureren van de schaalset. We kunnen deze nu gaan maken.  
@@ -253,7 +204,7 @@ Nu kunt u de schaalset maken.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Stap 3: Resources verkennen
+## <a name="step-3-explore-resources"></a>Stap 3: Resources verkennen
 Gebruik deze resources om de door u gemaakte virtuele-machineschaalset te verkennen:
 
 * Azure Portal: er is maar beperkte informatie beschikbaar via de portal.
@@ -271,6 +222,9 @@ Gebruik deze resources om de door u gemaakte virtuele-machineschaalset te verken
 * Ga na of u automatisch schalen wilt inschakelen voor uw schaalset aan de hand van [Automatisch schalen en virtuele-machineschaalsets](virtual-machine-scale-sets-autoscale-overview.md)
 * Raadpleeg [Verticaal automatisch schalen met virtuele-machineschaalsets](virtual-machine-scale-sets-vertical-scale-reprovision.md) voor meer informatie over verticaal schalen
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

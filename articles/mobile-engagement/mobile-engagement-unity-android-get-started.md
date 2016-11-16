@@ -4,9 +4,9 @@ description: Informatie over het gebruik van Azure Mobile Engagement met analyse
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
-# Aan de slag met Azure Mobile Engagement voor Unity Android-implementatie
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Aan de slag met Azure Mobile Engagement voor Unity Android-implementatie
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Unity-toepassing bij implementatie op een Android-apparaat.
@@ -33,11 +37,11 @@ Voor deze zelfstudie hebt u het volgende nodig:
 > 
 > 
 
-## <a id="setup-azme"></a>Mobile Engagement instellen voor uw Android-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Mobile Engagement instellen voor uw Android-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
-### Het Unity-pakket importeren
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+### <a name="import-the-unity-package"></a>Het Unity-pakket importeren
 1. Download het [Mobile Engagement Unity-pakket](https://aka.ms/azmeunitysdk) en sla het op uw lokale computer op. 
 2. Ga naar **Assets -> Import Package -> Custom Package** en selecteer het pakket dat u in de vorige stap hebt gedownload. 
    
@@ -49,7 +53,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
    
     ![][72] 
 
-### EngagementConfiguration bijwerken
+### <a name="update-the-engagementconfiguration"></a>EngagementConfiguration bijwerken
 1. Open het scriptbestand **EngagementConfiguration** in de SDK-map en werk **ANDROID\_CONNECTION\_STRING** bij met de verbindingsreeks die u eerder hebt verkregen via de Azure-portal.  
    
     ![][73]
@@ -63,7 +67,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 > 
 > 
 
-### De app voor eenvoudig bijhouden configureren
+### <a name="configure-the-app-for-basic-tracking"></a>De app voor eenvoudig bijhouden configureren
 1. Open het script **PlayerController** dat is  gekoppeld aan het object Player om het te bewerken. 
 2. Voeg het volgende toe met de instructie:
    
@@ -73,7 +77,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### De app implementeren en uitvoeren
+### <a name="deploy-and-run-the-app"></a>De app implementeren en uitvoeren
 Zorg voor dat Android SDK is geïnstalleerd op uw computer voordat u deze Unity-app op uw apparaat gaat implementeren. 
 
 1. Sluit een Android-apparaat aan op de computer. 
@@ -94,13 +98,13 @@ Zorg voor dat Android SDK is geïnstalleerd op uw computer voordat u deze Unity-
 6. U wordt mogelijk gevraagd een mapnaam op te geven voor het opslaan van het Android-pakket. 
 7. Als alles goed gaat, wordt het pakket geïmplementeerd op het aangesloten apparaat en ziet u de Unity-game op uw telefoon. 
 
-## <a id="monitor"></a>App verbinden met realtime-bewaking
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### EngagementConfiguration bijwerken
+### <a name="update-the-engagementconfiguration"></a>EngagementConfiguration bijwerken
 1. Open het scriptbestand **EngagementConfiguration** in de SDK-map en werk **ANDROID\_GOOGLE\_NUMBER** bij met het **Google Project Number** dat u eerder hebt verkregen via de Google Cloud Developer-portal. Dit is een tekenreeks die tussen dubbele aanhalingstekens moet worden geplaatst. 
    
     ![][75]
@@ -109,7 +113,7 @@ Zorg voor dat Android SDK is geïnstalleerd op uw computer voordat u deze Unity-
    
     ![][74]
 
-### De app configureren voor het ontvangen van meldingen
+### <a name="configure-the-app-to-receive-notifications"></a>De app configureren voor het ontvangen van meldingen
 1. Open het script **PlayerController** dat is  gekoppeld aan het object Player om het te bewerken. 
 2. Voeg het volgende toe aan de methode `Start()`.
    
@@ -133,6 +137,6 @@ Zorg voor dat Android SDK is geïnstalleerd op uw computer voordat u deze Unity-
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

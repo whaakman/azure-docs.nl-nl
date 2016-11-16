@@ -1,22 +1,26 @@
 ---
-title: Fiddler gebruiken om Azure Search REST API's te evalueren en testen | Microsoft Docs
-description: Gebruik Fiddler om zonder code de beschikbaarheid van Azure Search te verifiëren en de REST API's uit te proberen.
+title: Fiddler gebruiken om Azure Search REST API&quot;s te evalueren en te testen | Microsoft Docs
+description: "Gebruik Fiddler om zonder code de beschikbaarheid van Azure Search te verifiëren en de REST API&quot;s uit te proberen."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: mblythe
-editor: ''
-
+editor: 
+ms.assetid: 790e5779-c6a3-4a07-9d1e-d6739e6b87d2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/08/2016
+ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
+
 
 ---
-# Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
+# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
 > [!div class="op_single_selector"]
 > * [Overzicht](search-query-overview.md)
 > * [Search Explorer](search-explorer.md)
@@ -32,11 +36,11 @@ In de volgende stappen maakt u een index, uploadt u documenten, voert u een quer
 
 U hebt een Azure Search-service en `api-key` nodig om deze stappen te kunnen voltooien. Zie [Een Azure Search-service in de portal maken](search-create-service-portal.md) voor instructies om aan de slag gaan.
 
-## Een index maken
+## <a name="create-an-index"></a>Een index maken
 1. Start Fiddler. Schakel in het menu **File** (Bestand) de optie **Capture Traffic** (Verkeer vastleggen) uit om de HTTP-activiteit te verbergen die niet van belang is voor de huidige taak.
 2. Op het tabblad **Composer** (Opstellen) formuleert u een aanvraag die vergelijkbaar is met de volgende schermopname.
    
-    ![][1]
+      ![][1]
 3. Selecteer **PUT**.
 4. Geef een URL op waarin de service-URL, aanvraagkenmerken en de API-versie worden gespecificeerd. Enkele punten om rekening mee te houden:
    
@@ -46,38 +50,38 @@ U hebt een Azure Search-service en `api-key` nodig om deze stappen te kunnen vol
      
      De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
      
-            https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 5. Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
    
-           User-Agent: Fiddler
-           host: my-app.search.windows.net
-           content-type: application/json
-           api-key: 1111222233334444
+         User-Agent: Fiddler
+         host: my-app.search.windows.net
+         content-type: application/json
+         api-key: 1111222233334444
 6. Plak de velden waaruit de indexdefinitie bestaat in de aanvraagtekst.
    
-            {
-           "name": "hotels",  
-           "fields": [
-             {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-             {"name": "baseRate", "type": "Edm.Double"},
-             {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-             {"name": "hotelName", "type": "Edm.String"},
-             {"name": "category", "type": "Edm.String"},
-             {"name": "tags", "type": "Collection(Edm.String)"},
-             {"name": "parkingIncluded", "type": "Edm.Boolean"},
-             {"name": "smokingAllowed", "type": "Edm.Boolean"},
-             {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-             {"name": "rating", "type": "Edm.Int32"},
-             {"name": "location", "type": "Edm.GeographyPoint"}
-            ]
-           }
+          {
+         "name": "hotels",  
+         "fields": [
+           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
+           {"name": "baseRate", "type": "Edm.Double"},
+           {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+           {"name": "hotelName", "type": "Edm.String"},
+           {"name": "category", "type": "Edm.String"},
+           {"name": "tags", "type": "Collection(Edm.String)"},
+           {"name": "parkingIncluded", "type": "Edm.Boolean"},
+           {"name": "smokingAllowed", "type": "Edm.Boolean"},
+           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+           {"name": "rating", "type": "Edm.Int32"},
+           {"name": "location", "type": "Edm.GeographyPoint"}
+          ]
+         }
 7. Klik op **Execute** (Uitvoeren).
 
 Over een paar seconden wordt er een 201 HTTP-respons in de sessielijst weergegeven dat de index is gemaakt.
 
 Als u een HTTP 504-respons ontvangt, controleert u of de URL HTTPS bevat. Als de HTTP-fout 400 of 404 wordt weergegeven ziet, controleert u of de aanvraagtekst op fouten die mogelijk zijn opgetreden tijden kopiëren en plakken. Een HTTP 403 duidt doorgaans op een probleem met de API-sleutel (een ongeldige sleutel of een syntaxisfout in de opgegeven API-sleutel).
 
-## Documenten laden
+## <a name="load-documents"></a>Documenten laden
 Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, ziet er als volgt uit. De hoofdtekst van de aanvraag bevat de zoekgegevens voor vier hotels.
 
    ![][2]
@@ -85,80 +89,80 @@ Uw aanvraag op het tabblad **Composer** (Opstellen) om documenten te plaatsen, z
 1. Selecteer **POST**.
 2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?api-version=2015-02-28'. De volledige URL moet er ongeveer uitzien als de URL in het volgende voorbeeld.
    
-           https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 3. De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
    
-           User-Agent: Fiddler
-           host: my-app.search.windows.net
-           content-type: application/json
-           api-key: 1111222233334444
+         User-Agent: Fiddler
+         host: my-app.search.windows.net
+         content-type: application/json
+         api-key: 1111222233334444
 4. De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index hotels.
    
+         {
+         "value": [
+         {
+             "@search.action": "upload",
+             "hotelId": "1",
+             "baseRate": 199.0,
+             "description": "Best hotel in town",
+             "hotelName": "Fancy Stay",
+             "category": "Luxury",
+             "tags": ["pool", "view", "wifi", "concierge"],
+             "parkingIncluded": false,
+             "smokingAllowed": false,
+             "lastRenovationDate": "2010-06-27T00:00:00Z",
+             "rating": 5,
+             "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+           },
            {
-           "value": [
+             "@search.action": "upload",
+             "hotelId": "2",
+             "baseRate": 79.99,
+             "description": "Cheapest hotel in town",
+             "hotelName": "Roach Motel",
+             "category": "Budget",
+             "tags": ["motel", "budget"],
+             "parkingIncluded": true,
+             "smokingAllowed": true,
+             "lastRenovationDate": "1982-04-28T00:00:00Z",
+             "rating": 1,
+             "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+           },
            {
-               "@search.action": "upload",
-               "hotelId": "1",
-               "baseRate": 199.0,
-               "description": "Best hotel in town",
-               "hotelName": "Fancy Stay",
-               "category": "Luxury",
-               "tags": ["pool", "view", "wifi", "concierge"],
-               "parkingIncluded": false,
-               "smokingAllowed": false,
-               "lastRenovationDate": "2010-06-27T00:00:00Z",
-               "rating": 5,
-               "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-             },
-             {
-               "@search.action": "upload",
-               "hotelId": "2",
-               "baseRate": 79.99,
-               "description": "Cheapest hotel in town",
-               "hotelName": "Roach Motel",
-               "category": "Budget",
-               "tags": ["motel", "budget"],
-               "parkingIncluded": true,
-               "smokingAllowed": true,
-               "lastRenovationDate": "1982-04-28T00:00:00Z",
-               "rating": 1,
-               "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-             },
-             {
-               "@search.action": "upload",
-               "hotelId": "3",
-               "baseRate": 279.99,
-               "description": "Surprisingly expensive",
-               "hotelName": "Dew Drop Inn",
-               "category": "Bed and Breakfast",
-               "tags": ["charming", "quaint"],
-               "parkingIncluded": true,
-               "smokingAllowed": false,
-               "lastRenovationDate": null,
-               "rating": 4,
-               "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-             },
-             {
-               "@search.action": "upload",
-               "hotelId": "4",
-               "baseRate": 220.00,
-               "description": "This could be the one",
-               "hotelName": "A Hotel for Everyone",
-               "category": "Basic hotel",
-               "tags": ["pool", "wifi"],
-               "parkingIncluded": true,
-               "smokingAllowed": false,
-               "lastRenovationDate": null,
-               "rating": 4,
-               "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-             }
-            ]
+             "@search.action": "upload",
+             "hotelId": "3",
+             "baseRate": 279.99,
+             "description": "Surprisingly expensive",
+             "hotelName": "Dew Drop Inn",
+             "category": "Bed and Breakfast",
+             "tags": ["charming", "quaint"],
+             "parkingIncluded": true,
+             "smokingAllowed": false,
+             "lastRenovationDate": null,
+             "rating": 4,
+             "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+           },
+           {
+             "@search.action": "upload",
+             "hotelId": "4",
+             "baseRate": 220.00,
+             "description": "This could be the one",
+             "hotelName": "A Hotel for Everyone",
+             "category": "Basic hotel",
+             "tags": ["pool", "wifi"],
+             "parkingIncluded": true,
+             "smokingAllowed": false,
+             "lastRenovationDate": null,
+             "rating": 4,
+             "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
            }
+          ]
+         }
 5. Klik op **Execute** (Uitvoeren).
 
 Over enkele seconden verschijnt er een HTTP 200-respons in de sessielijst. Dit geeft aan dat de documenten zijn gemaakt. Als u een 207-respons ontvang, is minimaal één document niet geüpload. Als u een 404-respons ontvangt, bevat de header of de hoofdtekst van de aanvraag een syntaxisfout.
 
-## Een query op de index uitvoeren
+## <a name="query-the-index"></a>Een query op de index uitvoeren
 Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren.  Een **GET**-opdracht op het tabblad**Composer** (Opstellen), waarmee een query op uw service wordt uitgevoerd, is vergelijkbaar met de volgende schermopname.
 
    ![][3]
@@ -166,15 +170,15 @@ Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren.  E
 1. Selecteer **GET**.
 2. Geef een URL op die begint met HTTPS, gevolgd door uw service-URL, gevolgd door '/indexes/<indexnaam>/docs/index?', gevolgd door queryparameters. Gebruik als bijvoorbeeld de volgende URL en vervang de naam van de voorbeeldhost door een geldige naam voor uw service.
    
-           https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
    
    Met deze query wordt naar de term 'motel' en worden er facetcategorieën voor beoordelingen opgehaald.
 3. De aanvraagheader blijft ongewijzigd. Vergeet niet dat u de host en de API-sleutel hebt vervangen door waarden die geldig voor uw service zijn.
    
-           User-Agent: Fiddler
-           host: my-app.search.windows.net
-           content-type: application/json
-           api-key: 1111222233334444
+         User-Agent: Fiddler
+         host: my-app.search.windows.net
+         content-type: application/json
+         api-key: 1111222233334444
 
 De responscode moet 200 zijn en de responsuitvoer moet er ongeveer hetzelfde uitzien als in de volgende schermopname.
 
@@ -190,7 +194,7 @@ De volgende voorbeeldquery is afkomstig uit de [Search Index-bewerking (Azure Se
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 
-## Een query uitvoeren op het systeem
+## <a name="query-the-system"></a>Een query uitvoeren op het systeem
 U kunt ook een query op het systeem uitvoeren om het aantal documenten en opslagverbruik op te vragen. Uw aanvraag op het tabblad **Composer** (Opstellen) ziet er ongeveer als volgt uit en de respons retourneert een getal voor het aantal documenten en de gebruikte ruimte.
 
  ![][5]
@@ -198,18 +202,18 @@ U kunt ook een query op het systeem uitvoeren om het aantal documenten en opslag
 1. Selecteer **GET**.
 2. Geef een URL op die uw service-URL bevat, gevolgd door '/indexes/hotels/stats?api-version=2015-02-28':
    
-           https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 3. Geef de aanvraagheader de host en de API-sleutel hebt vervangen door de geldige waarden voor uw service.
    
-           User-Agent: Fiddler
-           host: my-app.search.windows.net
-           content-type: application/json
-           api-key: 1111222233334444
+         User-Agent: Fiddler
+         host: my-app.search.windows.net
+         content-type: application/json
+         api-key: 1111222233334444
 4. Laat de aanvraagtekst leeg.
 5. Klik op **Execute** (Uitvoeren). Er wordt een HTTP 200-statuscode weergegeven in de sessielijst. Selecteer de vermelding van uw opdracht.
 6. Klik op het tabblad **Inspectors** (Inspecteurs), klik op het tabblad **Headers** en selecteer vervolgens de JSON-indeling. Als het goed is wordt het aantal documenten en de opslaggrootte (in kB) weergegeven.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azure Search zonder code kunt beheren en gebruiken.
 
 <!--Image References-->
@@ -221,6 +225,6 @@ Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azur
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

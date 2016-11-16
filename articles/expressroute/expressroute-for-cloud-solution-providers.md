@@ -5,8 +5,8 @@ documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+
 
 ---
-# <a name="expressroute-for-cloud-solution-providers-(csp)"></a>ExpressRoute voor Cloud Solution Providers (CSP)
+# <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute voor Cloud Solution Providers (CSP)
 Microsoft biedt grootschalige services waarmee traditionele leveranciers en distributeurs (CSP) snel nieuwe services en oplossingen voor uw klanten kunnen inrichten, zonder dat ze hoeven te investeren in de ontwikkeling van deze nieuwe services. Microsoft biedt programma's en API's waarmee de Cloud Solution Provider (CSP) Microsoft Azure-resources kan beheren namens uw klanten. Zo kan de Cloud Solution Provider (CSP) deze nieuwe services rechtstreeks beheren. Een van deze resources is ExpressRoute. Met ExpressRoute kan de CSP verbinding maken tussen de bestaande resources van de klant en de Azure-services. ExpressRoute is een zeer snelle persoonlijke communicatiekoppeling naar de services in Azure. 
 
 ExpresRoute bestaat uit twee circuits voor hoge beschikbaarheid die zijn gekoppeld aan het abonnement of de abonnementen van één klant. Deze kunnen niet worden gedeeld door meerdere klanten. Elk circuit moet worden beëindigd in een andere router om de hoge beschikbaarheid te houden.
@@ -34,7 +38,7 @@ Microsoft biedt CSP's met API's voor het beheren van de Azure-klantabonnementen 
 ## <a name="microsoft-azure-resource-management"></a>Beheer van Microsoft Azure-resources
 Het contract dat u met uw klant hebt, bepaalt hoe het abonnement wordt beheerd. De CSP kan het maken en het onderhouden van resources rechtstreeks beheren, maar de klant kan ook zelf de controle behouden over het Microsoft Azure-abonnement en de Azure-resources naar behoefte maken. Als uw klant het maken van resources in het Microsoft Azure-abonnement zelf beheert, gebruikt hij of zij het model 'Doorverbinden' of het model 'Leiden naar'. Deze modellen worden gedetailleerd beschreven in de volgende gedeelten.  
 
-### <a name="connect-through-model"></a>Het model 'Doorverbinden'
+### <a name="connectthrough-model"></a>Het model 'Doorverbinden'
 ![alternatieve tekst](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 In het model 'Doorverbinden' maakt de CSP een rechtstreekse verbinding tussen uw datacenter en het Azure-abonnement van uw klant. De rechtstreekse verbinding wordt gemaakt met behulp van ExpressRoute en verbindt uw netwerk met Azure. De klant maakt vervolgens verbinding met uw netwerk. Dit scenario vereist dat de klant het CSP-netwerk gebruikt voor toegang tot de Azure-services. 
@@ -45,7 +49,7 @@ Voor CSP’s die Azure-services beheren, wordt ervan uitgegaan dat de CSP een ee
 
 ![alternatieve tekst](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connect-to-model"></a>Het model 'Verbinden met'
+### <a name="connectto-model"></a>Het model 'Verbinden met'
 ![alternatieve tekst](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 In het model 'Verbinden met' maakt de serviceprovider een rechtstreekse verbinding tussen het datacenter van de klant en het door de CSP ingerichte Azure-abonnement. Hiervoor wordt ExpressRoute gebruikt via het (klant)netwerk van de klant.
@@ -78,10 +82,10 @@ ExpressRoute ondersteunt de verbinding van meerdere vNets met een enkel ExpressR
 ## <a name="configuring-expressroute"></a>ExpressRoute configureren
 ExpressRoute kan worden geconfigureerd voor ondersteuning van drie typen verkeer ([routeringsdomeinen](#ExpressRoute-routing-domains)) via een enkel ExpressRoute-circuit. Dit verkeer is onderverdeeld in Microsoft-peering, openbare Azure-peering en privépeering. U kunt ervoor kiezen om één of alle soorten verkeer te verzenden via een enkel ExpressRoute-circuit of meerdere ExpressRoute-circuits, afhankelijk van de grootte van het ExpressRoute-circuit en de door uw klant vereiste isolatie. De beveiliging van uw klant mag niet toestaan dat openbaar verkeer en privéverkeer via hetzelfde circuit lopen.
 
-### <a name="connect-through-model"></a>Het model 'Doorverbinden'
+### <a name="connectthrough-model"></a>Het model 'Doorverbinden'
 In een 'Doorverbinden'-configuratie bent u verantwoordelijk voor de volledige fundering van de netwerken. Zo kunt u de resources in het datacenter van uw klant verbinden met de abonnementen die in Azure worden gehost. Al uw klanten die de mogelijkheden van Azure willen benutten, hebben een eigen ExpressRoute-verbinding nodig. Deze wordt door u beheerd. U gebruikt de methodes die de klant zou gebruiken om het ExpressRoute-circuit aan te schaffen. U volgt de stappen die worden beschreven in het artikel [ExpressRoute-werkstromen](expressroute-workflows.md), voor het inrichten van het circuit en de statussen van het circuit. Vervolgens configureert u de BGP-routes (Border Gateway Protocol) om het verkeer tussen het on-premises netwerk en Azure vNet te beheren.
 
-### <a name="connect-to-model"></a>Het model 'Verbinden met'
+### <a name="connectto-model"></a>Het model 'Verbinden met'
 In een 'Verbinden met'-configuratie heeft uw klant al een bestaande verbinding met Azure of wordt er verbinding gemaakt met de internetserviceprovider die ExpressRoute rechtstreeks vanuit het datacenter van de klant (in plaats van via uw datacenter) koppelt aan Azure. Uw klant moet de stappen zoals hiervoor beschreven voor het model 'Doorverbinden' volgen om het inrichtingsproces te starten. Wanneer het circuit tot stand is gebracht, moet uw klant de on-premises routers configureren, zodat deze toegang hebben tot uw netwerk en Azure vNets.
 
 U kunt helpen bij het instellen van de verbinding en het configureren van de routes om de resources in uw datacenter(s) te laten communiceren met de clientresources in uw datacenter of met de resources die in Azure worden gehost.
@@ -112,7 +116,7 @@ De standaardroutetabel bevat de volgende routes:
 
 ![alternatieve tekst](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="user-defined-routing-(udr)"></a>Door de gebruiker gedefinieerde routering
+### <a name="userdefined-routing-udr"></a>Door de gebruiker gedefinieerde routering
 Door de gebruiker gedefinieerde routes geven u controle over het uitgaande verkeer vanuit het toegewezen subnet naar andere subnetten in het virtuele netwerk of via een van de andere vooraf gedefinieerde gateways (ExpressRoute; internet of VPN). De standaardrouteringstabel kan worden vervangen door een door de gebruiker gedefinieerde routeringstabel. Hiermee wordt de standaardrouteringstabel vervangen door aangepaste routes. Met door de gebruiker gedefinieerde routering kunnen klanten specifieke routes maken voor apparaten, zoals firewalls of inbraakdetectieapparaten. Daarnaast kunnen klanten de toegang tot specifieke subnetten blokkeren vanuit het subnet dat de door de gebruiker gedefinieerde route host. Klik [hier](../virtual-network/virtual-networks-udr-overview.md) voor een overzicht van door de gebruiker gedefinieerde routes. 
 
 ## <a name="security"></a>Beveiliging
@@ -134,6 +138,9 @@ Voor meer informatie klikt u op de volgende koppelingen:
 [Bereid u voor om zaken te doen als een Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider-resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Aan de slag met Azure Scheduler in Azure-portal | Microsoft Docs
+title: Aan de slag met Azure Scheduler in Azure Portal | Microsoft Docs
 description: Aan de slag met Azure Scheduler in Azure-portal
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Aan de slag met Azure Scheduler in Azure-portal
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Aan de slag met Azure Scheduler in Azure-portal
 Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstudie leert u een taak te maken: U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.
 
-## Een taak maken
+## <a name="create-a-job"></a>Een taak maken
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).  
 2. Klik op **+Nieuw** > typ *Scheduler* in het zoekvak > selecteer **Scheduler** in de resultaten > klik op **Maken**.
    
@@ -38,15 +42,15 @@ Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstud
       ![][action-settings]
 5. Tot slot gaan we een planning definiëren. De taak kan worden gedefinieerd als een eenmalige taak, maar we kiezen een schema voor een terugkerende taak:
    
-   1. **Terugkeerpatroon**: `Recurring`
+   1. **Terugkeerpatroon**:`Recurring`
    2. **Start**: de datum van vandaag
-   3. **Herhaald elke**: `12 Hours`
+   3. **Herhaald elke**:`12 Hours`
    4. **Beëindigen op**: twee dagen na de huidige datum  
       
       ![][recurrence-schedule]
 6. Klik op **Maken**.
 
-## Taken beheren en controleren
+## <a name="manage-and-monitor-jobs"></a>Taken beheren en controleren
 Zodra een taak is gemaakt, wordt deze weergegeven in het belangrijkste Azure-dashboard. Klik op de taak, waarna een nieuw venster wordt geopend met de volgende tabbladen:
 
 1. Eigenschappen  
@@ -57,12 +61,12 @@ Zodra een taak is gemaakt, wordt deze weergegeven in het belangrijkste Azure-das
    
    ![][job-overview]
 
-### Eigenschappen
+### <a name="properties"></a>Eigenschappen
 Deze eigenschappen zijn alleen-lezen en beschrijven de beheermetagegevens voor de Scheduler-taak.
 
    ![][job-properties]
 
-### Actie-instellingen
+### <a name="action-settings"></a>Actie-instellingen
 Door op een taak in het scherm **Taken** te klikken, kunt u die taak configureren. Hiermee kunt u geavanceerde instellingen configureren, als u deze nog niet hebt geconfigureerd in de wizard Snelle invoer.
 
 Voor alle actietypen kunt u het beleid voor opnieuw proberen en de foutactie wijzigen.
@@ -75,7 +79,7 @@ Voor Service Bus-actietypen kunt u de naamruimte, het onderwerp/wachtrijpad, de 
 
    ![][job-action-settings]
 
-### Planning
+### <a name="schedule"></a>Planning
 Hiermee kunt u het schema opnieuw configureren als u de planning wilt wijzigen die u hebt gemaakt in de wizard Snelle invoer.
 
 Dit is een kans om [complexe schema's en een geavanceerd terugkeerpatroon in uw taak in te bouwen](scheduler-advanced-complexity.md)
@@ -84,7 +88,7 @@ U kunt de startdatum en -tijd wijzigen evenals de einddatum en -tijd (als het om
 
    ![][job-schedule]
 
-### Geschiedenis
+### <a name="history"></a>Geschiedenis
 Op het tabblad **Geschiedenis** worden geselecteerde metrische gegevens weergegeven voor elke keer dat er in het systeem voor de geselecteerde taak een taak is uitgevoerd. Deze metrische gegevens bestaan uit realtime-waarden die betrekking hebben op de status van uw exemplaar van Scheduler:
 
 1. Status  
@@ -100,10 +104,10 @@ U kunt op een uitvoering klikken om de **Geschiedenisdetails** ervan weer te gev
 
    ![][job-history-details]
 
-### Gebruikers
+### <a name="users"></a>Gebruikers
 Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavanceerd toegangsbeheer voor Azure Scheduler. Voor meer informatie over het tabblad Gebruikers, zie [Op rollen gebaseerd toegangsbeheer in Azure](../active-directory/role-based-access-control-configure.md)
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
  [Wat is Scheduler?](scheduler-intro.md)
 
  [Scheduler-concepten en terminologie entiteitenhiërarchie](scheduler-concepts-terms.md)
@@ -112,11 +116,11 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
  [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Naslaginformatie over REST API van Scheduler](https://msdn.microsoft.com/library/mt629143)
+ [Naslaginformatie over de REST-API van Scheduler](https://msdn.microsoft.com/library/mt629143)
 
  [Naslaginformatie over Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)
 
- [Hoge beschikbaarheid en betrouwbaarheid](scheduler-high-availability-reliability.md)
+ [Hoge beschikbaarheid en betrouwbaarheid Scheduler](scheduler-high-availability-reliability.md)
 
  [Limieten, standaardwaarden en foutcodes van Scheduler](scheduler-limits-defaults-errors.md)
 
@@ -151,6 +155,6 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

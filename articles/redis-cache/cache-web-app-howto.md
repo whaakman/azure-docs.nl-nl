@@ -1,12 +1,12 @@
 ---
-title: Een web-app maken met Redis-cache | Microsoft Docs
+title: Een web-app maken met Redis Cache | Microsoft Docs
 description: Informatie over het maken van een web-app met Redis-cache
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+
 
 ---
-# Een web-app maken met Redis-Cache
+# <a name="how-to-create-a-web-app-with-redis-cache"></a>Een web-app maken met Redis-Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -37,19 +41,19 @@ U leert het volgende:
 * De Azure-resources voor de toepassing inrichten met een Resource Manager-sjabloon.
 * De toepassing publiceren in Azure met Visual Studio.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * [Azure-account](#azure-account)
 * [Visual Studio 2015 met de Azure-SDK voor .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
 
-### Azure-account
+### <a name="azure-account"></a>Azure-account
 U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt:
 
 * [Gratis een Azure-account openen](/pricing/free-trial/?WT.mc_id=redis_cache_hero). U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services uit te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken.
 * [Uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
 
-### Visual Studio 2015 met de Azure-SDK voor .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 met de Azure-SDK voor .NET
 De zelfstudie is geschreven voor Visual Studio 2015 met de [Azure-SDK voor .NET](../dotnet-sdk.md) 2.8.2 of hoger. [Download hier de nieuwste Azure-SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Als u Visual Studio nog niet hebt, wordt dit automatisch geïnstalleerd samen met de SDK.
 
 Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 2013 downloaden](http://go.microsoft.com/fwlink/?LinkID=324322). Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen in deze zelfstudie.
@@ -59,7 +63,7 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
 > 
 > 
 
-## Het Visual Studio-project maken
+## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 1. Open Visual Studio en klik op **File**, **New**, **Project**.
 2. Vouw het knooppunt **Visual C#** uit in de lijst **Templates**, selecteer **Cloud** en klik op **ASP.NET Web Application**. Zorg ervoor dat **.NET Framework 4.5.2** is geselecteerd.  Typ **ContosoTeamStats** in het tekstvak **Name**. Klik vervolgens op **OK**.
    
@@ -69,14 +73,14 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
     ![De projectsjabloon selecteren][cache-select-template]
 4. Klik op **OK** om het project te maken.
 
-## De ASP.NET MVC-toepassing maken
+## <a name="create-the-aspnet-mvc-application"></a>De ASP.NET MVC-toepassing maken
 In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieken leest en weergeeft vanuit een database.
 
 * [Het model toevoegen](#add-the-model)
 * [De controller toevoegen](#add-the-controller)
 * [De weergaven configureren](#configure-the-views)
 
-### Het model toevoegen
+### <a name="add-the-model"></a>Het model toevoegen
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Models** en kies **Add**, **Class**. 
    
     ![Het model toevoegen][cache-model-add-class]
@@ -174,10 +178,10 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
         <connectionStrings>
             <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
                 providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"  providerName="System.Data.SqlClient" />
+            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
         </connectionStrings>
 
-### De controller toevoegen
+### <a name="add-the-controller"></a>De controller toevoegen
 1. Druk op **F6** om het project te bouwen. 
 2. Klik in **Solution Explorer** met de rechtermuisknop op de map **Controllers** en kies vervolgens **Add**, **Controller**.
    
@@ -214,7 +218,7 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
         );
 
 
-### De weergaven configureren
+### <a name="configure-the-views"></a>De weergaven configureren
 1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Shared** uit en dubbelklik op **_Layout.cshtml**. 
    
     ![_Layout.cshtml][cache-layout-cshtml]
@@ -233,7 +237,7 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
 
 ![Beginnerstoepassing][cache-starter-application]
 
-## De toepassing configureren voor het gebruik van Redis-cache
+## <a name="configure-the-application-to-use-redis-cache"></a>De toepassing configureren voor het gebruik van Redis-cache
 In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met behulp van de cacheclient [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Contoso-teamstatistieken op te slaan en op te halen uit een exemplaar van de Azure Redis-cache.
 
 * [De toepassing configureren voor gebruik van StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
@@ -241,7 +245,7 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
 * [De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [De weergave Teamindex bijwerken voor gebruik met de cache](#update-the-teams-index-view-to-work-with-the-cache)
 
-### De toepassing configureren voor gebruik van StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor gebruik van StackExchange.Redis
 1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in **Solution Explorer** met de rechtermuisknop op het project en kiest u **Manage NuGet Packages**. 
    
     ![Manage NuGet Packages][redis-cache-manage-nuget-menu]
@@ -292,7 +296,7 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
      
      De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u uw web-app in Azure implementeert, wordt het bestand `WebAppPlusCacheAppSecrests.config` niet geïmplementeerd (dat is de bedoeling). Er zijn verschillende manieren om deze geheimen op te geven in Azure. In deze zelfstudie worden ze automatisch voor u geconfigureerd wanneer u in een latere stap van de zelfstudie [de Azure-resources inricht](#provision-the-azure-resources). Raadpleeg [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Aanbevolen procedures voor het implementeren van wachtwoorden en andere gevoelige gegevens naar ASP.NET en Azure App Service) voor meer informatie over het werken met geheimen in Azure.
 
-### De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database
+### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database
 In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cache. Teamstatistieken worden opgeslagen in de cache als een geserialiseerde `List<Team>` en ook als een gesorteerde set met Redis-gegevenstypen. Bij het ophalen van items uit een gesorteerde set kunt u een query uitvoeren voor sommige items, voor alle items of alleen voor bepaalde items. In dit voorbeeld voert u een query uit voor de gesorteerde set voor de beste vijf teams, op basis van het aantal overwinningen.
 
 > [!NOTE]
@@ -513,7 +517,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
         }
 
 
-### De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache
 De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat de methoden om teams toe te voegen, te bewerken en te verwijderen. Telkens wanneer er een team wordt toegevoegd, bewerkt of verwijderd, raken de gegevens in de cache verouderd. In deze sectie bewerkt u deze drie methoden, zodat de in de cache opgeslagen teams worden gewist en de cache synchroon loopt met de database.
 
 1. Blader naar de `Create(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
@@ -578,7 +582,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
         }
 
 
-### De weergave Teamindex bijwerken voor gebruik met de cache
+### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>De weergave Teamindex bijwerken voor gebruik met de cache
 1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Teams** uit en dubbelklik op **Index.cshtml**.
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
@@ -627,7 +631,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ![Statusbericht][cache-status-message]
 2. Druk op **F6** om het project te bouwen.
 
-## De Azure-resources inrichten
+## <a name="provision-the-azure-resources"></a>De Azure-resources inrichten
 Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inrichten die vereist zijn voor uw toepassing. De voorbeeldtoepassing in deze zelfstudie maakt gebruik van de volgende Azure-services.
 
 * Azure Redis-cache
@@ -636,7 +640,7 @@ Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inricht
 
 Als u deze services wilt implementeren in een nieuwe of bestaande resourcegroep naar keuze, klikt u op de knop **Deploy to Azure**.
 
-[! [Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 De knop **Deploy to Azure** gebruikt de sjabloon voor de [Azure-snelstartgids](https://github.com/Azure/azure-quickstart-templates) [Een web-app maken plus Redis-cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) om deze services in te richten en de verbindingsreeks in te stellen voor de SQL Database, evenals de toepassingsinstelling voor de verbindingsreeks voor de Azure Redis-cache.
 
@@ -674,7 +678,7 @@ Wanneer het inrichten is voltooid, kunt u uw toepassing in Azure publiceren vanu
 > 
 > 
 
-## De toepassing publiceren in Azure
+## <a name="publish-the-application-to-azure"></a>De toepassing publiceren in Azure
 In deze stap van de zelfstudie publiceert u de toepassing in Azure en voert u deze uit in de cloud.
 
 1. Klik in Visual Studio met de rechtermuisknop op het project **ContosoTeamStats** en kies **Publish**.
@@ -710,7 +714,7 @@ De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing.
 
 Klik op een aantal acties en experimenteer met het ophalen van de gegevens vanuit de verschillende bronnen. Let op de verschillen in de tijd die nodig is om de gegevens op de diverse manieren op te halen uit de database en de cache.
 
-## De resources verwijderen wanneer u klaar bent met de toepassing
+## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>De resources verwijderen wanneer u klaar bent met de toepassing
 Wanneer u klaar bent met de voorbeeldtoepassing uit de zelfstudie, kunt u de Azure-resources die u hebt gebruikt, verwijderen om kosten en resources te besparen. Als u de knop **Implementeren in Azure** in de sectie [De Azure-resources inrichten](#provision-the-azure-resources) hebt gebruikt en alle resources zich in dezelfde resourcegroep bevinden, kunt u deze in één keer verwijderen door de resourcegroep te verwijderen.
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
@@ -730,7 +734,7 @@ Na enkele ogenblikken worden de resourcegroep en alle ingesloten bronnen verwijd
 > 
 > 
 
-## De voorbeeldtoepassing uitvoeren op uw lokale computer
+## <a name="run-the-sample-application-on-your-local-machine"></a>De voorbeeldtoepassing uitvoeren op uw lokale computer
 Als u de toepassing lokaal wilt uitvoeren op uw computer, hebt u een exemplaar van Azure Redis-cache nodig waarin u de gegevens kunt opslaan. 
 
 * Als u uw toepassing in Azure hebt gepubliceerd, zoals beschreven in het vorige gedeelte, kunt u het exemplaar van Azure Redis-cache gebruiken dat tijdens die stap is ingericht.
@@ -754,7 +758,7 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [hoe u aan de slag gaat met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) vindt u op de website van [ASP.NET](http://asp.net/).
 * Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET-web-app maken en implementeren in Azure App Service) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect[-demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) voor meer voorbeelden van het maken van een ASP.NET Web-App in de App Service.
   * Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
@@ -804,6 +808,6 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

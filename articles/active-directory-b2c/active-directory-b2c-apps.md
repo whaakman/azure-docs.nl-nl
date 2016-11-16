@@ -2,11 +2,11 @@
 title: Azure AD B2C | Microsoft Docs
 description: De typen toepassingen die u kunt ontwikkelen in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: bb9d4abe-0db7-4bd9-b0c4-2f43b2c9cf33
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d36102549550515e516522ecbd964cc7bd1b4d4
+
 
 ---
-# Azure Active Directory B2C: Typen toepassingen
+# <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typen toepassingen
 Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor diverse moderne app-architecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). In dit document vindt u een korte beschrijving van de typen apps die u kunt maken, onafhankelijk van de taal of het platform waaraan u de voorkeur geeft. Het document geeft ook inzicht in geavanceerde scenario's voordat u [toepassingen gaat ontwikkelen](active-directory-b2c-overview.md#getting-started).
 
-## De basisbeginselen
+## <a name="the-basics"></a>De basisbeginselen
 Elke app die gebruikmaakt van Azure AD B2C moet via de [Azure Portal](https://portal.azure.com/) worden geregistreerd in uw [B2C-directory](active-directory-b2c-get-started.md). Tijdens het registratieproces van de app worden enkele waarden verzameld en toegewezen aan uw app:
 
 * Een **toepassings-id** die de app op unieke wijze identificeert.
@@ -47,7 +51,7 @@ De interactie van elke app met een v2.0-eindpunt volgt eenzelfde globaal patroon
 <!-- TODO: Need a page for libraries to link to -->
 Deze stappen kunnen enigszins verschillen op basis van het type app dat u maakt. In open-source bibliotheken kunt u de details vinden.
 
-## Web-apps
+## <a name="web-apps"></a>Web-apps
 Voor web-apps (zoals .NET, PHP, Java, Ruby, Python en Node.js) die worden gehost op een server en worden geopend via een browser, ondersteunt Azure AD B2C [OpenID Connect](active-directory-b2c-reference-protocols.md) voor alle gebruikerservaringen. Hiertoe behoren aanmelden, registreren en profielbeheer. In de Azure AD B2C-implementatie van OpenID Connect initieert uw web-app deze gebruikerservaringen door verificatieaanvragen naar Azure AD te sturen. Het resultaat van de aanvraag is een `id_token`. Dit beveiligingstoken vertegenwoordigt de identiteit van de gebruiker. Het bevat ook informatie over de gebruiker in de vorm van claims:
 
 ```
@@ -77,7 +81,7 @@ Dit vergemakkelijkt niet alleen een eenvoudige aanmelding, maar soms heeft een w
 
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
-## Web-API's
+## <a name="web-apis"></a>Web-API's
 U kunt Azure AD B2C gebruiken om webservices te beveiligen, zoals de RESTful-web-API van uw app. Web-API's kunnen OAuth 2.0 gebruiken om hun gegevens te beveiligen door verificatie van binnenkomende HTTP-aanvragen via tokens. De aanroeper van een web-API voegt een token toe in de autorisatie-header van een HTTP-aanvraag:
 
 ```
@@ -103,7 +107,7 @@ Voor meer informatie over autorisatiecodes, vernieuwingstokens en de stappen voo
 
 Voor meer informatie over het beveiligen van een web-API met behulp van Azure AD B2C bekijkt u de web-API-zelfstudies in de sectie [Aan de slag](active-directory-b2c-overview.md#getting-started).
 
-## Mobiele en systeemeigen apps
+## <a name="mobile-and-native-apps"></a>Mobiele en systeemeigen apps
 Apps die zijn geïnstalleerd op apparaten, zoals mobiele en bureaublad-apps, hebben dikwijls namens gebruikers toegang nodig tot back-endservices of web-API's. U kunt aangepaste ervaringen voor identiteitsbeheer aan uw systeemeigen apps toevoegen en op veilige wijze back-endservices aanroepen met behulp van Azure AD B2C en de [OAuth 2.0-autorisatiecodestroom](active-directory-b2c-reference-oauth-code.md).  
 
 In deze stroom voert de app een [beleid](active-directory-b2c-reference-policies.md) uit en ontvangt de app een `authorization_code` van Azure AD wanneer de gebruiker het beleid heeft voltooid. De `authorization_code` vertegenwoordigt de machtiging van de app om back-endservices aan te roepen namens de gebruiker die op dat moment is aangemeld. De app kan vervolgens op de achtergrond de `authorization_code` uitwisselen voor een `id_token` en een `refresh_token`.  De app kan de `id_token` gebruiken om een back-end-web-API in HTTP-aanvragen te verifiëren. Het `refresh_token` kan ook worden gebruikt om nieuwe `id_token` te verkrijgen wanneer de oudere zijn verlopen.
@@ -115,22 +119,25 @@ In deze stroom voert de app een [beleid](active-directory-b2c-reference-policies
 
 ![Afbeelding van banen voor systeemeigen web-app](./media/active-directory-b2c-apps/native.png)
 
-## Huidige beperkingen
+## <a name="current-limitations"></a>Huidige beperkingen
 Azure AD B2C biedt momenteel geen ondersteuning voor de volgende typen apps, maar hier wordt aan gewerkt. Aanvullende voorwaarden en beperkingen met betrekking tot Azure AD B2C worden beschreven in [Voorwaarden en beperkingen](active-directory-b2c-limitations.md).
 
-### Apps met één pagina (JavaScript)
+### <a name="single-page-apps-javascript"></a>Apps met één pagina (JavaScript)
 Veel moderne apps hebben een app-front-end van één pagina die voornamelijk in JavaScript is geschreven. Dikwijls wordt een framework, zoals AngularJS, Ember.js of Durandal gebruikt. De algemeen beschikbaar Azure AD-service ondersteunt deze apps met behulp van de impliciete OAuth 2.0-stroom. Deze stroom is echter nog niet beschikbaar in Azure AD B2C.
 
-### Daemons/apps aan serverzijde
+### <a name="daemonsserverside-apps"></a>Daemons/apps aan serverzijde
 Ook apps die langlopende processen bevatten of die werken zonder de aanwezigheid van een gebruiker, hebben een manier nodig om toegang te krijgen tot beveiligde resources, zoals web-API's. Deze apps kunnen tokens verifiëren en verkrijgen door de identiteit van de app (in plaats van een gedelegeerde gebruikersidentiteit) te gebruiken en door de referentiestroom van de OAuth 2.0-client te gebruiken.
 
 Deze stroom wordt momenteel niet ondersteund door Azure AD B2C. Deze apps kunnen pas tokens verkrijgen nadat een interactieve gebruikersstroom is voorgekomen.
 
-### Web-API-ketens (namens-stroom)
+### <a name="web-api-chains-onbehalfof-flow"></a>Web-API-ketens (namens-stroom)
 Veel architecturen bevatten een web-API die een andere downstream web-API moet aanroepen, waarbij beide zijn beveiligd door Azure AD B2C. Dit scenario is gemeenschappelijk in systeemeigen clients met een web-API-back-end. Vervolgens wordt een onlineservice van Microsoft aangeroepen, zoals de Azure AD Graph API.
 
 Dit scenario met web-API-keten kan worden ondersteund met behulp van de OAuth 2.0 JWT bearer-referentietoekenning, ook wel de namens-stroom genoemd.  De namens-stroom is momenteel echter niet geïmplementeerd in Azure AD B2C.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

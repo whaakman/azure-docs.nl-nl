@@ -3,24 +3,28 @@ title: Een ondersteuningsticket maken voor SQL Data Warehouse | Microsoft Docs
 description: Maak een ondersteuningsticket in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/01/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+
 
 ---
-# Een ondersteuningsticket maken voor SQL Data Warehouse
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Een ondersteuningsticket maken voor SQL Data Warehouse
 Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningsticket maken zodat ons technisch team u kan helpen.
 
-## Een ondersteuningsticket maken
-1. Open de [Azure-portal][Azure-portal].
+## <a name="create-a-support-ticket"></a>Een ondersteuningsticket maken
+1. Open de [Azure Portal][Azure Portal].
 2. Klik in het beginscherm op de tegel **Help en ondersteuning**.
    
     ![Help en ondersteuning](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -63,12 +67,12 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
     ![Contactgegevens](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
 11. Klik op **Maken** om het ondersteuningsverzoek in te dienen.
 
-## Een ondersteuningsticket bewaken
+## <a name="monitor-a-support-ticket"></a>Een ondersteuningsticket bewaken
 Nadat u de ondersteuningsaanvraag hebt ingediend, zal het ondersteuningsteam van Azure contact met u opnemen. Als u de aanvraagstatus en -details wilt controleren, klikt u op het dashboard op **Ondersteuningsaanvragen beheren**.
 
 ![Status controleren](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-## Meer informatie
+## <a name="other-resources"></a>Meer informatie
 Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack Overflow][Stack Overflow] of op het [MSDN-forum Azure SQL Data Warehouse][MSDN-forum Azure SQL Data Warehouse].
 
 <!--Image references--> 
@@ -79,7 +83,7 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Azure-ondersteuningsplan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
 [Developer]: https://azure.microsoft.com/support/plans/developer/  
 [Standard]: https://azure.microsoft.com/support/plans/standard/  
@@ -93,6 +97,6 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

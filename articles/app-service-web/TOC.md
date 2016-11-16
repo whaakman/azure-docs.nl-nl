@@ -55,6 +55,9 @@
 ## Ontwikkelen
 ### [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md)
 ### [Een web-app op Linux maken](app-service-linux-how-to-create-a-web-app.md)
+### [Naslaginformatie voor App Service](app-service-changes-existing-services.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
+### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET-apps
 #### [Uw eerste .NET-web-app in vijf minuten implementeren in Azure](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [Problemen met prestaties van web-apps oplossen](app-service-web-troubleshoot-performance-degradation.md)
 
 # Naslaginformatie
-## [Naslaginformatie voor App Service](app-service-changes-existing-services.md)
-## [Azure Portal](app-service-web-app-azure-portal.md)
-## [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Verwant
 ## [Opmerkingen bij de release van Azure SDK voor .NET](azure-sdk-dotnet-release-notes.md)

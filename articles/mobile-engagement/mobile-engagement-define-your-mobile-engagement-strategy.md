@@ -1,12 +1,12 @@
 ---
-title: Uw strategie voor Mobile Engagement definiëren | Microsoft Docs
+title: "Uw strategie voor Mobile Engagement definiëren | Microsoft Docs"
 description: Informatie over het gebruik en de optimalisatie van Mobile Engagement met analyses en pushmeldingen.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+
 
 ---
-# Uw strategie voor Mobile Engagement definiëren
+# <a name="define-your-mobile-engagement-strategy"></a>Uw strategie voor Mobile Engagement definiëren
 *U hebt uw app niet zomaar geschreven: u wilt wel dat uw gebruikers deze ook gebruiken.*
 
 We zijn ervan overtuigd dat u veel moeite hebt gedaan om er een geweldige app van te maken. U hebt waarschijnlijk ook een aanzienlijk marketingbudget geïnvesteerd om gebruikers aan te trekken. Maar na de eerste opwindende piek, ziet u dat uw app langzamerhand steeds minder wordt gebruikt. *Daar gaat het bij Azure Mobile Engagement om*: dat gebruikers blijven hangen en dat u uw app stapsgewijs kunt verbeteren via testen en leermomenten.
@@ -25,7 +29,7 @@ Onze aanpak voor het verbeteren van de retentie en het gebruik is gebaseerd op h
 
 Maar hiervoor moet u eerst *inzicht krijgen in uw gebruikers*. Daarna moet u groepen maken op basis van wat ze hebben gedaan of op basis van hun kenmerken (we noemen dat segmenten). Vervolgens moet u relevante communicatie voor elk segment maken.
 
-## Mobile Engagement helpt u om uw doelstellingen te verwezenlijken
+## <a name="mobile-engagement-serves-your-objectives"></a>Mobile Engagement helpt u om uw doelstellingen te verwezenlijken
 *We hebben het gehad over retentie en gebruik, maar waarvoor?*
 
 Wanneer u uw Mobile Engagement-strategie bouwt, moet u eerst kijken naar de doelstellingen en de Key Performance Indicators (KPI's) van uw app.
@@ -45,14 +49,14 @@ Als u uw use cases en segment hebt bepaald, kunt u aan de hand hiervan de gegeve
 
 Op basis van de integratie kunt u, wanneer toepassingen zijn gepubliceerd, als marketeer uw analyses in realtime zien, uw doelgroep segmenteren en vervolgens starten met het verzenden van slimme gerichte pushmeldingen om eindgebruikers in of buiten de app te benaderen.
 
-### Use cases om mee aan de slag te gaan
+### <a name="usecases-to-get-started"></a>Use cases om mee aan de slag te gaan
 1. Welkomststrategie: maak verschillende campagnes met pushmeldingen op basis van het gedrag van de eindgebruiker tijdens de start van de toepassing. Zo kunt u de interactie opnieuw starten op D+2/5/10/15 na de eerste sessie en de retentie na de eerste uitvoering verhogen.
 2. Promoot nieuwe inhoud (functie, artikel/video of product) op basis van het gedrag van de eindgebruiker. Verzend de informatie alleen naar eindgebruikers die eerder zijn geneigd om de interactie aan te gaan.
 3. Beoordeel de toepassing: richt u op minder dan 1 procent van uw gebruikersgroep, die de app in de winkel hoogst waarschijnlijk met 5 sterren beoordeelt.
 4. Stimuleer abonnementen: promoot waardevolle inhoud aan eindgebruikers die deze nog niet hebben gezien om het aantal abonnementen te verhogen.
 5. Zelfstudie: geen verplichte zelfstudie voor iedereen meer. Waarom geen geweldige in-app-zelfstudies bouwen en deze vervolgens alleen via in-app-berichten activeren als de gebruiker de app niet lijkt te gebruiken of problemen heeft met het gebruik van een functie?
 
-## Waarom hebt u analyses nodig om interactie aan te gaan?
+## <a name="why-do-you-need-analytics-to-engage"></a>Waarom hebt u analyses nodig om interactie aan te gaan?
 Momenteel beseft u waarschijnlijk dat het maken van een pushmelding alleen niet voldoende is. Het kernconcept van Mobile Engagement is om marketeers en ontwikkelaars te helpen de juiste eindgebruiker op het juiste moment en op de juiste plaats te benaderen. Als u inzicht wilt krijgen in deze drie belangrijkste concepten, is het essentieel om analyses van uw toepassing te verzamelen en deze vervolgens te gebruiken bij het segmenteren van uw doelgroep. Deze worden nog krachtiger wanneer gedragssegmenten gegevens uit uw andere database of CRM of uit een ander kanaal aanvullen. Mobile Engagement haalt gegevens op vanaf elke locatie en gebruikt deze om de juiste doelgroep te benaderen.
 
 Als u zo contextueel mogelijk wilt zijn wanneer u de interactie met uw doelgroep aangaat, is het cruciaal om kennis te hebben van het gedrag van eindgebruikers en hun status in realtime te weten. Door het verzamelen van gegevens kunnen marketeers zich richten op wat echt belangrijk is in het gebruik van use cases en kunnen ze hun strategiedoelstellingen voor Mobile Engagement bereiken. Om de eerder gestelde doelstellingen te bereiken, moet u ook niet lukraak zo veel mogelijk gegevens verzamelen. De aanbevolen procedure is om alleen die gegevens te verzamelen waarmee u zich kunt richten op uw use cases en op wat u te weten wilt komen. Dit is een uitstekende manier om de oplossing te starten, te proberen, te testen en te leren hoe u deze kunt gebruiken, slimme pushmeldingen te maken en de retentie van een toepassing te verhogen om deze tot een succes te maken.
@@ -62,42 +66,42 @@ Als u zo contextueel mogelijk wilt zijn wanneer u de interactie met uw doelgroep
 > 
 > 
 
-### Use cases en aanbevolen procedures
+### <a name="usecases-and-best-practices"></a>Use cases en aanbevolen procedures
 In de volgende secties worden een aantal belangrijke use cases die we bij onze klanten zijn tegengekomen in het kort behandeld, zodat u aan de slag kunt gaan.
 
-#### Media
+#### <a name="media"></a>Media
 Verzamel het type inhoud dat wordt gebruikt door de eindgebruiker. Segmenteer vervolgens de doelgroep op basis van dit gedrag, zodat u specifieke typen inhoud alleen kunt tonen aan een doelgroep die meer geneigd is deze te gebruiken. Dit voorkomt het spammen van een gehele gebruikersgroep en zorgt voor een betere retentie.
 
-#### M-commerce
+#### <a name="mcommerce"></a>M-commerce
 Verzamel de productcategorieën die binnen de toepassing en doelgroep het meest worden bezocht en promoot een korting of een nieuw product uit die categorie waarvan de eindgebruiker meer is geneigd deze aan te schaffen. Richt u op het verhogen van uw opbrengsten. Het doel is weer om niet te spammen.
 
-#### Gaming
+#### <a name="gaming"></a>Gaming
 Verzamel de levels van een game van een eindgebruiker en de tijd die in een bepaalde periode is besteed, zodat u zich kunt richten op de doelgroep die wellicht is vastgelopen en meer geneigd is om naar het volgende level te gaan met een bonusaanbieding.
 
 Communiceer met gebruikers die enige tijd niet hebben gespeeld over specifieke gebeurtenissen met een stimulans om ze aan te moedigen terug te keren.
 
-#### Retail
+#### <a name="retail"></a>Retail
 Verzamel de producten of merken die een doelgroep eerder is geneigd te gebruiken op basis van favorieten of gedrag. Lok de doelgroep naar uw winkel om inkoopopbrengsten te verhogen.
 
-#### Bankieren
+#### <a name="banking"></a>Bankieren
 Verzamel gegevens van eindgebruikers die een account hebben gemaakt tijdens de eerste keer dat zij de toepassing openden. Richt u op de implementatie van een welkomststrategie met een gerichte pushmelding en verhoog het aantal abonnementen.
 
-### Een geweldig tagplan maken
+### <a name="how-to-create-a-great-tag-plan"></a>Een geweldig tagplan maken
 Een tagplan moet als een beschrijving van het gebruikerspad of een soort werkstroom van de toepassing zijn. Alle vereiste tags (gegevens) die moeten worden verzameld, moeten worden opgegeven om voldoende datapunten te hebben om gebruikersgedrag te begrijpen en de gebruikersgroep goed te segmenteren. Dit is geen technisch proces. Marketeers kunnen daarom de gegevens opgeven die ze willen verzamelen op basis van hun Mobile Engagement-strategie.
 
 U moet ten minste alle schermen van een toepassing taggen (de schermen worden in Mobile Engagement *activiteiten* genoemd). Dit helpt u het gebruikerspad te bepalen.
 
 Een activiteit kan *gebeurtenissen* insluiten die informatie over acties verzamelen, zoals het klikken op een knop. Hiermee kunnen interacties in de toepassing worden verzameld. Zo kunnen marketeers te weten komen wat schermgebruikers bezoeken en wat ze doen.
 
-`Jobs` zijn acties met een duur. Dit is zeer nuttig voor marketeers. Het geeft ze inzicht in hoe lang het duurt voordat een gebruiker bijvoorbeeld een account heeft gemaakt of zich heeft aangemeld. Dit kan ook handig zijn voor ontwikkelaars. Zo kunnen ze in de gaten houden hoe lang het duurt om een webservice aan te roepen.
+`Jobs`zijn acties met een duur. Dit is zeer nuttig voor marketeers. Het geeft ze inzicht in hoe lang het duurt voordat een gebruiker bijvoorbeeld een account heeft gemaakt of zich heeft aangemeld. Dit kan ook handig zijn voor ontwikkelaars. Zo kunnen ze in de gaten houden hoe lang het duurt om een webservice aan te roepen.
 
-`Errors` kunnen ook worden gecontroleerd. Hiermee komt u erachter of gebruikers problemen ondervinden in uw app. Bijvoorbeeld als ze regelmatig verbindingsproblemen hebben.
+`Errors`kunnen ook worden gecontroleerd. Hiermee komt u erachter of gebruikers problemen ondervinden in uw app. Bijvoorbeeld als ze regelmatig verbindingsproblemen hebben.
 
 Al dit soort gegevens kunnen worden uitgebreid met parameters (*extra gegevens* in Mobile Engagement), zodat u dynamische gegevens van de toepassing kunt verzamelen. Dit is belangrijk voor het toestaan van verfijnde segmentering. Marketeers kunnen bijvoorbeeld een gebruiker segmenteren op basis van het type inhoud dat ze hebben gebruikt. Het type inhoud bestaat uit de dynamische gegevens van een activiteit of een gebeurtenis.
 
 *Informatie over de app* bestaat uit gegevens waarmee u de status van de toepassing of de gebruiker in realtime kunt bevestigen. Dit helpt u ook een doelgroep te categoriseren en deze snel te benaderen. Er kan bijvoorbeeld gebruik worden gemaakt van een status waar/onwaar om te zien of de gebruiker zich wel of niet aanmeldt of van de vervaldatum van het abonnement van de gebruiker.
 
-#### Voorbeeld van tags
+#### <a name="example-of-tags"></a>Voorbeeld van tags
 *Use case: segmenteer het doelgroepgedrag om de juiste eindgebruiker met de juiste pushmeldinginhoud te benaderen*
 
 1. Een pushmelding verzenden om een categorie van een product te promoten: verzamel gedragsgegevens om de doelgroep te segmenteren op basis van de categorie van een product die de gebruikers in een bepaalde periode x keer hebben bezocht of een specifiek item dat ze in een winkelwagen hebben toegevoegd. Met de verzamelde gegevens kunt u segmenteren en vervolgens een pushmelding naar de juiste doelgroep verzenden.
@@ -111,7 +115,7 @@ Al dit soort gegevens kunnen worden uitgebreid met parameters (*extra gegevens* 
 2. Segmenteer de doelgroep op basis van de aanmeldingsstatus van de gebruikers. Verzamel gegevens om erachter te komen of een gebruiker is verbonden of een account heeft gemaakt. Dit helpt u bij het benaderen van eindgebruikers die zich nog niet hebben aangemeld en verzendt een pushmelding om eindgebruikers aan te moedigen dit toch te doen.
    ![][2]
 
-### Volgende stappen
+### <a name="next-steps"></a>Volgende stappen
 * Ga naar [Mobile Engagement-concepten] voor meer informatie over basisconcepten van Mobile Engagement.
 * Ga naar [Een Mobile Engagement-app maken](mobile-engagement-create.md) om een nieuwe Mobile Engagement-app-verzameling in Azure te maken en begin met het beheren van uw apps met de Mobile Engagement-portal.
 * Ga naar [Aanbevolen procedures](mobile-engagement-getting-started-best-practices.md) voor gedetailleerde informatie.
@@ -130,6 +134,6 @@ Al dit soort gegevens kunnen worden uitgebreid met parameters (*extra gegevens* 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

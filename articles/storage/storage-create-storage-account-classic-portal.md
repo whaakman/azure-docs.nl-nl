@@ -1,27 +1,31 @@
 ---
-title: Een opslagaccount in de klassieke Azure Portal maken, beheren of verwijderen | Microsoft Docs
-description: Maak een nieuw opslagaccount, beheer de toegangssleutels van uw account of verwijder een opslagaccount in de Azure Portal. Meer informatie over Standard en Premium Storage-accounts.
+title: Een opslagaccount in de klassieke Azure-portal maken, beheren of verwijderen | Microsoft Docs
+description: Maak een nieuw opslagaccount, beheer de toegangssleutels van uw account of verwijder een opslagaccount in Azure Portal. Meer informatie over Standard en Premium Storage-accounts.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/26/2016
-ms.author: micurd;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+
 
 ---
-# Over Azure-opslagaccounts
+# <a name="about-azure-storage-accounts"></a>Over Azure-opslagaccounts
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 Een Azure-opslagaccount biedt u toegang tot de Azure-services Blob, Queue, Table en File in Azure Storage. Uw opslagaccount biedt een unieke naamruimte voor uw Azure Storage-gegevensobjecten. De gegevens in uw account zijn standaard alleen beschikbaar voor u, de eigenaar van het account.
 
 Er zijn twee typen opslagaccounts:
@@ -29,7 +33,7 @@ Er zijn twee typen opslagaccounts:
 * Een Standard-opslagaccount omvat Blob Storage, Table Storage, Queue Storage en File Storage.
 * Een Premium Storage-account biedt momenteel alleen ondersteuning voor schijven van virtuele Azure-machines. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](storage-premium-storage.md) voor een gedetailleerd overzicht van Premium Storage.
 
-## Facturering voor opslagaccounts
+## <a name="storage-account-billing"></a>Facturering voor opslagaccounts
 U wordt gefactureerd voor het gebruik van Azure Storage op basis van uw opslagaccount. De opslagkosten worden gebaseerd op vier factoren: opslagcapaciteit, replicatieschema, opslagtransacties en uitgaande gegevens.
 
 * De opslagcapaciteit verwijst naar welk aandeel van uw opslagaccount u gebruikt voor het opslaan van gegevens. De kosten van het opslaan van uw gegevens worden bepaald op basis van hoeveel gegevens u opslaat en hoe deze worden gerepliceerd.
@@ -46,7 +50,7 @@ Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](storage-scalability-t
 > 
 > 
 
-## Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Een opslagaccount maken
 1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Klik op **Nieuw** in de taakbalk onder aan de pagina. Kies **Data Services** | **Opslag** en klik vervolgens op **Snelle invoer**.
    
@@ -79,7 +83,7 @@ Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](storage-scalability-t
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
-### Eindpunten van opslagaccount
+### <a name="storage-account-endpoints"></a>Eindpunten van opslagaccount
 Elk object dat u in Azure Storage opslaat, heeft een uniek URL-adres. De naam van het opslagaccount vormt het subdomein van dat adres. De combinatie van subdomein- en domeinnaam, die specifiek zijn voor elke service, vormt een *eindpunt* voor uw opslagaccount.
 
 Als de naam van uw opslagaccount bijvoorbeeld *mystorageaccount* is, zijn de standaardeindpunten voor uw opslagaccount:
@@ -95,7 +99,7 @@ De URL voor het openen van een object in een opslagaccount wordt samengesteld do
 
 U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagaccount. Zie [Een aangepaste domeinnaam configureren voor het eindpunt voor Blob Storage](storage-custom-domain-name.md) voor meer informatie.
 
-### Serviceco-locatie met een affiniteitsgroep
+### <a name="service-colocation-with-an-affinity-group"></a>Serviceco-locatie met een affiniteitsgroep
 Een *affiniteitsgroep* is een geografische groepering van uw Azure-services en virtuele machines met uw Azure-opslagaccount. Met een affiniteitsgroep kunt u de serviceprestaties verbeteren door computerwerkbelastingen in hetzelfde datacentrum te plaatsen, of in de buurt van de gebruikersdoelgroep. Er worden bovendien geen kosten in rekening gebracht voor uitgaande gegevens wanneer gegevens in een opslagaccount worden geopend via een andere service die deel uitmaakt van de dezelfde affiniteitsgroep.
 
 > [!NOTE]
@@ -103,7 +107,7 @@ Een *affiniteitsgroep* is een geografische groepering van uw Azure-services en v
 > 
 > 
 
-## Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren
+## <a name="view-copy-and-regenerate-storage-access-keys"></a>Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren
 Wanneer u een opslagaccount maakt, genereert Azure twee 512-bits opslagtoegangssleutels, die worden gebruikt voor verificatie wanneer het opslagaccount wordt geopend. Dankzij de twee opslagtoegangssleutels biedt Azure u de mogelijkheid de sleutels opnieuw te genereren zonder onderbreking van uw opslagservice of de toegang hiertoe.
 
 > [!NOTE]
@@ -113,18 +117,18 @@ Wanneer u een opslagaccount maakt, genereert Azure twee 512-bits opslagtoegangss
 
 In de [klassieke Azure Portal](https://manage.windowsazure.com) gebruikt u **Sleutels beheren** op het dashboard of de pagina **Opslag** om de toegangssleutels voor opslag te bekijken, te kopiëren en opnieuw te genereren die worden gebruikt voor toegang tot de services Blob, Table en Queue.
 
-### Een toegangssleutel voor opslag kopiëren
+### <a name="copy-a-storage-access-key"></a>Een toegangssleutel voor opslag kopiëren
 U kunt **Sleutels beheren** gebruiken om een toegangssleutel voor opslag te kopiëren voor gebruik in een verbindingsreeks. Voor de verbindingsreeks zijn de naam van het opslagaccount en een sleutel nodig voor gebruik bij verificatie. Voor meer informatie over het configureren van verbindingsreeksen voor toegang tot Azure Storage-services ziet u [Azure Storage-verbindingsreeksen configureren](storage-configure-connection-string.md).
 
 1. In de [klassieke Azure Portal](https://manage.windowsazure.com) klikt u op **Opslag** en vervolgens op de naam van het opslagaccount om het dashboard te openen.
 2. Klik op **Sleutels beheren**.
    
-    **Toegangssleutels beheren** wordt geopend.
+     **Toegangssleutels beheren** wordt geopend.
    
     ![Sleutels beheren](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 3. Als u een toegangssleutel voor opslag wilt kopiëren, selecteert u de sleuteltekst. Klik met de rechtermuisknop en klik op **Kopiëren**.
 
-### Opslagtoegangssleutels opnieuw genereren
+### <a name="regenerate-storage-access-keys"></a>Opslagtoegangssleutels opnieuw genereren
 We raden u aan de toegangssleutels voor uw opslagaccount regelmatig te wijzigen om uw opslagverbindingen veilig te houden. Er worden twee toegangssleutels toegewezen, zodat u tijdens het opnieuw genereren van één toegangssleutel de verbinding met het opslagaccount in stand kunt houden met behulp van uw andere toegangssleutel.
 
 > [!WARNING]
@@ -145,7 +149,7 @@ Dit is het proces voor roulatie van uw toegangssleutels voor opslag:
 3. Werk de verbindingsreeksen in uw code bij, zodat deze verwijzen naar de nieuwe primaire toegangssleutel.
 4. Genereer de secundaire toegangssleutel opnieuw.
 
-## Een opslagaccount verwijderen
+## <a name="delete-a-storage-account"></a>Een opslagaccount verwijderen
 Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **Verwijderen** op het dashboard of de pagina **Configureren**. Met **Verwijderen** wordt het hele opslagaccount verwijderd, inclusief alle blobs, tabellen en wachtrijen in het account.
 
 > [!WARNING]
@@ -158,16 +162,19 @@ Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **
 1. Klik in de [klassieke Azure Portal](https://manage.windowsazure.com) op **Opslag**.
 2. Klik ergens in de opslagaccountvermelding (niet op de naam) en klik vervolgens op **Verwijderen**.
    
-   * Of -
-     
-     Klik op de naam van het opslagaccount om het dashboard te openen en klik vervolgens op **Verwijderen**.
+     - Of -
+   
+    Klik op de naam van het opslagaccount om het dashboard te openen en klik vervolgens op **Verwijderen**.
 3. Klik op **Ja** om te bevestigen dat u het opslagaccount wilt verwijderen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over Azure Storage ziet u de [documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 * Ga naar de [blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/).
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

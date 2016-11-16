@@ -1,49 +1,53 @@
 ---
-title: Een SQL Data Warehouse maken in de Azure-portal | Microsoft Docs
-description: Leer hoe u een Azure SQL Data Warehouse maakt in de Azure-portal
+title: Een SQL Data Warehouse maken in Azure Portal | Microsoft Docs
+description: Leer hoe u een Azure SQL Data Warehouse maakt in Azure Portal
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: 552e496e-d560-419c-9996-6bbc80c521cb
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/25/2016
-ms.author: barbkess;lodipalm;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
+
 
 ---
-# Een Azure SQL Data Warehouse maken
+# <a name="create-an-azure-sql-data-warehouse"></a>Een Azure SQL Data Warehouse maken
 > [!div class="op_single_selector"]
-> * [Azure-portal](sql-data-warehouse-get-started-provision.md)
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 > 
 > 
 
-In deze zelfstudie gebruikt u de Azure-portal om een SQL Data Warehouse te maken die een AdventureWorksDW-voorbeelddatabase bevat.
+In deze zelfstudie gebruikt u Azure Portal om een SQL Data Warehouse te maken die een AdventureWorksDW-voorbeelddatabase bevat.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Om aan de slag te gaan, hebt u het volgende nodig:
 
 * **Azure-account**: ga naar [Gratis proefversie van Azure][Gratis proefversie van Azure] of [Azure-tegoed met MSDN][Azure-tegoed met MSDN] om een account te maken.
-* **Azure SQL Server**: zie [Een logische Azure SQL-databaseserver met de Azure-portal][Een logische Azure SQL-databaseserver met de Azure-portal] voor meer informatie.
+* **Azure SQL Server**: zie [Een logische Azure SQL-databaseserver maken met Azure Portal][Een logische Azure SQL-databaseserver maken met Azure Portal] voor meer informatie.
 
 > [!NOTE]
-> Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse][Prijzen van SQL Data Warehouse] voor meer informatie.
+> Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse][Prijzen van SQL Data Warehouse] voor meer informatie over prijzen.
 > 
 > 
 
-## Een SQL Data Warehouse maken
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **+ Nieuw** > **Gegevens en opslag** > **SQL Data Warehouse**.
    
     ![Maken](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
-3. Vul in de blade **SQL Data Warehouse** de benodigde informatie in en druk op Maken.
+3. Vul op de blade **SQL Data Warehouse** de benodigde informatie in en druk op Maken.
    
     ![Database maken](./media/sql-data-warehouse-get-started-provision/create-database.png)
    
@@ -51,7 +55,7 @@ Om aan de slag te gaan, hebt u het volgende nodig:
    * **Databasenaam**: de naam die wordt gebruikt om naar de SQL Data Warehouse te verwijzen.  De waarde moet uniek zijn op de server.
    * **Prestaties**: we raden u aan om te beginnen met 400 [DWU’s][DWU]. U kunt de schuifregelaar naar links of rechts bewegen om de prestaties van uw datawarehouse aan te passen, of u kunt later omhoog of omlaag schalen.  Voor meer informatie over DWU’s, verwijzen wij u naar onze documentatie over [vergroten/verkleinen](sql-data-warehouse-manage-compute-overview.md) of onze [pagina met prijzen][Prijzen van SQL Data Warehouse]. 
    * **Abonnement**: selecteer het [abonnement] waaronder deze SQL Data Warehouse wordt gefactureerd.
-   * **Resourcegroep**: [Resourcegroepen][Resourcegroep] zijn containers die speciaal zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Meer informatie over [resourcegroepen](../resource-group-overview.md).
+   * **Resourcegroep**: [Resourcegroepen][Resourcegroep] zijn containers die speciaal zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Meer informatie over [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
    * **Bron selecteren**: klik op **Bron selecteren** > **Voorbeeld**. Azure vult de optie **Select sample** (Selecteer voorbeeld) automatisch in met AdventureWorksDW.
 
 > [!NOTE]
@@ -60,13 +64,13 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 > 
 
 1. Klik op **Maken** om uw SQL Data Warehouse te maken.
-2. Wacht enkele minuten. Wanneer uw datawarehouse klaar is, keert u terug naar de [Azure-portal](https://portal.azure.com). U vindt de SQL Data Warehouse op het dashboard onder de SQL-databases, of in de resourcegroep die u hebt gebruikt om deze te maken. 
+2. Wacht enkele minuten. Wanneer uw datawarehouse klaar is, keert u terug naar [Azure Portal](https://portal.azure.com). U vindt de SQL Data Warehouse op het dashboard onder de SQL-databases, of in de resourcegroep die u hebt gebruikt om deze te maken. 
    
     ![portalweergave](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een SQL Data Warehouse hebt gemaakt, kunt u [verbinding maken](sql-data-warehouse-connect-overview.md) en query's gaan uitvoeren.
 
 Zie [Loading overview](sql-data-warehouse-overview-load.md) (Laden: overzicht) als u gegevens in SQL Data Warehouse wilt laden.
@@ -78,9 +82,9 @@ Firewallregels kunnen ook worden geconfigureerd met behulp van Transact-SQL. Zie
 Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Aanbevolen procedures].
 
 <!--Article references-->
-[Een logische Azure SQL-databaseserver met de Azure-portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Een logische Azure SQL-databaseserver maken met Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Een logische Azure SQL-databaseserver maken met PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Resourcegroepen]: ../resource-group-template-deploy-portal.md
+[resourcegroepen]: ../resource-group-template-deploy-portal.md
 [Aanbevolen procedures]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [abonnement]: ../azure-glossary-cloud-terminology.md#subscription
@@ -99,6 +103,6 @@ Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Aanbevolen
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

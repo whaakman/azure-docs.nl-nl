@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### De minimale StorSimple-apparaatinstelling voltooien
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>De minimale StorSimple-apparaatinstelling voltooien
 1. Selecteer het apparaat en klik op **Quick Start**. Klik op **Apparaatinstelling voltooien** om de wizard Apparaat configureren te starten.
 2. Ga in het dialoogvenster **Basisinstellingen** van de wizard Apparaat configureren als volgt te werk:
    
@@ -31,6 +31,6 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,21 +2,25 @@
 title: Uw API beveiligen met Azure API Management | Microsoft Docs
 description: Informatie over het beveiligen van uw API met beleidsregels voor quota en (frequentie)beperking.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Uw API beveiligen met frequentielimieten met behulp van Azure API Management
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Uw API beveiligen met frequentielimieten met behulp van Azure API Management
 In deze handleiding wordt getoond hoe eenvoudig het is om beveiliging toe te voegen voor uw back-end-API door frequentielimiet- en quotumbeleidsregels te configureren met Azure API Management.
 
 In deze zelfstudie maakt u een API-product Gratis proefversie waarmee ontwikkelaars maximaal 10 aanroepen per minuut en maximaal 200 oproepen per week naar uw API kunnen doen met de beleidsregels [Aanroepfrequentie per abonnement beperken](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vervolgens publiceert u de API en test u het frequentielimietbeleid.
@@ -27,11 +31,11 @@ Voor meer geavanceerde beperkingsscenario's met behulp van de beleidsregels [rat
 In deze stap maakt u een product Gratis proefversie waarvoor geen abonnementsgoedkeuring is vereist.
 
 > [!NOTE]
-> Als u al een product hebt geconfigureerd en u dit wilt gebruiken voor deze zelfstudie, kunt u verder gaan naar [Aanroepfrequentielimiet- en quotumbeleidsregels configureren][Aanroepfrequentielimiet- en quotumbeleidsregels configureren] en de zelfstudie vanaf daar volgen met uw product in plaats van het product Gratis proefversie.
+> Als u al een product hebt geconfigureerd en dit voor deze zelfstudie wilt gebruiken, kunt u verder gaan naar [Aanroepfrequentielimiet- en quotumbeleidsregels configureren][Aanroepfrequentielimiet- en quotumbeleidsregels configureren] en de zelfstudie vanaf daar volgen met uw product in plaats van de gratis proefversie.
 > 
 > 
 
-Klik om aan de slag te gaan op **Beheren** in de klassieke Azure-portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
+Om aan de slag te gaan, klikt u op **Publicatieportal** in de Azure Portal voor uw API Management-service.
 
 ![Publicatieportal][api-management-management-console]
 
@@ -63,7 +67,7 @@ Nadat alle waarden zijn ingevoerd, klikt u op **Opslaan** om het product te make
 
 Nieuwe producten zijn standaard zichtbaar voor gebruikers in de groep **Beheerders**. We gaan de groep **Ontwikkelaars** toevoegen. Klik op **Gratis proefversie** en klik vervolgens op het tabblad **Zichtbaarheid**.
 
-> In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren voor de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. Zie voor meer informatie [Groepen maken en gebruiken in Azure API Management][Groepen maken en gebruiken in Azure API Management].
+> In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren op de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. Voor meer informatie raadpleegt u [Groepen maken en gebruiken in Azure API Management][Groepen maken en gebruiken in Azure API Management].
 > 
 > 
 
@@ -74,7 +78,7 @@ Schakel het selectievakje **Ontwikkelaars** in en klik vervolgens op **Opslaan**
 ## <a name="add-api"> </a>Een API toevoegen aan het product
 In deze stap van de zelfstudie voegen we de Echo-API toe aan het nieuwe product Gratis proefversie.
 
-> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie voor meer informatie [Uw eerste API beheren in Azure API Management][Uw eerste API beheren in Azure API Management].
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Voor meer informatie raadpleegt u [Uw eerste API beheren in Azure API Management][Uw eerste API beheren in Azure API Management].
 > 
 > 
 
@@ -174,7 +178,7 @@ Nadat de gewenste beleidsregels zijn geconfigureerd, klikt u op **Opslaan**.
 
 ![Beleid opslaan][api-management-policy-save]
 
-## <a name="publish-product"> </a> Het product publiceren
+## <a name="publish-product"> </a>Het product publiceren
 Nu de API's zijn toegevoegd en de beleidsregels zijn geconfigureerd, moet het product worden gepubliceerd zodat het door ontwikkelaars kan worden gebruikt. Klik op **Producten** in het menu **API Management** aan de linkerkant en klik vervolgens op **Gratis proefversie** om het product te configureren.
 
 ![Product configureren][api-management-configure-product]
@@ -255,7 +259,7 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 > 
 > 
 
-[api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
+[api-management-beheerconsole]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
 [api-management-new-product-window]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
 [api-management-product-added]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
@@ -306,6 +310,6 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

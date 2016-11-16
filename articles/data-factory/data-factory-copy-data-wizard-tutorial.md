@@ -1,12 +1,12 @@
 ---
-title: 'Zelfstudie: een pijplijn maken met de wizard Kopiëren | Microsoft Docs'
-description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory.
+title: "Zelfstudie: een pijplijn maken met de wizard Kopiëren | Microsoft Docs"
+description: "In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -36,7 +40,7 @@ Met de **wizard Kopiëren** van Azure Data Factory kunt u snel en eenvoudig een 
 > 
 > 
 
-## Een gegevensfactory maken
+## <a name="create-data-factory"></a>Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **+ Nieuw** in de linkerbovenhoek. Klik op **Intelligence en analytische gegevens** en klik op **Data Factory**. 
@@ -53,21 +57,23 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
       > De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
       > 
       > 
-3. Selecteer uw Azure-**abonnement**.
-4. Voer een van de volgende stappen uit voor de resourcegroep: 1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
-5. Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
-   1. Selecteer een **locatie** voor de gegevensfactory.
-   2. Selecteer het selectievakje **Vastmaken aan dashboard** onderaan de blade.  
-   3. Klik op **Create**.
+   2. Selecteer uw Azure-**abonnement**.
+   3. Voer een van de volgende stappen uit voor de resourcegroep: 
       
-       ![Blade voor een nieuwe gegevensfactory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. Wanneer het aanmaken is voltooid, ziet u de blade **Gegevensfactory** zoals op de volgende afbeelding wordt weergegeven:
+      1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
+      2. Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
+         
+          Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
+   4. Selecteer een **locatie** voor de gegevensfactory.
+   5. Selecteer het selectievakje **Vastmaken aan dashboard** onderaan de blade.  
+   6. Klik op **Create**.
+      
+       ![Blade voor een nieuwe gegevensfactory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. Wanneer het aanmaken is voltooid, ziet u de blade **Gegevensfactory** zoals op de volgende afbeelding wordt weergegeven:
    
    ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## De wizard Kopiëren starten en gebruiken
+## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
 1. Op de startpagina van de gegevensfactory klikt u op de tegel **Gegevens kopiëren** om de **wizard Kopiëren** te openen. 
    
    > [!NOTE]
@@ -132,7 +138,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     
     ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## Monitor starten en toepassing beheren
+## <a name="launch-monitor-and-manage-application"></a>Monitor starten en toepassing beheren
 1. Klik op de pagina **Implementatie** op de koppeling: `Click here to monitor copy pipeline`.
    
    ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -145,7 +151,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    > 
    > 
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |
 |:--- |:--- |
 | [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) |Dit artikel biedt gedetailleerde informatie over de kopieeractiviteit die u tijdens deze zelfstudie hebt gemaakt. |
@@ -154,6 +160,9 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

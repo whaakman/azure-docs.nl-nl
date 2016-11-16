@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Service Bus-onderwerpen en -abonnementen gebruiken
@@ -90,7 +94,7 @@ Bij gebruik van Azure Websites of Azure Virtual Machines wordt het aanbevolen he
 </configuration>
 ```
 
-Gebruik de SAS-naam en sleutelwaarden die u hebt opgehaald via de [Azure Portal][Azure Portal], zoals eerder beschreven.
+Gebruik de SAS-naam en sleutelwaarden die u hebt opgehaald via [Azure Portal][Azure Portal], zoals eerder beschreven.
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
 U kunt voor Service Bus-onderwerpen en -abonnementen beheerbewerkingen uitvoeren met de klasse [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Deze klasse biedt methoden voor het maken, opsommen en verwijderen van onderwerpen.
@@ -151,7 +155,7 @@ U kunt ook onderwerpabonnementen maken met de klasse [NamespaceManager](https://
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
 Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Bij gebruik van het **MatchAll**-filter worden alle berichten die naar het onderwerp worden gepubliceerd, in de virtuele wachtrij van het abonnement geplaatst. Met het volgende voorbeeld maakt u een abonnement met de naam AllMessages en wordt het standaardfilter **MatchAll** gebruikt.
 
 ```
@@ -184,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Op dezelfde manier wordt in het volgende voorbeeld een abonnement genaamd **LowMessages** gemaakt met een [SqlFilter][SqlFilter] dat alleen berichten selecteert die een **MessageNumber**-eigenschap minder dan of gelijk aan 3 hebben.
+Op dezelfde manier wordt in het volgende voorbeeld een abonnement genaamd **LowMessages** gemaakt met een [SqlFilter][SqlFilter] dat alleen berichten selecteert die een **MessageNumber**-waarde minder dan of gelijk aan 3 hebben.
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -304,17 +308,17 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
 * [Wachtrijen, onderwerpen en abonnementen][Wachtrijen, onderwerpen en abonnementen].
-* [Voorbeeld van onderwerpfilters][Voorbeeld van onderwerpfilters]
+* [Voorbeeld onderwerpfilters][Voorbeeld onderwerpfilters]
 * API-naslaginformatie voor [SqlFilter][SqlFilter].
 * Bouw een werktoepassing op waarmee berichten naar en van een Service Bus-wachtrij worden verzonden en ontvangen: [Service Bus Brokered Messaging .NET-zelfstudie][Service Bus Brokered Messaging .NET-zelfstudie].
-* Service Bus-voorbeelden: downloaden van [Azure-voorbeelden][Azure-voorbeelden] of raadpleeg het [overzicht](../service-bus/service-bus-samples.md).
+* Service Bus-voorbeelden: downloaden van [Azure-voorbeelden][Azure-voorbeelden] of raadpleeg het [overzicht](service-bus-samples.md).
 
 [Azure Portal]: https://portal.azure.com
 
 [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
 [Wachtrijen, onderwerpen en abonnementen]: service-bus-queues-topics-subscriptions.md
-[Voorbeeld van onderwerpfilters]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
+[Voorbeeld onderwerpfilters]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Service Bus Brokered Messaging .NET-zelfstudie]: service-bus-brokered-tutorial-dotnet.md
@@ -322,6 +326,6 @@ Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

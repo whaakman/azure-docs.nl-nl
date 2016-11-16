@@ -4,9 +4,9 @@ description: Een stapsgewijze walkthrough voor een Resource Manager-sjabloon waa
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: ''
-editor: ''
-
+manager: timlt
+editor: 
+ms.assetid: f1cfd704-f6e1-47d5-8094-b439c279c13f
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2016
 ms.author: navale;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8dcfe27b87cd76ea7b8f75c3c36f0115131eb6ae
+
 
 ---
-# Walkthrough voor het Resource Manager-sjabloon
+# <a name="resource-manager-template-walkthrough"></a>Walkthrough voor het Resource Manager-sjabloon
 Een van de eerste vragen bij het maken van een sjabloon is: hoe ga ik aan de slag? U kunt met een leeg sjabloon beginnen en dan de basisstructuur volgen die wordt beschreven in het artikel [Sjabloon aanmaken](resource-group-authoring-templates.md#template-format). Voeg vervolgens de resources en juiste parameters en variabelen toe. Een goed alternatief is om aan de slag te gaan via de [snelstartgalerie](https://github.com/Azure/azure-quickstart-templates) en te zoeken naar scenario’s die vergelijkbaar zijn met het scenario dat u wilt maken. U kunt verschillende sjablonen samenvoegen of een bestaande sjabloon aanpassen aan uw eigen scenario. 
 
 Hier volgt een algemene infrastructuur als voorbeeld:
@@ -36,7 +40,7 @@ Dat is echter veel om in één keer op te zetten, dus u maakt en implementeert e
 > 
 > 
 
-## Het Resource Manager-sjabloon maken
+## <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
 Het sjabloon is een JSON-bestand waarin alle resources worden beschreven die u wilt implementeren. Hierin kunt u ook de parameters definiëren die worden opgegeven tijdens de implementatie, variabelen die zijn samengesteld op basis van andere waarden en expressies en uitvoer van de implementatie. 
 
 U begint met het meest eenvoudige sjabloon:
@@ -54,7 +58,7 @@ U begint met het meest eenvoudige sjabloon:
 
 Sla dit bestand op als **azuredeploy.json** (het sjabloon kan elke naam hebben die u wilt, maar het moet wel een JSON-bestand zijn).
 
-## Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Een opslagaccount maken
 In het gedeelte **Resources** voegt u een object toe waarmee het opslagaccount wordt gedefinieerd, zoals hieronder wordt weergegeven. 
 
 ```json
@@ -89,7 +93,7 @@ Nu gaat u terug naar het gedeelte **Parameters** en bekijkt u hoe u de naam van 
 ```
 U hebt hier een parameter van het type Tekenreeks opgegeven die de naam van het opslagaccount bevat. De waarde voor deze parameter wordt tijdens de sjabloonimplementatie opgegeven.
 
-## Het sjabloon implementeren
+## <a name="deploying-the-template"></a>Het sjabloon implementeren
 Er is een volledige sjabloon voor het maken van een nieuw opslagaccount. Het sjabloon is opgeslagen in het bestand **azuredeploy.json**:
 
 ```json
@@ -125,12 +129,13 @@ Er zijn een aantal manieren om een sjabloon te implementeren, zoals u kunt zien 
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Als u het sjabloon wilt implementeren met behulp van Azure CLI, gebruikt u het volgende:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -140,7 +145,7 @@ U hebt nu een opslagaccount.
 
 Tijdens de volgende stappen worden alle resources toegevoegd die zijn vereist om de architectuur te implementeren die aan het begin van deze zelfstudie is beschreven. U voegt deze resources toe aan dezelfde sjabloon waar u al aan hebt gewerkt.
 
-## Beschikbaarheidsset
+## <a name="availability-set"></a>Beschikbaarheidsset
 Wanneer u klaar bent met definiëren voor het opslagaccount, voegt u een beschikbaarheidsset toe voor de virtuele machines. In dit geval zijn er geen extra eigenschappen vereist, waardoor het definiëren redelijk eenvoudig is. Zie de [REST-API voor het maken van een beschikbaarheidsset](https://msdn.microsoft.com/library/azure/mt163607.aspx) voor het gedeelte met volledige eigenschappen als u het aantal updatedomeinen en het aantal foutdomeinen wilt opgeven.
 
 ```json
@@ -163,7 +168,7 @@ De waarde die u opgeeft voor **type** bevat de resourceprovider en het resourcet
 
 Als u gebruikmaakt van Azure CLI kunt u ook de volgende opdracht uitvoeren:
 
-```
+```azurecli
     azure provider list
 ```
 Gezien het feit dat u in dit onderwerp werkt met opslagaccounts, virtuele machines en virtuele netwerken, gaat u aan de slag met:
@@ -180,13 +185,13 @@ Als u wilt zien welke resourcetypen er zijn voor een bepaalde provider, voert de
 
 In Azure CLI worden met de volgende opdracht de beschikbare typen in JSON-indeling geretourneerd en opgeslagen in een bestand.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
 U ziet **availabilitySets** als een van de typen binnen **Microsoft.Compute**. De volledige naam van het type is **Microsoft.Compute/availabilitySets**. U kunt de naam van het resourcetype voor alle resources in uw sjabloon bepalen.
 
-## Openbare IP
+## <a name="public-ip"></a>Openbare IP
 Geef een openbaar IP-adres op. Bekijk opnieuw de [REST-API voor openbare IP-adressen](https://msdn.microsoft.com/library/azure/mt163590.aspx) om te zien welke eigenschappen u moet instellen.
 
 ```json
@@ -221,7 +226,7 @@ Als u de API-versies met Azure CLI wilt bekijken, voert u de opdracht **azure pr
 
 Wanneer u een nieuw sjabloon maakt, kiest u de meest recente API-versie.
 
-## Virtueel netwerk en subnet
+## <a name="virtual-network-and-subnet"></a>Virtueel netwerk en subnet
 Maak een virtueel netwerk met één subnet. Bekijk de [REST-API voor virtuele netwerken](https://msdn.microsoft.com/library/azure/mt163661.aspx) voor alle eigenschappen die u moet instellen.
 
 ```json
@@ -248,7 +253,7 @@ Maak een virtueel netwerk met één subnet. Bekijk de [REST-API voor virtuele ne
 }
 ```
 
-## Load balancer
+## <a name="load-balancer"></a>Load balancer
 U gaat nu een extern gerichte load balancer maken. Omdat deze load balancer gebruikmaakt van het openbare IP-adres, moet u een afhankelijkheid opgeven voor het openbare IP-adres. Dit doet u in het gedeelte **dependsOn**. Dit betekent dat de load balancer pas wordt geïmplementeerd wanneer het openbare IP-adres is geïmplementeerd. Als u deze afhankelijkheid niet definieert, treedt er een fout op, omdat Resource Manager probeert de resources parallel te implementeren en de load balancer probeert in te stellen op het openbare IP-adres dat nog niet bestaat. 
 
 U maakt ook een back-endadresgroep, een aantal binnenkomende NAT-regels voor RDP in de virtuele machines en een load-balancingregel met een TCP-controle op poort 80 in deze resourcedefinitie. Bekijk de [REST-API voor load balancers](https://msdn.microsoft.com/library/azure/mt163574.aspx) voor alle eigenschappen.
@@ -340,7 +345,7 @@ U maakt ook een back-endadresgroep, een aantal binnenkomende NAT-regels voor RDP
 }
 ```
 
-## Netwerkinterface
+## <a name="network-interface"></a>Netwerkinterface
 U maakt twee netwerkinterfaces, één voor elke virtuele machine. In plaats van twee vermeldingen te gebruiken voor de netwerkinterfaces, kunt u de [functie copyIndex()](resource-group-create-multiple.md) gebruiken om de kopieerlus te herhalen (ook wel nicLoop genoemd) en het aantal netwerkinterfaces te maken dat is opgegeven in de `numberOfInstances`-variabelen. De netwerkinterface is afhankelijk van het maken van het virtuele netwerk en de load balancer. De interface maakt gebruik van het subnet dat is gedefinieerd tijdens het maken van het virtuele netwerk en van de id van de load balancer om de bijbehorende adresgroep en de binnenkomende NAT-regels te configureren.
 Bekijk de [REST-API voor netwerkinterfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) voor alle eigenschappen die u moet instellen.
 
@@ -384,7 +389,7 @@ Bekijk de [REST-API voor netwerkinterfaces](https://msdn.microsoft.com/library/a
 }
 ```
 
-## Virtuele machine
+## <a name="virtual-machine"></a>Virtuele machine
 U maakt twee virtuele machines met de functie copyIndex(), net als bij het maken van de [netwerkinterfaces](#network-interface).
 Het aanmaakproces voor de virtuele machine is afhankelijk van het opslagaccount, de netwerkinterface en de beschikbaarheidsset. Deze virtuele machine wordt gemaakt vanuit een Marketplace-installatiekopie, zoals gedefinieerd in de `storageProfile`-eigenschap. `imageReference` wordt gebruikt om de installatiekopie-uitgever, aanbieding, SKU en versie te definiëren. Ten slotte wordt er een diagnostisch profiel geconfigureerd om diagnostiek in te schakelen voor de virtuele machine. 
 
@@ -456,7 +461,7 @@ Als u op zoek bent naar de relevante eigenschappen voor een Marketplace-installa
 
 U bent klaar met het definiëren van de resources voor uw sjabloon.
 
-## Parameters
+## <a name="parameters"></a>Parameters
 In het gedeelte Parameters geeft u de waarden op die kunnen worden opgegeven bij het implementeren van het sjabloon. Geef alleen parameters op voor waarden die volgens u moeten worden gewijzigd tijdens de implementatie. U kunt een standaardwaarde opgeven voor een parameter die wordt gebruikt indien deze niet is opgegeven tijdens de implementatie. Ook kunt u de toegestane waarden opgeven, zoals weergegeven voor de **imageSKU**-parameter.
 
 ```json
@@ -556,7 +561,7 @@ In het gedeelte Parameters geeft u de waarden op die kunnen worden opgegeven bij
   }
 ```
 
-## Variabelen
+## <a name="variables"></a>Variabelen
 In het gedeelte Variabelen kunt u waarden opgeven die op meer dan één plaats in uw sjabloon worden gebruikt, of waarden die zijn samengesteld uit andere expressies of variabelen. Variabelen worden vaak gebruikt om de syntaxis van sjablonen te vereenvoudigen.
 
 ```json
@@ -578,11 +583,15 @@ Het sjabloon is nu klaar! U kunt uw sjabloon vergelijken met het volledige sjabl
 
 U kunt het sjabloon opnieuw implementeren met behulp van dezelfde opdrachten die u hebt gebruikt bij het implementeren van het opslagaccount. U hoeft het opslagaccount niet te verwijderen vóór het opnieuw implementeren, omdat Resource Manager het opnieuw maken van resources die al bestaan en die niet zijn gewijzigd, overslaat.
 
-## Volgende stappen
-* De [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is een uitstekend hulpprogramma voor het visualiseren van ARM-sjablonen, omdat deze mogelijk te groot worden om te begrijpen door slechts het JSON-bestand te lezen.
+## <a name="next-steps"></a>Volgende stappen
+* De [Azure Resource Manager Template Visualizer](http://armviz.io/#/) is een uitstekend hulpprogramma voor het visualiseren van Resource Manager-sjablonen, omdat deze mogelijk te groot worden om te begrijpen door slechts het JSON-bestand te lezen.
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
 * Voor meer informatie over het implementeren van een sjabloon ziet u [Een resourcegroep implementeren met een Azure Resource Manager-sjabloon](resource-group-template-deploy.md)
+* Zie [De implementatie van toepassingen op virtuele Azure-machines automatiseren](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md) voor een uit vier delen bestaande reeks over het automatiseren van de implementatie. Deze reeks bevat informatie over de toepassingsarchitectuur, toegang en beveiliging, beschikbaarheid en schaal en de implementatie van toepassingen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

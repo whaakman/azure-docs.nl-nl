@@ -2,11 +2,11 @@
 title: 'Azure AD Domain Services: wachtwoordsynchronisatie inschakelen | Microsoft Docs'
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e072c3592ec8e62df9064d33df90de67da394671
+
 
 ---
-# Wachtwoordsynchronisatie inschakelen voor Azure AD Domain Services
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Wachtwoordsynchronisatie inschakelen voor Azure AD Domain Services
 In de voorgaande taken hebt u Azure AD Domain Services ingeschakeld voor uw Azure AD-tenant. Voor de volgende taak moet u de synchronisatie van wachtwoorden inschakelen voor Azure AD Domain Services. Wanneer de synchronisatie van referenties is ingesteld, kunnen gebruikers zich aanmelden bij het beheerde domein middels hun zakelijke referenties.
 
 De vereiste stappen verschillen, afhankelijk van of uw organisatie een Azure AD-tenant in de cloud heeft of kan synchroniseren met uw on-premises directory via Azure AD Connect.
@@ -31,10 +35,10 @@ De vereiste stappen verschillen, afhankelijk van of uw organisatie een Azure AD-
 
 <br>
 
-## Taak 5: wachtwoordsynchronisatie met AAD Domain Services inschakelen voor een gesynchroniseerde Azure AD-directory
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Taak 5: wachtwoordsynchronisatie met AAD Domain Services inschakelen voor een gesynchroniseerde Azure AD-directory
 Een gesynchroniseerde Azure AD-tenant wordt zodanig ingesteld dat deze wordt gesynchroniseerd met de on-premises directory van uw organisatie via Azure AD Connect. Azure AD Connect synchroniseert niet standaard NTLM- en Kerberos-referentie-hashes met Azure AD. Als u Azure AD Domain Services wilt gebruiken, moet u Azure AD Connect configureren zodat de referentie-hashes die vereist zijn voor NTLM- en Kerberos-verificatie worden gesynchroniseerd. In de volgende stappen schakelt u de synchronisatie van de vereiste referentie-hashes met uw Azure AD-tenant in.
 
-### Azure AD Connect installeren of bijwerken
+### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect installeren of bijwerken
 Installeer de meest recente aanbevolen versie van Azure AD Connect op een computer die lid is van het domein. Als u een bestaand exemplaar van de Azure AD Connect-installatie hebt, moet u deze bijwerken om de nieuwste versie van Azure AD Connect te verkrijgen. Zorg ervoor dat u over de nieuwste versie van Azure AD Connect beschikt om te voorkomen dat bekende problemen/fouten optreden die mogelijk al zijn opgelost.
 
 **[Azure AD Connect downloaden](http://www.microsoft.com/download/details.aspx?id=47594)**
@@ -48,7 +52,7 @@ Aanbevolen versie: **1.1.281.0** - gepubliceerd op 7 september 2016.
 
 Installatie-instructies voor Azure AD Connect zijn beschikbaar in het artikel [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md) (Aan de slag met Azure AD Connect).
 
-### Synchronisatie van referentie-hashes van NTLM en Kerberos naar Azure AD inschakelen
+### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Synchronisatie van referentie-hashes van NTLM en Kerberos naar Azure AD inschakelen
 Voer het volgende PowerShell-script uit in elk AD-forest als u volledige wachtwoordsynchronisatie wilt afdwingen en ervoor wilt zorgen dat de referentie-hashes van alle on-premises gebruikers worden gesynchroniseerd met uw Azure AD-tenant. Met dit script stelt u in dat de referentie-hashes die zijn vereist voor NTLM-/Kerebos-verificatie worden gesynchroniseerd met uw Azure AD-tenant.
 
 ```
@@ -69,12 +73,15 @@ Afhankelijk van de grootte van de directory (aantal gebruikers, groepen enzovoor
 
 <br>
 
-## Gerelateerde inhoud
+## <a name="related-content"></a>Gerelateerde inhoud
 * [Wachtwoordsynchronisatie met AAD Domain Services inschakelen voor een Azure AD-directory die zich alleen in de cloud bevindt](active-directory-ds-getting-started-password-sync.md)
 * [Een beheerd domein van Azure AD Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
 * [Een virtuele Windows-computer toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Een virtuele Red Hat Enterprise Linux-computer toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

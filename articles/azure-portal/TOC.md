@@ -1,38 +1,39 @@
-# Overview 
-## [Azure portal overview](azure-portal-overview.md)
-## [Azure resource manager overview](resource-group-overview.md)
+# [Overzicht](../azure-portal-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
-# Get Started
-## [Deploy using resource manager template](resource-group-template-deploy.md)
+# Aan de slag
+## [Implementatie met de Resource Manager-sjabloon](../resource-group-template-deploy.md)
 
-# How To
-## Deploy
-### [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md)
-### [Authoring Azure resource manager templates](resource-group-authoring-templates.md)
-### [Azure resource manager template functions](resource-group-template-functions.md)
-### [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
-### [Advanced template operations](resource-group-advanced-template.md)
-## Manage
-### [Use preview portal to manage resources](resource-group-portal.md)
-### [Manage and audit access to resources](resource-group-rbac.md)
-### [Role based access control in the preview portal](role-based-access-control-configure.md)
-### [Use tags to organize resources](resource-group-using-tags.md)
-### [How to scale your resources](insights-how-to-scale.md)
-### [Create a new Azure service principal using the Azure portal](resource-group-create-service-principal-portal.md)
-## Monitor
-### [Monitor service metrics](insights-how-to-customize-monitoring.md)
-### [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md)
-### [Monitor availability and responsiveness of any web site](app-insights-monitor-web-app-availability.md)
-### [Monitor application performance](app-insights-azure-web-apps.md)
-### [View events and audit logs](insights-debugging-with-events.md)
-### [Receive alert notifications](insights-receive-alert-notifications.md)
-### [Best practices for Autoscale](insights-autoscale-best-practices.md)
-### [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
-### [Webhooks for Autoscale notifications](insights-autoscale-to-webhook-email.md)
-### [Webhooks for alerts on audit logs](insights-auditlog-to-webhook-email.md)
-### [Webhooks for alerts on metrics](insights-webhooks-alerts.md)
-### [Azure Insights PowerShell quick start samples](insights-powershell-samples.md)
-### [Azure Insights CLI quick start samples](insights-cli-samples.md)
+# Procedures
+## Implementeren
+### [Azure Resource Manager-sjablonen maken](../resource-group-authoring-templates.md)
+
+## Beheren
+### [Preview Portal gebruiken om resources te beheren](resource-group-portal.md)
+### [Toegang beheren met RBAC](../active-directory/role-based-access-control-configure.md)
+### [Tags gebruiken om resources te organiseren](../resource-group-using-tags.md)
+### [Uw resources schalen](../monitoring-and-diagnostics/insights-how-to-scale.md)
+### [Een nieuwe Azure-service-principal maken](../resource-group-create-service-principal-portal.md)
+## Controleren
+### [Metrische servicegegevens bewaken](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
+### [Controle en diagnose inschakelen](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+### [De beschikbaarheid en reactiesnelheid van een website bewaken](../application-insights/app-insights-monitor-web-app-availability.md)
+### [Prestaties van toepassingen controleren](../application-insights/app-insights-azure-web-apps.md)
+### [Gebeurtenissen en auditlogboeken bekijken](../monitoring-and-diagnostics/insights-debugging-with-events.md)
+### [Waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+
+# Naslaginformatie
+## [Functies van Azure Resource Manager-sjablonen](../resource-group-template-functions.md)
+## [Aanbevolen procedures voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+## [Veelgebruikte gegevens voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
+## [Webhooks voor meldingen over automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+## [Webhooks voor waarschuwingen over auditlogs](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+## [Webhooks voor waarschuwingen over metrische gegevens](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+## [Voorbeelden om snel aan de slag te gaan met Azure Insights PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Voorbeelden om snel aan de slag te gaan met Azure Insights CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+
+
+
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### Een volume maken
+#### <a name="to-create-a-volume"></a>Een volume maken
 1. Klik op de pagina **Quick Start** van het apparaat op **Een volume toevoegen** om de wizard Een volume toevoegen te starten.
 2. Typ in de wizard onder **Basisinstellingen**:
    
@@ -39,6 +39,8 @@
       ![Volume toevoegen](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Klik op het vinkje ![vinkje](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Er wordt een volume gemaakt met de opgegeven instellingen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

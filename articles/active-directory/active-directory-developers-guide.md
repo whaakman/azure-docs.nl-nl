@@ -5,22 +5,26 @@ services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+
 
 ---
-# <a name="azure-active-directory-developer's-guide"></a>Ontwikkelaarshandleiding voor Azure Active Directory
+# <a name="azure-active-directory-developers-guide"></a>Ontwikkelaarshandleiding voor Azure Active Directory
 ## <a name="overview"></a>Overzicht
 Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Service) waarop ontwikkelaars efficiënt identiteitsbeheer kunnen integreren in hun toepassingen. De volgende artikelen bevatten overzichten van de implementatie en belangrijke functies van Azure AD. We raden u aan deze in de juiste volgorde te lezen. Ga naar [Aan de slag](#getting-started) als u direct aan de slag wilt gaan.
 
-1. [De voordelen van Azure AD-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
+1. [De voordelen van Azure AD-integratie](develop/active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
 2. [Scenario's voor Azure AD-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure AD om eenmalige aanmelding voor uw toepassing te bieden.
 3. [Toepassingen integreren met Azure AD](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure AD en de huisstijlrichtlijnen voor geïntegreerde apps.
 4. [Azure AD Graph-API](active-directory-graph-api.md): gebruik de Azure AD Graph-API om via geprogrammeerde toegang te krijgen tot Azure AD via REST API-eindpunten. De Azure AD Graph-API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph biedt een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
@@ -29,17 +33,17 @@ Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Ser
 ## <a name="getting-started"></a>Aan de slag
 Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel leren te ontwikkelen met Azure Active Directory. Als vereiste moet u [een Azure Active Directory-tenant ophalen](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Snelstartgidsen voor mobiele toepassingen en pc-toepassingen
+### <a name="mobile-and-pc-application-quickstart-guides"></a>Snelstartgidsen voor mobiele toepassingen en pc-toepassingen
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Rechtstreeks integreren met OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quick-start-guides"></a>Snelstartgidsen voor webtoepassingen
+### <a name="web-application-quickstart-guides"></a>Snelstartgidsen voor webtoepassingen
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Rechtstreeks integreren met OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quick-start-guides"></a>Snelstartgidsen voor web-API's
+### <a name="web-api-quickstart-guides"></a>Snelstartgidsen voor web-API's
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -49,11 +53,11 @@ Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel le
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="how-tos"></a>Procedures
+## <a name="howtos"></a>Procedures
 In deze artikelen wordt beschreven hoe u bepaalde taken uitvoert met Azure Active Directory:
 
 * [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
-* [Een Azure AD-gebruiker aanmelden met behulp van het patroon voor multitenant-toepassingen](active-directory-devhowto-multi-tenant-overview.md) 
+* [Een Azure AD-gebruiker aanmelden met behulp van het patroon voor multitenant-toepassingen](active-directory-devhowto-multi-tenant-overview.md)
 * Inschakelen van eenmalige aanmelding in verschillende apps met ADAL op [Android](active-directory-sso-android.md)- en [iOS](active-directory-sso-ios.md)-apparaten
 * [Uw toepassing AppSource-gecertificeerd maken voor Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Uw toepassing weergeven in de Azure AD-toepassingsgalerie](active-directory-app-gallery-listing.md)
@@ -112,6 +116,15 @@ In deze overzichtspresentaties over het ontwikkelen van apps met behulp van Azur
 * [Cloudidentiteit](http://www.cloudidentity.net): ideeën over Identity Management als een service van een belangrijke PM van Azure Active Directory.  
 * [Azure Active Directory op Twitter](https://twitter.com/azuread): Azure Active Directory-aankondigingen van 140 tekens of minder.
 
-<!--HONumber=Oct16_HO3-->
+## <a name="windows-server-onpremises-development"></a>On-premises ontwikkeling van Windows Server
+Zie voor richtlijnen over het gebruik van de ontwikkeling van Windows Server en Active Directory Federation Services (ADFS):
+
+* [AD FS-scenario's voor ontwikkelaars](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): biedt een overzicht van AD FS-onderdelen en hoe het werkt, met informatie over de ondersteunde verificatie/autorisatie-scenario's.
+* [AD FS-overzichten](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): een lijst met overzichtsartikelen die stapsgewijze instructies bieden over het implementeren van de gerelateerde verificatie-/autorisatiestromen.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## Een VNet maken met de Azure CLI
+## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Een VNet maken met de Azure CLI
 U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrachtprompt op elke computer met Windows, Linux of OS X. Volg de onderstaande stappen om een VNet te maken met behulp van de Azure CLI.
 
 1. Als u de Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
@@ -9,7 +9,7 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
     Dit is de verwachte uitvoer voor de bovenstaande opdracht:
    
         info:    New mode is arm
-3. Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+3. Voer indien nodig de opdracht **azure group create** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
    
         azure group create -n TestRG -l centralus
    
@@ -100,6 +100,8 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

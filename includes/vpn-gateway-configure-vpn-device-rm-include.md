@@ -7,6 +7,8 @@ Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkg
 
 U kunt het openbare IP-adres voor uw virtuele netwerkgateway ook vinden in de Azure-portal. Navigeer naar **Virtuele netwerkgateways** en klik vervolgens op de naam van uw gateway.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

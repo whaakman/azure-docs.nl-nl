@@ -1,4 +1,4 @@
-## Verbinding maken met Azure SQL Database als een gebruiker
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Verbinding maken met Azure SQL Database als een gebruiker
 Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database met SSMS als een gebruiker.
 
 1. Typ 'Microsoft SQL Server Management Studio' in het zoekvak van Windows en klik vervolgens op de bureaublad-app om SSMS te starten.
@@ -11,7 +11,7 @@ Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database 
   * **Gebruikersnaam**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u de naam in van een gebruiker die toegang heeft tot een database op de server.
   * **Wachtwoord**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u het wachtwoord in van de opgegeven gebruiker.
     
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
 1. Klik op **Opties** om de database op te geven waarmee u verbinding wilt maken.
    
@@ -27,9 +27,11 @@ Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database 
    
       ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Verbindingsfouten oplossen
+## <a name="troubleshoot-connection-failures"></a>Verbindingsfouten oplossen
 De meest voorkomende oorzaak van verbindingsfouten zijn fouten in de servernaam (onthoud, <*servernaam*> is de naam van de logische server, niet van de database), de gebruikersnaam of het wachtwoord, plus het feit dat de server om veiligheidsoverwegingen geen verbinding toestaat. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

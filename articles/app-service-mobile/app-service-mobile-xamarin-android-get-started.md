@@ -5,8 +5,8 @@ services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+
 
 ---
-# <a name="create-a-xamarin.android-app"></a>Een Xamarin.Android-app maken
+# <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
@@ -49,10 +53,10 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
 ## <a name="configure-the-server-project"></a>Het serverproject configureren
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.android-app"></a>De Xamarin.Android-app downloaden en uitvoeren
+## <a name="download-and-run-the-xamarinandroid-app"></a>De Xamarin.Android-app downloaden en uitvoeren
 1. Klik onder **Het Xamarin.Android-project downloaden en uitvoeren** op de knop **Downloaden**.
    
-    Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+      Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 2. Druk op de toets **F5** om het project te bouwen en de app te starten.
 3. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, en klik vervolgens op de knop **Toevoegen**.
    
@@ -84,6 +88,6 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

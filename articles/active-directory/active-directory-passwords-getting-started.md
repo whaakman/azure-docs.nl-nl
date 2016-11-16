@@ -3,11 +3,11 @@ title: 'Aan de slag: Azure AD-wachtwoordbeheer | Microsoft Docs'
 description: Stel gebruikers in staat om hun eigen wachtwoorden opnieuw in te stellen, ontdek wat de vereisten zijn voor het opnieuw instellen van wachtwoorden en schakel Wachtwoord terugschrijven in om on-premises wachtwoorden te beheren in Active Directory.
 services: active-directory
 keywords: wachtwoordbeheer Active Directory, wachtwoordbeheer, Azure AD-wachtwoord opnieuw instellen
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+
 
 ---
-# Aan de slag met wachtwoordbeheer
+# <a name="getting-started-with-password-management"></a>Aan de slag met wachtwoordbeheer
 > [!IMPORTANT]
 > **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
 > 
@@ -27,26 +31,26 @@ Er hoeven slechts enkele eenvoudige stappen te worden uitgevoerd om uw gebruiker
 
 * [**Gebruikers in staat stellen om hun cloud-Azure Active Directory-wachtwoorden te wijzigen of opnieuw in te stellen**](#enable-users-to-reset-their-azure-ad-passwords)
   * [Vereisten voor de selfservice voor wachtwoordherstel](#prerequisites)
-  * [Stap 1: een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
-  * [Stap 2: contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
-  * [Stap 3: uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
+  * [Stap 1: Een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
+  * [Stap 2: Contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
+  * [Stap 3: Uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Gebruikers in staat stellen om hun on-premises Active Directory-wachtwoorden te wijzigen of opnieuw in te stellen**](#enable-users-to-reset-or-change-their-ad-passwords)
   * [Vereisten voor het terugschrijven van wachtwoorden](#writeback-prerequisites)
-  * [Stap 1: de nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [Stap 2: het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [Stap 3: uw firewall configureren](#step-3-configure-your-firewall)
-  * [Stap 4: de juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [Stap 5: uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
+  * [Stap 1: De nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
+  * [Stap 2: Het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
+  * [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
+  * [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
+  * [Stap 5: Uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
 
-## Gebruikers in staat stellen om hun Azure AD-wachtwoorden opnieuw in te stellen
+## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Gebruikers in staat stellen om hun Azure AD-wachtwoorden opnieuw in te stellen
 In dit gedeelte vindt u meer informatie over het inschakelen van de selfservice voor wachtwoordherstel voor uw AAD-clouddirectory, over het registreren van gebruikers voor de selfservice voor wachtwoordherstel en het als gebruiker uitvoeren van een testwachtwoordherstel via de selfservice.
 
 * [Vereisten voor de selfservice voor wachtwoordherstel](#prerequisites)
-* [Stap 1: een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
-* [Stap 2: contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
-* [Stap 3: uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
+* [Stap 1: Een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
+* [Stap 2: Contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
+* [Stap 3: Uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
 
-### Vereisten
+### <a name="prerequisites"></a>Vereisten
 Voordat u het gebruik van de selfservice voor wachtwoordherstel kunt inschakelen, moet u aan de volgende vereisten voldoen:
 
 * Maak een AAD-tenant. Zie [Aan de slag met Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/) voor meer informatie.
@@ -61,7 +65,7 @@ Voordat u het gebruik van de selfservice voor wachtwoordherstel kunt inschakelen
 * Maak ten minste één beheerdersaccount en één gebruikersaccount in uw AAD-directory.
 * Wijs een AAD Premium-, Basic- of betaalde O365-licentie toe aan de beheerder en het gebruikersaccount dat u hebt gemaakt.
 
-### Stap 1: een beleid voor het opnieuw instellen van wachtwoorden configureren
+### <a name="step-1-configure-password-reset-policy"></a>Stap 1: een beleid voor het opnieuw instellen van wachtwoorden configureren
 Als u beleid voor het opnieuw instellen van wachtwoorden door gebruikers wilt configureren, volgt u de volgende stappen:
 
 1. Open een browser naar keuze en ga naar de [klassieke Azure Portal](https://manage.windowsazure.com).
@@ -94,7 +98,7 @@ Als u beleid voor het opnieuw instellen van wachtwoorden door gebruikers wilt co
    
    ![][006]
 
-### Stap 2: contactgegevens toevoegen voor uw testgebruiker
+### <a name="step-2-add-contact-data-for-your-test-user"></a>Stap 2: contactgegevens toevoegen voor uw testgebruiker
 U hebt verschillende mogelijkheden voor het opgeven van gegevens van gebruikers in uw organisatie voor het uitvoeren van wachtwoordherstel.
 
 * Gebruikers bewerken in de [klassieke Azure Portal](https://manage.windowsazure.com) of de [Office 365-beheerportal](https://portal.microsoftonline.com)
@@ -105,7 +109,7 @@ U hebt verschillende mogelijkheden voor het opgeven van gegevens van gebruikers 
 
 Als u meer wilt weten over welke gegevens worden gebruikt tijdens het opnieuw instellen van een wachtwoord, en welke indelingsvereisten er gelden voor deze gegevens, ziet u [Welke gegevens worden gebruikt voor het opnieuw instellen van wachtwoorden?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
-#### Contactgegevens van een gebruiker toevoegen via de gebruikersregistratieportal
+#### <a name="to-add-user-contact-data-via-the-user-registration-portal"></a>Contactgegevens van een gebruiker toevoegen via de gebruikersregistratieportal
 1. Als u de registratieportal voor wachtwoordherstel wilt gebruiken, moet u de gebruikers in uw organisatie een koppeling sturen naar deze pagina ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) of de optie inschakelen zodat wordt vereist dat gebruikers zich automatisch registreren.  Wanneer ze op deze koppeling klikken, wordt hen gevraagd om zich aan te melden met hun bedrijfsaccount.  Wanneer ze dat hebt gedaan, krijgen ze de volgende pagina te zien:
    
    ![][007]
@@ -119,10 +123,10 @@ Als u meer wilt weten over welke gegevens worden gebruikt tijdens het opnieuw in
    
    ![][010]
 
-### Stap 3: uw Azure AD-wachtwoord als gebruiker opnieuw instellen
+### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Stap 3: uw Azure AD-wachtwoord als gebruiker opnieuw instellen
 Nu u een beleid voor het opnieuw instellen van wachtwoorden door gebruikers hebt geconfigureerd en u contactgegevens hebt opgegeven voor uw gebruiker, kan deze gebruiker de selfservice voor wachtwoordherstel gebruiken.
 
-#### De selfservice voor wachtwoordherstel gebruiken
+#### <a name="to-perform-a-selfservice-password-reset"></a>De selfservice voor wachtwoordherstel gebruiken
 1. Wanneer u naar een site als [**portal.microsoftonline.com**](http://portal.microsoftonline.com) gaat, ziet u een aanmeldingsscherm zoals dat hieronder.  Klik op de koppeling **Geen toegang tot uw account?** om de gebruikersinterface voor het opnieuw instellen van wachtwoorden te testen.
    
    ![][011]
@@ -154,17 +158,17 @@ Nu u een beleid voor het opnieuw instellen van wachtwoorden door gebruikers hebt
     
     ![][020]
 
-## Gebruikers in staat stellen om hun AD-wachtwoorden opnieuw in te stellen of te wijzigen
+## <a name="enable-users-to-reset-or-change-their-ad-passwords"></a>Gebruikers in staat stellen om hun AD-wachtwoorden opnieuw in te stellen of te wijzigen
 In dit gedeelte vindt u meer informatie over het configureren van het opnieuw instellen van wachtwoorden, zodat ze worden teruggeschreven naar een on-premises Active Directory.
 
 * [Vereisten voor het terugschrijven van wachtwoorden](#writeback-prerequisites)
-* [Stap 1: de nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
-* [Stap 2: het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
-* [Stap 3: uw firewall configureren](#step-3-configure-your-firewall)
-* [Stap 4: de juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
-* [Stap 5: uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
+* [Stap 1: De nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
+* [Stap 2: Het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
+* [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
+* [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
+* [Stap 5: Uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
 
-### Vereisten voor terugschrijven
+### <a name="writeback-prerequisites"></a>Vereisten voor terugschrijven
 Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de volgende vereisten voldoen:
 
 * U hebt een Azure AD-tenant waarvoor Azure AD Premium is ingeschakeld.  Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
@@ -194,10 +198,10 @@ Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de vo
   > 
   > 
 
-### Stap 1: de nieuwste versie van Azure AD Connect downloaden
+### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Stap 1: de nieuwste versie van Azure AD Connect downloaden
 Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0419.0911** of hoger.  Wachtwoord terugschrijven met automatische accountontgrendeling is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0485.0222** of hoger. Als u een oudere versie gebruikt, voert u een upgrade uit naar ten minste deze versie voordat u doorgaat. [Klik hier om de nieuwste versie van Azure AD Connect te downloaden](active-directory-aadconnect.md#install-azure-ad-connect).
 
-#### De versie van Azure AD Sync controleren
+#### <a name="to-check-the-version-of-azure-ad-sync"></a>De versie van Azure AD Sync controleren
 1. Ga naar **%ProgramFiles%\Azure Active Directory Sync\**.
 2. Zoek het uitvoerbare bestand **ConfigWizard.exe**.
 3. Klik met de rechtermuisknop op het uitvoerbare bestand en selecteer de optie **Eigenschappen** in het contextmenu.
@@ -213,10 +217,10 @@ Als het versienummer hoger is dan of gelijk is aan **1.0.0419.0911** of als u Az
 > 
 > 
 
-### Stap 2: wachtwoord terugschrijven inschakelen in Azure AD Connect
+### <a name="step-2-enable-password-writeback-in-azure-ad-connect"></a>Stap 2: wachtwoord terugschrijven inschakelen in Azure AD Connect
 Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terugschrijven inschakelen.  U kunt dit op twee manieren doen.  U kunt Wachtwoord terugschrijven inschakelen via het scherm Optionele functies van de Azure AD Connect-installatiewizard, of u kunt het inschakelen via Windows PowerShell.
 
-#### Wachtwoord terugschrijven inschakelen via de configuratiewizard
+#### <a name="to-enable-password-writeback-in-the-configuration-wizard"></a>Wachtwoord terugschrijven inschakelen via de configuratiewizard
 1. Op uw **Directory Sync-computer** opent u de **Azure AD Connect**-configuratiewizard.
 2. Klik door de stappen totdat u het configuratiescherm **Optionele functies** bereikt.
 3. Schakel de optie **Wachtwoord terugschrijven** in.
@@ -229,7 +233,7 @@ Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terug
 > 
 > 
 
-#### Wachtwoord terugschrijven inschakelen met Windows PowerShell
+#### <a name="to-enable-password-writeback-using-windows-powershell"></a>Wachtwoord terugschrijven inschakelen met Windows PowerShell
 1. Op uw **Directory Sync-computer** opent u een nieuw **verhoogd Windows PowerShell-venster**.
 2. Als de module nog niet is geladen, typt u in de `import-module ADSync`-opdracht om de Azure AD Connect-cmdlets naar uw huidige sessie te laden.
 3. Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
@@ -244,14 +248,14 @@ Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terug
 > 
 > 
 
-#### Controleren of de configuratie is voltooid
+#### <a name="verify-that-the-configuration-was-successful"></a>Controleren of de configuratie is voltooid
 Wanneer de configuratie is voltooid, krijgt u het bericht Terugschrijven voor wachtwoord opnieuw instellen is ingeschakeld te zien in het Windows PowerShell-venster, of u krijgt een voltooiingsbericht te zien in de gebruikersinterface van de configuratie.
 
 U kunt ook controleren of de service correct is geïnstalleerd door Logboeken te openen, naar het toepassingsgebeurtenislogboek te gaan en te zoeken naar de gebeurtenis **31005 - OnboardingEventSuccess**, van de bron **PasswordResetService**.
 
   ![][023]
 
-### Stap 3: uw firewall configureren
+### <a name="step-3-configure-your-firewall"></a>Stap 3: uw firewall configureren
 Wanneer u Wachtwoord terugschrijven hebt ingeschakeld in het Azure AD Connect-hulpprogramma, moet u controleren of de service verbinding kan maken met de cloud.
 
 1. Zodra de installatie is voltooid en u onbekende uitgaande verbindingen in uw omgeving blokkeert, moet u ook de volgende regels toevoegen aan de firewall. Start uw AAD Connect-computer opnieuw op nadat u deze wijzigingen hebt doorgevoerd:
@@ -259,7 +263,7 @@ Wanneer u Wachtwoord terugschrijven hebt ingeschakeld in het Azure AD Connect-hu
    * Uitgaande verbindingen naar https://ssprsbprodncu-sb.accesscontrol.windows.net/ toestaan
    * Wanneer er problemen zijn met een proxy of als er algemene verbindingsproblemen zijn, staat u uitgaande verbindingen via poorten 9350-9354 en TCP-poort 5671 toe
 
-### Stap 4: de juiste Active Directory-machtigingen instellen
+### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Stap 4: de juiste Active Directory-machtigingen instellen
 Bij elke forest die gebruikers bevat waarvan de wachtwoorden opnieuw worden ingesteld en waarbij X het account is dat is opgegeven voor die forest in de configuratiewizard (tijdens de eerste configuratie), moet X de machtigingen **Wachtwoord wijzigen**, **Wachtwoord opnieuw instellen**, **Schrijfmachtigingen** voor `lockoutTime` en **Schrijfmachtigingen** voor `pwdLastSet` krijgen. Daarbij moet X ook uitgebreide rechten krijgen voor het hoofdobject van elk domein in het forest. Het recht moet worden gemarkeerd als 'overgenomen door alle gebruikersobjecten'.  
 
 Als u niet zeker welk account hierboven wordt bedoeld, opent u de gebruikersinterface van de Azure Active Directory Connect-configuratie en klikt u op **Uw oplossing controleren**.  Het account waar u machtigingen voor moet toevoegen, is rood onderstreept in de onderstaande schermafbeelding.
@@ -275,7 +279,7 @@ Als u niet zeker welk account hierboven wordt bedoeld, opent u de gebruikersinte
 > 
 > 
 
-#### De juiste machtigingen instellen voor terugschrijving
+#### <a name="to-set-up-the-right-permissions-for-writeback-to-occur"></a>De juiste machtigingen instellen voor terugschrijving
 1. Open **Active Directory: gebruikers en computers** met een account met de juiste machtigingen voor domeinbeheer.
 2. Zorg ervoor dat bij **Weergavemenu** de optie **Geavanceerde functies** is ingeschakeld.
 3. In het linkerdeelvenster klikt u met de rechtermuisknop op het object dat de hoofdmap van het domein vertegenwoordigt.
@@ -295,10 +299,10 @@ Als u niet zeker welk account hierboven wordt bedoeld, opent u de gebruikersinte
    ![][028]
 10. Klik vervolgens op **Toepassen/OK** in alle open dialoogvensters.
 
-### Stap 5: uw AD-wachtwoord opnieuw instellen als gebruiker
+### <a name="step-5-reset-your-ad-password-as-a-user"></a>Stap 5: uw AD-wachtwoord opnieuw instellen als gebruiker
 Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervoor stelt u het wachtwoord van een gebruiker opnieuw in waarvan het account is gesynchroniseerd met uw cloudtenant.
 
-#### Controleren of Wachtwoord terugschrijven goed werkt
+#### <a name="to-verify-password-writeback-is-working-properly"></a>Controleren of Wachtwoord terugschrijven goed werkt
 1. Ga naar [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) of naar een ander aanmeldingsscherm van een organisatie en klik op de koppeling **Geen toegang tot uw account?**.
    
    ![][029]
@@ -314,7 +318,7 @@ Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervo
 <br/>
 <br/>
 
-## Koppelingen naar documentatie over wachtwoordherstel
+## <a name="links-to-password-reset-documentation"></a>Koppelingen naar documentatie over wachtwoordherstel
 Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wachtwoordherstel:
 
 * **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
@@ -361,6 +365,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

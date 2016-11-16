@@ -2,11 +2,11 @@
 title: 'Azure Active Directory B2C: toepassingsregistratie | Microsoft Docs'
 description: Uw toepassing registreren met Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
 manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9078d36789c3cc653b298b7a4eaee1cbe888b85f
+
 
 ---
-# Azure Active Directory B2C: uw toepassing registreren
-## Vereiste
+# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: uw toepassing registreren
+## <a name="prerequisite"></a>Vereiste
 Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aanmelden, moet u de toepassing eerst registreren bij een Azure Active Directory B2C-tenant. Haal uw eigen tenant op aan de hand van de stappen in [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md). Als u alle stappen in dit artikel hebt uitgevoerd, is de blade B2C-functies vastgemaakt aan uw Startboard.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Ga naar de blade B2C-functies
+## <a name="navigate-to-the-b2c-features-blade"></a>Ga naar de blade B2C-functies
 Als u de blade B2C-functies hebt vastgemaakt aan uw Startboard, ziet u de blade zodra u zich aanmeldt bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van de B2C-tenant.
 
 U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B2C** te klikken in het linkernavigatiedeelvenster in de [Azure Portal](https://portal.azure.com/).
@@ -32,7 +36,7 @@ U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B
 > 
 > 
 
-## Een toepassing registreren
+## <a name="register-an-application"></a>Een toepassing registreren
 1. Klik op de blade B2C-functies in de Azure Portal op **Toepassingen**.
 2. Klik op **+Toevoegen** boven aan de blade.
 3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld Contoso B2C-app opgeven.
@@ -51,11 +55,14 @@ U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B
 > 
 > 
 
-## Een snelstarttoepassing maken
+## <a name="build-a-quick-start-application"></a>Een snelstarttoepassing maken
 Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan de slag gaan aan de hand van een van onze snelstartzelfstudies. Hier volgen enkele aanbevelingen:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

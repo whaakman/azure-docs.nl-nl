@@ -2,11 +2,11 @@
 title: Data Lake Store .NET SDK gebruiken om toepassingen te ontwikkelen | Microsoft Docs
 description: Azure Data Lake Store .NET SDK gebruiken om toepassingen te ontwikkelen
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+
 
 ---
-# Aan de slag met Azure Data Lake Store met .NET SDK
+# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Aan de slag met Azure Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -30,13 +34,13 @@ ms.author: nitinme
 
 Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx) basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2013 of 2015**. In onderstaande instructies wordt Visual Studio 2015 gebruikt.
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store-account**. Zie voor instructies over het maken van een account [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
-## Een .NET-toepassing maken
+## <a name="create-a-net-application"></a>Een .NET-toepassing maken
 1. Open Visual Studio en maak een consoletoepassing.
 2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
 3. In **New Project** typt of selecteert u de volgende waarden:
@@ -53,9 +57,9 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
    2. Controleer op het tabblad **Nuget Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
    3. Zoek en installeer de volgende NuGet-pakketten:
       
-      * `Microsoft.Azure.Management.DataLake.Store` - In deze zelfstudie wordt gebruikgemaakt van v0.12.5-preview.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - In deze zelfstudie wordt gebruikgemaakt van v0.10.6-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - In deze zelfstudie wordt gebruikgemaakt van v2.2.8-preview.
+      * `Microsoft.Azure.Management.DataLake.Store`: in deze zelfstudie wordt gebruikgemaakt van v0.12.5-preview.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader`: in deze zelfstudie wordt gebruikgemaakt van v0.10.6-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.8-preview.
         
         ![Een Nuget-bron toevoegen](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
    4. Sluit de **Nuget Package Manager**.
@@ -98,8 +102,8 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
-## Authentication
-### Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
+## <a name="authentication"></a>Authentication
+### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
 Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden. Door voor deze aanpak te kiezen, kunt u deze zelfstudie sneller voltooien.
 
     // User login via interactive popup
@@ -120,7 +124,7 @@ Een aantal dingen die u moet weten over het bovenstaande fragment.
 > 
 > 
 
-### Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
+### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
 U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -132,7 +136,7 @@ U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
+### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
 Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -144,7 +148,7 @@ Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het n
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
 
-## Clientobjecten maken
+## <a name="create-client-objects"></a>Clientobjecten maken
 Met het volgende codefragment worden het Data Lake Store-account en clientobjecten voor het bestandssysteem gemaakt. Deze worden gebruikt voor het verzenden van aanvragen naar de service.
 
     // Create client objects and set the subscription ID
@@ -153,7 +157,7 @@ Met het volgende codefragment worden het Data Lake Store-account en clientobject
 
     _adlsClient.SubscriptionId = _subId;
 
-## Alle Data Lake Store-accounts binnen een abonnement weergeven
+## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Alle Data Lake Store-accounts binnen een abonnement weergeven
 Het volgende codefragment bevat alle Data Lake Store-accounts binnen een bepaald Azure-abonnement.
 
     // List all ADLS accounts within the subscription
@@ -171,7 +175,7 @@ Het volgende codefragment bevat alle Data Lake Store-accounts binnen een bepaald
         return accounts;
     }
 
-## Een map maken
+## <a name="create-a-directory"></a>Een map maken
 Het volgende codefragment bevat de methode `CreateDirectory`, die u kunt gebruiken voor het maken van een map in een Date Lake Store-account.
 
     // Create a directory
@@ -180,7 +184,7 @@ Het volgende codefragment bevat de methode `CreateDirectory`, die u kunt gebruik
         _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
-## Bestand uploaden
+## <a name="upload-a-file"></a>Bestand uploaden
 Het volgende codefragment bevat de methode `UploadFile`, die u kunt gebruiken voor het uploaden van bestanden naar een Date Lake Store-account.
 
     // Upload a file
@@ -192,9 +196,9 @@ Het volgende codefragment bevat de methode `UploadFile`, die u kunt gebruiken vo
         uploader.Execute();
     }
 
-`DataLakeStoreUploader` Ondersteunt recursief uploaden en downloaden tussen een lokaal bestandspad en een Date Lake Store-bestandspad.    
+`DataLakeStoreUploader` ondersteunt recursief uploaden en downloaden tussen een lokaal bestandspad en een Data Lake Store-bestandspad.    
 
-## Bestands- of mapinformatie ophalen
+## <a name="get-file-or-directory-info"></a>Bestands- of mapinformatie ophalen
 Het volgende codefragment bevat de methode `GetItemInfo`, die u kunt gebruiken voor het ophalen van bestands- of mapinformatie die beschikbaar is in Data Lake Store. 
 
     // Get file or directory info
@@ -203,7 +207,7 @@ Het volgende codefragment bevat de methode `GetItemInfo`, die u kunt gebruiken v
         return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
     }
 
-## Bestanden of mappen weergeven
+## <a name="list-file-or-directories"></a>Bestanden of mappen weergeven
 Het volgende codefragment bevat de methode `ListItem`, die u kunt gebruiken voor het weergeven van de bestanden en mappen in een Date Lake Store-account.
 
     // List files and directories
@@ -212,7 +216,7 @@ Het volgende codefragment bevat de methode `ListItem`, die u kunt gebruiken voor
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## Bestanden samenvoegen
+## <a name="concatenate-files"></a>Bestanden samenvoegen
 Het volgende codefragment bevat de methode `ConcatenateFiles`, die u kunt gebruiken voor het samenvoegen van bestanden. 
 
     // Concatenate files
@@ -221,7 +225,7 @@ Het volgende codefragment bevat de methode `ConcatenateFiles`, die u kunt gebrui
         _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## Toevoegen aan een bestand
+## <a name="append-to-a-file"></a>Toevoegen aan een bestand
 Het volgende codefragment bevat de methode `AppendToFile`, die u kunt gebruiken voor het toevoegen van gegevens aan een bestand dat al is opgeslagen in een Date Lake Store-account.
 
     // Append to file
@@ -232,7 +236,7 @@ Het volgende codefragment bevat de methode `AppendToFile`, die u kunt gebruiken 
         _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
-## Bestand downloaden
+## <a name="download-a-file"></a>Bestand downloaden
 Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken voor downloaden van een bestand in een Date Lake Store-account.
 
     // Download file
@@ -246,13 +250,16 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
         stream.Close();
     }
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Naslaginformatie over Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Naslaginformatie over Data Lake Store REST](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

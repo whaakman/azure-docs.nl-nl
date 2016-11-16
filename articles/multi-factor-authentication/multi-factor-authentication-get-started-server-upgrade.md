@@ -2,11 +2,11 @@
 title: De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
 description: In dit document wordt beschreven hoe u aan de slag gaat met Azure MFA-server en hoe u een upgrade uitvoert vanuit de oudere PhoneFactor-agent.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
 Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor Authentication-server moeten de PhoneFactor Agent en de bijbehorende onderdelen worden verwijderd voordat de Multi-Factor Authentication-server en de verbonden onderdelen kunnen worden geïnstalleerd.
 
-## De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>De PhoneFactor Agent bijwerken naar Azure Multi-Factor Authentication-server
 <ol>
 <li>Maak eerst een back-up van het PhoneFactor-gegevensbestand. De standaardlocatie voor installatie is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -66,6 +70,6 @@ Om de PhoneFactor Agent v5.x of eerder bij te werken naar de Azure Multi-Factor 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

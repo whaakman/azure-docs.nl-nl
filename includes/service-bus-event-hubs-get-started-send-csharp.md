@@ -1,4 +1,4 @@
-## Berichten verzenden naar Event Hubs
+## <a name="send-messages-to-event-hubs"></a>Berichten verzenden naar Event Hubs
 In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw Event Hub verzendt.
 
 1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
@@ -58,6 +58,8 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     SendingRandomMessages();
     ```
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

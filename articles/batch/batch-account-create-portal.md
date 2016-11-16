@@ -2,11 +2,11 @@
 title: Azure Batch-account maken | Microsoft Docs
 description: Informatie over het maken van een Azure Batch-account in Azure Portal voor het uitvoeren van grootschalige parallelle workloads in de cloud
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+
 
 ---
-# Een Azure Batch-account in de Azure Portal maken
+# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Een Azure Batch-account in de Azure Portal maken
 > [!div class="op_single_selector"]
 > * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
@@ -25,7 +29,7 @@ ms.author: marsma
 
 Leer hoe u een Azure Batch-account maakt in de [Azure Portal][azure_portal] en waar u belangrijke accounteigenschappen kunt vinden, zoals toegangssleutels en account-URL's. We bespreken ook Batch-prijzen en het koppelen van een Azure Storage-account aan uw Batch-account zodat u [toepassingspakketten](batch-application-packages.md) kunt gebruiken en [taken kunt uitvoeren](batch-task-output.md).
 
-## Batch-account maken
+## <a name="create-a-batch-account"></a>Batch-account maken
 1. Meld u aan bij [Azure Portal][azure_portal].
 2. Klik op **Nieuw** > **Berekenen** > **Batch-service**.
    
@@ -47,7 +51,7 @@ Leer hoe u een Azure Batch-account maakt in de [Azure Portal][azure_portal] en w
    
    In de portal wordt aangegeven dat het account wordt **geïmplementeerd**. Bij voltooiing wordt de melding **Implementaties voltooid** weergegeven in *Meldingen*.
 
-## Eigenschappen van Batch-account weergeven
+## <a name="view-batch-account-properties"></a>Eigenschappen van Batch-account weergeven
 Zodra het account is gemaakt, kunt u de blade **Batch-account** openen om naar de instellingen en eigenschappen te gaan. U hebt toegang tot alle eigenschappen en accountinstellingen via het linkermenu van de blade Batch-account.
 
 ![Blade Batch-account in Azure Portal][account_blade]
@@ -62,10 +66,10 @@ Zodra het account is gemaakt, kunt u de blade **Batch-account** openen om naar d
   
     ![Batch-accountsleutels in Azure Portal][account_keys]
 
-## Prijzen
+## <a name="pricing"></a>Prijzen
 Batch-accounts worden alleen aangeboden in een 'Gratis laag'. Dit betekent dat er voor het Batch-account zelf geen kosten in rekening worden gebracht. De onderliggende Azure-rekenresources die door uw Batch-oplossingen worden gebruikt, worden wel in rekening gebracht, evenals de resources die door andere services worden gebruikt wanneer uw workloads worden uitgevoerd. Er worden bijvoorbeeld kosten in rekening gebracht voor de rekenknooppunten in uw groepen en voor de gegevens die u in Azure Storage opslaat als invoer of uitvoer voor uw taken. Als u de functie voor [toepassingspakketten](batch-application-packages.md) van Batch gebruikt, worden de Azure Storage-resources die worden gebruikt om uw toepassingspakketten op te slaan in rekening gebracht. Zie [Prijzen van Batch][batch_pricing] voor meer informatie.
 
-## Gekoppeld Azure Storage-account
+## <a name="linked-azure-storage-account"></a>Gekoppeld Azure Storage-account
 Zoals eerder vermeld, kunt u (optioneel) een opslagaccount voor **Algemeen gebruik** koppelen met uw Batch-account. De [toepassingspakketten](batch-application-packages.md)-functie van Batch maakt gebruik van blob-opslag in een gekoppeld opslagaccount voor Algemeen gebruik. Dit geldt ook voor de [Batch-bestandsconventies-.NET](batch-task-output.md)-bibliotheek. Deze optionele functies helpen u bij het implementeren van de toepassingen die uw Batch-taken uitvoeren en het behouden van de gegevens die deze toepassingen produceren.
 
 Batch ondersteunt momenteel *alleen* het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md). Wanneer u een Azure Storage-account aan uw Batch-account koppelt, zorgt u ervoor dat u *alleen* een **algemeen** opslagaccount koppelt.
@@ -81,7 +85,7 @@ U wordt aangeraden een opslagaccount te maken dat alleen wordt gebruikt door uw 
 
   ![Sleutels van opslagaccount opnieuw genereren][4]
 
-## Quota en limieten voor Batch-service
+## <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 Houd er rekening mee dat er bepaalde [quota en limieten](batch-quota-limit.md) van toepassing zijn op Batch-account, net als bij uw Azure-abonnement en andere Azure-services. De huidige quota voor een Batch-account worden in de portal weergegeven bij de **eigenschappen** van het account.
 
 ![Batch-accountquota in Azure Portal][quotas]
@@ -92,14 +96,14 @@ Houd er ook rekening mee dat u meer dan één Batch-account voor uw Azure-abonne
 
 Veel van deze quota kunnen worden verhoogd met een gratis verzoek tot productondersteuning. Dit kunt u indienen in de Azure Portal. Zie [Quota en limieten voor de Azure Batch-service](batch-quota-limit.md) voor meer informatie over aanvragen voor het verhogen van uw quotum.
 
-## Andere beheeropties voor uw Batch-account
+## <a name="other-batch-account-management-options"></a>Andere beheeropties voor uw Batch-account
 Naast het gebruik van de Azure Portal kunt u ook op de volgende manieren Batch-accounts maken en beheren:
 
 * [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](../xplat-cli-install.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Overzicht van Azure Batch-functies](batch-api-basics.md) voor meer informatie over concepten en functies van de Batch-service. In het artikel worden de primaire Batch-resources zoals pools, rekenknooppunten, jobs en taken besproken en vindt u een overzicht van de servicefuncties waarmee grootschalige rekenworkloads kunnen worden uitgevoerd.
 * Leer de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](batch-dotnet-get-started.md). Het [inleidende artikel](batch-dotnet-get-started.md) leidt u door een werkende toepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten. U vindt er ook informatie over het gebruik van Azure Storage voor het faseren en ophalen van een workloadbestand.
 
@@ -120,6 +124,6 @@ Naast het gebruik van de Azure Portal kunt u ook op de volgende manieren Batch-a
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

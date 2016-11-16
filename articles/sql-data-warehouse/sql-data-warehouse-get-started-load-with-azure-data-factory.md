@@ -5,9 +5,9 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: ac7ddaa7-a3a5-4e15-b3cf-c696d2d105df
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+
 
 ---
 # <a name="load-data-with-azure-data-factory"></a>Gegevens laden met Azure Data Factory
@@ -50,7 +54,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende resourc
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Stap 1: Voorbeeldgegevens kopiëren naar Azure Storage-blob
 Als u beschikt over alle benodigde onderdelen, bent u klaar om de voorbeeldgegevens te kopiëren naar uw Azure Storage-blob.
 
-1. [Download de voorbeeldgegevens][]. Hiermee worden nog eens drie jaar aan verkoopgegevens toegevoegd aan de voorbeeldgegevens van AdventureWorksDW.
+1. [Voorbeeldgegevens downloaden][Voorbeeldgegevens downloaden]. Hiermee worden nog eens drie jaar aan verkoopgegevens toegevoegd aan de voorbeeldgegevens van AdventureWorksDW.
 2. Gebruik deze AZCopy-opdracht om de drie jaar aan gegevens naar uw Azure Storage-blob te kopiëren.
    
     ````
@@ -137,7 +141,7 @@ Na het maken van de gekoppelde services moet u de gegevenssets definiëren.  Dat
     ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Stap 3: een pijplijn maken en uitvoeren
-Tot slot moet u een pijplijn in Azure Data Factory instellen en uitvoeren.  Dit is de bewerking waarmee de daadwerkelijke gegevensverplaatsing wordt voltooid.  Een volledig overzicht van de bewerkingen die u met SQL Data Warehouse en Azure Data Factory kunt uitvoeren vindt u [hier][Move data to and from Azure SQL Data Warehouse using Azure Data Factory](Gegevens van en naar Azure SQL Data Warehouse verplaatsen met Azure Data Factory.md).
+Tot slot moet u een pijplijn in Azure Data Factory instellen en uitvoeren.  Dit is de bewerking waarmee de daadwerkelijke gegevensverplaatsing wordt voltooid.  Een volledig overzicht van de bewerkingen die u met SQL Data Warehouse en Azure Data Factory kunt uitvoeren vindt u [hier][Move data to and from Azure SQL Data Warehouse using Azure Data Factory] (Gegevens van en naar Azure SQL Data Warehouse verplaatsen met Azure Data Factory).
 
 Klik nu in de sectie Maken en implementeren op Meer opdrachten en vervolgens op Nieuwe pijplijn.  Nadat u de pijplijn hebt gemaakt, kunt u onderstaande code gebruiken voor de gegevensoverdracht naar uw datawarehouse:
 
@@ -212,7 +216,7 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 [Aan de slag met Azure Data Factory (Data Factory-editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Inleiding tot Azure Data Factory]: ../data-factory/data-factory-introduction.md
 [Voorbeeldgegevens laden in SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Gegevens naar en van Azure SQL Data Warehouse verplaatsen met Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Zelfstudie: gegevens kopiëren van Azure Storage-blob naar Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Zelfstudie: aan de slag met Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
@@ -226,6 +230,6 @@ Deze onderwerpen bevatten gedetailleerde informatie over Azure Data Factory. De 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

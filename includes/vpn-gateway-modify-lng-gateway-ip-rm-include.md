@@ -1,6 +1,6 @@
 Gebruik de cmdlet `New-AzureRmVirtualNetworkGatewayConnection` om het IP-adres van de gateway te wijzigen. Zolang u de naam van de gateway van het lokale netwerk precies hetzelfde houdt als de bestaande naam, worden de instellingen overschreven. Op dit moment biedt de cmdlet Set geen ondersteuning voor het wijzigen van het IP-adres van de gateway.
 
-### <a name="gwipnoconnection"></a>Het IP-adres van de gateway wijzigen - geen gatewayverbinding
+### <a name="a-namegwipnoconnectionahow-to-modify-the-gateway-ip-address-no-gateway-connection"></a><a name="gwipnoconnection"></a>Het IP-adres van de gateway wijzigen - geen gatewayverbinding
 Gebruik het onderstaande voorbeeld om het IP-adres bij te werken van de gateway in uw lokale netwerk dat nog geen verbinding heeft. U kunt tegelijk ook de adresvoorvoegsels bijwerken. De instellingen die u opgeeft, zorgen ervoor dat de bestaande instellingen worden overschreven. Zorg ervoor dat u de bestaande naam van de gateway van uw lokale netwerk gebruikt. Als u dit niet doet, maakt u een nieuwe lokale netwerkgateway, die de bestaande gateway niet overschrijft.
 
 Gebruik het volgende voorbeeld en vervang daarin de waarden door uw eigen waarden.
@@ -10,7 +10,7 @@ Gebruik het volgende voorbeeld en vervang daarin de waarden door uw eigen waarde
     -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
-### <a name="gwipwithconnection"></a>Het IP-adres van de gateway wijzigen - bestaande gatewayverbinding
+### <a name="a-namegwipwithconnectionahow-to-modify-the-gateway-ip-address-existing-gateway-connection"></a><a name="gwipwithconnection"></a>Het IP-adres van de gateway wijzigen - bestaande gatewayverbinding
 Als er al een gatewayverbinding bestaat, moet u die verbinding eerst verwijderen. Vervolgens kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. Dit veroorzaakt enige downtime in uw VPN-verbinding.
 
 > [!IMPORTANT]
@@ -42,6 +42,8 @@ Als er al een gatewayverbinding bestaat, moet u die verbinding eerst verwijderen
         -LocalNetworkGateway2 $local `
         -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

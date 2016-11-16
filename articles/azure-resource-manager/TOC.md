@@ -1,63 +1,72 @@
-# Overview
-## [Resource Manager Overview](resource-group-overview.md)
-## [Supported services, regions, and API versions](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Understand Resource Manager and Classic deployment](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Prescriptive subscription governance](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Governance examples for enterprises](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Get Started
-## [Export template](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Template walkthrough](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Visual Studio with Resource Manager](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [VS Code with Resource Manager](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Overzicht
+## [Wat is Resource Manager?](resource-group-overview.md)
+## [Ondersteunde versies, regio's en API-versies](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Resource Manager en klassieke implementatie](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Prescriptieve abonnementsgovernance](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Governancevoorbeelden voor bedrijven](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Aan de slag
+## [Sjabloon exporteren](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Kennismaken met sjablonen](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Visual Studio met Resource Manager](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Visual Studio-code met Resource Manager](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-# How To
-## Templates
-### [Best practices for templates](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Authoring templates](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Template functions](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Define dependency between resources](../resource-group-define-dependencies.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create multiple instances of resource type](../resource-group-create-multiple.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Pass secure values during deployment](../resource-manager-keyvault-parameter.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Link to other templates](../resource-group-linked-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Share state between linked templates](../best-practices-resource-manager-state.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Patterns for designing templates](../best-practices-resource-manager-design-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Deploy
+# Procedures
+## Sjablonen maken
+### [Aanbevolen procedures voor sjablonen](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Sjablonen maken](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Sjabloonfuncties](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Afhankelijkheid tussen resources definiëren](../resource-group-define-dependencies.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Meerdere exemplaren maken van resourcetype](../resource-group-create-multiple.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beveiligde waarden doorgeven tijdens implementatie](../resource-manager-keyvault-parameter.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Koppeling naar andere sjablonen](../resource-group-linked-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Status delen tussen gekoppelde sjablonen](../best-practices-resource-manager-state.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Patronen voor het ontwerpen van sjablonen](../best-practices-resource-manager-design-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Implementeren
 ### [PowerShell](../resource-group-template-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Azure CLI](../resource-group-template-deploy-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Portal](../resource-group-template-deploy-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [REST API](../resource-group-template-deploy-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Development and test environments](../solution-dev-test-environments.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Manage
+### [REST-API](../resource-group-template-deploy-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Ontwikkel- en testomgevingen](../solution-dev-test-environments.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Beheren
 ### [PowerShell](../powershell-azure-resource-manager.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Azure CLI](../xplat-cli-azure-resource-manager.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Portal](../azure-portal/resource-group-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [REST API](../resource-manager-rest-api.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Use tags to organize resources](../resource-group-using-tags.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Move resources to new group or subscription](../resource-group-move-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Link related resources](../resource-group-link-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [REST-API](../resource-manager-rest-api.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Tags gebruiken om resources te organiseren](../resource-group-using-tags.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Resources verplaatsen naar nieuwe groep of abonnement](../resource-group-move-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Verwante resources koppelen](../resource-group-link-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Azure Resource Explorer](../resource-manager-resource-explorer.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Control Access
-### [Create service principal with PowerShell](../resource-group-authenticate-service-principal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create service principal with Azure CLI](../resource-group-authenticate-service-principal-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Create service principal with portal](../resource-group-create-service-principal-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [App access to subscriptions](../resource-manager-api-authentication.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Set management policies](../resource-manager-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Lock resources](../resource-group-lock-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Security considerations](../best-practices-resource-manager-security.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Audit and Troubleshoot
-### [Troubleshoot common deployment errors](../resource-manager-common-deployment-errors.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View activity logs](../resource-group-audit.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with portal](../resource-manager-troubleshoot-deployments-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with PowerShell](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Reference
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
-## [PowerShell cmdlets for Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [REST API for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [.NET client library for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
-## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Toegang beheren
+### [Service-principal maken met PowerShell](../resource-group-authenticate-service-principal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Service-principal maken met Azure CLI](../resource-group-authenticate-service-principal-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Service-principal maken met portal](../resource-group-create-service-principal-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [App-toegang tot abonnementen](../resource-manager-api-authentication.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beheerbeleid instellen](../resource-manager-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Resources vergrendelen](../resource-group-lock-resources.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beveiligingsoverwegingen](../best-practices-resource-manager-security.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## Controleren en problemen oplossen
+### [Veelvoorkomende implementatiefouten oplossen](../resource-manager-common-deployment-errors.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Activiteitenlogboeken bekijken](../resource-group-audit.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Implementatiebewerkingen met portal bekijken](../resource-manager-troubleshoot-deployments-portal.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Implementatiebewerkingen met PowerShell bekijken](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Implementatiebewerkingen met Azure CLI bekijken](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Implementatiebewerkingen met REST API bekijken](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+# Naslaginformatie
+## [PowerShell-cmdlets](/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](/cli/azure)
+## [Java](/java/api)
+## [.NET-API](/dotnet/api)
+## [Sjabloonschema's](https://github.com/Azure/azure-resource-manager-schemas)
+## [PowerShell-cmdlets voor Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [REST API voor Resource Manager](/rest/api/resources/)
+## [.NET-clientbibliotheek voor Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Beperkingsaanvragen](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](/rest/api/resources/)
 
+# Bronnen
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
 
 <!--HONumber=Nov16_HO2-->
 

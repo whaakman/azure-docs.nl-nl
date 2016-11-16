@@ -1,13 +1,13 @@
 ---
 title: Overzicht van Microsoft Azure IoT Suite | Microsoft Docs
 description: Overzicht van hoe Azure IoT Suite vooraf geconfigureerde oplossingen voor het internet der dingen biedt voor het verzamelen, analyseren en opslaan van gegevens, voor het bieden van visualisaties en voor integratie met andere systemen.
-services: ''
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0df1fc79e82a99ea65296a4e09bdb48fde9451
+
 
 ---
-# Wat is Azure IoT Suite?
+# <a name="what-is-azure-iot-suite"></a>Wat is Azure IoT Suite?
 De Azure internet der dingen-services (IoT) bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
 
 * Gegevens van apparaten verzamelen
@@ -34,7 +38,7 @@ De volgende video toont een inleiding tot Azure IoT Suite:
 > 
 > 
 
-## Azure IoT-services in Azure IoT Suite
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT-services in Azure IoT Suite
 De vooraf geconfigureerde oplossingen gebruiken doorgaans de volgende services:
 
 * Het hart van Azure IoT Suite wordt gevormd door de service [Azure IoT Hub][lnk-iot-hub]. Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke IoT Suite-services. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden.
@@ -44,13 +48,13 @@ De vooraf geconfigureerde oplossingen gebruiken doorgaans de volgende services:
 
 Zie voor een overzicht van de architectuur van een typische IoT-oplossing [Microsoft Azure en het Internet der dingen (IoT)][iot-suite-what-is-azure-iot].
 
-## Vooraf geconfigureerde oplossingen
+## <a name="preconfigured-solutions"></a>Vooraf geconfigureerde oplossingen
 IoT Suite bevat vooraf geconfigureerde oplossingen zodat u snel aan de slag kunt met algemene IoT-scenario's die met Azure IoT Suite mogelijk zijn, zoals *externe controle* en *voorspeld onderhoud*. U kunt deze oplossingen implementeren in uw Azure-abonnement en vervolgens een volledig end-to-end-IoT-scenario uitvoeren.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een overzicht hebt van wat IoT Suite kan doen en wat de belangrijkste onderdelen zijn, raadpleegt u [What are the Azure IoT preconfigured solutions? (Wat zijn de vooraf geconfigureerde oplossingen in Azure IoT)][lnk-what-are-preconfig] voor meer informatie over de vooraf geconfigureerde oplossingen in IoT Suite.
 
-[lnk-SDK‘s]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-SDK's]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Ink-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-azure-storage]: https://azure.microsoft.com/documentation/services/storage/
@@ -62,6 +66,6 @@ Nu u een overzicht hebt van wat IoT Suite kan doen en wat de belangrijkste onder
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

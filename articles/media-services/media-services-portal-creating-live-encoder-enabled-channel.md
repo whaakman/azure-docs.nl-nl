@@ -2,21 +2,25 @@
 title: Live streamen met Azure Media Services om multi-bitrate streams te maken met Azure Portal | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij de stappen voor het met Azure Portal maken van een kanaal dat een single-bitrate live stream ontvangt en deze codeert naar een multi-bitrate stream.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
-ms.author: juliako;juliako
+ms.date: 10/24/2016
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met de Azure-portal
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -59,7 +63,7 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 10. Verwijder de gebeurtenis (en verwijder desgewenst de asset).   
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
-In deze zelfstudie wordt de Azure-portal gebruikt om de volgende taken uit te voeren: 
+In deze zelfstudie wordt Azure Portal gebruikt om de volgende taken uit te voeren: 
 
 1. Configureer streaming-eindpunten.
 2. Maak een kanaal dat is ingeschakeld voor het uitvoeren van live codering.
@@ -72,7 +76,8 @@ In deze zelfstudie wordt de Azure-portal gebruikt om de volgende taken uit te vo
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
-* U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. 
+  Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Een Media Services-account. Zie [Account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
@@ -83,7 +88,7 @@ Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-een
 
 Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en selecteer uw AMS-account.
 2. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
 3. Klik op het standaardstreaming-eindpunt. 
    
@@ -99,7 +104,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
    > 
 
 ## <a name="create-a-channel"></a>Een KANAAL maken
-1. Klik in [Azure Portal](https://portal.azure.com/) op Media Services en klik vervolgens op de naam van het Media Services-account.
+1. Selecteer in [Azure Portal](https://portal.azure.com/) de optie Media Services en klik vervolgens op de naam van uw Media Services-account.
 2. Selecteer **Live streamen**.
 3. Selecteer **Aangepast maken**. Met deze optie kunt u een kanaal maken dat is ingeschakeld voor real-time codering.
    
@@ -164,7 +169,7 @@ Zelfs na het stoppen en verwijderen van de gebeurtenis kunnen gebruikers de gear
 
 Als u de gearchiveerde inhoud wilt behouden maar deze niet langer voor streaming beschikbaar mag zijn, verwijdert u de streaming-locator.
 
-### <a name="create/start/stop-events"></a>Gebeurtenissen maken/starten/stoppen
+### <a name="createstartstop-events"></a>Gebeurtenissen maken/starten/stoppen
 Zodra de stream het kanaal binnenkomt, kunt u de streaminggebeurtenis starten door een asset, programma en streaming-locator te maken. Hiermee wordt de stream gearchiveerd en beschikbaar gesteld aan kijkers via het streaming-eindpunt. 
 
 Gebeurtenissen kunnen op twee manieren worden gestart: 
@@ -221,6 +226,9 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

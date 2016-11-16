@@ -1,7 +1,7 @@
-## Berichten ontvangen met EventProcessorHost
+## <a name="receive-messages-with-eventprocessorhost"></a>Berichten ontvangen met EventProcessorHost
 [EventProcessorHost][EventProcessorHost] is een .NET-klasse die de het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met [EventProcessorHost][EventProcessorHost] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van [EventProcessorHost][EventProcessorHost] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Uitgeschaalde gebeurtenisverwerking] ziet u hoe u [EventProcessorHost][EventProcessorHost] gebruikt met meerdere ontvangers.
 
-U moet over een [Azure Storage-account][Azure Storage-account] beschikken om [EventProcessorHost][EventProcessorHost] te gebruiken:
+Als u [EventProcessorHost][EventProcessorHost] wilt gebruiken, hebt u een [Azure Storage-account][Azure Storage-account] nodig:
 
 1. Meld u aan bij [Azure Portal][Azure Portal] en klik op **Nieuw** linksboven in het scherm.
 2. Klik op **Gegevens en opslag** en klik vervolgens op **Opslagaccount**.
@@ -109,18 +109,18 @@ U moet over een [Azure Storage-account][Azure Storage-account] beschikken om [Ev
      ```
 
 > [!NOTE]
-> In deze zelfstudie wordt één exemplaar van [EventProcessorHost][EventProcessorHost] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][EventProcessorHost] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Uitgeschaalde gebeurtenisverwerking]. In die gevallen werken de verschillende instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer gebeurtenissen van andere computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost][EventProcessorHost]-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Voor meer informatie over deze onderwerpen raadpleegt u het [Overzicht van Event Hubs][Overzicht van Event Hubs] en de [Event Hubs-programmeergids][Event Hubs-programmeergids].
+> In deze zelfstudie wordt één exemplaar van [EventProcessorHost][EventProcessorHost] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][EventProcessorHost] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Uitgeschaalde gebeurtenisverwerking]. In die gevallen werken de verschillende instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor exemplaren van [EventProcessorHost][EventProcessorHost] op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Raadpleeg het [Overzicht van Event Hubs][Overzicht van Event Hubs] en de [Event Hubs-programmeergids][Event Hubs-programmeergids] voor meer informatie over deze onderwerpen.
 > 
 > 
 
 <!-- Links -->
-[Overzicht van Event Hubs]: event-hubs-overview.md
-[Event Hubs-programmeergids]: event-hubs-programming-guide.md
+[Overzicht van Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs-programmeergids]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Uitgeschaalde gebeurtenisverwerking]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-account]: ../storage/storage-create-storage-account.md
+[Azure Storage-account]: ../articles/storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

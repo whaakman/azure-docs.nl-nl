@@ -2,11 +2,11 @@
 title: Uw eerste gegevensfactory bouwen (Visual Studio) | Microsoft Docs
 description: In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn met behulp van Visual Studio.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc46837a2be9047e5bcbd920c2e0119f2c5a5ea6
+
 
 ---
-# <a name="tutorial:-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Microsoft Visual Studio
+# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Microsoft Visual Studio
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -236,7 +240,7 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
             }
         }
    
-    In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
+     In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
    
     In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
    
@@ -254,13 +258,13 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
    > 
 4. Sla het bestand **HiveActivity1.json** op.
 
-### <a name="add-partitionweblogs.hql-and-input.log-as-a-dependency"></a>partitionweblogs.hql en input.log toevoegen als afhankelijkheid
+### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>partitionweblogs.hql en input.log toevoegen als afhankelijkheid
 1. Klik in het **Solution Explorer**-venster met de rechtermuisknop op **Dependencies**. Houd de muisaanwijzer op **Add** en klik op **Existing Item**.  
 2. Navigeer naar **C:\ADFGettingStarted** en selecteer de bestanden **partitionweblogs.hql** en **input.log**. Klik vervolgens op **Add**. U hebt deze twee bestanden gemaakt omdat dit vereist werd in het [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md).
 
 Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **partitionweblogs.hql** geüpload naar de scriptmap in de blobcontainer **adfgetstarted**.   
 
-### <a name="publish/deploy-data-factory-entities"></a>Data Factory-entiteiten publiceren/implementeren
+### <a name="publishdeploy-data-factory-entities"></a>Data Factory-entiteiten publiceren/implementeren
 1. Klik met de rechtermuisknop op het project in Solution Explorer. Klik vervolgens op **Publish**. 
 2. Als u het dialoogvenster **Sign in to your Microsoft account** ziet, voert u uw referenties in voor het account met het Azure-abonnement en klikt u op **Sign in**.
 3. Het volgende dialoogvenster wordt weergegeven:
@@ -272,7 +276,8 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
    2. Voer een unieke **naam** in voor de gegevensfactory. Bijvoorbeeld: **FirstDataFactoryUsingVS09152016**. De naam moet wereldwijd uniek zijn.  
 
         > [AZURE.IMPORTANT] Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-1. Selecteer het juiste abonnement voor het veld **Subscription**.
+3. Selecteer het juiste abonnement voor het veld **Subscription**.
+
 
         > [AZURE.IMPORTANT] Als u geen abonnement niet ziet, controleert u of u bent aangemeld met een account dat een beheerder of co-beheerder is van het abonnement.  
 
@@ -333,7 +338,7 @@ Belangrijke punten om op te letten:
    > 
    > 
    
-    ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
+    ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
     
     ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -341,13 +346,13 @@ Belangrijke punten om op te letten:
     
     ![Details gegevenssegment](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
 12. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
-    ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
     
     In de logboekbestanden ziet u de Hive-query die is uitgevoerd en de statusinformatie. Deze logboeken komen van pas bij het oplossen van problemen.  
 
 Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor instructies over het gebruik van de Azure Portal om de pijplijn en gegevenssets te bewaken die u tijdens deze zelfstudie hebt gemaakt.
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>De pijplijn bewaken met de app Bewaking en beheer
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>De pijplijn bewaken met de app Bewaking en beheer
 U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
 
 1. Klik op de tegel Bewaking en beheer.
@@ -426,11 +431,11 @@ Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit
     Als JSON een eigenschap heeft met een matrix van waarden zoals in de volgende code wordt weergegeven:  
    
         "structure": [
-            {
-                "name": "FirstName",
+              {
+                  "name": "FirstName",
                 "type": "String"
-            },
-            {
+              },
+              {
                 "name": "LastName",
                 "type": "String"
             }
@@ -502,6 +507,9 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

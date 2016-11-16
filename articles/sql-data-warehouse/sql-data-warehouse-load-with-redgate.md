@@ -1,12 +1,12 @@
 ---
-title: Gegevens laden in SQL Data Warehouse | Microsoft Docs
-description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario's.
+title: Gegevens laden in SQL Data Warehouse met behulp van Data Platform Studio van Redgate | Microsoft Docs
+description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario&quot;s.
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Gegevens laden met behulp van Data Platform Studio van Redgate
@@ -126,7 +130,7 @@ Voor meer informatie over Data Platform Studio van Redgate:
 
 Zie voor een overzicht van andere manieren om te migreren en uw gegevens in SQL Data Warehouse te laden:
 
-* [Migrate your solution to SQL Data Warehouse][Migrate your solution to SQL Data Warehouse] (Uw oplossing migreren naar SQL Data Warehouse)
+* [Uw oplossing migreren naar SQL Data Warehouse][Uw oplossing migreren naar SQL Data Warehouse]
 * [Load data into Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) (Gegevens laden in Azure SQL Data Warehouse)
 
 Zie het [Overzicht van SQL Data Warehouse voor ontwikkelaars](sql-data-warehouse-overview-develop.md) voor meer tips voor ontwikkelaars.
@@ -144,11 +148,12 @@ Zie het [Overzicht van SQL Data Warehouse voor ontwikkelaars](sql-data-warehouse
 <!--Article references-->
 [Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [Gegevens visualiseren met Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md (Uw oplossing migreren naar SQL Data Warehouse)
+[Uw oplossing migreren naar SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md 
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md (Gegevens laden in Azure SQL Data Warehouse)
 [Overzicht van SQL Data Warehouse voor ontwikkelaars]: ./sql-data-warehouse-overview-develop.md
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

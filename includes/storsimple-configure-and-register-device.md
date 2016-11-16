@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Het apparaat configureren en registreren
+#### <a name="to-configure-and-register-the-device"></a>Het apparaat configureren en registreren
 1. Open de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console) voor instructies. **Volg de procedure exact, omdat u anders geen toegang hebt tot de console.**
 2. Druk in de geopende sessie eenmaal op Enter om een opdrachtprompt weer te geven. 
 3. U wordt gevraagd de taal te kiezen die u voor uw apparaat wilt instellen. Geef de taal op en druk op Enter. 
@@ -30,7 +30,8 @@
      > 
 8. Configureer desgewenst uw webproxyserver. De configuratie van uw webproxy is weliswaar optioneel, maar **houd er rekening mee dat als u een webproxy gebruikt, deze alleen hier kan worden geconfigureerd**. Zie [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md) (Webproxy voor uw apparaat configureren) voor meer informatie. Als u problemen ondervindt tijdens deze stap, raadpleegt u de richtlijnen voor probleemoplossing voor [fouten tijdens de webproxyconfiguratie](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] U kunt op elk gewenst moment op Ctrl+C drukken om de instellingenwizard af te sluiten. Alle instellingen die u hebt toegepast voordat u deze opdracht gaf, blijven behouden.
+     > [!NOTE]
+     > U kunt op elk gewenst moment op Ctrl+C drukken om de instellingenwizard af te sluiten. Alle instellingen die u hebt toegepast voordat u deze opdracht gaf, blijven behouden.
 
 1. Uit veiligheidsoverwegingen is het beheerderswachtwoord van het apparaat na de eerste sessie verlopen en moet u het voor volgende sessies wijzigen. Als daarom wordt gevraagd, geeft u een beheerderswachtwoord voor het apparaat op. Een geldig beheerderswachtwoord voor een apparaat moet 8 tot 15 tekens bevatten. Het wachtwoord moet een combinatie van kleine letters, hoofdletters, cijfers en speciale tekens zijn.
 2. Het StorSimple Snapshot Manager-wachtwoord wordt hier ook ingesteld. U kunt dit wachtwoord gebruiken wanneer u een apparaat verifieert met uw Windows-host waarop StorSimple Snapshot Manager wordt uitgevoerd. Wanneer daarom wordt gevraagd, geeft u een wachtwoord van 14 of 15 tekens op. Het wachtwoord moet een combinatie van drie van de volgende elementen bevatten: kleine letters, hoofdletters, cijfers en speciale tekens. 
@@ -73,6 +74,8 @@ Nadat het apparaat is geregistreerd maar de status Offline blijft, kunt u `Test-
 
 Als u een video wilt bekijken over het configureren en registreren van uw apparaat via Windows PowerShell voor StorSimple, klikt u [hier](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

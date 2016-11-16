@@ -1,5 +1,5 @@
 # Overzicht
-## [Inleiding tot ACS](container-service-intro.md)
+## [Wat is de Azure Container Service?](container-service-intro.md)
 # Aan de slag
 
 ## [Een ACS-cluster implementeren](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Overzicht van Docker Swarm](container-service-docker-swarm.md)
 
 # Naslaginformatie
-
-## [REST-API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST-API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Bronnen
-
 ## [Beschikbaarheid in regio’s](https://azure.microsoft.com/regions/services/)
+## [Prijzen](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

@@ -1,13 +1,13 @@
 ---
-title: Een predictive analytics-oplossing voor kredietrisico met Machine Learning | Microsoft Docs
+title: Een voorspelde oplossing voor kredietrisico met Machine Learning | Microsoft Docs
 description: Een gedetailleerde procedure voor het maken van een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio.
 keywords: kredietrisico, predictive analytics-oplossing, risico-evaluatie
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa64dc7f5bb3e928aac30987b0904435c603829c
+
 
 ---
-# Procedure: een predictive analytics-oplossing opzetten voor kredietrisicobeoordeling in Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Procedure: een predictive analytics-oplossing opzetten voor kredietrisicobeoordeling in Azure Machine Learning
 Stel dat u iemands kredietrisico moet voorspellen op basis van de gegevens die deze persoon in een kredietaanvraag heeft ingevuld.  
 
 Kredietrisicobeoordeling is natuurlijk complexe materie, maar we zullen de parameters van de casus enigszins vereenvoudigen. We kunnen de casus dan gebruiken als voorbeeld van hoe u Microsoft Azure Machine Learning met Machine Learning Studio en de Machine Learning-webservice gebruikt om een dergelijke predictive analytics-oplossing te maken.  
@@ -44,6 +48,9 @@ Voer de volgende stappen uit als u een oplossing voor kredietrisicobeoordeling w
 
 Deze procedure is gebaseerd op een vereenvoudigde versie van het voorbeeldexperiment [Binary Classfication: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Binaire classificatie: kredietrisicovoorspelling) uit de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

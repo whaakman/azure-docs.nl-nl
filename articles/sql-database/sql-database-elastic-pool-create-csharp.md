@@ -2,11 +2,11 @@
 title: Een pool voor elastische database maken met C# | Microsoft Docs
 description: Gebruik C# databaseontwikkelingstechnieken om een schaalbare pool voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# Een nieuwe pool voor Elastic Database maken met C&#x23;
+# <a name="create-an-elastic-database-pool-with-cx23"></a>Een nieuwe pool voor Elastic Database maken met C&#x23;
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,10 +30,10 @@ ms.author: sstein
 
 In dit artikel wordt beschreven hoe u C# gebruikt om een Azure SQL-pool voor Elastic Database maakt met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Zie [SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET](sql-database-get-started-csharp.md) als u een zelfstandige SQL-database wilt maken.
 
-De Azure SQL Database-bibliotheek voor .NET biedt een op [Azure Resource Manager](../resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
+De Azure SQL Database-bibliotheek voor .NET biedt een op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
 > [!NOTE]
-> Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../resource-group-overview.md) gebruikt. Daarom moet u altijd de nieuwste **Azure SQL Database Management Library voor .NET gebruiken ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De oudere [klassieke op implementatiemodellen gebaseerde bibliotheken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) worden alleen ondersteund voor achterwaartse compatibiliteit. Wij raden daarom aan de nieuwere op Resource Manager gebaseerde bibliotheken te gebruiken.
+> Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../azure-resource-manager/resource-group-overview.md) gebruikt. Daarom moet u altijd de nieuwste **Azure SQL Database Management Library voor .NET gebruiken ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De oudere [klassieke op implementatiemodellen gebaseerde bibliotheken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) worden alleen ondersteund voor achterwaartse compatibiliteit. Wij raden daarom aan de nieuwere op Resource Manager gebaseerde bibliotheken te gebruiken.
 > 
 > 
 
@@ -38,7 +42,7 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 * Een Azure-abonnement. Als u een Azure-abonnement nodig hebt, klikt u op **GRATIS ACCOUNT** boven aan deze pagina. Keer daarna hier terug om dit artikel te voltooien.
 * Visual Studio. Ga naar de pagina [Visual Studio-downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) voor een gratis exemplaar van Visual Studio.
 
-## Een consoletoepassing maken en de vereiste bibliotheken installeren
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Een consoletoepassing maken en de vereiste bibliotheken installeren
 1. Start Visual Studio.
 2. Klik op **Bestand** > **Nieuw** > **Project**.
 3. Maak een **consoletoepassing** met C# en noem deze *SqlElasticPoolConsoleApp*
@@ -55,7 +59,7 @@ Als u een SQL Database met C# wilt maken, laadt u de vereiste beheerbibliotheken
 > 
 > 
 
-## Een pool voor Elastic Database maken - voorbeeld met C
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>Een pool voor Elastic Database maken - voorbeeld met C#
 In het volgende voorbeeld worden een resourcegroep, een server, een firewallregel en een elastische pool gemaakt. Daarna wordt in die pool een SQL-database gemaakt. Zie [Een service-principal maken voor toegang tot resources](#create-a-service-principal-to-access-resources) om de variabelen `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` op te halen.
 
 Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` bij met uw app-waarden (de `{}` niet overnemen).
@@ -254,7 +258,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-## Een service-principal maken voor toegang tot resources
+## <a name="create-a-service-principal-to-access-resources"></a>Een service-principal maken voor toegang tot resources
 Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de service-principal die we nodig hebben om onze C#-app te verifiëren. Het script voert de waarden uit die we nodig hebben voor het voorgaande C#-voorbeeld. Zie [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md) (Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources) voor gedetailleerde informatie.
 
     # Sign in to Azure.
@@ -298,15 +302,18 @@ Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de s
 
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Uw groep beheren](sql-database-elastic-pool-manage-csharp.md)
 * [Elastische taken maken](sql-database-elastic-jobs-overview.md): met elastische taken kunt u T-SQL-scripts uitvoeren op een willekeurig aantal databases in de groep.
 * [Uitschalen met Azure SQL Database](sql-database-elastic-scale-introduction.md): gebruik elastische databasehulpprogramma's om uit te schalen.
 
-## Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende resources
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Azure Resource Management API's](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

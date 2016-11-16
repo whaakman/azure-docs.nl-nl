@@ -3,11 +3,11 @@ title: Een eenvoudig experiment in Machine Learning Studio | Microsoft Docs
 description: Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme.
 keywords: experiment,lineaire regressie,machine learning-algoritmen,zelfstudie over machine learning,voorspellende modelleringstechnieken,gegevenswetenschapexperiment
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 210e19cbc581ce5fc17898abe184b96c48370e7f
+
 
 ---
-# Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
 Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. Wij maken een lineair regressiemodel waarmee de prijs van een auto kan worden voorspeld op basis van verschillende variabelen, zoals het merk en de technische specificaties. Hiervoor maken we gebruik van Azure Machine Learning Studio om eenvoudige predictive analytics-experimenten te ontwikkelen en te herhalen.
 
 *Predictive analytics* is een tak in de gegevenswetenschap waarbij gebruik wordt gemaakt van huidige gegevens om toekomstige resultaten te voorspellen. Bekijk video 4 van Data Science for Beginners (Gegevenswetenschap voor beginners): [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (Een antwoord voorspellen met een eenvoudig model, speelduur 7:42) voor een uiterst eenvoudig voorbeeld van predictive analytics.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Op welke wijze is Machine Learning Studio nuttig?
+## <a name="how-does-machine-learning-studio-help"></a>Op welke wijze is Machine Learning Studio nuttig?
 Met Machine Learning Studio kunt u gemakkelijk een experiment opzetten met behulp van modules die vooraf zijn geprogrammeerd met voorspellende modelleringstechnieken die u met slepen-en-neerzetten kunt gebruiken. Om uw experiment uit te voeren en een antwoord te voorspellen, gebruikt u Machine Learning Studio om *een model te maken*, *het model te trainen*, en *het model te scoren en testen*.
 
 Ga naar Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Als u zich eerder hebt aangemeld bij Machine Learning Studio, klikt u op **Sign in here** (Hier aanmelden). Klik anders op **Sign Up** (Registreren) en kies tussen gratis en betaalde opties.
 
 Zie [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) (Wat is Machine Learning Studio?) voor meer algemene informatie over Machine Learning Studio.
 
-## In vijf stappen een experiment maken
+## <a name="five-steps-to-create-an-experiment"></a>In vijf stappen een experiment maken
 In deze machine learning-zelfstudie volgt u vijf eenvoudige stappen in Machine Learning Studio om een model te maken, te trainen en te beoordelen:
 
 * Een model maken
@@ -50,7 +54,7 @@ In deze machine learning-zelfstudie volgt u vijf eenvoudige stappen in Machine L
 [Stap 5: prijzen van nieuwe auto's voorspellen]: #step-5-predict-new-automobile-prices
 
 
-## Stap 1: gegevens ophalen
+## <a name="step-1-get-data"></a>Stap 1: gegevens ophalen
 Machine Learning Studio bevat een aantal voorbeeldgegevenssets waaruit u kunt kiezen. Daarnaast kun u uit tal van bronnen gegevens importeren. Voor dit voorbeeld gebruiken we de bijgeleverde voorbeeldgegevensset **Automobile price data (Raw)**.
 Deze gegevensset bevat vermeldingen voor een aantal afzonderlijke auto’s, inclusief informatie over het merk, het model, de technische specificaties en de prijs.
 
@@ -72,7 +76,7 @@ De variabelen in de gegevensset worden weergegeven als kolommen en elk exemplaar
 
 Sluit het visualisatievenster door op de **x** in de rechterbovenhoek te klikken.
 
-## Stap 2: gegevens voorverwerken
+## <a name="step-2-preprocess-data"></a>Stap 2: gegevens voorverwerken
 Normaal gesproken moet een gegevensset worden voorverwerkt voordat deze kan worden geanalyseerd. Het is u mogelijk opgevallen dat er in verschillende rijen ontbreken in de kolommen van verschillende rijen. Deze ontbrekende waarden moeten worden opgeschoond, zodat de gegevens correct kunnen worden geanalyseerd. In ons geval verwijderen we de rijen met ontbrekende waarden. Ook in de kolom **normalized-losses** ontbreekt een groot deel van de waarden. Deze kolom zal daarom helemaal worden uitgesloten van het model.
 
 > [!TIP]
@@ -113,7 +117,7 @@ Tot nu toe hebben we in het experiment alleen de gegevens opgeschoond. Als u de 
 
 Nu de gegevens zijn opgeschoond, kunt u opgeven welke functies u wilt gebruiken in het voorspellende model.
 
-## Stap 3: functies definiëren
+## <a name="step-3-define-features"></a>Stap 3: functies definiëren
 In machine learning zijn *functies* afzonderlijke meetbare eigenschappen van iets waarin u geïnteresseerd bent. In onze gegevensset staat elke rij voor één auto en elke kolom bevat een kenmerk van die auto.
 
 Voor een goede set kenmerken voor het maken van een voorspellend model, moet u experimenteren en beschikken over kennis van het probleem dat u wilt oplossen. Bepaalde kenmerken zijn beter voor het voorspellen van het doel dan andere. Bovendien bestaat er tussen sommige kenmerken een nauwe correlatie (bijvoorbeeld tussen city-mpg en highway-mpg), waardoor ze weinig nieuwe informatie aan het model toevoegen en ze kunnen worden verwijderd.
@@ -138,7 +142,7 @@ Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegeven
 
 Hiermee produceert u de gegevensset die wordt gebruikt in het leeralgoritme in de volgende stappen. U kunt later terugkeren en het opnieuw proberen met een andere selectie kenmerken.
 
-## Stap 4: een leeralgoritme kiezen en toepassen
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Stap 4: een leeralgoritme kiezen en toepassen
 Nu de gegevens klaar zijn, kunt u een voorspellend model bouwen door het model te trainen en te testen. We gebruiken onze gegevens om het model te trainen. Vervolgens testen we het model om te controleren in hoeverre de prijzen met dit model kunnen worden voorspeld. U hoeft zich in op dit moment nog niet af te vragen waarom we een model trainen en vervolgens testen.
 
 *Classificatie* en *regressie* zijn twee soorten beheerde machine learning-technieken. Classificatie voorspelt een antwoord uit een gedefinieerde set categorieën, zoals een kleur (rood, blauw of groen). Regressie wordt gebruikt om een getal te voorspellen.
@@ -165,7 +169,7 @@ Het resultaat is een getraind regressiemodel dat kan worden gebruikt om nieuwe s
 
 ![Het machine learning-algoritme toepassen][screen8]
 
-## Stap 5: prijzen van nieuwe auto's voorspellen
+## <a name="step-5-predict-new-automobile-prices"></a>Stap 5: prijzen van nieuwe auto's voorspellen
 Nu we het model met 75 procent van de gegevens hebben getraind, kunnen we het model gebruiken om de overige 25 procent van onze gegevens te beoordelen om te zien hoe goed het model werkt.
 
 1. Zoek de module [Score Model][score-model] (Scoremodel), sleep deze naar het experimentcanvas en koppel de module aan de linkerinvoerpoort van de module [Train Model][train-model] (Model trainen). Koppel de rechterinvoerpoort om de gegevensuitvoer (rechterpoort) van de module [Split Data][split] (Gegevens splitsen) te testen.  
@@ -191,7 +195,7 @@ Het laatste experiment ziet er als volgt uit:
 
 ![Machine learning-zelfstudie: volledig lineair regressie-experiment waarbij gebruik wordt gemaakt van voorspellende modelleringstechnieken.][screen10]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u de aanvankelijke machine learning-zelfstudie hebt voltooid en u een experiment hebt gemaakt, kunt u het experiment herhalen om het model te verbeteren. U kunt bijvoorbeeld de kenmerken wijzigen die u voor uw voorspelling gebruikt. Of u kunt de eigenschappen wijzigen van het algoritme [Linear Regression][linear-regression] (Lineaire regressie) of een compleet ander algoritme proberen. U kunt zelfs meerdere machine learning-algoritmen tegelijk aan uw experiment toevoegen en de module [Evaluate Model][evaluate-model] (Model evalueren) gebruiken om ze te vergelijken.
 
 > [!TIP]
@@ -238,6 +242,6 @@ Zie [Een voorspellende oplossing met Azure Machine Learning ontwikkelen][walkthr
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

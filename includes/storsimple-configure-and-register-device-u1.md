@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Het apparaat configureren en registreren
+### <a name="to-configure-and-register-the-device"></a>Het apparaat configureren en registreren
 1. Open de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](#use-putty-to-connect-to-the-device-serial-console) voor instructies. **Volg de procedure exact, omdat u anders geen toegang hebt tot de console.**
 2. Druk in de geopende sessie eenmaal op Enter om een opdrachtprompt weer te geven. 
 3. U wordt gevraagd de taal te kiezen die u voor uw apparaat wilt instellen. Geef de taal op en druk op Enter. 
@@ -63,6 +63,8 @@
        
         Controleer of poort 9354 open is voor uitgaande communicatie, omdat de servicebus deze poort gebruikt voor de communicatie van de StorSimple Manager-service naar het apparaat.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

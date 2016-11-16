@@ -3,20 +3,24 @@ title: Een logische app maken | Microsoft Docs
 description: Lees hoe u een logische app kunt maken waarmee SaaS-services worden verbonden
 author: jeffhollan
 manager: dwrede
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/16/2016
+ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ab26637d0f49abd73b55e3ccf9ace0f33f6f8731
+
 
 ---
-# Een nieuwe logische app maken waarmee SaaS-services worden verbonden
+# <a name="create-a-new-logic-app-connecting-saas-services"></a>Een nieuwe logische app maken waarmee SaaS-services worden verbonden
 In dit onderwerp wordt beschreven hoe u in een paar minuten aan de slag kunt met [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We volgen een eenvoudige werkstroom waarmee u interessante tweets naar uw e-mail kunt verzenden.
 
 Voor dit scenario hebt u het volgende nodig:
@@ -25,8 +29,8 @@ Voor dit scenario hebt u het volgende nodig:
 * Een Twitter-account
 * Een outlook.com-postvak of een gehost Office 365-postvak
 
-## Een nieuwe logische app maken om tweets naar u te e-mailen
-1. Selecteer **Nieuw** op het [dashboard van de Azure Portal](https://portal.azure.com). 
+## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Een nieuwe logische app maken om tweets naar u te e-mailen
+1. Selecteer **Nieuw** op het [dashboard van Azure Portal](https://portal.azure.com). 
 2. Zoek op de zoekbalk naar ‘logische app’ en selecteer vervolgens **Logische apps**. U kunt ook **Nieuw**, **Web en mobiel** selecteren en vervolgens **Logische apps** selecteren. 
 3. Voer een naam in voor uw logische app, selecteer een locatie en resourcegroep en selecteer **Maken**.  Als u **Vastmaken aan Dashboard** selecteert, wordt de logische app automatisch geopend na implementatie.  
 4. Nadat uw logische app voor het eerst is geopend, kunt u uit een sjabloon een selectie maken om te starten.  Klik voorlopig op **Lege logische app** om deze vanaf nul op te bouwen. 
@@ -39,7 +43,7 @@ Voor dit scenario hebt u het volgende nodig:
 9. U moet nu de gewenste parameters invullen voor de e-mail:  ![Parameters](./media/app-service-logic-create-a-logic-app/parameters.png)
 10. Ten slotte selecteert u **Opslaan** om de logische app te publiceren.
 
-## Uw logische app beheren na het maken
+## <a name="manage-your-logic-app-after-creation"></a>Uw logische app beheren na het maken
 Nu is uw logische app actief. Deze zal regelmatig controleren op tweets met de ingevoerde zoekterm. Wanneer er een overeenkomstige tweet wordt gevonden, verzendt de logische app een e-mailbericht naar u. Ten slotte ziet u hoe u de app kunt uitschakelen of wat de voortgang hiervan is.
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).
@@ -57,6 +61,6 @@ U hebt nu in minder dan 5 minuten een eenvoudige logische app ingesteld die word
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

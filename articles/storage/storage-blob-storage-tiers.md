@@ -1,30 +1,34 @@
 ---
-title: Azure Storage voor 'cool' blobs | Microsoft Docs
-description: Opslaglagen voor Azure Blob Storage bieden voordelige opslag voor objectgegevens op basis van toegangspatronen. De opslaglaag voor 'cool' blobs is geoptimaliseerd voor gegevens die minder regelmatig worden geopend.
+title: Azure Storage voor &quot;cool&quot; blobs | Microsoft Docs
+description: Opslaglagen voor Azure Blob Storage bieden voordelige opslag voor objectgegevens op basis van toegangspatronen. De opslaglaag voor &quot;cool&quot; blobs is geoptimaliseerd voor gegevens die minder regelmatig worden geopend.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: michaelhauss
 manager: vamshik
 editor: tysonn
-
+ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: mihauss;robinsh
+ms.date: 10/18/2016
+ms.author: mihauss
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+
 
 ---
-# Azure Blob Storage: opslaglagen voor 'hot' blobs en 'cool' blobs
-## Overzicht
+# <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: opslaglagen voor 'hot' blobs en 'cool' blobs
+## <a name="overview"></a>Overzicht
 Azure Storage biedt nu twee opslaglagen voor Blob Storage (objectopslag), zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en een lange levensduur hebben. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten aanvaardbaar vanwege de veel lagere opslagkosten.
 
 Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Om de kosten voor uw groeiende opslagbehoeften te beheren, is het nuttig de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan grote verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur zeer regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
 
 Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens die hierboven worden beschreven, een gedifferentieerde opslaglaag te maken die is geoptimaliseerd voor een specifiek toegangspatroon. Dankzij de introductie van de opslaglagen voor 'hot' blobs en 'cool' blobs in Azure Blob Storage wordt voorzien in deze behoefte aan gedifferentieerde opslaglagen met afzonderlijke prijsmodellen.
 
-## Blob Storage-accounts
+## <a name="blob-storage-accounts"></a>Blob Storage-accounts
 **Blob Storage-accounts** zijn gespecialiseerde opslagaccounts voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Met Blob Storage-accounts kunt u nu kiezen tussen opslaglagen voor 'hot' blobs en 'cool' blobs. Zo kunt u minder regelmatig geopende gegevens opslaan tegen lagere opslagkosten en regelmatiger geopende gegevens tegen lagere toegangskosten. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs.
 
 > [!NOTE]
@@ -66,7 +70,7 @@ Voor toepassingen waarvoor alleen de opslag van blok- of toevoeg-blobs is vereis
 > 
 > 
 
-## Vergelijking tussen de opslaglagen
+## <a name="comparison-between-the-storage-tiers"></a>Vergelijking tussen de opslaglagen
 De volgende tabel maakt de verschillen tussen de twee opslaglagen inzichtelijk:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
@@ -118,7 +122,7 @@ De volgende tabel maakt de verschillen tussen de twee opslaglagen inzichtelijk:
 > 
 > 
 
-## Prijzen en facturering
+## <a name="pricing-and-billing"></a>Prijzen en facturering
 Blob Storage-accounts maken gebruik van een nieuw prijsmodel voor het opslaan van blobs op basis van de opslaglaag. Als u een Blob Storage-account gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
 * **Opslagkosten**: de kosten voor het opslaan van gegevens hangen niet alleen af van de hoeveelheid opgeslagen gegevens, maar ook van de gebruikte opslaglaag. De kosten per GB voor de opslaglaag voor 'cool' blobs zijn lager dan die voor de opslaglaag voor 'hot' blobs.
@@ -133,14 +137,14 @@ Blob Storage-accounts maken gebruik van een nieuw prijsmodel voor het opslaan va
 > 
 > 
 
-## Snel starten
-In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt gemaakt van de Azure Portal:
+## <a name="quick-start"></a>Snel starten
+In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt gemaakt van Azure Portal:
 
 * Het maken van een Blob Storage-account.
 * Het beheren van een Blob Storage-account.
 
-### Azure Portal gebruiken
-#### Een Blob Storage-account maken met behulp van de Azure Portal
+### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
+#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Een Blob Storage-account maken met behulp van Azure Portal
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
 2. Selecteer in het menu Hub achtereenvolgens **Nieuw** > **Gegevens en opslag** > **Opslagaccount**.
 3. Voer een naam in voor het opslagaccount.
@@ -148,10 +152,10 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
     Deze naam moet uniek zijn. De naam wordt gebruikt als onderdeel van de URL die wordt gebruikt voor toegang tot de objecten in het opslagaccount.  
 4. Selecteer **Resource Manager** als het implementatiemodel.
    
-    Gelaagde opslag kan alleen worden gebruikt met Resource Manager-opslagaccounts. Dit is het aanbevolen implementatiemodel voor nieuwe resources. Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie.  
+    Gelaagde opslag kan alleen worden gebruikt met Resource Manager-opslagaccounts. Dit is het aanbevolen implementatiemodel voor nieuwe resources. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 5. Selecteer **Blob Storage** in de vervolgkeuzelijst Soort account.
    
-    Hier selecteert u het type opslagaccount. Gelaagde opslag is niet beschikbaar in de algemene opslag. Dit is alleen beschikbaar in het type account voor Blob Storage.    
+    Hier selecteert u het type opslagaccount. Gelaagde opslag is niet beschikbaar in de algemene opslag. Dit is alleen beschikbaar in het type account voor Blob Storage.     
    
     Houd er rekening mee dat, wanneer u deze optie selecteert, de prestatielaag wordt ingesteld op Standaard. Gelaagde opslag is niet beschikbaar bij de Premium-prestatielaag.
 6. Selecteer de replicatieoptie voor het opslagaccount: **LRS**, **GRS** of **RA-GRS**. **RA-GRS** is de standaardinstelling.
@@ -161,12 +165,12 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
     Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over Azure Storage-replicatieopties.
 7. Selecteer de juiste opslaglaag voor wat u nodig hebt: stel de **Toegangslaag** in op **'Cool'** of **'Hot'**. **Hot** is de standaardinstelling.
 8. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
-9. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Overzicht van Azure Resource Manager](../resource-group-overview.md) voor meer informatie over resourcegroepen.
+9. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 10. Selecteer de regio voor uw opslagaccount.
 11. Klik op **Maken** om het opslagaccount te maken.
 
-#### De opslaglaag voor een Blob Storage-account wijzigen via de Azure Portal
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>De opslaglaag voor een Blob Storage-account wijzigen via Azure Portal
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar uw opslagaccount, selecteer Alle resources en selecteer vervolgens uw opslagaccount.
 3. Klik in de Instellingen-blade op **Configuratie** om de accountconfiguratie te bekijken en/of te wijzigen.
 4. Selecteer de juiste opslaglaag voor wat u nodig hebt: stel de **Toegangslaag** in op **'Cool'** of **'Hot'**.
@@ -177,7 +181,7 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
 > 
 > 
 
-## Evalueren en migreren naar Blob Storage-accounts
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evalueren en migreren naar Blob Storage-accounts
 Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren naar het gebruiken van Blob Storage-accounts. Er zijn twee scenario's voor gebruikers:
 
 * U beschikt over een bestaand algemene opslagaccount en wilt een wijziging evalueren in een Blob Storage-account met de juiste opslaglaag.
@@ -185,13 +189,13 @@ Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren na
 
 In beide gevallen moeten eerst de kosten worden geschat van het opslaan en openen van uw gegevens die zijn opgeslagen in een Blob Storage-account en dient u deze te vergelijken met uw huidige kosten.
 
-### Lagen voor Blob Storage-accounts evalueren
+### <a name="evaluating-blob-storage-account-tiers"></a>Lagen voor Blob Storage-accounts evalueren
 Voor het maken van een schatting van de kosten voor het opslaan en openen van gegevens die zijn opgeslagen in een Blob Storage-account, moet u uw bestaande gebruikspatroon evalueren of een schatting maken van het verwachte gebruikspatroon. Doorgaans zijn de volgende gegevens hiervoor van belang:
 
 * Wat is het gebruik van de opslag? Hoeveel gegevens worden er opgeslagen en hoe wijzigt dit maandelijks?
 * Wat is het toegangspatroon voor de opslag? Op hoeveel gegevens in het account worden er lees- en/of schrijfbewerkingen uitgevoerd (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
 
-#### Bewaking van bestaande opslagaccounts
+#### <a name="monitoring-existing-storage-accounts"></a>Bewaking van bestaande opslagaccounts
 Voor het bewaken van uw bestaande opslagaccounts en het verzamelen van deze gegevens, kunt u gebruikmaken van Azure Storage Analytics dat logboekregistratie uitvoert en metrische gegevens biedt voor een opslagaccount.
 Storage Analytics kan metrische gegevens opslaan die samengevoegde transactiestatistieken en capaciteitsgegevens bevat over Blob Storage-serviceaanvragen voor algemene opslagaccounts en Blob Storage-accounts.
 Deze gegevens worden opgeslagen in bekende tabellen in hetzelfde opslagaccount.
@@ -225,15 +229,15 @@ Voor meer informatie over het inschakelen, verzamelen en weergeven van metrische
 > 
 > 
 
-#### Metrische gegevens over het gebruik inzetten voor het schatten van de kosten
-##### Opslagkosten
+#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Metrische gegevens over het gebruik inzetten voor het schatten van de kosten
+##### <a name="storage-costs"></a>Opslagkosten
 De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'data'* toont de opslagcapaciteit die wordt gebruikt door gebruikersgegevens.
 De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'analytics'* toont de opslagcapaciteit die wordt gebruikt door de analyselogboeken.
 
 Deze totale capaciteit die wordt verbruikt door zowel gebruikersgegevens en analyselogboeken (indien ingeschakeld) kunnen vervolgens worden gebruikt om de opslagkosten te schatten voor gegevens in het opslagaccount.
 Deze manier kan ook worden gebruikt voor het schatten van de opslagkosten voor blok- en toevoegblobs in algemene opslagaccounts.
 
-##### Transactiekosten
+##### <a name="transaction-costs"></a>Transactiekosten
 Het totaal van *'TotalBillableRequests'*, in alle items voor een API in de metrische gegevenstabel voor transactie, geeft het totale aantal transacties voor die bepaalde API weer. *bijvoorbeeld*, het totale aantal *'GetBlob'*-transacties in een bepaalde periode kunnen worden berekend door het totaal te nemen van het totale aantal factureerbare aanvragen voor alle items met de rijsleutel *'user;GetBlob'*.
 
 Voor het schatten van de transactiekosten van Blob Storage-accounts moet u de transacties in drie groepen opdelen omdat ze verschillend zijn geprijsd.
@@ -244,7 +248,7 @@ Voor het schatten van de transactiekosten van Blob Storage-accounts moet u de tr
 
 Voor het schatten van de transactiekosten voor algemene opslagaccounts moet u alle transacties verzamelen ongeacht de bewerking/API.
 
-##### Gegevenstoegang en overdrachtskosten voor geo-replicatiegegevens
+##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Gegevenstoegang en overdrachtskosten voor geo-replicatiegegevens
 Opslaganalyse biedt geen informatie over de hoeveelheid gegevens die zijn gelezen en geschreven van en naar een opslagaccount, maar deze hoeveelheid kan min of meer worden geschat door te kijken naar de metrische gegevenstabel voor transacties.
 Het totaal van *'TotalIngress'* in alle items voor een API in de metrische gegevenstabel voor transacties, geeft de totale hoeveelheid inkomende gegevens in bytes voor die bepaalde API weer.
 Op dezelfde manier geeft het totaal van *'TotalEgress'* de totale hoeveelheid uitgaande gegevens in bytes weer.
@@ -261,21 +265,21 @@ De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan o
 > 
 > 
 
-### Bestaande gegevens migreren
+### <a name="migrating-existing-data"></a>Bestaande gegevens migreren
 Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts.
 U kunt de volgende methoden gebruiken om bestaande gegevens vanaf on-premises opslagapparaten, van cloudopslagproviders van derden of vanuit bestaande opslagaccounts voor algemeen gebruik in Azure te migreren naar Blob Storage-accounts:
 
-#### AzCopy
+#### <a name="azcopy"></a>AzCopy
 AzCopy is een Windows-opdrachtregelprogramma dat is  ontworpen voor het high-performance kopiëren van gegevens van en naar Azure Storage. U kunt AzCopy gebruiken om gegevens uit bestaande opslagaccounts voor algemeen gebruik te kopiëren naar een Blob Storage-account en om gegevens van on-premises opslagaccounts te uploaden naar een Blob Storage-account.
 
 Zie [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie.
 
-#### Bibliotheek voor gegevensverplaatsing
+#### <a name="data-movement-library"></a>Bibliotheek voor gegevensverplaatsing
 De Azure Storage-bibliotheek voor gegevensverplaatsing voor .NET is gebaseerd op het basisframework voor gegevensverplaatsing van AzCopy. De bibliotheek is ontworpen voor high-performance, betrouwbare en eenvoudige gegevensoverdracht vergelijkbaar met AzCopy. Hierdoor kunt u in uw toepassing op systeemeigen wijze maximaal profiteren van de functies die AzCopy biedt, zonder dat u externe exemplaren van AzCopy hoeft uit te voeren of te controleren.
 
 Zie [Bibliotheek voor gegevensverplaatsing van Azure Storage voor .Net](https://github.com/Azure/azure-storage-net-data-movement) voor meer informatie.
 
-#### REST-API of clientbibliotheek
+#### <a name="rest-api-or-client-library"></a>REST-API of clientbibliotheek
 U kunt een aangepaste toepassing maken om gegevens naar een Blob Storage-account te migreren met behulp van een van de Azure-clientbibliotheken of de REST API voor Azure Storage-services. Azure Storage biedt uitgebreide clientbibliotheken voor meerdere talen en platforms, zoals  .NET, Java, C++, Node.JS, PHP, Ruby en Python. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
 
 Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voor meer informatie.
@@ -285,7 +289,7 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 > 
 > 
 
-## Veelgestelde vragen
+## <a name="faqs"></a>Veelgestelde vragen
 1. **Zijn de bestaande opslagaccounts nog steeds beschikbaar?**
    
     Ja, de bestaande opslagaccounts zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  U kunt voor deze opslagaccounts echter geen opslaglagen kiezen. Dit zal in de toekomst niet veranderen.
@@ -319,8 +323,8 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
     
     Blob Storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik voor het opslaan van blok- en toevoeg-blobs. Hierbij maken ze maximaal gebruik van de kracht van Azure Storage op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid, prestaties en beveiliging. Afgezien van de hierboven beschreven functionaliteit en beperkingen die specifiek zijn voor Blob Storage-accounts en de bijbehorende opslaglagen, verandert er voor u niets.
 
-## Volgende stappen
-### Blob Storage-accounts evalueren
+## <a name="next-steps"></a>Volgende stappen
+### <a name="evaluate-blob-storage-accounts"></a>Blob Storage-accounts evalueren
 [Beschikbaarheid van Blob Storage-accounts per regio controleren](https://azure.microsoft.com/regions/#services)
 
 [Gebruik van de huidige opslagaccounts evalueren door metrische gegevens voor Azure Storage in te schakelen](storage-enable-and-view-metrics.md)
@@ -329,7 +333,7 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 
 [Prijzen voor gegevensoverdracht controleren](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### Blob Storage-accounts gebruiken
+### <a name="start-using-blob-storage-accounts"></a>Blob Storage-accounts gebruiken
 [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md)
 
 [Gegevens verplaatsen naar en uit Azure Storage](storage-moving-data.md)
@@ -338,6 +342,9 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 
 [Uw opslagaccounts bekijken en verkennen](http://storageexplorer.com/)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

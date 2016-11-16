@@ -2,11 +2,11 @@
 title: Windows-verificatie en Azure Multi-Factor Authentication-server
 description: Dit is de Azure Multi-Factor Authentication-pagina die u helpt bij het implementeren van Windows-verificatie en de Azure Multi-Factor Authentication-server.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Windows-verificatie en Azure Multi-Factor Authentication-server
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows-verificatie en Azure Multi-Factor Authentication-server
 In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakelen en configureren voor een of meer toepassingen.  Hier volgt een lijst met zaken waarmee u rekening moet houden voordat u Windows-verificatie instelt.
 
 * Het systeem moet opnieuw worden opgestart om Azure Multi-Factor Authentication voor Terminal Services te activeren.
@@ -28,7 +32,7 @@ In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakele
 > 
 > 
 
-## Gebruik de volgende procedure als u een toepassing met Windows-verificatie wilt beveiligen.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Gebruik de volgende procedure als u een toepassing met Windows-verificatie wilt beveiligen.
 1. Klik in de Azure Multi-Factor Authentication-server op het pictogram Windows-authenticatie.
    ![Windows-verificatie](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Schakel het selectievakje Windows-verificatie in. Dit selectievakje is standaard uitgeschakeld.
@@ -42,6 +46,9 @@ In de sectie Windows-verificatie kan de beheerder Windows-verificatie inschakele
 10. Selecteer Subnet als u een bereik van IP-adressen wilt opgeven met subnetnotatie. Voer het IP-adres in waarop het subnet begint en kies het juiste IP-masker uit de vervolgkeuzelijst.
 11. Klik op de knop OK.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

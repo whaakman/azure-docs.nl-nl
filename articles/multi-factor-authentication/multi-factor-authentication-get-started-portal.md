@@ -2,11 +2,11 @@
 title: De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en de gebruikersportal aan de slag kunt gaan.
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+
 
 ---
-# De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
+# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
 De gebruikersportal biedt de beheerder de mogelijkheid om de Azure Multi-Factor Authentication-gebruikersportal te installeren en te configureren. De gebruikersportal is een IIS-website waar gebruikers zich kunnen registreren bij Azure Multi-Factor Authentication en hun account kunnen beheren. Een gebruiker kan bij de volgende aanmelding zijn telefoonnummer en pincode wijzigen of Azure Multi-Factor Authentication overslaan.
 
 Gebruikers zullen zich bij de gebruikersportal aanmelden met hun gebruikelijke gebruikersnaam en wachtwoord en zullen een Azure Multi-Factor Authentication-telefoonoproep aannemen of beveiligingsvragen beantwoorden om hun verificatie te voltooien. Als gebruikersregistratie is toegestaan, zal een gebruiker zijn telefoonnummer en pincode configureren de eerste keer dat deze zich aanmeldt bij de gebruikersportal.
@@ -25,13 +29,13 @@ Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook 
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## De gebruikersportal op dezelfde server implementeren als de Azure Multi-Factor Authentication-server
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>De gebruikersportal op dezelfde server implementeren als de Azure Multi-Factor Authentication-server
 Als u de gebruikersportal op dezelfde server als de Azure Multi-Factor Authentication-server wilt installeren, moet aan de volgende vereisten worden voldaan:
 
 * IIS moet worden geïnstalleerd met inbegrip van asp.net en compatibiliteit met IIS 6-metabase (voor IIS 7 of hoger)
 * De aangemelde gebruiker moet beschikken over beheerdersrechten voor de computer en het domein, indien van toepassing.  De reden hiervoor is dat het account machtigingen nodig heeft om Active Directory-beveiligingsgroepen te maken.
 
-### De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
+### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>De gebruikersportal implementeren voor de Azure Multi-Factor Authentication-server
 1. Op de Azure Multi-Factor Authentication-server: klik in het menu links op het Gebruikersportal-pictogram en daarna op de knop Gebruikersportal installeren.
 2. Klik op Volgende.
 3. Klik op Volgende.
@@ -43,7 +47,7 @@ Als u de gebruikersportal op dezelfde server als de Azure Multi-Factor Authentic
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## De gebruikersportal van de Azure Multi-Factor Authentication-server implementeren op een afzonderlijke server
+## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>De gebruikersportal van de Azure Multi-Factor Authentication-server implementeren op een afzonderlijke server
 Voor het gebruik van de Azure Multi-Factor Authentication-app is het volgende vereist om de app correct te laten communiceren met de gebruikersportal:
 
 Controleer of aan deze hardware- en softwarevereisten is voldaan:
@@ -64,18 +68,18 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 2. De gebruikersportal installeren
 3. De instellingen voor de gebruikersportal configureren in de Azure Multi-Factor Authentication-server
 
-### De webservice-SDK installeren
+### <a name="install-the-web-service-sdk"></a>De webservice-SDK installeren
 Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure Multi-Factor Authentication-server is geïnstalleerd, gaat u naar die server en opent u de Azure Multi-Factor Authentication-server. Klik op het pictogram voor de webservice-SDK, en klik op de knop Install Web Service SDK (Webservice-SDK installeren)... en volg de aanwijzingen die worden gegeven. De webservice-SDK moet met een SSL-certificaat worden beveiligd. Een zelfondertekend certificaat volstaat hiervoor, maar het moet dan wel worden geïmporteerd in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
-### De gebruikersportal installeren
+### <a name="install-the-user-portal"></a>De gebruikersportal installeren
 Voordat u de gebruikersportal op een aparte server installeert, houdt u rekening met het volgende:
 
 * Het is handig om een webbrowser te openen op de internetgerichte webserver en te navigeren naar de URL van de webservice-SDK die in het bestand web.config is ingevoerd. Als de browser de webservice kan bereiken, wordt u normaal om referenties gevraagd. Geef de gebruikersnaam en het wachtwoord op precies zoals deze in het bestand web.config zijn ingevoerd. Zorg ervoor dat er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 * Als zich voor de webserver van de gebruikersportal een omgekeerde proxy of firewall bevindt en SSL-offloading uitvoert, kunt u het bestand web.config van de gebruikersportal bewerken en de volgende sleutel toevoegen aan de sectie <appSettings>, zodat de gebruikersportal http in plaats van https kan gebruiken. <add key="SSL_REQUIRED" value="false"/>
 
-#### De gebruikersportal installeren
+#### <a name="to-install-the-user-portal"></a>De gebruikersportal installeren
 1. Open Windows Verkenner op de Azure Multi-Factor Authentication-server en navigeer naar de map waarin de Azure Multi-Factor Authentication-server is geïnstalleerd (bijvoorbeeld C:\Program Files\Multi-Factor Authentication-server). Kies de 32-bits of 64-bits versie van het MultiFactorAuthenticationUserPortalSetup-installatiebestand, die geschikt is voor de server waarop de gebruikersportal wordt geïnstalleerd. Kopieer het installatiebestand naar de internetgerichte server.
 2. Op de internetgerichte webserver moet het installatiebestand worden uitgevoerd met beheerdersrechten. De eenvoudigste manier om dit te doen is een opdrachtprompt openen als een beheerder en navigeren naar de locatie waar het installatiebestand is gekopieerd.
 3. Voer het MultiFactorAuthenticationUserPortalSetup64-installatiebestand uit en wijzig de naam van de site en de virtuele map, indien gewenst.
@@ -85,7 +89,7 @@ Voordat u de gebruikersportal op een aparte server installeert, houdt u rekening
 7. Als de website waaronder de gebruikersportal is geïnstalleerd (bijvoorbeeld Standaardwebsite) nog niet is verbonden met een openbaar ondertekend certificaat, installeert u het certificaat op de server als dit nog niet is gebeurd, opent u IIS-beheer en verbindt u het certificaat aan de website.
 8. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
-## De instellingen voor de gebruikersportal op de Azure Multi-Factor Authentication-server configureren
+## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor de gebruikersportal op de Azure Multi-Factor Authentication-server configureren
 Nu de portal is geïnstalleerd, moet u de Azure Multi-Factor Authentication-server voor gebruik met de portal configureren.
 
 De Azure Multi-Factor Authentication-server biedt verschillende opties voor de gebruikersportal.  De volgende tabel geeft een lijst van deze opties en een verklaring van de taak waarvoor ze worden gebruikt.
@@ -109,7 +113,7 @@ De meeste van deze instellingen zijn zichtbaar voor de gebruiker zodra deze zijn
 
 ![Instellingen gebruikersportal](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### De instellingen voor de gebruikersportal configureren op de Azure Multi-Factor Authentication-server
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor de gebruikersportal configureren op de Azure Multi-Factor Authentication-server
 1. Klik op de Azure Multi-Factor Authentication-server op het pictogram Gebruikersportal. Voer op het tabblad Instellingen in het tekstvak URL gebruikersportal de URL naar de gebruikersportal in. Als de e-mailfunctionaliteit is ingeschakeld, zal deze URL worden ingevoegd in e-mailberichten die worden verzonden naar gebruikers wanneer ze worden geïmporteerd op de Azure Multi-Factor Authentication-server.
 2. Kies de instellingen die u in de gebruikersportal wilt gebruiken. Als u bijvoorbeeld wilt toestaan dat gebruikers hun verificatiemethoden beheren, zorgt u ervoor dat de optie Toestaan dat gebruikers de methode selecteren wordt ingeschakeld, samen met de methoden waaruit ze kunnen kiezen.
 3. Klik rechtsboven op de Help-koppeling voor meer informatie over de weergegeven instellingen.
@@ -117,28 +121,28 @@ De meeste van deze instellingen zijn zichtbaar voor de gebruiker zodra deze zijn
 <center>![Instellen](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
-## Tabblad Beheerders
+## <a name="administrators-tab"></a>Tabblad Beheerders
 Op dit tabblad kunt u gewoon gebruikers toevoegen die over beheerdersrechten zullen beschikken.  Wanneer u een beheerder toevoegt, kunt u de machtigingen die zij krijgen exact instellen.  Op die manier weet u zeker dat u aan de beheerder alleen de benodigde machtigingen verleent.  Klik gewoon op de knop Toevoegen en selecteer vervolgens een gebruiker en de bijbehorende machtigingen. Klik vervolgens op Toevoegen.
 
 ![Beheerders van gebruikersportal](./media/multi-factor-authentication-get-started-portal/admin.png)
 
-## Beveiligingsvragen
+## <a name="security-questions"></a>Beveiligingsvragen
 Op dit tabblad kunt u de beveiligingsvragen opgeven die gebruikers juist moeten beantwoorden als de optie Beveiligingsvragen gebruiken als terugvaloptie is geselecteerd.  Azure Multi-Factor Authentication-server wordt geleverd met standaardvragen die u kunt gebruiken.  U kunt ook de volgorde wijzigen of uw eigen vragen toevoegen.  Als u uw eigen vragen toevoegt, kunt u ook de taal opgeven waarin u die vragen wilt stellen.
 
 ![Beveiligingsvragen van gebruikersportal](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
-## Verstreken sessies
-## SAML
+## <a name="passed-sessions"></a>Verstreken sessies
+## <a name="saml"></a>SAML
 Hier kunt u instellen dat de gebruikersportal claims accepteert van een identiteitsprovider die SAML gebruikt.  U kunt hier ook de time-out voor een SAML-sessie, het verificatiecertificaat en de omleidings-URL voor afmelden opgeven.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
-## Goedgekeurde IP-adressen
+## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
 Op dit tabblad kunt u een IP-adres of een IP-adresbereik opgeven dat kan worden toegevoegd zodat meervoudige verificatie wordt overgeslagen als een gebruiker zich aanmeldt vanaf een van deze IP-adressen.
 
 ![Goedgekeurde IP-adressen gebruikersportal](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## Selfservice voor gebruikersregistratie
+## <a name="selfservice-user-enrollment"></a>Selfservice voor gebruikersregistratie
 Als u wilt dat uw gebruikers zich kunnen aanmelden en registreren, selecteert u de opties Aanmelden van gebruikers toestaan en Registreren van gebruikers toestaan. Houd er rekening mee dat de instellingen die u selecteert, invloed hebben op de gebruikerservaring bij het aanmelden.
 
 Wanneer bijvoorbeeld een gebruiker zich bij de gebruikersportal aanmeldt en op de knop Aanmelden klikt, wordt de gebruiker naar de pagina met gebruikersinstellingen van Azure Multi-Factor Authentication geleid.  Afhankelijk van hoe u Azure Multi-Factor Authentication hebt geconfigureerd, kan een gebruiker al dan niet de verificatiemethode selecteren.  
@@ -170,6 +174,9 @@ Als de beheerders de Azure Multi-Factor Authentication-server hebben geconfigure
 
 De zelfregistratie van de gebruiker is nu voltooid en de gebruiker is aangemeld bij de gebruikersportal.  Gebruikers kunnen zich later op elk gewenst moment opnieuw aanmelden bij de gebruikersportal om hun telefoonnummers, pincodes, verificatiemethoden en beveiligingsvragen te wijzigen als dat door de beheerders is toegestaan.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

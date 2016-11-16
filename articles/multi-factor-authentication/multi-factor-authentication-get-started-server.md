@@ -3,11 +3,11 @@ title: Aan de slag met de Azure Multi-Factor Authentication-server
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan.
 services: multi-factor-authentication
 keywords: verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +15,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 76e768d6640eb72292556c4fe14467cf5072dc21
+
 
 ---
-# Aan de slag met de Azure Multi-Factor Authentication-server
+# <a name="getting-started-with-the-azure-multifactor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
 Nu dat we hebben bepaald of we gebruikmaken van on-premises meervoudige verificatie, gaan we aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als de PhoneFactor-server al is geïnstalleerd en u een upgrade wilt uitvoeren, leest u het artikel [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) (Een upgrade uitvoeren naar de Azure Multi-Factor Authentication-server). Als u op zoek bent naar informatie over het installeren van alleen de webservice, leest u het artikel [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md) (Webservice voor mobiele apps van Azure Multi-Factor Authentication-server implementeren).
 
-## De Azure Multi-Factor Authentication-server downloaden
+## <a name="download-the-azure-multifactor-authentication-server"></a>De Azure Multi-Factor Authentication-server downloaden
 U kunt de Azure Multi-Factor Authentication-server op twee verschillende manieren downloaden. Beide downloads verlopen via de Azure-portal. Bij de eerste manier beheert u rechtstreeks de Multi-Factor Authentication-provider. De tweede manier verloopt via de service-instellingen. Voor de tweede manier is een Multi-Factor Authentication-provider of een Azure MFA-, Azure AD Premium- of Enterprise Mobility Suite-licentie vereist.
 
-### De Azure Multi-Factor Authentication-server downloaden via de Azure-portal
+### <a name="to-download-the-azure-multifactor-authentication-server-from-the-azure-portal"></a>De Azure Multi-Factor Authentication-server downloaden via de Azure-portal
 - - -
 1. Meld u als beheerder aan bij de Azure-portal.
 2. Selecteer links Active Directory.
@@ -37,7 +41,7 @@ U kunt de Azure Multi-Factor Authentication-server op twee verschillende maniere
    ![Downloaden](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Sla de download op.
 
-### De Azure Multi-Factor Authentication-server downloaden via de service-instellingen
+### <a name="to-download-the-azure-multifactor-authentication-server-via-the-service-settings"></a>De Azure Multi-Factor Authentication-server downloaden via de service-instellingen
 1. Meld u als beheerder aan bij de Azure-portal.
 2. Selecteer links Active Directory.
 3. Dubbelklik op uw exemplaar van Azure AD.
@@ -45,12 +49,12 @@ U kunt de Azure Multi-Factor Authentication-server op twee verschillende maniere
    ![Downloaden](./media/multi-factor-authentication-sdk/download2.png)
 5. Selecteer onder Multi-Factor Authentication de optie **Service-instellingen beheren**.
 6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**.
-   ![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+   ![Downloaden](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. Hierdoor opent u een nieuwe pagina. Klik op **Downloads**.
 8. Klik boven **Activeringsreferenties genereren** op **Downloaden**.
 9. Sla de download op.
 
-## De Azure Multi-Factor Authentication-server installeren en configureren
+## <a name="install-and-configure-the-azure-multifactor-authentication-server"></a>De Azure Multi-Factor Authentication-server installeren en configureren
 Nu u de server hebt gedownload, kunt u deze installeren en configureren.  Zorg ervoor dat de server waarop u deze installeert aan de volgende vereisten voldoet.
 
 | Vereisten voor Azure Multi-Factor Authentication-server | Beschrijving |
@@ -58,7 +62,7 @@ Nu u de server hebt gedownload, kunt u deze installeren en configureren.  Zorg e
 | Hardware |<li>200 MB aan vasteschijfruimte</li><li>Voor x32 of x64 geschikte processor</li><li>1 GB of meer RAM-geheugen</li> |
 | Software |<li>Windows Server 2008 of een recentere versie als de host een serverbesturingssysteem is</li><li>Windows 7 of een recentere versie als de host een clientbesturingssysteem is</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 of een recentere versie als de installatie wordt uitgevoerd vanuit de gebruikersportal of de webservice-SDK</li> |
 
-### Firewallvereisten voor Azure Multi-Factor Authentication-server
+### <a name="azure-multifactor-authentication-server-firewall-requirements"></a>Firewallvereisten voor Azure Multi-Factor Authentication-server
 - - -
 Elke MFA-server moet kunnen communiceren op poort 443, uitgaand naar het volgende:
 
@@ -82,7 +86,7 @@ Als u geen gebruik maakt van Azure Multi-Factor Authentication-functies voor geb
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-### De Azure Multi-Factor Authentication-server installeren en configureren
+### <a name="to-install-and-configure-the-azure-multifactor-authentication-server"></a>De Azure Multi-Factor Authentication-server installeren en configureren
 - - -
 1. Dubbelklik op het uitvoerbare bestand. Hierdoor wordt de installatie gestart.
 2. Zorg ervoor dat in het scherm Installatiemap selecteren de map juist is en klik op Volgende.
@@ -93,10 +97,10 @@ Als u geen gebruik maakt van Azure Multi-Factor Authentication-functies voor geb
 
 De bovenstaande stappen geven een snelle installatie met behulp van de configuratiewizard weer.  U kunt de authenticatiewizard opnieuw uitvoeren door deze te selecteren in het menu Hulpmiddelen op de server.
 
-## Gebruikers uit Active Directory importeren
+## <a name="import-users-from-active-directory"></a>Gebruikers uit Active Directory importeren
 Nu dat de server is geïnstalleerd en geconfigureerd, kunt u snel gebruikers importeren in de Azure MFA-server.
 
-### Gebruikers uit Active Directory importeren
+### <a name="to-import-users-from-active-directory"></a>Gebruikers uit Active Directory importeren
 - - -
 1. Selecteer links in de Azure MFA-server de optie **Gebruikers**.
 2. Selecteer onderaan **Importeren uit Active Directory**.
@@ -105,7 +109,7 @@ Nu dat de server is geïnstalleerd en geconfigureerd, kunt u snel gebruikers imp
 
 ![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
-## E-mail verzenden naar gebruikers
+## <a name="send-users-an-email"></a>E-mail verzenden naar gebruikers
 Nu dat u uw gebruikers in de Azure Multi-Factor Authentication-server hebt geïmporteerd, is het raadzaam uw gebruikers via e-mail te informeren dat ze zijn geregistreerd voor meervoudige verificatie.
 
 Met de Azure Multi-Factor Authentication-server kunt u uw gebruikers op verschillende manieren configureren voor het gebruik van Multi-Factor Authentication.  Als u bijvoorbeeld de telefoonnummers van de gebruikers weet of de telefoonnummers in de Azure Multi-Factor Authentication-server hebt kunnen importeren vanuit de gebruikerslijst van hun bedrijf, zal het e-mailbericht gebruikers laten weten dat ze zijn geconfigureerd voor het gebruik van Azure Multi-Factor Authentication, zal het enkele instructies bieden voor het gebruik van Azure Multi-Factor Authentication en zal het de gebruiker informeren over het telefoonnummer waarop zij hun verificaties zullen ontvangen.  
@@ -114,7 +118,7 @@ De inhoud van het e-mailbericht zal verschillen afhankelijk van de verificatieme
 
 Als telefoonnummers van gebruikers niet zijn geconfigureerd of geïmporteerd in de Azure Multi-Factor Authentication-server, of als gebruikers vooraf geconfigureerd zijn om voor verificatie de mobiele app te gebruiken, kunt u ze een e-mailbericht verzenden om hen te laten weten dat ze zijn geconfigureerd voor het gebruik van Azure Multi-Factor Authentication en hen te instrueren hun accountregistratie te voltooien via de Azure Multi-Factor Authentication-gebruikersportal.  Het e-mailbericht zal een hyperlink bevatten waarop de gebruiker kan klikken om toegang te krijgen tot de gebruikersportal. Wanneer de gebruiker op de hyperlink klikt, wordt de webbrowser geopend en wordt de gebruiker naar de Azure Multi-Factor Authentication-gebruikersportal van het bedrijf geleid.   
 
-### E-mailberichten en e-mailsjablonen configureren
+### <a name="configuring-email-and-email-templates"></a>E-mailberichten en e-mailsjablonen configureren
 Door links op het e-mailpictogram te klikken, kunt u de instellingen voor het verzenden van deze e-mails bepalen.  Hier kunt u de SMTP-gegevens van uw e-mailserver invoeren en kunt u een collectief e-mailbericht verzenden door het selectievakje E-mails versturen naar gebruikers in te schakelen.
 
 ![E-mailinstellingen](./media/multi-factor-authentication-get-started-server/email1.png)
@@ -123,7 +127,7 @@ Op het tabblad E-mailinhoud ziet u alle beschikbare e-mailsjablonen waaruit u ku
 
 ![E-mailsjablonen](./media/multi-factor-authentication-get-started-server/email2.png)
 
-## Hoe de Azure Multi-Factor Authentication-server omgaat met gebruikersgegevens
+## <a name="how-the-azure-multifactor-authentication-server-handles-user-data"></a>Hoe de Azure Multi-Factor Authentication-server omgaat met gebruikersgegevens
 Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, worden de gegevens van een gebruiker opgeslagen op de on-premises servers. In de cloud worden geen permanente gebruikersgegevens opgeslagen. Wanneer de gebruiker een tweeledige verificatie uitvoert, verzendt de MFA-server gegevens naar de Azure MFA-cloudservice om de verificatie uit te voeren. Wanneer deze verificatieaanvragen naar de cloudservice worden verzonden, worden de volgende velden in de aanvraag en logbestanden verzonden, zodat ze beschikbaar zijn in de verificatie-/gebruiksrapporten van de klant. Sommige velden zijn optioneel. Ze kunnen bijgevolg in de Multi-Factor Authentication-server worden in- of uitgeschakeld. De communicatie tussen de MFA-server en de MFA-cloudservice maakt gebruik van SSL/TLS via poort 443 (uitgaand). Deze velden zijn:
 
 * Unieke id - gebruikersnaam of interne MFA-server-id
@@ -139,7 +143,7 @@ Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, word
 
 Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/geweigerd) en de reden voor eventuele weigeringen opgeslagen met de verificatiegegevens en beschikbaar gesteld in de verificatie-/gebruiksrapporten.
 
-## Geavanceerde Azure Multi-Factor Authentication-serverconfiguraties
+## <a name="advanced-azure-multifactor-authentication-server-configurations"></a>Geavanceerde Azure Multi-Factor Authentication-serverconfiguraties
 Gebruik de onderstaande tabel voor meer informatie over geavanceerde instellingen en configuratie-informatie.
 
 | Methode | Beschrijving |
@@ -149,11 +153,14 @@ Gebruik de onderstaande tabel voor meer informatie over geavanceerde instellinge
 | [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md) |Informatie over de installatie en configuratie van de Azure MFA-server met RADIUS. |
 | [IIS-authenticatie](multi-factor-authentication-get-started-server-iis.md) |Informatie over de installatie en configuratie van de Azure MFA-server met IIS. |
 | [Windows-verificatie](multi-factor-authentication-get-started-server-windows.md) |Informatie over de installatie en configuratie van de Azure MFA-server met Windows-authenticatie. |
-| [LDAP-authenticatie](multi-factor-authentication-get-started-server-ldap.md) |Informatie over de installatie en configuratie van de Azure MFA-server met LDAP-authenticatie. |
+| [LDAP-verificatie](multi-factor-authentication-get-started-server-ldap.md) |Informatie over de installatie en configuratie van de Azure MFA-server met LDAP-authenticatie. |
 | [Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md) |Informatie over de installatie en configuratie van de Azure MFA-server met extern bureaublad-gateway en gebruik van RADIUS. |
 | [Synchroniseren met Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md) |Informatie over de installatie en configuratie van de synchronisatie tussen Active Directory en de Azure MFA-server. |
 | [Implementatie van de webservice voor mobiele apps van de Azure Multi-Factor Authentication-server](multi-factor-authentication-get-started-server-webservice.md) |Informatie over de installatie en configuratie van de webservice van de Azure MFA-server. |
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

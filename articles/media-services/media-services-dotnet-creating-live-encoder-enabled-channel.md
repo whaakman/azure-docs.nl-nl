@@ -2,11 +2,11 @@
 title: Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij de stappen voor het maken van een kanaal dat een single-bitrate livestream ontvangt, en het coderen van deze stream naar een multi-bitrate stream met .NET SDK.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -68,7 +72,7 @@ Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het s
 3. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
 4. Verwijder het programma (en verwijder desgewenst de asset).
 
-## <a name="what-you'll-learn"></a>Wat u leert
+## <a name="what-youll-learn"></a>Wat u leert
 In dit onderwerp wordt beschreven hoe u verschillende bewerkingen op kanalen en programma's met Media Services .NET SDK uitvoert. Aangezien veel bewerkingen langlopend zijn, worden er .NET API's gebruikt waarmee langlopende bewerkingen worden beheerd.
 
 In het onderwerp wordt beschreven hoe u het volgende doet:
@@ -101,7 +105,7 @@ Als u geen account hebt, kunt u binnen een paar minuten een account voor de grat
 ## <a name="download-sample"></a>Voorbeeld downloaden
 U kunt [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) een voorbeeld ophalen en uitvoeren.
 
-## <a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Setup voor de ontwikkeling met Media Services SDK voor .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Setup voor de ontwikkeling met Media Services SDK voor .NET
 1. Maak een consoletoepassing met Visual Studio.
 2. Gebruik het Media Services NuGet-pakket om de Media Services SDK voor .NET aan uw consoletoepassing toe te voegen.
 
@@ -341,7 +345,7 @@ Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op 
             /// <returns></returns>
             public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
             {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                 // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
                 var locator = _context.Locators.CreateLocator
                     (
                         LocatorType.OnDemandOrigin,
@@ -509,7 +513,7 @@ Voeg de sectie appSettings aan het bestand app.config toe en geef de waarden op 
                     operationId ?? string.Empty);
             }
         }
-    }   
+    }    
 
 
 ## <a name="next-step"></a>Volgende stap
@@ -520,9 +524,12 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Zoekt u iets anders?
+### <a name="looking-for-something-else"></a>Zoekt u iets anders?
 Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of het onderwerp op een andere manier niet aan uw behoeften voldoet, kunt u ons via de onderstaande Disqus-thread feedback geven.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

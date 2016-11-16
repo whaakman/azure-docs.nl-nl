@@ -1,12 +1,12 @@
 ---
 title: Welke workloads kunt u met Azure Site Recovery beveiligen?
-description: Azure Site Recovery beveiligt uw workloads en toepassingen door de replicatie, failovers en het herstel van on-premises virtuele machines en fysieke servers naar Azure of een secundaire on-premises site te coördineren.
+description: "Azure Site Recovery beveiligt uw workloads en toepassingen door de replicatie, failovers en het herstel van on-premises virtuele machines en fysieke servers naar Azure of een secundaire on-premises site te coördineren."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: cfreeman
-editor: ''
-
+editor: 
+ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/10/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddeadcf741eb099f7c14a554dd4f31561a408aa1
+
 
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
 Dit artikel beschrijft de workloads en toepassingen die u met Azure Site Recovery kunt repliceren.
 
 U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
@@ -28,7 +32,7 @@ Site Recovery is een Azure-service die deel uitmaakt van uw BCDR-strategie. Met 
 
 Site Recovery kan worden geïntegreerd met diverse Microsoft-toepassingen, waaronder SharePoint, Exchange, Dynamics, SQL Server en Active Directory. Microsoft werkt ook nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat. U kunt replicatie-oplossingen per app aanpassen.
 
-## <a name="why-use-site-recovery-for-application-replication?"></a>Waarom u Site Recovery moet gebruiken voor het repliceren van toepassingen
+## <a name="why-use-site-recovery-for-application-replication"></a>Waarom u Site Recovery moet gebruiken voor het repliceren van toepassingen
 Site Recovery biedt als volgt beveiliging op toepassingsniveau en herstel:
 
 * Toepassingsonafhankelijk, met replicatie voor alle workloads die worden uitgevoerd op een ondersteunde machine.
@@ -129,6 +133,9 @@ Gebruik Site Recovery om uw SAP-implementatie als volgt te beveiligen:
 ## <a name="next-steps"></a>Volgende stappen
 [Voorbereiding op de implementatie van Site Recovery](site-recovery-best-practices.md) 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

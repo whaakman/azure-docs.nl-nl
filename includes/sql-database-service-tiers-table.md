@@ -1,4 +1,4 @@
-### Basisservicelaag
+### <a name="basic-service-tier"></a>Basisservicelaag
 |  |  |
 | --- | --- |
 | Maximaal aantal DTU's |5 |
@@ -10,7 +10,7 @@
 | Een punt in de tijd herstellen |Elk punt in de afgelopen 7 dagen |
 | Herstel na noodgevallen |Actieve Geo-replicatie |
 
-### Standaardservicelaag
+### <a name="standard-service-tier"></a>Standaardservicelaag
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Een punt in de tijd herstellen |Elk punt in de afgelopen 35 dagen |
 | Herstel na noodgevallen |Actieve Geo-replicatie |
 
-### Premium servicelaag
+### <a name="premium-service-tier"></a>Premium servicelaag
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,6 +36,8 @@
 | Een punt in de tijd herstellen |Elk punt in de afgelopen 35 dagen |
 | Herstel na noodgevallen |Actieve Geo-replicatie |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

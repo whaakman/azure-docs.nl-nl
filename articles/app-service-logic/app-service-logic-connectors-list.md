@@ -2,11 +2,11 @@
 title: Lijst met beschikbare connectors en API-apps | Microsoft Docs
 description: Meer informatie over connectors en API-apps in Azure App Service
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
-# Lijst met connectors en API-apps voor gebruik in Logic Apps
+# <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>Lijst met connectors en API-apps voor gebruik in Logic Apps
 > [!NOTE]
 > Deze versie van het artikel is van toepassing Logic Apps-previewschemaversie 2014-12-01. Zie [New Connectors List](../connectors/apis-list.md) (Lijst met nieuwe connectors) voor de General Availability (GA)-versie van Logic Apps.
 > 
@@ -31,7 +35,7 @@ Zie [Prijzen van Azure App Service](https://azure.microsoft.com/pricing/details/
 > 
 > 
 
-## Basisconnectors
+## <a name="core-connectors"></a>Basisconnectors
 In de volgende tabel ziet u de beschikbare connectors en API-apps die zijn gemaakt door Microsoft en die beschikbaar zijn als basisconnectors.
 
 | Naam | Beschrijving |
@@ -40,7 +44,7 @@ In de volgende tabel ziet u de beschikbare connectors en API-apps die zijn gemaa
 | [HTTP](app-service-logic-connector-http.md) |De HTTP-listener opent een eindpunt dat als een HTTP-server fungeert en luistert naar inkomende HTTP- of HTTPS-aanvragen. Voor de HTTP-actie is geen API-app vereist en de actie wordt op systeemeigen wijze ondersteund in Logic Apps. |
 | [Slack](app-service-logic-connector-slack.md) |U kunt verbinding maken met Slack en berichten plaatsen in ongebruikte kanalen. |
 
-## Enterprise Integration-connectors
+## <a name="enterprise-integration-connectors"></a>Enterprise Integration-connectors
 In de volgende tabel ziet u de beschikbare connectors en API-apps die zijn gemaakt door Microsoft en die beschikbaar zijn als Enterprise Integration-connectors.
 
 | Naam | Beschrijving |
@@ -53,25 +57,28 @@ In de volgende tabel ziet u de beschikbare connectors en API-apps die zijn gemaa
 | [Microsoft SQL Server](app-service-logic-connector-sql.md) |Hiermee kunt u verbinding maken met on-premises SQL Server of Azure SQL Database. U kunt items in een SQL-databasetabel maken, bijwerken, ophalen en verwijderen. |
 | MQ |Hiermee kunt u verbinding maken met IBM WebSphere MQ Server versie 8, on-premises en via een virtuele Azure-machine waarop een Windows-besturingssysteem wordt uitgevoerd. Bij on-premises gebruik kunt u VPN of Azure ExpressRoute gebruiken. De connector bevat ook Microsoft Client voor MQ.<br/><br/>Er zijn geen triggers. Er zijn geen acties.<br/><br/>**Opmerking** Kan momenteel niet worden gebruikt met Logic Apps. |
 
-## Connectors als triggers
+## <a name="connectors-as-triggers"></a>Connectors als triggers
 Verschillende connectors bieden triggers voor Logic Apps. Er zijn twee typen triggers:
 
 1. Poll-triggers: Met deze triggers wordt uw service met een opgegeven frequentie gepeild om te controleren of er nieuwe gegevens zijn. Als er nieuwe gegevens beschikbaar zijn, wordt een nieuw exemplaar van uw logische app uitgevoerd waarbij de gegevens als invoer worden gebruikt. Om te voorkomen dat dezelfde gegevens meerdere keren wordt gebruikt, kunnen met de trigger gegevens worden opgeschoond die zijn gelezen en aan de logische app zijn doorgegeven. Voorbeelden van dergelijke connectors zijn File, SQL en Azure Storage.
 2. Push-triggers: Met deze triggers wordt geluisterd naar gegevens op een eindpunt of wordt geluisterd of een gebeurtenis plaatsvindt. Vervolgens wordt een nieuw exemplaar van een logische app getriggerd. Voorbeelden van dergelijke connectors zijn HTTP-listener en Twitter.
 
-## Connectors als acties
+## <a name="connectors-as-actions"></a>Connectors als acties
 Connectors kunnen ook worden gebruikt als acties in uw logische app. Acties zijn handig voor het opzoeken van gegevens in de logische app, die vervolgens in de uitvoering kunnen worden gebruikt. U kunt tijdens het afhandelen van een order bijvoorbeeld gegevens in een SQL-database opzoeken voor meer informatie over een klant. Of misschien wilt u gegevens op een doel schrijven, bijwerken of verwijderen. U kunt dit doen met de acties die via de connectors beschikbaar zijn. Acties worden toegewezen aan bewerkingen in API-apps (zoals gedefinieerd door de Swagger-metagegevens).
 
-## Uw eigen connectors en API-apps maken
+## <a name="create-your-own-connectors-and-api-apps"></a>Uw eigen connectors en API-apps maken
 [Naslaginformatie over connectors en API-apps](http://aka.ms/appservicesconnectorreference)  
 [API-app-triggers voor Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md)  
 [Naslaginformatie over Logic Apps](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
-## Meer informatie over connectors en API-apps
-[Wat zijn connectors en BizTalk API-apps?](app-service-logic-what-are-biztalk-api-apps.md)  
+## <a name="more-on-connectors-and-api-apps"></a>Meer informatie over connectors en API-apps
+[Wat zijn connectors en BizTalk API Apps?](app-service-logic-what-are-biztalk-api-apps.md)  
 [Hybride verbindingsbeheer gebruiken in Azure App Service](app-service-logic-hybrid-connection-manager.md)  
 [Ingebouwde API-apps en connectors beheren en bewaken](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,8 +5,8 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b21e24a5f692fa315db7b58d2d2824f7145729
+
 
 ---
-# Wat is Azure Scheduler?
+# <a name="what-is-azure-scheduler"></a>Wat is Azure Scheduler?
 Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.  In Scheduler wordt dit gedaan met behulp van [de Azure Portal](scheduler-get-started-portal.md), programmacode, de [REST-API](https://msdn.microsoft.com/library/mt629143.aspx) of Azure PowerShell.
 
 Scheduler maakt, onderhoudt en roept gepland werk aan.  Scheduler host geen workloads en voert geen programmacode uit. Scheduler *roept* programmacode aan die elders wordt gehost, in Azure, on-premises of bij een andere provider. Dit aanroepen gebeurt via HTTP, HTTPS, een opslagwachtrij, een Service Bus-wachtrij of een Service Bus-onderwerp.
@@ -30,10 +34,10 @@ Er zijn verschillende scenario's die zich goed lenen voor het gebruik van Schedu
 
 Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](scheduler-concepts-terms.md) te maken, bij te werken, te verwijderen, weer te geven en te beheren, met behulp van scripts en in de portal.
 
-## Zie ook
- [Azure Scheduler-concepten en terminologie entiteitenhiërarchie](scheduler-concepts-terms.md)
+## <a name="see-also"></a>Zie ook
+ [Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie](scheduler-concepts-terms.md)
 
- [Aan de slag met behulp van Scheduler in de Azure Portal](scheduler-get-started-portal.md)
+ [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
 
  [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
 
@@ -49,6 +53,9 @@ Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](sch
 
  [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

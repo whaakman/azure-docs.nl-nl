@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Een back-up maken
+### <a name="to-take-a-backup"></a>Een back-up maken
 1. Klik op het apparaat op de pagina **Quick Start** en klik vervolgens op **Een back-upbeleid toevoegen**. Hiermee start u de wizard Back-upbeleid toevoegen. 
 2. Op de pagina **Uw back-upbeleid definiëren** doet u het volgende:
    
@@ -28,6 +28,8 @@ U hebt de apparaatconfiguratie voltooid.
 
 Als u een video wilt bekijken over het maken van een StorSimple-back-up, klikt u [hier](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,24 +2,28 @@
 title: Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory | Microsoft Docs
 description: Problemen met aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73d58df13d3265312b371a02e12fbb9342fb3980
+
 
 ---
-# Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory
-In dit onderwerp wordt informatie geboden over problemen met het aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory (Azure AD).
+# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory (Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory)
+In dit artikel wordt informatie geboden over problemen met het aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory (Azure AD).
 
-## Accounts die u kunt gebruiken om u aan te melden
+## <a name="accounts-that-you-can-use-to-sign-in"></a>Accounts die u kunt gebruiken om u aan te melden
 We beginnen met de accounts die u kunt gebruiken om u aan te melden. Er zijn twee typen: een Microsoft-account (voorheen bekend als Microsoft Live ID) en een werk- of schoolaccount dat is opgeslagen in Azure AD.
 
 | Microsoft-account | Azure AD-account |
@@ -34,7 +38,7 @@ Hoewel Azure oorspronkelijk alleen toegang verleende aan Microsoft-accountgebrui
 Hier meldt bijvoorbeeld een gebruiker met een Microsoft-account zich aan bij de klassieke Azure Portal.
 
 > [!NOTE]
-> Als u zich met msmith@hotmail.com wilt aanmelden bij de klassieke Azure Portal, moet er een Azure-abonnement aan dat account gekoppeld zijn. Het account moet een servicebeheerder of medebeheerder van het abonnement zijn.
+> Als u zich met msmith@hotmail.com wilt aanmelden bij de klassieke Azure-portal, moet er een Azure-abonnement aan dat account gekoppeld zijn. Het account moet een servicebeheerder of medebeheerder van het abonnement zijn.
 > 
 > 
 
@@ -42,7 +46,7 @@ Hier meldt bijvoorbeeld een gebruiker met een Microsoft-account zich aan bij de 
 
 Omdat dit Hotmail-adres een klantaccount is, wordt de verificatie van de aanmelding uitgevoerd door het klantidentiteitssysteem voor Microsoft-accounts. Het Azure AD-identiteitssysteem vertrouwt de verificatie die is uitgevoerd door het Microsoft-accountsysteem en geeft een token uit voor toegang tot de Azure-services.
 
-## Hoe een Azure-abonnement is gerelateerd aan Azure AD
+## <a name="how-an-azure-subscription-is-related-to-azure-ad"></a>Hoe een Azure-abonnement is gerelateerd aan Azure AD
 Voor elk Azure-abonnement is er een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. Op het tabblad Instellingen kunt u zien welke directory wordt vertrouwd door uw abonnement. U kunt de [abonnementsinstellingen bewerken](active-directory-understanding-resource-access.md) om te wijzigen welke directory wordt vertrouwd.
 
 De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort); deze resources lijken meer op onderliggende resources van een abonnement. Als een abonnement is verlopen, wordt toegang tot de andere resources die zijn gekoppeld aan het abonnement ook geblokkeerd. De directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directorygebruikers te blijven beheren.
@@ -55,7 +59,7 @@ In dit diagram ziet u het abonnement van Michael Smith nadat hij zich heeft gere
 
 ![][2]
 
-## Een abonnement en een directory beheren
+## <a name="how-to-manage-a-subscription-and-a-directory"></a>Een abonnement en een directory beheren
 Met de beheerdersrollen voor een Azure-abonnement worden de resources beheerd die zijn gekoppeld aan het Azure-abonnement. Deze rollen en aanbevolen procedures voor het beheer van uw abonnement worden besproken in [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 De rol Servicebeheerder wordt standaard aan u toegewezen wanneer u zich registreert. Als anderen zich moeten aanmelden en services willen gebruiken met hetzelfde abonnement, kunt u hen toevoegen als medebeheerders. De servicebeheerder en medebeheerders kunnen Microsoft-accounts of werk- of schoolaccounts zijn uit de directory waaraan het Azure-abonnement is gekoppeld.
@@ -68,32 +72,32 @@ Wat belangrijk is om te onthouden is dat Azure-abonnementbeheerders en Azure AD-
 
 Een persoon kan beide rollen hebben, maar dit is niet vereist. De rol van hoofdbeheerder van een directory kan aan een gebruiker worden toegewezen, maar deze komt dan niet meer in aanmerking voor de rol van servicebeheerder of medebeheerder van een Azure-abonnement. Deze gebruiker kan zich niet aanmelden bij de klassieke Azure Portal als deze geen beheerder is van het abonnement. De gebruiker kan echter wel directorybeheertaken uitvoeren met andere hulpprogramma’s, zoals Azure AD PowerShell en het Office 365-beheercentrum.
 
-## Waarom kan ik de directory niet beheren met mijn huidige gebruikersaccount?
+## <a name="why-cant-i-manage-the-directory-with-my-current-user-account"></a>Waarom kan ik de directory niet beheren met mijn huidige gebruikersaccount?
 Soms probeert een gebruiker zich bij de klassieke Azure Portal aan te melden met een werk- of schoolaccount voordat deze heeft geregistreerd voor een Azure-abonnement. In dit geval ontvangt de gebruiker het bericht dat er geen abonnement is voor dat account. Het bericht bevat een koppeling naar een gratis proefversie van een abonnement.
 
 Wanneer de gebruiker zich heeft geregistreerd voor de gratis proefversie, krijgt hij/zij de directory van de organisatie te zien in de klassieke Azure Portal, maar kan de gebruiker deze niet beheren (er kunnen geen gebruikers worden toegevoegd en bestaande gebruikerseigenschappen kunnen niet worden bewerkt) omdat de gebruiker geen hoofdbeheerder is van de directory. Met het abonnement kan de gebruiker de klassieke Azure Portal gebruiken en de Azure Active Directory-extensie bekijken, maar er zijn aanvullende machtigingen van een hoofdbeheerder nodig om de directory te beheren.
 
-## Uw werk- of schoolaccount gebruiken om een Azure-abonnement te beheren dat is gemaakt met een Microsoft-account
+## <a name="using-your-work-or-school-account-to-manage-an-azure-subscription-that-was-created-by-using-a-microsoft-account"></a>Uw werk- of schoolaccount gebruiken om een Azure-abonnement te beheren dat is gemaakt met een Microsoft-account
 Het is een best practice om u [als organisatie te registreren voor Azure](sign-up-organization.md) en om een werk- of schoolaccount te gebruiken om resources te beheren in Azure. Werk- of schoolaccounts hebben de voorkeur omdat deze centraal kunnen worden beheerd door de organisatie die de accounts beschikbaar heeft gesteld. De accounts bieden meer functionaliteit dan Microsoft-accounts en worden rechtstreeks geverifieerd door Azure AD. Datzelfde account biedt toegang tot andere online Microsoft-services die worden aangeboden aan bedrijven en organisaties, zoals Office 365 en Microsoft Intune. Als u al een account hebt dat u met deze andere diensten gebruikt, wilt u waarschijnlijk datzelfde account gebruiken voor Azure. Deze diensten zijn dan ook al gekoppeld aan een Active Directory-exemplaar, welke waarschijnlijk ook door uw Azure-abonnement vertrouwd moet worden.
 
 Werk- of schoolaccounts kunnen op meer manieren worden beheerd dan Microsoft-accounts. Een beheerder kan bijvoorbeeld het wachtwoord van een werk- of schoolaccounts opnieuw instellen, of er Multi-Factor Authentication voor vereisen.
 
 In sommige gevallen wilt u mogelijk dat een gebruiker uit uw organisatie de resources kan beheren die zijn gekoppeld aan een Azure-abonnement ten behoeve van een Microsoft-account van een klant. Zie [De directory voor uw Office 365-abonnement in Azure beheren](#manage-the-directory-for-your-office-365-subscription-in-azure) voor meer informatie over het overstappen naar meerdere accounts voor het beheer van abonnementen of directory’s.
 
-## Aanmelden als u uw werke-mailadres hebt gebruikt voor uw Microsoft-account
+## <a name="signing-in-when-you-used-your-work-email-for-your-microsoft-account"></a>Aanmelden als u uw werke-mailadres hebt gebruikt voor uw Microsoft-account
 Als u op een bepaald moment in het verleden een Microsoft-klantaccount hebt gemaakt met uw werke-mailadres als gebruikers-id, kan het zijn dat u de vraag krijgt om te kiezen tussen het Microsoft Azure-accountsysteem en het Microsoft-accountsysteem.
 
 ![][3]
 
 U hebt gebruikersaccounts met dezelfde naam, één in Azure AD en één in het Microsoft-klantaccountsysteem. U moet het account kiezen dat aan het Azure-abonnement is gekoppeld dat u wilt gebruiken. Als u de foutmelding krijgt dat er geen abonnement bestaat voor deze gebruiker, hebt u waarschijnlijk de verkeerde optie gekozen. Meld u af en probeer het opnieuw. Zie [Problemen oplossen als er geen abonnementen zijn gevonden die zijn gekoppeld aan uw account](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement) voor meer informatie over fouten die het aanmelden kunnen verhinderen.
 
-## De directory voor uw Office 365-abonnement in Azure beheren
+## <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>De directory voor uw Office 365-abonnement in Azure beheren
 Stel dat u zich hebt geregistreerd bij Office 365, vóórdat u zich hebt geregistreerd bij Azure. Nu wilt u de directory van het Office 365-abonnement beheren in de klassieke Azure Portal. Er zijn twee manieren om dit te doen, afhankelijk van of u zich hebt geregistreerd bij Azure of niet.
 
-### Ik heb geen abonnement op Azure
+### <a name="i-do-not-have-a-subscription-for-azure"></a>Ik heb geen abonnement op Azure
 In dit geval [registreert u zich bij Azure](sign-up-organization.md) met het werk- of schoolaccount waarmee u zich aanmeldt bij Office 365. De relevante informatie uit het Office 365-account wordt vooraf ingevuld in het Azure-registratieformulier. Uw account krijgt voor dit abonnement de rol Servicebeheerder toegewezen.  
 
-### Ik heb een abonnement voor Azure via mijn Microsoft-account
+### <a name="i-do-have-a-subscription-for-azure-using-my-microsoft-account"></a>Ik heb een abonnement voor Azure via mijn Microsoft-account
 Als u zich voor Office 365 hebt geregistreerd met een werk- of schoolaccount en u zich vervolgens voor Azure hebt geregistreerd met een Microsoft-account, hebt u twee directory’s: één voor werk of school en een standaarddirectory die is gemaakt tijdens het registeren voor Azure.
 
 Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u deze stappen.
@@ -111,7 +115,7 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 6. Klik op **Nu afmelden**.
 7. Meld u weer aan bij de klassieke Azure Portal met behulp van uw Microsoft-account. Beide directory’s worden nu weergegeven in de Active Directory-extensie.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
 * Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md) voor meer informatie over het toewijzen van rollen in Azure AD.
@@ -124,6 +128,6 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

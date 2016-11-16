@@ -3,12 +3,11 @@
 2. Druk op de knop **Uitvoeren** om het project te bouwen en de app te starten in de iOS-emulator.
 3. Typ in de app een stukje zinvolle tekst, zoals *Voltooi de zelfstudie* en klik vervolgens op het plusteken (**+**). Er wordt nu een POST-aanvraag verzonden naar de back-end van Azure die u eerder hebt geïmplementeerd. De back-end voegt gegevens van de aanvraag toe aan de SQL-takentabel en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven. 
    
-    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+       ![](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

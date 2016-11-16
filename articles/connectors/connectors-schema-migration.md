@@ -1,13 +1,13 @@
 ---
-title: Logische apps migreren naar preview-schemaversie 2015-08-01 | Microsoft Docs
+title: Logische apps migreren naar preview-schemaversie 2015-08-01 | Microsoft Azure Docs
 description: U kunt uw logische apps eenvoudig migreren naar de nieuwste schemaversie. Volg deze stappen.
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+
 
 ---
-# Logische apps migreren naar preview-schemaversie 2015-08-01
+# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Logische apps migreren naar preview-schemaversie 2015-08-01
 U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:  
 
 1. Open uw logische app in de Azure Portal  
@@ -31,17 +35,17 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 > 
 > 
 
-## Aanbevolen procedures voor het migreren van uw logische apps naar de nieuwste schemaversie:
+## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Aanbevolen procedures voor het migreren van uw logische apps naar de nieuwste schemaversie:
 * Kopieer het gemigreerde script naar een nieuwe logische app. Overschrijf de oude pas nadat u deze hebt getest en hebt bevestigd dat de gemigreerde apps werken zoals verwacht.
 * Uw logische app testen **voordat** u deze in productie neemt
 * Nadat de migratie is voltooid, werkt u waar mogelijk uw logische apps bij, zodat deze gebruikmaken van de [beheerde API's](apis-list.md). U kunt bijvoorbeeld starten met het gebruik van de Dropbox v2-versie overal waar u DropBox v1 gebruikt.
 
-## Wat er volgt
-* [Meer informatie over het handmatig migreren uw logische apps](../app-service-logic/app-service-logic-schema-2015-08-01.md)
+## <a name="whats-next"></a>Volgend onderwerp
+* [Meer informatie over het handmatig migreren van uw Logic Apps](../app-service-logic/app-service-logic-schema-2015-08-01.md)
 
 <!--Icon references-->
-[step1]: ./media/connectors-schema-migration/migrateschema1.png
-[step2]: ./media/connectors-schema-migration/migrateschema2.png
+[Stap 1]: ./media/connectors-schema-migration/migrateschema1.png
+[Stap 2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
@@ -51,6 +55,6 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

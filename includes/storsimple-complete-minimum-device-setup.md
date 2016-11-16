@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### De minimale StorSimple-apparaatinstelling voltooien
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>De minimale StorSimple-apparaatinstelling voltooien
 1. Selecteer het apparaat op de pagina **Apparaten** en klik op de pijl naast de naam van het apparaat om naar de specifieke apparaatpagina te gaan. 
    
     ![Pagina met apparaten terwijl het apparaat online is](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
@@ -19,8 +19,7 @@
 4. Klik op het pijlpictogram. ![StorSimple-pijlpictogram](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 5. Geef op de pagina **Netwerkinterfaces** de vaste IP-adressen voor Controller 0 en Controller 1 op. Als de DATA 0-interface is geconfigureerd voor IPv4, moeten de vaste IP-adressen worden opgegeven in de IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, worden de vaste IP-adressen automatisch in deze velden ingevuld.
 
-    > [AZURE.NOTE] 
-    > 
+    > [!NOTE] 
     > - De vaste IP-adressen voor de controllers moeten beschikbare IP-adressen binnen het subnet zijn die toegankelijk zijn voor het IP-adres van het apparaat.
     > - Omdat de vaste IP-adressen voor de controller worden gebruikt om de updates aan het apparaat te leveren, moeten de vaste IP-adressen routeerbaar zijn en verbinding kunnen maken met internet.
 
@@ -38,6 +37,8 @@
 
 Als u een video wilt bekijken over het uitvoeren van de minimale apparaatinstelling, klikt u [hier](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

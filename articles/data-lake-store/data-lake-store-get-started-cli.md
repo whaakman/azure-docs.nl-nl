@@ -2,11 +2,11 @@
 title: Aan de slag met Azure Data Lake Store met de platformoverschrijdende opdrachtregelinterface | Microsoft Docs
 description: De platformoverschrijdende opdrachtregel van Azure gebruiken voor het maken van een Data Lake Store-account en uitvoeren van basisbewerkingen
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 380788f3-041d-4ae5-b6be-37ca74ca333d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+
 
 ---
-# Aan de slag met Azure Data Lake Store met de Azure-opdrachtregelinterface
+# <a name="get-started-with-azure-data-lake-store-using-azure-command-line"></a>Aan de slag met Azure Data Lake Store met de Azure-opdrachtregelinterface
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -32,16 +36,16 @@ Informatie over gebruik van de Azure-opdrachtregelinterface voor het maken van e
 
 De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux. De Azure CLI is open-source. De broncode wordt beheerd in GitHub op <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Dit artikel behandelt alleen het gebruik van de Azure CLI met Data Lake Store. Raadpleeg voor algemene richtlijnen voor het gebruik van Azure CLI [De Azure CLI gebruiken][azure-command-line-tools].
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI**: zie [De Azure CLI installeren en configureren](../xplat-cli-install.md) voor informatie over de installatie en configuratie. Start de computer opnieuw op nadat u de CLI hebt geïnstalleerd.
 
-## Authentication
+## <a name="authentication"></a>Authentication
 In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
-## Meld u aan bij uw Azure-abonnement
+## <a name="login-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
 1. Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de `azure login`-methode.
 2. Gebruik de opdracht `azure account list` om de abonnementen weer te geven die aan uw account zijn gekoppeld.
    
@@ -56,7 +60,7 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
    
         azure account set Azure-sub-2
 
-## Een Azure Data Lake Store-account maken
+## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 Open een opdrachtprompt, shell of terminalvenster en voer de volgende opdrachten uit.
 
 1. Schakel over naar modus Azure Resource Manager met de volgende opdracht:
@@ -71,7 +75,7 @@ Open een opdrachtprompt, shell of terminalvenster en voer de volgende opdrachten
    
         azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-## Mappen maken in uw Data Lake Store
+## <a name="create-folders-in-your-data-lake-store"></a>Mappen maken in uw Data Lake Store
 U kunt mappen maken onder uw Azure Data Lake Store-account voor het beheren en opslaan van gegevens. Gebruik de volgende opdracht om een map te maken met de naam ‘mynewfolder’ in de hoofdmap van de Data Lake Store.
 
     azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
@@ -80,7 +84,7 @@ Bijvoorbeeld:
 
     azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
-## Gegevens uploaden naar uw Data Lake Store
+## <a name="upload-data-to-your-data-lake-store"></a>Gegevens uploaden naar uw Data Lake Store
 Als u gegevens uploadt naar Data Lake Store, kunt u dat direct naar het hoogste niveau doen of naar een map die u in het account hebt gemaakt. De codefragmenten hieronder laten zien hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
 
 Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken. Download het bestand en sla het in een lokale map op uw computer op, bijvoorbeeld C:\sampledata\.
@@ -92,7 +96,7 @@ Bijvoorbeeld:
     azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
-## Bestanden in Data Lake Store weergeven
+## <a name="list-files-in-data-lake-store"></a>Bestanden in Data Lake Store weergeven
 Gebruik de volgende opdracht om de bestanden in een Data Lake Store-account weer te geven.
 
     azure datalake store filesystem list <dataLakeStoreAccountName> <path>
@@ -117,7 +121,7 @@ De uitvoer ziet er ongeveer als volgt uit:
     data:    ------------------------------------------------------------------------------------
     info:    datalake store filesystem list command OK
 
-## Gegevens in uw Data Lake Store een nieuwe naam geven, downloaden en verwijderen
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Gegevens in uw Data Lake Store een nieuwe naam geven, downloaden en verwijderen
 * **Als u de naam van een bestand wilt wijzigen**, gebruikt u de volgende opdracht:
   
         azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
@@ -142,7 +146,7 @@ De uitvoer ziet er ongeveer als volgt uit:
   
     Wanneer dit wordt gevraagd, typt u **Y** om het item te verwijderen.
 
-## De toegangsbeheerlijst voor een map in Data Lake Store weergeven
+## <a name="view-the-access-control-list-for-a-folder-in-data-lake-store"></a>De toegangsbeheerlijst voor een map in Data Lake Store weergeven
 Gebruik de volgende opdracht om de ACL's van een Data Lake Store-map weer te geven. In de huidige release kunnen ACL's alleen worden ingesteld voor de hoofdmap van de Data Lake Store. De onderstaande padparameter wordt dus altijd hoofdmap (/).
 
     azure datalake store permissions show <dataLakeStoreName> <path>
@@ -152,7 +156,7 @@ Bijvoorbeeld:
     azure datalake store permissions show mynewdatalakestore /
 
 
-## Uw Data Lake Store-account verwijderen
+## <a name="delete-your-data-lake-store-account"></a>Uw Data Lake Store-account verwijderen
 Gebruik de volgende opdracht om een Data Lake Store-account te verwijderen.
 
     azure datalake store account delete <dataLakeStoreAccountName>
@@ -163,7 +167,7 @@ Bijvoorbeeld:
 
 Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -172,6 +176,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

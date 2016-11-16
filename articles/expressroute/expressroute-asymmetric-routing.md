@@ -5,8 +5,8 @@ documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrische routering met meerdere netwerkpaden
@@ -60,7 +64,7 @@ Zorg ervoor dat uw openbare IP-adressen zijn aangekondigd aan de juiste WAN-kopp
 
 Als u ExpressRoute wilt gebruiken voor verificatie, zorg dan dat u openbare IP-adressen van ADFS via ExpressRoute aankondigt zonder NAT. Op deze manier loopt het verkeer dat afkomstig is van Microsoft en naar een on-premises AD FS-server gaat via ExpressRoute. Retourverkeer van de klant naar Microsoft maakt gebruik van ExpressRoute omdat het de voorkeursroute is via internet.
 
-### <a name="source-based-nat"></a>Brongebaseerde NAT
+### <a name="sourcebased-nat"></a>Brongebaseerde NAT
 Een andere oplossing voor problemen met asymmetrische routering is het gebruik van SNAT. U hebt bijvoorbeeld het openbare IP-adres van een on-premises SMTP-server (Simple Mail Transfer Protocol) niet via ExpressRoute aangekondigd omdat u voor dit type communicatie internet wilt gebruiken. Een aanvraag die afkomstig is van Microsoft en vervolgens naar uw on-premises SMTP-server gaat, passeert via internet. U verzendt de inkomende aanvraag via SNAT naar een intern IP-adres. Terugkerend verkeer van de SMTP-server gaat naar de edge-firewall (die u voor NAT gebruikt) in plaats van via ExpressRoute. Het retourverkeer gaat terug via internet.
 
 ![Brongebaseerde NAT-netwerkconfiguratie](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Een andere oplossing voor problemen met asymmetrische routering is het gebruik v
 ## <a name="asymmetric-routing-detection"></a>Detectie van asymmetrische routering
 Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het verwachte pad loopt. Als u verwacht dat verkeer van de on-premises SMTP-server naar Microsoft via het internetpad gaat, dan loopt de verwachte traceroute van de SMTP-server naar Office 365. Zo wordt gevalideerd of het verkeer inderdaad uw netwerk verlaat richting internet en niet richting ExpressRoute.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

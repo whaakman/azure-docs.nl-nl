@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Overzicht van Service Bus Relay
 Een belangrijk onderdeel van Service Bus is een gecentraliseerde *Relay*-service (echter met maximale taakverdeling) waarmee u hybride toepassingen kunt ontwikkelen die zowel in een Azure-datacenter als in uw eigen on-premises bedrijfsomgeving kunnen worden uitgevoerd.  De Service Bus Relay-service ondersteunt een groot aantal verschillende transportprotocollen en webservicestandaarden. waaronder SOAP, WS-* en zelfs REST. De Relay-service vereenvoudigt het uitvoeren van uw hybride toepassingen doordat u WCF-services (Windows Communication Foundation) die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat een firewallverbinding moet worden geopend of wijzigingen in de infrastructuur van een bedrijfsnetwerk vereist zijn. 
 
-![Relay-concepten](./media/service-bus-relay-overview/sb-relay-01.png)
+![WCF Relay-concepten](./media/service-bus-relay-overview/sb-relay-01.png)
 
 De Relay-service ondersteunt traditionele berichten in één richting, aanvraag-/antwoordberichten en peer-to-peerberichten. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. 
 
@@ -30,9 +34,12 @@ U start de verbinding tussen uw on-premises service en de Relay-service met een 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over de Service Bus Relay.
 
-* [Overzicht van Azure Service Bus-architectuur](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [De Service Bus Relay-service gebruiken](service-bus-dotnet-how-to-use-relay.md)
+* [Overzicht van Azure Service Bus-architectuur](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [De Service Bus WCF Relay-service gebruiken](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

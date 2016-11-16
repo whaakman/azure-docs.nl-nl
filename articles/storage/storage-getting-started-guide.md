@@ -6,23 +6,27 @@ documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: dineshm;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+
 
 ---
-# Binnen vijf minuten aan de slag met Azure Storage
-## Overzicht
+# <a name="get-started-with-azure-storage-in-five-minutes"></a>Binnen vijf minuten aan de slag met Azure Storage
+## <a name="overview"></a>Overzicht
 Het is gemakkelijk om te beginnen met ontwikkelen met Azure Storage. Deze zelfstudie laat zien hoe u een Azure Storage-toepassing snel gebruiksklaar hebt. U maakt gebruik van de Quick Start-sjablonen die worden meegeleverd met de Azure SDK voor .NET. Deze Quick Starts bevatten gebruiksklare code die enkele eenvoudige programmeringsscenario’s met Azure Storage laten zien.
 
 Als u meer informatie over Azure Storage wilt voordat u met de code aan de slag gaat, raadpleegt u [Volgende stappen](#next-steps).
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u begint, moet aan de volgende vereisten zijn voldaan:
 
 1. Voor het samenstellen en maken van de toepassing moet er een versie van [Visual Studio](https://www.visualstudio.com/) op uw computer zijn geïnstalleerd.
@@ -35,7 +39,7 @@ Voordat u begint, moet aan de volgende vereisten zijn voldaan:
    * Als u een Azure-abonnement wilt aanschaffen, raadpleegt u [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/), [Koopopties](https://azure.microsoft.com/pricing/purchase-options/) en [Aanbiedingen voor leden](https://azure.microsoft.com/pricing/member-offers/) (voor leden van MSDN, Microsoft Partner Network BizSpark en andere Microsoft-programma's).
    * Zie [Een opslagaccount maken](storage-create-storage-account.md#create-a-storage-account) voor informatie over het maken van een opslagaccount in Azure.
 
-## Uw eerste Azure Storage-toepassing uitvoeren in Azure Storage in de cloud
+## <a name="run-your-first-azure-storage-application-against-azure-storage-in-the-cloud"></a>Uw eerste Azure Storage-toepassing uitvoeren in Azure Storage in de cloud
 Als u een account hebt, kunt u een eenvoudige Azure Storage-toepassing maken met behulp van een van de Azure QuickStart-voorbeeldprojecten. Deze zelfstudie richt zich op de voorbeeldprojecten voor Azure Storage: **Azure Storage: blobs**, **Azure Storage: bestanden**, **Azure Storage: wachtrijen** en **Azure Storage: tabellen**.
 
 1. Start Visual Studio.
@@ -62,7 +66,7 @@ Voer daarna de voorbeeldtoepassing uit:
 4. Klik in het menu **Bouwen** op **Oplossing bouwen**.
 5. Druk in het menu **Foutopsporing** op **F11** om de oplossing stapsgewijs uit te voeren of druk op **F5** om de oplossing van begin tot eind uit te voeren.
 
-## Uw eerste Azure Storage-toepassing lokaal uitvoeren in de Azure-opslagemulator
+## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Uw eerste Azure Storage-toepassing lokaal uitvoeren in de Azure-opslagemulator
 De [Azure-opslagemulator](storage-use-emulator.md) biedt een lokale omgeving waarin de Azure-services voor blobs, wachtrijen en tabellen voor ontwikkelingsdoeleinden worden geëmuleerd. U kunt de Azure-opslagemulator gebruiken om uw opslagtoepassing lokaal te testen, zonder een Azure-abonnement aan te schaffen of een opslagaccount te maken, en zonder eventuele kosten.
 
 Laten we eerst een eenvoudige Azure Storage-toepassing maken met behulp van een van de Azure QuickStart-voorbeeldprojecten. Deze zelfstudie richt zich op de **Azure Blob Storage**-, **Azure Table Storage**-, en **Azure Queue Storage**-voorbeeldprojecten:
@@ -87,7 +91,7 @@ Vervolgens voert u de voorbeeldtoepassing uit in de Azure-opslagemulator:
 2. Klik in Visual Studio op **Oplossing bouwen** in het menu **Bouwen**.
 3. Druk in het menu **Foutopsporing** op **F11** om de oplossing stapsgewijs uit te voeren of druk op **F5** om de oplossing van begin tot eind uit te voeren.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 * [Inleiding tot Microsoft Azure Storage](storage-introduction.md)
@@ -101,10 +105,10 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 * [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
-[Image1]: ./media/storage-getting-started-guide/QuickStart.png
+[image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

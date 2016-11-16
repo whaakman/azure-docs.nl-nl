@@ -7,7 +7,7 @@ documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
-
+ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/29/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+
 
 ---
-# NoSQL-zelfstudie: een DocumentDB C#-consoletoepassing maken
+# <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>NoSQL-zelfstudie: een DocumentDB C#-consoletoepassing maken
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
@@ -44,26 +48,26 @@ Gebruik daarna de stemknoppen boven of onder aan de pagina om ons feedback te ge
 
 Tijd om aan de slag te gaan.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat u over de volgende zaken beschikt:
 
 * Een actief Azure-account. Als u nog geen account hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
 
-## Stap 1: een DocumentDB-account maken
+## <a name="step-1-create-a-documentdb-account"></a>Stap 1: een DocumentDB-account maken
 U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u wilt gebruiken, gaat u verder naar de stap [Uw Visual Studio-oplossing instellen](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Stap 2: uw Visual Studio-oplossing instellen
+## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Stap 2: uw Visual Studio-oplossing instellen
 1. Open **Visual Studio 2015** op uw computer.
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 3. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Sjablonen** / **Visual C#** / **Consoletoepassing**, geef een naam op voor uw op en klik vervolgens op **OK**.
    ![Schermopname van het venster Nieuw project](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing.
 5. Klik, zonder het menu te verlaten, op **NuGet-pakketten beheren...**
-   ![Schermopname van het menu voor het project waarmee met de rechtermuisknop op wordt geklikt](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Schermopname van het snelmenu voor het project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Klik op het tabblad **Nuget** op **Bladeren** en typ **azure documentdb** in het zoekvak.
 7. Zoek **Microsoft.Azure.DocumentDB** in de resultaten en klik op **Installeren**.
    De pakket-id voor de DocumentDB-clientbibliotheek is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
@@ -71,7 +75,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrijven van code. Op [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) vindt u een voltooid codeproject voor deze zelfstudie.
 
-## <a id="Connect"></a>Stap 3: verbinding maken met een DocumentDB-account
+## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Stap 3: verbinding maken met een DocumentDB-account
 Voeg eerst deze verwijzingen toe aan het begin van de C#-toepassing in het bestand Program.cs:
 
     using System;
@@ -100,9 +104,9 @@ Voeg nu deze twee constanten en de variabele *client* toe onder de openbare klas
 
 Ga vervolgens naar [Azure Portal](https://portal.azure.com) om uw URI en primaire sleutel op te halen. Uw toepassing heeft de DocumentDB-URI en de primaire sleutel nodig om te weten waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat DocumentDB de verbinding van uw toepassing vertrouwt.
 
-Navigeer in Azure Portal naar uw DocumentDB-account en klik vervolgens op **Sleutels**.
+Navigeer in de Azure Portal naar uw DocumentDB-account en klik daarna op **Keys**.
 
-Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer in de portal vervolgens de PRIMAIRE SLEUTEL en plak deze in `<your key>`.
+Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`.
 
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Schermopname van Azure Portal waarin een DocumentDB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de DocumentDB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels.][keys]
 
@@ -150,7 +154,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt verbinding gemaakt met een DocumentDB-account. Laten we nu eens kijken u de DocumentDB-resources kunt gebruiken.  
 
-## Stap 4: een database maken
+## <a name="step-4-create-a-database"></a>Stap 4: een database maken
 Voordat u de code voor het maken van een database toevoegt, moet u een Help-methode toevoegen om naar de console te kunnen schrijven.
 
 Kopieer de methode **WriteToConsoleAndPromptToContinue** en plak deze onder de methode **GetStartedDemo**.
@@ -204,7 +208,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-database gemaakt.  
 
-## <a id="CreateColl"></a>Stap 5: een verzameling maken
+## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Stap 5: een verzameling maken
 > [!WARNING]
 > Met **CreateDocumentCollectionAsync** maakt u een nieuwe verzameling met gereserveerde doorvoer, wat gevolgen heeft voor de kosten. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.
 > 
@@ -261,7 +265,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-documentverzameling gemaakt.  
 
-## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
+## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Stap 6: JSON-documenten maken
 U kunt een [document](documentdb-resources.md#documents) maken met de methode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](documentdb-import-data.md) van DocumentDB gebruiken.
 
 Eerst moet de klasse **Family** worden gemaakt die aangeeft welke objecten in dit voorbeeld worden opgeslagen in DocumentDB. Daarnaast moeten de subklassen **Parent**, **Child**, **Pet** en **Address** worden gemaakt die in de klasse **Family** worden gebruikt. Houd er rekening mee dat de documenten een **id**-eigenschap moeten bevatten die in JSON is geserialiseerd als **id**. Maak deze klassen door de volgende interne subklassen achter de methode **GetStartedDemo** toe te voegen.
@@ -422,7 +426,7 @@ Gefeliciteerd. U hebt twee DocumentDB-documenten gemaakt.
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Stap 7: een query uitvoeren op DocumentDB-resources
+## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Stap 7: een query uitvoeren op DocumentDB-resources
 DocumentDB biedt ondersteuning voor uitgebreide [query's](documentdb-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de DocumentDB SQL-syntaxis als LINQ, die we kunnen uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
 
 Kopieer de methode **ExecuteSimpleQuery** en plak deze onder de methode **CreateFamilyDocumentIfNotExists**.
@@ -478,7 +482,7 @@ In het volgende diagram ziet u hoe de DocumentDB SQL-querysyntaxis wordt aangero
 
 Het trefwoord [FROM](documentdb-sql-query.md#from-clause) is optioneel in de query omdat DocumentDB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. DocumentDB leidt af dat Families, root, of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
 
-## <a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
+## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
 DocumentDB biedt ondersteuning voor het vervangen van JSON-documenten.  
 
 Kopieer de methode **ReplaceFamilyDocument** en plak deze onder de methode **ExecuteSimpleQuery**.
@@ -515,7 +519,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-document vervangen.
 
-## <a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
+## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
 DocumentDB biedt ondersteuning voor het verwijderen van JSON-documenten.  
 
 Kopieer de methode **DeleteFamilyDocument** en plak deze onder de methode **ReplaceFamilyDocument**.
@@ -547,7 +551,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-document verwijderd.
 
-## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
+## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Stap 10: de database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
 
 Kopieer en plak de volgende code in de methode **GetStartedDemo** onder de code voor het verwijderen van het document om de volledige database en alle onderliggende resources te verwijderen.
@@ -564,7 +568,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-database verwijderd.
 
-## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
+## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
 Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen.
 
 U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de query's die zijn toegevoegd en moet overeenkomen met de onderstaande voorbeeldtekst.
@@ -592,7 +596,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de q
 
 Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
 
-## <a id="GetSolution"></a> De volledige NoSQL-zelfstudieoplossing ophalen
+## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> De volledige NoSQL-zelfstudieoplossing ophalen
 Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel bevat, hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u nog geen account hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/).
@@ -601,7 +605,7 @@ Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel 
 
 Als u de verwijzingen naar de DocumentDB .NET SDK in Visual Studio wilt herstellen, klikt u in Solution Explorer met de rechtermuisknop op de oplossing **GetStarted** en klikt u vervolgens op **Enable NuGet Package Restore** (NuGet-pakket herstellen inschakelen). Werk vervolgens in het bestand App.config de waarden bij voor EndpointUrl en AuthorizationKey zoals wordt beschreven in [Verbinding maken met een DocumentDB-account](#Connect).
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Wilt u een complexere ASP.NET MVC NoSQL-zelfstudie? Zie [ Een ASP.NET MVC-webtoepassing bouwen met DocumentDB](documentdb-dotnet-application.md).
 * Wilt u de schaal en prestaties testen met DocumentDB? Zie [Prestaties en schaal testen met Azure DocumentDB](documentdb-performance-testing.md).
 * Informatie over [het bewaken van een DocumentDB-account](documentdb-monitor-accounts.md).
@@ -614,6 +618,6 @@ Als u de verwijzingen naar de DocumentDB .NET SDK in Visual Studio wilt herstell
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Een Service Bus-naamruimte maken met behulp van de Azure-portal | Microsoft Docs
+title: Een Service Bus-naamruimte maken met behulp van Azure Portal | Microsoft Docs
 description: U hebt een naamruimte nodig om aan de slag te gaan met Service Bus. Zo maakt u een naamruimte in de Azure-portal.
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/22/2016
 ms.author: jotaub
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a341d32149a84b9959afb6c3c1796c66c4d593cd
+
 
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Een Service Bus-naamruimte maken met de Azure-portal
@@ -31,9 +35,10 @@ Gefeliciteerd. U hebt nu een naamruimte voor Service Bus-berichten gemaakt.
 Ga naar onze [GitHub-voorbeelden][github-voorbeelden] die enkele meer geavanceerde functies van Azure Service Bus-berichten tonen.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[github-voorbeelden]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

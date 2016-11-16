@@ -5,9 +5,9 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 84bd0373-65e2-4022-bcca-2b9cd9e696f5
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -15,17 +15,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+
 
 ---
-# Een Azure-functie voor gebeurtenisverwerking maken
+# <a name="create-an-event-processing-azure-function"></a>Een Azure-functie voor gebeurtenisverwerking maken
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand ervaring waarmee u geplande of geactiveerde code-eenheden kunt maken voor implementatie in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
 
 In dit onderwerp wordt beschreven hoe u een nieuwe functie in C# maakt die wordt uitgevoerd op basis van een gebeurtenistimer om berichten toe te voegen aan een opslagwachtrij. 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/).
 
-## Op basis van de sjabloon een functie maken die door een timer wordt geactiveerd
+## <a name="create-a-timertriggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een timer wordt geactiveerd
 Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/). 
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
@@ -40,17 +44,18 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
    
     ![Een nieuwe functie maken die door een timer wordt geactiveerd](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 6. Ga weer naar het tabblad **Ontwikkelen** en vervang het bestaande C#-script in het venster **Code** door de volgende code:
-   
-        using System;
-   
-        public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
-        {
-            // Add a new scheduled message to the queue.
-            outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
-   
-            // Also write the message to the logs.
-            log.Info(outputQueueItem);
-        }
+    ```cs   
+    using System;
+
+    public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
+    {
+        // Add a new scheduled message to the queue.
+        outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
+
+        // Also write the message to the logs.
+        log.Info(outputQueueItem);
+    }
+    ```
    
     Deze code voegt een nieuw bericht toe aan de wachtrij met de huidige datum en tijd van de uitvoering van de functie.
 7. Klik op **Opslaan** en kijk hoe in het venster **Logboeken** de volgende functie wordt uitgevoerd.
@@ -59,7 +64,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 
 Dit is een zeer vereenvoudigd voorbeeld van een timertrigger en een binding aan de uitvoer van een opslagwachtrij. Zie [Azure Functions timer trigger](functions-bindings-timer.md) (Azure Functions-timertrigger) en [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) (Azure Functions-triggers en -bindingen voor Azure Storage) voor meer informatie.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)  
@@ -71,6 +76,9 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

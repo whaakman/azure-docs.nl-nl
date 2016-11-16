@@ -1,4 +1,4 @@
-### Een DNS-label configureren voor het openbare IP-adres
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Een DNS-label configureren voor het openbare IP-adres
 Voor verbinding met de SQL Server Database Engine van het internet, moet u eerst een DNS-label voor uw openbare IP-adres configureren.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
    
     ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Verbinding maken met de Database-engine vanaf een andere computer
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Verbinding maken met de Database-engine vanaf een andere computer
 1. Open SQL Server Management Studio (SSMS) op een computer die is verbonden met internet.
 2. Bewerk in het dialoogvenster **Verbinding maken met server** of **Verbinding maken met Database-engine** de waarde voor **Servernaam**. Voer de volledige DNS-naam van de virtuele machine in (zoals bepaald in de vorige taak).
 3. Kies in het vak **Verificatie** **SQL Server-verificatie**.
@@ -27,6 +27,8 @@ Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de p
    
     ![ssms verbinden](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

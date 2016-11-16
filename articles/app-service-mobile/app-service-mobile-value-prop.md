@@ -2,11 +2,11 @@
 title: Wat zijn Mobile Apps?
 description: Lees welke voordelen App Service heeft voor de mobiele apps in uw onderneming.
 services: app-service\mobile
-documentationcenter: ''
+documentationcenter: 
 author: adrianhall
 manager: yochayk
-editor: ''
-
+editor: 
+ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+
 
 ---
 # <a name="getting-started"> </a>Wat is Mobile Apps?
@@ -21,7 +25,7 @@ Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https:/
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
-## Waarom Mobile Apps?
+## <a name="why-mobile-apps"></a>Waarom Mobile Apps?
 Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps. Met Mobile Apps kunt u het volgende doen:
 
 * **Systeemeigen en platformoverschrijdende apps bouwen** - Of u nu systeemeigen iOS-, Android- of Windows-apps of platformoverschrijdende Xamarin- of Cordova-apps (Phonegap) bouwt, u kunt altijd profiteren van App Service met behulp van systeemeigen SDK's.
@@ -29,7 +33,7 @@ Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen 
 * **Apps bouwen die offline beschikbaar zijn met gegevenssynchronisatie** - Maak uw mobiele werknemers productief door apps te bouwen die offline werken en door gebruik te maken van Mobile Apps om gegevens op de achtergrond te synchroniseren wanneer er verbinding is met een van uw gegevensbronnen of SaaS-API's in de onderneming.
 * **Pushmeldingen in enkele seconden naar miljoenen klanten verzenden** - Houd contact met uw klanten door gebruik te maken van directe pushmeldingen op elk apparaat, afgestemd op de eigen behoeften van de klant en verzonden op het gewenste moment.
 
-## Functies voor mobiele apps
+## <a name="mobile-app-features"></a>Functies voor mobiele apps
 De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn ingeschakeld voor de cloud:
 
 * **Verificatie en autorisatie** - U kunt kiezen uit de steeds groeiende lijst met identiteitsproviders, waaronder Azure Active Directory voor ondernemingsverificatie, plus sociaalnetwerkproviders zoals Twitter, Facebook, Google en Microsoft-account.  Mobile Apps van Azure biedt een OAuth 2.0-service voor elke provider.  Daarnaast kunt u de SDK voor de identiteitsprovider integreren voor providerspecifieke functionaliteit.
@@ -44,15 +48,15 @@ De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn 
   Lees meer over onze [functies voor pushmeldingen].
 * **Client-SDK's** - Wij bieden een volledige set client-SDK's voor systeemeigen ontwikkeling ([iOS], [Android] en [Windows]), platformoverschrijdende ontwikkeling ([Xamarin voor iOS en Android], [Xamarin Forms]) en hybride toepassingsontwikkeling ([Apache Cordova]).  Elke client-SDK is beschikbaar met een MIT-licentie en is open source.
 
-## Functies van Azure App Service
+## <a name="azure-app-service-features"></a>Functies van Azure App Service
 De volgende platformfuncties komen eigenlijk altijd van pas voor mobiele productiesites.
 
 * **Automatische schaling** - Met App Service kunt u snel omhoog of omlaag schalen om in te spelen op de inkomende belasting van klanten. U kunt handmatig het aantal virtuele machines en de grootte ervan selecteren of automatische schaling instellen, zodat de back-end voor uw mobiele app wordt geschaald op basis van uw belasting of schema.
   
-  Lees meer over [automatische schaling].
+  Lees meer over [Automatische schaling].
 * **Faseringsomgevingen** - Met App Service kunt u meerdere versies van uw site uitvoeren, zodat u A/B-tests, tests in de productieomgeving als onderdeel van een groter DevOps-plan en in-place fasering van een nieuwe back-end kunt uitvoeren.
   
-  Lees meer over [faseringsomgevingen].
+  Lees meer over [Faseringsomgevingen].
 * **Doorlopende implementatie** - App Service kan worden geïntegreerd met algemene SCM-systemen, zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
   
   Lees meer over [implementatieopties].
@@ -63,14 +67,14 @@ De volgende platformfuncties komen eigenlijk altijd van pas voor mobiele product
   
   Leer meer over [App Service-omgevingen].
 
-## Aan de slag
-Als u aan de slag wilt met Mobile Apps, volgt u de zelfstudie in [Get Started](Aan de slag.md).  Hierin vindt u basisprincipes voor het produceren van een mobiele back-end van uw keuze, informatie over het integreren van verificatie, offlinesynchronisatie en pushmeldingen.  U kunt de zelfstudie in [Get started](Aan de slag.md) meerdere keren volgen (één keer voor elke clienttoepassing).
+## <a name="getting-started"></a>Aan de slag
+Als u aan de slag wilt met Mobile Apps, volgt u de zelfstudie in [Get Started] (Aan de slag).  Hierin vindt u basisprincipes voor het produceren van een mobiele back-end van uw keuze, informatie over het integreren van verificatie, offlinesynchronisatie en pushmeldingen.  U kunt de zelfstudie in [Get started] (Aan de slag) meerdere keren volgen (één keer voor elke clienttoepassing).
 
 Zie ons [leeroverzicht] voor meer informatie over Azure Mobile Apps.
 Zie [Azure App Service] voor meer informatie over het Azure App Service-platform.
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
@@ -89,8 +93,8 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [Xamarin voor iOS en Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[automatische schaling]: ../app-service-web/web-sites-scale.md
-[faseringsomgevingen]: ../app-service-web/web-sites-staged-publishing.md
+[Automatische schaling]: ../app-service-web/web-sites-scale.md
+[Faseringsomgevingen]: ../app-service-web/web-sites-staged-publishing.md
 [implementatieopties]: ../app-service-web/web-sites-deploy.md
 [hybride verbindingen]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [virtuele netwerken]: ../app-service-web/web-sites-integrate-with-vnet.md
@@ -100,6 +104,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

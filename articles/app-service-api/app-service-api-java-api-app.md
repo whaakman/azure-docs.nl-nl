@@ -3,32 +3,36 @@ title: Een Java API-app bouwen en implementeren in Azure App Service
 description: Lees meer over het maken van een Java API-app-pakket en de implementatie ervan in Azure App Service.
 services: app-service\api
 documentationcenter: java
-author: bradygaster
-manager: mohisri
+author: rmcmurray
+manager: erikre
 editor: tdykstra
-
+ms.assetid: 8d21ba5f-fc57-4269-bc8f-2fcab936ec22
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 08/31/2016
-ms.author: rachelap
+ms.date: 10/19/2016
+ms.author: rachelap;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+
 
 ---
-# Een Java API-app bouwen en implementeren in Azure App Service
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Een Java API-app bouwen en implementeren in Azure App Service
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 In deze zelfstudie ziet u hoe u met behulp van [Git] een Java-toepassing maakt en implementeert in Azure App Service API Apps. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. De code in deze zelfstudie wordt gebouwd met [Maven]. [Jax-RS] wordt gebruikt voor het maken van de RESTful-service en wordt met behulp van [Swagger Editor] gegenereerd op basis van de [Swagger]-metagegevensspecificatie.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 1. [Java Development Kit 8] \(of hoger)
 2. [Maven] is geïnstalleerd op uw ontwikkelcomputer
 3. [Git] is geïnstalleerd op uw ontwikkelcomputer
 4. Een betaald abonnement of een [gratis] proefabonnement op [Microsoft Azure]
 5. Een HTTP-testtoepassing zoals [Postman]
 
-## Ondersteuning voor de API met behulp van Swagger.IO
+## <a name="scaffold-the-api-using-swaggerio"></a>Ondersteuning voor de API met behulp van Swagger.IO
 Met de online-editor Swagger.io kunt u Swagger JSON- of YAML-code invoeren die de structuur van uw API aangeeft. Zodra u de 'surface area' van de API hebt ontworpen, kunt u de code voor verschillende platforms en frameworks exporteren. In de volgende sectie gaat u de ondersteunde code wijzigen, zodat deze de mock-functionaliteit bevat. 
 
 In deze demonstratie begint u met Swagger JSON-hoofdtekst die u in de editor Swagger.io plakt. Op basis van deze tekst wordt de code gegenereerd, waarbij gebruik wordt gemaakt van JAX RS voor toegang tot een REST API-eindpunt. Vervolgens bewerkt u de ondersteunde code zodat hiermee mock-gegevens worden geretourneerd, waarbij een REST API wordt gesimuleerd die boven op een mechanisme voor gegevenspersistentie wordt gebouwd.  
@@ -142,7 +146,7 @@ In deze demonstratie begint u met Swagger JSON-hoofdtekst die u in de editor Swa
    
     Als de code is gegenereerd, wordt een zip-bestand weergegeven dat u kunt downloaden. Dit bestand bevat de code die door de Swagger-codegenerator wordt ondersteund, en alle gekoppelde bouwscripts. Pak de hele bibliotheek uit naar een map op uw ontwikkelwerkstation. 
 
-## De code bewerken om API-implementatie toe te voegen
+## <a name="edit-the-code-to-add-api-implementation"></a>De code bewerken om API-implementatie toe te voegen
 In deze sectie vervangt u de serverimplementatie van de met Swagger gegenereerde code door uw aangepaste code. Met de nieuwe code wordt een matrixlijst met contactpersoonsentiteiten naar de aanroepende client geretourneerd. 
 
 1. Open het modelbestand *Contact.java* (opgeslagen in de map *src/gen/java/io/swagger/model*) met behulp van [Visual Studio Code] of uw favoriete teksteditor. 
@@ -165,7 +169,6 @@ In deze sectie vervangt u de serverimplementatie van de met Swagger gegenereerde
    
         import io.swagger.api.*;
         import io.swagger.model.*;
-        import com.sun.jersey.multipart.FormDataParam;
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
@@ -236,7 +239,7 @@ In deze sectie vervangt u de serverimplementatie van de met Swagger gegenereerde
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## De uitvoer publiceren naar Azure App Service
+## <a name="publish-the-output-to-azure-app-service"></a>De uitvoer publiceren naar Azure App Service
 In deze sectie vindt u meer informatie over het maken van een nieuwe API-app met behulp van Azure Portal, het voorbereiden van die API-app voor het hosten van Java-toepassingen en het implementeren van het nieuwe WAR-bestand in Azure App Service, zodat de nieuwe API-app kan worden uitgevoerd. 
 
 1. Maak een nieuwe API-app in [Azure Portal]. Hiervoor klikt u op de menuopdracht **Nieuw -> Web en mobiel -> API-app**, voert u de app-details in en klikt u vervolgens op **Maken**.
@@ -267,12 +270,15 @@ In deze sectie vindt u meer informatie over het maken van een nieuwe API-app met
    
     ![Java REST API voor contactpersonen live in Azure gebruiken][postman-calling-azure-contacts]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit artikel bent u met een Swagger JSON-bestand begonnen en hebt u wat ondersteunde Java-code opgehaald uit de editor Swagger.io. Van daaruit hebben eenvoudige wijzigingen en een Git-implementatieproces geleid tot een functionele API-app, geschreven in Java. In de volgende zelfstudie ziet u hoe u [API-apps met behulp van CORS kunt gebruiken vanuit JavaScript-clients][CORS voor API in App Service]. In latere zelfstudies in de reeks ziet u hoe u verificatie en autorisatie kunt implementeren.
 
 Om voort te bouwen op dit voorbeeld, kunt u meer lezen over de [opslag-SDK voor Java] voor het persistent maken van de JSON-blobs. U kunt ook gebruikmaken van [Java SDK voor DocumentDB] om uw contactpersoonsgegevens op te slaan in Azure DocumentDB. 
 
-In het [Java Developer Center] vindt u meer informatie over het gebruik van Java in Azure.
+<a name="see-also"></a>
+
+## <a name="see-also"></a>Zie ook
+In het [Azure Java Developer Center] vindt u meer informatie over het gebruik van Azure met Java.
 
 <!-- URL List -->
 
@@ -281,7 +287,7 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 [Java SDK voor DocumentDB]: ../documentdb/documentdb-java-application.md
 [gratis]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Java Developer Center]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Development Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
@@ -313,6 +319,6 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
