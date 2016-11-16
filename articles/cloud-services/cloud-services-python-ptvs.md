@@ -5,8 +5,8 @@ services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,20 +14,24 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
-Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
+Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 * Visual Studio 2013 of 2015
-* [Python Tools for Visual Studio][](PTVS.md)
-* [Azure SDK-tools voor VS 2013][Azure SDK-tools voor VS 2013] of [Azure SDK-tools voor VS 2015][Azure SDK-tools voor VS 2015]
+* [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Azure SDK-hulpprogramma’s voor VS 2013][Azure SDK-hulpprogramma’s voor VS 2013] of [Azure SDK-hulpprogramma’s voor VS 2015][Azure SDK-hulpprogramma’s voor VS 2015]
 * [Python 2.7 32-bits][Python 2.7 32-bits] of [Python 3.5 32-bits][Python 3.5 32-bits]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Wat zijn Python-web- en -werkrollen?
+## <a name="what-are-python-web-and-worker-roles"></a>Wat zijn Python-web- en -werkrollen?
 Azure biedt drie compute-modellen voor het uitvoeren van toepassingen: [Web Apps in Azure App Service][uitvoeringsmodel voor websites], [Azure Virtual Machines][uitvoeringsmodel voor virtuele machines] en [Azure Cloud Services][uitvoeringsmodel voor cloudservices]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
 
 Zie [Wat is een cloudservice?] voor meer informatie.
@@ -110,7 +114,7 @@ De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol w
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>Voorbeeld van ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>Voorbeeld van ServiceDefinition.csdef
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -161,7 +165,7 @@ De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol w
 
 Maak vervolgens de bestanden **PrepPython.ps1** en **PipInstaller.ps1** in de map **./bin** van uw rol.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 Dit script installeert Python. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 geïnstalleerd; anders wordt Python 3.5 geïnstalleerd.
 
 ```powershell
@@ -207,7 +211,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 Met dit script wordt pip aangeroepen en worden alle afhankelijkheden in het bestand **requirements.txt** geïnstalleerd. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
 ```powershell
@@ -235,7 +239,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>LaunchWorker.ps1 wijzigen
+#### <a name="modify-launchworkerps1"></a>LaunchWorker.ps1 wijzigen
 > [!NOTE]
 > In het geval van een project met een **werkrol** is het bestand **LauncherWorker.ps1** vereist om het opstartbestand uit te voeren. Bij een project met een **webrol** wordt het opstartbestand in plaats daarvan gedefinieerd in de projecteigenschappen.
 > 
@@ -280,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 De Visual Studio-sjablonen zouden in de map **./bin** een bestand **ps.cmd** moeten hebben gemaakt. Dit shellscript roept de bovenstaande PowerShell-wrapperscripts aan en biedt logboekregistratie op basis van de naam van de aangeroepen PowerShell-wrapper. Als dit bestand niet is gemaakt, ziet u hieronder wat het moet bevatten. 
 
 ```bat
@@ -319,7 +323,7 @@ De voortgang wordt gedeeltelijk weergegeven in het uitvoervenster. Vervolgens zi
 De implementatie duurt enkele minuten. Daarna worden uw web- en/of werkrollen uitgevoerd in Azure.
 
 ### <a name="investigate-logs"></a>Logboeken onderzoeken
-Nadat de virtuele machine van de cloudservice wordt gestart en Python installeert, kunt u de logboeken controleren op foutberichten. Deze logboeken bevinden zich in de map **C:\Resources\Directory\{role}\LogFiles**. **PrepPython.err.txt** bevat ten minste één fout doordat het script probeert te detecteren of Python is geïnstalleerd. Mogelijk geeft **PipInstaller.err.txt** ook aan dat de versie van pip is verouderd.
+Nadat de virtuele machine van de cloudservice wordt gestart en Python installeert, kunt u de logboeken controleren op foutberichten. Deze logboeken bevinden zich in de map **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** bevat ten minste één fout doordat het script probeert te detecteren of Python is geïnstalleerd. Mogelijk geeft **PipInstaller.err.txt** ook aan dat de versie van pip is verouderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de documentatie bij PTVS voor meer informatie over het werken met web- en werkrollen in Python-tools voor Visual Studio:
@@ -330,7 +334,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 * [Blob-service][Blob-service]
 * [Tabelservice][Tabelservice]
-* [Queue-service][Queue-service]
+* [Wachtrijservice][Wachtrijservice]
 * [Service Bus-wachtrijen][Service Bus-wachtrijen]
 * [Service Bus-onderwerpen][Service Bus-onderwerpen]
 
@@ -343,7 +347,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 [Python Developer Center]: /develop/python/
 
 [Blob-service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue-service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Wachtrijservice]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tabelservice]: ../storage/storage-python-how-to-use-table-storage.md
 [Service Bus-wachtrijen]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus-onderwerpen]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
@@ -351,16 +355,16 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 <!--External Link references-->
 
-[Python Tools voor Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Documentatie Python Tools voor Visual Studio]: http://aka.ms/ptvsdocs
 [Cloudserviceprojecten]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK-tools voor VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK-tools voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure SDK-hulpprogramma’s voor VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK-hulpprogramma’s voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bits]: https://www.python.org/downloads/
 [Python 3.5 32-bits]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

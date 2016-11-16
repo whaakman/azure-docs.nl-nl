@@ -2,11 +2,11 @@
 title: 'Azure AD Domain Services: een virtueel netwerk maken of selecteren | Microsoft Docs'
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 13ab1608-e3d8-40de-9f7b-9b5b42199af4
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+
 
 ---
-# Een virtueel netwerk voor Azure AD Domain Services maken of selecteren
-## Richtlijnen voor het selecteren van een virtueel netwerk van Azure
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Een virtueel netwerk voor Azure AD Domain Services maken of selecteren
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Richtlijnen voor het selecteren van een virtueel netwerk van Azure
 > [!NOTE]
 > **Voordat u begint**: raadpleeg [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
 > 
 > 
 
-## Taak 2: een virtueel netwerk van Azure maken
+## <a name="task-2-create-an-azure-virtual-network"></a>Taak 2: een virtueel netwerk van Azure maken
 De volgende configuratietaak bestaat uit het maken van een virtueel Azure-netwerk met daarbinnen een subnet. U schakelt Azure AD-domeinservices in dit subnet binnen uw virtuele netwerk in. Als u al een bestaand virtueel netwerk hebt dat u wilt gebruiken, kunt u deze stap overslaan.
 
 > [!NOTE]
@@ -60,9 +64,12 @@ Voer de volgende configuratiestappen uit om een virtueel Azure-netwerk te maken 
 
 <br>
 
-## Taak 3: Azure AD Domain Services inschakelen
+## <a name="task-3-enable-azure-ad-domain-services"></a>Taak 3: Azure AD Domain Services inschakelen
 Bij de volgende configuratietaak gaat u [Azure AD Domain Services inschakelen](active-directory-ds-getting-started-enableaadds.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

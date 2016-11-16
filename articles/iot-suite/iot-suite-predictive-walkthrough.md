@@ -1,27 +1,31 @@
 ---
 title: Leidraad voor voorspeld onderhoud | Microsoft Docs
 description: Een leidraad voor de vooraf geconfigureerde Azure IoT-oplossing voor voorspeld onderhoud.
-services: ''
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: aguilaaj
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 10/31/2016
 ms.author: araguila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+
 
 ---
-# Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
-## Inleiding
+# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
+## <a name="introduction"></a>Inleiding
 De vooraf geconfigureerde IoT-Suite-oplossing voor voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. De oplossing combineert belangrijke Azure IoT Suite-services, waaronder een [Azure Machine Learning][lnk_machine_learning]-werkruimte. Deze werkruimte bevat experimenten, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
 
-## Logische architectuur
+## <a name="logical-architecture"></a>Logische architectuur
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![][img-architecture]
@@ -34,7 +38,7 @@ Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoord
 
 De grijze items vertegenwoordigen onderdelen die mogelijkheden voor *apparaatbeheer* implementeren. In de huidige release van de vooraf geconfigureerde oplossing voor voorspeld onderhoud worden deze resources niet ingericht. Voor meer informatie over het beheer van apparaten leest u het artikel over de [vooraf geconfigureerde oplossing voor externe controle][lnk-remote-monitoring].
 
-## Gesimuleerde apparaten
+## <a name="simulated-devices"></a>Gesimuleerde apparaten
 In de vooraf geconfigureerde oplossing vertegenwoordigt een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15 leveren de benodigde gegevens waarmee het Machine Learning-model de resterende levensduur voor de motor berekent. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
 
 *Aantal maal gebruikt*. Een cyclus vertegenwoordigt een uitgevoerde vlucht met een variabele lengte van 2 tot 10 uur, waarbij tijdens de vlucht elk half uur telemetriegegevens worden vastgelegd.
@@ -50,25 +54,25 @@ De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die vanaf een 
 
 IoT Hub biedt een bevestiging van apparaatopdrachten.
 
-## Azure Stream Analytics-job
+## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics-job
 **Job: Telemetrie** verwerkt de inkomende telemetriestroom van het apparaat met behulp van twee instructies. De eerste selecteert alle telemetrie van de apparaten en verzendt deze gegevens naar de Blob Storage waar ze in de web-app worden weergegeven. De tweede instructie berekent de gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Event Hub naar een **gebeurtenisprocessor**.
 
-## Gebeurtenisprocessor
+## <a name="event-processor"></a>Gebeurtenisprocessor
 De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven aan een API die het getrainde Machine Learning-model de resterende levensduur voor een motor laat berekenen.
 
-## Azure Machine Learning
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 Zie [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Cortana Intelligence Gallery-sjabloon voor voorspeld onderhoud) voor meer informatie over hoe het model wordt gemaakt op basis van de oorspronkelijke gegevensset.
 
-## De eerste stappen
+## <a name="lets-start-walking"></a>De eerste stappen
 In deze sectie maakt u kennis met de onderdelen van de oplossing, wordt het beoogde gebruiksscenario beschreven en vindt u voorbeelden.
 
-### Dashboard voorspeld onderhoud
+### <a name="predictive-maintenance-dashboard"></a>Dashboard voorspeld onderhoud
 Deze pagina in de webtoepassing maakt gebruik van PowerBI JavaScript-besturingselementen (zie de [PowerBI-visuals repository][lnk-powerbi] (Power BI-opslagplaats voor visualisaties)) voor het visualiseren van:
 
 * De uitvoergegevens van de Stream Analytics-jobs in Blob Storage.
 * De resterende levensduur en aantal cycli per vliegtuigmotor.
 
-### Het gedrag van de cloudoplossing observeren
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Het gedrag van de cloudoplossing observeren
 Navigeer in de Azure-portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
 
 ![][img-resource-group]
@@ -95,7 +99,7 @@ De simulatie wordt uitgevoerd voor de volledige gegevensset voor 148 cycli en be
 
 U kunt de simulatie op elk punt stoppen, maar wanneer u op **Simulatie starten** klikt, wordt de simulatie opnieuw vanaf het begin van de gegevensset uitgevoerd.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu dat u de vooraf geconfigureerde oplossing voor voorspeld onderhoud hebt uitgevoerd, wilt u deze mogelijk wijzigen. Zie [Guidance on customizing preconfigured solutions][lnk-customize] (Instructies voor het aanpassen van vooraf geconfigureerde oplossingen) voor meer informatie.
 
 Het TechNet-blogbericht [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (IoT Suite - Achter de schermen - Voorspeld onderhoud) biedt aanvullende informatie over de vooraf geconfigureerde oplossing voor voorspeld onderhoud.
@@ -123,6 +127,6 @@ U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfig
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

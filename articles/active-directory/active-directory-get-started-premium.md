@@ -2,21 +2,25 @@
 title: Aan de slag met Azure Active Directory Premium
 description: In dit onderwerp wordt beschreven hoe u zich kunt registreren voor de Azure Active Directory Premium-editie via de website voor volumelicenties.
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f5341ecd0256d6268b9247ef5ec391809b7071a
+
 
 ---
-# Aan de slag met Azure Active Directory Premium
+# <a name="getting-started-with-azure-active-directory-premium"></a>Aan de slag met Azure Active Directory Premium
 U kunt zich op verschillende manieren registreren voor Active Directory Premium: 
 
 **Azure of Office 365** - Als Azure- of Office 365-abonnee kunt u Active Directory Premium online kopen. Zie [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Azure Active Directory Premium aanschaffen - bestaande klanten) of [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Azure Active Directory Premium aanschaffen - nieuwe klanten) voor gedetailleerde instructies.  
@@ -32,10 +36,10 @@ In dit onderwerp leest u hoe u aan de slag gaat met de Azure Active Directory Pr
 > 
 > 
 
-## Stap 1: registreren voor Active Directory Premium
+## <a name="step-1-sign-up-for-active-directory-premium"></a>Stap 1: registreren voor Active Directory Premium
 Zie [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Aanschaffen via volumelicenties) als u zich wilt registreren.
 
-## Stap 2: uw licentieabonnement activeren
+## <a name="step-2-activate-your-license-plan"></a>Stap 2: uw licentieabonnement activeren
 Is dit de eerste keer dat u een  licentieabonnement aanschaft via het Enterprise Volume Licensing-programma van Microsoft?
 In dit geval ontvangt u een bevestiging per e-mail nadat uw aankoop is voltooid.
 U hebt dit e-mailbericht nodig om uw eerste licentieabonnement te activeren.
@@ -58,7 +62,7 @@ Wanneer u klaar bent, wordt het volgende dialoogvenster weergegeven ter bevestig
 
 ![Bevestiging][3]
 
-## Stap 3: de toegang tot uw Azure Active Directory activeren
+## <a name="step-3-activate-your-azure-active-directory-access"></a>Stap 3: de toegang tot uw Azure Active Directory activeren
 Als u Microsoft Azure al eerder hebt gebruikt, kunt u verdergaan met [stap 4](#step-4-assign-license-to-user-accounts). 
 
 Wanneer de licenties voor uw directory zijn ingericht, ontvangt u een **welkomstbericht**. In het e-mailbericht wordt bevestigd dat u uw Azure Active Directory Premium- of Enterprise Mobility Suite-licenties en -functies nu kunt beheren. 
@@ -92,7 +96,7 @@ Mogelijk hebt u al eerder toegang tot Azure gehad. U kunt de toegang tot Azure A
 
 ![Mogelijkheden van Azure][8]
 
-## Stap 4: licentie aan gebruikersaccounts toewijzen
+## <a name="step-4-assign-license-to-user-accounts"></a>Stap 4: licentie aan gebruikersaccounts toewijzen
 Voordat u het aangeschafte abonnement kunt gebruiken, moet u handmatig licenties toewijzen aan gebruikersaccounts in uw organisatie, zodat de gebruikers de uitgebreide functies van Premium kunnen gebruiken. Voer de volgende stappen uit om licenties aan gebruikers toe te wijzen, zodat ze Azure Active Directory Premium-functies kunnen gebruiken.
 
 **Voer de volgende stappen uit om licenties aan gebruikers toe te wijzen:**
@@ -106,18 +110,18 @@ Voordat u het aangeschafte abonnement kunt gebruiken, moet u handmatig licenties
    
     ![Licenties toewijzen][11]
 
-### Licentiebeperkingen
+### <a name="license-restrictions"></a>Licentiebeperkingen
 Sommige licentieabonnementen zijn subsets of supersets van andere licentieabonnementen. Normaal gesproken kan aan gebruikers geen licentieabonnement worden toegewezen dat al aan hen is toegewezen. Als u een supersetlicentieabonnement wilt toewijzen, moet u eerst het subsetlicentieabonnement verwijderen.
 
-### Licentievereisten
+### <a name="license-requirements"></a>Licentievereisten
 Wanneer u een licentie aan een gebruiker toewijst, kunt u een primaire gebruikslocatie opgeven in de eigenschappen van het desbetreffende account. Als er geen gebruikslocatie is opgegeven, wordt de tenantlocatie automatisch aan de gebruiker toegewezen.
 
 ![Gebruikerslocatie][12]
 
 De beschikbaarheid van services en functies voor een Microsoft-cloudservice varieert per land of regio. Een service, zoals Voice over Internet Protocol (VoIP), is mogelijk alleen beschikbaar in bepaalde landen of regio's. Functies in een service kunnen om wettelijke redenen zijn beperkt in bepaalde landen of regio's. Als u wilt weten of een service of functie met of zonder beperkingen beschikbaar is, zoekt u naar uw land of regio op de site met licentiebeperkingen van een service.
 
-## Volgend onderwerp
-* [De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de pagina van het toegangsvenster](active-directory-add-company-branding.md)
+## <a name="whats-next"></a>Volgend onderwerp
+* [De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s](active-directory-add-company-branding.md)
 * [Uw toegangs- en gebruiksrapporten weergeven](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
@@ -136,6 +140,6 @@ De beschikbaarheid van services en functies voor een Microsoft-cloudservice vari
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

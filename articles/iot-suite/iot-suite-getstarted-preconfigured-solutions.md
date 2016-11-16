@@ -1,13 +1,13 @@
 ---
 title: Aan de slag met vooraf geconfigureerde oplossingen | Microsoft Docs
 description: Volg deze zelfstudie voor meer informatie over het implementeren van een vooraf geconfigureerde Azure IoT Suite-oplossing.
-services: ''
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Zelfstudie: Aan de slag met vooraf geconfigureerde oplossingen
-## Inleiding
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Zelfstudie: Aan de slag met vooraf geconfigureerde oplossingen
+## <a name="introduction"></a>Inleiding
 [Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT-Suite combineren meerdere Azure IoT-services om totaaloplossingen te leveren die algemene IoT-bedrijfsscenario's implementeren. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
 
 In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Dit leidt u door de belangrijkste functies van de oplossing voor externe bewaking. U krijgt toegang tot deze functies via het oplossingsdashboard dat samen met de vooraf geconfigureerde oplossing het volgende implementeert:
@@ -34,7 +38,7 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Het oplossingsdashboard bekijken
+## <a name="view-the-solution-dashboard"></a>Het oplossingsdashboard bekijken
 Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. U kunt er bijvoorbeeld telemetrie weergeven, apparaten toevoegen en regels configureren.
 
 1. Wanneer het inrichten is voltooid en voor de tegel voor uw vooraf geconfigureerde oplossing de status **Gereed** wordt weergegeven, klikt u op **Starten** om uw oplossingsportal voor externe controle te openen in een nieuw tabblad.
@@ -50,7 +54,7 @@ Het dashboard bevat de volgende informatie:
 * Het deelvenster **Telemetriegeschiedenis** tekent de vochtigheids- en temperatuurtelemetrie van een geselecteerd apparaat in bijna realtime en geeft statistische gegevens weer, zoals de maximale, minimale en gemiddelde vochtigheid.
 * Het deelvenster **Geschiedenis van waarschuwingen** toont recente waarschuwingsgebeurtenissen wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. Naast de voorbeelden die met de vooraf geconfigureerde oplossing zijn gemaakt, kunt u ook uw eigen alarmen definiëren.
 
-## De lijst met apparaten weergeven
+## <a name="view-the-device-list"></a>De lijst met apparaten weergeven
 De lijst met apparaten bevat alle geregistreerde apparaten in de oplossing. U kunt metagegevens van apparaten weergeven en bewerken, apparaten toevoegen of verwijderen en opdrachten naar apparaten verzenden.
 
 1. Klik links in het menu op **Apparaten** om de *lijst met apparaten* voor deze oplossing weer te geven.
@@ -67,7 +71,7 @@ Het deelvenster **Apparaatdetails** bevat drie secties:
 * In de sectie **Apparaateigenschappen** vindt u de metagegevens van apparaten. Sommige van deze metagegevens zijn afkomstig van het apparaat zelf (zoals de fabrikant). Enkele ervan worden gegenereerd door de oplossing (zoals de aanmaaktijd). U kunt de metagegevens van apparaten hier bewerken.
 * In de sectie **Verificatiesleutels** vindt u de sleutels die het apparaat kan gebruiken om met de oplossing te verifiëren.
 
-## Een opdracht naar een apparaat verzenden
+## <a name="send-a-command-to-a-device"></a>Een opdracht naar een apparaat verzenden
 Het deelvenster Apparaatdetails bevat alle opdrachten die een specifiek apparaat ondersteunt en biedt u de mogelijkheid om opdrachten naar een apparaat te verzenden. Wanneer een apparaat voor het eerst wordt gestart, stuurt het naar de oplossing informatie over de opdrachten die het apparaat ondersteunt.
 
 1. Klik in het deelvenster Apparaatdetails op **Opdrachten** voor het geselecteerde apparaat.
@@ -81,7 +85,7 @@ Het deelvenster Apparaatdetails bevat alle opdrachten die een specifiek apparaat
 
 De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
 
-## Een nieuw gesimuleerd apparaat toevoegen
+## <a name="add-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat toevoegen
 Wanneer u de vooraf geconfigureerde oplossing implementeert, voorziet u automatisch de vier proefapparaten die u ziet in de apparatenlijst. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle ][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
 
 De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de oplossing:
@@ -107,7 +111,7 @@ De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de op
    
     ![Telemetrie voor nieuw apparaat weergeven][img-runningnew-2]
 
-## De metagegevens van een apparaat bewerken
+## <a name="edit-the-device-metadata"></a>De metagegevens van een apparaat bewerken
 Wanneer een apparaat voor het eerst verbinding maakt met de oplossing, stuurt het zijn metagegevens naar de oplossing. Wanneer u de metagegevens van het apparaat verwerkt via het oplossingsdashboard, stuurt het nieuwe metagegevenswaarden naar het apparaat en slaat het nieuwe waarden op in de DocumentDB-database van de oplossing. Zie [Apparaatidentiteitsregister en DocumentDB][lnk-devicemetadata] voor meer informatie.
 
 1. Ga terug naar de lijst met apparaten.
@@ -121,7 +125,7 @@ Wanneer een apparaat voor het eerst verbinding maakt met de oplossing, stuurt he
    
     ![Metagegevens van het apparaat bijwerken][img-editdevice3]
 
-## Een regel voor het nieuwe apparaat toevoegen
+## <a name="add-a-rule-for-the-new-device"></a>Een regel voor het nieuwe apparaat toevoegen
 Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In deze sectie voegt u een regel toe die een waarschuwing activeert wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt. Voordat u begint, kunt u al zien dat de telemetriegeschiedenis voor het nieuwe apparaat op het dashboard aantoont dat de temperatuur van het apparaat nooit meer dan 45 graden bedraagt.
 
 1. Ga terug naar de lijst met apparaten.
@@ -151,7 +155,7 @@ Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In d
 > 
 > 
 
-## Andere functies
+## <a name="other-features"></a>Andere functies
 Op de portal van de oplossing kunt u naar apparaten zoeken met specifieke kenmerken zoals een modelnummer:
 
 ![Een apparaat zoeken][img-search]
@@ -160,7 +164,7 @@ U kunt een apparaat uitschakelen en nadat het is uitgeschakeld kunt u het verwij
 
 ![Een apparaat uitschakelen en verwijderen][img-disable]
 
-## Achter de schermen
+## <a name="behind-the-scenes"></a>Achter de schermen
 Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
 
 ![Vooraf geconfigureerde oplossing in de Azure-portal][img-portal]
@@ -180,7 +184,7 @@ Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
 
 * [Walkthrough over vooraf geconfigureerde oplossing voor externe controle][lnk-rm-walkthrough]
@@ -225,6 +229,6 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

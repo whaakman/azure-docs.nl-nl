@@ -5,17 +5,21 @@ services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 11/14/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+
 
 ---
-# Application Insights Telemetry in Visual Studio CodeLens
+# <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry in Visual Studio CodeLens
 De methoden in de code van uw webtoepassing kunnen worden voorzien van aantekeningen met telemetrie over runtime-uitzonderingen en reactietijden voor aanvragen. Als u [Visual Studio Application Insights](app-insights-overview.md) installeert in uw toepassing, wordt de telemetrie weergegeven in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx): het opmerkingengedeelte boven aan elke functie, waar u normaal handige informatie ziet, zoals vanaf hoeveel plaatsen wordt verwezen naar de functie en wie de toepassing voor het laatst heeft bewerkt.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
@@ -25,7 +29,7 @@ De methoden in de code van uw webtoepassing kunnen worden voorzien van aantekeni
 > 
 > 
 
-## Waar vind ik Application Insights-gegevens?
+## <a name="where-to-find-application-insights-data"></a>Waar vind ik Application Insights-gegevens?
 Zoek naar Application Insights Telemetry in de CodeLens-indicatoren van de openbare aanvraagmethoden van uw webtoepassing. De CodeLens-indicatoren worden boven de methode en andere verklaringen weergegeven in C#- en Visual Basic-code. Als er Application Insights-gegevens beschikbaar zijn voor een methode, ziet u indicatoren voor aanvragen en uitzonderingen, zoals '100 aanvragen, 1% is mislukt' of '10 uitzonderingen'. Klik op een CodeLens-indicator voor meer informatie. 
 
 > [!TIP]
@@ -33,7 +37,7 @@ Zoek naar Application Insights Telemetry in de CodeLens-indicatoren van de openb
 > 
 > 
 
-## Uitzonderingen in CodeLens
+## <a name="exceptions-in-codelens"></a>Uitzonderingen in CodeLens
 ![NOG TE BEPALEN](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 De CodeLens-uitzonderingsindicator geeft aan hoeveel uitzonderingen er zijn opgetreden in de afgelopen 24 uur. U ziet de 15 uitzonderingen die het meest zijn optreden in uw toepassing gedurende die periode tijdens het verwerken van de aanvraag van de methode.
@@ -55,7 +59,7 @@ Voor meer informatie klikt u op de CodeLens-uitzonderingsindicator:
 > 
 > 
 
-## Aanvragen in CodeLens
+## <a name="requests-in-codelens"></a>Aanvragen in CodeLens
 ![NOG TE BEPALEN](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 De CodeLens-aanvraagindicator toont het aantal HTTP-aanvragen dat de afgelopen 24 uur is verwerkt door een methode, plus het percentage van deze aanvragen dat is mislukt.
@@ -68,13 +72,16 @@ Voor meer informatie klikt u op de CodeLens-aanvraagindicator:
 * Kies **Trend** om een trendvisualisatie weer te geven voor aanvragen, mislukte aanvragen en de gemiddelde reactietijden in de afgelopen 24 uur.
 * Kies de naam van de Application Insights-resource in de linkerbovenhoek van de CodeLens-detailweergave om te wijzigen welke resource als bron wordt gebruikt voor de CodeLens-gegevens.
 
-## <a name="next"></a>Volgende stappen
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Volgende stappen
 |  |  |
 | --- | --- |
-| **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Telemetrie zoeken, data in CodeLens bekijken en configureren van Application Insights. Allen vanuit Visual Studio. |![Klik met de rechtermuisknop op het project en kies Application Insights > Zoeken.](./media/app-insights-visual-studio-trends/34.png) |
-| **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Telemetrie zoeken, data in CodeLens bekijken en configureren van Application Insights. Allen vanuit Visual Studio. |![Klik met de rechtermuisknop op het project en kies Application Insights > Zoeken.](./media/app-insights-visual-studio-codelens/34.png) |
+| **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

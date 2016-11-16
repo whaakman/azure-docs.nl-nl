@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Een nieuw opslagaccount toevoegen in de releaseversie van StorSimple (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-ga"></a>Een nieuw opslagaccount toevoegen in de releaseversie van StorSimple (GA)
 1. Selecteer uw service op de landingspagina van de StorSimple Manager-service en dubbelklik erop. Hiermee gaat u naar de pagina **Quick Start**. Selecteer de pagina **Configureren**.
 2. Klik op **Opslagaccount toevoegen/bewerken**.
 3. Ga in het dialoogvenster **Opslagaccount toevoegen/bewerken** als volgt te werk:
@@ -14,6 +14,8 @@
       ![Opslagaccount toevoegen](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Het nieuwe opslagaccount wordt weergegeven op de pagina **Configureren** onder **Opslagaccounts**. Klik op **Opslaan** om het nieuwe opslagaccount op te slaan. Klik op **OK** als u om bevestiging wordt gevraagd.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

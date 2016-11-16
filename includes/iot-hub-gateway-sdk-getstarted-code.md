@@ -1,4 +1,4 @@
-## Typische uitvoer
+## <a name="typical-output"></a>Typische uitvoer
 Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand door de Hello World-sjabloon. Voor de leesbaarheid zijn tekens voor nieuwe regels en tabs toegevoegd:
 
 ```
@@ -29,10 +29,10 @@ Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand 
 }]
 ```
 
-## Codefragmenten
+## <a name="code-snippets"></a>Codefragmenten
 Dit deel behandelt enkele belangrijke onderdelen van de code in de Hello World-sjabloon.
 
-### Het maken van de gateway
+### <a name="gateway-creation"></a>Het maken van de gateway
 De ontwikkelaar moet het *gatewayproces* schrijven. Dit programma maakt de interne infrastructuur (de broker), laadt modules en stelt alles in om correct te werken. De SDK biedt de **Gateway_Create_From_JSON**-functie waarmee u een gateway vanuit een JSON-bestand kunt opstarten. Om de functie **Gateway_Create_From_JSON** te gebruiken, moet u dit pad doorgeven aan een JSON-bestand dat de te laden modules specificeert. 
 
 U vindt de code voor het gatewayproces in de Hello World-sjabloon in het bestand [main.c][lnk-main-c]. Het stuk hieronder geeft een verkorte versie van de gatewayprocescode weer voor een betere leesbaarheid. Het programma maakt een gateway en wacht dan tot de gebruiker op **ENTER** drukt alvorens het de gateway afbreekt. 
@@ -77,12 +77,16 @@ Het volgende voorbeeld toont het JSON-instellingenbestand gebruikt om de Hello W
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,7 +100,7 @@ Het volgende voorbeeld toont het JSON-instellingenbestand gebruikt om de Hello W
 }
 ```
 
-### Hello World-module berichtpublicatie
+### <a name="hello-world-module-message-publishing"></a>Hello World-module berichtpublicatie
 U vindt de code gebruikt door de “hello world”-module om berichten te publiceren in het bestand ['hello_world.c'][lnk-helloworld-c]. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
 
 ```
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Hello World-module berichtverwerking
+### <a name="hello-world-module-message-processing"></a>Hello World-module berichtverwerking
 De Hello World-module moet nooit berichten verwerken die andere modules publiceren voor de broker. Dit maakt implementatie van de berichtcallback in de Hello World-module een no-op-functie.
 
 ```
@@ -155,7 +159,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Loggermodule berichtpublicatie en -verwerking
+### <a name="logger-module-message-publishing-and-processing"></a>Loggermodule berichtpublicatie en -verwerking
 De loggermodule ontvangt berichten van de broker en schrijft ze weg naar een bestand. Deze module publiceert nooit berichten. Daarom roept de code van de loggermodule nooit de functie **Broker_Publish** aan.
 
 De functie **Logger_Recieve** in het bestand [logger.c][lnk-logger-c] is de callback die de broker aanroept om berichten aan de loggermodule te leveren. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
@@ -199,8 +203,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Volgende stappen
-Zie voor meer informatie over het gebruik van de Gateway SDK:
+## <a name="next-steps"></a>Volgende stappen
+Zie voor meer informatie over het gebruik van de IoT Gateway SDK:
 
 * [IoT Gateway SDK – apparaat-naar-cloudberichten verzenden met een gesimuleerd apparaat met Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] op GitHub.
@@ -212,6 +216,6 @@ Zie voor meer informatie over het gebruik van de Gateway SDK:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

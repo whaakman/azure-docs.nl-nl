@@ -5,10 +5,10 @@ services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
 manager: erikre
-editor: ''
-tags: ''
+editor: 
+tags: 
 keywords: cordova,javascript,mobiel,client
-
+ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html
@@ -16,17 +16,21 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+
 
 ---
-# Een Apache Cordova-app maken
+# <a name="create-an-apache-cordova-app"></a>Een Apache Cordova-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Overzicht
+## <a name="overview"></a>Overzicht
 Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Apache Cordova-app met een back-end voor mobiele apps van Azure.  U maakt zowel een nieuwe back-end voor een mobiele app als een eenvoudige Apache Cordova-app voor *takenlijsten* die app-gegevens opslaat in Azure.
 
 Het volgen van deze zelfstudie is een vereiste voor alle andere Apache Cordova-zelfstudies over het gebruik van de functie Mobile Apps in Azure App Service.
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een pc met [Visual Studio Community 2015] of hoger.
@@ -35,18 +39,18 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreeks gebruiken.  Dit is handig bij het voltooien van de zelfstudie op een Mac-computer.  Het compileren van Apache Cordova-clienttoepassingen via de opdrachtregel wordt niet behandeld in deze zelfstudie.
 
-## Een nieuwe back-end voor mobiele apps van Azure maken
+## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
-## Het serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## De Apache Cordova-app downloaden en uitvoeren
+## <a name="download-and-run-the-apache-cordova-app"></a>De Apache Cordova-app downloaden en uitvoeren
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfstudies:
 
 * [Verificatie toevoegen] aan uw Apache Cordova-app.
@@ -54,7 +58,7 @@ Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfst
 
 Meer informatie over belangrijke concepten met Azure App Service.
 
-* [Authentication]
+* [Verificatie]
 * [Pushmeldingen]
 
 Informatie over het gebruik van de SDK's.
@@ -71,7 +75,7 @@ Informatie over het gebruik van de SDK's.
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Verificatie toevoegen]: app-service-mobile-cordova-get-started-users.md
 [Pushmeldingen toevoegen]: app-service-mobile-cordova-get-started-push.md
-[Authentication]: app-service-mobile-auth.md
+[Verificatie]: app-service-mobile-auth.md
 [Pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -79,6 +83,6 @@ Informatie over het gebruik van de SDK's.
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

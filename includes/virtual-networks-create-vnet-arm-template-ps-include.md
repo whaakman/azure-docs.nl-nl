@@ -1,8 +1,8 @@
-## De ARM-sjabloon implementeren met PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>De ARM-sjabloon implementeren met PowerShell
 Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met PowerShell.
 
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, raadpleegt u [Azure PowerShell installeren en configureren](../articles/powershell-install-configure.md) en volgt u de instructies helemaal tot aan het einde om u aan te melden bij Azure en uw abonnement te selecteren.
-2. Voer indien nodig de **`New-AzureRmResourceGroup`** cmdlet om een nieuwe resourcegroep te maken. De onderstaande opdracht maakt een resourcegroep met de naam *TestRG* in de Azure-regio in *het midden van de VS* . Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+2. Voer indien nodig de **`New-AzureRmResourceGroup`** cmdlet om een nieuwe resourcegroep te maken. De onderstaande opdracht maakt een resourcegroep met de naam *TestRG* in de Azure-regio in *het midden van de VS* . Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -87,7 +87,6 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
                               }
                             ]
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

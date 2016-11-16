@@ -1,4 +1,4 @@
-#### Openbare eindpunten op het virtuele apparaat maken
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Openbare eindpunten op het virtuele apparaat maken
 1. Meld u aan bij de klassieke Azure-portal.
 
 * Klik op **Virtuele machines** en selecteer vervolgens de virtuele machine die wordt gebruikt als uw virtuele apparaat.
@@ -12,6 +12,8 @@
 
 Nadat het eindpunt is gemaakt, kunt u de details van het eindpunt weergeven om het openbare VIP-adres (virtueel IP-adres) te bepalen. Noteer dit adres.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

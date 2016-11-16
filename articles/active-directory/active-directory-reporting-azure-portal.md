@@ -2,30 +2,34 @@
 title: Azure Active Directory-rapportage - preview | Microsoft Docs
 description: Bevat een lijst met de diverse beschikbare rapporten voor Azure Active Directory-previews
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# Azure Active Directory-rapportage - preview
+# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory-rapportage - preview
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
-> * [Klassieke Azure-portal](active-directory-reporting-guide.md)
+> * [Klassieke Azure Portal](active-directory-reporting-guide.md)
 > 
 > 
 
 *Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
 
-Met rapportage in de Azure Active Directory-preview ziet u alle informatie die u nodig hebt om te bepalen hoe het met uw omgeving gaat. [Wat staat er in het voorbeeld?](active-directory-preview-explainer.md)
+Met rapportage in de Azure Active Directory-preview ziet u alle informatie die u nodig hebt om te bepalen hoe het met uw omgeving gaat. [Wat biedt de preview?](active-directory-preview-explainer.md)
 
 Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
 
@@ -34,8 +38,8 @@ Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
 
 Afhankelijk van het bereik van de gegevens die u zoekt, kunt u de rapporten openen door op **Gebruikers en groepen** of **Bedrijfstoepassingen** te klikken in de lijst met services in [Azure Portal](https://portal.azure.com).
 
-## Aanmeldactiviteiten
-### Aanmeldactiviteiten van gebruikers
+## <a name="signin-activities"></a>Aanmeldactiviteiten
+### <a name="user-signin-activities"></a>Aanmeldactiviteiten van gebruikers
 In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
 * Wat is het aanmeldingspatroon van een gebruiker?
@@ -62,7 +66,7 @@ Elke rij in de lijst met aanmeldactiviteiten bevat gedetailleerde informatie ove
 * Wat is het IP-adres van de persoon die zich heeft aangemeld?
 * Wat is de status van de aanmelding?
 
-### Het gebruik van beheerde toepassingen
+### <a name="usage-of-managed-applications"></a>Het gebruik van beheerde toepassingen
 Met een toepassingsgerichte weergave van uw aanmeldgegevens kunt u antwoord vinden op vragen zoals:
 
 * Wie gebruikt mijn toepassingen?
@@ -93,17 +97,23 @@ Met de kolomkiezer kunt u kiezen welke gegevensvelden u wilt weergeven.
 
 ![Rapportage](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### Aanmeldingen filteren
-U kunt de aanmeldingen filteren op een bepaalde periode om de hoeveelheid weergegeven gegevens te beperken.
+### <a name="filtering-signins"></a>Aanmeldingen filteren
+U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
 
-![Rapportage](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* Datum en tijd 
+* UPN van gebruiker
+* De naam van de toepassing
+* De clientnaam
+* Aanmeldingsstatus
+
+![Rapportage](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 Een andere manier waarop u het aantal aanmeldactiviteiten kunt filteren, is door te zoeken naar specifieke vermeldingen.
 Met deze zoekmethode kunt u zoeken naar aanmeldingen van specifieke **gebruikers** of **groepen** en bij specifieke **toepassingen**.
 
 ![Rapportage](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Controlelogboeken
+## <a name="audit-logs"></a>Controlelogboeken
 In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.
 
 Er zijn drie hoofdcategorieën voor controlegerelateerde activiteiten in Azure Portal:
@@ -126,7 +136,7 @@ Wanneer u op een item in de lijstweergave klikt, krijgt u er meer informatie ove
 
 ![Controleren](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-### Controlelogboeken voor gebruikers en groepen
+### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
 Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
 
 * Welke soorten updates zijn toegepast op de gebruikers?
@@ -142,7 +152,7 @@ Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan gebruike
 
 ![Controleren](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-### Controlelogboeken van toepassingen
+### <a name="application-audit-logs"></a>Controlelogboeken van toepassingen
 Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
 
 * Welke toepassingen zijn toegevoegd of bijgewerkt?
@@ -155,18 +165,44 @@ Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan toepassi
 
 ![Controleren](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-### Controlelogboeken filteren
-U kunt in een controlerapport filteren op een bepaalde periode om de hoeveelheid weergegeven gegevens te beperken.
+### <a name="filtering-audit-logs"></a>Controlelogboeken filteren
+U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
 
-![Controleren](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+* Datum en tijd
+* UPN van de actor
+* Type activiteit
+* Activiteit
+
+![Controleren](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+De inhoud van de lijst **Activiteitstype** is gekoppeld aan uw ingangspunt voor deze blade.  
+Als uw ingangspunt Azure Active Directory is, bevat deze lijst alle mogelijke activiteitstypen:
+
+* Toepassing 
+* Groep 
+* Gebruiker
+* Apparaat
+* Directory
+* Beleid
+* Overige
+
+![Controleren](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+De vermelde activiteiten worden ingedeeld per activiteitstype.
+Als u bijvoorbeeld **Groep** hebt geselecteerd als **activiteitstype**, bevat de lijst **Activiteit** alleen groepsgerelateerde activiteiten.   
+
+![Controleren](./media/active-directory-reporting-azure-portal/654.png "Auditing")
 
 Een andere manier waarop u de vermeldingen in een controlelogboek kunt filteren, is door te zoeken naar specifieke vermeldingen.
 
 ![Controleren](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

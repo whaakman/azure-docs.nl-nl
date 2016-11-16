@@ -1,6 +1,6 @@
 <a name="tellmevm"></a>
 
-## Informatie over virtuele machines
+## <a name="tell-me-about-virtual-machines"></a>Informatie over virtuele machines
 Met virtuele machines van Azure kunt u virtuele machines in de cloud maken en gebruiken. De technologie van virtuele machines, ook wel *Infrastructure as a Service (IaaS)* genoemd, kan op verschillende manieren worden gebruikt. Een aantal voorbeelden:
 
 * **Virtuele machines (VM's) voor ontwikkelen en testen.** Ontwikkelgroepen werken veel met virtuele machines, omdat deze een snelle en eenvoudige manier bieden om een computer te maken met specifieke configuraties die nodig zijn voor de code van een toepassing en het testen ervan. Virtuele machines van Azure bieden een eenvoudige en voordelige manier om deze VM's te maken, te gebruiken en te verwijderen wanneer ze niet meer nodig zijn.
@@ -21,7 +21,7 @@ Virtuele machines maken gebruik van virtuele harde schijven (VHD's) voor de opsl
 <a name="fig_createvms"></a>
 ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Afbeelding: Virtuele machines van Azure bieden Infrastructure as a Service.**
+**Afbeelding: virtuele machines van Azure bieden Infrastructure as a Service.**
 
 VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via de REST API. Microsoft-partners zoals RightScale en ScaleXtreme bieden ook beheerservices die de REST API gebruiken. 
 
@@ -37,6 +37,8 @@ Andere voordelen van VM's zijn:
 
 **Tolerantie** --Azure bewaakt de fysieke hardware die als host fungeert voor elke actieve VM. Als een fysieke server waarop een VM wordt uitgevoerd uitvalt, verplaatst Azure de VM naar nieuwe hardware en wordt de VM opnieuw opgestart. Dit proces wordt ook wel service healing genoemd. Azure beschermt ook de gegevens van een virtuele machine door herstelexemplaren van de VHD's in de blobopslag te bewaren. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

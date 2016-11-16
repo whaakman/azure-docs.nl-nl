@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>De ontwikkelomgeving instellen
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>De ontwikkelomgeving instellen
 Om te beginnen moet u uw ontwikkelomgeving instellen door [Azure SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) of [Azure SDK voor Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322) te installeren.
 
 Als Visual Studio niet bij u is geïnstalleerd, gebruikt u de koppeling voor Visual Studio 2015 zodat Visual Studio samen met de SDK wordt geïnstalleerd.
@@ -8,6 +8,8 @@ Als Visual Studio niet bij u is geïnstalleerd, gebruikt u de koppeling voor Vis
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

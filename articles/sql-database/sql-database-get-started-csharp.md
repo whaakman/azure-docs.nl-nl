@@ -3,11 +3,11 @@ title: 'SQL Database uitproberen: een SQL-database maken met C# | Microsoft Docs
 description: Probeer SQL Database om SQL- en C#-apps te ontwikkelen en om een Azure SQL Database te maken met C# met behulp van de SQL Database-bibliotheek voor .NET.
 keywords: sql, sql c proberen#
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
 > [!div class="op_single_selector"]
-> * [Azure-portal](sql-database-get-started.md)
+> * [Azure Portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -27,10 +31,10 @@ ms.author: sstein
 
 Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Microsoft Azure SQL Management Library voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een pool voor elastische database maken](sql-database-elastic-pool-create-csharp.md) als u een pool voor elastische database wilt maken.
 
-De Azure SQL Database Management Library voor .NET biedt een op [Azure Resource Manager](../resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
+De Azure SQL Database Management Library voor .NET biedt een op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
 > [!NOTE]
-> Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../resource-group-overview.md) gebruikt. Daarom moet u altijd de nieuwste **Azure SQL Database Management Library voor .NET gebruiken ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De oudere [klassieke op implementatiemodellen gebaseerde bibliotheken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) worden alleen ondersteund voor achterwaartse compatibiliteit. Wij raden daarom aan de nieuwere op Resource Manager gebaseerde bibliotheken te gebruiken.
+> Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../azure-resource-manager/resource-group-overview.md) gebruikt. Daarom moet u altijd de nieuwste **Azure SQL Database Management Library voor .NET gebruiken ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De oudere [klassieke op implementatiemodellen gebaseerde bibliotheken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) worden alleen ondersteund voor achterwaartse compatibiliteit. Wij raden daarom aan de nieuwere op Resource Manager gebaseerde bibliotheken te gebruiken.
 > 
 > 
 
@@ -44,7 +48,7 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 > 
 > 
 
-## Een consoletoepassing maken en de vereiste bibliotheken installeren
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Een consoletoepassing maken en de vereiste bibliotheken installeren
 1. Start Visual Studio.
 2. Klik op **Bestand** > **Nieuw** > **Project**.
 3. Maak een **consoletoepassing** met C# en noem deze *SqlDbConsoleApp*
@@ -61,7 +65,7 @@ Als u een SQL Database met C# wilt maken, laadt u de vereiste beheerbibliotheken
 > 
 > 
 
-## Een SQL Database-server, firewallregel en SQL Database maken: C#-voorbeeld
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Een SQL Database-server, firewallregel en SQL Database maken: C#-voorbeeld
 In het volgende voorbeeld worden een resourcegroep, een server, een firewallregel en een SQL-database gemaakt. Zie [Een service-principal maken voor toegang tot resources](#create-a-service-principal-to-access-resources) om de variabelen `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` op te halen.
 
 Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` bij met uw app-waarden (de `{}` niet overnemen).
@@ -223,7 +227,7 @@ Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` b
 
 
 
-## Een service-principal maken voor toegang tot resources
+## <a name="create-a-service-principal-to-access-resources"></a>Een service-principal maken voor toegang tot resources
 Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de service-principal die we nodig hebben om onze C#-app te verifiëren. Het script voert de waarden uit die we nodig hebben voor het voorgaande C#-voorbeeld. Zie [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md) (Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources) voor gedetailleerde informatie.
 
     # Sign in to Azure.
@@ -266,12 +270,12 @@ Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de s
 
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent u klaar voor de volgende artikelen:
 
 * [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld-T-SQL-query uitvoeren](sql-database-connect-query-ssms.md)
 
-## Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende resources
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Databaseklasse](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
@@ -288,6 +292,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,14 +1,16 @@
-1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
+1. In de portal klikt u via **Alle resources** op **+Toevoegen**. In het zoekvak van de blade **Alles** typt u **Lokale netwerkgateway**. Klik vervolgens om te zoeken. Er wordt dan een lijst geretourneerd. Klik op **Lokale netwerkgateway** om de blade te openen en klik op **Maken** om de blade **Lokale netwerkgateway maken** te openen.
    
-    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
-3. Specify a valid public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>If this local network represents an on-premises location, this is the public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>If this local network represents another VNet, you will specify the public IP address that was assigned to the virtual network gateway for that VNet.<br>
-4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to.
-5. For **Subscription**, verify that the correct subscription is showing.
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
-7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
-8. Click **Create** to create the local network gateway.
+    ![maak een lokale netwerkgateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+2. Op de **blade Lokale netwerkgateway maken**, voert u een **Naam** in voor uw lokale netwerkgateway-object.
+3. Geef een geldig openbaar **IP-adres** op voor het VPN-apparaat of de gateway van het virtuele netwerk waarmee u verbinding wilt maken.<br>Als dit lokale netwerk een on-premises locatie vertegenwoordigt, is dit het openbare IP-adres van het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure.<br>Als dit lokale netwerk een ander VNet vertegenwoordigt, geeft u het openbare IP-adres op dat is toegewezen aan de gateway van het virtuele netwerk voor dat VNet.<br>
+4. **Adresruimte** verwijst naar de adresbereiken voor het netwerk dat dit lokale netwerk vertegenwoordigt. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de bereiken die u hier opgeeft, niet overlappen met bereiken van andere netwerken waarmee u verbinding wilt maken.
+5. Voor **Abonnement** controleert u of het juiste abonnement wordt weergegeven.
+6. Voor **Resourcegroep** selecteert u de resourcegroep die u wilt gebruiken. U kunt een nieuwe resourcegroep maken of een resourcegroep selecteren die u al hebt gemaakt.
+7. Selecteer voor **Locatie** de locatie waarin dit object wordt gemaakt. U kunt dezelfde locatie selecteren als die van uw VNet, maar dat is niet vereist.
+8. Klik op **Maken** om de lokale netwerkgateway te maken.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

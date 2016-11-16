@@ -1,13 +1,13 @@
 ---
-title: AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager | Microsoft Docs
+title: "AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager | Microsoft Docs"
 description: In dit document leert u hoe u AD FS implementeert in Azure voor hoge beschikbaarheid.
 keywords: Ad fs met Azure traffic manager, adfs met Azure Traffic Manager, geografisch, multi-datacenter, geografische datacenters, multi-geografische datacenters, AD FS implementeren in azure, azure adfs implementeren, azure adfs, azure ad fs, adfs implementeren, ad fs implementeren, adfs in azure, adfs implementeren in azure, AD FS implementeren in azure, adfs azure, introductie tot AD FS, Azure, AD FS in Azure, iaas, ADFS, adfs verplaatsen naar azure
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+
 
 ---
-# AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
+# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
 [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
 
 Met een maximaal beschikbare AD FS-infrastructuur in meerdere regio’s kunt u:
@@ -25,7 +29,7 @@ Met een maximaal beschikbare AD FS-infrastructuur in meerdere regio’s kunt u:
 * **Storingen door één fout elimineren:** dankzij de mogelijkheden voor failover van Azure Traffic Manager kunt u een maximaal beschikbare AD FS-infrastructuur creëren. Deze blijft zelfs beschikbaar wanneer één van de datacenters ergens ter wereld uitvalt
 * **Verbeterde prestaties:** u kunt de voorgestelde implementatie in dit artikel gebruiken om een uitmuntende AD FS-infrastructuur te maken waardoor gebruikers sneller kunnen worden geverifieerd. 
 
-## Ontwerpprincipes
+## <a name="design-principles"></a>Ontwerpprincipes
 ![Algemeen ontwerp](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
 De algemene ontwerpprincipes zijn hetzelfde als de principes die worden vermeld in Ontwerpprincipes in het artikel AD FS-implementatie in Azure. In het bovenstaande diagram ziet u een eenvoudige uitbreiding van de basisimplementatie naar een andere geografische regio. Hieronder ziet u elke punten om te overwegen bij het uitbreiden van uw implementatie naar een nieuwe geografische regio
@@ -38,16 +42,16 @@ De algemene ontwerpprincipes zijn hetzelfde als de principes die worden vermeld 
 * **Azure Traffic Manager:** Met Microsoft Azure Traffic Manager kunt u de distributie van gebruikersverkeer naar uw service-eindpunten beheren dat wordt uitgevoerd in verschillende datacenters overal ter wereld. Azure Traffic Manager werkt op DNS-niveau. Er wordt gebruikgemaakt van DNS-antwoorden om verkeer van eindgebruikers door te sturen naar wereldwijd gedistribueerde eindpunten. Clients maken vervolgens rechtstreeks verbinding met deze eindpunten. Met de routeringsopties Prestaties, Gewogen en Prioriteit kunt u eenvoudig de routeringsoptie kiezen die het beste aansluit op de behoeften van uw organisatie. 
 * **Connectiviteit tussen virtuele netwerken in twee regio’s:** er hoeft geen connectiviteit te zijn tussen de virtuele netwerken zelf. Omdat elk virtueel netwerk toegang heeft tot domeincontrollers en beschikt over een AD FS- en WAP-server, kunnen virtuele netwerken zonder connectiviteit ertussen wél functioneren in verschillende regio’s. 
 
-## Stappen voor het integreren van Azure Traffic Manager
-### AD FS implementeren in de nieuwe geografische regio
+## <a name="steps-to-integrate-azure-traffic-manager"></a>Stappen voor het integreren van Azure Traffic Manager
+### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>AD FS implementeren in de nieuwe geografische regio
 Volg de stappen en richtlijnen in [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) voor het implementeren van dezelfde topologie in de nieuwe geografische regio.
 
-### DNS-labels voor openbare IP-adressen van de openbare, internetgerichte load balancers
+### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>DNS-labels voor openbare IP-adressen van de openbare, internetgerichte load balancers
 Zoals eerder vermeld, kan Azure Traffic Manager alleen verwijzen naar DNS-labels als eindpunt. Daarom is het belangrijk om DNS-labels te maken voor de openbare IP-adressen van de externe load balancers. In de schermafbeelding hieronder ziet u hoe u uw DNS-label kunt configureren voor het openbare IP-adres. 
 
 ![DNS-label](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-### Azure Traffic Manager implementeren
+### <a name="deploying-azure-traffic-manager"></a>Azure Traffic Manager implementeren
 Volg de onderstaande stappen om een Traffic Manager-profiel te maken. Zie [Een Azure Traffic Manager-profiel beheren](../traffic-manager/traffic-manager-manage-profiles.md) voor meer informatie.
 
 1. **Een Traffic Manager-profiel maken:** geef uw Traffic Manager-profiel een unieke naam. Deze naam van het profiel maakt deel uit van de DNS-naam en fungeert als voorvoegsel voor het Traffic Manager-domeinnaamlabel. De naam/het voorvoegsel wordt toegevoegd aan .trafficmanager.net om een DNS-label te maken voor uw Traffic Manager. In de onderstaande schermafbeelding ziet u hoe het DNS-voorvoegsel van Traffic Manager wordt ingesteld als mysts. Het resulterende DNS-label wordt dan mysts.trafficmanager.net. 
@@ -90,16 +94,17 @@ Volg de onderstaande stappen om een Traffic Manager-profiel te maken. Zie [Een A
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## De routering en aanmelding bij AD FS testen
-### Routeringstest
+## <a name="test-the-routing-and-ad-fs-signin"></a>De routering en aanmelding bij AD FS testen
+### <a name="routing-test"></a>Routeringstest
 Een voorbeeld van een eenvoudige routeringstest is het pingen van de DNS-naam van de Federation Service via één computer in elke geografische regio. Afhankelijk van de gekozen routeringsmethode wordt het eindpunt dat wordt gepingd weergegeven in het pingscherm. Als u bijvoorbeeld de routeringsoptie Prestaties hebt geselecteerd, wordt het eindpunt dat het dichtst bij de regio van de client ligt, bereikt. Hieronder ziet u een schermafbeelding van twee pings van twee clientapparaten in verschillende regio’s: één in Oost-Azië en één in het westen van de Verenigde Staten. 
 
 ![Routeringstest](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### AD FS-aanmeldingstest
+### <a name="ad-fs-signin-test"></a>AD FS-aanmeldingstest
 De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon.aspx. Daartoe moet IdpInitiatedSignOn in de eigenschappen van AD FS worden ingeschakeld. Volg onderstaande stappen om uw AD FS-installatie te controleren
 
-1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen. 
+   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. Ga vanaf een externe computer naar https://<yourfederationservicedns>adfs/ls/IdpInitiatedSignon.aspx
 3. De volgende AD FS-pagina moet worden weergegeven:
    
@@ -109,15 +114,18 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
    
     ![AD FS-test - verificatie geslaagd](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
-## Verwante koppelingen
-* [AD FS-basisimplementatie in Azure](active-directory-aadconnect-azure-adfs.md)
+## <a name="related-links"></a>Verwante koppelingen
+* [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Verkeersrouteringsmethoden van Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)
+* [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) (Verkeersrouteringsmethoden van Traffic Manager)
 
-## Volgende stappen
-* [Een Azure Traffic Manager-profiel beheren](../traffic-manager/traffic-manager-manage-profiles.md)
+## <a name="next-steps"></a>Volgende stappen
+* [Azure Traffic Manager-profielen beheren](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

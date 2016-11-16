@@ -1,11 +1,11 @@
 ---
-title: PowerShell gebruiken om diagnostische Azure-gegevens naar Application Insights te verzenden | Microsoft Docs
+title: PowerShell gebruiken om Application Insights in te stellen in Azure | Microsoft Docs
 description: Automatiseer het configureren van diagnostische Azure-gegevens, zodat deze worden doorgestuurd naar Application Insights.
 services: application-insights
 documentationcenter: .net
 author: sbtron
 manager: douge
-
+ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+
 
 ---
-# PowerShell gebruiken om diagnostische Azure-gegevens naar Application Insights te verzenden
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell gebruiken om Application Insights in te stellen voor een Azure-web-app
 [Microsoft Azure](https://azure.com) kan zo [worden geconfigureerd dat er diagnostische Azure-gegevens worden verzonden](app-insights-azure-diagnostics.md) naar [Visual Studio Application Insights](app-insights-overview.md). De diagnostische gegevens hebben betrekking op Azure Cloud Services en virtuele Azure-machines. Ze vormen een aanvulling op de telemetrie die u vanuit de app verzendt met behulp van de Application Insights-SDK. Als onderdeel van het automatiseringsproces voor het maken van nieuwe resources in Azure kunt u het verzenden van diagnostische gegevens configureren met PowerShell.
 
-## De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
+## <a name="azure-template"></a>Azure-sjabloon
+Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure Resource Manager-sjabloon, kunt u Application Insights configureren door dit aan het resource-knooppunt toe te voegen:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource`: een naam voor de Application Insights-resource
+* `myWebAppName`: de id van de web-app
+
+## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
 De cmdlet `New-AzureDeployment` bevat de parameter `ExtensionConfiguration`, die overweg kan met vele configuraties voor diagnostische gegevens. Deze kunnen worden gemaakt met de cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Bijvoorbeeld:
 
 ```ps
@@ -54,7 +81,7 @@ De cmdlet `New-AzureDeployment` bevat de parameter `ExtensionConfiguration`, die
 
 ``` 
 
-## De extensie voor diagnostische gegevens inschakelen voor een bestaande cloudservice
+## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen voor een bestaande cloudservice
 Gebruik `Set-AzureServiceDiagnosticsExtension` voor een bestaande service.
 
 ```ps
@@ -83,14 +110,14 @@ Gebruik `Set-AzureServiceDiagnosticsExtension` voor een bestaande service.
         -Role "WorkerRole"
 ```
 
-## De huidige configuratie van de extensie voor diagnostische gegevens ophalen
+## <a name="get-current-diagnostics-extension-configuration"></a>De huidige configuratie van de extensie voor diagnostische gegevens ophalen
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 
-## De extensie voor diagnostische gegevens verwijderen
+## <a name="remove-diagnostics-extension"></a>De extensie voor diagnostische gegevens verwijderen
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -106,11 +133,14 @@ De extensie voor diagnostische gegevens verwijderen voor elke afzonderlijke rol:
 ```
 
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [Azure Cloud Services-apps bewaken met Application Insights](app-insights-cloudservices.md)
 * [Diagnostische Azure-gegevens verzenden naar Application Insights](app-insights-azure-diagnostics.md)
 * [Het configureren van waarschuwingen automatiseren](app-insights-powershell-alerts.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

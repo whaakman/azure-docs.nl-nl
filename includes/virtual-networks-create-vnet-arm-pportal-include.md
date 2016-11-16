@@ -1,4 +1,4 @@
-## Een VNet aanmaken in de Azure-portal
+## <a name="how-to-create-a-vnet-in-the-azure-portal"></a>Een VNet aanmaken in de Azure-portal
 Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Preview Portal op basis van het bovenstaande scenario .
 
 1. Navigeer via een browser naar http://portal.azure.com en log, indien nodig, in met uw Azure-account.
@@ -8,7 +8,7 @@ Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Pr
 3. Configureer de VNet-instellingen op de blade **Virtueel netwerk aanmaken**, zoals aangegeven in de onderstaande afbeelding.
    
     ![Een virtuele netwerkblade aanmaken](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
-4. Klik op **Resourcegroep** en selecteer een resourcegroep om toe te voegen aan het VNet of klik op **Nieuwe aanmaken** om het VNet toe te voegen aan een nieuwe resourcegroep. In de onderstaande afbeelding worden de instellingen voor de resourcegroep genaamd **TestRG** weergegeven. Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+4. Klik op **Resourcegroep** en selecteer een resourcegroep om toe te voegen aan het VNet of klik op **Nieuwe aanmaken** om het VNet toe te voegen aan een nieuwe resourcegroep. In de onderstaande afbeelding worden de instellingen voor de resourcegroep genaamd **TestRG** weergegeven. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
    
     ![Resourcegroep](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 5. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet. 
@@ -26,6 +26,8 @@ Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Pr
     
     ![Lijst met subnetten in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

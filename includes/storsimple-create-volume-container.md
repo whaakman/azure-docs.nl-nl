@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Een volumecontainer maken
+#### <a name="to-create-a-volume-container"></a>Een volumecontainer maken
 1. Klik op de pagina **Quick Start** van het apparaat op **Een volumecontainer toevoegen**. Het dialoogvenster **Volumecontainer maken** wordt weergegeven.
    
     ![Een volumecontainer maken](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
@@ -20,6 +20,8 @@
 
 Als u een video wilt bekijken over het maken van een volumecontainer in uw StorSimple-oplossing, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

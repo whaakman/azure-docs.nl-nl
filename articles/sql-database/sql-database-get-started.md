@@ -1,13 +1,13 @@
 ---
 title: 'SQL Database tutorial: een SQL database maken | Microsoft Docs'
-description: Informatie over het instellen van een logische SQL Database-server, een serverfirewallregel, een SQL Database en voorbeeldgegevens. Lees ook hoe u verbinding met clienthulpprogramma's maakt, gebruikers configureert en een databasefirewallregel instelt.
+description: Informatie over het instellen van een logische SQL Database-server, een serverfirewallregel, een SQL Database en voorbeeldgegevens. Lees ook hoe u verbinding met clienthulpprogramma&quot;s maakt, gebruikers configureert en een databasefirewallregel instelt.
 keywords: zelfstudie over sql-database, een sql-database maken
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# SQL Database tutorial: maak in slechts enkele minuten een SQL Database met behulp van Azure Portal
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Database tutorial: maak in slechts enkele minuten een SQL Database met behulp van Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -36,7 +40,7 @@ U kunt dezelfde taken uitvoeren met [C#](sql-database-get-started-csharp.md) of 
 
 <a name="create-logical-server-bk"></a>
 
-## Uw eerste Azure SQL-database maken
+## <a name="create-your-first-azure-sql-database"></a>Uw eerste Azure SQL-database maken
 1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
 2. Klik op **Nieuw**, klik op **Gegevens en opslag** en ga naar **SQL Database**.
    
@@ -69,7 +73,7 @@ U kunt dezelfde taken uitvoeren met [C#](sql-database-get-started-csharp.md) of 
 12. Geef onder **Aanmeldgegevens van de serverbeheerder** een gebruikersnaam op voor de admin-aanmelding voor deze server, bijvoorbeeld 'mijn-admin-account'. Deze aanmelding wordt de principal-aanmelding op serverniveau genoemd. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
     
     ![Nieuwe SQL-database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Geef onder **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het principal-aanmeldingsaccount van de server, bijvoorbeeld 'p@ssw0rd1'. Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
+13. Geef onder **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het principal-aanmeldingsaccount van de server, bijvoorbeeld "p@ssw0rd1".Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
     
     ![Nieuwe SQL-database 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. Selecteer onder **Locatie** een geschikt datacentrum voor uw locatie, bijvoorbeeld 'Australië - oost'.
@@ -101,7 +105,7 @@ U kunt dezelfde taken uitvoeren met [C#](sql-database-get-started-csharp.md) of 
 
 [!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met wat voorbeeldgegevens, bent u klaar om verder te gaan met uw favoriete tools.
 
 * Als u bekend bent met Transact-SQL en SQL Server Management Studio (SSMS), ontdek dan hoe u [verbinding kunt maken met een SQL Database en een query op de database kunt uitvoeren met SSMS](sql-database-connect-query-ssms.md).
@@ -111,9 +115,12 @@ Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met w
 * Als u met het opdrachtregelprogramma BCP enkele gegevens vanuit een csv-bestand in een nieuwe tabel wilt laden, leest u [Met BCP gegevens vanuit een csv-bestand in SQL Database laden](sql-database-load-from-csv-with-bcp.md).
 * Zie [Getting started with security](sql-database-get-started-security.md) (Aan de slag met beveiliging) voor meer informatie over de beveiliging van Azure SQL Database
 
-## Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 [Wat is SQL Database?](sql-database-technical-overview.md)
 
-<!---HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

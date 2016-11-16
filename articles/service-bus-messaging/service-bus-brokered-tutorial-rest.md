@@ -5,8 +5,8 @@ services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Service Bus Brokered Messaging REST-zelfstudie
@@ -22,7 +26,7 @@ ms.author: sethm
 In deze zelfstudie kunt u leren hoe u een eenvoudige op REST gebaseerde Azure Service Bus-wachtrij en onderwerp/abonnement maakt.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](../service-bus/service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
+De eerste stap is het maken van een servicenaamruimte en het ophalen van een SAS-sleutel ( [Shared Access Signature](service-bus-sas-overview.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus een referentie voor het verifiëren van toegang tot een toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Met Service Bus-wachtrijen kunt u berichten in een ‘first-in, first-out’-wac
 
 De code in deze zelfstudie doet het volgende:
 
-* Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](../service-bus/service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
+* Hij gebruikt uw naamruimte en SAS-sleutel ([Shared Access Signature](service-bus-sas-overview.md)) om toegang te krijgen tot uw resources voor de Service Bus-naamruimte.
 * Hij maakt een wachtrij, verzendt een bericht naar de wachtrij en leest het bericht uit de wachtrij.
 * Hij maakt een onderwerp, een abonnement op dat onderwerp en verzendt en leest het bericht van het abonnement.
 * Hij haalt alle gegevens over de wachtrij, het onderwerp en het abonnement uit de Service Bus op, met inbegrip van abonnementsregels.
@@ -139,7 +143,7 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
 ## <a name="create-management-credentials"></a>Beheerreferenties maken
 De volgende stap is het schrijven van een methode die de naamruimte en SAS-sleutel verwerkt die u in de vorige stap heeft opgegeven, en die een SAS-token retourneert. In dit voorbeeld wordt een SAS-token aangemaakt dat een uur geldig is.
 
-### <a name="create-a-getsastoken()-method"></a>Een GetSASToken()-methode maken
+### <a name="create-a-getsastoken-method"></a>Een GetSASToken()-methode maken
 Plak de volgende code in de `Program`-klasse na de `Main()`-methode:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Raadpleeg de volgende onderwerpen voor meer informatie:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-* [Grondbeginselen van Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Grondbeginselen van Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus Relay REST-zelfstudie](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

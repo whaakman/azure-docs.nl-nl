@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### De StorSimple-serviceregistratiesleutel ophalen
+#### <a name="to-get-the-storsimple-service-registration-key"></a>De StorSimple-serviceregistratiesleutel ophalen
 1. Klik op de pagina **StorSimple Manager-service** op de service die u hebt gemaakt. Hiermee gaat u naar de pagina **Quick Start**. (U kunt op elk gewenst moment op het pictogram Quick Start ![pictogram Quick Start voor StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) klikken voor toegang tot de pagina **Quick Start**.)
    
      ![De pagina Quick Start voor StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
@@ -20,6 +20,8 @@
 
 Als u een video wilt bekijken over het ophalen van de serviceregistratiesleutel, klikt u [hier](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

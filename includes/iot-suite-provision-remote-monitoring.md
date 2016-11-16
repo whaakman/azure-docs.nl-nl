@@ -1,11 +1,11 @@
-## De oplossing inrichten
+## <a name="provision-the-solution"></a>De oplossing inrichten
 1. Meld u aan bij [azureiotsuite.com][lnk azureiotsuite] met de referenties van uw Azure-account en klik op **+** om een nieuwe oplossing te maken.
 2. Klik op de tegel **Externe controle** op **Selecteren**.
 3. Voer een **oplossingsnaam** in voor uw vooraf geconfigureerde oplossing voor externe controle.
 4. Selecteer de **regio** die en het **abonnement** dat u wilt gebruiken voor het inrichten van de oplossing.
 5. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
 
-### Wacht tot het inrichtingsproces is voltooid.
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Wacht tot het inrichtingsproces is voltooid.
 1. Klik op de tegel voor uw oplossing met de status **Inrichten**.
 2. Tijdens de implementatie van Azure-services in uw Azure-abonnement verschijnen verschillende **inrichtingstatuswaarden**.
 3. Nadat het inrichten is voltooid, verandert de status in **Gereed**.
@@ -23,6 +23,6 @@ Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had 
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

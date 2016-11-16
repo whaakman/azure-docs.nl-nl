@@ -2,21 +2,25 @@
 title: " Bestanden uploaden naar een Media Services-account via Azure Portal | Microsoft Docs"
 description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u bestanden uploadt naar een Media Services-account via Azure Portal
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2016
+ms.date: 10/14/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+
 
 ---
-# Bestanden uploaden naar een Media Services-account via Azure Portal
+# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Bestanden uploaden naar een Media Services-account via Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
@@ -29,10 +33,11 @@ ms.author: juliako
 
 In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) een asset. De asset kan video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens voor deze bestanden) bevatten. Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming.
 
-1. Klik in het venster **Instelling** op **Assets**.
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Klik in de blade **Instellingen** op **Assets**.
    
     ![Bestanden uploaden](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Klik op de knop **Uploaden**.
+3. Klik op de knop **Uploaden**.
    
     Het venster **Videoasset uploaden** wordt weergegeven.
    
@@ -40,21 +45,24 @@ In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) e
    > Er geldt geen beperking voor de bestandsgrootte.
    > 
    > 
-3. Blader naar de gewenste video op uw computer, selecteer deze en klik op OK.  
+4. Blader naar de gewenste video op uw computer, selecteer deze en klik op OK.  
    
     Het uploaden wordt gestart en u ziet de voortgang onder de bestandsnaam.  
 
 Nadat het uploaden is voltooid, ziet u de nieuwe asset in het venster **Assets**. 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-portal-encode.md) voor meer informatie.
 
-## Media Services-leertrajecten
+## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Feedback geven
+## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

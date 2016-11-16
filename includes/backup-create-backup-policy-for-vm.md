@@ -1,4 +1,4 @@
-## Een back-upbeleid definiëren
+## <a name="defining-a-backup-policy"></a>Een back-upbeleid definiëren
 Een back-upbeleid definieert een matrix met wanneer de momentopnamen van de gegevens zijn gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, wordt dit toegepast op de kluis. De interface voor het back-upbeleid ziet er als volgt uit:
 
 ![Back-upbeleid](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,6 +26,8 @@ Ga als volgt te werk om een beleid te maken:
    
     Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

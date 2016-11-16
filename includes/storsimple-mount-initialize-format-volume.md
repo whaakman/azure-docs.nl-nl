@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Een volume koppelen, initialiseren en formatteren
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Een volume koppelen, initialiseren en formatteren
 1. Start de Microsoft iSCSI-initiator.
 2. Klik in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Detectie** op **Portal detecteren**.
 3. Geef in het dialoogvenster **Doelportaal detecteren** het IP-adres op van de netwerkinterface met iSCSI-functionaliteit en klik vervolgens op **OK**. 
@@ -27,6 +27,6 @@ Als u een video wilt bekijken over het koppelen, initialiseren en formatteren va
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

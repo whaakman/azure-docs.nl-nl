@@ -1,5 +1,5 @@
 
-#### Extern beheer configureren op het apparaat
+#### <a name="to-configure-remote-management-on-the-device"></a>Extern beheer configureren op het apparaat
 1. Ga op uw virtuele apparaat naar **Apparaten > Configureren**.
 2. Schuif omlaag naar het gedeelte **Extern beheer**.
 3. Stel **Extern beheer inschakelen** in op **Ja**.
@@ -7,6 +7,8 @@
 5. Klik op **Certificaat voor extern beheer downloaden** om een certificaat voor extern beheer te downloaden. Geef een locatie op waar dit bestand moet worden opgeslagen. Dit certificaat moet vervolgens worden geïnstalleerd op de client of hostcomputer die u gebruikt voor de verbinding met het virtuele apparaat.
 6. Klik op **Opslaan** onder aan de pagina.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

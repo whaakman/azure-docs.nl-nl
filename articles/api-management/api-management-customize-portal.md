@@ -2,27 +2,31 @@
 title: De ontwikkelaarsportal aanpassen in Azure API Management | Microsoft Docs
 description: Informatie over het aanpassen van de ontwikkelaarsportal in Azure API Management.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# De ontwikkelaarsportal aanpassen in Azure API Management.
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>De ontwikkelaarsportal aanpassen in Azure API Management.
 In deze handleiding wordt getoond hoe u het uiterlijk van de ontwikkelaarsportal kunt wijzigen in Azure API Management om dit aan te passen aan uw merk.
 
 ## <a name="change-page-headers"> </a>De tekst of het logo in de paginaheader wijzigen
 Een van de belangrijkste aspecten van portalaanpassing is het vervangen van de tekst boven aan alle pagina's door uw bedrijfsnaam of logo.
 
-Inhoud in de ontwikkelaarsportal wordt gewijzigd via de publicatieportal, die wordt geopend via de klassieke Azure-portal. Als u de API-publicatieportal wilt openen, klikt u op **Beheren** in de klassieke Azure-portal voor uw API Management-service.
+Inhoud in de ontwikkelaarsportal wordt gewijzigd via de publicatieportal, die u kunt openen vanuit de Azure Portal. U opent deze door vanaf de servicewerkbalk van het API Management-exemplaar op **Publicatieportal** te klikken.
 
 ![Publicatieportal][api-management-management-console]
 
@@ -49,9 +53,9 @@ Er zijn twee belangrijke modi voor het bewerken van stijlregels: met **Alle rege
 
 In deze sectie willen we alleen de stijl van de headers wijzigen. Klik op de optie **Element kiezen** op de werkbalk van de stijleditor en klik vervolgens op **Een element selecteren om aan te passen**. Elementen worden nu gemarkeerd als u de muisaanwijzer er overheen beweegt om aan te geven welke stijlen van het element u zou gaan bewerken als u erop klikt. Beweeg de muisaanwijzer over de tekst die de bedrijfsnaam in de header aangeeft ('Fabrikam-ontwikkelaarsportal' als u de instructies in de vorige sectie hebt gevolgd) en klik erop. Een set benoemde en gecategoriseerde stijlregels wordt weergegeven in de stijleditor.
 
-Elke regel geeft een stijleigenschap van het geselecteerde element aan. Voor de header die hierboven is geselecteerd, staat de tekengrootte bijvoorbeeld in @font-size-h1 terwijl de naam van het lettertype met alternatieven in @headings-font-family staat.
+Elke regel geeft een stijleigenschap van het geselecteerde element aan. Voor de header die hierboven is geselecteerd, staat de tekengrootte bijvoorbeeld in @font-size-h1 terwijl de naam van het lettertype met alternatieven in @headings-font-family. staat.
 
-> Als u bekend bent met [bootstrap][bootstrap], zijn deze regels in feite [LESS-variabelen][LESS-variabelen] binnen het bootstrapthema dat wordt gebruikt voor de onwikkelaarsportal.
+> Als u bekend bent met [bootstrap][bootstrap], zijn deze regels in feite [LESS-variabelen][LESS-variabelen] binnen het bootstrapthema dat door de ontwikkelaarsportal wordt gebruikt.
 > 
 > 
 
@@ -84,13 +88,13 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 * Meer informatie over het aanpassen van de inhoud van ontwikkelaarsportalpagina's met [Sjablonen voor ontwikkelaarsportals](api-management-developer-portal-templates.md).
 
 [De tekst/het logo in de paginaheaders wijzigen]: #change-page-headers
-[De stijl van de headers wijzigen]: #change-headers-styling
+[ De stijl van de headers wijzigen]: #change-headers-styling
 [De inhoud van een pagina bewerken]: #edit-page-contents
 [Volgende stappen]: #next-steps
 
 [Klassieke Azure Portal]: https://manage.windowsazure.com/
 
-[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
+[api-management-beheerconsole]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
@@ -103,6 +107,6 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

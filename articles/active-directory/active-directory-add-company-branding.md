@@ -1,12 +1,12 @@
 ---
-title: De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
+title: "De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s"
 description: Ontdek hoe u uw huisstijl kunt toevoegen aan de Azure-aanmeldingspagina en aan de toegangsvensterpagina
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+
 
 ---
-# De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
+# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory biedt deze mogelijkheid. U kunt het uiterlijk van de volgende webpagina’s aanpassen en uw eigen bedrijfslogo en kleurenschema toepassen:
 
 * **Aanmeldingspagina**: dit is de pagina die wordt weergegeven wanneer u zich aanmeldt bij Office 365 of andere toepassingen op internet die gebruikmaken van Azure AD als id-provider. U communiceert met deze pagina tijdens het detecteren van het thuisdomein of om uw referenties in te voeren. Tijdens de detectie van het thuisdomein kan het systeem federatieve gebruikers omleiden naar hun on-premises STS (zoals AD FS).
@@ -30,7 +34,7 @@ In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het
 > 
 > 
 
-## De aanmeldingspagina aanpassen
+## <a name="customizing-the-signin-page"></a>De aanmeldingspagina aanpassen
 Als u browsertoegang nodig hebt om de cloud-apps en -services te openen waar uw organisatie op is geabonneerd, gebruikt u de aanmeldingspagina.
 
 Als u wijzigingen hebt aangebracht aan uw aanmeldingspagina, kan het een uur duren voordat de wijzigingen worden weergegeven.
@@ -73,7 +77,7 @@ Hier ziet u hoe de afbeelding wordt weergegeven wanneer de grootte van het brows
 
 ![][7]
 
-## Welke elementen op de pagina kan ik aanpassen?
+## <a name="what-elements-on-the-page-can-i-customize"></a>Welke elementen op de pagina kan ik aanpassen?
 U kunt de volgende elementen op de aanmeldingspagina aanpassen:
 
 ![][5]
@@ -108,14 +112,14 @@ U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aan
 * Een grote standaardafbeelding maken die geschikt is voor alle culturen en afzonderlijke versies maken voor Engels- en Franstaligen. Wanneer een browser op een van die twee talen wordt ingesteld, wordt de aangepaste afbeelding weergegeven. Bij alle overige talen wordt de standaardafbeelding weergegeven.
 * Voor uw organisatie verschillende logo's configureren (bijvoorbeeld een Japanse en een Hebreeuwse versie).
 
-## De pagina met het toegangspaneel aanpassen
+## <a name="access-panel-page-customization"></a>De pagina met het toegangspaneel aanpassen
 De pagina met het toegangspaneel is als het ware een portalpagina voor snelle toegang tot de cloud-apps waar de beheerder u toegang toe heeft verleend. Op deze pagina worden uw apps weergegeven als toepassingstegels waarop kan worden geklikt.
 
 In de volgende schermafbeelding ziet u een voorbeeld van een pagina met een toegangspaneel nadat deze is aangepast.
 
 ![][8]
 
-## Uw directory configureren met de huisstijl van uw bedrijf
+## <a name="configure-your-directory-with-company-branding"></a>Uw directory configureren met de huisstijl van uw bedrijf
 In de klassieke Azure Portal kunt u per directory één standaardset aanpasbare elementen configureren. Wanneer de standaardset is opgeslagen, kan een beheerder vertaalde versies van elk element toevoegen voor gebruik in andere taalgebieden. Alle aanpasbare elementen zijn optioneel.
 
 Als u bijvoorbeeld een standaardlogo voor in de banner configureert, maar geen grote afbeelding, wordt in de rechterbovenhoek van de aanmeldingspagina uw logo weergegeven. Daarbij wordt de standaardafbeelding van de site weergegeven.
@@ -140,7 +144,7 @@ Hoewel u technisch gezien een afzonderlijke set zou kunnen configureren voor elk
 
 Het kan een uur duren voordat de wijzigingen die u aan de huisstijl van de aanmeldingspagina hebt aangebracht, worden weergegeven.
 
-**Als u taalspecifieke huisstijlwijzigingen wilt doorvoeren, volgt u de volgende stappen:**
+**Als u een taalspecifieke huisstijlwijzigingen wilt doorvoeren, volgt u de volgende stappen:**
 
 1. Meld u bij de [klassieke Azure Portal](https://manage.windowsazure.com) aan als beheerder van de directory die u wilt aanpassen.
 2. Selecteer de directory die u wilt aanpassen.
@@ -173,7 +177,7 @@ Het kan een uur duren voordat de wijzigingen die u aan de huisstijl van de aanme
 8. Klik zo nodig opnieuw op **Huisstijl aanpassen** en herhaal deze stappen voor alle taalspecifieke huisstijlonderdelen die moeten worden verwijderd.
     Alle huisstijlinstellingen zijn verwijderd wanneer u op **Huisstijl aanpassen** klikt en er in het formulier **Standaardhuisstijl aanpassen** geen bestaande instellingen zijn geconfigureerd.
 
-## Testen en voorbeelden
+## <a name="testing-and-examples"></a>Testen en voorbeelden
 U doet er verstandig aan om te experimenteren met een testtenant voordat u wijzigingen aanbrengt aan uw productieomgeving.
 
 **Controleren of uw huisstijl is toegepast:**
@@ -190,7 +194,7 @@ De volgende twee fictieve aanmeldingspagina’s zijn aangepast. Op basis hiervan
 
 Als u de taalspecifieke instellingen wilt testen, moet u de standaardtaalvoorkeuren in uw webbrowser wijzigen in een taal die u hebt ingesteld in de aanpassingen. In Internet Explorer kunt u dit configureren in het menu **Internetopties**.
 
-## Aanpasbare elementen
+## <a name="customizable-elements"></a>Aanpasbare elementen
 Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. Zo hoeft u uw bedrijfslogo voor elke directory slechts één keer te configureren, maar wordt het logo voor zowel de aanmeldingspagina als de pagina’s met het toegangsvenster gebruikt. Sommige aanpasbare elementen worden alleen op de aanmeldingspagina gebruikt. In de volgende tabel vindt u meer informatie over de verschillende aanpasbare elementen.
 
 | Naam | Beschrijving | Beperkingen | Aanbevelingen |
@@ -203,7 +207,7 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 | Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
 | Achtergrondkleur van de aanmeldingspagina |De achtergrondkleur van de aanmeldingspagina wordt in het gedeelte links van het aanmeldingsformulier gebruikt. |Dit moet een RGB-kleur zijn met een hexadecimale notatie (voorbeeld: #FFFFFF) |<p>De achtergrondkleur kan in plaats van de grote afbeelding worden weergegeven als er een verbinding is met een lage bandbreedte</p><p>Het is een goed idee om de primaire kleur van het logo in de banner te gebruiken</p> |
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Uw toegangs- en gebruiksrapporten weergeven](active-directory-view-access-usage-reports.md)
 
@@ -220,6 +224,6 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

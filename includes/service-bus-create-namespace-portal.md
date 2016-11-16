@@ -9,7 +9,7 @@
     ![Een naamruimte maken][create-namespace]
 8. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
-### De beheerreferenties ophalen
+### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in de naamruimte-blade op **Beleid voor gedeelde toegang**.
 3. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
@@ -22,12 +22,12 @@
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[verbinding-gegevens]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

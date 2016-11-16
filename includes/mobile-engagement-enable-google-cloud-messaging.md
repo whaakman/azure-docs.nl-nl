@@ -12,6 +12,8 @@
 5. Klik bovenaan op het tabblad **Cloud Messaging**. 
 6. Noteer de **serversleutel** en de **afzender-ID** die u later zult gebruiken in het *Android Manifest-bestand*.  
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

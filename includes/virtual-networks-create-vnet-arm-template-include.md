@@ -1,4 +1,4 @@
-## De ARM-sjabloon downloaden en begrijpen
+## <a name="download-and-understand-the-arm-template"></a>De ARM-sjabloon downloaden en begrijpen
 U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets vanuit github downloaden. Vervolgens kunt u de wijzigingen aanbrengen die u wilt aanbrengen en hem opnieuw gebruiken. Volg de onderstaande stappen om dit te doen:
 
 1. Navigeer naar [de sjabloon-voorbeeldpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
@@ -9,7 +9,7 @@ U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets 
    
    | Parameter | Beschrijving |
    | --- | --- |
-   | **locatie** |Azure-regio waar het VNet wordt aangemaakt |
+   | **location** |Azure-regio waar het VNet wordt aangemaakt |
    | **vnetName** |Naam voor het nieuwe VNet |
    | **addressPrefix** |Adresruimte voor het VNet, in CIDR-indeling |
    | **subnet1Name** |Naam voor het eerste VNet |
@@ -56,6 +56,8 @@ U kunt de bestaande ARM-sjabloon voor het aanmaken van een VNet en twee subnets 
         }
 11. Sla het bestand op.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

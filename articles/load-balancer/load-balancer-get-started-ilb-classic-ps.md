@@ -1,44 +1,48 @@
 ---
-title: Create an internal load balancer using PowerShell in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
+title: Een interne load balancer maken met PowerShell in het klassieke implementatiemodel | Microsoft Docs
+description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ed28a11420d4bcc732801aea8d6217dbf14389d4
+
 
 ---
-# Get started creating an internal load balancer (classic) using PowerShell
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van PowerShell
 [!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Create an internal load balancer set for virtual machines
-To create an internal load balancer set and the servers that will send their traffic to it, you have to do the following:
+## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Een interne load balancer-set maken voor virtuele machines
+Ga als volgt te werk om een interne load balancer-set te maken, evenals de servers die hun verkeer naar deze load balancer verzenden:
 
-1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
-2. Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.
-3. Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
+1. Maak een exemplaar van Interne taakverdeling dat het eindpunt wordt van binnenkomend verkeer dat gelijkmatig moet worden verdeeld over de servers van een set met gelijke taakverdeling.
+2. Voeg eindpunten toe die overeenkomen met de virtuele machines die het binnenkomende verkeer ontvangen.
+3. Configureer de servers die het verkeer voor gelijke taakverdeling verzenden, zodanig dat het verkeer wordt verzonden naar het VIP-adres (virtuele IP) van het exemplaar van Interne taakverdeling.
 
-### Step 1: Create an Internal Load Balancing instance
-For an existing cloud service or a cloud service deployed under a regional virtual network, you can create an Internal Load Balancing instance with the following Windows PowerShell commands:
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Stap 1: Een exemplaar van Interne taakverdeling maken
+Voor een bestaande cloudservice of een cloudservice die in een regionaal virtueel netwerk is geïmplementeerd, kunt u een exemplaar van Interne taakverdeling maken met de volgende Windows PowerShell-opdrachten:
 
     $svc="<Cloud Service Name>"
     $ilb="<Name of your ILB instance>"
@@ -48,10 +52,10 @@ For an existing cloud service or a cloud service deployed under a regional virtu
     Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
-Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
+Als de Windows PowerShell-cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) op deze manier wordt gebruikt, wordt de parameterset DefaultProbe gebruikt. Zie [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) voor meer informatie over aanvullende parametersets.
 
-### Step 2: Add endpoints to the Internal Load Balancing instance
-Here is an example:
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Stap 2: Eindpunten toevoegen aan het exemplaar van Interne taakverdeling
+Hier volgt een voorbeeld:
 
     $svc="mytestcloud"
     $vmname="DB1"
@@ -64,45 +68,45 @@ Here is an example:
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-### Step 3: Configure your servers to send their traffic to the new Internal Load Balancing endpoint
-You have to  configure the servers whose traffic is going to be load balanced to use the new IP address (the VIP) of the Internal Load Balancing instance. This is the address on which the Internal Load Balancing instance is listening. In most cases, you need to just add or modify a DNS record for the VIP of the Internal Load Balancing instance.
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Stap 3: De servers zo configureren dat ze hun verkeer naar het nieuwe eindpunt voor Interne taakverdeling verzenden
+U moet de servers waarvan het verkeer gelijkmatig moet worden verdeeld, zodanig configureren dat ze het nieuwe IP-adres (VIP) van het exemplaar van Interne taakverdeling gaan gebruiken. Dit is het adres waarop het exemplaar van Interne taakverdeling luistert. In de meeste gevallen hoeft u alleen een DNS-record voor het VIP van het exemplaar van Interne taakverdeling toe te voegen of aan te passen.
 
-If you specified the IP address during the creation of the Internal Load Balancing instance, you already have the VIP. Otherwise, you can see the VIP from the following commands:
+Als u het IP-adres tijdens het maken van het exemplaar van Interne taakverdeling hebt opgegeven, hebt u het VIP al. Anders kunt u het VIP met de volgende opdrachten zien:
 
     $svc="<Cloud Service Name>"
     Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
 
-To use these commands, fill in the values and remove the < and >. Here is an example:
+U gebruikt deze opdrachten door de waarden in te vullen en de < en > te verwijderen. Hier volgt een voorbeeld:
 
     $svc="mytestcloud"
     Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
-From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
+Noteer het IP-adres in de weergave van de opdracht Get-AzureInternalLoadBalancer en breng de nodige wijzigingen aan op uw servers of DNS-records om ervoor te zorgen dat er verkeer naar het VIP wordt verzonden.
 
 > [!NOTE]
-> The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, because it can cause unexpected behavior.
-> With respect to Azure Internal Load Balancing, this IP address is used by monitoring probes from the load balancer to determine the health state for virtual machines in a load balanced set. If a Network Security Group is used to restrict traffic to Azure virtual machines in an internally load-balanced set or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.
+> Het Microsoft Azure-platform gebruikt een statisch, openbaar routeerbaar IPv4-adres voor diverse beheerscenario's. Het IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
+> Wat Azure Interne taakverdeling betreft, wordt dit IP-adres gebruikt door bewakingstests van de load balancer om de status van virtuele machines in een set met gelijke taakverdeling te bepalen. Als er een netwerkbeveiligingsgroep wordt gebruikt om het verkeer naar virtuele Azure-machines in een set met intern gelijke taakverdeling te beperken of wordt toegepast op een subnet in een virtueel netwerk, zorg er dan voor dat er een netwerkbeveiligingsregel wordt toegevoegd om verkeer van 168.63.129.16 toe te staan.
 > 
 > 
 
-## Example of internal load balancing
-To step you through the end-to end process of creating a load-balanced set for two example configurations, see the following sections.
+## <a name="example-of-internal-load-balancing"></a>Voorbeeld van intern gelijke taakverdeling
+In de volgende secties wordt het hele proces voor het maken van een set met gelijke taakverdeling voor twee voorbeeldconfiguraties stapsgewijs besproken.
 
-### An Internet facing, multi-tier application
-You want to provide a load balanced database service for  a set of Internet-facing web servers. Both sets of servers are hosted in a single Azure cloud service. Web server traffic to TCP port 1433 must be distributed among two virtual machines in the database tier. Figure 1 shows the configuration.
+### <a name="an-internet-facing-multitier-application"></a>Een internetgerichte toepassing met meerdere lagen
+U wilt een databaseservice met gelijke taakverdeling leveren voor een set internetgerichte webservers. Beide serversets worden gehost in één Azure-cloudservice. Webserververkeer op TCP-poort 1433 moet worden verdeeld over twee virtuele machines in de databaselaag. In afbeelding 1 ziet u de configuratie.
 
-![Internal load-balanced set for the database tier](./media/load-balancer-internal-getstarted/IC736321.png)
+![Set met intern gelijke taakverdeling voor de databaselaag](./media/load-balancer-internal-getstarted/IC736321.png)
 
-The configuration consists of the following:
+De configuratie bestaat uit het volgende:
 
-* The existing cloud service hosting the virtual machines is named mytestcloud.
-* The two existing database servers are named DB1, DB2.
-* Web servers in the web tier connect to the database servers in the database tier by using the private IP address. Another option is to use your own DNS for the virtual network and manually register an A record for the internal load balancer set.
+* De bestaande cloudservice die als host fungeert voor de virtuele machines is mytestcloud.
+* De twee bestaande databaseservers zijn DB1 en DB2.
+* Webservers in de weblaag maken verbinding met de databaseservers in de databaselaag met behulp van het particuliere IP-adres. U kunt ook uw eigen DNS voor het virtuele netwerk gebruiken en handmatig een A-record voor de interne load balancer-set registreren.
 
-The following commands configure a new Internal Load Balancing instance named **ILBset** and add endpoints to the virtual machines corresponding to the two database servers:
+Met de volgende opdrachten configureert u een nieuw exemplaar van Interne taakverdeling met de naam **ILBset** en voegt u eindpunten aan de virtuele machines toe die overeenkomen met de twee databaseservers:
 
     $svc="mytestcloud"
     $ilb="ilbset"
@@ -120,47 +124,53 @@ The following commands configure a new Internal Load Balancing instance named **
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-## Remove an Internal Load Balancing configuration
-To remove a virtual machine as an endpoint from an internal load balancer instance, use the following commands:
+## <a name="remove-an-internal-load-balancing-configuration"></a>Een configuratie van Interne taakverdeling verwijderen
+Gebruik de volgende opdrachten als u een virtuele machine als een eindpunt uit een exemplaar van een interne load balancer wilt verwijderen:
 
     $svc="<Cloud service name>"
     $vmname="<Name of the VM>"
     $epname="<Name of the endpoint>"
     Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-To use these commands, fill in the values, removing the < and >.
+U gebruikt deze opdrachten door de waarden in te vullen en de < en > te verwijderen.
 
-Here is an example:
+Hier volgt een voorbeeld:
 
     $svc="mytestcloud"
     $vmname="DB1"
     $epname="TCP-1433-1433"
     Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-To remove an internal load balancer instance from a cloud service, use the following commands:
+Gebruik de volgende opdrachten als u een exemplaar van een interne load balancer uit een cloudservice wilt verwijderen:
 
     $svc="<Cloud service name>"
     Remove-AzureInternalLoadBalancer -ServiceName $svc
 
-To use these commands, fill in the value and remove the < and >.
+U gebruikt deze opdrachten door de waarde in te vullen en de < en > te verwijderen.
 
-Here is an example:
+Hier volgt een voorbeeld:
 
     $svc="mytestcloud"
     Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
 
-## Additional information about internal load balancer cmdlets
-To obtain additional information about Internal Load Balancing cmdlets, run the following commands at a Windows PowerShell prompt:
+## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>Meer informatie over cmdlets voor interne load balancers
+Voor meer informatie over de cmdlets van Interne taakverdeling voert u de volgende opdrachten uit via een Windows PowerShell-prompt:
 
 * Get-help New-AzureInternalLoadBalancerConfig -full
 * Get-help Add-AzureInternalLoadBalancer -full
 * Get-help Get-AzureInternalLoadbalancer -full
 * Get-help Remove-AzureInternalLoadBalancer -full
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Volgende stappen
+[Een distributiemodus voor de load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

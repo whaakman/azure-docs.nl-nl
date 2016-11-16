@@ -1,4 +1,4 @@
-## Wat is Blob Storage?
+## <a name="what-is-blob-storage"></a>Wat is Blob Storage?
 Azure Blob Storage is een service voor het opslaan van grote hoeveelheden ongestructureerde objectgegevens, zoals tekst of binaire gegevens, die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd. U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan.
 
 Veelvoorkomende toepassingen van Blob Storage zijn onder andere:
@@ -9,7 +9,7 @@ Veelvoorkomende toepassingen van Blob Storage zijn onder andere:
 * De opslag van gegevens voor back-up en herstel, herstel na noodgevallen en archivering
 * De opslag van gegevens voor analyse door een on-premises in Azure gehoste service
 
-## Concepten van Blob service
+## <a name="blob-service-concepts"></a>Concepten van Blob service
 De Blob service bevat de volgende onderdelen:
 
 ![Blob1][Blob1]
@@ -27,7 +27,6 @@ De Blob service bevat de volgende onderdelen:
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

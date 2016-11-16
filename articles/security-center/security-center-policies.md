@@ -5,8 +5,8 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fba0338f6a61998b1c103210cd60c1d37eeffd5
+
 
 ---
-# Beveiligingsbeleid instellen in Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
 Dit document helpt u om beveiligingsbeleid in Security Center te configureren door u te begeleiden bij de stappen die nodig zijn om deze taak uit te voeren.
 
-## Wat is beveiligingsbeleid?
+## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
 Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement of de opgegeven resourcegroep. In Security Center definieert u beleid voor uw Azure-abonnementen of -resourcegroep overeenkomstig de behoeften van uw bedrijf en het type toepassingen of de vertrouwelijkheid van de gegevens in elk abonnement.
 
 Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, een hoger beveiligingsniveau vereist zijn. Beveiligingsbeleid dat in Azure Security Center is ingeschakeld, bepaalt de beveiligingsaanbevelingen en bewaking om u te helpen mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen. Lees de [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Plannings- en bedieningsgids voor Azure Security Center) voor meer informatie over hoe u kunt bepalen welke optie het geschiktst is voor u.
 
-## Beveiligingsbeleid instellen voor abonnementen
+## <a name="set-security-policies-for-subscriptions"></a>Beveiligingsbeleid instellen voor abonnementen
 U kunt voor elk abonnement en elke resourcegroep beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Meld u aan bij de Azure-portal en voer de volgende stappen uit om beveiligingsbeleid te configureren in Security Center:
 
 1. Klik op de tegel **Beleid** op het dashboard van Security Center.
@@ -80,7 +84,7 @@ Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 
 Wanneer u klaar bent met het configureren van alle opties, klikt u op **OK** in de blade **Beveiligingsbeleid** met de aanbevelingen en klikt u vervolgens op **Opslaan** in de blade **Beveiligingsbeleid** met de oorspronkelijke instellingen.
 
-## Beveiligingsbeleid instellen voor resourcegroepen
+## <a name="set-security-policies-for-resource-groups"></a>Beveiligingsbeleid instellen voor resourcegroepen
 Als u liever per resourcegroep een beveiligingsbeleid configureert, zijn de stappen gelijk aan de stappen die u hebt gebruikt voor het instellen van beveiligingsbeleid voor abonnementen. Het belangrijkste verschil is dat u de naam van het abonnement moet uitvouwen en de resourcegroep moet selecteren waarvoor u het unieke beveiligingsbeleid wilt configureren:
 
 ![Resourcegroep selecteren](./media/security-center-policies/security-center-policies-fig5-ga.png)
@@ -94,7 +98,7 @@ Nadat u de resourcegroep hebt geselecteerd, wordt de blade **Beveiligingsbeleid*
 > 
 > 
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md). Leer de ontwerpoverwegingen kennen en leer deze in te plannen als u de overstap naar Azure Security Center wilt maken.
@@ -104,6 +108,9 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Raadpleeg de veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

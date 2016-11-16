@@ -1,5 +1,5 @@
 
-### Basisbeperkingen voor elastische groepen
+### <a name="basic-elastic-pool-limits"></a>Basisbeperkingen voor elastische groepen
 |  |  |
 | --- |:---:|
 | Maximum aantal eDTU’s per groep |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -20,7 +20,7 @@
 
 ** Gedeelde opslag voor pool voor Elastic Database, zodat database-opslag wordt beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is
 
-### Standaardbeperkingen voor elastische groepen
+### <a name="standard-elastic-pool-limits"></a>Standaardbeperkingen voor elastische groepen
 |  |  |
 | --- |:---:|
 | Maximum aantal eDTU’s per groep |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -41,7 +41,7 @@
 
 ** Gedeelde opslag voor pool voor Elastic Database, zodat database-opslag wordt beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is
 
-### Premium beperkingen voor elastische groepen
+### <a name="premium-elastic-pool-limits"></a>Premium beperkingen voor elastische groepen
 |  |  |
 | --- |:---:|
 | Maximum aantal eDTU’s per groep |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -62,6 +62,8 @@
 
 ** Gedeelde opslag voor pool voor Elastic Database, zodat database-opslag wordt beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

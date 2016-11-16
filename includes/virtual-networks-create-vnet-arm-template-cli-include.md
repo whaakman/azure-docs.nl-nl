@@ -1,4 +1,4 @@
-## De ARM-sjabloon implementeren met Azure CLI
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>De ARM-sjabloon implementeren met Azure CLI
 Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met Azure CLI.
 
 1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
@@ -9,7 +9,7 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
     Dit is de verwachte uitvoer voor de bovenstaande opdracht:
    
         info:    New mode is arm
-3. Voer indien nodig de opdracht **`azure group create`** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+3. Voer indien nodig de opdracht **`azure group create`** uit om een nieuwe resourcegroep te maken, zoals hieronder weergegeven. Hier ziet u de uitvoer van de opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
    
         azure group create -n TestRG -l centralus
    
@@ -85,6 +85,8 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

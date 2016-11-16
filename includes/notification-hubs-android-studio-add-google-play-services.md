@@ -3,19 +3,21 @@
    
     Noteer het SDK-pad om het in een later stadium te kunnen gebruiken. 
    
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Open het bestand **build.gradle** in de app-map.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 4. Voeg deze regel toe onder *Afhankelijkheden*: 
    
-        compile 'com.google.android.gms:play-services-gcm:9.2.0'
+           compile 'com.google.android.gms:play-services-gcm:9.2.0'
 5. Klik op het pictogram **Project met Gradle-bestanden synchroniseren** in de werkbalk.
 6. Open **AndroidManifest.xml** en voeg dit label toe aan het label *toepassing*.
    
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

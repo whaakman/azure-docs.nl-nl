@@ -3,10 +3,10 @@ title: Wat zijn Logic Apps?
 description: Meer informatie over App Service Logic Apps
 author: kevinlam1
 manager: dwrede
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: klam
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 44941876c976fdad0303b3c638ed6a3811136634
+
 
 ---
-# <a name="what-are-logic-apps?"></a>Wat zijn Logic Apps?
+# <a name="what-are-logic-apps"></a>Wat zijn Logic Apps?
 Logic Apps biedt een manier om schalbare integraties en workflows in de cloud te vereenvoudigen en te implementerne. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom.  Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocols.  een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties acties, conversies en voorwaardleijke logica beginnen.
 
 De voordelen van het gebruik van Logic Apps omvatten het volgende:  
@@ -40,7 +44,7 @@ Zoals eerder vermeld kunt u met Logic Apps bedrijfsprocessen automatiseren. Hier
 
 Dergelijke scenario's kunnen worden geconfigureerd via de visuele ontwerper, zonder dat hiervoor ook maar één regel code hoeft te worden geschreven. Ga nu aan de slag met het [bouwen van een logische app][maken].  Na het schrijven - kan een logische app[snel worden geïmplementeerd en opnieuw geconfigureerd](app-service-logic-create-deploy-template.md) over verschillende omgevingen en regio’s.
 
-## <a name="why-logic-apps?"></a>Waarom Logic Apps?
+## <a name="why-logic-apps"></a>Waarom Logic Apps?
 Logic App brengt snelheid en schaalbaarheid naar de integratieruimte van de onderneming.  Het gebruiksgemak van de ontwerper, de diversiteit van beschikbare triggers en acties en krachtige beheerstools maken het centraliseren van uw API’s eenvoudiger dan ooit.  Aangezien bedrijven steeds meer streven naar digitalisering, kunt u met Logic Apps oude en ultramoderne systemen met elkaar verbinden.
 
 Bovendien kunt u met onze [Enterprise Integration Account][biztalk] schalen naar volgroeide integratiescenario’s met de kracht van een [XML messaging][xml], [handelspartnerbeheer][tpm] en meer.
@@ -69,13 +73,13 @@ In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic App
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [maken]: app-service-logic-create-a-logic-app.md
-[managedapis]: ../connectors/apis-list.md
+[beheerdeapi‘s]: ../connectors/apis-list.md
 [tpm]: app-service-logic-enterprise-integration-accounts.md
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [sjablonen]: app-service-logic-use-logic-app-templates.md
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

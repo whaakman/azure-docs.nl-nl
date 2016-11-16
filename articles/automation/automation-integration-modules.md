@@ -2,11 +2,11 @@
 title: Een Azure Automation-integratiemodule maken | Microsoft Docs
 description: Zelfstudie die u helpt bij het maken, testen en bij het voorbeeldgebruik van integratiemodules in Azure Automation.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ca2343c8915690184e63396afa4e45a22a16ec2b
+
 
 ---
-# Azure Automation-integratiemodules
+# <a name="azure-automation-integration-modules"></a>Azure Automation-integratiemodules
 PowerShell is de basistechnologie achter Azure Automation. Omdat Azure Automation is gebouwd op PowerShell, zijn de PowerShell-modules bepalend voor de uitbreidbaarheid van Azure Automation. In dit artikel worden de details van het gebruik van Azure Automation van PowerShell-modules, die 'integratiemodules' worden genoemd, besproken en de aanbevolen procedures voor het maken van uw eigen PowerShell-modules om er zeker van te zijn dat ze werken als integratiemodules binnen Azure Automation. 
 
-## Wat is een PowerShell-module?
+## <a name="what-is-a-powershell-module"></a>Wat is een PowerShell-module?
 Een PowerShell-module is een groep PowerShell-cmdlets, zoals **Get-Date** of **Copy-Item**, die kunnen worden gebruikt vanuit de PowerShell-console, scripts, werkstromen, runbooks en PowerShell DSC-resources, zoals WindowsFeature of File, die kunnen worden gebruikt vanuit PowerShell DSC-configuraties. Alle functionaliteit van PowerShell is zichtbaar via cmdlets en DSC-resources, en elke cmdlet/DSC-resource wordt ondersteund door een PowerShell-module. Veel van deze modules worden bij PowerShell zelf geleverd. De cmdlet **Get-Date** maakt bijvoorbeeld deel uit van de PowerShell-module Microsoft.PowerShell.Utility en de cmdlet **Copy-Item** maakt deel uit van de PowerShell-module Microsoft.PowerShell.Management en de Package DSC-resource maakt deel uit van de PowerShell-module PSDesiredStateConfiguration. Deze modules worden geleverd met PowerShell. Maar veel PowerShell-modules worden niet als onderdeel van PowerShell geleverd en worden in plaats daarvan gedistribueerd met producten van Microsoft of van derden zoals System Center 2012 Configuration Manager of door de enorme PowerShell-community op locaties zoals PowerShell Gallery.  De modules zijn nuttig omdat ze complexe taken eenvoudiger maken via ingekapselde functionaliteit.  Meer informatie over [PowerShell-modules vindt u op MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
 
-## Wat is een Azure Automation-integratiemodule?
+## <a name="what-is-an-azure-automation-integration-module"></a>Wat is een Azure Automation-integratiemodule?
 Een integratiemodule verschilt niet heel veel van een PowerShell-module. Het is gewoon een PowerShell-module die desgewenst één extra bestand bevat: een metagegevensbestand waarin een Azure Automation-verbindingstype wordt opgegeven dat moet worden gebruikt met de cmdlets van de module in runbooks. Optioneel bestand of niet, deze PowerShell-modules kunnen in Azure Automation worden geïmporteerd om de bijbehorende cmdlets beschikbaar te maken voor gebruik in runbooks en de bijbehorende DSC-resources beschikbaar te maken voor gebruik in DSC-configuraties. Achter de schermen worden deze modules in Azure Automation opgeslagen en bij de uitvoeringstijd van runbooktaken en DSC-compilatietaken worden ze in de Azure Automation-sandboxes geladen waar runbooks worden uitgevoerd en DSC-configuraties worden gecompileerd.  Eventuele DSC-resources in modules worden ook automatisch op de Automation DSC-pull-server geplaatst, zodat ze kunnen worden opgehaald door machines waarmee wordt geprobeerd DSC-configuraties toe te passen.  Een aantal Azure PowerShell-modules worden gebruiksklaar in Azure Automation geleverd zodat u meteen aan de slag kunt gaan met het automatiseren van Azure-beheer, maar u kunt eenvoudig PowerShell-modules importeren voor elk systeem, elke service of elk hulpprogramma waarmee u wilt integreren. 
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Als de module een Azure Automation-verbindingstype moet bevatten, moet deze ook 
 
 Als u Service Management Automation hebt geïmplementeerd en integratiemodulepakketten hebt gemaakt voor uw Automation-runbooks, zou deze er bekend moeten uitzien. 
 
-## Aanbevolen procedures voor ontwerpen
+## <a name="authoring-best-practices"></a>Aanbevolen procedures voor ontwerpen
 Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen dat we geen set procedures hebben voor het ontwerpen hiervan. Er is toch een aantal zaken waar u aan moet denken bij het ontwerpen van een PowerShell-module, om deze zo bruikbaar mogelijk te maken in Azure Automation. Sommige hiervan zijn specifiek voor Azure Automation en sommige zijn nuttig om uw modules goed te laten werken in PowerShell Workflow, ongeacht of u Automation gebruikt. 
 
 1. Neem een samenvatting, beschrijving en Help-URI op voor elke cmdlet in de module. In PowerShell kunt u bepaalde Help-informatie voor cmdlets definiëren, zodat de gebruiker hulp ontvangt bij het gebruik van cmdlets met de cmdlet **Get-Help**. U kunt bijvoorbeeld als volgt een samenvatting en Help-URI definiëren voor een PowerShell-module, geschreven in een PSM1-bestand.<br>  
@@ -101,8 +105,7 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-   <br> 
-   Als u deze informatie opgeeft, wordt deze Help-informatie niet alleen getoond met de cmdlet **Get-Help** in de PowerShell-console, maar wordt deze Help-functionaliteit ook weergegeven in Azure Automation, bijvoorbeeld wanneer u activiteiten invoegt tijdens het ontwerpen van een runbook. Als u op Gedetailleerde Help-informatie weergeven klikt, wordt de Help-URI op een ander tabblad van de webbrowser geopend die u gebruikt voor toegang tot Azure Automation.<br>![Help bij integratiemodule](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+   <br> Als u deze informatie opgeeft, wordt deze Help-informatie niet alleen getoond met de cmdlet **Get-Help** in de PowerShell-console, maar wordt deze Help-functionaliteit ook weergegeven in Azure Automation, bijvoorbeeld wanneer u activiteiten invoegt tijdens het ontwerpen van een runbook. Als u op Gedetailleerde Help-informatie weergeven klikt, wordt de Help-URI op een ander tabblad van de webbrowser geopend die u gebruikt voor toegang tot Azure Automation.<br>![Help bij integratiemodules](media/automation-integration-modules/automation-integration-module-activitydesc.png)
 2. Als de module op een extern systeem wordt uitgevoerd, geldt het volgende: a. Deze moet een metagegevensbestand voor de integratiemodule bevatten waarin de informatie wordt gedefinieerd die nodig is om verbinding te maken met dat externe systeem, dus het verbindingstype. b. Elke cmdlet in de module moet een verbindingsobject (een exemplaar van dat verbindingstype) kunnen bevatten als een parameter.  
     Cmdlets in de module worden eenvoudiger te gebruiken in Azure Automation als u toestaat dat een object met de velden van het verbindingstype als een parameter aan de cmdlet wordt doorgegeven. Op deze manier hoeven gebruikers parameters van de verbindingsasset niet toe te wijzen aan de overeenkomende parameters van de cmdlet, elke keer dat ze een cmdlet aanroepen. Op basis van het bovenstaande runbookvoorbeeld wordt een Twilio-verbindingsasset genaamd CorpTwilio gebruikt voor toegang tot Twilio en voor het retourneren van alle telefoonnummers in het account.  Ziet u hoe hiermee de velden van de verbinding worden toegewezen aan de parameters van de cmdlet?<br>
    
@@ -117,7 +120,7 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
     }
     ```
    <br>
-    Een eenvoudigere en betere manier om dit te doen is het rechtstreeks doorgeven van het verbindingsobject aan de cmdlet -
+    U kunt dit echter eenvoudiger en beter doen door het verbindingsobject rechtstreeks door te geven aan de cmdlet -
    
     ```
     workflow Get-CorpTwilioPhones
@@ -200,10 +203,13 @@ Hoewel integratiemodules in feite PowerShell-modules zijn, wil dit niet zeggen d
    <br>
 6. De module moet volledig zijn opgenomen in een pakket waarvoor Xcopy kan worden gebruikt. Omdat Azure Automation-modules worden gedistribueerd naar de Automation-sandboxes wanneer runbooks moeten worden uitgevoerd, moeten ze onafhankelijk van de host werken waarop ze worden uitgevoerd. Dit betekent dat u het modulepakket moet kunnen zippen, het verplaatsen naar een andere host met dezelfde of een nieuwere PowerShell-versie en dit normaal moet kunnen laten functioneren wanneer het in de PowerShell-omgeving van die host is geïmporteerd. Hiervoor mag de module niet afhankelijk zijn van bestanden buiten de modulemap (de map die wordt gezipt wanneer u in Azure Automation importeert), of van unieke registerinstellingen voor een host, zoals die die zijn ingesteld bij de installatie van een product. Als deze aanbevolen procedure niet wordt gevolgd, is de module niet bruikbaar in Azure Automation.  
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
 * Zie [Een Windows PowerShell-module schrijven](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) voor meer informatie over het maken van PowerShell-modules.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

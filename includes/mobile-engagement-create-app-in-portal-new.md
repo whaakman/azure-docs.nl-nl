@@ -10,7 +10,7 @@
    * **Naam**: naam van uw *toepassingsverzameling* 
    * **Platforms**: selecteer doelplatforms voor uw app in de blade Platforms die wordt geopend. Bijvoorbeeld als u een app wilt voor zowel iOS als Android, selecteert u beide platforms en krijgt u twee apps die onder deze app-verzameling worden gemaakt. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Abonnement**: selecteer het Azure-abonnement. 
    * **Resourcegroep**: selecteer de Azure-resourcegroep waarin u deze Azure-resource wilt onderbrengen (Mobile Engagement-app-verzameling). U kunt kiezen om een nieuwe maken.  
    * **Locatie**: regio waarin de gegevens over deze app-verzameling en de app worden opgeslagen.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

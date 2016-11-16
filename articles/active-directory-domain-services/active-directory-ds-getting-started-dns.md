@@ -2,11 +2,11 @@
 title: 'Azure AD Domain Services: DNS-instellingen bijwerken voor het virtuele Azure-netwerk | Microsoft Docs'
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 81c0564390c57c7ee001ce5a574ab670faf898b4
+
 
 ---
-# Azure AD Domain Services: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
-## Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+# <a name="azure-ad-domain-services-update-dns-settings-for-the-azure-virtual-network"></a>Azure AD Domain Services: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
 In de voorgaande configuratietaken hebt u Azure AD Domain Services ingeschakeld voor uw map. De volgende taak is om ervoor te zorgen dat computers binnen het virtuele netwerk verbinding kunnen maken met deze services en ze kunnen gebruiken. Werk de DNS-serverinstellingen voor het virtuele netwerk zo bij dat deze verwijzen naar de twee IP-adressen waarop Azure AD Domain Services beschikbaar is op het virtuele netwerk.
 
 > [!NOTE]
@@ -46,9 +50,12 @@ Voer de volgende configuratiestappen uit om de DNS-serverinstellingen bij te wer
 > 
 > 
 
-## Taak 5: wachtwoordsynchronisatie inschakelen voor Azure AD Domain Services
+## <a name="task-5-enable-password-synchronization-to-azure-ad-domain-services"></a>Taak 5: wachtwoordsynchronisatie inschakelen voor Azure AD Domain Services
 Voor de volgende configuratietaak moet u [wachtwoordsynchronisatie inschakelen voor Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

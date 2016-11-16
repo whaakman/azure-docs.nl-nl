@@ -1,40 +1,45 @@
 ---
-title: Query’s uitvoeren bij Azure SQL datawarehouse (Visual Studio) | Microsoft Docs
-description: Query’s uitvoeren bij SQL Data Warehouse met Visual Studio.
+title: "Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs"
+description: "Query’s uitvoeren bij SQL Data Warehouse met Visual Studio."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+
 
 ---
-# Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)
+# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Query’s uitvoeren bij Azure SQL Data Warehouse (Visual Studio)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Gebruik Visual Studio om binnen enkele minuten query’s uit te voeren bij Azure SQL Data Warehouse. Bij deze methode wordt gebruikgemaakt van de SSDT-uitbreiding (SQL Server Data Tools) in Visual Studio. 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande SQL-datawarehouse. Zie [Een SQL Data Warehouse maken][Een SQL Data Warehouse maken] als u er een wilt maken.
 * SSDT voor Visual Studio. Als u Visual Studio hebt, hebt u dit waarschijnlijk al. Voor installatie-instructies en -opties raadpleegt u [Visual Studio en SSDT installeren][Visual Studio en SSDT installeren].
 * De volledig gekwalificeerde SQL-servernaam. Zie [Verbinding maken met SQL Data Warehouse][Verbinding maken met SQL Data Warehouse] om dit te vinden.
 
-## 1. Verbinding maken met uw SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Verbinding maken met uw SQL Data Warehouse
 1. Open Visual Studio 2013 of 2015.
 2. Open SQL Server-objectverkenner. Daartoe selecteert u **View** > **SQL Server Object Explorer**.
    
@@ -54,7 +59,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
    
     ![AdventureWorksDW verkennen][4]
 
-## 2. Een voorbeeldquery uitvoeren
+## <a name="2-run-a-sample-query"></a>2. Een voorbeeldquery uitvoeren
 Nu er een verbinding met uw database is ingesteld, gaat u een query schrijven.
 
 1. Klik met de rechtermuisknop op de database in SQL Server-objectverkenner.
@@ -73,8 +78,8 @@ Nu er een verbinding met uw database is ingesteld, gaat u een query schrijven.
    
     ![Queryresultaten][7]
 
-## Volgende stappen
-Nu u weet hoe u verbinding maakt en een query uitvoert, kunt u proberen [de gegevens te visualiseren met Power BI][de gegevens te visualiseren met Power BI].
+## <a name="next-steps"></a>Volgende stappen
+Nu u weet hoe u verbinding maakt en een query uitvoert, kunt u proberen [de gegevens te visualiseren met Power BI][de gegevens visualiseren met Power BI].
 
 Zie [Verifiëren bij SQL Data Warehouse][Verifiëren bij SQL Data Warehouse] om uw omgeving te configureren voor Azure Active Directory-verificatie.
 
@@ -83,10 +88,10 @@ Zie [Verifiëren bij SQL Data Warehouse][Verifiëren bij SQL Data Warehouse] om 
 [Een SQL Data Warehouse maken]: sql-data-warehouse-get-started-provision.md
 [Visual Studio en SSDT installeren]: sql-data-warehouse-install-visual-studio.md
 [Verifiëren bij SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[de gegevens te visualiseren met Power BI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[de gegevens visualiseren met Power BI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -100,6 +105,6 @@ Zie [Verifiëren bij SQL Data Warehouse][Verifiëren bij SQL Data Warehouse] om 
 
 
 
-<!--HONumber=ago16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

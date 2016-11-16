@@ -3,11 +3,11 @@ title: Excel verbinden met de SQL Database | Microsoft Docs
 description: Leer hoe u Microsoft Excel verbindt met Azure SQL Database in de cloud. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
 services: sql-database
 keywords: excel verbinden met sql, gegevens importeren in excel
-documentationcenter: ''
+documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2016
 ms.author: joseidz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a0f9501760ba3ea97341d30cd706c971c826430
+
 
 ---
-# Zelfstudie SQL Database: Excel verbinden met een Azure SQL Database en een rapport creëren
+# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Zelfstudie SQL Database: Excel verbinden met een Azure SQL Database en een rapport creëren
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
@@ -31,7 +35,7 @@ Voordat u begint hebt u een SQL Database in Azure nodig. Als u deze niet hebt, r
 
 U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-## Excel verbinden met een SQL Database en een odc-bestand maken
+## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Excel verbinden met een SQL Database en een odc-bestand maken
 1. Open Excel om het programme te verbinden met SQL Database, en maak een nieuwe werkmap of open een bestaande Excel-werkmap.
 2. Klik in de menubalk bovenaan de pagina  op**Gegevens**, klik op **Van andere bronnen**, en klik vervolgens op **Van SQL Server**.
    
@@ -58,7 +62,7 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
    
     Het dialoogvenster **Importeren van gegevens** wordt weergegeven.
 
-## Importeer de gegevens in Excel en maak een draaigrafiek.
+## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importeer de gegevens in Excel en maak een draaigrafiek.
 Nu de verbinding tot stand is gebracht en het bestand met gegevens en de koppelingsinformatie is gemaakt, leest u om de gegevens te importeren.
 
 1. In het dialoogvenster **Gegevens importeren** , klikt u op de optie die u wilt gebruiken om uw gegevens weer te geven in het werkblad en klik vervolgens op **OK**. We hebben **draaigrafiek** gekozen. U kunt ook kiezen voor **Nieuw werkblad** of **Deze gegevens toevoegen aan een gegevensmodel**. Zie voor meer informatie over gegevensmodellen [Een gegevensmodel maken in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Klik op **eigenschappen** om informatie over het odc-bestand dat u in de vorige stap hebt gemaakt te bekijken en om opties te kiezen voor het vernieuwen van de gegevens.
@@ -76,11 +80,14 @@ Nu de verbinding tot stand is gebracht en het bestand met gegevens en de koppeli
 > 
 > 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Leer hoe u [SQL Database koppelt met SQL Server Management Studio](sql-database-connect-query-ssms.md) voor geavanceerd uitvoeren van query's en analyses.
 * Meer informatie over de voordelen van [elastische groepen](sql-database-elastic-pool.md).
 * Leer hoe u [ een webtoepassing maakt die verbinding maakt met SQL Database op de back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -9,22 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Een nieuwe Azure SQL-firewall op serverniveau maken
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Een nieuwe Azure SQL-firewall op serverniveau maken
 Voer de volgende stappen uit in Azure Portal om een firewallregel op serverniveau te maken die verbindingen van een afzonderlijk IP-adres (de clientcomputer) of een IP-adresbereik naar een logische server met SQL Database toestaat.
 
 1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
 2. Klik in de standaardblade op **SQL-servers**.
    
-    ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+      ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 3. Klik in de blade **SQL-servers** op de server waarop u de firewallregel wilt maken.
    
-    ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+     ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 4. Bekijk de eigenschappen van uw server.
    
-    ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+     ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 5. Klik in de blade **Instellingen** op **Firewall**.
    
-    ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+     ![Nieuwe serverfirewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > U kunt via de werkbalk van de blade **Database** ook toegang krijgen tot de blade **Firewallinstellingen** op serverniveau.
@@ -45,6 +45,8 @@ Voer de volgende stappen uit in Azure Portal om een firewallregel op servernivea
    > 
    > 
 
-<!---HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

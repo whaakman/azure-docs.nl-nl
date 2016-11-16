@@ -1,4 +1,4 @@
-## Peering van virtuele netwerken van RM naar klassiek uitvoeren
+## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peering van virtuele netwerken van RM naar klassiek uitvoeren
 In dit scenario maakt u een peering tussen twee VNets, namelijk **VNET1** en **VNET2**, die respectievelijk bij het Azure Resource Manager-implementatiemodel en het klassieke implementatiemodel horen.
 
 > [!NOTE]
@@ -8,6 +8,8 @@ In dit scenario maakt u een peering tussen twee VNets, namelijk **VNET1** en **V
 
 ![implementatiescenario asm naar arm](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

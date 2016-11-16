@@ -1,12 +1,12 @@
 ---
 title: Inleiding tot API Apps | Microsoft Docs
-description: Lees hoe Azure App Service u helpt bij het ontwikkelen, hosten en gebruiken van RESTful-API's.
+description: Lees hoe Azure App Service u helpt bij het ontwikkelen, hosten en gebruiken van RESTful-API&quot;s.
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eda73900ded4c587bacfa3b4d4e8465c1de5a5ed
+
 
 ---
-# Overzicht van API Apps
+# <a name="api-apps-overview"></a>Overzicht van API Apps
 API-apps in Azure App Service bevatten functies waarmee API's eenvoudiger kunnen worden ontwikkeld, gehost en gebruikt in de cloud en on-premises. Met API-apps beschikt u over hoogwaardige beveiliging, eenvoudig toegangsbeheer, hybride verbindingen, automatisch genereren van SDK's en naadloze integratie met [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 [De Azure App Service](../app-service/app-service-value-prop-what-is.md) is een volledig beheerd platform voor web- en integratiescenario's en mobiele scenario's. API Apps zijn een van de vier typen apps die worden aangeboden door [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
 ![App-typen in Azure App Service](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-## Waarom API Apps gebruiken?
+## <a name="why-use-api-apps"></a>Waarom API Apps gebruiken?
 Hierna ziet u een aantal belangrijke voordelen van API Apps:
 
 * **Laat uw bestaande API ongewijzigd**: u hoeft de code in de bestaande API's niet te wijzigen om gebruik te kunnen maken van API Apps, u hoeft de code alleen te implementeren naar een API-app. Voor de API kan elke taal of elk framework worden gebruikt dat wordt ondersteund door App Service, waaronder ASP.NET en C#, Java, PHP, Node.js en Python.
@@ -34,7 +38,7 @@ Hierna ziet u een aantal belangrijke voordelen van API Apps:
 
 Daarnaast kunt u met een API-app gebruikmaken van functies die worden aangeboden door [Web Apps](../app-service-web/app-service-web-overview.md) en [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Het omgekeerde geldt ook: als u een web-app of mobiele app gebruikt om een API te hosten, kan deze app gebruikmaken van functies van API Apps, zoals Swagger-metagegevens voor het genereren van clientcode en CORS voor browsertoegang in meerdere domeinen. Het enige verschil tussen de drie app-typen (API, web, mobiel) is de naam en het pictogram van deze apps in de Azure-portal.
 
-## Wat is het verschil tussen API Apps en Azure API Management?
+## <a name="whats-the-difference-between-api-apps-and-azure-api-management"></a>Wat is het verschil tussen API Apps en Azure API Management?
 API Apps en [Azure API Management](../api-management/api-management-key-concepts.md) zijn aanvullende services:
 
 * API Management is bedoeld voor het beheer van API's. U gebruikt een API Management-front-end voor een API om het gebruik te controleren en te beperken, invoer en uitvoer te manipuleren, verschillende API's samen te voegen in één eindpunt enzovoort. De API's die worden beheerd, kunnen overal worden gehost.
@@ -46,7 +50,7 @@ Hier ziet u een diagram waarin API Management wordt gebruikt voor API's die in A
 
 Sommige voorzieningen van API Management en API Apps hebben soortgelijke functies.  Met beide kan bijvoorbeeld CORS-ondersteuning worden geautomatiseerd. Wanneer u de twee services samen gebruikt, gebruikt u API Management voor CORS omdat deze fungeert als front-end voor de API-apps. 
 
-## Aan de slag
+## <a name="getting-started"></a>Aan de slag
 Zie de zelfstudie voor het gewenste framework om aan de slag te gaan met API Apps door voorbeeldcode te implementeren in een app:
 
 * [ASP.NET](app-service-api-dotnet-get-started.md) 
@@ -55,6 +59,9 @@ Zie de zelfstudie voor het gewenste framework om aan de slag te gaan met API App
 
 Begin een thread in het [API Apps-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps) als u vragen hebt over API-apps. 
 
-<!--HONumber=ago16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

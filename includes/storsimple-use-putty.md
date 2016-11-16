@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Verbinding maken via de seriële console
+#### <a name="to-connect-through-the-serial-console"></a>Verbinding maken via de seriële console
 1. Sluit de seriële kabel aan op het apparaat (rechtstreeks of via een USB-seriële adapter).
 2. Open het **Configuratiescherm** en open vervolgens **Apparaatbeheer**.
 3. Kijk waar de COM-poort zich bevindt, zoals weergegeven in de volgende afbeelding.
@@ -26,6 +26,8 @@
      > 
 7. Klik op **Openen** om een seriële sessie te starten.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

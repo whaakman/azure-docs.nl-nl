@@ -1,10 +1,10 @@
-## Berichten ontvangen met EventProcessorHost in Java
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Berichten ontvangen met EventProcessorHost in Java
 EventProcessorHost is een Java-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van EventProcessorHost gedemonstreerd voor één ontvanger.
 
-### Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Een opslagaccount maken
 U hebt een [Azure Storage-account][Azure Storage-account] nodig om EventProcessorHost te gebruiken:
 
-1. Meld u aan bij de [Klassieke Azure-portal][Klassieke Azure-portal] en klik onder aan het scherm op **NIEUW**.
+1. Meld u aan bij de [klassieke Azure-portal][klassieke Azure-portal] en klik onder aan het scherm op **NIEUW**.
 2. Klik op **Data Services**, vervolgens op **Opslag** en **Snelle invoer**, en typ een naam voor uw opslagaccount. Selecteer de gewenste regio en klik op **Opslagaccount maken**.
    
     ![][11]
@@ -14,7 +14,7 @@ U hebt een [Azure Storage-account][Azure Storage-account] nodig om EventProcesso
    
     Kopieer de primaire toegangssleutel voor gebruik verderop in deze zelfstudie.
 
-### Maak een Java-project met behulp van EventProcessorHost
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
 De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven-pakket], en hiernaar kan worden verwezen met de volgende afhankelijkheidsverklaring binnen het Maven-projectbestand:    
 
 ``` XML
@@ -184,9 +184,9 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 > 
 
 <!-- Links -->
-[Event Hubs-overzicht]: event-hubs-overview.md
-[Azure Storage-account]: ../storage/storage-create-storage-account.md
-[Klassieke Azure-portal]: http://manage.windowsazure.com
+[Event Hubs-overzicht]: ../articles/event-hubs/event-hubs-overview.md
+[Azure Storage-account]: ../articles/storage/storage-create-storage-account.md
+[klassieke Azure-portal]: http://manage.windowsazure.com
 [Maven-pakket]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
@@ -195,6 +195,6 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

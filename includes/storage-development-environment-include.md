@@ -1,7 +1,7 @@
-## De ontwikkelomgeving instellen
+## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 Vervolgens stelt u uw ontwikkelomgeving in Visual Studio zo in dat u de codevoorbeelden in deze handleiding kunt uitproberen.
 
-### Een Windows-consoletoepassingsproject maken
+### <a name="create-a-windows-console-application-project"></a>Een Windows-consoletoepassingsproject maken
 Maak in Visual Studio een nieuwe Windows-consoletoepassing, zoals hier wordt weergegeven:
 
 ![Windows-consoletoepassing maken](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode 
 
 U kunt de Azure Storage-clientbibliotheek gebruiken vanuit elk type .NET-toepassing, waaronder een Azure-cloudservice, een Azure-web-app, een bureaubladtoepassing of een mobiele toepassing. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
-### NuGet gebruiken om de vereiste pakketten te installeren
+### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
 Er zijn twee pakketten die u moet installeren voor uw project om deze zelfstudie te kunnen voltooien:
 
 * [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
@@ -29,7 +29,7 @@ Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 > 
 > 
 
-### De doelomgeving bepalen
+### <a name="determine-your-target-environment"></a>De doelomgeving bepalen
 U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:
 
 * U kunt de code uitvoeren met een Azure Storage-account in de cloud. 
@@ -42,7 +42,7 @@ Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toega
 > 
 > 
 
-### De opslagverbindingsreeks configureren
+### <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 De clientbibliotheek van Azure Storage voor .NET ondersteunt het gebruik van een opslagverbindingsreeks om eindpunten en referenties voor toegang tot opslagservices te configureren. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand. 
 
 Zie [Azure Storage-verbindingsreeksen configureren](../articles/storage/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
@@ -58,9 +58,9 @@ U configureert de verbindingsreeks door het bestand `app.config` te openen vanui
         <startup> 
             <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
         </startup>
-        <appSettings>
+          <appSettings>
             <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
+          </appSettings>
     </configuration>
 
 De configuratie-instelling kan er als volgt uitzien:
@@ -73,6 +73,6 @@ Als u de opslagemulator wilt gebruiken, kunt u de bekende accountnaam en -sleute
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

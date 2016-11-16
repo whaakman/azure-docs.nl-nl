@@ -1,22 +1,26 @@
 ---
 title: Uw eerste API beheren in Azure API Management | Microsoft Docs
-description: Informatie over het maken van API's, het toevoegen van bewerkingen en het aan de slag gaan met API Management.
+description: Informatie over het maken van API&quot;s, het toevoegen van bewerkingen en het aan de slag gaan met API Management.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Uw eerste API beheren in Azure API Management
+# <a name="manage-your-first-api-in-azure-api-management"></a>Uw eerste API beheren in Azure API Management
 ## <a name="overview"> </a>Overzicht
 In deze handleiding wordt getoond hoe u snel aan de slag kunt met Azure API Management en uw eerste API-aanroep kunt maken.
 
@@ -59,33 +63,31 @@ Het systeem bestaat uit de volgende onderdelen:
 > 
 > 
 
-De eerste stap voor het werken met API Management is het maken van een service-exemplaar. Meld u aan bij de [klassieke Azure-portal][klassieke Azure-portal] en klik op **Nieuw**, **App Services**, **API Management**, **Maken**.
+De eerste stap voor het werken met API Management is het maken van een service-exemplaar. Meld u aan bij [Azure Portal][Azure Portal] en klik op **Nieuw**, **Web en mobiel**, **API Management**.
 
 ![Nieuw API Management-exemplaar][api-management-create-instance-menu]
 
-Geef voor **URL** een unieke subdomeinnaam op om te gebruiken voor de service-URL.
+Geef bij **Naam** een unieke subdomeinnaam op om te gebruiken voor de service-URL.
 
-Kies het gewenste **Abonnement** en de gewenste **Regio** voor uw service-exemplaar. Nadat u deze hebt geselecteerd, klikt u op de knop **Volgende**.
-
-![Nieuwe API Management-service][api-management-create-instance-step1]
+Kies het gewenste **abonnement**, de gewenste **resourcegroep** en de gewenste **locatie** voor uw service-exemplaar.
 
 Voer **Contoso Ltd.** in voor de **Organisatienaam** en voer uw e-mailadres in het veld **E-mail beheerder** in.
 
 > [!NOTE]
-> Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem. Zie voor meer informatie [Meldingen en e-mailsjablonen configureren in Azure API Management][Meldingen en e-mailsjablonen configureren in Azure API Management].
+> Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem. Zie [Meldingen en e-mailsjablonen configureren in Azure API Management][Meldingen en e-mailsjablonen configureren in Azure API Management] voor meer informatie.
 > 
 > 
 
-![Nieuwe API Management-service][api-management-create-instance-step2]
+![Nieuwe API Management-service][api-management-create-instance-step1]
 
-Service-exemplaren van API Management zijn beschikbaar in drie categorieën: Developer, Standard en Premium. Standaard worden nieuwe service-exemplaren van API Management in de categorie Developer gemaakt. Als u de categorie Standard of Premium wilt selecteren, schakelt u het selectievakje **Geavanceerde instellingen** in en selecteert u de gewenste categorie in het volgende scherm.
+Service-exemplaren van API Management zijn beschikbaar in drie categorieën: Developer, Standard en Premium.
 
 > [!NOTE]
-> De categorie Developer is voor het ontwikkeling, tests en pilots van API-programma's waarbij grote beschikbaarheid niet van belang is. In de categorieën Standard en Premium kunt u het aantal gereserveerde eenheden schalen om meer verkeer te kunnen verwerken. De categorieën Standard en Premium bieden de meeste verwerkingskracht en de beste prestaties voor uw API Management-service. U kunt elke categorie gebruiken om deze zelfstudie te voltooien. Zie voor meer informatie over API Management-categorieën [API Management-prijzen][API Management-prijzen].
+> De categorie Developer is voor het ontwikkeling, tests en pilots van API-programma's waarbij grote beschikbaarheid niet van belang is. In de categorieën Standard en Premium kunt u het aantal gereserveerde eenheden schalen om meer verkeer te kunnen verwerken. De categorieën Standard en Premium bieden de meeste verwerkingskracht en de beste prestaties voor uw API Management-service. U kunt elke categorie gebruiken om deze zelfstudie te voltooien. Zie [API Management-prijzen][API Management-prijzen] voor meer informatie over API Management-prijscategorieën.
 > 
 > 
 
-Schakel het selectievakje in om uw service-exemplaar te maken.
+Klik op **maken** om uw service-exemplaar in te richten.
 
 ![Nieuwe API Management-service][api-management-instance-created]
 
@@ -101,7 +103,7 @@ API's kunnen handmatig worden gemaakt (en bewerkingen kunnen handmatig worden to
 > 
 > 
 
-API's worden geconfigureerd in de publicatieportal, die wordt geopend via de klassieke Azure-portal. Klik voor het bereiken van de publicatieportal op **Beheren** in de klassieke Azure-portal voor uw API Management-service.
+API's worden geconfigureerd via de publicatieportal. U opent deze door vanaf de servicewerkbalk op **Publicatieportal** te klikken.
 
 ![Publicatieportal][api-management-management-console]
 
@@ -216,9 +218,9 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 [Een product maken en publiceren]: api-management-howto-add-products.md
 [API Management-prijzen]: http://azure.microsoft.com/pricing/details/api-management/
 
-[klassieke Azure-portal]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 
-[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
+[api-management-beheerconsole]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
 [api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
 [api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
@@ -255,6 +257,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

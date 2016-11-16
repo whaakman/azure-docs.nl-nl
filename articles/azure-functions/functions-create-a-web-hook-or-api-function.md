@@ -5,9 +5,9 @@ services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -15,20 +15,25 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/30/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+
 
 ---
-# Een webhook of API Azure-functie maken
+# <a name="create-a-webhook-or-api-azure-function"></a>Een webhook of API Azure-functie maken
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand ervaring waarmee u geplande of geactiveerde code-eenheden kunt maken voor implementatie in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
 
 In dit onderwerp wordt beschreven hoe u een nieuwe Node.js-functie maakt die wordt opgeroepen door een GitHub-webhook. De nieuwe functie is gemaakt op basis van een vooraf gedefinieerde sjabloon in de Azure Functions-portal. U kunt ook een korte video bekijken om te zien hoe deze stappen worden uitgevoerd in de portal.
 
-## Video bekijken
+## <a name="watch-the-video"></a>Video bekijken
 In de volgende video laten we zien hoe u de eenvoudige stappen in deze zelfstudie uitvoert 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>
+>
 
-
-## Op basis van de sjabloon een functie maken die door een webhook wordt geactiveerd
+## <a name="create-a-webhooktriggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een webhook wordt geactiveerd
 Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/). 
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
@@ -47,7 +52,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 
 Vervolgens maakt u de werkelijke webhook in uw GitHub-opslagplaats.
 
-## De webhook configureren
+## <a name="configure-the-webhook"></a>De webhook configureren
 1. Navigeer in GitHub naar een opslagplaats waarvan u eigenaar bent; dit omvat alle opslagplaatsen die u hebt geforkt.
 2. Klik op **Instellingen** > **Webhooks & services** > **Webhook toevoegen**.
    
@@ -59,12 +64,12 @@ Vervolgens maakt u de werkelijke webhook in uw GitHub-opslagplaats.
 Op dit moment is de GitHub-webhook geconfigureerd voor het activeren van de functie wanneer een nieuwe probleemopmerking wordt toegevoegd.  
 Het is nu tijd om te testen.
 
-## De functie testen
+## <a name="test-the-function"></a>De functie testen
 1. Open in uw GitHub-repo het tabblad **Problemen** in een nieuw browservenster en klik op **Nieuw probleem**, typ een titel en klik vervolgens op **Nieuw probleem registreren**. U kunt ook een bestaand probleem openen.
 2. Typ een opmerking bij probleem en klik op **Opmerking**. Op dit moment kunt u teruggaan naar uw nieuwe webhook in GitHub en ziet u onder **Recente leveringen** dat een webhookaanvraag is verzonden en dat de antwoordtekst `New GitHub comment: <Your issue comment text>` is.
 3. Blader in de Functions-portal omlaag naar de logs en ga na of de functie werd geactiveerd en de waarde `New GitHub comment: <Your issue comment text>` wordt geschreven naar de streaminglogboeken.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)  
@@ -76,6 +81,9 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

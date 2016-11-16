@@ -2,11 +2,11 @@
 title: Aan de slag met Azure AD Privileged Identity Management | Microsoft Docs
 description: Informatie over het beheren van bevoegde identiteiten met de Azure Active Directory Privileged Identity Management-toepassing in de Azure Portal.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+
 
 ---
-# Aan de slag met Azure AD Privileged Identity Management
+# <a name="get-started-with-azure-ad-privileged-identity-management"></a>Aan de slag met Azure AD Privileged Identity Management
 Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken. Dit is inclusief toegang tot resources in Azure AD en andere Microsoft-onlineservices zoals Office 365 en Microsoft Intune.
 
 In dit artikel leest u hoe u de PIM-app van Azure AD toevoegt aan uw Azure Portal-dashboard.
 
-## De Privileged Identity Management-toepassing toevoegen
+## <a name="add-the-privileged-identity-management-application"></a>De Privileged Identity Management-toepassing toevoegen
 Voordat u Azure AD Privileged Identity Management gebruikt, moet u de toepassing toevoegen aan uw Azure Portal-dashboard.
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.
@@ -31,7 +35,7 @@ Voordat u Azure AD Privileged Identity Management gebruikt, moet u de toepassing
 
 Als u de eerste persoon bent die Azure AD Privileged Identity Management in uw directory gebruikt, wordt u via de [wizard Beveiliging](active-directory-privileged-identity-management-security-wizard.md) stapsgewijs begeleid bij de eerste toewijzing. Hierna wordt u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de directory. Alleen een beheerder met bevoorrechte rol heeft toegang tot deze toepassing om de toegang voor andere beheerders te beheren.  
 
-## Navigeer naar uw taken
+## <a name="navigate-to-your-tasks"></a>Navigeer naar uw taken
 Nadat Azure AD Privileged Identity Management is ingesteld, ziet u de navigatieblade telkens wanneer u de toepassing opent. Gebruik deze blade om de taken voor identiteitsbeheer te voltooien.
 
 ![Taken op het hoogste niveau voor PIM - schermopname](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
@@ -41,7 +45,7 @@ Nadat Azure AD Privileged Identity Management is ingesteld, ziet u de navigatieb
 * **Bevoegde toegang beoordelen**: hiermee gaat u naar eventuele in behandeling zijnde toegangsbeoordelingen die u moet voltooien, of u nu de toegang beoordeelt voor uzelf of voor iemand anders. 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Het [overzicht van Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) bevat meer informatie over het beheren van beheerderstoegang in uw organisatie.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -52,6 +56,6 @@ Het [overzicht van Azure AD Privileged Identity Management](active-directory-pri
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

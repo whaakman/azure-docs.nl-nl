@@ -2,12 +2,12 @@
 title: Uitvoeren als-account voor Azure configureren | Microsoft Docs
 description: Zelfstudie die u helpt bij het maken en testen en bij het voorbeeldgebruik van de verificatie van beveiligingsprincipals in Azure Automation.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
+editor: 
 keywords: naam van service-principal, setspn, azure-verificatie
-
+ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+
 
 ---
-# Runbooks verifiëren met Azure Uitvoeren als-account
-In dit onderwerp wordt beschreven hoe u vanuit de Azure Portal een Automation-account configureert met behulp van de functie Uitvoeren als-account, om accounts voor het beheer van runbooks te verifiëren in Azure Resource Manager of Azure Service Management.
+# <a name="authenticate-runbooks-with-azure-run-as-account"></a>Runbooks verifiëren met Azure Uitvoeren als-account
+In dit onderwerp wordt beschreven hoe u vanuit Azure Portal een Automation-account configureert met behulp van de functie Uitvoeren als-account, om accounts voor het beheer van runbooks te verifiëren in Azure Resource Manager of Azure Service Management.
 
-Wanneer u in de Azure Portal een nieuw Automation-account maakt, wordt automatisch het volgende gemaakt:
+Wanneer u in Azure Portal een nieuw Automation-account maakt, wordt automatisch het volgende gemaakt:
 
 * Uitvoeren als-account; hiermee wordt een nieuwe service-principal in Azure Active Directory gemaakt, een certificaat, en wordt het RBAC (op rollen gebaseerd toegangsbeheer) toegewezen, dat wordt gebruikt om Resource Manager-resources te beheren met runbooks.   
 * Klassiek uitvoeren als-account; door een beheercertificaat te uploaden dat wordt gebruikt om Azure Service Management of klassieke resources te beheren met runbooks.  
@@ -29,32 +33,32 @@ Dit maakt het proces voor u eenvoudiger zodat u sneller runbooks kunt maken en i
 
 Met een Uitvoeren als- en een Klassiek uitvoeren als-account kunt u:
 
-* Een gestandaardiseerde manier voor Azure-verificatie bieden bij het beheer van Azure Resource Manager- of Azure Service Management-resources vanuit runbooks in de Azure Portal.  
+* Een gestandaardiseerde manier voor Azure-verificatie bieden bij het beheer van Azure Resource Manager- of Azure Service Management-resources vanuit runbooks in Azure Portal.  
 * Het gebruik automatiseren van globale runbooks die in Azure-waarschuwingen zijn geconfigureerd.
 
 > [!NOTE]
-> De [waarschuwingsintegratiefunctie](../azure-portal/insights-receive-alert-notifications.md) van Azure met globale Automation-runbooks vereist een Automation-account dat met een Uitvoeren als- en Klassiek uitvoeren als-account is geconfigureerd. Selecteer een Automation-account waarvoor al een gebruiker voor het Uitvoeren als- en Klassiek uitvoeren als-account is gedefinieerd of maak een nieuw Automation-account.
+> De [waarschuwingsintegratiefunctie](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) van Azure met globale Automation-runbooks vereist een Automation-account dat met een Uitvoeren als- en Klassiek uitvoeren als-account is geconfigureerd. Selecteer een Automation-account waarvoor al een gebruiker voor het Uitvoeren als- en Klassiek uitvoeren als-account is gedefinieerd of maak een nieuw Automation-account.
 > 
 > 
 
-U ziet hoe u het Automation-account maakt vanuit de Azure Portal, hoe u een Automation-account bijwerkt met PowerShell en hoe u verificatie in runbooks uitvoert.
+U ziet hoe u het Automation-account maakt vanuit Azure Portal, hoe u een Automation-account bijwerkt met PowerShell en hoe u verificatie in runbooks uitvoert.
 
 Er zijn echter enkele dingen die u moet begrijpen en waarmee u rekening moet houden voordat u doorgaat.
 
 1. Dit heeft geen invloed op bestaande Automation-accounts die al in het klassieke of Resource Manager-implementatiemodel zijn gemaakt.  
-2. Het werkt alleen voor Automation-accounts die zijn gemaakt via de Azure Portal.  Wanneer u een account probeert te maken vanuit de klassieke portal, wordt de configuratie van het Uitvoeren als-account niet gerepliceerd.
+2. Het werkt alleen voor Automation-accounts die zijn gemaakt via Azure Portal.  Wanneer u een account probeert te maken vanuit de klassieke portal, wordt de configuratie van het Uitvoeren als-account niet gerepliceerd.
 3. Als u momenteel runbooks en activa hebt (bijvoorbeeld schema's, variabelen, enzovoort) die u eerder hebt gemaakt voor het beheer van klassieke resources, en u die runbooks wilt verifiëren met het nieuwe klassieke Uitvoeren als-account, moet u deze migreren naar het nieuwe Automation-account of het bestaande account bijwerken met onderstaand PowerShell-script.  
 4. Als u wilt verifiëren met het nieuwe Uitvoeren als-account en het klassieke Uitvoeren als-Automation-account, moet u de bestaande runbooks wijzigen met de volgende voorbeeldcode.  **Houd er rekening mee** dat het Uitvoeren als-account is bedoeld voor verificatie met Resource Manager-resources met de service-principal op basis van certificaten, en dat het klassieke Uitvoeren als-account is bedoeld voor verificatie met Service Management-resources met het beheercertificaat.     
 
-## Nieuw Automation-account maken vanuit Azure Portal
-In deze sectie voert u de volgende stappen uit om vanuit de Azure Portal een nieuw Azure Automation-account te maken.  Hiermee wordt zowel het Uitvoeren als- als het klassieke Uitvoeren als-account gemaakt.  
+## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Nieuw Automation-account maken vanuit Azure Portal
+In deze sectie voert u de volgende stappen uit om vanuit Azure Portal een nieuw Azure Automation-account te maken.  Hiermee wordt zowel het Uitvoeren als- als het klassieke Uitvoeren als-account gemaakt.  
 
 > [!NOTE]
-> De gebruiker die deze stappen uitvoert, *moet* lid zijn van de rol Abonnementsbeheerders en medebeheerder zijn van het abonnement dat toegang verleent tot het abonnement voor de gebruiker.  De gebruiker moet ook als gebruiker worden toegevoegd aan de standaard Active Directory van dat abonnement. Het account hoeft niet te worden toegewezen aan een bevoorrechte rol. 
+> De gebruiker die deze stappen uitvoert, *moet* lid zijn van de rol Abonnementsbeheerders en medebeheerder zijn van het abonnement dat toegang verleent tot het abonnement voor de gebruiker.  De gebruiker moet ook als gebruiker worden toegevoegd aan de standaard Active Directory van dat abonnement. Het account hoeft niet te worden toegewezen aan een bevoorrechte rol.
 > 
 > 
 
-1. Meld u bij de Azure Portal aan met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
+1. Meld u bij Azure Portal aan met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
 2. Selecteer **Automation-accounts**.
 3. Klik op de blade Automation-accounts op **Toevoegen**.<br>![Automation-account toevoegen](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
    
@@ -67,7 +71,7 @@ In deze sectie voert u de volgende stappen uit om vanuit de Azure Portal een nie
 6. Controleer of de waarde **Ja** is geselecteerd voor de optie **Een Uitvoeren als-account voor Azure maken** en klik op de knop **Maken**.  
    
    > [!NOTE]
-   > Als u de optie **Nee** selecteert omdat u geen Uitvoeren als-account wilt maken, wordt een waarschuwing weergegeven op de blade **Automation-account toevoegen**.  Hoewel het account wordt gemaakt in de Azure Portal, heeft het geen overeenkomstige verificatie-id in de adreslijstservice van het klassieke of Resource Manager-abonnement en daardoor ook geen toegang tot resources in uw abonnement.  Hierdoor kunnen alle runbooks die naar dit account verwijzen, geen taken verifiëren en uitvoeren met resources in die implementatiemodellen.
+   > Als u de optie **Nee** selecteert omdat u geen Uitvoeren als-account wilt maken, wordt een waarschuwing weergegeven op de blade **Automation-account toevoegen**.  Hoewel het account wordt gemaakt in Azure Portal, heeft het geen overeenkomstige verificatie-id in de adreslijstservice van het klassieke of Resource Manager-abonnement en daardoor ook geen toegang tot resources in uw abonnement.  Hierdoor kunnen alle runbooks die naar dit account verwijzen, geen taken verifiëren en uitvoeren met resources in die implementatiemodellen.
    > 
    > ![Waarschuwing bij Automation-account toevoegen](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
    > Wanneer de service-principal niet is gemaakt, wordt de rol Inzender niet toegewezen.
@@ -75,7 +79,7 @@ In deze sectie voert u de volgende stappen uit om vanuit de Azure Portal een nie
    > 
 7. Terwijl in Azure het Automation-account wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen.
 
-### Beschikbare resources
+### <a name="resources-included"></a>Beschikbare resources
 Wanneer het Automation-account is gemaakt, worden er automatisch verschillende resources voor u gemaakt.  In de volgende tabel vindt u een overzicht van de bronnen voor het Uitvoeren als-account.<br>
 
 | Resource | Beschrijving |
@@ -94,7 +98,7 @@ In de volgende tabel vindt u een overzicht van de bronnen voor het klassieke Uit
 | AzureClassicRunAsCertificate |Certificaatasset dat automatisch wordt gemaakt en wordt gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks.  Dit certificaat is één jaar geldig. |
 | AzureClassicRunAsConnection |Verbindingsasset dat automatisch wordt gemaakt en wordt gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. |
 
-## Uitvoeren als-verificatie verifiëren
+## <a name="verify-run-as-authentication"></a>Uitvoeren als-verificatie verifiëren
 Nu gaat u een kleine test uitvoeren om te bevestigen dat u daadwerkelijk kunt verifiëren met het nieuwe Uitvoeren als-account.     
 
 1. Open in Azure Portal het Automation-account dat u eerder hebt gemaakt.  
@@ -104,11 +108,11 @@ Nu gaat u een kleine test uitvoeren om te bevestigen dat u daadwerkelijk kunt ve
 5. In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
 6. Wanneer de runbooktaak is voltooid, is de status **Voltooid**.<br> ![Runbooktest beveiligingsprincipal](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
 7. Klik op de tegel **Uitvoer** als u de gedetailleerde resultaten van het runbook wilt bekijken.
-8. Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle beschikbare resources in de resourcegroep weergegeven. 
+8. Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle beschikbare resources in de resourcegroep weergegeven.
 9. Sluit de blade **Uitvoer** om terug te keren naar de blade **Taaksamenvatting**.
 10. Sluit de blade **Taaksamenvatting** en het bijbehorende runbook **AzureAutomationTutorialScript**.
 
-## Klassieke Uitvoeren als-verificatie verifiëren
+## <a name="verify-classic-run-as-authentication"></a>Klassieke Uitvoeren als-verificatie verifiëren
 Nu gaat u een kleine test uitvoeren om te bevestigen dat u daadwerkelijk kunt verifiëren met het klassieke Uitvoeren als-account.     
 
 1. Open in Azure Portal het Automation-account dat u eerder hebt gemaakt.  
@@ -118,27 +122,27 @@ Nu gaat u een kleine test uitvoeren om te bevestigen dat u daadwerkelijk kunt ve
 5. In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
 6. Wanneer de runbooktaak is voltooid, is de status **Voltooid**.<br> ![Runbooktest beveiligingsprincipal](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
 7. Klik op de tegel **Uitvoer** als u de gedetailleerde resultaten van het runbook wilt bekijken.
-8. Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle klassieke virtuele machines in het abonnement weergegeven. 
+8. Op de blade **Uitvoer** ziet u dat de verificatie is geslaagd. Er wordt ook een lijst met alle klassieke virtuele machines in het abonnement weergegeven.
 9. Sluit de blade **Uitvoer** om terug te keren naar de blade **Taaksamenvatting**.
 10. Sluit de blade **Taaksamenvatting** en de bijbehorende runbookblade **AzureClassicAutomationTutorialScript**.
 
-## Automation-account bijwerken met behulp van PowerShell
+## <a name="update-an-automation-account-using-powershell"></a>Automation-account bijwerken met behulp van PowerShell
 In de volgende gevallen kunt u nu PowerShell gebruiken om het bestaande Automation-account bij te werken:
 
-1. U hebt wel een Automation-account, maar geen Uitvoeren als-account gemaakt 
-2. U hebt al een Automation-account voor het beheer van Resource Manager-resources en u wilt dit bijwerken met het Uitvoeren als-account voor runbookverificatie 
+1. U hebt wel een Automation-account, maar geen Uitvoeren als-account gemaakt
+2. U hebt al een Automation-account voor het beheer van Resource Manager-resources en u wilt dit bijwerken met het Uitvoeren als-account voor runbookverificatie
 3. U hebt al een Automation-account voor het beheer van klassieke resources en u wilt dit bijwerken, zodat u het klassieke Uitvoeren als-account kunt gebruiken in plaats van een nieuw account te maken, en uw runbooks en activa daarnaartoe te migreren   
 
 Voordat u doorgaat, controleert u het volgende:
 
 1. U hebt [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) gedownload en geïnstalleerd indien u Windows 7 gebruikt.   
     Als u Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 of Windows 7 SP1 gebruikt, is [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) beschikbaar voor installatie.
-2. Azure PowerShell 1.0. Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over deze release en de installatie ervan. 
+2. Azure PowerShell 1.0. Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over deze release en de installatie ervan.
 3. U hebt een Automation-account gemaakt.  In beide scripts hieronder wordt naar dit account verwezen als de waarde voor de parameters -AutomationAccountName en -ApplicationDisplayName.
 
-Om de waarden voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName* te verkrijgen (verplichte parameters voor de scripts), selecteert u in de Azure Portal het Automation-account op de blade **Automation-account**. Selecteer vervolgens **Alle instellingen**.  Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**.  Noteer de waarden die op de blade **Eigenschappen** worden weergegeven.<br> ![Eigenschappen van Automation-account](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+Om de waarden voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName* te verkrijgen (verplichte parameters voor de scripts), selecteert u in Azure Portal het Automation-account op de blade **Automation-account**. Selecteer vervolgens **Alle instellingen**.  Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**.  Noteer de waarden die op de blade **Eigenschappen** worden weergegeven.<br> ![Eigenschappen van Automation-account](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
-### PowerShell-script voor Uitvoeren als-account maken
+### <a name="create-run-as-account-powershell-script"></a>PowerShell-script voor Uitvoeren als-account maken
 Met onderstaand PowerShell-script wordt het volgende geconfigureerd:
 
 * Een Azure AD-toepassing die zal worden geverifieerd met het zelfondertekende certificaat, het maken van een service-principalaccount voor deze toepassing in Azure AD en het toewijzen van de rol Inzender (u kunt dit wijzigen in Eigenaar of een andere rol) voor dit account in uw huidige abonnement.  Raadpleeg voor meer informatie het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md).
@@ -211,7 +215,7 @@ De volgende stappen helpen u bij de uitvoering van het script.
            Sleep 10
            $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
            $Retries++;
-        } 
+        }
    
         # Get the tenant id for this subscription
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
@@ -233,16 +237,16 @@ De volgende stappen helpen u bij de uitvoering van het script.
    > 
    > 
    
-        .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
+        .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName>
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
         -CertPlainPassword "<StrongPassword>"  
    <br>
 
-Wanneer het script is voltooid, raadpleegt u onderstaande [voorbeeldcode](#sample-code-to-authenticate-with-resource-manager-resources) om verificatie met Resource Manager-resources uit te voeren en de configuratie van referenties te valideren. 
+Wanneer het script is voltooid, raadpleegt u onderstaande [voorbeeldcode](#sample-code-to-authenticate-with-resource-manager-resources) om verificatie met Resource Manager-resources uit te voeren en de configuratie van referenties te valideren.
 
-### PowerShell-script voor klassiek Uitvoeren als-account maken
+### <a name="create-classic-run-as-account-powershell-script"></a>PowerShell-script voor klassiek Uitvoeren als-account maken
 Met onderstaand PowerShell-script wordt het volgende geconfigureerd:
 
 * Een Automation-certificaatasset in het opgegeven Automation-account **AzureClassicRunAsCertificate**, dat het certificaat bevat waarmee de runbooks worden geverifieerd.
@@ -298,7 +302,7 @@ Het script maakt een zelfondertekend certificaat en slaat dit op in de map met t
         $ConnectionAssetName = "AzureClassicRunAsConnection"
         Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
         $ConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicCertificateAssetName}
-        New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureClassicCertificate -ConnectionFieldValues $ConnectionFieldValues 
+        New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureClassicCertificate -ConnectionFieldValues $ConnectionFieldValues
    
         Write-Host -ForegroundColor red "Please upload the cert $CertPathCer to the Management store by following the steps below."
         Write-Host -ForegroundColor red "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates."
@@ -311,15 +315,15 @@ Het script maakt een zelfondertekend certificaat en slaat dit op in de map met t
    > 
    > 
    
-        .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName> 
+        .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName>
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
-        -CertPlainPassword "<StrongPassword>" 
+        -CertPlainPassword "<StrongPassword>"
 
-Wanneer het script is voltooid, moet u het certificaat kopiëren dat is gemaakt in de map **Temp** van uw gebruikersprofiel.  Volg de stappen om [een API-beheercertificaat te uploaden](../azure-api-management-certs.md) naar de klassieke Azure Portal en raadpleeg de [voorbeeldcode](#sample-code-to-authenticate-with-service-management-resources) om de configuratie van de referenties te valideren met Service Management-resources. 
+Wanneer het script is voltooid, moet u het certificaat kopiëren dat is gemaakt in de map **Temp** van uw gebruikersprofiel.  Volg de stappen om [een API-beheercertificaat te uploaden](../azure-api-management-certs.md) naar de klassieke Azure Portal en raadpleeg de [voorbeeldcode](#sample-code-to-authenticate-with-service-management-resources) om de configuratie van de referenties te valideren met Service Management-resources.
 
-## Voorbeeldcode voor verificatie bij Resource Manager-resources
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Voorbeeldcode voor verificatie bij Resource Manager-resources
 U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbeeldrunbook **AzureAutomationTutorialScript**, gebruiken om de verificatie uit te voeren met behulp van het Uitvoeren als-account voor het beheer van Resource Manager-resources met uw runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -334,9 +338,9 @@ U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbe
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
-         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-       "Setting context to a specific subscription"  
-       Set-AzureRmContext -SubscriptionId $SubId             
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+       "Setting context to a specific subscription"     
+       Set-AzureRmContext -SubscriptionId $SubId              
     }
     catch {
         if (!$servicePrincipalConnection)
@@ -347,15 +351,15 @@ U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbe
             Write-Error -Message $_.Exception
             throw $_.Exception
          }
-    } 
+    }
 
 
 Het script bevat twee extra regels met code voor de ondersteuning van verwijzingen naar de context van een abonnement, zodat u eenvoudig tussen meerdere abonnementen kunt schakelen. Een variabele met de naam SubscriptionId bevat de id van het abonnement en na de instructie van de cmdlet Add-AzureRmAccount wordt de [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) vermeld met de parameterset *-SubscriptionId*. Als de naam van de variabele te algemeen is, wijzigt u de naam van de variabele door er een voorvoegsel aan toe te voegen of door er een andere naamgevingsconventie op toe te passen, zodat u de variabele gemakkelijker kunt identificeren voor uw doeleinden. U kunt ook de parameter -SubscriptionName in plaats van -SubscriptionId gebruiken met een bijbehorende variabeleasset.  
 
 De cmdlet die wordt gebruikt voor verificatie in het runbook - **Add-AzureRmAccount**, gebruikt de parameterset *ServicePrincipalCertificate*.  In plaats van referenties wordt voor verificatie het certificaat van de service-principal gebruikt.  
 
-## Voorbeeldcode voor verificatie met Service Management-resources
-U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbeeldrunbook **AzureClassicAutomationTutorialScript**, gebruiken om verificatie uit te voeren met het klassieke Uitvoeren als-account, voor het beheer van klassieke resources met uw runbooks. 
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Voorbeeldcode voor verificatie met Service Management-resources
+U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbeeldrunbook **AzureClassicAutomationTutorialScript**, gebruiken om verificatie uit te voeren met het klassieke Uitvoeren als-account, voor het beheer van klassieke resources met uw runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
     # Get the connection
@@ -378,15 +382,18 @@ U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbe
     }
 
     Write-Verbose "Authenticating to Azure with certificate." -Verbose
-    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert 
+    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
 * Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie over het op rollen gebaseerd toegangsbeheer in Azure Automation.
 * Voor meer informatie over certificaten en Azure-services raadpleegt u [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Overzicht van certificaten voor Azure Cloud Services)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

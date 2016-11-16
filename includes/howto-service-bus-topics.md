@@ -1,4 +1,4 @@
-## Wat zijn Service Bus-onderwerpen en -abonnementen?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Wat zijn Service Bus-onderwerpen en -abonnementen?
 Service Bus-onderwerpen en -abonnementen bieden ondersteuning voor een berichtencommunicatiemodel op basis van *publiceren/abonneren*. Wanneer u gebruikmaakt van onderwerpen en abonnementen, communiceren onderdelen van een gedistribueerde toepassing niet direct met elkaar. In plaats daarvan wisselen ze berichten uit via een onderwerp dat als intermediair fungeert.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
@@ -9,7 +9,7 @@ Een abonnement op een onderwerp lijkt op een virtuele wachtrij die kopieën van 
 
 Service Bus-onderwerpen en -abonnementen stellen u in staat om voor veel gebruikers en toepassingen een groot aantal berichten te schalen en te verwerken.
 
-## Een naamruimte maken
+## <a name="create-a-namespace"></a>Een naamruimte maken
 Als u Service Bus-onderwerpen en -abonnementen in Azure wilt gebruiken, moet u eerst een *servicenaamruimte maken*. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
 Ga als volgt te werk om een naamruimte te maken:
@@ -25,7 +25,7 @@ Ga als volgt te werk om een naamruimte te maken:
     ![Een naamruimte maken][create-namespace]
 8. Klik op de knop **Maken**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
-### De referenties ophalen
+### <a name="obtain-the-credentials"></a>De referenties ophalen
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in de blade **Service Bus-naamruimte** op **Beleid voor gedeelde toegang**.
 3. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
@@ -33,16 +33,16 @@ Ga als volgt te werk om een naamruimte te maken:
     ![verbinding-gegevens][connection-info]
 4. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik.
    
-    ![verbinding-reeks][connection-string]
+    ![connection-string][connection-string]
 
 [Azure Portal]: https://portal.azure.com
-[maken-naamruimte]: ./media/howto-service-bus-topics/create-namespace.png
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [verbinding-gegevens]: ./media/howto-service-bus-topics/connection-info.png
-[verbinding-reeks]: ./media/howto-service-bus-topics/connection-string.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

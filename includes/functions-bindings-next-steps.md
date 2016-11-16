@@ -1,2 +1,7 @@
-For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md)
+Voor meer informatie over andere bindingen en triggers voor Azure-functies raadpleegt u [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md) (Referentie voor ontwikkelaars van Azure Functions-triggers en -bindingen)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

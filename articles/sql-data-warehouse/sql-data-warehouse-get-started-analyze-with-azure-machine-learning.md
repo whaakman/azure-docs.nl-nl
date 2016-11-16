@@ -5,23 +5,28 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Gegevens analyseren met Azure Machine Learning
+# <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,12 +36,12 @@ In deze zelfstudie wordt gebruikgemaakt van Azure Machine Learning om een voorsp
 > 
 > 
 
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Een SQL Data Warehouse maken] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][voorbeeldgegevens handmatig laden].
 
-## 1. Gegevens ophalen
+## <a name="1-get-data"></a>1. Gegevens ophalen
 De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
 1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning Studio] en klik op My experiments.
@@ -67,12 +72,12 @@ FROM [dbo].[vTargetMail]
 ```
 
 Voer het experiment uit door onder experimentencanvas op **RUN** (UITVOEREN) te klikken.
-![Het experiment uitvoeren][1]
+![Voer het experiment uit.][1]
 
 Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de module Reader en selecteert u **Visualize** (Visualiseren) om de geïmporteerde gegevens te zien.
 ![Geïmporteerde gegevens weergeven][3]
 
-## 2. De gegevens opschonen
+## <a name="2-clean-the-data"></a>2. De gegevens opschonen
 Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
 
 1. Sleep de module **Project Columns** (Projectkolommen) naar het canvas.
@@ -81,7 +86,7 @@ Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant
 3. Sluit twee kolommen uit: CustomerAlternateKey en GeographyKey.
    ![Overbodige kolommen verwijderen][5]
 
-## 3. Het model maken
+## <a name="3-build-the-model"></a>3. Het model maken
 U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen en 20% om het model te testen. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
@@ -95,7 +100,7 @@ U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen 
 5. Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
    ![Te voorspellen kolom selecteren][8]
 
-## 4. Het model scoren
+## <a name="4-score-the-model"></a>4. Het model scoren
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
 
 1. Sleep de module **Score Model** (Model beoordelen) naar het canvas.
@@ -104,7 +109,7 @@ Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen
 3. Kopieer en plak de modules Train Model en Score Model naar het canvas.
 4. Sleep het model **Evaluate Model** (Model evalueren) naar het canvas om de twee algoritmen te vergelijken.
 5. **Voer het experiment uit**.
-   ![Het experiment uitvoeren][10]
+   ![Het experiment uitvoeren.][10]
 6. Klik op de uitvoerpoort onder in de module Evaluate Model (Model evalueren) en klik op Visualize (Visualiseren).
    ![Evaluatieresultaten visualiseren][11]
 
@@ -118,7 +123,7 @@ U ziet dat er twee of meer kolommen aan de testgegevensset zijn toegevoegd.
 
 Door de kolom BikeBuyer (werkelijk) te vergelijken met de kolom Scored Labels (voorspelling), ziet u hoe goed het model heeft gepresteerd. In de volgende stappen kunt u dit model gebruiken om voorspellingen te doen voor nieuwe klanten, en dit model publiceren als een webservice of resultaten opslaan in SQL Data Warehouse.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Raadpleeg [Inleiding tot Machine Learning in Azure][Inleiding tot Machine Learning in Azure] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
 
 <!--Image references-->
@@ -144,6 +149,6 @@ Raadpleeg [Inleiding tot Machine Learning in Azure][Inleiding tot Machine Learni
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

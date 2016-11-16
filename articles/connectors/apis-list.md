@@ -1,13 +1,13 @@
 ---
-title: Lijst van door Microsoft beheerde connectoren voor gebruik in Microsoft Azure Logic Apps | Microsoft Docs
+title: Lijst van door Microsoft beheerde connectors voor gebruik in Microsoft Azure Logic Apps | Microsoft Docs
 description: Een volledige lijst van de door Microsoft beheerde connectors die u kunt gebruiken voor het bouwen van logische apps in Azure App Service
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+
 
 ---
-# Lijst van connectoren
+# <a name="list-of-connectors"></a>Lijst van connectoren
 Selecteer een connector om te bekijken hoe u snel werkstromen kunt maken.
 
-## Standaardconnectoren
+## <a name="standard-connectors"></a>Standaardconnectoren
 | Connectors |  |  |  |
 | --- | --- | --- | --- |
 | [![API-pictogram][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc] |[![API-pictogram][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![API-pictogram][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![API-pictogram][Boxicon]<br/>**Box**][Boxdoc] |
 | [![API-pictogram][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc] |[![API Icon][DB2icon]<br/>**DB2**][db2doc] |[![API-pictogram][Delayicon]<br/>**Delay**][Delaydoc] |[![API-pictogram][Dropboxicon]<br/>**Dropbox**][Dropboxdoc] |
 | [![API-pictogram][Facebookicon]<br/>**Facebook**][Facebookdoc] |[![API-pictogram][FTPicon]<br/>**FTP**][FTPdoc] |[![API-pictogram][GitHubicon]<br/>**GitHub**][GitHubdoc] |[![API-pictogram][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc] |
-| ![API-pictogram][Google-Sheetsicon]<br/>**Google Sheets** |![API-pictogram][Google-Tasksicon]<br/>**Google Tasks** |![API-pictogram][Google~Calendaricon]<br/>**Google<br/>Calendar** |[![API-pictogram][HTTPicon]<br/>**HTTP**][HTTPdoc] |
+| ![API-pictogram][Google-Sheetsicon]<br/>**Google Spreadsheets** |![API-pictogram][Google-Tasksicon]<br/>**Google Tasks** |![API-pictogram][Google~Calendaricon]<br/>**Google<br/>Calendar** |[![API-pictogram][HTTPicon]<br/>**HTTP**][HTTPdoc] |
 | [![API-pictogram][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc] |[![API-pictogram][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc] |[![API-pictogram][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc] |[![API Icon][Informixicon]<br/>**Informix**][informixdoc] |
 | ![API-pictogram][Instagramicon]<br/>**Instagram** |[![API-pictogram][MailChimpicon]<br/>**MailChimp**][MailChimpdoc] |![API-pictogram][Mandrillicon]<br/>**Mandrill** |[![API-pictogram][Nested~Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested~Logic-Appdoc] |
 | [![API-pictogram][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc] |[![API-pictogram][Office-365~Usersicon]<br/>**Office 365<br/>Users**][Office-365~Usersdoc] |[![API-pictogram][Office-365~Videoicon]<br/>**Office 365<br/>Video**][Office-365~Videodoc] |[![API-pictogram][OneDriveicon]<br/>**OneDrive**][OneDrivedoc] |
@@ -42,7 +46,7 @@ Selecteer een connector om te bekijken hoe u snel werkstromen kunt maken.
 > 
 > 
 
-## Enterprise Integration Pack (EIP)-connectoren
+## <a name="enterprise-integration-pack-eip-connectors"></a>Enterprise Integration Pack (EIP)-connectoren
 Gebruik de EIP-connectoren om logische apps te maken voor B2B-scenario's met EAI en EDI.  
 
 | EIP-connectoren |  |  |  |
@@ -52,7 +56,7 @@ Gebruik de EIP-connectoren om logische apps te maken voor B2B-scenario's met EAI
 | [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### Connectors kunnen triggers zijn
+### <a name="connectors-can-be-triggers"></a>Connectors kunnen triggers zijn
 Meerdere connectors bieden triggers die aan uw app kunnen doorgeven dat er specifieke gebeurtenissen plaatsvinden. De FTP-connector heeft bijvoorbeeld de trigger OnUpdatedFile. U kunt een logische app, PowerApp of stroom maken die naar deze trigger luistert en actie onderneemt wanneer de trigger wordt geactiveerd.
 
 Er zijn twee soorten triggers:  
@@ -60,10 +64,10 @@ Er zijn twee soorten triggers:
 * Poll-triggers: Met deze triggers wordt uw service met een opgegeven frequentie gepeild om te controleren of er nieuwe gegevens zijn. Als er nieuwe gegevens beschikbaar zijn, wordt een nieuw exemplaar van uw app uitgevoerd met de gegevens als invoer. Gegevens die zijn gelezen en zijn doorgegeven aan uw app kunnen door de trigger worden opgeschoond om te voorkomen dat dezelfde gegevens meerdere keren wordt gebruikt.
 * Push-triggers: met deze triggers wordt geluisterd naar gegevens op een eindpunt of wordt geluisterd of een gebeurtenis plaatsvindt en wordt vervolgens een nieuwe instantie van uw app geactiveerd. De Twitter-connector is hier een voorbeeld van.
 
-### Connectors kunnen acties zijn
+### <a name="connectors-can-be-actions"></a>Connectors kunnen acties zijn
 Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig voor het opzoeken van gegevens die vervolgens in de uitvoering van uw app kunnen worden gebruikt. U kunt tijdens het afhandelen van een order bijvoorbeeld klantgegevens in een SQL-database opzoeken. Of u wilt gegevens in een doeltabel schrijven, bijwerken of verwijderen. U kunt dit doen met de acties die met behulp van de connectors worden opgegeven. Acties zijn toegewezen aan de bewerkingen die zijn gedefinieerd in de Swagger-metagegevens.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Nu een logische app bouwen](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 * [Een aangepaste connector maken](../app-service-logic/app-service-logic-create-api-app.md)
 * [Uw logische apps bewaken](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
@@ -196,6 +200,6 @@ Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -8,6 +8,8 @@
     ![Het subnet toevoegen](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 5. Klik op **OK** onderaan de blade om het subnet te maken.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -6,23 +6,25 @@ services: application-gateway
 author: georgewallace
 manager: carmonm
 editor: tysonn
-
+ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 10/25/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
+ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+
 
 ---
 # <a name="application-gateway-overview"></a>Overzicht van Application Gateway
 ## <a name="what-is-application-gateway"></a>Wat is Application Gateway
-Microsoft Azure Application Gateway biedt een ADC (Application Delivery Controller) als een service en biedt daarmee veel mogelijkheden van laag 7 voor taakverdeling. In hoofdlijnen werkt deze tool door verkeer te accepteren en dit op basis van gedefinieerde regels door te sturen naar de juiste back-end-exemplaren.
+Microsoft Azure Application Gateway biedt een ADC (Application Delivery Controller) als een service en biedt daarmee veel mogelijkheden van laag 7 voor taakverdeling voor uw toepassing. Hiermee kunnen klanten de productiviteit van webfarms optimaliseren door het offloaden van CPU intensieve SSL-beëindiging met de Application Gateway. Het bevat ook andere routeringsmogelijkheden voor laag 7, met inbegrip van round robin-distributie van inkomend verkeer, cookies op basis van sessieaffiniteit, URL-pad op basis van routering en de mogelijkheid voor het hosten van meerdere websites achter één Application Gateway. Application Gateway biedt ook een WAF (Web Application Firewall) die uw toepassing beschermt tegen de meeste van de veelvoorkomende web beveiligingslekken uit de OWASP top 10. Application Gateway kan worden geconfigureerd als op internet gerichte gateway, interne enige gateway of een combinatie van beide. Application Gateway wordt volledig door Azure beheerd en is zeer schaalbaar en maximaal beschikbaar. Het biedt een uitgebreide verzameling diagnostische gegevens en logboekregistratiemogelijkheden voor betere beheerbaarheid. Application Gateway werkt met virtuele machines, cloudservices en intern of extern gerichte webtoepassingen.
 
-Met toepassingstaakverdeling kunnen IT-beheerders en ontwikkelaars routeringsregels voor netwerkverkeer maken op basis van het HTTP-protocol.  De Application Gateway-service is zeer beschikbaar en ingericht naar verbruik. Raadpleeg voor de SLA en prijzen verwijzen de pagina's [SLA](https://azure.microsoft.com/support/legal/sla/) en [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-De Application Gateway past de routeringsregels toe op HTTP-verkeer en biedt daarmee taakverdeling van laag 7 (HTTP). Wanneer u een toepassingsgateway maakt, wordt er een eindpunt (VIP) gekoppeld en als openbare IP voor inkomend netwerkverkeer gebruikt. Azure biedt taakverdeling van laag 4 via Azure Load Balancer die op transportniveau werkt (TCP/UDP) en die al het inkomende netwerkverkeer laat verdelen naar de Application Gateway-service. De Application Gateway routeert het HTTP-verkeer op basis van de configuratie, of het nu een virtuele machine, een cloudservice of een extern IP-adres is.
+Application Gateway is een speciaal virtueel apparaat voor uw toepassing en bestaat uit meerdere workerinstanties voor schaalbaarheid en hoge beschikbaarheid. Wanneer u een Application Gateway maakt, wordt er een eindpunt (openbare VIP of interne ILB IP) gekoppeld en voor inkomend netwerkverkeer gebruikt. Deze VIP of ILB IP wordt geleverd door Azure Load Balancer en werkt op transportniveau (TCP/UDP) en laat al het inkomende netwerkverkeer verdelen naar de Application Gateway-workerinstanties. De Application Gateway routeert het HTTP/HTTPS-verkeer vervolgens op basis van de configuratie, of het nu een virtuele machine, een cloudservice, intern of een extern IP-adres is. Raadpleeg voor de SLA en prijzen verwijzen de pagina's [SLA](https://azure.microsoft.com/support/legal/sla/) en [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Functies
 Application Gateway ondersteunt momenteel levering van laag 7-toepassingen met de volgende functies:
@@ -36,6 +38,7 @@ Application Gateway ondersteunt momenteel levering van laag 7-toepassingen met d
 * **[Routering van meerdere sites](application-gateway-multi-site-overview.md)**: met Application Gateway kunt u maximaal 20 websites op een enkele toepassingsgateway consolideren.
 * **[Websocket-ondersteuning](application-gateway-websocket.md)**: een andere fantastische functie van de Application Gateway is de systeemeigen ondersteuning voor Websocket.
 * **[Statuscontrole](application-gateway-probe-overview.md)**: Application Gateway biedt standaard statuscontrole van back-endresources en aangepaste tests om te controleren op specifiekere scenario's.
+* **[Geavanceerde diagnostische gegevens](application-gateway-diagnostics.md)**: Application Gateway biedt volledige diagnostische gegevens en toegangslogboeken. Er zijn firewalllogboeken beschikbaar voor Application Gateway-resources waarvoor WAF is ingeschakeld.
 
 ## <a name="benefits"></a>Voordelen
 Application Gateway is nuttig voor:
@@ -46,6 +49,10 @@ Application Gateway is nuttig voor:
 * Toepassingen die ondersteuning bieden voor websocket-verkeer
 * Webtoepassingen beveiligen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, SSX-aanvallen (cross-site scripting) en sessiekapingen.
 
+Met Application Gateway-taakverdeling als een door Azure beheerde service kan een load balancer van laag 7 worden ingericht achter de Azure-softwaretaakverdeler. Traffic Manager kan worden gebruikt voor het voltooien van het scenario, zoals te zien is op de volgende afbeelding waar Traffic Manager omleiding en beschikbaarheid biedt van verkeer naar meerdere Application Gateway-resources in verschillende gebieden, terwijl Application Gateway regio-overkoepelende taakverdeling voor laag 7 biedt. Een voorbeeld van dit scenario vindt u in: [Load balancing-services gebruiken in de Azure-cloud](../traffic-manager/traffic-manager-load-balancing-azure.md)
+
+![scenario voor Traffic Manager en Application Gateway](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
+
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Gateway-grootten en -exemplaren
@@ -53,7 +60,7 @@ Application Gateway wordt momenteel aangeboden in drie grootten: klein, middelgr
 
 Er zijn momenteel twee SKU's voor Application Gateway: WAF en Standard.
 
-U kunt maximaal 50 toepassingsgateways per abonnement maken. Elke toepassingsgateway kan maximaal 10 exemplaren hebben. Elke toepassingsgateway kan bestaan uit 20 HTTP-listeners. Met Application Gateway-taakverdeling als een door Azure beheerde service kan een load balancer van laag 7 worden ingericht achter de Azure-softwaretaakverdeler.
+U kunt maximaal 50 toepassingsgateways per abonnement maken. Elke toepassingsgateway kan maximaal 10 exemplaren hebben. Elke toepassingsgateway kan bestaan uit 20 HTTP-listeners. Zie voor een volledige lijst van Application Gateway-limieten [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md).
 
 In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgateway-exemplaar:
 
@@ -64,8 +71,8 @@ In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgat
 
 > [!NOTE]
 > Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voer voor cijfers over exacte prestaties uw eigen tests uit. Deze waarden zijn slechts richtlijnen voor de capaciteitsplanning.
-> 
-> 
+>
+>
 
 ## <a name="health-monitoring"></a>Statuscontrole
 Azure Application Gateway bewaakt automatisch de status van de back-endexemplaren via basistests of aangepaste statustests. Door statustests te gebruiken, zorgt u ervoor dat alleen veilige hosts op verkeer reageren. Zie voor meer informatie [Overzicht van Application Gateway-statuscontrole](application-gateway-probe-overview.md).
@@ -80,6 +87,8 @@ Nadat u informatie hebt opgedaan over Application Gateway, kunt u [een toepassin
 
 Voor meer informatie over het maken van een toepassingsgateway met behulp van URL-gebaseerd routeren van content gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-arm-ps.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

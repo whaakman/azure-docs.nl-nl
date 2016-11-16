@@ -9,6 +9,8 @@
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Klik op het tabblad **Cloud Messaging** in de instellingen van uw project en kopieer de waarde van **Server Key** (Serversleutel) en **Sender ID** (Afzender-id).  Deze waarden worden later gebruikt voor het configureren van het toegangsbeleid voor de Notification Hub en uw wijzigingsmelding in de app.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

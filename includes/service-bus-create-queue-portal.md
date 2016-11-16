@@ -17,9 +17,10 @@ Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier] wordt
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
 [createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
-[namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
+[namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

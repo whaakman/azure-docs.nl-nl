@@ -2,156 +2,163 @@
 title: Een virtuele machine in Azure maken met behulp van PowerShell | Microsoft Docs
 description: Gebruik Azure PowerShell en Azure Resource Manager om eenvoudig een nieuwe virtuele machine met Windows Server te maken.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 10/21/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+
 
 ---
-# Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
-Dit artikel laat zien hoe u met behulp van [Resource Manager](../resource-group-overview.md) en PowerShell snel een virtuele machine in Azure maakt met Windows Server, evenals de hiervoor benodigde resources. 
+# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
+Dit artikel laat zien hoe u met behulp van [Resource Manager](../azure-resource-manager/resource-group-overview.md) en PowerShell snel een virtuele machine in Azure maakt met Windows Server, evenals de hiervoor benodigde resources. 
 
-Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten.
+Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten. Vervang voorbeeldparameterwaarden in de opdrachten met namen die logisch zijn voor uw omgeving.
 
-## Stap 1: Azure PowerShell installeren
+## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
 Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 
-## Stap 2: Een resourcegroep maken
-Eerst maakt u een resourcegroep.
+## <a name="step-2-create-a-resource-group"></a>Stap 2: Een resourcegroep maken
+Alle resources moeten deel uitmaken van een resourcegroep, dus deze maken is de eerste stap.  
 
 1. Haal een lijst op met beschikbare locaties waar resources kunnen worden gemaakt.
    
-        Get-AzureRmLocation | sort Location | Select Location
+    ```powershell
+    Get-AzureRmLocation | sort Location | Select Location
+    ```
+2. Stel de locatie in voor de resources. Met deze opdracht wordt de locatie ingesteld als **centralus**.
    
-    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
+    ```powershell
+    $location = "centralus"
+    ```
+3. Maak een resourcegroep. Met deze opdracht wordt de resourcegroep met de naam **myResourceGroup** gemaakt op de door u ingestelde locatie.
    
-        Location
-        --------
-        australiaeast
-        australiasoutheast
-        brazilsouth
-        canadacentral
-        canadaeast
-        centralindia
-        centralus
-        eastasia
-        eastus
-        eastus2
-        japaneast
-        japanwest
-        northcentralus
-        northeurope
-        southcentralus
-        southeastasia
-        southindia
-        westeurope
-        westindia
-        westus
-2. Vervang de waarde van **$locName** door een locatie in de lijst. Maak de variabele.
-   
-        $locName = "centralus"
-3. Vervang de waarde van **$rgName** door de gewenste naam voor de nieuwe resourcegroep. Maak de variabele en de resourcegroep.
-   
-        $rgName = "mygroup1"
-        New-AzureRmResourceGroup -Name $rgName -Location $locName
+    ```powershell
+    $myResourceGroup = "myResourceGroup"
+    New-AzureRmResourceGroup -Name $myResourceGroup -Location $location
+    ```
 
-## Stap 3: Een opslagaccount maken
-Een [opslagaccount](../storage/storage-introduction.md) is nodig voor het opslaan van de virtuele vaste schijf die wordt gebruikt door de virtuele machine die u maakt.
+## <a name="step-3-create-a-storage-account"></a>Stap 3: Een opslagaccount maken
+Een [opslagaccount](../storage/storage-introduction.md) is nodig voor het opslaan van de virtuele vaste schijf die wordt gebruikt door de virtuele machine die u maakt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 
-1. Vervang de waarde van **$stName** door de gewenste naam voor het opslagaccount. Test of de naam uniek is.
+1. Test of de naam van het opslagaccount uniek is. Met deze opdracht wordt de naam **myStorageAccount** getest.
    
-        $stName = "mystorage1"
-        Get-AzureRmStorageAccountNameAvailability $stName
+    ```powershell
+    $myStorageAccountName = "mystorageaccount"
+    Get-AzureRmStorageAccountNameAvailability $myStorageAccountName
+    ```
    
-    Als deze opdracht **Waar** retourneert, is de voorgestelde naam uniek in Azure. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
-2. Voer nu de opdracht uit voor het maken van het opslagaccount.
+    Als deze opdracht **Waar** retourneert, is de voorgestelde naam uniek in Azure. 
+2. Maak nu het opslagaccount.
    
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
+    ```powershell    
+    $myStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $myResourceGroup `
+        -Name $myStorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -Location $location
+    ```
 
-## Stap 4: Een virtueel netwerk maken
+## <a name="step-4-create-a-virtual-network"></a>Stap 4: Een virtueel netwerk maken
 Alle virtuele machines maken deel uit van een [virtueel netwerk](../virtual-network/virtual-networks-overview.md).
 
-1. Vervang de waarde van **$subnetName** door de gewenste naam voor het subnet. Maak de variabele en het subnet.
+1. Maak een subnet voor het virtuele netwerk. Met deze opdracht wordt een subnet met de naam **mySubnet** gemaakt met een adresvoorvoegsel van 10.0.0.0/24.
    
-        $subnetName = "mysubnet1"
-        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-2. Vervang de waarde van **$vnetName** door de gewenste naam voor het virtuele netwerk. Maak de variabele en het virtuele netwerk met het subnet.
+    ```powershell
+    $mySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
+    ```
+2. Maak nu het virtuele netwerk. Met deze opdracht wordt een virtueel netwerk met de naam **myVnet** gemaakt met behulp van het door u gemaakte subnet, met het adresvoorvoegsel **10.0.0.0/16**.
    
-        $vnetName = "myvnet1"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-   
-    Gebruik waarden die geschikt zijn voor uw toepassing en de omgeving.
+    ```powershell
+    $myVnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName $myResourceGroup `
+        -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $mySubnet
+    ```
 
-## Stap 5: Een openbaar IP-adres en een netwerkinterface maken
+## <a name="step-5-create-a-public-ip-address-and-network-interface"></a>Stap 5: Een openbaar IP-adres en een netwerkinterface maken
 Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt u een [openbaar IP-adres](../virtual-network/virtual-network-ip-addresses-overview-arm.md) en een netwerkinterface nodig.
 
-1. Vervang de waarde van **$ipName** door de gewenste naam voor het openbare IP-adres. Maak de variabele en het openbare IP-adres.
+1. Maak het openbare IP-adres. Met deze opdracht wordt een openbaar IP-adres met de naam **myPublicIp** gemaakt met een toewijzingsmethode **Dynamisch**.
    
-        $ipName = "myIPaddress1"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-2. Vervang de waarde van **$nicName** door de gewenste naam voor de netwerkinterface. Maak de variabele en de netwerkinterface.
+    ```powershell
+    $myPublicIp = New-AzureRmPublicIpAddress -Name "myPublicIp" -ResourceGroupName $myResourceGroup `
+        -Location $location -AllocationMethod Dynamic
+    ```
+2. Maak de netwerkinterface. Met deze opdracht wordt een netwerkinterface met de naam **myNIC** gemaakt.
    
-        $nicName = "mynic1"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    ```powershell
+    $myNIC = New-AzureRmNetworkInterface -Name "myNIC" -ResourceGroupName $myResourceGroup `
+        -Location $location -SubnetId $myVnet.Subnets[0].Id -PublicIpAddressId $myPublicIp.Id
+    ```
 
-## Stap 6: Een virtuele machine maken
+## <a name="step-6-create-a-virtual-machine"></a>Stap 6: Een virtuele machine maken
 Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machine te maken.
 
-1. Voer de opdracht uit voor het instellen van de naam en het wachtwoord van de beheerder voor de virtuele machine.
-   
-        $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+1. Voer deze opdracht uit voor het instellen van de accountnaam en het wachtwoord van de beheerder voor de virtuele machine.
+
+    ```powershell
+    $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+    ```
    
     Het wachtwoord moet tussen 12 en 123 tekens lang zijn en ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken hebben. 
-2. Vervang de waarde van **$vmName** door de gewenste naam voor de virtuele machine. Maak de variabele en de configuratie voor de virtuele machine.
+2. Maak een configuratieobject voor de virtuele machine. Met deze opdracht wordt een configuratieobject met de naam **myVmConfig** gemaakt die de naam en de grootte van de virtuele machine definieert.
    
-        $vmName = "myvm1"
-        $vm = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
+    ```powershell
+    $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
+    ```
    
     Zie [Grootten voor virtuele machines in Azure](virtual-machines-windows-sizes.md) voor een lijst met beschikbare grootten voor een virtuele machine.
-3. Vervang de waarde van **$compName** door de gewenste computernaam voor de virtuele machine. Maak de variabele en voeg informatie over het besturingssysteem toe aan de configuratie.
+3. Configureer de besturingssysteeminstellingen voor de virtuele Machine. Met deze opdracht worden de computernaam, het besturingssysteemtype en de accountreferenties ingesteld voor de virtuele machine.
    
-        $compName = "myvm1"
-        $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-4. Definieer de installatiekopie die moet worden gebruikt voor de inrichting van de virtuele machine. 
+    ```powershell
+    $myVM = Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred `
+        -ProvisionVMAgent -EnableAutoUpdate
+    ```
+4. Definieer de installatiekopie die moet worden gebruikt voor de inrichting van de virtuele machine. Met deze opdracht wordt gedefinieerd welke Windows Server-installatiekopie moet worden gebruikt voor de virtuele machine. 
    
-        $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    ```powershell
+    $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
+    ```
    
     Zie [Navigeren door en selecteren van installatiekopieën voor virtuele Windows-machines in Azure met PowerShell of de CLI](virtual-machines-windows-cli-ps-findimage.md) voor meer informatie over het selecteren van de te gebruiken installatiekopieën.
 5. Voeg de netwerkinterface die u hebt gemaakt, toe aan de configuratie.
    
-        $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-6. Vervang de waarde van **$blobPath** door een pad en bestandsnaam in de opslag op de virtuele vaste schijf. Het virtuele vasteschijfbestand wordt meestal opgeslagen in een container, bijvoorbeeld **vhds/WindowsVMosDisk.vhd**. Maak de variabelen.
+    ```powershell
+    $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
+    ```
+6. Definieer de naam en de locatie van de vaste schijf van de virtuele machine. Het virtuele-vaste-schijfbestand wordt in een container opgeslagen. Met deze opdracht wordt de schijf in een container met de naam **vhds/WindowsVMosDisk.vhd** gemaakt, in het door u gemaakte opslagaccount.
    
-        $blobPath = "vhds/WindowsVMosDisk.vhd"
-        $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
-7. Vervang de waarde van **$diskName** door de gewenste naam voor de besturingssysteemschijf. Maak de variabele en voeg informatie over de schijf toe aan de configuratie.
+    ```powershell
+    $blobPath = "vhds/myOsDisk1.vhd"
+    $osDiskUri = $myStorageAccount.PrimaryEndpoints.Blob.ToString() + $blobPath
+    ```
+7. Voeg informatie over het besturingssysteem van de schijf toe aan de configuratie van de virtuele machine. Vervang de waarde van **$diskName** door de gewenste naam voor de besturingssysteemschijf. Maak de variabele en voeg informatie over de schijf toe aan de configuratie.
    
-        $diskName = "windowsvmosdisk"
-        $vm = Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    ```
 8. Maak ten slotte de virtuele machine.
    
-        New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
-   
-    U ziet de resourcegroep en alle resources in de Azure-portal en de status Geslaagd in het PowerShell-venster:
-   
-        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-        ---------  -------------------  ----------  ------------
-                                  True          OK  OK
+    ```powershell
+    New-AzureRmVM -ResourceGroupName $myResourceGroup -Location $location -VM $myVM
+    ```
 
-## Volgende stappen
-* Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in de Azure-portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
+## <a name="next-steps"></a>Volgende stappen
+* Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in Azure Portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
 * Informatie over het beheren van de virtuele machine die u hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md).
 * Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md).
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

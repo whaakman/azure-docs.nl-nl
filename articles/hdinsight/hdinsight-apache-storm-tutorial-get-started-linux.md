@@ -3,11 +3,11 @@ title: 'Zelfstudie voor Apache Storm: aan de slag met Storm op basis van Linux i
 description: Aan de slag met big data-analyses met Apache Storm en de Storm Starter-voorbeelden in HDInsight op basis van Linux. Informatie over het gebruik van Storm om gegevens in realtime te verwerken.
 keywords: apache storm, zelfstudie apache storm, big data-analyse, storm starter
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 84567b646e9cb5e95b2aaf5c3ce19fc227decc82
+
 
 ---
-# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Zelfstudie voor Apache Storm: aan de slag met Storm Starter-voorbeelden voor big data-analyses in HDInsight
+# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Zelfstudie voor Apache Storm: aan de slag met Storm Starter-voorbeelden voor big data-analyses in HDInsight
 Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime berekeningssysteem voor het verwerken van gegevensstromen. Met Storm in Azure HDInsight kunt u een op een cloud gebaseerd Storm-cluster maken dat in realtime big data-analyses uitvoert.
 
 > [!NOTE]
@@ -66,9 +70,13 @@ In deze sectie maakt u een HDInsight versie 3.2-cluster (Storm versie 0.9.3) met
      > * [SSH gebruiken met op Linux gebaseerde Hadoop op HDInsight vanaf Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Klik op **OK** om de parameters op te slaan.
+
 4. Klik vanuit de blade **Aangepaste implementatie** op de vervolgkeuzelijst **Resourcegroep**. Klik vervolgens op **Nieuw** om een nieuwe resourcegroep te maken. De resourcegroep is een container waarin het cluster, het afhankelijke opslagaccount en andere gekoppelde resources zijn gegroepeerd.
+
 5. Klik op **Juridische voorwaarden** en vervolgens op **Maken**.
+
 6. Klik op **Maken**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Een Storm Starter-voorbeeld uitvoeren in HDInsight
@@ -169,10 +177,16 @@ Ga terug naar de pagina **Topology summary** voor de word-count-topologie en kli
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Volgende stappen
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Volgende stappen
 In deze Apache Storm-zelfstudie hebt u de Storm Starter gebruikt voor informatie over het maken van een Storm-cluster in HDInsight. Ook hebt u het Storm-dashboard gebruikt om Storm-topologieën te implementeren, te bewaken en te beheren. U kunt nu gaan leren hoe u [op Java gebaseerde topologieën met Maven ontwikkelt](hdinsight-storm-develop-java-topology.md).
 
 Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en een bestaande topologie wilt implementeren in HDInsight, raadpleegt u [Apache Storm-topologieën implementeren en beheren in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
+
+Als u .NET-ontwikkelaar bent, kunt u C#- of hybride C#-/Java-topologieën maken met Visual Studio. Zie [C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Hadoop-hulpprogramma's voor Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
+
+Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight de volgende voorbeelden:
+
+    * [Voorbeeldtopologieën van Storm op HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -184,6 +198,6 @@ Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

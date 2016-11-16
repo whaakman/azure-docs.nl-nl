@@ -5,6 +5,8 @@ Omdat een File Storage-share een standaard SMB-bestandsshare is, hebben toepassi
 
 U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST API van Azure Storage. En omdat deze bestandsshares SMB-shares zijn, kunt u ze openen via standaard- en bekende API's van het bestandssysteem.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
