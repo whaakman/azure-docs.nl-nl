@@ -102,7 +102,7 @@ In dit document hebt u kennisgemaakt met de onderdelen van beveiligingsbewaking 
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
 
-<!--Image references-->
+<!---Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
 [2]: ./media/security-center-get-started/pin-blade.png
 [3]: ./media/security-center-get-started/security-center.png
@@ -116,6 +116,6 @@ In dit document hebt u kennisgemaakt met de onderdelen van beveiligingsbewaking 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

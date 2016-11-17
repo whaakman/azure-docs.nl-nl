@@ -79,6 +79,6 @@ Site Recovery maakt toepassingsgevoelige replicatie mogelijk, zodat workloads en
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 
