@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: f85b3210fc1bdab65da29c3355ed3e1eb35da2ab
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 
 
 ---
-# <a name="azure-backup-service-faq"></a>Veelgestelde vragen over de Azure Backup-service
+# <a name="azure-backup-service--faq"></a>Veelgestelde vragen over de Azure Backup-service
 Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. Vragen over Azure Backup kunt u stellen in de sectie Disqus van dit of een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Wat is de lijst met ondersteunde besturingssystemen waarmee ik een back-up naar Azure met Azure Backup kan maken? <br/>
@@ -43,7 +43,7 @@ Azure Backup ondersteunt de volgende besturingssystemen voor back-ups van bestan
 
 Voor Azure VM Backup:
 
-* **Linux**: Azure Backup ondersteunt [een lijst met distributies die zijn goedgekeurd door Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), behalve Core OS Linux.  Andere Bring-Your-Own-Linux-distributies werken mogelijk ook, mits de VM-agent beschikbaar is op de virtuele machine en ondersteuning voor Python aanwezig is.
+* **Linux**: Azure Backup ondersteunt [een lijst met distributies die zijn goedgekeurd door Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), behalve Core OS Linux.  Andere Bring-Your-Own-Linux-distributies werken mogelijk ook, mits de VM-agent beschikbaar is op de virtuele machine en ondersteuning voor Python aanwezig is.
 * **Windows Server**: versies ouder dan Windows Server 2008 R2 worden niet ondersteund.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Waar kan ik de meest recente Azure Backup-agent downloaden? <br/>
@@ -127,7 +127,7 @@ Absoluut. Azure Backup biedt back-ups op VM-niveau voor de virtuele machines van
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Kan ik de Azure Backup-agent op een virtuele machine van Azure installeren om back-ups van bestanden en mappen te maken die zich in de tijdelijke opslag van de virtuele machine van Azure bevinden? <br/>
 U kunt de Azure Backup-agent installeren op het gastbesturingssysteem van Windows en back-ups van bestanden en mappen naar de tijdelijke opslag maken. U moet er echter rekening mee houden dat zodra de tijdelijke opslaggegevens zijn mislukt, de back-ups mislukken. Bovendien kunt u alleen herstelbewerkingen naar een niet-vluchtige opslag uitvoeren als de tijdelijke opslaggegevens zijn verwijderd.
 
-## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-onpremises-applicationvm-workloads-to-azure-br"></a>Ik heb de Azure Backup-agent geïnstalleerd om bestanden en mappen te beveiligen. Kan ik SCDPM nu installeren voor de samenwerking met de Azure Backup-agent om on-premises toepassings-/VM-workloads naar Azure te beveiligen? <br/>
+## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Ik heb de Azure Backup-agent geïnstalleerd om bestanden en mappen te beveiligen. Kan ik SCDPM nu installeren voor de samenwerking met de Azure Backup-agent om on-premises toepassings-/VM-workloads naar Azure te beveiligen? <br/>
 Als u Azure Backup wilt gebruiken met SCDPM, is het raadzaam om eerst SCDPM te installeren en pas daarna de Azure Backup-agent te installeren. Dit zorgt ervoor naadloze integratie van de Azure Backup-agent met SCDPM en biedt u de mogelijkheid om de bestanden/mappen, toepassings- en VM-workloads naar Azure rechtstreeks te beveiligen vanuit de beheerconsole van SCDPM. Als u de Azure Backup-agent al hebt geïnstalleerd, wordt de installatie van SCDPM voor de hierboven genoemde doeleinden niet aangeraden of ondersteund.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Wat is de lengte van het bestandspad dat met de Azure Backup-agent kan worden opgegeven als onderdeel van het Azure Backup-beleid? <br/>
@@ -240,13 +240,13 @@ Alleen de klant beschikt over de sleutel die wordt gebruikt om de back-upgegeven
 
   Zodra de back-up op de nieuwe cachelocatie is gemaakt, kunt u de oorspronkelijke cachemap verwijderen.
 
-## <a name="where-can-i-put-the-cachefolder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Waar moet ik de cachemap voor de Azure Backup-agent plaatsen om ervoor te zorgen dat deze naar verwachting werkt?<br/>
+## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Waar moet ik de cachemap voor de Azure Backup-agent plaatsen om ervoor te zorgen dat deze naar verwachting werkt?<br/>
 De volgende locaties worden niet aanbevolen voor de cachemap:
 
 * Netwerkshare of verwisselbare media: de cachemap moet zich lokaal op de server bevinden waarvan een back-up via een onlineback-up moet worden gemaakt. Netwerklocaties of verwisselbare media zoals USB-stations worden niet ondersteund.
 * Offlinevolumes: de cachemap moet online zijn voor de verwacht back-up met de Azure Backup-agent.
 
-## <a name="are-there-any-attributes-of-the-cachefolder-that-are-not-supportedbr"></a>Zijn er kenmerken van de cachemap die niet worden ondersteund?<br/>
+## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Zijn er kenmerken van de cachemap die niet worden ondersteund?<br/>
  De volgende kenmerken of combinaties van kenmerken worden niet ondersteund voor de cachemap:
 
 * Versleuteld

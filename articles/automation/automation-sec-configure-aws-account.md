@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Als u wilt verifiëren met AWS, moet u een set AWS-referenties opgeven om uw run
 ## <a name="configure-automation-account"></a>Automation-account configureren
 Voor communicatie tussen Azure Automation en AWS moet u eerst uw AWS-referenties ophalen en deze opslaan als assets in Azure Automation.  Voer de volgende stappen uit die in het AWS-document [Toegangssleutels voor uw AWS-account beheren](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) zijn gedocumenteerd om een toegangssleutel te maken en kopieer de **toegangssleutel-id** en **geheime toegangssleutel** (download desgewenst uw sleutelbestand om het ergens veilig op te slaan).
 
-Nadat u uw AWS-beveiligingssleutels hebt gemaakt en gekopieerd, moet u een referentieasset met een Azure Automation-account maken om deze sleutels veilig op te slaan en ernaar te verwijzen met uw runbooks.  Volg de stappen in de sectie **Een nieuwe referentieasset maken** in het artikel [Referentieassets in Azure Automation](automation-credentials.md#creating-a-new-credential-asset) en voer de volgende gegevens in:
+Nadat u uw AWS-beveiligingssleutels hebt gemaakt en gekopieerd, moet u een referentieasset met een Azure Automation-account maken om deze sleutels veilig op te slaan en ernaar te verwijzen met uw runbooks.  Volg de stappen in de sectie **Een nieuwe referentieasset maken** in het artikel [Referentieassets in Azure Automation](automation-credentials.md) en voer de volgende gegevens in:
 
 1. Voer in het vak **Naam** **AWScred** in of een geschikte waarde die voldoet aan uw naamgevingsstandaarden.  
 2. Typ in het vak **Gebruikersnaam** uw **toegangs-id** en uw **geheime toegangssleutel** in het vak **Wachtwoord** en **Wachtwoord bevestigen**.   
@@ -42,6 +42,7 @@ Nadat u uw AWS-beveiligingssleutels hebt gemaakt en gekopieerd, moet u een refer
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

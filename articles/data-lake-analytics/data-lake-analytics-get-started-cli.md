@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface | Microsoft Docs
-description: 'Informatie over het gebruik van de Azure-opdrachtregelinterface voor het maken van een Data Lake Store-account, het maken van een Data Lake Analytics-taak met U-SQL, en het verzenden van de taak. '
+description: 'Informatie over het gebruik van de Azure-opdrachtregelinterface voor het maken van een Data Lake Analytics-account, het maken van een Data Lake Analytics-taak met U-SQL en het verzenden van de taak. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure-opdrachtregelinterface
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het gebruik van de Azure CLI voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md) en het verzenden van taken naar Data Lake Analytics-accounts. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
@@ -165,6 +165,6 @@ Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand w
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

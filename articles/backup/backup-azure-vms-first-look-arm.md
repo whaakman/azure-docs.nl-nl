@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: 85b291e3916d1274fefc71bc0c1f12cac2920bb4
+ms.openlocfilehash: 77b4f6e5ee18cb3772487820bc72d7794f82162f
 
 
 ---
@@ -45,6 +45,36 @@ Zie [Back-ups van VM's voor Premium Storage maken en herstellen](backup-introduc
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt beschermen. Als u van meerdere virtuele machines een back-up wilt maken in één bewerking, gaat u naar de Recovery Services-kluis en start u het back-up maken vanuit het kluisdashboard. Als u van één VM een back-up wilt maken, kunt u rechtstreeks vanaf de beheerblade van de VM een back-up maken.
+
+## <a name="configure-backup-from-vm-management-blade"></a>Back-up configureren vanaf VM-beheerblade
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in de lijst met resources.  De lijst met virtuele machines wordt weergegeven. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken. Hiermee wordt de beheerblade van de virtuele machine geopend. 
+ ![VM-beheerblade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+ 
+3. Klik op de beheerblade van de VM op de optie Back-up (aan de linkerkant, onder Instellingen).
+![Back-upoptie op VM-beheerblade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. Hiermee wordt de blade Back-up inschakelen geopend. Deze blade heeft twee verwachte invoeren: Recovery Services-kluis (een back-upmiddel van Azure dat wordt gebruikt om back-ups van de VM's op te slaan) en Back-upbeleid. Het ingestelde back-upbeleid specificeert het back-upschema en bepaalt hoelang back-upkopieën moeten worden bewaard. Deze blade heeft standaardopties. U kunt deze aanpassen op basis van uw back-upvereisten. 
+![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap 3 op de optie Back-up klikt en deze kluis op deze blade selecteren. 
+
+6. Selecteer op de blade Back-upbeleid het back-upbeleid dat u wilt toepassen op de kluis en klik op **OK**.
+    ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    De details van het standaardbeleid worden in de details weergegeven. Als u een beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. De vervolgkeuzelijst biedt ook een optie waarmee u de tijd kunt wijzigen waarop de momentopname wordt gemaakt. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid. Nadat u op **OK** hebt geklikt, is het back-upbeleid gekoppeld aan de virtuele machine.
+    
+7. Klik op Back-up inschakelen om het maken van een back-up te configureren op de virtuele machine. Hiermee wordt een implementatie geactiveerd. 
+![Knop Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. U kunt de voortgang van de configuratie via meldingen volgen. 
+![Back-upmeldingen inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Wanneer de implementatie van Back-up configureren voltooid is, kunt u op de optie Back-up op de VM-beheerblade klikken om naar de blade Back-upitem te gaan die hoort bij de VM waarvan een back-up is gemaakt.
+![Weergave Back-upitem VM](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Back-up configureren vanuit de Recovery Services-kluisweergave
 U voert hierbij de volgende basisstappen uit.  
 
 1. Een Recovery Services-kluis voor een VM maken.
@@ -187,16 +217,16 @@ Voer **Nu een back-up maken** als volgt uit:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent op de virtuele machine installeren
-Deze informatie wordt verstrekt voor het geval u deze nodig hebt. De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM echter is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de virtuele machine. Op VM's die zijn gemigreerd vanuit on-premises datacenters, is geen VM-agent geïnstalleerd. In dat geval moet de VM-agent worden geïnstalleerd. Als u problemen ondervindt bij het maken van een back-up van de Azure VM, controleert u of de Azure VM-agent correct is geïnstalleerd op de virtuele machine (zie de onderstaande tabel). Als u een aangepaste VM maakt, [zorgt u ervoor dat het selectievakje **De VM-agent installeren** is ingeschakeld](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) voordat de virtuele machine wordt ingericht.
+Deze informatie wordt verstrekt voor het geval u deze nodig hebt. De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM echter is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de virtuele machine. Op VM's die zijn gemigreerd vanuit on-premises datacenters, is geen VM-agent geïnstalleerd. In dat geval moet de VM-agent worden geïnstalleerd. Als u problemen ondervindt bij het maken van een back-up van de Azure VM, controleert u of de Azure VM-agent correct is geïnstalleerd op de virtuele machine (zie de onderstaande tabel). Als u een aangepaste VM maakt, [zorgt u ervoor dat het selectievakje **De VM-agent installeren** is ingeschakeld](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voordat de virtuele machine wordt ingericht.
 
-Meer informatie over de [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe u deze installeert](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Meer informatie over de [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe u deze installeert](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 De volgende tabel bevat aanvullende informatie over de VM-agent voor Windows- en Linux-VM's.
 
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
 | De VM-agent installeren |<li>Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt beheerdersmachtigingen nodig om de installatie te kunnen uitvoeren. <li>[Werk de VM-eigenschap bij](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) om aan te geven dat de agent is geïnstalleerd. |<li> Installeer de meest recente [Linux-agent](https://github.com/Azure/WALinuxAgent) vanuit GitHub. U hebt beheerdersmachtigingen nodig om de installatie te kunnen uitvoeren. <li> [Werk de VM-eigenschap bij](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) om aan te geven dat de agent is geïnstalleerd. |
-| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/virtual-machines-linux-update-agent.md). <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
+| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
 | De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N.v.t. |
 
 ### <a name="backup-extension"></a>Backup-extensie

@@ -3,8 +3,8 @@ title: Overzicht van Azure CDN | Microsoft Docs
 description: Meer informatie over Azure Content Delivery Network (CDN) en hoe u inhoud met een hoge bandbreedte via CDN kunt leveren door blobs en statische inhoud in de cache op te slaan.
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
+ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
 
 
 ---
@@ -57,7 +57,7 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 | IPv4/IPv6 dual stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Ondersteuning voor aangepaste domeinnamen](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Queryreeksen opslaan in cache](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geofilters](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geofilters](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Snel leegmaken](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Vooraf laden van assets](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Basisanalyse](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +69,8 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 | Instellingen voor cache/koptekst (met behulp van [regels-engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL-omleidings-/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Regels voor mobiele apparaten (met behulp van [regels-engine](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Tokenverificatie](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Is er een functie die u graag zou willen zien in Azure CDN?  [Geef ons feedback](https://feedback.azure.com/forums/169397-cdn). 
@@ -89,6 +91,6 @@ Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor inf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
