@@ -57,7 +57,7 @@
 ### [Een web-app op Linux maken](app-service-linux-how-to-create-a-web-app.md)
 ### [Naslaginformatie voor App Service](app-service-changes-existing-services.md)
 ### [Azure Portal](app-service-web-app-azure-portal.md)
-### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET-apps
 #### [Uw eerste .NET-web-app in vijf minuten implementeren in Azure](app-service-web-get-started-dotnet.md)
@@ -83,7 +83,7 @@
 #### Een Hallo wereld-app maken
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-#### [Een web-app maken met de Azure SDK voor Java](java-create-azure-website-using-java-sdk.md)
+#### [Een web-app maken met de Azure-SDK voor Java](java-create-azure-website-using-java-sdk.md)
 #### [Een bestaande Java-toepassing uploaden](web-sites-java-add-app.md)
 #### fouten opsporen in een externe Java-app 
 ##### [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
@@ -102,12 +102,12 @@
 ### [Aan de slag met testen tijdens productie voor Web Apps](app-service-web-test-in-production-get-start.md)
 
 ### [Webtaken](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Wat is de Azure WebJobs SDK?](websites-dotnet-webjobs-sdk.md)
+#### [Wat is de Azure WebJobs-SDK?](websites-dotnet-webjobs-sdk.md)
 #### [Een .NET WebJob maken](websites-dotnet-webjobs-sdk-get-started.md)
-#### [Het gebruik van Azure Blob Storage met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-#### [Azure Queue Storage gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-#### [Azure Service Bus gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
-#### [Azure Table Storage gebruiken met de WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+#### [Het gebruik van Azure Blob Storage met de WebJobs-SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+#### [Azure Queue Storage gebruiken met de WebJobs-SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+#### [Azure Service Bus gebruiken met de WebJobs-SDK](websites-dotnet-webjobs-sdk-service-bus.md)
+#### [Azure Table Storage gebruiken met de WebJobs-SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 
 ### App Service-omgeving
 #### [Een App Service-omgeving maken](app-service-web-how-to-create-an-app-service-environment.md)
@@ -153,6 +153,7 @@
 ### [On-premises verbindingen](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Geavanceerde configuratie](web-sites-transform-extend.md)
+### [Container voor App Service configureren op Linux](app-service-linux-using-custom-docker-image.md)
 ### [Resourcegroepen](app-service-move-resources.md)
 ### [WordPress converteren naar Multisite](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -246,13 +247,13 @@
 ### [Problemen met prestaties van web-apps oplossen](app-service-web-troubleshoot-performance-degradation.md)
 
 # Naslaginformatie
-## [Azure CLI](/cli/azure/)
+## [Azure-CLI](/cli/azure/)
 ## [Java](/java/api/)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/appservice)
 
 # Verwant
-## [Opmerkingen bij de release van Azure SDK voor .NET](azure-sdk-dotnet-release-notes.md)
+## [Opmerkingen bij de release van Azure-SDK voor .NET](azure-sdk-dotnet-release-notes.md)
 ### [2.9-release](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.X-releases](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.X-releases](azure-sdk-dotnet-release-notes-2-7.md)
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

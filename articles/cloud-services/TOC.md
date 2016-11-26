@@ -98,9 +98,9 @@
 ### [Veelgestelde vragen over Cloud Services](cloud-services-faq.md)
 
 # Naslaginformatie
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Patches voor gastbesturingssysteem](cloud-services-guestos-msrc-releases.md)
 ## Buitengebruikstelling van gastbesturingssysteem
 ### [Stopzetting van beleid](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

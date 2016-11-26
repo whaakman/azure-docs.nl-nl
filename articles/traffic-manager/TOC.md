@@ -17,10 +17,11 @@
 ## [Routeringsmethode configureren](traffic-manager-configure-routing-method.md)
 ## [Uw instellingen testen](traffic-manager-testing-settings.md)
 ## [Problemen met een verslechterd eindpunt oplossen](traffic-manager-troubleshooting-degraded.md)
-## [Netwerkresources gebruiken](../virtual-network/resource-groups-networking.md)
+## [Taakverdelingsservices combineren](traffic-manager-load-balancing-azure.md)
+## [Netwerkresources gebruiken](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell (klassiek)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [Azure DNS](/azure/dns/)
 
 # Bronnen
-##[Prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Servicelimieten](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Servicelimieten](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Video's](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

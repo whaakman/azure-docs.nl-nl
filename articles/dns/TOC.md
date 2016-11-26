@@ -13,12 +13,13 @@
 ### [CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md)
+## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)
 
 # Procedures
 
 ## DNS-zones beheren
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+### [CLI](dns-operations-dnszones-cli.md)
 
 ## [DNS-records beheren](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Een DNS-zonebestand importeren en exporteren](dns-import-export.md)
-## [Azure DNS gebruiken met andere Azure-services](dns-for-azure-services.md)
+## [Integreren met andere Azure-services](dns-for-azure-services.md)
 ## [DNS-zones en records beschermen](dns-protect-zones-recordsets.md)
 ## [DNS-bewerkingen automatiseren met de .NET SDK](dns-sdk.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST API's](/rest/api/dns/)
 
 # Verwant
@@ -45,12 +46,13 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [Web-apps](/azure/app-service-web/)
 
-# Resources
-## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
-## [Netwerkforum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+# Bronnen
+## [Service-updates](https://azure.microsoft.com/updates/?product=dns)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/dns/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

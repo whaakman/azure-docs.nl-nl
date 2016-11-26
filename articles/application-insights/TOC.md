@@ -1,6 +1,6 @@
 # Overzicht
 ## [Wat is Application Insights?](app-insights-overview.md)
-## [Hoe werkt het?](app-insights-detect-triage-diagnose.md)
+## [Prestatiebewaking in een DevOps-cyclus](app-insights-detect-triage-diagnose.md)
 
 # Aan de slag
 ## Azure controleren
@@ -63,8 +63,8 @@
 #### [Metrische waarschuwingen](app-insights-alerts.md)
 
 ### [Slimme detectie](app-insights-proactive-diagnostics.md)
-#### [Foutdetectie](app-insights-proactive-failure-diagnostics.md)
-#### [Detectie van afwijkingen](app-insights-proactive-performance-diagnostics.md)
+#### [Foutafwijkingen](app-insights-proactive-failure-diagnostics.md)
+#### [Prestatieafwijkingen](app-insights-proactive-performance-diagnostics.md)
 
 ## Analyseren
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Naslaginformatie
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java-API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET-API](https://docs.microsoft.com/dotnet/api)
 ## [JavaScript-API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analytische gegevens](app-insights-analytics-reference.md)
+## [Naslaginformatie over Analytics](app-insights-analytics-reference.md)
 ## [Steekproeven](app-insights-sampling.md)
 ## [IP-adressen](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -142,10 +142,10 @@
 #### [Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Exporteren naar SQL met Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Codevoorbeeld: Geëxporteerde gegevens parseren](app-insights-code-sample-export-telemetry-sql-database.md)
-## [Releaseopmerkingen voor Application Insights SDK voor Windows Phone en Store](app-insights-release-notes-windows.md)
+## [Releaseopmerkingen voor Application Insights-SDK voor Windows Phone en Store](app-insights-release-notes-windows.md)
 ## [Releaseopmerkingen voor Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Releaseopmerkingen voor SDK - Application Insights](app-insights-release-notes.md)
-## [REST-API](https://dev.applicationinsights.io/)
+## [REST-API-gegevenstoegang](https://dev.applicationinsights.io/)
 
 # Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

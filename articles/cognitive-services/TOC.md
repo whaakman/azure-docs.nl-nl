@@ -45,7 +45,7 @@
 ## [Ontwikkelen met de Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Naslaginformatie
-## [PowerShell-cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell-cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Bronnen 
@@ -54,6 +54,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

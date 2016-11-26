@@ -22,7 +22,7 @@
 ### [Gebeurtenissen en auditlogboeken bekijken](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Naslaginformatie
+# Verwant
 ## [Functies van Azure Resource Manager-sjablonen](../resource-group-template-functions.md)
 ## [Aanbevolen procedures voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Veelgebruikte gegevens voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Voorbeelden om snel aan de slag te gaan met Azure Insights PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Voorbeelden om snel aan de slag te gaan met Azure Insights CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Bronnen
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

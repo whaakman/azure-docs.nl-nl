@@ -21,11 +21,11 @@
 ### [Visual Studio-projectsjablonen voor Batch](batch-visual-studio-templates.md)
 ## Beheren
 ### [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Azure CLI](batch-cli-get-started.md)
+### [Azure-CLI](batch-cli-get-started.md)
 ### [Diagnostische logboeken voor Batch](batch-diagnostics.md)
 
 # Naslaginformatie
-## [PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET-API](https://docs.microsoft.com/dotnet/api)
 ## [Python-SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
@@ -43,11 +43,11 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Codevoorbeelden voor Batch C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Codevoorbeelden voor Batch Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Codevoorbeelden voor Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

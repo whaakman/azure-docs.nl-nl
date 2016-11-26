@@ -1,7 +1,4 @@
-# Overzicht StorSimple
-
 # StorSimple Virtual Array
-
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-ova-overview.md)
 
@@ -54,8 +51,9 @@
 ### Installeren
 #### [Veiligheid beoordelen](storsimple-safety.md)
 #### [Een 8100 uitpakken, op een rek monteren en aansluiten](storsimple-8100-hardware-installation.md)
+
 #### [Een 8600 uitpakken, op een rek monteren en aansluiten](storsimple-8600-hardware-installation.md)
-#### [Ondersteunde hardware voor 10 GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Ondersteunde hardware voor 10-GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Implementeren
 #### [StorSimple Manager-service](storsimple-manage-service.md)
@@ -63,6 +61,7 @@
 ##### [Fysiek apparaat in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fysiek apparaat in Azure - GA](storsimple-deployment-walkthrough.md)
 #### [Fysiek apparaat in Government-portal - actueel](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Fysiek apparaat in Government-portal - actueel](storsimple-deployment-walkthrough-gov.md)
 #### [Virtueel apparaat in Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter voor SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -139,7 +138,7 @@
 ##### [Ondersteuningspakket maken](storsimple-create-manage-support-package.md)
 
 ### Migreren
-#### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
@@ -160,22 +159,26 @@
 ### [Versie - GA](storsimple-july-2014-release-notes.md)
 
 ## Naslaginformatie
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Windows PowerShell voor StorSimple-cmdlets] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Verwant
 ## [StorSimple 5000-7000-serie](http://onlinehelp.storsimple.com)
 
-# Resources
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+# Bronnen
+## [Prijzen](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Service-updates](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marketingblog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Ondersteuningsblog](http://blogs.msdn.com/b/storsimple/)
 ## [Mededelingen van derden](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Service-updates](https://azure.microsoft.com/updates/?product=storsimple)
-## [Prijzen](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

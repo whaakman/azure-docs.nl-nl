@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [In domein opgenomen HDInsight-voorbeeld](hdinsight-domain-joined-introduction.md)
+## [Kafka-preview](hdinsight-apache-kafka-introduction.md)
 
 # Aan de slag
 ## [Beginnen met Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Beginnen met voorbeeld van Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Beginnen met voorbeeld van R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Beginnen met R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Beginnen met Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Beginnen met HBase en NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Beginnen met Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Beginnen met Kafka-preview](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop-sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake-hulpprogramma's met Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Hulpprogramma's voor Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [DataFu gebruiken met Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop-taken indienen](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server-voorbeeld gebruiken
+## R Server gebruiken
 ### [Opslagopties](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio installeren](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contexten berekenen](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Spark gebruiken voor in-memory verwerking
+### [Met Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Met BI-hulpprogramma's](hdinsight-apache-spark-use-bi-tools.md)
 ### [Zelfstandige app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Streaming-gebeurtenissen verwerken](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Configureren](hdinsight-domain-joined-configure.md)
 ### [Beheren](hdinsight-domain-joined-manage.md)
 ### [Hive-beleid configureren](hdinsight-domain-joined-run-hive.md)
+## Kafka-preview gebruiken
+### [Kafka-gegevens repliceren](hdinsight-apache-kafka-mirroring.md)
+### [Gebruiken met Spark](hdinsight-apache-spark-with-kafka.md)
+### [Gebruiken met Storm](hdinsight-apache-storm-with-kafka.md)
 ## Ontwikkelen
 ### [Java MapReduce-programma's ontwikkelen](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce-taken ontwikkelen](hdinsight-hadoop-mapreduce-scalding.md)
@@ -140,13 +147,13 @@
 #### [Azure PowerShell gebruiken](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 #### [cURL en de Azure REST-API gebruiken](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [.NET-SDK gebruiken](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-#### [Azure CLI gebruiken](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+#### [Azure-CLI gebruiken](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 #### [Azure Portal gebruiken](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [Azure Resource Manager-sjablonen gebruiken](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Hadoop-clusters beheren](hdinsight-administer-use-portal-linux.md)
 #### [.NET-SDK gebruiken](hdinsight-administer-use-dotnet-sdk.md)
 #### [Azure PowerShell gebruiken](hdinsight-administer-use-powershell.md)
-#### [Azure CLI gebruiken](hdinsight-administer-use-command-line.md)
+#### [Azure-CLI gebruiken](hdinsight-administer-use-command-line.md)
 ### [Clusters beheren met Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
 #### [Ambari-REST-API gebruiken](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Gegevens uploaden voor Hadoop-taken](hdinsight-upload-data.md)
@@ -174,12 +181,12 @@
 #### [Hive-queryprestaties](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Naslaginformatie
-## [Naslaginformatie over de REST-API](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Spark-REST-API voor externe taken](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell-cmdlets](https://msdn.microsoft.com/library/mt438705.aspx)
+## [PowerShell-cmdlets](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [.NET-SDK voor Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET-SDK voor HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET-bibliotheek voor Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [Naslaginformatie over de REST-API](/rest/api/hdinsight/)
+## [Spark-REST-API voor externe taken](/rest/api/hdinsightspark/)
 
 # Verwant
 ## Windows-clusters
@@ -192,7 +199,7 @@
 ### [Hadoop-clusters maken](hdinsight-provision-clusters.md)
 #### [Azure Portal gebruiken](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [.NET-SDK gebruiken](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Azure CLI gebruiken](hdinsight-hadoop-create-windows-clusters-cli.md)
+#### [Azure-CLI gebruiken](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Azure PowerShell gebruiken](hdinsight-hadoop-create-windows-clusters-powershell.md)
 #### [Resourcemanager-sjablonen gebruiken](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Solr in clusters gebruiken](hdinsight-hadoop-solr-install-linux.md)
@@ -217,6 +224,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

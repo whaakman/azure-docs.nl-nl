@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
----
-# Multi-factor Authentication Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
+ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
 
-Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification methods, including phone call, text message, or mobile app verification.
+---
+# <a name="multi-factor-authentication-documentation"></a>Documentatie over Multi-Factor Authentication
+
+Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verificatie in twee stappen. Azure MFA helpt bij het bewaken van de toegang tot uw gegevens en toepassingen en komt tegemoet aan de wensen van gebruikers die een eenvoudige aanmeldprocedure willen. Het biedt krachtige verificatie via een reeks verificatiemethoden waaronder verificatie per telefoon, sms of mobiele app.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/multi-factor-authentication/multi-factor-authentication/">
+        <a href="/azure/multi-factor-authentication/multi-factor-authentication">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +21,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Multi-factor Authentication</h3>
+                        <h3>Meer informatie over Azure Multi-Factor Authentication</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Multi-factor Authentication Video Library</h3>
+                        <h3>Videobibliotheek voor Azure Multi-Factor Authentication</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Multi-factor Authentication Deployment options</h3>
+                        <h3>Aan de slag met implementatieopties voor Azure Multi-Factor Authentication</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Multi-factor Authentication in the cloud</h3>
+                        <h3>Aan de slag met Azure Multi-Factor Authentication in de cloud</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Multi-factor Authentication Server</h3>
+                        <h3>Aan de slag met Azure Multi-Factor Authentication on-premises</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +108,11 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Multi-factor Authentication Documentation
-        </div>
+Documentatie over Multi-Factor Authentication downloaden </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

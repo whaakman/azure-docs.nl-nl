@@ -1,5 +1,6 @@
 # [Overzicht](cdn-overview.md)
 ## [Wat is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Aan de slag
 ## [Azure CDN inschakelen](cdn-create-new-endpoint.md)
 
@@ -23,6 +24,8 @@
 #### [Premiumlaag](cdn-query-string-premium.md)
 ### [Assets in cache verwijderen](cdn-purge-endpoint.md)
 ### [Assets in cache vooraf laden](cdn-preload-endpoint.md)
+### [Tokenverificatie](cdn-token-auth.md)
+### [Resources controleren](cdn-resource-health.md)
 ### [Gedrag overschrijven met regels](cdn-rules-engine.md)
 ### [Real-time waarschuwingen](cdn-real-time-alerts.md)
 
@@ -41,19 +44,19 @@
 ### [Bestandscompressie](cdn-troubleshoot-compression.md)
 
 # Naslaginformatie
-## [PowerShell-cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET-API](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [.NET](/dotnet/api/)
 ## [Azure CDN POP-locaties](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST](/rest/api/cdn/)
 
 # Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
-## [MSDN-forum](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=cdn)
+## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

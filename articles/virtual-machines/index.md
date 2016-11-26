@@ -2,8 +2,8 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: ca5d39641a251dcbc650907d08ce11c6c7124f66
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
 
 ---
 #<a name="virtual-machines-documentation"></a>Documentatie voor Virtual Machines
@@ -51,19 +51,66 @@ Een virtuele machine in Azure biedt u de flexibiliteit van virtualisatie zonder 
 
 ---
 
-##<a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 
-###<a name="net"></a>.NET 
-[Managed Reference API voor Virtual Machines](/dotnet/api/) 
-
-###<a name="rest"></a>REST 
-[Naslaginformatie voor de REST-API voor Virtual Machines](/rest/api/) 
-
-###<a name="azure-cli"></a>Azure CLI 
-[Azure CLI voor Virtual Machines](/cli/azure/)
-
-###<a name="java"></a>Java 
-[PowerShell-cmdlet voor Virtual Machines](/java/api/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API voor beheerde naslaginformatie voor Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Naslaginformatie voor REST API voor virtuele machine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Azure CLI voor Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>PowerShell-cmdlet voor Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
@@ -75,6 +122,6 @@ Documentatie voor Virtual Machines downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

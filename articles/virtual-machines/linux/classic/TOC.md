@@ -66,22 +66,23 @@
 ### [Een VM opnieuw opstarten of het formaat wijzigen](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Naslaginformatie
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
 ## [Resource Manager-sjablonen schrijven](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Communitysjablonen](https://azure.microsoft.com/documentation/templates/)
-## [REST voor berekeningen](/rest/api/compute/)
-## [Netwerk-REST](/rest/api/)
-## [Storage REST](/rest/api/storageservices/)
+## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
+## [Compute REST](/rest/api/compute)
+## [Network REST](/rest/api)
+## [Storage REST](/rest/api/storageservices)
 
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
-## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services/)
+## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

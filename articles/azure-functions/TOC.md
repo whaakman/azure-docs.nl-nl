@@ -8,7 +8,7 @@
 # Procedures
 ## Plannen en ontwerpen
 ### [Kiezen tussen Flow, Logic Apps, Functions en WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Kies tussen verbruik en het App Service-plan](functions-scale.md)
+### [Kiezen tussen hostingplannen](functions-scale.md)
 
 ## Ontwikkelen
 ### [Functie-apps ontwikkelen](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Mobile Apps-bindingen](functions-bindings-mobile-apps.md)
 #### [Notification Hub-uitvoerbinding](functions-bindings-notification-hubs.md)
 #### [Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen](functions-bindings-service-bus.md)
-#### Storage
+#### Storage-bindingen
 ##### [Blob-bindingen](functions-bindings-storage-blob.md)
 ##### [Wachtrijbindingen](functions-bindings-storage-queue.md)
 ##### [Tabelbindingen](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Een functie maken vanuit de Azure Portal](functions-create-first-azure-function-azure-portal.md)
 ### [Azure Functions testen](functions-test-a-function.md)
 ### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
+### [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 ### [Azure Functions gebruiken voor het uitvoeren van een geplande opschoontaak](functions-scenario-database-table-cleanup.md)
 
 ## Beheren
@@ -38,8 +39,8 @@
 ## Implementeren
 ### [Doorlopende implementatie voor Azure Functions](functions-continuous-deployment.md)
 
-# Naslaginformatie
-## [.NET-API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## Controleren
+### [Azure Functions controleren](functions-monitoring.md)
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/functions/)  
@@ -48,6 +49,6 @@
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

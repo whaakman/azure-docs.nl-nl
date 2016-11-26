@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
-ms.openlocfilehash: 8976abfecb246fa1f0d5183308f4d2cdf5d5f3dd
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
 
-Met Azure Resource Manager kunt u uw app herhaaldelijk implementeren en kunt u erop vertrouwen dat uw resources worden geïmplementeerd met een consistente status. U definieert de infrastructuur en de afhankelijkheden voor uw app in één declaratieve sjabloon. De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
+De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiligings-, controle- en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,17 +47,17 @@ Met Azure Resource Manager kunt u uw app herhaaldelijk implementeren en kunt u e
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough/">
+        <a href="/azure/resource-manager-template-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een Azure Resource Manager-sjabloon maken</h3>
+                        <h3>Aan de slag met Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -65,13 +65,13 @@ Met Azure Resource Manager kunt u uw app herhaaldelijk implementeren en kunt u e
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-define-dependencies/">
+        <a href="/azure/resource-group-define-dependencies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -83,13 +83,13 @@ Met Azure Resource Manager kunt u uw app herhaaldelijk implementeren en kunt u e
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-create-multiple/">
+        <a href="/azure/resource-group-create-multiple">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,28 +104,108 @@ Met Azure Resource Manager kunt u uw app herhaaldelijk implementeren en kunt u e
 
 ---
 
-##<a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 
-###<a name="powershell"></a>PowerShell
-[PowerShell-cmdlets](/powershell/azureps-cmdlets-docs/)
-
-###<a name="azure-cli"></a>Azure CLI
-[Azure CLI](/cli/azure)
-
-###<a name="net"></a>.NET
-[Azure-resources en -resourcegroepen beheren met .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-###<a name="java"></a>Java
-[Aan de slag met resources - resources beheren - in Java](https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/)
-
-###<a name="nodejs"></a>Node.js
-[Azure-resources en -resourcegroepen beheren met Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
-
-###<a name="python"></a>Python
-[Azure-resources en -resourcegroepen beheren met Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
-
-###<a name="ruby"></a>Ruby
-[Azure-resources en -resourcegroepen beheren met Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>PowerShell-cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/cli/azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Azure-resources en -resourcegroepen beheren met .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Aan de slag met Resource beheren - Resource beheren - in Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Node.js</h3>
+                        <p>Azure-resources en -resourcegroepen beheren met Node.js</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Python</h3>
+                        <p>Azure-resources en -resourcegroepen beheren met Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Ruby</h3>
+                        <p>Azure-resources en -resourcegroepen beheren met Ruby</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 ---
 <div class="downloadHolder">
@@ -137,6 +217,6 @@ Documentatie over Azure Resource Manager downloaden </div>
 </div>
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,27 +1,27 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4d856b71ced1f1b9c6c1469bee4f23b84865c7d1
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-# <a name="scheduler-documentation"></a>Documentatie over Scheduler
+# <a name="analysis-services-documentation"></a>Documentatie voor Analysis Services
 
-Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd.  En vervolgens worden deze acties automatisch gepland en uitgevoerd.  Scheduler houdt een geschiedenis bij van de resultaten van uitgevoerde taken die u kunt bekijken.
+Azure Analysis Services is ontworpen op basis van de bewezen analyse-engine in Microsoft SQL Server Analysis Services en levert hoogwaardige gegevensmodellen in de cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/scheduler/scheduler-intro">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/scheduler.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Meer informatie over Scheduler</h3>
+                        <h3>Meer informatie over Analysis Services</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -39,7 +39,7 @@ Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Videobibliotheek voor Azure Scheduler</h3>
+                        <h3>Videobibliotheek voor Azure</h3>
                     </div>
                 </div>
             </div>
@@ -47,17 +47,51 @@ Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten 
         </a>
     </li>
     <li>
-        <a href="/azure/scheduler/scheduler-get-started-portal">
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Scheduler</h3>
+                        <h3>Een Analysis Services-server maken</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
+</ul>
+
+---
+## <a name="reference"></a>Naslaginformatie
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Powershell met Azure Resource Manager-cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/analysisservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST met naslaginformatie over de REST-API voor Azure Analysis Services</p>
                     </div>
                 </div>
             </div>
@@ -68,60 +102,14 @@ Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten 
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdlets van Azure Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie over Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API van Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<ul>
-
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Documentatie over Scheduler downloaden </div>
+Documentatie voor Analysis Services downloaden </div>
     </a>
 </div>
+
 
 
 <!--HONumber=Nov16_HO4-->

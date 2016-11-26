@@ -1,10 +1,10 @@
 # Overzicht
 ## [Wat is Azure Backup?](backup-introduction-to-azure-backup.md)
 # Aan de slag
-## [Veelgestelde vragen](backup-azure-backup-faq.md)
 ## [Back-ups maken van bestanden en mappen](backup-try-azure-backup-in-10-mins.md)
 ## [Back-ups maken van virtuele Azure-machines](backup-azure-vms-first-look.md)
 ## [Azure-VM's beschermen](backup-azure-vms-first-look-arm.md)
+## [Veelgestelde vragen](backup-azure-backup-faq.md)
 # Procedures
 ## Backup automatiseren met PowerShell
 ### [Azure-VM's in Azure Portal](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Back-up maken van Azure-VM mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Langzame back-ups van bestanden en mappen in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Bronnen
+## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Service-updates](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

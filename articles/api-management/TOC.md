@@ -40,13 +40,17 @@
 ### [Beheren met automatisering](automation-manage-api-management.md)
 ### [Configureren met behulp van Git](api-management-configuration-repository-git.md)
 #Naslaginformatie
-## [Bronbeheer PowerShell-cmdlet]/powershell/resourcemanager()
-## [Naslaginformatie over klassieke implementatie van PowerShell-cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST-API](/rest/api/apimanagement/)
-## [Beleidsregels](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Sjablonen](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Beleidsregels](https://msdn.microsoft.com/library/azure/dn894081)
+## [Sjablonen](https://msdn.microsoft.com/library/azure/mt697540)
 #Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Service-updates](https://azure.microsoft.com/updates/?product=api-management)
 ## [Technisch document: API Management in de cloud](http://j.mp/ms-apim-whitepaper)
 ## [Begeleiding bij API-ontwerp](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Begeleiding bij API-implementatie](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

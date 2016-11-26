@@ -28,11 +28,13 @@
 ### [Installatiekopieën met formules vergelijken](devtest-lab-comparing-vm-base-image-types.md)
 
 # Bronnen
-## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [Service-updates](https://azure.microsoft.com/updates/?product=devtest-lab)
+## [Prijzen](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

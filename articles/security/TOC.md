@@ -9,6 +9,7 @@
 ### [Aanbevolen procedures voor gegevensbeveiliging en -versleuteling](azure-security-data-encryption-best-practices.md)
 ### [Gids voor opslagbeveiliging](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
+### [Aanbevolen procedures voor IaaS-workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Schijfversleuteling](azure-security-disk-encryption.md)
 ### [Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Beveiligingscursussen van Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
