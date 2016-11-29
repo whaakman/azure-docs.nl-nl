@@ -63,7 +63,7 @@ Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security
 > 
 > 
 
-Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding..
+Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
