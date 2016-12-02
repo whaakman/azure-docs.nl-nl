@@ -79,9 +79,8 @@
 
 # Problemen oplossen
 ## [Problemen met Azure Stack oplossen](azure-stack-troubleshooting.md)
-## [Web Apps-resourceprovider](azure-stack-webapps-troubleshoot-known-issues.md)
 
-# Bronnen
+# Resources
 ## [Hulpprogramma's](azure-stack-tools-paas-services.md)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)

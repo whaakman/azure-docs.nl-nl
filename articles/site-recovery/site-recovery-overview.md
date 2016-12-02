@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Site Recovery draagt bij aan uw BCDR-strategie door de replicatie van on-premise
 Als er uitval optreedt op de primaire site, schakelt u over naar de secundaire locatie om workloads toegankelijk en beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery in de Azure-portal
-Azure heeft twee verschillende [implementatiemodellen](../resource-manager-deployment-model.md) voor het maken van en werken met resources. Het Azure Resource Manager-model en het klassieke servicebeheermodel. Azure heeft ook twee portals. De [klassieke Azure-portal](https://manage.windowsazure.com/) en [Azure Portal](https://portal.azure.com).
+Azure heeft twee verschillende [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md) voor het maken van en werken met resources. Het Azure Resource Manager-model en het klassieke servicebeheermodel. Azure heeft ook twee portals. De [klassieke Azure-portal](https://manage.windowsazure.com/) en [Azure Portal](https://portal.azure.com).
 
 * Site Recovery is zowel beschikbaar in de klassieke portal als in Azure Portal.
 * In de klassieke Azure Portal kunt u Site Recovery ondersteunen met het klassieke model voor het beheren van services.
@@ -79,6 +79,6 @@ Site Recovery maakt toepassingsgevoelige replicatie mogelijk, zodat workloads en
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

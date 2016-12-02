@@ -13,7 +13,7 @@
 ### [Een API-definitie importeren](api-management-howto-import-api.md)
 ## Uw back-end beveiligen
 ### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
-### [Verbinden via VPN of ExpressRoute](api-management-howto-setup-vpn.md)
+### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)
 ### [Gezamenlijke verificatie via certificaat](api-management-howto-mutual-certificates.md)
 ## Beleidsregels configureren
 ### [Aangepaste caching](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

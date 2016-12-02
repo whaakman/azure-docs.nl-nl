@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
-# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Uw eerste virtuele Windows-machine maken met behulp van Azure-portal
+# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Uw eerste virtuele Windows-machine maken met behulp van Azure Portal
 Deze zelfstudie leert u hoe eenvoudig het is om in enkele minuten een virtuele Windows-machine (VM) te maken met behulp van de Azure Portal.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
@@ -30,8 +30,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Een installatiekopie voor de virtuele machine kiezen in de marketplace
 Als voorbeeld gebruiken we een installatiekopie voor Windows Server 2012 R2 Datacenter, maar dat is slechts een van de vele installatiekopieën die Azure biedt. Uw opties voor installatiekopieën zijn afhankelijk van uw abonnement. Sommige bureaubladinstallatiekopieën zijn beschikbaar voor [MSDN-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Klik in het menu Hub op **Nieuw** > **Virtuele machines** > **Windows Server 2012 R2 Datacenter**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik in het menu Hub op **Nieuw** > **Compute** > **Windows Server 2012 R2 Datacenter**.
    
     ![Schermafbeelding van de installatiekopieën voor virtuele machines in Azure die in de portal beschikbaar zijn](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. Controleer op de blade **Windows Server 2012 R2 Datacenter** in **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Klik op **Create**.
@@ -49,7 +49,7 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u de standaardinstellingen g
 4. Wanneer u klaar bent, klikt u op **OK** om door te gaan naar de volgende sectie. 
    
     ![Schermafbeelding met de instellingen op de blade **Grondbeginselen** voor het configureren van een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Kies een [grootte](virtual-machines-windows-sizes.md) voor de VM en klik vervolgens op **Selecteren** om door te gaan. 
+5. Kies een [grootte](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de VM en klik vervolgens op **Selecteren** om door te gaan. 
    
     ![Schermafbeelding van de blade Grootte, waarop de groottes worden getoond die u kunt selecteren voor een virtuele machine in Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. Op de blade **Instellingen** kunt u de opslag- en netwerkopties wijzigen. Accepteer voor deze zelfstudie de standaardinstellingen. Als u voor uw virtuele machine een grootte hebt geselecteerd die hierdoor wordt ondersteund, kunt u Azure Premium Storage uitproberen. Selecteer hiervoor in **Schijftype** de optie **Premium SSD**. Wanneer u alle wijzigingen hebt aangebracht, klikt u op **OK**.
@@ -76,7 +76,7 @@ Nadat u de installatiekopie hebt geselecteerd, kunt u de standaardinstellingen g
    
    ![Schermafbeelding met een bericht over het verifiëren van de identiteit van de VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-Als u problemen ondervindt wanneer u verbinding probeert te maken, raadpleegt u [Problemen oplossen met Extern bureaublad-verbindingen met een virtuele Windows-machine in Azure](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Als u problemen ondervindt wanneer u verbinding probeert te maken, raadpleegt u [Problemen oplossen met Extern bureaublad-verbindingen met een virtuele Windows-machine in Azure](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 U kunt de virtuele machine nu net zo gebruiken als elke andere server.
 
@@ -88,13 +88,13 @@ Het is een goed idee om de virtuele machine te stoppen als u deze niet gebruikt.
 Als u de VM opnieuw wilt opstarten of weer in gebruik wilt nemen, klikt u op de knop **Starten**.
 
 ## <a name="next-steps"></a>Volgende stappen
-* U kunt experimenteren met de nieuwe VM door [IIS te installeren](virtual-machines-windows-hero-role.md). In deze zelfstudie leert u ook hoe u poort 80 opent voor inkomend webverkeer met behulp van een netwerkbeveiligingsgroep (NSG). 
-* U kunt ook [een Windows-VM maken met behulp van PowerShell](virtual-machines-windows-ps-create.md) of [ een virtuele Linux-machine maken](virtual-machines-linux-quick-create-cli.md) met behulp van de Azure CLI.
-* Bekijk het artikel [Een virtuele Windows-machine maken met behulp van een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md) als u belangstelling hebt voor het automatiseren van implementaties.
+* U kunt experimenteren met de nieuwe VM door [IIS te installeren](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In deze zelfstudie leert u ook hoe u poort 80 opent voor inkomend webverkeer met behulp van een netwerkbeveiligingsgroep (NSG). 
+* U kunt ook [een Windows-VM maken met behulp van PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [ een virtuele Linux-machine maken](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) met behulp van de Azure CLI.
+* Bekijk het artikel [Een virtuele Windows-machine maken met behulp van een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) als u belangstelling hebt voor het automatiseren van implementaties.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

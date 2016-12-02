@@ -7,16 +7,41 @@
 #### [Vereisten beoordelen](storsimple-ova-system-requirements.md)
 #### [Limieten begrijpen](storsimple-ova-limits.md)
 #### [Best praktijken beoordelen](storsimple-ova-best-practices.md)
-### Implementeren
+
+### Implementeren (Azure Portal)
+#### [Implementatie voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [StorSimple Manager-service implementeren](storsimple-virtual-array-manage-service.md)
+#### [Inrichten in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [Inrichten in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Instellen als bestandsserver](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [Instlelen als iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Implementeren (klassieke portal)
 #### [Implementatie voorbereiden](storsimple-ova-deploy1-portal-prep.md)
-#### [StorSimple Manager-service implementeren](storsimple-ova-manage-service.md)
+##### [StorSimple Manager-service implementeren](storsimple-ova-manage-service.md)
 #### [Inrichten in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Inrichten in VMware](storsimple-ova-deploy2-provision-vmware.md)
 #### [Instellen als bestandsserver](storsimple-ova-deploy3-fs-setup.md)
 #### [Instlelen als iSCSI-server](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## Procedures
-### [Beheren via Azure Portal](storsimple-ova-manager-service-administration.md)
+### [Beheren via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
+#### [Meest recente update installeren](storsimple-virtual-array-install-update.md)
+#### [Back-ups maken en beheren](storsimple-virtual-array-backup.md)
+#### [Klonen vanaf back-ups](storsimple-virtual-array-clone.md)
+#### [Failover en DR](storsimple-virtual-array-failover-dr.md)
+#### [Deactiveren en verwijderen](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Shares beheren](storsimple-virtual-array-manage-shares.md)
+#### [Volumes beheren](storsimple-virtual-array-manage-volumes.md)
+#### [Servicesamenvatting weergeven](storsimple-virtual-array-service-summary.md)
+#### [Apparaatsamenvatting weergeven](storsimple-virtual-array-device-summary.md)
+#### [Opslagaccounts beheren](storsimple-virtual-array-manage-storage-accounts.md)
+#### [ACR’s beheren](storsimple-virtual-array-manage-acrs.md)
+#### [Taken beheren](storsimple-virtual-array-manage-jobs.md)
+#### [Wachtwoord voor apparaat wijzigen](storsimple-virtual-array-change-device-admin-password.md)
+#### [MPIO op Windows Server-host configureren](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Beheren via de klassieke Azure Portal](storsimple-ova-manager-service-administration.md)
 #### [Meest recente update installeren](storsimple-ova-install-update-01.md)
 #### [Back-ups maken en beheren](storsimple-ova-backup.md)
 #### [Herstellen vanaf back-ups](storsimple-ova-restore.md)
@@ -61,7 +86,7 @@
 ##### [Fysiek apparaat in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fysiek apparaat in Azure - GA](storsimple-deployment-walkthrough.md)
 #### [Fysiek apparaat in Government-portal - actueel](storsimple-deployment-walkthrough-gov-u2.md)
-##### [Fysiek apparaat in Government-portal - actueel](storsimple-deployment-walkthrough-gov.md)
+##### [Fysiek apparaat in Government-portal - Update 1](storsimple-deployment-walkthrough-gov.md)
 #### [Virtueel apparaat in Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter voor SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -113,9 +138,11 @@
 ##### [MMC-acties gebruiken via StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Oplossingen bouwen
-#### [Gedistribueerde globale naamruimte](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Noodherstel bestandsserver voor Azure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple met Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple met VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [StorSimple met Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Gedistribueerde globale naamruimte](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Controleren
 #### [Servicedashboard gebruiken](storsimple-service-dashboard.md)
@@ -160,7 +187,18 @@
 
 ## Naslaginformatie
 ### [Azure PowerShell](/powershell/servicemanagement)
-### [Windows PowerShell voor StorSimple-cmdlets] (https://technet.microsoft.com/library/dn688168.aspx)
+### [Windows PowerShell voor StorSimple-cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple Data Manager (Private Preview)
+
+## Overzicht
+### [Wat is de oplossing?](storsimple-data-manager-overview.md)
+
+## Aan de slag
+### [StorSimple Data Manager gebruiken](storsimple-data-manager-ui.md)
+
+## Procedures
+### [.NET gebruiken om gegevens te transformeren](storsimple-data-manager-dotnet-jobs.md)
 
 # Verwant
 ## [StorSimple 5000-7000-serie](http://onlinehelp.storsimple.com)
@@ -179,6 +217,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

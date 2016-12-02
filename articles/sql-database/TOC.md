@@ -26,18 +26,18 @@
 ## Databases en servers
 ### Individuele databases
 #### Leren
-##### [Zelfstudie voor de Azure-portal: Een Azure SQL-database maken via de Azure-portal](sql-database-get-started.md)
+##### [Zelfstudie voor Azure Portal: Een Azure SQL-database maken via Azure Portal](sql-database-get-started.md)
 #### Wel doen
-##### [Zelfstudie voor de Azure-portal: Een Azure SQL-database maken via de Azure-portal](sql-database-get-started.md)
-##### [Zelfstudie voor de Azure-portal: Een Azure SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
-##### [Zelfstudie voor de Azure-portal: Een Azure SQL-database maken met C#](sql-database-get-started-csharp.md)
+##### [Zelfstudie voor Azure Portal: Een Azure SQL-database maken via Azure Portal](sql-database-get-started.md)
+##### [Zelfstudie voor Azure Portal: Een Azure SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
+##### [Zelfstudie voor Azure Portal: Een Azure SQL-database maken met C#](sql-database-get-started-csharp.md)
 ### Pools voor Elastic Database
 #### Leren
 ##### [Pools voor Elastic Database](sql-database-elastic-pool.md)
 ##### [Een pool voor Elastic Database maken](sql-database-elastic-pool-guidance.md)
 ##### [Prijzen voor Elastic-pools](sql-database-elastic-pool-price.md)
 #### Doen
-##### [Maken met de Azure-portal](sql-database-elastic-pool-create-portal.md)
+##### [Maken met Azure Portal](sql-database-elastic-pool-create-portal.md)
 ##### [Maken met PowerShell](sql-database-elastic-pool-create-powershell.md)
 ##### [Maken met C#](sql-database-elastic-pool-create-csharp.md)
 ### Uitschalen
@@ -70,7 +70,7 @@
 ##### [SQL Azure-migratiewizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
 ##### [SQL Server Management Studio-migratiewizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 #### Een database kopiëren
-##### [Kopiëren met de Azure-portal](sql-database-copy-portal.md)
+##### [Kopiëren met Azure Portal](sql-database-copy-portal.md)
 ##### [Kopiëren met PowerShell](sql-database-copy-powershell.md)
 ##### [Kopiëren met T-SQL](sql-database-copy-transact-sql.md)
 #### Database naar een BACPAC-bestand exporteren
@@ -106,12 +106,12 @@
 ##### Dynamische gegevensmaskering
 ###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 ### Wel doen
-#### [Dynamische gegevensmaskering met de Azure-portal](sql-database-dynamic-data-masking-get-started.md)
+#### [Dynamische gegevensmaskering met Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 ## Bedrijfscontinuïteit
 ### Leren
 #### [Overzicht](sql-database-business-continuity.md)
 #### [Databaseback-ups](sql-database-automated-backups.md)
-#### [Langetermijnretentie](sql-database-long-term-retention.md) 
+#### [Langetermijnretentie](sql-database-long-term-retention.md)
 #### [Databaseherstel met behulp van back-ups](sql-database-recovery-using-backups.md)
 #### [Verificatievereisten voor herstel na noodgevallen](sql-database-geo-replication-security-config.md)
 #### [Ontwerpscenario's voor bedrijfscontinuïteit](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -172,8 +172,8 @@
 ##### [Bewaarbeleid](sql-database-temporal-tables-retention-policy.md)
 #### [JSON-gegevens](sql-database-json-features.md)
 #### [In het geheugen](sql-database-in-memory.md)
-### Doen
-#### [SQL Sserver-ontwikkeling](https://msdn.microsoft.com/library/ms179422.aspx)
+### Wel doen
+#### [SQL Server-ontwikkeling](https://msdn.microsoft.com/library/ms179422.aspx)
 ## Bewaking en afstemming
 ### Leren
 #### [Individuele databases](sql-database-single-database-monitor.md)
@@ -184,9 +184,9 @@
 ## SQL Database V11
 ### [Oude Web- en Business-edities](sql-database-web-business-sunset-faq.md)
 ### [Service Tier Advisor](sql-database-service-tier-advisor.md)
-### [Beoordelingshulpprogramma voor Elastic-pool](sql-database-elastic-pool-database-assessment-powershell.md)
+### [Beoordelingshulpprogramma voor elastische pool](sql-database-elastic-pool-database-assessment-powershell.md)
 ### [Upgraden naar V12](sql-database-v12-plan-prepare-upgrade.md)
-#### [Upgraden via de Azure-portal](sql-database-upgrade-server-portal.md)
+#### [Upgraden via Azure Portal](sql-database-upgrade-server-portal.md)
 #### [Upgraden met PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Aanbevelingen voor prijscategorieën](sql-database-service-tier-advisor.md)
 # Procedures
@@ -198,10 +198,10 @@
 #### [PowerShell](sql-database-manage-powershell.md)
 #### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 ### Pools voor Elastic Database
-#### [Maken met de Azure-portal](sql-database-elastic-pool-create-portal.md)
+#### [Maken met Azure Portal](sql-database-elastic-pool-create-portal.md)
 #### [Maken met PowerShell](sql-database-elastic-pool-create-powershell.md)
 #### [Maken met C#](sql-database-elastic-pool-create-csharp.md)
-#### [Beheren met de Azure-portal](sql-database-elastic-pool-manage-portal.md)
+#### [Beheren met Azure Portal](sql-database-elastic-pool-manage-portal.md)
 #### [Beheren met PowerShell](sql-database-elastic-pool-manage-powershell.md)
 #### [Beheren met C#](sql-database-elastic-pool-manage-csharp.md)
 #### [Beheren met T-SQL](sql-database-elastic-pool-manage-tsql.md)
@@ -226,7 +226,7 @@
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Taken en automatisering
 #### [Service-installatie](sql-database-elastic-jobs-service-installation.md)
-#### [Elastische taken maken en beheren in de Azure-portal](sql-database-elastic-jobs-create-and-manage.md)
+#### [Elastische taken maken en beheren in Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [Elastische taken maken en beheren met PowerShell](sql-database-elastic-jobs-powershell.md)
 #### [Clientbibliotheek upgraden](sql-database-elastic-scale-upgrade-client-library.md)
 #### [Azure SQL-databases beheren via de Azure Automation-service](sql-database-manage-automation.md)
@@ -254,7 +254,7 @@
 ### [Prestatiemeteritems voor shard-toewijzingsbeheer](sql-database-elastic-database-perf-counters.md)
 ### [Tips voor het afstemmen van prestaties](sql-database-troubleshoot-performance.md)
 ### Servicelagen en prestatieniveaus wijzigen
-#### [De Azure-portal gebruiken](sql-database-scale-up.md)
+#### [Azure Portal gebruiken](sql-database-scale-up.md)
 #### [PowerShell gebruiken](sql-database-scale-up-powershell.md)
 ### [Waarschuwingen maken](sql-database-insights-alerts-portal.md)
 ### OLTP in het geheugen
@@ -287,7 +287,7 @@
 ### [Gegevens verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
 ## Query’s uitvoeren
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-### [Muiltishard-query’s uitvoeren](sql-database-elastic-scale-multishard-querying.md)
+### [Multishard-query's uitvoeren](sql-database-elastic-scale-multishard-querying.md)
 ### Query’s tussen databases
 #### [Overzicht](sql-database-elastic-query-overview.md)
 #### [Databaseoverschrijdende query’s uitvoeren op basis van verschillende schema's](sql-database-elastic-query-vertical-partitioning.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->
