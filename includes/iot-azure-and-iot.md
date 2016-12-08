@@ -13,7 +13,7 @@ Het volgende diagram toont een typische architectuur voor een IoT-oplossing. Het
 ![Architectuur voor een IoT-oplossing][img-solution-architecture]
 
 > [!NOTE]
-> Zie [Microsoft Azure IoT Reference Architecture][lnk refarch] (Referentiearchitectuur voor Microsoft Azure IoT Ink-refarch) voor een uitgebreide beschrijving van de IoT-architectuur.
+> Zie [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.
 > 
 > 
 
@@ -30,9 +30,9 @@ Een van de grootste uitdagingen van IoT-projecten is het op stabiele en veilige 
 * Vereisen mogelijk het gebruik van bedrijfseigen, aangepaste of branchespecifieke toepassingsprotocollen.
 * Kunnen worden gemaakt met behulp van een groot aantal populaire hardware- en softwareplatforms.
 
-Naast de bovenstaande vereisten moet een IoT-oplossing schaalbaar, veilig en betrouwbaar zijn. De resulterende reeks connectiviteitsvereisten zijn moeilijk te implementeren en kost veel tijd als er gebruik wordt gemaakt van conventionele technologieën zoals webcontainers en berichtenbrokers. De SDK's van Azure IoT-Hub en IoT Device maken het gemakkelijker om oplossingen te implementeren die aan deze vereisten voldoen.
+Naast de bovenstaande vereisten moet een IoT-oplossing schaalbaar, veilig en betrouwbaar zijn. De resulterende reeks connectiviteitsvereisten zijn moeilijk te implementeren en kost veel tijd als er gebruik wordt gemaakt van conventionele technologieën zoals webcontainers en berichtenbrokers. Met de SDK's van Azure IoT-Hub en Azure IoT Device kunnen oplossingen die aan deze vereisten voldoen, gemakkelijker worden geïmplementeerd.
 
-Een apparaat kan rechtstreeks communiceren met een eindpunt van een cloudgateway. Als het apparaat geen van de communicatieprotocollen kan gebruiken die door de cloudgateway worden ondersteund, kan het ook verbinding maken via een tussenliggende gateway. De [Azure IoT Hub-protocolgateway][lnk-protocolgateway] kan protocollen vertalen, wanneer de apparaten geen van de protocollen kunnen gebruiken die door de IoT Hub worden ondersteund.
+Een apparaat kan rechtstreeks communiceren met een eindpunt van een cloudgateway. Als het apparaat geen van de communicatieprotocollen kan gebruiken die door de cloudgateway worden ondersteund, kan het ook verbinding maken via een tussenliggende gateway. De [Azure IoT Hub-protocolgateway][lnk-protocol-gateway] kan protocollen vertalen wanneer de protocollen die in de IoT Hub worden ondersteund, niet kunnen worden gebruikt voor de apparaten.
 
 ### <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
 In de cloud vindt het grootste gedeelte van de gegevensverwerking plaats in de back-end van de IoT-oplossing, zoals het filteren en samenvoegen van telemetriegegevens, en deze naar andere services doorsturen. De back-end van de IoT-oplossing:
@@ -56,10 +56,10 @@ De laag voor presentatie en bedrijfsconnectiviteit stelt eindgebruikers in staat
 
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocolgateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

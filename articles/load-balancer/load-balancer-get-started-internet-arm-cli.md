@@ -3,8 +3,8 @@ title: Een internetgerichte load balancer maken in Resource Manager met behulp v
 description: Meer informatie over hoe u met de Azure CLI een internetgerichte load balancer maakt in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,15 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: c8f29176c8566c94efeecadbc804f459d8f2a6c3
 
 ---
 # <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Een internetgerichte load balancer maken met behulp van de Azure CLI
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ Zie [Ondersteuning van Azure Resource Manager voor Azure Load Balancer](load-bal
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Een virtueel netwerk en een openbaar IP-adres voor de front-end-IP-adresgroep maken
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Een virtueel netwerk en een openbaar IP-adres voor de front-end-IP-adresgroep maken
 
 1. Maak een virtueel netwerk (VNet) met de naam *NRPVnet* op locatie VS - oost met een resourcegroep met de naam *NRPRG*.
 
@@ -91,7 +95,7 @@ Met de volgende opdracht wordt er een load balancer met de naam *NRPlb* gemaakt 
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Een front-end-IP-adresgroep en back-endadresgroep maken
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Een front-end-IP-adresgroep en back-endadresgroep maken
 In dit voorbeeld ziet u hoe u de front-end-IP-adresgroep maakt die het binnenkomende netwerkverkeer ontvangt op de load balancer, en de back-end-IP-adresgroep waarheen de front-endgroep het netwerkverkeer met gelijke taakverdeling verzendt.
 
 1. Maak een front-end-IP-adresgroep door het openbare IP dat u in de vorige stap hebt gemaakt en de load balancer te koppelen.
@@ -307,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

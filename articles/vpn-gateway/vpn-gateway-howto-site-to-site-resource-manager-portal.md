@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95268d0197f9c79b1650165056cbf4b3e79f12ec
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-portal"></a>Een VNet met een site-naar-site-verbinding maken met Azure Portal
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal"></a>Een VNet met een site-naar-site-verbinding maken met Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een si
 
 ![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor site-naar-site-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
@@ -48,7 +48,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet weet hoe u uw VPN-apparaat moet configureren of de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken.
 * Een extern gericht openbaar IP-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
-* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](http://azure.microsoft.com/pricing/free-trial/).
+* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) of [u aanmelden voor een gratis account](http://azure.microsoft.com/pricing/free-trial).
 
 ### <a name="a-namevaluesasample-configuration-values-for-this-exercise"></a><a name="values"></a>Voorbeeld van configuratiewaarden voor deze oefening
 Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfiguratiewaarden gebruiken:
@@ -110,7 +110,7 @@ Als u deze configuratie bij wijze van oefening maakt, kunt u deze [voorbeeldwaar
 ## <a name="a-namevpndevicea7-configure-your-vpn-device"></a><a name="VPNDevice"></a>7. Uw VPN-apparaat configureren
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="a-namecreateconnectiona8-create-a-sitetosite-vpn-connection"></a><a name="CreateConnection"></a>8. Een site-naar-site-VPN-verbinding maken
+## <a name="a-namecreateconnectiona8-create-a-site-to-site-vpn-connection"></a><a name="CreateConnection"></a>8. Een site-naar-site-VPN-verbinding maken
 Maak de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het VPN-apparaat. Zorg dat u de waarden vervangt door die van uzelf. De gedeelde sleutel moet overeenkomen met de waarde die u hebt gebruikt voor de configuratie van uw VPN-apparaat. 
 
 Controleer voordat u met deze sectie begint of de gateway van het virtuele netwerk en de lokale netwerkgateways zijn voltooid. Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [waarden](#values) wanneer u de verbinding maakt.
@@ -124,12 +124,12 @@ U kunt de VPN-verbinding controleren in de portal of met behulp van PowerShell.
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie het [leertraject](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) voor virtuele machines voor meer informatie.
-* Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).
+*  Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
+*  Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

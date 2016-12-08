@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
+ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Gateway SDK (bèta) - Aan de slag met Linux
+# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Azure IoT Gateway-SDK - Aan de slag met Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Het voorbeeld maken
@@ -38,45 +38,48 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
 ## <a name="how-to-run-the-sample"></a>Het voorbeeld uitvoeren
 1. De uitvoer van het script **build.sh** wordt gegenereerd in de map **build** in de lokale kopie van de opslagplaats **azure-iot-gateway-sdk**. Dit omvat de twee modules die in dit voorbeeld worden gebruikt.
    
-    Het bouwscript plaatst **liblogger_hl.so** in de map **build/modules/logger/** en **libhello_world_hl.so** in de map **build/modules/hello_world/**. Gebruik deze paden voor de waarde van **modulepad** zoals weergegeven in het bestand met JSON-instellingen hieronder.
-2. Het bestand **hello_world_lin.json** in de map **samples/hello_world/src** is een voorbeeld van het bestand met JSON-instellingen voor Linux dat u kunt gebruiken om het voorbeeld uit te voeren. Bij de voorbeeld-JSON-instellingen die hieronder zijn weergegeven, wordt ervan uitgegaan dat u het voorbeeld uitvoert vanuit de hoofdmap van uw lokale exemplaar van de opslagplaats **azure-iot-gateway-sdk**.
-3. Voor de module **logger_hl** in de sectie **args**, stelt u de waarde van **filename** in op de naam en het pad van het bestand dat de logboekgegevens zal bevatten.
-   
-    Dit is een voorbeeld van een bestand met JSON-instellingen voor Linux waarbij wordt geschreven naar het bestand **log.txt** van de map waarin u het voorbeeld uitvoert.
+    Het bouwscript plaatst **liblogger.so** in de map **build/modules/logger/** en **libhello_world.so** in de map **build/modules/hello_world/**. Gebruik deze paden voor de waarde van **modulepad** zoals weergegeven in het bestand met JSON-instellingen hieronder.
+2. Het proces hello_world_sample gebruikt het pad naar een JSON-configuratiebestand als een argument in de opdrachtregel. Er is een voorbeeld-JSON-bestand geleverd als onderdeel van de repo op **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json**. Dit is hieronder gekopieerd. Het bestand werkt in de huidige staat tenzij u het bouwscript hebt aangepast om modules of uitvoerbare voorbeeldbestanden op niet-standaardlocaties te plaatsen.
+
+   > [!NOTE]
+   > De modulepaden zijn gekoppeld aan de huidige werkmap vanwaaruit het uitvoerbare bestand hello_world_sample wordt gestart, niet aan de map waarin het uitvoerbare bestand zich bevindt. Het voorbeeld-JSON-configuratiebestand schrijft standaard 'log.txt' in uw huidige werkmap.
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger_hl",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
-          },
-          "args" : 
-          {
-            "filename":"./log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger_hl"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-4. Navigeer in uw shell naar de map **azure-iot-gateway-sdk**.
-5. Voer de volgende opdracht uit:
+3. Navigeer naar de map **azure-iot-gateway-sdk**.
+4. Voer de volgende opdracht uit:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +92,6 @@ Voordat u begint, moet u [uw ontwikkelomgeving instellen][lnk-setupdevbox] om me
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

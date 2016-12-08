@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 ---
@@ -29,7 +29,7 @@ In dit onderwerp wordt beschreven hoe u een nieuwe functie in C# maakt die wordt
 ## <a name="prerequisites"></a>Vereisten
 Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een timer wordt geactiveerd
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een timer wordt geactiveerd
 Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/). 
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
@@ -72,13 +72,13 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 * [Azure Functions testen](functions-test-a-function.md)  
   Beschrijft de verschillende hulpprogramma’s en technieken voor het testen van uw functies.
 * [Azure Functions schalen](functions-scale.md)  
-  Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het serviceabonnement Dynamic, en helpt u bij het kiezen van het juiste abonnement.  
+  Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

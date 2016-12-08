@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/26/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
 
 
 ---
@@ -68,7 +68,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
    > De naam van uw opslagaccount moet uniek zijn binnen Azure. Er wordt een waarschuwing weergegeven in Azure Portal als de opslagaccountnaam die u kiest, al wordt gebruikt.
    > 
    > 
-4. Geef het implementatiemodel op dat moet worden gebruikt: **Resource Manager** of **Klassiek**. **Resource Manager** is het aanbevolen implementatiemodel. Zie [Resource Manager-implementatie en klassieke implementatie begrijpen](../resource-manager-deployment-model.md) voor meer informatie.
+4. Geef het implementatiemodel op dat moet worden gebruikt: **Resource Manager** of **Klassiek**. **Resource Manager** is het aanbevolen implementatiemodel. Zie [Resource Manager-implementatie en klassieke implementatie begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie.
    
    > [!NOTE]
    > Blob Storage-accounts kunnen alleen worden gemaakt met het Resource Manager-implementatiemodel.
@@ -162,6 +162,6 @@ Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

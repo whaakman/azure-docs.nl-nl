@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
+ms.openlocfilehash: c4a8e4eee864dab592baf1797d69778160ab456e
 
 
 ---
@@ -32,8 +32,6 @@ U kunt Table Storage gebruiken voor het opslaan van flexibele gegevenssets, zoal
 
 ### <a name="about-this-tutorial"></a>Over deze zelfstudie
 Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemene scenario's die gebruikmaken van Azure Table Storage, waaronder het maken en verwijderen van een tabel en het invoegen, bijwerken, verwijderen en opvragen van tabelgegevens.
-
-**Geschatte duur:** 45 minuten
 
 **Vereisten:**
 
@@ -54,81 +52,91 @@ Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.c
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-namespace-declarations"></a>Naamruimtedeclaraties toevoegen
-Voeg boven aan het `program.cs`-bestand de volgende `using`-instructies toe:
+Voeg boven aan het `program.cs`-bestand de volgende **Using**-instructies toe:
+
 ```csharp
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager
-    using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 ```
+
 ### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>De Tabelserviceclient maken
 Met behulp van de **CloudTableClient**-klasse kunt u tabellen en entiteiten ophalen die zijn opgeslagen in de Table Storage. Hier volgt één manier om de serviceclient te maken:
+
 ```csharp
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
+
 U bent nu klaar om code te schrijven die gegevens leest uit en schrijft naar Table Storage.
 
 ## <a name="create-a-table"></a>Een tabel maken
 In dit voorbeeld ziet u hoe u een tabel kunt maken als deze nog niet bestaat:
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Retrieve a reference to the table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Retrieve a reference to the table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create the table if it doesn't exist.
-    table.CreateIfNotExists();
+// Create the table if it doesn't exist.
+table.CreateIfNotExists();
 ```
+
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
-Entiteiten worden toegewezen aan C\#-objecten met behulp van een aangepaste klasse die is afgeleid van **TableEntity**. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. De volgende code definieert een entiteitsklasse die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk.  Voor elke eigenschap die in de Tabelservice moet worden opgeslagen, moet de eigenschap een openbare eigenschap van een ondersteund type zijn die zowel `get` als `set` weergeeft.
+Entiteiten worden toegewezen aan C\#-objecten met behulp van een aangepaste klasse die is afgeleid van **TableEntity**. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. De volgende code definieert een entiteitsklasse die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk. Voor elke eigenschap die in de Tabelservice moet worden opgeslagen, moet de eigenschap een openbare eigenschap van een ondersteund type zijn die de waarden voor instellen en ophalen weergeeft.
 Ook *moet* uw entiteitstype een parameterloze constructor bevatten.
+
 ```csharp
-    public class CustomerEntity : TableEntity
+public class CustomerEntity : TableEntity
+{
+    public CustomerEntity(string lastName, string firstName)
     {
-        public CustomerEntity(string lastName, string firstName)
-        {
-            this.PartitionKey = lastName;
-            this.RowKey = firstName;
-        }
-
-        public CustomerEntity() { }
-
-        public string Email { get; set; }
-
-        public string PhoneNumber { get; set; }
+        this.PartitionKey = lastName;
+        this.RowKey = firstName;
     }
+
+    public CustomerEntity() { }
+
+    public string Email { get; set; }
+
+    public string PhoneNumber { get; set; }
+}
 ```
+
 Tabelbewerkingen die betrekking hebben op entiteiten, worden uitgevoerd via het **CloudTable**-object dat u eerder hebt gemaakt in de sectie 'Een tabel maken'. De bewerking die moet worden uitgevoerd, wordt vertegenwoordigd door een **TableOperation**-object.  Het volgende codevoorbeeld toont het maken van het **CloudTable**-object, gevolgd door een **CustomerEntity**-object.  Voor het voorbereiden van de bewerking wordt een **TableOperation**-object gemaakt voor het invoegen van de klantentiteit in de tabel.  Ten slotte wordt de bewerking uitgevoerd door het aanroepen van **CloudTable.Execute**.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-       CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create a new customer entity.
-    CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-    customer1.Email = "Walter@contoso.com";
-    customer1.PhoneNumber = "425-555-0101";
+// Create a new customer entity.
+CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+customer1.Email = "Walter@contoso.com";
+customer1.PhoneNumber = "425-555-0101";
 
-    // Create the TableOperation object that inserts the customer entity.
-    TableOperation insertOperation = TableOperation.Insert(customer1);
+// Create the TableOperation object that inserts the customer entity.
+TableOperation insertOperation = TableOperation.Insert(customer1);
 
-    // Execute the insert operation.
-    table.Execute(insertOperation);
+// Execute the insert operation.
+table.Execute(insertOperation);
 ```
+
 ## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
 U kunt in één schrijfbewerking een batch entiteiten invoegen in een tabel. Enkele aanvullende opmerkingen over batchbewerkingen:
 
@@ -139,295 +147,314 @@ U kunt in één schrijfbewerking een batch entiteiten invoegen in een tabel. Enk
 
 <!-- -->
 Het volgende codevoorbeeld maakt twee entiteitsobjecten en voegt elk daarvan toe aan **TableBatchOperation** met behulp van de methode **Insert**. Vervolgens wordt **CloudTable.Execute** aangeroepen om de bewerking uit te voeren.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create the batch operation.
-    TableBatchOperation batchOperation = new TableBatchOperation();
+// Create the batch operation.
+TableBatchOperation batchOperation = new TableBatchOperation();
 
-    // Create a customer entity and add it to the table.
-    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-    customer1.Email = "Jeff@contoso.com";
-    customer1.PhoneNumber = "425-555-0104";
+// Create a customer entity and add it to the table.
+CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
+customer1.Email = "Jeff@contoso.com";
+customer1.PhoneNumber = "425-555-0104";
 
-    // Create another customer entity and add it to the table.
-    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-    customer2.Email = "Ben@contoso.com";
-    customer2.PhoneNumber = "425-555-0102";
+// Create another customer entity and add it to the table.
+CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+customer2.Email = "Ben@contoso.com";
+customer2.PhoneNumber = "425-555-0102";
 
-    // Add both customer entities to the batch insert operation.
-    batchOperation.Insert(customer1);
-    batchOperation.Insert(customer2);
+// Add both customer entities to the batch insert operation.
+batchOperation.Insert(customer1);
+batchOperation.Insert(customer2);
 
-    // Execute the batch operation.
-    table.ExecuteBatch(batchOperation);
+// Execute the batch operation.
+table.ExecuteBatch(batchOperation);
 ```
+
 ## <a name="retrieve-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
 Gebruik een **TableQuery**-object om een tabel met alle entiteiten in een partitie op te vragen.
 Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Construct the query operation for all customer entities where PartitionKey="Smith".
-    TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
+// Construct the query operation for all customer entities where PartitionKey="Smith".
+TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
-    // Print the fields for each customer.
-    foreach (CustomerEntity entity in table.ExecuteQuery(query))
-    {
-        Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-            entity.Email, entity.PhoneNumber);
-    }
+// Print the fields for each customer.
+foreach (CustomerEntity entity in table.ExecuteQuery(query))
+{
+    Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
+        entity.Email, entity.PhoneNumber);
+}
 ```
+
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Een bereik van entiteiten in een partitie ophalen
 Als u geen query wilt uitvoeren op alle entiteiten in een partitie, kunt u een bereik opgeven door het partitiesleutelfilter te combineren met een rijsleutelfilter. Het volgende codevoorbeeld maakt gebruik van twee filters om alle entiteiten met de partitie 'Smith' op te halen waarbij de rijsleutel (voornaam) begint met een letter die in het alfabet vóór de 'E' komt. Vervolgens worden de resultaten van de query afgedrukt.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create the table query.
-    TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
-        TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
-            TableOperators.And,
-            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "E")));
+// Create the table query.
+TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "E")));
 
-    // Loop through the results, displaying information about the entity.
-    foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
-    {
-        Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-            entity.Email, entity.PhoneNumber);
-    }
+// Loop through the results, displaying information about the entity.
+foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
+{
+    Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
+        entity.Email, entity.PhoneNumber);
+}
 ```
+
 ## <a name="retrieve-a-single-entity"></a>Eén entiteit ophalen
 U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code gebruikt **TableOperation** om de klant 'Ben Smith' op te geven.
 Deze methode retourneert één entiteit in plaats van een verzameling. De geretourneerde waarde in **TableResult.Result** is een **CustomerEntity**-object.
 Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create a retrieve operation that takes a customer entity.
-    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a retrieve operation that takes a customer entity.
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
-    // Execute the retrieve operation.
-    TableResult retrievedResult = table.Execute(retrieveOperation);
+// Execute the retrieve operation.
+TableResult retrievedResult = table.Execute(retrieveOperation);
 
-    // Print the phone number of the result.
-    if (retrievedResult.Result != null)
-       Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-    else
-       Console.WriteLine("The phone number could not be retrieved.");
+// Print the phone number of the result.
+if (retrievedResult.Result != null)
+    Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+else
+    Console.WriteLine("The phone number could not be retrieved.");
 ```
+
 ## <a name="replace-an-entity"></a>Een entiteit vervangen
 Als u een entiteit wilt bijwerken, haalt u deze op uit de Tabelservice, wijzigt u het entiteitsobject en slaat u de wijzigingen weer op in de Tabelservice. De volgende code wijzigt het telefoonnummer van een bestaande klant. In plaats van **Insert** aan te roepen, gebruikt deze code **Replace**. Met deze bewerking wordt de entiteit op de server volledig vervangen, tenzij de entiteit op de server sinds het ophalen is gewijzigd. In dat geval mislukt de bewerking.  Hiermee wordt voorkomen dat de toepassing per ongeluk een wijziging overschrijft die door een ander onderdeel van uw toepassing is aangebracht tussen het moment van ophalen en het moment van bijwerken.  U kunt deze fout het best als volgt afhandelen: de entiteit opnieuw ophalen, de gewenste wijzigingen (indien nog geldig) aanbrengen en vervolgens een andere **Replace**-bewerking uitvoeren.  In de volgende sectie wordt beschreven hoe u dit gedrag kunt wijzigen.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create a retrieve operation that takes a customer entity.
-    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a retrieve operation that takes a customer entity.
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+
+// Execute the operation.
+TableResult retrievedResult = table.Execute(retrieveOperation);
+
+// Assign the result to a CustomerEntity object.
+CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
+
+if (updateEntity != null)
+{
+    // Change the phone number.
+    updateEntity.PhoneNumber = "425-555-0105";
+
+    // Create the Replace TableOperation.
+    TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
     // Execute the operation.
-    TableResult retrievedResult = table.Execute(retrieveOperation);
+    table.Execute(updateOperation);
 
-    // Assign the result to a CustomerEntity object.
-    CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
-
-    if (updateEntity != null)
-    {
-       // Change the phone number.
-       updateEntity.PhoneNumber = "425-555-0105";
-
-       // Create the Replace TableOperation.
-       TableOperation updateOperation = TableOperation.Replace(updateEntity);
-
-       // Execute the operation.
-       table.Execute(updateOperation);
-
-       Console.WriteLine("Entity updated.");
-    }
-
-    else
-       Console.WriteLine("Entity could not be retrieved.");
+    Console.WriteLine("Entity updated.");
+}
+else
+    Console.WriteLine("Entity could not be retrieved.");
 ```
-## <a name="insertorreplace-an-entity"></a>Een entiteit invoegen of vervangen
+
+## <a name="insert-or-replace-an-entity"></a>Een entiteit invoegen of vervangen
 **Replace**-bewerkingen mislukken als de entiteit is gewijzigd nadat deze is opgehaald van de server.  Voor een succesvolle **Replace**-bewerking moet u de entiteit bovendien eerst ophalen van de server.
 Soms weet u echter niet of de entiteit op de server aanwezig is en zijn de huidige waarden die erin zijn opgeslagen, niet relevant. Met uw update worden deze allemaal overschreven.  Hiervoor gebruikt u een **InsertOrReplace**-bewerking.  Met deze bewerking wordt de entiteit ingevoegd als deze niet bestaat of vervangen als deze wel bestaat, ongeacht wanneer de laatste update is uitgevoerd.  In het volgende codevoorbeeld wordt de klantentiteit voor 'Ben Smith' nog steeds opgehaald, maar vervolgens op de server opgeslagen via **InsertOrReplace**.  Eventuele wijzigingen die in de entiteit zijn aangebracht tussen het moment van ophalen en het moment van bijwerken, worden overschreven.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable object that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create a retrieve operation that takes a customer entity.
-    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a retrieve operation that takes a customer entity.
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+
+// Execute the operation.
+TableResult retrievedResult = table.Execute(retrieveOperation);
+
+// Assign the result to a CustomerEntity object.
+CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
+
+if (updateEntity != null)
+{
+    // Change the phone number.
+    updateEntity.PhoneNumber = "425-555-1234";
+
+    // Create the InsertOrReplace TableOperation.
+    TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
 
     // Execute the operation.
-    TableResult retrievedResult = table.Execute(retrieveOperation);
+    table.Execute(insertOrReplaceOperation);
 
-    // Assign the result to a CustomerEntity object.
-    CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
+    Console.WriteLine("Entity was updated.");
+}
 
-    if (updateEntity != null)
-    {
-       // Change the phone number.
-       updateEntity.PhoneNumber = "425-555-1234";
-
-       // Create the InsertOrReplace TableOperation.
-       TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
-
-       // Execute the operation.
-       table.Execute(insertOrReplaceOperation);
-
-       Console.WriteLine("Entity was updated.");
-    }
-
-    else
-       Console.WriteLine("Entity could not be retrieved.");
+else
+    Console.WriteLine("Entity could not be retrieved.");
 ```
+
 ## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
 Met een tabelquery haalt u slechts enkele eigenschappen van een entiteit op in plaats van alle eigenschappen hiervan. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code retourneert alleen de e-mailadressen van de entiteiten in de tabel. Dit wordt gedaan via een **DynamicTableEntity**- en een **EntityResolver**-query. Meer informatie over projectie vindt u in de [Blogbericht Introductie tot upsert en queryprojectie][Blogbericht Introductie tot upsert en queryprojectie]. Houd er rekening mee dat projectie niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Define the query, and select only the Email property.
-    TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Email" });
+// Define the query, and select only the Email property.
+TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Email" });
 
-    // Define an entity resolver to work with the entity after retrieval.
-    EntityResolver<string> resolver = (pk, rk, ts, props, etag) => props.ContainsKey("Email") ? props["Email"].StringValue : null;
+// Define an entity resolver to work with the entity after retrieval.
+EntityResolver<string> resolver = (pk, rk, ts, props, etag) => props.ContainsKey("Email") ? props["Email"].StringValue : null;
 
-    foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, null, null))
-    {
-        Console.WriteLine(projectedEmail);
-    }
+foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, null, null))
+{
+    Console.WriteLine(projectedEmail);
+}
 ```
+
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
 U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Hiervoor gebruikt u hetzelfde patroon dat is getoond voor het bijwerken van een entiteit.  Met de volgende code wordt een klantentiteit opgehaald en verwijderd.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Create a retrieve operation that expects a customer entity.
-    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a retrieve operation that expects a customer entity.
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+
+// Execute the operation.
+TableResult retrievedResult = table.Execute(retrieveOperation);
+
+// Assign the result to a CustomerEntity.
+CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
+
+// Create the Delete TableOperation.
+if (deleteEntity != null)
+{
+    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 
     // Execute the operation.
-    TableResult retrievedResult = table.Execute(retrieveOperation);
+    table.Execute(deleteOperation);
 
-    // Assign the result to a CustomerEntity.
-    CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
+    Console.WriteLine("Entity deleted.");
+}
 
-    // Create the Delete TableOperation.
-    if (deleteEntity != null)
-    {
-       TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-
-       // Execute the operation.
-       table.Execute(deleteOperation);
-
-       Console.WriteLine("Entity deleted.");
-    }
-
-    else
-       Console.WriteLine("Could not retrieve the entity.");
+else
+    Console.WriteLine("Could not retrieve the entity.");
 ```
+
 ## <a name="delete-a-table"></a>Een tabel verwijderen
 Ten slotte wordt met het volgende codevoorbeeld een tabel uit een opslagaccount verwijderd. Een verwijderde tabel kan gedurende een bepaalde tijd na de verwijdering niet opnieuw worden gemaakt.
+
 ```csharp
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve the storage account from the connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable that represents the "people" table.
-    CloudTable table = tableClient.GetTableReference("people");
+// Create the CloudTable that represents the "people" table.
+CloudTable table = tableClient.GetTableReference("people");
 
-    // Delete the table it if exists.
-    table.DeleteIfExists();
+// Delete the table it if exists.
+table.DeleteIfExists();
 ```
+
 ## <a name="retrieve-entities-in-pages-asynchronously"></a>Entiteiten asynchroon ophalen op pagina's
 Als u een groot aantal entiteiten leest en u deze wilt verwerken/weergeven terwijl ze worden opgehaald in plaats van te wachten tot ze allemaal zijn geretourneerd, kunt u entiteiten ophalen met behulp van een gesegmenteerde query. Dit voorbeeld laat zien hoe resultaten op pagina's worden geretourneerd met behulp van het Async-Await-patroon, zodat de uitvoering niet wordt geblokkeerd tijdens het wachten op het retourneren van een groot aantal resultaten. Zie [Asynchrone programmering met Async en Await-patroon in .NET (C# en Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) voor meer informatie over het gebruik van het Async-Await-patroon in .NET.
+
 ```csharp
-    // Initialize a default TableQuery to retrieve all the entities in the table.
-    TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
+// Initialize a default TableQuery to retrieve all the entities in the table.
+TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
-    // Initialize the continuation token to null to start from the beginning of the table.
-    TableContinuationToken continuationToken = null;
+// Initialize the continuation token to null to start from the beginning of the table.
+TableContinuationToken continuationToken = null;
 
-    do
-    {
-        // Retrieve a segment (up to 1,000 entities).
-        TableQuerySegment<CustomerEntity> tableQueryResult =
-            await table.ExecuteQuerySegmentedAsync(tableQuery, continuationToken);
+do
+{
+    // Retrieve a segment (up to 1,000 entities).
+    TableQuerySegment<CustomerEntity> tableQueryResult =
+        await table.ExecuteQuerySegmentedAsync(tableQuery, continuationToken);
 
-        // Assign the new continuation token to tell the service where to
-        // continue on the next iteration (or null if it has reached the end).
-        continuationToken = tableQueryResult.ContinuationToken;
+    // Assign the new continuation token to tell the service where to
+    // continue on the next iteration (or null if it has reached the end).
+    continuationToken = tableQueryResult.ContinuationToken;
 
-        // Print the number of rows retrieved.
-        Console.WriteLine("Rows retrieved {0}", tableQueryResult.Results.Count);
+    // Print the number of rows retrieved.
+    Console.WriteLine("Rows retrieved {0}", tableQueryResult.Results.Count);
 
-    // Loop until a null continuation token is received, indicating the end of the table.
-    } while(continuationToken != null);
+// Loop until a null continuation token is received, indicating the end of the table.
+} while(continuationToken != null);
 ```
+
 ## <a name="next-steps"></a>Volgende stappen
 Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken:
 
@@ -460,6 +487,6 @@ Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

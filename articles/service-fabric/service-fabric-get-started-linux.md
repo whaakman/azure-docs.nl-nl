@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
+ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Als u [Azure Service Fabric-toepassingen](service-fabric-application-model.md) op uw Linux-ontwikkelmachine wilt implementeren en uitvoeren, moet u de runtime en algemene SDK installeren. U kunt ook optionele SDK's voor Java en .NET Core installeren.
 
@@ -71,7 +70,7 @@ Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>De platformoverschrijdende CLI van Azure instellen
+## <a name="set-up-the-azure-cross-platform-cli"></a>De platformoverschrijdende CLI van Azure instellen
 De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node][installatieknooppunt] hebt geïnstalleerd voordat u doorgaat met de onderstaande instructies.
 
 1. Kloon de github-opslagplaats naar uw ontwikkelmachine.
@@ -168,6 +167,6 @@ De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Veelgestelde vragen over Azure Data Lake Store
 In dit artikel komt u meer te weten over veelgestelde vragen met betrekking tot Azure Data Lake Store.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>Hoe ga ik om met herstel na noodgevallen en beschadigde gegevens op mijn Azure Data Lake Store-account?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Hoe kan ik mijn gegevens beter beschermen tegen regiobrede noodgevallen of onbedoelde verwijderingen?
 De gegevens op uw Azure Data Lake Store-account zijn beschermd tegen tijdelijke hardwarefouten in een regio door automatische replica's. Dit garandeert duurzaamheid en een hoge beschikbaarheid, waarmee wordt voldaan aan de SLA van Azure Data Lake Store. Hier volgen een aantal richtlijnen voor het verder beschermen van uw gegevens tegen zeldzame regiobrede storingen of onbedoelde verwijderingen.
 
 ### <a name="disaster-recovery-guidance"></a>Richtlijnen voor herstel na noodgevallen
@@ -52,6 +52,6 @@ Bedrijven kunnen ook [Diagnostische gegevens vastleggen](data-lake-store-diagnos
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

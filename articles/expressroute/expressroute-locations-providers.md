@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
+ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende k
 
 ![Locatiekaart][0]
 
-U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio. In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
+U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio
+In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio 
 | **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
 | **India** |India - west, India - midden, India - zuid |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
@@ -50,10 +54,10 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
-## <a name="connectivity-provider-locations"></a>Locaties van connectiviteitsproviders
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Locaties van connectiviteitsproviders
 > [!div class="op_single_selector"]
-> [Locaties per provider](expressroute-locations.md#connectivity-provider-locations)
-> [Providers per locatie](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Locaties per provider](expressroute-locations.md#locations)
+> * [Providers per locatie](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -83,13 +87,14 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Cologix, Equinix, Zayo Group |
+| **Toronto** |Cologix, Equinix, Megaport, Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** betekent binnenkort beschikbaar
 
 ### <a name="national-cloud-environments"></a>Nationale cloudomgevingen
-#### <a name="us-government-cloud"></a>Cloud van de Amerikaanse overheid
+
+### <a name="us-government-cloud"></a>Cloud van de Amerikaanse overheid
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>China
+### <a name="china"></a>China
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
 | **Beijing** |China Telecom |
@@ -105,7 +110,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 
 Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) voor meer informatie.
 
-#### <a name="germany"></a>Duitsland
+### <a name="germany"></a>Duitsland
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
 | **Berlijn** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
 
 * Neem contact op met uw connectiviteitsprovider om na te gaan of ze zijn verbonden met een van de exchange-punten in de bovenstaande tabel. Via de volgende koppelingen vindt u meer informatie over services die door de exchange-providers worden verstrekt. Verschillende connectiviteitsproviders zijn al verbonden met Ethernet-exchange-punten.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Vraag uw connectiviteitsprovider om uw netwerk uit te breiden tot de gewenste peeringlocatie.
   * Vergewis u ervan dat de connectiviteitsprovider uw connectiviteit uitbreidt op een maximaal beschikbare manier, zodat er geen storingspunten zijn.
 * Vraag een ExpressRoute-circuit aan met het exchange-punt wanneer uw connectiviteitsprovider verbinding maakt met Microsoft.
@@ -153,6 +158,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

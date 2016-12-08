@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: bfc8a774ebaaae7dbf1018614681134a5b10a769
-ms.openlocfilehash: 7938e0c2f0363bcce51375ddab9c68e8e8068186
+ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
+ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
 
 
 ---
@@ -270,6 +270,8 @@ Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's
 * [Aan de slag met Data Lake Analytics met .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 * [Problemen met C#-code oplossen in U-SQL-taken](data-lake-analytics-debug-u-sql-jobs.md)
 
+Zie [De hulpprogramma's voor Visual Studio van Azure Data Lake gebruiken](data-lake-analytics-data-lake-tools-for-vscode.md) voor meer informatie over Data Lake-hulpprogramma’s voor Visual Studio-code.
+
 Overige onderwerpen over ontwikkelen:
 
 * [Weblogboeken analyseren met Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
@@ -350,6 +352,6 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

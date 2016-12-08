@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 79a3ba8f0daee5c20f7a05e20e473cfbea384acc
-ms.openlocfilehash: c941628ece0daffba7cb9bfd79fa0ffdda4ecfba
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Een Node.js-toepassing maken en implementeren in een Azure Cloud Service
-
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
 
 In deze zelfstudie kunt u zien hoe u een eenvoudige Node.js-toepassing kunt maken die wordt uitgevoerd in een Azure Cloud Service. Cloud Services vormen de bouwstenen van schaalbare cloudtoepassingen in Azure. Deze bieden de mogelijkheid om de front-end- en back-end-onderdelen van uw toepassing te scheiden en onafhankelijk van elkaar te beheren en uit te schalen.  Cloud Services bieden een robuuste toegewezen virtuele machine voor het op betrouwbare wijze hosten van elke rol.
 

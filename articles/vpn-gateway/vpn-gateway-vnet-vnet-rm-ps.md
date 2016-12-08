@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636606f5f5f651c10d174854de8471b5dd060dce
+ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
+ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>Met PowerShell een VNet-naar-VNet-verbinding configureren voor Resource Manager
+# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Met PowerShell een VNet-naar-VNet-verbinding configureren voor Resource Manager
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -33,17 +33,18 @@ Dit artikel helpt u met de stappen voor het maken van een verbinding tussen VNet
 
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Implementatiemodellen en -methoden voor verbindingen tussen VNets
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Implementatiemodellen en -methoden voor verbindingen tussen VNets
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor VNet-naar-VNet-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>VNet-peering
+**VNet-peering**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>Over VNet-naar-VNet-verbindingen
+## <a name="about-vnet-to-vnet-connections"></a>Over VNet-naar-VNet-verbindingen
 Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een Azure VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. De VNets die u verbindt, kunnen zich in verschillende regio's bevinden. Of tot verschillende abonnementen behoren. U kunt zelfs VNet-naar-VNet-communicatie met multi-site-configuraties combineren. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
 
 ![Over verbindingen](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -59,7 +60,7 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
   
   * Binnen dezelfde regio kunt u vanwege isolatie- of beheervereisten toepassingen met meerdere lagen instellen met meerdere virtuele netwerken die met elkaar zijn verbonden.
 
-### <a name="vnettovnet-faq"></a>Veelgestelde vragen over VNet-naar-VNet
+### <a name="vnet-to-vnet-faq"></a>Veelgestelde vragen over VNet-naar-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
@@ -75,7 +76,7 @@ In de stappen in dit artikel worden variabelen gebruikt die aan het begin van el
 ### <a name="before-you-begin"></a>Voordat u begint
 Voordat u begint, moet u de Azure Resource Manager PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets.
 
-### <a name="a-namestep1astep-1-plan-your-ip-address-ranges"></a><a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
+### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
 In de volgende stappen maakt u twee virtuele netwerken en hun bijbehorende gatewaysubnetten en configuraties. Vervolgens maakt u een VPN-verbinding tussen de twee VNets. Het is belangrijk dat u de IP-adresbereiken voor uw netwerkconfiguratie plant. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen.
 
 In de voorbeelden worden de volgende waarden gebruikt:
@@ -113,7 +114,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Verbinding: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
-### <a name="a-namestep2astep-2-create-and-configure-testvnet1"></a><a name="Step2"></a>Stap 2: TestVNet1 maken en configureren
+### <a name="a-namestep2astep-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Stap 2: TestVNet1 maken en configureren
 1. De variabelen declareren
    
     Declareer eerst de variabelen. In dit voorbeeld worden de variabelen gedeclareerd met de waarden voor deze oefening. In de meeste gevallen moet u de waarden vervangen door uw eigen waarden. U kunt deze variabelen echter gebruiken als u de stappen alleen wilt doorlopen om vertrouwd te raken met dit type configuratie. Wijzig de variabelen als dat nodig is en kopieer en plak ze vervolgens in uw PowerShell-console.
@@ -187,7 +188,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-3-create-and-configure-testvnet4"></a>Stap 3: TestVNet4 maken en configureren
+### <a name="step-3---create-and-configure-testvnet4"></a>Stap 3: TestVNet4 maken en configureren
 Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hieronder en vervang de waarden door uw eigen waarden wanneer dat nodig is. Deze stap kan worden uitgevoerd binnen dezelfde PowerShell-sessie omdat deze tot hetzelfde abonnement behoort.
 
 1. De variabelen declareren
@@ -239,7 +240,7 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
         -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-4-connect-the-gateways"></a>Stap 4: De gateways verbinden
+### <a name="step-4---connect-the-gateways"></a>Stap 4: De gateways verbinden
 1. Beide gateways van het virtuele netwerk verkrijgen
    
     Omdat beide gateways in dit voorbeeld tot hetzelfde abonnement behoren, kan deze stap worden uitgevoerd in dezelfde PowerShell-sessie.
@@ -273,7 +274,7 @@ Het verschil is hier dat een deel van de configuratiestappen moet worden uitgevo
 
 De instructies volgen op de eerder beschreven stappen. U moet [Stap 1](#Step1) en [Stap 2](#Step2) uitvoeren om TestVNet1 en de VPN-gateway voor TestVNet1 te maken en te configureren. Nadat u stap 1 en stap 2 hebt voltooid, gaat u verder met stap 5 om TestVNet5 te maken.
 
-### <a name="step-5-verify-the-additional-ip-address-ranges"></a>Stap 5: De extra IP-adresbereiken controleren
+### <a name="step-5---verify-the-additional-ip-address-ranges"></a>Stap 5: De extra IP-adresbereiken controleren
 Het is belangrijk dat u controleert of de IP-adresruimte van het nieuwe virtuele netwerk, TestVNet5, niet overlapt met een van de VNet-bereiken of de gatewaybereiken van het lokale netwerk. 
 
 In dit voorbeeld kunnen de virtuele netwerken tot verschillende organisaties behoren. Voor deze oefening kunt u de volgende waarden voor TestVNet5 gebruiken:
@@ -298,7 +299,7 @@ In dit voorbeeld kunnen de virtuele netwerken tot verschillende organisaties beh
 
 * Verbinding: VNet1toVNet5
 
-### <a name="step-6-create-and-configure-testvnet5"></a>Stap 6: TestVNet5 maken en configureren
+### <a name="step-6---create-and-configure-testvnet5"></a>Stap 6: TestVNet5 maken en configureren
 Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit deel kan worden uitgevoerd door de beheerder in een andere organisatie die eigenaar is van het abonnement.
 
 1. De variabelen declareren
@@ -361,7 +362,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
         New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
         -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-7-connecting-the-gateways"></a>Stap 7: De gateways verbinden
+### <a name="step-7---connecting-the-gateways"></a>Stap 7: De gateways verbinden
 Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is deze stap opgesplitst in twee PowerShell-sessies, aangeduid als [Abonnement 1] en [Abonnement 5].
 
 1. **[Abonnement 1]** De gateway van virtueel netwerk verkrijgen voor Abonnement 1
@@ -426,12 +427,13 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor de stappen.
+
+* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [documentatie over Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 * Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren). 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

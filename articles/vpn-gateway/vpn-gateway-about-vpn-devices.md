@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: 63d31ae31703a8d43bf2ffec2e6ccdc5da3a46a3
 
 
 ---
-# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
-U hebt een VPN-apparaat nodig om een S2S-VPN-verbinding (site-naar-site) te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod. 
+# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
+U hebt een VPN-apparaat nodig om een S2S-VPN-verbinding (site-naar-site) te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod.
 
 > [!NOTE]
 > Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
-> 
-> 
+>
+>
 
 Zie het gedeelte [Niet-gevalideerde VPN-apparaten](#additionaldevices) als het apparaat niet voorkomt in de tabel [Gevalideerde VPN-apparaten](#devicetable) van dit artikel. Het is mogelijk dat het apparaat toch werkt met Azure. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
@@ -36,10 +36,10 @@ Zie het gedeelte [Niet-gevalideerde VPN-apparaten](#additionaldevices) als het a
 * Er is een terminologiewijziging voor statische en dynamische routering. Waarschijnlijk komt u beide termen tegen. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
-* De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties. 
+* De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
 
 ## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Gevalideerde VPN-apparaten
-We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren. 
+We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren.
 
 Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
@@ -66,19 +66,19 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Open Systems AG |Mission Control Security Gateway |N.v.t. |[Installatiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Installatiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(binnenkort beschikbaar) |Niet compatibel |
 | Palo Alto Networks |Alle apparaten waarop PAN-OS wordt uitgevoerd |PAN-OS 6.1.5 of hoger (PolicyBased), PAN-OS 7.0.5 of hoger (RouteBased) |[Configuratie-instructies](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuratie-instructies](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |Alle |Fireware XTM v11.x |[Configuratie-instructies](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) |Niet compatibel |
+| Watchguard |Alle |Fireware XTM v11.x |[Configuratie-instructies](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network) |Niet compatibel |
 
 (*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN-verbindingen.
 
-## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
-Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Controleer of uw VPN-apparaat voldoet aan de minimale vereisten die worden beschreven in de sectie Gatewayvereisten van het artikel [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) (Over VPN-gateways). Apparaten die voldoen aan de minimumvereisten zouden ook met VPN-gateways moeten werken. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
+## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
+Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Controleer of uw VPN-apparaat voldoet aan de minimale vereisten die worden beschreven in de sectie Gatewayvereisten van het artikel [Over VPN Gateways](vpn-gateway-about-vpngateways.md). Apparaten die voldoen aan de minimumvereisten zouden ook met VPN-gateways moeten werken. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
 
 ## <a name="editing-device-configuration-samples"></a>Voorbeelden van het bewerken van apparaatconfiguraties
-Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving. 
+Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving.
 
 **U bewerkt een voorbeeld als volgt:**
 
-1. Open het voorbeeld met Kladblok. 
+1. Open het voorbeeld met Kladblok.
 2. Zoek alle <*tekst*>-tekenreeksen en vervang ze door de waarden die betrekking hebben op uw omgeving. Zorg dat u < en > opneemt. Als u een naam opgeeft, moet deze uniek zijn. Als een opdracht niet werkt, raadpleeg dan de documentatie van de fabrikant van uw apparaat.
 
 | **Voorbeeldtekst** | **Wijzig in** |
@@ -98,8 +98,8 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 ## <a name="ipsec-parameters"></a>IPsec-parameters
 > [!NOTE]
 > Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, is er momenteel geen enkele manier waarop u vanuit de Azure VPN-gateway een specifieke combinatie kunt opgeven of selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u MSS vastzetten op 1350.
-> 
-> 
+>
+>
 
 ### <a name="ike-phase-1-setup"></a>Configuratie IKE fase 1
 | **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
@@ -153,7 +153,6 @@ In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verifica
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Een Event Hub maken
 1. Meld u aan bij [Azure Portal][Azure Portal] en klik op **Nieuw** linksboven in het scherm.
-2. Klik op **Gegevens en analyses** en klik vervolgens op **Event Hubs**.
+2. Klik op **Internet van dingen** en vervolgens op **Event Hubs**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. Voer op de blade **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
@@ -34,6 +34,6 @@ Uw Event Hub is nu gemaakt en u hebt de verbindingsreeksen die u nodig hebt om g
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

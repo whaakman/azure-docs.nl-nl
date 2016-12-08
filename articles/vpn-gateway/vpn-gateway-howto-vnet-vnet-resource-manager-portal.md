@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7dbfcbc27d7a071027055bc52d96e423c37abd2d
+ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
+ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
 
 
 ---
-# <a name="configure-a-vnettovnet-connection-using-the-azure-portal"></a>Een verbinding tussen VNets configureren met behulp van Azure Portal
+# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Een verbinding tussen VNets configureren met behulp van Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -35,17 +35,18 @@ Wanneer u Azure Portal gebruikt om virtuele netwerken te verbinden, moeten de VN
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Implementatiemodellen en -methoden voor verbindingen tussen VNets
+### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Implementatiemodellen en -methoden voor verbindingen tussen VNets
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor VNet-naar-VNet-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>VNet-peering
+**VNet-peering**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
-## <a name="about-vnettovnet-connections"></a>Over VNet-naar-VNet-verbindingen
+## <a name="about-vnet-to-vnet-connections"></a>Over VNet-naar-VNet-verbindingen
 Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een Azure VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. De VNets die u verbindt, kunnen zich bevinden in verschillende regio's of tot verschillende abonnementen behoren.
 
 U kunt zelfs VNet-naar-VNet-communicatie met multi-site-configuraties combineren. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
@@ -122,6 +123,7 @@ Als u al beschikt over een VNet, controleert u of de instellingen compatibel zij
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Extra adresruimte toevoegen en subnetten maken
 Wanneer het VNet is gemaakt, kunt u er extra adresruimte en subnetten aan toevoegen.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Een gatewaysubnet maken
@@ -187,17 +189,16 @@ U kunt afzonderlijk op elke verbinding dubbelklikken voor meer informatie over d
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnettovnet-faq"></a><a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 Bekijk de Veelgestelde vragen voor meer informatie over VNet-naar-VNet-verbindingen.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Een virtuele machine maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor de stappen.
+Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [documentatie over Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

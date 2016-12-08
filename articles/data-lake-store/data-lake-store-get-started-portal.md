@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Lees hoe u met Azure Portal een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie [Overzicht van Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
@@ -58,8 +59,8 @@ Bekijk dan de volgende video's om aan de slag te gaan met Data Lake Store.
    * **Locatie**: selecteer een locatie waar u het Data Lake Store-account wilt maken.
    * **Versleutelingsinstellingen**. U kunt kiezen of u uw Data Lake Store-account wilt versleutelen. Als u wilt versleutelen, kunt u ook opgeven hoe u de hoofdversleutelingssleutel wilt beheren die u voor het versleutelen van de gegevens in uw account wilt gebruiken.
      
-     * (Standaard) Selecteer **Versleuteling niet inschakelen** in de vervolgkeuzelijst als u versleuteling wilt uitschakelen.
-     * (Optioneel) Selecteer **Sleutels gebruiken die worden beheerd door Azure Data Lake** als u uw versleutelingssleutels wilt beheren met Azure Data Lake Store.
+     * (Optioneel) Selecteer **Versleuteling niet inschakelen** in de vervolgkeuzelijst als u versleuteling wilt uitschakelen.
+     * (Standaard) Selecteer **Sleutels gebruiken die worden beheerd door Azure Data Lake** als u uw versleutelingssleutels wilt beheren met Azure Data Lake Store.
        
          ![Data Lake Store-versleuteling](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Optioneel) Selecteer **Sleutels kiezen uit Azure Key Vault** als u uw eigen sleutels wilt gebruiken die u in uw Azure Key Vault hebt opgeslagen. Met deze optie kunt u ook een Key Vault-account en sleutels maken als u er nog geen hebt.
@@ -136,6 +137,6 @@ Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lak
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
