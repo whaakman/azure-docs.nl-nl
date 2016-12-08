@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ In uw eerste proefproject neemt u enkele personen op die gegevens produceren en 
 
 Een van de bedrijfsproblemen die **Azure Data Catalog** oplost, is het verbinden van **gegevensproducenten** met **gegevensgebruikers**. Data Catalog doet dit door te fungeren als een centrale opslagplaats voor informatie over zakelijke gegevensbronnen. Met behulp van Data Catalog registreert David gegevensbronnen van Adventure Works en SQL Server. Via crowdsourcing kan elke gebruiker die deze gegevensbron detecteert haar mening over de gegevens delen. Ook kan ze gebruikmaken van de gegevens die ze heeft gedetecteerd. Bijvoorbeeld, Nancy detecteert de gegevensbronnen door in de catalogus te zoeken en deelt haar gespecialiseerde kennis over de gegevens.  Anderen in de organisatie profiteren nu van de gedeelde kennis door gewoon in de catalogus met gegevens te zoeken.
 
-* Zie voor meer informatie over het registreren van gegevensbronnen [Gegevensbronnen registreren](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Zie voor meer informatie over het detecteren van gegevensbronnen [Gegevensbronnen zoeken](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Zie voor meer informatie over het registreren van gegevensbronnen [Gegevensbronnen registreren](data-catalog-get-started.md).
+* Zie voor meer informatie over het detecteren van gegevensbronnen [Gegevensbronnen zoeken](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Klein en gericht beginnen
 Voor de meeste zakelijke proefprojecten moet u de catalogus vullen met waardevolle gegevensbronnen, zodat zakelijke gebruikers snel de waarde van Data Catalog kunnen zien. IT is een goede plaats om te beginnen met het identificeren van algemene gegevensbronnen die van belang zijn voor uw proefteam. Voor ondersteunde gegevensbronnen, zoals SQL Server, wordt u aangeraden het hulpprogramma voor registratie van gegevensbronnen van **Azure Data Catalog** te gebruiken. Met het hulpprogramma voor registratie van gegevensbronnen kunt u een breed scala aan gegevensbronnen registreren, met inbegrip van SQL Server- en Oracle-databases en rapporten van SQL Server Reporting Services. Zie voor een volledige lijst met huidige gegevensbronnen [Ondersteunde gegevensbronnen voor Azure Data Catalog](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Als onderdeel van het proefproject maakt Nancy’s team ook gebruik van gegevens
 
 > [!NOTE]
 > We hebben een voorbeeldprogramma geschreven dat gebruik maakt van de API van **Azure Data Catalog** API om een Excel-werkmap te migreren naar Data Catalog. Voor meer informatie over de API van Data Catalog en het voorbeeldprogramma, kunt u [De voorbeeldcode van de Ad Hoc-werkmap downloaden](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) en de documentatie van de [REST API van Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx) lezen.
-> 
-> 
+>
+>
 
 Nadat het proefproject is ingevoerd, is het tijd om uw overstapplan voor Data Catalog uit te voeren.
 
@@ -142,9 +142,9 @@ Hier volgen enkele tips om aan de slag te gaan:
 Voordat uw team aan de slag gaat met Data Catalog, plant u een vergadering ter introductie om verwachtingen voor het proefproject te bespreken en een eerste training te geven.
 
 ### <a name="set-expectations"></a>Verwachtingen bijstellen
-Het bijstellen van uitzonderingen en doelstellingen helpt zakelijke gebruikers om zich te concentreren op specifieke resultaten. Om het project op schema te houden, geeft u regelmatig (mogelijk dagelijks of wekelijks op basis van het bereik en de duur van het project) huiswerkopdrachten op. Een van de belangrijkste mogelijkheden van Data Catalog is crowdsourcing van gegevensassets, zodat zakelijke gebruikers van de kennis van bedrijfsgegevens kunnen profiteren. Een goede huiswerkopdracht is om elk lid van het proefteam ten minste één gegevensbron die hij of zij heeft gebruikt te laten registreren of aantekenen. Zie [Een gegevensbron registreren](data-catalog-get-started.md#exercise-2-registering-data-sources) en [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Het bijstellen van uitzonderingen en doelstellingen helpt zakelijke gebruikers om zich te concentreren op specifieke resultaten. Om het project op schema te houden, geeft u regelmatig (mogelijk dagelijks of wekelijks op basis van het bereik en de duur van het project) huiswerkopdrachten op. Een van de belangrijkste mogelijkheden van Data Catalog is crowdsourcing van gegevensassets, zodat zakelijke gebruikers van de kennis van bedrijfsgegevens kunnen profiteren. Een goede huiswerkopdracht is om elk lid van het proefteam ten minste één gegevensbron die hij of zij heeft gebruikt te laten registreren of aantekenen. Zie [Een gegevensbron registreren](data-catalog-get-started.md) en [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md).
 
-Vergader regelmatig met het team om enkele aantekeningen te beoordelen. Goede aantekeningen over gegevensbronnen zijn het meest belangrijk voor een geslaagde overstap op Data Catalog, omdat ze betekenisvolle inzichten voor gegevensbronnen leveren op een centrale locatie. Kennis over gegevensbronnen blijft zonder goede aantekeningen verspreid over de hele onderneming. Zie [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Vergader regelmatig met het team om enkele aantekeningen te beoordelen. Goede aantekeningen over gegevensbronnen zijn het meest belangrijk voor een geslaagde overstap op Data Catalog, omdat ze betekenisvolle inzichten voor gegevensbronnen leveren op een centrale locatie. Kennis over gegevensbronnen blijft zonder goede aantekeningen verspreid over de hele onderneming. Zie [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md).
 
 En de ultieme test van het project is natuurlijk of gebruikers de gegevensbronnen die ze nodig hebben kunnen detecteren en inzicht in de bronnen kunnen krijgen. Proefgebruikers moeten de catalogus regelmatig testen om ervoor te zorgen dat de gegevensbronnen die ze voor hun dagelijkse werk gebruiken relevant zijn. Wanneer een vereiste gegevensbron ontbreekt of geen juiste aantekeningen heeft, moet dit fungeren als een herinnering om extra gegevensbronnen te registreren of aanvullende aantekeningen in te voeren. Met deze procedure voegt u niet alleen waarde toe aan het proefproject, maar bouwt u ook effectieve gewoontes op die andere teams overnemen nadat het proefproject is voltooid.
 
@@ -162,11 +162,10 @@ In dit artikel is beschreven hoe u aan de slag kunt met **Azure Data Catalog** i
 * [Productpagina Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Documentatie Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Algemene scenario’s Azure Data Catalog](data-catalog-common-scenarios.md)
-* [Gegevensbronnen registreren](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Gegevensbronnen zoeken](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Crowdsourcing van metagegevens](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Gegevensbronnen registreren](data-catalog-get-started.md)
+* [Gegevensbronnen zoeken](data-catalog-get-started.md)
+* [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md)
+* [Crowdsourcing van metagegevens](data-catalog-get-started.md)
 
 
 

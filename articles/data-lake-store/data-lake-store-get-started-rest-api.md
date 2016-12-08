@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 In dit artikel leest u hoe u WebHDFS REST-API's en Data Lake Store REST-API's gebruikt voor accountbeheer en om bestandssysteembewerkingen uit te voeren in Azure Data Lake Store. Azure Data Lake Store beschikt over eigen REST-API's voor accountbeheerbewerkingen. Omdat Data Lake Store echter compatibel is met het HDFS- en Hadoop-ecosysteem, wordt ook het gebruik van WebHDFS REST-API's voor bestandssysteembewerkingen ondersteund.
@@ -47,7 +48,7 @@ In dit artikel leest u hoe u WebHDFS REST-API's en Data Lake Store REST-API's ge
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
+### <a name="end-user-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
 In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden en worden alle bewerkingen uitgevoerd in de context van de gebruiker. Voer de volgende stappen uit voor interactieve verificatie.
 
 1. Leid de gebruiker via de toepassing om naar de volgende URL:
@@ -88,7 +89,7 @@ In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden 
 
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Service-naar-serviceverificatie (niet interactief)
+### <a name="service-to-service-authentication-non-interactive"></a>Service-naar-serviceverificatie (niet interactief)
 In dit scenario verstrekt de toepassing zijn eigen referenties om bewerkingen uit te voeren. Daarvoor moet u een POST-aanvraag uitgeven, zoals in het voorbeeld hieronder. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

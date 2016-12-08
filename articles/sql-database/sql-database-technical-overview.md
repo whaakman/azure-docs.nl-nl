@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23d68a523fa9a79d2b5154eef04a5f6e706bdeb2
+ms.sourcegitcommit: 1c603d37735bbbfdfaaf4a191e2ad1ce6ff5b2b7
+ms.openlocfilehash: 67f3e923680a9a2f399c0839d2ec11ef4615da00
 
 
 ---
@@ -37,12 +38,12 @@ Voor veel bedrijven en apps is het kunnen maken van databases en het naar wens o
 
 [Elastische groepen](sql-database-elastic-pool.md) in SQL Database vormen de oplossing voor dit probleem. Het concept is eenvoudig. U wijst prestaties aan een groep toe en betaalt voor de collectieve prestaties van de groep in plaats van voor de prestaties van één database. U hoeft de prestaties van de database niet omhoog of omlaag te schalen. De databases in de pool, de *elastische databases*, worden automatisch omhoog of omlaag geschaald om aan de vraag te voldoen. Elastische databases tellen mee voor het verbruik tot het maximum voor de pool is bereikt. Zo blijven uw kosten voorspelbaar, ook al is uw databasegebruik dat niet. Bovendien kunt u [databases aan de groep toevoegen of eruit verwijderen](sql-database-elastic-pool-manage-portal.md). Zo kan uw app kan worden opgeschaald van een handjevol databases naar duizenden databases, allemaal binnen het budget dat u zelf bepaalt. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 
-Welke oplossing u ook kiest, individuele of elastische databases, u kunt altijd nog switchen. U kunt individuele databases combineren met pools voor elastische databases, en de servicelagen van individuele databases en pools wijzigen om innovatieve ontwerpen te maken. Bovendien kunt u, dankzij de kracht en het bereik van Azure, Azure-services combineren en integreren met SQL Database om te voldoen aan de behoeften voor uw unieke moderne app-ontwerp, kosten besparen en resources efficiënt beheren, en nieuwe zakelijke verkoopkansen creëren.
+Welke oplossing u ook kiest, individuele of elastische databases, u kunt altijd nog switchen. U kunt individuele databases combineren met pools voor Elastic Databases, en de servicelagen van individuele databases en pools snel en eenvoudig aanpassen aan de situatie. Bovendien kunt u, dankzij de kracht en het bereik van Azure, andere Azure-services combineren en integreren met SQL Database om te voldoen aan de behoeften voor uw unieke app-ontwerp, kosten te besparen en resources efficiënt te beheren. Daarnaast kunt u nieuwe zakelijke verkoopkansen creëren.
 
-Maar hoe kunt u de relatieve prestaties van databases en databasegroepen vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? Het antwoord is de DTU (Database Transaction Unit, databasetransactie-eenheid) voor individuele databases en de elastische DTU (eDTU) voor elastische databases en databasepools. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
+Maar hoe kunt u de relatieve prestaties van databases en databasegroepen vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? Het geheim zit in de ingebouwde prestatiecontrole- en meldingsprogramma's en de prestatiebeoordelingen op basis van Database Transaction Units (DTU's) voor individuele databases, en elastische DTU's (eDTU's) voor Elastic Databases en databasepools. Hiermee kunt u snel de gevolgen van omhoog of omlaag schalen beoordelen op basis van uw huidige prestaties of de prestaties van een project. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
 
 ## <a name="keep-your-app-and-business-running"></a>Continuïteit van uw app en uw bedrijf
-De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Met elke SQL-database profiteert u van ingebouwde functionaliteit voor fouttolerantie en gegevensbeveiliging die u anders zelf zou moeten ontwerpen, kopen, implementeren en beheren. Afhankelijk van de eisen van uw bedrijf kunt u daarnaast aanvullende beveiligingslagen aanvragen, zodat uw app en uw bedrijfsvoering snel weer kunnen worden hersteld na een noodgeval, fout of iets anders. Elke servicelaag van SQL Database heeft zo zijn eigen set met functies voor het aanleggen en permanent in de lucht houden van uw database. Met behulp van herstelpunten kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. Als er een storing optreedt in het datacenter dat als host fungeert voor uw databases, kunt u bovendien een failover naar databasereplica's in een andere regio uitvoeren. U kunt replica's ook gebruiken voor upgrades of verplaatsingen naar verschillende regio's.
+De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Elke SQL-database is voorzien van ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging die u anders zelf zou moeten kopen of ontwerpen, ontwikkelen en beheren. Toch kan het zijn dat u, afhankelijk van de eisen van uw bedrijf, aanvullende beveiligingslagen nodig hebt, zodat uw app en uw bedrijfsvoering snel kunnen worden hersteld na een noodgeval, fout of andere storing. Elke servicelaag van SQL Database bevat een uitgebreide set functies en opties voor bedrijfscontinuïteit, waarmee u ervoor kunt zorgen dat u aan de slag kunt gaan en blijven. Met behulp van herstelpunten kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. Als er een storing optreedt in het datacenter dat uw databases host, kunt u bovendien databases herstellen met geografisch redundante back-upkopieën, of een failover naar databasereplica's in een andere regio uitvoeren. U kunt ook replica's gebruiken voor upgrades of verplaatsingen naar andere regio's.
 
 ![Geo-replicatie in SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,11 +60,9 @@ Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, ben
 * Ga aan de slag met het [maken van uw eerste database](sql-database-get-started.md).
 * [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
 * Bouw uw eerste app in C#, Java, Node.js, PHP, Python of Ruby: [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
-* Zie een index van de titels en beschrijvingen van [alle onderwerpen voor Azure SQL Database-service](sql-database-index-all-articles.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

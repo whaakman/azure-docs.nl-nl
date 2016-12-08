@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Zie [Grootten voor virtuele machines in Azure](virtual-machines-windows-sizes.md) voor een lijst met beschikbare grootten voor een virtuele machine.
+    Zie [Grootten voor virtuele machines in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor een lijst met beschikbare grootten voor een virtuele machine.
 3. Configureer de besturingssysteeminstellingen voor de virtuele Machine. Met deze opdracht worden de computernaam, het besturingssysteemtype en de accountreferenties ingesteld voor de virtuele machine.
    
     ```powershell
@@ -128,13 +128,13 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Zie [Navigeren door en selecteren van installatiekopieën voor virtuele Windows-machines in Azure met PowerShell of de CLI](virtual-machines-windows-cli-ps-findimage.md) voor meer informatie over het selecteren van de te gebruiken installatiekopieën.
+    Zie [Navigeren door en selecteren van installatiekopieën voor virtuele Windows-machines in Azure met PowerShell of de CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over het selecteren van de te gebruiken installatiekopieën.
 5. Voeg de netwerkinterface die u hebt gemaakt, toe aan de configuratie.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Definieer de naam en de locatie van de vaste schijf van de virtuele machine. Het virtuele-vaste-schijfbestand wordt in een container opgeslagen. Met deze opdracht wordt de schijf in een container met de naam **vhds/WindowsVMosDisk.vhd** gemaakt, in het door u gemaakte opslagaccount.
+6. Definieer de naam en de locatie van de vaste schijf van de virtuele machine. Het virtuele-vaste-schijfbestand wordt in een container opgeslagen. Met deze opdracht wordt de schijf in een container met de naam **vhds/myOsDisk1.vhd** gemaakt, in het door u gemaakte opslagaccount.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 7. Voeg informatie over het besturingssysteem van de schijf toe aan de configuratie van de virtuele machine. Vervang de waarde van **$diskName** door de gewenste naam voor de besturingssysteemschijf. Maak de variabele en voeg informatie over de schijf toe aan de configuratie.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Maak ten slotte de virtuele machine.
    
@@ -153,12 +153,12 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in Azure Portal oplossen](../resource-manager-troubleshoot-deployments-portal.md).
-* Informatie over het beheren van de virtuele machine die u hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md).
-* Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md).
+* Informatie over het beheren van de virtuele machine die u hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

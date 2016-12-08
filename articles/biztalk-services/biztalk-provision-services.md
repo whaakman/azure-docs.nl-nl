@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
-Azure BizTalk Services maken in de Azure Portal
 
 > [!TIP]
 > Als u zich wilt aanmelden bij de Azure Portal, moet u een Azure-account en een Azure-abonnement hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ Als u klaar bent, wordt de Azure BizTalk Service gemaakt. Deze kunt u nu gebruik
 
 Afhankelijk van de status van de BizTalk Service zijn er bepaalde bewerkingen die niet kunnen worden voltooid. Ga naar de [statusgrafiek van BizTalk Services](biztalk-service-state-chart.md) voor een lijst van deze bewerkingen.
 
-## <a name="postprovisioning-steps"></a>Stappen na de inrichting
+## <a name="post-provisioning-steps"></a>Stappen na de inrichting
 * [Het certificaat installeren op een lokale computer](#InstallCert)
 * [Een certificaat dat gereed is voor productie toevoegen](#AddCert)
 * [De Access Control-naamruimte ophalen](#ACS)
@@ -131,7 +130,7 @@ Bij het inrichten van de BizTalk Service wordt er een zelfondertekend certificaa
    ![SSL-certificaat wijzigen][QuickGlance]
 5. Dubbelklik op het certificaat en doorloop de wizard om het certificaat te installeren. Zorg ervoor dat u het certificaat installeert in het archief van de **vertrouwde basiscertificeringsinstanties**.
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
 Het zelfondertekende certificaat wordt automatisch gemaakt wanneer BizTalk Services wordt gemaakt. Het is alleen bedoeld voor gebruik in ontwikkelomgevingen. Vervang het in productiescenario's door een certificaat dat gereed is voor productie.
 
 1. Selecteer op het tabblad **Dashboard** de optie **SSL-certificaat bijwerken**.
@@ -275,6 +274,6 @@ Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

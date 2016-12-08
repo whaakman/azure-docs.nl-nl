@@ -17,7 +17,7 @@ U hebt een [Azure Storage-account][Azure Storage-account] nodig om EventProcesso
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
 De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven-pakket], en hiernaar kan worden verwezen met de volgende afhankelijkheidsverklaring binnen het Maven-projectbestand:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 
 1. Maak voor het volgende voorbeeld eerst een nieuw Maven-project voor een console/shell-toepassing in uw favoriete Java-ontwikkelomgeving. De klasse wordt ```ErrorNotificationHandler``` genoemd.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
     ```
 4. Vervang de volgende velden door de waarden die werden gebruikt toen u het Event Hub- en Storage-account maakte.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -195,6 +195,6 @@ Voor verschillende soorten build-omgevingen, kunt u uitdrukkelijk de meest recen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

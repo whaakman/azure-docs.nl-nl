@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5557dbef45d8599010a909635eebf399a5bcd2c8
 
 
 ---
@@ -71,7 +71,7 @@ Het toegangsbeheer van de beheerlaag en het toegangsbeheer van de gegevenslaag w
 ## <a name="management-plane-access-control"></a>Toegangsbeheer voor de beheerlaag
 De beheerlaag bestaat uit bewerkingen die invloed hebben op de Key Vault zelf. U kunt bijvoorbeeld een Key Vault maken of verwijderen. U kunt een lijst met Vaults krijgen in een abonnement. U kunt eigenschappen van de Key Vault (zoals SKU en tags) ophalen en toegangsbeleid voor de Key Vault instellen waarmee de gebruikers en toepassingen die toegang hebben tot sleutels en geheimen in de Key Vault, worden beheerd. Het toegangsbeheer voor de beheerlaag gebruikt RBAC. Zie de volledige lijst met bewerkingen die in Key Vault kunnen worden uitgevoerd via de beheerlaag, in de tabel in de voorgaande sectie. 
 
-### <a name="rolebased-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
+### <a name="role-based-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
 Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en toepassingen in deze directory kunnen worden gemachtigd om resources te beheren in het Azure-abonnement dat gebruikmaakt van het Azure Resource Manager-implementatiemodel. Dit type toegangsbeheer wordt toegangsbeheer op basis van rollen (RBAC) genoemd. Voor het beheren van deze toegang kunt u [Azure Portal](https://portal.azure.com/), de [Azure CLI-tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) of de [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx) gebruiken.
 
 Met het Azure Resource Manager-model maakt u uw Key Vault in een resourcegroep en beheert u de toegang tot de beheerlaag van deze Key Vault met Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep machtigen om Key Vaults in een bepaalde resourcegroep te beheren.
@@ -210,7 +210,7 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
 * [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)
   
   In dit artikel worden alle beschikbare ingebouwde rollen in RBAC beschreven.
-* [Resource Manager-implementatie en klassieke implementatie begrijpen](../resource-manager-deployment-model.md)
+* [Resource Manager-implementatie en klassieke implementatie begrijpen](../azure-resource-manager/resource-manager-deployment-model.md)
   
   In dit artikel worden het Resource Manager-implementatiemodel en het klassieke implementatiemodel uitgelegd en worden de voordelen van het gebruik van Resource Manager en resourcegroepen beschreven
 * [Toegangsbeheer op basis van rollen beheren met Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Ga naar de [forums van Azure Key Vault](https://social.msdn.microsoft.com/forums
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

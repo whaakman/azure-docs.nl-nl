@@ -28,14 +28,14 @@ Als u [EventProcessorHost][EventProcessorHost] wilt gebruiken, hebt u een [Azure
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 10. Voeg de volgende instructies toe aan het begin van het bestand SimpleEventProcessor.cs:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      using System.Diagnostics;
      ```
     
      Vervang daarna de hoofdtekst van de klasse door de volgende code:
     
-     ```
+     ```csharp
      class SimpleEventProcessor : IEventProcessor
      {
          Stopwatch checkpointStopWatch;
@@ -80,13 +80,13 @@ Als u [EventProcessorHost][EventProcessorHost] wilt gebruiken, hebt u een [Azure
      Deze klasse wordt aangeroepen door de **EventProcessorHost** om gebeurtenissen te verwerken die van de Event Hub worden ontvangen. U ziet dat de klasse `SimpleEventProcessor` een stopwatch gebruikt om regelmatig de controlepuntmethode voor de context **EventProcessorHost** aan te roepen. Op die manier gaat er nooit meer werk verloren dan in vijf minuten kan worden verwerkt, als de ontvanger opnieuw wordt opgestart.
 11. Voeg in de klasse **Program** de volgende `using`-instructie toe aan het begin van het bestand:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
      Vervang daarna de methode `Main` in de klasse `Program` door de volgende code, waarbij u de naam van de Event Hub en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen, en het opslagaccount en de sleutel die u in de vorige secties hebt gekopieerd, vervangt. 
     
-     ```
+     ```csharp
      static void Main(string[] args)
      {
        string eventHubConnectionString = "{Event Hub connection string}";
@@ -121,6 +121,6 @@ Als u [EventProcessorHost][EventProcessorHost] wilt gebruiken, hebt u een [Azure
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

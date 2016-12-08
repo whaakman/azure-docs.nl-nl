@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
+ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
+ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
 
 ---
 #<a name="load-balancer-documentation"></a>Documentatie voor Load Balancer
@@ -86,23 +86,84 @@ Azure Load Balancer zorgt dat uw toepassingen een hoge beschikbaarheid hebben en
 
 ---
 
-##<a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 
-###<a name="powershell"></a>PowerShell
-[Naslaginformatie over Load Balancer PowerShell](/powershell/azureps-cmdlets-doc)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Naslaginformatie over Load Balancer PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="azure-cli"></a>Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+<li>
+        <a href="/cli/azure/network/lb">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure-CLI</h3>
+                        <p>Load Balancer Azure-CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[Naslaginformatie over de .NET-API](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Naslaginformatie over de .NET-API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java
-[Naslaginformatie over de Java-API](/java/api)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Java API-naslaginformatie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Naslaginformatie over de Load Balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)
-
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Naslaginformatie voor REST API voor Load Balancer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
@@ -114,6 +175,6 @@ Documentatie voor Load Balancer downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

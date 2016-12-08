@@ -1,5 +1,5 @@
 ---
-title: Python-web- en -werkrollen voor Visual Studio | Microsoft Docs
+title: Aan de slag met Python en Azure Cloud Services | Microsoft Docs
 description: Overzicht van het gebruik van Python-tools voor Visual Studio voor het maken van Azure Cloud Services, met inbegrip van webrollen en werkrollen.
 services: cloud-services
 documentationcenter: python
@@ -12,15 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
+
 Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -166,7 +167,7 @@ De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol w
 Maak vervolgens de bestanden **PrepPython.ps1** en **PipInstaller.ps1** in de map **./bin** van uw rol.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Dit script installeert Python. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 geïnstalleerd; anders wordt Python 3.5 geïnstalleerd.
+Dit script installeert Python. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 geïnstalleerd; anders wordt Python 3.5 geïnstalleerd.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -212,7 +213,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Met dit script wordt pip aangeroepen en worden alle afhankelijkheden in het bestand **requirements.txt** geïnstalleerd. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
+Met dit script wordt pip aangeroepen en worden alle afhankelijkheden in het bestand **requirements.txt** geïnstalleerd. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -247,7 +248,7 @@ if (-not $is_emulated){
 
 Het bestand **bin\LaunchWorker.ps1** is oorspronkelijk gemaakt om heel wat voorbereidende taken te verrichten, maar werkt niet echt. Vervang de inhoud van dat bestand door het volgende script.
 
-Met dit script wordt het bestand **worker.py** van uw Python-project aangeroepen. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on** (aan), wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
+Met dit script wordt het bestand **worker.py** van uw Python-project aangeroepen. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -365,6 +366,6 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

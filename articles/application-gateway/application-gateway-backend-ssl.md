@@ -15,13 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9642ea16bff4b0cd4bf3e88d7530765d4c7bfbc5
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: f5f3e76711a93b9b8b0fadd08b051758a7c71619
 
 
 ---
 # <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>SSL-beleid en end-to-end SSL inschakelen in Application Gateway
+
 ## <a name="overview"></a>Overzicht
+
 Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Dit ontlast de webservers van de kostbare overhead voor de versleuteling/ontsleuteling. Voor sommige gebruikers is onversleutelde communicatie met de back-endserververs echter onacceptabel. Dit kan zijn vanwege de beveiligings- of nalevingsvereisten, of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway nu end-to-end SSL-versleuteling.
 
 Met end-to-end SSL kunt u veilig gevoelige gegevens versleuteld verzenden naar de back-endserver, terwijl u gebruik blijft maken van de voordelen van de Layer 7-taakverdelingsfuncties die Application Gateway te bieden heeft, zoals affiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites of de mogelijkheid om X-Forwarded-*-headers in te voegen.
@@ -33,16 +35,19 @@ Wanneer Application Gateway is geconfigureerd met de communicatiemodus voor end-
 In dit voorbeeld worden-aanvragen via TLS1.2 doorgestuurd naar de back-endservers in Pool1 met behulp van end-to-end SSL.
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>End-to-end SSL en het opnemen van certificaten in een lijst van toegestane certificaten
+
 Application Gateway communiceert alleen met bekende back-endexemplaren waarvan het certificaat is opgenomen in een lijst van toegestane certificaten voor de Application Gateway. Als u het opnemen van certificaten in een lijst van toegestane certificaten wilt inschakelen, moet u de openbare sleutel van de back-endservercertificaten uploaden naar de Application Gateway (niet het basiscertificaat). Alleen verbindingen met bekende en goedgekeurde back-ends zijn vervolgens toegestaan. De resterende back-ends hebben een gatewayfout als resultaat. Zelfondertekende certificaten zijn uitsluitend bedoeld voor testdoeleinden en het wordt afgeraden om deze in een productieomgeving te gebruiken. Dergelijke certificaten moeten ook zijn opgenomen in een lijst van toegestane certificaten voor de Application Gateway zoals in de bovenstaande stappen wordt beschreven. Wanneer dit het geval is, kunnen ze worden gebruikt.
 
 ## <a name="application-gateway-ssl-policy"></a>SSL-beleid in Application Gateway
+
 Application Gateway ondersteunt SSL-onderhandelingsbeleidsregels die door de gebruiker kunnen worden geconfigureerd. Op die manier hebben klanten meer controle over SSL-verbindingen op de Application Gateway.
 
 1. SSL 2.0 en 3.0 worden geforceerd uitgeschakeld voor alle Application Gateways. Ze kunnen op geen enkele wijze worden geconfigureerd.
-2. Bij het definiëren van het SSL-beleid kunt u een van de volgende drie protocollen uitschakelen: TLSv1\_0, TLSv1\_1, TLSv1\_2.
+2. Bij het definiëren van het SSL-beleid kunt u een van de volgende drie protocollen uitschakelen: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. Als er geen SSL-beleid is gedefinieerd, worden alle drie protocollen (TLSv1\_0, TLSv1\_1, TLSv1_2) ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nadat u meer te weten bent gekomen over end-to-end SSL en SSL-beleid, gaat u naar [Enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) (End-to-end SSL inschakelen in Application Gateway) om een toepassingsgateway te maken waarbij het verkeer versleuteld naar back-ends kan worden verzonden.
 
 <!--Image references-->
@@ -51,6 +56,6 @@ Nadat u meer te weten bent gekomen over end-to-end SSL en SSL-beleid, gaat u naa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -17,12 +17,52 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
+ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Verbinding maken met een Azure Container Service-cluster
+De DC/OS-, Kubernetes- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service, maken allemaal REST-eindpunten beschikbaar.  Bij Kubernetes wordt het eindpunt veilig beschikbaar gesteld op internet. U kunt het rechtstreeks openen op elke machine met een internetverbinding. Bij DC/OS en Docker Swarm moet u een SSH-tunnel maken om veilig verbinding te maken met het REST-eindpunt. Deze verbindingen worden hieronder beschreven.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
+U moet het opdrachtregelprogramma `kubectl` installeren voordat u verbinding maakt met een Kubernetes-cluster.  De eenvoudigste manier om dit programma te installeren, is met het opdrachtregelprogramma Azure 2.0 `az`.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+U kunt de client ook rechtstreeks downloaden vanaf de [releasepagina](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+
+Nadat `kubectl` is geïnstalleerd, kopieert u de clusterreferenties naar uw machine.  De eenvoudigste manier om dit te doen, is door opnieuw het opdrachtregelprogramma `az` te gebruiken:
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+Hiermee worden de clusterreferenties gedownload in `$HOME/.kube/config`, waar `kubectl` verwacht dat ze staan.
+
+U kunt ook `scp` gebruiken om het bestand veilig te kopiëren van `$HOME/.kube/config` op de hoofd-VM naar uw lokale machine.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+Als u Windows gebruikt, moet u Bash met Ubuntu gebruiken of het Putty-programma 'pscp'.
+
+Nadat `kubectl` is geconfigureerd, kunt u dit testen met:
+
+```console
+kubectl get nodes
+```
+
+waarmee u de knooppunten in uw cluster zou moeten zien.
+
+Zie [Snel starten voor Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/) voor meer instructies.
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Verbinding maken met een DC/OS- of Swarm-cluster
+
 DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar Voor het beheren van deze eindpunten moet u een SSH-tunnel (Secure Shell) maken. Nadat een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In dit document vindt u instructies voor het maken van een SSH-tunnel in Linux, OS X en Windows.
 
 > [!NOTE]
@@ -126,6 +166,6 @@ Containers implementeren en beheren met DC/OS of Swarm:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

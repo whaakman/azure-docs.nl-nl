@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 11/17/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 088d3d55a437165607e73ac2d6a3abe27e9b2639
+ms.openlocfilehash: 755fafcbc01e1da89d7ef3fa99b92da60c95bf8c
 
 
 ---
@@ -65,7 +65,7 @@ Bij het uitvoeren van Batch- en HPC-toepassingen wordt vaak gebruikgemaakt van *
 * **Clusterbeheer** - Staat in voor het inrichten, vrijgeven en beheren van rekenresources (of rekenknooppunten). Clusterbeheer kan de installatie van installatiekopieën van besturingssystemen en toepassingen in rekenknooppunten automatiseren, rekenresources geschaald uitbreiden op basis van behoeften, evenals de prestaties van de knooppunten controleren.
 * **Taakplanner**: geeft aan welke resources (zoals processoren of geheugen) voor een toepassing zijn vereist, evenals de voorwaarden waaronder deze wordt uitgevoerd. Een jobplanner houdt een wachtrij van taken bij en wijst er resources aan toe op basis van een toegewezen prioriteit of andere kenmerken.
 
-Hulpprogramma's voor clustering en jobplanning voor Windows- en Linux-clusters kunnen uitstekend naar Azure migreren. Zo biedt bijvoorbeeld [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), de gratis rekenclusteroplossing van Microsoft voor HPC-workloads in Windows en Linux, verschillende opties voor het uitvoeren in Azure. U kunt ook Linux-clusters bouwen om opensourcehulpprogramma's zoals Torsie en SLURM uit te voeren. U kunt ook commerciële rasteroplossingen overbrengen naar Azure, zoals [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) en [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+Hulpprogramma's voor clustering en jobplanning voor Windows- en Linux-clusters kunnen uitstekend naar Azure migreren. Zo biedt bijvoorbeeld [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), de gratis rekenclusteroplossing van Microsoft voor HPC-workloads in Windows en Linux, verschillende opties voor het uitvoeren in Azure. U kunt ook Linux-clusters bouwen om opensourcehulpprogramma's zoals Torsie en SLURM uit te voeren. U kunt ook commerciële rasteroplossingen overbrengen naar Azure, zoals [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony en Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) en [Univa Grid Engine](http://www.univa.com/products/grid-engine).
 
 Zoals in de volgende secties is aangegeven, kunt u ook van Azure-services profiteren om rekenresources te beheren en jobs te plannen zonder (of als aanvulling op) traditionele hulpprogramma's voor clusterbeheer.
 
@@ -87,10 +87,10 @@ Hier vindt u meer informatie over de compute-, gegevens- en netwerkservices en v
 > 
 
 ### <a name="compute-services"></a>Compute services
-Compute Services van Azure vormen de kern van een Big Compute-oplossing en de andere Compute Services bieden voordelen voor andere scenario's. Op basisniveau bieden deze services verschillende modi voor toepassingen om op VM-rekeninstanties te worden uitgevoerd die Azure verstrekt met behulp van Windows Server Hyper-V-technologie. Op deze instanties kunnen standaard en aangepaste Linux- en Windows-besturingssystemen en hulpprogramma's worden uitgevoerd. Azure biedt u een keuze uit [instantiegrootten](../virtual-machines/virtual-machines-windows-sizes.md) met verschillende configuraties van CPU-kernen, geheugen, schijfcapaciteit en andere kenmerken. Afhankelijk van uw behoeften kunt u de instanties opschalen naar duizenden kernen en daarna omlaag schalen wanneer u minder bronnen nodig hebt.
+Compute Services van Azure vormen de kern van een Big Compute-oplossing en de andere Compute Services bieden voordelen voor andere scenario's. Op basisniveau bieden deze services verschillende modi voor toepassingen om op VM-rekeninstanties te worden uitgevoerd die Azure verstrekt met behulp van Windows Server Hyper-V-technologie. Op deze instanties kunnen standaard en aangepaste Linux- en Windows-besturingssystemen en hulpprogramma's worden uitgevoerd. Azure biedt u een keuze uit [instantiegrootten](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met verschillende configuraties van CPU-kernen, geheugen, schijfcapaciteit en andere kenmerken. Afhankelijk van uw behoeften kunt u de instanties opschalen naar duizenden kernen en daarna omlaag schalen wanneer u minder bronnen nodig hebt.
 
 > [!NOTE]
-> Profiteer van de rekenintensieve Azure-instanties om de prestaties en schaalbaarheid van HPC-workloads te verbeteren, inclusief parallelle MPI-toepassingen waarvoor een toepassingsnetwerk met lage latentie en hoge doorvoersnelheid is vereist. Zie [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) (Over VM's uit de H-serie en rekenintensieve A-serie).  
+> Gebruik de [rekenintensieve instanties zoals de H-serie](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van Azure om de prestaties en schaalbaarheid van HPC-workloads te verbeteren. Deze instanties ondersteunen ook parallelle MPI-toepassingen die een toepassingsnetwerk met een lage latentie en hoge doorvoer vereisen. Er zijn ook virtuele machines uit de [N-serie](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) met NVIDIA-GPU's beschikbaar om het aantal reken- en visualisatiescenario's in Azure te vergroten.  
 > 
 > 
 
@@ -116,7 +116,7 @@ Bij sommige Big Compute-scenario's zijn grootschalige gegevensstromen betrokken 
 * [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) - Helpt u bij het maken, testen, gebruiken en beheren van voorspellende analytische oplossingen in een volledig beheerde service.
 
 ### <a name="additional-services"></a>Extra services
-Uw  Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbinding te maken met on-premises resources of resources in andere omgevingen. Voorbeelden zijn:
+Uw Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbinding te maken met on-premises resources of resources in andere omgevingen. Voorbeelden zijn:
 
 * [Virtueel netwerk](https://azure.microsoft.com/documentation/services/virtual-network/): hiermee maakt u een logisch geïsoleerde sectie in Azure om Azure-resources met elkaar of met uw on-premises datacenter te verbinden. Met een virtueel cross-premises netwerk hebben Big Compute-toepassingen toegang tot on-premises gegevens, Active Directory-services en licentieservers
 * [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/): hiermee maakt u een privéverbinding tussen Microsoft-datacenters en -infrastructuren on-premises of in een co-locatieomgeving. ExpressRoute maakt ze veiliger, betrouwbaarder en sneller, en geeft ze lagere latenties en een betere beveiliging dan gewone verbindingen via internet.
@@ -124,7 +124,7 @@ Uw  Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbindi
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Technical Resources for Batch and HPC](big-compute-resources.md) (Technische bronnen voor Batch en HPC) voor technische richtlijnen voor het bouwen van uw oplossing.
-* Bespreek uw Azure-opties met partners, zoals Cycle Computing en UberCloud.
+* Bespreek uw Azure-opties met partners, zoals Cycle Computing, Rescale en UberCloud.
 * Lees meer over Big Compute-oplossingen voor Azure die worden geleverd door [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) en [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 * Bezoek het [teamblog voor Microsoft HPC en Batch](http://blogs.technet.com/b/windowshpc/) en het [Azure-blog](https://azure.microsoft.com/blog/tag/hpc/) voor de meest recente aankondigingen.
 
@@ -137,6 +137,6 @@ Uw  Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbindi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

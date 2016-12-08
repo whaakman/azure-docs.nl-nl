@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure IoT Hub voor Java | Microsoft Docs
-description: Handleiding voor Azure IoT Hub met Java. Gebruik Azure IoT Hub en Java in combinatie met de Microsoft Azure IoT-SDK&quot;s voor het implementeren van een Internet of Things (IoT)-oplossing.
+description: Handleiding voor Azure IoT Hub met Java. Gebruik Azure IoT Hub en Java in combinatie met de Azure IoT-SDK&quot;s voor het implementeren van een Internet of Things (IoT)-oplossing.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2016
+ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7913033d0812d6f6c2ff9a413862cb63c1e5a59e
+ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
+ms.openlocfilehash: ae4727b27281be62a79f9387715eccd6b61e8e12
 
 
 ---
@@ -25,12 +25,12 @@ ms.openlocfilehash: 7913033d0812d6f6c2ff9a413862cb63c1e5a59e
 
 Aan het eind van deze zelfstudie beschikt u over drie Java-consoletoepassingen:
 
-* **create-device-identity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat verbonden kan worden.
-* **read-d2c-messages**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat.
+* **create-device-identity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app verbonden kan worden.
+* **read-d2c-messages**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat-app.
 * **simulated-device**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt, en verzendt iedere seconde een telemetriebericht via het AMQP-protocol.
 
 > [!NOTE]
-> Het artikel [IoT-Hub SDK's][lnk-hub-sdks] bevat informatie over de verschillende SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Het artikel [Azure IoT-SDK's][lnk-hub-sdks] bevat informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide apps zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
 > 
 > 
 
@@ -38,32 +38,32 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Java SE 8. <br/> In het gedeelte [Uw ontwikkelingsomgeving voorbereiden][lnk-dev-setup] staat beschreven hoe u Java voor deze handleiding kunt installeren op Windows of Linux.
 * Maven 3.  <br/> In het gedeelte [Uw ontwikkelingsomgeving voorbereiden][lnk-dev-setup] staat beschreven hoe u Maven voor deze handleiding kunt installeren op Windows of Linux.
-* Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis proefaccount][lnk-free-trial] maken.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Als laatste stap noteert u de waarde van de **primaire sleutel** en klikt u daarna op **Messaging**. Noteer op de blade **Messaging** de **Event Hub-compatibele naam** en het **Event Hub-compatibele eindpunt**. U hebt deze drie waarden nodig wanneer u uw **read-d2c-messages**-toepassing maakt.
+Als laatste stap noteert u de waarde van de **primaire sleutel** en klikt u daarna op **Messaging**. Noteer op de blade **Messaging** de **Event Hub-compatibele naam** en het **Event Hub-compatibele eindpunt**. U hebt deze drie waarden nodig wanneer u uw **read-d2c-messages**-app maakt.
 
 ![Blade IoT Hub-berichten in Azure Portal][6]
 
 U hebt nu uw IoT-hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT-hub, de primaire sleutel van de IoT-hub, de Event Hub-compatibele naam en het Event Hub-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
 
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
-In dit gedeelte gaat u een Java-consoletoepassing maken die een nieuwe apparaat-id kan maken in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het registers met apparaat-id’s. Raadpleeg het gedeelte **Register met apparaat-id’s** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identiteit] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
+In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan maken in het identiteitenregister van uw IoT Hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
-1. Maak een nieuwe lege map genaamd iot-java-get-started. Maak een nieuw Maven-project in de map iot-java-get-started en noem dit **create-device-identity**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een lege map genaamd iot-java-get-started. Maak een Maven-project in de map iot-java-get-started en noem dit **create-device-identity**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Navigeer naar de nieuwe map create-device-identity vanuit het opdrachtvenster.
-3. Open het bestand pom.xml in de map create-device-identity met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Hiermee kunt u het iothub-service-sdk-pakket gebruiken in uw toepassing:
+2. Navigeer vanuit het opdrachtvenster naar de map create-device-identity.
+3. Open het bestand pom.xml in de map create-device-identity met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Met deze afhankelijkheid kunt u het iothub-service-sdk-pakket gebruiken in uw app:
    
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.9</version>
+      <version>1.0.10</version>
     </dependency>
     ```
 4. Sla het bestand pom.xml op en sluit het af.
@@ -109,24 +109,24 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een nieuwe apparaat-
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
 10. Sla het bestand App.java op en sluit het af.
-11. Als u de toepassing **create-device-identity** wilt creëren met behulp van Maven, geef dan de volgende opdracht in het opdrachtvenster in de map create-device-identity:
+11. Als u de app **create-device-identity** wilt maken met behulp van Maven, geef dan de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
     
     ```
     mvn clean package -DskipTests
     ```
-12. Als u de toepassing **create-device-identity** wilt uitvoeren met behulp van Maven, geef dan de volgende opdracht in het opdrachtvenster in de map create-device-identity:
+12. Als u de app **create-device-identity** wilt uitvoeren met behulp van Maven, geef dan de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
     
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-13. Noteer de **apparaat-id** en de **apparaatsleutel**. Deze hebt u later weer nodig wanneer u een toepassing gaat maken die verbinding maakt met IoT Hub als apparaat.
+13. Noteer de **apparaat-id** en de **apparaatsleutel**. U hebt deze waarden later nodig wanneer u een app maakt die verbinding maakt met IoT Hub als apparaat.
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id’s opgeslagen waarmee veilig toegang tot de hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Raadpleeg de [IoT Hub Developer Guide ][lnk-devguide-identiteit] (Ontwikkelaarshandleiding voor IoT Hub) voor meer informatie.
+> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw app andere apparaatspecifieke metagegevens moet opslaan, moet deze een app-specifieke opslagmethode gebruiken. Zie de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
 > 
 > 
 
-## <a name="receive-devicetocloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
+## <a name="receive-device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
 In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub toont een [Event Hub][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. In de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] leest u meer over het verwerken van berichten van Event Hubs. Deze handleiding is van toepassing op de Event Hub-compatibele eindpunten van IoT Hub.
 
 > [!NOTE]
@@ -134,19 +134,19 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
 > 
 > 
 
-1. Maak een nieuw Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **read-d2c-messages**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **read-d2c-messages**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Navigeer naar de nieuwe map read-d2c-messages vanuit het opdrachtvenster.
-3. Open het bestand pom.xml in de map read-d2c-messages met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Hiermee kunt u het eventhubs-client-pakket in uw toepassing gebruiken om berichten te lezen van het eindpunt dat compatibel is met Event Hub:
+2. Navigeer vanuit het opdrachtvenster naar de map read-d2c-messages.
+3. Open het bestand pom.xml in de map read-d2c-messages met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Met deze afhankelijkheid kunt u het eventhubs-client-pakket in uw app gebruiken om berichten te lezen van het eindpunt dat compatibel is met Event Hub:
    
     ```
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.8.2</version> 
+        <version>0.7.8</version> 
     </dependency>
     ```
 4. Sla het bestand pom.xml op en sluit het af.
@@ -171,7 +171,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     ```
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
-8. Voeg de volgende **receiveMessages**-methode toe aan de **App**-klasse. Met deze methode maakt u een **EventHubClient**-exemplaar dat verbinding maakt met het Event Hub-compatibele eindpunt. Vervolgens maakt u asynchroon een **PartitionReceiver**-exemplaar voor het lezen van een Event Hub-partitie. Dit wordt continu uitgevoerd en de berichtgegevens worden afgedrukt totdat de toepassing wordt gesloten.
+8. Voeg de volgende **receiveMessages**-methode toe aan de **App**-klasse. Met deze methode maakt u een **EventHubClient**-exemplaar dat verbinding maakt met het Event Hub-compatibele eindpunt. Vervolgens maakt u asynchroon een **PartitionReceiver**-exemplaar voor het lezen van een Event Hub-partitie. Dit wordt continu uitgevoerd en de berichtgegevens worden afgedrukt totdat de app wordt gesloten.
    
     ```
     private static EventHubClient receiveMessages(final String partitionId)
@@ -230,7 +230,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     ```
    
    > [!NOTE]
-   > Deze methode maakt gebruik van een filter bij het maken van de ontvanger, zodat de ontvanger alleen de berichten leest die naar de IoT Hub zijn verzonden nadat de ontvanger actief is geworden. Dit is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet uw code er echter voor zorgen dat alle berichten worden verwerkt. Zie de zelfstudie [How to process IoT Hub device-to-cloud messages (IoT Hub apparaat-naar-cloud-berichten verwerken)][lnk-process-d2c-tutorial] voor meer informatie.
+   > Deze methode maakt gebruik van een filter bij het maken van de ontvanger, zodat de ontvanger alleen de berichten leest die naar de IoT Hub zijn verzonden nadat de ontvanger actief is geworden. Deze methode is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet uw code er echter voor zorgen dat alle berichten worden verwerkt. Zie de zelfstudie [IoT Hub apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie.
    > 
    > 
 9. Wijzig de handtekening van de **main**-methode om de uitzondering als volgt op te nemen:
@@ -238,7 +238,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     ```
     public static void main( String[] args ) throws IOException
     ```
-10. Voeg de volgende code aan de **belangrijkste** methode in de **App**-klasse. Deze code wordt gemaakt van de twee **EventHubClient** en **PartitionReceiver** exemplaren. U kunt de toepassing sluiten als u klaar bent met het verwerken van berichten:
+10. Voeg de volgende code aan de **belangrijkste** methode in de **App**-klasse. Deze code wordt gemaakt van de twee **EventHubClient**- en **PartitionReceiver**-instanties. U kunt de app sluiten als u klaar bent met het verwerken van berichten:
     
     ```
     EventHubClient client0 = receiveMessages("0");
@@ -262,7 +262,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     > 
     > 
 11. Sla het bestand App.java op en sluit het af.
-12. Als u de toepassing **read-d2c-messages** wilt creëren met behulp van Maven, geef dan de volgende opdracht in het opdrachtvenster in de map read-d2c-messages:
+12. Als u de app **read-d2c-messages** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map read-d2c-messages:
     
     ```
     mvn clean package -DskipTests
@@ -271,19 +271,19 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
 
-1. Maak een nieuw Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **simulated-device**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **simulated-device**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-2. Navigeer naar de nieuwe map simulated-device vanuit het opdrachtvenster.
-3. Open het bestand pom.xml in de map simulated-device met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Hiermee kunt u het iothub-java-clients pakket in uw toepassing gebruiken om te communiceren met uw IoT Hub en om Java-objecten te serialiseren naar JSON:
+2. Navigeer vanuit het opdrachtvenster naar de map simulated-device.
+3. Open het bestand pom.xml in de map simulated-device met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Met deze afhankelijkheid kunt u het iothub-java-client-pakket in uw app gebruiken om te communiceren met uw IoT-hub en om Java-objecten te serialiseren naar JSON:
    
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.0.15</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -309,16 +309,16 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
     import java.util.concurrent.Executors;
     import java.util.concurrent.ExecutorService;
     ```
-7. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang daarbij **{youriothubname}** door de naam van uw IoT-hub en **{yourdevicekey}** door de waarde van de apparaatsleutel die u hebt gegenereerd tijdens het gedeelte *Een apparaat-id maken*:
+7. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang **{youriothubname}** door de naam van uw IoT Hub en **{yourdevicekey}** door de waarde van de apparaatsleutel die u hebt gegenereerd in het gedeelte *Een apparaat-id maken*:
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQP;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Deze voorbeeldtoepassing gebruikt de variabele **protocol** bij het creëren van een **DeviceClient**-object. U kunt het HTTP- of AMQP-protocol gebruiken om te communiceren met de IoT-Hub.
+    Deze voorbeeld-app gebruikt de **protocol**-variabele bij het maken van een **DeviceClient**-object. U kunt het HTTP- of AMQP-protocol gebruiken om te communiceren met de IoT-Hub.
 8. Voeg de volgende geneste **TelemetryDataPoint**-klasse toe binnen de **App**-klasse om de telemetriegegevens op te geven die uw apparaat verzendt naar uw IoT-hub:
    
     ```
@@ -332,7 +332,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
       }
     }
     ```
-9. Voeg de volgende geneste **EventCallback**-klasse toe binnen de **App**-klasse om de bevestigingsstatus weer te geven die wordt geretourneerd door de IoT-hub wanneer deze een bericht verwerkt van het gesimuleerde apparaat. Met deze methode wordt ook een bericht verstuurd aan de hoofdthread in de toepassing wanneer het bericht is verwerkt:
+9. Voeg de volgende geneste **EventCallback**-klasse toe binnen de **App**-klasse om de bevestigingsstatus weer te geven die wordt geretourneerd door de IoT-hub wanneer deze een bericht verwerkt van de gesimuleerde apparaat-app. Met deze methode wordt ook een bericht verstuurd aan de hoofdthread in de app wanneer het bericht is verwerkt:
    
     ```
     private static class EventCallback implements IotHubEventCallback
@@ -405,19 +405,19 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
     }
     ```
 12. Sla het bestand App.java op en sluit het af.
-13. Als u de toepassing **simulated-device** wilt creëren met behulp van Maven, geef dan de volgende opdracht in het opdrachtvenster in de map simulated-device:
+13. Als u de app **simulated-device** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map simulated-device:
     
     ```
     mvn clean package -DskipTests
     ```
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling ][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
 > 
 > 
 
-## <a name="run-the-applications"></a>De toepassingen uitvoeren
-U kunt nu de toepassingen gaan uitvoeren.
+## <a name="run-the-apps"></a>De apps uitvoeren
+U kunt nu de apps uitvoeren.
 
 1. Voer bij een opdrachtprompt in de map read-d2c de volgende opdracht uit om de eerste partitie in uw IoT-hub te kunnen volgen:
    
@@ -425,28 +425,28 @@ U kunt nu de toepassingen gaan uitvoeren.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
-    ![De Java-clienttoepassing voor IoT Hub-services voor het bewaken van berichten die van het apparaat naar de cloud gaan][7]
+    ![De Java-client-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
 2. Voer bij een opdrachtprompt in de map simulated-device de volgende opdracht uit om telemetriegegevens naar uw IoT-hub te verzenden:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
    
-    ![De Java-clienttoepassing voor IoT Hub-apparaten voor het verzenden van berichten van het apparaat naar de cloud][8]
-3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de hub:
+    ![De Java-client-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
+3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
    
     ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens hebt u een apparaat-id gemaakt in het id-register van de hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen om apparaat-naar-cloud-berichten te verzenden naar de hub. Ook hebt een app gemaakt die de berichten weergeeft die worden ontvangen door de hub. 
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub. 
 
 Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
 
-* [Connecting your device (Uw apparaat verbinden)][lnk-connect-device]
-* [Getting started with device management (Aan de slag met apparaatbeheer)][lnk-device-management]
+* [Verbinding maken met uw apparaat][lnk-connect-device]
+* [Aan de slag met apparaatbeheer][lnk-device-management]
 * [Aan de slag met de IoT-gateway-SDK][lnk-gateway-SDK]
 
-Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-berichten verwerken)][lnk-process-d2c-tutorial] voor meer informatie over het uitbreiden van uw IoT-oplossing en het op schaal verwerken van apparaat-naar-cloud-berichten.
+Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
@@ -458,7 +458,7 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identiteit]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
@@ -468,12 +468,12 @@ Raadpleeg de zelfstudie [Process device-to-cloud messages (Apparaat-naar-cloud-b
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

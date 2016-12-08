@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
+ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx) basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
@@ -103,7 +104,7 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
 ## <a name="authentication"></a>Authentication
-### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
+### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
 Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden. Door voor deze aanpak te kiezen, kunt u deze zelfstudie sneller voltooien.
 
     // User login via interactive popup
@@ -117,14 +118,14 @@ Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder 
 Een aantal dingen die u moet weten over het bovenstaande fragment.
 
 * Omdat dit fragment gebruikmaakt van een Azure AD-domein en -client-id die standaard beschikbaar zijn voor alle Azure-abonnementen, kunt u deze zelfstudie sneller voltooien. U kunt **dit fragment dus in zijn huidige vorm in uw toepassing gebruiken**.
-* Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-domein, de client-id en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [Een Active Directory-toepassing maken](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) voor instructies.
+* Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-domein, de client-id en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [Een Active Directory-toepassing maken](data-lake-store-end-user-authenticate-using-active-directory.md) voor instructies.
 
 > [!NOTE]
 > De instructies in de bovenstaande koppelingen zijn voor een Azure AD-webtoepassing. De stappen zijn echter precies hetzelfde, ook als u in plaats daarvan een systeemeigen clienttoepassing maakt. 
 > 
 > 
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
+### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
 U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -136,7 +137,7 @@ U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
+### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
 Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -260,6 +261,6 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

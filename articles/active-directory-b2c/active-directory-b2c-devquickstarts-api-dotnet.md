@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: afc0249def57095e58e4d57230faee01daf7bb52
 
 
 ---
@@ -34,11 +34,11 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door 
 * U een **web-app** of **web-API** in de toepassing opneemt.
 * U de **URI voor omleiden** `https://localhost:44316/` gebruikt voor de web-app. Dit is de standaardlocatie van de web-app-client voor dit codevoorbeeld.
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze later nodig.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door een [beleid](active-directory-b2c-reference-policies.md). De client in dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door een [beleid](active-directory-b2c-reference-policies.md). De client in dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
 
 * Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** op de blade met identiteitsproviders.
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.

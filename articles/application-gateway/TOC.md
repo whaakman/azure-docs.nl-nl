@@ -5,38 +5,39 @@
 ## [URL-routering](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End-to-end-SSL](application-gateway-backend-ssl.md)
-## [Websocket](application-gateway-websocket.md)
-## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [WebSocket](application-gateway-websocket.md)
+## [Servicelimieten](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Aan de slag
 ## Een Application Gateway maken
 ### Openbaar
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (klassiek)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell (klassiek)](application-gateway-create-gateway.md)
 ### Intern
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (klassiek)](application-gateway-ilb.md)
 # Procedures
-## Maken met Web Application Firewall
+## Web Application Firewall configureren
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Configureren voor SSL
+## Configureren voor SSL-offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassiek)](application-gateway-ssl.md)
 ### [Beleid en end-to-end](application-gateway-end-to-end-ssl-powershell.md)
-## Op een URL-pad gebaseerde routering maken
+## Routering op basis van URL-pad configureren
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## Configureren voor het hosten van meerdere sites
+## Hosting van meerdere sites configureren
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Statuscontroles maken
+## Statuscontroles configureren
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klassiek)](application-gateway-create-probe-classic-ps.md)
+## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Beheren
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Problemen oplossen](application-gateway-troubleshooting-502.md)
@@ -54,11 +55,12 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

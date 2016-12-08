@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Een toepassingsgateway maken, openen of verwijderen
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
 ## <a name="before-you-begin"></a>Voordat u begint
+
 1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
 2. Als u een bestaand virtueel netwerk hebt, selecteert u een bestaand leeg subnet of maakt u een nieuw subnet in uw bestaande virtuele netwerk, uitsluitend voor gebruik door de toepassingsgateway. U kunt de toepassingsgateway niet implementeren op een ander virtueel netwerk dan de resources die u wilt implementeren achter de toepassingsgateway, tenzij VNET-peering wordt gebruikt. Zie [VNET-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie
 3. Controleer of u een werkend virtueel netwerk hebt met een geldig subnet. Zorg ervoor dat er geen virtuele machines en cloudimplementaties zijn die gebruikmaken van het subnet. De toepassingsgateway moet afzonderlijk in een subnet van een virtueel netwerk staan.
 4. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
-Als u de opdracht **New-AzureApplicationGateway** gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
+Als u de opdracht `New-AzureApplicationGateway` gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
 
 De waarden zijn:
 
@@ -52,6 +54,7 @@ De waarden zijn:
 * **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
+
 Ga als volgt te werk om een toepassingsgateway te maken:
 
 1. Maak een toepassingsgatewayresource.
@@ -66,7 +69,8 @@ Ga als volgt te werk om een toepassingsgateway te maken:
 ![Voorbeeldscenario][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Een toepassingsgatewayresource maken
-Gebruik de cmdlet **New-AzureApplicationGateway** en vervang de waarden door uw eigen waarden. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
+
+Gebruik de cmdlet `New-AzureApplicationGateway` en vervang de waarden door uw eigen waarden om een gateway te maken. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
 
 In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* en *GatewaySize* zijn optionele parameters.
 
-Gebruik de cmdlet **Get-AzureApplicationGateway** om te controleren of de gateway is gemaakt.
+Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is gemaakt.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -102,12 +106,15 @@ DnsName       :
 *VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd.
 
 ## <a name="configure-the-application-gateway"></a>De toepassingsgateway configureren
+
 U kunt de toepassingsgateway configureren met XML of een configuratieobject.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>De toepassingsgateway configureren met XML
+
 In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
 
 ### <a name="step-1"></a>Stap 1
+
 Kopieer de volgende tekst naar Kladblok.
 
 ```xml
@@ -210,21 +217,24 @@ In het volgende voorbeeld ziet u hoe u de toepassingsgateway instelt met een con
 ```
 
 ### <a name="step-2"></a>Stap 2
-Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet **Set-AzureApplicationGatewayConfig** met een XML-configuratiebestand.
+
+Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet `Set-AzureApplicationGatewayConfig` met een XML-configuratiebestand.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>De toepassingsgateway configureren met een configuratieobject
-In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht **Set-AzureApplicationGateway** om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
+
+In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht `Set-AzureApplicationGateway` om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
 
 > [!NOTE]
-> Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van de afzonderlijke items wordt gedefinieerd welk Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (objectnaam) wordt gebruikt.
+> Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van de afzonderlijke items wordt gedefinieerd welke **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (objectnaam)** er wordt gebruikt.
 > 
 > 
 
 ### <a name="step-1"></a>Stap 1
+
 Maak alle afzonderlijke configuratie-items.
 
 Maak het front-end-IP-adres zoals in het volgende voorbeeld wordt weergegeven.
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Stap 2
+
 Wijs alle afzonderlijke configuratie-items toe aan een configuratieobject voor de toepassingsgateway ($appgwconfig).
 
 Voeg het front-end-IP-adres toe aan de configuratie.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Stap 3
-Voer met behulp van **Set-AzureApplicationGatewayConfig** het configuratieobject door in de toepassingsgatewayresource.
+Voer met behulp van `Set-AzureApplicationGatewayConfig` het configuratieobject door in de toepassingsgatewayresource.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>De gateway openen
-Nadat de gateway is geconfigureerd, gebruikt u de cmdlet **Start-AzureApplicationGateway** om de gateway te openen. Voor een toepassingsgateway worden pas kosten doorberekend wanneer de gateway is geactiveerd.
+
+Nadat de gateway is geconfigureerd, gebruikt u de cmdlet `Start-AzureApplicationGateway` om de gateway te activeren. Voor een toepassingsgateway worden pas kosten doorberekend wanneer de gateway is geactiveerd.
 
 > [!NOTE]
-> Het kan 15-20 minuten duren voordat de cmdlet **Start-AzureApplicationGateway** is voltooid.
+> Het kan 15 tot 20 minuten duren voordat de cmdlet `Start-AzureApplicationGateway` klaar is.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>De gatewaystatus controleren
-Gebruik de cmdlet **Get-AzureApplicationGateway** om de status van de gateway te controleren. Als **Start-AzureApplicationGateway** in de vorige stap zonder fouten is voltooid, moet bij *State* Running staan en moeten *Vip* en *DnsName* geldige waarden bevatten.
+
+Gebruik de cmdlet `Get-AzureApplicationGateway` om de status van de gateway te controleren. Als `Start-AzureApplicationGateway` in de vorige stap zonder fouten is voltooid, moet bij *State* Running staan en moeten *Vip* en *DnsName* geldige waarden bevatten.
 
 In het volgende voorbeeld wordt een toepassingsgateway weergegeven die actief is en verkeer kan verwerken dat is bestemd voor `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Een toepassingsgateway verwijderen
+
 Ga als volgt te werk om een toepassingsgateway te verwijderen:
 
-1. Gebruik de cmdlet **Stop-AzureApplicationGateway** om de gateway te stoppen.
-2. Gebruik de cmdlet **Remove-AzureApplicationGateway** om de gateway te verwijderen.
-3. Gebruik de cmdlet **Get-AzureApplicationGateway** om te controleren of de gateway is verwijderd.
+1. Gebruik de cmdlet `Stop-AzureApplicationGateway` om de gateway te stoppen.
+2. Gebruik de cmdlet `Remove-AzureApplicationGateway` om de gateway te verwijderen.
+3. Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is verwijderd.
 
-In het volgende voorbeeld wordt de cmdlet **Stop-AzureApplicationGateway** op de eerste regel weergegeven, gevolgd door de uitvoer.
+In het volgende voorbeeld wordt de cmdlet `Stop-AzureApplicationGateway` op de eerste regel weergegeven, gevolgd door de uitvoer.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Nadat de toepassingsgateway is gestopt, gebruikt u de cmdlet **Remove-AzureApplicationGateway** om de service te verwijderen.
+Nadat de toepassingsgateway is gestopt, gebruikt u de cmdlet `Remove-AzureApplicationGateway` om de service te verwijderen.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Als u wilt controleren of de service is verwijderd, gebruikt u de cmdlet **Get-AzureApplicationGateway**. Deze stap is niet vereist.
+Gebruik de cmdlet `Get-AzureApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Als u SSL-offload wilt configureren, raadpleegt u [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Een toepassingsgateway voor SSL-offload configureren).
 
 Als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer, raadpleegt u [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken).
@@ -443,6 +458,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

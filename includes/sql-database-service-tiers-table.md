@@ -1,43 +1,43 @@
+<!--
+Used in:
+sql-database-performance-guidance.md  
+sql-database-resource-limits.md
+sql-database-service-tiers.md  
+-->
+
 ### <a name="basic-service-tier"></a>Basisservicelaag
-|  |  |
-| --- | --- |
-| Maximaal aantal DTU's |5 |
-| Maximale databasegrootte (GB) |2 |
-| Maximale OLTP-opslag in het geheugen (GB) |N.v.t. |
+| **Servicelaag** | **Basic** |
+| --- | :---: |
+| Maximaal aantal DTU's | 5 |
+| Maximale databasegrootte |2 GB|
+| Maximale OLTP-opslag in het geheugen |N.v.t. |
 | Maximaal aantal gelijktijdige werknemers |30 |
 | Maximaal aantal gelijktijdige aanmeldingen |30 |
 | Maximaal aantal gelijktijdige sessies |300 |
-| Een punt in de tijd herstellen |Elk punt in de afgelopen 7 dagen |
-| Herstel na noodgevallen |Actieve Geo-replicatie |
+|||
 
 ### <a name="standard-service-tier"></a>Standaardservicelaag
-|  |  |
-| --- |:---:|
-| **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
-| Maximaal aantal DTU's |&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Maximale databasegrootte (GB) |250 |
-| Maximale OLTP-opslag in het geheugen (GB) |N.v.t. |
-| Maximaal aantal gelijktijdige werknemers |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Maximaal aantal gelijktijdige aanmeldingen |60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
-| Maximaal aantal gelijktijdige sessies |600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
-| Een punt in de tijd herstellen |Elk punt in de afgelopen 35 dagen |
-| Herstel na noodgevallen |Actieve Geo-replicatie |
+| **Servicelaag** | **S0** | **S1** | **S2** | **S3** |
+| --- |---:| ---:|---:|---:|---:|
+| Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
+| Maximale databasegrootte | 250 GB| 250 GB | 250 GB | 250 GB |
+| Maximale OLTP-opslag in het geheugen | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
+| Maximaal aantal gelijktijdige werknemers | 60 | 90 | 120 | 200 |
+| Maximaal aantal gelijktijdige aanmeldingen | 60 | 90 | 120 | 200 |
+| Maximaal aantal gelijktijdige sessies |600 | 900 | 1200 | 2400 |
+||||||
 
-### <a name="premium-service-tier"></a>Premium servicelaag
-|  |  |
-| --- |:---:|
-| **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
-| Maximaal aantal DTU's |125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |
-| Maximale databasegrootte (GB) |500 &nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp; 1000 |
-| Maximale OLTP-opslag in het geheugen (GB) |&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32 |
-| Maximaal aantal gelijktijdige werknemers |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Maximaal aantal gelijktijdige aanmeldingen |&nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
-| Maximaal aantal gelijktijdige sessies |2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
-| Een punt in de tijd herstellen |Elk punt in de afgelopen 35 dagen |
-| Herstel na noodgevallen |Actieve Geo-replicatie |
+### <a name="premium-service-tier"></a>Premium servicelaag 
+| **Servicelaag** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| --- |---:|---:|---:|---:|---:|---:|
+| Maximaal aantal DTU's | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Maximale databasegrootte | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
+| Maximale OLTP-opslag in het geheugen | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
+| Maximaal aantal gelijktijdige werknemers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maximaal aantal gelijktijdige aanmeldingen | 200 | 400| 800| 1600| 2400| 6400 |
+| Maximaal aantal gelijktijdige sessies | 30.000| 30.000| 30.000| 30.000| 30.000| 30.000 |
+|||||||
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

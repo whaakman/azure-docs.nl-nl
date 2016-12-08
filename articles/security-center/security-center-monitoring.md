@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
 
 
 ---
@@ -63,7 +63,7 @@ Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security
 > 
 > 
 
-Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding..
+Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
@@ -192,7 +192,7 @@ Als u op de database klikt om deze aanbeveling op te volgen, wordt de blade **Co
 Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
 ### <a name="monitor-applications"></a>Toepassingen bewaken
-Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt de blade **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **preventiestappen**. U ziet ook de uitsplitsing van de toepassingen per host/virtueel IP-adres, zoals wordt weergegeven op de volgende schermafbeelding.
+Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt de blade **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **preventiestappen**. U ziet ook de uitsplitsing van de toepassingen per host/virtueel IP-adres, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Secu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

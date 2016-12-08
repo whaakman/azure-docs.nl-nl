@@ -18,6 +18,7 @@
 #### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuratiebeheer](log-analytics-sccm.md)
+#### [OMS Gateway](log-analytics-oms-gateway.md)
 ### Gegevensbronnen
 #### [Overzicht van gegevensbronnen](log-analytics-data-sources.md)
 #### [Windows-gebeurtenissen](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)
 #### [Capaciteitsbeheer](log-analytics-capacity.md)
 #### [Tracering wijzigen](log-analytics-change-tracking.md)
-#### [Configuratie-evaluatie](log-analytics-configuration-assessment.md)
 #### [Containers](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
 #### [Malware-evaluatie](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL-evaluatie](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Evaluatie voor systeemupdate](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Bedradingsgegevens](log-analytics-wire-data.md)
+#### [SCOM-evaluatie](log-analytics-scom-assessment.md)
 ## Analyseren
 ### [Dashboards](log-analytics-dashboards.md)
 ### [Designer weergeven](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Resources
 ## [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

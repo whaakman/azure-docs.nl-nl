@@ -1,13 +1,13 @@
 ---
 title: Hybride on-premises/cloudtoepassing (.NET) | Microsoft Docs
-description: Informatie over het maken van een .NET hybride on-premises/cloudtoepassing met Azure Service Bus Relay.
-services: service-bus
+description: Informatie over het maken van een hybride .NET-on-premises-+/cloudtoepassing met Azure WCF Relay.
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,35 +15,35 @@ ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+ms.sourcegitcommit: 29ede770e6e63a50ba398cfb0bc8035cacdea392
+ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 
 
 ---
-# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure Service Bus WCF Relay
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
 ## <a name="introduction"></a>Inleiding
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
 U leert:
 
 * Een bestaande webservice voor verbruik door een weboplossing maken of aanpassen.
-* De Azure Service Bus WCF Relay-service gebruiken voor het delen van gegevens tussen een Azure-toepassing en een webservice die ergens anders wordt gehost.
+* De Azure WCF Relay-service gebruiken voor het delen van gegevens tussen een Azure-toepassing en een webservice die ergens anders wordt gehost.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>Hoe Service Bus Relay bij hybride oplossingen hulp biedt
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Hoe Azure hulp biedt bij hybride oplossingen
 Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die is geschreven voor nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
 
 Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Ze ondervinden dan dat bestaande serviceassets die ze willen gebruiken als bouwstenen voor hun oplossingen, zich binnen de firewall van het bedrijf bevinden en niet gemakkelijk bereikbaar zijn voor de cloudoplossing. Veel interne services worden niet zo gemaakt of gehost dat ze gemakkelijk beschikbaar kunnen worden gemaakt aan de rand van het bedrijfsnetwerk.
 
-Service Bus Relay is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden zonder dat er tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke Service Bus Relay-services worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan Service Bus in de cloud. Ook beveiligt Service Bus deze services tegen onbevoegde toegang door [SAS](../service-bus-messaging/service-bus-sas-overview.md)-verificatie (Shared Access Signature) te gebruiken.
+Azure Relay is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS](../service-bus-messaging/service-bus-sas-overview.md)-verificatie (Shared Access Signature) te gebruiken.
 
 ## <a name="solution-scenario"></a>Oplossingsscenario
 In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
 
 ![][0]
 
-In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-premises systeem hebt en wordt Service Bus Relay gebruikt om dat systeem te bereiken. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt deze consoletoepassing op uw eigen computer uitvoeren en de webrol in Azure implementeren. Als u dit doet, ziet u hoe de webrol die in het Azure-datacenter wordt uitgevoerd inderdaad uw computer aanroept, ondanks dat de computer bijna zeker achter ten minste één firewall en een NAT-laag (Network Address Translation) blijft.
+In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-premises systeem hebt en wordt Azure Relay gebruikt om dat systeem te bereiken. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt deze consoletoepassing op uw eigen computer uitvoeren en de webrol in Azure implementeren. Als u dit doet, ziet u hoe de webrol die in het Azure-datacenter wordt uitgevoerd inderdaad uw computer aanroept, ondanks dat de computer bijna zeker achter ten minste één firewall en een NAT-laag (Network Address Translation) blijft.
 
 Hier volgt een schermopname van de startpagina van de voltooide webtoepassing.
 
@@ -52,18 +52,18 @@ Hier volgt een schermopname van de startpagina van de voltooide webtoepassing.
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
 
-1. Installeer de Azure SDK voor .NET via de pagina [Hulpprogramma's en SDK ophalen][Hulpprogramma's en SDK ophalen].
+1. Installeer de Azure-SDK voor .NET via de pagina [Hulpprogramma's en SDK ophalen][Hulpprogramma's en SDK ophalen].
 2. Klik op **De SDK installeren** voor de versie van Visual Studio die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
 3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-Als u Service Bus-functies in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
+Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-onpremises-server"></a>Een on-premises server maken
+## <a name="create-an-on-premises-server"></a>Een on-premises server maken
 U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
 
 Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
@@ -434,10 +434,10 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
     ![][38]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende resources voor meer informatie over Service Bus:  
+Raadpleeg de volgende resources voor meer informatie over Azure Relay:  
 
-* [Azure Service Bus][sbwacom]  
-* [Service Bus-wachtrijen gebruiken][sbwacomqhowto]  
+* [Wat is Azure Relay?](relay-what-is-it.md)  
+* [Relay gebruiken](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
@@ -467,12 +467,8 @@ Zie de volgende resources voor meer informatie over Service Bus:
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
 
 
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

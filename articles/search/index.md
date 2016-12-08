@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cdfe04908d68292d07eeb9c20a4772d11fa30eff
-ms.openlocfilehash: d3ef28f2cb1459410ec90982fff94fbbced55f72
+ms.sourcegitcommit: 3273e748265fa23efadd010bb5f0bc9ce43223b6
+ms.openlocfilehash: dae331e93ab1682741a34758172d7c8cdb38aec5
 
 ---
 # <a name="azure-search-documentation"></a>Documentatie voor Azure Search
 
-Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en infrastructuurbeheer wordt gedelegeerd aan Microsoft, zodat u een kant-en-klare-service hebt die u kunt vullen met uw gegevens en vervolgens kunt gebruiken om zoekfunctionaliteit toe te voegen aan uw web- of mobiele toepassing. Met Azure Search kunt u gemakkelijk een krachtige zoekfunctie toevoegen aan uw toepassingen met behulp van een eenvoudige REST API of .NET SDK zonder dat u een zoekinfrastructuur hoeft te beheren of een expert hoeft te worden op het gebied van zoeken.
+Azure Search is een beheerde cloudzoekservice waarmee u een krachtige zoekfunctionaliteit kunt inbouwen in aangepaste apps, en vervolgens de service-, index- en query-activiteiten kunt volgen via portalweergaven. Tot de belangrijkste functies behoren: schaalbaar doorzoeken van de volledige tekst in meerdere talen, zoeken in verschillende geografische gebieden, navigatie op basis van meervoudig filteren, automatisch aanvullen van query's, markeren van treffers en aangepaste analyse.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +47,7 @@ Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en
         </a>
     </li>
     <li>
-        <a href="/azure/search/search-create-service">
+        <a href="/azure/search/search-create-service-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Event Hubs en de Azure Portal</h3>
+                        <h3>Aan de slag met Azure Search en Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -82,6 +82,42 @@ Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/search/search-query-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Een query uitvoeren in een Azure Search-index</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/search/search-howto-dotnet-sdk">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Search gebruiken in .NET</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 
@@ -89,11 +125,64 @@ Azure Search is een search-as-a-service-oplossing in de cloud waarmee server- en
 
 ## <a name="reference"></a>Naslaginformatie
 
-### <a name="net"></a>.NET 
-[Managed Reference-API voor .NET](/dotnet/api/) 
-
-### <a name="rest"></a>REST 
-[Naslaginformatie over de Search REST API](/rest/api/searchmanagement/) 
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api/microsoft.azure.search">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Service .NET-API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/microsoft.azure.management.search">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Management .NET-API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/searchservice/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Service REST API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/searchmanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST API voor beheer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
@@ -105,6 +194,6 @@ Documentatie voor Azure Search downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

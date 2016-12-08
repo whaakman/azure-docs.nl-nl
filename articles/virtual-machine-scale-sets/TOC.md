@@ -1,12 +1,13 @@
 # Overzicht
-## [Over schaalsets](virtual-machine-scale-sets-overview.md)
-## [Overwegingen bij het ontwerp van schaalsets](virtual-machine-scale-sets-design-overview.md)
+## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 
 # Aan de slag
 ## [Windows-schaalset maken](virtual-machine-scale-sets-windows-create.md)
 ## [Linux-schaalset maken](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Procedures
+## Plannen en ontwerpen
+### [Overwegingen bij het ontwerpen](virtual-machine-scale-sets-design-overview.md)
 ## Implementeren
 ### [Schaalset met behulp van de portal](virtual-machine-scale-sets-portal-create.md)
 ### [Schaalset met Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -19,21 +20,24 @@
 ### [Automatisch schalen en schaalsets](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Verticaal schalen in een schaalset](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades voor schaalsets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Geavanceerd automatisch schalen](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC en schaalsets](virtual-machine-scale-sets-dsc.md)
 
 ## Problemen oplossen
-### [Problemen met automatisch schalen oplossen](virtual-machine-scale-sets-troubleshoot.md)
+### [Automatisch schalen](virtual-machine-scale-sets-troubleshoot.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/compute/)
 
 # Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+## Prijzen 
+### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

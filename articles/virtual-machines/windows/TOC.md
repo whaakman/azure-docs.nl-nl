@@ -176,13 +176,15 @@
 ### [Een VM opnieuw implementeren](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Naslaginformatie
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager-sjablonen schrijven](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Communitysjablonen](https://azure.microsoft.com/documentation/templates/)
-## [REST voor berekeningen](/rest/api/compute/)
-## [Netwerk-REST](/rest/api/)
-## [Storage REST](/rest/api/storageservices/)
+## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
+## [Compute REST](/rest/api/compute)
+## [Network REST](/rest/api)
+## [Storage REST](/rest/api/storageservices)
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/#Windows)
@@ -191,6 +193,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

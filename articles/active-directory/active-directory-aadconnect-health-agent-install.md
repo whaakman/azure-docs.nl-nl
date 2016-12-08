@@ -101,7 +101,7 @@ Als u de functie Gebruiksanalyse wilt gebruiken om gegevens te verzamelen en te 
 5. Sluit **Lokaal beveiligingsbeleid** en open vervolgens de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
 6. Klik in het deelvenster Acties op **Federation Service-eigenschappen bewerken**.
 7. Klik in het dialoogvenster Federation Service-eigenschappen op het tabblad **Gebeurtenissen**.
-8. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**..
+8. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**.
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>De AD FS-auditlogboeken zoeken
 1. Open **Logboeken**.

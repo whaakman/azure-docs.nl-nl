@@ -1,60 +1,75 @@
-
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
+title: Aan de slag met het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de klassieke Azure Portal | Microsoft Docs
+description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de klassieke Azure Portal
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
+editor: 
 tags: azure-service-management
-
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 7153d0321a95a19cf7de17aa1c77d1369330a79b
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Aan de slag met het maken van een internetgerichte load balancer (klassiek) via de klassieke Azure Portal
+
+> [!div class="op_single_selector"]
+> * [Klassieke Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up an Internet-facing load balancer for virtual machines
-In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Een internetgerichte load balancer voor virtuele machines instellen
 
-**To configure a load-balanced set for virtual machines**
+Als u netwerkverkeer van het internet wilt spreiden over de virtuele machines van een cloudservice, moet u een set met gelijke taakverdeling maken. In deze procedure wordt ervan uitgegaan dat u de virtuele machines al hebt gemaakt en dat ze zich allemaal binnen dezelfde cloudservice bevinden.
 
-1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2. Click **Endpoints**, and then click **Add**.
-3. On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4. On the **Specify the details of the endpoint** page:
-   
-   * In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-   * In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
-   * In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
-5. Select **Create a load-balanced set**, and then click the right arrow.
-6. On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
-7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
-8. In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
-9. On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
-10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+**Een set met gelijke taakverdeling voor virtuele machines configureren**
 
-For the additional virtual machines in the load-balanced set, repeat steps 8-10.
+1. Klik in de klassieke Azure Portal op **Virtuele machines** en klik vervolgens op de naam van een virtuele machine in de set met gelijke taakverdeling.
+2. Klik op **Eindpunten** en vervolgens op **Toevoegen**.
+3. Klik op de pijl-rechts op de pagina **Een eindpunt toevoegen aan een virtuele machine**.
+4. Doe het volgende op de pagina **De details van het eindpunt opgeven**:
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+   * Typ bij **Naam** een naam voor het eindpunt of selecteer de naam in de lijst met vooraf gedefinieerde eindpunten voor algemene protocollen.
+   * Selecteer indien nodig bij **Protocol** het vereiste protocol voor het type eindpunt. Dit is TCP of UDP.
+   * Typ bij **Openbare poort en particuliere poort** de poortnummers die de virtuele machine moet gebruiken (indien nodig). U kunt de particuliere poort en de firewall-regels op de virtuele machine gebruiken om verkeer om te leiden op een manier die geschikt is voor uw toepassing. De particuliere poort en de openbare poort mogen hetzelfde zijn. Voor een eindpunt voor webverkeer (HTTP) kunt u bijvoorbeeld poort 80 toewijzen aan de openbare en de particuliere poort.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+5. Selecteer **Een set met gelijke taakverdeling maken** en klik vervolgens op de pijl-rechts.
+6. Typ op de pagina **De set met gelijke taakverdeling configureren** een naam voor de set met gelijke taakverdeling. Wijs vervolgens de waarden toe voor het testgedrag van de Azure Load Balancer. De load balancer maakt gebruik van tests om te bepalen of de virtuele machines in de set met gelijke taakverdeling inkomend verkeer kunnen ontvangen.
+7. Klik op het vinkje om het eindpunt met gelijke taakverdeling te maken. **Ja** wordt weergegeven in de kolom **Naam van set met gelijke taakverdeling** op de pagina **Eindpunten** voor de virtuele machine.
+8. Klik in de portal op **Virtuele machines** en klik daarna op de naam van een extra virtuele machine in de set met gelijke taakverdeling. Klik vervolgens op **Eindpunten** en dan op **Toevoegen**.
+9. Klik op de pagina **Een eindpunt toevoegen aan een virtuele machine** op **Eindpunt toevoegen aan een bestaande set met gelijke taakverdeling**, selecteer de naam van de set met gelijke taakverdeling en klik op de pijl-rechts.
+10. Typ op de pagina **De details van het eindpunt opgeven** een naam voor het eindpunt en klik op het vinkje.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+Herhaal stap 8-10 voor de extra virtuele machines in de set met gelijke taakverdeling.
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Aan de slag met het configureren van een interne load balancer](load-balancer-get-started-ilb-arm-ps.md)
+
+[Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
+
+[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO5-->
+
 

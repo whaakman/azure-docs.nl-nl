@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
-ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
 
 ---
 #<a name="iot-hub-documentation"></a>Documentatie voor IoT Hub
@@ -104,20 +104,69 @@ Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweericht
 
 ---
 
-##<a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 
-###<a name="azure-cli"></a>Azure CLI 
-[IoT Hub met Azure CLI](/cli/azure/iot)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/iot">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure-CLI</h3>
+                        <p>IoT Hub met Azure-CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET 
-[.NET Managed Reference-API](/dotnet/api/) 
+<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Managed Reference-API voor .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java 
-[Naslaginformatie over Java SDK](/java/api/) 
+<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Naslaginformatie over de Java-SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST 
-[Naslaginformatie over REST API voor IoT Hub](/rest/api/iothub) 
-
+<li>
+        <a href="/rest/api/iothub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Naslaginformatie voor REST API voor IoT Hub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
@@ -129,6 +178,6 @@ Documentatie voor IoT Hub downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

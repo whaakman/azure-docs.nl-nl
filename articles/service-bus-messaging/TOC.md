@@ -47,7 +47,7 @@
 ### [Gekoppelde naamruimten](service-bus-paired-namespaces.md)
 ### [Entiteiten koppelen met automatisch doorsturen](service-bus-auto-forwarding.md)
 ## Beheren
-### [ARM-sjablonen gebruiken](service-bus-resource-manager-overview.md)
+### [Azure Resource Manager-sjablonen gebruiken](service-bus-resource-manager-overview.md)
 ### [PowerShell gebruiken om entiteiten in te richten](service-bus-powershell-how-to-provision.md)
 
 # Naslaginformatie
@@ -57,8 +57,12 @@
 ## [Quota](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [SQLFilter-syntaxis](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction-syntaxis](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0-protocolhandleiding](service-bus-amqp-protocol-guide.md)
+### [Bewerkingen op basis van antwoorden op AMQP 1.0-aanvragen](service-bus-amqp-request-response.md)
 
-# Bronnen
+# Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN-forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -69,6 +73,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

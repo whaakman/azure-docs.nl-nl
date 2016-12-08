@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
+ms.openlocfilehash: 8b32412b2dcfb20f3cb1f858fa4ae4230d72c7cd
 
 
 ---
@@ -47,10 +47,9 @@ Als u een account hebt, kunt u een eenvoudige Azure Storage-toepassing maken met
 3. Klik in het dialoogvenster **Nieuw project** op **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
     a. Kies een van de volgende sjablonen: **Azure Storage: blobs**, **Azure Storage: bestanden**, **Azure Storage: wachtrijen** of **Azure Storage: tabellen**.
     b. Zorg ervoor dat **.NET Framework 4.5** als doelframework is geselecteerd.
-   
-   * 3.c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
+    c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
      
-     ![Azure Quick Starts][Image1]
+    ![Azure Quick Starts][Image1]
 
 Mogelijk wilt u de broncode controleren voordat u de toepassing uitvoert. Als u de code wilt controleren, selecteert u **Solution Explorer** in het menu **Beeld** van Visual Studio. Dubbelklik vervolgens op het bestand Program.cs.
 
@@ -59,7 +58,10 @@ Voer daarna de voorbeeldtoepassing uit:
 1. Selecteer in Visual Studio **Solution Explorer** in het menu **Beeld**. Open het bestand App.config en uitcommentarieer de verbindingsreeks voor de Azure-opslagemulator:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Verwijder de opmerkingen in de verbindingsreeks voor de Azure Storage-service en geef de naam en toegangssleutel van het opslagaccount op in het bestand App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Verwijder de opmerkingen in de verbindingsreeks voor de Azure Storage-service en geef de naam en toegangssleutel van het opslagaccount op in het bestand App.config:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Zie [Toegangssleutels beheren voor uw opslagaccount](storage-create-storage-account.md#manage-your-storage-access-keys) voor informatie over het ophalen van de toegangssleutels voor uw opslagaccount.
 3. Nadat u de naam en de toegangssleutel van het opslagaccount hebt opgegeven in het bestand App.config, klikt u in het menu **Bestand** op **Alles opslaan** om alle projectbestanden op te slaan.
@@ -79,6 +81,7 @@ Laten we eerst een eenvoudige Azure Storage-toepassing maken met behulp van een 
     c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
    
     ![Azure Quick Starts][Image1]
+
 4. Selecteer in Visual Studio **Solution Explorer** in het menu **Beeld**. Open het bestand App.config en uitcommentarieer de verbindingsreeks voor uw Azure Storage-account als u er al een hebt toegevoegd. Verwijder vervolgens de opmerkingen in de verbindingsreeks voor de Azure-opslagemulator:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

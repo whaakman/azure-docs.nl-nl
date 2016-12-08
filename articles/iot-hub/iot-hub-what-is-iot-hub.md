@@ -12,32 +12,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e718ceadc229d7207a5be66d6d7cdd443275b4e
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
 
 
 ---
 # <a name="what-is-azure-iot-hub"></a>Wat is Azure IoT Hub?
 Welkom bij Azure IoT Hub. Dit artikel biedt een overzicht van Azure IoT Hub en een beschrijving van waarom u deze service moet gebruiken als u een Internet of Things-oplossing (IoT - Internet der dingen) gaat implementeren. Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt. Azure IoT Hub:
 
-* Biedt betrouwbare verzending van berichten op grote schaal tussen apparaat en cloud en tussen cloud en apparaat.
-* Veilige communicatie met behulp van beveiligingsreferenties en toegangscontrole.
+* Biedt meerdere opties voor communicatie van apparaat naar cloud en cloud naar apparaat, waaronder berichten in één richting en methoden voor aanvraag/antwoord.
+* Biedt opslag waarop query's kunnen worden uitgevoerd voor apparaatmetagegevens en informatie over de gesynchroniseerde status.
+* Maakt veilige communicatie en toegangsbeheer mogelijk met behulp van beveiligingssleutels of X.509-certificaten per apparaat.
 * Biedt uitgebreide bewaking voor verbindingsmogelijkheden van apparaten en gebeurtenissen voor het beheren van apparaat-id’s.
 * Apparaatbibliotheken voor de meest populaire talen en platforms.
 
-In het artikel [IoT Hub en Event Hubs vergeleken][lnk-compare] worden de voornaamste verschillende tussen de twee services beschreven en worden de voordelen van het gebruik van IoT Hub in uw IoT-oplossing uitgelicht.
+In het artikel [IoT Hub en Event Hubs vergeleken][lnk-compare] worden de voornaamste verschillen tussen de twee services beschreven en worden de voordelen van het gebruik van IoT Hub in uw IoT-oplossing uitgelicht.
+
+Raadpleeg [Internet of Things security from the ground up][lnk-security-ground-up] (Beveiliging van Internet of Things vanaf de basis) voor meer informatie over hoe Azure en IoT Hub uw IoT-oplossing beveiligen.
 
 ![Azure IoT-Hub als cloudgateway in IoT-oplossing][img-architecture]
 
 > [!NOTE]
-> Zie [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referentiearchitectuur voor Microsoft Azure IoT Ink-refarch) voor een uitgebreide beschrijving van de IoT-architectuur.
+> Zie [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.
 > 
 > 
 
-## <a name="iot-deviceconnectivity-challenges"></a>Uitdagingen met de connectiviteit van IoT-apparaten
+## <a name="iot-device-connectivity-challenges"></a>Uitdagingen met de connectiviteit van IoT-apparaten
 Dankzij IoT Hub en de apparaatbibliotheken kunt u nu op een betrouwbare en veilige manier apparaten verbinden met de back-end van een oplossing. IoT-apparaten:
 
 * Zijn vaak ingesloten systemen waarbij geen menselijke operator komt kijken.
@@ -51,25 +54,20 @@ Dankzij IoT Hub en de apparaatbibliotheken kunt u nu op een betrouwbare en veili
 Naast de bovenstaande vereisten moet een IoT-oplossing schaalbaar, veilig en betrouwbaar zijn. De resulterende reeks connectiviteitsvereisten is moeilijk te implementeren en tijdrovend als u conventionele technologieën gebruikt, zoals webcontainers en berichtenbrokers.
 
 ## <a name="why-use-azure-iot-hub"></a>Waarom Azure IoT Hub gebruiken?
-Azure IoT Hub lost problemen met de connectiviteit van apparaten op de volgende manieren op:
+Naast een scala aan opties voor communicatie [van apparaat naar cloud][lnk-d2c-guidance] en [cloud naar apparaat][lnk-c2d-guidance], waaronder berichten, bestandsoverdracht en methoden voor aanvraag/antwoord, biedt Azure IoT Hub de volgende oplossingen voor uitdagingen op het gebied van apparaatconnectiviteit:
 
-* **Verificatie per apparaat en beveiligde verbindingen**. U kunt elk apparaat voorzien van een eigen [beveiligingssleutel][lnk-devguide-security], zodat het verbinding kan maken met IoT Hub. Het [id-register van IoT Hub][lnk-devguide-identityregistry] slaat apparaat-id’s en sleutels op in een oplossing. De back-end van een oplossing kan afzonderlijke apparaten toevoegen aan lijsten met te weigeren of toegestane apparaten, waardoor de apparaattoegang volledig wordt beheerd.
-* **Bewaking van connectiviteitsbewerkingen van apparaten**. U kunt gedetailleerde bewerkingslogboeken over bewerkingen in het beheer van apparaat-id’s en  connectiviteitsgebeurtenissen van apparaten ontvangen. Dankzij deze bewakingsfunctie kan uw IoT-oplossing eenvoudig verbindingsproblemen signaleren, zoals apparaten die verbinding proberen te maken met de verkeerde referenties, die te vaak berichten verzenden of die alle cloud-naar-apparaat-berichten weigeren.
-* **Een uitgebreide reeks apparaatbibliotheken**. [Apparaat-SDK’s van Azure IoT][lnk-device-sdks] zijn beschikbaar en worden ondersteund in verscheidene talen en door diverse platformen; C voor veel Linux-distributies, Windows en real-time besturingssystemen. Apparaat-SDK’s van Azure IoT ondersteunen tevens beheerde talen, zoals C#, Java en JavaScript.
-* **IoT-protocollen en uitbreidingsmogelijkheden**. Als uw oplossing de apparaatbibliotheken niet kan gebruiken, toont IoT Hub een openbare protocol waarmee apparaten op systeemeigen wijze de protocollen MQTT v3.1.1, HTTP 1.1 of AMQP 1.0 kunnen gebruiken. U kunt  IoT Hub ook uitbreiden, zodat het aangepaste protocollen ondersteunt. Doe hiervoor het volgende:
+* **Apparaatdubbels**. Met behulp van [apparaatdubbels][lnk-twins] kunt u metagegevens en statusinformatie van een apparaat opslaan en synchroniseren en er query's op uitvoeren. Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub gebruikt een apparaatdubbel voor elk apparaat dat u verbindt met IoT Hub. 
+* **Verificatie per apparaat en beveiligde verbindingen**. U kunt elk apparaat voorzien van een eigen [beveiligingssleutel][lnk-devguide-security], zodat het verbinding kan maken met IoT Hub. Het [id-register van IoT Hub][lnk-devguide-identityregistry] slaat apparaat-id's en sleutels op in een oplossing. De back-end van een oplossing kan afzonderlijke apparaten toevoegen aan lijsten met te weigeren of toegestane apparaten, waardoor de apparaattoegang volledig wordt beheerd.
+* **Bewaking van connectiviteitsbewerkingen van apparaten**. U kunt gedetailleerde bewerkingslogboeken over bewerkingen in het beheer van apparaat-id’s en connectiviteitsgebeurtenissen van apparaten ontvangen. Dankzij deze bewakingsfunctie kan uw IoT-oplossing eenvoudig verbindingsproblemen signaleren, zoals apparaten die verbinding proberen te maken met de verkeerde referenties, die te vaak berichten verzenden of die alle cloud-naar-apparaat-berichten weigeren.
+* **Een uitgebreide reeks apparaatbibliotheken**. [Apparaat-SDK's van Azure IoT][lnk-device-sdks] zijn beschikbaar en worden ondersteund in verscheidene talen en door diverse platforms: C voor veel Linux-distributies, Windows en real-time besturingssystemen. Apparaat-SDK’s van Azure IoT ondersteunen tevens beheerde talen, zoals C#, Java en JavaScript.
+* **IoT-protocollen en uitbreidingsmogelijkheden**. Als uw oplossing de apparaatbibliotheken niet kan gebruiken, toont IoT Hub een openbare protocol waarmee apparaten op systeemeigen wijze de protocollen MQTT v3.1.1, HTTP 1.1 of AMQP 1.0 kunnen gebruiken. U kunt IoT Hub ook uitbreiden, zodat het aangepaste protocollen ondersteunt. Doe hiervoor het volgende:
   
-  * Maak een veldgateway met de [Azure IoT Gateway SDK][lnk-gateway-sdk] die uw aangepaste protocol converteert naar een van de drie protocollen die IoT Hub kent. 
-  * Pas de [protocolgateway van Azure IoT][protocol-gateway] aan; dit is een open source-component dat wordt uitgevoerd in de cloud.
+  * Maak een veldgateway met de [Azure IoT Gateway-SDK][lnk-gateway-sdk] die uw aangepaste protocol converteert naar een van de drie protocollen die IoT Hub kent. 
+  * Pas de [protocolgateway van Azure IoT][protocol-gateway] aan. Dit is een open source-component die wordt uitgevoerd in de cloud.
 * **Schalen**. Azure IoT Hub schaalt naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde.
 
-Veel communicatiepatronen bieden deze voordelen. Met IoT Hub kunt u nu de volgende specifieke communicatiepatronen implementeren:
-
-* **Opname van apparaat-naar-cloud op basis van gebeurtenissen.** IoT Hub kan op betrouwbare wijze miljoenen gebeurtenissen per seconde ontvangen van uw apparaten. De service kan deze vervolgens op uw hot pad verwerken met behulp van een gebeurtenisprocessor-engine. De gebeurtenissen kunnen ook op uw koude pad worden opgeslagen voor analysedoeleinden. IoT Hub bewaart gebeurtenisgegevens maximaal zeven dagen, zodat ze betrouwbaar kunnen worden verwerkt en pieken in de workload kunnen worden opgevangen.
-* **Betrouwbaar berichten verzenden van cloud naar apparaat (of *opdrachten*).** De back-end van de oplossing kan met IoT Hub berichten verzenden met de garantie dat ze ten minste eenmaal worden geleverd op afzonderlijke apparaten. Elk bericht heeft zijn eigen time to live-instelling en de back-end kan bewijzen voor zowel het afleveren als het verstrijken opvragen. Met deze bewijzen krijgt u volledig inzicht in de levenscyclus van een cloud-naar-apparaat-bericht. Vervolgens kunt u bedrijfslogica implementeren die bewerkingen bevatten die op apparaten kunnen worden uitgevoerd.
-* **Upload bestanden en sensorgegevens in de cache naar de cloud.** Uw apparaten kunnen bestanden uploaden naar Azure Storage met SAS URI's die voor u worden beheerd door IoT Hub. IoT Hub kan meldingen genereren wanneer bestanden in de cloud binnenkomen, zodat de back-end deze kan verwerken.
-
 ## <a name="gateways"></a>Gateways
-Een gateway in een IoT-oplossing is doorgaans een [protocolgateway][lnk-gateway] die geïmplementeerd is in de cloud of een [veldgateway][lnk-field-gateway] die lokaal is geïmplementeerd in uw apparaten. Een protocolgateway vertaalt protocollen, bijvoorbeeld MQTT naar AMQP. Een veldgateway kan perifere analyses uitvoeren, tijdgebonden beslissingen nemen waardoor de wachttijden worden verminderd, apparaatbeheerservices bieden, beveiligings- en privacybeperkingen opleggen en protocollen vertalen. Beide gatewaytypen fungeren als schakels tussen uw apparaten en uw IoT-hub.
+Een gateway in een IoT-oplossing is doorgaans een [protocolgateway][lnk-gateway] die is geïmplementeerd in de cloud of een [veldgateway][lnk-field-gateway] die lokaal is geïmplementeerd in uw apparaten. Een protocolgateway vertaalt protocollen, bijvoorbeeld MQTT naar AMQP. Een veldgateway kan perifere analyses uitvoeren, tijdgebonden beslissingen nemen waardoor de wachttijden worden verminderd, apparaatbeheerservices bieden, beveiligings- en privacybeperkingen opleggen en protocollen vertalen. Beide gatewaytypen fungeren als schakels tussen uw apparaten en uw IoT-hub.
 
 Een veldgateway onderscheidt zich van een eenvoudig verkeersrouteringsapparaat (zoals een apparaat voor netwerkadresomzetting of firewall) doordat deze doorgaans een actieve rol speelt bij het beheren van de toegang en de informatiestroom in uw oplossing.
 
@@ -86,14 +84,14 @@ Azure IoT Hub implementeert het [service-ondersteunde communicatiepatroon][lnk-s
 * Tweerichtingscommunicatie tussen apparaten die slechts sporadisch verbinding maken vanwege problemen met de stroom of de connectiviteit, wordt mogelijk gemaakt door opdrachten en apparaatmeldingen vast te houden totdat het apparaat weer verbinding maakt en de meldingen en opdrachten ontvangt. IoT Hub heeft apparaatspecifieke wachtrijen voor de opdrachten die worden verzonden.
 * Gegevens over de nettolading van toepassing worden afzonderlijk beveiligd, zodat ze veilig via gateways worden verzonden naar een bepaalde service.
 
-De mobiele industrie heeft op zeer grote schaal het serviceondersteunde communicatiepatroon gebruik voor het implementeren van pushmeldingservices, zoals [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] en [Apple Push Notification Service][lnk-apple-push].
+Leveranciers van mobiele oplossingen hebben op zeer grote schaal het serviceondersteunde communicatiepatroon gebruikt voor het implementeren van pushmeldingservices, zoals [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] en [Apple Push Notification Service][lnk-apple-push].
 
 IoT Hub wordt via het openbare-peeringpad van ExpressRoute ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Overzicht van apparaatbeheer met IoT Hub][lnk-device-management] voor meer informatie over hoe Azure IoT-Hub op standaarden gebaseerd IoT-apparaatbeheer voor u mogelijk maakt om uw apparaten op afstand te beheren, te configureren en bij te werken.
+Zie [Overzicht van apparaatbeheer met IoT Hub][lnk-device-management] voor meer informatie over hoe Azure IoT Hub op standaarden gebaseerd IoT-apparaatbeheer voor u mogelijk maakt, om zo uw apparaten op afstand te beheren, te configureren en bij te werken.
 
-U kunt de SDK's van het IoT-apparaat gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De SDK's van het IoT-apparaat bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT-hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de SDK's gebruikt, kunt u kiezen uit verschillende netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-device-sdks].
+U kunt de apparaat-SDK's van Azure IoT gebruiken voor de implementatie van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De apparaat-SDK's bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT-hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de apparaat-SDK's gebruikt, kunt u kiezen uit verschillende netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-device-sdks].
 
 Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wilt leren schrijven en een aantal voorbeelden wilt uitvoeren.
 
@@ -102,7 +100,7 @@ Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wi
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
-[lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Service-ondersteunde communicatie, blogpost van Clemens Vasters"
+[lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Serviceondersteunde communicatie, blogpost van Clemens Vasters"
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
@@ -116,8 +114,13 @@ Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wi
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
+[lnk-twins]: iot-hub-devguide-device-twins.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+
+[lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

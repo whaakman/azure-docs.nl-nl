@@ -66,6 +66,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

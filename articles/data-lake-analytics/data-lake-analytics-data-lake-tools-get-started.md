@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7450400920517bed56f608fd74c62238f2fb9eab
+ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
+ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
 
 
 ---
-# <a name="tutorial-develop-usql-scripts-using-data-lake-tools-for-visual-studio"></a>Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio
+# <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het installeren van Data Lake Tools en het gebruiken van Data Lake Tools voor Visual Studio om U-SQL-scripts te schrijven en testen.
@@ -72,7 +72,7 @@ Als u uw eigen gegevens wilt gebruiken, volgt u de onderstaande procedure voor h
 4. Blader naar de map waarnaar u bestanden wilt uploaden,
 5. klik met de rechtermuisknop op een lege ruimte en klik vervolgens op **Upload**.
 
-## <a name="develop-usql-scripts"></a>U-SQL-scripts ontwikkelen
+## <a name="develop-u-sql-scripts"></a>U-SQL-scripts ontwikkelen
 Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
 
 **Een Data Lake Analytics-taak maken en verzenden**
@@ -195,7 +195,7 @@ Met Taak afspelen kunt u de uitvoering van de taak bekijken en afwijkingen en kn
 ### <a name="heat-map"></a>Heat Map
 Data Lake Tools voor Visual Studio biedt instelbare kleurenoverlays voor de taakweergave, voor het aanduiden van de voortgang, gegevens-I/O, uitvoeringstijd en I/O-doorvoer in elke fase. Hiermee kunt u potentiële problemen identificeren en taakeigenschappen direct en op intuïtieve wijze distribueren. Kies de gegevensbron die u wilt weergeven in de vervolgkeuzelijst.  
 
-## <a name="run-usql-locally"></a>U-SQL lokaal uitvoeren
+## <a name="run-u-sql-locally"></a>U-SQL lokaal uitvoeren
 Als u U-SQL lokaal uitvoert in Visual Studio, kunt u:
 
 * U-SQL-scripts lokaal uitvoeren samen met C#-assembly's.
@@ -225,7 +225,7 @@ In de volgende video wordt de functie voor het lokaal uitvoeren van U-SQL getoon
 
     Voor scripts die worden uitgevoerd op de Data Lake-service wordt het standaardopslagaccount gebruikt als hoofdmap en doorzocht.
 
-### <a name="test-usql-scripts-locally"></a>U-SQL-scripts lokaal testen
+### <a name="test-u-sql-scripts-locally"></a>U-SQL-scripts lokaal testen
 Zie [U-SQL-scripts ontwikkelen](#develop-and-test-u-sql-scripts) voor instructies voor het ontwikkelen van U-SQL-scripts. Als u U-SQL-scripts lokaal wilt bouwen en uitvoeren, selecteert u **(Local)** in de vervolgkeuzelijst cluster en klikt u op **Submit**. Zorg ervoor dat u naar de juiste gegevens verwijst; u moet naar het absolute pad verwijzen of de gegevens in de map DataRoot plaatsen.
 
 ![U-SQL Visual Studio-project lokaal verzenden](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
@@ -255,7 +255,10 @@ De volgende procedure werkt alleen in Visual Studio 2015. In oudere Visual Studi
 1. Maak een C#-assemblyproject en bouw het zo dat het de DLL-uitvoer genereert.
 2. Registreer het DLL-bestand met een U-SQL-instructie:
 
-     CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    
 3. Stel onderbrekingspunten in in de C#-code.
 4. Druk op **F5** om lokaal fouten op te sporen in het script dat verwijst naar de C#-DLL.  
 
@@ -267,6 +270,8 @@ Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's
 * [Aan de slag met Data Lake Analytics met .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 * [Problemen met C#-code oplossen in U-SQL-taken](data-lake-analytics-debug-u-sql-jobs.md)
 
+Zie [De hulpprogramma's voor Visual Studio van Azure Data Lake gebruiken](data-lake-analytics-data-lake-tools-for-vscode.md) voor meer informatie over Data Lake-hulpprogramma’s voor Visual Studio-code.
+
 Overige onderwerpen over ontwikkelen:
 
 * [Weblogboeken analyseren met Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
@@ -274,7 +279,7 @@ Overige onderwerpen over ontwikkelen:
 * [Aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md)
 * [Door de gebruiker gedefinieerde U-SQL-operators ontwikkelen voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## <a name="appxa-powershell-sample-for-preparing-the-tutorial"></a>Appx-A PowerShell-voorbeeld ter voorbereiding op de zelfstudie
+## <a name="appx-a-powershell-sample-for-preparing-the-tutorial"></a>Appx-A PowerShell-voorbeeld ter voorbereiding op de zelfstudie
 Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en de brongegevens voor, zodat u verder kunt gaan met [U-SQL-scripts ontwikkelen](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
@@ -347,6 +352,6 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

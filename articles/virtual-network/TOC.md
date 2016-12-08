@@ -13,7 +13,7 @@
 
 # Aan de slag
 ## [Een virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md)
-## [Een VM implementeren naar een virtueel netwerk](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [Een VM implementeren naar een virtueel netwerk](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -143,6 +143,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

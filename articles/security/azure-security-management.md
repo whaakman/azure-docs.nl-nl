@@ -1,6 +1,6 @@
 ---
 title: Beveiligingsbeheer in Azure | Microsoft Docs
-description: " In dit artikel worden de stappen beschreven voor het verbeteren van de beveiliging van extern beheer bij het beheren van Microsoft Azure-omgevingen, inclusief cloudservices, virtuele machines en aangepaste toepassingen."
+description: In dit artikel worden de stappen beschreven voor het verbeteren van de beveiliging van extern beheer bij het beheren van Microsoft Azure-omgevingen, inclusief cloudservices, virtuele machines en aangepaste toepassingen.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: f44ecd49d034ef6ec82baa402e613308a5b3e1a9
+ms.openlocfilehash: 5cee18e58bcf505547315e14dd378b36c0b3f651
 
 
 ---
@@ -70,12 +70,12 @@ Azure biedt beveiligingsmethoden om beheerders te helpen met het beheer van clou
 * Een webbeheerportal.
 * Filteren van netwerkpakketten.
 
-In combinatie met de beveiligingsconfiguratie aan clientzijde en de datacenterimplementatie van een beheergateway is het mogelijk beheerderstoegang tot cloudtoepassingen en -gegevens te beperken en te bewaken.
+Met de beveiligingsconfiguratie aan clientzijde en de datacenterimplementatie van een beheergateway is het mogelijk beheerderstoegang tot cloudtoepassingen en -gegevens te beperken en te bewaken.
 
 > [!NOTE]
 > Bepaalde aanbevelingen in dit artikel kunnen leiden tot een toegenomen gebruik van gegevens, het netwerk en computerresources, en verhogen mogelijk de kosten van uw licentie of abonnement.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Beperkt werkstation voor beheer
 Beperking van een werkstation heeft als doel om alle functies te elimineren, behalve de functies die echt onmisbaar zijn voor de werking van het apparaat. Zo wordt het risico op aanvallen zo laag mogelijk gemaakt. Als u een systeem beperkt, minimaliseert u het aantal geïnstalleerde services en toepassingen, beperkt u het uitvoeren van toepassingen, staat u netwerktoegang alleen toe als dit noodzakelijk is en houdt u het systeem altijd up-to-date. Daarnaast kunt u door het gebruik van een beperkt werkstation voor beheer de beheertools en -activiteiten scheiden van taken voor eindgebruikers.
@@ -92,7 +92,7 @@ Op een beperkt werkstation voert de beheerder een standaardgebruikersaccount uit
 * Beperkte uitvoering van software. Sta alleen een aantal vooraf gedefinieerde uitvoerbare bestanden toe die nodig zijn voor uitvoering van het beheer (de standaardinstelling is 'Niet toestaan'). Standaard moeten gebruikers geen toestemming hebben voor het uitvoeren van programma's, tenzij expliciet gedefinieerd in de acceptatielijst.
 * Minimale bevoegdheden. Gebruikers van beheerwerkstations mogen geen beheerdersbevoegdheden hebben op de lokale computer. Op deze manier kunnen zij niet per ongeluk of met opzet wijzigen aanbrengen in de systeemconfiguratie of de systeembestanden.
 
-U kunt dit afdwingen via [Groepsbeleidsobjecten](https://www.microsoft.com/download/details.aspx?id=2612) (GPO's) in Active Directory Domain Services (AD DS) en via uw (lokale) beheerdomein toepassen op alle beheeraccounts.
+U kunt dit afdwingen via [Groepsbeleidsobjecten](https://www.microsoft.com/download/details.aspx?id=2612) (GPO's) in Active Directory Domain Services (AD DS) en door uw (lokale) beheerdomein toe te passen op alle beheeraccounts.
 
 ### <a name="managing-services-applications-and-data"></a>Services, toepassingen en gegevens beheren
 Azure-cloudservices worden geconfigureerd via de Azure Portal of SMAPI, hetzij met behulp van de Windows PowerShell-opdrachtregelinterface, hetzij met een op maat gemaakte toepassing die gebruikmaakt van deze RESTful-interfaces. Services die gebruikmaken van deze methoden, zijn onder meer Azure Active Directory (Azure AD), Azure Storage, Azure Websites en Azure Virtual Network.
@@ -106,9 +106,9 @@ Als u alle beheerderstoegang wilt centraliseren en controle en logboekregistrati
 
 Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die beveiligingsvereisten afdwingt. Door een Extern bureaublad-gateway samen met netwerktoegangsbeveiliging (NAP) voor Windows-servers te implementeren, zorgt u ervoor dat alleen clients die voldoen aan de specifieke criteria voor beveiligingsstatus, tot stand gebracht met groepsbeleidsobjecten (GPO's) van Active Directory Domain Services (AD DS), verbinding kunnen maken. Daarnaast doet u het volgende:
 
-* Richt een [Azure-beheercertificaat](http://msdn.microsoft.com/library/azure/gg551722.aspx) in op de Extern bureaublad-gateway, zodat deze de enige toegestane host is voor toegang tot de Azure-beheerportal.
+* Richt een [Azure-beheercertificaat](http://msdn.microsoft.com/library/azure/gg551722.aspx) in op de Extern bureaublad-gateway, zodat deze de enige toegestane host is voor toegang tot Azure Portal.
 * Maak de Extern bureaublad-gateway lid van hetzelfde [beheerdomein](http://technet.microsoft.com/library/bb727085.aspx) als de werkstations van de beheerders. Dit is nodig als u een IPsec-VPN tussen sites of een ExpressRoute gebruikt binnen een domein met een eenzijdige vertrouwensrelatie naar Azure AD, of als u referenties tussen uw on-premises exemplaar van AD DS en Azure AD federeert.
-* Configureer [verificatiebeleid voor clientverbindingen](http://technet.microsoft.com/library/cc753324.aspx), zodat de Extern bureaublad-gateway controleert of de naam van het clientapparaat geldig is (lid is van een domein) en toegang heeft tot de Azure-beheerportal.
+* Configureer [verificatiebeleid voor clientverbindingen](http://technet.microsoft.com/library/cc753324.aspx), zodat de Extern bureaublad-gateway controleert of de naam van het clientapparaat geldig is (lid is van een domein) en toegang heeft tot Azure Portal.
 * Gebruik IPsec voor [Azure-VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) om beheerverkeer extra te beschermen tegen afluisteren en diefstal van tokens, of breng een geïsoleerde internetkoppeling tot stand via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Schakel Multi-Factor Authentication (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) of smartcardverificatie in voor beheerders die zich via de Extern bureaublad-gateway aanmelden.
 * Configureer in Azure [IP-adresbeperkingen](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) voor bronnen of [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) om het aantal toegestane eindpunten voor beheer te minimaliseren.
@@ -117,12 +117,12 @@ Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die b
 In het algemeen sluit het beveiligen van werkstations van beheerders voor gebruik met de cloud aan bij de uitgangspunten die gelden voor elk ander on-premises werkstation, zoals een minimale build en beperkte machtigingen. Sommige unieke aspecten van cloudbeheer lijken meer op extern beheer of out-of-band-enterprise-beheer. Hierbij horen het gebruiken en controleren van referenties, verbeterde beveiliging van externe toegang, en bedreigingsdetectie en -respons.
 
 ### <a name="authentication"></a>Authentication
-U kunt Azure-aanmeldingsbeperkingen gebruiken om de bron-IP-adressen te beperken die toegang hebben tot beheerhulpprogramma's, en om toegangsaanvragen te controleren. Om Azure te helpen beheerclients (werkstations en/of toepassingen) te identificeren, kunt u zowel SMAPI (via door de klant ontwikkelde hulpprogramma's, zoals Windows PowerShell-cmdlets) als de Azure-beheerportal zo configureren dat, in aanvulling op SSL-certificaten, ook installatie van beheercertificaten op de clients verplicht is. We raden u ook aan Multi-Factor Authentication verplicht te stellen voor beheerderstoegang.
+U kunt Azure-aanmeldingsbeperkingen gebruiken om de bron-IP-adressen te beperken die toegang hebben tot beheerhulpprogramma's, en om toegangsaanvragen te controleren. Om Azure te helpen beheerclients (werkstations en/of toepassingen) te identificeren, kunt u zowel SMAPI (via door de klant ontwikkelde hulpprogramma's, zoals Windows PowerShell-cmdlets) als Azure Portal zo configureren dat, in aanvulling op SSL-certificaten, ook installatie van beheercertificaten op de clients verplicht is. We raden u ook aan Multi-Factor Authentication verplicht te stellen voor beheerderstoegang.
 
 Sommige toepassingen of services die u in Azure implementeert, hebben wellicht hun eigen verificatiemethoden voor toegang voor zowel eindgebruikers als beheerders, terwijl andere volledig gebruikmaken van de mogelijkheden die Azure AD biedt. Afhankelijk van het gegeven of u referenties federeert via Active Directory Federation Services (AD FS), adreslijstsynchronisatie gebruikt of gebruikersaccounts uitsluitend in de cloud beheert, helpt het gebruik van [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (onderdeel van Azure AD Premium) u bij het beheer van levenscycli van identiteiten tussen de bronnen.
 
 ### <a name="connectivity"></a>Connectiviteit
-Er zijn diverse methoden die u kunt gebruiken om clientverbindingen met uw virtuele netwerken in Azure te beveiligen. Twee van deze methoden, [site-naar-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) en [punt-naar-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), maken het gebruik van IPsec volgens de industrienorm (S2S) of het [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) mogelijk voor codering en tunneling. Wanneer Azure verbinding maakt met openbaar Azure-servicesbeheer, zoals de Azure-beheerportal, vereist Azure Hypertext Transfer Protocol Secure (HTTPS).
+Er zijn diverse methoden die u kunt gebruiken om clientverbindingen met uw virtuele netwerken in Azure te beveiligen. Twee van deze methoden, [site-naar-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) en [punt-naar-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), maken het gebruik van IPsec volgens de industrienorm (S2S) of het [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) mogelijk voor codering en tunneling. Wanneer Azure verbinding maakt met openbaar Azure-servicesbeheer, zoals Azure Portal, vereist Azure Hypertext Transfer Protocol Secure (HTTPS).
 
 Een zelfstandig, beperkt werkstation dat geen verbinding met Azure maakt via een Extern bureaublad-gateway, moet de punt-naar-site VPN op basis van SSTP gebruiken voor het maken van de eerste verbinding met het virtuele netwerk in Azure en vervolgens via de VPN-tunnel een RDP-verbinding tot stand brengen met afzonderlijke virtuele machines.
 
@@ -139,13 +139,13 @@ Voor beperkte werkstations raden we drie primaire configuraties aan. De verschil
 | Configuratie | Voordelen | Nadelen |
 | --- | --- | --- |
 | Zelfstandig, beperkt werkstation |Strak beheerd werkstation |Hogere kosten voor speciale desktop-pc’s |
-| Minder risico op misbruik van zwakke plekken in toepassingen |Meer tijd/werk nodig voor beheer | |
-| Duidelijke scheiding van functies | | |
-| Zakelijke pc als virtuele machine |Lagere kosten voor hardware | |
-| Scheiding van rollen en toepassingen | | |
+| - | Minder risico op misbruik van zwakke plekken in toepassingen |Meer tijd/werk nodig voor beheer |
+| - | Duidelijke scheiding van functies | - |
+| Zakelijke pc als virtuele machine |Lagere kosten voor hardware | - |
+| - | Scheiding van rollen en toepassingen | - |
 | Windows To Go met BitLocker-stationsversleuteling |Compatibiliteit met de meeste pc's |Bijhouden van assets |
-| Kosteneffectiviteit en draagbaarheid | | |
-| Geïsoleerde beheeromgeving | | |
+| - | Kosteneffectiviteit en draagbaarheid | - |
+| - | Geïsoleerde beheeromgeving |- |
 
 Het is belangrijk dat het beperkte werkstation de host is en niet de gast. Er mag zich niets bevinden tussen het hostbesturingssysteem en de hardware. Op basis van het principe van de 'schone bron' (ook wel 'veilige oorsprong' genoemd) moet de host de meeste beperkingen hebben. Anders wordt het beperkte werkstation (gast) blootgesteld aan aanvallen op het systeem waarop het wordt gehost.
 
@@ -153,7 +153,7 @@ U kunt de beheerfuncties verder scheiden door voor alle beperkte werkstations ge
 
 Voor IT-omgevingen die geen on-premises infrastructuur hebben (groepsbeleidsobjecten hebben bijvoorbeeld geen toegang tot een lokaal AD DS-exemplaar omdat alle servers zich in de cloud bevinden), kan een service zoals [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) de implementatie en het onderhoud van werkstationconfiguraties vereenvoudigen.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Zelfstandig, beperkt werkstation voor beheer
+### <a name="stand-alone-hardened-workstation-for-management"></a>Zelfstandig, beperkt werkstation voor beheer
 Met een zelfstandig, beperkt werkstation hebben beheerders een pc of laptop die ze voor beheertaken gebruiken en een andere, afzonderlijke pc of laptop voor andere taken. Op een werkstation dat is ingericht voor het beheren van Azure-services, hoeven geen andere toepassingen te worden geïnstalleerd. Daarnaast helpt het gebruik van werkstations die ondersteuning bieden voor een [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) of soortgelijke cryptografische technologie op hardwareniveau, bij de apparaatverificatie en het voorkomen van bepaalde aanvallen. Via [BitLocker-stationsversleuteling](https://technet.microsoft.com/library/cc732774.aspx) kan TPM bovendien ondersteuning bieden voor de beveiliging van het volledige volume van het systeemstation.
 
 In het scenario voor zelfstandige beperkte werkstations (zie hieronder) is het lokale exemplaar van Windows Firewall (of een niet-Microsoft-clientfirewall) zo geconfigureerd dat binnenkomende verbindingen, zoals RDP, worden geblokkeerd. De beheerder kan zich aanmelden bij het beperkte werkstation en een RDP-sessie starten die verbinding maakt met Azure na het tot stand brengen van een VPN-verbinding met een virtueel netwerk in Azure. De beheerder kan zich echter niet aanmelden bij een zakelijke pc en een RDP-sessie gebruiken om verbinding te maken met het beperkte werkstation zelf.
@@ -172,7 +172,7 @@ De virtuele machine die als zakelijke pc wordt gebruikt, wordt uitgevoerd in een
 ### <a name="windows-to-go"></a>Windows To Go
 Een ander alternatief voor een zelfstandig, beperkt werkstation is gebruik van een [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx)-station. Deze functie biedt ondersteuning voor opstarten vanaf USB aan clientzijde. Met Windows To Go kunnen gebruikers een compatibele pc opstarten naar een geïsoleerde installatiekopie die wordt uitgevoerd vanaf een versleuteld USB-flashstation. Windows To Go biedt extra gebruiksmogelijkheden voor eindpunten voor extern beheer, omdat de installatiekopie volledig kan worden beheerd door een zakelijke IT-afdeling en kan worden voorzien van strikt beveiligingsbeleid, een minimale build van het besturingssysteem en TPM-ondersteuning.
 
-De draagbare installatiekopie in de afbeelding hieronder is een systeem dat lid is van een domein en vooraf zodanig is geconfigureerd dat er alleen verbinding kan worden gemaakt met Azure. Het systeem vereist bovendien Multi-Factor Authentication en blokkeert al het verkeer dat niet aan beheer is gerelateerd. Als een gebruiker dezelfde pc opstart naar de standaard zakelijke installatiekopie en via de Extern bureaublad-gateway toegang probeert te krijgen tot de beheerhulpprogramma's van Azure, wordt de sessie geblokkeerd. Windows To Go wordt het basisbesturingssysteem en er zijn geen extra lagen vereist (hostbesturingssysteem, hypervisor, virtuele machine) die mogelijk kwetsbaarder zijn voor aanvallen van buitenaf.
+De draagbare installatiekopie in de afbeelding hieronder is een systeem dat lid is van een domein en vooraf zodanig is geconfigureerd dat er alleen verbinding kan worden gemaakt met Azure. Het systeem vereist bovendien Multi-Factor Authentication en blokkeert al het verkeer dat niet aan beheer is gerelateerd. Als een gebruiker dezelfde pc opstart naar de zakelijke standaardinstallatiekopie en via de Extern bureaublad-gateway toegang probeert te krijgen tot de beheerhulpprogramma's van Azure, wordt de sessie geblokkeerd. Windows To Go wordt het basisbesturingssysteem en er zijn geen extra lagen vereist (hostbesturingssysteem, hypervisor, virtuele machine) die mogelijk kwetsbaarder zijn voor aanvallen van buitenaf.
 
 ![][4]
 
@@ -187,14 +187,14 @@ Ga er niet van uit dat er na het 'dichttimmeren' van een werkstation niet meer a
 | Niet doen | Wel doen |
 | --- | --- |
 | Verzend referenties voor beheerderstoegang of andere geheime informatie (bijvoorbeeld SSL- of beheercertificaten) niet via e-mail |Waarborg de vertrouwelijkheid door gebruikersnamen en wachtwoorden voor accounts mondeling door te geven (maar spreek ze niet op iemands voicemail in), voer een externe installatie van client/server-certificaten uit (via een gecodeerde sessie), voer downloads uit vanaf een beveiligde netwerkshare of distribueer gegevens handmatig via verwisselbare media. |
-| Beheer de levenscycli van uw beheercertificaat proactief. | |
+| - | Beheer de levenscycli van uw beheercertificaat proactief. |
 | Sla wachtwoorden niet op in toepassingsopslag (zoals een spreadsheet, een SharePoint-site of een bestandsshare) als ze niet zijn versleuteld of er geen hash-bewerking op is uitgevoerd. |Stel richtlijnen voor beveiligingsbeheer en beleid voor het beperken van het systeem op en pas deze toe op uw ontwikkelomgeving. |
-| Gebruik [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751)-regels voor het opslaan van certificaten om correcte toegang tot Azure SSL-/TLS-sites te waarborgen. | |
+| - | Gebruik [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751)-regels voor het opslaan van certificaten om correcte toegang tot Azure SSL-/TLS-sites te waarborgen. |
 | Deel geen accounts en wachtwoorden tussen beheerders, en gebruik wachtwoorden niet voor meerdere gebruikersaccounts of services, vooral als deze betrekking hebben op sociale media of andere niet-beheeractiviteiten. |Maak voor het beheer van uw Azure-abonnement een exclusief Microsoft-account en gebruik dit account niet voor persoonlijke e-mail. |
 | Verzend configuratiebestanden niet via e-mail. |Configuratiebestanden en -profielen moeten worden geïnstalleerd vanuit een vertrouwde bron (bijvoorbeeld een gecodeerd USB-flashstation), niet via een methode waarmee gemakkelijk inbreuk kan worden gepleegd, zoals e-mail. |
 | Gebruik geen zwakke of eenvoudige wachtwoorden. |Dwing beleid voor sterke wachtwoorden, verloopcycli (changeon-first-use), consoletime-outs en automatische accountvergrendeling af. Gebruik een beheersysteem met clientwachtwoorden met Multi-Factor Authentication voor wachtwoordtoegang tot de kluis. |
 | Stel beheerpoorten niet bloot aan internet. |Vergrendel Azure-poorten en -IP-adressen om de beheertoegang te beperken. Voor meer informatie raadpleegt u het technisch document [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) (Azure-netwerkbeveiliging). |
-| Gebruik voor alle beheerverbindingen firewalls, VPN-verbindingen en NAP. | |
+| - | Gebruik voor alle beheerverbindingen firewalls, VPN-verbindingen en NAP. |
 
 ## <a name="azure-operations"></a>Azure-bewerkingen
 Bij Microsoft gebruiken de technici en ondersteuningsmedewerkers die toegang hebben tot de productiesystemen van Azure, [beperkte werkstation-pc's met virtuele machines](#stand-alone-hardened-workstation-for-management) voor toegang tot het interne bedrijfsnetwerk en toepassingen (zoals e-mail, intranet, enz.). Alle beheerwerkstations hebben TPM's, het hostopstartstation is versleuteld met BitLocker en de computers zijn lid van een speciale organisatie-eenheid (OE) in het primaire bedrijfsdomein van Microsoft.
@@ -235,6 +235,6 @@ Naast de specifieke items waarnaar in dit artikel wordt verwezen, zijn ook de vo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

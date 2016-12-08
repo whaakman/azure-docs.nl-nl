@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>HDInsight-toepassingen installeren
 Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. In dit artikel leert u een gepubliceerde toepassing installeren. Zie voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md). 
 
-Momenteel is er één gepubliceerde toepassing:
+Momenteel zijn er drie gepubliceerde toepassingen:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) biedt analisten een interactieve wijze voor het detecteren, analyseren en visualiseren van de resultaten over big data. Betrek eenvoudig aanvullende gegevensbronnen en ontdek snel nieuwe relaties en antwoorden op vragen.
+* **StreamSets Data Collector voor HDInsight** biedt een complete geïntegreerde IDE (Integrated Development Environment) waarin u opnamepijplijnen die stream- en batchgegevens filteren en diverse in-stream transformaties bevatten, in alle richtingen kunt ontwerpen, testen, implementeren en beheren, en dat alles zonder aangepaste code te hoeven schrijven. 
+* **Cask CDAP 3.5 voor HDInsight** biedt het eerste uniforme integratieplatform voor big data waarvan de tijd voor productie voor gegevenstoepassingen en data lakes met 80% wordt verkort. Deze toepassing biedt alleen ondersteuning voor standaard HBase 3.4-clusters.
 
-> [!NOTE]
-> Datameer wordt momenteel alleen ondersteund in Azure HDInsight versie 3.2-clusters.
-> 
-> 
 
 De instructies in dit artikel zijn bestemd voor gebruik met Azure Portal. U kunt ook de Azure Resource Manager-sjabloon exporteren vanuit de portal of een kopie van de Resource Manager-sjabloon van leveranciers verkrijgen, en Azure PowerShell en Azure CLI gebruiken om de sjabloon te implementeren.  Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,7 +44,7 @@ De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HD
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Bladeren** en vervolgens op **HDInsight-clusters**.
 3. Klik op een HDInsight-cluster.  Als u deze niet hebt, maakt u die eerst.  Zie [Clusters maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klik op de blade **Instellingen** onder de categorie **Algemeen** op **Toepassingen**. Op de blade **Geïnstalleerde apps** vindt u een lijst van de geïnstalleerde toepassingen. 
+4. Klik op **Toepassingen** onder de categorie **Configuraties**. U ziet een lijst met geïnstalleerde toepassingen (indien aanwezig).
    
     ![menu van HDInsight-toepassingenportal](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klik op **Toevoegen** in de menu-blade. 
@@ -120,6 +118,6 @@ Zie [Problemen met de installatie oplossen](hdinsight-apps-install-custom-applic
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

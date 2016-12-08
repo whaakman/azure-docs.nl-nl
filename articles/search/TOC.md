@@ -27,6 +27,7 @@
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
 ## Ontwikkelen
 ### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
+### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)
 ## Beheren
 ### Azure Search beheren
@@ -37,12 +38,14 @@
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
 ### [Prestaties en optimalisatie](search-performance-optimization.md)
 ## Gegevens laden
-### [Indexgegevensbronnen](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Azure-tabellen](search-howto-indexing-azure-tables.md)
-#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV-blobs](search-howto-index-csv-blobs.md)
-### [Verbindingsconfiguratie van VM met SQL Server in Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Overzicht van de indexeerfunctie](search-indexer-overview.md)
+### [Indexeerfunctie voor Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+### [Indexeerfunctie voor Azure Table Storage](search-howto-indexing-azure-tables.md)
+### [Indexeerfunctie voor Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Indexeerfunctie voor Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [CSV-blobs indexeren](search-howto-index-csv-blobs.md)
+### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
+### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Veldtoewijzingen in indexeerfuncties](search-indexer-field-mappings.md)
 ##  Zoekervaring ontwerpen
 ### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # Naslaginformatie
 ## [API-versies](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Lucene-querysyntaxis](https://msdn.microsoft.com/library/azure/mt589323)
-## [Vereenvoudigde querysyntaxis](https://msdn.microsoft.com/library/azure/dn798920)
+## [Service .NET](/dotnet/api/microsoft.azure.search)
+## [Management .NET](/dotnet/api/microsoft.azure.management.search)
 ## [Service REST](/rest/api/searchservice/)
 ## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Management REST](/rest/api/searchmanagement/)
+## [Lucene-querysyntaxis](https://msdn.microsoft.com/library/azure/mt589323)
+## [Vereenvoudigde querysyntaxis](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke Azure Portal
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een si
 
 ![Site-naar-site-diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor site-naar-site-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
@@ -48,7 +48,7 @@ Controleer of u beschikt over de volgende items voordat u begint met de configur
 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet weet hoe u uw VPN-apparaat moet configureren of de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken.
 * Een extern gericht openbaar IP-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
-* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial).
 
 ## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Het virtuele netwerk maken
 1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com/).
@@ -68,7 +68,7 @@ Voer de volgende informatie in en klik rechtsonder op de pijl Volgende.
 * **Site-naar-site-VPN configureren**: schakel het selectievakje **Site-naar-site-VPN configureren** in.
 * **Lokaal netwerk**: een lokaal netwerk vertegenwoordigt uw fysieke on-premises locatie. U kunt een lokaal netwerk selecteren dat u eerder hebt gemaakt of u kunt een nieuw lokaal netwerk maken. Als u echter kiest voor het gebruik van een lokaal netwerk dat u eerder hebt gemaakt, gaat u naar de configuratiepagina **Lokale netwerken** en controleert u of het IP-adres van het VPN-apparaat (openbaar IPv4-adres) voor het VPN-apparaat juist is.
 
-## <a name="a-nameconnectivityasitetosite-connectivity-page"></a><a name="Connectivity"></a>Pagina Site-naar-site-connectiviteit
+## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Pagina Site-naar-site-connectiviteit
 Als u een nieuw lokaal netwerk maakt, wordt de pagina **Site-naar-site-connectiviteit** geopend. Als u een lokaal netwerk wilt gebruiken dat u eerder hebt gemaakt, wordt deze pagina niet in de wizard weergegeven en kunt u naar de volgende sectie gaan.
 
 Voer de volgende informatie in en klik op de pijl Volgende.
@@ -97,11 +97,11 @@ Wanneer u onder aan de pagina op het vinkje klikt, wordt het virtuele netwerk ge
 Configureer de gateway van het virtuele netwerk om een beveiligde site-naar-site-verbinding te maken. Zie [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md) (De gateway van een virtueel netwerk configureren in de klassieke Azure Portal).
 
 ## <a name="next-steps"></a>Volgende stappen
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de documentatie over [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) voor meer informatie.
+ Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

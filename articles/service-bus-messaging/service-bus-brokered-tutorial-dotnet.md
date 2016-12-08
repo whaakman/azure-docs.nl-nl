@@ -1,13 +1,13 @@
 ---
 title: Service Bus Brokered Messaging .NET-zelfstudie | Microsoft Docs
 description: Brokered Messaging .NET-zelfstudie
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d888a16d538491535aad8effed53a5e98aa01359
 
 
 ---
@@ -43,19 +43,19 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
 1. Open Visual Studio als beheerder door met de rechtermuisknop op het programma in het menu Start te klikken en vervolgens op **Als administrator uitvoeren**.
 2. Maak een nieuw consoletoepassingsproject aan. Klik op het menu **Bestand**, selecteer **Nieuw** en selecteer vervolgens **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#** (kijk bij **Andere talen** als **Visual C#** niet wordt weergegeven), klik op het sjabloon **Consoletoepassing** en geef het de naam **QueueSample**. Gebruik de standaardwaarde voor **Locatie**. Klik op **OK** om het project aan te maken.
 3. Gebruik de NuGet package manager om de Service Bus-bibliotheken aan het project toe te voegen:
-   
+
    1. Klik in Solution Explorer met de rechtermuisknop op het project **QueueSample** en klik vervolgens op **NuGet-pakketten beheren**.
    2. Klik in het dialoogvenster **NuGet-pakketten beheren** op het tabblad **Bladeren**, zoek naar **Azure Service Bus** en klik vervolgens op **Installeren**.
       <br />
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om dit te openen in de Visual Studio-editor. Verander de standaardnaam `QueueSample` van de naamruimte in `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Wijzig de `using`-instructies zoals weergegeven in de volgende code.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Maak een tekstbestand met de naam Data.csv en kopieer de volgende door komma's gescheiden tekst naar het bestand.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Sla het Data.csv-bestand op en sluit het. Onthoud de locatie waar u het bestand hebt opgeslagen.
 7. Klik met de rechtermuisknop op de naam van uw project in Solution Explorer (in dit voorbeeld **QueueSample**), klik op **Toevoegen** en vervolgens op **Bestaand item**.
 8. Blader naar het Data.csv-bestand dat u hebt gemaakt in stap 6. Klik op het bestand en klik vervolgens op **Toevoegen**. Zorg ervoor dat **Alle bestanden (*.*)** in de lijst met bestandstypen is geselecteerd.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Een methode maken die een lijst met berichten parseert
 1. Declareer twee variabelen in de `Program`-klasse voor de `Main()`-methode. De een van het type **DataTable**, die de lijst met berichten in Data.csv bevat. De ander van het type lijstobject, sterk getypeerd naar [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Deze laatste is de lijst met brokered berichten die in de volgende stappen van de zelfstudie wordt gebruikt.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Definieer buiten `Main()` een `ParseCSV()`-methode die de lijst met berichten in Data.csv parseert en de berichten in een [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx)-tabel laadt, zoals hier wordt weergegeven. De methode retourneert een **DataTable**-object.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. Voeg in de `Main()` -methode een instructie toe die de `ParseCSVFile()`-methode aanroept:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Een methode maken die de lijst met berichten laadt
-1. Definieer buiten `Main()` een `GenerateMessages()`-methode die het door `ParseCSVFile()` geretourneerde **DataTable**-object in een sterk getypeerde tabel met brokered berichten laadt. De methode retourneert vervolgens het **Lijst**-object, zoals in het volgende voorbeeld. 
-   
+1. Definieer buiten `Main()` een `GenerateMessages()`-methode die het door `ParseCSVFile()` geretourneerde **DataTable**-object in een sterk getypeerde tabel met brokered berichten laadt. De methode retourneert vervolgens het **Lijst**-object, zoals in het volgende voorbeeld.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
     }
     ```
 2. Voeg in `Main()`, direct na de aanroep van `ParseCSVFile()`, een instructie toe die de `GenerateMessages()`-methode aanroept met de geretourneerde waarde van `ParseCSVFile()` als argument:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ De volgende stap is het maken van een Visual Studio-project en het schrijven van
 
 ### <a name="obtain-user-credentials"></a>Gebruikersreferenties verkrijgen
 1. Maak eerst drie globale tekenreeksvariabelen die deze waarden bevatten. Declareer deze variabelen direct na de vorige declaraties voor variabelen, bijvoorbeeld:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Maak vervolgens een functie die de servicenaamruimte en de SAS-sleutel accepteert en opslaat. Voeg deze methode buiten `Main()` toe. Bijvoorbeeld: 
-   
+2. Maak vervolgens een functie die de servicenaamruimte en de SAS-sleutel accepteert en opslaat. Voeg deze methode buiten `Main()` toe. Bijvoorbeeld:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. Voeg in `Main()`, direct na het aanroepen van `GenerateMessages()`, een instructie toe die de `CollectUserInput()`-methode aanroept:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ Klik in het menu **Ontwikkelen** in Visual Studio op **Oplossing ontwikkelen** o
 In deze stap definieert u de beheerbewerkingen die u gebruikt om SAS-referenties (Shared Access Signature) te maken waarmee uw toepassing wordt toegestaan.
 
 1. Ter verduidelijking, deze zelfstudie plaatst alle bewerkingen van de wachtrij in een afzonderlijke methode. Maak na de `Main()`-methode een asynchrone `Queue()`-methode in de `Program`-klasse. Bijvoorbeeld:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ In deze stap definieert u de beheerbewerkingen die u gebruikt om SAS-referenties
     }
     ```
 2. De volgende stap is het maken van een SAS-referentie met een [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx)-object. De methode voor het maken neemt de naam en waarde van de SAS-sleutel die u in de `CollectUserInput()`-methode hebt verkregen. Voeg de volgende code aan de `Queue()` methode toe:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ In deze stap definieert u de beheerbewerkingen die u gebruikt om SAS-referenties
     }
     ```
 3. Maak een nieuw beheerobject voor de naamruimte met als argumenten een URI met de naam van de naamruimte en de beheerreferenties die u in de vorige stap hebt verkregen. Voeg deze code toe direct na de code die u in de vorige stap hebt toegevoegd. Vervang `<yourNamespace>` door de naam van de servicenaamruimte:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ In deze stap maakt u een wachtrij en verzendt u vervolgens de berichten in de li
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Een wachtrij maken en berichten naar de wachtrij verzenden
 1. Maak eerst de wachtrij aan. Noem deze bijvoorbeeld `myQueue` en declareer hem direct na de beheerbewerkingen die u in de vorige stap in de `Queue()`-methode hebt toegevoegd:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. Maak in de `Queue()`-methode een MessagingFactory-object met een nieuw aangemaakte Service Bus-URI als argument. Voeg de volgende code toe direct na de beheerbewerkingen die u in de vorige stap hebt toegevoegd. Vervang `<yourNamespace>` door de naam van de servicenaamruimte:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Maak vervolgens het wachtrij-object met behulp van de klasse [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Voeg de volgende code toe direct na de code die u in de vorige stap hebt toegevoegd:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Voeg vervolgens de code toe die door de lijst met brokered berichten gaat die u eerder hebt gemaakt, en die elk bericht naar de wachtrij verzendt. Voeg de volgende code toe direct na de `CreateQueueClient()`-instructie uit de vorige stap:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,7 +615,7 @@ Nu u de voorgaande stappen hebt voltooid, kunt u de **QueueSample**-toepassing b
 Klik in het menu **Ontwikkelen** in Visual Studio op **Oplossing ontwikkelen** of druk op **Ctrl + Shift + B**. Als er fouten optreden, controleer dan of uw code klopt met het complete voorbeeld dat aan het einde van de vorige stap wordt weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een Service Bus-clienttoepassing en -service maakt met behulp van de mogelijkheden voor Service Bus Brokered Messaging. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een vergelijkbare zelfstudie waarin gebruik wordt gemaakt van Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging).
+In deze zelfstudie hebt u geleerd hoe u een Service Bus-clienttoepassing en -service maakt met behulp van de mogelijkheden voor Service Bus Brokered Messaging. Zie de [Zelfstudie over Service Bus Relayed Messaging](../service-bus-relay/service-bus-relay-tutorial.md) voor een vergelijkbare zelfstudie waarin gebruik wordt gemaakt van Service Bus [WCF Relay](service-bus-messaging-overview.md#service-bus-relay).
 
 Zie de volgende onderwerpen voor meer informatie over [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
@@ -625,7 +625,6 @@ Zie de volgende onderwerpen voor meer informatie over [Service Bus](https://azur
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

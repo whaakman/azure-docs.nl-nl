@@ -6,38 +6,49 @@
 ## [Ondersteuning voor Azure Resource Manager](load-balancer-arm.md)
 ## [IPv6-ondersteuning](load-balancer-ipv6-overview.md)
 ## [Meerdere VIP's](load-balancer-multivip-overview.md)
+## [Uitleg over uitgaande verbindingen](load-balancer-outbound-connections.md)
+
 # Aan de slag
+
 ## [Interne load balancer configureren](load-balancer-get-started-ilb-arm-portal.md)
 ### [Interne load balancer configureren (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Interne load balancer configureren (CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [Interne load balancer configureren (sjabloon)](load-balancer-get-started-ilb-arm-template.md)
+
 ## [Interne load balancer configureren voor cloudservices](load-balancer-get-started-ilb-classic-cloud.md)
 ### [Interne load balancer configureren voor cloudservices (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 ### [Interne load balancer configureren voor cloudservices (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+
 ## [Internetgerichte load balancer configureren](load-balancer-get-started-internet-portal.md)
 ### [Internetgerichte load balancer configureren (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ### [Internetgerichte load balancer configureren (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Internetgerichte load balancer configureren (sjabloon)](load-balancer-get-started-internet-arm-template.md)
+
 ## [Internetgerichte load balancer configureren (klassieke portal)](load-balancer-get-started-internet-classic-portal.md)
 ### [Internetgerichte load balancer configureren (klassieke cloud)](load-balancer-get-started-internet-classic-cloud.md)
 ### [Internetgerichte load balancer configureren (klassieke PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Internetgerichte load balancer configureren (klassieke CLI)](load-balancer-get-started-internet-classic-cli.md)
+
 ## [Een internetgerichte load balancer maken met IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Een internetgerichte load balancer maken met IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Een internetgerichte load balancer maken met IPv6 (sjabloon)](load-balancer-ipv6-internet-template.md)
+
 # Procedures
 ## [Time-out voor TCP-inactiviteit configureren voor load balancer](load-balancer-tcp-idle-timeout.md)
 ## [Distributiemodus configureren voor load balancer](load-balancer-distribution-mode.md)
 ## [Interne load balancer configureren voor SQL AlwaysOn](load-balancer-configure-sqlao.md)
 ## [Meerdere VIP's configureren voor cloudservice](load-balancer-multivip.md)
+## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+## [Meerdere IP-configuraties gebruiken](load-balancer-multiple-ip.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 
 # Naslaginformatie
-## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Resource Manager-API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Netwerkresources gebruiken](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Azure CLI](/cli/azure/network/lb)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Verwant
 ## [Application Gateway](/azure/application-gateway/)
@@ -49,10 +60,10 @@
 ## [DNS](/azure/dns/)
 
 # Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/load-balancer/) 
-## [Service-updates](https://azure.microsoft.com/updates/?product=load-balancer) 
+## [Prijzen](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

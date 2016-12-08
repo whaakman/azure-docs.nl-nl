@@ -3,8 +3,8 @@ title: Azure Traffic Manager-profielen beheren | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u de geschiedenis van een Azure Traffic Manager-profiel maakt, uitschakelt, inschakelt, verwijdert en weergeeft.
 services: traffic-manager
 documentationcenter: 
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c322fef4fb8588d6d3cc5c6c30fdcb486834155
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 7e7de7dc1eca6903403afef03fdd6afb98ff16c9
 
 ---
 
@@ -87,6 +87,6 @@ U kunt de wijzigingsgeschiedenis voor uw Traffic Manager-profiel in de klassieke
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

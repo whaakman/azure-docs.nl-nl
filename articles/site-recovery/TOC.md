@@ -2,7 +2,7 @@
 ## [Wat is Site Recovery?](site-recovery-overview.md)
 ## [Hoe werkt Site Recovery?](site-recovery-components.md)
 ## [Welke workloads kunt u beveiligen?](site-recovery-workload.md)
-## [Welke besturingssystemen worden ondersteund?](site-recovery-support-matrix.md)
+## [Ondersteuningsmatrix voor Site Recovery](site-recovery-support-matrix.md)
 ## [Veelgestelde vragen](site-recovery-faq.md)
 ## [Een inleiding bekijken](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell klassiek](/powershell/servicemanagement/)
 
 # Verwant
@@ -63,6 +63,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

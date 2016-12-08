@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Een StorSimple-apparaat implementeren (Update 2)
+# <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Een StorSimple-apparaat implementeren (Update 2)
 > [!div class="op_single_selector"]
 > * [Update 2 en hoger ](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -56,7 +56,7 @@ Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configurere
 | [Stap 1: een nieuwe service maken](#step-1-create-a-new-service) |Stel cloudbeheer en -opslag voor uw StorSimple-apparaat in. *U kunt deze stap overslaan als u al een service voor andere StorSimple-apparaten hebt*. |
 | [Stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key) |Gebruik deze sleutel om uw StorSimple-apparaat te registreren en te verbinden met de managementservice. |
 | [Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Verbind het apparaat met uw netwerk en registreer het bij Azure om de installatie met behulp van de managementservice te voltooien. |
-| [Stap 4: minimale apparaatconfiguratie voltooien](#step-4-complete-minimum-device-setupd)</br>[Optioneel: het StorSimple-apparaat bijwerken](#scan-for-and-apply-updates) |Gebruik de managementservice om de installatie van het apparaat te voltooien en het in te schakelen voor opslag. |
+| [Stap 4: minimale apparaatconfiguratie voltooien](#step-4-complete-minimum-device-setup)</br>[Optioneel: het StorSimple-apparaat bijwerken](#scan-for-and-apply-updates) |Gebruik de managementservice om de installatie van het apparaat te voltooien en het in te schakelen voor opslag. |
 | [Stap 5: een volumecontainer maken](#step-5-create-a-volume-container) |Maak een container voor het inrichten van volumes. Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. |
 | [Stap 6: een volume maken](#step-6-create-a-volume) |Richt opslagvolume(s) op het StorSimple-apparaat in voor uw servers. |
 | [Stap 7: een volume koppelen, initialiseren en formatteren](#step-7-mount-initialize-and-format-a-volume)</br>[Optioneel: MPIO configureren](storsimple-configure-mpio-windows-server.md) |Verbind uw servers met de iSCSI-opslag die is geleverd door het apparaat. U kunt MPIO desgewenst configureren om ervoor te zorgen dat uw servers koppelings-, netwerk- en interfacefouten kunnen tolereren. |
@@ -95,7 +95,7 @@ Zorg voordat u begint voor het volgende:
 
 * De poorten in de firewall van het netwerkcentrum zijn geopend om iSCSI- en cloud-verkeer toe te staan, zoals is beschreven in [Netwerkvereisten voor uw StorSimple-apparaat](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>Stapsgewijze implementatie
+## <a name="step-by-step-deployment"></a>Stapsgewijze implementatie
 Gebruik de volgende stapsgewijze instructies om uw StorSimple-apparaat te implementeren in het datacenter.
 
 ## <a name="step-1-create-a-new-service"></a>Stap 1: een nieuwe service maken
@@ -224,6 +224,6 @@ Voer de volgende stappen uit in de beheerportal als u voor één volume op het S
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
