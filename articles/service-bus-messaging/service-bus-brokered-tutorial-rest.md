@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
@@ -50,7 +50,7 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
 2. Maak een nieuw consoletoepassingsproject. Klik in het menu **Bestand** op **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw Project** op **Visual C#** (kijk bij **Andere talen** als **Visual C#** niet wordt weergegeven), selecteer het sjabloon **Consoletoepassing** en geef het de naam **Microsoft.ServiceBus.Samples**. Gebruik de standaardlocatie. Klik op **OK** om het project aan te maken.
 3. Zorg ervoor dat uw `using`-instructies in Program.cs er als volgt uitzien:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
 4. Wijzig indien nodig de standaard Visual Studio-naam van de naamruimte voor het programma in `Microsoft.ServiceBus.Samples`.
 5. Voeg in de `Program`-klasse de volgende globale variabelen toe:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ Nadat u in de eerste stap de naamruimte en referenties hebt verkregen, maakt u v
     ```
 6. Plak de volgende code in `Main()`:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ De volgende stap is het schrijven van een methode die de naamruimte en SAS-sleut
 ### <a name="create-a-getsastoken-method"></a>Een GetSASToken()-methode maken
 Plak de volgende code in de `Program`-klasse na de `Main()`-methode:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ De volgende stap is het schrijven van een methode die een wachtrij maakt met de 
 
 Plak de volgende code direct na de `GetSASToken()`-code die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
 
 1. Plak de volgende code direct na de `CreateQueue()`-code die u in de vorige stap hebt toegevoegd:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
     ```
 2. Standaard brokered berichten worden in een `BrokerProperties`-HTTP-header gezet. De eigenschappen van de broker moeten worden geserialiseerd in JSON-indeling. Om een **TimeToLive**-waarde van 30 seconden op te geven en een berichtlabel ‘M1’ aan het bericht toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ In deze stap voegt u een methode toe die met de REST-stijl-opdracht HTTP POST ee
     Houd er rekening mee dat brokered-berichteigenschappen zijn en worden toegevoegd. De verzendaanvraag moet daarom een API-versie opgeven die ondersteuning biedt voor alle brokered-berichteigenschappen die deel uitmaken van de aanvraag. Als de opgegeven API-versie een brokered-berichteigenschap niet ondersteunt, wordt die eigenschap genegeerd.
 3. Aangepaste berichteigenschappen worden gedefinieerd als een set van sleutel-/waardeparen. Elke aangepaste eigenschap wordt in een eigen TPPT-header opgeslagen. Om de aangepaste eigenschappen ‘Prioriteit’ en ‘Klant’ toe te voegen, voegt u de volgende code toe direct voor de `webClient.UploadData()`-aanroep die in het vorige voorbeeld is weergegeven:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ De volgende stap is het toevoegen van een methode die een bericht uit de wachtri
 
 Plak de volgende code direct na de `SendMessage()`-code die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ De volgende stap is het schrijven van een methode die een onderwerp maakt met de
 ### <a name="create-a-topic"></a>Een onderwerp maken
 Plak de volgende code direct na de `ReceiveAndDeleteMessage()`-code die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Een abonnement maken
 De volgende code maakt een abonnement aan op het onderwerp dat u in de vorige stap hebt gemaakt. Voeg de volgende code direct na de `CreateTopic()`-definitie toe:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ In deze stap voegt u de code toe die de berichteigenschappen ophaalt en vervolge
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Een Atom-feed ophalen met de opgegeven resources
 Voeg de volgende code toe direct na de `CreateSubscription()`-methode die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Berichtverzendingsentiteiten verwijderen
 Voeg de volgende code toe direct na de code die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>De Atom-feed indelen
 De `GetResources()`-methode bevat een aanroep voor een `FormatXml()`-methode die de opgehaalde Atom-feed opnieuw indeelt, zodat deze beter leesbaar is. Het volgende is de definitie van `FormatXml()`. Voeg deze code toe direct na de `DeleteResource()`-code die u in de vorige stap hebt toegevoegd:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Druk op F5 om de toepassing uit te voeren als er geen fouten zijn. Voer, wanneer
 ### <a name="example"></a>Voorbeeld
 Het volgende voorbeeld is de volledige code zoals die eruit zou moet zien nadat u alle stappen in deze zelfstudie hebt gevolgd.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
