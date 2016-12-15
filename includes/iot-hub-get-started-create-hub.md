@@ -19,7 +19,7 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat-app verbinding kan maken. De 
 5. Wanneer de IoT Hub is gemaakt, klikt u op de nieuwe tegel voor uw IoT Hub in Azure Portal. De blade voor de nieuwe IoT Hub wordt dan geopend. Noteer de **Hostname** (Hostnaam) en klik vervolgens op **Shared access policies** (Gedeeld toegangsbeleid).
    
     ![Blade Nieuwe IoT Hub][4]
-6. In de blade **Gedeeld toegangsbeleid** klikt u op het beleid **iothubowner** en kopieert en noteert u de verbindingsreeks op de blade **iothubowner**. Zie voor meer informatie [Access control][lnk-access-control] (Toegangsbeheer) in de Azure IoT Hub developer guide (Ontwikkelaarshandleiding Azure IoT Hub).
+6. In de blade **Gedeeld toegangsbeleid** klikt u op het beleid **iothubowner** en kopieert en noteert u de IoT Hub-verbindingsreeks op de blade **iothubowner**. Zie voor meer informatie [Toegangsbeheer][lnk-access-control] in de Ontwikkelaarshandleiding voor IoT Hub.
    
     ![Blade Gedeeld toegangsbeleid][5]
 
@@ -37,6 +37,6 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat-app verbinding kan maken. De 
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

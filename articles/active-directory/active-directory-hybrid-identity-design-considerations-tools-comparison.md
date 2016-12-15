@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Gebruik de volgende sleutel voor elk van de tabellen.
 FR = Toekomstige release  
 PP = Openbare preview  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Synchronisatie van on-premises naar cloud
+## <a name="on-premises-to-cloud-synchronization"></a>Synchronisatie van on-premises naar cloud
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices (AAD Sync) | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Verbinding maken met één on-premises AD-forest |● |● |● |● |● |
@@ -52,7 +52,7 @@ PP = Openbare preview
 | Verbinding maken met on-premises HR (SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Biedt ondersteuning voor FIM-synchronisatieregels en -connectors voor de inrichting van on-premises systemen. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Synchronisatie van cloud naar on-premises
+## <a name="cloud-to-on-premises-synchronization"></a>Synchronisatie van cloud naar on-premises
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back van apparaten |● | |● | | |
@@ -68,7 +68,7 @@ PP = Openbare preview
 | Eenmalige aanmelding met federatie |● |● |● |● |● |
 | Write-back van wachtwoorden (van SSPR en het wijzigen van wachtwoorden) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Instellingen en installatie
+## <a name="set-up-and-installation"></a>Instellingen en installatie
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Biedt ondersteuning voor installatie op een domeincontroller |● |● |● | |
@@ -95,6 +95,6 @@ Lees meer over het [integreren van uw on-premises identiteiten met Azure Active 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

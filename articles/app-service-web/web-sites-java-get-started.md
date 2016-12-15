@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Er zijn verschillende manieren waarop u een Java-toepassing kunt instellen in ee
 
 1. Maak een app en configureer **Toepassingsinstellingen**.
    
-    App Service biedt verschillende versies voor Tomcat en Jetty, met standaardconfiguratie. Als de toepassing die u wilt hosten, met een van de ingebouwde versies werkt, is deze methode voor het instellen van een webcontainer het gemakkelijkste. De methode is ideaal als u slechts een WAR-bestand naar een webcontainer hoeft te uploaden. Voor deze methode maakt u een app in de Azure Portal en gaat u naar de blade **Toepassingsinstellingen** voor uw app om uw versie van Java en de gewenste Java-webcontainer te kiezen. Wanneer u deze methode gebruikt, wordt zowel Java als uw webcontainer uitgevoerd vanuit Programmabestanden. Met de andere methoden worden de webcontainer en mogelijk ook de JVM op uw schijf geplaatst. Als u dit model gebruikt, hebt u geen toegang om bestanden in dit gedeelte van het bestandssysteem te bewerken. Dit betekent dat u bepaalde acties niet kunt uitvoeren. Zo kunt u het bestand *server.xml* niet configureren en kunt u geen bibliotheekbestanden in de map */lib* plaatsen. Voor meer informatie raadpleegt u de sectie [Een Java-web-app maken en configureren](#appsettings) verderop in deze zelfstudie.
+    App Service biedt verschillende versies voor Tomcat en Jetty, met standaardconfiguratie. Als de toepassing die u wilt hosten, met een van de ingebouwde versies werkt, is deze methode voor het instellen van een webcontainer het gemakkelijkste. De methode is ideaal als u slechts een WAR-bestand naar een webcontainer hoeft te uploaden. Voor deze methode maakt u een app in de Azure Portal en gaat u naar de blade **Toepassingsinstellingen** voor uw app om uw versie van Java en de gewenste Java-webcontainer te kiezen. Wanneer u deze methode gebruikt, wordt zowel Java als uw webcontainer uitgevoerd vanuit Programmabestanden. Met de andere methoden worden de webcontainer en mogelijk ook de JVM op uw schijf geplaatst. Als u dit model gebruikt, hebt u geen toegang om bestanden in dit gedeelte van het bestandssysteem te bewerken. Dit betekent dat u bepaalde acties niet kunt uitvoeren. Zo kunt u het bestand *server.xml* niet configureren en kunt u geen bibliotheekbestanden in de map */lib* plaatsen. Voor meer informatie raadpleegt u de sectie [Een Java-web-app maken en configureren](#portal) verderop in deze zelfstudie.
 2. Een sjabloon gebruiken uit Azure Marketplace
    
     Azure Marketplace bevat sjablonen waarmee u automatisch Java-web-apps met Tomcat- of Jetty-webcontainers kunt maken en configureren. De webcontainers die door de sjablonen worden gemaakt, kunnen worden geconfigureerd. Voor meer informatie raadpleegt u de sectie [Een Java-sjabloon gebruiken uit Azure Marketplace](#marketplace) in deze zelfstudie.
@@ -64,7 +64,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
     Deze naam moet uniek zijn in het domein azurewebsites.net, omdat de URL van de web-app {naam}.azurewebsites.net wordt. Als de ingevoerde naam niet uniek is, ziet u een rood uitroepteken in het tekstvak.
 4. Selecteer een **Resourcegroep** of maak een nieuwe.
    
-    Zie [De Azure Portal gebruiken om Azure-resources te beheren] voor meer informatie over resourcegroepen.
+    Zie voor meer informatie over resourcegroepen [Overzicht van Resource Manager].
 5. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
    
     Zie [Overzicht van Azure App Service-plannen] voor meer informatie over App Service-plannen.
@@ -111,7 +111,7 @@ In deze sectie wordt beschreven hoe u Azure Marketplace gebruikt om een Java-web
     Deze naam moet uniek zijn in het domein azurewebsites.net, omdat de URL van de web-app {naam}.azurewebsites.net wordt. Als de ingevoerde naam niet uniek is, ziet u een rood uitroepteken in het tekstvak.
 8. Selecteer een **Resourcegroep** of maak een nieuwe.
    
-    Zie [De Azure Portal gebruiken om Azure-resources te beheren] voor meer informatie over resourcegroepen.
+    Zie voor meer informatie over resourcegroepen [Overzicht van Resource Manager].
 9. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
    
     Zie [Overzicht van Azure App Service-plannen] voor meer informatie over App Service-plannen.
@@ -150,7 +150,7 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 [App Service uitproberen]: http://go.microsoft.com/fwlink/?LinkId=523751
 [web-app maakt in Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
-[De Azure Portal gebruiken om Azure-resources te beheren]: ../azure-portal/resource-group-portal.md
+[Overzicht van Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Een aangepaste Java-web-app uploaden naar Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -158,7 +158,7 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
 [selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
-[versies]: ./media/web-sites-java-get-started/versions.png
+[versions]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
@@ -169,6 +169,6 @@ In het [Java Developer Center] vindt u meer informatie over het ontwikkelen van 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2537b0c4dcc71d02d25959a0b21d96bce7deaac6
 
 
 ---
@@ -186,7 +186,7 @@ Node.js biedt een uitgebreid ecosysteem van modules die kunnen worden gebruikt d
 
 Als u problemen met uw toepassing ondervindt nadat deze is geïmplementeerd in Azure, raadpleegt u [Fouten opsporen in een Node.js-toepassing in Azure App Service](web-sites-nodejs-debug.md) voor meer informatie over het diagnosticeren van het probleem.
 
-In dit artikel wordt Azure Portal gebruikt om een web-app te maken. Met de [Azure-opdrachtregelinterface](../xplat-cli-install.md) of [Azure PowerShell](../powershell-install-configure.md) kunt u dezelfde bewerkingen uitvoeren.
+In dit artikel wordt Azure Portal gebruikt om een web-app te maken. Met de [Azure-opdrachtregelinterface](../xplat-cli-install.md) of [Azure PowerShell](/powershell/azureps-cmdlets-docs) kunt u dezelfde bewerkingen uitvoeren.
 
 In het [Node.js Developer Center](/develop/nodejs/) vindt u meer informatie over het ontwikkelen van Node.js-toepassingen in Azure.
 
@@ -202,6 +202,6 @@ In het [Node.js Developer Center](/develop/nodejs/) vindt u meer informatie over
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

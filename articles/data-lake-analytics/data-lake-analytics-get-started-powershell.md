@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Data Lake Analytics met Azure PowerShell | Microsoft Docs
-description: 'Informatie over het gebruik van Azure PowerShell voor het maken van een Data Lake Store-account, het maken van een Data Lake Analytics-taak met U-SQL, en het verzenden van de taak. '
+description: 'Informatie over het gebruik van Azure PowerShell voor het maken van een Data Lake Analytics-account, het maken van een Data Lake Analytics-taak met U-SQL en het verzenden van de taak. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ In deze zelfstudie gaat u een taak ontwikkelen die een bestand met door tabs ges
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een werkstation met Azure PowerShell**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md).
+* **Een werkstation met Azure PowerShell**. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 U moet een Data Lake Analytics-account hebben voordat u taken kunt uitvoeren. Om een Data Lake Analytics-account te maken, moet u het volgende opgeven:
@@ -209,6 +209,6 @@ Nadat de taak is voltooid, kunt u de volgende cmdlets gebruiken om het bestand w
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

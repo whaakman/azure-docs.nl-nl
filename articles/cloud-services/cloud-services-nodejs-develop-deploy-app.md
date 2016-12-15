@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
@@ -28,8 +28,6 @@ Zie [Vergelijking van Azure Websites, Cloud Services en Virtual Machines] voor m
 
 > [!TIP]
 > Wilt u een eenvoudige website bouwen? Als uw scenario alleen een ongecompliceerde website-front-end omvat, kunt u overwegen [een eenvoudige web-app-functie te gebruiken]. U kunt vervolgens gemakkelijk upgraden naar een cloudservice naarmate uw web-app groeit en uw vereisten veranderen.
->
->
 
 In deze zelfstudie maakt u een eenvoudige webtoepassing gehost binnen een webrol. U gebruikt de rekenemulator om uw toepassing lokaal te testen, en vervolgens implementeert u de toepassing met behulp van PowerShell- opdrachtregelprogramma's.
 
@@ -40,8 +38,6 @@ De toepassing is een eenvoudige 'Hallo wereld'-toepassing:
 ## <a name="prerequisites"></a>Vereisten
 > [!NOTE]
 > In deze zelfstudie wordt Azure PowerShell gebruikt waarvoor Windows is vereist.
->
->
 
 * Installeer en configureer [Azure Powershell].
 * Download en installeer [Azure SDK voor .NET 2.7]. Selecteer in de installatie-instellingen:
@@ -75,8 +71,6 @@ Voer de volgende taken uit om een nieuw Azure Cloud Services-project te maken, s
 
    > [!NOTE]
    > Als u geen rolnaam opgeeft, wordt een standaardnaam gebruikt. U kunt een naam opgeven als de eerste parameter van de cmdlet: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 De Node.js-app is gedefinieerd in het bestand **server.js**, dat zich bevindt in de map voor de webrol (standaard **WebRole1**). Dit is de code:
 
@@ -90,7 +84,9 @@ De Node.js-app is gedefinieerd in het bestand **server.js**, dat zich bevindt in
 Deze code is in wezen hetzelfde als het testitem 'Hallo wereld' op de [nodejs.org]-website, behalve dat het poortnummer wordt gebruikt dat is toegewezen door de cloudomgeving.
 
 ## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) of [u aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>De Azure-publicatie-instellingen downloaden
 Voor het implementeren van uw toepassing naar Azure moet u eerst de publicatie-instellingen voor uw Azure-abonnement downloaden.
@@ -106,12 +102,13 @@ Voor het implementeren van uw toepassing naar Azure moet u eerst de publicatie-i
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] Na het importeren van de publicatie-instellingen is het raadzaam het gedownloade .publishSettings-bestand te verwijderen, omdat dit informatie bevat die iemand toegang zou kunnen geven tot uw account.
+    > [!NOTE]
+    > Na het importeren van de publicatie-instellingen is het raadzaam het gedownloade .publishSettings-bestand te verwijderen, omdat dit informatie bevat die iemand toegang zou kunnen geven tot uw account.
 
 ### <a name="publish-the-application"></a>De toepassing publiceren
 Voer de volgende opdrachten uit om de toepassing te publiceren:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** is de naam voor de implementatie. Dit moet een unieke naam zijn, anders mislukt het publicatieproces. De **Get-Date**-opdracht voegt een datum/tijd-tekenreeks toe die de naam uniek zou moeten maken.
@@ -124,8 +121,6 @@ Nadat de publicatie is uitgevoerd, ziet u een reactie vergelijkbaar met de volge
 
 > [!NOTE]
 > Het kan enkele minuten duren voordat de toepassing is geïmplementeerd en beschikbaar is wanneer dit de eerste keer is dat de toepassing wordt gepubliceerd.
->
->
 
 Zodra de implementatie is voltooid, wordt een browservenster geopend waarin naar de cloudservice wordt genavigeerd.
 
@@ -162,8 +157,6 @@ Nadat u uw toepassing hebt geïmplementeerd, wilt u deze mogelijk uitschakelen o
 
    > [!NOTE]
    > Als u de service verwijdert, wordt niet het opslagaccount verwijderd dat is gemaakt toen de service voor de eerste keer werd gepubliceerd, en de kosten voor gebruikte opslag worden nog wel in rekening gebracht. Als niets anders de opslag gebruikt, kunt u deze verwijderen.
-   >
-   >
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie het [Node.js Developer Center] voor meer informatie.
@@ -172,25 +165,25 @@ Zie het [Node.js Developer Center] voor meer informatie.
 
 [Vergelijking van Azure Websites, Cloud Services en Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [een eenvoudige web-app-functie te gebruiken]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure Powershell]: ../powershell-install-configure.md
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK voor .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Koppel PowerShell]: ../powershell-install-configure.md#step-3-connect
+[Koppel PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Overzicht van het maken van een gehoste service voor Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[Het resultaat van de helloworld-opdracht New-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[De uitvoer van de opdracht Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Een webbrowser waarin de webpagina van Hello World wordt weergegeven]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[De uitvoer van de opdracht Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Een browservenster met de Hello World-pagina. De URL geeft aan dat de pagina wordt gehost in Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[De status van de opdracht Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[De status van de opdracht Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

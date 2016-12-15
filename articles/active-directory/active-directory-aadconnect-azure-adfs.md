@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltref
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    De aanmelding bij AD FS testen
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    De aanmelding bij AD FS testen
 De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon.aspx. Daartoe moet IdpInitiatedSignOn in de eigenschappen van AD FS worden ingeschakeld. Volg onderstaande stappen om uw AD FS-installatie te controleren
 
 1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen.
@@ -357,6 +357,6 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

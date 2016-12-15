@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Er zijn een aantal manieren om de vereisten te installeren en de versleuteling t
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](../powershell-install-configure.md) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
+Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
 Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle vereisten voor het versleutelen van uw Azure Virtual Machines.
@@ -182,6 +182,6 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

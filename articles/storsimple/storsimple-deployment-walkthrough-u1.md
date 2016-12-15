@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Een on-premises StorSimple-apparaat implementeren (Update 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Een on-premises StorSimple-apparaat implementeren (Update 1)
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -131,7 +131,7 @@ Zorg voordat u begint voor het volgende:
 
 * De poorten in de firewall van het netwerkcentrum zijn geopend om iSCSI- en cloud-verkeer toe te staan, zoals is beschreven in [Netwerkvereisten voor uw StorSimple-apparaat](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>Stapsgewijze implementatie
+## <a name="step-by-step-deployment"></a>Stapsgewijze implementatie
 Gebruik de volgende stapsgewijze instructies om uw StorSimple-apparaat te implementeren in het datacenter.
 
 ## <a name="step-1-create-a-new-service"></a>Stap 1: een nieuwe service maken
@@ -270,6 +270,6 @@ Voor MPIO-installatie-instructies voor een StorSimple-apparaat die is verbonden 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

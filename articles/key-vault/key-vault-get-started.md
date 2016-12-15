@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie o
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * Een abonnement op Microsoft Azure Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **minimaal versie 1.1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console. Ook wanneer u een van de versies van Azure PowerShell versie 0.9.1 tot en met 0.9.8 hebt geïnstalleerd, kunt u deze zelfstudie gebruiken en zij er slechts enkele kleine wijzigingen van toepassing. U moet bijvoorbeeld de opdracht `Switch-AzureMode AzureResourceManager` gebruiken en bepaalde Azure Key Vault-opdrachten zijn gewijzigd. Zie [Azure Key Vault-cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) voor een overzicht van de Key Vault-cmdlets voor versie 0.9.1 tot en met versie 0.9.8. 
+* Azure PowerShell, **minimaal versie 1.1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console. Ook wanneer u een van de versies van Azure PowerShell versie 0.9.1 tot en met 0.9.8 hebt geïnstalleerd, kunt u deze zelfstudie gebruiken en zij er slechts enkele kleine wijzigingen van toepassing. U moet bijvoorbeeld de opdracht `Switch-AzureMode AzureResourceManager` gebruiken en bepaalde Azure Key Vault-opdrachten zijn gewijzigd. Zie [Azure Key Vault-cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) voor een overzicht van de Key Vault-cmdlets voor versie 0.9.1 tot en met versie 0.9.8. 
 * Een toepassing die wordt geconfigureerd voor het gebruik van de sleutel of het wachtwoord dat u in deze zelfstudie maakt. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Zie het bijbehorende Leesmij-bestand voor instructies.
 
 Deze zelfstudie is ontworpen voor beginnende gebruikers van Azure PowerShell, maar er wordt vanuit gegaan dat u bekend bent met de basisconcepten, zoals modules, cmdlets en sessies. Zie [Aan de slag met Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) voor meer informatie.
@@ -56,7 +56,7 @@ Als u bijvoorbeeld ondersteuning voor de cmdlet **Login-AzureRmAccount** wilt aa
 
 U kun ook de volgende zelfstudies lezen om vertrouwd te raken met Azure Resource Manager in Azure PowerShell:
 
-* [Azure PowerShell installeren en configureren](../powershell-install-configure.md)
+* [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell gebruiken met Resource Manager](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Verbinding maken met uw abonnementen
@@ -76,7 +76,7 @@ Typ vervolgens het volgende om het abonnement op te geven dat u wilt gebruiken:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor meer informatie over het configureren van Azure PowerShell.
+Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over het configureren van Azure PowerShell.
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Een nieuwe resourcegroep maken
 Als u Azure Resource Manager gebruikt, worden alle gerelateerde resources gemaakt binnen een resourcegroep. In deze zelfstudie maken we de resourcegroep **ContosoResourceGroup**:
@@ -237,6 +237,6 @@ Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guid
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

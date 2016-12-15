@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ddc691f4f3d53dbff2e55b7a97446427b93a8a4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 
 ---
@@ -171,7 +171,7 @@ Deze waarschuwing biedt informatie waarmee u de resource die is gebruikt om deze
 
 [AZURE.NOTE] Live IP-adressen zijn verwijderd uit deze schermafbeelding wegens privacydoeleinden.
 
-### <a name="possible-outgoing-denialofservice-attack-detected"></a>Mogelijke uitgaande Denial of Service-aanval gedetecteerd
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Mogelijke uitgaande Denial of Service-aanval gedetecteerd
 Afwijkend netwerkverkeer afkomstig van een virtuele machine kan ertoe leiden dat Security Center een aanval van het type Denial of Service activeert.
 
 Dit is een voorbeeld van dit type waarschuwing:
@@ -214,6 +214,6 @@ In dit document bent u meer te weten gekomen over de verschillende soorten bevei
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

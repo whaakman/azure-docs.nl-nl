@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Gegevens die zijn opgeslagen in Data Lake Store kunnen eenvoudig worden geanalys
 ### <a name="unlimited-storage-petabyte-files"></a>Onbeperkte opslag, bestanden ter grootte van petabytes
 Azure Data Lake Store biedt onbeperkte opslag en is geschikt voor het opslaan van een verscheidenheid aan gegevens voor analyses. Het legt geen limieten op voor de grootte van accounts of bestanden, of de hoeveelheid gegevens die kunnen worden opgeslagen in een Data Lake. De grootte van afzonderlijke bestanden kan uiteenlopen van een kilobyte tot petabytes, waardoor het een uitstekende keuze is voor het opslaan van elk type gegevens. Gegevens worden blijvend opgeslagen door meerdere kopieën te maken en er is geen limiet voor de tijdsduur waarin de gegevens kunnen worden opgeslagen in de Data Lake.
 
-### <a name="performancetuned-for-big-data-analytics"></a>Prestaties zijn afgestemd op big data-analyses
+### <a name="performance-tuned-for-big-data-analytics"></a>Prestaties zijn afgestemd op big data-analyses
 Azure Data Lake Store is gebouwd voor het uitvoeren van grootschalige analytische systemen waarvoor grote doorvoer vereist is om grote hoeveelheden gegevens op te vragen en te analyseren. De Data Lake verspreidt delen van een bestand over een aantal afzonderlijke opslagservers. Hiermee verbetert u de doorvoer wanneer het bestand in parallel wordt gelezen voor het uitvoeren van gegevensanalyse.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>Enterprise-ready: hoge beschikbaarheid en veiligheid
+### <a name="enterprise-ready-highly-available-and-secure"></a>Enterprise-ready: hoge beschikbaarheid en veiligheid
 Azure Data Lake Store biedt industriestandaard beschikbaarheid en betrouwbaarheid. Uw gegevensassets worden blijvend opgeslagen door het maken van redundante exemplaren ter bescherming tegen onverwachte fouten. Ondernemingen kunnen Azure Data Lake bij hun oplossingen gebruiken als een belangrijk onderdeel van hun bestaande gegevensplatform.
 
 Data Lake Store biedt ook beveiliging op bedrijfsniveau voor de opgeslagen gegevens. Zie voor meer informatie [Gegevens beveiligen in Azure Data Lake Store](#DataLakeStoreSecurity).
@@ -105,6 +105,6 @@ Als u liever video's bekijkt voor meer informatie, biedt Data Lake Store video's
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

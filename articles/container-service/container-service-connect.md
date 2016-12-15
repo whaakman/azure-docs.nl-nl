@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
@@ -51,13 +51,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Als u Windows gebruikt, moet u Bash met Ubuntu gebruiken of het Putty-programma 'pscp'.
 
-Nadat `kubectl` is geconfigureerd, kunt u dit testen met:
+Zodra `kubectl` is geconfigureerd, kunt u dit testen door een lijst van de knooppunten in uw cluster weer te geven:
 
 ```console
 kubectl get nodes
 ```
 
-waarmee u de knooppunten in uw cluster zou moeten zien.
+Tenslotte kunt u het Kubernetes Dashboard bekijken. Voer eerst het volgende uit:
+
+```console
+kubectl proxy
+```
+
+De gebruikersinterface van Kubernetes is nu beschikbaar via: http://localhost:8001/ui
 
 Zie [Snel starten voor Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/) voor meer instructies.
 
@@ -166,6 +172,6 @@ Containers implementeren en beheren met DC/OS of Swarm:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-In dit artikel wordt uitgelegd hoe u toepassingen publiceert voor afzonderlijke gebruikers in een Azure RemoteApp-verzameling. Dit is nieuwe functionaliteit in Azure RemoteApp, momenteel in 'Private Preview', en alleen voor evaluatiedoeleinden beschikbaar voor vroege gebruikers.
+In dit artikel wordt uitgelegd hoe u toepassingen publiceert voor afzonderlijke gebruikers in een Azure RemoteApp-verzameling. Dit is nieuwe functionaliteit in Azure RemoteApp, momenteel als Private Preview-versie beschikbaar voor vroege gebruikers (alleen voor evaluatiedoeleinden).
 
 Oorspronkelijk konden toepassingen in Azure RemoteApp slechts op één manier worden gepubliceerd: de beheerder publiceerde apps vanuit de installatiekopie waarna ze zichtbaar waren voor alle gebruikers in de verzameling.
 
@@ -36,8 +36,8 @@ Dit is nu als een beperkte preview-functie mogelijk in Azure RemoteApp. Hier vol
 
 1. Een verzameling kan worden ingesteld op een van de volgende twee modi:
    
-   * De oorspronkelijke 'verzamelmodus', waarbij alle gebruikers in een verzameling alle gepubliceerde toepassingen zien. Dit is de standaardmodus.
-   * De nieuwe 'toepassingsmodus', waarin gebruikers alleen de toepassingen zien die aan hen zijn toegewezen.
+   * De oorspronkelijke verzamelmodus, waarbij alle gebruikers in een verzameling alle gepubliceerde toepassingen zien. Dit is de standaardmodus.
+   * De nieuwe toepassingsmodus, waarin gebruikers alleen de toepassingen zien die aan hen zijn toegewezen
 2. Op het moment kan de toepassingsmodus alleen worden ingeschakeld met PowerShell-cmdlets van Azure RemoteApp.
    
    * Als de verzameling is ingesteld op de toepassingsmodus, kan gebruikerstoewijzing in de verzameling niet worden beheerd via de Azure-portal. Gebruikerstoewijzing moet worden beheerd via de PowerShell-cmdlets.
@@ -49,7 +49,7 @@ Dit is nu als een beperkte preview-functie mogelijk in Azure RemoteApp. Hier vol
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>PowerShell-cmdlets van Azure RemoteApp ophalen
 Als u de nieuwe preview-functionaliteit wilt uitproberen, moet u Azure PowerShell-cmdlets gebruiken. Het is momenteel niet mogelijk om de nieuwe toepassingspublicatiemodus in te schakelen met Azure Management Portal.
 
-Controleer eerst of de [Azure PowerShell-module](../powershell-install-configure.md) is geïnstalleerd.
+Controleer eerst of de [Azure PowerShell-module](/powershell/azureps-cmdlets-docs) is geïnstalleerd.
 
 Start daarna de PowerShell-console in de beheerdersmodus en voer de volgende cmdlet uit:
 
@@ -106,6 +106,6 @@ Als u nog niet hebt deelgenomen aan de preview, kunt u deze [enquête](http://ww
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -4,7 +4,7 @@
 > 
 > 
 
-Dit artikel bevat een gedetailleerd overzicht van de [voorbeeldcode van Hallo wereld][lnk-helloworld-sample] om de fundamentele onderdelen van de architectuur van de [Azure IoT Gateway-SDK][lnk-gateway-sdk] te illustreren. In het voorbeeld wordt de IoT Hub Gateway SDK gebruikt om een eenvoudige gateway te maken die om de vijf seconden een 'Hallo wereld'-bericht vastlegt in een bestand.
+Dit artikel bevat een gedetailleerd overzicht van de [Hello World-voorbeeldcode][lnk-helloworld-sample] om de fundamentele onderdelen van de architectuur van de [Azure IoT Gateway-SDK][lnk-gateway-sdk] te illustreren. In het voorbeeld wordt de Azure IoT Gateway SDK gebruikt om een eenvoudige gateway te maken die om de vijf seconden een 'Hello World'-bericht vastlegt in een bestand.
 
 Dit overzicht omvat:
 
@@ -59,7 +59,7 @@ De loggermodule verwerkt alleen berichten van de broker en publiceert nooit nieu
 
 ![Hoe de broker berichten routeert tussen modules in de Azure IoT Gateway SDK][5]
 
-In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voorbeeld en de relatieve paden naar de bronbestanden die verschillende delen van het voorbeeld implementeren in de [opslagplaats][lnk-gateway-sdk]. Verken zelf de code of gebruik de codefragmenten hieronder als richtlijn.
+In de bovenstaande afbeelding ziet u de architectuur van het 'Hello World'-voorbeeld en de relatieve paden naar de bronbestanden die verschillende delen van het voorbeeld implementeren in de [opslagplaats][lnk-gateway-sdk]. Verken zelf de code of gebruik de codefragmenten hieronder als richtlijn.
 
 <!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
@@ -72,6 +72,6 @@ In de bovenstaande afbeelding ziet u de architectuur van het 'Hallo wereld'-voor
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

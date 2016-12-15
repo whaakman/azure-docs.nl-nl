@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub voor Node.js | Microsoft Docs
-description: Instructiehandleiding voor Azure IoT Hub met Node.js. Gebruik Azure IoT Hub en Node.js in combinatie met de Azure IoT-SDK&quot;s voor het implementeren van een Internet of Things (IoT)-oplossing.
+title: Aan de slag met Azure IoT Hub (Node) | Microsoft Docs
+description: "Informatie over het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat naar een Azure IoT Hub met behulp van de IoT Azure-SDK’s voor Node.js. U maakt een gesimuleerde apparaat-app voor het verzenden van berichten, een service-app op uw apparaat registreren in het id-register en een service-app om de apparaat-naar-cloud-berichten van de IoT Hub te lezen."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 91794776d0faf9dd5b7385e00ca907f13b493908
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Aan de slag met Azure IoT Hub voor Node.js
+# <a name="get-started-with-azure-iot-hub-node"></a>Aan de slag met Azure IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Nadat u deze handleiding volledig hebt doorlopen, beschikt u over drie Node.js-consoletoepassingen:
+Nadat u deze zelfstudie volledig hebt doorlopen, beschikt u over drie Node.js-consoletoepassingen:
 
 * **CreateDeviceIdentity.js**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app verbonden kan worden.
 * **ReadDeviceToCloudMessages.js**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat-app.
@@ -41,17 +41,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-U hebt nu uw IoT-hub gemaakt. U hebt de IoT-Hub-hostnaam en -verbindingsreeks die u nodig hebt voor de rest van deze zelfstudie.
+U hebt nu uw IoT-hub gemaakt. U hebt de IoT Hub-hostnaam en -verbindingsreeks die u nodig hebt voor de rest van deze zelfstudie.
 
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
-In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id maakt in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Raadpleeg het gedeelte **Id-register** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
+In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id maakt in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Raadpleeg de sectie **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
-1. Maak een nieuwe lege map met de naam **createdeviceidentity**. In de map **createdeviceidentity** maakt u een package.json-bestand door bij de opdrachtprompt de volgende opdracht te geven. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map met de naam **createdeviceidentity**. In de map **createdeviceidentity** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht te geven. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub** Service SDK-pakket te installeren:
+2. In het opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub** Service SDK-pakket te installeren:
    
     ```
     npm install azure-iothub --save
@@ -64,14 +64,14 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
    
     var iothub = require('azure-iothub');
     ```
-5. Voeg de volgende code toe aan het bestand **CreateDeviceIdentity.js** en vervang de waarde van de tijdelijke aanduiding door de verbindingsreeks voor de IoT-hub die u in het vorige gedeelte hebt gemaakt: 
+5. Voeg de volgende code toe aan het bestand **CreateDeviceIdentity.js** en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u in de vorige sectie hebt gemaakt: 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. Voeg de volgende code toe om een apparaatdefinitie te maken in het id-register van uw IoT-hub. Met deze code wordt een apparaat gemaakt als de apparaat-id nog niet voorkomt in het register. Anders wordt de sleutel van het bestaande apparaat geretourneerd:
+6. Voeg de volgende code toe om een apparaatdefinitie te maken in het id-register van uw IoT-hub. Met deze code wordt een apparaat gemaakt als de apparaat-id nog niet voorkomt in het id-register. Anders wordt de sleutel van het bestaande apparaat geretourneerd:
    
     ```
     var device = new iothub.Device(null);
@@ -87,13 +87,13 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
    
     function printDeviceInfo(err, deviceInfo, res) {
       if (deviceInfo) {
-        console.log('Device id: ' + deviceInfo.deviceId);
+        console.log('Device ID: ' + deviceInfo.deviceId);
         console.log('Device key: ' + deviceInfo.authentication.symmetricKey.primaryKey);
       }
     }
     ```
 7. Sla het bestand **CreateDeviceIdentity.js** op en sluit het.
-8. Als u de toepassing **createdeviceidentity** wilt uitvoeren, geef dan de volgende opdracht bij de opdrachtprompt in de map createdeviceidentity:
+8. Als u de toepassing **createdeviceidentity** wilt uitvoeren, geeft u de volgende opdracht op in het opdrachtprompt in de map createdeviceidentity:
    
     ```
     node CreateDeviceIdentity.js 
@@ -101,7 +101,7 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
 9. Noteer de **apparaat-id** en de **apparaatsleutel**. U hebt deze waarden later nodig wanneer u een toepassing maakt die verbinding maakt met IoT Hub als apparaat.
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Raadpleeg de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
+> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Raadpleeg de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
 > 
 > 
 
@@ -113,12 +113,12 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-be
 > 
 > 
 
-1. Maak een nieuwe lege map met de naam **readdevicetocloudmessages**. In de map **readdevicetocloudmessages** maakt u een package.json-bestand door bij de opdrachtprompt de volgende opdracht te geven. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map met de naam **readdevicetocloudmessages**. In de map **readdevicetocloudmessages** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
-2. Voer bij de opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om het pakket **azure-event-hubs** te installeren:
+2. Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om het pakket **azure-event-hubs** te installeren:
    
     ```
     npm install azure-event-hubs --save
@@ -131,7 +131,7 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-be
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de verbindingsreeks voor uw IoT-hub:
+5. Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks van uw hub:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -171,12 +171,12 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-be
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT-hub verzendt.
 
-1. Maak een nieuwe lege map met de naam **simulateddevice**. In de map **simulateddevice** maakt u een package.json-bestand door bij de opdrachtprompt de volgende opdracht te geven. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map met de naam **simulateddevice**. In de map **simulateddevice** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-amqp**-pakket te installeren:
+2. In het opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-amqp**-pakket te installeren:
    
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -190,7 +190,7 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. Voeg een **connectionString**-variabele toe en gebruik deze om een apparaat-client te maken. Vervang **{youriothostname}** door de naam van de IoT-hub die u hebt gemaakt in de sectie *Een IoT-hub maken*. Vervang **{yourdevicekey}** door de sleutelwaarde die u hebt gegenereerd in de sectie *Een apparaat-id maken*:
+5. Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken. Vervang **{youriothostname}** door de naam van de IoT-hub die u hebt gemaakt in de sectie *Een IoT-hub maken*. Vervang **{yourdevicekey}** door de sleutelwaarde die u hebt gegenereerd in de sectie *Een apparaat-id maken*:
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -242,20 +242,20 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
 ## <a name="run-the-apps"></a>De apps uitvoeren
 U kunt nu de apps uitvoeren.
 
-1. Voer bij een opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om uw IoT-hub te kunnen volgen:
+1. Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om uw IoT Hub te bewaken:
    
     ```
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![De Node.js-clienttoepassing voor IoT Hub-services voor het bewaken van berichten die van het apparaat naar de cloud gaan][7]
-2. Voer bij een opdrachtprompt in de map **simulateddevice** de volgende opdracht uit om telemetriegegevens naar uw IoT-hub te verzenden:
+    ![De Node.js-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
+2. Voer in het opdrachtprompt in de map **simulateddevice** de volgende opdracht uit om telemetriegegevens naar uw IoT Hub te verzenden:
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![De Node.js-clienttoepassing voor IoT Hub-apparaten voor het verzenden van berichten van het apparaat naar de cloud][8]
+    ![De Node.js-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
 3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
    
     ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
@@ -267,7 +267,7 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
-* [Aan de slag met de IoT-gateway-SDK][lnk-gateway-SDK]
+* [Aan de slag met de IoT Gateway-SDK][lnk-gateway-SDK]
 
 Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
 
@@ -296,6 +296,6 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

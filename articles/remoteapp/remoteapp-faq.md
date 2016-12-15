@@ -3,7 +3,7 @@ title: Veelgestelde vragen over Azure RemoteApp | Microsoft docs
 description: Lees de antwoorden op de meest gestelde vragen over Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Als u de informatie die u nodig hebt niet kunt vinden of een aanvullende vraag h
 * **Wat kost RemoteApp?** Deze informatie vindt u in [Azure RemoteApp-prijsinformatie](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Is het ene type verzameling duurder dan het andere?** Ja, dat is mogelijk, maar dat is afhankelijk van de vereisten van de verzameling. Een hybride verzameling vereist een verbinding tussen Azure RemoteApp en uw on-premises netwerk. Als u een bestaande VNET/Expresss Route gebruikt, zijn er geen extra kosten. Maar als u een nieuwe Azure VNET en een gateway of Express Route gebruikt, wordt u gefactureerd voor de [VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) of [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Deze kosten (gespecificeerd in de koppelingen) komen bij uw maandelijkse kosten voor Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Verzamelingen: wat er wordt ondersteund, welke u moet gebruiken en andere informatie
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Verzamelingen: wat er wordt ondersteund, welke u moet gebruiken en andere informatie
 * **Worden aangepaste LOB-toepassingen (Line-of-business) ondersteund?** Ja. Als u een aangepaste toepassing in Azure RemoteApp wilt gebruiken, maakt u een [aangepaste sjablooninstallatiekopie](remoteapp-create-custom-image.md) en uploadt u deze naar de RemoteApp-verzameling.
 * **Werkt mijn aangepaste LOB-toepassing in Azure RemoteApp?** De beste manier om dat te weten te komen, is door het uit te proberen. Raadpleeg het [RD Compatibility Center](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Welke implementatiemethode (cloud of hybride) is voor mijn organisatie het meest geschikt?** Hybride verzamelingen bieden de meest uitgebreide ervaring als u volledige integratie wilt met eenmalige aanmelding (SSO) en een veilige on-premises netwerkverbinding. Cloudverzamelingen bieden een flexibele en eenvoudige manier om een implementatie te isoleren met behulp van meerdere verificatiemethoden. Lees meer over de [implementatieopties](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Als u de informatie die u nodig hebt niet kunt vinden of een aanvullende vraag h
 
 * **Waarom kan ik mijn Azure Active Directory-account geen toegang verlenen?** De Azure Active Directory-gebruikers dienen te zijn opgenomen in de directory die is gekoppeld aan uw abonnement. U kunt de directory bekijken of wijzigen op het tabblad Instellingen van de portal. Zie [De Azure Active Directory-tenant wijzigen die wordt gebruikt door RemoteApp](remoteapp-changetenant.md) voor meer informatie.
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Clients: vanaf welk apparaat heb ik toegang tot Azure RemoteApp?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Clients: vanaf welk apparaat heb ik toegang tot Azure RemoteApp?
 U vindt goede clientinformatie, inclusief stappen voor het installeren van de verschillende clients in [Uw apps openen in Azure RemoteApp](remoteapp-clients.md).
 
 * **Welke apparaten en besturingssystemen worden door de clienttoepassingen ondersteund?**
@@ -126,6 +126,6 @@ Wist u dat u niet alleen dit artikel kunt beoordelen en opmerkingen kunt toevoeg
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

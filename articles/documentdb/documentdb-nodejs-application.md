@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -57,13 +57,17 @@ Hebt u geen tijd om de zelfstudie te voltooien en wilt u gewoon de volledige opl
 
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie
+
+   OF
+
+   Een lokale installatie van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] versie v0.10.29 of hoger.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (te installeren via `npm install express-generator -g`)
 * [Git][Git].
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
-Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: een nieuwe Node.js-toepassing maken](#_Toc395783178).
+Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: een nieuwe Node.js-toepassing maken](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -83,7 +87,7 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
 4. Voer uw nieuwe toepassing uit.
    
         npm start
-5. U kunt uw nieuwe toepassing weergeven door in uw browser naar [http://localhost:3000](http://localhost:3000) te navigeren.
+5. U kunt uw nieuwe toepassing weergeven door in uw browser naar [http://localhost:3000](http://localhost:3000) te gaan.
    
     ![Node.js leren - Schermopname van de toepassing Hello World in een browservenster](./media/documentdb-nodejs-application/image12.png)
 
@@ -537,11 +541,11 @@ Zie het [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/) 
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

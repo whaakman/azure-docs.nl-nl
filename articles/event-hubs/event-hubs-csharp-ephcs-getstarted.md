@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Event Hubs in C# | Microsoft Docs
-description: Volg deze zelfstudie om aan de slag te gaan met Azure Event Hubs met C# en de EventProcessorHost.
+description: Volg deze zelfstudie om aan de slag te gaan met Azure Event Hubs met C# en de Event Processor Host.
 services: event-hubs
 documentationcenter: 
 author: jtaubensee
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/02/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+ms.sourcegitcommit: 015dbab81f807cd05d1fedb97f5fc62a012f2084
+ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
 ## <a name="introduction"></a>Inleiding
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
-In deze zelfstudie kunt u zien hoe u de klassieke Azure-portal gebruikt om een Event Hub te maken. U ziet ook hoe u berichten in een Event Hub verzamelt met een consoletoepassing die is geschreven in C# en hoe u deze bericht parallel ophaalt met de C# [Event Processor Host][Event Processor Host]-bibliotheek.
+In deze zelfstudie kunt u zien hoe u Azure Portal gebruikt om een Event Hub te maken. U ziet ook hoe u berichten in een Event Hub verzamelt met een consoletoepassing die is geschreven in C# en hoe u deze berichten parallel ophaalt met de C# [Event Processor Host][Event Processor Host]-bibliotheek.
 
 Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 
@@ -65,9 +65,10 @@ Druk op **Ctrl+C** in het venster **Afzender** om de Afzender-toepassing te beë
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u naar de volgende scenario's gaan:
 
-* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][voorbeeldtoepassing die gebruikmaakt van Event Hubs].
-* Het voorbeeld van de [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Verwerking van de gebeurtenis Uitschalen met Event Hubs].
-* [Event Hubs-overzicht][Event Hubs-overzicht]
+* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][sample application that uses Event Hubs].
+* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* Het voorbeeld [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Scale out Event Processing with Event Hubs].
+* [Event Hubs-overzicht][Event Hubs overview]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -76,16 +77,15 @@ Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens ve
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs-overzicht]: event-hubs-overview.md
-[voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Verwerking van de gebeurtenis Uitschalen met Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[oplossing voor berichten in de wachtrij]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

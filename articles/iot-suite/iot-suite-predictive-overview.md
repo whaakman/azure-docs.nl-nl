@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud
-De vooraf geconfigureerde oplossing voor *voorspeld onderhoud* is een van de [vooraf geconfigureerde oplossingen][lnk_preconfigured_solutions] die is uitgebracht als onderdeel van [Microsoft Azure IoT Suite][lnk_iot_suite]. Deze oplossing integreert het verzamelen van telemetriegegevens in realtime met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk_machine_learning].
+De vooraf geconfigureerde oplossing voor *voorspellend onderhoud* is een van de [vooraf geconfigureerde oplossingen][lnk_preconfigured_solutions] die is uitgebracht als onderdeel van de [Microsoft Azure IoT Suite][lnk_iot_suite]. Deze oplossing integreert het in realtime verzamelen van telemetriegegevens met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk_machine_learning].
 
 Met Azure IoT Suite zijn bedrijven snel in staat om eenvoudig verbinding te maken met assets en deze te controleren, en om gegevens in realtime te analyseren. De vooraf geconfigureerde oplossing voor voorspeld onderhoud neemt de gegevens en gebruikt uitgebreide dashboards en visualisaties om bedrijven nieuwe bedrijfsinformatie te bieden waardoor deze efficiënter kunnen werken en meer inkomsten kunnen genereren.
 
@@ -38,19 +38,19 @@ De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de to
 
 Door het punt te voorspellen waarop onderhoud vereist is, kan Fabrikam zijn activiteiten zo optimaliseren dat de kosten worden verminderd. Onderhoudscoördinatoren plannen samen met planners het onderhoud op een moment dat een vliegtuig op een bepaalde locatie stopt, en ze ruimen voldoende tijd in dat het vliegtuig buiten gebruik is zonder dat het tijdschema in de war wordt gestuurd. Fabrikam kan technici overeenkomstig inplannen en zorgt ervoor dat het onderhoud aan het vliegtuig efficiënt wordt uitgevoerd zonder dat er vertragingen ontstaan. Magazijnbeheerders ontvangen de onderhoudsplannen zodat zij hun bestelproces en hun voorraad met reserveonderdelen kunnen optimaliseren. Door dit alles is Fabrikam in staat om de tijd die vliegtuigen aan de grond staan te minimaliseren, de operationele kosten te verlagen en kan het bedrijf de veiligheid van de passagiers en bemanning garanderen.
 
-Als u beter wilt begrijpen welke mogelijkheden [Azure IoT Suite][lnk_iot_suite] biedt die klanten nodig hebben om het potentieel van voorspeld onderhoud te realiseren, bekijk dan deze [infographic][lnk_infographic].
+Als u beter wilt begrijpen welke mogelijkheden [Azure IoT Suite][lnk_iot_suite] biedt die klanten nodig hebben om het potentieel van voorspellend onderhoud te realiseren, bekijkt u deze [infographic][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Hoe de oplossing voor voorspeld onderhoud is gebouwd
-De oplossing gebruikt een bestaand Azure Machine Learning-model dat als sjabloon beschikbaar is om te laten zien hoe deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT Suite-services. Microsoft heeft een [regressiemodel][lnk_regression_model] van een vliegtuigmotor en de volledige sjabloon, data<sup>\[1\]</sup>, gepubliceerd evenals richtlijnen met stappen voor het gebruik van het model.
+De oplossing gebruikt een bestaand Azure Machine Learning-model dat als sjabloon beschikbaar is om te laten zien hoe deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT Suite-services. Microsoft heeft een [regressiemodel][lnk_regression_model] van een vliegtuigmotor en de volledige sjabloon en alle gegevens<sup>\[1\]</sup> gepubliceerd, evenals richtlijnen met stappen voor het gebruik van het model.
 
 De vooraf geconfigureerde oplossing voor voorspeld onderhoud Azure IoT maakt gebruik van het regressiemodel dat is gemaakt op basis van deze sjabloon. Het is geïmplementeerd in uw Azure-abonnement en is toegankelijk met behulp van een automatisch gegenereerde API. De oplossing omvat een subset met de testgegevens voor 4 (van in totaal 100) motoren en de 4 (van in totaal 21) gegevensstromen van sensoren die een accuraat resultaat opleveren van het getrainde model.
 
 *\[1\] A. Saxena en K. Goebel (2008). 'Turbofan Engine Degradation Simulation Data Set', NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie hoe Azure IoT werkt in scenario's voor voorspeld onderhoud [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het internet der dingen).
+Meer informatie hoe Azure IoT werkt in scenario's voor voorspellend onderhoud vindt u in [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het internet der dingen).
 
-Neem een [walkthrough][lnk-predictive-walkthrough] door over een vooraf geconfigureerde oplossing voor voorspeld onderhoud.
+Volg een [walkthrough][lnk-predictive-walkthrough] over de vooraf geconfigureerde oplossing voor voorspellend onderhoud.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -63,13 +63,13 @@ Neem een [walkthrough][lnk-predictive-walkthrough] door over een vooraf geconfig
 U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
 * [Veelgestelde vragen over IoT Suite][lnk-faq]
-* [Compleet nieuwe IoT-beveiliging][lnk-security-groundup]
+* [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

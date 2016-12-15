@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3eaafc38aef16ffe00bbd943d74cbeeac228b1
+ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
+ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
 
 
 ---
-# <a name="configure-hive-policies-in-domainjoined-hdinsight-preview"></a>Hive-beleidsregels configureren in HDInsight dat is gekoppeld aan een domein (voorbeeld)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Hive-beleidsregels configureren in HDInsight dat is gekoppeld aan een domein (voorbeeld)
 Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -31,16 +31,16 @@ Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit ar
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Verbinding maken met de beheerinterface van Apache Ranger
 **Verbinding maken met de beheerinterface van Ranger**
 
-1. Maak vanuit een browser verbinding met de beheerinterface van Ranger. De URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
-   
+1. Maak vanuit een browser verbinding met de beheerinterface van Ranger. De URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
+
    > [!NOTE]
    > Ranger maakt gebruik van andere referenties dan het Hadoop-cluster. Gebruik een nieuw InPrivate-browservenster om verbinding te maken met de beheerinterface van Ranger om te voorkomen dat browsers Hadoop-referenties in de cache gebruiken.
-   > 
-   > 
+   >
+   >
 2. Meld u aan met de gebruikersnaam en het wachtwoord van het clusterbeheerdomein:
-   
+
     ![Ranger-startpagina van HDInsight dat is gekoppeld aan een domein](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
-   
+
     Op dit moment werkt Ranger alleen met Yarn en Hive.
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
@@ -54,23 +54,23 @@ In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesamplet
 1. Open de beheerinterface van Ranger. Zie [Verbinding maken met de beheerinterface van Apache Ranger](#connect-to-apache-ranager-admin-ui).
 2. Klik op **&lt;ClusterName>_hive** onder **Hive**. Er worden twee vooraf geconfigureerde beleidsregels weergegeven.
 3. Klik op **Nieuw beleid toevoegen** en voer de volgende waarden in:
-   
+
    * Beleidsnaam: read-hivesampletable-all
    * Hive-database: standaard
    * Tabel: hivesampletable
    * Hive-kolom:*
    * Gebruiker selecteren: hiveuser1
    * Machtigingen: SELECT
-     
+
      ![Ranger Hive-beleidsregels van HDInsight dat is gekoppeld aan een domein configureren](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
-     
+
      > [!NOTE]
      > Als een domeingebruiker niet is ingevuld in Gebruiker selecteren, wacht u even, zodat Ranger met AAD kan synchroniseren.
-     > 
-     > 
+     >
+     >
 4. Klik op **Toevoegen** om het beleid op te slaan.
 5. Herhaal de laatste twee stappen, zodat u een ander beleid kunt maken met de volgende eigenschappen:
-   
+
    * Beleidsnaam: read-hivesampletable-devicemake
    * Hive-database: standaard
    * Tabel: hivesampletable
@@ -101,20 +101,20 @@ In de laatste sectie hebt u twee beleidsregels geconfigureerd.  hiveuser1 heeft 
 
 1. Open een nieuwe of bestaande werkmap in Excel.
 2. Klik op het tabblad **Gegevens** op de optie **Van andere gegevensbronnen** en klik vervolgens op **Van wizard Gegevensverbinding** om de **Wizard Gegevensverbinding** te starten.
-   
+
     ![Open de Wizard Gegevensverbinding][img hdi simbahiveodbc.excel.dataconnection]
 3. Selecteer **ODBC DSN** als de gegevensbron en klik op **Volgende**.
 4. Selecteer uit ODBC-gegevensbronnen de naam van de gegevensbron die u in de vorige stap hebt gemaakt en klik op **Volgende**.
 5. Voer het wachtwoord voor de cluster in de wizard opnieuw in en klik vervolgens op **OK**. Wacht totdat het dialoogvenster **Database en tabel selecteren** wordt geopend. Dit kan een paar seconden duren.
-6. Selecteer **hivesampletable** en klik op **Volgende**. 
+6. Selecteer **hivesampletable** en klik op **Volgende**.
 7. Klik op **Voltooien**.
-8. In het dialoogvenster **Gegevens importeren** kunt u de query wijzigen of opgeven. Als u dit wilt doen, klikt u op **Eigenschappen**. Dit kan een paar seconden duren. 
+8. In het dialoogvenster **Gegevens importeren** kunt u de query wijzigen of opgeven. Als u dit wilt doen, klikt u op **Eigenschappen**. Dit kan een paar seconden duren.
 9. Klik op het tabblad **Definitie**. De opdrachttekst is:
-   
+
        SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
    Bij de Ranger-beleidsregels hebt u gedefinieerd dat hiveuser1 de machtiging SELECT heeft voor alle kolommen.  Deze query werkt dus met de referenties van hiveuser1, maar niet met de referenties van hiveuser2.
-   
+
    ![Verbindingseigenschappen][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Klik op **OK** om het dialoogvenster Verbindingseigenschappen te sluiten.
 11. Klik op **OK** om het dialoogvenster **Gegevens importeren** te sluiten.  
@@ -124,29 +124,28 @@ De tweede beleidsregel (read-hivesampletable-devicemake) testen die u in de laat
 
 1. Voeg een nieuw blad in Excel toe.
 2. Voer de vorige procedure uit om de gegevens te importeren.  De enige wijziging die u aanbrengt, is dat u de referenties van hiveuser2 gebruikt in plaats van die van hiveuser1. Dit mislukt, omdat hiveuser2 alleen gemachtigd is om twee kolommen te zien. De volgende fout wordt weergegeven:
-   
+
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Voer dezelfde procedure uit om gegevens te importeren. Gebruik deze keer de referenties van hiveuser2 en wijzig ook de SELECT-instructie van:
-   
+
         SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
     in:
-   
+
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
-   
+
     Wanneer dit is voltooid, worden er twee kolommen met geïmporteerde gegevens weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Aan een domein gekoppelde HDInsight-clusters beheren) om HDInsight-clusters te beheren die zijn gekoppeld aan een domein.
-* Zie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster) (SSH met Hadoop op basis van Linux gebruiken op HDInsight in Linux, Unix of OS X) om Hive-query's uit te voeren met behulp van SSH op HDInsight-clusters die zijn gekoppeld aan een domein.
+* Zie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined) (SSH met Hadoop op basis van Linux gebruiken op HDInsight in Linux, Unix of OS X) om Hive-query's uit te voeren met behulp van SSH op HDInsight-clusters die zijn gekoppeld aan een domein.
 * Zie [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) (Verbinding maken met Hive op Azure HDInsight met het Hive JDBC-stuurprogramma) om Hive te verbinden met behulp van Hive JDBC.
 * Zie [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md) (Excel verbinden met Hadoop met het Microsoft Hive ODBC-station) om Excel te verbinden met Hadoop met behulp van Hive ODBC.
 * Zie [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) (Excel verbinden met Hadoop via Power Query) om Excel te verbinden met Hadoop met behulp van Power Query.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

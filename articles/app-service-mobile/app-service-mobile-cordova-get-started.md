@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -31,15 +31,15 @@ Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan
 Het volgen van deze zelfstudie is een vereiste voor alle andere Apache Cordova-zelfstudies over het gebruik van de functie Mobile Apps in Azure App Service.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Een pc met [Visual Studio Community 2015] of hoger.
 * [Visual Studio Tools for Apache Cordova].
 * Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
-U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreeks gebruiken.  Dit is handig bij het voltooien van de zelfstudie op een Mac-computer.  Het compileren van Apache Cordova-clienttoepassingen via de opdrachtregel wordt niet behandeld in deze zelfstudie.
+U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreeks gebruiken.  Het gebruiken van de opdrachtregel is handig bij het voltooien van de zelfstudie op een Mac-computer.  Het compileren van Apache Cordova-clienttoepassingen via de opdrachtregel wordt niet behandeld in deze zelfstudie.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
+## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,11 +53,13 @@ U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreek
 ## <a name="next-steps"></a>Volgende stappen
 Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfstudies:
 
-* [Verificatie toevoegen] aan uw Apache Cordova-app.
-* [Pushmeldingen toevoegen] aan uw Apache Cordova-app.
+* [Voeg offlinegegevens toe](app-service-mobile-cordova-get-started-offline-data.md) aan uw Apache Cordova-app.
+* [Verificatie toevoegen](app-service-mobile-cordova-get-started-users.md) aan uw Apache Cordova-app.
+* [Pushmeldingen toevoegen](app-service-mobile-cordova-get-started-push.md) aan uw Apache Cordova-app.
 
 Meer informatie over belangrijke concepten met Azure App Service.
 
+* [Offlinegegevens]
 * [Verificatie]
 * [Pushmeldingen]
 
@@ -70,11 +72,10 @@ Informatie over het gebruik van de SDK's.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Verificatie toevoegen]: app-service-mobile-cordova-get-started-users.md
-[Pushmeldingen toevoegen]: app-service-mobile-cordova-get-started-push.md
+[Offlinegegevens]: app-service-mobile-offline-data-sync.md
 [Verificatie]: app-service-mobile-auth.md
 [Pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -83,6 +84,6 @@ Informatie over het gebruik van de SDK's.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

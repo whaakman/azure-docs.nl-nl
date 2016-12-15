@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Met deze inleiding zonder code kunt u aan de slag met Microsoft Azure Search en 
 In deze zelfstudie wordt ervan uitgegaan dat u over een [Azure DocumentDB-voorbeelddatabase](#apdx-sampledata) beschikt. U kunt deze database heel eenvoudig maken aan de hand van onze gegevens en instructies. U kunt de stappen in deze zelfstudie ook aanpassen aan uw bestaande gegevens in een DocumentDB-database of SQL Database.
 
 > [!NOTE]
-> Voor deze zelfstudie moet u beschikken over een [Azure-abonnement](/pricing/free-trial/?WT.mc_id=A261C142F) en een [Azure Search-service](search-create-service-portal.md). 
+> Voor deze zelfstudie moet u beschikken over een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) en een [Azure Search-service](search-create-service-portal.md). 
 > 
 > 
 
@@ -159,10 +159,10 @@ De volgende instructies bevatten algemene richtlijnen. Deze zijn echter niet vol
 6. Klik op **Documentverkenner**.
 7. Klik op **Uploaden**.
 8. Navigeer in **Document uploaden** naar de lokale map met de JSON-bestanden die u eerder hebt gedownload. Selecteer JSON-bestanden in batches van 100 of minder.
-   * 386. json
-   * 387. json
+   * 386.json
+   * 387.json
    * . . .
-   * 486. json
+   * 486.json
 9. Herhaal dit om de volgende batch bestanden op te halen, totdat u het laatste bestand, 669.json hebt geüpload.
 10. Klik op **Queryverkenner** om te controleren of de gegevens zijn geüpload om te voldoen aan de vereisten van de Documentverkenner.
 
@@ -181,6 +181,6 @@ Als het goed is, ontvangt u JSON-uitvoer, beginnend met documentnummer 386 en ei
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

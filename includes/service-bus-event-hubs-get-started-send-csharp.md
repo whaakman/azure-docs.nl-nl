@@ -12,19 +12,19 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     Er wordt door Visual Studio een verwijzing naar het [ NuGet-pakket Azure Service Bus-bibliotheek](https://www.nuget.org/packages/WindowsAzure.ServiceBus) gedownload, geïnstalleerd en toegevoegd.
 4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Voeg de volgende velden toe aan de klasse **Program**, waarbij u de waarden van de tijdelijke aanduiding vervangt door de naam van de Event Hub die u in de vorige sectie hebt gemaakt, en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Voeg de volgende methode toe aan de klasse **Program**:
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     Met deze methode worden continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/24/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
 
 
 ---
@@ -33,17 +33,17 @@ Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Ser
 ## <a name="getting-started"></a>Aan de slag
 Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel leren te ontwikkelen met Azure Active Directory. Als vereiste moet u [een Azure Active Directory-tenant ophalen](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>Snelstartgidsen voor mobiele toepassingen en pc-toepassingen
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Snelstartgidsen voor mobiele toepassingen en pc-toepassingen
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Rechtstreeks integreren met OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>Snelstartgidsen voor webtoepassingen
+### <a name="web-application-quick-start-guides"></a>Snelstartgidsen voor webtoepassingen
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Rechtstreeks integreren met OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>Snelstartgidsen voor web-API's
+### <a name="web-api-quick-start-guides"></a>Snelstartgidsen voor web-API's
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,7 +53,7 @@ Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel le
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>Procedures
+## <a name="how-tos"></a>Procedures
 In deze artikelen wordt beschreven hoe u bepaalde taken uitvoert met Azure Active Directory:
 
 * [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
@@ -116,7 +116,7 @@ In deze overzichtspresentaties over het ontwikkelen van apps met behulp van Azur
 * [Cloudidentiteit](http://www.cloudidentity.net): ideeën over Identity Management als een service van een belangrijke PM van Azure Active Directory.  
 * [Azure Active Directory op Twitter](https://twitter.com/azuread): Azure Active Directory-aankondigingen van 140 tekens of minder.
 
-## <a name="windows-server-onpremises-development"></a>On-premises ontwikkeling van Windows Server
+## <a name="windows-server-on-premises-development"></a>On-premises ontwikkeling van Windows Server
 Zie voor richtlijnen over het gebruik van de ontwikkeling van Windows Server en Active Directory Federation Services (ADFS):
 
 * [AD FS-scenario's voor ontwikkelaars](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): biedt een overzicht van AD FS-onderdelen en hoe het werkt, met informatie over de ondersteunde verificatie/autorisatie-scenario's.
@@ -125,6 +125,6 @@ Zie voor richtlijnen over het gebruik van de ontwikkeling van Windows Server en 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

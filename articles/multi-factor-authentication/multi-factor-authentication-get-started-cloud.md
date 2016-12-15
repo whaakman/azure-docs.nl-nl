@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Aan de slag met Azure Multi-Factor Authentication in de cloud
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Aan de slag met Azure Multi-Factor Authentication in de cloud
 In het volgende artikel staat beschreven hoe u aan de slag gaat met Azure Multi-Factor Authentication in de cloud.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Aan de volgende vereisten moet worden voldaan voordat u Azure Multi-Factor Authe
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
+## <a name="turn-on-two-step-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
 Verander de status van de gebruiker van Uitgeschakeld naar Ingeschakeld om verificatie in twee stappen te activeren.  Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Gebruik de volgende procedure om MFA in te schakelen voor uw gebruikers.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Multi-Factor Authentication inschakelen
+### <a name="to-turn-on-multi-factor-authentication"></a>Multi-Factor Authentication inschakelen
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Klik aan de linkerkant op **Active Directory**.
 3. Klik onder Adreslijst op de adreslijst voor de gebruiker die u wilt inschakelen.
@@ -66,8 +66,8 @@ Gebruik de volgende procedure om MFA in te schakelen voor uw gebruikers.
 
 Nadat u uw gebruikers hebt ingeschakeld, dient u ze hierover te informeren via e-mail. De volgende keer dat ze zich proberen aan te melden, worden ze gevraagd om hun account aan te melden voor verificatie in twee stappen. Zodra ze verificatie in twee stappen gaan gebruiken, moeten ze ook wachtwoorden instellen voor toepassingen om te voorkomen dat niet-browsertoepassingen worden geblokkeerd.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>PowerShell gebruiken om het inschakelen van verificatie in twee stappen te automatiseren
-Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](../powershell-install-configure.md) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell gebruiken om het inschakelen van verificatie in twee stappen te automatiseren
+Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](/powershell/azureps-cmdlets-docs) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
 
 * Ingeschakeld
 * Afgedwongen
@@ -107,6 +107,6 @@ Nu dat u Multi-Factor Authentication in de cloud hebt ingesteld, kunt u uw imple
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

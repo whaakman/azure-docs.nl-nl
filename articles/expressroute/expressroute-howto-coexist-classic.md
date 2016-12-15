@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f03701746cb36838c7db7055f5dd98f77e1adfbd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aae9215ea67ff254bb3b67c5b113ad55eb3b1ca2
 
 
 ---
-# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-classic-deployment-model"></a>ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het klassieke implementatiemodel
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>ExpressRoute- en site-naar-site-verbindingen configureren die naast elkaar kunnen worden gebruikt in het klassieke implementatiemodel
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Klassiek](expressroute-howto-coexist-classic.md)
@@ -49,12 +49,12 @@ De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft vers
 * **ExpressRoute gateway moet eerst worden geconfigureerd.** U moet eerst de ExpressRoute-gateway maken voordat u de site-naar-site-VPN-gateway kunt toevoegen.
 
 ## <a name="configuration-designs"></a>Configuratie-ontwerpen
-### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
 U kunt een site-naar-site-VPN-verbinding configureren als een back-up voor ExpressRoute. Dit geldt alleen voor virtuele netwerken die zijn gekoppeld aan het pad voor persoonlijke Azure-peering. Er is geen op VPN gebaseerde failoveroplossing voor services die toegankelijk zijn via openbare Azure- en Microsoft-peerings. Het ExpressRoute-circuit is altijd de primaire koppeling. Gegevens worden alleen via het site-naar-site-VPN-pad geleid als het ExpressRoute-circuit niet beschikbaar is. 
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
 U kunt uw netwerk zodanig configureren dat sommige sites rechtstreeks verbinding maken met Azure via site-naar-site-VPN en sommige sites verbinding maken via ExpressRoute. 
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-classic/scenario2.jpg)
@@ -79,7 +79,7 @@ Er zijn twee sets met procedures waaruit u kunt kiezen om verbindingen te config
 ## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Een nieuw virtueel netwerk en naast elkaar bestaande verbindingen maken
 Deze procedure helpt u bij het maken van een VNet en site-naar-site- en ExpressRoute-verbindingen die naast elkaar kunnen worden gebruikt.
 
-1. U moet de meest recente versie van de Azure PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Houd er rekening mee dat de cmdlets die u voor deze configuratie gebruikt, mogelijk enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld. 
+1. U moet de meest recente versie van de Azure PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Houd er rekening mee dat de cmdlets die u voor deze configuratie gebruikt, mogelijk enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld. 
 2. Maak een schema voor het virtuele netwerk. Zie [Azure Virtual Network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx) voor meer informatie over het configuratieschema.
    
     Wanneer u uw schema maakt, moet u de volgende waarden gebruiken:
@@ -192,7 +192,7 @@ Als het gatewaysubnet /27 of groter is en het virtuele netwerk is verbonden via 
 > 
 > 
 
-1. U moet de meest recente versie van de Azure Resource Manager PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](../powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Houd er rekening mee dat de cmdlets die u voor deze configuratie gebruikt, mogelijk enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld. 
+1. U moet de meest recente versie van de Azure Resource Manager PowerShell-cmdlets installeren. Zie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. Houd er rekening mee dat de cmdlets die u voor deze configuratie gebruikt, mogelijk enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld. 
 2. Verwijder de bestaande ExpressRoute- of site-naar-site-VPN-gateway. Gebruik de volgende cmdlet, waarbij u de waarden vervangt door uw eigen waarden.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
@@ -226,6 +226,6 @@ Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

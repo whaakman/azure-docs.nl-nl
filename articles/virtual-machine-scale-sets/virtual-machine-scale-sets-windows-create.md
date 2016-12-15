@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Met deze stappen kunt u virtuele-machineschaalsets in Azure maken door de blanco
 Het duurt circa 30 minuten om de stappen in de artikel te voltooien.
 
 ## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
-Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
+Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 
 ## <a name="step-2-create-resources"></a>Stap 2: Resources maken
 Maak de resources die nodig zijn voor uw nieuwe schaalset.
@@ -130,7 +130,7 @@ U hebt alle benodigde resources voor het configureren van de schaalset. We kunne
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Dit voorbeeld toont een schaalset die wordt gemaakt met drie virtuele machines. Raadpleeg [Overzicht van virtuele-machineschaalsets](virtual-machine-scale-sets-overview.md) voor meer informatie over de capaciteit van schaalsets. Deze stap omvat ook het instellen van de grootte (waarnaar wordt verwezen met SkuName) van de virtuele machines in de set. Bekijk [Grootten voor virtuele machines](../virtual-machines/virtual-machines-windows-sizes.md) om een grootte te vinden die aansluit bij uw behoeften.
+    Dit voorbeeld toont een schaalset die wordt gemaakt met drie virtuele machines. Raadpleeg [Overzicht van virtuele-machineschaalsets](virtual-machine-scale-sets-overview.md) voor meer informatie over de capaciteit van schaalsets. Deze stap omvat ook het instellen van de grootte (waarnaar wordt verwezen met SkuName) van de virtuele machines in de set. Bekijk [Grootten voor virtuele machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om een grootte te vinden die aansluit bij uw behoeften.
 5. De configuratie van de netwerkinterface toevoegen aan de configuratie van de schaalset:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ U hebt alle benodigde resources voor het configureren van de schaalset. We kunne
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Raadpleeg [Door installatiekopieën van virtuele Azure-machines navigeren en deze selecteren met Windows PowerShell en Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) voor meer informatie over het gebruiken van andere installatiekopieën.
+    Raadpleeg [Door installatiekopieën van virtuele Azure-machines navigeren en deze selecteren met Windows PowerShell en Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over het gebruiken van andere installatiekopieën.
 3. Vervang de waarden van **$vhdContainers** door een lijst met paden naar de locaties waar de virtuele vaste schijven zijn opgeslagen, zoals https://mystorage.blob.core.windows.net/vhds, en maak de variabele:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Gebruik deze resources om de door u gemaakte virtuele-machineschaalset te verken
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

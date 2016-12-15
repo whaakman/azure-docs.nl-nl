@@ -1,9 +1,9 @@
 ---
-title: Analyse van Java-web-apps met Application Insights | Microsoft Docs
-description: 'Bewaak prestaties en gebruik van uw Java-website met Application Insights. '
+title: Analyse van Java-web-apps met Azure Application Insights | Microsoft Docs
+description: 'Toepassingsprestaties bewaken met Application Insights voor Java-web-apps. '
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,18 +11,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
-*Application Insights verkeert momenteel in de preview-fase.*
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik Application Insights om [prestatieproblemen en uitzonderingen te detecteren en te onderzoeken](app-insights-detect-triage-diagnose.md), en om [code te schrijven][api] om bij te houden wat gebruikers met uw app doen.
+
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik Application Insights om [prestatieproblemen en uitzonderingen te detecteren en te onderzoeken](app-insights-detect-triage-diagnose.md) en om [code te schrijven][api] om bij te houden wat gebruikers met uw app doen.
 
 ![voorbeeldgegevens](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,7 +31,7 @@ Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Wi
 U hebt de volgende zaken nodig:
 
 * Oracle JRE 1.6 of hoger, of Zulu JRE 1.6 of hoger
-* Een abonnement op [Microsoft Azure](https://azure.microsoft.com/). (U zou kunnen beginnen met de [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).)
+* Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 
 *Als u een web-app hebt die al is gepubliceerd, kunt u de alternatieve procedure volgen om [de SDK tijdens runtime toe te voegen in de webserver](app-insights-java-live.md). Met deze alternatieve procedure hoeft u de code niet helemaal aan te passen, maar hebt u niet de optie om code te schrijven voor het bijhouden van gebruikersactiviteit.*
 
@@ -148,7 +148,7 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
 * Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
-* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostics].
+* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostic].
 * De Application Insights-sleutel kan vanuit de Azure Portal dynamisch worden doorgegeven als een systeemeigenschap (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Als er geen eigenschap is gedefinieerd, wordt gecontroleerd op omgevingsvariabelen (APPLICATION_INSIGHTS_IKEY) in de Azure App-instellingen. Als beide eigenschappen niet zijn gedefinieerd, wordt de standaardwaarde van InstrumentationKey uit ApplicationInsights.xml gebruikt. Met deze reeks kunt u verschillende instrumentatiesleutels voor verschillende omgevingen dynamisch beheren.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Andere manieren om de instrumentatiesleutel in te stellen
@@ -182,7 +182,7 @@ Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters word
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Als u Spring Web MVC 3.1 of hoger gebruikt
-Bewerk deze elementen zodanig dat het Application Insights-pakket is opgenomen:
+Bewerk deze elementen in *-servlet.xml zodanig dat het Application Insights-pakket is opgenomen:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -244,11 +244,15 @@ Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de tel
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* Als uitgaand verkeer via een firewall moet worden gerouteerd, definieert u de systeemeigenschappen `http.proxyHost` en `http.proxyPort`. 
+
 * Installeer op Windows-servers:
   
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (Dit onderdeel schakelt prestatiemeteritems in.)
+
 
 ## <a name="exceptions-and-request-failures"></a>Uitzonderingen en mislukte aanvragen
 Onverwerkte uitzonderingen worden automatisch verzameld:
@@ -320,19 +324,19 @@ De prestatiemeteritems zijn zichtbaar als aangepaste metrische gegevens in [Metr
 U verzendt nu telemetrie vanaf de webserver. Wilt u echt een volledig inzicht in uw toepassing, dan kunt u nog meer bewakingsopties toevoegen:
 
 * [Voeg telemetrie toe aan uw webpagina's][usage] voor het bewaken van paginaweergaven en metrische gegevens over gebruikers.
-* [Webtests instellen][availability] om te controleren of de toepassing live en responsief blijft.
+* [Stel webtests in][availability] om te controleren of de toepassing live en responsief blijft.
 
 ## <a name="capture-log-traces"></a>Logboektraceringen vastleggen
-U kunt Application Insights gebruiken om logboeken op te delen vanuit Log4J, Logback en andere frameworks voor logboekregistratie. U kunt de logboeken correleren met HTTP-aanvragen en andere telemetrie. [Hier leest u hoe u dat doet][javalogs].
+U kunt Application Insights gebruiken om logboeken op te delen vanuit Log4J, Logback en andere frameworks voor logboekregistratie. U kunt de logboeken correleren met HTTP-aanvragen en andere telemetrie. [Meer informatie][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Uw eigen telemetrie verzenden
 Nu u de SDK hebt geïnstalleerd, kunt u de API gebruiken voor het verzenden van uw eigen telemetrie.
 
 * [Houd aangepaste gebeurtenissen en metrische gegevens bij][api] voor meer informatie over wat gebruikers met uw toepassing doen.
-* [Zoek naar gebeurtenissen en logboeken][diagnostics] om u te helpen bij het analyseren van problemen.
+* [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen beter te kunnen analyseren.
 
 ## <a name="availability-web-tests"></a>Webtests voor beschikbaarheid
-Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen van][availability], klikt u op Webtests.
+Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen][availability] klikt u op Webtests.
 
 ![Klik op webtests en vervolgens op Webtest toevoegen.](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -340,7 +344,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 ![Voorbeeld van een webtest](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Meer informatie over de webtests voor beschikbaarheid][availability]. 
+[Meer informatie over de webtests voor beschikbaarheid.][availability] 
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 [Problemen met Java oplossen](app-insights-java-troubleshoot.md)
@@ -359,7 +363,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostics]: app-insights-diagnostic-search.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
@@ -367,6 +371,6 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,7 +1,7 @@
-Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier] wordt weergegeven[namespace-how-to].
+Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier][namespace-how-to] wordt weergegeven.
 
 1. Meld u aan bij [Azure Portal][azure-portal].
-2. Klik in het linkernavigatievenster van de portal op **Service Bus**.
+2. Klik in het navigatiedeelvenster links van de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Meer services**).
 3. Selecteer de naamruimte waarin u de wachtrij wilt maken. In dit geval is dat **nstest1**.
    
     ![Een wachtrij maken][createqueue1]
@@ -21,6 +21,6 @@ Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier] wordt
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

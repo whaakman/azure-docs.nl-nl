@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ Als u meer wilt weten over welke gegevens worden gebruikt tijdens het opnieuw in
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Stap 3: uw Azure AD-wachtwoord als gebruiker opnieuw instellen
 Nu u een beleid voor het opnieuw instellen van wachtwoorden door gebruikers hebt geconfigureerd en u contactgegevens hebt opgegeven voor uw gebruiker, kan deze gebruiker de selfservice voor wachtwoordherstel gebruiken.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>De selfservice voor wachtwoordherstel gebruiken
+#### <a name="to-perform-a-self-service-password-reset"></a>De selfservice voor wachtwoordherstel gebruiken
 1. Wanneer u naar een site als [**portal.microsoftonline.com**](http://portal.microsoftonline.com) gaat, ziet u een aanmeldingsscherm zoals dat hieronder.  Klik op de koppeling **Geen toegang tot uw account?** om de gebruikersinterface voor het opnieuw instellen van wachtwoorden te testen.
    
    ![][011]
@@ -365,6 +365,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

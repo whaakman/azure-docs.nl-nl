@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ Azure Functions integreert met diverse services van Azure en derden. Deze servic
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Wat kost Functions?
 Azure Functions heeft twee soorten prijsstelling; kies de variant die het beste past bij uw behoeften: 
 
-* **Consumption-abonnement**: wanneer de functie wordt uitgevoerd, biedt Azure alle benodigde rekenbronnen. U hoeft u geen zorgen te maken over het beheer van bronnen en betaalt alleen voor de tijd die nodig is voor het uitvoeren van de code. Volledige prijsinformatie is beschikbaar op de pagina [Prijzen voor Functions](/pricing/details/functions). 
-* **App Service-abonnement**: voer uw functies net zo uit als uw web-apps, mobiele apps en API-apps. Wanneer u App Service al voor andere toepassingen gebruikt, voert u de functies kosteloos binnen hetzelfde abonnement uit. Volledige details vindt u op de pagina [Prijzen voor App Service](/pricing/details/app-service/).
+* **Consumption-abonnement**: wanneer de functie wordt uitgevoerd, biedt Azure alle benodigde rekenbronnen. U hoeft u geen zorgen te maken over het beheer van bronnen en betaalt alleen voor de tijd die nodig is voor het uitvoeren van de code. 
+* **App Service-abonnement**: voer uw functies net zo uit als uw web-apps, mobiele apps en API-apps. Wanneer u App Service al voor andere toepassingen gebruikt, voert u de functies kosteloos binnen hetzelfde abonnement uit. 
 
-Zie [Azure Functions schalen](functions-scale.md) voor meer informatie over het schalen van uw functies.
+Volledige prijsinformatie is beschikbaar op de pagina [Prijzen voor Functions](https://azure.microsoft.com/pricing/details/functions/). Zie [Azure Functions schalen](functions-scale.md) voor meer informatie over het schalen van uw functies.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste Azure-functie maken](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Zie [Azure Functions schalen](functions-scale.md) voor meer informatie over het 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

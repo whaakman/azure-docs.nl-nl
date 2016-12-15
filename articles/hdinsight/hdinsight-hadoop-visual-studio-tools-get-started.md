@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 
 ---
@@ -242,15 +242,15 @@ In dit artikel hebt u geleerd hoe u de Data Lake (HDInsight) Tools kunt gebruike
 
 * [Hadoop Hive in HDInsight gebruiken][hdinsight.hive]
 * [Aan de slag met Hadoop in HDInsight][hdinsight.get.started]
-* [Hadoop-taken verzenden in HDInsight][hdinsight.submit.jobs]
+* [Hadoop-taken opgeven in HDInsight][hdinsight.submit.jobs]
 * [Twitter-gegevens met Hadoop analyseren in HDInsight][hdinsight.analyze.twitter.data]
 
 <!--Anchors-->
-[Installatie]: #installation
-[Verbinding maken met uw Azure-abonnement]: #connect-to-your-azure-subscription
-[Door de gekoppelde resources navigeren]: #navigate-the-linked-resources
-[Hive-query's uitvoeren]: #run-hive-queries
-[Volgende stappen]: #next-steps
+[Installation]: #installation
+[Connect to your Azure subscription]: #connect-to-your-azure-subscription
+[Navigate the linked resources]: #navigate-the-linked-resources
+[Run Hive queries]: #run-hive-queries
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
@@ -281,6 +281,6 @@ In dit artikel hebt u geleerd hoe u de Data Lake (HDInsight) Tools kunt gebruike
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

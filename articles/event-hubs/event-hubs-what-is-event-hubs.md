@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc3e2cb76a06607d0bfbbad810968b70d67e4f4
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: eddc3e7c4914936a8a83a042dc0f7d528b91f059
 
 
 ---
@@ -38,14 +38,14 @@ Lees de volgende onderwerpen voor gedetailleerde informatie over Event Hubs.
 * [Event Hubs-overzicht](event-hubs-overview.md)
 * [Programmeerhandleiding voor Event Hubs](event-hubs-programming-guide.md)
 * [Beschikbaarheid van en veelgestelde vragen over Event Hubs](event-hubs-availability-and-support-faq.md)
-* Aan de slag met een [Event Hubs tutorial][Event Hubs tutorial]
-* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][voorbeeldtoepassing die gebruikmaakt van Event Hubs]
+* Aan de slag met een [Event Hubs-zelfstudie][Event Hubs tutorial]
+* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][sample application that uses Event Hubs]
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
-[voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,47 +1,52 @@
 ---
-title: Azure SQL Database server-level firewall rules using the REST API | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: Firewallregels op serverniveau voor Azure SQL Database met de REST API | Microsoft Docs
+description: Informatie over het configureren van de firewall voor IP-adressen die toegang hebben tot Azure SQL-databases.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: fc874f3c-c623-4924-8cb7-32a8c31e666c
 ms.service: sql-database
+ms.custom: auth and access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: hero-article
 ms.date: 08/09/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+
 
 ---
-# Configure Azure SQL Database server-level firewall rules using the REST API
+# <a name="configure-azure-sql-database-server-level-firewall-rules-using-the-rest-api"></a>Firewallregels op serverniveau voor Azure SQL Database configureren met de REST API
 > [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure portal](sql-database-configure-firewall-settings.md)
+> * [Overzicht](sql-database-firewall-configure.md)
+> * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
+> * [REST-API](sql-database-configure-firewall-settings-rest.md)
 > 
 > 
 
-Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
+Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen met uw servers en databases toe te staan. Als u toegang tot de database selectief wilt toestaan, kunt u op de Azure SQL Database-server firewallinstellingen definiëren op serverniveau of op databaseniveau, voor zowel de hoofddatabase als voor een gebruikersdatabase.
 
 > [!IMPORTANT]
-> To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). If you are making connections inside the Azure cloud boundary, you may have to open some additional TCP ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+> Azure-verbindingen moeten zijn ingeschakeld, zodat toepassingen vanuit Azure verbinding kunnen maken met uw databaseserver. Zie [Firewall voor Azure SQL Database](sql-database-firewall-configure.md) voor meer informatie over firewallregels en het inschakelen van verbindingen vanuit Azure. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk enkele aanvullende TCP-poorten openen. Voor meer informatie raadpleegt u de sectie **V12 of SQL Database: Outside vs inside** (V12 SQL Database: buiten vs binnen) van [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md) (Andere poorten dan 1433 voor ADO.NET 4.5 en SQL Database V12)
 > 
 > 
 
-## Manage server-level firewall rules through REST API
-1. Managing firewall rules through REST API must be authenticated. For information, see [Developer's guide to authorization with the Azure Resource Manager API](../resource-manager-api-authentication.md).
-2. Server-level rules can be created, updated, or deleted using REST API
+## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Firewallregels op serverniveau beheren met behulp van de REST API
+1. Het beheer van firewallregels via de REST API moet worden geverifieerd. Zie [Developer's guide to authorization with the Azure Resource Manager API](../resource-manager-api-authentication.md) (Ontwikkelaarsgids voor verificatie met de Azure Resource Manager API) voor meer informatie.
+2. U kunt regels op serverniveau maken, bijwerken en verwijderen met de REST API
    
-    To create or update a server-level firewall rule, execute the PUT method using the following:
+    Als u een firewallregel op serverniveau wilt maken of bijwerken, voert u de PUT-methode uit met het volgende:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
    
-    Request Body
+    Aanvraagtekst
    
         {
          "properties": { 
@@ -50,36 +55,42 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
             }
         } 
 
-    To remove an existing server-level firewall rule, execute the DELETE method using the following:
+    Als u een bestaande firewallregel op serverniveau wilt verwijderen, voert u de DELETE-methode uit met het volgende:
 
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## Manage firewall rules using the REST API
-* [Create or Update Firewall Rule](https://msdn.microsoft.com/library/azure/mt445501.aspx)
-* [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/mt445502.aspx)
-* [Get Firewall Rule](https://msdn.microsoft.com/library/azure/mt445503.aspx)
-* [List All Firewall Rules](https://msdn.microsoft.com/library/azure/mt604478.aspx)
+## <a name="manage-firewall-rules-using-the-rest-api"></a>Firewallregels beheren met behulp van de REST API
+* [Firewallregels maken of bijwerken](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/mt445502.aspx) (Firewallregel verwijderen)
+* [Firewallregels instellen](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [Lijst met alle firewallregels](https://msdn.microsoft.com/library/azure/mt604478.aspx)
 
-## Next steps
-For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+## <a name="next-steps"></a>Volgende stappen
+Voor een artikel over het gebruik van Transact-SQL om firewallregels op server- en databaseniveau te maken raadpleegt u [Firewallregels op server- en databaseniveau voor Azure SQL Database configureren met T-SQL](sql-database-configure-firewall-settings-tsql.md). 
 
-For how to articles on creating server-level firewall rules using other methods, see: 
+Voor artikelen met procedures voor het maken van firewallregels op serverniveau met andere methoden raadpleegt u: 
 
-* [Configure Azure SQL Database server-level firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+* [Configure Azure SQL Database server-level firewall rules using the Azure Portal](sql-database-configure-firewall-settings.md) (Firewallregels voor Azure SQL Database op serverniveau configureren met Azure Portal)
+* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md) (Firewallregels voor Azure SQL Database op serverniveau configureren met PowerShell)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Voor een zelfstudie over het maken van een database raadpleegt u [Maak in slechts enkele minuten een SQL Database met behulp van Azure Portal](sql-database-get-started.md).
+Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit open-source toepassingen of toepassingen van derden raadpleegt u [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snelstartcodevoorbeelden voor clients met SQL Database).
+Zie [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Databasetoegang en aanmeldingsbeveiliging beheren) als u wilt weten hoe u naar databases navigeert.
 
-## Additional resources
-* [Securing your database](sql-database-security.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+## <a name="additional-resources"></a>Aanvullende bronnen
+* [Securing your database](sql-database-security.md) (Uw database beveiligen)
+* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589) (Security Center voor SQL Server Database Engine en Azure SQL Database)
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
+
+
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

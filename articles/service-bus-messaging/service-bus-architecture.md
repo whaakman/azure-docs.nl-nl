@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus-architectuur
-In dit artikel wordt de bericht- en relayverwerkingsarchitectuur van Azure Service Bus beschreven.
+Dit artikel beschrijft de berichtverwerkingsarchitectuur van Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Service Bus-schaaleenheden
 Service Bus is georganiseerd op *schaaleenheden*. Een schaaleenheid is een implementatie-eenheid en bevat alle vereiste onderdelen om de service uit te voeren. Elke regio implementeert een of meer Service Bus-schaaleenheden.
@@ -49,7 +49,7 @@ Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten u
 ![Verwerken van inkomende WCF Relay-aanvragen](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken om aan de slag gaan:
+Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken voor meer informatie:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
 * [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

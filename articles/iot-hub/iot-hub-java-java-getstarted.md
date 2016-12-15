@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub voor Java | Microsoft Docs
-description: Handleiding voor Azure IoT Hub met Java. Gebruik Azure IoT Hub en Java in combinatie met de Azure IoT-SDK&quot;s voor het implementeren van een Internet of Things (IoT)-oplossing.
+title: Aan de slag met Azure IoT Hub (Java) | Microsoft Docs
+description: "Informatie over het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat naar een Azure IoT Hub met behulp van de IoT Azure-SDK’s voor Java. U maakt een gesimuleerde apparaat-app voor het verzenden van berichten, een service-app op uw apparaat registreren in het id-register en een service-app om de apparaat-naar-cloud-berichten van de IoT Hub te lezen."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: ae4727b27281be62a79f9387715eccd6b61e8e12
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-java"></a>Aan de slag met Azure IoT Hub voor Java
+# <a name="get-started-with-azure-iot-hub-java"></a>Aan de slag met Azure IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Aan het eind van deze zelfstudie beschikt u over drie Java-consoletoepassingen:
@@ -46,12 +46,12 @@ Als laatste stap noteert u de waarde van de **primaire sleutel** en klikt u daar
 
 ![Blade IoT Hub-berichten in Azure Portal][6]
 
-U hebt nu uw IoT-hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT-hub, de primaire sleutel van de IoT-hub, de Event Hub-compatibele naam en het Event Hub-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
+U hebt nu uw IoT Hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT Hub, de primaire sleutel van de IoT Hub, de Event Hub-compatibele naam en het Event Hub-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
 
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
-In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan maken in het identiteitenregister van uw IoT Hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
+In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan maken in het identiteitenregister van uw IoT Hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
-1. Maak een lege map genaamd iot-java-get-started. Maak een Maven-project in de map iot-java-get-started en noem dit **create-device-identity**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een lege map genaamd iot-java-get-started. Maak een Maven-project in de map iot-java-get-started en noem dit **create-device-identity**. Gebruik hiervoor de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -90,7 +90,7 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
-9. Voeg de volgende code toe als hoofdtekst van de **belangrijkste** methode. Deze code maakt een apparaat in het identiteitsregister van de IoT Hub dat *javadevice* heet als dit nog niet bestaat. Vervolgens wordt het apparaat-id en de sleutel weergegeven. Deze hebt u later nodig:
+9. Voeg de volgende code toe als hoofdtekst van de **belangrijkste** methode. Deze code maakt een apparaat in het identiteitsregister van de IoT Hub dat *javadevice* heet als dit nog niet bestaat. Vervolgens worden de apparaat-id en de sleutel weergegeven. Deze hebt u later nodig:
    
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
@@ -105,16 +105,16 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
         iotf.printStackTrace();
       }
     }
-    System.out.println("Device id: " + device.getDeviceId());
+    System.out.println("Device ID: " + device.getDeviceId());
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
 10. Sla het bestand App.java op en sluit het af.
-11. Als u de app **create-device-identity** wilt maken met behulp van Maven, geef dan de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
+11. Als u de app **create-device-identity** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
     
     ```
     mvn clean package -DskipTests
     ```
-12. Als u de app **create-device-identity** wilt uitvoeren met behulp van Maven, geef dan de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
+12. Als u de app **create-device-identity** wilt uitvoeren met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map create-device-identity:
     
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -122,7 +122,7 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
 13. Noteer de **apparaat-id** en de **apparaatsleutel**. U hebt deze waarden later nodig wanneer u een app maakt die verbinding maakt met IoT Hub als apparaat.
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw app andere apparaatspecifieke metagegevens moet opslaan, moet deze een app-specifieke opslagmethode gebruiken. Zie de [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
+> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw app andere apparaatspecifieke metagegevens moet opslaan, moet deze een app-specifieke opslagmethode gebruiken. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
 > 
 > 
 
@@ -134,7 +134,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
 > 
 > 
 
-1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **read-d2c-messages**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in de sectie *Een apparaat-id maken* en noem dit **read-d2c-messages**. Gebruik hiervoor de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -271,7 +271,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
 
-1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **simulated-device**. Gebruik hierbij de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **simulated-device**. Gebruik hiervoor de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -419,20 +419,20 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
 ## <a name="run-the-apps"></a>De apps uitvoeren
 U kunt nu de apps uitvoeren.
 
-1. Voer bij een opdrachtprompt in de map read-d2c de volgende opdracht uit om de eerste partitie in uw IoT-hub te kunnen volgen:
+1. Voer bij een opdrachtprompt in de map read-d2c de volgende opdracht uit om de eerste partitie in uw IoT Hub te kunnen volgen:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
-    ![De Java-client-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
-2. Voer bij een opdrachtprompt in de map simulated-device de volgende opdracht uit om telemetriegegevens naar uw IoT-hub te verzenden:
+    ![De Java-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
+2. Voer bij een opdrachtprompt in de map simulated-device de volgende opdracht uit om telemetriegegevens naar uw IoT Hub te verzenden:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
    
-    ![De Java-client-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
+    ![De Java-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
 3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
    
     ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
@@ -444,7 +444,7 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
-* [Aan de slag met de IoT-gateway-SDK][lnk-gateway-SDK]
+* [Aan de slag met de IoT Gateway-SDK][lnk-gateway-SDK]
 
 Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
 
@@ -474,6 +474,6 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

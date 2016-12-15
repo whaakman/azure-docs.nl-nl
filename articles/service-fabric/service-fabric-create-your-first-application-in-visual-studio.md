@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
     Het toepassingsproject bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
    
    * **Profielen publiceren**: deze optie wordt gebruikt voor het beheren van voorkeuren voor tools voor verschillende omgevingen.
-   * **Scripts**: bevat een PowerShell-script voor het implementeren van/bijwerken van uw toepassing. Visual Studio gebruikt het script-achter-de-schermen van Visual Studio. Het script kan ook rechtstreeks op de opdrachtregel worden aangeroepen.
+   * **Scripts**: bevat een PowerShell-script voor het implementeren van/bijwerken van uw toepassing. Visual Studio gebruikt het script-achter-de-schermen. Het script kan ook rechtstreeks op de opdrachtregel worden aangeroepen.
    * **Toepassingsdefinitie**: bevat het toepassingsmanifest onder *ApplicationPackageRoot*. Gekoppelde bestanden met toepassingsparameters vindt u onder *ApplicationParameters*, die de toepassing definiëren en waarmee u deze specifiek voor een bepaalde omgeving kunt configureren.
      
      Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
@@ -151,6 +151,6 @@ Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

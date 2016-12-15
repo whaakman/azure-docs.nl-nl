@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
 Wanneer u eenmaal een kluis hebt gemaakt, kunt u uw infrastructuur gaan voorbereiden voor het maken van back-ups van bestanden en mappen. Download hiervoor de Microsoft Azure Recovery Service-agent en de kluisreferenties.
 
-## <a name="step-3-download-files"></a>Stap 3 - Bestanden downloaden
+## <a name="step-3---download-files"></a>Stap 3 - Bestanden downloaden
 1. Klik op **Instellingen** op het dashboard van de Recovery Services-kluis.
    
     ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Wanneer u eenmaal een kluis hebt gemaakt, kunt u uw infrastructuur gaan voorbere
    
     ![infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Stap 4 - De agent installeren en registreren
+## <a name="step-4--install-and-register-the-agent"></a>Stap 4 - De agent installeren en registreren
 > [!NOTE]
 > Het maken van back-ups via de Azure Portal is binnenkort beschikbaar. Op dit moment kunt u on-premises met de Microsoft Azure Recovery Services Agent back-ups maken van uw bestanden en mappen.
 > 
@@ -184,6 +184,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
+ms.date: 11/30/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: a72a726b9c5ac2b3698d79aff00591c444c26594
+ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
+ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: a72a726b9c5ac2b3698d79aff00591c444c26594
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
 Leer de basisbeginselen van [Azure Batch][azure_batch] en de [Batch Python][py_azure_sdk]-client bij de toelichting van een kleine Batch-toepassing die in Python is geschreven. U ontdekt hier hoe twee scripts gebruikmaken van de Batch-service om een parallelle workload op virtuele Linux-machines in de cloud te verwerken, en hoe deze scripts met [Azure Storage](../storage/storage-introduction.md) communiceren voor het faseren en ophalen van bestanden. U maakt kennis met een gangbare werkstroom voor Batch-toepassingen en krijgt hier ook elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
 
@@ -49,28 +49,28 @@ Het Python-[codevoorbeeld][github_article_samples] in de zelfstudie is een van d
 Als u het voorbeeldscript *python_tutorial_client.py* op uw lokale werkstation wilt uitvoeren, hebt u een **Python-interpreter** nodig die compatibel is met versie **2.7** of **3.3+**. Het script is getest op Linux en Windows.
 
 ### <a name="cryptography-dependencies"></a>cryptografie-afhankelijkheden
-U moet de afhankelijkheden voor de [cryptografie][crypto]bibliotheek installeren die zijn vereist door de `azure-batch`- en `azure-storage`-pakketten voor Python. Voer een van de volgende bewerkingen uit die geschikt is voor uw platform of raadpleeg de [cryptografie-installatie][crypto_install]details voor meer informatie:
+U moet de afhankelijkheden voor de [cryptografie][crypto]-bibliotheek installeren die zijn vereist door de `azure-batch`- en `azure-storage`-pakketten voor Python. Voer een van de volgende bewerkingen uit die geschikt is voor uw platform of raadpleeg de [cryptografie-installatie][crypto_install]details voor meer informatie:
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > Als u voor Python 3.3+ op Linux installeert, gebruikt u de python3-equivalenten voor de Python-afhankelijkheden. Bijvoorbeeld op Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Azure-pakketten
-Installeer daarna de **Azure Batch**- en **Azure Storage**-pakketten voor Python. U kunt dit doen met **pip** en de *requirements.txt* die u hier vindt:
+Installeer daarna de **Azure Batch**- en **Azure Storage**-pakketten voor Python. U kunt beide pakketten installeren met behulp van **pip** en de *requirements.txt* die u hier kunt vinden:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -78,15 +78,15 @@ Geef de volgende **pip**-opdracht om de Batch- en Storage-pakketten te installer
 
 `pip install -r requirements.txt`
 
-U kunt de [azure batch][pypi_batch]- en [azure-opslag][pypi_storage]-pakketten voor Python ook handmatig installeren.
+U kunt de [azure batch][pypi_batch]- en [azure-opslag][pypi_storage]-pakketten voor Python ook handmatig installeren:
 
 `pip install azure-batch`<br/>
 `pip install azure-storage`
 
 > [!TIP]
-> Mogelijk moet u aan uw opdrachten het voorvoegsel `sudo` toevoegen als u een niet-gemachtigd account gebruikt. Bijvoorbeeld `sudo pip install -r requirements.txt`. Zie [Installing Packages][pypi_install] (Pakketten installeren) op readthedocs.io voor meer informatie over het installeren van Python-pakketten.
-> 
-> 
+> Mogelijk moet u aan uw opdrachten het voorvoegsel `sudo` toevoegen als u een niet-gemachtigd account gebruikt. Bijvoorbeeld `sudo pip install -r requirements.txt`. Zie [Installing Packages][pypi_install] (Pakketten installeren) op python.org voor meer informatie over het installeren van Python-pakketten.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>Batch-zelfstudiecodevoorbeeld voor Python
 Het batch-zelfstudiecodevoorbeeld voor Python bestaat uit twee Python-scripts en enkele gegevensbestanden.
@@ -152,7 +152,7 @@ Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containe
 
 * **application**: deze container slaat het Python-script op dat door de taken wordt uitgevoerd, *python_tutorial_task.py*.
 * **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer*container.
-* **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer*container.
+* **output**: nadat taken de verwerking van invoerbestanden hebben voltooid, uploaden zij de resultaten naar de *uitvoer* container.
 
 Om te communiceren met een opslagaccount en containers te maken, gebruiken we het pakket [azure-storage][pypi_storage] om een [BlockBlobService][py_blockblobservice]-object te maken, de 'blob-client'. Daarna maken we drie containers in het opslagaccount met behulp van de blob-client.
 
@@ -177,8 +177,8 @@ Zodra de containers zijn gemaakt, kan de toepassing nu de bestanden uploaden die
 
 > [!TIP]
 > [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) (Azure Blob Storage gebruiken met Python) biedt een uitstekend overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Stap 2: taakscript- en gegevensbestanden uploaden
 ![Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers][2]
@@ -249,7 +249,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-[ResourceFile][py_resource_file] levert aan taken in Batch de URL naar een bestand in Azure Storage dat naar een rekenknooppunt zal worden gedownload voordat deze taak wordt uitgevoerd. De eigenschap [ResourceFile][py_resource_file].**blob_source** geeft de volledige URL van het bestand zoals dit zich in Azure Storage bevindt. De URL kan ook een Shared Access Signature (SAS) bevatten, die veilige toegang tot het bestand biedt. De meeste typen taken in Batch bevatten een eigenschap *ResourceFiles*, waaronder:
+[ResourceFile][py_resource_file] levert aan taken in Batch de URL naar een bestand in Azure Storage dat naar een rekenknooppunt wordt gedownload voordat deze taak wordt uitgevoerd. De eigenschap [ResourceFile][py_resource_file].**blob_source** geeft de volledige URL van het bestand zoals dit zich in Azure Storage bevindt. De URL kan ook een Shared Access Signature (SAS) bevatten, die veilige toegang tot het bestand biedt. De meeste typen taken in Batch bevatten een eigenschap *ResourceFiles*, waaronder:
 
 * [CloudTask][py_task]
 * [StartTask][py_starttask]
@@ -266,8 +266,8 @@ Shared Access Signatures zijn tekenreeksen die beveiligde toegang bieden tot con
 
 > [!TIP]
 > Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met de Blob-service), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw Storage-account.
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Stap 3: Batch-pool maken
 ![Batch-pool maken][3]
@@ -362,7 +362,7 @@ Wanneer u een pool maakt, definieert u een [PoolAddParameter][py_pooladdparam] d
 * **Id** van de pool (*id* - vereist)<p/>Net als bij de meeste entiteiten in Batch, moet ook uw nieuwe pool een unieke id binnen uw Batch-account hebben. Uw code zal naar deze pool verwijzen met de bijbehorende id. Hiermee identificeert u ook de pool in Azure [Portal][azure_portal].
 * **Aantal rekenknooppunten** (*target_dedicated* - vereist)<p/>Hiermee geeft u op hoeveel virtuele machines in de pool moeten worden geïmplementeerd. Houd er rekening mee dat alle Batch-accounts een standaard**quotum** hebben dat het aantal **kernen** (en dus rekenknooppunten) in een Batch-account beperkt. U vindt de standaardquota en instructies over het [verhogen van een quotum](batch-quota-limit.md#increase-a-quota) (zoals het maximum aantal kernen in uw Batch-account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Quota en limieten voor de Azure Batch-service). Rijzen er vragen zoals "Waarom kan mijn pool niet meer dan X knooppunten bevatten?", dan is dit quotum voor kernen mogelijk de oorzaak.
 * **Besturingssysteem** voor knooppunten (*virtual_machine_configuration* **of** *cloud_service_configuration* - vereist)<p/>In *python_tutorial_client.py* maken we een pool met Linux-knooppunten met behulp van een [VirtualMachineConfiguration][py_vm_config]. De `select_latest_verified_vm_image_with_node_agent_sku`-functie in `common.helpers` vereenvoudigt het gebruik van [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie over het gebruik van Marketplace-installatiekopieën.
-* **Grootte van rekenknooppunten** (*vm_size* - vereist)<p/>Omdat we bij Linux-knooppunten opgeven voor onze [VirtualMachineConfiguration][py_vm_config], geven we een VM-grootte op (in dit voorbeeld `STANDARD_A1`) uit [Grootten voor virtuele machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Zie opnieuw [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
+* **Grootte van rekenknooppunten** (*vm_size* - vereist)<p/>Omdat we Linux-knooppunten opgeven voor onze [VirtualMachineConfiguration][py_vm_config], geven we een VM-grootte op (in dit voorbeeld `STANDARD_A1`) uit [Grootten voor virtuele machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Zie opnieuw [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
 * **Begintaak** (*start_task* - niet vereist)<p/>Samen met de bovenstaande fysieke knooppunteigenschappen, kunt u ook een [StartTask][py_starttask] voor de pool opgeven (dit is niet vereist). StartTask wordt in elk knooppunt uitgevoerd wanneer dat knooppunt aan de pool wordt toegevoegd en telkens wanneer dat knooppunt opnieuw wordt opgestart. StartTask is vooral nuttig voor de voorbereiding van rekenknooppunten voor het uitvoeren van taken, zoals het installeren van de toepassingen die door de taken worden uitgevoerd.<p/>In deze voorbeeldtoepassing kopieert StartTask de bestanden die het van Storage downloadt (die zijn opgegeven met behulp van de eigenschap **resource_files** van de StartTask) uit de StartTask-*werkmap* naar de *gedeelde* map waartoe alle taken die in het knooppunt worden uitgevoerd toegang hebben. In wezen wordt hierdoor `python_tutorial_task.py` gekopieerd naar de gedeelde map in elk knooppunt wanneer het knooppunt aan de pool wordt toegevoegd, zodat alle taken die in het knooppunt worden uitgevoerd er toegang toe hebben.
 
 Misschien merkt u de aanroep naar de Help-functie `wrap_commands_in_shell` op. Deze functie gebruikt een verzameling afzonderlijke opdrachten en maakt een enkele opdrachtregel die geschikt is voor de opdrachtregeleigenschap van een taak.
@@ -371,8 +371,8 @@ Opmerkelijk in het bovenstaande codefragment is ook het gebruik van twee omgevin
 
 > [!TIP]
 > Zie de secties **Omgevingsinstellingen voor taken** en **Bestanden en mappen** in [Overzicht van Azure Batch-functies](batch-api-basics.md) voor meer informatie over de omgevingsvariabelen die beschikbaar zijn in rekenknooppunten in een Batch-pool en voor meer informatie over taakwerkmappen.
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Stap 4: Batch-job maken
 ![Een Batch-job maken][4]<br/>
@@ -414,7 +414,7 @@ Nu een job is gemaakt, worden er taken aan toegevoegd die het werk verrichten.
 
 Batch-**taken** zijn de afzonderlijke werkeenheden die op de rekenknooppunten worden uitgevoerd. Een taak heeft een opdrachtregel en voert de scripts of uitvoerbare bestanden uit die u in die opdrachtregel opgeeft.
 
-Om daadwerkelijk werk te verrichten, moeten de taken aan een job worden toegevoegd. Elke [CloudTask][py_task] wordt geconfigureerd met een opdrachtregel-eigenschap en [ResourceFiles][py_resource_file] (net als bij de StartTask van de pool) die de taak downloadt naar het knooppunt voordat de opdrachtregel ervan automatisch wordt uitgevoerd. In het voorbeeld verwerkt elke taak slechts één bestand. Hierdoor bevat de verzameling ResourceFiles één element.
+Om daadwerkelijk werk te verrichten, moeten de taken aan een job worden toegevoegd. Elke [CloudTask][py_task] wordt geconfigureerd met een opdrachtregeleigenschap en [ResourceFiles][py_resource_file] (net als bij de StartTask van de pool) die de taak downloadt naar het knooppunt voordat de opdrachtregel ervan automatisch wordt uitgevoerd. In het voorbeeld verwerkt elke taak slechts één bestand. Hierdoor bevat de verzameling ResourceFiles één element.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > Wanneer ze toegang krijgen tot omgevingsvariabelen zoals `$AZ_BATCH_NODE_SHARED_DIR` of een toepassing uitvoeren die niet op het `PATH` van het knooppunt wordt gevonden, moeten taakopdrachtregels de shell expliciet aanroepen, zoals bij `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Deze vereiste is niet nodig als uw taken een toepassing uitvoeren in het `PATH` van het knooppunt en verwijzen niet naar omgevingsvariabelen.
-> 
-> 
+>
+>
 
 In de `for`-lus in het bovenstaande codefragment kunt u zien dat de opdrachtregel voor de taak vijf opdrachtregelargumenten bevat die worden doorgegeven aan *python_tutorial_task.py*:
 
@@ -563,8 +563,8 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > De aanroep naar `download_blobs_from_container` in *python_tutorial_client.py* geeft aan dat de bestanden naar de basismap moeten worden gedownload. U kunt eventueel deze uitvoerlocatie wijzigen.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Stap 8: containers verwijderen
 Omdat gegevens die zich in Azure Storage bevinden, in rekening worden gebracht, doet u er altijd goed aan alle blobs te verwijderen die niet langer nodig zijn voor uw Batch-taken. In *python_tutorial_client.py* wordt dit gedaan met drie aanroepen naar [BlockBlobService.delete_container][py_delete_container]:
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > Houd er rekening mee dat rekenresources in rekening worden gebracht. Door ongebruikte pools te verwijderen, beperkt u uw kosten tot een minimum. Denk er ook aan dat een pool alle rekenknooppunten in die pool verwijdert en dat alle gegevens in de knooppunten onherstelbaar zijn nadat de pool wordt verwijderd.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>Het voorbeeldscript uitvoeren
 Bij het uitvoeren van het *python_tutorial_client.py*-script uit de zelfstudie [voorbeeldcode][github_article_samples], lijkt de output van de console op het volgende. Bij `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` wordt gewacht wanneer de rekenknooppunten van de pool worden gemaakt en opgestart, en wanneer de opdrachten in de begintaak van de pool worden uitgevoerd. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Microsoft Azure Storage Explorer][storage_explorer] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
 
 > [!TIP]
 > Voer het *python_tutorial_client.py*-script uit vanuit de `azure-batch-samples/Python/Batch/article_samples`-directory. Hierbij wordt een relatief pad voor de import van de `common.helpers`-module gebruikt, dus u kunt `ImportError: No module named 'common'` tegenkomen als u het script niet uitvoert in deze directory.
-> 
-> 
+>
+>
 
 Wanneer u het voorbeeld uitvoert in de standaardconfiguratie, bedraagt de uitvoeringstijd doorgaans **ongeveer 5-7 minuten**.
 
@@ -640,7 +640,7 @@ Breng gerust wijzigingen aan in *python_tutorial_client.py* en *python_tutorial_
 Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd om kennis te maken met de aanvullende functies van de Batch-service.
 
 * Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
-* Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Development in-depth** (Ontwikkeling nader bekeken) in het [Batch-leertraject][batch_learning_path].
+* Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Ontwikkeling nader bekeken** in het [Batch-leertraject][batch_learning_path].
 * Bekijk een andere implementatie van de verwerking van de workload 'eerste N woorden' met behulp van Batch in het voorbeeld [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
@@ -689,14 +689,13 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Containers maken in Azure Storage"
-[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Taaktoepassings-en invoer(gegevens)bestanden uploaden naar containers"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers"
 [3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Batch-pool maken"
 [4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Batch-job maken"
 [5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Taken toevoegen aan job"
@@ -709,6 +708,6 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

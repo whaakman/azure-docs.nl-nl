@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/19/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 553b93c2c379b961e793033ab2b5c76b107cda10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64bb5f7e78a6e48faf3487da780597b25891a2fa
 
 
 ---
@@ -87,12 +87,12 @@ In deze taak schakelt u Azure AD Domain Services in voor uw directory. Voer de v
 
 <br>
 
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+## <a name="task-4---update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
 De volgende configuratietaak bestaat uit het [bijwerken van de DNS-instellingen voor het virtuele netwerk van Azure](active-directory-ds-getting-started-dns.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

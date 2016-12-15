@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 8. Sla de wijzigingen op en gebruik git om de app te implementeren in Azure:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -186,7 +187,7 @@ Volg deze stappen om iisnode-logboeken te lezen.
    
     ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Fouten in een app opsporen met Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Fouten in een app opsporen met Node-Inspector
 Als u Node-Inspector gebruikt om fouten in een Node.js-app op te sporen, kunt u dit hulpprogramma gebruiken voor live App Service-apps. Node-Inspector wordt vooraf geïnstalleerd, samen met de installatie van iisnode voor App Service. Als u de implementatie uitvoert via Git, bevat de automatisch gegenereerde Web.config van Kudu bovendien al de configuratie die u nodig hebt om Node-Inspector in te schakelen.
 
 Volg deze stappen om Node-Inspector in te schakelen:
@@ -235,7 +236,7 @@ Volg deze stappen om Node-Inspector in te schakelen:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [aanmelden voor een gratis proefversie]: http://go.microsoft.com/fwlink/?LinkId=623901
-[web-app]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
