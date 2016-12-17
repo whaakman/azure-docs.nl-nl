@@ -52,17 +52,25 @@ In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met e
 * Start **PowerShell** en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
   
   1. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.
-     
-          Login-AzureRmAccount   
+    
+    ```PowerShell 
+    Login-AzureRmAccount
+    ```   
   2. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
-     
-          Get-AzureRmSubscription 
+
+    ```PowerShell     
+    Get-AzureRmSubscription
+    ``` 
   3. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement. 
      
-          Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
   4. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.  
-     
-          New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+    ```PowerShell     
+      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
      
       Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N). 
      
@@ -77,10 +85,12 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 > 
 > 
 
-    {  
-        "name": "ADFCopyTutorialDF",  
-        "location": "WestUS"
-    }  
+```JSON
+{  
+    "name": "ADFCopyTutorialDF",  
+    "location": "WestUS"
+}  
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -88,15 +98,17 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 > 
 > 
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
@@ -104,49 +116,53 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 > 
 > 
 
-    {
-        "name": "AzureSqlLinkedService",
-        "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-            }
+```JSON
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
         }
     }
-
+}
+```
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService",
-        "typeProperties": {
-          "folderPath": "adftutorial/",
-          "fileName": "emp.txt",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
+
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
       }
+    ],
+    "type": "AzureBlob",
+    "linkedServiceName": "AzureStorageLinkedService",
+    "typeProperties": {
+      "folderPath": "adftutorial/",
+      "fileName": "emp.txt",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ","
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureBlobInput**. Deze bevat de invoergegevens voor een activiteit in de pijplijn. Bovendien wordt hiermee aangegeven dat de invoergegevens zich in het bestand **emp.txt** bevinden dat is opgeslagen in de blobcontainer **adftutorial**. 
 
@@ -165,43 +181,46 @@ Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden 
 
 Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv. 
 
-      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
-
+```JSON
+  "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy": 
+[
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+],
+```
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-      "name": "AzureSqlOutput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-          "tableName": "emp"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
-    }
 
+```JSON
+{
+  "name": "AzureSqlOutput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
+      }
+    ],
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "emp"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
 
 Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureSqlOutput**. Deze bevat de uitvoergegevens voor een activiteit in de pijplijn. Bovendien geeft deze aan dat de resultaten zijn opgeslagen in de tabel: **emp** in de database die staat voor de AzureSqlLinkedService. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset elk uur (frequentie: uur en interval: 1) wordt geproduceerd.
 
@@ -214,48 +233,50 @@ Houd rekening met de volgende punten:
 * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 
 ### <a name="pipelinejson"></a>pipeline.json
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+
+```JSON
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureSqlOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureBlobInput"
           }
         ],
-        "start": "2016-08-12T00:00:00Z",
-        "end": "2016-08-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-08-12T00:00:00Z",
+    "end": "2016-08-13T00:00:00Z"
+  }
+}
+```
 
 Houd rekening met de volgende punten:
 
@@ -284,22 +305,26 @@ Voer in Azure PowerShell de volgende opdrachten uit nadat u de waarden hebt verv
 > 
 > 
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```JSON
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "ADFCopyTutorialDF"
+$rg = "ADFTutorialResourceGroup"
+$adf = "ADFCopyTutorialDF"
+```
 
 ## <a name="authenticate-with-aad"></a>Verifiëren met AAD
 Voer de volgende opdracht uit om te verifiëren met Azure Active Directory (AAD). 
 
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken) 
+(ConvertFrom-Json $responseToken) 
+```
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
 In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens te kopiëren van een brongegevensarchief naar een doelgegevensarchief. Een HDInsight Hive-activiteit om een Hive-script uit te voeren dat invoergegevens omzet in productuitvoergegevens. Voer de volgende opdracht uit om de gegevensfactory te maken: 
@@ -308,13 +333,19 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **ADFCopyTutorialDF**
    
     Bevestig dat de naam van de gegevensfactory die u hier opgeeft (ADFCopyTutorialDF) overeenkomt met de naam die is opgegeven in de **datafactory.json**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gegevensfactory is gemaakt, ziet u de JSON voor de gegevensfactory in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
    
-        Write-Host $results
+    ```
+    Write-Host $results
+    ```
 
 Houd rekening met de volgende punten:
 
@@ -330,12 +361,15 @@ Houd rekening met de volgende punten:
 * Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren: 
   
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren. 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd. 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd. 
-    
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 
 Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om de bron- en doelgegevensarchieven te koppelen aan uw gegevensarchief. Vervolgens definieert u in- en uitvoergegevenssets die de gegevens in de gekoppelde gegevensarchieven vertegenwoordigen. Ten slotte maakt u de pijplijn met een activiteit die deze gegevenssets gebruikt.
@@ -349,27 +383,38 @@ In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en 
 In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Bij deze zelfstudie gebruikt u het Azure Storage-account om invoergegevens op te slaan. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-sql-linked-service"></a>Gekoppelde Azure SQL-service maken
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory. In deze zelfstudie gebruikt u dezelfde Azure SQL Database voor het opslaan van de uitvoergegevens.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Gegevenssets maken
 In de vorige stap hebt u de gekoppelde services **AzureStorageLinkedService** en **AzureSqlLinkedService** gemaakt om een Azure Storage-account en een Azure SQL Database te koppelen aan de gegevensfactory **ADFCopyTutorialDF**. In deze stap maakt u gegevenssets die staan voor de invoer- en uitvoergegevens voor de kopieeractiviteit in de pijplijn die u tijdens de volgende stap maakt. 
@@ -384,23 +429,27 @@ Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor
 * Maak een tabel met de naam **emp** in de Azure SQL Database waarnaar **AzureSqlLinkedService** verwijst.
 
 1. Open Kladblok, plak de volgende tekst en sla het bestand als **emp.txt** op in de map **C:\ADFGetStartedPSH** op de vaste schijf. 
-   
-        John, Doe
-        Jane, Doe
+
+    ```   
+    John, Doe
+    Jane, Doe
+    ```
 2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](https://azurestorageexplorer.codeplex.com/) om de container **adftutorial** te maken en om het bestand **emp.txt** te uploaden naar de container.
    
     ![Azure Opslagverkenner](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Gebruik het volgende SQL-script om de tabel **emp** te maken in uw Azure SQL Database.  
 
-        CREATE TABLE dbo.emp 
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp 
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    ```
 
     Als u SQL Server 2014 op uw computer hebt geïnstalleerd: volg de instructies uit [Stap 2: verbinding maken met de SQL Database van de beherende Azure SQL Database met SQL Server Management Studio][sql-management-studio] om verbinding te maken met uw Azure SQL-server en het SQL-script uit te voeren.
 
@@ -410,58 +459,83 @@ Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor
 In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service. Deze blobcontainer (**adftutorial**) plaatst de invoergegevens in het bestand **emp.txt**. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+
+    ```PowerSHell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
 In deze stap maakt u een uitvoertabel met de naam **AzureSqlOutput**. Deze gegevensset wijst naar een SQL-tabel (**emp**) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
    
-        Write-Host $results 
+    ```PowerShell
+    Write-Host $results
+    ``` 
 
 ## <a name="create-pipeline"></a>Pijplijn maken
 In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **AzureBlobInput** als invoer en **AzureSqlOutput** als uitvoer.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 **Gefeliciteerd!** U hebt een Azure-gegevensfactory gemaakt met een pijplijn die gegevens van Azure-blobopslag kopieert naar de Azure SQL Database.
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 In deze stap gebruikt u Data Factory-REST API voor het bewaken van segmenten die worden geproduceerd door de pijplijn.
 
-    $ds ="AzureSqlOutput"
+```PowerShell
+$ds ="AzureSqlOutput"
+```
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```PowerShell
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+```PowerShell
+$results2 = Invoke-Command -scriptblock $cmd;
+```
 
-
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
+```PowerShell
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 Voer deze opdrachten uit totdat een segment de status **Gereed** of **Mislukt** heeft. Als het segment de status Gereed heeft, controleert u de uitvoergegevens in de **emp**-tabel in uw Azure SQL Database. 
 

@@ -23,7 +23,7 @@ ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 ## <a name="connecting-to-virtual-networks"></a>Verbinding maken met Virtual Network
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Kan ik virtuele netwerken in verschillende Azure-regio's verbinden?
-Ja. Er is zelfs helemaal geen regiobeperking. Een virtueel netwerk kan verbinding maken met een ander virtueel netwerk in dezelfde regio of in een andere Azure-regio.
+Ja. Er is zelfs helemaal geen regiobeperking. Een virtueel netwerk kan verbinding maken met een ander virtueel netwerk in dezelfde regio of in een andere Azure-regio. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Kan ik virtuele netwerken uit verschillende abonnementen verbinden?
 Ja.
