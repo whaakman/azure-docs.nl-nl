@@ -457,7 +457,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
             }
         }
 3. We hebben een online gebruikersinterface nodig die voor de gebruiker kan worden weergegeven. Laten we het bestand index.jsp dat we eerder hebben gemaakt, herschrijven:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Schrijf tot slot wat Javascript aan de clientzijde om de online gebruikersinterface en de servlet samen te binden:
    
         var todoApp = {
