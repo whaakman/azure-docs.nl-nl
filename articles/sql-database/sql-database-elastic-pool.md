@@ -1,92 +1,112 @@
 ---
-title: What is an Azure elastic pool? | Microsoft Docs
-description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
-keywords: elastic database,sql databases
+title: Wat is een elastische groep van Azure? | Microsoft Docs
+description: Beheer honderden of duizenden databases met een groep. Een enkele prijs voor een reeks prestatie-eenheden die kan worden verdeeld over de groep. Plaats databases naar wens binnen of buiten de groep.
+keywords: elastische database, sql-databases
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-
+editor: 
+ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.date: 07/12/2016
+ms.date: 12/06/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+
 
 ---
-# What is an Azure elastic pool?
-SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+# <a name="what-is-an-azure-elastic-pool"></a>Wat is een elastische groep van Azure?
+Elastische groepen met SQL-databases zijn een eenvoudige en voordelige oplossing voor het beheer van de prestatiedoelen voor databases met breed uiteenlopende en onvoorspelbare gebruikspatronen.
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
-> 
-> 
+> Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in West-India, waar deze zich momenteel in de previewfase bevinden.  Algemene beschikbaarheid van elastische pools in deze regio zal zo snel mogelijk plaatsvinden.
+>
+>
 
-## How it works
-A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+## <a name="how-it-works"></a>Hoe werkt het?
+Een algemeen SaaS-toepassingspatroon is het databasemodel met één tenant: elke klant krijgt zijn eigen database. Elke klant (database) heeft onvoorspelbare resourcevereisten voor geheugen, I/O en CPU. Hoe wijst u resources op efficiënte en rendabele wijze toe bij een dergelijke onvoorspelbare vraag? Vroeger had u twee opties: (1) een te royale inrichting van resources op basis van piekgebruik, waarbij u dus te veel betaalt, of (2) een te voorzichtige inrichting om kosten te besparen, ten koste van prestaties en klanttevredenheid tijdens pieken. Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de prestaties krijgen die ze nodig hebben, wanneer ze deze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
-> 
-> 
+>
+>
 
-In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
+In SQL Database wordt de relatieve mate waarin een database de vraag naar resources kan afhandelen, uitgedrukt in DTU's (Database Transaction Units) voor individuele databases, en in elastische DTU's (eDTU's) voor elastische databases in een elastische groep. Zie de [Inleiding tot SQL Database](sql-database-technical-overview.md) voor meer informatie over DTU's en eDTU's.
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
+Een pool krijgt een bepaald aantal eDTU's voor een vaste prijs. Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Bij zware belasting kan een database meer eDTU's verbruiken om aan de vraag te voldoen. Databases verbruiken minder bij lichte belasting en verbruiken geen eDTU's als er geen belasting is. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool.
 
-Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
+Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltijd en zonder gevolgen voor de databases in de elastische pool. En als de extra eDTU's niet meer nodig zijn, kunnen ze op elk moment uit een bestaande pool worden verwijderd.
 
-And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
+Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
 
-## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+## <a name="which-databases-go-in-a-pool"></a>Welke databases gaan in een groep?
+![SQL-databases die eDTU's delen in een elastische databasegroep.][1]
 
-Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Databases die goede kandidaten zijn voor elastische groepen hebben meestal perioden van activiteit en perioden van inactiviteit. In het bovenstaande voorbeeld ziet u de activiteit van een individuele database, vier databases en ten slotte een elastische groep met twintig databases. Databases met variërende activiteit gedurende een bepaalde periode zijn goede kandidaten voor elastische groepen omdat ze niet allemaal actief zijn op hetzelfde moment en eDTU's kunnen delen. Dit patroon is niet op alle databases van toepassing. Databases met een constantere vraag naar resources zijn meer geschikt voor de servicelagen Basic, Standard en Premium, waar resources afzonderlijk worden toegewezen.
 
-[Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+[Prijs- en prestatieoverwegingen voor een elastische groep](sql-database-elastic-pool-guidance.md).
 
-## eDTU and storage limits for elastic pools and elastic databases.
+## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>eDTU en opslaglimieten voor elastische groepen en elastische databases
+
+De volgende tabel beschrijft de kenmerken van de Basic-, Standard- en Premium-pools voor elastische databases.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
+Als alle DTU's van een elastische groep zijn gebruikt, ontvangt elke database in de groep een gelijke hoeveelheid resources om query's te verwerken.  De service SQL Database verdeelt resources eerlijk over databases door gelijke hoeveelheden rekentijd te garanderen. Gelijke verdeling van resources in een elastische groep vindt plaats naast een bepaalde hoeveelheid resources die sowieso voor elke database wordt gegarandeerd wanneer het aantal DTU's per database is ingesteld op een andere waarde dan nul.
 
-## Elastic pool and elastic database properties
-### Limits for elastic pools
-| Property | Description |
+## <a name="elastic-pool-and-elastic-database-properties"></a>Eigenschappen van elastische groepen en elastische databases
+
+De volgende tabel bevat een beschrijving van de limieten voor elastische groepen en elastische databases.
+
+### <a name="limits-for-elastic-pools"></a>Limieten voor elastische groepen
+| Eigenschap | Beschrijving |
 |:--- |:--- |
-| Service tier |Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
-| eDTUs per pool |The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
-| Max storage per pool (GB) |The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max number of databases per pool |The maximum number of databases allowed per pool. |
-| Max concurrent workers per pool |The maximum number of concurrent workers (requests) available for all databases in the pool. |
-| Max concurrent logins per pool |The maximum number of concurrent logins for all databases in the pool. |
-| Max concurrent sessions per pool |The maximum number of sessions available for all databases in the pool. |
+| Servicelaag |Basic, Standard of Premium. De servicelaag bepaalt het prestatiebereik en de opslaglimieten die kunnen worden geconfigureerd en de opties voor bedrijfscontinuïteit. Elke database in een groep heeft dezelfde servicelaag als de groep. Een servicelaag wordt ook wel een editie genoemd. |
+| eDTU's per groep |Het maximum aantal eDTU's dat door databases in de groep kan worden gedeeld. Het totale aantal eDTU's dat door databases in de groep wordt gebruikt, kan deze limiet op een bepaald moment in de tijd niet overschrijden. |
+| Maximale opslag per groep (GB) |De maximale hoeveelheid opslag in GB die door databases in de groep kan worden gedeeld. De totale opslag die door databases in de groep wordt gebruikt, kan deze limiet niet overschrijden. Deze limiet wordt bepaald door het aantal eDTU's per groep. Als deze limiet wordt overschreden, worden alle databases alleen-lezen. |
+| Maximaal aantal databases per groep |Het maximum aantal databases dat is toegestaan per groep. |
+| Maximaal aantal gelijktijdige werknemers per groep |Het maximum aantal gelijktijdige werkers (aanvragen) dat beschikbaar is voor alle databases in de groep. |
+| Maximaal aantal gelijktijdige aanmeldingen per groep |Het maximum aantal gelijktijdige aanmeldingen voor alle databases in de groep. |
+| Maximaal aantal gelijktijdige sessies per groep |Het maximum aantal sessies dat beschikbaar is voor alle databases in de groep. |
 
-### Limits for elastic databases
-| Property | Description |
+### <a name="limits-for-elastic-databases"></a>Limieten voor elastische databases
+| Eigenschap | Beschrijving |
 |:--- |:--- |
-| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
-| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
-| Max storage per database (GB) |The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. |
+| Maximaal aantal eDTU’s per database |Het maximum aantal eDTU's dat elke database in de groep mag gebruiken, is afhankelijk van het gebruik door andere databases in de groep.  Het maximum aantal eDTU's per database is geen resourcegarantie voor een database.  Het is een algemene instelling voor alle databases in de groep. Stel het maximum aantal eDTU's per database hoog genoeg zijn om pieken in databasegebruik te kunnen afhandelen. Enige mate van overtoewijzing is normaal, omdat de groep in het algemeen uitgaat van pieken en dalen in gebruikspatronen voor databases, waarbij alle databases niet tegelijkertijd pieken. Stel, het piekgebruik per database is twintig eDTU's en slechts 20% van de 100 databases in de groep pieken op hetzelfde moment.  Als het maximum aantal eDTU's per database is ingesteld op twintig eDTU's, kan de groep redelijkerwijs vijf keer worden overtoegewezen en kan het aantal eDTU's per groep worden ingesteld op 400. |
+| Minimaal aantal eDTU’s per database |Het minimum aantal eDTU's dat voor elke database in de groep wordt gegarandeerd.  Het is een algemene instelling voor alle databases in de groep. Het minimum aantal eDTU’s per database kan worden ingesteld op 0. Dat is ook de standaardwaarde. Deze eigenschap wordt ingesteld op een waarde tussen 0 en het gemiddelde eDTU-gebruik per database. Het product van het aantal databases in de groep en het minimum aantal eDTU's per database mag niet groter zijn dan het aantal eDTU's per groep.  Als een groep bijvoorbeeld twintig databases heeft en het minimum aantal eDTU's per database is ingesteld op tien eDTU's, dan moet het aantal eDTU's per groep minimaal 200 eDTU's zijn. |
+| Maximale opslag per database (GB) |De maximale opslag voor een database in een groep. Elastische databases delen de opslag voor de groep, waardoor database-opslag wordt beperkt tot de resterende groepsopslag en de maximumopslag per database, afhankelijk van wat het kleinste is. |
 
-## Elastic database jobs
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+## <a name="elastic-database-jobs"></a>Taken voor Elastic Database
+Met een groep worden beheertaken vereenvoudigd door scripts in **[elastische taken](sql-database-elastic-jobs-overview.md)** uit te voeren. Een taak voor een elastische database elimineert de meeste saaie handelingen die zijn gekoppeld aan grote aantallen databases. Zie [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md) (Aan de slag met taken voor elastische databases) om aan de slag te gaan.
 
-For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Zie [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) (Uitbreiden met Azure SQL Database) voor meer informatie over andere hulpprogramma's voor elastische databases.
 
-## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+## <a name="business-continuity-features-for-databases-in-a-pool"></a>Bedrijfscontinuïteitsfuncties voor databases in een groep
+Elastische databases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor individuele databases in V12-servers.
 
-### Point in time restore
-Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+### <a name="point-in-time-restore"></a>Herstel naar een bepaald tijdstip
+Herstel naar een bepaald tijdstip gebruikt automatische databaseback-ups om een database in een groep te herstellen naar een bepaald herstelpunt. Zie [Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) 
+### <a name="geo-restore"></a>Geo-herstel
+Geo-herstel biedt de standaardoptie voor herstel wanneer een database niet beschikbaar is vanwege een incident in de regio waar de database wordt gehost. Zie [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Een Azure SQL Database of herstellen of een failover uitvoeren naar een secundaire server)
 
-### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+### <a name="active-geo-replication"></a>Actieve Geo-replicatie
+Voor toepassingen die zwaardere herstelvereisten hebben dan Geo-herstel kan bieden, kunt u actieve geo-replicatie configureren door middel van [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) of [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+
+## <a name="additional-resources"></a>Aanvullende bronnen
+* [Videocursus van Microsoft Virtual Academy over de mogelijkheden van elastische database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

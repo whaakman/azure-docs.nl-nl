@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ In dit overzicht kunt u zien hoe u de DocumentDB-service van Azure kunt gebruike
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Vereisten voor deze databasezelfstudie
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie 
+
+    OF
+
+    Een lokale installatie van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) of Visual Studio 2013 Update 4 of hoger. Als u Visual Studio 2013 gebruikt, moet u het [Microsoft.Net.Compilers NuGet-pakket](https://www.nuget.org/packages/Microsoft.Net.Compilers/) installeren om ondersteuning voor C# 6.0 toe te voegen. 
-* Azure SDK voor .NET versie 2.5.1 of hoger, beschikbaar via het [webplatforminstallatieprogramma van Microsoft][webplatforminstallatieprogramma van Microsoft].
+* Azure SDK voor .NET versie 2.5.1 of hoger, beschikbaar via het [webplatforminstallatieprogramma van Microsoft][Microsoft Web Platform Installer].
 
 Alle schermopnamen in dit artikel zijn gemaakt in Visual Studio 2013 met update 4 en de Azure SDK voor .NET versie 2.5.1. Als uw systeem is geconfigureerd met verschillende versies, is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
-Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt u doorgaan met [Een nieuwe ASP.NET MVC-toepassing maken](#_Toc395637762).
+Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Een nieuwe ASP.NET MVS-toepassing maken](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Nu u een account hebt, kunt u een nieuw ASP.NET-project maken.
 5. Selecteer in het deelvenster met sjablonen **MVC**.
 6. Als u van plan bent de toepassing in Azure te hosten, selecteert u in de rechterbenedenhoek **Host in de cloud** (Hosten in de cloud) om de toepassing te hosten in Azure. Er is voor gekozen om in de cloud te hosten en de toepassing uit te voeren door deze in een Azure-website te hosten. Als deze optie selecteert, wordt er vooraf een Azure-website voor u ingericht en kunt u de uiteindelijke werkende toepassing veel eenvoudiger implementeren. Als u de toepassing ergens anders wilt hosten of Azure niet vooraf wilt configureren, schakelt u het selectievakje **Host in the Cloud** (Hosten in de cloud) uit.
 7. Klik op **OK** om de scaffolding van de lege ASP.NET MVC-sjabloon aan Visual Studio over te laten. 
+
+    Als u de melding 'Er is een fout opgetreden bij de verwerking van de aanvraag' ziet, moet u de sectie [Problemen oplossen](#troubleshooting) raadplegen.
+
 8. Als u ervoor hebt gekozen om de toepassing in de cloud te hosten, wordt er ten minste één extra scherm weergegeven waarin u wordt gevraagd u aan te melden bij uw Azure-account en enkele waarden voor uw nieuwe website op te geven. Geef alle aanvullende waarden op en ga door. 
    
       Ik heb hier geen databaseserver gekozen, omdat er geen Azure SQL Database-server wordt gebruikt. We zullen later een nieuw Azure DocumentDB-account in Azure Portal maken.
@@ -423,9 +430,9 @@ U kunt nu code toevoegen aan DocumentDBRepository en ItemController om de record
    
     Deze code roept de DocumentDBRepository aan en gebruikt de methode CreateItemAsync om het nieuwe takenlijstitem door te geven aan de database. 
    
-    **Opmerking over de beveiliging**: het kenmerk **ValidateAntiForgeryToken** wordt hier gebruikt om deze toepassing te beschermen tegen aanvallen via aanvraagvervalsing op meerdere sites. Het volstaat echter niet om dit kenmerk alleen toe te voegen. Uw weergaven moeten samenwerken met dit anti-vervalsingstoken. Zie [Voorkomen van aanvraagvervalsing op meerdere sites][Voorkomen van aanvraagvervalsing op meerdere sites] voor meer informatie over dit onderwerp en voorbeelden van een juiste implementatie. De broncode op [GitHub][GitHub] beschikt over de volledige implementatie.
+    **Opmerking over de beveiliging**: het kenmerk **ValidateAntiForgeryToken** wordt hier gebruikt om deze toepassing te beschermen tegen aanvallen via aanvraagvervalsing op meerdere sites. Het volstaat echter niet om dit kenmerk alleen toe te voegen. Uw weergaven moeten samenwerken met dit anti-vervalsingstoken. Zie [Voorkomen van aanvraagvervalsing op meerdere sites][Preventing Cross-Site Request Forgery] voor meer informatie over dit onderwerp en voorbeelden van een juiste implementatie. De broncode op [GitHub][GitHub] beschikt over de volledige implementatie.
    
-    **Opmerking over de beveiliging**: we gebruiken ook het kenmerk **Bind** voor de methodeparameter om u te beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Eenvoudige CRUD-bewerkingen in ASP.NET MVC] voor meer informatie.
+    **Opmerking over de beveiliging**: we gebruiken ook het kenmerk **Bind** voor de methodeparameter om u te beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC] voor meer informatie.
 
 Hiermee is de benodigde code toegevoegd om nieuwe items aan de database toe te voegen.
 
@@ -536,20 +543,39 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app im
 
 Over een paar seconden zal Visual Studio de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Volgende stappen
-Gefeliciteerd. U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gebouwd met Azure DocumentDB en deze gepubliceerd naar Azure Websites. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet zijn opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Problemen oplossen
 
-Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [DocumentDB .NET-bibliotheek](https://msdn.microsoft.com/library/azure/dn948556.aspx). U bent tevens van harte welkom om een bijdrage te leveren aan de DocumentDB .NET-bibliotheek op [GitHub][GitHub]. 
+Als u tijdens een poging tot het implementeren van de web-app de melding 'Er is een fout opgetreden bij de verwerking van de aanvraag' krijgt, doet u het volgende: 
+
+1. Annuleer het foutbericht en selecteer vervolgens **Microsoft Azure Web Apps** opnieuw. 
+2. Meld u aan en selecteer **Nieuw** voor het maken van een nieuwe web-app. 
+3. Doe in het venster **Een web-app maken op Microsoft Azure** het volgende: 
+    
+    - Web-appnaam: 'todo net app'
+    - App Service-plan: Nieuw maken, genoemd 'todo-net-app'
+    - Resourcegroep: Nieuw maken, genoemd 'todo-net-app'
+    - Regio: selecteer de regio die het dichtst bij uw app-gebruikers ligt
+    - Databaseserver: selecteer geen database en klik vervolgens op **Maken**. 
+
+4. Klik in het scherm 'todo net app *' op **Verbinding valideren**. Nadat de verbinding is gecontroleerd, klikt u op **Publiceren**. 
+    
+    De app wordt vervolgens weergegeven in uw browser.
+
+
+## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Volgende stappen
+Gefeliciteerd. U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gebouwd met Azure DocumentDB en deze gepubliceerd naar Azure Websites. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
+
+Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [DocumentDB .NET-bibliotheek](https://msdn.microsoft.com/library/azure/dn948556.aspx). Uw bijdrage aan de DocumentDB .NET-bibliotheek op [GitHub][GitHub] wordt zeer gewaardeerd. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[webplatforminstallatieprogramma van Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Voorkomen van aanvraagvervalsing op meerdere sites]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Eenvoudige CRUD-bewerkingen in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

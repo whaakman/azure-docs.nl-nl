@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: 618c677ea675e6dc8f9dfb41f8e00b66f3f31886
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
 
 ---
 #<a name="service-bus-documentation"></a>Documentatie voor Service Bus
@@ -29,7 +29,7 @@ Service Bus voorziet in cloudcommunicatie met berichtenverzending voor bedrijven
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=service-bus">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ Service Bus voorziet in cloudcommunicatie met berichtenverzending voor bedrijven
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Service Bus met de Azure Portal</h3>
+                        <h3>Aan de slag met Service Bus met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -194,52 +194,45 @@ Service Bus voorziet in cloudcommunicatie met berichtenverzending voor bedrijven
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Naslaginformatie over Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Managed Reference-API voor .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicebus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie voor REST API voor Service Bus</p>
+                        <p><a href="/rest/api/servicebus">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Overige</h3>
+                        <p><a href="/dotnet/api/">Managed Reference-API</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
@@ -251,6 +244,6 @@ Documentatie voor Service Bus downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
 
 
 ---
@@ -185,7 +185,7 @@ Nee, er is geen REPL-omgeving voor R in de studio.
 ### <a name="python-module"></a>Python-module
 **Kan ik een aangepaste Python-module maken?**
 
-Momenteel niet, maar u kunt een of meer [Python Script uitvoeren][python]-modules gebruiken voor hetzelfde resultaat.
+Momenteel niet, maar u kunt een of meer [Execute Python Script][python]-modules gebruiken voor hetzelfde resultaat.
 
 **Is er een REPL-omgeving voor Python?**
 
@@ -332,7 +332,7 @@ Zie [Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machi
 
  Azure Machine Learning biedt een optie voor een gratis abonnement (zie [Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machine-learning/) voor details) en Machine Learning Studio biedt een snelle proefversie van 8 uur (meld u aan bij [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) voor deze proefversie).
 
- Als u zich registreert voor een gratis proefversie van Azure, kunt u bovendien alle Azure-services een maand proberen. Ga naar [Veelgestelde vragen over de gratis proefversie van Azure](/pricing/free-trial-faq/) voor meer informatie over de gratis proefversie van Azure.
+ Als u zich registreert voor een gratis proefversie van Azure, kunt u bovendien alle Azure-services een maand proberen. Ga naar [Veelgestelde vragen over de gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial-faq/) voor meer informatie over de gratis proefversie van Azure.
 
 **Wat is een transactie?**
 
@@ -432,7 +432,7 @@ De nieuwe abonnementen zijn beschikbaar in de drie productieregio‘s waar de ni
 
 Ja. Planprijzen variëren per regio. Wanneer u een webservice implementeert in een andere regio, moet u aan de webservice een plan toewijzen dat specifiek is voor deze regio.
 
-### <a name="new-web-services-overages"></a>Nieuwe webservices - overschrijdingen
+### <a name="new-web-services---overages"></a>Nieuwe webservices - overschrijdingen
 **Hoe kan ik controleren of mijn webserviceverbruik de limiet overschrijdt?**
 
 Op de pagina Plannen in de Azure Machine Learning-webservicesportal kunt u het verbruik van al uw plannen bekijken. Meld u aan bij de portal en klik op de menuoptie Plannen.
@@ -545,6 +545,6 @@ Toegang voor gasten is een beperkte proefversie waarmee u gratis en zonder verif
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

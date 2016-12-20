@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie o
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande sleutelkluis die u hebt gebruikt.  
-* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
+* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
 * Voldoende opslagruimte op Azure voor uw Sleutelkluis-logboeken.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Verbinding maken met uw abonnementen
@@ -66,7 +66,7 @@ Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u l
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor meer informatie over het configureren van Azure PowerShell.
+Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over het configureren van Azure PowerShell.
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
 Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we hier een nieuw opslagaccount, speciaal voor Sleutelkluis-logboeken. Voor het gemak slaan we de details op in een variabele met de naam **sa**. Deze moeten we later namelijk opgeven.
@@ -266,6 +266,6 @@ Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

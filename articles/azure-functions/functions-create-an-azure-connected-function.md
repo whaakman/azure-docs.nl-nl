@@ -14,175 +14,189 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/06/2016
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ffd199c9e3c621a808ade109ed044b6c9b689b7
+ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
+ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Een Azure-functie maken die wordt gebonden aan een Azure-service
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Een Azure-functie maken die is gekoppeld aan een Azure-service
 
-In deze korte video leert u hoe u een Azure-functie maakt die luistert naar berichten op een Azure-wachtrij en die berichten naar een Azure-blob kopieert.
+In dit onderwerp leert u hoe u een Azure-functie maakt die luistert naar berichten op een Azure-wachtrij en die berichten naar rijen in een Azure Storage-tabel kopieert. Een door een timer geactiveerde functie wordt gebruikt voor het laden van berichten in de wachtrij. Een tweede functie leest uit de wachtrij en schrijft berichten naar de tabel. De wachtrij en de tabel worden voor u gemaakt door Azure Functions op basis van de bindingsdefinities. 
+
+Daarnaast wordt één functie in JavaScript geschreven en de andere in C#-script. Dit laat zien hoe een functie-app functies in verschillende talen kan hebben.
 
 ## <a name="watch-the-video"></a>Video bekijken
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
 >
 >
 
-## <a name="create-an-input-queue-trigger-function"></a>Een activeringsfunctie voor een invoerwachtrij maken
-Met deze functie wordt elke tien seconden een bericht naar een wachtrij geschreven. Daarvoor moet u de functie en berichtwachtrijen maken, en de code toevoegen om berichten naar de zojuist gemaakte wachtrijen te schrijven.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Een functie die naar de wachtrij schrijft maken
 
-1. Ga naar Azure Portal en zoek de Azure-functie-app.
-2. Klik op **Nieuwe functie** > **TimerTrigger - Knooppunt**. Noem de functie **FunctionsBindingsDemo1**
-3. Voer de waarde '0/10 * * * * *' in voor de planning. Deze waarde heeft de vorm van een CRON-expressie. Hiermee zorgt u ervoor dat de timer elke tien seconden wordt uitgevoerd.
-4. Klik op de knop **Maken** om de nieuwe functie te maken.
-   
-    ![Een activeringstimerfunctie toevoegen](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Controleer of de functie werkt door activiteit in het logboek te bekijken. Misschien moet u in de rechterbovenhoek op de koppeling **Logboeken** klikken om het logboekvenster weer te geven.
-   
-   ![Controleren of de functie werkt door het logboek weer te geven](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+Voordat u verbinding met een opslagwachtrij kunt maken, moet u een functie maken die de berichtenwachtrij laadt. Deze JavaScript-functie maakt gebruik van een timeractivering die ervoor zorgt dat er elke 10 seconden een bericht naar de wachtrij wordt geschreven. Als u nog geen Azure-account hebt, kunt u [Try Azure Functions](https://functions.azure.com/try) (Azure Functions proberen) bekijken of [een gratis Azure-account maken](https://azure.microsoft.com/free/).
 
-### <a name="add-a-message-queue"></a>Een berichtenwachtrij toevoegen
-1. Ga naar het tabblad **Integreren**.
-2. Kies **Nieuwe uitvoer** > **Azure Storage-wachtrij** > **Selecteren**.
-3. Typ **myQueueItem** in het tekstvak **Naam van de berichtparameter**.
-4. Selecteer een opslagaccount of klik op **Nieuw** als u een opslagaccount wilt maken omdat u er nog geen hebt.
-5. Typ **functions-bindings** in het tekstvak **Wachtrijnaam**.
-6. Klik op **Opslaan**.  
-   
-   ![Een activeringstimerfunctie toevoegen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+1. Ga naar Azure Portal en zoek de functie-app.
 
-### <a name="write-to-the-message-queue"></a>Naar de berichtenwachtrij schrijven
-1. Ga terug naar het tabblad **Ontwikkelen** en voeg de volgende code achter de bestaande code toe:
+2. Klik op **Nieuwe functie** > **TimerTrigger-JavaScript**. 
+
+3. Geef de functie de naam **FunctionsBindingsDemo1**, voer een Cron-expressiewaarde in van `0/10 * * * * *` voor **Planning** en klik vervolgens op **Maken**.
+   
+    ![Een door een timer geactiveerde functie toevoegen](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+
+    U hebt nu een door een timer geactiveerde functie gemaakt die elke 10 seconden wordt uitgevoerd.
+
+5. Klik in het tabblad **Ontwikkelen** op **Logboeken** en bekijk de activiteit in het logboek. U ziet dat er elke 10 seconden een logboekvermelding wordt geschreven.
+   
+    ![Controleer in het logboek of de functie werkt](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Een uitvoerbinding voor de berichtenwachtrij toevoegen
+
+1. Kies op het tabblad **Integreren** **Nieuwe uitvoer** > **Azure Queue Storage** > **Selecteren**.
+
+    ![Een door een timer geactiveerde functie toevoegen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Voer `myQueueItem` in voor **Naam van de berichtparameter** en `functions-bindings` voor **Wachtrijnaam**, selecteer een bestaande **Opslagaccountverbinding** of klik op **Nieuw** om een opslagaccountverbinding te maken, en klik vervolgens op **Opslaan**.  
+
+    ![De uitvoerbinding naar de opslagwachtrij maken](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. Ga terug naar het tabblad **Ontwikkelen** en voeg de volgende code toe aan de functie:
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Wijzig de bestaande functiecode om de code op te roepen die u hebt toegevoegd in stap 1. Voeg de volgende code in rond regel 9 van de functie, achter de *Als*-instructie.
+2. Zoek de *Als*-instructie rond regel 9 van de functie en voer de volgende code in achter deze instructie.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Met deze code maakt u een **myQueueItem** en stelt u de eigenschap **tijd** daarvan in op de huidige tijdstempel. Vervolgens wordt het nieuwe wachtrij-item toegevoegd aan de myQueue-binding van de context.
+    Met deze code maakt u een **myQueueItem** en stelt u de eigenschap **tijd** daarvan in op de huidige tijdstempel. Vervolgens wordt het nieuwe wachtrij-item toegevoegd aan de **myQueueItem**-binding van de context.
+
 3. Klik op **Opslaan en uitvoeren**.
-4. Controleer of de code werkt door de wachtrij te bekijken in Visual Studio.
-   
-   * Open Visual Studio en ga naar **Weergave** > **Cloud** **Explorer**.
-   * Zoek het opslagaccount en de wachtrij **functions-bindings** die u hebt gebruikt toen u de wachtrij myQueue maakte. Hier ziet u rijen met logboekgegevens. Misschien moet u zich via Visual Studio aanmelden bij Azure.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Een activeringsfunctie voor een uitvoerwachtrij maken
-1. Klik op **Nieuwe functie** > **QueueTrigger - C#**. Noem de functie **FunctionsBindingsDemo2**. Merk op dat u talen in dezelfde functie-app (knooppunt en C# in dit geval) kunt combineren.
-2. Typ **functions-bindings** in het veld **Wachtrijnaam**"
-3. Selecteer het opslagaccount dat u wilt gebruiken of maak een nieuw opslagaccount.
-4. Klik op **Maken**.
-5. Controleer of de nieuwe functie werkt door het logboek van de functie en Visual Studio voor updates weer te geven. In het logboek van de functie ziet u dat de functie wordt uitgevoerd en items uit de wachtrij worden verwijderd. Omdat de functie als een invoeractivering is gebonden aan de uitvoerwachtrij **functions-bindings**, ziet u wanneer u de wachtrij **functions-bindings** vernieuwt dat de items zijn verdwenen. Ze zijn uit wachtrij verwijderd.   
-   
-   ![Een timerfunctie voor de uitvoerwachtrij toevoegen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Opslagupdates weergeven met behulp van Opslagverkenner
+U kunt controleren of de functie werkt door berichten te bekijken in de wachtrij die u hebt gemaakt.  U kunt verbinding maken met uw opslagwachtrij met behulp van Cloud Explorer in Visual Studio. Via de portal kun u echter gemakkelijk verbinding maken met uw opslagaccount met behulp van Microsoft Azure Opslagverkenner.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Het wachtrij-itemtype wijzigen van JSON in object
-1. Vervang de code in **FunctionsBindingsDemo2** door de volgende code:    
+1. Klik in het tabblad **Integreren** op de uitvoerbinding van uw wachtrij > **Documentatie**. Maak vervolgens de verbindingsreeks voor uw opslagaccount zichtbaar en kopieer de waarde. Met deze waarde kunt u verbinding maken met uw opslagaccount.
+
+    ![Azure Opslagverkenner downloaden](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Als u dat nog niet hebt gedaan, downloadt en installeert u [Microsoft Azure Opslagverkenner](http://storageexplorer.com). 
+ 
+3. Klik in Opslagverkenner op het pictogram voor verbinding maken met Azure Storage, plak de verbindingsreeks in het veld en voltooi de wizard.
+
+    ![Een verbinding toevoegen in Opslagverkenner](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. Vouw onder **Local and attached** (Lokaal en gekoppeld) **Opslagaccounts** > uw opslagaccount > **Wachtrijen** > **functions-bindings** uit en controleer of berichten naar de wachtrij worden geschreven.
+
+    ![Weergave van berichten in de wachtrij](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Als de wachtrij niet bestaat of leeg is, is er waarschijnlijk een probleem met uw functiebinding of code.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Een functie die van de wachtrij leest maken
+
+Nu dat er berichten aan de wachtrij worden toegevoegd, kunt u een functie maken die van de wachtrij leest en de berichten permanent naar een Azure Storage-tabel schrijft.
+
+1. Klik op **Nieuwe functie** > **QueueTrigger-CSharp**. 
+ 
+2. Geef de functie de naam `FunctionsBindingsDemo2`, voer **functions-bindings** in het veld **Wachtrijnaam** in, selecteer een bestaand opslagaccount of maak een nieuwe, en klik op **Maken**.
+
+    ![Een timerfunctie voor de uitvoerwachtrij toevoegen](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Optioneel) U kunt controleren of de nieuwe functie werkt door de nieuwe wachtrij zoals eerder uitgelegd in Opslagverkenner te bekijken. U kunt ook Cloud Explorer gebruiken in Visual Studio.  
+
+4. (Optioneel) Vernieuw de wachtrij **functions-bindings** en kijk of er items zijn verwijderd uit de wachtrij. De verwijdering doet zich voor omdat de functie als een invoeractivering is gebonden aan de wachtrij **functions-bindings** en de functie de wachtrij leest. 
+ 
+## <a name="add-a-table-output-binding"></a>Een uitvoerverbinding voor de tabel toevoegen
+
+1. Klik in FunctionsBindingsDemo2 op **Integreren** > **Nieuwe uitvoer** > **Azure Table Storage** > **Selecteren**.
+
+    ![Een binding aan een Azure Storage-tabel toevoegen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Voer `TableItem` in voor **Tabelnaam** en `functionbindings` voor **Naam van de tabelparameter**, kies een **Opslagaccountverbinding** of maak een nieuwe, en klik vervolgens op **Opslaan**.
+
+    ![De binding van de Storage-tabel configureren](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. Vervang in het tabblad **Ontwikkelen** de bestaande functiecode door het volgende:
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Met deze code voegt u twee klassen toe, **TableItem** en **QItem**. Deze gebruikt u om gegevens te lezen uit en te schrijven naar wachtrijen. Daarnaast is de functie **Run** zo gewijzigd dat deze de parameter **QItem** en **TraceWriter** accepteert in plaats van een **tekenreeks** en een **TraceWriter**. 
-2. Klik op de knop **Opslaan**.
-3. Controleer of de code werkt door het logboek te controleren. Merk op dat Azure-functies heb object automatisch voor u serialiseren en deserialiseren, zodat u gemakkelijker toegang hebt tot de wachtrij op een objectgeoriënteerde manier om gegevens door te geven. 
-
-## <a name="store-messages-in-an-azure-table"></a>Berichten opslaan in een Azure-tabel
-Nu de wachtrijen samenwerken, gaat u een Azure-tabel toevoegen waarin u de wachtrijgegevens permanent kunt opslaan.
-
-1. Ga naar het tabblad **Integreren**.
-2. Maak een Azure Storage-tabel voor uitvoer en noem deze **myTable**.
-3. Geef **functionsbindings** op als antwoord op de vraag 'Naar welke tabel moeten de gegevens worden geschreven?'.
-4. Wijzig de instelling **PartitionKey** van **{project-id}** in **{partition}**.
-5. Kies een opslagaccount of maak een nieuw opslagaccount.
-6. Klik op **Opslaan**.
-7. Ga naar het tabblad **Ontwikkelen**.
-8. Maak een klasse **TableItem** die een Azure-tabel vertegenwoordigt, en wijzig de functie Run zo dat deze het zojuist gemaakte TableItem-object accepteert. Dit werkt alleen als u de eigenschappen **PartitionKey** en **RowKey** gebruikt.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Klik op **Opslaan**.
-10. Controleer of de code werkt door de logboeken van de functie weer te geven in Visual Studio. Als u dit wilt controleren in Visual Studio, gebruikt u de **Cloud Explorer** om naar de Azure-tabel **functionbindings** te gaan en controleert u of deze rijen bevat.
+    De klasse **TableItem** vertegenwoordigt een rij in de opslagtabel. U voegt het item toe aan de verzameling `myTable` van **TableItem**-objecten. Stel de eigenschappen **PartitionKey** en **RowKey** in om in de tabel te kunnen invoegen.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Klik op **Opslaan**.  Ten slotte kunt u controleren of de functie werkt door de tabel te bekijken in Opslagverkenner of Cloud Explorer van Visual Studio.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Optioneel) Vouw in uw opslagaccount in Opslagverkenner **Tabellen** > **functionsbindings** uit en controleer of er rijen worden toegevoegd aan de tabel. U kunt hetzelfde doen met Cloud Explorer in Visual Studio.
+
+    ![Weergave van de rijen in de tabel](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Als de tabel niet bestaat of leeg is, is er waarschijnlijk een probleem met uw functiebinding of code. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Volgende stappen
+Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
+
+* [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)  
+  Naslaginformatie voor programmeurs over het coderen van functies en het definiëren van triggers en bindingen.
+* [Azure Functions testen](functions-test-a-function.md)  
+  Beschrijft de verschillende hulpprogramma’s en technieken voor het testen van uw functies.
+* [Azure Functions schalen](functions-scale.md)  
+  Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

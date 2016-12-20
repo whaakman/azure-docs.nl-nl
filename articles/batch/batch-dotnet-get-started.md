@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 11/22/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 58189daa7dd80e9ecb074a935e3e53fe75637643
-ms.openlocfilehash: 8bac99e393dd0ccca9eaa6097dc87872e306dc5c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
 
 
 ---
@@ -112,7 +112,7 @@ U vindt uw Batch- en Storage-accountreferenties op de accountblade van elke serv
 Nu dat u het project met uw referenties hebt bijgewerkt, klikt u met de rechtermuisknop op de oplossing in Solution Explorer en klikt u op **Build Solution**. Bevestig het herstel van alle NuGet-pakketten als dit wordt gevraagd.
 
 > [!TIP]
-> Als de NuGet-pakketten niet automatisch worden hersteld of als in foutberichten wordt gemeld dat de pakketten niet kunnen worden hersteld, controleert u of [NuGet Package Manager][nuget_packagemgr] is geïnstalleerd. Schakel vervolgens het downloaden van ontbrekende pakketten in. Zie [Enabling Package Restore During Build][nuget_restore] om het downloaden van pakketten in te schakelen.
+> Als de NuGet-pakketten niet automatisch worden hersteld of als in foutberichten wordt gemeld dat de pakketten niet kunnen worden hersteld, controleert u of [NuGet Package Manager][nuget_packagemgr] is geïnstalleerd. Schakel vervolgens het downloaden van ontbrekende pakketten in. Zie [Enabling Package Restore During Build][nuget_restore] (Herstellen van pakketten tijdens het bouwen inschakelen) om het downloaden van pakketten in te schakelen.
 >
 >
 
@@ -279,7 +279,7 @@ De DotNetTutorial-voorbeeldtoepassing gebruikt niet de taaktypen JobPreparationT
 Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een URL, beveiligde toegang bieden tot containers en blobs in Azure Storage. De DotNetTutorial-toepassing maakt gebruik van Shared Access Signature-URL's voor blobs en containers en toont aan hoe u deze SAS-tekenreeksen van de Storage-service kunt ophalen.
 
 * **Shared Access Signatures voor blobs**: StartTask van de pool in DotNetTutorial maakt gebruik van Shared Access Signatures voor blobs wanneer het de binaire bestanden van toepassingen en invoergegevensbestanden uit Storage downloadt (zie stap 3 hieronder). De methode `UploadFileToContainerAsync` in het bestand `Program.cs` van DotNetTutorial bevat de code die de Shared Access Signature van elke blob verkrijgt. Dit gebeurt door het aanroepen van [CloudBlob.GetSharedAccessSignature][net_sas_blob].
-* **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer*container in Azure Storage. Hiertoe maakt TaskApplication gebruik van een Shared Access Signature voor containers die schrijftoegang biedt tot de container als deel van het pad wanneer TaskApplication het bestand uploadt. De Shared Access Signature voor containers wordt op een vergelijkbare manier verkregen als de Shared Access Signature voor blobs. In DotNetTutorial zult u zien dat de Help-methode `GetContainerSasUrl` hiervoor [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] aanroept om dit te doen. Meer informatie over hoe TaskApplication de Shared Access Signature voor containers gebruikt, vindt u in 'Stap 6: taken controleren'.
+* **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer*container in Azure Storage. Hiertoe maakt TaskApplication gebruik van een Shared Access Signature voor containers die schrijftoegang biedt tot de container als deel van het pad wanneer TaskApplication het bestand uploadt. De Shared Access Signature voor containers wordt op een vergelijkbare manier verkregen als de Shared Access Signature voor blobs. In DotNetTutorial zult u zien dat de Help-methode `GetContainerSasUrl` [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] aanroept om dit te doen. Meer informatie over hoe TaskApplication de Shared Access Signature voor containers gebruikt, vindt u in 'Stap 6: taken controleren'.
 
 > [!TIP]
 > Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met Blob Storage), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw opslagaccount.
@@ -305,7 +305,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Daarna wordt een pool van rekenknooppunten gemaakt in het Batch-account met een aanroep naar `CreatePoolAsync`. `CreatePoolAsync`maakt gebruik van de methode [BatchClient.PoolOperations.CreatePool][net_pool_create] om daadwerkelijk een pool te maken in de Batch-service.
+Daarna wordt een pool van rekenknooppunten gemaakt in het Batch-account met een aanroep naar `CreatePoolAsync`. `CreatePoolAsync` maakt gebruik van de methode [BatchClient.PoolOperations.CreatePool][net_pool_create] om daadwerkelijk een pool te maken in de Batch-service.
 
 ```csharp
 private static async Task CreatePoolAsync(
@@ -357,7 +357,7 @@ Wanneer u een pool maakt met [CreatePool][net_pool_create], geeft u meerdere par
 
 Samen met deze fysieke knooppunteigenschappen kunt u ook [StartTask][net_pool_starttask] voor de pool opgeven. StartTask wordt in elk knooppunt uitgevoerd wanneer dat knooppunt aan de pool wordt toegevoegd en telkens wanneer dat knooppunt opnieuw wordt opgestart. StartTask is met name nuttig voor het installeren van toepassingen in rekenknooppunten voordat taken worden uitgevoerd. Als bijvoorbeeld uw taken gegevens verwerken met behulp van Python-scripts, kunt u StartTask gebruiken om Python te installeren in de rekenknooppunten.
 
-In deze voorbeeldtoepassing kopieert StartTask de bestanden die het van Storage downloadt (die zijn opgegeven met behulp van de eigenschap [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) vanuit de StartTask-werkmap naar de gedeelde map waartoe *alle* taken die in het knooppunt worden uitgevoerd toegang hebben. In wezen worden hierdoor `TaskApplication.exe` en al de afhankelijkheden ervan gekopieerd naar de gedeelde map in elk knooppunt wanneer het knooppunt aan de pool wordt toegevoegd, zodat alle taken die in het knooppunt worden uitgevoerd er toegang toe hebben.
+In deze voorbeeldtoepassing kopieert StartTask de bestanden die het van Storage downloadt (die zijn opgegeven met behulp van de eigenschap [ResourceFiles][net_starttask_resourcefiles] van de [StartTask][net_starttask]) uit de StartTask-werkmap naar de gedeelde map waartoe *alle* taken die in het knooppunt worden uitgevoerd toegang hebben. In wezen worden hierdoor `TaskApplication.exe` en al de afhankelijkheden ervan gekopieerd naar de gedeelde map in elk knooppunt wanneer het knooppunt aan de pool wordt toegevoegd, zodat alle taken die in het knooppunt worden uitgevoerd er toegang toe hebben.
 
 > [!TIP]
 > De functie voor **toepassingspakketten** van Azure Batch biedt een andere manier om uw toepassing in rekenknooppunten in een pool te krijgen. Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie.
@@ -499,7 +499,7 @@ Er zijn veel manieren om de uitvoering van taken te controleren. DotNetTutorial 
 
 1. **ODATADetailLevel**: [ODATADetailLevel][net_odatadetaillevel] opgeven in lijstbewerkingen (zoals het verkrijgen van een lijst met taken van een job) is essentieel om Batch-toepassingen goed te laten presteren. Voeg het artikel [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Efficiënt query's uitvoeren op de Azure Batch-service) toe aan uw leeslijst als u van plan bent een of andere vorm van statuscontrole uit te voeren in uw Batch-toepassingen.
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] biedt Batch .NET-toepassingen met Help-hulpprogramma's voor het controleren van taakstatuswaarden. In `MonitorTasks` wacht *DotNetTutorial* tot alle taken binnen een bepaalde tijd [TaskState.Completed][net_taskstate] hebben bereikt. Daarna wordt de job beëindigd.
-3. **TerminateJobAsync**: Door een job te beëindigen met [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (of de blokkering JobOperations.TerminateJob), wordt deze job gemarkeerd als voltooid. Het is essentieel om dit te doen als uw Batch-oplossing gebruikmaakt van een [JobReleaseTask][net_jobreltask]. Dit is een speciaal type taak, dat wordt beschreven in [Job preparation and completion tasks](batch-job-prep-release.md) (Jobvoorbereidings- en jobvoltooiingstaken).
+3. **TerminateJobAsync**: door een job te beëindigen met [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (of de blokkering JobOperations.TerminateJob), wordt deze job gemarkeerd als voltooid. Het is essentieel om dit te doen als uw Batch-oplossing gebruikmaakt van een [JobReleaseTask][net_jobreltask]. Dit is een speciaal type taak, dat wordt beschreven in [Job preparation and completion tasks](batch-job-prep-release.md) (Jobvoorbereidings- en jobvoltooiingstaken).
 
 De methode `MonitorTasks` uit het *DotNetTutorial*-bestand `Program.cs` wordt hieronder weergegeven:
 
@@ -690,7 +690,7 @@ if (response != "n" && response != "no")
 >
 
 ## <a name="run-the-dotnettutorial-sample"></a>Het *DotNetTutorial*-voorbeeld uitvoeren
-Wanneer u de voorbeeldtoepassing uitvoert, lijkt de uitvoer van de console op die hieronder. Bij het uitvoeren wordt bij `Awaiting task completion, timeout in 00:30:00...` gewacht wanneer de rekenknooppunten van de pool worden gestart. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Azure Storage Explorer][storage_explorers] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
+Wanneer u de voorbeeldtoepassing uitvoert, lijkt de uitvoer van de console op die hieronder. Bij het uitvoeren wordt bij `Awaiting task completion, timeout in 00:30:00...` gewacht wanneer de rekenknooppunten van de pool worden gestart. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Azure Opslagverkenner][storage_explorers] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
 
 Wanneer u de toepassing uitvoert in de standaardconfiguratie, bedraagt de uitvoeringstijd doorgaans **ongeveer 5 minuten**.
 
@@ -731,7 +731,7 @@ Breng gerust wijzigingen aan in *DotNetTutorial* en *TaskApplication* om met ver
 Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd om kennis te maken met de aanvullende functies van de Batch-service.
 
 * Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
-* Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Development in-depth** (Ontwikkeling nader bekeken) in het [Batch-leertraject][batch_learning_path].
+* Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Ontwikkeling nader bekeken** in het [Batch-leertraject][batch_learning_path].
 * Bekijk een andere implementatie van de verwerking van de workload 'eerste N woorden' met behulp van Batch in het voorbeeld [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
@@ -782,7 +782,7 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Containers maken in Azure Storage"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Taaktoepassings-en invoer(gegevens)bestanden uploaden naar containers"
+[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers"
 [3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Batch-pool maken"
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Batch-job maken"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Taken toevoegen aan job"
@@ -795,6 +795,6 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

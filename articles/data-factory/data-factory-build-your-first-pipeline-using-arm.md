@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ In dit artikel gebruikt u een Azure Resource Manager-sjabloon om uw eerste Azure
 
 ## <a name="prerequisites"></a>Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
-* Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om de meest recente versie van Azure PowerShell te installeren op uw computer.
+* Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om de meest recente versie van Azure PowerShell te installeren op uw computer.
 * Zie [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
@@ -379,7 +379,7 @@ In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [
 
 De tekenreeks **connectionString** maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>Een gekoppelde HDInsight-service op aanvraag
+#### <a name="hdinsight-on-demand-linked-service"></a>Een gekoppelde HDInsight-service op aanvraag
 Zie het artikel [Compute linked services (Gekoppelde services verwerken)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde HDInsight-service op aanvraag.  
 
       {
@@ -591,6 +591,6 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

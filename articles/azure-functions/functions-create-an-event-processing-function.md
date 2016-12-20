@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,7 +27,7 @@ Azure Functions is een gebeurtenisafhankelijke, compute-on-demand ervaring waarm
 In dit onderwerp wordt beschreven hoe u een nieuwe functie in C# maakt die wordt uitgevoerd op basis van een gebeurtenistimer om berichten toe te voegen aan een opslagwachtrij. 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/).
+Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Als u nog geen Azure-account hebt, kunt u [Try Functions](https://functions.azure.com/try) (Functions proberen) bekijken of [een gratis Azure-account maken](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-timer-triggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een timer wordt geactiveerd
 Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/). 
@@ -79,6 +79,6 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

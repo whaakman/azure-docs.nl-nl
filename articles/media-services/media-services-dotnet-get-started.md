@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. 
 > 
 > 
 
@@ -50,7 +50,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 * U hebt een Azure-account nodig om deze zelfstudie te voltooien. 
   
-    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web-apps in Azure App Service.
+    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web-apps in Azure App Service.
 * Besturingssystemen: Windows 8 of hoger, Windows 2008 R2, Windows 7.
 * .NET framework 4.0 of hoger
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
@@ -114,10 +114,17 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
+
 1. Maak een nieuwe C#-consoletoepassing in Visual Studio 2013, Visual Studio 2012 of Visual Studio 2010 SP1. Geef de **naam**, **locatie** en **naam van de oplossing** op en klik vervolgens op **OK**.
 2. Gebruik het [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet-pakket om **Azure Media Services .NET SDK Extensions** te installeren.  Media Services .NET SDK Extensions bevat een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en het u gemakkelijker maken om met Media Services toepassingen te ontwikkelen. Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
+
+    Verwijzingen toevoegen met behulp van NuGet: klik in Solution Explorer met de rechtermuisknop op de projectnaam en selecteer **NuGet-pakketten beheren**. Zoek vervolgens naar **windowsazure.mediaservices.extensions** en klik op **Installeren**.
+
 3. Voeg een verwijzing naar de System.Configuration-assembly toe. Deze assembly bevat de klasse **System.Configuration.ConfigurationManager** die wordt gebruikt voor toegang tot de configuratiebestanden, bijvoorbeeld App.config.
-4. Open het bestand App.config (voeg het bestand toe aan uw project als dit niet standaard wordt toegevoegd) en voeg de sectie *appSettings* aan het bestand toe. Stel de waarden voor de naam van uw Azure Media Services-account en de accountsleutel in, zoals wordt weergegeven in het volgende voorbeeld. Voor het verkrijgen van de accountnaam en sleutelinformatie gaat u naar de [Azure Portal](https://portal.azure.com/) en selecteert u uw AMS-account. Selecteer vervolgens **Instellingen** > **Sleutels**. In het venster Sleutels beheren worden de accountnaam en de primaire en secundaire sleutel weergegeven.
+
+    Verwijzingen toevoegen met behulp van NuGet: klik in Solution Explorer met de rechtermuisknop op de projectnaam en selecteer **Toevoegen** > **Verwijzing...** en het type configuratie in het zoekvak. 
+
+4. Open het bestand App.config (voeg het bestand toe aan uw project als dit niet standaard wordt toegevoegd) en voeg de sectie *appSettings* aan het bestand toe. Stel de waarden voor de naam van uw Azure Media Services-account en de accountsleutel in, zoals wordt weergegeven in het volgende voorbeeld. Voor het verkrijgen van de accountnaam en sleutelinformatie gaat u naar de [Azure Portal](https://portal.azure.com/) en selecteert u uw AMS-account. Selecteer vervolgens **Instellingen** > **Sleutels**. In het venster Sleutels beheren worden de accountnaam en de primaire en secundaire sleutel weergegeven. Kopieer de waarden van de accountnaam en de primaire sleutel.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
 6. Maak een nieuwe map in de projectdirectory en kopieer het MP4- of WMV-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad C:\VideoFiles gebruikt.
 
 ## <a name="connect-to-the-media-services-account"></a>Verbinding met het Azure Media Services-account maken
+
 Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-programmeertaken de klasse **CloudMediaContext** gebruiken: verbinding maken met het Media Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende objecten: assets, assetbestanden, taken, toegangsbeleid, locators enzovoort.
 
 Overschrijf de standaardklasse Program met de volgende code. De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding met Media Services maken via de Media Services SDK voor .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx) voor meer informatie over het maken van verbinding met Media Services.
 
+
 Met de functie **Main** worden methoden aangeroepen die later in deze sectie verder worden gedefinieerd.
+
+> [!NOTE]
+> Er worden compilatiefouten geretourneerd totdat u definities hebt toegevoegd voor alle functies.
 
     class Program
     {
@@ -193,8 +205,10 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Een nieuwe asset maken en een videobestand uploaden
+
 In Media Services moet u uw digitale bestanden uploaden naar (of opnemen in) een asset. De entiteit **Asset** kan video, audio, afbeeldingen, verzamelingen miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens over deze bestanden) bevatten.  Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming. De bestanden in de asset worden **assetbestanden** genoemd.
 
 Met de methode **UploadFile**, zoals hieronder gedefinieerd, wordt **CreateFromFile** (gedefinieerd in .NET SDK Extensions) aangeroepen. Met **CreateFromFile** wordt een nieuwe asset gemaakt waarnaar het opgegeven bestand wordt geüpload.
@@ -281,7 +295,8 @@ Voeg de volgende methode toe aan de klasse Program.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>De asset publiceren en URL's ophalen voor streamen en progressief downloaden
-Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming) en SAS-locators (Shared Access Signature), voor het downloaden van media-bestanden.
+
+Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming), en SAS-locators (Shared Access Signature), voor het downloaden van mediabestanden. (Ga naar [dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog voor meer informatie over SAS-locators.)
 
 Nadat u de locators hebt gemaakt, kunt u de URL's maken die worden gebruikt om uw bestanden te streamen of te downloaden.
 
@@ -425,11 +440,11 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 <!-- URLs. -->
-[Webplatforminstallatieprogramma]: http://go.microsoft.com/fwlink/?linkid=255386
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

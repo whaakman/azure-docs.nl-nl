@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 
 ---
@@ -45,7 +45,7 @@ Naast de tijd die nodig is voor het installeren van de Azure SDK voor .NET, duur
 
 ## <a name="prerequisites"></a>Vereisten
 * Voor de zelfstudie wordt ervan uitgegaan dat u al eerder hebt gewerkt met ASP.NET MVC en Visual Studio. Als u een inleiding nodig hebt, raadpleegt u [Aan de slag met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Daar kunt u een tijdelijke en eenvoudige app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
 
@@ -219,6 +219,6 @@ In deze zelfstudie hebt u gezien hoe u een eenvoudige web-app makt en hoe u deze
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

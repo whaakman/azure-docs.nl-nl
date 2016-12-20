@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,6 +47,10 @@ In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
 Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnstalleerd:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+ 
+    OF 
+
+    Een lokale installatie van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) of hoger, of [Visual Studio Express]() (de gratis versie). De instructies in deze zelfstudie zijn specifiek geschreven voor Visual Studio 2015. 
 * Python Tools for Visual Studio van [GitHub](http://microsoft.github.io/PTVS/). In deze zelfstudie wordt gebruikgemaakt van Python Tools for VS 2015. 
 * Versie 2.4 of hoger van de Azure Python SDK voor Visual Studio is beschikbaar via [azure.com](https://azure.microsoft.com/downloads/). Wij hebben de Microsoft Azure SDK voor Python 2.7 gebruikt
@@ -62,7 +66,7 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 * Microsoft Visual C++ Compiler voor Python 2.7 uit het [Microsoft Downloadcentrum][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Stap 1: een DocumentDB-databaseaccount maken
-Begin met het maken van een DocumentDB-account. Als u al een account hebt, kunt u doorgaan met [Stap 2: een nieuwe Python Flask-toepassing maken](#step-2:-create-a-new-python-flask-web-application).
+Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: een nieuwe Python Flask-webtoepassing maken](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Webplatforminstallatieprogramma voor Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure Portal]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/04/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+ms.sourcegitcommit: d5674c6b903aac74260f1dc0ca549ddcf87d183d
+ms.openlocfilehash: 0baacb37e4c5b21860bf9ec2fbbd2eb7c067beb6
 
 
 ---
-# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Uw on-premises identiteiten integreren met Azure Active Directory
+# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Uw on-premises identiteiten integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises adreslijsten met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp worden de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 > [!IMPORTANT]
@@ -62,24 +62,24 @@ U vindt de download voor Azure AD Connect in het [Microsoft Downloadcentrum](htt
 [Na de installatie](active-directory-aadconnect-whats-next.md) moet u controleren of het werkt zoals verwacht en licenties toewijzen aan de gebruikers.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>De volgende stappen om Azure AD Connect te installeren
-| Onderwerp |
-| --- | --- |
-| Azure AD Connect downloaden |
-| Installeren met behulp van snelle instellingen |
-| Installeren met behulp van aangepaste instellingen |
-| Upgraden van DirSync |
-| Na installatie |
+|Onderwerp | Koppeling 
+|--- | ---
+|Azure AD Connect downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771)
+|Installeren met behulp van snelle instellingen | [Snelle installatie van Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
+|Installeren met behulp van aangepaste instellingen | [Aangepaste installatie van Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)
+|Upgraden van DirSync | [Upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
+|Na installatie | [De installatie controleren en licenties toewijzen](active-directory-aadconnect-whats-next.md)
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Meer informatie over het installeren van Azure AD Connect
 U wilt u ook voorbereiden op [operationele](active-directory-aadconnectsync-operations.md) problemen. U wilt mogelijk een stand-by-server hebben, waar u eenvoudig op terug kunt vallen in geval van een [noodgeval](active-directory-aadconnectsync-operations.md#disaster-recovery). Als u van plan bent frequente configuratiewijzigingen aan te brengen, moet u een [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode)-server gebruiken.
 
-| Onderwerp |
-| --- | --- |
-| Ondersteunde topologieën |
-| Ontwerpconcepten |
-| Accounts die worden gebruikt voor installatie |
-| Operationele planning |
-| Opties aanmelden gebruiker |
+Onderwerp |  
+--------- | ---------
+Ondersteunde topologieën | [Topologieën voor Azure AD Connect](active-directory-aadconnect-topologies.md)
+Ontwerpconcepten | [Ontwerpconcepten van Azure AD Connect](active-directory-aadconnect-design-concepts.md)
+Accounts die worden gebruikt voor installatie | [Meer informatie over referenties en machtigingen van Azure AD Connect](./connect/active-directory-aadconnect-accounts-permissions.md)
+Operationele planning | [Azure AD Connect-synchronisatie: operationele taken en overwegingen](active-directory-aadconnectsync-operations.md)
+Opties aanmelden gebruiker | [Opties van Azure AD Connect voor het aanmelden van gebruikers](active-directory-aadconnect-user-signin.md)
 
 ## <a name="configure-sync-features"></a>Synchronisatiefuncties configureren
 Azure AD Connect wordt geleverd met verschillende functies die u in of uit kunt schakelen of die standaard zijn ingesteld. Sommige functies vereisen mogelijk meer configuratie in bepaalde scenario's en topologieën.
@@ -97,14 +97,7 @@ De functie [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync
 [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is standaard ingeschakeld voor installaties met snelle instellingen en zorgt ervoor dat u altijd beschikt over de nieuwste versie van Azure AD Connect.
 
 ### <a name="next-steps-to-configure-sync-features"></a>De volgende stappen om synchronisatiefuncties te configureren
-| Onderwerp |
-| --- | --- |
-| Filtering configureren |
-| Wachtwoordsynchronisatie |
-| Wachtwoord terugschrijven |
-| Apparaat terugschrijven |
-| Onopzettelijke verwijderingen voorkomen |
-| Automatische upgrade |
+Filtering configureren | [Azure AD Connect-synchronisatie: filtering configureren](active-directory-aadconnectsync-configure-filtering.md) Wachtwoordsynchronisatie | [Azure AD Connect-synchronisatie: wachtwoordsynchronisatie implementeren](active-directory-aadconnectsync-implement-password-synchronization.md) Wachtwoord terugschrijven | [Aan de slag met wachtwoordbeheer](active-directory-passwords-getting-started.md) Apparaat terugschrijven | [Apparaat terugschrijven inschakelen in Azure AD Connect.](active-directory-aadconnect-feature-device-writeback.md) Onopzettelijke verwijderingen voorkomen | [Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) Automatische upgrade | [Azure AD Connect: automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect-synchronisatie aanpassen
 Azure AD Connect-synchronisatie wordt geleverd met een standaardconfiguratie waarmee de meeste klanten en topologieën kunnen werken. Maar er zijn altijd situaties waarin de standaardconfiguratie niet werkt en aangepast moet worden. Er kunnen wijzigingen gedaan worden zoals beschreven in deze sectie en gekoppelde onderwerpen.
@@ -116,14 +109,14 @@ De [standaardconfiguratie](active-directory-aadconnectsync-understanding-default
 Het gesynchroniseerde configuratiemodel heet [declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). De geavanceerde kenmerkstromen gebruiken [functies](active-directory-aadconnectsync-functions-reference.md) om kenmerktransformaties weer te geven. U kunt de volledige configuratie zien en controleren met de hulpprogramma's die worden geleverd met Azure AD Connect. Als u configuratiewijzigingen aan moet brengen, controleert u of u de [aanbevolen procedures](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) volgt zodat het eenvoudiger is nieuwe releases toe te passen.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>De volgende stappen om Azure AD Connect-synchronisatie aan te passen
-| Onderwerp |
-| --- | --- |
-| Alle artikelen over Azure AD Connect-synchronisatie |
-| Technische concepten |
-| Inzicht in de standaardconfiguratie |
-| Inzicht krijgen in gebruikers en contactpersonen |
-| Declaratieve inrichting |
-| De standaardconfiguratie wijzigen |
+Onderwerp |  
+--------- | ---------
+Alle artikelen over Azure AD Connect-synchronisatie | [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md)
+Technische concepten | [Azure AD Connect-synchronisatie: technische concepten](active-directory-aadconnectsync-technical-concepts.md)
+Inzicht krijgen in de standaardconfiguratie | [Azure AD Connect-synchronisatie: inzicht in de standaardconfiguratie](active-directory-aadconnectsync-understanding-default-configuration.md)
+Inzicht krijgen in gebruikers en contactpersonen | [Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers en contactpersonen](active-directory-aadconnectsync-understanding-users-and-contacts.md)
+Declaratieve inrichting | [Azure AD Connect-synchronisatie: inzicht krijgen in expressies declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+De standaardconfiguratie wijzigen | [Aanbevolen procedures voor het wijzigen van de standaardconfiguratie](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 
 ## <a name="configure-federation-features"></a>Federatiekenmerken configureren
 ADFS kan worden geconfigureerd om [meerdere domeinen](active-directory-aadconnect-multiple-domains.md) te ondersteunen. Zo zijn er mogelijk meerdere populaire domeinen die u wilt gebruiken voor federatie.
@@ -131,22 +124,24 @@ ADFS kan worden geconfigureerd om [meerdere domeinen](active-directory-aadconnec
 Als uw ADFS-server niet is geconfigureerd voor het automatisch bijwerken van certificaten van Azure AD of als u een niet-ADFS-oplossing gebruikt, krijgt u een melding wanneer u [certificaten moet bijwerken](active-directory-aadconnect-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>De volgende stappen om federatie-functies te configureren
-| Onderwerp |
-| --- | --- |
-| Alle AD FS-artikelen |
-| ADFS configureren met subdomeinen |
-| AD FS-farm beheren |
-| Handmatig bijwerken van de federatiecertificaten |
+
+Onderwerp |  
+--------- | ---------
+Alle AD FS-artikelen | [Azure AD Connect en federatie](active-directory-aadconnectfed-whatis.md)
+ADFS configureren met subdomeinen | [Ondersteuning voor meerdere domeinen voor federatie met Azure AD](active-directory-aadconnect-multiple-domains.md)
+AD FS-farm beheren | [AD FS-beheer en aanpassingen met Azure AD Connect](active-directory-aadconnect-federation-management.md)
+Handmatig bijwerken van de federatiecertificaten | [Federatiecertificaten vernieuwen voor Office 365 en Azure AD](active-directory-aadconnect-o365-certs.md)
 
 ## <a name="more-information-and-references"></a>Meer informatie en verwijzingen
-| Onderwerp |
-| --- | --- |
-| Versiegeschiedenis |
-| Vergelijk DirSync Azure, ADSync en Azure AD Connect |
-| Niet-ADFS compatibiliteitslijst voor Azure AD |
-| Gesynchroniseerde kenmerken |
-| Bewaken met behulp van Azure AD Connect Health |
-| Veelgestelde vragen |
+
+Onderwerp |  
+--------- | ---------
+Versiegeschiedenis | [Versiegeschiedenis](active-directory-aadconnect-version-history.md)
+Vergelijk DirSync Azure, ADSync en Azure AD Connect | [Hulpprogramma's voor vergelijking van adreslijstintegratie](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+Niet-ADFS compatibiliteitslijst voor Azure AD | [Compatibiliteitslijst voor Azure AD-federatie](active-directory-aadconnect-federation-compatibility.md)
+Gesynchroniseerde kenmerken | [Gesynchroniseerde kenmerken](active-directory-aadconnectsync-attributes-synchronized.md)
+Bewaken met behulp van Azure AD Connect Health | [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)
+Veelgestelde vragen | [Veelgestelde vragen over Azure AD Connect](active-directory-aadconnect-faq.md)
 
 **Aanvullende resources**
 
@@ -159,6 +154,6 @@ Ignite 2015-presentatie over het uitbreiden van uw on-premises adreslijsten in d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

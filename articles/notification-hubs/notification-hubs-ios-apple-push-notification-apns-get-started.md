@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -70,24 +70,26 @@ In deze sectie wordt u begeleid bij het maken van een nieuwe Notification Hub en
 <p>Zorg ervoor dat u de modus <b>Sandbox</b> selecteert. Dit is de juiste ontwikkelingsmodus. Gebruik <b>Productie</b> alleen als u pushmeldingen wilt verzenden naar gebruikers die uw app in de winkel hebben aangeschaft.</p>
 </li>
 </ol>
-&emsp;&emsp;![APNS in Azure Portal configureren](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![APNS in Azure Portal configureren](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![APNs-certificering in Azure Portal configureren](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![APNs-certificering in Azure Portal configureren](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verbindingsreeksen om uw app te registreren en pushmeldingen te verzenden.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Uw iOS-app verbinden met Notification Hubs
 1. Maak in Xcode een nieuw iOS-project en selecteer de sjabloon **Single View Application** (Toepassing met één weergave).
    
-       ![Xcode - Single View Application][8]
+    ![Xcode - Toepassing voor één weergave][8]
+    
 2. Bij het instellen van de opties voor het nieuwe project moet u dezelfde **productnaam** en **organisatie-id** gebruiken als bij het instellen van de bundel-id op de Apple Developer portal.
    
     ![Xcode - Projectopties][11]
+    
 3. Klik onder **Targets** op de projectnaam, klik op het tabblad **Build Settings** (Instellingen opbouwen) en vouw **Code Signing Identity** (Identiteit voor ondertekening) uit. Stel vervolgens onder **Debug** (Fouten opsporen) uw identiteit voor ondertekening van programmacode in. Schakel **Levels** (Niveaus) van **Basic** (Basis) naar **All** (Alle) en stel **Provisioning Profile** (Profiel voor inrichting) in op het profiel voor inrichting dat u eerder hebt gemaakt.
    
     Als u het nieuwe profiel voor inrichting dat u hebt gemaakt in Xcode niet ziet, vernieuwt u de profielen voor uw identiteit voor ondertekening. Klik op **Xcode** in de menubalk, klik op **Preferences** (Voorkeuren), klik op het tabblad **Account** en klik op de knop **View Details** (Details weergeven), klik op uw identiteit voor ondertekening en klik vervolgens op de knop voor vernieuwen in de rechterbenedenhoek.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode - Profiel voor inrichting][9]
 4. Download de [iOS SDK Mobile Services versie 1.2.4] en pak het bestand uit. Klik met de rechtermuisknop op uw project in Xcode en klik op de optie **Add Files to** (Bestanden toevoegen aan) om de map **WindowsAzureMessaging.framework** aan uw Xcode-project toe te voegen. Selecteer **Copy items if needed** (Items kopiëren indien nodig) en klik vervolgens op **Add**.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Azure SDK uitpakken][10]
 5. Voeg een nieuw headerbestand toe aan uw project met de naam `HubInfo.h`. Dit bestand is bedoeld voor de constanten voor uw Notification Hub.  Voeg de volgende definities toe en vervang de tijdelijke aanduidingen voor tekenreeksen door uw *hubnaam* en de *DefaultListenSharedAccessSignature* die u eerder hebt genoteerd.
    
         #ifndef HubInfo_h
@@ -463,18 +465,18 @@ Zie [Richtlijnen voor Notification Hubs] voor algemene informatie over Notificat
 
 <!-- URLs. -->
 [iOS SDK Mobile Services versie 1.2.4]: http://aka.ms/kymw2g
-[iOS SDK voor Mobile Services]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Een app-pagina verzenden]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mijn toepassingen]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK voor Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Aan de slag met Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS-inrichtingsportal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Aan de slag met pushmeldingen in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs - Een melding naar iOS-gebruikers verzenden met .NET back-end]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
@@ -483,6 +485,6 @@ Zie [Richtlijnen voor Notification Hubs] voor algemene informatie over Notificat
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

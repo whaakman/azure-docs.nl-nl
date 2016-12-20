@@ -18,7 +18,7 @@ Het volgende diagram toont een typische architectuur voor een IoT-oplossing. Het
 > 
 
 ### <a name="device-connectivity"></a>Connectiviteit van apparaten
-In deze architectuur voor een IoT-oplossing verzenden apparaten telemetriegegevens, zoals sensormetingen van een gemaal, naar een cloudeindpunt om daar te worden opgeslagen en verwerkt. In een scenario voor voorspeld onderhoud gebruikt de back-end de stroom van sensorgegevens mogelijk om vast te stellen of er aan een pomp onderhoud moet worden uitgevoerd. Apparaten kunnen ook opdrachten die van de cloud naar het apparaat zijn verstuurd, ontvangen en erop reageren door de berichten afkomstig van een cloudeindpunt te lezen. Zo kunnen er in een scenario voor voorspeld onderhoud door de back-end van de oplossing opdrachten worden verzonden naar andere pompen in een gemaal, zodat de waterstromen net voordat de onderhoudswerkzaamheden van start gaan, kunnen worden omgeleid en de onderhoudstechnicus meteen aan de slag kan wanneer hij aankomt.
+In deze architectuur voor een IoT-oplossing verzenden apparaten telemetriegegevens, zoals sensormetingen van een gemaal, naar een cloudeindpunt om daar te worden opgeslagen en verwerkt. In een scenario voor voorspeld onderhoud kan de back-end van de oplossing de stream van sensorgegevens gebruiken om vast te stellen of er aan een pomp onderhoud moet worden uitgevoerd. Apparaten kunnen ook berichten ontvangen die van de cloud naar het apparaat zijn verstuurd en erop reageren door de berichten van een cloudeindpunt te lezen. Zo kunnen er in een scenario voor voorspeld onderhoud door de back-end van de oplossing berichten worden verzonden naar andere pompen in een gemaal, zodat de waterstromen net voordat de onderhoudswerkzaamheden van start gaan, kunnen worden omgeleid en de onderhoudstechnicus meteen aan de slag kan wanneer hij aankomt.
 
 Een van de grootste uitdagingen van IoT-projecten is het op stabiele en veilige wijze verbinden van apparaten met de back-end van een oplossing. Vergeleken met andere clients zoals browsers en mobiele apps hebben IoT-apparaten andere kenmerken. IoT-apparaten:
 
@@ -42,9 +42,9 @@ In de cloud vindt het grootste gedeelte van de gegevensverwerking plaats in de b
 * Biedt mogelijkheden voor het registreren van uw apparaten waardoor u apparaten kunt inrichten en kunt beheren welke apparaten er verbinding mogen maken met uw infrastructuur.
 * Maakt het voor u mogelijk om de status van uw apparaten bij te houden en hun activiteiten te volgen.
 
-In het scenario voor voorspeld onderhoud slaat de back-end van de oplossing historische telemetriegegevens op. De back-end kan deze gegevens gebruiken om patronen te identificeren die aangeven dat onderhoud van een specifieke pomp noodzakelijk is.
+In het scenario voor voorspeld onderhoud slaat de back-end van de oplossing historische telemetriegegevens op. De back-end van de oplossing kan deze gegevens gebruiken om patronen te identificeren die aangeven dat onderhoud van een specifieke pomp noodzakelijk is.
 
-IoT-oplossingen kunnen automatische feedbacklussen omvatten. Zo kan een analysemodule in de back-end op grond van de telemetriegegevens bijvoorbeeld zien dat de temperatuur van een specifiek apparaat hoger is dan de normale bedrijfstemperatuurniveaus. De oplossing kan vervolgens een opdracht naar het apparaat verzenden met de instructie om corrigerende actie te ondernemen.
+IoT-oplossingen kunnen automatische feedbacklussen omvatten. Zo kan een analysemodule in de back-end van de oplossing op grond van de telemetriegegevens bijvoorbeeld zien dat de temperatuur van een specifiek apparaat hoger is dan de normale bedrijfstemperatuurniveaus. De oplossing kan vervolgens een opdracht naar het apparaat verzenden met de instructie om corrigerende actie te ondernemen.
 
 ### <a name="presentation-and-business-connectivity"></a>Presentatie en bedrijfsconnectiviteit
 De laag voor presentatie en bedrijfsconnectiviteit stelt eindgebruikers in staat te communiceren met de IoT-oplossing en de apparaten. Gebruikers kunnen met behulp hiervan de gegevens bekijken en analyseren die van hun apparaten zijn verzameld. Deze weergaven kunnen de vorm hebben van dashboards of BI-rapporten die zowel historische gegevens als gegevens in bijna realtime kunnen weergeven. Een operator kan bijvoorbeeld de status van een bepaald gemaal controleren en zien of het systeem eventueel waarschuwingen heeft gegeven. Deze laag maakt ook integratie mogelijk van de back-end van de IoT-oplossing met bestaande line-of-business-toepassingen zodat deze in bedrijfsprocessen of werkstromen kunnen worden ingevoegd. De oplossing voor voorspeld onderhoud kan bijvoorbeeld worden geïntegreerd met een werkroostersysteem dat op het moment dat de oplossing een pomp identificeert waaraan onderhoud moet worden uitgevoerd, een technicus boekt die naar het gemaal met de desbetreffende pomp moet gaan.
@@ -60,6 +60,6 @@ De laag voor presentatie en bedrijfsconnectiviteit stelt eindgebruikers in staat
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

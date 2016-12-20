@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -40,7 +40,7 @@ In deze zelfstudie gaat u een WordPress-blogsite implementeren vanuit Azure Mark
 Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de database MySQL gebruikt. Als u in plaats daarvan SQL Database voor de database wilt gebruiken, raadpleeg dan [Project Nami], dat eveneens beschikbaar is via Azure Marketplace.
 
 > [!NOTE]
-> U hebt een Microsoft Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u [uw voordelen als Visual Studio-abonnee activeren][activeren] of u [aanmelden voor een gratis proefversie][gratis proefversie].
+> U hebt een Microsoft Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u [uw voordelen als Visual Studio-abonnee activeren][activate] of [zich registreren voor een gratis proefversie][free trial].
 > 
 > Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Daar kunt u direct een tijdelijke en eenvoudige web-app maken in App Service. U hebt hiervoor geen creditcard nodig en u bent nergens toe verplicht.
 > 
@@ -72,7 +72,7 @@ Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de 
     ![Het abonnement voor de web-app configureren][ConfigSubscription]
 4. Selecteer een **Resourcegroep** of maak een nieuwe.
    
-    Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager][Resourcegroepen].
+    Zie [Overzicht van Azure Resource Manager][ResourceGroups] voor meer informatie over resourcegroepen.
    
     ![De resourcegroep voor de web-app configureren][ConfigResourceGroup]
 5. Selecteer een **App Service-plan/-locatie** of maak een nieuw(e).
@@ -127,7 +127,7 @@ In deze zelfstudie hebt u gezien hoe u een voorbeeld-web-app kunt maken en imple
 
 Voor meer informatie over werken met App Service-web-apps klikt u op de koppelingen aan de linkerkant van de pagina (in brede browservensters) of boven aan de pagina (in smalle browservensters).
 
-Voor meer informatie over het ontwikkelen van WordPress-web-apps op Azure raadpleegt u [WordPress ontwikkelen op Azure App Service][WordPressOnAzure].
+Voor meer informatie over het ontwikkelen van WordPress-web-apps in Azure raadpleegt u [WordPress ontwikkelen met Azure App Service][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -136,10 +136,10 @@ Voor meer informatie over het ontwikkelen van WordPress-web-apps op Azure raadpl
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
-[activeren]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[gratis proefversie]: https://azure.microsoft.com/pricing/free-trial/
+[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [App Service uitproberen]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Resourcegroepen]: ../azure-resource-manager/resource-group-overview.md
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -168,6 +168,6 @@ Voor meer informatie over het ontwikkelen van WordPress-web-apps op Azure raadpl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
 In veel gevallen gebruikt Extern bureaublad-gateway het lokale NPS om gebruikers te verifiëren. In dit document wordt beschreven hoe u RADIUS-aanvragen van de Extern bureaublad-gateway (via de lokale NPS) omleidt naar de Multi-Factor Authentication-server.
 
 De Multi-Factor Authentication-server moet op een afzonderlijke server worden geïnstalleerd. Deze stuurt de RADIUS-aanvraag vervolgens terug naar de NPS op de Extern bureaublad-gatewayserver. Wanneer NPS de gebruikersnaam en het wachtwoord heeft gevalideerd, wordt een antwoord teruggestuurd naar de Multi-Factor Authentication-server, die de tweede verificatiestap uitvoert alvorens een resultaat te retourneren aan de gateway.
@@ -36,7 +36,7 @@ De RD-gateway gebruikt NPS om de RADIUS-aanvraag te verzenden naar Azure Multi-F
 3. Vouw de sectie Beleid in het linkernavigatievenster uit en klik op Beleid voor verbindingsaanvragen. Hier moet een beleid voor verbindingsaanvragen met de naam TS-GATEWAY-AUTORISATIEBELEID worden vermeld dat tijdens de configuratie van RD-gateway is gemaakt. Dit beleid stuurt RADIUS-verzoeken door naar de Multi-Factor Authentication-server.
 4. Kopieer dit beleid naar een nieuw beleid. Voeg in het nieuwe beleid een voorwaarde toe die de Beschrijvende naam van client koppelt aan de Beschrijvende naam die in stap 2 hierboven is ingesteld voor de RADIUS-client voor de Azure Multi-Factor Authentication-server. Wijzig de verificatieprovider in Lokale computer. Wanneer een RADIUS-aanvraag wordt ontvangen van de Azure Multi-Factor Authentication-server, zorgt dit beleid ervoor dat de verificatie lokaal wordt uitgevoerd in plaats van dat er een RADIUS-aanvraag wordt teruggestuurd naar de Azure Multi-Factor Authentication-server, waardoor een oneindige lus zou ontstaan. Om deze lussituatie te voorkomen, moet u dit nieuwe beleid BOVEN het oorspronkelijke beleid plaatsen dat de aanvraagt doorstuurt naar de Multi-Factor Authentication-server.
 
-## <a name="configure-azure-multifactor-authentication"></a>Azure Multi-Factor Authentication configureren
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication configureren
 - - -
 De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-proxy tussen RD-gateway en NPS.  Het moet worden geïnstalleerd op een in het domein opgenomen server die is gescheiden van de RD-gatewayserver. Gebruik de volgende procedure om de Azure Multi-Factor Authentication-server te configureren.
 
@@ -50,6 +50,6 @@ De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-pro
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

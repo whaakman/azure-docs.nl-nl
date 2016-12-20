@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -47,7 +47,11 @@ In deze zelfstudie over het maken van een Java-toepassing wordt uitgelegd hoe u 
 ## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Vereisten voor deze zelfstudie over Java-webtoepassingen
 Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag gaat, moet u beschikken over het volgende:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie
+
+    OF
+
+    Een lokale installatie van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Eclipse IDE voor Java EE-ontwikkelaars.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Een Azure-website waarvoor een Java Runtime Environment (bijvoorbeeld Tomcat of Jetty) is ingeschakeld.](../app-service-web/web-sites-java-get-started.md)
@@ -55,7 +59,7 @@ Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag 
 Als u deze hulpprogramma's voor het eerst installeert, kunt u op coreservlets.com in de Quick Start-sectie van het artikel[Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Zelfstudie: TomCat7 installeren en gebruiken met Eclipse) een overzicht van het installatieproces vinden.
 
 ## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Stap 1: Een DocumentDB-databaseaccount maken
-Begin met het maken van een DocumentDB-account. Als u al een account hebt, gaat u verder met [Stap 2: De Java JSP-toepassing maken](#CreateJSP).
+Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: de Java JSP-toepassing maken](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -453,7 +457,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
             }
         }
 3. We hebben een online gebruikersinterface nodig die voor de gebruiker kan worden weergegeven. Laten we het bestand index.jsp dat we eerder hebben gemaakt, herschrijven:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -540,6 +544,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Schrijf tot slot wat Javascript aan de clientzijde om de online gebruikersinterface en de servlet samen te binden:
    
         var todoApp = {
@@ -759,6 +764,6 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

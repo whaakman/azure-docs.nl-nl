@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement is een SaaS-platform (Software-as-a-Service) voor gebrui
 
 Azure Mobile Engagement biedt uitgevers van toepassingen en marketingprofessionals meer inzicht in en interactie met de gebruikers van de app.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Realtime-analyses waarop actie kan worden ondernomen voor een maximaal rendement van uw investering.
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Realtime-analyses waarop actie kan worden ondernomen voor een maximaal rendement van uw investering.
 Activeer betrokkenheidsscenario's op basis van het gedrag van de gebruikers van een app en demografische gegevens, door `big data` te combineren met realtime-verwerking van berichten. Mobile Engagement heeft een antwoord op vrijwel elke vraag die relevant is voor uw specifieke bedrijfsbehoeften. U kunt bijvoorbeeld aangepaste dashboards maken om Key Performance Indicators (KPI's) te meten, knelpunten in een gebruikerspad op te sporen en op te lossen, en retentie en persistentie bij te houden. Daarmee kunt u vaststellen welke campagnes het hoogste rendement opleveren. Met het complete inzicht in het gebruikerspad dat Mobile Engagement u biedt, kunt u eenvoudig de gebruikerservaring doorlopend blijven verbeteren om de retentie en het app-gebruik te verhogen.
 
-## <a name="valueadded-push-and-communications-platform"></a>Waardevol push- en communicatieplatform
+## <a name="value-added-push-and-communications-platform"></a>Waardevol push- en communicatieplatform
 Mobile Engagement biedt in-app-berichten en werkt optimaal samen met systeemeigen gateways voor pushmeldingen, zoals Google GCM, Apple APNS en Microsoft MPNS. Bovendien kunt u gerichte campagnes maken door gebruikersgedrag te analyseren en unieke klantsegmenten te identificeren.
 
 Hierdoor kunnen app-ontwikkelaars hun klanten bereiken op een zeer effectieve, niet-verstorende manier.
@@ -47,13 +47,13 @@ Microsoft zet zich al lang in voor privacy, die een integraal onderdeel is van d
 ### <a name="next-steps"></a>Volgende stappen
 [Aanbevolen procedures en processen voor het maken van uw Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Aan de slag](/documentation/services/mobile-engagement/)
+[Aan de slag](/index.md)
 
 [Demo-apps met broncode downloaden](https://aka.ms/azmedemoapps)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

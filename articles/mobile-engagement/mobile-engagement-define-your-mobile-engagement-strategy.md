@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Als u uw use cases en segment hebt bepaald, kunt u aan de hand hiervan de gegeve
 
 Op basis van de integratie kunt u, wanneer toepassingen zijn gepubliceerd, als marketeer uw analyses in realtime zien, uw doelgroep segmenteren en vervolgens starten met het verzenden van slimme gerichte pushmeldingen om eindgebruikers in of buiten de app te benaderen.
 
-### <a name="usecases-to-get-started"></a>Use cases om mee aan de slag te gaan
+### <a name="use-cases-to-get-started"></a>Use cases om mee aan de slag te gaan
 1. Welkomststrategie: maak verschillende campagnes met pushmeldingen op basis van het gedrag van de eindgebruiker tijdens de start van de toepassing. Zo kunt u de interactie opnieuw starten op D+2/5/10/15 na de eerste sessie en de retentie na de eerste uitvoering verhogen.
 2. Promoot nieuwe inhoud (functie, artikel/video of product) op basis van het gedrag van de eindgebruiker. Verzend de informatie alleen naar eindgebruikers die eerder zijn geneigd om de interactie aan te gaan.
 3. Beoordeel de toepassing: richt u op minder dan 1 procent van uw gebruikersgroep, die de app in de winkel hoogst waarschijnlijk met 5 sterren beoordeelt.
@@ -66,13 +66,13 @@ Als u zo contextueel mogelijk wilt zijn wanneer u de interactie met uw doelgroep
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Use cases en aanbevolen procedures
+### <a name="use-cases-and-best-practices"></a>Use cases en aanbevolen procedures
 In de volgende secties worden een aantal belangrijke use cases die we bij onze klanten zijn tegengekomen in het kort behandeld, zodat u aan de slag kunt gaan.
 
 #### <a name="media"></a>Media
 Verzamel het type inhoud dat wordt gebruikt door de eindgebruiker. Segmenteer vervolgens de doelgroep op basis van dit gedrag, zodat u specifieke typen inhoud alleen kunt tonen aan een doelgroep die meer geneigd is deze te gebruiken. Dit voorkomt het spammen van een gehele gebruikersgroep en zorgt voor een betere retentie.
 
-#### <a name="mcommerce"></a>M-commerce
+#### <a name="m-commerce"></a>M-commerce
 Verzamel de productcategorieën die binnen de toepassing en doelgroep het meest worden bezocht en promoot een korting of een nieuw product uit die categorie waarvan de eindgebruiker meer is geneigd deze aan te schaffen. Richt u op het verhogen van uw opbrengsten. Het doel is weer om niet te spammen.
 
 #### <a name="gaming"></a>Gaming
@@ -134,6 +134,6 @@ Al dit soort gegevens kunnen worden uitgebreid met parameters (*extra gegevens* 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

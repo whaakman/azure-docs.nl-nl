@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![De oplossing voor updatebeheer in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) De oplossing voor updatebeheer in OMS
+# <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
 Met de oplossing voor updatebeheer in OMS kunt u updates voor uw Windows- en Linux-computers beheren.  U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers te starten. 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -33,7 +33,10 @@ Met de oplossing voor updatebeheer in OMS kunt u updates voor uw Windows- en Lin
 * Linux-agents moeten toegang hebben tot een opslagplaats voor updates.  De OMS-agent voor Linux kan worden gedownload van [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## <a name="configuration"></a>Configuratie
-Voer de volgende stappen om de oplossing Updatebeheer toe te voegen aan uw OMS-werkruimte en Linux-agents toe te voegen.  Windows-agents worden automatisch toegevoegd zonder extra configuratie.
+Voer de volgende stappen om de oplossing Updatebeheer toe te voegen aan uw OMS-werkruimte en Linux-agents toe te voegen. Windows-agents worden automatisch toegevoegd zonder extra configuratie.
+
+> [!NOTE]
+> Als u deze oplossing inschakelt is het momenteel zo dat alle Windows-computers die verbonden zijn met uw OMS-werkruimte automatisch worden geconfigureerd als Hybrid Runbook Worker zodat de runbooks die deel uitmaken van deze oplossing worden ondersteund.  De oplossing wordt echter niet geregistreerd bij Hybrid Worker-groepen die u hebt gemaakt in uw Automation-account en u kunt de oplossing niet toevoegen aan een Hybrid Worker-groep om uw eigen runbooks uit te voeren.  Als een Windows-computer al is ingesteld als Hybrid Runbook Worker en wordt verbonden met de OMS-werkruimte, moet u deze verwijderen uit de OMS-werkruimte voordat u de oplossing toevoegt. Zo voorkomt u dat runbooks niet naar behoren werken.  
 
 1. Voeg de oplossing Updatebeheer toe aan uw OMS-werkruimte met het volgens de procedure die is beschreven in [OMS-oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md) vanaf de Galerie van oplossingen.  
 2. Selecteer in de OMS-portal de optie **Instellingen** en vervolgens **Verbonden bronnen**.  Noteer de **Werkruimte-ID** en ofwel de **primaire sleutel**, ofwel de **secundaire sleutel**.
@@ -41,11 +44,13 @@ Voer de volgende stappen om de oplossing Updatebeheer toe te voegen aan uw OMS-w
    
    a.    Installeer de nieuwste versie van de OMS-agent voor Linux door de volgende opdrachten uit te voeren.  Vervang <Workspace ID> door de werkruimte-ID en <Key> door de primaire of de secundaire sleutel.
    
-     cd ~ wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh sudo bash omsagent-1.2.0-75.universal.x64.sh--upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Voer de volgende opdracht om de agent te verwijderen.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Management packs
 Als de beheergroep van uw System Center Operations Manager is verbonden met uw OMS-werkruimte, worden de volgende management packs geïnstalleerd in Operations Manager wanneer u deze oplossing toevoegt. Er is geen configuratie of onderhoud van deze management packs vereist. 
@@ -242,6 +247,6 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

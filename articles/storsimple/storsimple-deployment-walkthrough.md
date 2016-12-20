@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d9e5f3b177f6b91abe48d3bb6d49a2d3195e6f79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device"></a>Een StorSimple-apparaat implementeren
+# <a name="deploy-your-on-premises-storsimple-device"></a>Een StorSimple-apparaat implementeren
 > [!div class="op_single_selector"]
 > * [Update 2](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -92,7 +92,7 @@ In de volgende controlelijst voor de implementatie-configuratie wordt beschreven
 | &nbsp; |Netwerkinterface: Data 4</br>Als iSCSI is ingeschakeld, hoeft u de gateway niet te configureren. |Doel: Cloud/iSCSI/Niet gebruikt</br>IP-adres:</br>Subnetmasker:</br>Gateway: | |
 | &nbsp; |Netwerkinterface: Data 5</br>Als iSCSI is ingeschakeld, hoeft u de gateway niet te configureren. |Doel: Cloud/iSCSI/Niet gebruikt</br>IP-adres:</br>Subnetmasker:</br>Gateway: | |
 |  | | | |
-| ** Een volumecontainer maken** |Naam volumecontainer |Naam van de container | |
+| **Een volumecontainer maken** |Naam volumecontainer |Naam van de container | |
 | &nbsp; |Azure Storage-account: |Opslagnaam en toegangssleutel die aan deze volumecontainer moet worden gekoppeld | |
 | &nbsp; |Coderingssleutel voor cloudopslag: |Versleutelingssleutel voor opslag in elke container | |
 |  | | | |
@@ -146,7 +146,7 @@ Zorg voordat u begint voor het volgende:
 |  | | |
 | **Registratie** |Controleer of uitgaande TCP-poort 443, 80, 9354 zijn geopend. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Meer informatie voor cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
-## <a name="stepbystep-deployment"></a>Stapsgewijze implementatie
+## <a name="step-by-step-deployment"></a>Stapsgewijze implementatie
 Gebruik de volgende stapsgewijze instructies om uw StorSimple-apparaat te implementeren in het datacenter.
 
 ## <a name="step-1-create-a-new-service"></a>Stap 1: een nieuwe service maken
@@ -286,6 +286,6 @@ Voer de volgende stappen uit in de klassieke Azure-portal als u voor één volum
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -48,12 +48,12 @@
 ### [Swashbuckle aanpassen](app-service-api-dotnet-swashbuckle-customize.md)
 
 ### Webtaken
-#### [Wat is de Azure WebJobs SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Wat is de Azure WebJobs-SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Een .NET-webtaak maken in Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Het gebruik van Azure Blob Storage met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Azure Queue Storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Azure Service Bus gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Azure Table Storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Het gebruik van Azure Blob Storage met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Azure Queue Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Azure Service Bus gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Azure Table Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### App Service-omgeving
 #### [Een web-app maken in een App Service-omgeving](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -152,14 +152,10 @@
 ### [Streaminglogboekbestanden en de console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
-# Naslaginformatie
+# Bronnen
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-
-# Verwant
-
-# Bronnen
+## [WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Aanbevolen procedures voor App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Lijst met resources voor WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -167,6 +163,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

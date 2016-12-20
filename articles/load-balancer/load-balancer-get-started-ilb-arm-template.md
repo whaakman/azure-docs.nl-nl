@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
 
 ---
 
@@ -43,7 +43,7 @@ De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameter
 
 Volg onderstaande stappen als u de sjabloon die u hebt gedownload, wilt implementeren met PowerShell.
 
-1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
+1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 2. Download het parameterbestand naar de lokale schijf.
 3. Bewerk het bestand en sla het op.
 4. Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit als u een resourcegroep wilt maken met de sjabloon.
@@ -85,6 +85,6 @@ Volg onderstaande stappen als u de sjabloon wilt implementeren met de Azure CLI.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory biedt deze mogelijkheid. U kunt het uiterlijk van de volgende webpagina’s aanpassen en uw eigen bedrijfslogo en kleurenschema toepassen:
 
 * **Aanmeldingspagina**: dit is de pagina die wordt weergegeven wanneer u zich aanmeldt bij Office 365 of andere toepassingen op internet die gebruikmaken van Azure AD als id-provider. U communiceert met deze pagina tijdens het detecteren van het thuisdomein of om uw referenties in te voeren. Tijdens de detectie van het thuisdomein kan het systeem federatieve gebruikers omleiden naar hun on-premises STS (zoals AD FS).
@@ -34,7 +34,7 @@ In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>De aanmeldingspagina aanpassen
+## <a name="customizing-the-sign-in-page"></a>De aanmeldingspagina aanpassen
 Als u browsertoegang nodig hebt om de cloud-apps en -services te openen waar uw organisatie op is geabonneerd, gebruikt u de aanmeldingspagina.
 
 Als u wijzigingen hebt aangebracht aan uw aanmeldingspagina, kan het een uur duren voordat de wijzigingen worden weergegeven.
@@ -224,6 +224,6 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

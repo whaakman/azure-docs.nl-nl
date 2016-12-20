@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -74,7 +74,7 @@ De volgende onderdelen en hulpprogramma's zijn opgenomen in de HDInsight-cluster
 * **[ZooKeeper](#zookeeper)**: coördinatie van de processen in gedistribueerde systemen.
 
 > [!NOTE]
-> Zie voor meer informatie over de specifieke componenten en versie-informatie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][versiebeheer voor onderdelen]
+> Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie over de specifieke onderdelen en versie-informatie
 > 
 > 
 
@@ -148,7 +148,7 @@ De volgende JVM-talen worden op HDInsight-clusters ondersteund:
 * Jython (Python voor Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Hadoop-specifieke talen
+### <a name="hadoop-specific-languages"></a>Hadoop-specifieke talen
 HDInsight-clusters bieden ondersteuning voor de volgende talen die specifiek zijn voor het Hadoop-ecosysteem:
 
 * Pig Latin voor Pig-taken
@@ -158,21 +158,21 @@ HDInsight-clusters bieden ondersteuning voor de volgende talen die specifiek zij
 Als onderdeel van het Azure-cloudecosysteem biedt Hadoop in HDInsight een aantal voordelen, waaronder:
 
 * Automatische inrichting van Hadoop-clusters. HDInsight-clusters zijn veel gemakkelijker te maken dan handmatig geconfigureerde Hadoop-clusters. Zie [Hadoop-clusters inrichten in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie.
-* Geavanceerde Hadoop-onderdelen. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][versiebeheer voor onderdelen] voor meer informatie.
+* Geavanceerde Hadoop-onderdelen. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie.
 * Hoge beschikbaarheid en betrouwbaarheid van clusters. Zie [Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md) voor meer informatie.
 * Efficiënte en voordelige gegevensopslag met Azure Blob Storage, een optie die compatibel is met Hadoop. Zie [Azure Blob Storage met Hadoop gebruiken in HDInsight](hdinsight-hadoop-use-blob-storage.md) voor meer informatie.
 * Integratie met andere Azure-services, waaronder [web-apps](https://azure.microsoft.com/documentation/services/app-service/web/) en [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
-* Aanvullende VM-grootten en -typen voor het uitvoeren van HDInsight-clusters. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][versiebeheer voor onderdelen] voor meer informatie.
+* Aanvullende VM-grootten en -typen voor het uitvoeren van HDInsight-clusters. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie.
 * Clusterschaling. Met clusterschaling kunt u het aantal knooppunten van een actief HDInsight-cluster wijzigen zonder dat u het cluster hoeft te verwijderen of opnieuw hoeft te maken.
 * Ondersteuning voor Virtual Network. HDInsight-clusters kunnen worden gebruikt met Azure Virtual Network ter ondersteuning van de isolatie van cloudresources of hybride scenario's die cloudresources koppelen aan de resources in uw datacenter.
 * Lage instapkosten. Start een [gratis proefversie](https://azure.microsoft.com/free/) of raadpleeg de [prijsgegevens voor HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Zie de [pagina met Azure-functies voor HDInsight][marketing-pagina] voor meer informatie over de voordelen van Hadoop in HDInsight.
+Zie de [pagina met Azure-functies voor HDInsight][marketing-page] voor meer informatie over de voordelen van Hadoop in HDInsight.
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard en HDInsight Premium
 HDInsight heeft twee categorieën aanbiedingen voor big data-clouds: Standard en Premium. HDInsight Standard biedt een bedrijfscluster dat organisaties kunnen gebruiken om hun big data-werkbelastingen uit te voeren. HDInsight Premium bouwt hierop voort en biedt geavanceerde mogelijkheden voor analyse en beveiliging voor een HDInsight-cluster. Zie [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium) voor meer informatie.
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Resources voor meer informatie over big data-analyse, Hadoop en HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Resources voor meer informatie over big data-analyse, Hadoop en HDInsight
 Bouw voort op deze inleiding tot Hadoop in de cloud en big data-analyse met onderstaande resources.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Hadoop-documentatie voor HDInsight
@@ -198,12 +198,12 @@ Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
 
-[marketing-pagina]: https://azure.microsoft.com/services/hdinsight/
-[versiebeheer voor onderdelen]: hdinsight-component-versioning.md
+[marketing-page]: https://azure.microsoft.com/services/hdinsight/
+[component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

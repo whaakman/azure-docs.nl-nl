@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Zorg ervoor dat uw openbare IP-adressen zijn aangekondigd aan de juiste WAN-kopp
 
 Als u ExpressRoute wilt gebruiken voor verificatie, zorg dan dat u openbare IP-adressen van ADFS via ExpressRoute aankondigt zonder NAT. Op deze manier loopt het verkeer dat afkomstig is van Microsoft en naar een on-premises AD FS-server gaat via ExpressRoute. Retourverkeer van de klant naar Microsoft maakt gebruik van ExpressRoute omdat het de voorkeursroute is via internet.
 
-### <a name="sourcebased-nat"></a>Brongebaseerde NAT
+### <a name="source-based-nat"></a>Brongebaseerde NAT
 Een andere oplossing voor problemen met asymmetrische routering is het gebruik van SNAT. U hebt bijvoorbeeld het openbare IP-adres van een on-premises SMTP-server (Simple Mail Transfer Protocol) niet via ExpressRoute aangekondigd omdat u voor dit type communicatie internet wilt gebruiken. Een aanvraag die afkomstig is van Microsoft en vervolgens naar uw on-premises SMTP-server gaat, passeert via internet. U verzendt de inkomende aanvraag via SNAT naar een intern IP-adres. Terugkerend verkeer van de SMTP-server gaat naar de edge-firewall (die u voor NAT gebruikt) in plaats van via ExpressRoute. Het retourverkeer gaat terug via internet.
 
 ![Brongebaseerde NAT-netwerkconfiguratie](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

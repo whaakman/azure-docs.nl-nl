@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f48aab02e0229c440848dc8e4a3d26d0d43d96aa
 
 
 ---
@@ -40,7 +40,7 @@ Azure Marketplace maakt een groot aantal populaire web-apps beschikbaar die zijn
 Op de WordPress-site die u in deze zelfstudie gaat implementeren, wordt voor de database MySQL gebruikt. Als u in plaats daarvan voor de database SQL Database wilt gebruiken, raadpleegt u [Project Nami](http://projectnami.org/). **Project Nami** is ook beschikbaar via de Marketplace.
 
 > [!NOTE]
-> U hebt een Microsoft Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) of [zich aanmelden voor een gratis proefversie](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> U hebt een Microsoft Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Daar kunt u direct een eenvoudige, tijdelijke web-app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
 > 
@@ -113,10 +113,10 @@ Voor meer informatie over werken met App Service-web-apps klikt u op de koppelin
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
-[bladeren]: ./media/web-sites-php-web-site-gallery/browse-web.png
+[browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

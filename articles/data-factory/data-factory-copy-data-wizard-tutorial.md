@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    2. Selecteer uw Azure-**abonnement**.
    3. Voer een van de volgende stappen uit voor de resourcegroep: 
       
-      1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
-      2. Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
+      - Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
+      - Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
          
           Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
    4. Selecteer een **locatie** voor de gegevensfactory.
@@ -163,6 +163,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

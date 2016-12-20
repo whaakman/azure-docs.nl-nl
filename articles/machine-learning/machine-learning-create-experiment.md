@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/21/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 60e47e8fd0933ecd25b3bca6085edcd5785dc580
-ms.openlocfilehash: 69561ef82ce6d63bd8a90c871b5bc0cfe03e86ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
 
 
 ---
@@ -178,7 +178,7 @@ Eerst voegt u een module toe waarmee de kolom **normalized-losses** volledig wor
 ***Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd***
 
 > [!TIP]
-> Waarom voeren we het experiment nu uit? Door het experiment uit te voeren, worden de kolomdefinities voor onze gegevens van de gegevensset doorgegeven via de module [Select Columns in Dataset][select-columns] en via de module [Clean Missing Data][clean-missing-data]. Hierdoor beschikken alle modules die u koppelt aan [Clean Missing Data][clean-missing-data], over dezelfde informatie.
+> Waarom voeren we het experiment nu uit? Door het experiment uit te voeren, worden de kolomdefinities voor onze gegevens van de gegevensset doorgegeven via de module [Select Columns in Dataset][select-columns] en via de module [Clean Missing Data][clean-missing-data]. Hierdoor beschikken alle modules die u koppelt aan [Clean Missing Data][clean-missing-data] over dezelfde informatie.
 
 Tot nu toe hebben we in het experiment alleen de gegevens opgeschoond. Als u de opgeschoonde gegevensset wilt weergeven, klikt u op de uitvoerpoort links van de module [Clean Missing Data][clean-missing-data] en selecteert u **Visualize**. Zoals u kunt zien, is de kolom **normalized-losses** verwijderd en ontbreken er geen waarden meer.
 
@@ -326,7 +326,7 @@ Nu u de aanvankelijke machine learning-zelfstudie hebt voltooid en een experimen
 Zie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in de [Cortana Intelligence-galerie](https://gallery.cortanaintelligence.com) voor een voorbeeld van hoe u meerdere modellen in één experiment vergelijkt.
 
     > [!TIP]
-    > Gebruik de knop **SAVE AS** onder het experimentcanvas om herhalingen van uw experiment op te slaan. U kunt alle herhalingen van uw experiment weergeven door onder het canvas te klikken op **VIEW RUN HISTORY**. Zie [Iteraties van experimenten beheren in Azure Machine Learning Studio][runhistory].
+    > Gebruik de knop **SAVE AS** onder het experimentcanvas om herhalingen van uw experiment op te slaan. U kunt alle herhalingen van uw experiment weergeven door onder het canvas te klikken op **VIEW RUN HISTORY**. Zie [Iteraties van experimenten beheren in Azure Machine Learning Studio][runhistory] voor meer informatie.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -377,6 +377,6 @@ Wilt u meer leren? Zie [Een voorspellende oplossing met Azure Machine Learning o
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

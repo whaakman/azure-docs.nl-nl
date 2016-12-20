@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berich
 We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
-1. Start Visual Studio en maak een nieuwe consoletoepassing.
+
+- Start Visual Studio en maak een nieuwe consoletoepassing.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
@@ -62,12 +63,12 @@ We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtri
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Code schrijven om een bericht naar de wachtrij te verzenden
 1. Voeg de volgende using-instructie toe aan het begin van het bestand Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Voeg de volgende code toe aan de methode `Main`, stel de variabele **connectionString** in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel **queueName** in als de wachtrijnaam die is gebruikt bij het maken van de wachtrij.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtri
    
     Zo zou het bestand Program.cs er moeten uitzien.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtri
 1. Maak een nieuwe consoletoepassing en voeg een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande verzendtoepassing is gedaan.
 2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Voeg de volgende code toe aan de methode `Main`, stel de variable **connectionString** in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel **queueName** in als de wachtrijnaam die u hebt gebruikt bij het maken van de wachtrij.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtri
    
     Zo zou het bestand Program.cs er moeten uitzien:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure-Sampl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2759ce1fd8fd02a94256e0ba8f455608157ffbd0
-ms.openlocfilehash: 4033630dbbe065072cc58e642fce51f4860b82b6
+ms.sourcegitcommit: cfbfccfe09e6f2b3826223a779a5ff478c1f804f
+ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 
 
 ---
@@ -321,20 +321,20 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
    ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft.
 
-> [!IMPORTANT]
-> Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.    
->
->
+   ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)    
+   > [!IMPORTANT]
+   > Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
+   >
+   >
 
-1. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
+9. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
 
    ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-2. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
+10. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
 
    ![Details gegevenssegment](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-3. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
+11. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
 
    ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -382,6 +382,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 ## <a name="build-the-application"></a>De toepassing bouwen
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript dat u kunt gebruiken om de app via de terminal te maken (na het navigeren naar de toepassingsmap).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale clust
 
 1. Maak verbinding met het lokale cluster van Service Fabric.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
@@ -83,7 +83,18 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3.
    
     ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
-3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Deze actie start een van de vijf knooppunten in uw lokale cluster opnieuw en dwingt een failover af op een secundaire replica die wordt uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
+3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Deze actie start één knooppunt in het lokale cluster opnieuw op om een failover af te dwingen naar een secundaire replica die wordt uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
+
+Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
+1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
+2. Voer `yo azuresfcsharp:AddService` uit.
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

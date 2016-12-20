@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: een web-API aanroepen vanuit een iOS-toepass
 description: In dit artikel wordt beschreven hoe u een iOS-takenlijst-app maakt die een Node.js-web-API aanroept met behulp van OAuth 2.0-bearer-tokens die een bibliotheek van derden gebruiken
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
@@ -28,9 +28,9 @@ Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zo
 Als u nog geen ervaring hebt met OAuth2 of OpenID Connect, zal een groot gedeelte van deze voorbeeldconfiguratie u niet veel zeggen. U wordt geadviseerd eerst een beknopt [overzicht van het hier gedocumenteerde protocol te bekijken](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Voor sommige functies van ons platform die een expressie in deze standaarden hebben, zoals Voorwaardelijke toegang en Intune-beleidsbeheer, moet u onze Microsoft Azure Identity-bibliotheken (open source) gebruiken. 
-> 
-> 
+> Voor sommige functies van ons platform die een expressie in deze standaarden hebben, zoals Voorwaardelijke toegang en Intune-beleidsbeheer, moet u onze Microsoft Azure Identity-bibliotheken (open source) gebruiken.
+>
+>
 
 Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het B2C-platform.  Lees de informatie over [B2C-beperkingen](active-directory-b2c-limitations.md) als u wilt weten of u het B2C-platform moet gebruiken.
 
@@ -46,7 +46,7 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee voorziet u Azure AD van 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat één Identity-ervaring: een gecombineerde aanmelding/registratie. U moet deze beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Wanneer u het beleid maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat één Identity-ervaring: een gecombineerde aanmelding/registratie. U moet deze beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u het beleid maakt:
 
 * Kiest u **Weergavenaam** en registratiekenmerken in het beleid.
 * Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
@@ -63,7 +63,7 @@ De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/Az
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Of download de voltooide code en ga direct aan de slag: 
+Of download de voltooide code en ga direct aan de slag:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ U moet een AccountStore maken en hieraan de gegevens doorgeven die u zojuist heb
 
 Er zijn een aantal dingen waarmee u op dit moment rekening moet houden met betrekking tot de B2C-service om deze code begrijpelijker te maken:
 
-1. Azure AD B2C gebruikt het *beleid* dat door de queryparameters is verstrekt, om uw aanvraag af te handelen. Azure Active Directory kan zo als een onafhankelijke service fungeren, alleen voor uw toepassing. Om deze extra queryparameters te kunnen verstrekken, moet u aan de methode `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` de parameters uit het aangepast beleid doorgeven. 
+1. Azure AD B2C gebruikt het *beleid* dat door de queryparameters is verstrekt, om uw aanvraag af te handelen. Azure Active Directory kan zo als een onafhankelijke service fungeren, alleen voor uw toepassing. Om deze extra queryparameters te kunnen verstrekken, moet u aan de methode `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` de parameters uit het aangepast beleid doorgeven.
 2. Azure AD B2C gebruikt bereiken op nagenoeg dezelfde manier als andere OAuth2-servers. Maar omdat het gebruik van B2C evenzeer gaat over het verifiëren van een gebruiker als over de toegang tot resources, zijn bepaalde bereiken absoluut vereist voor een correcte werking van de stroom. Dit is het `openid`-bereik. De Microsoft Identity-SDK's verstrekken het `openid`-bereik automatisch. U ziet dat dus niet in de SDK-configuratie. Omdat u een bibliotheek van derden gebruikt, moet u dit bereik echter opgeven.
 
 ```objc
@@ -274,7 +274,7 @@ Er zijn een aantal dingen waarmee u op dit moment rekening moet houden met betre
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Vervolgens moet u ervoor zorgen dat u deze in de AppDelegate aanroept onder de methode `didFinishLaunchingWithOptions:`. 
+Vervolgens moet u ervoor zorgen dat u deze in de AppDelegate aanroept onder de methode `didFinishLaunchingWithOptions:`.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ U gaat alle hieronder genoemde methoden maken.
 
 > [!NOTE]
 > Zorg ervoor dat u de `loginView` verbindt met de werkelijke webweergave in uw storyboard. Anders hebt u geen webweergave die kan worden weergegeven wanneer er een verificatie moet worden uitgevoerd.
-> 
-> 
+>
+>
 
 * Een `LoginViewController.m`-klasse maken
 * Enkele variabelen toevoegen waarin de status wordt opgeslagen tijden de verificatie
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Zoals hierboven aangegeven, moet u de webweergave instrueren wat er moet gebeure
 
 * Code schrijven om het resultaat van de OAuth2-aanvraag af te handelen
 
-U hebt code nodig om de redirectURL van de webweergave af te handelen. Als dit niet is geslaagd, probeert u het opnieuw. Ondertussen levert de bibliotheek de fout die u in de console kunt zien of asynchroon kunt afhandelen. 
+U hebt code nodig om de redirectURL van de webweergave af te handelen. Als dit niet is geslaagd, probeert u het opnieuw. Ondertussen levert de bibliotheek de fout die u in de console kunt zien of asynchroon kunt afhandelen.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ U gaat een methode maken die wordt aangeroepen wanneer er een verificatieaanvraa
 U hebt nu de belangrijkste manier gemaakt waarop u met de toepassing communiceert voor aanmelding. Nadat u zich hebt aangemeld, moet u de tokens gebruiken die u hebt ontvangen. Daarvoor maakt u ondersteunende code die REST API's aanroept om deze bibliotheek te gebruiken.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Een `GraphAPICaller`-klasse maken om de aanvragen voor een REST API af te handelen
-Telkens wanneer uw app wordt geladen, wordt er ook een configuratie geladen. Zodra u een token hebt, moet u daar iets mee doen. 
+Telkens wanneer uw app wordt geladen, wordt er ook een configuratie geladen. Zodra u een token hebt, moet u daar iets mee doen.
 
 * Een `GraphAPICaller.h`-bestand maken
 
@@ -511,7 +511,7 @@ Nu de interface is ingesteld, gaat u de daadwerkelijke implementatie toevoegen:
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Nu de interface is ingesteld, gaat u de daadwerkelijke implementatie toevoegen:
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ Nu kunt u verder met geavanceerdere B2C-onderwerpen. U kunt het volgende probere
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

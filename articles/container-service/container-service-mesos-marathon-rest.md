@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: timlt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
 
 
 ---
@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Een met Docker ingedeelde container implementeren
+## <a name="deploy-a-docker-formatted-container"></a>Een met Docker ingedeelde container implementeren
 U implementeert met Docker ingedeelde containers via Marathon met behulp van een JSON-bestand waarin het doel van de implementatie wordt beschreven. In het volgende voorbeeld wordt de Nginx-container geïmplementeerd, met een binding van poort 80 van de DC/OS-agent naar poort 80 van de container. We willen u er ook op wijzen dat de eigenschap 'acceptedResourceRoles' is ingesteld op 'slave_public'. Hierdoor wordt de container geïmplementeerd naar een agent in de schaalset met openbare agents.
 
 ```json
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,17 +28,20 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van Java.
+Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie worden een toepassing voor Linux en een service gemaakt met behulp van Java.  De volgende video van Microsoft Virtual Academy leidt u door het proces voor het maken van een Java-app op Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Vereisten
 Zorg voordat u begint ervoor dat u [uw Linux-ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started-linux.md). Als u Mac OS X gebruikt, kunt u [een Linux one-box omgeving instellen op een virtuele machine met behulp van Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een nieuwe toepassing te maken met één service.
+Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
 
 1. Typ in een terminal **yo azuresfjava**.
 2. Geef uw toepassing een naam.
-3. Kies het type van uw eerste service en geef de service een naam. In deze zelfstudie houden we het eenvoudig door een Reliable Actor Service te kiezen.
+3. Kies het type van uw eerste service en geef de service een naam. In deze zelfstudie kiezen we voor een Reliable Actor Service.
    
    ![Service Fabric Yeoman-generator voor Java][sf-yeoman]
 
@@ -86,7 +89,7 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Hiermee wordt een van de vijf knooppunten in uw lokale cluster opnieuw gestart en een failover afgedwongen op een van de secundaire replica's die worden uitgevoerd op een ander knooppunt. Let terwijl u dit doet op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Een toepassing maken en implementeren met behulp van de invoegtoepassing Eclipse Neon
-Als u de Service-invoegtoepassing voor Eclipse Neon hebt geïnstalleerd, kunt u Service Fabric-toepassingen maken, bouwen en implementeren met behulp van Java.  Kies bij het installeren van Eclipse voor **Eclipse IDE voor Java-ontwikkelaars**.
+Als u de [Service Fabric-invoegtoepassing](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) voor Eclipse Neon hebt geïnstalleerd, kunt u Service Fabric-toepassingen maken, bouwen en implementeren met behulp van Java.  Kies bij het installeren van Eclipse voor **Eclipse IDE voor Java-ontwikkelaars**.
 
 ### <a name="create-the-application"></a>De toepassing maken
 De Service Fabric-invoegtoepassing is beschikbaar via Eclipse-uitbreidingsmogelijkheden.
@@ -98,13 +101,22 @@ De Service Fabric-invoegtoepassing is beschikbaar via Eclipse-uitbreidingsmogeli
 3. U wordt gevraagd het gebruik van het Service Fabric-perspectief te bevestigen, dat Eclipse optimaliseert voor gebruik met Service Fabric-projecten. Kies 'Yes'.
 
 ### <a name="deploy-the-application"></a>De toepassing implementeren
-De Service Fabric-sjablonen bevatten een aantal Gradle-taken voor het maken en implementeren van toepassingen, die u via Eclipse kunt activeren.
+De Service Fabric-sjablonen bevatten een aantal Gradle-taken voor het maken en implementeren van toepassingen, die u via Eclipse kunt activeren. 
 
 1. Kies **Run > Run Configurations**.
-2. Vouw **Gradle Project** uit en kies **ServiceFabricDeployer**.
-3. Klik op **Run**.
+2. Kies **lokaal** of **cloud**. De standaardinstelling is **lokaal**. Selecteer **cloud** voor een implementatie op een externe cluster.
+3. Zorg dat de juiste informatie in de publicatieprofielen is ingevuld door de `local.json` of `cloud.json` te bewerken.
+4. Klik op **Run**.
 
-Uw app wordt binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de status bewaken vanuit Service Fabric Explorer.
+De app is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de status bewaken vanuit Service Fabric Explorer.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
+
+Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
+1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
+2. Voer `yo azuresfjava:AddService` uit.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Uw app wordt binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de st
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
+ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
 
 
 ---
@@ -25,28 +26,28 @@ ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
-> 
-> 
+>
+>
 
-Ontdek hoe u een [pool voor elastische database](sql-database-elastic-pool.md) maakt met PowerShell-cmdlets. 
+Ontdek hoe u een [pool voor elastische database](sql-database-elastic-pool.md) maakt met PowerShell-cmdlets.
 
 Raadpleeg voor algemene foutcodes [SQL-foutcodes voor SQL Database-clienttoepassingen: Databaseverbindingsfout en andere problemen](sql-database-develop-error-messages.md).
 
 > [!NOTE]
 > Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in Noord-centraal VS en West-India, waar deze zich momenteel in de previewfase bevinden.  De algemene beschikbaarheid van elastische pools in deze regio's wordt zo snel mogelijk gerealiseerd. Elastische pools ondersteunen momenteel geen databases die gebruikmaken van [OLTP in het geheugen of analyses in het geheugen](sql-database-in-memory.md).
-> 
-> 
+>
+>
 
-U moet Azure PowerShell 1.0 of hoger gebruiken. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](../powershell-install-configure.md).
+U moet Azure PowerShell 1.0 of hoger gebruiken. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Een nieuwe groep maken
-De [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx)-cmdlet maakt een nieuwe pool. De waarden voor eDTU per pool, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+De [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx)-cmdlet maakt een nieuwe pool. De waarden voor eDTU per pool, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## <a name="create-a-new-elastic-database-in-a-pool"></a>Een nieuwe elastische database in een pool maken
-Gebruik de [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx)-cmdlet en stel de **ElasticPoolName**-parameter in voor de doelpool. Zie [Een database in een elastische pool plaatsen ](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool) om een bestaande database in een elastische pool te plaatsen.
+Gebruik de [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx)-cmdlet en stel de **ElasticPoolName**-parameter in voor de doelpool. Zie [Een database in een elastische pool plaatsen ](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool) om een bestaande database in een elastische pool te plaatsen.
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
@@ -84,7 +85,6 @@ Dit script maakt een nieuwe Azure-resourcegroep en een nieuwe server. Als dit wo
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

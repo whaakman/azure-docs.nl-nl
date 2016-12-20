@@ -60,9 +60,9 @@ Het JSON-instellingenbestand bevat een lijst met te laden modules en koppelingen
 Elke module moet het volgende specificeren:
 
 * **naam**: een unieke modulenaam.
-* **laadprogramma**: een laadprogramma dat de gewenste module kan laden.  Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. Wij bieden laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .Net. Het Hello World-voorbeeld maakt alleen gebruik van het systeemeigen laadprogramma, omdat alle modules in dit voorbeeld dynamische bibliotheken zijn, geschreven in C. Raadpleeg de voorbeelden voor [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) of [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) voor meer informatie over het gebruik van modules die zijn geschreven in andere programmeertalen.
+* **laadprogramma**: een laadprogramma dat de gewenste module kan laden.  Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. Wij bieden laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .NET. Het Hello World-voorbeeld maakt alleen gebruik van het systeemeigen laadprogramma, omdat alle modules in dit voorbeeld dynamische bibliotheken zijn, geschreven in C. Raadpleeg de voorbeelden voor [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) of [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) voor meer informatie over het gebruik van modules die zijn geschreven in andere programmeertalen.
     * **naam**: naam van het laadprogramma dat wordt gebruikt voor het laden van de module.  
-    * **ingangspunt**: het pad naar de bibliotheek met de module. Voor Linux is dit een .so-bestand, voor Windows een .dll-bestand. Houd er rekening mee dat dit ingangspunt specifiek is voor het type laadprogramma dat wordt gebruikt. Het ingangspunt voor het Node.js-laadprogramma is bijvoorbeeld een .js-bestand, het ingangspunt voor het Java-laadprogramma is een klassepad + klassenaam en het ingangspunt van het .Net-ingangspunt is een assemblynaam + klassenaam.
+    * **ingangspunt**: het pad naar de bibliotheek met de module. Voor Linux is dit een .so-bestand, voor Windows een .dll-bestand. Houd er rekening mee dat dit ingangspunt specifiek is voor het type laadprogramma dat wordt gebruikt. Het ingangspunt voor het Node.js-laadprogramma is bijvoorbeeld een .js-bestand, het ingangspunt voor het Java-laadprogramma is een klassepad + klassenaam en het ingangspunt van het .NET-ingangspunt is een assemblynaam + klassenaam.
 
 * **args**: alle configuratie-informatie die de module nodig heeft.
 
@@ -114,7 +114,7 @@ De volgende code toont de JSON die wordt gebruikt om de koppelingen tussen de mo
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Hello World-module berichtpublicatie
-U vindt de code gebruikt door de “hello world”-module om berichten te publiceren in het bestand ['hello_world.c'][lnk-helloworld-c]. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
+U vindt de code die wordt gebruikt door de “hello world”-module om berichten te publiceren in het bestand ['hello_world.c'][lnk-helloworld-c]. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
 
 ```
 int helloWorldThread(void *param)
@@ -229,6 +229,6 @@ Zie voor meer informatie over het gebruik van de IoT Gateway SDK:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

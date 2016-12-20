@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
@@ -39,12 +39,12 @@ In deze zelfstudie wordt gebruikgemaakt van Azure Machine Learning om een voorsp
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Een SQL Data Warehouse maken] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][voorbeeldgegevens handmatig laden].
+* Een SQL Data Warehouse waarin AdventureWorksDW-voorbeeldgegevens zijn geladen. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Create a SQL Data Warehouse] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Gegevens ophalen
 De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-database. Deze gegevens lezen:
 
-1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning Studio] en klik op My experiments.
+1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning studio] en klik op My experiments (Mijn experimenten).
 2. Klik op **+NEW** (Nieuw) en selecteer **Blank Experiment** (Leeg experiment).
 3. Voer een naam in voor uw experiment: Targeted Marketing.
 4. Sleep de module **Reader** van het deelvenster met modules naar het canvas.
@@ -124,7 +124,7 @@ U ziet dat er twee of meer kolommen aan de testgegevensset zijn toegevoegd.
 Door de kolom BikeBuyer (werkelijk) te vergelijken met de kolom Scored Labels (voorspelling), ziet u hoe goed het model heeft gepresteerd. In de volgende stappen kunt u dit model gebruiken om voorspellingen te doen voor nieuwe klanten, en dit model publiceren als een webservice of resultaten opslaan in SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg [Inleiding tot Machine Learning in Azure][Inleiding tot Machine Learning in Azure] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
+Raadpleeg [Inleiding tot Machine Learning in Azure][Introduction to Machine Learning on Azure] voor meer informatie over het bouwen van voorspellende Machine Learning-modellen.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ Raadpleeg [Inleiding tot Machine Learning in Azure][Inleiding tot Machine Learni
 
 
 <!--Article references-->
-[Azure Machine Learning Studio]:https://studio.azureml.net/
-[Inleiding tot Machine Learning in Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[voorbeeldgegevens handmatig laden]: sql-data-warehouse-load-sample-databases.md
-[Een SQL Data Warehouse maken]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

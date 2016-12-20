@@ -1,6 +1,6 @@
 ---
 title: Overzicht Azure IoT Hub | Microsoft Docs
-description: 'Overzicht van de service Azure IoT Hub: wat is iot hub, verbindingsmogelijkheden voor apparaten, communicatiepatronen voor Internet of Things (IoT - Internet der dingen) en service-ondersteunde communicatiepatronen'
+description: 'Overzicht van de service Azure IoT Hub: wat is IoT Hub, verbindingsmogelijkheden voor apparaten, communicatiepatronen voor Internet of Things (IoT - Internet der dingen), gateways en service-ondersteunde communicatiepatronen'
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 
 
 ---
@@ -77,7 +77,7 @@ Een oplossing kan zowel een protocolgateway als een veldgateway bevatten.
 Azure IoT Hub implementeert het [service-ondersteunde communicatiepatroon][lnk-service-assisted-pattern] dat interacties tussen uw apparaten en de back-end van uw oplossing overbrengt. Het doel van de service-ondersteunde communicatie is het opzetten van betrouwbare tweerichtingscommunicatiepaden tussen een besturingssysteem, zoals IoT Hub, en apparaten voor speciale doeleinden die worden geïmplementeerd in mogelijk niet betrouwbare fysieke ruimtes. Het patroon gaat uit van de volgende principes:
 
 * Beveiliging gaat voor alle andere functies.
-* Apparaten accepteren geen ongevraagde netwerkinformatie. Een apparaat brengt alle verbindingen tot stand en routeert alleen uitgaand verkeer. Als een apparaat een opdracht moet kunnen ontvangen van de back-end, moet het apparaat regelmatig opnieuw verbinding maken om te controleren of er nog opdrachten in afwachting zijn van verwerking.
+* Apparaten accepteren geen ongevraagde netwerkinformatie. Een apparaat brengt alle verbindingen tot stand en routeert alleen uitgaand verkeer. Als een apparaat een opdracht moet kunnen ontvangen van de back-end van de oplossing, moet het apparaat regelmatig opnieuw verbinding maken om te controleren of er nog opdrachten in afwachting zijn van verwerking.
 * Apparaten mogen alleen verbinding maken of routes tot stand brengen met bekende, gelijkwaardige services, zoals IoT Hub.
 * Het communicatiepad tussen het apparaat en de service of tussen het apparaat en de gateway is beveiligd op de laag van het toepassingsprotocol.
 * Autorisatie en verificatie op systeemniveau geschiedt op basis van de id van een apparaat. Hierdoor kunnen toegangsreferenties en machtigingen bijna onmiddellijk worden ingetrokken.
@@ -91,7 +91,7 @@ IoT Hub wordt via het openbare-peeringpad van ExpressRoute ondersteund.
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Overzicht van apparaatbeheer met IoT Hub][lnk-device-management] voor meer informatie over hoe Azure IoT Hub op standaarden gebaseerd IoT-apparaatbeheer voor u mogelijk maakt, om zo uw apparaten op afstand te beheren, te configureren en bij te werken.
 
-U kunt de apparaat-SDK's van Azure IoT gebruiken voor de implementatie van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De apparaat-SDK's bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT-hub en cloud-naar-apparaatopdrachten te ontvangen. Wanneer u de apparaat-SDK's gebruikt, kunt u kiezen uit verschillende netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-device-sdks].
+U kunt de Azure IoT Device SDK's gebruiken voor het implementeren van clienttoepassingen op een groot aantal hardwareplatforms en besturingssystemen. De apparaat-SDK's bevatten bibliotheken die het eenvoudiger maken om telemetrie te verzenden naar een IoT Hub en om cloud-naar-apparaatberichten te ontvangen. Wanneer u de apparaat-SDK's gebruikt, kunt u kiezen uit verschillende netwerkprotocollen om te communiceren met IoT Hub. Raadpleeg ook de [informatie over apparaat-SDK's][lnk-device-sdks].
 
 Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wilt leren schrijven en een aantal voorbeelden wilt uitvoeren.
 
@@ -121,6 +121,6 @@ Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-get-started] als u code wi
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

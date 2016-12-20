@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
@@ -38,7 +38,7 @@ Volg de stappen in deze artikelen:
 Nadat u de schaalbare WordPress-site hebt geïmplementeerd en een exemplaar van Redis-cache hebt ingericht, kunt u verder gaan en de Memcache-shim inschakelen in Azure App Service Web Apps.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>De Memcache-shim van Web Apps inschakelen
-U moet u drie app-instellingen opgeven om de Memcache-shim te configureren. U kunt dit doen met behulp van een aantal methoden, waaronder de [klassieke portal] [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)[3], de [Azure PowerShell-Cmdlets][5] of de [Azure-opdrachtregelinterface][5]. In het kader van dit artikel gebruik ik de [Azure Portal][4] om de app-instellingen op te geven. U kunt de volgende waarden vinden op de blade **Instellingen** van uw Redis-cache-exemplaar.
+U moet u drie app-instellingen opgeven om de Memcache-shim te configureren. U kunt dit doen met behulp van een aantal methoden, waaronder [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), de [klassieke portal][3], de [Azure PowerShell-cmdlets][5] of de [Azure-opdrachtregelinterface][5]. In het kader van dit artikel gebruik ik [Azure Portal][4] om de app-instellingen op te geven. U kunt de volgende waarden vinden op de blade **Instellingen** van uw Redis-cache-exemplaar.
 
 ![Blade Instellingen van Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -136,7 +136,7 @@ Als het bestand **object-cache.php** in de map **wp-content** staat, is Memcache
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Controleren of de invoegtoepassing Memcache Object Cache werkt
 Alle stappen om de Memcache-shim van Web Apps in te schakelen, zijn nu voltooid. U hoeft alleen nog te controleren of het Redis-cache-exemplaar wordt gevuld met de gegevens.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Ondersteuning voor niet-SSL-poort inschakelen in Azure Redis Cache
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Ondersteuning voor niet-SSL-poort inschakelen in Azure Redis Cache
 > [!NOTE]
 > Op het moment van publicatie van dit artikel biedt de Redis CLI geen ondersteuning voor SSL-verbindingen. Daarom zijn de volgende stappen noodzakelijk.
 > 
@@ -158,7 +158,7 @@ U ziet dat de niet-SSL-poort nu is ingesteld. Klik op **Opslaan**.
 
 ![Toegangspoort zonder SSL voor Azure Redis Cache](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Verbinding maken met Azure Redis Cache vanuit Redis CLI
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>Verbinding maken met Azure Redis Cache vanuit Redis CLI
 > [!NOTE]
 > Bij deze stap wordt ervan uitgegaan dat Redis lokaal is geïnstalleerd op uw ontwikkelcomputer. [Installeer Redis lokaal via deze instructies][9].
 > 
@@ -191,7 +191,7 @@ Gefeliciteerd! De WordPress-app heeft nu een gecentraliseerde geheugencache om d
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ Gefeliciteerd! De WordPress-app heeft nu een gecentraliseerde geheugencache om d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

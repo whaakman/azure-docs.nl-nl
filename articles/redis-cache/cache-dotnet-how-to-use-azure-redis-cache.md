@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 
 ---
@@ -38,17 +38,17 @@ Microsoft Azure Redis-cache is beschikbaar in de volgende lagen:
 * **Standard**: twee knooppunten (primair/replica). Meerdere groottes tot 53 GB. 99,9% SLA.
 * **Premium**: twee knooppunten (primair/replica) met maximaal 10 shards. Meerdere groottes van 6 GB tot 530 GB (neem voor meer informatie contact met ons op). Alle functies van de lagen Standard en Premium bieden ondersteuning voor [Redis-cluster](cache-how-to-premium-clustering.md), [Redis-persistentie](cache-how-to-premium-persistence.md) en [Azure Virtual Network](cache-how-to-premium-vnet.md). 99,9% SLA.
 
-Elke laag verschilt wat functies en prijzen betreft. Zie [Prijsdetails voor caches][Prijsdetails voor caches] voor prijsinformatie.
+Elke laag verschilt wat functies en prijzen betreft. Zie [Prijsdetails voor caches][Cache Pricing Details] voor prijsinformatie.
 
-In deze handleiding wordt beschreven hoe u de client [StackExchange.Redis][StackExchange.Redis] kunt gebruiken met C\#-code. De volgende scenario's worden behandeld: **een cache maken en configureren**, **cacheclients configureren** en **objecten toevoegen aan en verwijderen uit de cache**. Bekijk het gedeelte [Volgende stappen][Volgende stappen] voor meer informatie over het gebruik van Azure Redis-cache. Zie [Een web-app maken met Redis-cache](cache-web-app-howto.md) voor een stapsgewijze zelfstudie over het maken van een ASP.NET MVC-web-app met Redis-cache.
+In deze handleiding wordt beschreven hoe u de client [StackExchange.Redis][StackExchange.Redis] kunt gebruiken met C\#-code. De volgende scenario's worden behandeld: **een cache maken en configureren**, **cacheclients configureren** en **objecten toevoegen aan en verwijderen uit de cache**. Bekijk het gedeelte [Volgende stappen][Next Steps] voor meer informatie over het gebruik van Azure Redis Cache. Zie [Een web-app maken met Redis-cache](cache-web-app-howto.md) voor een stapsgewijze zelfstudie over het maken van een ASP.NET MVC-web-app met Redis-cache.
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Aan de slag met Azure Redis-cache
 Het is gemakkelijk om aan de slag te gaan met Azure Redis-cache Allereerst richt u een cache in en configureert u deze. Vervolgens configureert u de cacheclients, zodat deze toegang krijgen tot de cache. Nadat de cacheclients zijn geconfigureerd, kunt u deze gaan gebruiken.
 
-* [De cache maken][De cache maken]
-* [De cacheclients configureren][De cacheclients configureren]
+* [De cache maken][Create the cache]
+* [De cacheclients configureren][Configure the cache clients]
 
 <a name="create-cache"></a>
 
@@ -72,8 +72,8 @@ Nadat uw clientproject is geconfigureerd voor het opslaan in de cache, kunt u de
 ## <a name="working-with-caches"></a>Werken met caches
 De stappen in deze sectie beschrijven hoe u met uw cache algemene taken uitvoert.
 
-* [Verbinding maken met de cache][Verbinding maken met de cache]
-* [Objecten toevoegen aan en ophalen uit de cache][Objecten toevoegen aan en ophalen uit de cache]
+* [Verbinding maken met de cache][Connect to the cache]
+* [Objecten toevoegen aan en ophalen uit de cache][Add and retrieve objects from the cache]
 * [Werken met .NET-objecten in de cache](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
@@ -95,7 +95,7 @@ Als u verbinding wilt maken met een Azure Redis-cache en een exemplaar van een v
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 > [!IMPORTANT]
-> Waarschuwing: sla nooit referenties op in de broncode. Ik geef ze hier weer in de broncode om dit voorbeeld eenvoudig te houden. Zie [Tekenreeksen van toepassingen en verbindingsreeksen][Tekenreeksen van toepassingen en verbindingsreeksen] voor informatie over het opslaan van referenties.
+> Waarschuwing: sla nooit referenties op in de broncode. Ik geef ze hier weer in de broncode om dit voorbeeld eenvoudig te houden. Zie [Tekenreeksen van toepassingen en verbindingsreeksen][How Application Strings and Connection Strings Work] voor informatie over het opslaan van referenties.
 > 
 > 
 
@@ -121,7 +121,7 @@ U kunt een exemplaar van `ConnectionMultiplexer` in uw toepassing delen door een
         }
     }
 
-Zie [Configuratiemodel StackExchange.Redis][Configuratiemodel StackExchange.Redis] voor meer informatie over geavanceerde opties voor de configuratie van verbindingen.
+Zie [Configuratiemodel StackExchange.Redis][StackExchange.Redis configuration model] voor meer informatie over geavanceerde opties voor de configuratie van verbindingen.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -202,30 +202,30 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
   * [State-provider voor Azure Redis-sessies](cache-aspnet-session-state-provider.md)
   * [Cacheprovider voor ASP.NET-uitvoer in Azure Redis-cache](cache-aspnet-output-cache-provider.md)
 * [Schakel de diagnostische gegevens van de cache in](cache-how-to-monitor.md#enable-cache-diagnostics), zodat u de status van de cache kunt [bewaken](cache-how-to-monitor.md). U kunt de metrische gegevens weergeven in de Azure-portal. U kunt ze ook [downloaden en bekijken](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) met de hulpprogramma's van uw keuze.
-* Bekijk de [documentatie over de cacheclient StackExchange.Redis][documentatie over de cacheclient StackExchange.Redis].
-  * Azure Redis-cache is toegankelijk vanuit veel Redis-clients en ontwikkelingstalen. Zie voor meer informatie [http://redis.io/clients][http://redis.io/clients].
+* Bekijk de [documentatie over de cacheclient StackExchange.Redis][StackExchange.Redis cache client documentation].
+  * Azure Redis-cache is toegankelijk vanuit veel Redis-clients en ontwikkelingstalen. Zie [http://redis.io/clients][http://redis.io/clients] voor meer informatie.
 * Azure Redis-cache kan ook worden gebruikt met services en hulpprogramma’s van derden, zoals Redsmin en Redis Desktop Manager.
-  * Zie [Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin][Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin] voor meer informatie over Redsmin.
+  * Zie [Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] voor meer informatie over Redsmin.
   * Benader en controleer uw gegevens in Azure Redis-cache met een grafische gebruikersinterface die gebruikmaakt van [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Zie de [Redis][Redis]-documentatie en lees meer informatie over de [Redis-gegevenstypen][Redis-gegevenstypen] en [een inleiding van vijftien minuten tot de Redis-gegevenstypen][een inleiding van vijftien minuten tot de Redis-gegevenstypen].
+* Zie de [Redis][redis]-documentatie en lees meer informatie over de [Redis-gegevenstypen][redis data types] en [een inleiding van vijftien minuten tot de Redis-gegevenstypen][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
-[Volgende stappen]: #next-steps
-[Inleiding tot Azure Redis-cache (video)]: #video
-[Wat is Azure Redis-cache?]: #what-is
-[Een Azure-cache maken]: #create-cache
-[Op welke manier kan ik gegevens het beste in een cache opslaan?]: #choosing-cache
-[Een Visual Studio-project voorbereiden om Azure-caches te gebruiken]: #prepare-vs
-[Uw toepassing configureren voor gebruik met caches]: #configure-app
-[Aan de slag met Azure Redis-cache]: #getting-started-cache-service
-[De cache maken]: #create-cache
-[De cache configureren]: #enable-caching
-[De cacheclients configureren]: #NuGet
-[Werken met caches]: #working-with-caches
-[Verbinding maken met de cache]: #connect-to-cache
-[Objecten toevoegen aan en ophalen uit de cache]: #add-object
-[De vervaldatum van een object opgeven in de cache]: #specify-expiration
-[De ASP.NET-sessiestatus in de cache opslaan]: #store-session
+[Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
+[What is Azure Redis Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Get Started with Azure Redis Cache]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[Connect to the cache]: #connect-to-cache
+[Add and retrieve objects from the cache]: #add-object
+[Specify the expiration of an object in the cache]: #specify-expiration
+[Store ASP.NET session state in the cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -253,52 +253,52 @@ Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer in
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[In andere talen ontwikkelen voor Azure Redis-cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[Een Azure Redis-verbindingsreeks ophalen en deze gebruiken met Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[State-provider voor Azure Redis-sessies]: http://go.microsoft.com/fwlink/?LinkId=398249
-[Een cacheclient via een programma configureren]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[State-provider voor Azure-cachesessies]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric-cache: sessiestatus van cache]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Cacheprovider voor Azure-cache-uitvoer]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Teamblog]: http://blogs.msdn.com/b/windowsazure/
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Groottes van virtuele machines configureren]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Overwegingen bij het plannen van de capaciteitsplanning van Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=320167
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[De cachefunctie van een ASP.NET-pagina verklarend instellen]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[De cachefunctie van een pagina via een programma instellen]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Een cache configureren in Azure Redis-cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[Configuratiemodel StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Werken met .NET-objecten in de cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
-[Installatie van NuGet-pakketmanager]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Prijsdetails voor caches]: http://www.windowsazure.com/pricing/details/cache/
-[Azure-portal]: https://portal.azure.com/
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
+[Azure Portal]: https://portal.azure.com/
 
-[Overzicht van Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=398247
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Migreren naar Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Voorbeelden van Azure Redis-cache]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Resourcegroepen gebruiken om Azure-resources te beheren]: ../azure-resource-manager/resource-group-overview.md
+[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[documentatie over de cacheclient StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[Redis-gegevenstypen]: http://redis.io/topics/data-types
-[een inleiding van vijftien minuten tot de Redis-gegevenstypen]: http://redis.io/topics/data-types-intro
+[Redis data types]: http://redis.io/topics/data-types
+[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
-[Tekenreeksen van toepassingen en verbindingsreeksen]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-
-
+[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Dec16_HO1-->
 
 

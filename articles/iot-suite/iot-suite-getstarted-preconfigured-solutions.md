@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
 # <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Zelfstudie: Aan de slag met vooraf geconfigureerde oplossingen
 ## <a name="introduction"></a>Inleiding
-[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT-Suite combineren meerdere Azure IoT-services om totaaloplossingen te leveren die algemene IoT-bedrijfsscenario's implementeren. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
+[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT Suite zijn voorzien van meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
 
 In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Dit leidt u door de belangrijkste functies van de oplossing voor externe bewaking. U krijgt toegang tot deze functies via het oplossingsdashboard dat samen met de vooraf geconfigureerde oplossing het volgende implementeert:
 
@@ -86,7 +86,7 @@ Het deelvenster Apparaatdetails bevat alle opdrachten die een specifiek apparaat
 De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
 
 ## <a name="add-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat toevoegen
-Wanneer u de vooraf geconfigureerde oplossing implementeert, voorziet u automatisch de vier proefapparaten die u ziet in de apparatenlijst. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle ][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
+Wanneer u de vooraf geconfigureerde oplossing implementeert, voorziet u automatisch de vier proefapparaten die u ziet in de apparatenlijst. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
 
 De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de oplossing:
 
@@ -98,7 +98,7 @@ De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de op
    
    ![Nieuwe apparaatgegevens in het dashboard instellen][img-addnew]
    
-   U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe controle][lnk-connect-rm] voor meer informatie over het koppelen van fysieke apparaten aan de oplossing.
+   U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe bewaking][lnk-connect-rm] voor meer informatie over het koppelen van fysieke apparaten aan de oplossing.
 4. Selecteer **Laat mij mijn eigen apparaat-id definiëren** en voer de unieke id van een apparaatnaam in, zoals **mijnapparaat_01**.
 5. Klik op **Create**.
    
@@ -151,7 +151,7 @@ Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In d
     ![Lijst met apparaatacties][img-actions]
 
 > [!NOTE]
-> Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De Logic App koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
+> Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De logische app koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
 > 
 > 
 
@@ -171,25 +171,25 @@ Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implemen
 
 U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep.
 
-U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing voor externe controle bevindt zich in [azure-iot-remote-monitoring][lnk-rmgithub] GitHub-opslagplaats:
+U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing voor externe bewaking bevindt zich in de GitHub-opslagplaats [azure-iot-remote-monitoring][lnk-rmgithub]:
 
 * De map **DeviceAdministration** bevat de broncode voor het dashboard.
 * De map **Simulator** bevat de broncode voor het gesimuleerde apparaat.
 * De map **EventProcessor** bevat de broncode voor het back-endproces dat de binnenkomende telemetrie verwerkt.
 
-Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de [azureiotsuite.com][lnk azureiotsuite] site. Met de site kunt u gemakkelijk resources verwijderen die werden aangevoerd toen u de vooraf geconfigureerde oplossing hebt gemaakt.
+Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de site [azureiotsuite.com][lnk-azureiotsuite]. Met de site kunt u gemakkelijk resources verwijderen die werden aangevoerd toen u de vooraf geconfigureerde oplossing hebt gemaakt.
 
 > [!NOTE]
-> Om ervoor te zorgen dat u alles met betrekking tot de vooraf geconfigureerde oplossing verwijdert, verwijdert u niet gewoon de resourcegroep uit de portal, maar verwijdert u de oplossing op de [azureiotsuite.com][lnk azureiotsuite].
+> Verwijder de resourcegroep niet uit de portal, maar verwijder de oplossing op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo zorgt u ervoor dat alles met betrekking tot de vooraf geconfigureerde oplossing wordt verwijderd.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
 
-* [Walkthrough over vooraf geconfigureerde oplossing voor externe controle][lnk-rm-walkthrough]
-* [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle)
-* [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com)
+* [Walkthrough over de vooraf geconfigureerde oplossing voor externe bewaking][lnk-rm-walkthrough]
+* [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm]
+* [Machtigingen op de site azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -217,7 +217,7 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
@@ -229,6 +229,6 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

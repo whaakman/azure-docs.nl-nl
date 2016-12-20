@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b8ec2b5df0ae4656630364c5930029e46ee62dbd
 
 
 ---
-# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>RADIUS-verificatie en Azure Multi-Factor Authentication-server
+# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>RADIUS-verificatie en Azure Multi-Factor Authentication-server
 Via de RADIUS-verificatiesectie kunt u RADIUS-verificatie inschakelen en configureren voor de Azure Multi-Factor Authentication-server. RADIUS is een standaardprotocol om verificatieaanvragen te accepteren en te verwerken. De Multi-Factor Authentication-server fungeert als een RADIUS-server. Deze wordt geplaatst tussen uw RADIUS-client, bijvoorbeeld een VPN-apparaat, en het verificatiedoel, bijvoorbeeld Active Directory (AD), een LDAP-adreslijstdirectory of een andere RADIUS-server, om Azure Multi-Factor Authentication toe te voegen. Azure Multi-Factor Authentication werkt alleen als u de Azure Multi-Factor Authentication-server zo configureert dat deze kan communiceren met zowel de clientservers als het verificatiedoel. De Azure Multi-Factor Authentication-server accepteert aanvragen van een RADIUS-client, controleert referenties met behulp van het verificatiedoel, voegt Azure Multi-Factor Authentication toe en stuurt een antwoord terug naar de RADIUS-client. De hele verificatie slaagt alleen als zowel de primaire verificatie als de Azure Multi-Factor Authentication slaagt.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Installeer de Azure Multi-Factor Authentication-server op een Windows-server als
 11. Selecteer Windows-domein als de Azure Multi-Factor Authentication-server is geïnstalleerd op een server die is gekoppeld aan een domein in een Active Directory-omgeving.
 12. Selecteer LDAP-binding als gebruikers moeten worden geverifieerd aan de hand van een LDAP-adreslijst. Wanneer u LDAP-binding gebruikt, moet u op het pictogram Adreslijstintegratie klikken en de LDAP-configuratie op het tabblad Instellingen zo bewerken dat de server verbinding kan maken met uw adreslijst. In de handleiding voor LDAP-proxyconfiguratie vindt u instructies voor het configureren van LDAP.
 13. Selecteer RADIUS-server(s) als gebruikers moeten worden geverifieerd aan de hand van een andere RADIUS-server.
-14. Configureer de server waarnaar de server RADIUS-verzoeken stuurt door op de knop Toevoegen... te klikken.
+14. Configureer de server waarnaar de server RADIUS-verzoeken stuurt door op de knop Toevoegen te klikken.
 15. Voer het IP-adres van de RADIUS-server en een gedeeld geheim in het dialoogvenster RADIUS-server toevoegen in. Het gedeelde geheim moet op de Azure Multi-Factor Authentication-server en de RADIUS-server hetzelfde zijn. Wijzig de verificatiepoort en accountingpoort als door de RADIUS-server andere poorten worden gebruikt.
 16. Klik op de knop OK.
 17. U moet de Azure Multi-Factor Authentication-server als een RADIUS-client op de andere RADIUS-server toevoegen opdat toegangsverzoeken afkomstig van de Azure Multi-Factor Authentication-Server worden verwerkt. U moet hetzelfde gedeelde geheim gebruiken dat ook op de Azure Multi-Factor Authentication-server is geconfigureerd.
@@ -64,6 +64,6 @@ Als u de RADIUS-client wilt configureren, gebruikt u de volgende richtlijnen:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

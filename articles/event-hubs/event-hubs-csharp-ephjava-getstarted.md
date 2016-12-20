@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
+ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
 ## <a name="introduction"></a>Inleiding
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
-In deze zelfstudie kunt u zien hoe u de klassieke Azure-portal gebruikt om een Event Hub te maken. U ziet ook hoe u berichten in een Event Hub verzamelt met een consoletoepassing die is geschreven in C# en hoe u deze berichten parallel ophaalt met de Java Event Processor Host-bibliotheek.
+In deze zelfstudie kunt u zien hoe u Azure Portal gebruikt om een Event Hub te maken. U ziet ook hoe u berichten in een Event Hub verzamelt met een consoletoepassing die is geschreven in C# en hoe u deze berichten parallel ophaalt met de Java Event Processor Host-bibliotheek.
 
 Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 
@@ -52,22 +52,22 @@ U kunt nu de toepassingen gaan uitvoeren.
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u naar de volgende scenario's gaan:
 
-* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][voorbeeldtoepassing die gebruikmaakt van Event Hubs].
-* Het voorbeeld van de [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Verwerking van de gebeurtenis Uitschalen met Event Hubs].
-* [Event Hubs-overzicht][Event Hubs-overzicht]
+* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs][sample application that uses Event Hubs].
+* Het voorbeeld [Verwerking van de gebeurtenis Uitschalen met Event Hubs][Scale out Event Processing with Event Hubs].
+* [Event Hubs-overzicht][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
 [22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
-[Event Hubs-overzicht]: event-hubs-overview.md
-[voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Verwerking van de gebeurtenis Uitschalen met Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

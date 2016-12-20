@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer i
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Hoe kan ik ExpressRoute gebruiken om mijn netwerk te verbinden met Microsoft?
 U kunt op drie manieren een verbinding maken tussen uw on-premises netwerk en de Microsoft Cloud:
 
-### <a name="colocated-at-a-cloud-exchange"></a>Co-locatie op een cloudexchange
+### <a name="co-located-at-a-cloud-exchange"></a>Co-locatie op een cloudexchange
 Als u zich bevindt op dezelfde locatie als een exchange-cloud, kunt u virtuele overlappende verbindingen met de Microsoft Cloud aanvragen via de Ethernet exchange van de co-locatieprovider. Co-locatieproviders kunnen Laag-2-overlappende verbindingen of beheerde Laag-3 overlappende verbindingen tussen uw infrastructuur in de co-locatiefaciliteit en de Microsoft Cloud aanbieden.
 
-### <a name="pointtopoint-ethernet-connections"></a>Point-to-Point Ethernet-verbindingen
+### <a name="point-to-point-ethernet-connections"></a>Point-to-Point Ethernet-verbindingen
 U kunt uw on-premises datacenters/kantoren met de Microsoft Cloud verbinden via point-to-point Ethernet-koppelingen. Point-to-point Ethernet-providers kunnen Laag-2-verbindingen of beheerde Laag-3-verbindingen bieden tussen uw locatie en de Microsoft Cloud.
 
-### <a name="anytoany-ipvpn-networks"></a>Any-to-any (IPVPN) netwerken
+### <a name="any-to-any-ipvpn-networks"></a>Any-to-any (IPVPN) netwerken
 U kunt uw WAN integreren met de Microsoft Cloud. IPVPN-providers (doorgaans MPLS VPN) bieden any-to-any connectiviteit tussen uw filialen en datacenters. De Microsoft Cloud kan ook worden verbonden met uw WAN, zodat het er net zo uitziet als een filiaal. WAN-providers bieden doorgaans beheerde Laag-3-connectiviteit. ExpressRoute-functies en -mogelijkheden zijn identiek in alle bovenstaande connectiviteitsmodellen. 
 
 Connectiviteitsproviders kunnen een of meer connectiviteitsmodellen bieden. Overleg met uw connectiviteitsprovider om na te gaan welk model voor u het meest geschikt is.
@@ -78,7 +78,7 @@ U kunt verbinding maken met Microsoft op een van onze [peeringlocaties](expressr
 
 Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft-cloudservices die worden gehost in Noord-Europa en West-Europa. Raadpleeg het artikel [ExpressRoute partners and peering locations](expressroute-locations.md) (Overzicht van ExpressRoute-partners en -peeringlocaties) voor een overzicht van de geopolitieke regio's, bijbehorende Microsoft Cloud-regio's en bijbehorende ExpressRoute-peeringlocaties.
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>Globale connectiviteit met de Premium-invoegtoepassing voor ExpressRoute
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Globale connectiviteit met de Premium-invoegtoepassing voor ExpressRoute
 U kunt de Premium-invoegtoepassing voor ExpressRoute inschakelen om connectiviteit uit te breiden tot buiten de geopolitieke grenzen. Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft Cloud-services die worden gehost in alle regio's van de wereld (uitgezonderd nationale clouds). U hebt toegang tot services die zijn geïmplementeerd in Zuid-Amerika of Australië op dezelfde manier als waarop u toegang hebt tot regio's in Noord- en West-Europa.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Uitgebreid connectiviteitsecosysteem van partners
@@ -125,6 +125,6 @@ U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

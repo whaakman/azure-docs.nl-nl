@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -40,7 +40,7 @@ De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn to
 
 | Oplossing | Gegevensopname | Apparaat-id | Opdracht en controle | Regels en acties | Predictive analytics |
 | --- | --- | --- | --- | --- | --- |
-| [Externe controle][lnk-getstarted-preconfigured] |Ja |Ja |Ja |Ja |- |
+| [Externe bewaking][lnk-getstarted-preconfigured] |Ja |Ja |Ja |Ja |- |
 | [Voorspeld onderhoud][lnk-predictive-maintenance] |Ja |Ja |Ja |Ja |Ja |
 
 * *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
@@ -66,21 +66,21 @@ Wanneer in de vooraf geconfigureerde oplossing voor externe controle een apparaa
 * *StopTelemetry*: hiermee geeft u het apparaat de opdracht om te stoppen met het verzenden van telemetrie.
 * *ChangeSetPointTemperature*: bepaalt de telemetriewaarden van de gesimuleerde temperatuur die het apparaat verzendt. Dit is nuttig voor het testen van back-endlogica.
 * *DiagnosticTelemetry*: bepaalt of het apparaat de externe temperatuur als telemetrie moet verzenden.
-* *ChangeDeviceState*: Stelt de eigenschap voor metagegeven van de apparaatstatus in die het apparaat rapporteert. Dit is nuttig voor het testen van back-endlogica.
+* *ChangeDeviceState*: stelt de eigenschap voor metagegevens van de apparaatstatus in die met het apparaat wordt gerapporteerd. Dit is nuttig voor het testen van back-endlogica.
 
 U kunt aan de oplossing meer gesimuleerde apparaten toevoegen die dezelfde telemetrie verzenden en reageren op dezelfde opdrachten. 
 
 ## <a name="iot-hub"></a>IoT Hub
 In deze vooraf geconfigureerde oplossing komt de IoT Hub-instantie overeen met de *cloudgateway* in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
-IoT Hub ontvangt telemetrie van de apparaten op één eindpunt. IoT Hub onderhoudt ook apparaatspecifieke eindpunten waar elk apparaat de opdrachten kan ophalen die ernaar worden verzonden.
+IoT Hub ontvangt telemetrie van de apparaten op één eindpunt. IoT Hub onderhoudt ook apparaatspecifieke eindpunten waar met elk apparaat de verzonden opdrachten kunnen worden opgehaald.
 
 IoT Hub stelt de ontvangen telemetrie beschikbaar via het eindpunt voor het lezen van telemetrie aan servicezijde.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-De vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics][lnk-asa] (ASA)-jobs voor het filteren van de telemetriestroom vanaf de apparaten:
+De vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics][lnk-asa]-jobs (ASA) voor het filteren van de telemetriestroom vanaf de apparaten:
 
-* *De job DeviceInfo* voert gegevens uit naar een Event Hub die apparaatregistratiespecifieke berichten, die worden verzonden wanneer een apparaat voor het eerst verbinding maakt of als reactie op een opdracht **ChangeDeviceState**, doorstuurt naar het apparaatregister van de oplossing (een DocumentDB-database). 
+* *De job DeviceInfo* voert gegevens uit naar een Event Hub die apparaatregistratiespecifieke berichten (die worden verzonden wanneer een apparaat voor het eerst verbinding maakt of als reactie op een opdracht **ChangeDeviceState**) doorstuurt naar het apparaatregister van de oplossing (een DocumentDB-database). 
 * *De job Telemetry* verzendt alle onbewerkte telemetrie naar Azure Blob Storage voor koude opslag en berekent telemetrieaggregaties die op het dashboard van de oplossing worden weergegeven.
 * *De job Rules* filtert de telemetriestroom op waarden die groter zijn dan regeldrempelwaarden en voert de gegevens uit naar een Event Hub. Wanneer een regel wordt gestart, wordt deze gebeurtenis in de dashboardweergave van de oplossingsportal weergegeven als een nieuwe rij in de tabel met de geschiedenis van waarschuwingen en wordt een actie gestart op basis van de instellingen die in de portal van de oplossing zijn gedefinieerd in de weergaven Regels en Acties.
 
@@ -89,7 +89,7 @@ In deze vooraf geconfigureerde oplossing maken de ASA-jobs deel uit van de **bac
 ## <a name="event-processor"></a>Gebeurtenisprocessor
 In deze vooraf geconfigureerde oplossing maakt de gebeurtenisprocessor deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
-De ASA-jobs **DeviceInfo** en **Rules** verzenden hun uitvoer naar Event Hubs voor levering aan andere back-endservices. De oplossing maakt gebruik van een [EventPocessorHost][lnk-event-processor]-instantie, die in een [WebJob][lnk-web-job] wordt uitgevoerd, om de berichten van deze Event Hubs te lezen. **EventProcessorHost** gebruikt de **DeviceInfo**-gegevens om de apparaatgegevens in de DocumentDB-database bij te werken en gebruikt de **Rules**-gegevens om de logische app aan te roepen en de waarschuwingsweergave in de portal van de oplossing bij te werken.
+De ASA-jobs **DeviceInfo** en **Rules** verzenden hun uitvoer naar Event Hubs voor levering aan andere back-endservices. De oplossing maakt gebruik van een [EventProcessorHost][lnk-event-processor]-instantie, die in een [WebJob][lnk-web-job] wordt uitgevoerd, om de berichten van deze Event Hubs te lezen. **EventProcessorHost** gebruikt de **DeviceInfo**-gegevens om de apparaatgegevens in de DocumentDB-database bij te werken en gebruikt de **Rules**-gegevens om de logische app aan te roepen en de waarschuwingsweergave in de portal van de oplossing bij te werken.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Register voor apparaat-id's en DocumentDB
 Elke IoT Hub bevat een [register voor apparaat-id's][lnk-identity-registry] waarin apparaatsleutels worden opgeslagen. IoT Hub gebruikt deze informatie om apparaten te verifiëren; een apparaat moet zijn geregistreerd en over een geldige sleutel beschikken voordat het verbinding kan maken met de hub.
@@ -130,6 +130,6 @@ Nu u weet wat een vooraf geconfigureerde oplossing is, kunt u aan de slag met he
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
