@@ -7,8 +7,8 @@
 ## [Een logische app maken](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Functies van logische apps gebruiken](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Overzicht van sjablonen](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Een aangepaste sjabloon maken](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Voorbeelden en scenario’s](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Een app maken met een sjabloon](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Voorbeelden en scenario's](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Scenario voor Service Bus](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [B2B-verwerking](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [XML-verwerking](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -65,20 +65,18 @@
 ### [B2B-berichten controleren](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Volgschema voor AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Volgschema voor X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Aangepaste volgschema’s](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Aangepaste volgschema's](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [B2B-berichten bijhouden](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ### [Integratieaccounts](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Prijzen](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Naslaginformatie
+## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema-geschiedenis
 ### [Algemene beschikbaarheid](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Preview](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-
-## [PowerShell-cmdlets](/powershell/resourcemanager/)
-## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
-## [REST-API](/rest/api/logic/)
+## [REST](/rest/api/logic/)
 
 ## 2014-schema (vóór algemene beschikbaarheid)
 ### [Azure Resource-connector](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -91,6 +89,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

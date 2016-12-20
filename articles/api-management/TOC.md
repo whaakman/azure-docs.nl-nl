@@ -6,7 +6,7 @@
 ## [Cache toevoegen voor betere prestaties](api-management-howto-cache.md)
 ## [Veelgestelde vragen](api-management-faq.md)
 # Procedures
-## API’s ontwikkelen
+## API's ontwikkelen
 ### [Een API-product toevoegen en publiceren](api-management-howto-add-products.md)
 ### [Bewerkingen toevoegen](api-management-howto-add-operations.md)
 ### [Een API maken](api-management-howto-create-apis.md)
@@ -39,13 +39,16 @@
 ### [Gebruikersaccounts beheren](api-management-howto-create-or-invite-developers.md)
 ### [Beheren met automatisering](automation-manage-api-management.md)
 ### [Configureren met behulp van Git](api-management-configuration-repository-git.md)
-#Naslaginformatie
+
+# Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (oorspronkelijk)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Resources
 ## [Beleidsregels](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Sjablonen](https://msdn.microsoft.com/library/azure/mt697540)
-#Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -57,12 +60,12 @@
 ## [SOAP WCF-services gebruiken via HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Event Hubs koppelen aan API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management - werkt goed met andere Azure-services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-## [Toegang bieden die lijkt op RBAC met behulp van de REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Toegang bieden die lijkt op RBAC met behulp van de REST-API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [PostMan instellen voor het aanroepen van API Management-API's](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management-invoegtoepassing voor SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

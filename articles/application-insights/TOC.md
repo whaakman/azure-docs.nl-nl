@@ -18,7 +18,7 @@
 ### [Web-apps - runtime](app-insights-java-live.md)
 ### [Docker-apps](app-insights-docker.md)
 
-## Webpagina’s controleren
+## Webpagina's controleren
 ### [JavaScript](app-insights-javascript.md)
 
 ## Andere platformen controleren
@@ -30,18 +30,20 @@
 
 # Procedures
 ## Plannen en ontwerpen
-
 ### [Diepe diagnostische gegevens voor web-apps en services](app-insights-devops.md)
 ### [Analyses voor ontwikkelaars met Application Insights en HockeyApp](app-insights-developer-analytics.md)
 ### [Prestaties in webtoepassingen controleren](app-insights-web-monitor-performance.md)
 ### [Gebruiksanalyse met Application Insights](app-insights-overview-usage.md)
 ### [Application Insights-resources scheiden](app-insights-separate-resources.md)
 ### [Hoe kan ik ... in Application Insights?](app-insights-how-do-i.md)
+## Migreren
+### [Migratie van Azure-eindpuntbewaking naar beschikbaarheidstests](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Configureren
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+## [IP-adressen](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Meer telemetrie verzamelen](app-insights-asp-net-more.md)
@@ -102,7 +104,6 @@
 ### [Continue export](app-insights-export-telemetry.md)
 ### [Exporteren naar Power BI](app-insights-export-power-bi.md)
 
-
 ## Ontwikkelen
 
 ### [API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## Beheren
-
 ### [Prijzen en quota beheren](app-insights-pricing.md)
 ### [Toepassingsprestaties bewaken met Application Insights voor SCOM](app-insights-scom.md)
 
+##Exporteren
+## [Gegevensmodel exporteren](app-insights-export-data-model.md)
 
 ## Beveiligen
-
 ### [Verzameling, retentie en opslag van gegevens](app-insights-data-retention-privacy.md)
 ### [Resources, rollen en toegangsbeheer](app-insights-resources-roles-access-control.md)
-
-
 ## Problemen oplossen
 ### [Geen gegevens voor .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analytische gegevens](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Naslaginformatie
-## [Java-API](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET-API](https://docs.microsoft.com/dotnet/api)
-## [JavaScript-API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](/java/api/com.microsoft.applicationinsights)
+## [REST](https://dev.applicationinsights.io/)
+
+# Resources
 ## [Naslaginformatie over Analytics](app-insights-analytics-reference.md)
-## [Steekproeven](app-insights-sampling.md)
-## [IP-adressen](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Gegevensmodel exporteren](app-insights-export-data-model.md)
-## [Migratie van Azure-eindpuntbewaking naar beschikbaarheidstests](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Analyses voor ontwikkelaars: talen, platformen en integraties](app-insights-platforms.md)
+### [Steekproeven](app-insights-sampling.md)
 ### [Voorbeelden en walkthroughs](app-insights-code-samples.md)
 #### [Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Exporteren naar SQL met Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Releaseopmerkingen voor Application Insights-SDK voor Windows Phone en Store](app-insights-release-notes-windows.md)
 ## [Releaseopmerkingen voor Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Releaseopmerkingen voor SDK - Application Insights](app-insights-release-notes.md)
-## [REST-API-gegevenstoegang](https://dev.applicationinsights.io/)
-
-# Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO2-->
 
 
