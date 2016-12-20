@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Inleiding tot Apache Storm op HDInsight: realtime analyses voor Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Inleiding tot Apache Storm op HDInsight: realtime analyses voor Hadoop
 Met Apache Storm op HDInsight kunt u gedistribueerde, realtime analyseoplossingen in de Azure-omgeving maken met [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Wat is Apache Storm?
@@ -53,7 +53,7 @@ Zie [Aan de slag met Storm op HDInsight][gettingstarted] om aan de slag te gaan 
 U kunt in enkele minuten een nieuw Storm op HDInsight-cluster inrichten. Geef de clusternaam, de grootte, het beheerdersaccount en het opslagaccount op. Azure maakt het cluster, inclusief voorbeeldtopologieën en een dashboard voor beheer via het web.
 
 > [!NOTE]
-> U kunt ook Storm-clusters inrichten met de [Azure CLI](../xplat-cli-install.md) of [Azure PowerShell](../powershell-install-configure.md).
+> U kunt ook Storm-clusters inrichten met de [Azure CLI](../xplat-cli-install.md) of [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ U kunt tijdens het maken het aantal knooppunten in het cluster opgeven, maar mog
 ### <a name="support"></a>Ondersteuning
 Storm op HDInsight wordt geleverd met een 24-uurs ondersteuning op ondernemingsniveau. Storm op HDInsight beschikt over een SLA van 99,9%. Dit betekent dat het cluster gegarandeerd minimaal 99,9% van de tijd extern verbinding heeft.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Algemene gebruiksvoorbeelden voor realtime analyses
+## <a name="common-use-cases-for-real-time-analytics"></a>Algemene gebruiksvoorbeelden voor realtime analyses
 Hier volgen enkele algemene scenario's waarvoor u Apache Storm op HDInsight kunt gebruiken. Lees [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Hoe bedrijven Storm gebruiken) voor informatie over praktijkscenario's.
 
 * Internet der dingen (IoT)
@@ -138,7 +138,7 @@ Apache Storm voert **topologieën** uit in plaats van de MapReduce-taken die u m
   
   * **Nimbus** is een Thrift-service en een **topologie** is een Thrift-definitie. Het is dus mogelijk om topologieën te ontwikkelen met verschillende programmeertalen.
 
-Zie [Storm-zelfstudie][apachetutorial] op apache.org voor meer informatie over Storm-onderdelen.
+Zie de [Storm-zelfstudie][apachetutorial] op apache.org voor meer informatie over Storm-onderdelen.
 
 ## <a name="what-programming-languages-can-i-use"></a>Welke programmeertalen kan ik gebruiken?
 Het Storm op HDInsight-cluster biedt ondersteuning voor C# en Java en Python.
@@ -206,6 +206,6 @@ Meer informatie over realtime analyseoplossingen met Apache Storm in HDInsight:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

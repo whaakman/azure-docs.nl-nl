@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ U kunt CORS configureren in Azure Portal of met behulp van de [Azure Resource Ma
    Nadat u op **Opslaan** hebt geklikt, accepteert de API-app JavaScript-aanroepen vanuit de opgegeven URL's.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>CORS configureren met de Azure Resource Manager-hulpprogramma's
-U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](../powershell-install-configure.md) en de [Azure CLI](../xplat-cli-install.md). 
+U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](/powershell/azureps-cmdlets-docs) en de [Azure CLI](../xplat-cli-install.md). 
 
 Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenschap instelt, opent u het [bestand azuredeploy.json in de opslagplaats voor de voorbeeldtoepassing uit deze zelfstudie](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Ga naar het gedeelte van de sjabloon die lijkt op het volgende voorbeeld:
 
@@ -61,7 +61,7 @@ Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenscha
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Vervolg van de zelfstudie Aan de slag met .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Vervolg van de zelfstudie Aan de slag met .NET
 Als u de reeks Aan de slag met Node.js of Java voor API-apps volgt, hebt u de Aan de slag-reeks nu voltooid. Ga naar de sectie [Volgende stappen](#next-steps) voor suggesties voor meer informatiebronnen over API Apps.
 
 De rest van dit artikel is een vervolg van de reeks Aan de slag met .NET. Er wordt van uitgegaan dat u [de eerste zelfstudie](app-service-api-dotnet-get-started.md) met succes hebt voltooid.
@@ -252,6 +252,6 @@ In dit artikel hebt u gezien hoe u App Service CORS-ondersteuning kunt inschakel
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

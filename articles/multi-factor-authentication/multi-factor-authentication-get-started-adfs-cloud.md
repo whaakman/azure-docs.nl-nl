@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 Als uw organisatie is gefedereerd met behulp van Azure Active Directory, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services gebruiken om resources te beveiligen die worden gebruikt door Azure AD. Gebruik de volgende procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Azure AD-resources beveiligen met behulp van AD FS
 Als u uw cloudresource wilt beveiligen, moet u eerst een account inschakelen voor gebruikers en een claimregel instellen. Volg deze procedure om de stappen te doorlopen:
 
-1. Gebruik de stappen die worden beschreven in [Multi-Factor Authentication inschakelen](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) voor gebruikers die een account willen inschakelen.
+1. Gebruik de stappen die worden beschreven in [Multi-Factor Authentication inschakelen](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) voor gebruikers die een account willen inschakelen.
 2. Start de AD FS-beheerconsole.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Navigeer naar de **Relying Party-vertrouwensrelaties** en klik met de rechtermuisknop op de Relying Party-vertrouwensrelatie. Selecteer **Claimregels bewerken...**
@@ -34,13 +34,13 @@ Als u uw cloudresource wilt beveiligen, moet u eerst een account inschakelen voo
 5. Selecteer in de vervolgkeuzelijst **Claimregels verzenden met een aangepaste regel** en klik op **Volgende**.
 6. Voer een naam in voor de claimregel.
 7. Voeg onder Aangepaste regel de volgende tekst toe:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Overeenkomende claim:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. We gaan twee clai
 10. Selecteer in de wizard Transformatieclaimregels toevoegen **Claim verzenden met een aangepaste regel** in de vervolgkeuzelijst en klik op **Volgende**.
 11. In het vak onder Naam claimregel typt u *Gebruikers aangemeld houden*.
 12. In het vak Aangepaste regel typt u:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. We gaan twee clai
 15. Klik op **OK**.
 16. Sluit AD FS-beheer.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Goedgekeurde IP-adressen van Azure Multi-Factor Authentication configureren bij federatieve gebruikers
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Goedgekeurde IP-adressen van Azure Multi-Factor Authentication configureren bij federatieve gebruikers
 Nu de claims zijn gemaakt, kunnen we goedgekeurde IP-adressen gaan configureren.
 
 1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
@@ -100,7 +100,6 @@ Dat is alles. Vanaf dit moment hoeven Office 365-gebruikers alleen MFA te gebrui
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

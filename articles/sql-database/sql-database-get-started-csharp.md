@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ Als u een SQL Database met C# wilt maken, laadt u de vereiste beheerbibliotheken
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Een SQL Database-server, firewallregel en SQL Database maken: C#-voorbeeld
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Een SQL Database-server, firewallregel en SQL Database maken: C#-voorbeeld
 In het volgende voorbeeld worden een resourcegroep, een server, een firewallregel en een SQL-database gemaakt. Zie [Een service-principal maken voor toegang tot resources](#create-a-service-principal-to-access-resources) om de variabelen `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` op te halen.
 
 Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` bij met uw app-waarden (de `{}` niet overnemen).
@@ -292,6 +293,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

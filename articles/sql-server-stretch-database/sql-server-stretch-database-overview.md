@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ Als u meteen met Stretch Database aan de slag wilt, bekijk dan [Get started by r
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Wat zijn de voordelen van Stretch Database?
 Stretch Database biedt de volgende voordelen:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Biedt kosten\-effectieve beschikbaarheid voor koude gegevens
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Biedt kosten\-effectieve beschikbaarheid voor koude gegevens
 Dynamische verspreiding van warme en koude transactionele gegevens van SQL Server naar Microsoft Azure met SQL Server Database. In tegenstelling tot traditionele opslag van koude gegevens zijn uw gegevens altijd online en beschikbaar om op te vragen. U kunt gegevens langer bewaren zonder dat u door grote tabellen, zoals de ordergeschiedenis van klanten, uw budget overschrijdt. Profiteer van de lage kosten van Azure in plaats van dure opslag on\--premises op te schalen. U kiest in Azure Portal de prijscategorie en configureert de instellingen om de kosten onder controle te houden. Schaal naar behoefte omhoog of omlaag. Ga naar de pagina [Prijzen van SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) voor meer informatie.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Geen wijzigingen in query's of toepassingen vereist
 U hebt naadloos toegang tot uw SQL Server-gegevens ongeacht of deze \-lokaal zijn opgeslagen of zijn verspreid in de cloud.  U stelt u het beleid vast dat bepaalt waar de gegevens worden opgeslagen, en SQL Server verplaatst op de achtergrond de gegevens. De volledige tabel is altijd online en opvraagbaar. Bovendien vereist Stretch Database geen wijzigingen in bestaande query's of toepassingen – de locatie van de gegevens is volledig transparant voor de toepassing.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Stroomlijnt onderhoud van \-lokale gegevens
+### <a name="streamlines-on-premises-data-maintenance"></a>Stroomlijnt onderhoud van \-lokale gegevens
 Beperk opslag en onderhoud van \-lokale gegevens. Backups voor uw on\--premises gegevens worden sneller uitgevoerd en tijdens de onderhoudssessie voltooid. Backups voor uw gegevens in de cloud worden automatisch uitgevoerd. Uw on\--premises opslagbehoeften worden aanzienlijk beperkt. Azure-opslag is 80% goedkoper dan een on\--premises SSD toevoegen.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Beveiligt uw gegevens, zelfs tijdens migratie
@@ -84,6 +84,6 @@ Gebruik Stretch Database Advisor, een functie van SQL Server 2016 Upgrade Adviso
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

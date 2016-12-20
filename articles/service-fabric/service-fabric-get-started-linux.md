@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
@@ -70,8 +70,9 @@ Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+
 ## <a name="set-up-the-azure-cross-platform-cli"></a>De platformoverschrijdende CLI van Azure instellen
-De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node][installatieknooppunt] hebt geïnstalleerd voordat u doorgaat met de onderstaande instructies.
+De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node hebt geïnstalleerd][install-node] voordat u doorgaat met de onderstaande instructies.
 
 1. Kloon de github-opslagplaats naar uw ontwikkelmachine.
    
@@ -127,7 +128,7 @@ De Java-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen 
 
 U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de Eclipse Neon IDE.
 
-1. Zorg ervoor dat u in Eclips Buildship versie 1.0.17 of hoger hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-bijwerken].
+1. Zorg ervoor dat u in Eclips Buildship versie 1.0.17 of hoger hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-update].
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, kiest u **Help > Install New Software...**
 3. Voer in het tekstvak 'Work with' het volgende in: http://dl.windowsazure.com/eclipse/servicefabric
 4. Klik op Add.
@@ -149,6 +150,16 @@ De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bo
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>De SDK en Runtime bijwerken
+
+Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de volgende stappen uit (verwijder SDK's uit de lijst die u niet wilt bijwerken of installeren):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste Java-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-java.md)
@@ -157,8 +168,8 @@ De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bo
 <!-- Links -->
 
 [azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
-[installatieknooppunt]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
-[buildship-bijwerken]: https://projects.eclipse.org/projects/tools.buildship
+[install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
+[buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
 <!--Images -->
 
@@ -167,6 +178,6 @@ De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bo
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

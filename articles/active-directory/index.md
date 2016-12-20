@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8f90dd518c6147df884ca9fd61ff8ee3b47dd179
-ms.openlocfilehash: 0fa4f3f5d5f07dcd0ec7dfdea7a0bec67900288e
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Documentatie voor Azure Active Directory
 
-Azure Active Directory (Azure AD) is de multi-tenant directory- en identiteitsbeheerservice van Microsoft in de cloud.  Azure AD maakt identiteits- en toegangsbeheer mogelijk voor toepassingen die on-premises of in Azure worden uitgevoerd.  
+Azure Active Directory Premium is een cloudoplossing voor identiteits- en toegangsbeheer. De oplossing biedt eenmalige aanmelding voor duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitvoert. Azure Active Directory biedt mobiliteits- en samenwerkingsmogelijkheden voor bedrijven, evenals geavanceerde identiteitsbeveiliging met behulp van Multi-Factor Authentication (MFA), beveiligingsrapporten, controles, waarschuwingen en beleid voor voorwaardelijke toegang dat wordt aangepast op basis van de apparaatstatus, de gebruikerslocatie en het risiconiveau.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) is de multi-tenant directory- en identiteitsbe
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,68 +87,46 @@ Azure Active Directory (Azure AD) is de multi-tenant directory- en identiteitsbe
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Naslaginformatie over Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/ad">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure Active Directory met Azure CLI</p>
-                    </div>
+                        <h3>Talen</h3>
+                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Naslaginformatie over Azure Active Directory .NET</p>
+                        <h3>Overige</h3>
+                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Servicelimieten en -beperkingen</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Naslaginformatie over de Azure Java-API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   </ul>
-
----
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
@@ -160,6 +138,6 @@ Documentatie over Azure Active Directory downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

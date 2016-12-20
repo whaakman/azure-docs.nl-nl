@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
@@ -48,7 +48,7 @@ Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudse
 ## <a name="prerequisites"></a>Vereisten
 In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten van Azure-cloudservices](cloud-services-choose-me.md), waaronder de concepten *webrol* en *werkrol*.  Ook wordt ervan uitgegaan dat u weet hoe u in Visual Studio werkt met [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- of [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projecten. De voorbeeldtoepassing gebruikt MVC, maar het meeste in de zelfstudie geldt ook voor Web Forms.
 
-U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](/pricing/free-trial/?WT.mc_id=A55E3C668).
+U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 De instructies in de zelfstudie zijn van toepassing op een van de volgende producten:
 
@@ -772,6 +772,6 @@ Zie de volgende bronnen voor meer informatie:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

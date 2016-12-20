@@ -4,20 +4,19 @@ description: In dit document worden de opties voor een aangepaste installatie va
 services: active-directory
 keywords: wat is Azure AD Connect, Active Directory installeren, vereiste onderdelen voor Azure AD
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53bc8d8f2093955afaf25007e10be230b3eb94db
+ms.sourcegitcommit: d0e596aed6ae784e4c48b3ddacbf946c4849614f
+ms.openlocfilehash: 397ed8977c35dc18e92239ae4b62bddba2ade8a7
 
 
 ---
@@ -43,16 +42,20 @@ Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele co
 | Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard een lokaal serviceaccount aan voor de synchronisatieservices. Het wachtwoord wordt automatisch gegenereerd en is onbekend bij de persoon die Azure AD Connect installeert. Als u een externe SQL server gebruikt of een proxyserver waarvoor verificatie vereist is, dan heeft u een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken serviceaccount in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt. Zie [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Aangepaste synchronisatiegroepen opgeven |Azure AD Connect maakt standaard vier groepen lokaal op de server aan wanneer de synchronisatieservices worden geïnstalleerd. Deze groepen zijn: Beheerders, Operators, Bladeren en Wachtwoord opnieuw instellen. U kunt hier uw eigen groepen opgeven. De groepen moeten lokaal op de server zijn en mogen zich niet in het domein bevinden. |
 
-### <a name="user-signin"></a>Gebruikersaanmelding
+### <a name="user-sign-in"></a>Gebruikersaanmelding
 Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige aanmeldmethode voor uw gebruikers te selecteren. In de volgende tabel staan de beschikbare opties kort beschreven. Zie voor een volledige beschrijving van de aanmeldmethodes [User sign-in](../active-directory-aadconnect-user-signin.md).
 
-![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 | Optie voor eenmalige aanmelding | Beschrijving |
 | --- | --- |
 | Wachtwoordsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. |
+|Pass-through-verificatie (Preview)|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-controller voor validatie. 
 | Federatie met AD FS |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises AD FS-exemplaar om zich aan te melden en de verificatie vindt plaats on-premises. |
 | Niet configureren |Geen van beide onderdelen wordt geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
+|Eenmalige aanmelding inschakelen|Deze optie is beschikbaar bij zowel wachtwoordsynchronisatie als Pass-through-verificatie en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk.  Zie [Eenmalige aanmelding](../active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.</br>(als PTA niet op hetzelfde moment wordt gepubliceerd)
+|Aanmeldingsoptie|Deze optie is beschikbaar voor klanten die wachtwoordsynchronisatie gebruiken en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk.  </br>Zie [Eenmalige aanmelding](../active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.
+
 
 ### <a name="connect-to-azure-ad"></a>Verbinding maken met Azure AD
 Voer op het scherm Verbinding maken met Azure AD het account en wachtwoord van een globale beheerder in. Als u op de vorige pagina **Federatie met AD FS** hebt geselecteerd, meld u dan niet aan met een account in een domein waarvoor u federatie wilt inschakelen. Het is aan te raden om een account te gebruiken uit het standaarddomein **onmicrosoft.com**, dat bij uw Azure AD-directory wordt geleverd.
@@ -68,12 +71,13 @@ Voor het account van de globale beheerder kan ook [Privileged Identity Managemen
 Zie [Connectiviteitsproblemen oplossen](../active-directory-aadconnect-troubleshoot-connectivity.md) als u een foutbericht krijgt en u problemen hebt met de connectiviteit.
 
 ## <a name="pages-under-the-section-sync"></a>Pagina's in de sectie Synchronisatie
+
 ### <a name="connect-your-directories"></a>Verbinding maken met uw directory’s
 Azure AD Connect heeft de referenties van een account met de juiste machtigingen nodig om verbinding met uw Active Directory-domeinservice te maken. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie.
 
 ![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
-### <a name="azure-ad-signin-configuration"></a>Aanmeldconfiguratie Azure AD
+### <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD zijn geverifieerd. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
 
 ![Niet-geverifieerde domeinen](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
@@ -81,10 +85,13 @@ Bekijk elk domein waarbij **Niet toegevoegd** en **Niet geverifieerd** staat. Zo
 
 **UserPrincipalName** - Met het kenmerk userPrincipalName melden gebruikers zich aan bij Azure AD en Office 365. De gebruikte domeinen, ook wel het UPN-achtervoegsel genoemd, moeten worden geverifieerd in Azure AD voordat de gebruikers worden gesynchroniseerd. Het wordt door Microsoft aangeraden om het standaardkenmerk userPrincipalName te behouden. Als dit kenmerk niet-routeerbaar is en niet kan worden geverifieerd, dan kunt u een ander kenmerk selecteren. U kunt bijvoorbeeld e-mail selecteren als het kenmerk met het aanmeldings-id. Het gebruik van een ander kenmerk dan userPrincipalName wordt **alternatieve id** genoemd. De waarde van het alternatieve-id-kenmerk moet aan de standaard RFC822 voldoen. Een alternatieve id kan worden gebruikt met wachtwoordsynchronisatie en federatie.
 
+>[!NOTE]
+> Als u Pass-through-verificatie inschakelt, moet u ten minste één geverifieerd domein hebben om de wizard te voltooien.
+
 > [!WARNING]
 > Het gebruik van een alternatieve id is niet met alle Office 365-werkbelastingen compatibel. Zie [Alternatieve aanmeldings-id configureren](https://technet.microsoft.com/library/dn659436.aspx).
-> 
-> 
+>
+>
 
 ### <a name="domain-and-ou-filtering"></a>Domein- en OE-filters
 Standaard worden alle domeinen en OE's gesynchroniseerd. Van domeinen of OE’s die u niet wilt synchroniseren naar Azure AD kunt u de selectie opheffen.  
@@ -101,13 +108,13 @@ Met de functie Overeenkomend in forests kunt u definiëren hoe gebruikers van uw
 
 | Instelling | Beschrijving |
 | --- | --- |
-| [Gebruikers worden slechts één keer weergegeven in alle forests](../active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) |Alle gebruikers worden als afzonderlijke objecten in Azure AD aangemaakt. De objecten zijn niet gekoppeld in de metaverse. |
-| [E-mailkenmerk](../active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) |Deze optie koppelt gebruikers en contactpersonen als het e-mailkenmerk in verschillende forests dezelfde waarde heeft. Gebruik deze optie wanneer uw contactpersonen met behulp van GALSync zijn aangemaakt. |
-| [ObjectSID en msExchangeMasterAccountSID / msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest) |Deze optie koppelt een ingeschakelde gebruiker in een account-forest met een uitgeschakelde gebruiker in een bron-forest. In Exchange wordt deze configuratie een gekoppeld postvak genoemd. Deze optie kan ook worden gebruikt als u alleen Lync gebruikt en Exchange niet in de bron-forest aanwezig is. |
+| [Gebruikers worden slechts één keer weergegeven in alle forests](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Alle gebruikers worden als afzonderlijke objecten in Azure AD aangemaakt. De objecten zijn niet gekoppeld in de metaverse. |
+| [E-mailkenmerk](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Deze optie koppelt gebruikers en contactpersonen als het e-mailkenmerk in verschillende forests dezelfde waarde heeft. Gebruik deze optie wanneer uw contactpersonen met behulp van GALSync zijn aangemaakt. |
+| [ObjectSID en msExchangeMasterAccountSID / msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Deze optie koppelt een ingeschakelde gebruiker in een account-forest met een uitgeschakelde gebruiker in een bron-forest. In Exchange wordt deze configuratie een gekoppeld postvak genoemd. Deze optie kan ook worden gebruikt als u alleen Lync gebruikt en Exchange niet in de bron-forest aanwezig is. |
 | sAMAccountName en MailNickName |Deze optie koppelt kenmerken waarbij wordt verwacht dat de aanmeldings-id van de gebruiker gevonden kan worden. |
 | Een specifiek kenmerk |Met deze optie kunt u uw eigen kenmerk selecteren. **Beperking:** Zorg dat u een kenmerk kiest dat al in de metaverse te vinden is. Als u een aangepast kenmerk kiest dat niet in de metaverse staat, kan de wizard niet voltooid worden. |
 
-**Bronanker** - Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt. Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign, gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](../active-directory-aadconnect-design-concepts.md#sourceAnchor).
+**Bronanker** - Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt. Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign, gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](../active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Synchronisatiefilters op basis van groepen
 Met de functie Filteren op groep kunt u bij wijze van proef een kleine subset van objecten synchroniseren. Om deze functie te gebruiken maakt u voor dit doel een groep aan in uw on-premises Active Directory. Voeg vervolgens gebruikers en groepen toe die naar Azure AD moeten worden gesynchroniseerd als directe leden. U kunt later gebruikers aan deze groep toevoegen en eruit verwijderen om de lijst te onderhouden met objecten die in Azure AD aanwezig moeten zijn. Alle objecten die u wilt synchroniseren moet een direct lid van de groep zijn. Gebruikers, groepen, contactpersonen en computers/apparaten moeten allemaal directe leden zijn. Genest groepslidmaatschap is niet opgelost. Wanneer u een groep als lid toevoegt, wordt alleen de groep zelf toegevoegd en niet de leden ervan.
@@ -116,8 +123,8 @@ Met de functie Filteren op groep kunt u bij wijze van proef een kleine subset va
 
 > [!WARNING]
 > Deze functie is alleen bedoeld ter ondersteuning van een proef-implementatie. Gebruik deze functie niet bij een volledige productie-implementatie.
-> 
-> 
+>
+>
 
 Bij een volledige productie-implementatie wordt het door alle objecten die gesynchroniseerd moeten worden, moeilijk om één groep te behouden. Gebruik in plaats daarvan een van de methodes in [Configure filtering](../active-directory-aadconnectsync-configure-filtering.md).
 
@@ -128,18 +135,51 @@ In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecte
 
 > [!WARNING]
 > Als DirSync of Azure AD Sync momenteel actief zijn, activeer dan geen terugschrijffuncties in Azure AD Connect.
-> 
-> 
+>
+>
 
 | Optionele functies | Beschrijving |
 | --- | --- |
 | Hybride implementatie voor Exchange |Met de functie Hybride implementatie voor Exchange kunnen on-premises en in Office 365 meerdere Exchange-postbussen naast elkaar bestaan. Azure AD Connect synchroniseert een specifieke set [kenmerken](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) vanuit Azure AD naar uw on-premises directory. |
 | Azure AD-app- en -kenmerkfilters |Door de Azure AD-app- en -kenmerkfilters in te schakelen kan de set gesynchroniseerde kenmerken worden aangepast. Door deze optie worden twee extra configuratiepagina’s aan de wizard toegevoegd. Zie voor meer informatie [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
-| Wachtwoordsynchronisatie |Als u federatie als de oplossing voor aanmelden hebt geselecteerd, dan kunt u deze optie inschakelen. Wachtwoordsynchronisatie kan vervolgens als een backupoptie worden gebruikt. Zie [Password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. |
+| Wachtwoordsynchronisatie |Als u federatie als de oplossing voor aanmelden hebt geselecteerd, dan kunt u deze optie inschakelen. Wachtwoordsynchronisatie kan vervolgens als een backupoptie worden gebruikt. Zie [Password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. </br></br>Als u Pass-through-verificatie hebt geselecteerd, is deze optie standaard ingeschakeld als ondersteuning voor verouderde clients en als back-upoptie. Zie [Password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie.|
 | Wachtwoord terugschrijven |Door wachtwoord terugschrijven in te schakelen worden wachtwoordwijzigingen in Azure AD teruggeschreven naar uw on-premises directory. Zie voor meer informatie [Getting started with password management](../active-directory-passwords-getting-started.md). |
 | Groep terugschrijven |Als u de functie **Office 365-groepen** gebruikt, dan kunnen deze groepen in uw on-premises Active Directory worden weergegeven. Deze optie is alleen beschikbaar als Exchange in uw on-premises Active Directory aanwezig is. Zie voor meer informatie [Group writeback](../active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Apparaat terugschrijven |Hiermee kunt u apparaatobjecten in Azure AD terugschrijven naar uw on-premises Active Directory voor scenario's voor voorwaardelijke toegang. Zie voor meer informatie [Enabling device writeback in Azure AD Connect](../active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronisatie van directory-extensiekenmerken |Door synchronisatie van directory-extensiekenmerken in te schakelen worden de opgegeven kenmerken gesynchroniseerd naar Azure AD. Zie voor meer informatie [Directory extensions](../active-directory-aadconnectsync-feature-directory-extensions.md). |
+
+### <a name="enabling-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
+Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of Pass-through-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD.  De configuratie omvat de volgende twee stappen:
+
+1.  Het benodigde computeraccount maken in uw on-premises Active Directory.
+2.  Het configureren van de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
+
+#### <a name="creating-the-computer-account-in-active-directory"></a>Het computeraccount maken in Active Directory
+U dient referenties van de domeinbeheerder op te geven voor elk forest dat is toegevoegd via het AAD Connect-hulpprogramma, zodat het computeraccount in elk forest kan worden gemaakt.  De referenties worden alleen gebruikt voor het maken van het account en niet opgeslagen of gebruikt voor andere bewerkingen.  Voeg de referenties toe op de pagina Eenmalige aanmelding inschakelen van de AAD Connect-wizard, zoals hieronder weergegeven:
+
+![Eenmalige aanmelding inschakelen](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>U kunt een forest overslaan als u eenmalige aanmelding niet wilt gebruiken voor dat forest.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>De intranetzone voor clientcomputers configureren
+Om ervoor te zorgen dat de client zich automatisch in de intranetzone aanmeldt, dient u ervoor te zorgen dat de URL's deel uitmaken van de intranetzone.  Dit zorgt ervoor dat de via het domein gekoppelde desktopcomputers automatisch een Kerberos-ticket verzenden wanneer ze zijn verbonden met het bedrijfsnetwerk.
+Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
+
+1.  Open de hulpprogramma's voor Groepsbeleidsbeheer
+2.  Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast.  Bijvoorbeeld het standaard domeinbeleid.
+3.  Ga naar Huidige gebruiker\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\Het tabblad Beveiliging en selecteer Lijst van zonetoewijzingen voor websites, zoals in de afbeelding hieronder.
+4.  Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
+   
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net 
+        Data: 1
+
+5.  Het moet er ongeveer uitzien als het volgende: ![Intranetzones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Klik twee keer op OK.
+
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD-app- en -kenmerkfilters
 Als u wilt beperken welke kenmerken met Azure AD moeten worden gesynchroniseerd, begin dan met te selecteren welke services u gebruikt. Als u de configuratie op deze pagina wijzigt, moet u expliciet een nieuwe service selecteren door de installatiewizard opnieuw uit te voeren.
@@ -152,8 +192,8 @@ Op deze pagina worden alle kenmerken die worden gesynchroniseerd weergegeven op 
 
 > [!WARNING]
 > Het verwijderen van kenmerken kan invloed hebben op de functionaliteit. Zie voor aanbevolen procedures en andere aanbevelingen [attributes synchronized](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
-> 
-> 
+>
+>
 
 ### <a name="directory-extension-attribute-sync"></a>Synchronisatie van directory-extensiekenmerken
 U kunt het schema in Azure AD uitbreiden met aangepaste kenmerken die door uw organisatie zijn toegevoegd of met andere kenmerken in Active Directory. Om deze functie te gebruiken, selecteert u **Synchronisatie van directory-extensiekenmerken** op de pagina **optionele functies**. U kunt op deze pagina meer kenmerken selecteren om te synchroniseren.
@@ -169,8 +209,8 @@ AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configu
 * Een Windows Server 2012 R2-server als de webtoepassingsproxyserver met extern beheer ingeschakeld
 * Een SSL-certificaat voor de Federation Service-naam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
 
-### <a name="ad-fs-configuration-prerequisites"></a>Vereisten voor de AD FS-configuratie
-Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+### <a name="ad-fs-configuration-pre-requisites"></a>Vereisten voor de AD FS-configuratie
+Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Maak een nieuwe AD FS-farm aan of gebruik een bestaande AD FS-farm
 U kunt een bestaande AD FS-farm gebruiken of u kunt ervoor kiezen een nieuwe AD FS-farm aan te maken. Als u ervoor kiest om een nieuwe aan te maken, dan dient u het SSL-certificaat op te geven. Als het SSL-certificaat met een wachtwoord is beveiligd, dan wordt u gevraagd het wachtwoord op te geven.
@@ -184,8 +224,8 @@ Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoef
 
 > [!NOTE]
 > Zorg ervoor dat alle servers aan een AD-domein zijn gekoppeld voordat u deze configuratie uitvoert.
-> 
-> 
+>
+>
 
 ![AD FS-Servers](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -195,7 +235,8 @@ Voer de servers in die u als uw webtoepassingsproxyservers wilt gebruiken. De we
 > [!NOTE]
 > <li> Als het account dat u gebruikt geen lokale beheerder op de AD FS-servers is, wordt u gevraagd om beheerreferenties.</li>
 > <li> Zorg ervoor dat er een HTTP/HTTPS-verbinding tussen de Azure AD Connect-server en de webtoepassingsproxyserver is voordat u deze stap uitvoert.</li>
-> <li> Zorg ervoor dat er een HTTP/HTTPS-verbinding tussen de webtoepassingsserver en de AD FS-server is, zodat verificatieaanvragen door kunnen stromen.</li>> 
+> <li> Zorg ervoor dat er een HTTP/HTTPS-verbinding tussen de webtoepassingsserver en de AD FS-server is, zodat verificatieaanvragen door kunnen stromen.</li>
+>
 
 ![Web-app](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -225,16 +266,16 @@ Wanneer u het te federeren domein selecteert, geeft Azure AD Connect u de inform
 
 > [!NOTE]
 > AD Connect probeert het domein tijdens de configuratiefase te verifiëren. Als u doorgaat met de configuratie zonder de vereiste DNS-records toe te voegen, dan kan de wizard de configuratie niet voltooien.
-> 
-> 
+>
+>
 
 ## <a name="configure-and-verify-pages"></a>Configureer en verifieer pagina 's
 De configuratie wordt op deze pagina uitgevoerd.
 
 > [!NOTE]
 > Als u de federatie heeft geconfigureerd, zorg dan dat u, voordat u doorgaat met de installatie, de [Naamomzetting voor federatieservers](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers) heeft geconfigureerd.
-> 
-> 
+>
+>
 
 ![Klaar om te configureren](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -281,7 +322,6 @@ Lees meer over het [integreren van uw on-premises identiteiten met Azure Active 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

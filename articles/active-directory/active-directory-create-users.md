@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
@@ -78,7 +78,7 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 ## <a name="whats-next"></a>Volgend onderwerp
 * [Gebruikers vanuit andere mappen of partnerbedrijven toevoegen in Azure Active Directory](active-directory-create-users-external.md)
 * [Administering Azure AD](active-directory-administer.md) (Azure AD beheren)
-* [Manage passwords in Azure AD](active-directory-manage-passwords.md) (Wachtwoorden beheren in Azure AD)
+* [Wachtwoorden beheren in Azure AD](active-directory-manage-passwords.md)
 * [Groepen beheren in Azure Active Directory](active-directory-manage-groups.md)
 
 <!--Image references-->
@@ -87,6 +87,6 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

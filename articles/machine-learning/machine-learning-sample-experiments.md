@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: cgronlun;chhavib;olgali
+ms.date: 11/11/2016
+ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df9009646627226acc8209486f990688efe95622
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
 # <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken
-Leer hoe u met voorbeeldexperimenten van [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
+Leer hoe u met voorbeeldexperimenten van [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
 
 In de galerie bevinden zich voorbeeldexperimenten van het Microsoft Azure Machine Learning-team en voorbeelden die door de Machine Learning-community zijn gedeeld. Hier kunt u ook vragen stellen of opmerkingen plaatsen over experimenten.
 
@@ -30,7 +30,7 @@ Bekijk de video [Copy other people's work to do data science](machine-learning-d
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Een experiment in Cortana Intelligence Gallery zoeken om te kopiëren
-Als u wilt zien welke experimenten beschikbaar zijn, gaat u naar [Gallery](http://gallery.cortanaintelligence.com/) (Galerie) en klikt u op **Experiments** (Experimenten) boven aan de pagina.
+Als u wilt zien welke experimenten beschikbaar zijn, gaat u naar [Gallery](https://gallery.cortanaintelligence.com/) (Galerie) en klikt u op **Experiments** (Experimenten) boven aan de pagina.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>De nieuwste of meest populaire experimenten zoeken
 Op deze pagina ziet u **onlangs toegevoegde** experimenten, of scroll omlaag om te zien **wat populair** is of wat de nieuwste, **populaire Microsoft-experimenten** zijn.
@@ -42,17 +42,17 @@ Door alle experimenten bladeren:
 2. Selecteer onder **Refine by** (Verfijnen op) de optie **Experiment** om alle experimenten in de galerie weer te geven.
 3. U kunt op verschillende manieren experimenten vinden die aan uw vereisten voldoen:
    * **Selecteer filters aan de linkerkant.** Als u bijvoorbeeld door experimenten wilt bladeren die gebruikmaken van een PCA-algoritme voor de detectie van afwijkingen, selecteert u **Experiment** onder **Categories** (Categorieën), en **PCA-Based Anomaly Detection** (Op PCA gebaseerde afwijkingsdetectie) onder **Algorithms Used** (Gebruikte algoritmen). (Als u dat algoritme niet ziet, klikt u op **Show All** (Alles weergeven) aan de onderkant van de lijst.)<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Het zoekvak gebruiken.** Als u bijvoorbeeld experimenten wilt vinden die door Microsoft zijn aangedragen en die betrekking hebben op cijferherkenning waarbij gebruik wordt gemaakt van een algoritme van twee klassen voor ondersteuningsvectormachines, voert u 'digit recognition' (cijferherkenning) in het zoekvak in. Selecteer vervolgens de filters **Experiment**, **Alleen inhoud van Microsoft** en **Algoritme van twee klassen voor ondersteuningsvectormachines**: ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+     ![Filters selecteren](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Het zoekvak gebruiken.** Als u bijvoorbeeld experimenten wilt vinden die door Microsoft zijn aangedragen en die betrekking hebben op cijferherkenning waarbij gebruik wordt gemaakt van een algoritme van twee klassen voor ondersteuningsvectormachines, voert u 'digit recognition' (cijferherkenning) in het zoekvak in. Selecteer vervolgens de filters **Experiment**, **Alleen inhoud van Microsoft** en **Algoritme van twee klassen voor ondersteuningsvectormachines**: ![Het zoekvak gebruiken](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Klik op een experiment voor meer informatie.
 5. Als u het experiment wilt uitvoeren of wijzigen, klikt u op **Openen in Studio** op de pagina van het experiment.
-   
+
    > [!NOTE]
    > Als u een experiment in Machine Learning Studio wilt openen, moet u zich aanmelden met uw Microsoft-accountreferenties. Als u nog niet over een Machine Learning-werkruimte beschikt, wordt een gratis werkruimte gemaakt die u als proefversie kunt gebruiken. [Meer informatie over de gratis proefversie van Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
-   > 
-   > 
-   
-    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
+   >
+   >
+
+    ![Voorbeeldexperiment](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Een sjabloon gebruiken in Machine Learning Studio
 U kunt ook een nieuw experiment in Machine Learning Studio maken op basis van een sjabloon uit de Galerie.
@@ -67,11 +67,9 @@ Er wordt een nieuw experiment gemaakt in de werkruimte op basis van het voorbeel
 * [R gebruiken in uw experiment](machine-learning-r-quickstart.md)
 * [Voorbeeld R-experimenten bekijken](machine-learning-r-csharp-web-service-examples.md)
 * [Een webservice-API maken](machine-learning-publish-a-machine-learning-web-service.md)
-* [Bladeren door kant-en-klare toepassingen](https://datamarket.azure.com/browse?query=machine+learning)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
 
 
 ---
@@ -62,12 +62,12 @@ Zie [Concepten](media-services-concepts.md) voor Azure Media Services-concepten.
 
 Zie [Stapsgewijze zelfstudies voor Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) voor een reeks procedures waarin u kennis kunt maken met de belangrijkste onderdelen van Azure Media Services. Deze reeks biedt een goed overzicht van de concepten en maakt gebruik van het AMSE-hulpprogramma om AMS-taken te demonstreren. Het AMSE-hulpprogramma is een Windows-hulpprogramma. Dit hulpprogramma ondersteunt de meeste taken die u programmatisch kunt uitvoeren met [AMS SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java) of [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>On-demand media leveren met Azure Media Services: algemene scenario's en taken
+## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>On-demand media leveren met Azure Media Services: algemene scenario's en taken
 In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar relevante onderwerpen. Het volgende diagram toont u de belangrijkste onderdelen van het Media Services-platform die zijn betrokken bij de on-demand levering van inhoud. 
 
 ![VoD-werkstroom](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
    
     Het is raadzaam de optie voor opslagversleuteling toe te passen op de uitvoerasset om de inhoud in de opslag te beveiligen.
@@ -142,13 +142,13 @@ Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor 
 * Een on-premises live codering verzendt multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerd MP4) naar het kanaal dat is geconfigureerd voor **passthrough**-levering. **Passthrough**-levering vindt plaats wanneer de opgenomen streams het **kanaal** passeren zonder verdere verwerking. U kunt de volgende live coderingsprogramma’s gebruiken die multi-bitrate Smooth Streaming uitvoeren: Elemental, Envivio, Cisco.  De volgende live coderingsprogramma’s voeren RTMP uit: Adobe Flash Live-, Telestream Wirecast- en Tricaster-transcoders.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
 
 > [!NOTE]
-> Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](/pricing/details/media-services/).
+> Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
 > 
 > 
 
 * Een on-premises live codering verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van de live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
-### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen (pass-through)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen (pass-through)
 Het volgende diagram toont de belangrijkste onderdelen van het AMS-platform die betrokken zijn bij de **passthrough**-werkstroom.
 
 ![Live-werkstroom][live-overview2]
@@ -193,14 +193,14 @@ U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk 
 Zie [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/) voor meer informatie.
 
 <!-- Images -->
-[overzicht]: ./media/media-services-overview/media-services-overview.png
-[vod-overzicht]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-[live-overzicht1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
-[live-overzicht2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+[overview]: ./media/media-services-overview/media-services-overview.png
+[vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

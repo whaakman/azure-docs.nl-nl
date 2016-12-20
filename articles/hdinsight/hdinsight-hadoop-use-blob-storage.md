@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDFS-compatibele Azure Blob Storage met Hadoop in HDInsight gebruiken
 Informatie over het gebruik van een voordelige Azure Blob Storage met HDInsight, het maken van een Azure Storage-account en de Blob Storage-container om vervolgens de interne gegevens te adresseren.
 
 Azure Blob Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. Via een HDFS-interface (Hadoop Distributed File System) kan de volledige set onderdelen in HDInsight rechtstreeks op gestructureerde of ongestructureerde gegevens in Blob Storage worden uitgevoerd.
@@ -280,16 +280,16 @@ $clusterName = <HDInsightClusterName>
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u een HDFS-compatibele Azure Blob Storage gebruikt met HDInsight en hebt u geleerd dat Azure Blob Storage een fundamenteel onderdeel van HDInsight is. Zodoende kunt u een schaalbare, duurzame, archiveringsoplossing voor gegevensverzameling bouwen met Azure Blob Storage en HDInsight gebruiken om de informatie te ontsluiten in de opgeslagen gestructureerde en ongestructureerde gegevens.
 
-Ga voor meer informatie naar:
+Zie voor meer informatie:
 
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
-* Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
+* [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
 * [Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Handtekeningen voor gedeelde toegang van Azure Storage gebruiken om de toegang tot gegevens te beperken met HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Ga voor meer informatie naar:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

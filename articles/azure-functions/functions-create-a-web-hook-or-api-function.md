@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,7 +34,7 @@ In de volgende video laten we zien hoe u de eenvoudige stappen in deze zelfstudi
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een webhook wordt geactiveerd
-Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Voordat u een functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/). 
+Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Als u nog geen Azure-account hebt, kunt u [Try Functions](https://functions.azure.com/try) (Functions proberen) bekijken of [een gratis Azure-account maken](https://azure.microsoft.com/free/). 
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
 
@@ -50,9 +50,12 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 
 1. Kopieert de **functie-URL** en **GitHub-geheim** waarden. U hebt deze waarden nodig bij het maken van de webhook in GitHub. 
 
-2. Schuif omlaag naar **Uitvoeren**, houd rekening met de vooraf gedefinieerde JSON-instantie van een probleemopmerking in de aanvraagtekst en klik vervolgens op **Uitvoeren**. 
+2. Klik op **Testen**, vermeld de vooraf gedefinieerde JSON-instantie van een probleemopmerking in de **aanvraagtekst** en klik vervolgens op **Uitvoeren**. 
+
+    ![De webhookfunctie testen in de portal](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    U kunt een nieuwe sjabloongebaseerde functie altijd meteen testen in het tabblad **Ontwikkelen** door verwachte JSON-datatekst in te voeren en te klikken op **Uitvoeren**. In dit geval heeft de sjabloon een vooraf gedefinieerde tekst van een probleemopmerking. 
+    > [!NOTE]
+    > U kunt een nieuwe sjabloongebaseerde functie altijd meteen testen in het tabblad **Ontwikkelen** door verwachte JSON-datatekst in te voeren en te klikken op **Uitvoeren**. In dit geval heeft de sjabloon een vooraf gedefinieerde tekst van een probleemopmerking. 
 
 Vervolgens maakt u de werkelijke webhook in uw GitHub-opslagplaats.
 
@@ -91,6 +94,6 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

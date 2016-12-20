@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -44,9 +44,9 @@ Een Windows-toepassing hosten in Azure RemoteApp. Hieronder volgt een zeer globa
 ## <a name="app-and-sql-configuration-considerations"></a>Overwegingen voor app- en SQL-configuratie:
 Er zijn enkele aandachtspunten bij het gebruik van Azure SQL met RemoteApp:
 
-Lees [Een Azure SQL-databasefirewall configureren](../sql-database/sql-database-firewall-configure.md). In een fragment uit het artikel staat 'in eerste instantie is alle toegang tot uw Azure SQL Database-server geblokkeerd door de firewall. Als u de Azure SQL Database-server wilt gaan gebruiken, gaat u naar de klassieke portal en geeft u een of meer firewallregels op serverniveau op die toegang tot uw Azure SQL Database-server inschakelen. Gebruik de firewallregels om op te geven welke IP-adresbereiken van internet zijn toegestaan en of Azure-toepassingen al dan niet kunnen proberen verbinding te maken met uw Azure SQL Database-server.'
+Lees [Een Azure SQL-databasefirewall configureren](../sql-database/sql-database-firewall-configure.md). In een fragment uit het artikel staat 'in eerste instantie wordt alle toegang tot uw Azure SQL Database-server geblokkeerd door de firewall. Als u de Azure SQL Database-server wilt gaan gebruiken, gaat u naar de klassieke portal en geeft u een of meer firewallregels op serverniveau op die toegang tot uw Azure SQL Database-server inschakelen. Gebruik de firewallregels om op te geven welke IP-adresbereiken van internet zijn toegestaan en of Azure-toepassingen al dan niet kunnen proberen verbinding te maken met uw Azure SQL Database-server.'
 
-En wanneer een computer via internet verbinding probeert te maken met de databaseserver, wordt het oorspronkelijke IP-adres van de aanvraag door de firewall gecontroleerd met de volledige set firewallregels op serverniveau en (indien nodig) databaseniveau. 'Als het IP-adres van de aanvraag binnen een van de bereiken ligt die zijn opgegeven in de firewallregels op serverniveau, wordt de verbinding aan uw Azure SQL Database-server verleend.' Daarom kunnen we IP-bereiken gebruiken en niet alleen afzonderlijke bron-IP-adressen.
+En wanneer een computer via internet verbinding probeert te maken met de databaseserver, wordt het oorspronkelijke IP-adres van de aanvraag door de firewall gecontroleerd met de volledige set firewallregels op serverniveau en (indien nodig) databaseniveau. 'Als het IP-adres van de aanvraag binnen een van de bereiken ligt die zijn opgegeven in de firewallregels op serverniveau, wordt de verbinding toegestaan voor uw Azure SQL Database-server.' Daarom kunnen we IP-bereiken gebruiken en niet alleen afzonderlijke bron-IP-adressen.
 
 Volg de stapsgewijze instructies in [Firewall-instellingen configureren in SQL Database via de Azure-portal](../sql-database/sql-database-configure-firewall-settings.md) om het IP-adresbereik op te geven. Geef bij de configuratie van de SQL-firewallregels het IP-adresbereik op van het subnet dat is opgegeven voor de Azure RemoteApp-verzameling. Op die manier kunnen de ARA-servers verbinding maken met SQL DB, ook al hebben ze dynamisch toegewezen IP-adressen.
 
@@ -60,6 +60,6 @@ Als het gebruik van een clienttoepassing, gehost in Azure RemoteApp die verbindi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

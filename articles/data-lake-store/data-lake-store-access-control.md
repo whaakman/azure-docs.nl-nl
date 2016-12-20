@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ Klik in de blade **Data Explorer** in het Data Lake Store-account op **Toegang**
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Hierna klikt u vanaf de blade **Toegang** op **Eenvoudige weergave** om de vereenvoudigde weergave te zien.
+Het bovenste gedeelte van de blade geeft een overzicht weer van uw machtigingen (de gebruiker in de schermafbeelding is Bob). Daaronder worden de toegangsmachtigingen weergegeven.
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Klik op **Geavanceerde weergave** om de geavanceerde weergave te zien.
+Klik op **Geavanceerd** om een geavanceerdere weergave te openen waar de concepten Standaard ACL's, Masker en Supergebruiker worden weergegeven.
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ In Azure heeft een Data Lake Store-account meerdere Azure-rollen:
 * Enz.
 
 Iedereen met de rol **Eigenaar** voor een Data Lake Store-account wordt automatisch een supergebruiker voor dat account. Zie voor meer informatie over op rollen gebaseerd Azure-toegangsbeheer [Op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md).
+
+Als u een aangepaste RBAC-rol wilt maken met supergebruikersmachtigingen. Deze heeft de volgende machtigingen nodig:
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## <a name="the-owning-user"></a>De gebruiker die eigenaar is
 De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eigenaar is van het item. Een gebruiker die eigenaar is kan:
@@ -244,7 +248,11 @@ Nee. Toegangsbeheer via de ACL's is altijd ingeschakeld voor een Data Lake Store
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Welke machtigingen zijn vereist voor het recursief verwijderen van een map en de inhoud ervan?
 * De bovenliggende map moet de machtigingen **Schrijven + Uitvoeren** hebben.
 * De map die wordt verwijderd en elke map erin moeten de machtigingen **Lezen + Schrijven + Uitvoeren** hebben.
-  >[AZURE.NOTE] Voor het verwijderen van de bestanden in mappen is de machtiging Schrijven niet nodig op deze bestanden. Verder kan de hoofdmap '/' **nooit** worden verwijderd.
+
+> [!NOTE] 
+> Voor het verwijderen van de bestanden in mappen is de machtiging Schrijven niet nodig op deze bestanden. Verder kan de hoofdmap '/' **nooit** worden verwijderd.
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Wie wordt ingesteld als de eigenaar van een bestand of map?
 De maker van een bestand of map wordt de eigenaar.
@@ -254,6 +262,12 @@ Deze wordt gekopieerd uit de groep die eigenaar is van de bovenliggende map waar
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Ik ben de gebruiker die eigenaar is van een bestand, maar ik heb de LSU-machtigingen die ik nodig heb niet. Wat moet ik doen?
 De gebruiker die eigenaar is kan gewoon de machtigingen van het bestand wijzigen en zichzelf de LSU-machtigingen die vereist zijn geven.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Wanneer ik ACL's bekijk in Azure Portal, zie ik gebruikersnamen, maar via API's zie ik GUID's. Hoe kan dat?
+Vermeldingen worden in de ACL's opgeslagen als GUID's die zijn gekoppeld aan gebruikers in Azure Active Directory (AAD). De API's geven de GUID's als zodanig weer. We proberen ACL's in Azure Portal eenvoudiger in gebruik te maken door de GUID's wanneer mogelijk om te zetten in beschrijvende namen. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Waarom zie ik soms GUID's in de ACL's wanneer ik Portal gebruik?
+Er wordt een GUID weergegeven wanneer een gebruiker niet meer bestaat in AAD. Dit gebeurt doorgaans wanneer gebruikers het bedrijf verlaten of hun accounts zijn verwijderd in AAD.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Biedt Data Lake Store ondersteuning voor overname van ACL's?
 Nee.
@@ -282,6 +296,6 @@ Nee.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

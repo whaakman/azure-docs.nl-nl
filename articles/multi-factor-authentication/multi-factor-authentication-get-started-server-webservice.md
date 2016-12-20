@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Voordat u de webservice voor mobiele apps installeert, moet u op het volgende le
 
 <li>Open op een computer een webbrowser en navigeer naar de URL waar de webservice voor mobiele apps is geïnstalleerd (bijvoorbeeld https://www.publicwebsite.com/PA). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Factor Authentication-server voor gebruik met de gebruikersportal configureren.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>De instellingen voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>De instellingen voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 1. Klik op de Azure Multi-Factor Authentication-server op het pictogram Gebruikersportal. Als gebruikers hun verificatiemethoden mogen bepalen, schakelt u op het tabblad Instellingen onder Toestaan dat gebruikers de methode selecteren de optie Mobiele app in. Als deze functie niet is ingeschakeld, moeten eindgebruikers contact opnemen met uw helpdesk om de activering van de mobiele App te voltooien.
 2. Schakel het selectievakje Toestaan dat gebruikers de mobiele app activeren in.
 3. Schakel het selectievakje Registreren van gebruikers toestaan in.
@@ -89,6 +89,6 @@ Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Fact
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

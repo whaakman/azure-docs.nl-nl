@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: e194caf503b767cb89f6d066ab4561f72b510ef5
-ms.openlocfilehash: 47bffbf85b100a808d79e464e6f381d0d8abd153
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 
 
 ---
@@ -40,15 +40,17 @@ In dit artikel gebruikt u de Data Factory-REST API voor het maken van uw eerste 
   1. Maak een webtoepassing met de naam **ADFGetStartedApp** in Azure Active Directory.
   2. Haal de **client-id** en **geheime sleutel** op.
   3. Haal de **tenant-id** op.
-  4. Wijs de **ADFGetStartedApp**-toepassing toe aan de rol **Inzender Data Factory**.  
-* Installeer [Azure PowerShell](../powershell-install-configure.md).  
+  4. Wijs de **ADFGetStartedApp**-toepassing toe aan de rol **Inzender Data Factory**.
+* Installeer [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Start **PowerShell** en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
-  1. Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.  
+  1. Voer **Login-AzureRmAccount** uit en geef de gebruikersnaam en het wachtwoord op die u gebruikt om u aan te melden bij de Azure Portal.
   2. Voer **Get-AzureRmSubscription** uit om alle abonnementen voor dit account weer te geven.
   3. Voer **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set AzureRmContext** uit om het abonnement te selecteren waarmee u wilt werken. Vervang **NameOfAzureSubscription** door de naam van uw Azure-abonnement.
-* Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell:  
+* Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell:
 
-       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam ADFTutorialResourceGroup gebruikt. Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie de naam van uw resourcegroep gebruiken in plaats van ADFTutorialResourceGroup.
 
@@ -61,10 +63,12 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 >
 >
 
-    {  
-        "name": "FirstDataFactoryREST",  
-        "location": "WestUS"
-    }  
+```JSON
+{
+    "name": "FirstDataFactoryREST",
+    "location": "WestUS"
+}
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -72,30 +76,34 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 >
 >
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
-
+}
+```
 
 ### <a name="hdinsightondemandlinkedservicejson"></a>hdinsightondemandlinkedservice.json
-    {
-        "name": "HDInsightOnDemandLinkedService",
-        "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-                "version": "3.2",
-                "clusterSize": 1,
-                "timeToLive": "00:30:00",
-                "linkedServiceName": "AzureStorageLinkedService"
-            }
+
+```JSON
+{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+            "version": "3.2",
+            "clusterSize": 1,
+            "timeToLive": "00:30:00",
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
+}
+```
 
 De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
@@ -117,28 +125,30 @@ Houd rekening met de volgende punten:
 Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
-    }
 
+```JSON
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
 
 Met de JSON wordt een gegevensset gedefinieerd met de naam **AzureBlobInput**. Deze bevat de invoergegevens voor een activiteit in de pijplijn. Bovendien wordt hiermee aangegeven dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **inputdata**
 
@@ -155,24 +165,27 @@ De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het code
 | external |Deze eigenschap wordt ingesteld op true als de invoergegevens niet worden gegenereerd door de Data Factory-service. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adfgetstarted/partitioneddata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
+
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adfgetstarted/partitioneddata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
         }
     }
+}
+```
 
 Met de JSON wordt een gegevensset gedefinieerd met de naam **AzureBlobOutput**. Deze bevat de uitvoergegevens voor een activiteit in de pijplijn. Bovendien wordt hiermee aangegeven dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset op maandelijkse basis wordt geproduceerd.
 
@@ -182,42 +195,44 @@ Met de JSON wordt een gegevensset gedefinieerd met de naam **AzureBlobOutput**. 
 >
 >
 
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [{
-                "type": "HDInsightHive",
-                "typeProperties": {
-                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                    "scriptLinkedService": "AzureStorageLinkedService",
-                    "defines": {
-                        "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                        "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
-                    }
-                },
-                "inputs": [{
-                    "name": "AzureBlobInput"
-                }],
-                "outputs": [{
-                    "name": "AzureBlobOutput"
-                }],
-                "policy": {
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "scheduler": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "name": "RunSampleHiveActivity",
-                "linkedServiceName": "HDInsightOnDemandLinkedService"
+```JSON
+{
+    "name": "MyFirstPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [{
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                "scriptLinkedService": "AzureStorageLinkedService",
+                "defines": {
+                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                }
+            },
+            "inputs": [{
+                "name": "AzureBlobInput"
             }],
-            "start": "2016-07-10T00:00:00Z",
-            "end": "2016-07-11T00:00:00Z",
-            "isPaused": false
-        }
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "policy": {
+                "concurrency": 1,
+                "retry": 3
+            },
+            "scheduler": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "name": "RunSampleHiveActivity",
+            "linkedServiceName": "HDInsightOnDemandLinkedService"
+        }],
+        "start": "2016-07-10T00:00:00Z",
+        "end": "2016-07-11T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 In het JSON-fragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
 
@@ -238,27 +253,30 @@ In de activiteits-JSON geeft u op dat het Hive-script wordt uitgevoerd in de ber
 Voer in Azure PowerShell de volgende opdrachten uit nadat u de waarden hebt vervangen door uw eigen waarden:
 
 > [!IMPORTANT]
-> Zie de sectie [Vereisten](#prerequisites) voor instructies over het verkrijgen van de client-id, het clientgeheim, de tenant-id en de abonnements-id.   
+> Zie de sectie [Vereisten](#prerequisites) voor instructies over het verkrijgen van de client-id, het clientgeheim, de tenant-id en de abonnements-id.
 >
 >
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```PowerShell
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "FirstDataFactoryREST"
-
+$rg = "ADFTutorialResourceGroup"
+$adf = "FirstDataFactoryREST"
+```
 
 
 ## <a name="authenticate-with-aad"></a>Verifiëren met AAD
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken)
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
+(ConvertFrom-Json $responseToken)
+```
 
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
@@ -268,17 +286,23 @@ In deze stap maakt u een Azure-gegevensfactory met de naam **FirstDataFactoryRES
 
     Bevestig dat de naam van de gegevensfactory die u hier opgeeft (ADFCopyTutorialDF) overeenkomt met de naam die is opgegeven in de **datafactory.json**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Bekijk de resultaten. Als de gegevensfactory is gemaakt, ziet u de JSON voor de gegevensfactory in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Bekijk de resultaten. Als de gegevensfactory is gemaakt, ziet u de JSON voor de gegevensfactory in de **resultaten**. Anders wordt er een foutbericht weergegeven.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 Houd rekening met de volgende punten:
 
-* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de fout **Naam gegevensfactory FirstDataFactoryREST is niet beschikbaar** in de resultaten ziet, voert u de volgende stappen uit:  
+* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de fout **Naam gegevensfactory FirstDataFactoryREST is niet beschikbaar** in de resultaten ziet, voert u de volgende stappen uit:
   1. Wijzig de naam (bijvoorbeeld uwnaamFirstDataFactoryREST) in het bestand **datafactory.json**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   2. In de eerste opdracht waar aan de **$cmd**-variabele een waarde is toegewezen, vervangt u FirstDataFactoryREST door de nieuwe naam en voert u de opdracht uit.
   3. Voer de volgende twee opdrachten uit voor het aanroepen van de REST API om de gegevensfactory te maken en de resultaten van de bewerking af te drukken.
@@ -288,11 +312,14 @@ Houd rekening met de volgende punten:
 
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren:
 
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
       U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd:
-
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 
 Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om gegevensopslag/berekeningen te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de gegevens in de gekoppelde gegevensopslag vertegenwoordigen.
@@ -305,88 +332,121 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Bij deze
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
-In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie.  
+In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Bekijk de resultaten. Als de gekoppelde service is gemaakt, ziet u de JSON voor de gekoppelde service in de **resultaten**. Anders wordt er een foutbericht weergegeven.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Gegevenssets maken
-In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-verwerking vertegenwoordigen. Deze gegevenssets verwijzen naar de **StorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.   
+In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-verwerking vertegenwoordigen. Deze gegevenssets verwijzen naar de **StorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.
 
 ### <a name="create-input-dataset"></a>Invoergegevensset maken
 In deze stap maakt u de invoergegevensset die staat voor invoergegevens die worden opgeslagen in de Azure-blobopslag.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
 
-        Write-Host $results
-   ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
-   In deze stap maakt u de uitvoergegevensset die staat voor uitvoergegevens die worden opgeslagen in de Azure-blobopslag.
-4. Wijs de opdracht toe aan de variabele met de naam **cmd**.
+    ```PowerShell
+    Write-Host $results
+    ```
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-5. Voer de opdracht uit via **Invoke-Command**.
+### <a name="create-output-dataset"></a>Uitvoergegevensset maken
+In deze stap maakt u de uitvoergegevensset die staat voor uitvoergegevens die worden opgeslagen in de Azure-blobopslag.
 
-        $results = Invoke-Command -scriptblock $cmd;
-6. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
+1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
-        Write-Host $results
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
+2. Voer de opdracht uit via **Invoke-Command**.
+
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
+
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-pipeline"></a>Pijplijn maken
-In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.  
+In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan.
 
 Controleer of u het bestand **input.log** ziet in de map **adfgetstarted/inputdata** in de Azure-blobopslag en voer de volgende opdracht uit om de pijplijn te implementeren. Aangezien de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op false, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd.
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Voer de opdracht uit via **Invoke-Command**.
 
-        $results = Invoke-Command -scriptblock $cmd;
-3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.  
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+3. Bekijk de resultaten. Als de gegevensset is gemaakt, ziet u de JSON voor de gegevensset in de **resultaten**. Anders wordt er een foutbericht weergegeven.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 4. U hebt uw eerste pijplijn gemaakt met Azure PowerShell!
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 In deze stap gebruikt u Data Factory-REST API voor het bewaken van segmenten die worden geproduceerd door de pijplijn.
 
-    $ds ="AzureBlobOutput"
+```PowerShell
+$ds ="AzureBlobOutput"
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+$results2 = Invoke-Command -scriptblock $cmd;
 
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
-
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 > [!IMPORTANT]
-> Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.  
+> Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
 >
 >
 
@@ -399,10 +459,10 @@ Voer de Invoke-Command en de volgende uit totdat u het segment in de status **Ge
 >
 >
 
-U kunt ook Azure Portal gebruiken voor het bewaken van segmenten en om eventuele problemen op te lossen. Zie voor meer informatie [Pijplijnen bewaken met de Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).  
+U kunt ook Azure Portal gebruiken voor het bewaken van segmenten en om eventuele problemen op te lossen. Zie voor meer informatie [Pijplijnen bewaken met de Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
 ## <a name="summary"></a>Samenvatting
-In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:  
+In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
 2. U hebt twee **gekoppelde services** gemaakt:
@@ -427,6 +487,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

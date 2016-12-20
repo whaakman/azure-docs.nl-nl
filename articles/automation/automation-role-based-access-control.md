@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
-## <a name="rolebased-access-control"></a>Op rollen gebaseerd toegangsbeheer
+# <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
+## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met [RBAC](../active-directory/role-based-access-control-configure.md) kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers, groepen en toepassingen die nodig is om de taken uit te voeren. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure Portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
 
 ## <a name="rbac-in-automation-accounts"></a>RBAC in Automation-accounts
@@ -233,6 +233,6 @@ Vervang in de bovenstaande voorbeelden de **aanmeldnaam**, de **abonnements-id**
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

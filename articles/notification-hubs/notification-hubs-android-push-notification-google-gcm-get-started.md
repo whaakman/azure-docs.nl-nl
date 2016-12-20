@@ -59,7 +59,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
 
 De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreeksen om uw app te registreren voor het ontvangen en verzenden van pushmeldingen.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uw app verbinden met de Notification Hub
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uw app verbinden met de Notification Hub
 ### <a name="create-a-new-android-project"></a>Een nieuw Android-project maken
 1. Start een nieuw Android Studio-project in Android Studio.
    

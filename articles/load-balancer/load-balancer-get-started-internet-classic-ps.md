@@ -3,9 +3,8 @@ title: Aan de slag met het maken van een internetgerichte load balancer in de kl
 description: Meer informatie over het maken van een internetgerichte load balancer in de klassieke modus met PowerShell
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
@@ -14,22 +13,25 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7344f2c3eeb7d52f8bc60e564d66b2cc51f10f75
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 3855b32c8ff13f73cf91ea8973ed40a34a062224
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Aan de slag met het maken van een internetgerichte load balancer (klassiek) in PowerShell
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [klassieke Azure-portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -37,7 +39,7 @@ Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u 
 
 Volg de onderstaande stappen om een load balancer in te stellen met behulp van PowerShell:
 
-1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](../powershell-install-configure.md) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
+1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 2. Nadat u een virtuele machine hebt gemaakt, kunt u PowerShell-cmdlets gebruiken om een load balancer toe te voegen aan een virtuele machine binnen dezelfde cloudservice.
 
 In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam 'webfarm' toe aan de cloud service 'mytestcloud' (of myctestcloud.cloudapp.net) en voegt u de eindpunten voor de load balancer toe aan virtuele machines met de naam 'web1' en 'web2'. De load balancer ontvangt netwerkverkeer via poort 80 en verdeelt taken tussen virtuele machines die zijn gedefinieerd door het lokale eindpunt (in dit geval poort 80) met TCP.
@@ -47,7 +49,7 @@ In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam 
 Maak een eindpunt met gelijke taakverdeling voor de eerste VM 'web1'
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
 ### <a name="step-2"></a>Stap 2
@@ -55,7 +57,7 @@ Maak een eindpunt met gelijke taakverdeling voor de eerste VM 'web1'
 Maak een ander eindpunt voor de tweede VM 'web2' met dezelfde naam voor de set met gelijke taakverdeling
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
 ## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Verwijder een virtuele machine uit een load balancer
@@ -63,7 +65,7 @@ Maak een ander eindpunt voor de tweede VM 'web2' met dezelfde naam voor de set m
 U kunt Remove-AzureEndpoint gebruiken om het eindpunt van een virtuele machine uit de load balancer te verwijderen
 
 ```powershell
-    Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -74,6 +76,6 @@ Als uw toepassing verbindingen actief moet houden voor servers achter een load b
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

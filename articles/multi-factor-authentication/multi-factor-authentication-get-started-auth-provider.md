@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Aan de slag met een Azure Multi-Factor Authentication-provider
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Aan de slag met een Azure Multi-Factor Authentication-provider
 Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van Azure Active Directory- en Office 365-gebruikers. Als u echter wilt profiteren van [geavanceerde functies](multi-factor-authentication-whats-next.md), moet u de volledige versie van Azure Multi-Factor Authentication (MFA) aanschaffen.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Een Azure Multi-Factor Authentication-provider is vereist als u de SDK wilt down
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Een Azure Multi-Factor Authentication-provider maken
+## <a name="to-create-a-multi-factor-auth-provider"></a>Een Azure Multi-Factor Authentication-provider maken
 Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken.
 
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
@@ -64,6 +64,6 @@ Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider t
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

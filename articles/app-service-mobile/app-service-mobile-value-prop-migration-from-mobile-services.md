@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ In *Azure App Service* wordt de code voor de back-end van *mobiele apps* in deze
 * (Voor .NET) Gebruikmaken van alle functies van ASP.NET, waaronder MVC
 * (Voor Node.js) Gebruikmaken van alle pure JavaScript-bibliotheken van het Node-ecosysteem, waaronder algemene MVC-bibliotheken
 
-## <a name="access-onpremises-data-using-vnet"></a>Toegang tot on-premises gegevens met behulp van VNet
+## <a name="access-on-premises-data-using-vnet"></a>Toegang tot on-premises gegevens met behulp van VNet
 Met Mobile Services kunt u hybride verbindingen gebruiken voor toegang tot on-premises resources. Er zijn echter situaties waarbij een VPN-oplossing de voorkeur verdient. Met *Azure App Service* kunt u Azure VNet voor de back-endcode van uw mobiele app gebruiken.
 
 ## <a name="use-your-favorite-backend-language"></a>Uw favoriete taal voor back-ends gebruiken
@@ -67,6 +67,6 @@ Volg deze [zelfstudie](app-service-mobile-migrating-from-mobile-services.md) als
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

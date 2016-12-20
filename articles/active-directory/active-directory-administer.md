@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Als u nog geen abonnement hebt op een Microsoft-cloudservice, gebruikt u een van
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Een door Azure ingerichte standaarddirectory beheren
+### <a name="manage-an-azure-provisioned-default-directory"></a>Een door Azure ingerichte standaarddirectory beheren
 Er wordt tegenwoordig automatisch een directory gemaakt wanneer u zich registreert bij Azure. Uw abonnement wordt ook direct aan die directory gekoppeld. Als u zich vóór oktober 2013 bij Azure hebt geregistreerd, is er niet automatisch een directory gemaakt. In dat geval heeft Azure later mogelijk alsnog een standaarddirectory voor uw account ingericht. Uw abonnement is dan gekoppeld aan die standaarddirectory.
 
 Deze standaarddirectory’s zijn in oktober 2013 toegevoegd in het kader van een algemene verbetering van het beveiligingsmodel van Azure. Dankzij deze maatregel kunnen er aan alle Azure-klanten zakelijke identiteitsfuncties worden aangeboden. Bovendien kunnen alle Azure-resources zo alleen worden geopend door gebruikers van een directory. U kunt Azure niet gebruiken zonder directory. Daarom moest er voor elke gebruiker die zich vóór 7 juli 2013 had geregistreerd, maar geen directory had, een directory worden gemaakt. Als u destijds al een directory hebt gemaakt, is uw abonnement aan die directory gekoppeld.
@@ -150,6 +150,6 @@ Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

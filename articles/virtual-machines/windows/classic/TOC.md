@@ -9,7 +9,7 @@
 # Aan de slag
 ## [Een VM maken via de portal](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Aanmelden bij een VM](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Azure PowerShell installeren](../../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Azure PowerShell installeren](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI installeren](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Procedures
@@ -103,7 +103,7 @@
 
 # Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI](/cli/azure/vm)
+## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager-sjablonen schrijven](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -119,6 +119,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

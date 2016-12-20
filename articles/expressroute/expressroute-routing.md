@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
 
 
 ---
@@ -101,7 +101,7 @@ Wij ondersteunen maximaal 4000 voorvoegsels die aan ons zijn geadverteerd door m
 
 De BGP-sessie wordt verwijderd als het aantal voorvoegsels de limiet overschrijdt. Standaardroutes worden alleen geaccepteerd op de persoonlijke peeringkoppeling. Provider moet standaardroute- en privé IP-adressen (RFC 1918) uit de paden voor openbare Azure- en Microsoft-peering filteren. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Transitroutering en regio-overschrijdende routering
+## <a name="transit-routing-and-cross-region-routing"></a>Transitroutering en regio-overschrijdende routering
 ExpressRoute kan niet worden geconfigureerd als transitrouter. Voor transitrouteringsservices bent u aangewezen op uw connectiviteitsprovider.
 
 ## <a name="advertising-default-routes"></a>Standaardroutes adverteren
@@ -130,37 +130,39 @@ U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. H
 
 Daarom markeert Microsoft voorvoegsels die worden geadverteerd via openbare peering en Microsoft-peering met de juiste BGP-communitywaarden. Deze waarden geven de regio aan waarin de voorvoegsels worden gehost. Op basis van de communitywaarden worden de juiste routeringsbeslissingen genomen voor [optimale routering naar klanten](expressroute-optimize-routing.md).
 
-| **Geopolitieke regio** | **Microsoft Azure-regio** | **BGP-communitywaarde** |
-| --- | --- | --- |
-| **Noord-Amerika** | | |
-| VS - oost |12076:51004 | |
-| VS - oost 2 |12076:51005 | |
-| VS - west |12076:51006 | |
-| VS - west 2 |12076:51026 | |
-| West-centraal VS |12076:51027 | |
-| Noord-centraal VS |12076:51007 | |
-| Zuid-centraal VS |12076:51008 | |
-| VS - midden |12076:51009 | |
-| Canada - midden |12076:51020 | |
-| Canada - oost |12076:51021 | |
-| **Zuid-Amerika** | | |
-| Brazilië - zuid |12076:51014 | |
-| **Europa** | | |
-| Noord-Europa |12076:51003 | |
-| West-Europa |12076:51002 | |
-| **Azië en Stille Oceaan** | | |
-| Oost-Azië |12076:51010 | |
-| Zuidoost-Azië |12076:51011 | |
-| **Japan** | | |
-| Japan - oost |12076:51012 | |
-| Japan - west |12076:51013 | |
-| **Australië** | | |
-| Australië - oost |12076:51015 | |
-| Australië - zuidoost |12076:51016 | |
-| **India** | | |
-| India - zuid |12076:51019 | |
-| India - west |12076:51018 | |
-| India - midden |12076:51017 | |
+| **Microsoft Azure-regio** | **BGP-communitywaarde** |
+| --- | --- |
+| **Noord-Amerika** | |
+| VS - oost |12076:51004 |
+| VS - oost 2 |12076:51005 |
+| VS - west |12076:51006 |
+| VS - west 2 |12076:51026 |
+| West-centraal VS |12076:51027 |
+| Noord-centraal VS |12076:51007 |
+| Zuid-centraal VS |12076:51008 |
+| VS - midden |12076:51009 |
+| Canada - midden |12076:51020 |
+| Canada - oost |12076:51021 |
+| **Zuid-Amerika** | |
+| Brazilië - zuid |12076:51014 |
+| **Europa** | |
+| Noord-Europa |12076:51003 |
+| West-Europa |12076:51002 |
+| Verenigd Koninkrijk Zuid | 12076:51024 |
+| Verenigd Koninkrijk West | 12076:51025 |
+| **Azië en Stille Oceaan** | |
+| Oost-Azië |12076:51010 |
+| Zuidoost-Azië |12076:51011 |
+| **Japan** | |
+| Japan - oost |12076:51012 |
+| Japan - west |12076:51013 |
+| **Australië** | |
+| Australië - oost |12076:51015 |
+| Australië - zuidoost |12076:51016 |
+| **India** | |
+| India - zuid |12076:51019 |
+| India - west |12076:51018 |
+| India - midden |12076:51017 |
 
 Alle routes die worden geadverteerd vanuit Microsoft, worden gemarkeerd met de juiste community-waarde. 
 
@@ -173,16 +175,32 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 | **Service** | **BGP-communitywaarde** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype voor Bedrijven** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Andere Office 365-services** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype voor Bedrijven Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Andere online services van Office 365 |12076:5100 |
 
 > [!NOTE]
 > BGP-communitywaarden die u instelt op de routes die worden geadverteerd naar Microsoft, worden niet door Microsoft erkend.
 > 
 > 
+
+| **Nationale clouds Azure-regio**| **BGP-communitywaarde** |
+| --- | --- |
+| **Amerikaanse overheid** |  |
+| VS (overheid) - Iowa | 12076:51109 |
+| VS (overheid) - Virginia | 12076:51105 |
+
+
+| **Service in nationale clouds** | **BGP-communitywaarde** |
+| --- | --- |
+| **Amerikaanse overheid** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype voor Bedrijven Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Andere online services van Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Configureer uw ExpressRoute-verbinding.
@@ -194,6 +212,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,18 +16,18 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>An introduction to Domain-joined HDInsight clusters (Preview) (Een introductie tot HDInsight-clusters die zijn gekoppeld aan een domein (preview-versie))
+# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>An introduction to Domain-joined HDInsight clusters (Preview) (Een introductie tot HDInsight-clusters die zijn gekoppeld aan een domein (preview-versie))
 Tot nu toe werd in Azure HDInsight alleen ondersteuning geboden voor één lokale beheerder voor gebruikers. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Naarmate Hadoop-workloads populairder werden bij grote bedrijven, werden functies die voor dergelijke bedrijven relevant zijn, zoals AD-verificatie, ondersteuning voor meerdere gebruikers en toegangsbeheer op basis van rollen, steeds belangrijker. Als u gebruikmaakt van aan een domein gekoppelde HDInsight-clusters, kunt u een HDInsight-cluster maken dat is gekoppeld aan een Active Directory-domein, en een lijst met werknemers uit het bedrijf configureren die zich kunnen verifiëren via Azure Active Directory om zich aan te melden bij het HDInsight-cluster. Mensen van buiten het bedrijf kunnen zich niet aanmelden bij het HDInsight-cluster en hebben er geen toegang toe. De bedrijfsbeheerder kan toegangsbeheer op basis van rollen configureren voor Hive-beveiliging via [Apache Ranger](http://hortonworks.com/apache/ranger/). Op deze manier wordt de toegang tot gegevens alleen beperkt voor zover dit noodzakelijk is. Daarnaast kan de beheerder de toegang tot gegevens controleren voor werknemers en zien wanneer er wijzigingen worden aangebracht aan het toegangscontrolebeleid. Dit zorgt voor een hoge mate van beheer van de bedrijfsresources.
 
 > [!NOTE]
-> De nieuwe functies die in deze preview worden beschreven, zijn alleen beschikbaar met HDInsight-clusters op basis van Linux voor Hive-workloads. De andere workloads, zoals HBase, Spark, Storm en Kafka, komen beschikbaar in toekomstige releases. 
-> 
-> 
+> De nieuwe functies die in deze preview worden beschreven, zijn alleen beschikbaar met HDInsight-clusters op basis van Linux voor Hive-workloads. De andere workloads, zoals HBase, Spark, Storm en Kafka, komen beschikbaar in toekomstige releases.
+>
+>
 
 ## <a name="benefits"></a>Voordelen
 Bedrijfsbeveiliging bestaat uit vier kernonderdelen: perimeterbeveiliging, verificatie, autorisatie en versleuteling.
@@ -53,11 +53,10 @@ Het beveiligen van gegevens is belangrijk om te voldoen aan de vereisten voor or
 * Zie [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Aan een domein gekoppelde HDInsight-clusters beheren) om HDInsight-clusters te beheren die zijn gekoppeld aan een domein.
 * Zie [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Hive-beleid configureren voor aan een domein gekoppelde HDInsight-clusters) om Hive-beleid te configureren en Hive-query's uit te voeren.
-* Zie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster) (SSH met Hadoop op basis van Linux gebruiken op HDInsight in Linux, Unix of OS X) om Hive-query's uit te voeren met behulp van SSH op HDInsight-clusters die zijn gekoppeld aan een domein.
+* Zie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined) (SSH met Hadoop op basis van Linux gebruiken op HDInsight in Linux, Unix of OS X) om Hive-query's uit te voeren met behulp van SSH op HDInsight-clusters die zijn gekoppeld aan een domein.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

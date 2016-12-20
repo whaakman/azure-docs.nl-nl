@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ Via de IIS-verificatiesectie van de Azure Multi-Factor Authentication-server kun
 
 ![IIS-authenticatie](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>IIS-verificatie samen gebruiken met Azure Multi-Factor Authentication-server
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>IIS-verificatie samen gebruiken met Azure Multi-Factor Authentication-server
 Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op basis van een formulier, moet u de Azure Multi-Factor Authentication-server op de IIS-webserver installeren en de server volgens de onderstaande procedure configureren.
 
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-authenticatie.
@@ -43,7 +43,7 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op 
 13. Zodra de URL- en paginavariabelen zijn gedetecteerd of ingevoerd, worden de websitegegevens weergegeven in het paneel Op formulier gebaseerd.
 14. Zie de sectie IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server meteen hieronder om de configuratie van de IIS-verificatie te voltooien.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Geïntegreerde Windows-verificatie met Azure Multi-Factor Authentication-server gebruiken
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Geïntegreerde Windows-verificatie met Azure Multi-Factor Authentication-server gebruiken
 Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde Windows-verificatie voor HTTP, moet u de Azure Multi-Factor Authentication-server op de IIS-webserver installeren en de server volgens de onderstaande procedure configureren.
 
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
@@ -56,7 +56,7 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde 
 8. Klik op de knop OK.
 9. Zie de sectie [IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) meteen hieronder om de configuratie van de IIS-verificatie te voltooien.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>IIS-invoegtoepassingen inschakelen voor Azure Multi-Factor Authentication-server
 Zodra u de URL's en instellingen voor op formulier gebaseerde of HTTP-verificaties hebt ingesteld, moet u de locaties selecteren waar de IIS-invoegtoepassingen van Azure Multi-Factor Authentication moeten worden geladen en ingeschakeld in IIS. Gebruik de volgende procedure:
 
 1. Indien uitgevoerd op IIS 6, klikt u op het tabblad ISAPI- en selecteert u de website waaronder die webtoepassing wordt uitgevoerd (bijvoorbeeld de standaardwebsite) om de invoegtoepassing met de ISAPI-filter van Azure Multi-Factor Authentication voor die site in te schakelen.
@@ -74,6 +74,6 @@ De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Fac
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

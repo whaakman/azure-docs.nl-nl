@@ -121,8 +121,6 @@ API-apps zijn een van de vier soorten apps die worden aangeboden door Azure App 
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>

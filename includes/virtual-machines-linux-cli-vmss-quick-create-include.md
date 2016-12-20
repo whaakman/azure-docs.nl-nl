@@ -1,16 +1,23 @@
-Als u dat nog niet hebt gedaan, kunt u een [gratis proefversie aanvragen van een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/) en de [Azure CLI](../articles/xplat-cli-install.md) [ die met uw Azure-account is verbonden](../articles/xplat-cli-connect.md). Wanneer u dit hebt gedaan, kunt u de volgende opdrachten uitvoeren om snel een schaalset te maken:
+Als u dat nog niet hebt gedaan, kunt u een [gratis proefversie aanvragen van een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/) en de [Azure CLI](../articles/xplat-cli-install.md) [ die met uw Azure-account is verbonden](../articles/xplat-cli-connect.md). Ga als volgt te werk om te controleren of de Azure-CLI zich in de modus Resource Manager bevindt:
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+Maak nu de schaalset met behulp van de opdracht `azure vmss quick-create`. In het volgende voorbeeld wordt een Linux-schaalset gemaakt genaamd `myVMSS` met 5 VM-exemplaren in de resourcegroep met de naam `myResourceGroup`:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+In het volgende voorbeeld wordt een Windows-schaalset gemaakt met dezelfde configuratie:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Wilt u de locatie of image-urn aanpassen, bekijk dan de opdrachten `azure location list` en `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -30,7 +37,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

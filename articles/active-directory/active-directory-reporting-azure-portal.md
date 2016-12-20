@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory-rapportage - preview
+# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory-rapportage - preview
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Klassieke Azure Portal](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
 
 Afhankelijk van het bereik van de gegevens die u zoekt, kunt u de rapporten openen door op **Gebruikers en groepen** of **Bedrijfstoepassingen** te klikken in de lijst met services in [Azure Portal](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Aanmeldactiviteiten
-### <a name="user-signin-activities"></a>Aanmeldactiviteiten van gebruikers
+## <a name="sign-in-activities"></a>Aanmeldactiviteiten
+### <a name="user-sign-in-activities"></a>Aanmeldactiviteiten van gebruikers
 In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
 * Wat is het aanmeldingspatroon van een gebruiker?
@@ -97,7 +97,7 @@ Met de kolomkiezer kunt u kiezen welke gegevensvelden u wilt weergeven.
 
 ![Rapportage](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Aanmeldingen filteren
+### <a name="filtering-sign-ins"></a>Aanmeldingen filteren
 U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
 
 * Datum en tijd 
@@ -203,6 +203,6 @@ Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

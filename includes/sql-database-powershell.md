@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Een PowerShell-sessie starten
-Eerst moet u de nieuwste versie van [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) installeren en uitvoeren. Zie [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md) (Azure PowerShell installeren en configureren) voor gedetailleerde informatie.
+Eerst moet u de nieuwste versie van [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) installeren en uitvoeren. Zie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) voor gedetailleerde informatie.
 
 > [!NOTE]
 > Veel nieuwe functies van SQL Database worden alleen ondersteund als u het [Azure Resource Manager-implementatiemodel](../articles/azure-resource-manager/resource-group-overview.md) gebruikt. Daarom worden in voorbeelden de [Azure SQL Database PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) voor Resource Manager gebruikt. De [cmdlets van Azure SQL Database Service Management](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) van het klassieke Service Management-implementatiemodel worden ondersteund voor compatibiliteit met eerdere versies, maar we raden u aan om de Resource Manager-cmdlets te gebruiken.
@@ -16,6 +16,6 @@ Als u meerdere abonnementen hebt, gebruik dan de cmdlet [**Set-AzureRmContext**]
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

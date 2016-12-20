@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/23/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4582e81a0d2e7bf5be401e72885e2ee751087cf5
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
 
 
 ---
@@ -33,7 +33,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen) |Standard_DS3 (4 kerngeheugens, 14 GB geheugen) |
 | **Versiecompatibiliteit** |Versies met Update 2 of oudere of nieuwere software |Versies met Update 2 of nieuwere software |
 | **Beschikbaarheid in regio’s** |Alle Azure-regio's |Azure-regio’s waar ondersteuning wordt geboden voor Premium-opslag<br></br>Zie [Ondersteunde regio's voor 8020](#supported-regions-for-8020) voor een lijst met regio’s |
-| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt]() |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen |
 
 <sup>1</sup> *Voorheen bekend als de 1100*.
@@ -41,7 +41,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 <sup>2</sup> *Voor zowel de 8010 als de 8020 wordt voor de cloudlaag Azure Standard-opslag gebruikt. Het verschil zit hem alleen in de lokale laag in het apparaat*.
 
 #### <a name="supported-regions-for-8020"></a>Ondersteunde regio’s voor de 8020
-De Premium-opslagregio's die momenteel worden ondersteund voor de 8020, worden hieronder in een tabel weergegeven. Deze lijst wordt steeds bijgewerkt naarmate Premium-opslag beschikbaar komt in meer regio's. 
+De Premium-opslagregio's die momenteel worden ondersteund voor de 8020, worden hieronder in een tabel weergegeven. Deze lijst wordt steeds bijgewerkt naarmate Premium-opslag beschikbaar komt in meer regio's.
 
 | S. nr. | Momenteel niet ondersteund in de volgende regio’s |
 | --- | --- |
@@ -68,7 +68,7 @@ In dit artikel wordt stapsgewijs beschreven hoe u een virtueel StorSimple-appara
 * Kunt u verbinding maken met het virtuele apparaat.
 * Kunt u met het virtuele apparaat werken.
 
-Deze zelfstudie is van toepassing op alle virtuele StorSimple-apparaten met Update 2 en hoger. 
+Deze zelfstudie is van toepassing op alle virtuele StorSimple-apparaten met Update 2 en hoger.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Waarin het virtuele apparaat verschilt van het fysieke apparaat
 Het virtuele StorSimple-apparaat is een versie van StorSimple die alleen uit software bestaat en wordt uitgevoerd op één knooppunt in een virtuele Microsoft Azure-machine. Het virtuele apparaat biedt ondersteuning voor herstel na noodgevallen waarbij uw fysieke apparaat niet beschikbaar is. Het kan worden gebruikt om op itemniveau bestanden te herstellen van back-ups, voor on-premises herstel na noodgevallen, en voor cloudontwikkelings- en testscenario’s.
@@ -91,9 +91,9 @@ Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen tref
 
 * Voor het virtuele apparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. Meer informatie over [regio’s die momenteel worden ondersteund voor de 8020](#supported-regions-for-8020).
 * Het is raadzaam om de standaard-DNS-server van Azure te gebruiken. Geef liever geen eigen naam op voor de DNS-server. Als uw DNS-servernaam niet geldig is of als de DNS-server IP-adressen niet correct kan omzetten, mislukt het maken van het virtuele apparaat.
-* Punt-naar-site en site-naar-site zijn optioneel, maar niet vereist. Als u wilt, kunt u deze opties configureren in meer geavanceerde scenario's. 
-* U kunt [virtuele Azure-machines](../virtual-machines/virtual-machines-linux-about.md) (hostservers) maken in het virtuele netwerk; deze maken gebruik van de volumes die beschikbaar worden gesteld door het virtuele apparaat. Deze servers moeten aan de volgende vereisten voldoen:                             
-  
+* Punt-naar-site en site-naar-site zijn optioneel, maar niet vereist. Als u wilt, kunt u deze opties configureren in meer geavanceerde scenario's.
+* U kunt [virtuele Azure-machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostservers) maken in het virtuele netwerk; deze maken gebruik van de volumes die beschikbaar worden gesteld door het virtuele apparaat. Deze servers moeten aan de volgende vereisten voldoen:                             
+
   * Het moeten virtuele Windows- of Linux-machines zijn waarop de iSCSI-initiatorsoftware is geïnstalleerd.
   * Ze moeten in hetzelfde virtuele netwerk worden uitgevoerd als het virtuele apparaat.
   * Ze moeten in staat zijn om verbinding te maken met het iSCSI-doel van het virtuele apparaat via het interne IP-adres van het virtuele apparaat.
@@ -103,7 +103,7 @@ Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen tref
 Breng de volgende updates aan in uw Azure StorSimple-service voordat u een virtueel apparaat maakt:
 
 * Voeg [Access Control Records](storsimple-manage-acrs.md) toe voor de virtuele machines die gebruikt gaan worden als hostservers voor uw virtuele apparaat.
-* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount]() of een [Premium Storage-account](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard Storage-account]((../storage/storage-create-storage-account.md) of een [Premium Storage-account](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Gebruik een ander opslagaccount voor het maken van het virtuele apparaat dan voor het apparaat dat u gebruikt voor uw gegevens. Als u hetzelfde opslagaccount gebruikt, kan dat leiden tot slechte prestaties.
 
 Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:
@@ -112,9 +112,9 @@ Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:
 * Een kopie van de gegevensversleutelingssleutel van de service van uw fysieke apparaat.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Het virtuele apparaat maken en configureren
-Voordat u deze procedures uitvoert, zorgt u ervoor dat u voldoet aan de [vereisten voor het virtuele apparaat](#prerequisites-for-the-virtual-device). 
+Voordat u deze procedures uitvoert, zorgt u ervoor dat u voldoet aan de [vereisten voor het virtuele apparaat](#prerequisites-for-the-virtual-device).
 
-Wanneer u een virtueel netwerk hebt gemaakt, een StorSimple Manager-service hebt gemaakt en uw fysieke StorSimple-apparaat hebt geregistreerd bij de service, volgt u de volgende stappen om een virtueel StorSimple-apparaat te maken en te configureren. 
+Wanneer u een virtueel netwerk hebt gemaakt, een StorSimple Manager-service hebt gemaakt en uw fysieke StorSimple-apparaat hebt geregistreerd bij de service, volgt u de volgende stappen om een virtueel StorSimple-apparaat te maken en te configureren.
 
 ### <a name="step-1-create-a-virtual-device"></a>Stap 1: een virtueel apparaat maken
 Voer de volgende stappen uit om het virtuele StorSimple-apparaat te maken.
@@ -127,6 +127,7 @@ Als het maken van het virtuele apparaat in deze stap mislukt, hebt u mogelijk ge
 Voordat u aan deze procedure begint, zorgt u ervoor dat u een kopie van de gegevensversleutelingssleutel van de service hebt. De gegevensversleutelingssleutel van de service is gemaakt toen u uw eerste StorSimple-apparaat configureerde. U hebt toen de instructie gekregen om de sleutel op een veilige locatie op te slaan. Als u geen kopie van de gegevensversleutelingssleutel van de service hebt, moet u contact opnemen met Microsoft Ondersteuning voor hulp.
 
 Voer de volgende stappen uit om het virtuele StorSimple-apparaat te configureren en te registreren.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Stap 3: (optioneel) de configuratie-instellingen van het apparaat wijzigen
@@ -143,8 +144,8 @@ De StorSimple Snapshot Manager-software bevindt zich op uw Windows-host. Met dez
 
 > [!NOTE]
 > Voor het virtuele apparaat is uw Windows-host een virtuele Azure-machine.
-> 
-> 
+>
+>
 
 Wanneer u in StorSimple Snapshot Manager een apparaat configureert, wordt u gevraagd om het IP-adres en het wachtwoord van het StorSimple-apparaat op te geven voor verificatie van uw opslagapparaat. Zie [Het wachtwoord voor StorSimple Snapshot Manager configureren](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password) voor gedetailleerde stappen.
 
@@ -166,13 +167,13 @@ Wanneer u extern beheer hebt ingeschakeld op de configuratiepagina van het StorS
 
 > [!WARNING]
 > **Voor een betere beveiliging wordt aangeraden HTTPS te gebruiken bij het verbinden met de eindpunten en om de eindpunten te verwijderen nadat u uw externe PowerShell-sessie hebt voltooid.**
-> 
-> 
+>
+>
 
 U moet de procedures in [Op afstand verbinding maken met uw StorSimple-apparaat](storsimple-remote-connect.md) volgen voor het instellen van externe toegang tot uw virtuele apparaat.
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Rechtstreeks verbinding maken met het virtuele apparaat
-U kunt ook rechtstreeks verbinding maken met het virtuele apparaat. Als u rechtstreeks verbinding wilt maken met het virtuele apparaat vanaf een andere computer buiten het virtuele netwerk of buiten de Microsoft Azure-omgeving, moet u extra eindpunten maken, zoals wordt beschreven in de volgende procedure. 
+U kunt ook rechtstreeks verbinding maken met het virtuele apparaat. Als u rechtstreeks verbinding wilt maken met het virtuele apparaat vanaf een andere computer buiten het virtuele netwerk of buiten de Microsoft Azure-omgeving, moet u extra eindpunten maken, zoals wordt beschreven in de volgende procedure.
 
 Voer de volgende stappen uit om een openbaar eindpunt te maken op het virtuele apparaat.
 
@@ -226,8 +227,8 @@ Het virtuele StorSimple-apparaat is onder meer ontworpen voor herstel na noodgev
 > [!NOTE]
 > * Als u een virtueel apparaat als secundair apparaat gebruikt voor herstel na noodgevallen, moet u er rekening mee houden dat de 8010 30 TB aan Standard-opslag biedt en de 8020 64 TB aan Premium-opslag. De 8020 met een hogere capaciteit is mogelijk beter geschikt voor herstel na noodgevallen.
 > * Als u een apparaat hebt met Update 2, kunt u er geen failover voor uitvoeren naar een apparaat met software die ouder is dan Update 1. Ook kunt u er op een dergelijk apparaat geen kloon van opslaan. U kunt echter wel een failover van een apparaat met Update 2 uitvoeren naar een apparaat met Update 1 (1.1 of 1.2)
-> 
-> 
+>
+>
 
 Zie [Failover naar een virtueel apparaat](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device) voor een stapsgewijze procedure.
 
@@ -244,21 +245,20 @@ Als u het virtuele apparaat verwijdert of uitschakelt, wordt het als **Offline**
 Als er tijdens het maken van een virtueel apparaat geen verbinding is met internet, mislukt deze stap. Als u wilt vaststellen of de fout wordt veroorzaakt door de internetverbinding, voert u de volgende stappen uit in de klassieke Azure-portal:
 
 1. Maak een virtuele Windows Server 2012-machine in Azure. Deze virtuele machine moet hetzelfde opslagaccount, VNet en subnet gebruiken als die worden gebruikt door uw virtuele apparaat. Als u al een bestaande Windows Server-host in Azure hebt die hetzelfde opslagaccount, Vnet en subnet gebruikt, kunt u deze ook gebruiken om het probleem met de internetverbinding op te lossen.
-2. Meld u extern aan bij de virtuele machine die u in de vorige stap hebt gemaakt. 
+2. Meld u extern aan bij de virtuele machine die u in de vorige stap hebt gemaakt.
 3. Open een opdrachtvenster in de virtuele machine (Win + R en typ vervolgens `cmd`).
 4. Voer de volgende opdracht uit bij de prompt.
-   
+
     `nslookup windows.net`
-5. Als `nslookup` mislukt, zorgt het probleem met de internetverbinding ervoor dat het virtuele apparaat zich niet kan registreren bij de StorSimple Manager-service. 
+5. Als `nslookup` mislukt, zorgt het probleem met de internetverbinding ervoor dat het virtuele apparaat zich niet kan registreren bij de StorSimple Manager-service.
 6. Breng de benodigde wijzigingen aan in uw virtuele netwerk om ervoor te zorgen dat het virtuele apparaat toegang kan krijgen tot Azure-sites zoals 'windows.net'.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Ontdek hoe u [de StorSimple Manager-service gebruikt om een virtueel apparaat te beheren](storsimple-manager-service-administration.md).
-* Ontdek hoe u [een StorSimple-volume herstelt op basis van een back-upset](storsimple-restore-from-backup-set.md). 
+* Ontdek hoe u [een StorSimple-volume herstelt op basis van een back-upset](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

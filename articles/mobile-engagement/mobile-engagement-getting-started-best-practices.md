@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
 ## <a name="overview"></a>Overzicht
 **Het mobiele scherm staat vol:** uit een in 2013 uitgevoerde studie bleek dat op het gemiddelde mobiele apparaat 27 toepassingen zijn geïnstalleerd. Gebruikers brachten doorgaans 30 uur per maand door in hun apps. De meeste tijd werd doorgebracht op sociale netwerken en met gamen (ongeveer 20 uur). Begin 2014 waren er op de Android-markt circa 1,5 miljoen toepassingen beschikbaar waar gebruikers uit konden kiezen. De Apple Store bevatte ongeveer 1,2 miljoen apps. Het gebruik van mobiele apps neemt nog steeds toe en ontwikkelaars blijven concurreren op deze groeiende markt. 
 
@@ -105,7 +105,7 @@ Een KPI-dashboard maken dat onderstaande informatie bevat
 3. Waar bevinden zich deze gegevens voor de toepassing (scherm, instellingen, systeem, enz.)?
 4. Kan ik voor deze KPI een betrokkenheidsreeks afspelen?
 
-Gebruik het werkblad **KPI Builder** in onze [Media Playbook-sjabloon][link naar Media Playbook] voor voorbeelden en richtlijnen.
+Gebruik het werkblad **KPI Builder** in onze [Media Playbook-sjabloon][Media Playbook link] voor voorbeelden en richtlijnen.
 
 ## <a name="step-2-your-engagement-program"></a>Stap 2: uw betrokkenheidsprogramma
 Een doordacht programma voor mobiele betrokkenheid vormt een belangrijk onderdeel van uw app. Essentieel hierin is een aantrekkelijk welkomstprogramma dat voor de gebruiker wordt uitgevoerd tijdens de eerste dagen van het app-gebruik. Dit heeft vaak een zeer positieve invloed op de betrokkenheid bij en retentie van uw app. Uit onderzoek is gebleken dat de meeste gebruikers al in de eerste paar dagen na de installatie stoppen met het gebruik van een app. Het is dus zaak om aan de verwachting van de gebruiker te voldoen of deze zelfs te overtreffen wanneer de gebruiker nog aandacht heeft voor uw app. Zorg er daarom voor dat u de belangrijkste waarde en voordelen van uw app benadrukt. 
@@ -209,13 +209,13 @@ Azure Mobile Engagement biedt twee manieren om te voorkomen dat uw communicatie-
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Draaiboekoefening 2: uw betrokkenheidsprogramma maken
 Besteed voldoende tijd aan het samenvatten van uw doelstellingen en het definiëren van de campagnes die u met specifieke reeksen wilt uitvoeren. Zorg ervoor dat u de 3W-methode toepast op de meldingen in uw campagnes. 
 
-Gebruik het werkblad **Engagement Program** in de [Media Playbook-sjabloon][link naar Media Playbook] voor voorbeelden en richtlijnen.
+Gebruik het werkblad **Engagement Program** in de [Media Playbook-sjabloon][Media Playbook link] voor voorbeelden en richtlijnen.
 
 ## <a name="step-3-app-integration"></a>Stap 3: app-integratie
 #### <a name="create-a-tag-plan"></a>Een tagplan maken
 Voor de integratie van Azure Mobile Engagement in uw app moet u een tagplan maken. Uw tagplan vormt de basis voor het project. In het tagplan definieert u de relatie tussen de marketingspecificaties, de werkstroom van de toepassing en de feitelijke taggegevens die in de app worden verzameld voor het meten van de KPI's. In het tagplan wordt daarnaast aangegeven welke analyses u in de portal kunt zien. Bovendien helpt het tagplan u gebruikerssegmenten te definiëren en gerichte pushmeldingen te verzenden om uw eindgebruikers tot actie aan te zetten. Na het definiëren van het tagplan kunt u de code eenvoudig in uw app integreren met behulp van de Azure Mobile Engagement SDK.
 
-Het is niet de bedoeling dat u met uw tagplan alles in uw toepassing tagt. Alleen taggegevens die onderdeel uitmaken van uw strategie voor mobiele betrokkenheid, moeten hierin worden opgenomen. Wat u wel opneemt en wat niet, verschilt per toepassing. De [Media Playbook-sjabloon][link naar Media Playbook] die Azure Mobile Engagement biedt, helpt u bij het maken van een tagplan op basis van een bepaalde methode. Gebruik het werkblad **Tag Plan** als voorbeeld voor het ontwikkelen van uw tagplan.
+Het is niet de bedoeling dat u met uw tagplan alles in uw toepassing tagt. Alleen taggegevens die onderdeel uitmaken van uw strategie voor mobiele betrokkenheid, moeten hierin worden opgenomen. Wat u wel opneemt en wat niet, verschilt per toepassing. De [Media Playbook-sjabloon][Media Playbook link] die Azure Mobile Engagement biedt, helpt u bij het maken van een tagplan op basis van een bepaalde methode. Gebruik het werkblad **Tag Plan** als voorbeeld voor het ontwikkelen van uw tagplan.
 
 Wees zeer specifiek bij het definiëren van een tagsectie in het werkblad. Dit is erg belangrijk om verwarring te voorkomen. Werk elk verwacht scenario waarin elke tag wordt verzonden, tot in detail uit. Voeg de naam toe van de activiteit waarin elke tag is ingesloten. Deze gegevens moeten allemaal worden opgenomen op het gedeelte **Informative** van het werkblad. Het werkblad van het tagplan vormt het belangrijkste referentiepunt voor de testverificatie. 
 
@@ -322,10 +322,10 @@ Hebt u eenmaal wat ervaring opgedaan, dan kunt u overwegen het volgende aan uw b
 
 
 <!--Link references-->
-[link naar Media Playbook]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

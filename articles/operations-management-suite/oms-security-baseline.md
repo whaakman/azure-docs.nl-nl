@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 12/05/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
+ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
 
 
 ---
@@ -75,7 +76,7 @@ In dit logboekresultaat ziet u het type basislijnregel dat is mislukt, de beschr
 > 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Computers openen waarop de evaluatie van de basislijn ontbreekt
-OMS ondersteunt het basislijnprofiel van het domeinlid op Windows Server 2008 R2 tot en met Windows Server 2012 R2. De basislijn voor Windows Server 2016 is nog niet helemaal klaar en wordt toegevoegd zodra deze is gepubliceerd. Alle andere besturingssystemen die via basislijnevaluatie in Beveiligings en controle in OMS zijn gescand, worden weergegeven onder de sectie **Computers waarop de evaluatie van de basislijn ontbreekt**.
+OMS ondersteunt het basislijnprofiel van het domeinlid en de Domain Controller op Windows Server 2008 R2 tot en met Windows Server 2012 R2. De basislijn voor Windows Server 2016 is nog niet helemaal klaar en wordt toegevoegd zodra deze is gepubliceerd. Alle andere besturingssystemen die via basislijnevaluatie in Beveiligings en controle in OMS zijn gescand, worden weergegeven onder de sectie **Computers waarop de evaluatie van de basislijn ontbreekt**.
 
 ## <a name="see-also"></a>Zie ook
 In dit document hebt u meer kunnen lezen over het evalueren van de basislijn door Beveiliging- en controle in OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
@@ -87,6 +88,6 @@ In dit document hebt u meer kunnen lezen over het evalueren van de basislijn doo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
