@@ -1,24 +1,27 @@
-
 ---
-title: Peering op virtueel netwerk Azure | Microsoft Docs
+title: Peering in virtuele netwerken van Azure | Microsoft Docs
 description: Meer informatie over VNet-peering in Azure.
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
 manager: jefco
 editor: tysonn
-
+ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/28/2016
+ms.date: 10/17/2016
 ms.author: narayan
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0d4d13d44581f98ead7d65f3bb819e54b93a76b6
+
 
 ---
-# VNet-peering
-VNet-peering is een mechanisme dat twee virtuele netwerken in dezelfde regio via het backbone-netwerk van Azure met elkaar verbindt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
+# <a name="vnet-peering"></a>VNet-peering
+VNet-peering is een mechanisme dat twee virtuele netwerken (VNets) in dezelfde regio via het backbone-netwerk van Azure met elkaar verbindt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
 
 Het verkeer tussen virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de Azure-infrastructuur zoals het verkeer dat wordt gerouteerd tussen virtuele machines in hetzelfde virtuele netwerk. De voordelen van VNet-peering zijn onder andere:
 
@@ -32,12 +35,13 @@ Vereisten en de belangrijkste aspecten van VNet-peering:
 * De virtuele netwerken die worden gekoppeld, moeten niet-overlappende IP-adresruimten hebben.
 * VNet-peering vindt plaats tussen twee virtuele netwerken en er is geen afgeleide transitieve relatie. Als virtueel netwerk A bijvoorbeeld is gekoppeld aan virtueel netwerk B, en als virtueel netwerk B is gekoppeld aan virtueel netwerk C, betekent dit niet automatisch dat virtueel netwerk A is gekoppeld aan virtueel netwerk C.
 * Peering kan tot stand worden gebracht tussen virtuele netwerken in twee verschillende abonnementen, mits een bevoegde gebruiker van beide abonnementen de peering toestaat en de abonnementen zijn gekoppeld aan dezelfde Active Directory-tenant. 
+* Peering tussen een virtueel netwerk met een resourcemanager-model en een met een klassiek implementatiemodel vereist dat de VNets onder hetzelfde abonnement vallen.
 * Een virtueel netwerk dat gebruikmaakt van het Resource Manager-implementatiemodel kan worden gekoppeld aan een ander virtueel netwerk dat gebruikmaakt van dit model, of aan een virtueel netwerk dat gebruikmaakt van het klassieke implementatiemodel. Echter, virtuele netwerken die gebruikmaken van het klassieke implementatiemodel kunnen niet aan elkaar worden gekoppeld.
 * Hoewel de communicatie tussen virtuele machines in gekoppelde virtuele netwerken geen extra bandbreedtebeperkingen heeft, is er nog steeds een bandbreedtelimiet op basis van VM-grootte van toepassing.
 
 ![Basic VNet-peering](./media/virtual-networks-peering-overview/figure01.png)
 
-## Connectiviteit
+## <a name="connectivity"></a>Connectiviteit
 Nadat twee virtuele netwerken aan elkaar zijn gekoppeld, kan een virtuele machine (web-/werkrol) in het virtuele netwerk rechtstreeks verbinding maken met andere virtuele machines in het gekoppelde virtuele netwerk. Deze twee netwerken hebben een volledige IP-verbinding.
 
 De netwerklatentie voor een retour tussen twee virtuele machines in gelijkwaardige virtuele netwerken is dezelfde als die voor een retour binnen een lokaal virtueel netwerk. De netwerkdoorvoer is gebaseerd op de bandbreedte die is toegestaan voor de virtuele machine, evenredig aan de grootte. Er gelden verder geen extra beperkingen voor bandbreedte.
@@ -50,12 +54,12 @@ Wanneer gebruikers peering configureren, kunnen ze de NSG-regels tussen de virtu
 
 Door Azure verschafte interne DNS-naamomzetting voor virtuele machines werkt niet in gekoppelde virtuele netwerken. Virtuele machines hebben interne DNS-namen die alleen binnen het lokale virtuele netwerk oplosbaar zijn. Gebruikers kunnen echter virtuele machines in gekoppelde virtuele netwerken configureren als DNS-servers voor een virtueel netwerk.
 
-## Servicechaining
+## <a name="service-chaining"></a>Servicechaining
 Gebruikers kunnen door gebruikers gedefinieerde routetabellen configureren die naar virtuele machines in gekoppelde virtuele netwerken verwijzen als het 'volgende hop'-IP-adres, zoals verderop in dit artikel wordt weergegeven in het diagram. Hierdoor kunnen gebruikers servicechaining bereiken, waarmee ze verkeer van een virtueel netwerk naar een virtueel apparaat dat wordt uitgevoerd in een gekoppeld virtueel netwerk kunnen leiden, door middel van door gebruikers gedefinieerde routetabellen.
 
 Gebruikers kunnen ook effectief hub en spoke-achtige omgevingen bouwen waarin de hub infrastructuuronderdelen kan hosten, zoals een virtueel netwerkapparaat. Alle virtuele spokenetwerken kunnen hier vervolgens aan worden gekoppeld, terwijl ook een subset verkeer wordt geleid naar apparaten die worden uitgevoerd in het virtuele hub-netwerk. Kort gezegd, met VNet-peering kan het 'volgende hop'-IP-adres op de door de gebruiker gedefinieerde routetabel het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk.
 
-## Gateways en on-premises connectiviteit
+## <a name="gateways-and-on-premises-connectivity"></a>Gateways en on-premises connectiviteit
 Elk virtueel netwerk, ongeacht of het gekoppeld is aan een ander virtueel netwerk, kan nog steeds een eigen gateway hebben en gebruiken om te verbinden met on-premises. Gebruikers kunnen ook [VNet-naar-VNet-verbindingen](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) configureren door gateways te gebruiken, ook al zijn de virtuele netwerken gekoppeld.
 
 Wanneer beide opties voor interconnectiviteit tussen virtuele netwerken zijn geconfigureerd, loopt het verkeer tussen de virtuele netwerken via de peering-configuratie (dat wil zeggen, via de Azure-backbone).
@@ -68,24 +72,27 @@ Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden
 
 ![Doorvoer VNet-peering](./media/virtual-networks-peering-overview/figure02.png)
 
-## Inrichten
+## <a name="provisioning"></a>Inrichten
 VNet-peering is een bevoegde bewerking. Het is een afzonderlijke functie onder de VirtualNetworks-naamruimte. Een gebruiker kan specifieke rechten krijgen voor het machtigen van peering. Een gebruiker met lees-/schrijftoegang tot het virtuele netwerk krijgt automatisch deze rechten.
 
 Een gebruiker die ofwel een beheerder is of een bevoegde gebruiker van de peering-mogelijkheid kan een peering-bewerking op een ander VNet initiëren. Als er een overeenkomende aanvraag voor peering van de andere kant komt, en aan andere vereisten wordt voldaan, wordt de peering tot stand gebracht.
 
 Raadpleeg de artikelen in de sectie 'Volgende stappen' voor meer informatie over het opzetten van VNet-peering tussen twee virtuele netwerken.
 
-## Limieten
+## <a name="limits"></a>Limieten
 Er zijn limieten voor het aantal peerings dat is toegestaan voor één virtueel netwerk. Raadpleeg [Limieten voor Azure-netwerken](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
 
-## Prijzen
+## <a name="pricing"></a>Prijzen
 VNet-peering is tijdens de controleperiode gratis. Na de release wordt er een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van de peering. Raadpleeg voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Peering instellen tussen virtuele netwerken](virtual-networks-create-vnetpeering-arm-portal.md).
 * Meer informatie over [NSG's](virtual-networks-nsg.md).
 * Meer informatie over [door de gebruiker gedefinieerde routes en doorsturen via IP](virtual-networks-udr-overview.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 
