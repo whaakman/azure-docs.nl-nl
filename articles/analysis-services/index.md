@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het instellen van gegevensmodellering met Analysis Services in de cloud. Documentatie laat zien hoe u een zakelijke BI-oplossing maakt met behulp van tabelgegevens.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
+ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
 
 ---
 # <a name="analysis-services-documentation"></a>Documentatie voor Analysis Services
 
-Azure Analysis Services is ontworpen op basis van de bewezen analyse-engine in Microsoft SQL Server Analysis Services en levert hoogwaardige gegevensmodellen in de cloud.
+Meer informatie over het instellen en beheren van gegevensmodellering met Analysis Services. Zelfstudies en andere documentatie laten zien hoe u met tabelgegevens in de cloud of on-premises een zakelijke BI-oplossing op bedrijfsniveau maakt.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -108,6 +109,6 @@ Documentatie voor Analysis Services downloaden </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

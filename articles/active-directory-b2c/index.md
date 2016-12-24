@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Meer informatie over de implementatie van uitgebreid identiteitsbeheer voor consumenten in de cloud. Documentatie laat zien hoe u consumentgerichte web- en mobiele apps kunt beschermen.
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Documentatie over Active Directory B2C
 
-Azure Active Directory B2C is een uitgebreide oplossing voor cloudidentiteitsbeheer voor uw webtoepassingen en mobiele toepassingen voor consumenten. Dit is een maximaal beschikbare, wereldwijde service voor honderden miljoenen consumentidentiteiten. Azure Active Directory B2C is ontwikkeld op een hoogwaardig, veilig platform en is bedoeld om uw toepassingen, uw bedrijf en uw klanten te beveiligen.
+Meer informatie over het instellen en beheren van uitgebreid identiteitsbeheer voor consumenten in de cloud met Active Directory B2C. Zelfstudies, referenties en andere documentatie laten zien hoe u consumentgerichte web- en mobiele toepassingen kunt beschermen met beveiligde aanmelding.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Documentatie over Active Directory B2C downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

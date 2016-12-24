@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het implementeren van een controller voor cloudtoepassingslevering. Documentatie laat zien hoe u routering op toepassingsniveau en taakverdeling instelt voor een webfront-end.
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cbe8ab766a97c628dcbf5e3a34ec1fb1b779942c
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Documentatie over Application Gateway
 
-Azure Application Gateway biedt ADC (Application Delivery Controller) als een service.  Hiermee kunnen klanten de productiviteit van webfarms optimaliseren door de CPU te ontlasten bij SSL-beëindiging met de Application Gateway.  Het is een speciaal virtueel apparaat voor uw toepassing dat schaalbaar is, een hoge beschikbaarheid heeft en een uitgebreide reeks diagnostische gegevens en logboekregistratiemogelijkheden biedt voor betere beheerbaarheid.
+Meer informatie over de implementatie van de Azure Application Gateway-ADC (application delivery controller) als een service. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u routering op toepassingsniveau en taakverdelingsservices kunt instellen om een schaalbaar en maximaal beschikbaar webfront-end te bouwen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Application Gateway biedt ADC (Application Delivery Controller) als een se
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,81 +105,51 @@ Azure Application Gateway biedt ADC (Application Delivery Controller) als een se
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-referentie</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 Preview</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/cli/azure/network/application-gateway">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure-CLI</h3>
-                        <p>Azure-CLI</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.js</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Naslaginformatie over de .NET-API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API-naslaginformatie</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt684939.aspx">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Naslaginformatie over REST-API (klassiek)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>   
-    </ul>
-    
+    </li>
+</ul>   
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
@@ -190,6 +161,6 @@ Documentatie over Application Gateway downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u met Notification Hubs pushmeldingen van een willekeurige back-end verzendt naar een willekeurig mobiel apparaat. Zelfstudies, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
+ms.sourcegitcommit: 0d46d0e04550578a81c636aa118dc02c08428838
+ms.openlocfilehash: 8a4712af44c474cea93f04bf598e6595ba0dadee
 
 ---
 #<a name="notification-hubs-documentation"></a>Documentatie voor Notification Hubs
 
-Azure Notification Hubs bieden een gebruiksvriendelijke, uitgebreide pushinfrastructuur voor meerdere platforms waarmee u mobiele pushmeldingen vanaf elke back-end (in de cloud of on-premises) naar elk mobiel platform kunt versturen.
-
-Met Notification Hubs kunt u eenvoudig persoonlijke pushmeldingen naar meerdere platformen verzenden, waarbij de details van de verschillende platform notification systems (PNS) worden afgeleid. Met één API-aanroep kunt u afzonderlijke gebruikers of een publiek van miljoenen gebruikers op al hun apparaten bereiken.
+Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platformsysteem voor pushberichten, snel miljoenen berichten kunt verzenden. Zelfstudies, API-referenties en andere documentatie laten zien hoe u pushmeldingen instelt en verzendt van een willekeurige back-end naar een willekeurig mobiel apparaat. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -31,7 +30,7 @@ Met Notification Hubs kunt u eenvoudig persoonlijke pushmeldingen naar meerdere 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -160,52 +159,45 @@ Met Notification Hubs kunt u eenvoudig persoonlijke pushmeldingen naar meerdere 
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdlets voor Notification Hubs</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Naslaginformatie over de .NET-API voor Notification Hubs</p>
-                    </div>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Notification Hubs</p>
+                        <p><a href="/rest/api/notificationhubs">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
@@ -219,6 +211,6 @@ Documentatie voor Notification Hubs downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
