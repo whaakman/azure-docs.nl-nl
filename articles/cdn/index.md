@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u met het netwerk voor contentlevering (Content Delivery Network, CDN) op elk apparaat inhoud kunt leveren vanuit wereldwijde datacentra. Zelfstudies, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5f0cd9a3f3d4b578312e1b9f9f8b9c5ee7d6aa27
+ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
+ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
 
 ---
-#<a name="cdn-documentation"></a>Documentatie voor CDN
+# <a name="cdn-documentation"></a>Documentatie voor CDN
 
-Het CDN (Content Delivery Network) van Azure biedt ontwikkelaars een globale oplossing voor de levering van inhoud met een hoge bandbreedte die wordt gehost in Azure of op een andere locatie.  Met het CDN kunt u openbaar toegankelijke objecten die zijn geladen uit Azure Blob Storage, een webtoepassing, virtuele machine, toepassingsmap of andere HTTP/HTTPS-locatie, in de cache opslaan.  Het CDN wordt gewoonlijk gebruikt voor het leveren van statische inhoud, zoals afbeeldingen, opmaakmodellen, documenten, bestanden, scripts op de client en HTML-pagina's.
+Meer informatie over hoe u met het netwerk voor contentlevering (Content Delivery Network, CDN) inhoud met hoge bandbreedte kunt leveren die in Azure of elders wordt gehost. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u met CDN op elk apparaat inhoud kunt leveren vanuit wereldwijde datacentra.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,37 +68,44 @@ Het CDN (Content Delivery Network) van Azure biedt ontwikkelaars een globale opl
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie voor REST API voor CDN</p>
+                        <p><a href="/rest/api/cdn/">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -112,6 +120,6 @@ Documentatie voor Azure CDN downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

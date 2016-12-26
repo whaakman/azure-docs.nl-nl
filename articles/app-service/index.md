@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u App Service gebruikt om web- en mobiele apps te maken voor alle platformen en apparaten met behulp van zelfstudies, video&quot;s, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: ccb587af34367786ab67c7c614fdae9c0c7ed7a2
-ms.openlocfilehash: 4e95b452ef973fa459daa8e687e5ff759f330019
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
 
 ---
 #<a name="app-service-documentation"></a>Documentatie over App Service
 
-App Service is een Platform as a Service-product (PaaS) van Microsoft Azure. Maak Web Apps en Mobile Apps voor alle platforms en apparaten. Integreer uw apps met SaaS-oplossingen, maak verbinding met on-premises toepassingen en automatiseer uw bedrijfsprocessen.
+Meer informatie over hoe u App Service gebruikt om web- en mobiele apps te ontwikkelen en te hosten voor alle platformen en apparaten met behulp van zelfstudies, video's, API-verwijzingen en andere documentatie. Meer informatie over hoe u apps integreert met SaaS-oplossingen, verbinding maakt met on-premises toepassingen en bedrijfsprocessen automatiseert.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,6 +131,6 @@ Documentatie over App Service </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

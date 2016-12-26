@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u inzicht krijgt in het gebruik van mobiele apps en realtime gebruikerssegmentering, en hoe u contextbewuste pushmeldingen en in-app berichten inschakelt.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
+ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
 
 ---
 # <a name="mobile-engagement-documentation"></a>Documentatie voor Mobile Engagement
 
-Azure Mobile Engagement is een SaaS-platform (Software-as-a-Service) voor gebruikersbetrokkenheid dat het volgende biedt: gegevensgestuurde inzichten in het gebruik van apps, segmentering van gebruikers, en pushmeldingen en in-app-berichten.
+Meer informatie over hoe u met Mobile Engagement het gebruik, de retentie en het verdienmodel van mobiele apps kunt optimaliseren. Zelfstudies, SDK’s en andere documentatie laten zien hoe u inzicht krijgt in het gebruik van apps en realtime gebruikerssegmentering, en hoe u contextbewuste pushmeldingen en in-app berichten inschakelt.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -205,6 +206,6 @@ Documentatie voor Azure Mobile Engagement downloaden </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
