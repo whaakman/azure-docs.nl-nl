@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
-ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
+ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
+ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
 
 
 ---
@@ -28,19 +28,19 @@ Informatie over het installeren van Data Lake Tools en het gebruiken van Data La
 U-SQL is een uitermate schaalbare en uitbreidbare taal voor het voorbereiden, transformeren en analyseren van alle gegevens in de data lake en daarbuiten. Zie [Naslaginformatie over U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; Express-editie wordt niet ondersteund. Visual Studio ‘15’ wordt momenteel niet ondersteund. Hier wordt aan gewerkt.**
+* **Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; Express-editie wordt niet ondersteund. Visual Studio 2017 wordt momenteel niet ondersteund.**
 * **Microsoft Azure SDK voor .NET versie 2.7.1 of hoger**.  U kunt dit installeren met het [Webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs)**.
 
     Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een knooppunt ‘Data Lake Analytics’ in Server Explorer, onder het 'Azure'-knooppunt (u opent Server Explorer met Ctrl + Alt + S).
-* **Lees de volgende twee secties in [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md)**.
 
-  * [Een Azure Data Lake Analytics-account maken](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-  * [SearchLog.tsv uploaden naar het Data Lake Storage-standaardaccount](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Data Lake Analytics-account en voorbeeldgegevens** Het maken van Data Lake Analytics-accounts wordt niet ondersteund door de Data Lake-hulpprogramma's. U kunt een account maken met behulp van Azure Portal, Azure PowerShell, de .NET-SDK of de Azure-CLI.
+Een PowerShell-script voor het maken van een Data Lake Analytics-service en het uploaden van een brongegevensbestand vindt u in [Appx-A PowerShell-voorbeeld ter voorbereiding op de zelfstudie](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-    U vindt een PowerShell-voorbeeldscript voor het maken van een Data Lake Analytics-service en uploaden van een brongegevensbestand in [Appx-A PowerShell-voorbeeld ter voorbereiding op de zelfstudie](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
+    Desgewenst kunt u de volgende twee secties doornemen in [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) om uw account te maken en gegevens handmatig te uploaden:
 
-    Data Lake Tools biedt geen ondersteuning voor het maken van Data Lake Analytics-accounts. Daarom moet u deze maken met behulp van Azure Portal, Azure PowerShell, .NET SDK of Azure CLI. Om een Data Lake Analytics-taak uit te voeren, hebt u enkele gegevens nodig. Hoewel Data Lake Tools ondersteuning biedt voor het uploaden van gegevens, gebruikt u de portal om de voorbeeldgegevens te uploaden. Zo is deze zelfstudie gemakkelijker te volgen.
+    1. [Een Azure Data Lake Analytics-account maken](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+    2. [SearchLog.tsv uploaden naar het Data Lake Storage-standaardaccount](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
 **Verbinding maken met Data Lake Analytics**
@@ -352,6 +352,6 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

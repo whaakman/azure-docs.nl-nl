@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Leer hoe u App Service Web Apps kunt gebruiken voor het bouwen en hosten van websites en webtoepassingen. Zelfstudies, video’s, API-verwijzingen en meer."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
+ms.sourcegitcommit: c25534b4e5cda07ffe124ad151a3093a40137a6f
+ms.openlocfilehash: 4fda1c1635159a0bf6a502c4197b8523cd77a5f8
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentatie voor Azure Web Apps
 
-App Service Web Apps is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en web-apps. Met deze PaaS-aanbieding (Platform-as-a-Service) van Microsoft Azure kunt u zich concentreren op uw bedrijfslogica terwijl Azure zorgt voor de infrastructuur die nodig is om uw apps uit te voeren en te schalen.
+Leer hoe u App Service Web Apps kunt gebruiken voor het bouwen en hosten van websites en webtoepassingen. Zelfstudies, video's, API-verwijzingen en andere documentatie laten zien hoe u items kunt ontwikkelen op dit volledig beheerde rekenplatform.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ App Service Web Apps is een volledig beheerd rekenplatform dat is geoptimaliseer
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/get-started/">
+        <a href="https://azure.microsoft.com/get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +48,7 @@ App Service Web Apps is een volledig beheerd rekenplatform dat is geoptimaliseer
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=web-sites">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -178,67 +179,46 @@ App Service Web Apps is een volledig beheerd rekenplatform dat is geoptimaliseer
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/appservice/web">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure-CLI</h3>
-                        <p>Naslaginformatie over de Azure-CLI voor Web Apps</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/cli/azure/appservice">Azure CLI 2.0 Preview</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API-naslaginformatie</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/java/api/">Java</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie over .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/rest/api/appservice">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie voor REST API voor Web Apps</p>
+                        <p><a href="/rest/api/appservice">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-    
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -250,6 +230,6 @@ Documentatie voor Web Apps downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -107,8 +107,43 @@
 ## Gegevens overdragen
 ### [Gegevens verplaatsen van en naar opslag](storage-moving-data.md)
 ### [AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
-### [Import-/exportservice voor Blob Storage](storage-import-export-service.md)
-
+### [De service Import/Export gebruiken](storage-import-export-service.md)
+### [Het hulpprogramma Import/Export gebruiken](storage-import-export-tool-how-to.md)
+#### [Het hulpprogramma Import/Export instellen](storage-import-export-tool-setup.md)
+#### [Harde schijven voorbereiden voor een importtaak](storage-import-export-tool-preparing-hard-drives-import.md)
+##### [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import.md)
+##### [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+##### [Snelzoekgids voor veelgebruikte opdrachten voor importtaken](storage-import-export-tool-quick-reference.md)
+#### [Op voorhand het schijfgebruik voor een exporttaak bekijken](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Problemen met het hulpprogramma Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)
+#### [Bestandsindeling van het Import/Export-servicemanifest](storage-import-export-file-format-manifest.md)
+#### [Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service](storage-import-export-file-format-metadata-and-properties.md)
+#### [Bestandsindeling van het logboekbestand van de Import/Export-service](storage-import-export-file-format-log.md)
+### [Het hulpprogramma Import/Export (v1) gebruiken](storage-import-export-tool-how-to-v1.md)
+#### [Het hulpprogramma Import/Export instellen](storage-import-export-tool-setup-v1.md)
+#### [Harde schijven voorbereiden voor een importtaak](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+##### [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+##### [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+##### [Snelzoekgids voor veelgebruikte opdrachten voor importtaken](storage-import-export-tool-quick-reference-v1.md)
+#### [Op voorhand het schijfgebruik voor een exporttaak bekijken](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Problemen met het hulpprogramma Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)
+#### [Bestandsindeling van het Import/Export-servicemanifest](storage-import-export-file-format-manifest.md)
+#### [Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service](storage-import-export-file-format-metadata-and-properties.md)
+#### [Bestandsindeling van het logboekbestand van de Import/Export-service](storage-import-export-file-format-log.md)
+### [De REST-API van de Azure-service Import/Export gebruiken](storage-import-export-using-the-rest-api.md)
+#### [Een importtaak maken](storage-import-export-creating-an-import-job.md)
+#### [Een exporttaak maken](storage-import-export-creating-an-export-job.md)
+#### [Statusinformatie van een taak ophalen](storage-import-export-retrieving-state-info-for-a-job.md)
+#### [Taken opsommen](storage-import-export-enumerating-jobs.md)
+#### [Taken annuleren en verwijderen](storage-import-export-cancelling-and-deleting-jobs.md)
+#### [Een back-up maken van stationsmanifesten](storage-import-export-backing-up-drive-manifests.md)
+#### [Diagnoses en het herstel van fouten voor Import/Export-taken](storage-import-export-diagnostics-and-error-recovery.md)
 # Naslaginformatie
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
@@ -166,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

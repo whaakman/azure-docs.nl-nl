@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het beheren van inkomend verkeer voor optimale toepassingsprestaties. Documentatie laat zien hoe u verkeer naar Azure of externe service-eindpunten distribueert.
 translationtype: Human Translation
-ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
-ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
+ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
+ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentatie over Traffic Manager
 
-Met Azure Traffic Manager kunt u de distributie van gebruikersverkeer voor service-eindpunten in verschillende regio's beheren. Traffic Manager gebruikt DNS (domeinnaamsysteem) om clientaanvragen door te sturen naar het meest geschikte eindpunt op basis van de geselecteerde verkeersrouteringsmethode en de status van de eindpunten, waardoor uw toepassing een hogere beschikbaarheid heeft en sneller reageert.
+Meer informatie over hoe u Traffic Manager gebruikt om inkomend verkeer te routeren voor optimale toepassingsprestaties en -betrouwbaarheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u verkeer naar Azure of externe service-eindpunten kunt beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,7 +76,7 @@ Met Azure Traffic Manager kunt u de distributie van gebruikersverkeer voor servi
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Traffic Manager-eindpunten beheren met behulp van de Azure-portal</h3>
+                        <h3>Traffic Manager-eindpunten beheren met behulp van Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -110,7 +111,7 @@ Met Azure Traffic Manager kunt u de distributie van gebruikersverkeer voor servi
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referentiemateriaal over REST-API voor Traffic Manager</p>
+                        <p>REST-API voor Traffic Manager</p>
                     </div>
                 </div>
             </div>
@@ -129,6 +130,6 @@ Documentatie over Traffic Manager downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

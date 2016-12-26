@@ -25,6 +25,8 @@
 ### [Servicelimieten](search-limits-quotas-capacity.md)
 ### [Schaalbaarheid van service](search-capacity-planning.md)
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
+
+
 ## Ontwikkelen
 ### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Zoeken in meerdere talen](search-language-support.md)
 
 # Naslaginformatie
-## [API-versies](search-api-versions.md)
-## [Service .NET](/dotnet/api/microsoft.azure.search)
-## [Management .NET](/dotnet/api/microsoft.azure.management.search)
-## [Service REST](/rest/api/searchservice/)
-## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
-## [Management REST](/rest/api/searchmanagement/)
-## [Lucene-querysyntaxis](https://msdn.microsoft.com/library/azure/mt589323)
-## [Vereenvoudigde querysyntaxis](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET Management](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (beheer)](/rest/api/searchmanagement)
 
 # Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=search)
+## Zoeken-API's gebruiken
+## [API-versies](search-api-versions.md)
+## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
 ## Demosites
 ### [Takenlijst-app](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
