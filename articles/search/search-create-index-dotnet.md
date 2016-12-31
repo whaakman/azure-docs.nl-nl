@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 
 ---
@@ -30,13 +30,13 @@ ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
 > 
 > 
 
-Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) voor Azure Search met behulp van de [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) voor Azure Search met behulp van de [Azure Search .NET SDK](https://aka.ms/search-sdk).
 
 Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [een Azure Search-service](search-create-service-portal.md) hebben gemaakt.
 
 Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om aanvragen te verzenden voor uw service-eindpunt met de .NET SDK. Eerst moet u een van de admin api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -73,48 +73,88 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index-using-the-index-class"></a>III. Een index voor Azure Search definiëren met behulp van de klasse `Index`
+## <a name="iii-define-your-azure-search-index"></a>III. Uw Azure Search-index definiëren
 Uw index is met één aanroep naar de methode `Indexes.Create` gemaakt. Deze methode gebruikt een `Index`-object als parameter voor uw Azure Search-index. U moet een `Index`-object maken en dit als volgt initialiseren:
 
 1. Stel de eigenschap `Name` van het `Index`-object in op de naam van de index.
-2. Stel de eigenschap `Fields` van het `Index`-object in op een matrix van `Field`-objecten. Elk van de `Field`-objecten definieert het gedrag van een veld in de index. U kunt de naam van het veld aan de constructor doorgeven, samen met het gegevenstype (of analyse voor tekenreeksvelden). U kunt ook andere eigenschappen instellen, zoals `IsSearchable`, `IsFilterable`, enzovoort.
+2. Stel de eigenschap `Fields` van het `Index`-object in op een matrix van `Field`-objecten. De eenvoudigste manier om `Field`-objecten te maken is de `FieldBuilder.BuildForType`-methode aanroepen. Hierbij wordt een modelklasse doorgegeven voor de typeparameter. Een modelklasse heeft eigenschappen die worden toegewezen aan de velden van uw index. Hiermee kunt u documenten uit de zoekindex binden aan exemplaren van uw modelklasse.
 
-Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk `Field` de [relevante eigenschappen](https://msdn.microsoft.com/library/azure/dn798941.aspx) moeten worden toegewezen. Deze eigenschappen bepalen welke zoekfuncties (filteren, facetten, zoekacties in volledige tekst sorteren enzovoort) beschikbaar zijn in velden. Als u een eigenschap niet expliciet instelt, worden de bijbehorende zoekfuncties door de `Field`-klasse uitgeschakeld, tenzij u deze functies specifiek hebt ingeschakeld.
+> [!NOTE]
+> Als u niet van plan bent om een modelklasse te gebruiken, moet u alsnog de index definiëren door rechtstreeks `Field`-objecten te maken. U kunt de naam van het veld aan de constructor doorgeven, samen met het gegevenstype (of analyse voor tekenreeksvelden). U kunt ook andere eigenschappen instellen, zoals `IsSearchable`, `IsFilterable`, enzovoort.
+>
+>
 
-In ons voorbeeld hebben we onze index hotels genoemd en de velden als volgt ingesteld:
+Wanneer u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante eigenschappen](https://docs.microsoft.com/rest/api/searchservice/Create-Index) moeten worden toegewezen. Deze eigenschappen bepalen welke zoekfuncties (filteren, facetten, zoekacties in volledige tekst sorteren enzovoort) beschikbaar zijn in velden. Als u een eigenschap niet expliciet instelt, worden de bijbehorende zoekfuncties door de `Field`-klasse uitgeschakeld, tenzij u deze functies specifiek hebt ingeschakeld.
+
+In ons voorbeeld is de index 'hotels' genoemd en zijn de velden gedefinieerd met een modelklasse. Elke eigenschap van de modelklasse heeft kenmerken die het zoekgerelateerde gedrag van het bijbehorende indexveld bepalen. De modelklasse wordt als volgt gedefinieerd:
+
+```csharp
+[SerializePropertyNamesAsCamelCase]
+public partial class Hotel
+{
+    [Key]
+    [IsFilterable]
+    public string HotelId { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public double? BaseRate { get; set; }
+
+    [IsSearchable]
+    public string Description { get; set; }
+
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
+    [JsonProperty("description_fr")]
+    public string DescriptionFr { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable]
+    public string HotelName { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+    public string Category { get; set; }
+
+    [IsSearchable, IsFilterable, IsFacetable]
+    public string[] Tags { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? ParkingIncluded { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? SmokingAllowed { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public DateTimeOffset? LastRenovationDate { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public int? Rating { get; set; }
+
+    [IsFilterable, IsSortable]
+    public GeographyPoint Location { get; set; }
+
+    // ToString() method omitted for brevity...
+}
+```
+
+De kenmerken voor elke eigenschap zijn zorgvuldig gekozen op basis van de gebruiksverwachtingen in een toepassing. Het is bijvoorbeeld waarschijnlijk dat gebruikers die een hotel zoeken, geïnteresseerd zijn in overeenkomende sleutelwoorden in het veld `description`. Daarom hebben we ingesteld dat gebruikers in dat veld in volledige tekst kunnen zoeken door het kenmerk `IsSearchable` toe te voegen aan de eigenschap `Description`.
+
+In een index van het type `string` moet precies één veld als *sleutelveld* zijn aangewezen door het kenmerk `Key` toe te voegen (zie `HotelId` in het bovenstaande voorbeeld).
+
+Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie het onderwerp [Language support](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Taalondersteuning) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
+
+> [!NOTE]
+> De naam van elke eigenschap in de modelklasse wordt standaard ook gebruikt als de naam van het bijbehorende veld in de index. Als u alle eigenschapnamen wilt toewijzen aan camelCase-veldnamen, markeert u de klasse met het kenmerk `SerializePropertyNamesAsCamelCase`. Als u wilt toewijzen aan een andere naam, kunt u het kenmerk `JsonProperty` gebruiken, zoals de bovenstaande eigenschap `DescriptionFr`. Het kenmerk `JsonProperty` gaat vóór het kenmerk `SerializePropertyNamesAsCamelCase`.
+> 
+> 
+
+Nu u een modelklasse hebt gedefinieerd, kunt u heel eenvoudig een indexdefinitie maken:
 
 ```csharp
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[]
-    {
-        new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
-        new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("description", DataType.String)                   { IsSearchable = true },
-        new Field("description_fr", AnalyzerName.FrLucene),
-        new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true, IsSortable = true },
-        new Field("category", DataType.String)                      { IsSearchable = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("tags", DataType.Collection(DataType.String))     { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("parkingIncluded", DataType.Boolean)              { IsFilterable = true, IsFacetable = true },
-        new Field("smokingAllowed", DataType.Boolean)               { IsFilterable = true, IsFacetable = true },
-        new Field("lastRenovationDate", DataType.DateTimeOffset)    { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("rating", DataType.Int32)                         { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
-    }
+    Fields = FieldBuilder.BuildForType<Hotel>()
 };
 ```
-
-We hebben de waarde van eigenschappen zorgvuldig ingesteld voor elk `Field` op basis van onze verwachting van het gebruik ervan in een toepassing. Het is bijvoorbeeld waarschijnlijk dat gebruikers die een hotel zoeken, geïnteresseerd zijn in overeenkomende sleutelwoorden in het veld `description`. Daarom hebben we ingesteld dat gebruikers in dat veld in volledige tekst kunnen zoeken door `IsSearchable` in te stellen op `true`.
-
-In een index van het type `DataType.String` moet precies één veld zijn aangewezen als het *sleutel*veld door `IsKey` in te stellen op `true` (zie `hotelId` in het bovenstaande voorbeeld).
-
-De bovenstaande indexdefinitie maakt gebruik van een aangepaste taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie [het onderwerp Language support (Taalondersteuning) op MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
-
-> [!NOTE]
-> Als u `AnalyzerName.FrLucene` opgeeft in de constructor, wordt het `Field` automatisch van het type `DataType.String` en is `IsSearchable` ingesteld op `true`.
-> 
-> 
 
 ## <a name="iv-create-the-index"></a>IV. De index maken
 Nu u een geïnitialiseerd `Index`-object hebt, kunt u de index maken door `Indexes.Create` aan te roepen op uw `SearchServiceClient`-object:
@@ -142,6 +182,6 @@ Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

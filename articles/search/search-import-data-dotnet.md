@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 > 
 > 
 
-In dit artikel wordt beschreven hoe u met behulp van de [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) gegevens in een Azure Search-index importeert.
+In dit artikel wordt beschreven hoe u met behulp van de [Azure Search .NET SDK](https://aka.ms/search-sdk) gegevens in een Azure Search-index importeert.
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md). In dit artikel wordt ervan uitgegaan dat u al een `SearchServiceClient`-object hebt gemaakt, zoals uiteengezet in [Een Azure Search-index maken met de.NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
@@ -45,11 +45,11 @@ Om documenten in uw index te pushen met behulp van de .NET SDK, moet u het volge
 Om de Azure Search .NET SDK te kunnen gebruiken om gegevens in uw index te importeren, moet u een instantie van klasse `SearchIndexClient` maken. U kunt deze instantie zelf samenstellen, maar het is eenvoudiger als u al een `SearchServiceClient`-instantie hebt om de methode `Indexes.GetClient` aan te roepen. U kunt bijvoorbeeld op de volgende manier een `SearchIndexClient` verkrijgen voor de index met de naam "hotels" van een `SearchServiceClient` met de naam `serviceClient`:
 
 ```csharp
-SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> In een standaardzoektoepassing wordt het beheer van de index en de invulling daarvan afgehandeld door een afzonderlijk onderdeel van de zoekquery’s. `Indexes.GetClient` is handig voor het vullen van een index, omdat u geen andere `SearchCredentials` hoeft op te geven. Dit wordt uitgevoerd door de administratorsleutel die u hebt gebruikt om de `SearchServiceClient` te maken die u wilt doorgeven aan de nieuwe `SearchIndexClient`. In het gedeelte van uw toepassing waarmee u query's uitvoert, is het beter om de `SearchIndexClient` direct te maken, zodat u een querysleutel kunt toepassen in plaats van een administratorsleutel. Dit komt overeen met het [-principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) en zorgt ervoor dat uw toepassing veilig is. U vindt meer informatie over administratorsleutels en querysleutels in [Azure Search REST-API-verwijzingen op MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)
+> In een standaardzoektoepassing wordt het beheer van de index en de invulling daarvan afgehandeld door een afzonderlijk onderdeel van de zoekquery’s. `Indexes.GetClient` is handig voor het vullen van een index, omdat u geen andere `SearchCredentials` hoeft op te geven. Dit wordt uitgevoerd door de administratorsleutel die u hebt gebruikt om de `SearchServiceClient` te maken die u wilt doorgeven aan de nieuwe `SearchIndexClient`. In het gedeelte van uw toepassing waarmee u query's uitvoert, is het beter om de `SearchIndexClient` direct te maken, zodat u een querysleutel kunt toepassen in plaats van een administratorsleutel. Dit komt overeen met het [-principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) en zorgt ervoor dat uw toepassing veilig is. Meer informatie over administratorsleutels en querysleutels vindt u in [Azure Search REST-API-verwijzingen](https://docs.microsoft.com/rest/api/searchservice/).
 > 
 > 
 
@@ -165,29 +165,43 @@ U vraagt zich misschien af hoe de Azure Search .NET SDK instanties van een door 
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
+    [Key]
+    [IsFilterable]
     public string HotelId { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 
+    [IsSearchable]
     public string Description { get; set; }
 
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
     [JsonProperty("description_fr")]
     public string DescriptionFr { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable]
     public string HotelName { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
 
+    [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? SmokingAllowed { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public int? Rating { get; set; }
 
+    [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
 
     // ToString() method omitted for brevity...
@@ -197,20 +211,20 @@ public partial class Hotel
 Het eerste dat opvalt, is dat elke openbare eigenschap van `Hotel` overeenkomt met een veld in de definitie van de index. Er is echter een cruciaal verschil: de naam van elk veld begint met een kleine letter ("kamelen"), terwijl de naam van elke openbare eigenschap van `Hotel` met een hoofdletter ("Pascal") begint. Dit is een algemeen scenario in .NET-toepassingen die gegevens koppelen waarbij het doelschema buiten de controle van de ontwikkelaar van de toepassing valt. In plaats van het schenden van de .NET-naamgevingsregels door een eigenschap met bijvoorbeeld de naam "kamelen" te maken, kunt u instellen dat de SDK de eigenschapsnamen automatisch moet toewijzen aan het `[SerializePropertyNamesAsCamelCase]`-kenmerk.
 
 > [!NOTE]
-> De Azure Search .NET SDK maakt gebruik van de [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-bibliotheek voor het serialiseren en deserialiseren van uw aangepaste modelobjecten naar en van JSON. U kunt deze serialisatie indien nodig aanpassen. U vindt meer informatie in [Bijwerken naar Azure Search .NET SDK-versie 1.1](search-dotnet-sdk-migration.md#WhatsNew). Een voorbeeld hiervan is het gebruik van het `[JsonProperty]`-kenmerk in de eigenschap `DescriptionFr` in de bovenstaande voorbeeldcode.
+> De Azure Search .NET SDK maakt gebruik van de [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-bibliotheek voor het serialiseren en deserialiseren van uw aangepaste modelobjecten naar en van JSON. U kunt deze serialisatie indien nodig aanpassen. Meer informatie vindt u in [Aangepaste serialisatie met JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Een voorbeeld hiervan is het gebruik van het `[JsonProperty]`-kenmerk in de eigenschap `DescriptionFr` in de bovenstaande voorbeeldcode.
 > 
 > 
 
-Wat ook belangrijk is in de `Hotel`-klasse, zijn de gegevenstypen van de openbare eigenschappen. De .NET-typen van deze eigenschappen worden toegewezen aan de gelijkwaardige veldtypen in de definitie van de index. De tekenreekseigenschap `Category` is bijvoorbeeld toegewezen aan het veld `category` van type `DataType.String`. Er zijn vergelijkbare type toewijzingen tussen `bool?` en `DataType.Boolean`, `DateTimeOffset?` en `DataType.DateTimeOffset`, enzovoort. De specifieke regels voor de toewijzing van het type zijn gedocumenteerd in de methode `Documents.Get` op [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+Wat ook belangrijk is in de `Hotel`-klasse, zijn de gegevenstypen van de openbare eigenschappen. De .NET-typen van deze eigenschappen worden toegewezen aan de gelijkwaardige veldtypen in de definitie van de index. De tekenreekseigenschap `Category` is bijvoorbeeld toegewezen aan het veld `category` van type `DataType.String`. Er zijn vergelijkbare type toewijzingen tussen `bool?` en `DataType.Boolean`, `DateTimeOffset?` en `DataType.DateTimeOffset`, enzovoort. De specifieke regels voor de toewijzing van het type worden gedocumenteerd met de methode `Documents.Get` in de [Azure Search .NET SDK-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
 De mogelijkheid om uw eigen klassen te gebruiken als documenten werkt beide kanten op: u kunt ook zoekresultaten ophalen en ervoor zorgen dat de SDK de resultaten automatisch deserialiseert naar een type dat u hebt ingesteld, zoals wordt uitgelegd in het [volgende artikel](search-query-dotnet.md).
 
 > [!NOTE]
-> De Azure Search .NET SDK biedt ook ondersteuning voor dynamisch getypeerde documenten met behulp van de `Document`-klasse, die een sleutel/waarde-toewijst aan veldnamen naar waarden. Dit is handig in situaties waar u het schema van de index op het moment van ontwerp nog niet weet of wanneer het niet handig zou zijn om verbinding te maken met specifieke modelklassen Alle methoden in de SDK die werken met documenten hebben overloads die met werken de `Document`-klasse, evenals sterk getypeerde overloads die een generiek typeparameter moeten uitvoeren. Alleen de laatste worden in de voorbeeldcode in dit artikel gebruikt. U vindt meer informatie over de `Document`-klasse [op MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> De Azure Search .NET SDK biedt ook ondersteuning voor dynamisch getypeerde documenten met behulp van de `Document`-klasse, die een sleutel/waarde-toewijst aan veldnamen naar waarden. Dit is handig in situaties waar u het schema van de index op het moment van ontwerp nog niet weet of wanneer het niet handig zou zijn om verbinding te maken met specifieke modelklassen Alle methoden in de SDK die werken met documenten hebben overloads die met werken de `Document`-klasse, evenals sterk getypeerde overloads die een generiek typeparameter moeten uitvoeren. Alleen de laatste worden in de voorbeeldcode in dit artikel gebruikt.
 > 
 > 
 
-**Belangrijke opmerking over gegevenstypen**
+**Waarom u nullable-gegevenstypen moet gebruiken**
 
 Bij het ontwerpen van uw eigen modelklassen die u wilt toewijzen aan een Azure Search-index raden we u aan om eigenschappen van waardentypen `bool` en `int` in te stellen op null-waarden (bijvoorbeeld `bool?` in plaats van `bool`). Als u een niet-nullbare eigenschap gebruikt, moet u **garanderen** dat de documenten in de index geen null-waarde voor het betreffende veld bevatten. Noch de SDK noch de Azure Search-service helpt u om dit af te dwingen.
 
@@ -226,6 +240,6 @@ Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

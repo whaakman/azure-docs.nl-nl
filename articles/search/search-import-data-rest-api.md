@@ -13,29 +13,30 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Gegevens uploaden naar Azure Search met behulp van de REST-API
 > [!div class="op_single_selector"]
+>
 > * [Overzicht](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-In dit artikel wordt beschreven hoe u met behulp van de [Azure Search REST-API](https://msdn.microsoft.com/library/azure/dn798935.aspx) gegevens in een Azure Search-index importeert.
+In dit artikel wordt beschreven hoe u met behulp van de [Azure Search REST-API](https://docs.microsoft.com/rest/api/searchservice/) gegevens in een Azure Search-index importeert.
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md).
 
 Om documenten met behulp van de REST-API naar uw index te pushen, doet u een HTTP POST-aanvraag bij de eindpunt-URL van uw index. De hoofdtekst van de HTTP-aanvraag is een JSON-object met de documenten die moeten worden toegevoegd, gewijzigd of verwijderd.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
 Als u met behulp van de REST-API een HTTP-aanvraag bij uw service doet, moet *elke* API-aanvraag de api-sleutel bevatten die is gegenereerd door de zoekservice die u hebt ingericht.  Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -65,9 +66,9 @@ Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet w
 Nu u de benodigde veldwaarden voor uw indexbewerkingen hebt verzameld, kunt u de hoofdtekst voor uw HTTP-aanvraag en JSON-aanvraag opstellen om de gegevens te importeren.
 
 #### <a name="request-and-request-headers"></a>Aanvragen en aanvraagheaders
-U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juiste API-versie (de huidige API-versie is `2015-02-28` op het moment van publicatie van dit document) opgeven. U moet de aanvraagheaders `Content-Type` en `api-key` definiëren. Voor deze laatste moet u gebruikmaken van een van de administratorsleutels van uw service.
+U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juiste API-versie (de huidige API-versie is `2016-09-01` op het moment van publicatie van dit document) opgeven. U moet de aanvraagheaders `Content-Type` en `api-key` definiëren. Voor deze laatste moet u gebruikmaken van een van de administratorsleutels van uw service.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïn
 
 > [!NOTE]
 > Dit betekent vaak dat de belasting van uw zoekservice een punt bereikt waarbij indexeringsaanvragen `503`-antwoorden retourneren. In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Statuscode `429` wordt geretourneerd wanneer u het quotum van het aantal documenten per index hebt overschreden.
@@ -171,17 +172,16 @@ Statuscode `503` wordt geretourneerd als geen van de items in de aanvraag zijn g
 
 > [!NOTE]
 > In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
-> 
-> 
+>
+>
 
-Zie [Documenten toevoegen, bijwerken of verwijderen](https://msdn.microsoft.com/library/azure/dn798930.aspx) voor meer informatie over bewerkingen en antwoorden voor een geslaagde of mislukte bewerking. Zie [HTTP-statuscodes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
+Zie [Documenten toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) voor meer informatie over bewerkingen en antwoorden voor een geslaagde of mislukte bewerking. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
 
 ## <a name="next"></a>Volgende
 Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

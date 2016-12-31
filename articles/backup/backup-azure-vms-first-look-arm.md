@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 85b291e3916d1274fefc71bc0c1f12cac2920bb4
-ms.openlocfilehash: 77b4f6e5ee18cb3772487820bc72d7794f82162f
+ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
+ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 
 
 ---
@@ -49,26 +49,27 @@ U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt
 
 ## <a name="configure-backup-from-vm-management-blade"></a>Back-up configureren vanaf VM-beheerblade
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in de lijst met resources.  De lijst met virtuele machines wordt weergegeven. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken. Hiermee wordt de beheerblade van de virtuele machine geopend. 
+2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in de lijst met resources.  De lijst met virtuele machines wordt weergegeven. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken. Hiermee wordt de beheerblade van de virtuele machine geopend.
  ![VM-beheerblade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
- 
+
 3. Klik op de beheerblade van de VM op de optie Back-up (aan de linkerkant, onder Instellingen).
 ![Back-upoptie op VM-beheerblade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
 
-4. Hiermee wordt de blade Back-up inschakelen geopend. Deze blade heeft twee verwachte invoeren: Recovery Services-kluis (een back-upmiddel van Azure dat wordt gebruikt om back-ups van de VM's op te slaan) en Back-upbeleid. Het ingestelde back-upbeleid specificeert het back-upschema en bepaalt hoelang back-upkopieën moeten worden bewaard. Deze blade heeft standaardopties. U kunt deze aanpassen op basis van uw back-upvereisten. 
-![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+4. Hiermee wordt de blade Back-up inschakelen geopend. Deze blade heeft twee verwachte invoeren: Recovery Services-kluis (een back-upmiddel van Azure dat wordt gebruikt om back-ups van de VM's op te slaan) en Back-upbeleid. Het ingestelde back-upbeleid specificeert het back-upschema en bepaalt hoelang back-upkopieën moeten worden bewaard. Deze blade heeft standaardopties. U kunt deze aanpassen op basis van uw back-upvereisten.
 
-5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap 3 op de optie Back-up klikt en deze kluis op deze blade selecteren. 
+  ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap 3 op de optie Back-up klikt en deze kluis op deze blade selecteren.
 
 6. Selecteer op de blade Back-upbeleid het back-upbeleid dat u wilt toepassen op de kluis en klik op **OK**.
     ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
     De details van het standaardbeleid worden in de details weergegeven. Als u een beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. De vervolgkeuzelijst biedt ook een optie waarmee u de tijd kunt wijzigen waarop de momentopname wordt gemaakt. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid. Nadat u op **OK** hebt geklikt, is het back-upbeleid gekoppeld aan de virtuele machine.
-    
-7. Klik op Back-up inschakelen om het maken van een back-up te configureren op de virtuele machine. Hiermee wordt een implementatie geactiveerd. 
+
+7. Klik op Back-up inschakelen om het maken van een back-up te configureren op de virtuele machine. Hiermee wordt een implementatie geactiveerd.
 ![Knop Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
 
-8. U kunt de voortgang van de configuratie via meldingen volgen. 
+8. U kunt de voortgang van de configuratie via meldingen volgen.
 ![Back-upmeldingen inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
 9. Wanneer de implementatie van Back-up configureren voltooid is, kunt u op de optie Back-up op de VM-beheerblade klikken om naar de blade Back-upitem te gaan die hoort bij de VM waarvan een back-up is gemaakt.
@@ -245,6 +246,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

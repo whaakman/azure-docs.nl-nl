@@ -3,7 +3,7 @@ title: Zelfstudie - Aan de slag met de Azure Batch-bibliotheek voor .NET | Micro
 description: Leer de basisconcepten van Azure Batch en hoe u voor de Batch-service ontwikkelt aan de hand van een voorbeeldscenario.
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8243e2304d846e02ecf0114b79be73c0016941df
 
 
 ---
@@ -287,7 +287,7 @@ Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een
 >
 
 ## <a name="step-3-create-batch-pool"></a>Stap 3: Batch-pool maken
-![Batch-pool maken][3]
+![Een Batch-pool maken][3]
 <br/>
 
 Een Batch-**pool** is een verzameling rekenknooppunten (virtuele machines) waarop Batch de taken van een job uitvoert.
@@ -795,6 +795,6 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

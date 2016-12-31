@@ -3,8 +3,8 @@ title: Inleiding tot Storage | Microsoft Docs
 description: Een overzicht van Azure Storage, online gegevensopslag van Microsoft in de cloud. Informatie over het gebruik van de beste oplossing voor cloudopslag in uw toepassingen.
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Blob Storage vormt een rendabele en schaalbare oplossing voor gebruikers met gro
 * Configuratiegegevens voor cloudtoepassingen
 * Big data, zoals logboeken en andere grote gegevenssets
 
-Elke blob is georganiseerd in een container. Containers bieden ook een handige manier om beveiligingsbeleid toe te wijzen aan groepen objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs bevatten, tot de capaciteitslimiet van 500 TB van het opslagaccount is bereikt.  
+Elke blob is georganiseerd in een container. Containers bieden ook een handige manier om beveiligingsbeleid toe te wijzen aan groepen objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs bevatten, tot de capaciteitslimiet van 500 TB van het opslagaccount is bereikt.
 
 Blob Storage biedt drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs (schijven).
 
@@ -104,7 +104,7 @@ Een opslagaccount kan een onbeperkt aantal wachtrijen bevatten. Een wachtrij kan
 ## <a name="file-storage"></a>File Storage
 Azure File Storage biedt cloudgebaseerde SMB-bestandsshares, zodat u oudere toepassingen die afhankelijk zijn van bestandsshares snel en zonder kostbare regeneraties naar Azure kunt migreren. Met Azure File Storage kunnen toepassingen die worden uitgevoerd in Azure Virtual Machines of Cloud Services een bestandsshare in de cloud koppelen zoals een bureaubladtoepassing een gewone SMB-share koppelt. Daarna kan een willekeurig aantal toepassingsonderdelen de File Storage-share tegelijkertijd koppelen en gebruiken.
 
-Omdat een File Storage-share een standaard SMB-bestandsshare is, hebben toepassingen die in Azure worden uitgevoerd toegang tot de gegevens in de share via I/O API's van het bestandssysteem. Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. IT-professionals kunnen PowerShell-cmdlets gebruiken om File Storage-shares te maken, te koppelen en te beheren als onderdeel van het beheer van Azure-toepassingen.
+Omdat een File Storage-share een standaard-SMB-bestandsshare is, hebben toepassingen die in Azure worden uitgevoerd, toegang tot de gegevens in de share via I/O API's van het bestandssysteem. Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. IT-professionals kunnen PowerShell-cmdlets gebruiken om File Storage-shares te maken, te koppelen en te beheren als onderdeel van het beheer van Azure-toepassingen.
 
 Net als de andere Azure Storage-services, maakt ook File Storage gebruik van een REST-API voor toegang tot gegevens in een share. On-premises toepassingen kunnen de REST-API van File Storage aanroepen voor toegang tot gegevens in een bestandsshare. Op deze manier kan een onderneming ervoor kiezen om enkele oudere toepassingen naar Azure te migreren en andere toepassingen te blijven uitvoeren binnen hun organisatie. Houd er rekening mee dat het koppelen van een bestandsshare alleen mogelijk is voor toepassingen die worden uitgevoerd in Azure. Een on-premises toepassing heeft mogelijk alleen toegang tot de bestandsshare via de REST-API.
 
@@ -128,32 +128,32 @@ Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signatur
 ## <a name="replication-for-durability-and-high-availability"></a>Replicatie voor duurzaamheid en maximale beschikbaarheid
 De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en hoge beschikbaarheid te garanderen. Met replicatie worden al uw gegevens gekopieerd, in hetzelfde datacentrum of naar een tweede datacentrum, afhankelijk van welke replicatieoptie u kiest. Replicatie beschermt uw gegevens en handhaaft de beschikbaarheid van uw toepassing in het geval van een tijdelijke hardwarefout. Als uw gegevens naar een tweede datacentrum worden gerepliceerd, zijn uw gegevens ook beschermd tegen een catastrofale fout op de primaire locatie.
 
-Replicatie zorgt ervoor dat uw opslagaccount voldoet aan de [Service-Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/), zelfs wanneer er fouten optreden. Raadpleeg de SLA voor informatie over de garanties van Azure Storage voor duurzaamheid en beschikbaarheid. 
+Replicatie zorgt ervoor dat uw opslagaccount voldoet aan de [Service-Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/), zelfs wanneer er fouten optreden. Raadpleeg de SLA voor informatie over de garanties van Azure Storage voor duurzaamheid en beschikbaarheid.
 
-Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties selecteren:  
+Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties selecteren:
 
-* **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één datacentrum in één regio driemaal gerepliceerd. LRS beschermt uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één datacentrum.  
-  
+* **Lokaal redundante opslag (LRS).** Lokaal redundante opslag onderhoudt drie kopieën van uw gegevens. LRS wordt binnen één datacentrum in één regio driemaal gerepliceerd. LRS beschermt uw gegevens tegen normale hardwarefouten, maar niet tegen het uitvallen van één datacentrum.
+
     LRS wordt aangeboden met korting. Voor maximale duurzaamheid wordt aanbevolen dat u geografisch redundante opslag gebruikt, zoals hieronder wordt beschreven.
-* **Zone-redundante opslag (ZRS).** Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS wordt binnen twee of drie faciliteiten in één regio of tussen twee regio's driemaal gerepliceerd en biedt een hogere duurzaamheid dan LRS. ZRS houdt uw gegevens duurzaam binnen één regio.  
-  
-    ZRS biedt een hoger duurzaamheidsniveau dan LRS. Voor maximale duurzaamheid wordt echter het gebruik van geografisch redundante opslag aanbevolen. Deze vorm wordt hieronder beschreven.  
-  
+* **Zone-redundante opslag (ZRS).** Zone-redundante opslag onderhoudt drie kopieën van uw gegevens. ZRS wordt binnen twee of drie faciliteiten in één regio of tussen twee regio's driemaal gerepliceerd en biedt een hogere duurzaamheid dan LRS. ZRS houdt uw gegevens duurzaam binnen één regio.
+
+    ZRS biedt een hoger duurzaamheidsniveau dan LRS. Voor maximale duurzaamheid wordt echter het gebruik van geografisch redundante opslag aanbevolen. Deze vorm wordt hieronder beschreven.
+
   > [!NOTE]
   > ZRS is momenteel alleen beschikbaar voor blok-blobs en wordt alleen ondersteund voor versie 2014-02-14 en hoger.
-  > 
+  >
   > Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het niet omzetten naar ander type replicatie. Ook kunt u niet meer overstappen naar ZRS als u al een ander type hebt geselecteerd.
-  > 
-  > 
+  >
+  >
 * **Geografisch redundante opslag (GRS)**. GRS onderhoudt zes kopieën van uw gegevens. Met GRS worden uw gegevens driemaal gerepliceerd binnen de primaire regio en driemaal in een secundaire regio op honderden kilometers afstand van de primaire regio. Zo biedt deze service het hoogste duurzaamheidsniveau. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover naar de secundaire regio uitgevoerd. GRS houdt uw gegevens duurzaam binnen twee afzonderlijke regio's.
-  
+
     Zie [Azure-regio’s](https://azure.microsoft.com/regions/) voor meer informatie over de primaire en secundaire koppelingen per regio.
-* **Geografisch redundante opslag met leestoegang (RA-GRS)**. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is. Wanneer u een opslagaccount maakt, wordt geografisch redundante opslag met leestoegang standaard ingeschakeld. 
-  
+* **Geografisch redundante opslag met leestoegang (RA-GRS)**. Met geografisch redundante opslag met leestoegang worden uw gegevens gerepliceerd naar een secundaire geografische locatie en hebt u leestoegang tot uw gegevens op de secundaire locatie. Met geografisch redundante opslag met leestoegang hebt u toegang tot uw gegevens vanaf de primaire of de secundaire locatie als er één locatie niet beschikbaar is. Wanneer u een opslagaccount maakt, wordt geografisch redundante opslag met leestoegang standaard ingeschakeld.
+
   > [!IMPORTANT]
   > U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.
-  > 
-  > 
+  >
+  >
 
 Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over opties voor de replicatie van opslag.
 
@@ -252,6 +252,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 * [Binnen vijf minuten aan de slag met Azure Storage](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

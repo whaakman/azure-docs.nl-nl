@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
 
 
 ---
@@ -47,15 +47,16 @@ U kunt hier de AMS-leertrajecten bekijken:
 * [Werkstroom voor AMS On Demand Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ## <a name="prerequisites"></a>Vereisten
+
 Als u Azure Media Services wilt gaan gebruiken, moet u over het volgende beschikken:
 
 1. Een Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com) voor meer informatie.
 2. Een Azure Media Services-account. Gebruik Azure Portal, .NET of REST API om een Azure Media Services-account te maken. Zie [Een account maken](media-services-portal-create-account.md) voor meer informatie.
 3. (Optioneel) Instellen van de ontwikkelomgeving. Kies .NET of REST API voor uw ontwikkelomgeving. Zie [De omgeving instellen](media-services-dotnet-how-to-use.md) voor meer informatie.
 
-Leer ook hoe u via een programma [verbinding kunt maken](media-services-dotnet-connect-programmatically.md).
+    Leer ook hoe u via een programma [verbinding kunt maken](media-services-dotnet-connect-programmatically.md).
 
-1. (Aanbevolen) Wijs een of meer schaaleenheden toe. U kunt het beste een of meer schaaleenheden toewijzen voor toepassingen in de productieomgeving.   Zie [Streaming-eindpunten beheren](media-services-portal-manage-streaming-endpoints.md) voor meer informatie.
+4. (Aanbevolen) Wijs een of meer schaaleenheden toe. U kunt het beste een of meer schaaleenheden toewijzen voor toepassingen in de productieomgeving.   Zie [Streaming-eindpunten beheren](media-services-portal-manage-streaming-endpoints.md) voor meer informatie.
 
 ## <a name="concepts-and-overview"></a>Concepten en overzicht
 Zie [Concepten](media-services-concepts.md) voor Azure Media Services-concepten.
@@ -129,11 +130,11 @@ Eventueel meerdere op tijd gesynchroniseerde coderingsprogramma’s. Voor bepaal
 * (Optioneel) Uw stream coderen in een stream met een adaptieve bitsnelheid.
 * Een voorbeeld van uw livestream bekijken.
 * De opgenomen inhoud vastleggen en opnemen om deze later te streamen (Video-on-Demand).
-* De inhoud rechtstreeks aan uw klanten leveren via algemene protocollen voor streaming (MPEG DASH, Smooth, HLS, HDS) of aan een netwerk voor contentlevering (CDN) voor verdere distributie.
+* De inhoud rechtstreeks aan uw klanten leveren via algemene protocollen voor streaming (bijvoorbeeld MPEG DASH, Smooth of HLS) of aan een Content Delivery Network (CDN) voor verdere distributie.
 
 Met **Microsoft Azure Media Services** (AMS) kunt u de inhoud van uw live-streaming opnemen, coderen, een voorbeeld bekijken, opslaan en leveren.
 
-Als u uw inhoud levert aan klanten, is het uw doel een video van hoge kwaliteit te leveren aan verschillende apparaten met verschillende netwerkomstandigheden. Gebruik voor de kwaliteit en netwerkomstandigheden live coderingen om uw stream te coderen voor een multi-bitrate (adaptieve bitrate) videostream.  Als u op verschillende apparaten wilt streamen, gebruikt u de [dynamische pakketten](media-services-dynamic-packaging-overview.md) van Media Services om uw stream met verschillende protocollen op dynamische wijze opnieuw toe te voegen aan een pakket. Media Services ondersteunt de levering van de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
+Als u uw inhoud levert aan klanten, is het uw doel een video van hoge kwaliteit te leveren aan verschillende apparaten met verschillende netwerkomstandigheden. Gebruik voor de kwaliteit en netwerkomstandigheden live coderingen om uw stream te coderen voor een multi-bitrate (adaptieve bitrate) videostream.  Als u op verschillende apparaten wilt streamen, gebruikt u de [dynamische pakketten](media-services-dynamic-packaging-overview.md) van Media Services om uw stream met verschillende protocollen op dynamische wijze opnieuw toe te voegen aan een pakket. Media Services ondersteunt de levering van de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH.
 
 In Azure Media Services wordt alle functionaliteiten voor live streamen afgehandeld door **kanalen**, **programma's** en **streaming-eindpunten**, waaronder opnemen, opmaken, DVR, beveiliging, schaalbaarheid en redundantie.
 
@@ -201,6 +202,6 @@ Zie [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/) voor m
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

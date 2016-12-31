@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ Dit artikel laat zien hoe u met behulp van [Resource Manager](../azure-resource-
 Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten. Vervang voorbeeldparameterwaarden in de opdrachten met namen die logisch zijn voor uw omgeving.
 
 ## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
-Zie [Azure PowerShell installeren en configureren](../powershell-install-configure.md) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
+Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
 
 ## <a name="step-2-create-a-resource-group"></a>Stap 2: Een resourcegroep maken
 Alle resources moeten deel uitmaken van een resourcegroep, dus deze maken is de eerste stap.  
@@ -159,6 +159,6 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

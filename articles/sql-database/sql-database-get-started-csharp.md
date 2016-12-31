@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -17,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: d33128d8fa2bf0ba1025eff75378ccd42ce5aee0
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
 
-Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Microsoft Azure SQL Management Library voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een pool voor elastische database maken](sql-database-elastic-pool-create-csharp.md) als u een pool voor elastische database wilt maken.
+Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Microsoft Azure SQL Management Library voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een zelfstandige database met SQL en C# maakt. Zie [Een elastische pool maken](sql-database-elastic-pool-create-csharp.md) als u een elastische pool wilt maken.
 
 De Azure SQL Database Management Library voor .NET biedt een op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
@@ -293,6 +287,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

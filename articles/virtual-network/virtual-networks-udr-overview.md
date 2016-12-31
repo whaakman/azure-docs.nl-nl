@@ -15,23 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
 # <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Wat zijn door de gebruiker gedefinieerde routes en Doorsturen via IP?
-Als u virtuele machines (VM's) aan een virtueel netwerk (VNET) in Azure toevoegt, ziet u dat de virtuele machines automatisch met elkaar kunnen communiceren via het netwerk. U hoeft geen gateway op te geven, ook niet als de virtuele machines tot verschillende subnetten behoren. Hetzelfde geldt voor de communicatie tussen VM's en internet. Als er een hybride verbinding is tussen Azure en uw eigen datacentrum, is er zelfs communicatie met uw on-premises netwerk mogelijk.
+Als u virtuele machines (VM's) aan een virtueel netwerk (VNet) in Azure toevoegt, ziet u dat de virtuele machines automatisch met elkaar kunnen communiceren via het netwerk. U hoeft geen gateway op te geven, ook niet als de virtuele machines tot verschillende subnetten behoren. Hetzelfde geldt voor de communicatie tussen VM's en internet. Als er een hybride verbinding is tussen Azure en uw eigen datacentrum, is er zelfs communicatie met uw on-premises netwerk mogelijk.
 
 Deze communicatiestroom is mogelijk omdat de IP-verkeersstromen in Azure wordt gedefinieerd met behulp van een reeks systeemroutes. Systeemroutes bepalen de communicatiestroom in de volgende scenario's:
 
 * Binnen een en hetzelfde subnet.
-* Van het ene naar het andere subnet binnen een VNET.
+* Van het ene naar het andere subnet binnen een VNet.
 * Van virtuele machines naar internet.
-* Van het ene naar het andere VNET via een VPN-gateway.
-* Van een VNET naar uw on-premises netwerk via een VPN-gateway.
+* Van het ene naar het andere VNet via een VPN-gateway.
+* Van het ene naar het andere VNet via VNet-peering (servicechaining).
+* Van een VNet naar uw on-premises netwerk via een VPN-gateway.
 
-In de afbeelding hieronder ziet u eenvoudige configuratie met een VNET, twee subnetten en enkele virtuele machines, plus de systeemroutes voor het toestaan van IP-verkeer.
+In de afbeelding hieronder ziet u eenvoudige configuratie met een VNet, twee subnetten en enkele virtuele machines, plus de systeemroutes voor het toestaan van IP-verkeer.
 
 ![Systeemroutes in Azure](./media/virtual-networks-udr-overview/Figure1.png)
 
@@ -111,6 +112,6 @@ Deze VM op het virtuele apparaat moet in staat zijn om binnenkomend verkeer te o
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
