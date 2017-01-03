@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ In deze handleiding wordt getoond hoe u het opslaan van antwoorden in de cache t
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Service-exemplaar van API Management maken] in de zelfstudie [Aan de slag met Azure API Management][Aan de slag met Azure API Management].
+Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Een bewerking voor opslaan in cache configureren
 In deze stap controleert u de cache-instellingen van de bewerking **GET Resource (in cache)** van de voorbeeld-Echo-API.
 
 > [!NOTE]
-> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie [Aan de slag met Azure API Management][Aan de slag met Azure API Management] voor meer informatie.
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie [Aan de slag met Azure API Management][Get started with Azure API Management] voor meer informatie.
 > 
 > 
 
@@ -80,20 +80,22 @@ Hiermee worden de beleidsregels voor deze bewerking in de beleidseditor weergege
 
 De beleidsdefinitie voor deze bewerking bevat de beleidsregels waarmee de cacheconfiguratie wordt gedefinieerd die is gecontroleerd met het tabblad **Opslaan in cache** in de vorige stap.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Wijzigingen die via de beleidseditor in de cachebeleidsregels worden aangebracht, worden weergegeven op het tabblad **Opslaan in cache** van een bewerking en vice versa.
@@ -138,10 +140,10 @@ Voer **25** in het veld **param2** in en klik vervolgens op **HTTP Get**.
 Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omdat de bewerkingsresultaten een sleutel per querytekenreeks hebben, is het vorige antwoord in de cache niet geretourneerd.
 
 ## <a name="next-steps"> </a>Volgende stappen
-* Zie [Cachebeleidsregels][Cachebeleidsregels] in [Naslaginformatie over beleid voor API Management][Naslaginformatie over beleid voor API Management] voor meer informatie over cachebeleidsregels.
+* Zie [Cachebeleidsregels][Caching policies] in [Naslaginformatie over beleid voor API Management][API Management policy reference] voor meer informatie over cachebeleidsregels.
 * Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 
-[api-management-beheerconsole]: ./media/api-management-howto-cache/api-management-management-console.png
+[api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
 [api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
 [api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
@@ -153,25 +155,25 @@ Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omd
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Bewerkingen toevoegen aan een API]: api-management-howto-add-operations.md
-[Een product toevoegen en publiceren]: api-management-howto-add-products.md
-[Bewaking en analytische gegevens]: api-management-monitoring.md
-[API's toevoegen aan een product]: api-management-howto-add-products.md#add-apis
-[Een product publiceren]: api-management-howto-add-products.md#publish-product
-[Aan de slag met Azure API Management]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Naslaginformatie over beleid voor API Management]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Cachebeleidsregels]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Service-exemplaar van API Management maken]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Een bewerking voor opslaan in cache configureren]: #configure-caching
-[De cachebeleidsregels controleren]: #caching-policies
-[Een bewerking aanroepen en het opslaan in de cache testen]: #test-operation
-[Volgende stappen]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

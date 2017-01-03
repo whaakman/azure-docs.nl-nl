@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 50200648bcd2aed4cbc0c720d140f2ecb2c17934
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 
 
 ---
@@ -27,8 +27,8 @@ In dit onderwerp vindt u een overzicht van Azure SQL-databases. Zie [Logische se
 ## <a name="what-is-azure-sql-database"></a>Wat is een Azure SQL-database?
 Elke database in Azure SQL Database is gekoppeld aan een logische server. De database kan bestaan uit:
 
-- Een individuele database met een [eigen set resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU's)
-- Een onderdeel van een [groep databases](sql-database-elastic-pool.md) die [een set resources delen](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU's)
+- Een zelfstandige database met een [eigen set resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU's)
+- Een onderdeel van een [elastische pool](sql-database-elastic-pool.md) dat [een set resources deelt](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU's)
 - Een onderdeel van een set [uitgeschaalde Shard-databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), welke individuele databases of databases in een groep kunnen zijn
 - Een onderdeel van een set databases die deel uitmaken van een [SaaS-ontwerppatroon met meerdere tenants](sql-database-design-patterns-multi-tenancy-saas-applications.md), waarvan de databases individuele databases of een databases in een groep (of beide) kunnen zijn 
 
@@ -71,6 +71,6 @@ U kunt logische Azure SQL Database-servers beheren met behulp van een aantal met
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -70,7 +70,10 @@ Hoewel er twee sleutels worden vermeld, hebt u er slechts één tegelijk nodig. 
 Nu u een exemplaar van Power BI voor uw toepassing en **toegangssleutels** hebt, kunt u een rapport in uw eigen app importeren. Voordat u een rapport leert importeren, kunt u in de volgende sectie lezen hoe u Power BI-gegevenssets en -rapporten maakt om deze in een app in te sluiten.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Power BI-gegevenssets en -rapporten maken om in een app in te sluiten
-Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt. Meer informatie over het gebruik van **Power BI Desktop** vindt u in [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
+
+> [!NOTE]
+> Meer informatie over het gebruik van **Power BI Desktop** vindt u in [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Met **Power BI Desktop** maakt u verbinding met uw gegevensbron door een kopie van de gegevens te importeren in **Power BI Desktop** of door een rechtstreekse verbinding te maken met de gegevensbron via **DirectQuery**.
 
@@ -86,14 +89,11 @@ Nadat u uw werk in **Power BI Desktop** hebt opgeslagen, wordt een PBIX-bestand 
 
 > [!NOTE]
 > **Power BI Embedded** heeft aanvullende API's voor het wijzigen van de server en database waarnaar uw gegevensset wijst en het instellen van accountreferenties die door de gegevensset wordt gebruikt voor het maken van een verbinding met uw database. Zie [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) en [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
-> 
-> 
 
 ## <a name="next-steps"></a>Volgende stappen
 In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en gegevensset gemaakt. Nu gaat u leren hoe u code schrijft voor **Power BI Embedded**. Om u te helpen hiermee aan de slag te gaan, hebben we een voorbeeld van een webapp gemaakt: [Aan de slag met het voorbeeld](power-bi-embedded-get-started-sample.md). Het voorbeeld laat u zien hoe u het volgende doet:
 
 * Inhoud inrichten
-  
   * Een werkruimte maken
   * Een PBIX-bestand importeren
   * Verbindingstekenreeksen bijwerken en referenties voor gegevenssets instellen
@@ -104,9 +104,11 @@ In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en ge
 * [Verifiëren en autoriseren met Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

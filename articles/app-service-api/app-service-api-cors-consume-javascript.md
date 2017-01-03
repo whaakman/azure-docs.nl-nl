@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -51,7 +51,7 @@ U kunt CORS configureren in Azure Portal of met behulp van de [Azure Resource Ma
    Nadat u op **Opslaan** hebt geklikt, accepteert de API-app JavaScript-aanroepen vanuit de opgegeven URL's.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>CORS configureren met de Azure Resource Manager-hulpprogramma's
-U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](/powershell/azureps-cmdlets-docs) en de [Azure CLI](../xplat-cli-install.md). 
+U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](/powershell/azureps-cmdlets-docs) en de [Azure CLI](../xplat-cli-install.md). 
 
 Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenschap instelt, opent u het [bestand azuredeploy.json in de opslagplaats voor de voorbeeldtoepassing uit deze zelfstudie](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Ga naar het gedeelte van de sjabloon die lijkt op het volgende voorbeeld:
 
@@ -252,6 +252,6 @@ In dit artikel hebt u gezien hoe u App Service CORS-ondersteuning kunt inschakel
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

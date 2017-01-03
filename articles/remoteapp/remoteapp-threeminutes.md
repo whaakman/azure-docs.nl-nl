@@ -1,22 +1,25 @@
-
 ---
-title: Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder | Microsoft Docs
+title: Azure RemoteApp op uw apparaat uitproberen in drie minuten of minder | Microsoft Docs
 description: Probeer de functionaliteit van Azure RemoteApp uit zonder de service te installeren.
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 95e9fb49-78bb-4797-8d66-aeb42d00f208
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+
 
 ---
-# Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder
 > [!IMPORTANT]
 > Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
@@ -40,6 +43,9 @@ Uw mening telt. Aan het einde van elke sessie ziet u een dialoogvenster voor uw 
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 
