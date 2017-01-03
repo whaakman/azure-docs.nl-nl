@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
+ms.sourcegitcommit: 7269613c5f181b4b1ce931b335a88e501e345dac
+ms.openlocfilehash: d4db9515f213963722fc181cbf97dc78e7f1bb70
 
 
 ---
@@ -54,198 +54,201 @@ In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het de
 ## <a name="data-factory-json-template"></a>JSON-sjabloon voor Data Factory
 De Resource Manager-sjabloon op het hoogste niveau voor het definiëren van een gegevensfactory is als volgt: 
 
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": { ...
-        },
-        "variables": { ...
-        },
-        "resources": [
-            {
-                "name": "[parameters('dataFactoryName')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.DataFactory/datafactories",
-                "location": "westus",
-                "resources": [
-                    { ... },
-                    { ... },
-                    { ... },
-                    { ... }
-                ]
-            }
-        ]
-    }
-
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { ...
+    },
+    "variables": { ...
+    },
+    "resources": [
+        {
+            "name": "[parameters('dataFactoryName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.DataFactory/datafactories",
+            "location": "westus",
+            "resources": [
+                { ... },
+                { ... },
+                { ... },
+                { ... }
+            ]
+        }
+    ]
+}
+```
 Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFGetStarted**. Geef het bestand de volgende inhoud:
 
-    {
-        "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "parameters": {
-            "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the input/output data." } },
-              "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
-              "blobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
-              "inputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that has the input file." } },
-              "inputBlobName": { "type": "string", "metadata": { "description": "Name of the input file/blob." } },
-              "outputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that will hold the transformed data." } },
-              "hiveScriptFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that contains the Hive query file." } },
-              "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of the hive query (HQL) file." } }
-        },
-        "variables": {
-              "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
-              "azureStorageLinkedServiceName": "AzureStorageLinkedService",
-              "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
-              "blobInputDatasetName": "AzureBlobInput",
-              "blobOutputDatasetName": "AzureBlobOutput",
-              "pipelineName": "HiveTransformPipeline"
-        },
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+        "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the input/output data." } },
+          "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
+          "blobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
+          "inputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that has the input file." } },
+          "inputBlobName": { "type": "string", "metadata": { "description": "Name of the input file/blob." } },
+          "outputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that will hold the transformed data." } },
+          "hiveScriptFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that contains the Hive query file." } },
+          "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of the hive query (HQL) file." } }
+    },
+    "variables": {
+          "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
+          "azureStorageLinkedServiceName": "AzureStorageLinkedService",
+          "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
+          "blobInputDatasetName": "AzureBlobInput",
+          "blobOutputDatasetName": "AzureBlobOutput",
+          "pipelineName": "HiveTransformPipeline"
+    },
+    "resources": [
+      {
+        "name": "[variables('dataFactoryName')]",
+        "apiVersion": "2015-10-01",
+        "type": "Microsoft.DataFactory/datafactories",
+        "location": "West US",
         "resources": [
           {
-            "name": "[variables('dataFactoryName')]",
+            "type": "linkedservices",
+            "name": "[variables('azureStorageLinkedServiceName')]",
+            "dependsOn": [
+                  "[variables('dataFactoryName')]"
+            ],
             "apiVersion": "2015-10-01",
-            "type": "Microsoft.DataFactory/datafactories",
-            "location": "West US",
-            "resources": [
-              {
-                "type": "linkedservices",
-                "name": "[variables('azureStorageLinkedServiceName')]",
-                "dependsOn": [
-                      "[variables('dataFactoryName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                      "type": "AzureStorage",
-                      "description": "Azure Storage linked service",
-                      "typeProperties": {
-                        "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                      }
-                }
-              },
-              {
-                "type": "linkedservices",
-                "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
-                "dependsOn": [
-                      "[variables('dataFactoryName')]",
-                      "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                      "type": "HDInsightOnDemand",
-                      "typeProperties": {
-                        "clusterSize": 1,
-                        "version": "3.2",
-                        "timeToLive": "00:05:00",
-                        "osType": "windows",
-                        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-                      }
-                }
-              },
-              {
-                "type": "datasets",
-                "name": "[variables('blobInputDatasetName')]",
-                "dependsOn": [
-                      "[variables('dataFactoryName')]",
-                      "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                      "type": "AzureBlob",
-                      "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-                      "typeProperties": {
-                        "fileName": "[parameters('inputBlobName')]",
-                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
-                        "format": {
-                              "type": "TextFormat",
-                              "columnDelimiter": ","
-                        }
-                      },
-                      "availability": {
-                        "frequency": "Month",
-                        "interval": 1
-                      },
-                      "external": true
-                }
-              },
-              {
-                "type": "datasets",
-                "name": "[variables('blobOutputDatasetName')]",
-                "dependsOn": [
-                      "[variables('dataFactoryName')]",
-                      "[variables('azureStorageLinkedServiceName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                      "type": "AzureBlob",
-                      "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-                      "typeProperties": {
-                        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
-                        "format": {
-                              "type": "TextFormat",
-                              "columnDelimiter": ","
-                        }
-                      },
-                      "availability": {
-                        "frequency": "Month",
-                        "interval": 1
-                      }
-                }
-              },
-              {
-                "type": "datapipelines",
-                "name": "[variables('pipelineName')]",
-                "dependsOn": [
-                      "[variables('dataFactoryName')]",
-                      "[variables('azureStorageLinkedServiceName')]",
-                      "[variables('hdInsightOnDemandLinkedServiceName')]",
-                      "[variables('blobInputDatasetName')]",
-                      "[variables('blobOutputDatasetName')]"
-                ],
-                "apiVersion": "2015-10-01",
-                "properties": {
-                      "description": "Pipeline that transforms data using Hive script.",
-                      "activities": [
-                    {
-                          "type": "HDInsightHive",
-                          "typeProperties": {
-                            "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
-                            "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
-                            "defines": {
-                                  "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-                                  "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
-                            }
-                          },
-                          "inputs": [
-                            {
-                                  "name": "[variables('blobInputDatasetName')]"
-                            }
-                          ],
-                          "outputs": [
-                            {
-                                  "name": "[variables('blobOutputDatasetName')]"
-                            }
-                          ],
-                          "policy": {
-                            "concurrency": 1,
-                            "retry": 3
-                          },
-                          "scheduler": {
-                            "frequency": "Month",
-                            "interval": 1
-                          },
-                          "name": "RunSampleHiveActivity",
-                          "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
-                    }
-                      ],
-                      "start": "2016-10-01T00:00:00Z",
-                      "end": "2016-10-02T00:00:00Z",
-                      "isPaused": false
+            "properties": {
+                  "type": "AzureStorage",
+                  "description": "Azure Storage linked service",
+                  "typeProperties": {
+                    "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
                   }
+            }
+          },
+          {
+            "type": "linkedservices",
+            "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
+            "dependsOn": [
+                  "[variables('dataFactoryName')]",
+                  "[variables('azureStorageLinkedServiceName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+                  "type": "HDInsightOnDemand",
+                  "typeProperties": {
+                    "clusterSize": 1,
+                    "version": "3.2",
+                    "timeToLive": "00:05:00",
+                    "osType": "windows",
+                    "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
+                  }
+            }
+          },
+          {
+            "type": "datasets",
+            "name": "[variables('blobInputDatasetName')]",
+            "dependsOn": [
+                  "[variables('dataFactoryName')]",
+                  "[variables('azureStorageLinkedServiceName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+                  "type": "AzureBlob",
+                  "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+                  "typeProperties": {
+                    "fileName": "[parameters('inputBlobName')]",
+                    "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
+                    "format": {
+                          "type": "TextFormat",
+                          "columnDelimiter": ","
+                    }
+                  },
+                  "availability": {
+                    "frequency": "Month",
+                    "interval": 1
+                  },
+                  "external": true
+            }
+          },
+          {
+            "type": "datasets",
+            "name": "[variables('blobOutputDatasetName')]",
+            "dependsOn": [
+                  "[variables('dataFactoryName')]",
+                  "[variables('azureStorageLinkedServiceName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+                  "type": "AzureBlob",
+                  "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+                  "typeProperties": {
+                    "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
+                    "format": {
+                          "type": "TextFormat",
+                          "columnDelimiter": ","
+                    }
+                  },
+                  "availability": {
+                    "frequency": "Month",
+                    "interval": 1
+                  }
+            }
+          },
+          {
+            "type": "datapipelines",
+            "name": "[variables('pipelineName')]",
+            "dependsOn": [
+                  "[variables('dataFactoryName')]",
+                  "[variables('azureStorageLinkedServiceName')]",
+                  "[variables('hdInsightOnDemandLinkedServiceName')]",
+                  "[variables('blobInputDatasetName')]",
+                  "[variables('blobOutputDatasetName')]"
+            ],
+            "apiVersion": "2015-10-01",
+            "properties": {
+                  "description": "Pipeline that transforms data using Hive script.",
+                  "activities": [
+                {
+                      "type": "HDInsightHive",
+                      "typeProperties": {
+                        "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
+                        "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
+                        "defines": {
+                              "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                              "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                        }
+                      },
+                      "inputs": [
+                        {
+                              "name": "[variables('blobInputDatasetName')]"
+                        }
+                      ],
+                      "outputs": [
+                        {
+                              "name": "[variables('blobOutputDatasetName')]"
+                        }
+                      ],
+                      "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                      },
+                      "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                      },
+                      "name": "RunSampleHiveActivity",
+                      "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
+                }
+                  ],
+                  "start": "2016-10-01T00:00:00Z",
+                  "end": "2016-10-02T00:00:00Z",
+                  "isPaused": false
               }
-            ]
           }
         ]
-    }
+      }
+    ]
+}
+```
 
 > [!NOTE]
 > In [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Zelfstudie: met behulp van een Azure Resource Manager-sjabloon een pijplijn maken met een kopieerbewerking) vindt u een ander voorbeeld van een Resource Manager-sjabloon voor het maken van een Azure-gegevensfactory.  
@@ -260,36 +263,38 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 > 
 > 
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "storageAccountName": {
-                "value": "<Name of your Azure Storage account>"
-            },
-            "storageAccountKey": {
-                "value": "<Key of your Azure Storage account>"
-            },
-            "blobContainer": {
-                "value": "adfgetstarted"
-            },
-            "inputBlobFolder": {
-                "value": "inputdata"
-            },
-            "inputBlobName": {
-                "value": "input.log"
-            },
-            "outputBlobFolder": {
-                "value": "partitioneddata"
-            },
-            "hiveScriptFolder": {
-                  "value": "script"
-            },
-            "hiveScriptFile": {
-                  "value": "partitionweblogs.hql"
-            }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "value": "<Name of your Azure Storage account>"
+        },
+        "storageAccountKey": {
+            "value": "<Key of your Azure Storage account>"
+        },
+        "blobContainer": {
+            "value": "adfgetstarted"
+        },
+        "inputBlobFolder": {
+            "value": "inputdata"
+        },
+        "inputBlobName": {
+            "value": "input.log"
+        },
+        "outputBlobFolder": {
+            "value": "partitioneddata"
+        },
+        "hiveScriptFolder": {
+              "value": "script"
+        },
+        "hiveScriptFile": {
+              "value": "partitionweblogs.hql"
         }
     }
+}
+```
 
 > [!IMPORTANT]
 > Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren. 
@@ -298,19 +303,30 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
 1. Open **Azure PowerShell** en voer de volgende opdracht uit: 
-   * Voer `Login-AzureRmAccount` uit en voer de gebruikersnaam en het wachtwoord in waarmee u zich aanmeldt bij Azure Portal.  
-   * Voer `Get-AzureRmSubscription` uit om alle abonnementen voor dit account weer te geven.
-   * Voer `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
+   * Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
+    ```PowerShell
+    Login-AzureRmAccount
+    ```  
+   * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
+    ```PowerShell
+    Get-AzureRmSubscription
+    ``` 
+   * Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
+    ```
+    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+    ```   
 2. Voer de volgende opdracht uit om Data Factory-entiteiten te implementeren met behulp van het Resource Manager-sjabloon dat u in stap 1 hebt gemaakt. 
-   
-        New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
 
+    ```PowerShell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
+    ```
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 1. Wanneer u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren** en selecteert u **Gegevensfactory’s**.
      ![Bladeren -> Gegevensfactory's](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. Klik op de blade **Gegevensfactory’s** op de gegevensfactory (**TutorialFactoryARM**) die u hebt gemaakt.    
 3. Klik op de blade **Gegevensfactory** van uw gegevensfactory op **Diagram**.
-     ![De tegel Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+
+     ![Tegel Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4. In de **diagramweergave** ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
    
    ![Diagramweergave](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -335,18 +351,20 @@ U kunt ook de app voor bewaking en beheer gebruiken om uw gegevenspijplijnen te 
 ### <a name="define-data-factory"></a>Een gegevensfactory definiëren
 U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het volgende voorbeeld wordt weergegeven:  
 
-    "resources": [
-    {
-        "name": "[variables('dataFactoryName')]",
-        "apiVersion": "2015-10-01",
-        "type": "Microsoft.DataFactory/datafactories",
-        "location": "West US"
-    }
-
+```json
+"resources": [
+{
+    "name": "[variables('dataFactoryName')]",
+    "apiVersion": "2015-10-01",
+    "type": "Microsoft.DataFactory/datafactories",
+    "location": "West US"
+}
+```
 De variabele dataFactoryName wordt als volgt gedefinieerd: 
 
-      "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
-
+```json
+"dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
+```
 Het is een unieke tekenreeks op basis van de resourcegroep-id.  
 
 ### <a name="defining-data-factory-entities"></a>Data Factory-entiteiten definiëren
@@ -361,46 +379,48 @@ De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
 In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service. 
 
-      {
-        "type": "linkedservices",
-        "name": "[variables('azureStorageLinkedServiceName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-          "type": "AzureStorage",
-          "description": "Azure Storage linked service",
-          "typeProperties": {
+```json
+{
+    "type": "linkedservices",
+    "name": "[variables('azureStorageLinkedServiceName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "AzureStorage",
+        "description": "Azure Storage linked service",
+        "typeProperties": {
             "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-          }
         }
-      }
-
+    }
+}
+```
 De tekenreeks **connectionString** maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Een gekoppelde HDInsight-service op aanvraag
 Zie het artikel [Compute linked services (Gekoppelde services verwerken)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde HDInsight-service op aanvraag.  
 
-      {
-        "type": "linkedservices",
-        "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-          "type": "HDInsightOnDemand",
-          "typeProperties": {
+```json
+{
+    "type": "linkedservices",
+    "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
             "clusterSize": 1,
             "version": "3.2",
             "timeToLive": "00:05:00",
             "osType": "windows",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-          }
         }
-      }
-
+    }
+}
+```
 Houd rekening met de volgende punten: 
 
 * Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de bovenstaande JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie. 
@@ -414,131 +434,137 @@ Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-service
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
 U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
 
-      {
-        "type": "datasets",
-        "name": "[variables('blobInputDatasetName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]",
-          "[variables('azureStorageLinkedServiceName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-          "type": "AzureBlob",
-          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-          "typeProperties": {
+```json
+{
+    "type": "datasets",
+    "name": "[variables('blobInputDatasetName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+        "typeProperties": {
             "fileName": "[parameters('inputBlobName')]",
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
             "format": {
-              "type": "TextFormat",
-              "columnDelimiter": ","
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
-          },
-          "availability": {
+        },
+        "availability": {
             "frequency": "Month",
             "interval": 1
-          },
-          "external": true
-        }
-      }
-
+        },
+        "external": true
+    }
+}
+```
 Deze definitie maakt gebruik van de volgende parameters die in de parametersjabloon zijn gedefinieerd: blobContainer, inputBlobFolder en inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Azure Blob-uitvoergegevensset
 U geeft de namen van de blobcontainer en de map met de uitvoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.  
 
-      {
-        "type": "datasets",
-        "name": "[variables('blobOutputDatasetName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]",
-          "[variables('azureStorageLinkedServiceName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-          "type": "AzureBlob",
-          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-          "typeProperties": {
+```json
+{
+    "type": "datasets",
+    "name": "[variables('blobOutputDatasetName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+        "typeProperties": {
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
             "format": {
-              "type": "TextFormat",
-              "columnDelimiter": ","
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
-          },
-          "availability": {
+        },
+        "availability": {
             "frequency": "Month",
             "interval": 1
-          }
         }
-      }
+    }
+}
+```
 
 Deze definitie maakt gebruik van de volgende parameters die in de parametersjabloon zijn gedefinieerd: blobContainer en outputBlobFolder. 
 
 #### <a name="data-pipeline"></a>Gegevenspijplijn
 U definieert een pijplijn waarmee gegevens worden omgezet door een Hive-script uit te voeren in een Azure HDInsight-cluster op aanvraag. Zie [JSON-bestand voor een pijplijn](data-factory-create-pipelines.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld. 
 
-    {
-        "type": "datapipelines",
-        "name": "[variables('pipelineName')]",
-        "dependsOn": [
-          "[variables('dataFactoryName')]",
-          "[variables('azureStorageLinkedServiceName')]",
-          "[variables('hdInsightOnDemandLinkedServiceName')]",
-          "[variables('blobInputDatasetName')]",
-          "[variables('blobOutputDatasetName')]"
-        ],
-        "apiVersion": "2015-10-01",
-        "properties": {
-          "description": "Pipeline that transforms data using Hive script.",
-          "activities": [
-            {
-              "type": "HDInsightHive",
-              "typeProperties": {
+```json
+{
+    "type": "datapipelines",
+    "name": "[variables('pipelineName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]",
+        "[variables('hdInsightOnDemandLinkedServiceName')]",
+        "[variables('blobInputDatasetName')]",
+        "[variables('blobOutputDatasetName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "description": "Pipeline that transforms data using Hive script.",
+        "activities": [
+        {
+            "type": "HDInsightHive",
+            "typeProperties": {
                 "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
                 "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
                 "defines": {
-                  "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-                  "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                    "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                    "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
                 }
-              },
-              "inputs": [
-                {
-                  "name": "[variables('blobInputDatasetName')]"
-                }
-              ],
-              "outputs": [
-                {
-                  "name": "[variables('blobOutputDatasetName')]"
-                }
-              ],
-              "policy": {
+            },
+            "inputs": [
+            {
+                "name": "[variables('blobInputDatasetName')]"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "[variables('blobOutputDatasetName')]"
+            }
+            ],
+            "policy": {
                 "concurrency": 1,
                 "retry": 3
-              },
-              "scheduler": {
+            },
+            "scheduler": {
                 "frequency": "Month",
                 "interval": 1
-              },
-              "name": "RunSampleHiveActivity",
-              "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
-            }
-          ],
-          "start": "2016-10-01T00:00:00Z",
-          "end": "2016-10-02T00:00:00Z",
-          "isPaused": false
+            },
+            "name": "RunSampleHiveActivity",
+            "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
-      }
+        ],
+        "start": "2016-10-01T00:00:00Z",
+        "end": "2016-10-02T00:00:00Z",
+        "isPaused": false
+    }
+}
+```
 
 ## <a name="reuse-the-template"></a>De sjabloon hergebruiken
 U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.     
 
 Voorbeeld:  
 
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+```PowerShell
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
-
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+```
 De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.  
 
 U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bijvoorbeeld veel gegevensfactory's maken met een of meer pijplijnen die dezelfde logica implementeren, maar elke gegevensfactory maakt gebruik van andere Azure Storage- en Azure SQL Database-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken. 
@@ -546,37 +572,38 @@ U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bij
 ## <a name="resource-manager-template-for-creating-a-gateway"></a>Resource Manager-sjabloon voor het maken van een gateway
 Hier volgt een Resource Manager-voorbeeldsjabloon voor het op de achtergrond maken van een logische gateway. Installeer een gateway op uw on-premises computer of virtuele Azure IaaS-machine en registreer de gateway met een sleutel bij de Data Factory-service. Zie [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md) voor meer informatie.
 
-    {
-        "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "parameters": {
-        },
-        "variables": {
-            "dataFactoryName":  "GatewayUsingArmDF",
-            "apiVersion": "2015-10-01",
-            "singleQuote": "'"
-        },
-        "resources": [
-            {
-                "name": "[variables('dataFactoryName')]",
-                "apiVersion": "[variables('apiVersion')]",
-                "type": "Microsoft.DataFactory/datafactories",
-                "location": "eastus",
-                "resources": [
-                    {
-                        "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
-                        "type": "gateways",
-                        "apiVersion": "[variables('apiVersion')]",
-                        "name": "GatewayUsingARM",
-                        "properties": {
-                            "description": "my gateway"
-                        }
-                    }            
-                ]
-            }
-        ]
-    }
-
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "parameters": {
+    },
+    "variables": {
+        "dataFactoryName":  "GatewayUsingArmDF",
+        "apiVersion": "2015-10-01",
+        "singleQuote": "'"
+    },
+    "resources": [
+        {
+            "name": "[variables('dataFactoryName')]",
+            "apiVersion": "[variables('apiVersion')]",
+            "type": "Microsoft.DataFactory/datafactories",
+            "location": "eastus",
+            "resources": [
+                {
+                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+                    "type": "gateways",
+                    "apiVersion": "[variables('apiVersion')]",
+                    "name": "GatewayUsingARM",
+                    "properties": {
+                        "description": "my gateway"
+                    }
+                }            
+            ]
+        }
+    ]
+}
+```
 Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met een gateway met de naam GatewayUsingARM. 
 
 ## <a name="see-also"></a>Zie ook
@@ -591,6 +618,6 @@ Met deze sjabloon maakt u een gegevensfactory met de naam GatewayUsingArmDF, met
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

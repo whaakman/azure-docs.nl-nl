@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e4aa6b13e3f1060d97cfea70761ad2f1c109b0c0
-ms.openlocfilehash: 5a197d1444c75d9f6f8d7540ca3117d894d5836f
+ms.sourcegitcommit: 10c350247593c806d2c4e66248dedf5f42734628
+ms.openlocfilehash: 2227ab467aca534c5a8783dfdfa3084cb1c3a126
 
 
 ---
@@ -37,7 +37,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | --- | --- | --- |
 | **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **Zuid-Amerika** |Brazilië - zuid |Sao Paulo |
-| **Europa** |Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid |Amsterdam, Dublin, Londen, Newport(Wales)+, Parijs |
+| **Europa** |Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid |Amsterdam, Dublin, Londen, Newport (Wales), Parijs |
 | **Azië** |Oost-Azië, Zuidoost-Azië |Hongkong, Singapore |
 | **Japan** |Japan - west, Japan - oost |Osaka, Tokio |
 | **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
@@ -85,7 +85,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Las Vegas+, Londen, Seattle, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |
-| **Next Generation Data** |Ondersteund |Binnenkort beschikbaar |Newport (Wales) |
+| **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Ondersteund |Ondersteund |Newport (Wales) |
 | **NEXTDC** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **NTT Communications** |Ondersteund |Ondersteund |Londen, Los Angeles, Osaka, Singapore, Tokio, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Washington DC |
@@ -148,8 +148,11 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 | **Connectiviteitsprovider** | **Exchange** | **Locaties** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
-| **Alaska Communications** |Equinix |Seattle |
+| **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londen |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
+| **[Macquarie](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
+| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
 | **[XO Communications](http://www.xo.com/)** |Equinix |Silicon Valley |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
@@ -164,6 +167,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |VS |
 | **[Project Leadership](http://www.projectleadership.net/azure)** |VS |
 
+
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 * Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
@@ -173,6 +177,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

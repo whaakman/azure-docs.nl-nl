@@ -3,7 +3,7 @@ title: Zelfstudie - Aan de slag met de Azure Batch-client voor Python | Microsof
 description: Leer de basisconcepten van Azure Batch en hoe u voor de Batch-service ontwikkelt met een eenvoudig scenario
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -270,7 +270,7 @@ Shared Access Signatures zijn tekenreeksen die beveiligde toegang bieden tot con
 >
 
 ## <a name="step-3-create-batch-pool"></a>Stap 3: Batch-pool maken
-![Batch-pool maken][3]
+![Een Batch-pool maken][3]
 <br/>
 
 Een Batch-**pool** is een verzameling rekenknooppunten (virtuele machines) waarop Batch de taken van een job uitvoert.
@@ -708,6 +708,6 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

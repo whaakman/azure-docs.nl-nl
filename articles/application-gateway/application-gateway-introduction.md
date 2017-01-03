@@ -4,7 +4,7 @@ description: Deze pagina geeft een overzicht van de Application Gateway-service 
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
-ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
+ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
+ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
 
 
 ---
@@ -75,9 +75,7 @@ In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgat
 | 100K |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voer voor cijfers over exacte prestaties uw eigen tests uit. Deze waarden zijn slechts richtlijnen voor de capaciteitsplanning.
->
->
+> Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voor nauwkeurige prestatiecijfers moet u uw eigen tests uitvoeren. Deze waarden worden alleen geboden als richtlijn voor de capaciteitsplanning.
 
 ## <a name="health-monitoring"></a>Statuscontrole
 
@@ -97,6 +95,6 @@ Voor meer informatie over het maken van een toepassingsgateway met behulp van UR
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

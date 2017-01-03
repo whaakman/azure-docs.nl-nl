@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
+ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
-Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Visual Studio Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
+Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
 ![Voorbeeld van een webtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-U kunt webtests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet.
+U kunt webtests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet. U hoeft niks toe te voegen aan de website die u test. Het hoeft niet eens uw site te zijn: u kunt ook een REST API-service testen waarvan u afhankelijk bent.
 
 Er zijn twee soorten webtests:
 
@@ -58,7 +58,7 @@ Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hiero
 
     **HTTP-antwoord**: de geretourneerde statuscode die staat voor een geslaagde test. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
 
-    **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' We testen of dit in elke reactie optreedt. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
+    **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
 * Standaard ontvangt u een **waarschuwing** als er op drie locaties gedurende vijf minuten fouten worden geregistreerd. Als er slechts op één locatie een fout wordt geregistreerd, kan dat ook aan het netwerk liggen en niet per se aan uw site. U kunt de drempel wijzigen om de testgevoeligheid te verhogen of te verlagen. Ook kunt u wijzigen naar wie de e-mails worden verzonden.
 
     U kunt een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
@@ -102,8 +102,20 @@ U kunt het resultatenbestand ook downloaden en bekijken in Visual Studio.
 
 *Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
 
-## <a name="multistep-web-tests"></a>Webtests met meerdere stappen
+### <a name="open-the-server-request-and-exceptions"></a>De serveraanvraag en uitzonderingen openen
+
+U kunt vanuit de gedetailleerde eigenschappen van een bepaalde test het rapport van een aanvraag op de server openen, samen met andere gebeurtenissen zoals uitzonderingen.
+
+![Resultaat van uitgevoerde webtest](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Als er geen gerelateerde items worden weergegeven, kan dit zijn omdat er [steekproeven](app-insights-sampling.md) worden uitgevoerd.
+
+## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
+
+> [!NOTE] 
+> Er worden kosten in rekening gebracht voor webtests met meerdere stappen. [Prijsoverzicht](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
 
@@ -153,7 +165,7 @@ Vergeet niet dat alle resources van een pagina correct moeten laden om de test d
 
 De webtest moet volledig zijn opgenomen in het .webtest-bestand. U kunt in de test geen gecodeerde functies gebruiken.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
 ![Een webtest met parameters](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Web Test invoegtoepassingen bieden de manier om parameters voor tijden toe te vo
 
 Upload uw test nu naar de portal. Het gebruikt de dynamische waarden bij elke uitvoering van de test.
 
-## <a name="dealing-with-signin"></a>Omgaan met aanmelden
+## <a name="dealing-with-sign-in"></a>Omgaan met aanmelden
 Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de aanmelding te simuleren, zodat u pagina’s na het aanmelden kunt testen. Welke aanpak u gebruikt, hangt af van het type beveiliging van de app.
 
 In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. Beperk indien mogelijk de machtigingen voor dit testaccount, zodat webtests echte gebruikers niet beïnvloeden.
@@ -227,7 +239,7 @@ Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
 ## <a name="automation"></a>Automatisering
-* Gebruik [PowerShell-scripts](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) om automatisch een webtest in te stellen.
+* Gebruik [PowerShell-scripts](app-insights-powershell.md#add-an-availability-test) om automatisch een webtest in te stellen.
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
@@ -267,9 +279,9 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Volgende stappen
-[Diagnostische logboeken zoeken][diagnostic]
+[Diagnostische logboeken doorzoeken][diagnostic]
 
-[Probleemoplossing][qna]
+[Problemen oplossen][qna]
 
 [IP-adressen van webtest-agents](app-insights-ip-addresses.md)
 
@@ -282,6 +294,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

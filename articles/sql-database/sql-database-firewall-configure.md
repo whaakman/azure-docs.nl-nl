@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: b5417e02f2c4e50c89afcfa007ccdd208775f374
+ms.sourcegitcommit: c9764e3a61ed22a2596da19dd92ef8eca395b82b
+ms.openlocfilehash: ae61359240e38e5d380fc65b5a77bf6c3e369091
 
 
 ---
@@ -37,7 +37,7 @@ Microsoft Azure SQL Database levert een relationele-databaseservice voor Azure e
 
 U configureert de firewall door firewallregels te maken die bereiken opgeven van acceptabele IP-adressen. U kunt de firewallregels maken op server- en databaseniveau.
 
-* **Firewallregels op serverniveau:** deze regels zorgen ervoor dat clients toegang krijgen tot de hele Azure SQL-server. Dat wil zeggen, tot alle databases binnen dezelfde logische server. Deze regels worden opgeslagen in de **hoofd**database. Firewallregels op serverniveau kunnen worden geconfigureerd met behulp van de portal of met behulp van Transact-SQL-instructies.
+* **Firewallregels op serverniveau:** deze regels zorgen ervoor dat clients toegang krijgen tot de hele Azure SQL-server. Dat wil zeggen, tot alle databases binnen dezelfde logische server. Deze regels worden opgeslagen in de **hoofd**database. Firewallregels op serverniveau kunnen worden geconfigureerd met behulp van de portal of met behulp van Transact-SQL-instructies. Als u firewallregels op serverniveau wilt maken met Azure Portal of PowerShell, moet u de eigenaar van het abonnement of een bijdrager aan het abonnement zijn. Als u een firewallregel op serverniveau wilt maken met Transact-SQL, moet u verbinding maken met het SQL Database-exemplaar als de hoofdaanmelding op serviceniveau of als de beheerder van Azure Active Directory (wat betekent dat er eerst een firewallregel op serverniveau moet worden gemaakt door een gebruiker met machtigingen op Azure-niveau).
 * **Firewallregels op databaseniveau:** deze regels zorgen ervoor dat clients toegang krijgen tot individuele databases in uw Azure SQL Database-server. U kunt deze regels voor elke database maken en ze worden in de desbetreffende databases opgeslagen. (U kunt maken firewallregels op databaseniveau maken voor de **hoofd**database.) Deze regels kunnen nuttig zijn om de toegang tot bepaalde (beveiligde) databases binnen dezelfde logische server te beperken. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van Transact-SQL-instructies.
 
 **Aanbeveling:** voor een grotere veiligheid en om uw database draagbaarder te maken, adviseert Microsoft om zo veel mogelijk gebruik te maken van firewallregels op databaseniveau. Gebruik firewallregels op serverniveau voor beheerders en wanneer u veel databases met dezelfde toegangsvereisten hebt en u niet elke database afzonderlijk wilt configureren.
@@ -150,6 +150,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

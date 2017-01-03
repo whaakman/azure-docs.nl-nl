@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
+ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
 
 
 ---
@@ -256,12 +256,40 @@ U kunt ook controleren of de service correct is geïnstalleerd door Logboeken te
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Stap 3: uw firewall configureren
-Wanneer u Wachtwoord terugschrijven hebt ingeschakeld in het Azure AD Connect-hulpprogramma, moet u controleren of de service verbinding kan maken met de cloud.
+Als u Wachtwoord terugschrijven hebt ingeschakeld, moet u ervoor zorgen dat de machine met Azure AD Connect de Microsoft-cloudservices kan bereiken om op die manier aanvragen voor het terugschrijven van wachtwoorden te ontvangen. Deze stap omvat het bijwerken van de verbindingsregels in uw netwerkapparaten (proxyservers, firewalls enz.), zodat uitgaande verbindingen met bepaalde URL's en IP-adressen van Microsoft worden toegestaan via bepaalde netwerkpoorten. Deze wijzigingen kunnen variëren op basis van de versie van het Azure AD Connect-hulpprogramma. Voor aanvullende context leest u meer over [hoe het terugschrijven van wachtwoorden werkt](active-directory-passwords-learn-more.md#how-password-writeback-works) en over [het beveiligingsmodel voor het terugschrijven van wachtwoorden](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Zodra de installatie is voltooid en u onbekende uitgaande verbindingen in uw omgeving blokkeert, moet u ook de volgende regels toevoegen aan de firewall. Start uw AAD Connect-computer opnieuw op nadat u deze wijzigingen hebt doorgevoerd:
-   * Uitgaande verbindingen via TCP-poort 443 toestaan
-   * Uitgaande verbindingen naar https://ssprsbprodncu-sb.accesscontrol.windows.net/ toestaan
-   * Wanneer er problemen zijn met een proxy of als er algemene verbindingsproblemen zijn, staat u uitgaande verbindingen via poorten 9350-9354 en TCP-poort 5671 toe
+#### <a name="why-do-i-need-to-do-this"></a>Waarom moet ik dit doen?
+
+Als u wilt dat het terugschrijven van wachtwoorden goed werkt, moet de machine waarop Azure AD Connect wordt uitgevoerd, een uitgaande HTTPS-verbinding kunnen maken met **.servicebus.windows.net* en bepaalde IP-adressen die worden gebruikt door Azure. Deze worden gedefinieerd in de [Microsoft Azure-lijst met datacenter-IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Voor Azure AD Connect-versie 1.0.8667.0 en hoger:
+
+- **Optie 1:** alle uitgaande HTTPS-verbindingen toestaan via poort 443 (met een URL of IP-adres).
+    - Wanneer u deze optie gebruikt:
+        - Gebruik deze optie als u een zo eenvoudig mogelijke configuratie wilt gebruiken die niet hoeft te worden bijgewerkt wanneer de Azure-datacenter-IP-bereiken veranderen.
+    - Vereiste stappen:
+        - Sta alle uitgaande HTTPS-verbindingen via poort 443 toe met een URL of IP-adres.
+<br><br>
+- **Optie 2:** uitgaande HTTPS-verbindingen met specifieke IP-bereiken en URL's toestaan
+    - Wanneer u deze optie gebruikt:
+        - Gebruik deze optie als u in een beperkte netwerkomgeving werkt of om andere redenen uitgaande verbindingen niet wilt toestaan.
+        - Als u wilt dat het terugschrijven van wachtwoorden bij deze configuratie blijft werken, moet u ervoor zorgen dat uw netwerkapparaten elke week worden bijgewerkt met de nieuwste IP-adressen van de Microsoft Azure-lijst met datacenter-IP-bereiken. Deze IP-bereiken zijn beschikbaar in een XML-bestand dat elke woensdag (Pacific Time) wordt bijgewerkt en de daarop volgende maandag (Pacific Time) van kracht wordt.
+    - Vereiste stappen:
+        - Alle uitgaande HTTPS-verbindingen met *.servicebus.windows.net toestaan
+        - Sta alle uitgaande HTTPS-verbindingen met de IP-adressen in de Microsoft Azure-lijst met datacenter-IP-bereiken toe en werk deze configuratie elke week bij.
+
+> [!NOTE]
+> Als u het terugschrijven van wachtwoorden hebt geconfigureerd door de bovenstaande instructies te volgen en u geen fouten ziet in het Azure AD Connect-gebeurtenislogboek, maar er wel connectiviteitsproblemen optreden bij het testen, kan het zijn dat een netwerkapparaat in uw omgeving HTTP-verbindingen met IP-adressen blokkeert. Als verbinding met *https://*.servicebus.windows.net* bijvoorbeeld is toegestaan, kan het zijn dat de verbinding met een bepaald IP-adres binnen dat bereik wordt geblokkeerd. U kunt dit oplossen door uw netwerkomgeving zodanig te configureren dat uitgaande HTTPS-verbindingen via poort 443 met alle URL's en IP-adressen (optie 1 hierboven) worden toegestaan. Als alternatief kunt u ook contact opnemen met uw netwerkteam om HTTPS-verbindingen met specifieke IP-adressen toe te staan (optie 2 hierboven).
+
+**Voor oudere versies:**
+
+- Uitgaande TCP-verbindingen via poort 443, 9350-9354 en poort 5671 toestaan 
+- Uitgaande verbindingen met *https://ssprsbprodncu-sb.accesscontrol.windows.net/* toestaan
+
+> [!NOTE]
+> Als u een oudere versie van Azure AD Connect gebruikt dan 1.0.8667.0, raden we u aan te upgraden naar de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). Deze omvat een aantal verbeteringen met betrekking tot terugschrijven binnen netwerken die de configuratie vereenvoudigen.
+
+Nadat de netwerkapparaten zijn geconfigureerd, moet u de machine met het Azure AD Connect-hulpprogramma opnieuw opstarten.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Stap 4: de juiste Active Directory-machtigingen instellen
 Bij elke forest die gebruikers bevat waarvan de wachtwoorden opnieuw worden ingesteld en waarbij X het account is dat is opgegeven voor die forest in de configuratiewizard (tijdens de eerste configuratie), moet X de machtigingen **Wachtwoord wijzigen**, **Wachtwoord opnieuw instellen**, **Schrijfmachtigingen** voor `lockoutTime` en **Schrijfmachtigingen** voor `pwdLastSet` krijgen. Daarbij moet X ook uitgebreide rechten krijgen voor het hoofdobject van elk domein in het forest. Het recht moet worden gemarkeerd als 'overgenomen door alle gebruikersobjecten'.  
@@ -365,6 +393,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -189,7 +189,7 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
    
     De eigenschappen zijn:
    
-   * **Extra eigenschappen** bevat de faseringslocatie van het webimplementatiepakket dat naar Azure Storage wordt gepusht. Noteer de map (ExampleApp) en het bestand (package.zip). Wanneer u de app implementeert, moet u deze waarden als parameters opgeven. 
+   * **Extra eigenschappen** bevat de faseringslocatie van het webimplementatiepakket dat naar Azure Storage wordt gepusht. Noteer de map (ExampleApp) en het bestand (package.zip). U moet weten wat deze waarden zijn, omdat u ze als parameters moet opgeven tijdens het implementeren van de app. 
    * **Bestandspad toevoegen** bevat het pad waar het pakket wordt gemaakt. **Doelen toevoegen** bevat de opdracht die tijdens de implementatie wordt uitgevoerd. 
    * Met de standaardwaarde van **Build;Package** kan tijdens de implementatie een webtoepassingspakket worden gebouwd en gemaakt (pakket.zip).  
      
@@ -219,6 +219,6 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
-ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
 
 
 ---
+
 # <a name="application-gateway-web-application-firewall-preview"></a>Application Gateway Web Application Firewall (preview)
 
 Web Application Firewall (WAF) is een functie van Azure Application Gateway die beveiliging biedt voor webtoepassingen die gebruikmaken van Application Gateway voor standaard ADC-functies (Application Delivery Control). Web Application Firewall doet dit door deze te beschermen tegen het grootste deel van de algemene internetbeveiligingsproblemen uit de OWASP top 10. Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Veelvoorkomende aanvallen zijn hierbij onder andere aanvallen met SQL-injecties en aanvallen via scripting op meerdere sites. Het kan een hele uitdaging zijn om dergelijke aanvallen in toepassingscode te voorkomen en dit kan tevens veel onderhoud, patching en controle vereisen op meerdere lagen van de toepassingstopologie. Een gecentraliseerde Web Application Firewall ter bescherming tegen aanvallen via internet maakt het beveiligingsbeheer veel eenvoudiger en biedt de toepassing meer veiligheid tegen de bedreigingen van indringers. Een WAF-oplossing kan ook sneller reageren op een beveiligingsrisico door een patch voor een bekend beveiligingsprobleem toe te passen op een centrale locatie in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
@@ -82,7 +83,7 @@ Application Gateway WAF biedt gedetailleerde rapporten voor elke bedreiging die 
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Prijzen voor de Application Gateway WAF-voorraadeenheid
 
-Tijdens de preview zijn er geen extra kosten verbonden aan het gebruik van Application Gateway WAF. U betaalt gewoon nog steeds de kosten voor de bestaande basisvoorraadeenheid. De kosten voor de WAF-voorraadeenheid zullen worden meegedeeld wanneer deze algemeen beschikbaar is. Voor klanten die ervoor hebben gekozen om Application Gateway te implementeren in de WAF-voorraadeenheid wordt de prijs voor de WAF-voorraadeenheid pas in rekening gebracht na de aankondiging dat deze algemeen beschikbaar is.
+Tijdens de preview zijn er geen extra kosten verbonden aan het gebruik van Application Gateway WAF. U betaalt gewoon nog steeds de kosten voor de bestaande basisvoorraadeenheid. De kosten voor de WAF-voorraadeenheid worden bekendgemaakt wanneer deze algemeen beschikbaar komt. Voor klanten die ervoor hebben gekozen om Application Gateway te implementeren in de WAF-voorraadeenheid wordt de prijs voor de WAF-voorraadeenheid pas in rekening gebracht na de aankondiging dat deze algemeen beschikbaar is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -91,6 +92,6 @@ Nadat u meer te weten bent gekomen over de mogelijkheden van WAF, kunt u naar [H
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

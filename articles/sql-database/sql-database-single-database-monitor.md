@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: f4150149cea4fa31e7b991e15ffcbefa8a202ada
 
 
 ---
@@ -51,10 +51,10 @@ Dezelfde metrische gegevens die in de portal worden weergegeven, zijn ook beschi
 >
 >
 
-Voor pools voor elastische database kunt u afzonderlijke databases in de pool bewaken met de technieken die in deze sectie zijn beschreven. U kunt echter ook de groep als geheel bewaken. Zie [Een pool voor elastische database bewaken en beheren](sql-database-elastic-pool-manage-portal.md) voor meer informatie.
+Voor elastische pools kunt u afzonderlijke databases in de pool bewaken met de technieken die in deze sectie zijn beschreven. U kunt echter ook de groep als geheel bewaken. Zie [Een elastische pool bewaken en beheren](sql-database-elastic-pool-manage-portal.md) voor meer informatie.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

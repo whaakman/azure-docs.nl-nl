@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
 
 
 ---
@@ -31,9 +31,9 @@ In deze aan de slag-zelfstudie leert u hoe u PowerShell kunt gebruiken voor het 
 * Een logische Azure SQL-server maken
 * Eigenschappen van de Azure SQL-server bekijken
 * Een serverfirewallregel maken
-* De AdventureWorksLT-voorbeelddatabase als een zelfstandige database maken
+* De AdventureWorksLT-voorbeelddatabase maken als individuele database
 * Eigenschappen van de Adventure Works LT-voorbeelddatabase bekijken
-* Een lege zelfstandige database maken
+* Een lege individuele database maken
 
 In deze zelfstudie leert u ook het volgende:
 
@@ -577,6 +577,6 @@ Nu u deze eerste zelfstudie hebt voltooid en een database met enkele voorbeeldge
 [Wat is SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

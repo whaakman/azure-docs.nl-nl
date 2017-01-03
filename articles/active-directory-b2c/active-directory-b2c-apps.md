@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: a7c95f9219920932d56487c0e9b96499cc963af0
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
 
 
 ---
@@ -122,9 +122,6 @@ In deze stroom voert de app een [beleid](active-directory-b2c-reference-policies
 ## <a name="current-limitations"></a>Huidige beperkingen
 Azure AD B2C biedt momenteel geen ondersteuning voor de volgende typen apps, maar hier wordt aan gewerkt. Aanvullende voorwaarden en beperkingen met betrekking tot Azure AD B2C worden beschreven in [Voorwaarden en beperkingen](active-directory-b2c-limitations.md).
 
-### <a name="single-page-apps-javascript"></a>Apps met één pagina (JavaScript)
-Veel moderne apps hebben een app-front-end van één pagina die voornamelijk in JavaScript is geschreven. Dikwijls wordt een framework, zoals AngularJS, Ember.js of Durandal gebruikt. De algemeen beschikbaar Azure AD-service ondersteunt deze apps met behulp van de impliciete OAuth 2.0-stroom. Deze stroom is echter nog niet beschikbaar in Azure AD B2C.
-
 ### <a name="daemonsserver-side-apps"></a>Daemons/apps aan serverzijde
 Ook apps die langlopende processen bevatten of die werken zonder de aanwezigheid van een gebruiker, hebben een manier nodig om toegang te krijgen tot beveiligde resources, zoals web-API's. Deze apps kunnen tokens verifiëren en verkrijgen door de identiteit van de app (in plaats van een gedelegeerde gebruikersidentiteit) te gebruiken en door de referentiestroom van de OAuth 2.0-client te gebruiken.
 
@@ -137,6 +134,6 @@ Dit scenario met web-API-keten kan worden ondersteund met behulp van de OAuth 2.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,67 +1,82 @@
 ---
-title: SQL Database Develop Overview | Microsoft Docs
-description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
+title: Overzicht van de ontwikkeling van toepassingen voor SQL Database | Microsoft Docs
+description: Kom meer te weten over beschikbare verbindingsbibliotheken en aanbevolen procedures voor toepassingen die verbinding maken met SQL Database.
 services: sql-database
-documentationcenter: ''
-author: annemill
+documentationcenter: 
+author: stevestein
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
-ms.author: annemill
+ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 72a20c51416cd3022e2a749c51f25c4b3d9268df
+ms.openlocfilehash: 88b8076e740f80154e410050cd55cd2fa4783b38
+
 
 ---
-# SQL Database Development Overview
-This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
+# <a name="sql-database-application-development-overview"></a>Overzicht van de ontwikkeling van toepassingen voor SQL Database
+In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
 
-## Language and platform
-There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
+> [!TIP]
+> Zie de [Zelfstudie Aan de slag](sql-database-get-started.md) voor een zelfstudie over het maken van een server, het maken van een op een server gebaseerde firewall, het weergeven van servereigenschappen, het maken van verbinding met behulp van SQL Server Management Studio, het uitvoeren van query's op de hoofddatabase, het maken van een voorbeelddatabase, het uitvoeren van query's op database-eigenschappen, het maken van verbinding met behulp van SQL Server Management Studio en het uitvoeren van query's op de voorbeelddatabase.
+>
 
-* More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+## <a name="language-and-platform"></a>Taal en platform
+Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Hier vindt u koppelingen naar de codevoorbeelden: 
 
-## Resource limitations
-Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
+* Meer informatie: [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md)
 
-* More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)
+## <a name="resource-limitations"></a>Resourcebeperkingen
+Azure SQL Database beheert de resources die voor een database beschikbaar zijn door twee verschillende mechanismen te gebruiken: Resources Governance en Enforcement of Limits.
 
-## Security
-Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
+* Meer informatie: [Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md)
 
-* More Information: [Securing your SQL Database](sql-database-security.md)
+## <a name="security"></a>Beveiliging
+Azure SQL Database biedt resources voor het beperken van toegang, het beveiligen van gegevens en het bewaken van activiteiten in een SQL Database.
 
-## Authentication
-* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
-* You need to specify a particular database, instead of defaulting to the *master* database.
-* You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
-* More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
+* Meer informatie: [Uw SQL Database beveiligen](sql-database-security.md)
 
-## Resiliency
-When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
+## <a name="authentication"></a>Authentication
+* Azure SQL Database biedt ondersteuning voor zowel SQL Server-verificatiegebruikers en -aanmeldingen als [Azure Active Directory](sql-database-aad-authentication.md)-verificatiegebruikers en -aanmeldingen.
+* U moet een bepaalde database opgeven in plaats van standaard de *hoofd*database te gebruiken.
+* U kunt geen gebruikmaken van de Transact-SQL-instructie **USE myDatabaseName;** om SQL Database om over te schakelen naar een andere database.
+* Meer informatie: [SQL Database-beveiliging: databasetoegang en aanmeldingsbeveiliging beheren](sql-database-manage-logins.md)
 
-* Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-* More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+## <a name="resiliency"></a>Flexibiliteit
+Wanneer er een tijdelijke fout optreedt bij het verbinden met SQL Database, moet met uw code de aanroep opnieuw worden uitgevoerd.  Het wordt aanbevolen om voor logica voor opnieuw proberen uitstellogica te gebruiken zodat de SQL Database niet overbelast raakt door meerdere clients die tegelijk opnieuw proberen.
 
-## Managing Connections
-* In your client connection logic, override the default timeout to be 30 seconds.  The default of 15 seconds is too short for connections that depend on the internet.
-* If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
+* Codevoorbeelden: zie [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md) voor codevoorbeelden met daarin logica voor opnieuw proberen en voorbeelden van de taal van uw keuze
+* Meer informatie: [Foutberichten voor SQL Database-clientprogramma’s](sql-database-develop-error-messages.md)
 
-## Network Considerations
-* On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)
-* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+## <a name="managing-connections"></a>Verbindingen beheren
+* In de verbindingslogica van de client overschrijft u de standaardtime-out zodat deze 30 seconden bedraagt.  De standaardwaarde van 15 seconden is te kort voor verbindingen die afhankelijk zijn van internet.
+* Als u een [verbindingsgroep](http://msdn.microsoft.com/library/8xx3tyca.aspx) gebruikt, zorgt u ervoor dat de verbinding wordt verbroken zodra uw programma er niet actief meer gebruik van maakt en wanneer uw programma niet wordt voorbereid om opnieuw verbinding te maken.
 
-## Data Sharding with Elastic Scale
-Elastic Scale simplifies the process of scaling out (and in). 
+## <a name="network-considerations"></a>Netwerkoverwegingen
+* Zorg er op de computer die als host fungeert voor uw clientprogramma voor dat de firewall uitgaande TCP-communicatie toestaat via poort 1433.  Meer informatie: [Een Azure SQL Database-firewall configureren](sql-database-configure-firewall-settings.md)
+* Als uw clientprogramma verbinding maakt met SQL Database V12 terwijl de client wordt uitgevoerd op een virtuele machine van Azure (VM), moet u bepaalde poortbereiken openen op de virtuele machine. Meer informatie: [Poorten boven 1433 voor ADO.NET 4.5 en SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Clientverbindingen met Azure SQL Database V12 slaan soms de proxyserver over en communiceren rechtstreeks met de database. Andere poorten dan poort 1433 worden belangrijk. Meer informatie: [Poorten boven 1433 voor ADO.NET 4.5 en SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-* [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+## <a name="data-sharding-with-elastic-scale"></a>Gegevenssharding met elastisch schalen
+Met elastisch schalen wordt omhoog en omlaag schalen eenvoudiger. 
 
-## Next steps
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+* [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)
+* [Aan de slag met het voorbeeld voor elastisch schalen voor Azure SQL Database](sql-database-elastic-scale-get-started.md)
+
+## <a name="next-steps"></a>Volgende stappen
+Bekijk alle [mogelijkheden van SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+
+
+
+<!--HONumber=Dec16_HO3-->
+
 

@@ -1,6 +1,6 @@
 ---
 title: NoSQL Node.js-zelfstudie voor DocumentDB | Microsoft Docs
-description: Een NoSQL Node.js-zelfstudie waarmee u een knooppuntdatabase en een consoletoepassing maakt met de DocumentDB Node.js-SDK. DocumentDB is een NoSQL-database voor JSON.
+description: Een NoSQL Node.js-zelfstudie waarmee u een NoSQL-database en een consoletoepassing maakt met de DocumentDB Node.js-SDK. DocumentDB is een NoSQL-database voor JSON.
 keywords: node.js zelfstudie, knooppuntdatabase
 services: documentdb
 documentationcenter: node.js
@@ -13,22 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06707b45944ee6b0810fbd45abbf69dccc1e00e1
+ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
+ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 
 
 ---
 # <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>NoSQL Node.js-zelfstudie: DocumentDB Node.js-consoletoepassing
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
 > 
 
-Welkom bij de Node.js-zelfstudie over de Azure DocumentDB Node.js-SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u DocumentDB-resources kunt maken en er query’s op kunt uitvoeren. Een van deze resources is een knooppuntdatabase.
+Welkom bij de Node.js-zelfstudie over de Azure DocumentDB Node.js-SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u DocumentDB-resources kunt maken en er query's op kunt uitvoeren.
 
 De volgende onderwerpen komen aan bod:
 
@@ -52,10 +53,11 @@ Tijd om aan de slag te gaan.
 Zorg ervoor dat u over de volgende zaken beschikt:
 
 * Een actief Azure-account. Als u nog geen abonnement hebt, kunt u zich registreren voor een [gratis Azure-proefversie](https://azure.microsoft.com/pricing/free-trial/).
+    * U kunt voor deze zelfstudie ook de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) gebruiken.
 * [Node.js](https://nodejs.org/) versie v0.10.29 of hoger.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Stap 1: een DocumentDB-account maken
-U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u wilt gebruiken, kunt u verder naar de stap [Uw Node.js-toepassing instellen](#SetupNode).
+U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u wilt gebruiken, kunt u verder naar de stap [Uw Node.js-toepassing instellen](#SetupNode). Als u de DocumentDB-emulator gebruikt, volgt u de stappen in [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) om de emulator in te stellen en meteen naar [Uw Node.js-toepassing instellen](#SetupNode) te gaan.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -65,10 +67,10 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 3. Maak twee lege JavaScript-bestanden met de volgende opdrachten:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Installeer de DocumentDB-module via NPM. Gebruik de volgende opdracht:
    * ```npm install documentdb --save```
 
@@ -263,7 +265,7 @@ Gefeliciteerd. U hebt een DocumentDB-database gemaakt.
 
 U kunt een [verzameling](documentdb-resources.md#collections) maken met de functie [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) van de klasse **DocumentClient**. Een verzameling is een container van JSON-documenten en de bijbehorende JavaScript-toepassingslogica.
 
-Kopieer de functie **getCollection** onder de functie **getDatabase** voor het maken van de nieuwe verzameling, waarbij ```id``` is opgegeven in het ```config```-object. Er wordt opnieuw gecontroleerd of er niet al een verzameling bestaat met dezelfde ```FamilyCollection```-id. Als er al een verzameling met dezelfde id bestaat, wordt die verzameling geretourneerd en wordt er geen nieuwe verzameling gemaakt.
+Kopieer de functie **getCollection** onder de functie **getDatabase** in het app.js-bestand voor het maken van uw nieuwe verzameling, waarbij ```id``` is opgegeven in het ```config```-object. Er wordt opnieuw gecontroleerd of er niet al een verzameling bestaat met dezelfde ```FamilyCollection```-id. Als er al een verzameling met dezelfde id bestaat, wordt die verzameling geretourneerd en wordt er geen nieuwe verzameling gemaakt.
 
                 } else {
                     resolve(result);
@@ -366,7 +368,7 @@ Gefeliciteerd. U hebt een DocumentDB-document gemaakt.
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Stap 8: een query uitvoeren op DocumentDB-resources
 DocumentDB biedt ondersteuning voor [uitgebreide query's](documentdb-sql-query.md) in de JSON-documenten die zijn opgeslagen in verzamelingen. In de volgende voorbeeldcode ziet u een query die u kunt uitvoeren op de documenten in uw verzameling.
 
-Kopieer en plak de functie **queryCollection** onder de functie **getFamilyDocument**. DocumentDB biedt ondersteuning voor SQL-achtige query's, zoals hieronder wordt weergegeven. Zie de [Query Playground](https://www.documentdb.com/sql/demo) (Queryspeelplaats) en de [querydocumentatie](documentdb-sql-query.md) voor meer informatie over het bouwen van complexe query's.
+Kopieer en plak de functie **queryCollection** onder de functie **getFamilyDocument** in het app.js-bestand. DocumentDB biedt ondersteuning voor SQL-achtige query's, zoals hieronder wordt weergegeven. Zie de [Query Playground](https://www.documentdb.com/sql/demo) (Queryspeelplaats) en de [querydocumentatie](documentdb-sql-query.md) voor meer informatie over het bouwen van complexe query's.
 
                 } else {
                     resolve(result);
@@ -423,7 +425,7 @@ Gefeliciteerd. U hebt een query uitgevoerd op DocumentDB-documenten.
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Stap 9: een document vervangen
 DocumentDB biedt ondersteuning voor het vervangen van JSON-documenten.
 
-Kopieer en plak de functie **replaceDocument** onder de functie **queryCollection**.
+Kopieer en plak de functie **replaceFamilyDocument** onder de functie **queryCollection** in het app.js-bestand.
 
                     }
                     console.log();
@@ -470,7 +472,7 @@ Gefeliciteerd. U hebt een DocumentDB-document vervangen.
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Stap 10: een document verwijderen
 DocumentDB biedt ondersteuning voor het verwijderen van JSON-documenten.
 
-Kopieer en plak de functie **deleteDocument** onder de functie **replaceDocument**.
+Kopieer en plak de functie **deleteFamilyDocument** onder de functie **replaceFamilyDocument**.
 
                 else {
                     resolve(result);
@@ -514,7 +516,7 @@ Gefeliciteerd. U hebt een DocumentDB-document verwijderd.
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Stap 11: de knooppuntdatabase verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
 
-Kopieer en plak het volgende codefragment (functie **cleanup**) om de database en alle onderliggende resources te verwijderen.
+Kopieer en plak de functie **cleanup** onder de functie **deleteFamilyDocument** om de database en alle onderliggende resources te verwijderen.
 
                 else {
                     resolve(result);
@@ -535,7 +537,7 @@ Kopieer en plak het volgende codefragment (functie **cleanup**) om de database e
         });
     }
 
-Kopieer en plak de code onder de aanroep van **deleteDocument** om de functie **cleanup** uit te voeren.
+Kopieer en plak de code onder de aanroep van **deleteFamilyDocument** om de functie **cleanup** uit te voeren.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -598,7 +600,9 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
 Gefeliciteerd. U hebt de Node.js-zelfstudie voltooid en u beschikt nu over uw eerste DocumentDB-consoletoepassing!
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
-Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel bevat, hebt u het volgende nodig:
+Als u geen tijd hebt gehad voor het voltooien van de stappen in deze zelfstudie of als u gewoon de code wilt downloaden, kunt u deze ophalen van [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+
+Als u de oplossing GetStarted wilt uitvoeren met alle voorbeelden uit dit artikel hebt u het volgende nodig:
 
 * [DocumentDB-account][documentdb-create-account].
 * De [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started)-oplossing die beschikbaar is via GitHub.
@@ -607,7 +611,11 @@ Installeer de **DocumentDB**-module via NPM. Gebruik de volgende opdracht:
 
 * ```npm install documentdb --save```
 
-Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en config.authKey, zoals wordt beschreven in [Stap 3: de configuratie van de app instellen](#Config).
+Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en config.authKey, zoals wordt beschreven in [Stap 3: de configuratie van de app instellen](#Config). 
+
+Zoek dan het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```.
+
+Dat is alles, bouw nu de oplossing. Succes! 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Wilt u een complexer Node.js-voorbeeld? Zie [Een Node.js-webtoepassing bouwen met DocumentDB](documentdb-nodejs-application.md).
@@ -622,6 +630,6 @@ Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

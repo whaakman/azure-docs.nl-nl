@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ De volgende video leidt u door de stappen in deze zelfstudie:
 > 
 
 ## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. Met de wizard Nieuw project kunt u een toepassingsproject maken, samen met uw eerste serviceproject. U kunt later meer services toevoegen.
+Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. Met de wizard Nieuw project kunt u een toepassingsproject maken, samen met uw eerste serviceproject. U kunt desgewenst later meer services toevoegen.
 
 1. Visual Studio starten als beheerder.
 2. Klik op **Bestand > Nieuw Project > Cloud > Service Fabric-toepassing**.
@@ -100,13 +100,13 @@ Nu u een toepassing hebt, kunt u proberen deze uit te voeren.
 4. Zoek de klasse in uw serviceproject die is afgeleid van StatefulService (bijvoorbeeld MyStatefulService) en stel een onderbrekingspunt in op de eerste regel van de methode `RunAsync`.
    
     ![Onderbrekingspunt in de stateful service RunAsync-methode][7]
-5. Klik met de rechtermuisknop op het systeemvak Lokaal clusterbeheer en lies **Lokaal cluster beheren** om Service Fabric Explorer te starten.
+5. Klik met de rechtermuisknop op het systeemvak Lokaal clusterbeheer en kies **Lokaal cluster beheren** om Service Fabric Explorer te starten.
    
     ![Start Service Fabric Explorer vanuit Lokaal clusterbeheer][systray-launch-sfx]
    
     Service Fabric Explorer biedt een visuele representatie van een cluster, waaronder de set toepassingen die is geïmplementeerd en de set fysieke knooppunten waaruit het cluster bestaat. Zie [Uw cluster visualiseren](service-fabric-visualizing-your-cluster.md) voor meer informatie over Service Fabric Explorer.
 6. Vouw in het linkerdeelvenster **Cluster > Knooppunten** uit en zoek het knooppunt waarop uw code wordt uitgevoerd.
-7. Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten. (Opmerking: u kunt ook deactiveren vanuit het contextmenu in de knooppuntlijstweergave in het linkerdeelvenster.)
+7. Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten. Of deactiveer het knooppunt vanuit de lijst met knooppunten in het linkerdeelvenster.
    
     ![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Nu u een toepassing hebt, kunt u proberen deze uit te voeren.
     ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>De clustermodus wijzigen
-Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunt kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, kunt u de modus van het ontwikkelingscluster wijzigen in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
+Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunten kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, wijzigt u de modus van het ontwikkelingscluster in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
 
 ![De clustermodus wijzigen][switch-cluster-mode]
 
-Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen die zijn ingericht of worden uitgevoerd op het cluster verwijderd.
+Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen verwijderd die op het cluster zijn ingericht of worden uitgevoerd.
 
 ## <a name="cleaning-up"></a>Opschonen
-  Voordat u afsluit, moet u weten dat het lokale cluster erg puur is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
+Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
 
 1. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
 2. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het cluster alleen als u het lokale cluster een tijd niet gaat gebruiken of als u resources wilt vrijmaken.
@@ -133,6 +133,7 @@ Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden
 * Maak een service met het programmeermodel [Reliable Services](service-fabric-reliable-services-quick-start.md) of [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Leer hoe u uw services met de [front-end van een webservice](service-fabric-add-a-web-frontend.md) verbindt met internet.
 * Voer een [praktijkoefening](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) uit en maak een staatloze service, configureer de controle en statusrapporten en voer een toepassingsupgrade uit.
+* Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
