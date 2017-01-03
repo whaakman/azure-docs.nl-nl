@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
+ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 
 ---
@@ -50,14 +50,14 @@ In dit onderwerp wordt een overzicht gegeven van de belangrijkste concepten van 
 ## <a name="apis"> </a>API's en bewerkingen
 API's vormen de basis van een service-exemplaar van API Management. Elke API vertegenwoordigt een reeks bewerkingen die beschikbaar zijn voor ontwikkelaars. Elke API bevat een verwijzing naar de back-endservice waarmee de API wordt geïmplementeerd, en de bewerkingen zijn toegewezen aan de bewerkingen die zijn geïmplementeerd door de back-endservice. Bewerkingen in API Management zijn zeer goed te configureren, met controle over URL-toewijzing, query- en padparameters, aanvraag- en antwoordinhoud en het in de cache opslaan van bewerkingsantwoorden. Beleidsregels voor frequentielimiet, quota en IP-restrictie kunnen ook op API-niveau of op het niveau van de afzonderlijke bewerking worden geïmplementeerd.
 
-Voor meer informatie raadpleegt u [API's maken][API's maken] en [Bewerkingen toevoegen aan een API][Bewerkingen toevoegen aan een API].
+Zie voor meer informatie [API's maken][How to create APIs] en [Bewerkingen toevoegen aan een API][How to add operations to an API].
 
 ## <a name="products"> </a> Producten
 Producten zijn de manier waarop de API's worden opgehaald voor ontwikkelaars. Producten in API Management hebben een of meer API's en worden geconfigureerd met een titel, beschrijving en gebruiksvoorwaarden. Producten kunnen **open** of **beveiligd** zijn. Voor beveiligde producten is een abonnement nodig voordat ze kunnen worden gebruikt, terwijl open producten zonder abonnement kunnen worden gebruikt. Wanneer een product gereed is voor gebruik door ontwikkelaars, kan het worden gepubliceerd. Zodra het is gepubliceerd, kan het worden bekeken (en in het geval van beveiligde producten kan er een abonnement op worden genomen) door ontwikkelaars. Goedkeuring van abonnementen wordt geconfigureerd op productniveau en er kan beheerdersgoedkeuring voor vereist zijn of abonnementen kunnen automatisch worden goedgekeurd.
 
 Groepen worden gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren op de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. 
 
-Voor meer informatie raadpleegt u [Een product maken en publiceren][Een product maken en publiceren] en de volgende video.
+Zie voor meer informatie [Een product maken en publiceren][How to create and publish a product] en de volgende video.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
@@ -72,14 +72,14 @@ Groepen worden gebruikt voor het beheren van de zichtbaarheid van producten voor
 
 Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruikmaken van externe groepen in gekoppelde Azure Active Directory-tenants](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Aangepaste en externe groepen kunnen naast systeemgroepen worden gebruikt om ontwikkelaars zichtbaarheid van en toegang tot API-producten te geven. U kunt bijvoorbeeld één aangepaste groep maken voor ontwikkelaars die zijn gekoppeld aan een specifieke partnerorganisatie en hen toegang geven tot de API's vanuit een product dat alleen relevante API's bevat. Een gebruiker kan lid zijn van meerdere groepen.
 
-Voor meer informatie raadpleegt u [Groepen maken en gebruiken][Groepen maken en gebruiken].
+Zie voor meer informatie [Groepen maken en gebruiken][How to create and use groups].
 
 ## <a name="developers"> </a> Ontwikkelaars
-Ontwikkelaars vertegenwoordigen de gebruikersaccounts in een service-exemplaar van API Management. Ontwikkelaars kunnen worden gemaakt of worden uitgenodigd voor deelname door beheerders, of ze kunnen zich registreren vanuit de [ontwikkelaarsportal][ontwikkelaarsportal]. Elke ontwikkelaar is lid van een of meer groepen en mag zich abonneren op de producten die zichtbaarheid aan deze groepen verlenen.
+Ontwikkelaars vertegenwoordigen de gebruikersaccounts in een service-exemplaar van API Management. Ontwikkelaars kunnen worden gemaakt of worden uitgenodigd voor deelname door beheerders, maar ze kunnen zich ook registreren in de [Ontwikkelaarsportal][Developer portal]. Elke ontwikkelaar is lid van een of meer groepen en mag zich abonneren op de producten die zichtbaarheid aan deze groepen verlenen.
 
 Als ontwikkelaars zich op een product abonneren, krijgen ze de primaire en secundaire sleutel voor het product. Deze sleutel wordt gebruikt bij het aanroepen van de API's van het product.
 
-Voor meer informatie raadpleegt u [Ontwikkelaars maken of uitnodigen][Ontwikkelaars maken of uitnodigen] en [Groepen koppelen aan ontwikkelaars][Groepen koppelen aan ontwikkelaars].
+Zie voor meer informatie [Ontwikkelaars maken of uitnodigen][How to create or invite developers] en [Groepen koppelen aan ontwikkelaars][How to associate groups with developers].
 
 ## <a name="policies"> </a> Beleidsregels
 Beleidsregels zijn een krachtige mogelijkheid van API Management waarmee de uitgever het gedrag van de API via configuratie kan wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Populaire instructies omvatten indelingsconversie van XML in JSON en beperking van de aanroepfrequentie om de hoeveelheid inkomende aanroepen van een ontwikkelaar te beperken. Er zijn nog vele andere beleidsregels beschikbaar.
@@ -90,7 +90,7 @@ Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in A
 > 
 > 
 
-Voor een volledige lijst van API Management-beleidsregels raadpleegt u [Naslaginformatie over beleidsregels][Naslaginformatie over beleidsregels]. Zie [API Management-beleidsregels][API Management-beleidsregels] voor meer informatie over het gebruiken en configureren van beleidsregels. Zie [Geavanceerde productinstellingen maken en configureren][Geavanceerde productinstellingen maken en configureren] voor een zelfstudie over het maken van een product met beleidsregels voor frequentielimiet en quotum. Zie de volgende video voor een demo.
+Zie [Naslaginformatie over beleid][Policy reference] voor een volledige lijst met API Management-beleidsregels. Zie [API Management-beleidsregels][API Management policies] voor meer informatie over het gebruiken en configureren van beleidsregels. Zie [Geavanceerde productinstellingen maken en configureren][How create and configure advanced product settings] voor een zelfstudie over het maken van een product met beleidsregels voor frequentielimiet en quotum. Zie de volgende video voor een demo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -108,30 +108,30 @@ Bekijk de volgende presentatie van de conferentie Microsoft Ignite 2015 voor mee
 > 
 > 
 
-[API's en bewerkingen]: #apis
-[Producten]: #products
-[Groepen]: #groups
-[Ontwikkelaars]: #developers
-[Beleidsregels]: #policies
-[ontwikkelaarsportal]: #developer-portal
+[APIs and operations]: #apis
+[Products]: #products
+[Groups]: #groups
+[Developers]: #developers
+[Policies]: #policies
+[Developer portal]: #developer-portal
 
-[API's maken]: api-management-howto-create-apis.md
-[Bewerkingen toevoegen aan een API]: api-management-howto-add-operations.md
-[Een product maken en publiceren]: api-management-howto-add-products.md
-[Groepen maken en gebruiken]: api-management-howto-create-groups.md
-[Groepen koppelen aan ontwikkelaars]: api-management-howto-create-groups.md#associate-group-developer
-[Geavanceerde productinstellingen maken en configureren]: api-management-howto-product-with-rules.md
-[Ontwikkelaars maken of uitnodigen]: api-management-howto-create-or-invite-developers.md
-[Naslaginformatie over beleidsregels]: api-management-policy-reference.md
-[API Management-beleidsregels]: api-management-howto-policies.md
-[Service-exemplaar van API Management maken]: api-management-get-started.md#create-service-instance
-
-
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

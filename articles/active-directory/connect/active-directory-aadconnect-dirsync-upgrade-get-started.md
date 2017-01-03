@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: shoatman;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5a75504058b82b3199a461d82938d0a222f5739
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: 3f18a587033e977d56b6c118e664fbe3cdbc6046
 
 
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
 
-Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](../active-directory-aadconnect-prerequisites.md) voltooit. In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
+Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) voltooit. In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
 
 * De vereiste versie van .Net en PowerShell. Nieuwere versies zijn vereist op de server voor DirSync.
 * De proxyserverconfiguratie. Als u een proxyserver gebruikt om verbinding te maken met internet, moet deze instelling worden geconfigureerd voordat u een upgrade uitvoert. DirSync gebruikte altijd de proxyserver die was geconfigureerd voor de gebruiker die de installatie uitvoerde, maar Azure AD Connect gebruikt de instellingen van de machine.
@@ -67,11 +67,11 @@ De volgende wijziging kan niet worden bijgewerkt. Als u deze configuratie hebt, 
 
 ![Upgrade geblokkeerd](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-In dit soort gevallen wordt het installeren van een nieuwe Azure AD Connect-server in de [faseringsmodus](../active-directory-aadconnectsync-operations.md#staging-mode) en het controleren van de oude DirSync en nieuwe Azure AD Connect-configuratie aanbevolen. Pas eventuele wijzigingen aan met behulp van aangepaste configuratie, zoals beschreven in [Aangepaste configuratie Azure AD Connect-synchronisatie](../active-directory-aadconnectsync-whatis.md).
+In dit soort gevallen wordt het installeren van een nieuwe Azure AD Connect-server in de [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode) en het controleren van de oude DirSync en nieuwe Azure AD Connect-configuratie aanbevolen. Pas eventuele wijzigingen aan met behulp van aangepaste configuratie, zoals beschreven in [Aangepaste configuratie Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md).
 
 De wachtwoorden die door DirSync worden gebruikt voor de serviceaccounts kunnen niet worden opgehaald en worden niet gemigreerd. Deze wachtwoorden worden opnieuw ingesteld tijdens de upgrade.
 
-### <a name="highlevel-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>Belangrijke stappen voor het upgraden van DirSync naar Azure AD Connect
+### <a name="high-level-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>Belangrijke stappen voor het upgraden van DirSync naar Azure AD Connect
 1. Welkom bij Azure AD Connect
 2. Analyse van de huidige DirSync-configuratie
 3. Azure AD globaal beheerderswachtwoord ophalen
@@ -86,7 +86,7 @@ Extra stappen zijn vereist wanneer:
 * U momenteel de volledige SQL Server gebruikt (lokaal of extern)
 * U meer dan 50.000 objecten gereed hebt voor synchronisatie
 
-## <a name="inplace-upgrade"></a>In-place upgrade
+## <a name="in-place-upgrade"></a>In-place upgrade
 1. Start het Azure AD Connect-installatieprogramma (MSI) op.
 2. Lees en ga akkoord met de licentievoorwaarden en de privacyverklaring.
    ![Welkom bij Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
@@ -101,7 +101,7 @@ Extra stappen zijn vereist wanneer:
      Voor het uitvoeren van een [parallelle implementatie](#parallel-deployment) dient u de DirSync-configuratie-instellingen te exporteren en de configuratie naar de nieuwe server te verplaatsen.
 5. Geef het wachtwoord op voor het account dat u momenteel gebruikt om verbinding te maken met Azure AD. Dit moet het account zijn dat momenteel wordt gebruikt door DirSync.
    ![Voer uw Azure AD-referenties in](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
-   Als u een foutbericht krijgt en problemen met de connectiviteit heeft, raadpleeg dan [Connectiviteitsproblemen oplossen](../active-directory-aadconnect-troubleshoot-connectivity.md).
+   Als u een foutbericht krijgt en problemen met de connectiviteit heeft, raadpleeg dan [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Geef een enterprise-beheerdersaccount op voor Active Directory.
    ![Voer uw ADDS-referenties in](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. U kunt nu starten met de configuratie. Wanneer u op **Upgrade** klikt, wordt DirSync verwijderd en Azure AD Connect geconfigureerd. De synchronisatie wordt gestart.
@@ -153,12 +153,12 @@ Wanneer u Azure AD Connect installeert op een nieuwe server, gaat deze ervan uit
    * Een serviceaccount gebruikt voor de verbinding met SQL Server (als de SQL Server-database extern is, moet dit account een domeinserviceaccount zijn).
      Deze opties kunnen worden weergegeven in dit venster: ![Voer uw Azure AD-referenties in](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klik op **Volgende**.
-8. Laat op de pagina **Gereed voor configuratie** het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** aangevinkt. De server is nu in de [faseringsmodus](../active-directory-aadconnectsync-operations.md#staging-mode) dus wijzigingen worden niet geëxporteerd naar Azure AD.
+8. Laat op de pagina **Gereed voor configuratie** het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** aangevinkt. De server is nu in de [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode) dus wijzigingen worden niet geëxporteerd naar Azure AD.
 9. Klik op **Installeren**.
 10. Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melden bij Windows vóór u Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken of andere configuratiewijzigingen gaat maken.
 
 > [!NOTE]
-> De synchronisatie van Windows Server Active Directory en Azure Active Directory wordt gestart, maar er worden geen wijzigingen geëxporteerd naar Azure AD. Slechts één synchronisatieprogramma tegelijk kan actief wijzigingen exporteren. Deze status wordt de [faseringsmodus](../active-directory-aadconnectsync-operations.md#staging-mode) genoemd.
+> De synchronisatie van Windows Server Active Directory en Azure Active Directory wordt gestart, maar er worden geen wijzigingen geëxporteerd naar Azure AD. Slechts één synchronisatieprogramma tegelijk kan actief wijzigingen exporteren. Deze status wordt de [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode) genoemd.
 > 
 > 
 
@@ -176,7 +176,7 @@ Ga in de toepassing naar het tabblad **Bewerkingen**. Op dit tabblad moet u beve
 
 Controleer het resultaat van deze bewerkingen en zorg ervoor dat er geen fouten zijn.
 
-Als u de wijzigingen die op het punt staan geëxporteerd te worden naar Azure AD wilt bekijken en controleren, lees dan hier hoe u de configuratie onder [faseringsmodus](../active-directory-aadconnectsync-operations.md#staging-mode) kunt controleren. Voer de vereiste wijzigingen door in de configuratie zodat alles klopt.
+Als u de wijzigingen die op het punt staan geëxporteerd te worden naar Azure AD wilt bekijken en controleren, lees dan hier hoe u de configuratie onder [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode) kunt controleren. Voer de vereiste wijzigingen door in de configuratie zodat alles klopt.
 
 U kunt van DirSync overschakelen naar Azure AD wanneer u deze stappen hebt uitgevoerd en blij bent met het resultaat.
 
@@ -207,13 +207,13 @@ U ziet nu het volgende:
 Azure AD Connect is nu uw actieve server.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u Azure AD Connect geïnstalleerd hebt, kunt u [de installatie verifiëren en licenties toewijzen](../active-directory-aadconnect-whats-next.md).
+Nu u Azure AD Connect geïnstalleerd hebt, kunt u [de installatie verifiëren en licenties toewijzen](active-directory-aadconnect-whats-next.md).
 
-Kom meer te weten over deze functies, die tijdens de installatie zijn ingeschakeld: [Automatische upgrade](../active-directory-aadconnect-feature-automatic-upgrade.md), [Onopzettelijk verwijderen voorkomen](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
+Kom meer te weten over deze functies, die tijdens de installatie zijn ingeschakeld: [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Kom meer te weten over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](../active-directory-aadconnectsync-feature-scheduler.md).
+Kom meer te weten over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](active-directory-aadconnectsync-feature-scheduler.md).
 
-Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](../active-directory-aadconnect.md).
+Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Verwante documentatie
 | Onderwerp |
@@ -227,6 +227,6 @@ Lees meer over het [integreren van uw on-premises identiteiten met Azure Active 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

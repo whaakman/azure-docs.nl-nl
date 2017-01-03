@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2c0ee201e719c542cf801372e6a270a7b88598fb
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: c3757dadb09ba070b30820a46007a9c82490d8f2
 
 
 ---
@@ -37,9 +37,9 @@ Een algemeen SaaS-toepassingspatroon is het databasemodel met één tenant: elke
 >
 >
 
-In SQL Database wordt de relatieve mate waarin een database de vraag naar resources kan afhandelen, uitgedrukt in DTU's (Database Transaction Units) voor zelfstandige databases, en in elastische DTU's (eDTU's) voor elastische databases in een elastische pool. Zie de [Inleiding tot SQL Database](sql-database-technical-overview.md) voor meer informatie over DTU's en eDTU's.
+In SQL Database wordt de relatieve mate waarin een database de vraag naar resources kan afhandelen, uitgedrukt in DTU's (Database Transaction Units) voor individuele databases, en in elastische DTU's (eDTU's) voor elastische databases in een elastische groep. Zie de [Inleiding tot SQL Database](sql-database-technical-overview.md) voor meer informatie over DTU's en eDTU's.
 
-Een pool krijgt een bepaald aantal eDTU's voor een vaste prijs. Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Bij zware belasting kan een database meer eDTU's verbruiken om aan de vraag te voldoen. Databases verbruiken minder bij lichte belasting en verbruiken geen eDTU's als er geen belasting is. De inrichting van resources voor de hele pool in plaats van zelfstandige databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool.
+Een pool krijgt een bepaald aantal eDTU's voor een vaste prijs. Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Bij zware belasting kan een database meer eDTU's verbruiken om aan de vraag te voldoen. Databases verbruiken minder bij lichte belasting en verbruiken geen eDTU's als er geen belasting is. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool.
 
 Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltijd en zonder gevolgen voor de databases in de elastische pool. En als de extra eDTU's niet meer nodig zijn, kunnen ze op elk moment uit een bestaande pool worden verwijderd.
 
@@ -48,7 +48,7 @@ Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. A
 ## <a name="which-databases-go-in-a-pool"></a>Welke databases gaan in een groep?
 ![SQL-databases die eDTU's delen in een elastische pool.][1]
 
-Databases die goede kandidaten zijn voor elastische groepen hebben meestal perioden van activiteit en perioden van inactiviteit. In het bovenstaande voorbeeld ziet u de activiteit van een zelfstandige database, 4 databases en ten slotte een elastische pool met 20 databases. Databases met variërende activiteit gedurende een bepaalde periode zijn goede kandidaten voor elastische groepen omdat ze niet allemaal actief zijn op hetzelfde moment en eDTU's kunnen delen. Dit patroon is niet op alle databases van toepassing. Databases met een constantere vraag naar resources zijn meer geschikt voor de servicelagen Basic, Standard en Premium, waar resources afzonderlijk worden toegewezen.
+Databases die goede kandidaten zijn voor elastische groepen hebben meestal perioden van activiteit en perioden van inactiviteit. In het bovenstaande voorbeeld ziet u de activiteit van een individuele database, vier databases en ten slotte een elastische groep met twintig databases. Databases met variërende activiteit gedurende een bepaalde periode zijn goede kandidaten voor elastische groepen omdat ze niet allemaal actief zijn op hetzelfde moment en eDTU's kunnen delen. Dit patroon is niet op alle databases van toepassing. Databases met een constantere vraag naar resources zijn meer geschikt voor de servicelagen Basic, Standard en Premium, waar resources afzonderlijk worden toegewezen.
 
 [Prijs- en prestatieoverwegingen voor een elastische groep](sql-database-elastic-pool-guidance.md).
 
@@ -88,7 +88,7 @@ Met een groep worden beheertaken vereenvoudigd door scripts in **[elastische tak
 Zie [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) (Uitbreiden met Azure SQL Database) voor meer informatie over andere hulpprogramma's voor elastische databases.
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Bedrijfscontinuïteitsfuncties voor databases in een groep
-Elastische databases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor zelfstandige databases.
+Elastische databases ondersteunen in het algemeen dezelfde [bedrijfscontinuïteitsfuncties](sql-database-business-continuity.md) die beschikbaar zijn voor enkele databases.
 
 ### <a name="point-in-time-restore"></a>Herstel naar een bepaald tijdstip
 Herstel naar een bepaald tijdstip gebruikt automatische databaseback-ups om een database in een groep te herstellen naar een bepaald herstelpunt. Zie [Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -107,6 +107,6 @@ Voor toepassingen die zwaardere herstelvereisten hebben dan Geo-herstel kan bied
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

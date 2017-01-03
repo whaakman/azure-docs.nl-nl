@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
+ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
+ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Overzicht van Azure Media Services en algemene scenario's
+
 Microsoft Azure Media Services is een uitbreidbaar cloudplatform waarmee ontwikkelaars schaalbare toepassingen voor mediabeheer en -levering kunnen ontwikkelen. Media Services is gebaseerd op de REST API's waarmee u veilig video- of audio-inhoud kunt uploaden, opslaan, coderen en verpakken, zowel voor levering on demand als levering via livestreaming aan verschillende clients (bijvoorbeeld tv, pc en mobiele apparaten).
 
 U kunt end-to-end-werkstromen volledig met Media Services bouwen. U kunt er ook voor kiezen om onderdelen van derde partijen voor sommige onderdelen van uw werkstroom te gebruiken. U kunt bijvoorbeeld coderen met een coderingsprogramma van een derde partij. Vervolgens kunt u uploaden, beveiligen, verpakken en leveren met Media Services.
@@ -28,17 +29,28 @@ U kunt end-to-end-werkstromen volledig met Media Services bouwen. U kunt er ook 
 U kunt uw inhoud live streamen of on demand leveren. Dit onderwerp bevat algemene scenario's voor het leveren van uw inhoud: [live](media-services-overview.md#live_scenarios) of [on demand](media-services-overview.md#vod_scenarios). Het onderwerp bevat ook koppelingen naar andere relevante onderwerpen.
 
 ## <a name="sdks-and-tools"></a>SDK's en hulpprogramma's
+
 Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 
 * [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * Een van de beschikbare client-SDK's:
-* [Azure Media Services SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services)
-* [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java)
-* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-* [Azure Media Services voor Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Dit is een niet-Microsoft-versie van een Node.js SDK. Deze wordt onderhouden door een community en biedt nog geen 100% dekking voor AMS API's).
+    * [Azure Media Services SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services)
+    * [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java)
+    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+    * [Azure Media Services voor Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Dit is een niet-Microsoft-versie van een Node.js SDK. Deze wordt onderhouden door een community en biedt nog geen 100% dekking voor AMS API's).
 * Bestaande hulpprogramma's:
-* [Azure Portal](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
+    * [Azure Portal](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
+
+In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij het ontwikkelen in het Media Services OData-model. 
+
+Klik op de afbeelding om deze in volledig formaat weer te geven.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+
+U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.14) het hele model bekijken.  
+
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 U kunt hier de AMS-leertrajecten bekijken:
@@ -202,6 +214,6 @@ Zie [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/) voor m
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

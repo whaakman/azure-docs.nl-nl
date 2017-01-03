@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -33,7 +33,7 @@ Hierin wordt beschreven hoe u aan de slag gaat met Studio en uw eerste Machine L
 >
 >Als u geen ervaring hebt met machine learning, is de videoserie [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (Gegevenswetenschap voor beginners) een goed startpunt. In deze videoserie maakt u op eenvoudige wijze kennis met machine learning op basis van alledaagse taal en concepten.
 >
->Als u bekend bent met machine learning, maar algemene informatie zoekt over Machine Learning Studio en de geïntegreerde machine learning-algoritmen, kunt u de volgende resources raadplegen:
+>Als u op de hoogte bent van machine learning, maar algemene informatie zoekt over Machine Learning Studio en de geïntegreerde machine learning-algoritmen, kunt u de volgende resources raadplegen:
 >
 - [Wat is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) - Dit geeft een overzicht van Studio.
 - [Machine learning basics with algorithm examples](machine-learning-basics-infographic-with-algorithm-examples.md) (Basisbeginselen van Machine Learning met algoritmevoorbeelden) - Deze infographic is handig als u meer wilt weten over de verschillende soorten machine learning-algoritmen in Machine Learning Studio.
@@ -95,7 +95,9 @@ U voegt de gegevensset als volgt toe aan uw experiment.
 
 1. Maak een nieuw experiment door onder aan het Machine Learning Studio-venster op **+NEW** te klikken en achtereenvolgens **EXPERIMENT** en **Blank Experiment** te selecteren.
 
-2. Het experiment krijgt een standaardnaam die boven aan het canvas wordt weergegeven. Selecteer deze tekst en wijzig de naam in iets relevants, bijvoorbeeld **prijzen auto's voorspellen**.
+2. Het experiment krijgt een standaardnaam die boven aan het canvas wordt weergegeven. Selecteer deze tekst en wijzig de naam in iets relevants, bijvoorbeeld **prijzen auto's voorspellen**. De naam hoeft niet uniek te zijn.
+
+    ![De naam van het experiment wijzigen][rename-experiment]
 
 2. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Typ in het zoekvak boven aan dit palet **automobile** om de gegevensset met het label **Automobile price data (Raw)** te zoeken. Sleep deze gegevensset naar het experimentcanvas.
 
@@ -111,7 +113,7 @@ Als u wilt zien hoe deze gegeven eruitzien, klikt u op de uitvoerpoort onder aan
 
 > [!TIP]
 > De invoer- en uitvoerpoorten van gegevenssets en modules worden aangeduid met kleine cirkels, waarbij de invoerpoorten zich boven en de uitvoerpoorten zich onder bevinden.
-Deze poorten koppelt u aan elkaar om een gegevensstroom in uw experiment te creëren.
+Als u een gegevensstroom door uw experiment wilt maken, verbindt u een uitvoerpoort van één module met een invoerpoort van een andere.
 U kunt op elk gewenst moment op de uitvoerpoort van een gegevensset of module klikken om te zien hoe de gegevens eruitzien op dat punt in de gegevensstroom.
 
 In de voorbeeldgegevensset wordt elke instantie van een auto weergegeven als een rij. De variabelen die aan elke auto zijn gekoppeld, worden weergegeven als kolommen. Aan de hand van de variabelen voor een specifieke auto gaan we proberen de prijs te voorspellen in de kolom price (kolom 26).
@@ -169,7 +171,7 @@ Eerst voegt u een module toe waarmee de kolom **normalized-losses** volledig wor
     <br/>
     ***Stel de opschoonmodus van de module Clean Missing Data in op Remove entire row***
 
-4. Voer het experiment uit door op **RUN** onder het experimentcanvas te klikken.
+4. Voer het experiment uit door onder aan de pagina op **RUN** te klikken.
 
     Wanneer het experiment is voltooid, wordt er bij alle modules een groen vinkje weergegeven om aan te geven dat deze zijn voltooid. In de rechterbovenhoek wordt de status **Finished running** weergegeven.
 
@@ -326,7 +328,7 @@ Nu u de aanvankelijke machine learning-zelfstudie hebt voltooid en een experimen
 Zie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in de [Cortana Intelligence-galerie](https://gallery.cortanaintelligence.com) voor een voorbeeld van hoe u meerdere modellen in één experiment vergelijkt.
 
     > [!TIP]
-    > Gebruik de knop **SAVE AS** onder het experimentcanvas om herhalingen van uw experiment op te slaan. U kunt alle herhalingen van uw experiment weergeven door onder het canvas te klikken op **VIEW RUN HISTORY**. Zie [Iteraties van experimenten beheren in Azure Machine Learning Studio][runhistory] voor meer informatie.
+    > Gebruik de knop **SAVE AS** onder aan de pagina om herhalingen van uw experiment te kopiëren. U kunt alle herhalingen van uw experiment weergeven door onder aan de pagina op **VIEW RUN HISTORY** te klikken. Zie [Iteraties van experimenten beheren in Azure Machine Learning Studio][runhistory] voor meer informatie.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Wilt u meer leren? Zie [Een voorspellende oplossing met Azure Machine Learning o
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Wilt u meer leren? Zie [Een voorspellende oplossing met Azure Machine Learning o
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

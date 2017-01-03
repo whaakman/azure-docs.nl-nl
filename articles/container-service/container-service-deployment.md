@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
-ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
@@ -58,8 +58,7 @@ Klik op **OK** wanneer u klaar bent om door te gaan.
 
 ![Implementatie maken - 4](media/acs-portal4-new.png)  <br />
 
-Als **Kubernetes** is geselecteerd in de vervolgkeuzelijst, moet u de client-id en het clientgeheim van de service-principal invoeren.
-Ga naar [deze pagina](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) voor meer informatie over hoe u een service-principal maakt. 
+Als in de vervolgkeuzelijst de optie **Kubernetes** is geselecteerd, moet u de client-id en het clientgeheim van de service-principal invoeren. Zie [Over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie. 
 
 ![Implementatie maken - 4.5](media/acs-portal10.PNG)  <br />
 
@@ -197,6 +196,6 @@ Nu u een werkend cluster hebt, kunt u deze documenten lezen voor meer informatie
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

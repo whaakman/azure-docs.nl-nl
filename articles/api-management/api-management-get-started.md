@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,7 +59,7 @@ Het systeem bestaat uit de volgende onderdelen:
 
 ## <a name="create-service-instance"> </a>Een API Management-exemplaar maken
 > [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure][Gratis proefversie van Azure] voor meer informatie.
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure][Azure Free Trial] voor meer informatie.
 > 
 > 
 
@@ -74,7 +74,7 @@ Kies het gewenste **abonnement**, de gewenste **resourcegroep** en de gewenste *
 Voer **Contoso Ltd.** in voor de **Organisatienaam** en voer uw e-mailadres in het veld **E-mail beheerder** in.
 
 > [!NOTE]
-> Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem. Zie [Meldingen en e-mailsjablonen configureren in Azure API Management][Meldingen en e-mailsjablonen configureren in Azure API Management] voor meer informatie.
+> Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem. Zie voor meer informatie [Meldingen en e-mailsjablonen configureren in Azure API Management][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Voer **Contoso Ltd.** in voor de **Organisatienaam** en voer uw e-mailadres in h
 Service-exemplaren van API Management zijn beschikbaar in drie categorieën: Developer, Standard en Premium.
 
 > [!NOTE]
-> De categorie Developer is voor het ontwikkeling, tests en pilots van API-programma's waarbij grote beschikbaarheid niet van belang is. In de categorieën Standard en Premium kunt u het aantal gereserveerde eenheden schalen om meer verkeer te kunnen verwerken. De categorieën Standard en Premium bieden de meeste verwerkingskracht en de beste prestaties voor uw API Management-service. U kunt elke categorie gebruiken om deze zelfstudie te voltooien. Zie [API Management-prijzen][API Management-prijzen] voor meer informatie over API Management-prijscategorieën.
+> De categorie Developer is voor het ontwikkeling, tests en pilots van API-programma's waarbij grote beschikbaarheid niet van belang is. In de categorieën Standard en Premium kunt u het aantal gereserveerde eenheden schalen om meer verkeer te kunnen verwerken. De categorieën Standard en Premium bieden de meeste verwerkingskracht en de beste prestaties voor uw API Management-service. U kunt elke categorie gebruiken om deze zelfstudie te voltooien. Zie voor meer informatie over API Management-categorieën [API Management-prijzen][API Management pricing].
 > 
 > 
 
@@ -199,28 +199,28 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 ## <a name="next-steps"> </a>Volgende stappen
 * Meer informatie over [Uw API beveiligen met frequentielimieten](api-management-howto-product-with-rules.md).
 
-[Gratis proefversie van Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Een API Management-exemplaar maken]: #create-service-instance
-[Een API maken]: #create-api
-[Een bewerking toevoegen]: #add-operation
-[De nieuwe API toevoegen aan een product]: #add-api-to-product
-[Abonneren op het product dat de API bevat]: #subscribe
-[Een bewerking aanroepen vanuit de ontwikkelaarsportal]: #call-operation
-[Analytische gegevens bekijken]: #view-analytics
-[Volgende stappen]: #next-steps
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
+[Call an operation from the Developer Portal]: #call-operation
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Ontwikkelaarsaccounts in Azure API Management beheren]: api-management-howto-create-or-invite-developers.md
-[API-instellingen configureren]: api-management-howto-create-apis.md#configure-api-settings
-[Meldingen en e-mailsjablonen configureren in Azure API Management]: api-management-howto-configure-notifications.md
-[Antwoorden]: api-management-howto-add-operations.md#responses
-[Een product maken en publiceren]: api-management-howto-add-products.md
-[API Management-prijzen]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure Portal]: https://portal.azure.com/
 
-[api-management-beheerconsole]: ./media/api-management-get-started/api-management-management-console.png
+[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
 [api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
 [api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
@@ -257,6 +257,6 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

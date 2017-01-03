@@ -1,85 +1,90 @@
 ---
-title: 'SQL Database Authentication and Authorization: Granting Accessing | Microsoft Docs'
-description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
-keywords: sql database security,database security management,login security,database security,database access
+title: 'SQL Database-verificatie en -autorisatie: toegang verlenen | Microsoft Docs'
+description: Meer informatie over SQL Database-beveiligingsbeheer, in het bijzonder over hoe de databasetoegang en de aanmeldingsbeveiliging worden beheerd via het hoofdaccount op serverniveau.
+keywords: sql-databasebeveiliging,beheer databasebeveiliging,aanmeldingsbeveiliging,databasebeveiliging,databasetoegang
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/14/2016
 ms.author: rickbyh
+translationtype: Human Translation
+ms.sourcegitcommit: 498ee06fedf986a1b7fb4e362c4b5cb688f6a685
+ms.openlocfilehash: 37cce678e0a9dfb081719cee4be7a04a838c1012
+
 
 ---
-# SQL Database Authentication and Authorization: Granting Access
+# <a name="sql-database-authentication-and-authorization-granting-access"></a>SQL Database-verificatie en -autorisatie: toegang verlenen
 > [!div class="op_single_selector"]
-> * [Get started tutorial](sql-database-get-started-security.md)
-> * [Grant access](sql-database-manage-logins.md)
+> * [Zelfstudie Aan de slag](sql-database-get-started-security.md)
+> * [Toegang verlenen](sql-database-manage-logins.md)
 > 
 > 
 
-Start here for an overview of SQL Database access concepts for administrators, non-administrators, and roles.
+Begin hier voor een overzicht van de SQL Database-toegangsconcepten voor beheerders, niet-beheerders en rollen.
 
-## Unrestricted administrative accounts
-There are two possible administrative accounts with unrestricted permissions for access to the virtual master database and all user databases. These accounts are called server-level principal accounts.
+## <a name="unrestricted-administrative-accounts"></a>Onbeperkte beheerdersaccounts
+Er zijn twee mogelijke beheerdersaccounts met onbeperkte machtigingen voor toegang tot de virtuele hoofddatabase en alle gebruikersdatabases. Deze accounts worden hoofdaccounts op serverniveau genoemd.
 
-### Azure SQL Database subscriber account
-A single login account is created when a logical SQL instance is created, called the SQL Database Subscriber Account. This account connects using SQL Server authentication (user name and password). This account is an administrator on the logical server instance and on all user databases attached to that instance. The permissions of the Subscriber Account cannot be restricted. Only one of these accounts can exist.
+### <a name="azure-sql-database-subscriber-account"></a>Account Azure SQL Database-abonnee
+Bij het maken van een logische SQL-instantie wordt er een account voor enkelvoudige aanmelding gemaakt, 'account van de SQL Database-abonnee' genoemd. Dit account maakt verbinding met behulp van SQL Server-verificatie (gebruikersnaam en wachtwoord). Het account fungeert als beheerder voor de logische serverinstantie en voor alle gebruikersdatabases die hieraan zijn gekoppeld. De machtigingen van het abonnee-account kunnen niet worden beperkt. Er kan slechts één van deze accounts bestaan.
 
-### Azure Active Directory administrator
-One Azure Active Directory account can also be configured as an administrator. This account can be an individual Azure AD User, or can be an Azure AD Group containing several Azure AD Users. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Windows Authentication for Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+### <a name="azure-active-directory-administrator"></a>Azure Active Directory-beheerder
+Er kan ook één Azure Active Directory-account worden geconfigureerd als beheerder. Dit account kan betrekking hebben op een individuele Azure AD-gebruiker, maar ook op een Azure AD-groep die meerdere Azure AD-gebruikers bevat. Configuratie van een Azure AD-beheerder is optioneel, maar er moet een Azure AD-beheerder worden geconfigureerd als u wilt dat Azure AD-accounts via Windows-verificatie verbinding maken met SQL Database. Voor meer informatie over het configureren van toegang tot Azure Active Directory raadpleegt u [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) en [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
-### Configuring the firewall
-When the server-level firewall is configured, the Azure SQL Database Subscriber Account and the Azure Active Directory account can connect to the master database and all the user databases. The server-level firewall can be configured through the portal. Once a connection is made, additional server-level firewall rules can also be configured by using the [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL statement. For more information about configuring the firewall see [How to: Configure an Azure SQL Database firewall using the Azure portal](sql-database-configure-firewall-settings.md).
+### <a name="configuring-the-firewall"></a>De firewall configureren
+Wanneer de firewall op serverniveau is geconfigureerd, kunnen het account van de Azure SQL Database-abonnee en het Azure Active Directory-account verbinding maken met de masterdatabase en alle gebruikersdatabases. De firewall op serverniveau kan worden geconfigureerd via de portal. Nadat er een verbinding tot stand is gebracht, kunnen er ook aanvullende firewallregels op serverniveau worden geconfigureerd met behulp van de Transact-SQL-instructie [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx). Voor meer informatie over firewallregels op serverniveau raadpleegt u [How to: Configure an Azure SQL server firewall using the Azure portal](sql-database-configure-firewall-settings.md) (Procedure: Een Azure SQL-serverfirewall configureren via Azure Portal).
 
-### Administrator access path
-When the server-level firewall is properly configured, the SQL Database Subscriber Account and the Azure Active Directory SQL Server Administrators can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
-    ![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+### <a name="administrator-access-path"></a>Toegangspad beheerder
+Wanneer de firewall op serverniveau correct is geconfigureerd, kunnen het account van de SQL Database-abonnee en de Azure Active Directory SQL Server-beheerders verbinding maken met clienthulpprogramma's zoals SQL Server Management Studio of SQL Server Data Tools. Alleen de nieuwste hulpprogramma's bieden alle functies en mogelijkheden. Het volgende diagram toont een standaardconfiguratie voor de twee beheerdersaccounts.
+    ![Toegangspad beheerder](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-When using an open port in the server-level firewall, administrators can connect to any SQL Database.
+Wanneer u een open poort in de firewall op serverniveau gebruikt, kunnen beheerders verbinding maken met elke SQL-database.
 
-### Connecting to a database by using SQL Server Management Studio
-For a walk-through of connecting by using SQL Server Management Studio, see [Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query](sql-database-connect-query-ssms.md).
+### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Verbinding maken met een database via SQL Server Management Studio
+Voor een overzicht van het maken van verbinding via SQL Server Management Studio raadpleegt u [Verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld T-SQL-query uitvoeren](sql-database-connect-query-ssms.md).
 
 > [!IMPORTANT]
-> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Het wordt aanbevolen om altijd de nieuwste versie van Management Studio te gebruiken, zodat uw versie gesynchroniseerd blijft met updates voor Microsoft Azure en SQL Database. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
-## Additional special accounts
-SQL Database provide two restricted administrative roles in the virtual master database to which user accounts can be added.
+## <a name="additional-special-accounts"></a>Aanvullende speciale accounts
+SQL Database biedt twee beperkte beheerdersrollen in de virtuele masterdatabase waaraan gebruikersaccounts kunnen worden toegevoegd.
 
-### Database creators
-The administrative accounts can create new databases. To create an additional account that can create databases you must create a user in master, and add the user to the special **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the virtual master database.
+### <a name="database-creators"></a>Databasemakers
+De beheerdersaccounts kunnen nieuwe databases maken. Voor het maken van een extra account dat databases kan maken, moet u een gebruiker in de master maken en deze gebruiker toevoegen aan de speciale databaserol **dbmanager**. De gebruiker kan een ingesloten databasegebruiker zijn, maar ook een gebruiker gebaseerd op een SQL Server-aanmelding in de virtuele masterdatabase.
 
-1. Using an administrator account, connect to the virtual master database.
-2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+1. Gebruik een beheerdersaccount om verbinding te maken met de virtuele masterdatabase.
+2. Optionele stap: maak een aanmelding voor SQL-verificatie met de instructie [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Voorbeeldinstructie:
    
    ```
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
    > [!NOTE]
-   > Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
+   > Gebruik een sterk wachtwoord bij het maken van aanmeldgegevens of een ingesloten databasegebruiker. Zie [Sterke wachtwoorden](https://msdn.microsoft.com/library/ms161962.aspx) voor meer informatie.
    > 
    > 
    
-   To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
-3. In the virtual master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+   Voor betere prestaties worden aanmeldingen (principals op serverniveau) tijdelijk in het cachegeheugen op databaseniveau opgeslagen. Zie [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx) als u de verificatiecache wilt vernieuwen.
+3. Maak een gebruiker in de virtuele masterdatabase met behulp van de instructie [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Voorbeeldinstructies:
    
    ```
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
    CREATE USER Tran WITH PASSWORD = '<strong_password>';
    CREATE USER Mary FROM LOGIN Mary; 
    ```
-4. Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+4. Voeg de nieuwe gebruiker toe aan de databaserol **dbmanager** met behulp van de instructie [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Voorbeeldinstructies:
    
    ```
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -87,75 +92,81 @@ The administrative accounts can create new databases. To create an additional ac
    ```
    
    > [!NOTE]
-   > The dbmanager is a database role in virtual master database so you can only add a user to the dbmanager role. You cannot add a server-level login to database-level role.
+   > Dbmanager is een databaserol in de virtuele masterdatabase, zodat u alleen een gebruiker aan de rol dbmanager kunt toevoegen. U kunt geen aanmelding op serverniveau toevoegen aan een rol op databaseniveau .
    > 
    > 
-5. If necessary, configure the server-level firewall to allow the new user to connect.
+5. Configureer, indien nodig, de firewall op serverniveau, zodat de nieuwe gebruiker verbinding kan maken.
 
-Now the user can connect to the virtual master database and can create new databases. The account creating the database becomes the owner of the database.
+De gebruiker kan nu verbinding maken met de virtuele masterdatabase en is in staat nieuwe databases te maken. Het account dat de database maakt, wordt eigenaar van de database.
 
-### Login managers
-If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the virtual master. Usually this is not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+### <a name="login-managers"></a>Aanmelding managers
+Desgewenst kunt u dezelfde stappen doorlopen (een aanmelding en een gebruiker maken en een gebruiker toevoegen aan de rol **loginmanager**), zodat een gebruiker nieuwe aanmeldingen kan maken in de virtuele master. Dit is doorgaans niet nodig omdat Microsoft toepassing aanbeveelt van ingesloten databasegebruikers die gebruikmaken van verificatie op databaseniveau, in plaats van toepassing van gebruikers op basis van aanmelding. Zie [Ingesloten databasegebruikers: een draagbare database maken](https://msdn.microsoft.com/library/ff929188.aspx) voor meer informatie.
 
-## Non-administrator users
-Generally, non-administrator accounts do not need access to the virtual master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+## <a name="non-administrator-users"></a>Niet-beheerders
+Niet-beheerdersaccounts hebben doorgaans geen toegang nodig tot de virtuele masterdatabase. Maak ingesloten databasegebruikers op databaseniveau met de instructie [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Zie [Ingesloten databasegebruikers: een draagbare database maken](https://msdn.microsoft.com/library/ff929188.aspx) voor meer informatie. 
 
-To create users, connect to the database, and execute statements similar to the following examples:
+Als u gebruikers wilt maken, maakt u verbinding met de database en voert u de instructies uit die in de volgende voorbeelden worden getoond:
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-Initially, only one of the administrators or the owner of the database can create users. To authorize additional users to create new users, grant that selected user the `ALTER ANY USER` permission, by using a statement such as:
+In eerste instantie kan slechts een van de beheerders of de eigenaar van de database gebruikers maken. Om extra gebruikers te machtigen voor het maken van nieuwe gebruikers, verleent u de geselecteerde gebruikers de `ALTER ANY USER`-toestemming met behulp van een instructie zoals:
 
 ```
 GRANT ALTER ANY USER TO Mary;
 ```
 
-To give additional users full control of the database, make them a member of the **db_owner** fixed database role using the `ALTER ROLE` statement.
+Om extra gebruikers volledig beheer van de database te geven, moet u ze lid maken van de vaste databaserol **db_owner** met behulp van de `ALTER ROLE`-instructie.
 
 > [!NOTE]
-> The principal reason to create database users based on logins, is when you have SQL Server authentication users that need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
+> De belangrijkste reden om databasegebruikers te maken op basis van aanmelding, is wanneer u SQL Server-verificatiegebruikers hebt die toegang tot meerdere databases nodig hebben. Gebruikers op basis van aanmelding zijn gekoppeld aan de aanmelding. Voor deze aanmelding wordt slechts één wachtwoord bijgehouden. Ingesloten databasegebruikers in individuele databases zijn individuele entiteiten en hebben elk een eigen wachtwoord. Dit kan verwarrend zijn voor ingesloten databasegebruikers die hun wachtwoorden niet identiek hebben gehouden.
 > 
 > 
 
-### Configuring the database-level firewall
-As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
+### <a name="configuring-the-database-level-firewall"></a>De firewall op databaseniveau configureren
+U doet er verstandig aan niet-beheerders alleen via de firewall toegang te verlenen tot de databases die ze gebruiken. In plaats van het machtigen van hun IP-adressen via de firewall op serverniveau en hun toegang te verlenen tot alle databases, kunt u de instructie [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) gebruiken om de firewall op databaseniveau te configureren. De firewall op databaseniveau kan niet worden geconfigureerd met behulp van de portal.
 
-### Non-administrator access path
-When the database-level firewall is properly configured, the database users can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical non-administrator access path.
-![Non-administrator access path](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+### <a name="non-administrator-access-path"></a>Toegangspad niet-beheerder
+Wanneer de firewall op databaseniveau correct is geconfigureerd, kunnen databasegebruikers verbinding maken met de hulp van clienthulpprogramma's zoals SQL Server Management Studio of SQL Server Data Tools. Alleen de nieuwste hulpprogramma's bieden alle functies en mogelijkheden. Het volgende diagram toont een standaardtoegangspad voor niet-beheerders.
+![Toegangspad niet-beheerder](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
 
-## Groups and roles
-Efficient access management uses permissions assigned to groups and roles instead of individual users. For example, when using Azure Active Directory authentication:
+## <a name="groups-and-roles"></a>Groepen en rollen
+Voor efficiënt toegangsbeheer gebruikt u machtigingen die zijn toegewezen aan groepen en rollen in plaats van aan individuele gebruikers. Voorbeelden bij het gebruik van Azure Active Directory-verificatie:
 
-* Put Azure Active Directory users into an Azure Active Directory group. Create a contained database user for the group. Place one or more database users into a database role. And then assign permissions to the database role.
+* Plaats Active Directory-gebruikers in een Azure Active Directory-groep. Maak voor de groep een ingesloten databasegebruiker. Plaats een of meer databasegebruikers in een databaserol. Wijs vervolgens machtigingen toe aan deze databaserol.
 
-When using SQL Server authentication:
+Bij het gebruik van SQL Server-verificatie:
 
-* Create contained database users in the database. Place one or more database users into a database role. And then assign permissions to the database role.
+* Maak ingesloten databasegebruikers in de database. Plaats een of meer databasegebruikers in een databaserol. Wijs vervolgens machtigingen toe aan deze databaserol.
 
-The database roles can be the built-in roles such as **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, and **db_denydatareader**. **db_owner** is commonly used to grant full permission to only a few users. The other fixed database roles are useful for getting a simple database in development quickly, but are not recommended for most production databases. For example, the **db_datareader** fixed database role grants read access to every table in the database, which is usually more than is strictly necessary. It is far better to use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
+Bij de databaserollen kan het gaan om de ingebouwde rollen als **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** en **db_denydatareader**. **db_owner** wordt doorgaans gebruikt voor het verlenen van volledige machtigingen aan slechts enkele gebruikers. De andere vaste databaserollen zijn handig voor het snel verkrijgen van een eenvoudige database voor ontwikkeldoeleinden, maar worden niet aanbevolen voor de meeste productiedatabases. De vaste databaserol **db_datareader** verleent bijvoorbeeld leestoegang tot alle tabellen in de database, wat doorgaans meer is dan strikt noodzakelijk. Het is veel beter de instructie [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) te gebruiken om uw eigen gebruikergedefinieerde databaserollen te maken en zorgvuldig elke rol de minimale machtigingen te verlenen die nodig zijn voor de gerelateerde zakelijke behoeften. Als een gebruiker lid is van meerdere rollen, worden de machtigingen van alle rollen samengevoegd.
 
-## Permissions
-There are over 100 permissions that can be individually granted or denied in SQL Database. Many of these permissions are nested. For example, the `UPDATE` permission on a schema includes the `UPDATE` permission on each table within that schema. As in most permission systems, the denial of a permission overrides a grant. Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. Start with the list of permissions at [Permissions (Database Engine)](https://msdn.microsoft.com/library/ms191291.aspx) and review the [poster size graphic](http://go.microsoft.com/fwlink/?LinkId=229142) of the permissions.
+## <a name="permissions"></a>Machtigingen
+Er zijn meer dan 100 machtigingen die afzonderlijk kunnen worden verleend of geweigerd in SQL Database. Veel van deze machtigingen zijn genest. De machtiging `UPDATE` voor een schema bevat bijvoorbeeld de machtiging `UPDATE` voor elke tabel binnen dat schema. Net als bij de meeste machtigingssystemen gaat de weigering van een machtiging vóór toestemming. Vanwege de geneste aard en het aantal machtigingen kan een nauwkeurig onderzoek nodig zijn om een geschikt machtigingssysteem te ontwerpen voor een goede bescherming van uw database. Start met de lijst van machtigingen in [Machtigingen (Database-engine)](https://msdn.microsoft.com/library/ms191291.aspx) en controleer de [afbeelding op postergrootte](http://go.microsoft.com/fwlink/?LinkId=229142) van de machtigingen.
 
-## Next steps
-[Securing your SQL Database](sql-database-security.md)
+## <a name="next-steps"></a>Volgende stappen
+[Uw SQL-database beveiligen](sql-database-security.md)
 
-[Creating a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365315.aspx)
+[Een tabel maken\(Zelfstudie\)](https://msdn.microsoft.com/library/ms365315.aspx)
 
-[Inserting and Updating Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365309.aspx)
+[Gegevens in een tabel invoegen en bijwerken \(Zelfstudie\)](https://msdn.microsoft.com/library/ms365309.aspx)
 
-[Reading the Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365310.aspx)
+[Gegevens in een tabel lezen \(Zelfstudie\)](https://msdn.microsoft.com/library/ms365310.aspx)
 
-[Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
+[Weergaven en opgeslagen procedures maken](https://msdn.microsoft.com/library/ms365311.aspx)
 
-[Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
+[Toegang verlenen tot een databaseobject](https://msdn.microsoft.com/library/ms365327.aspx)
 
-## Additional resources
-[Securing your SQL Database](sql-database-security.md)
+## <a name="additional-resources"></a>Aanvullende bronnen
+[Uw SQL-database beveiligen](sql-database-security.md)
 
-[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589.aspx) 
+[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589.aspx) (Security Center voor SQL Server Database Engine en Azure SQL Database) 
+
+
+
+
+<!--HONumber=Dec16_HO3-->
+
 
