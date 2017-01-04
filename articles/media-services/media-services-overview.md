@@ -42,12 +42,11 @@ Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
     * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
 
-In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij het ontwikkelen in het Media Services OData-model. 
+In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij het ontwikkelen in het Media Services OData-model.
 
 Klik op de afbeelding om deze in volledig formaat weer te geven.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
-
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
 U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.14) het hele model bekijken.  
 
@@ -76,22 +75,22 @@ Zie [Concepten](media-services-concepts.md) voor Azure Media Services-concepten.
 Zie [Stapsgewijze zelfstudies voor Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) voor een reeks procedures waarin u kennis kunt maken met de belangrijkste onderdelen van Azure Media Services. Deze reeks biedt een goed overzicht van de concepten en maakt gebruik van het AMSE-hulpprogramma om AMS-taken te demonstreren. Het AMSE-hulpprogramma is een Windows-hulpprogramma. Dit hulpprogramma ondersteunt de meeste taken die u programmatisch kunt uitvoeren met [AMS SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java) of [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>On-demand media leveren met Azure Media Services: algemene scenario's en taken
-In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar relevante onderwerpen. Het volgende diagram toont u de belangrijkste onderdelen van het Media Services-platform die zijn betrokken bij de on-demand levering van inhoud. 
+In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar relevante onderwerpen. Het volgende diagram toont u de belangrijkste onderdelen van het Media Services-platform die zijn betrokken bij de on-demand levering van inhoud.
 
 ![VoD-werkstroom](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
-   
+
     Het is raadzaam de optie voor opslagversleuteling toe te passen op de uitvoerasset om de inhoud in de opslag te beveiligen.
-2. Codeer de assets als een set Adaptive Bitrate MP4-bestanden. 
-   
+2. Codeer de assets als een set Adaptive Bitrate MP4-bestanden.
+
     Het is raadzaam de optie voor opslagversleuteling toe te passen op de uitvoerasset om de opgeslagen inhoud te beveiligen.
-3. Configureer het beleid voor de levering van assets (gebruikt voor dynamische pakketten). 
-   
-    Als de opslag van uw asset is versleuteld, **moet** u een beleid voor assetlevering configureren. 
+3. Configureer het beleid voor de levering van assets (gebruikt voor dynamische pakketten).
+
+    Als de opslag van uw asset is versleuteld, **moet** u een beleid voor assetlevering configureren.
 4. Publiceer de asset door een OnDemand-locator te maken.
-   
+
     Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
 5. Stream de gepubliceerde inhoud.
 
@@ -104,28 +103,28 @@ Als u dynamische versleuteling wilt gebruiken, moet u eerst ten minste één ger
 4. Configureer het autorisatiebeleid voor de inhoudssleutel.
 5. Configureer het beleid voor de levering van assets (gebruikt door dynamische pakketten en dynamische versleuteling).
 6. Publiceer de asset door een OnDemand-locator te maken.
-7. Stream de gepubliceerde inhoud. 
+7. Stream de gepubliceerde inhoud.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Media Analytics gebruiken om inzichten aan uw video's te ontlenen waarvoor een actie kan worden uitgevoerd
 Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarmee organisaties en bedrijven gemakkelijker inzichten aan hun video's kunnen ontlenen waarvoor een actie kan worden uitgevoerd. Zie [Overzicht van Azure Media Services Analytics](media-services-analytics-overview.md) voor meer informatie.
 
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
 2. Gebruik een van de volgende Media Analytics-services voor de verwerking van uw video:
-   
+
    * **Indexeerfunctie**: [video's verwerken met Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
    * **Hyperlapse**: [Hyperlapse Media-bestanden met Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Bewegingsdetectie**: [bewegingsdetectie voor Azure Media Analytics](media-services-motion-detection.md).
    * **Gezichtsdetectie en gezichtsemoties**: [gezichts- en emotiedetectie voor Azure Media Analytics](media-services-face-and-emotion-detection.md).
    * **Samenvatting van de video**: [gebruik Azure Media Video Thumbnails om een samenvatting van een video te maken](media-services-video-summarization.md)
-3. Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden via Azure Blob Storage. 
+3. Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden via Azure Blob Storage.
 
 ### <a name="deliver-progressive-download"></a>Een progressieve download leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
 2. Codeer het bestand naar één MP4-bestand.
 3. Publiceer de asset door een OnDemand- of SAS-locator te maken.
-   
+
     Als u een OnDemand-locator gebruikt, moet u ervoor zorgen dat u over minimaal één gereserveerde eenheid streaming beschikt op het streaming-eindpunt van waaruit u van plan bent de inhoud progressief te downloaden.
-   
+
     Als SAS-locator wordt gebruikt, wordt de inhoud gedownload vanaf Azure Blob Storage. In dit geval hebt u geen gereserveerde streamingeenheden nodig.
 4. Download de inhoud op progressieve wijze.
 
@@ -156,8 +155,8 @@ Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor 
 
 > [!NOTE]
 > Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
-> 
-> 
+>
+>
 
 * Een on-premises live codering verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van de live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
@@ -210,7 +209,6 @@ Zie [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/) voor m
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
 
 
 
