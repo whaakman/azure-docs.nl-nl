@@ -181,6 +181,6 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

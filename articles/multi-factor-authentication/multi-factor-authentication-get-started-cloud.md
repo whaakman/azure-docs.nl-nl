@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ In het volgende artikel staat beschreven hoe u aan de slag gaat met Azure Multi-
 
 > [!NOTE]
 > De volgende documentatie bevat informatie over hoe u het voor gebruikers mogelijk maakt de **klassieke Azure Portal** te gebruiken. Ga naar [Multi-Factor Authentication instellen voor Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US) als u op zoek bent naar informatie over het instellen van Azure Multi-Factor Authentication voor O365-gebruikers.
-> 
-> 
 
 ![MFA in de Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Aan de volgende vereisten moet worden voldaan voordat u Azure Multi-Factor Authe
 
 > [!NOTE]
 > Licenties zijn beschikbaar voor gebruikers die Azure MFA, Azure AD Premium of Enterprise Mobility Suite (EMS) hebben.  MFA maakt deel uit van Azure AD Premium en EMS. Als u voldoende licenties hebt, hoeft u geen Multi-Factor Authentication-provider te maken.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
 Verander de status van de gebruiker van Uitgeschakeld naar Ingeschakeld om verificatie in twee stappen te activeren.  Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -75,13 +71,11 @@ Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD Power
 
 > [!IMPORTANT]
 > We raden het af gebruikers rechtstreeks van de status Uitgeschakeld naar de status Afgedwongen te verplaatsen. Niet-browsertoepassingen werken dan niet meer omdat de gebruiker de MFA-registratie niet heeft doorlopen en geen [toepassingswachtwoord](multi-factor-authentication-whats-next.md#app-passwords) heeft verkregen. Als u niet-browsertoepassingen hebt en toepassingswachtwoorden nodig hebt, is het raadzaam om van de status Uitgeschakeld naar de status Ingeschakeld te gaan. Dit stelt gebruikers in staat om hun toepassingswachtwoorden te registreren en op te halen. Vervolgens kunt u ze naar de status Afgedwongen verplaatsen.
-> 
-> 
 
 Het gebruik van PowerShell is dan een optie om bulksgewijs gebruikers in te schakelen. Momenteel bevat Azure Portal geen functie voor het bulksgewijs inschakelen van gebruikers, en dus moet u elke gebruiker afzonderlijk selecteren. Dit kan veel tijd kosten als u een groot aantal gebruikers hebt. Als u een PowerShell-script maakt met behulp van het onderstaande, kunt u door een lijst met gebruikers gaan en ze inschakelen.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Hier volgt een voorbeeld:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

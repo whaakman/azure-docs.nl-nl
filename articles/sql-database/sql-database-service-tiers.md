@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
@@ -73,6 +73,7 @@ In de volgende tabel vindt u een beschrijving van de kenmerken van de servicelag
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Elke database in een pool heeft dezelfde kenmerken als die van een enkele database voor deze laag. Zo heeft de Basic-pool een limiet voor het maximumaantal sessies per pool van 4800 tot 28800, maar één database binnen die Basic-pool heeft een databaselimiet van 300 sessies.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

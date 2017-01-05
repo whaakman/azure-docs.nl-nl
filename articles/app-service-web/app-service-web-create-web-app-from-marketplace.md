@@ -168,6 +168,6 @@ Voor meer informatie over het ontwikkelen van WordPress-web-apps in Azure raadpl
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 
