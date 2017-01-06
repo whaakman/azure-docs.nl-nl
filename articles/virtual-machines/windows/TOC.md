@@ -11,7 +11,7 @@
 ### [VM-beschikbaarheid](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Implementatiemodellen](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Implementatiemodellen](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM-schaalsets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Containers](../virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Veelgestelde vragen](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -23,7 +23,7 @@
 ## [Verschillende manieren om een VM te maken](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure PowerShell installeren](/powershell/azureps-cmdlets-docs)
 ## [Een VM maken met PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Kennismaken met sjablonen](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Kennismaken met sjablonen](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Complexe VM-sjablonen maken en implementeren](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toepassingsarchitectuur](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toegang en beveiliging](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -59,7 +59,7 @@
 ### [Meerdere VM's schalen met VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Meerdere virtuele Azure-machines maken](../virtual-machines-windows-multiple-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een VM met controle en diagnostiek maken](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Implementeren met Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Implementeren met Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementeren met C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementeren met C# en sjablonen](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toepassingsframeworks op basis van een sjabloon implementeren](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,6 +180,9 @@
 ### [Problemen met toegang tot toepassingen oplossen](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toewijzingsfouten oplossen](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een VM opnieuw implementeren](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine
+#### [Azure PowerShell](../virtual-machines-windows-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+#### [Azure Portal](../virtual-machines-windows-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
@@ -191,7 +194,7 @@
 ## [Compute REST](/rest/api/compute)
 
 # Resources
-## [Resource Manager-sjablonen schrijven](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Resource Manager-sjablonen schrijven](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services/)
@@ -199,6 +202,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

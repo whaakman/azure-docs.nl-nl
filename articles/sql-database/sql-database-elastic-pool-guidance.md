@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 9a330c88f89205c9a69afc749ba884c9585dbc07
-ms.openlocfilehash: cd044199e7b407d35a87fcd2def12a6bd5b8f36e
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: a79b78a4e8e683afe5b41a41911e7d5f020eff88
 
 
 ---
@@ -28,8 +28,8 @@ Bepaal of het gebruik van een elastische pool rendabel is op basis van databaseg
 
 > [!NOTE]
 > Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in West-India, waar deze zich momenteel in de previewfase bevinden. De algemene beschikbaarheid van elastische pools in deze regio wordt zo snel mogelijk gerealiseerd.
-> 
-> 
+>
+>
 
 ## <a name="elastic-pools"></a>Pools voor Elastic Database
 SaaS-ontwikkelaars ontwikkelen toepassingen boven op grootschalige gegevenslagen die uit meerdere databases bestaan. Een algemeen patroon is de inrichting van een individuele database voor elke klant. Maar verschillende klanten hebben vaak verschillende en onvoorspelbare gebruikspatronen, en de resourcevereisten van elke gebruiker van een individuele database zijn moeilijk te voorspellen. Daarom zal de ontwikkelaar misschien tegen hoge kosten voor een overinrichting van resources zorgen om een gewenste doorvoer en responstijden voor alle databases te garanderen. Of misschien heeft de ontwikkelaar minder te besteden en loopt hij liever het risico van slechtere prestaties voor de klanten. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
@@ -71,7 +71,7 @@ De prijs van een groep is een functie van de groep eDTU's. Hoewel de prijs per e
 De volgende vuistregels voor databaseaantallen en databasegebruik helpen ervoor te zorgen dat een groep lagere kosten met zich meebrengt, vergeleken met het gebruik van prestatieniveaus voor individuele databases.
 
 ### <a name="minimum-number-of-databases"></a>Minimum aantal databases
-Als de som van de DTU's van prestatieniveaus voor individuele databases meer dan 1,5 keer het aantal eDTU's is dat nodig is voor de groep, is een elastische groep rendabeler. Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) voor beschikbare grootten.
+Als de som van de DTU's van prestatieniveaus voor individuele databases meer dan 1,5 keer het aantal eDTU's is dat nodig is voor de groep, is een elastische groep rendabeler. Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor beschikbare grootten.
 
 ***Voorbeeld***<br>
 Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een groep van 100 eDTU's rendabeler zijn dan het gebruik van de prestatieniveaus voor individuele databases.
@@ -80,7 +80,7 @@ Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een
 Wanneer eDTU's worden gedeeld, kunnen niet alle databases in een groep de eDTU's gebruiken tot de limiet die beschikbaar is wanneer prestatieniveaus voor individuele databases worden gebruikt. Hoe minder databases gelijktijdig pieken, des te lager de groeps-eDTU kan worden ingesteld en des te rendabeler de groep wordt. In het algemeen zou niet meer dan 2/3 (of 67%) van de databases in de groep tegelijkertijd tot de maximale eDTU mogen pieken.
 
 ***Voorbeeld***<br>
-Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 eDTU's, moeten er meer S3-databases aan de groep worden toegevoegd om de kosten lager te houden dan bij prestatieniveaus voor individuele databases. 
+Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 eDTU's, moeten er meer S3-databases aan de groep worden toegevoegd om de kosten lager te houden dan bij prestatieniveaus voor individuele databases.
 
 In dit voorbeeld wordt geen rekening gehouden met het gebruik van andere databases in de groep. Als alle databases voortdurend in enige mate gebruik maken van eDTU's, kan minder dan 2/3 (of 67%) van de databases tegelijkertijd pieken.
 
@@ -96,7 +96,7 @@ De optimale grootte voor een groep hangt af van de totale eDTU's en opslagresour
 * Het maximum aantal DTU's dat door alle databases in de groep wordt gebruikt.
 * De maximum opslag in bytes die door alle databases in de groep wordt gebruikt.
 
-Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) voor beschikbare grootten.
+Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor beschikbare grootten.
 
 SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Naast de aanbevelingen wordt met een geïntegreerde functie het eDTU-gebruik voor een aangepaste groep databases op de server geschat. Hiermee kunt u een 'wat als'-analyse uitvoeren door interactief databases aan de groep toe te voegen of uit de groep te verwijderen, om zo een analyse van het resourcegebruik en formaatadvies te krijgen voordat u uw wijzigingen doorvoert. Zie [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md) (Een elastische groep bewaken, beheren en van formaat wijzigen) voor instructies.
 
@@ -114,10 +114,10 @@ Voor flexibelere beoordelingen van resourcegebruik die ad-hoc schattingen van gr
 Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen om te schatten of een groep rendabeler is dan individuele databases:
 
 1. Maak als volgt een schatting van het aantal eDTU's dat nodig is voor de groep:
-   
+
    MAX(<*Totaal aantal DB's* X *gemiddelde DTU-gebruik per DB*>,<br>
    <*aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB*)
-2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen. Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) voor poolopslaglimieten op basis van de eDTU-poolomvang.
+2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen. Zie [eDTU- en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor poolopslaglimieten op basis van de eDTU-poolomvang.
 3. Gebruik de grootste eDTU-schatting uit stap 1 en stap 2.
 4. Raadpleeg de [pagina Prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) en zoek de kleinste eDTU-groepsomvang die groter is dan de schatting van stap 3.
 5. Vergelijk de prijs van de groep uit stap 5 met de prijs voor het gebruik van de juiste prestatieniveaus voor individuele databases.
@@ -130,7 +130,6 @@ Niet alle individuele databases zijn geschikte kandidaten voor groepen. Database
 * [Een elastische pool bewaken, beheren en van formaat veranderen](sql-database-elastic-pool-manage-portal.md)
 * [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md) (Opties en prestaties van SQL Database: inzicht in wat er beschikbaar is in elke servicelaag)
 * [PowerShell-script voor het identificeren van databases die geschikt zijn voor een elastische pool](sql-database-elastic-pool-database-assessment-powershell.md)
-
 
 
 

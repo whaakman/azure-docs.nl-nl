@@ -1,6 +1,6 @@
 ---
-title: Een pool voor elastische database maken met C# | Microsoft Docs
-description: Gebruik C# databaseontwikkelingstechnieken om een schaalbare pool voor elastische databases te maken in Azure SQL Database om resources te delen tussen meerdere databases.
+title: Een elastische pool maken met C# | Microsoft Docs
+description: Gebruik C#-databaseontwikkelingstechnieken om in Azure SQL Database een schaalbare elastische pool te maken, zodat u resources kunt delen tussen meerdere databases.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Een nieuwe pool voor Elastic Database maken met C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Een elastische pool maken met C&#x23;
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 > 
 > 
 
-In dit artikel wordt beschreven hoe u C# gebruikt om een Azure SQL-pool voor Elastic Database maakt met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Zie [SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET](sql-database-get-started-csharp.md) als u een zelfstandige SQL-database wilt maken.
+In dit artikel wordt beschreven hoe u C# gebruikt om een elastische Azure SQL-pool te maken met de [Azure SQL Database-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Zie [SQL Database uitproberen: een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET](sql-database-get-started-csharp.md) als u een zelfstandige SQL-database wilt maken.
 
 De Azure SQL Database-bibliotheek voor .NET biedt een op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
@@ -60,7 +60,7 @@ Als u een SQL Database met C# wilt maken, laadt u de vereiste beheerbibliotheken
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>Een pool voor Elastic Database maken - voorbeeld met C#
+## <a name="create-a-sql-elastic-pool---c-example"></a>Een elastische pool maken - voorbeeld met C#
 In het volgende voorbeeld worden een resourcegroep, een server, een firewallregel en een elastische pool gemaakt. Daarna wordt in die pool een SQL-database gemaakt. Zie [Een service-principal maken voor toegang tot resources](#create-a-service-principal-to-access-resources) om de variabelen `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` op te halen.
 
 Vervang de inhoud van **Program.cs** met het volgende en werk de `{variables}` bij met uw app-waarden (de `{}` niet overnemen).
@@ -260,7 +260,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Een service-principal maken voor toegang tot resources
-Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de service-principal die we nodig hebben om onze C#-app te verifiëren. Het script voert de waarden uit die we nodig hebben voor het voorgaande C#-voorbeeld. Zie [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md) (Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources) voor gedetailleerde informatie.
+Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de service-principal die we nodig hebben om onze C#-app te verifiëren. Het script voert de waarden uit die we nodig hebben voor het voorgaande C#-voorbeeld. Zie [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md) (Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources) voor gedetailleerde informatie.
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -315,6 +315,6 @@ Het volgende PowerShell-script maakt de Active Directory-toepassing (AD) en de s
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

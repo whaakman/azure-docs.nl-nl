@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 
 
 ---
@@ -36,7 +36,7 @@ In dit artikel gebruikt u de Data Factory-REST API voor het maken van uw eerste 
 ## <a name="prerequisites"></a>Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
 * Installeer [Curl](https://curl.haxx.se/dlwiz/) op uw computer. U kunt in het hulpprogramma CURL REST-opdrachten gebruiken om een gegevensfactory te maken.
-* Volg de instructies in [dit artikel](../resource-group-create-service-principal-portal.md) voor het volgende:
+* Volg de instructies in [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md) voor het volgende:
   1. Maak een webtoepassing met de naam **ADFGetStartedApp** in Azure Active Directory.
   2. Haal de **client-id** en **geheime sleutel** op.
   3. Haal de **tenant-id** op.
@@ -487,6 +487,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

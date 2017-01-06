@@ -26,6 +26,10 @@
 ### [3: De juiste vraag stellen](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Een antwoord voorspellen](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Werk van anderen kopiëren](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [R snel starten](machine-learning-r-quickstart.md)
+
+
 # Procedures
 ## Hulpprogramma's instellen
 ### [Omgevingen instellen](machine-learning-data-science-environment-setup.md)
@@ -167,14 +171,14 @@
 #### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
 #### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
 #### [Veelgestelde vragen over Marketplace](machine-learning-marketplace-faq.md)
+
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell-module voor Machine Learning](machine-learning-powershell-module.md)
-## [Algoritmeverwijzing](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [R snel starten](machine-learning-r-quickstart.md)
-## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [REST API’s voor beheer](/rest/api/machinelearning/index)
+## [PowerShell](machine-learning-powershell-module.md)
+## [Naslaginformatie over algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Verwant
+
 ## Cortana Intelligence-galerie
 ### [Overzicht](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Bedrijfstakken](machine-learning-gallery-industries.md)
@@ -205,7 +209,10 @@
 ##### [Overzicht](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Instellen](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-# Bronnen
+
+# Resources
+## [Foutcodes REST voor Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +221,7 @@
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Hulp krijgen via live chats](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 
