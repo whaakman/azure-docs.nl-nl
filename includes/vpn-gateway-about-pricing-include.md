@@ -10,6 +10,6 @@ U betaalt voor twee dingen: het uurtarief voor het berekenen van de gateway van 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -3,7 +3,7 @@
 2. Ga naar de pagina **Apparaten**. Klik op **Virtueel apparaat maken** aan de onderkant van de pagina **Apparaten**.
 3. Geef in het **dialoogvenster Virtueel apparaat maken** de volgende gegevens op.
    
-     ![Virtueel StorSimple-apparaat maken](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![Virtueel StorSimple-apparaat maken](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Naam**: een unieke naam voor uw virtuele apparaat.
    2. **Model**: het model van het virtuele apparaat. Dit veld wordt alleen weergegeven als u Update 2 of hoger uitvoert. Een 8010-apparaatmodel biedt 30 TB Standard-opslag terwijl 8020 64 TB Premium Storage heeft. Geef 8010 op
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

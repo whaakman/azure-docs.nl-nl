@@ -15,7 +15,7 @@ Veelvoorkomende toepassingen van File Storage zijn onder andere:
 ## <a name="file-storage-concepts"></a>Concepten van File Storage
 File Storage bevat de volgende onderdelen:
 
-![bestanden-concepten][files-concepts]
+![bestanden-concepten](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 * **Share:** een File Storage-share is een SMB-bestandsshare in Azure. 
@@ -31,8 +31,7 @@ File Storage bevat de volgende onderdelen:
 
 Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen](http://msdn.microsoft.com/library/azure/dn167011.aspx) voor meer informatie over de naamgeving van shares, mappen en bestanden.
 
-[bestanden-concepten]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

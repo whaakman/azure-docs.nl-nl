@@ -30,22 +30,25 @@
 ### [Een webhook configureren voor een waarschuwing van het activiteitenlogboek](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Het activiteitenlogboek archiveren](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Het activiteitenlogboek streamen naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Bewerkingen controleren met Resource Manager](../resource-group-audit.md)
+### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Diagnostische logboeken beheren
 ### [Archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Streamen naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 ### [Diagnostische instellingen inschakelen met Resource Manager-sjablonen](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
-## REST API gebruiken
-### [Stapsgewijze instructie voor het gebruik van REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## REST-API gebruiken
+### [Stapsgewijze instructie voor het gebruik van REST-API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
 
 # Naslaginformatie
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [Overzicht van ondersteunde metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST API](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# Resources
+## [PowerShell-voorbeelden](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Azure CLI 2.0-voorbeelden (Preview)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Overzicht van ondersteunde metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Jan17_HO1-->
 
 

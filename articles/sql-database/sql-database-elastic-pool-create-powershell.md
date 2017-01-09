@@ -1,6 +1,6 @@
 ---
-title: Een nieuwe pool voor elastische database maken met PowerShell | Microsoft Docs
-description: Ontdek hoe u PowerShell gebruikt om Azure SQL Database-resources uit te schalen door een schaalbare pool voor elastische database te maken voor het beheer van meerdere databases.
+title: Een nieuwe elastische pool maken met PowerShell | Microsoft Docs
+description: Ontdek hoe u PowerShell gebruikt om Azure SQL Database-resources uit te schalen door een schaalbare elastische pool te maken voor het beheer van meerdere databases.
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 679cdacc3782f667635a586df4cd77a9af7884d9
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Een nieuwe pool voor elastische database maken met PowerShell
+# <a name="create-a-new-elastic-pool-with-powershell"></a>Een nieuwe elastische pool maken met PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
 >
 >
 
-Ontdek hoe u een [pool voor elastische database](sql-database-elastic-pool.md) maakt met PowerShell-cmdlets.
+Ontdek hoe u een [elastische pool](sql-database-elastic-pool.md) maakt met PowerShell-cmdlets.
 
 Raadpleeg voor algemene foutcodes [SQL-foutcodes voor SQL Database-clienttoepassingen: Databaseverbindingsfout en andere problemen](sql-database-develop-error-messages.md).
 
@@ -41,7 +41,7 @@ Raadpleeg voor algemene foutcodes [SQL-foutcodes voor SQL Database-clienttoepass
 U moet Azure PowerShell 1.0 of hoger gebruiken. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Een nieuwe groep maken
-De [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx)-cmdlet maakt een nieuwe pool. De waarden voor eDTU per pool, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+De [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx)-cmdlet maakt een nieuwe pool. De waarden voor eDTU per pool, min. en max. DTU’s zijn beperkt door de waarde van de servicecategorie (Basic, Standard of Premium). Zie [eDTU en opslaglimieten voor elastische pools en elastische databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -85,6 +85,6 @@ Dit script maakt een nieuwe Azure-resourcegroep en een nieuwe server. Als dit wo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
