@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -61,8 +61,8 @@ De zelfstudie is geschreven voor Visual Studio 2015 met de [Azure SDK voor .NET]
 
 Als u Visual Studio 2013 hebt en u liever dat programma gebruikt, kunt u [de nieuwste Azure SDK voor Visual Studio 2013 downloaden](http://go.microsoft.com/fwlink/?LinkID=324322). Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen.
 
-## <a name="configure-a-new-web-project"></a>Een nieuw webproject configureren
-De volgende stap bestaat uit het maken van een webproject in Visual Studio en het maken van een web-app in Azure App Service. In dit gedeelte van de zelfstudie configureert u het nieuwe webproject. 
+## <a name="create-a-web-application"></a>Een web-app maken
+De volgende stap bestaat uit het maken van een webtoepassingsproject in Visual Studio en het maken van een web-app in Azure App Service. In dit gedeelte van de zelfstudie configureert u het nieuwe webproject. 
 
 1. Open Visual Studio 2015.
 2. Klik op **Bestand > Nieuw > Project**.
@@ -89,7 +89,7 @@ De volgende stap bestaat uit het maken van een webproject in Visual Studio en he
     Met deze instellingen stelt u in dat Visual Studio een Azure-web-app maakt voor uw webproject.
 10. Klik op **OK**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Azure-resources configureren voor een nieuwe web-app
+## <a name="create-the-azure-resources"></a>De Azure-resources maken
 U kunt nu in Visual Studio aangeven welke Azure-resources er moeten worden gemaakt.
 
 1. Klik in het dialoogvenster **App Service maken** op **Account toevoegen**. Meld u vervolgens bij Azure aan met de id en het wachtwoord van het account dat u gebruikt om uw Azure-abonnement te beheren.
@@ -128,14 +128,14 @@ U kunt nu in Visual Studio aangeven welke Azure-resources er moeten worden gemaa
 8. Klik in het dialoogvenster **App Service-plan configureren** op **OK**.
 9. Klik in het dialoogvenster **App Service maken** op **Maken**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio maakt het project en de web-app
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>De Azure-resources inspecteren in Visual Studio
 Visual Studio doet er meestal minder dan een minuut over om het webproject en de web-app te maken.  
 
 In het venster **Solution Explorer** ziet u de bestanden en mappen van het nieuwe project.
 
 ![Solution Explorer](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-In het venster **Azure App Service-activiteit** ziet u dat de web-app is gemaakt.
+In het venster **Azure App Service Activity** ziet u dat de App Service-resources zijn gemaakt in Azure. U kunt hier klikken op de koppeling om onmiddellijk te starten met de publicatie van het nieuwe project. De zelfstudie toont u later echter ook hoe u uw bestanden op elk ogenblik kunt publiceren.
 
 ![Web-app gemaakt in het venster Azure App Service-activiteit](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ In het venster **Cloud Explorer** kunt u Azure-resources bekijken en beheren, in
 
 ![Web-app gemaakt in Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Het webproject implementeren in de Azure-web-app
-In dit gedeelte implementeert u het webproject in de web-app.
+## <a name="deploy-the-web-project-to-azure"></a>Het webproject implementeren in Azure
+In deze sectie implementeert u het webproject in de web app-resource die u hebt gemaakt in Azure App Service.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project. Klik vervolgens op **Publiceren**.
    
@@ -152,7 +152,10 @@ In dit gedeelte implementeert u het webproject in de web-app.
    
     Na enkele seconden verschijnt de wizard **Webpublicatie**. De wizard wordt geopend. U ziet een *publicatieprofiel* met instellingen voor het implementeren van het webproject in de nieuwe web-app.
    
-    Het publicatieprofiel bevat een gebruikersnaam en een wachtwoord voor implementatie.  Deze referenties zijn voor u gegenereerd. U hoeft ze niet in te voeren. Het wachtwoord is versleuteld in een verborgen, gebruikersspecifiek bestand in de map `Properties\PublishProfiles`.
+    > [!TIP] 
+    > Het publicatieprofiel bevat een gebruikersnaam en een wachtwoord voor implementatie.  Deze referenties zijn voor u gegenereerd. U hoeft ze niet in te voeren. Het wachtwoord is versleuteld in een verborgen, gebruikersspecifiek bestand in de map `Properties\PublishProfiles`.
+    >
+    >
 2. Klik op het tabblad **Verbinding** van de wizard **Webpublicatie** op **Volgende**.
    
     ![Op Volgende klikken op het tabblad Verbinding van de wizard Webpublicatie](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ In deze zelfstudie hebt u gezien hoe u een eenvoudige web-app makt en hoe u deze
   * [HTTPS inschakelen voor een Azure-website](web-sites-configure-ssl-certificate.md)
 * Als u deze niet meer nodig hebt, verwijdert u de resourcegroep die uw web-app bevat, evenals alle gerelateerde Azure-resources.
   
-    Zie [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md) (Resources implementeren met Resource Manager-sjablonen en Azure Portal) voor meer informatie over het werken met resourcegroepen in Azure Portal.   
+    Zie [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md) (Resources implementeren met Resource Manager-sjablonen en Azure Portal) voor meer informatie over het werken met resourcegroepen in Azure Portal.   
 * Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET web-app maken en implementeren in Azure App Service) en [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Een mobiele app maken en implementeren in Azure App Service) uit de 2015 Connect-[demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) van [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) voor meer voorbeelden van het maken van een ASP.NET web-app in de App Service. Voor meer snelstartgidsen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Snelstartgidsen voor ontwikkelhulpprogramma’s voor Azure).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

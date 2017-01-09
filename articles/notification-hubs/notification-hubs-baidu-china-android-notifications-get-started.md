@@ -43,16 +43,16 @@ Voor het gebruik van Baidu moet u een Baidu-account hebben. Als u er al een hebt
 
 1. Ga naar de [Baidu Portal] en klik op de koppeling **登录** (**Aanmelden**). Klik op **立即注册** om de registratie van het account te starten.
    
-       ![][1]
+   ![][1]
 2. Voer de vereiste gegevens in: telefoon, e-mailadres, wachtwoord en verificatiecode en klik vervolgens op **Registreren**.
    
-       ![][2]
+   ![][2]
 3. U ontvangt een e-mailbericht op het e-mailadres dat u hebt ingevoerd met daarin een koppeling om uw Baidu-account te activeren.
    
-       ![][3]
+   ![][3]
 4. Meld u aan bij uw e-mailaccount, open het e-mailbericht en klik op de activeringskoppeling om uw Baidu-account te activeren.
    
-       ![][4]
+   ![][4]
 
 Als uw Baidu-account is geactiveerd, meldt u zich aan bij de [Baidu Portal].
 

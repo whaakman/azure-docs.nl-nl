@@ -13,6 +13,6 @@ In de volgende sectie van de zelfstudie leert u hoe u de [REST-interface van Not
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

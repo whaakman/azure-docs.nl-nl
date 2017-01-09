@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Bekijk deze video's voor meer informatie over VM-schaalsets:
 ## <a name="creating-and-managing-vm-scale-sets"></a>VM-schaalsets maken en beheren
 U kunt een VM-schaalset maken in [Azure Portal](https://portal.azure.com) door *nieuw* te selecteren en ‘schaal’ in de zoekbalk te typen. U ziet ‘Virtuele-machineschaalset’ staan in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. 
 
-VM-schaalsets kunnen ook worden gedefinieerd en geïmplementeerd met behulp van JSON-sjablonen en [REST API's](https://msdn.microsoft.com/library/mt589023.aspx), net als individuele VM's in Azure Resource Manager. Dit betekent dat alle standaardimplementatiemethoden van Azure Resource Manager kunnen worden toegepast. Zie [Azure Resource Manager-sjablonen samenstellen](../resource-group-authoring-templates.md) voor meer informatie over sjablonen.
+VM-schaalsets kunnen ook worden gedefinieerd en geïmplementeerd met behulp van JSON-sjablonen en [REST API's](https://msdn.microsoft.com/library/mt589023.aspx), net als individuele VM's in Azure Resource Manager. Dit betekent dat alle standaardimplementatiemethoden van Azure Resource Manager kunnen worden toegepast. Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 
 [Hier](https://github.com/Azure/azure-quickstart-templates) in de GitHub-opslagplaats voor Azure Quickstart-sjablonen vindt u een aantal voorbeeldsjablonen voor VM-schaalsets. (Zoek naar sjablonen met *vmss* in de naam)
 
@@ -50,9 +50,9 @@ Als u een sjabloon opnieuw wilt implementeren om de capaciteit te wijzigen, kunt
 Raadpleeg [Automatisch machines schalen in een virtuele-machineschaalset](virtual-machine-scale-sets-windows-autoscale.md) voor een stapsgewijze uitleg van het maken van een schaalset die automatisch wordt geschaald
 
 ## <a name="monitoring-your-vm-scale-set"></a>De VM-schaalset controleren
-In [Azure Portal](https://portal.azure.com) kunt u een lijst met schaalsets, de basiseigenschappen en de VM's in de set bekijken. Gebruik de [Azure Resource Explorer](https://resources.azure.com) om VM-schaalsets te bekijken voor meer details. VM-schaalsets zijn een resource onder Microsoft.Compute. U kunt ze vanaf deze site bekijken door de volgende koppelingen uit te vouwen:
+[Azure Portal](https://portal.azure.com) toont de schaalsets en basiseigenschappen en -bewerkingen, met inbegrip van de VM's in de set en een grafiek van het resourcegebruik. Gebruik de [Azure Resource Explorer](https://resources.azure.com) om VM-schaalsets te bekijken voor meer details. VM-schaalsets zijn een resource onder Microsoft.Compute. U kunt ze vanaf deze site bekijken door de volgende koppelingen uit te vouwen:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Abonnementen -> uw abonnement -> resourceGroups -> providers > Microsoft.Compute -> virtualMachineScaleSets -> Uw VM-schaalset -> enz.**
 
 ## <a name="vm-scale-set-scenarios"></a>Scenario's voor VM-schaalsets
 In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd. Deze scenario's worden toegepast voor een aantal van de hogere Azure-services, zoals Batch, Service Fabric en Azure Container Service.
@@ -71,15 +71,15 @@ In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd.
    Hier volgt een voorbeeld van hoe u hetzelfde doet met RDP en Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **Verbinding maken met VM's met behulp van een 'jumpbox'**: als u een VM-schaalset en losstaande VM in hetzelfde VNET maakt, kunnen de losse VM en de VM's in de VM-schaalset met elkaar verbinding maken via de interne IP-adressen zoals gedefinieerd in het VNET/Subnet. As u een openbaar IP-adres maakt en dit toewijst aan de losstaande VM, kunt u via RDP of SSH verbinding maken met de losse VM en vervolgens vanaf die machine verbinding maken met de instanties van uw VM-schaalset. Het valt u misschien op dat een eenvoudige VM-schaalset inherent veiliger is dan een eenvoudige losse VM met een openbaar IP-adres in de standaardconfiguratie.
   
-   [Deze sjabloon geeft een voorbeeld van deze benadering met het maken van een eenvoudig Mesos-cluster dat bestaat uit een losse hoofd-VM die een cluster van VM's gebaseerd op een VM-schaalset aanstuurt.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Deze sjabloon implementeert bijvoorbeeld een eenvoudige schaalset met een losse VM: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **Taken verdelen voor instanties van een VM-schaalset:** als u middels een round robin-benadering taken aan een rekencluster van VM's wilt toewijzen, kunt u een Azure Load Balancer configureren met toepasselijke taakverdelingsregels. U kunt tests definiëren om te verifiëren of uw toepassing wordt uitgevoerd, door poorten te pingen met een opgegeven protocol, interval en aanvraagpad. De Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) ondersteunt ook schaalsets, naast complexere scenario's voor taakverdeling.
   
-   [Hier volgt van een voorbeeld van een VM-schaalset met VM's die worden uitgevoerd op een IIS-webserver, die een load balancer gebruikt om de taken te verdelen die elke VM ontvangt. De schaalset maakt ook gebruik van het HTTP-protocol om een specifieke URL op elke VM te pingen.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Kijk naar het resourcetype Microsoft.Network/loadBalancers en het networkProfile en extensionProfile in de virtualMachineScaleSet)
+   Hier volgt een voorbeeld dat een VM-schaalset maakt die wordt uitgevoerd op Apache-webservers en een load balancer gebruikt om de taken te verdelen die elke VM ontvangt: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (kijk naar het resourcetype Microsoft.Network/loadBalancers en het networkProfile en extensionProfile in de virtualMachineScaleSet)
 * **Een VM-schaalset implementeren als een rekencluster in PaaS-clusterbeheer**: VM-schaalsets worden soms omschreven als de werkrol van de volgende generatie. Dit is een accurate beschrijving, maar deze kan er wel voor zorgen dat schaalsetfuncties worden verward met PaaS v1-werkrolfuncties. VM-schaalsets bieden een echte werkrol of werkrol-resource in dat opzicht dat ze een algemene compute-resource bieden die losstaat van platform/runtime, aanpasbaar is en integreert met Azure Resource Manager IaaS.
   
    Een PaaS v1-werkrol is beperkt in het kader van ondersteuning voor platform/runtime (alleen Windows-platforminstallatiekopieën), maar omvat wel services als wisselen van VIP, configureerbare upgrade-instellingen en specifieke instellingen voor runtime/toepassingsimplementatie die of *nog* niet beschikbaar zijn in VM-schaalsets of worden geleverd voor andere, hogere PaaS-services zoals Service Fabric. Dit betekent dat u VM-schaalsets kunt beschouwen als infrastructuur die PaaS ondersteunt. Dit betekent dat PaaS-oplossingen zoals Service Fabric of clusterbeheer zoals Mesos op VM-schaalsets kunnen bouwen als een schaalbare rekenlaag.
   
-   [Deze sjabloon geeft een voorbeeld van deze benadering met het maken van een eenvoudig Mesos-cluster dat bestaat uit een losse hoofd-VM die een cluster van VM's gebaseerd op een VM-schaalset aanstuurt.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Toekomstige versies van de [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) zullen complexere/sterkere versies van dit scenario implementeren op basis van VM-schaalsets.
+   Voor een voorbeeld van deze benadering implementeert de Azure Container Service een cluster op basis van de schaalsets met een container orchestrator: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Richtlijnen voor prestaties en schaal van VM-schaalsets
 * Maak niet meer dan 500 VM's in verschillende VM-schaalsets tegelijkertijd.
@@ -100,7 +100,7 @@ In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd.
 
 **V:** Worden gegevensschijven binnen VM-schaalsets ondersteund?
 
-**A:** Niet in de eerste release. Uw opties voor het opslaan van gegevens zijn:
+**A:** Niet in de eerste release (hoewel gegevensschijven momenteel wel beschikbaar zijn in preview). Uw opties voor het opslaan van gegevens zijn:
 
 * Azure-bestanden (gedeelde SMB-stations)
 * Station van het besturingssysteem
@@ -148,6 +148,6 @@ In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

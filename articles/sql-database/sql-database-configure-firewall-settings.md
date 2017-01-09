@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 1479595fb7de2e0a37520c7d323624142e624af1
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 
 
 ---
@@ -56,7 +56,7 @@ Klik op **Opslaan** om de wijzigingen op te slaan.
 - Zie [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (SQL Database-verificatie en -autorisatie: toegang verlenen) om te leren hoe u extra gebruikers maakt die met de databases verbinding kunnen maken.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-* [Securing your database](sql-database-security.md) (Uw database beveiligen)   
+* [Securing your database](sql-database-security-overview.md) (Uw database beveiligen)   
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589) (Security Center voor SQL Server Database Engine en Azure SQL Database)   
 
 
@@ -64,6 +64,6 @@ Klik op **Opslaan** om de wijzigingen op te slaan.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

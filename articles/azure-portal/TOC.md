@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Aan de slag
-## [Implementatie met de Resource Manager-sjabloon](../resource-group-template-deploy.md)
+## [Implementatie met de Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Procedures
 ## Implementeren
-### [Azure Resource Manager-sjablonen maken](../resource-group-authoring-templates.md)
+### [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Beheren
-### [Preview Portal gebruiken om resources te beheren](resource-group-portal.md)
+### [Preview Portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
 ### [Toegang beheren met RBAC](../active-directory/role-based-access-control-configure.md)
-### [Tags gebruiken om resources te organiseren](../resource-group-using-tags.md)
+### [Tags gebruiken om resources te organiseren](../azure-resource-manager/resource-group-using-tags.md)
 ### [Uw resources schalen](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Een nieuwe Azure-service-principal maken](../resource-group-create-service-principal-portal.md)
+### [Een nieuwe Azure-service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Controleren
 ### [Metrische servicegegevens bewaken](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Controle en diagnose inschakelen](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Verwant
-## [Functies van Azure Resource Manager-sjablonen](../resource-group-template-functions.md)
+## [Functies van Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-functions.md)
 ## [Aanbevolen procedures voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Veelgebruikte gegevens voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks voor meldingen over automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

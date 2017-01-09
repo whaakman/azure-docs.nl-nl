@@ -23,12 +23,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 # <a name="encrypt-an-azure-virtual-machine"></a>Een virtuele machine van Azure versleutelen
 Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
 
-![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > De informatie in dit document is van toepassing op de preview-versie van Azure Security Center.
-> 
-> 
+>
+>
 
 Wanneer het Azure Beveiligingscentrum heeft vastgesteld welke Azure Virtual Machines versleuteld moeten worden, volgt u de volgende stappen om dit te doen:
 
@@ -43,8 +43,8 @@ Er zijn een aantal manieren om de vereisten te installeren en de versleuteling t
 
 > [!NOTE]
 > Zie [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) voor meer informatie over andere manieren om de versleuteling van virtuele machines van Azure te configureren.
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
 Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
@@ -70,7 +70,7 @@ De inhoud van het script is nu opgeslagen. Open het script in de PowerShell ISE:
 
 Uw scherm ziet er nu als volgt uit.
 
-![PowerShell ISE-venster](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![PowerShell ISE-venster](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 Het bovenste venster wordt het ‘scriptvenster' genoemd en het onderste venster de 'console'. Deze termen zullen we verderop in dit artikel gebruiken.
 
@@ -84,8 +84,8 @@ Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de
 
 > [!NOTE]
 > Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
 
@@ -94,12 +94,12 @@ Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
 3. Stel het uitvoerbeleid op uw machine in zodat u het script kunt uitvoeren. Typ **Set-ExecutionPolicy Unrestricted** in de console en druk op ENTER. Wanneer u een dialoogvenster ziet over het effect van de wijzigingen in het uitvoerbeleid klikt u op **Ja op alles** of **Ja** Als u **Ja op alles** ziet, selecteert u die optie; als u **Ja op alles**niet ziet, klik dan op **Ja**).
 4. Meld u aan bij uw Azure-account. Typ **Login-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
 5. Bepaal bij welk abonnement uw virtuele machine hoort en de locatie ervan. Ga naar [https://portal.azure.com](ttps://portal.azure.com) en meld u aan.  Klik op **Virtuele machines** in de linkerkant van het scherm. U ziet een lijst met uw virtuele machines en de abonnementen waar deze bij horen.
-   
-   ![Virtuele machines](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Virtuele machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Ga terug naar de PowerShell ISE. Stel de context van het abonnement in waarin het script wordt uitgevoerd. Typ **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** in de console (vervang **< your_subscription_Id >** door uw abonnements-ID) en druk op **ENTER**. U ziet nu informatie over de omgeving, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**.
 7. U kunt nu het script uitvoeren. Klik op de knop **Script uitvoeren** of druk op **F5**.
-   
-   ![Het PowerShell-script uitvoeren](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![Het PowerShell-script uitvoeren](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. Het script vraagt om de **resourceGroupName:**. Voer de naam van de *Resourcegroep* in die u wilt gebruiken en druk vervolgens op **ENTER**. Als u geen resourcegroep hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe resourcegroep. Als u al een *Resourcegroep* hebt die u wilt gebruiken (zoals de groep waar uw virtuele machine zich bevindt), vul dan de naam van de bestaande resourcegroep in.
 9. Het script vraagt om de **keyVaultName:**. Voer de naam van de *Key Vault* in die u wilt gebruiken en druk vervolgens op ENTER. Als u geen sleutelkluis hebt, voer dan de naam in die u wilt gebruiken voor een nieuwe sleutelkluis. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die *Key Vault* in.
 10. Het script vraagt om de **location:**. Voer de naam van de locatie in waar de VM die u wilt versleutelen zich bevindt en druk vervolgens op **ENTER**. Als u de locatie niet meer weet, gaat u terug naar stap 5.
@@ -110,7 +110,7 @@ Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
 
 Het resultaat van het script ziet er als volgt uit:
 
-![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>De virtuele machine van Azure versleutelen
 U kunt nu uw virtuele machine versleutelen. Als uw virtuele machine zich in dezelfde resourcegroep bevindt als uw Key Vault, kunt u verdergaan naar het gedeelte met de stappen voor het versleutelen. Als uw virtuele machine zich niet in dezelfde resourcegroep bevindt als uw Key Vault, moet u het volgende invullen in de console in de PowerShell ISE:
@@ -124,7 +124,7 @@ Om te bevestigen dat u de juiste naam van de resourcegroep hebt ingevoerd, typt 
 
 Druk op **ENTER**. U ziet nu de naam van de resourcegroep waar uw virtuele machines zich bevinden. Bijvoorbeeld:
 
-![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Stappen voor het versleutelen
 PowerShell heeft als eerste de naam van de virtuele machine nodig die u wilt versleutelen. Typ in de console:
@@ -139,7 +139,7 @@ Om te bevestigen dat u de juiste naam van de VM hebt ingevoerd, typt u:
 
 Druk op **ENTER**. U ziet nu de naam van de virtuele machine die u wilt versleutelen. Bijvoorbeeld:
 
-![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 U kunt de opdracht om de virtuele machine te versleutelen op twee manieren uitvoeren. Bij de eerste manier typt u de volgende opdracht in de PowerShell ISE-console:
 
@@ -151,25 +151,25 @@ Na deze opdracht drukt u op **ENTER**.
 
 Bij de tweede  manier klikt u in het scriptvenster (het bovenste venster van de PowerShell ISE) en scrolt u naar de onderkant van het script. Selecteer de bovenstaande opdrachtlijst, klik met de rechtermuisknop en klik vervolgens op **Selectie uitvoeren** of druk op **F8**.
 
-![PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 Bij beide methodes wordt er een dialoogvenster weergegeven waarin staat dat het ongeveer 10-15 minuten duurt voordat de bewerking is voltooid. Klik op **Ja**.
 
 Tijdens het versleutelingsproces kunt u teruggaan naar de Azure Portal en de status van de virtuele machine bekijken. Klik op **Virtual Machines** aan de linkerkant van de pagina. Klik vervolgens in de blade **Virtual Machines** op de naam van de virtuele machine die u aan het versleutelen bent. Een blade wordt weergegeven waarin u kunt zien dat de **Status** vermeldt dat de machine aan het **Bijwerken** is. Dit toont aan dat versleuteling wordt uitgevoerd.
 
-![Meer informatie over de VM](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![Meer informatie over de VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 Ga terug naar de PowerShell ISE. Wanneer het script is voltooid, ziet het scherm er als volgt uit.
 
-![PowerShell-resultaat](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![PowerShell-resultaat](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Om aan te tonen dat de virtuele machine nu versleuteld is, gaat u terug naar de Azure Portal en klikt u op **Virtual Machines** aan de linkerkant van de pagina. Klik op de naam van de virtuele machine die u hebt versleuteld. Klik in de blade **Instellingen** op **Schijven**.
 
-![Opties voor instellingen](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Opties voor instellingen](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 In de blade **Schijven** ziet u dat de **Versleuteling** is **Ingeschakeld**.
 
-![Schijfeigenschappen](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Schijfeigenschappen](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt versleutelen. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
@@ -178,7 +178,6 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): lees blogberichten over de beveiliging en naleving van Azure
-
 
 
 

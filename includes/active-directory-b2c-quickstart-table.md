@@ -1,4 +1,4 @@
-| Mobiele en systeemeigen apps | Web Apps en web-API's | Rechtstreeks integreren met protocollen |
+| Mobiele en systeemeigen apps | Web-apps en web-API's | Rechtstreeks integreren met protocollen |
 | --- | --- | --- |
 | [Registreren en aanmelden toevoegen aan een iOS-app](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-ios.md) |[Registreren en aanmelden toevoegen aan een .NET MVC-app](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet.md) |[Een toepassing registreren](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) |
 | [Aanmelden en registreren toevoegen aan een Windows-bureaublad-app](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-native-dotnet.md) |[Registratie-/aanmeldingsbeleid in een .NET MVC-app gebruiken](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi.md) |[Mobiele apps met OAuth 2.0](../articles/active-directory-b2c/active-directory-b2c-reference-oauth-code.md) |
@@ -8,6 +8,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
