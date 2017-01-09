@@ -14,7 +14,7 @@ Als u Service Bus-onderwerpen en -abonnementen in Azure wilt gebruiken, moet u e
 
 Ga als volgt te werk om een naamruimte te maken:
 
-1. Meld u aan bij [Azure Portal][Azure Portal].
+1. Meld u aan bij [Azure Portal][Azure portal].
 2. Klik in het linker navigatiedeelvenster van de portal achtereenvolgens op **Nieuw**, **Enterprise Integration** en **Service Bus**.
 3. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic, Standard of Premium).
@@ -35,14 +35,14 @@ Ga als volgt te werk om een naamruimte te maken:
    
     ![connection-string][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
-[verbinding-gegevens]: ./media/howto-service-bus-topics/connection-info.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
