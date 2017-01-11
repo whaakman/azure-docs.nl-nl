@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Wanneer u een predictive analytics-model ontwikkelt, gebruikt u doorgaans gegeve
 
 **Azure Machine Learning Studio** beschikt over een interactieve, visuele werkruimte om eenvoudig een predictive analytics-model te bouwen, te testen en te herhalen. U sleept ***gegevenssets*** en analyse***modules*** naar een interactief canvas en verbindt deze met elkaar om een ***experiment*** op te zetten, dat u vervolgens uitvoert in Machine Learning Studio. Als u het modelontwerp wilt herhalen, kunt u het experiment bewerken, desgewenst een kopie ervan opslaan en het opnieuw uitvoeren. Wanneer u klaar bent, kunt u het ***trainingsexperiment*** converteren naar een ***voorspellend experiment*** en dit vervolgens ***publiceren*** als webservice, zodat het model ook voor anderen toegankelijk is.
 
+U hoeft niets te programmeren. U hoeft alleen gegevenssets en modules visueel met elkaar te verbinden om een predictive analytics-model op te zetten.
+
 > [!TIP]
 > Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
 > 
 > 
-
-U hoeft niets te programmeren. U hoeft alleen gegevenssets en modules visueel met elkaar te verbinden om een predictive analytics-model op te zetten.
 
 ![Azure ML Studio-diagram: experimenten opzetten, gegevens uit verschillende bronnen lezen, beoordeelde gegevens wegschrijven, modellen maken.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Aan de slag met Machine Learning Studio
 Wanneer u [Machine Learning Studio](https://studio.azureml.net) voor de eerste keer opent, wordt de pagina **Start** weergegeven. Vanaf deze pagina kunt u documentatie, video's en webinars bekijken en andere waardevolle informatie zoeken.
 
-Bovenaan ziet u drie tabbladen: **Start** (waar u begint), **Studio** en **Gallery**.
+Klik linksboven op ![Menu](media/machine-learning-what-is-ml-studio/menu.png) om verschillende opties te bekijken.
 
-### <a name="studio"></a>Studio
-Als u op het tabblad **Studio** klikt, wordt u gevraagd om u aan te melden met uw Microsoft-account of met uw werk- of schoolaccount. Wanneer u bent aangemeld, ziet u links de volgende tabbladen:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Klik op **Cortana Intelligence**. U gaat dan naar de startpagina van de [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). De Cortana Intelligence Suite is een volledig beheerde oplossing voor big data en geavanceerde analyses waarmee u uw gegevens kunt omzetten in slimme acties. Bekijk de startpagina van de Suite voor alle documentatie, waaronder verhalen van klanten.
+
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Hier staan twee opties: **Home**, de pagina waar u bent begonnen, en **Studio**.
+
+Klik op **Studio**. U gaat dan naar de **Azure Machine Learning Studio**. U wordt eerst gevraagd om u aan te melden met uw Microsoft-account of met uw werk- of schoolaccount. Wanneer u bent aangemeld, ziet u links de volgende tabbladen:
 
 * **PROJECTS**: verzamelingen van experimenten, gegevenssets, kladblokken en andere resources die één project vertegenwoordigen
-* **EXPERIMENTS**: experimenten die zijn gemaakt, uitgevoerd en als concept zijn opgeslagen
+* **EXPERIMENTS**: experimenten die u hebt gemaakt en uitgevoerd, of die u hebt opgeslagen als concept
 * **WEB SERVICES**: webservices die u hebt geïmplementeerd vanuit uw experimenten
 * **NOTEBOOKS**: Jupyter-notitieblokken die u hebt gemaakt
 * **DATASETS**: gegevenssets die u naar Studio hebt geüpload
@@ -59,7 +64,7 @@ Als u op het tabblad **Studio** klikt, wordt u gevraagd om u aan te melden met u
 * **SETTINGS**: een verzameling instellingen waarmee u uw account en resources kunt configureren
 
 ### <a name="gallery"></a>Gallery
-Wanneer u op het tabblad **Gallery** klikt, wordt de Cortana Intelligence Gallery geopend. In deze galerie kan een community van gegevenswetenschappers en ontwikkelaars oplossingen delen die zijn gemaakt met onderdelen van de Cortana Intelligence Suite.
+Klik op **Gallery**. De **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)** wordt nu geopend. In deze galerie deelt een community van gegevenswetenschappers en ontwikkelaars oplossingen die zijn gemaakt met onderdelen van de Cortana Intelligence Suite.
 
 Voor meer informatie over de Gallery leest u [Share and discover solutions in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) (Oplossingen in de Cortana Intelligence Gallery delen en ontdekken).
 
@@ -92,7 +97,7 @@ Voor een lijst van voorbeeldgegevenssets die zijn opgenomen in Machine Learning 
 ### <a name="modules"></a>Modules
 Een module is een algoritme dat u met uw gegevens kunt uitvoeren. Machine Learning Studio beschikt over diverse modules, variërend van Ingress-functies tot processen voor training, beoordeling en validatie. Hier volgen enkele voorbeelden van opgenomen modules:
 
-* [Convert to ARFF][convert-to-arff]: converteert een .NET geserialiseerde gegevensset naar Attribute-Relation File Format (ARFF).
+* [Convert to ARFF][convert-to-arff]: converteert een geserialiseerde .NET-gegevensset naar Attribute-Relation File Format (ARFF).
 * [Compute Elementary Statistics][elementary-statistics]: berekent elementaire statistieken, zoals het gemiddelde, de standaardafwijking, enzovoort.
 * [Linear Regression][linear-regression]: maakt een online lineair regressiemodel met daalgradiënt.
 * [Score Model][score-model]: beoordeelt een getraind classificatie- of regressiemodel.
@@ -116,6 +121,6 @@ Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

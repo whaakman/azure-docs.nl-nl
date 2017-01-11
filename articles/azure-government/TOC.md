@@ -27,12 +27,13 @@
 ### [Netwerken](documentation-government-networking.md)
 ### [Beveiliging en identiteit](documentation-government-services-securityandidentity.md)
 ### [Controle en beheer](documentation-government-services-monitoringandmanagement.md)
+### [Web en mobiel](documentation-government-services-webandmobile.md)
 
-# Bronnen
+# Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/)
 ## [Proefversie](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

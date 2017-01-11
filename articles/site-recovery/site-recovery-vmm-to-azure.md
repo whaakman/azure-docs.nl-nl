@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
-ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
+ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
+ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
 
 
 ---
@@ -46,9 +46,9 @@ Voor een volledige implementatie, raden wij u sterk aan alle stappen in het arti
 | **On-premises beperkingen** |Op HTTPS gebaseerde proxy wordt niet ondersteund |
 | **Provider/agent** |Gerepliceerde VM’s vereisten de Azure Site Recovery-provider.<br/><br/> Hyper-V-hosts vereist de Recovery Services-agent.<br/><br/> U installeert deze tijdens de implementatie. |
 |  **Azure-vereisten** |Azure-account<br/><br/> Recovery Services-kluis<br/><br/> LRS- of GRS-opslagaccount in kluisregio<br/><br/> Standaardopslagaccount<br/><br/> Virtuele Azure-netwerk in kluisregio. [Volledige details](#azure-prerequisites). |
-|  **Azure-beperkingen** |Als u GRS gebruikt, hebt u een ander LRS-account nodig voor logboekregistratie<br/><br/> Opslagaccounts die zijn gemaakt in Azure Portal, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. <br/><br/> Premium-opslag wordt niet ondersteund.<br/><br/> Azure-netwerken die worden gebruikt voor Site Recovery, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. |
-|  **VM-replicatie** |[Virtuele machines moeten voldoen aan de vereisten voor Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
-|  **Replicatiebeperkingen** |U kunt geen virtuele machines repliceren waarop Linux wordt uitgevoerd met een statisch IP-adres.<br/><br/> Het is niet mogelijk bepaalde schijven uit te sluiten van replicatie. |
+|  **Azure-beperkingen** |Als u GRS gebruikt, hebt u een ander LRS-account nodig voor logboekregistratie<br/><br/> Opslagaccounts die zijn gemaakt in Azure Portal, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. <br/><br/> Premium-opslag wordt niet ondersteund.<br/><br/> Azure-netwerken die worden gebruikt voor Site Recovery, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. 
+|  **VM-replicatie** |[Virtuele machines moeten voldoen aan de vereisten voor Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
+|  **Replicatiebeperkingen** |U kunt geen virtuele machines repliceren waarop Linux wordt uitgevoerd met een statisch IP-adres.<br/><br/> U kunt bepaalde schijven uitsluiten van replicatie, maar niet de besturingssysteemschijf.
 | **Implementatiestappen** |(1) Azure voorbereiden (abonnement, opslag, netwerk) -> 2) On-premises voorbereiden (VMM en de netwerkkoppeling) -> 3) Recovery Services-kluis maken > 4) VMM en Hyper-V-hosts instellen -> 5) Replicatie-instellingen configureren -> 6) Replicatie inschakelen -> 7) Replicatie en failover testen. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery in Azure Portal
@@ -372,6 +372,7 @@ Met de registerwaarde **UploadThreadsPerVM** wordt aangegeven hoeveel threads er
 2. De standaardwaarde is 4. In netwerken met overprovisioning moeten deze registersleutels zodanig worden gewijzigd dat niet de standaardwaarden worden gebruikt. Het maximum is 32. Houd het verkeer in de gaten om de waarde te optimaliseren.
 
 ## <a name="step-6-enable-replication"></a>Stap 6: replicatie inschakelen
+
 Schakel nu als volgt replicatie in:
 
 1. Klik op **Stap 2: toepassing repliceren** > **Bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
@@ -388,9 +389,20 @@ Schakel nu als volgt replicatie in:
 6. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
+7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-best-practices.md#azure-virtual-machine-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
 
-    ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6.png)
+    ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    
+    >[!NOTE]
+    > 
+    > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. De besturingssysteemschijf kan niet worden uitgesloten. Het wordt bovendien niet aanbevolen om dynamische schijven uit te sluiten. ASR kan niet bepalen welke schijf VHD-schijf standaard of dynamisch is binnen de virtuele gastmachine.  Als niet alle afhankelijke volumeschijven worden uitgesloten, wordt een beveiligde dynamische schijf geleverd als een niet-werkende schijf op een failover-VM en zijn de gegevens op de schijf niet toegankelijk.   
+    > * Nadat de replicatie is ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de virtuele machine uitschakelen en vervolgens weer inschakelen.
+    > * Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt Azure Automation ook integreren in een herstelplan om de schijf tijdens failover van de machine te maken.
+    > * Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks op de virtuele Azure-machine maakt, wordt alleen voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd van Azure naar Hyper-V. U kunt schijven die handmatig zijn gemaakt in de failback of in de omgekeerde replicatie van Hyper-V naar Azure, niet opnemen.
+    >
+    >
+    
+
 8. Selecteer in **Replicatie-instellingen** > **Replicatie-instellingen configureren** het replicatiebeleid dat u op de beveiligde virtuele machines wilt toepassen. Klik vervolgens op **OK**. U kunt het replicatiebeleid wijzigen via **Instellingen** > **Replicatiebeleid** > beleidsnaam > **Instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
 
    ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication7.png)
@@ -426,6 +438,7 @@ Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één
 * Als u een testfailover wilt uitvoeren, is het raadzaam om een nieuw Azure-netwerk te maken dat is geïsoleerd van uw Azure productienetwerk. Dit is een standaardprocedure voor het maken van een nieuw netwerk in Azure. [Meer informatie](site-recovery-failover.md#run-a-test-failover) over het uitvoeren van testfailovers.
 * Voor optimale prestaties bij het uitvoeren van een failover naar Azure installeert u de Azure-agent op de beveiligde machine. Dit zorgt voor sneller opstarten en maakt het oplossen van problemen eenvoudiger. Installeer de agent voor [Linux](https://github.com/Azure/WALinuxAgent) of [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 * Als u uw implementatie volledig wilt testen, is het van belang dat de infrastructuur voor de gerepliceerde machine naar behoren werkt. Als u Active Directory en DNS wilt testen, kunt u een virtuele machine maken als domeincontroller met DNS en deze naar Azure repliceren met Azure Site Recovery. Zie [Test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations) (Overwegingen bij testfailovers voor Active Directory) voor meer informatie.
+* Als u schijven hebt uitgesloten van replicatie, moet u de schijven na de failover mogelijk handmatig maken in Azure, zodat de toepassing wordt uitgevoerd zoals verwacht.
 * Als u in plaats van een testfailover een ongeplande failover wilt uitvoeren, let u op het volgende:
 
   * Schakel primaire machines zo mogelijk uit voordat u een ongeplande failover uitvoert. Zo zorgt u ervoor dat niet tegelijkertijd zowel de bronmachines als de gerepliceerde machines worden uitgevoerd.
@@ -496,6 +509,6 @@ Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) mee
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

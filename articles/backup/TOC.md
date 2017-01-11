@@ -30,9 +30,9 @@
 ### [Back-ups maken van virtuele Azure-machines naar back-upkluis](backup-azure-vms.md)
 ### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
 ### [Back-up en herstel van versleutelde virtuele machines](backup-azure-vms-encryption.md)
-### [Back-ups van Azure-VM’s beheren en controleren in klassieke portal](backup-azure-manage-vms-classic.md)
-### [Back-ups van Azure-VM’s beheren in Azure Portal](backup-azure-manage-vms.md)
-### [Waarschuwingen voor Azure-VM’s controleren in Azure Portal](backup-azure-monitor-vms.md)
+### [Back-ups van Azure-VM's beheren en controleren in klassieke portal](backup-azure-manage-vms-classic.md)
+### [Back-ups van Azure-VM's beheren in Azure Portal](backup-azure-manage-vms.md)
+### [Waarschuwingen voor Azure-VM's controleren in Azure Portal](backup-azure-monitor-vms.md)
 ### [Virtuele machines herstellen in Azure](backup-azure-restore-vms.md)
 ### [VM's die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal](backup-azure-arm-restore-vms.md)
 ## Back-ups maken van Windows-machines
@@ -47,18 +47,22 @@
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [Azure Backup gebruiken om uw tape-infrastructuur te vervangen](backup-azure-backup-cloud-as-tape.md)
 ## Problemen oplossen
-### [Problemen met back-ups van Azure-VM’s in Azure Portal](backup-azure-vms-troubleshoot.md)
-### [Problemen met back-ups van Azure-VM’s in klassieke portal](backup-azure-vms-troubleshoot-classic.md)
+### [Problemen met back-ups van Azure-VM's in Azure Portal](backup-azure-vms-troubleshoot.md)
+### [Problemen met back-ups van Azure-VM's in klassieke portal](backup-azure-vms-troubleshoot-classic.md)
 ### [Back-up maken van Azure-VM mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Langzame back-ups van bestanden en mappen in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
-# Bronnen
+# Naslaginformatie
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+
+# Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
 ## [Service-updates](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

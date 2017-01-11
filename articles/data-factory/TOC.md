@@ -20,7 +20,7 @@
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
-### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+### [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 ## [Veelgestelde vragen](data-factory-faq.md)
 
 # Procedures
@@ -29,30 +29,31 @@
 #### [1 TB in 15 minuten laden](data-factory-load-sql-data-warehouse.md)
 ### [Kopieeractiviteit](data-factory-data-movement-activities.md)
 #### [Handleiding voor prestaties en afstemmen van kopieeractiviteit](data-factory-copy-activity-performance.md)
-#### [Azure Blob Storage](data-factory-azure-blob-connector.md)
-#### [Azure-tabellen](data-factory-azure-table-connector.md)
-#### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
-#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
-#### [Azure SQL Database](data-factory-azure-sql-connector.md)
-#### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
-#### [SQL Server](data-factory-sqlserver-connector.md)
-#### [Oracle](data-factory-onprem-oracle-connector.md)
-#### [MySQL](data-factory-onprem-mysql-connector.md)
-#### [DB2](data-factory-onprem-db2-connector.md)
-#### [Teradata](data-factory-onprem-teradata-connector.md)
-#### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
-#### [Sybase](data-factory-onprem-sybase-connector.md)
-#### [Cassandra](data-factory-onprem-cassandra-connector.md)
-#### [MongoDB](data-factory-on-premises-mongodb-connector.md)
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+#### [Azure Blob Storage](data-factory-azure-blob-connector.md)
+#### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
+#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+#### [Azure Search](data-factory-azure-search-connector.md)
+#### [Azure SQL Database](data-factory-azure-sql-connector.md)
+#### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+#### [Azure-tabelopslag](data-factory-azure-table-connector.md)
+#### [Cassandra](data-factory-onprem-cassandra-connector.md)
+#### [DB2](data-factory-onprem-db2-connector.md)
 #### [Bestandssysteem](data-factory-onprem-file-system-connector.md)
+#### [FTP](data-factory-ftp-connector.md)
 #### [HDFS](data-factory-hdfs-connector.md)
-#### [Salesforce](data-factory-salesforce-connector.md)
-#### [Webtabel](data-factory-web-table-connector.md)
+#### [MongoDB](data-factory-on-premises-mongodb-connector.md)
+#### [MySQL](data-factory-onprem-mysql-connector.md)
 #### [OData-bronnen](data-factory-odata-connector.md)
 #### [ODBC-gegevensopslag](data-factory-odbc-connector.md)
-#### [FTP](data-factory-ftp-connector.md)
+#### [Oracle](data-factory-onprem-oracle-connector.md)
+#### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
+#### [Salesforce](data-factory-salesforce-connector.md)
+#### [SQL Server](data-factory-sqlserver-connector.md)
+#### [Sybase](data-factory-onprem-sybase-connector.md)
+#### [Teradata](data-factory-onprem-teradata-connector.md)
+#### [Webtabel](data-factory-web-table-connector.md)
 ### [Gegevensbeheergateway](data-factory-data-management-gateway.md)
 ### [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md)
 
@@ -65,7 +66,7 @@
 ### [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 ### [.NET aangepaste activiteit](data-factory-use-custom-activities.md)
-### [Spark-programma’s aanroepen](data-factory-spark.md)
+### [Spark-programma's aanroepen](data-factory-spark.md)
 ### [R-scripts aanroepen](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Ontwikkelen
 ### [Azure Resource Manager-sjabloon](data-factory-how-to-use-resource-manager-templates.md)
@@ -81,13 +82,14 @@
 ### [Problemen oplossen met behulp van Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Naslaginformatie
-## [Releaseopmerkingen voor Data Management Gateway](data-factory-gateway-release-notes.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [Naslaginformatie voor Azure Data Factory-ontwikkelaars](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 
-# Bronnen
+# Resources
+## [Releaseopmerkingen voor Data Management Gateway](data-factory-gateway-release-notes.md)
+## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Casestudy's](data-factory-customer-case-studies.md)
 ### [Productaanbevelingen](data-factory-product-reco-usecase.md)
 ### [Klantprofilering](data-factory-customer-profiling-usecase.md)
@@ -100,6 +102,6 @@
 ## [Verzoeken om een functie](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
