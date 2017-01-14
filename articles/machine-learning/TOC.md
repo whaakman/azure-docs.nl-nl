@@ -192,7 +192,7 @@
 ### [Aangepaste modules](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### API's
-#### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection.md)
+#### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection-api.md)
 #### [Tekstanalyse](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Aanbevelingen
@@ -222,6 +222,6 @@
 ## [Hulp krijgen via live chats](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
