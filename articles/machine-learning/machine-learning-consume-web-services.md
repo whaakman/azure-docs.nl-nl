@@ -55,7 +55,7 @@ An example for RRS is validating the authenticity of an application. Hundreds to
 ## Batch Execution Service (BES)
 A Batch Execution Service (BES) is a service that handles high volume, asynchronous, scoring of a batch of data records. The input for the BES contains a batch of records from a variety of sources, such as blobs, tables in Azure, SQL Azure, HDInsight (results of a Hive Query, for example), and HTTP sources. The output for the BES contains the results of the scoring. Results are output to a file in Azure blob storage and data from the storage endpoint is returned in the response.
 
-A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or internet of things (IOT) devices.
+A BES would be useful when responses are not needed immediately, such as for regularly scheduled scoring for individuals or Internet of Things (IOT) devices.
 
 ## Examples
 To show how both RRS and BES work, we use an example Azure web service. This service would be used in an IOT (Internet Of Things) scenario. To keep it simple, our device only sends up one value, `cog_speed`, and gets a single answer back.

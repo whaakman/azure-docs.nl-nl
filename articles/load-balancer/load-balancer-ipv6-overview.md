@@ -40,7 +40,7 @@ Native IPv6 support for VMs deployed via Azure Resource Manager provides:
 This functionality enables the following key benefits:
 
 * Meet government regulations requiring that new applications be accessible to IPv6-only clients
-* Enable mobile and Internet of things (IOT) developers to use dual-stacked (IPv4+IPv6) Azure Virtual Machines to address the growing mobile & IOT markets
+* Enable mobile and Internet of Things (IOT) developers to use dual-stacked (IPv4+IPv6) Azure Virtual Machines to address the growing mobile & IOT markets
 
 ## Details and limitations
 Details

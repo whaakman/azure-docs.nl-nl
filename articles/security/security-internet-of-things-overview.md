@@ -1,6 +1,6 @@
 ---
 title: Internet of Things security overview | Microsoft Docs
-description: " Azure internet of things (IoT) services offer a broad range of capabilities. This article helps you understand how to secure your IoT solutions in Azure. "
+description: " Azure Internet of Things (IoT) services offer a broad range of capabilities. This article helps you understand how to secure your IoT solutions in Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -17,7 +17,7 @@ ms.author: terrylan
 
 ---
 # Internet of Things security overview
-Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
+Azure Internet of Things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 
 * Collect data from devices
 * Analyze data streams in-motion
