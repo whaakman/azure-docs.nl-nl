@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,15 +31,15 @@ Voor meer geavanceerde beperkingsscenario's met behulp van de beleidsregels [rat
 In deze stap maakt u een product Gratis proefversie waarvoor geen abonnementsgoedkeuring is vereist.
 
 > [!NOTE]
-> Als u al een product hebt geconfigureerd en dit voor deze zelfstudie wilt gebruiken, kunt u verder gaan naar [Aanroepfrequentielimiet- en quotumbeleidsregels configureren][Aanroepfrequentielimiet- en quotumbeleidsregels configureren] en de zelfstudie vanaf daar volgen met uw product in plaats van de gratis proefversie.
+> Als u al een product hebt geconfigureerd en u dit wilt gebruiken voor deze zelfstudie, kunt u verder gaan naar [Aanroepfrequentielimiet- en quotumbeleidsregels configureren][Configure call rate limit and quota policies] en de zelfstudie vanaf daar volgen met uw product in plaats van het product Gratis proefversie.
 > 
 > 
 
-Om aan de slag te gaan, klikt u op **Publicatieportal** in de Azure Portal voor uw API Management-service.
+Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service.
 
 ![Publicatieportal][api-management-management-console]
 
-> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Service-exemplaar van API Management maken] in de zelfstudie [Uw eerste API beheren in Azure API Management][Uw eerste API beheren in Azure API Management].
+> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Uw eerste API beheren][Manage your first API in Azure API Management] in Azure API Management.
 > 
 > 
 
@@ -67,7 +67,7 @@ Nadat alle waarden zijn ingevoerd, klikt u op **Opslaan** om het product te make
 
 Nieuwe producten zijn standaard zichtbaar voor gebruikers in de groep **Beheerders**. We gaan de groep **Ontwikkelaars** toevoegen. Klik op **Gratis proefversie** en klik vervolgens op het tabblad **Zichtbaarheid**.
 
-> In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren op de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. Voor meer informatie raadpleegt u [Groepen maken en gebruiken in Azure API Management][Groepen maken en gebruiken in Azure API Management].
+> In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren op de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. Zie voor meer informatie [Groepen maken en gebruiken in Azure API Management][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Schakel het selectievakje **Ontwikkelaars** in en klik vervolgens op **Opslaan**
 ## <a name="add-api"> </a>Een API toevoegen aan het product
 In deze stap van de zelfstudie voegen we de Echo-API toe aan het nieuwe product Gratis proefversie.
 
-> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Voor meer informatie raadpleegt u [Uw eerste API beheren in Azure API Management][Uw eerste API beheren in Azure API Management].
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie voor meer informatie [Uw eerste API beheren in Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ De twee beleidsregels die we in deze zelfstudie toevoegen, zijn [Aanroepfrequent
 
 Nadat de cursor in het **inkomende** beleidselement is geplaatst, klikt u op de pijl naast **Aanroepfrequentie per abonnement beperken** om de bijbehorende beleidssjabloon in te voegen.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Aanroepfrequentie per abonnement** kan op productniveau worden gebruikt en kan ook worden gebruikt op het niveau van de API en de afzonderlijke bewerkingsnaam. In deze zelfstudie worden alleen beleidsregels op productniveau gebruikt, dus verwijder de elementen **api** en **operation** uit het element **rate-limit**, zodat alleen het buitenste element **rate-limit** overblijft, zoals in het volgende voorbeeld wordt getoond.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 In het product Gratis proefversie is de maximaal toegestane aanroepfrequentie 10 aanroepen per minuut, dus typ **10** als de waarde voor het kenmerk **calls** en **60** voor het kenmerk **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Als u het beleid **Gebruiksquotum per abonnement instellen** wilt configureren, plaatst u de cursor direct onder het zojuist toegevoegde element **rate-limit** binnen het element **inbound** en klikt u vervolgens op de pijl links van **Gebruiksquotum per abonnement instellen**.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Omdat dit beleid ook is bedoeld voor productniveau, verwijdert u de naamelementen **api** en **operation**, zoals wordt getoond in het volgende voorbeeld.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Quota kunnen zijn gebaseerd op het aantal aanroepen per interval, de bandbreedte of beide. In deze zelfstudie beperken we niet op basis van bandbreedte, dus verwijder het kenmerk **bandwidth**.
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 In het product Gratis proefversie is het quotum 200 aanroepen per week. Geef **200** op als de waarde voor het kenmerk **calls** en geef vervolgens **604800** op als de waarde voor het kenmerk **renewal-period**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > Beleidsintervallen worden in seconden opgegeven. Als u het interval voor een week wilt berekenen, kunt u het aantal dagen (7) vermenigvuldigen met het aantal uren in een dag (24) maal het aantal minuten in een uur (60) maal het aantal seconden in een minuut (60): 7 * 24 * 60 * 60 = 604800.
 > 
@@ -158,21 +172,23 @@ In het product Gratis proefversie is het quotum 200 aanroepen per week. Geef **2
 
 Wanneer u klaar bent met het configureren van het beleid, moet het overeenkomen met het volgende voorbeeld.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 Nadat de gewenste beleidsregels zijn geconfigureerd, klikt u op **Opslaan**.
 
@@ -259,7 +275,7 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 > 
 > 
 
-[api-management-beheerconsole]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
+[api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
 [api-management-new-product-window]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
 [api-management-product-added]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
@@ -286,30 +302,30 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Bewerkingen toevoegen aan een API]: api-management-howto-add-operations.md
-[Een product toevoegen en publiceren]: api-management-howto-add-products.md
-[Bewaking en analytische gegevens]: ../api-management-monitoring.md
-[API's toevoegen aan een product]: api-management-howto-add-products.md#add-apis
-[Een product publiceren]: api-management-howto-add-products.md#publish-product
-[Uw eerste API beheren in Azure API Management]: api-management-get-started.md
-[Groepen maken en gebruiken in Azure API Management]: api-management-howto-create-groups.md
-[Abonnees van een product weergeven]: api-management-howto-add-products.md#view-subscribers
-[Aan de slag met Azure API Management]: api-management-get-started.md
-[Service-exemplaar van API Management maken]: api-management-get-started.md#create-service-instance
-[Volgende stappen]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Een product maken]: #create-product
-[Aanroepfrequentielimiet- en quotumbeleidsregels configureren]: #policies
-[Een API toevoegen aan het product]: #add-api
-[Het product publiceren]: #publish-product
-[Een ontwikkelaarsaccount abonneren op het product]: #subscribe-account
-[Een bewerking aanroepen en de frequentielimiet testen]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Aanroepfrequentie beperken]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Gebruiksquotum instellen]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
