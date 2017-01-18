@@ -222,6 +222,6 @@
 ## [Hulp krijgen via live chats](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
