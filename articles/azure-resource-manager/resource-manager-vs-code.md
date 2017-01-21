@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Werken met Azure Resource Manager-sjablonen in Visual Studio Code
-Azure Resource Manager-sjablonen zijn JSON-bestanden die een resource en de bijbehorende afhankelijkheden beschrijven. Deze bestanden kunnen soms groot en complex zijn, dus hulpprogrammaondersteuning is belangrijk. Visual Studio Code is een nieuwe, lichte, open-source, platformoverschrijdende code-editor. Het programma ondersteunt het maken en bewerken van Resource Manager-sjablonen via een [nieuwe extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan overal worden uitgevoerd en vereist geen toegang tot internet tenzij u ook uw Resource Manager-sjablonen wilt implementeren.
+Azure Resource Manager-sjablonen zijn JSON-bestanden die een resource en de bijbehorende afhankelijkheden beschrijven. Deze bestanden kunnen soms groot en complex zijn, dus hulpprogrammaondersteuning is belangrijk. Visual Studio Code is een nieuwe, lichte, open-source, platformoverschrijdende code-editor. Het programma ondersteunt het maken en bewerken van Resource Manager-sjablonen via een [nieuwe extensie](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan overal worden uitgevoerd en vereist geen toegang tot internet tenzij u ook uw Resource Manager-sjablonen wilt implementeren in uw Azure-abonnement.
 
 Als u VS Code nog niet hebt, kunt u het installeren via [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ In de vorige stappen is de hulpprogrammaondersteuning geïnstalleerd, maar nu mo
 
 1. Kopieer de inhoud van het bestand uit de opslagplaats [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) naar het klembord.
 2. VS Code starten 
-3. In VS Code kunt u het bestand met JSON-fragmenten openen door te navigeren naar **File** -> **Preferences** -> **User Snippets** -> **JSON**, of door op **F1** te drukken en **preferences** te typen totdat u **Preferences: Snippets** kunt selecteren.
+3. In VS Code kunt u het JSON-fragmentenbestand openen door een te navigeren naar **Bestand** -> **Voorkeuren** -> **Fragmenten van gebruiker** -> **JSON**. U kunt ook **F1** selecteren en **voorkeuren** typen totdat u **Voorkeuren: fragmenten** kunt selecteren.
    
     ![voorkeursfragmenten](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,16 +61,16 @@ De makkelijkste manier om aan de slag de gaan met een sjabloon is een Snel start
 1. Als u een sjabloon van een resourcegroep hebt geëxporteerd, opent u de uitgepakte bestanden in VS Code.
    
     ![bestanden weergeven](./media/resource-manager-vs-code/show-files.png)
-2. Open het template.json-bestand zodat u het kunt bewerken en nog enkele andere resources toe kunt voegen. Na de **'resources': [** drukt u op Enter om een nieuwe regel te starten. Als u **arm** typt, ziet u een lijst met opties. Deze opties zijn de sjabloonfragmenten die u hebt geïnstalleerd. Dit ziet er als volgt uit: 
+2. Open het template.json-bestand zodat u het kunt bewerken en nog enkele andere resources toe kunt voegen. Na de `"resources": [` drukt u op Enter om een nieuwe regel te starten. Als u **arm** typt, ziet u een lijst met opties. Deze opties zijn de sjabloonfragmenten die u hebt geïnstalleerd. 
    
     ![fragmenten weergeven](./media/resource-manager-vs-code/type-snippets.png)
-3. Kies het gewenste fragment. Voor dit artikel kies ik **arm-ip** voor het maken van een nieuw openbaar IP-adres. Plaats een komma na het sluitende haakje '}' van de nieuwe resource om te controleren of de sjabloonsyntaxis geldig is.
+3. Kies het gewenste fragment. Voor dit artikel kies ik **arm-ip** voor het maken van een nieuw openbaar IP-adres. Plaats een komma na het sluitende haakje `}` van de nieuwe resource om te controleren of de sjabloonsyntaxis geldig is.
    
      ![komma toevoegen](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code heeft ingebouwde IntelliSense. Tijdens het bewerken van sjablonen, stelt VS Code beschikbare waarden voor. Voor het toevoegen van een sectie met variabelen aan uw sjabloon, kunt u bijvoorbeeld **""** (twee dubbele aanhalingstekens) toevoegen en **Ctrl+Spatie** selecteren tussen deze aanhalingstekens. U krijgt opties te zien met onder andere **variabelen**.
+4. VS Code heeft ingebouwde IntelliSense. Tijdens het bewerken van sjablonen, stelt VS Code beschikbare waarden voor. Voor het toevoegen van een sectie met variabelen aan uw sjabloon, kunt u bijvoorbeeld `""` (twee dubbele aanhalingstekens) toevoegen en **Ctrl+Spatie** selecteren tussen deze aanhalingstekens. U krijgt opties te zien met onder andere **variabelen**.
    
     ![variabelen toevoegen](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense kan ook beschikbare waarden of functies voorstellen. Als u een eigenschap wilt instellen voor een parameterwaarde, maakt u een expressie met **"[]"** en **Ctrl+Spatie**. U kunt de naam van een functie typen. Druk op **Tab** wanneer u de functie hebt gevonden die u wilt.
+5. IntelliSense kan ook beschikbare waarden of functies voorstellen. Als u een eigenschap wilt instellen voor een parameterwaarde, maakt u een expressie met `"[]"` en **Ctrl+Spatie**. U kunt de naam van een functie typen. Druk op **Tab** wanneer u de functie hebt gevonden die u wilt.
    
     ![parameter toevoegen](./media/resource-manager-vs-code/select-parameters.png)
 6. Selecteer weer **Ctrl+Spatie** binnen de functie voor een overzicht van de beschikbare parameters in uw sjabloon.
@@ -89,31 +89,47 @@ Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande ins
 
 ### <a name="windows"></a>Windows
 1. Een PowerShell-opdrachtprompt openen 
-2. Om u aan te melden, typt u: 
+2. Typ het volgende om u aan te melden: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Als u meerdere abonnementen hebt, haalt u een lijst met abonnementen op met:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     En selecteert u vervolgens het abonnement dat u wilt gebruiken.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. De parameters in het parameters.json-bestand bijwerken
 5. Voer de Deploy.ps1 uit om uw sjabloon te implementeren in Azure
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Een terminalvenster openen 
-2. Om u aan te melden, typt u:
-   
-        azure login 
+2. Typ het volgende om u aan te melden:
+
+  ```azurecli
+  azure login
+  ```
+
 3. Als u meerdere abonnementen hebt, selecteert u het juiste abonnement met:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Werk de parameters in het parameters.json-bestand bij.
 5. Om de sjabloon te implementeren, voert u het volgende uit:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.
@@ -123,6 +139,6 @@ Als de sjabloon klaar is, kunt u de nieuwe resources volgens de onderstaande ins
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

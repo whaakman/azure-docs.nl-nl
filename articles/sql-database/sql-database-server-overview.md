@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 942638cfd670bc25804a7e2babeffda58fd38995
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 
 
 ---
@@ -79,12 +79,12 @@ U kunt logische Azure SQL Database-servers beheren met behulp van een aantal met
 - Zie [Overzicht van SQL Database](sql-database-overview.md) voor een overzicht van Azure SQL-databases
 - Zie [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Verschillen tussen Azure SQL-database en Transact-SQL) voor meer informatie over Transact-SQL-ondersteuning en -verschillen.
 - Voor informatie over specifieke resourcequota en beperkingen op basis van uw **servicelaag**. Zie [SQL Database-servicelagen](sql-database-service-tiers.md) voor een overzicht van servicelagen.
-- Voor beveiligingsrichtlijnen raadpleegt u [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md) (Beveiligingsrichtlijnen en -beperkingen voor Azure SQL Database).
+- Zie [Azure SQL Database Security Overview](sql-database-security-overview.md) (Overzicht van Azure SQL Database-beveiliging) voor een beveiligingsoverzicht.
 - Voor informatie over de beschikbaarheid van stuurprogramma's en ondersteuning voor SQL Database raadpleegt u [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) (Verbindingsbibliotheken voor SQL Database en SQL Server).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
