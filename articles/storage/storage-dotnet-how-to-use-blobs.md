@@ -380,7 +380,7 @@ Azure Storage ondersteunt de versleuteling van blobgegevens op de client en op d
 * **Versleuteling aan serverzijde**: Azure Storage ondersteunt nu ook versleuteling aan serverzijde. Zie [Azure Storage-service: versleuteling van data-at-rest (preview)](storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen voor meer informatie..
+U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen voor meer informatie.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken op Windows, OS X en Linux.
