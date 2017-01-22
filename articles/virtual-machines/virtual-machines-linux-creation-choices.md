@@ -1,5 +1,5 @@
 ---
-title: Verschillende manieren om een virtuele Linux-machine te maken | Microsoft Docs
+title: Verschillende manieren om een virtuele Linux-machine te maken in Azure | Microsoft Azure
 description: Informatie over de verschillende manieren om een virtuele Linux-machine te maken op Azure, waaronder koppelingen naar hulpprogramma&quot;s en zelfstudies voor elke methode.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,46 +13,70 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 01/03/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 8c7ea2e7131f69bc43f2e82b816efdfbda59e85d
+ms.sourcegitcommit: 44c46fff9ccf9c7dba9ee380faf5f8213b58e3c3
+ms.openlocfilehash: 4397d84ef4d97bdee387777a193ec0b969f2d5e1
 
 
 ---
-# <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Verschillende manieren om een virtuele Linux-machine te maken in Azure
+# <a name="different-ways-to-create-a-linux-vm-including-azure-cli-20-preview"></a>Verschillende manieren om een virtuele Linux-machine te maken in Azure met inbegrip van Azure CLI 2.0 (Preview)
 In Azure hebt u de flexibiliteit om een virtuele Linux-machine te maken met behulp van hulpprogramma's en werkstromen die u prettig vindt. Dit artikel bevat een overzicht van de verschillen en voorbeelden voor het maken van de Linux-VM's.
 
 ## <a name="azure-cli"></a>Azure CLI
-De Azure CLI is op diverse platforms beschikbaar via een npm-pakket, door distributeurs geleverde pakketten of Docker-container. Meer informatie over het [installeren en configureren van de Azure CLI](../xplat-cli-install.md). In de volgende zelfstudies vindt u voorbeelden van het gebruik van de Azure CLI. Lees elk artikel voor meer informatie over de vermelde Quick Start-opdrachten voor CLI:
 
-* [Een virtuele Linux-machine maken via Azure CLI voor ontwikkeling en tests](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
+
+- Azure CLI 1.0: onze CLI voor het klassieke implementatiemodel en het implementatiemodel voor resourcebeheer
+- [Azure CLI 2.0 (Preview)](../xplat-cli-install.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+
+De Azure CLI 2.0 (Preview) is op diverse platforms beschikbaar via een npm-pakket, door distributeurs geleverde pakketten of Docker-container. Zorg ervoor dat u bent aangemeld via **az login**.
+
+In de volgende zelfstudies vindt u voorbeelden van het gebruik van de Azure CLI 2.0 (Preview). Lees elk artikel voor meer informatie over de vermelde opdrachten:
+
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 (Preview)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * In het volgende voorbeeld wordt een CoreOS-VM gemaakt met behulp van een openbare sleutel met de naam `azure_id_rsa.pub`:
+  * In dit voorbeeld wordt een resourcegroep met de naam myResourceGroup gemaakt: 
     
     ```azurecli
-    azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
-      --image-urn CoreOS
+    az group create -n myResourceGroup -l westus
     ```
+
+  * In dit voorbeeld wordt een virtuele machine in de nieuwe resourcegroep gemaakt met behulp van de meest recente Debian-installatiekopie met een openbare sleutel met de naam `id_rsa.pub`:
+
+    ```azurecli
+    az vm create \
+    --image credativ:Debian:8:latest \
+    --admin-username ops \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --public-ip-address-dns-name mydns \
+    --resource-group myResourceGroup \
+    --location westus \
+    --name myVM
+    ```
+
 * [Een beveiligde virtuele Linux-machine maken met een Azure-sjabloon](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * In het volgende voorbeeld wordt een VM gemaakt met behulp van een op GitHub opgeslagen sjabloon:
     
     ```azurecli
-    azure group create --name myResourceGroup --location WestUS 
-      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    az group deployment create -g myResourceGroup \ 
+      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+      --parameters @myparameters.json
     ```
+    
 * [Een volledige Linux-omgeving maken met de Azure-CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Omvat het maken van een load balancer en meerdere VM’s in een beschikbaarheidsset.
+
 * [Een schijf toevoegen aan een virtuele Linux-machine](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * In het volgende voorbeeld wordt een schijf van 5 GB toegevoegd aan een bestaande VM met de naam `TestVM`:
+  * In het volgende voorbeeld wordt een schijf van 5 GB toegevoegd aan een bestaande VM met de naam `myVM`:
     
     ```azurecli
-    azure vm disk attach-new --resource-group myResourceGroup  --vm-name myVM \
-      --size-in-GB 5
+    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
+      --disk-size 5 --vhd https://myStorage.blob.core.windows.net/vhds/myDataDisk1.vhd
     ```
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -65,35 +89,35 @@ In de [Azure-portal](https://portal.azure.com) kunt u snel een VM maken omdat u 
 Bij het maken van een virtuele machine kiest u een installatiekopie op basis van het besturingssysteem dat u wilt uitvoeren. Azure en de diverse partners bieden een groot aantal installatiekopieën. Sommige hiervan bevatten toepassingen en hulpprogramma’s die vooraf zijn geïnstalleerd. U kunt ook een van uw eigen installatiekopieën uploaden (zie [het volgende gedeelte](#use-your-own-image)).
 
 ### <a name="azure-images"></a>Installatiekopieën van Azure
-Gebruik de CLI-opdrachten van `azure vm image` om te zien wat er beschikbaar is per uitgever, distributierelease en build.
+Gebruik de CLI-opdrachten van `az vm image` om te zien wat er beschikbaar is per uitgever, distributierelease en build.
 
-Vermeld beschikbare uitgevers als volgt:
+Beschikbare uitgevers vermelden:
 
 ```azurecli
-azure vm image list-publishers --location WestUS
+az vm image list-publishers -l WestUS
 ```
 
-Vermeld beschikbare producten (aanbiedingen) voor een bepaalde uitgever als volgt:
+Beschikbare producten (aanbiedingen) voor een bepaalde uitgever vermelden:
 
 ```azurecli
-azure vm image list-offers --location WestUS --publisher Canonical
+az vm image list-offers --publisher-name Canonical -l WestUS
 ```
 
-Vermeld beschikbare SKU's (distributiereleases) van een bepaalde aanbieding als volgt:
+Beschikbare SKU's (distributiereleases) van een bepaalde aanbieding vermelden:
 
 ```azurecli
-azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
+az vm image list-skus --publisher-name Canonical --offer UbuntuServer -l WestUS
 ```
 
-Vermeld alle beschikbare installatiekopieën voor een bepaalde release als volgt:
+Alle beschikbare installatiekopieën voor een bepaalde release vermelden:
 
 ```azurecli
-azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l WestUS
 ```
 
 Zie [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Navigeren door en selecteren van installatiekopieën voor virtuele machines in Azure met de Azure CLI) voor meer voorbeelden van hoe u door de beschikbare installatiekopieën bladert en deze gebruikt.
 
-De opdrachten `azure vm quick-create` en `azure vm create` hebben aliassen waarmee u snel toegang kunt krijgen tot de meest voorkomende distributies en hun meest recente versies. Het is gemakkelijker aliassen te gebruiken dan steeds weer de uitgever, aanbieding, SKU en versie op te geven wanneer u een VM maakt:
+De opdracht `az vm create` heeft aliassen waarmee u snel toegang kunt krijgen tot de meest voorkomende distributies en hun meest recente versies. Het is gemakkelijker aliassen te gebruiken dan steeds weer de uitgever, aanbieding, SKU en versie op te geven wanneer u een VM maakt:
 
 | Alias | Uitgever | Aanbieding | SKU | Versie |
 |:--- |:--- |:--- |:--- |:--- |
@@ -110,15 +134,14 @@ Als u specifieke aanpassingen nodig hebt, kunt u een installatiekopie gebruiken 
 
 * [Door Azure goedgekeurde distributies](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Informatie over niet-goedgekeurde distributies](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een virtuele Linux-machine uploaden en maken op basis van een aangepaste installatiekopie](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Een virtuele Linux-machine vastleggen als Resource Manager-sjabloon](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
   * Voorbeelden van snelstartopdrachten voor het vastleggen van een bestaande VM:
     
     ```azurecli
-    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
-    azure vm generalize --resource-group myResourceGroup --vm-name myVM
-    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
+    az vm deallocate -g myResourceGroup -n myVM
+    az vm generalize -g myResourceGroup -n myVM
+    az vm capture -g myResourceGroup -n myVM --vhd-name-prefix myCapturedVM
     ```
 
 ## <a name="next-steps"></a>Volgende stappen

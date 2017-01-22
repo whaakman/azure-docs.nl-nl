@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -26,46 +26,46 @@ ms.openlocfilehash: 2cf6e81d6a74c4a5beff91a3df90780a83bf1327
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 In deze zelfstudie gebruikt u Azure Portal om een SQL Data Warehouse te maken die een AdventureWorksDW-voorbeelddatabase bevat.
 
 ## <a name="prerequisites"></a>Vereisten
 Om aan de slag te gaan, hebt u het volgende nodig:
 
-* **Azure-account**: ga naar [Gratis proefversie van Azure][Gratis proefversie van Azure] of [Azure-tegoed met MSDN][Azure-tegoed met MSDN] om een account te maken.
-* **Azure SQL Server**: zie [Een logische Azure SQL-databaseserver maken met Azure Portal][Een logische Azure SQL-databaseserver maken met Azure Portal] voor meer informatie.
+* **Azure-account**: ga naar [Gratis proefversie van Azure][Azure Free Trial] of [Azure-tegoed met MSDN][MSDN Azure Credits] om een account te maken.
+* **Azure SQL Server**: zie [Een logische Azure SQL Database-server met Azure Portal][Create an Azure SQL Database logical server with the Azure portal] voor meer informatie.
 
 > [!NOTE]
-> Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse][Prijzen van SQL Data Warehouse] voor meer informatie over prijzen.
-> 
-> 
+> Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse][SQL Data Warehouse pricing] voor meer informatie.
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **+ Nieuw** > **Gegevens en opslag** > **SQL Data Warehouse**.
-   
+
     ![Maken](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. Vul op de blade **SQL Data Warehouse** de benodigde informatie in en druk op Maken.
-   
+
     ![Database maken](./media/sql-data-warehouse-get-started-provision/create-database.png)
-   
+
    * **Server**: we raden u aan om eerst de server te selecteren.  
    * **Databasenaam**: de naam die wordt gebruikt om naar de SQL Data Warehouse te verwijzen.  De waarde moet uniek zijn op de server.
-   * **Prestaties**: we raden u aan om te beginnen met 400 [DWU’s][DWU]. U kunt de schuifregelaar naar links of rechts bewegen om de prestaties van uw datawarehouse aan te passen, of u kunt later omhoog of omlaag schalen.  Voor meer informatie over DWU’s, verwijzen wij u naar onze documentatie over [vergroten/verkleinen](sql-data-warehouse-manage-compute-overview.md) of onze [pagina met prijzen][Prijzen van SQL Data Warehouse]. 
+   * **Prestaties**: we raden u aan om te beginnen met 400 [DWU's][DWU]. U kunt de schuifregelaar naar links of rechts bewegen om de prestaties van uw datawarehouse aan te passen, of u kunt later omhoog of omlaag schalen.  Meer informatie over DWU's vindt u in onze documentatie over [schalen](sql-data-warehouse-manage-compute-overview.md) of op onze [pagina met prijzen][SQL Data Warehouse pricing].
    * **Abonnement**: selecteer het [abonnement] waaronder deze SQL Data Warehouse wordt gefactureerd.
-   * **Resourcegroep**: [Resourcegroepen][Resourcegroep] zijn containers die speciaal zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Meer informatie over [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
+   * **Resourcegroep**: [resourcegroepen][Resource group] zijn containers die speciaal zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Meer informatie over [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
    * **Bron selecteren**: klik op **Bron selecteren** > **Voorbeeld**. Azure vult de optie **Select sample** (Selecteer voorbeeld) automatisch in met AdventureWorksDW.
 
-> [!NOTE]
-> De standaardsortering voor een SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. Als er een andere sortering vereist is, kan met [T-SQL][T-SQL] een andere sortering voor de database worden gemaakt.
-> 
-> 
+   > [!NOTE]
+   > De standaardsortering voor een SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. Als er een andere sortering is vereist, kan met [T-SQL][T-SQL] een andere sortering voor de database worden gemaakt.
+   >
+   >
 
 1. Klik op **Maken** om uw SQL Data Warehouse te maken.
-2. Wacht enkele minuten. Wanneer uw datawarehouse klaar is, keert u terug naar [Azure Portal](https://portal.azure.com). U vindt de SQL Data Warehouse op het dashboard onder de SQL-databases, of in de resourcegroep die u hebt gebruikt om deze te maken. 
-   
+2. Wacht enkele minuten. Wanneer uw datawarehouse klaar is, keert u terug naar [Azure Portal](https://portal.azure.com). U vindt de SQL Data Warehouse op het dashboard onder de SQL-databases, of in de resourcegroep die u hebt gebruikt om deze te maken.
+
     ![portalweergave](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
@@ -79,16 +79,16 @@ Als u een bestaande database probeert te migreren naar SQL Data Warehouse, raadp
 
 Firewallregels kunnen ook worden geconfigureerd met behulp van Transact-SQL. Zie [sp_set_firewall_rule][sp_set_firewall_rule] en [sp_set_database_firewall_rule][sp_set_database_firewall_rule] voor meer informatie.
 
-Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Aanbevolen procedures].
+Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Best practices].
 
 <!--Article references-->
-[Een logische Azure SQL-databaseserver maken met Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[Een logische Azure SQL-databaseserver maken met PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resourcegroepen]: ../resource-group-template-deploy-portal.md
-[Aanbevolen procedures]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [abonnement]: ../azure-glossary-cloud-terminology.md#subscription
-[resourcegroep]: ../azure-glossary-cloud-terminology.md#resource-group
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
 
 <!--MSDN references-->
@@ -96,13 +96,12 @@ Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Aanbevolen
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[Prijzen van SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Gratis proefversie van Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Azure-tegoed met MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

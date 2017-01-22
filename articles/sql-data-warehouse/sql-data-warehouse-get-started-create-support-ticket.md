@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Een ondersteuningsticket maken voor SQL Data Warehouse
 Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningsticket maken zodat ons technisch team u kan helpen.
 
+> [!NOTE] 
+> Met ingang van 20-12-2016 is de statuscontrole van resources in Azure Portal niet nauwkeurig. We doen ons best om dit probleem zo snel mogelijk te verhelpen. 
+
+
 ## <a name="create-a-support-ticket"></a>Een ondersteuningsticket maken
-1. Open de [Azure Portal][Azure Portal].
+1. Open [Azure Portal][Azure portal].
 2. Klik in het beginscherm op de tegel **Help en ondersteuning**.
    
     ![Help en ondersteuning](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -47,13 +51,13 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
 6. Selecteer **SQL Data Warehouse** als de resource.
    
     ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Selecteer uw [Azure-ondersteuningsplan][Azure-ondersteuningsplan].
+7. Selecteer uw [Azure-ondersteuningsplan][Azure support plan].
    
    * Ondersteuning voor het **beheren van facturering, quota en abonnementen** is op alle ondersteuningsniveaus beschikbaar.
    * **Probleemoplossing** wordt ondersteund op de ondersteuningsniveaus [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] en [Premier][Premier]. Het gaat hierbij om problemen die klanten ondervinden tijdens het gebruik van Azure waarbij er een redelijke verwachting is dat het probleem is veroorzaakt door Microsoft.
    * **Begeleiding van ontwikkelaars** en **adviesdiensten** zijn beschikbaar op de ondersteuningsniveaus [Professional Direct][Professional Direct] en [Premier][Premier]. 
      
-     Als u een Premier-ondersteuningsplan hebt, kunt u ook problemen met betrekking tot SQL Data Warehouse rapporteren in de [Microsoft Premier Online-portal][Microsoft Premier Online-portal].  Zie [Azure-ondersteuningsplannen][Azure-ondersteuningsplan] voor meer informatie over de verschillende ondersteuningsplannen, waaronder bereik, reactietijden, prijzen enzovoort.  Zie [Veelgestelde vragen over ondersteuning van Azure][Veelgestelde vragen over ondersteuning van Azure] voor veelgestelde vragen over de ondersteuning van Azure.  
+     Als u een Premier-ondersteuningsplan hebt, kunt u ook problemen met betrekking tot SQL Data Warehouse rapporteren in de [Microsoft Premier Online-portal][Microsoft Premier online portal].  Zie [Azure-ondersteuningsplannen][Azure support plan] voor meer informatie over de verschillende ondersteuningsplannen, waaronder bereik, reactietijden, prijzen enzovoort.  Zie [Veelgestelde vragen over ondersteuning van Azure][Azure support FAQs] voor veelgestelde vragen over de ondersteuning van Azure.  
      
      ![Ondersteuningsplan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. Selecteer het **Probleemtype** en de **Categorie**.
@@ -73,7 +77,7 @@ Nadat u de ondersteuningsaanvraag hebt ingediend, zal het ondersteuningsteam van
 ![Status controleren](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Meer informatie
-Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack Overflow][Stack Overflow] of op het [MSDN-forum Azure SQL Data Warehouse][MSDN-forum Azure SQL Data Warehouse].
+Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack Overflow][Stack Overflow] of op het [MSDN-forum Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Azure Portal]: https://portal.azure.com/
-[Azure-ondersteuningsplan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
 [Developer]: https://azure.microsoft.com/support/plans/developer/  
 [Standard]: https://azure.microsoft.com/support/plans/standard/  
 [Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
 [Premier]: https://azure.microsoft.com/support/plans/premier/  
-[Veelgestelde vragen over ondersteuning van Azure]: https://azure.microsoft.com/support/faq/
-[Microsoft Premier Online-portal]: https://premier.microsoft.com/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[MSDN-forum Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

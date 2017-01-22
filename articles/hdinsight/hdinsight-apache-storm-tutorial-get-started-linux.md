@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -80,7 +80,7 @@ In deze sectie maakt u een HDInsight versie 3.5-cluster (Storm versie 1.0.1) met
      > * [SSH gebruiken met Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [SSH (PuTTY) gebruiken met Hadoop op basis van Linux in HDInsight via Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Selecteer __Ik ga akkoord met de bovenstaande voorwaarden__, **OK** en selecteer vervolgens __Aan dashboard vastmaken__.
+3. Selecteer __Ik ga akkoord met de bovenstaande voorwaarden__, klik op **OK** en selecteer vervolgens __Aan dashboard vastmaken__.
 
 6. Klik op **Kopen**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster te maken.
 
