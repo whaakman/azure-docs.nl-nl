@@ -71,6 +71,6 @@ U kunt logische Azure SQL Database-servers beheren met behulp van een aantal met
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

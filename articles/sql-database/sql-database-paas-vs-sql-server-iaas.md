@@ -150,6 +150,6 @@ Kies voor **SQL Server op Azure VM's** als:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

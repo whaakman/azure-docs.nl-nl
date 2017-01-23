@@ -123,6 +123,6 @@ Na het maken van een DNS-zone, [maakt u DNS-recordsets en -records](dns-getstart
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
