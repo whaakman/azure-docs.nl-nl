@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
 
 
 ---
@@ -85,20 +85,16 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
     ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
 3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Deze actie start één knooppunt in het lokale cluster opnieuw op om een failover af te dwingen naar een secundaire replica die wordt uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
 
-
-
 ## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
 
 Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
 1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
 2. Voer `yo azuresfcsharp:AddService` uit.
 
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interactie aangaan met Service Fabric-clusters met de Azure-CLI](service-fabric-azure-cli.md)
+* Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
@@ -106,6 +102,6 @@ Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepas
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

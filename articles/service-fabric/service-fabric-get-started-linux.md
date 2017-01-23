@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
-ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
@@ -31,10 +31,11 @@ ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
  Als u [Azure Service Fabric-toepassingen](service-fabric-application-model.md) op uw Linux-ontwikkelmachine wilt implementeren en uitvoeren, moet u de runtime en algemene SDK installeren. U kunt ook optionele SDK's voor Java en .NET Core installeren.
 
 ## <a name="prerequisites"></a>Vereisten
+
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
 De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeling:
 
-* Ubuntu 16.04 (Xenial Xerus)
+* Ubuntu 16.04 ('Xenial Xerus')
 
 ## <a name="update-your-apt-sources"></a>Uw apt-bronnen bijwerken
 Voor het installeren van de SDK en het bijbehorende runtimepakket via apt-get, moet u eerst uw apt-bronnen bijwerken.
@@ -72,7 +73,7 @@ Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
 
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>De platformoverschrijdende CLI van Azure instellen
-De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node hebt geïnstalleerd][install-node] voordat u doorgaat met de onderstaande instructies.
+De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node hebt geïnstalleerd][install-node] voordat u doorgaat met de volgende instructies:
 
 1. Kloon de github-opslagplaats naar uw ontwikkelmachine.
    
@@ -110,7 +111,13 @@ Als alles goed is geïnstalleerd, moet u een lokaal cluster kunnen starten.
    
     ![Service Fabric Explorer in Linux][sfx-linux]
 
-Op dit punt kunt u vooraf samengestelde Service Fabric-toepassingspakketten of nieuwe implementeren op basis van gastcontainers of uitvoerbare gastbestanden. Als u nieuwe services wilt maken met behulp van de Java of .NET Core SDK's, voert u de volgende optionele installatiestappen uit.
+Op dit punt kunt u vooraf samengestelde Service Fabric-toepassingspakketten of nieuwe implementeren op basis van gastcontainers of uitvoerbare gastbestanden. Als u nieuwe services wilt maken met behulp van de Java of .NET Core SDK's, voert u de optionele installatiestappen uit die in de volgende secties worden uitgelegd.
+
+
+> [!NOTE]
+> Zelfstandige clusters worden niet ondersteund in Linux - slechts clusters met één vak en clusters met meerdere Azure Linux-machines worden ondersteund in het voorbeeld.
+> 
+> 
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>De Java-SDK en Eclipse Neon-invoegtoepassing installeren (optioneel)
 De Java-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen van Service Fabric-services met behulp van Java.
@@ -142,28 +149,32 @@ De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bo
 
 1. Installeer het .NET Core-SDK-pakket.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. Voer het SDK-installatiescript uit.
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
 ## <a name="updating-the-sdk-and-runtime"></a>De SDK en Runtime bijwerken
 
 Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de volgende stappen uit (verwijder SDK's uit de lijst die u niet wilt bijwerken of installeren):
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
 
 Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste Java-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-java.md)
+* [Uw eerste CSharp-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
+* [De Azure CLI gebruiken voor het beheren van uw Service Fabric-toepassingen](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
@@ -178,6 +189,6 @@ Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voer
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

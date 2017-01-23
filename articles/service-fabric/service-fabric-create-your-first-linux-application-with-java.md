@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 05361e08b93c93491111661b5fe997ebf5053d16
+ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
+ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 
 
 ---
@@ -33,13 +33,18 @@ Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET C
 <img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
+> [!NOTE]
+> Java wordt als eersteklas ingebouwde programmeertaal alleen ondersteund voor het Linux-voorbeeld (ondersteuning in Windows wordt gepland). Alle toepassingen, waaronder Java-toepassingen, kunnen echter worden uitgevoerd als uitvoerbare gastbestanden of in containers op Windows of Linux. Zie voor meer informatie [Een bestaand uitvoerbaar bestand implementeren naar Azure Service Fabric](service-fabric-deploy-existing-app.md) en [Containers implementeren naar Service Fabric](service-fabric-deploy-container.md).
+> 
+
+
 ## <a name="prerequisites"></a>Vereisten
 Zorg voordat u begint ervoor dat u [uw Linux-ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started-linux.md). Als u Mac OS X gebruikt, kunt u [een Linux one-box omgeving instellen op een virtuele machine met behulp van Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>De toepassing maken
 Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
 
-1. Typ in een terminal **yo azuresfjava**.
+1. Typ in een terminal ``yo azuresfjava``.
 2. Geef uw toepassing een naam.
 3. Kies het type van uw eerste service en geef de service een naam. In deze zelfstudie kiezen we voor een Reliable Actor Service.
    
@@ -47,7 +52,6 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 
 > [!NOTE]
 > Zie [Service Fabric programming model overview](service-fabric-choose-framework.md) (Overzicht van het Service Fabric-programmeermodel) voor meer informatie over de opties.
-> 
 > 
 
 ## <a name="build-the-application"></a>De toepassing bouwen
@@ -66,12 +70,15 @@ Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale clust
     ```bash
     azure servicefabric cluster connect
     ```
+
 2. Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
    
     ```bash
     ./install.sh
     ```
+
 3. Open een browser en navigeer naar de Service Fabric Explorer op http://localhost:19080/Explorer (vervang localhost door het privé IP-adres van de virtuele machine als u Vagrant in Mac OS X gebruikt).
+
 4. Vouw het knooppunt Toepassingen uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
@@ -83,21 +90,27 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
+
 2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3.
    
     ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
-3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Hiermee wordt een van de vijf knooppunten in uw lokale cluster opnieuw gestart en een failover afgedwongen op een van de secundaire replica's die worden uitgevoerd op een ander knooppunt. Let terwijl u dit doet op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
+
+3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Met deze actie wordt een van de vijf knooppunten in uw lokale cluster opnieuw gestart en een failover afgedwongen op een van de secundaire replica's die worden uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Een toepassing maken en implementeren met behulp van de invoegtoepassing Eclipse Neon
+
 Als u de [Service Fabric-invoegtoepassing](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) voor Eclipse Neon hebt geïnstalleerd, kunt u Service Fabric-toepassingen maken, bouwen en implementeren met behulp van Java.  Kies bij het installeren van Eclipse voor **Eclipse IDE voor Java-ontwikkelaars**.
 
 ### <a name="create-the-application"></a>De toepassing maken
+
 De Service Fabric-invoegtoepassing is beschikbaar via Eclipse-uitbreidingsmogelijkheden.
 
 1. Kies in Eclipse **File > Other > Service Fabric**. U ziet een set opties, waaronder Actors en Containers.
    
     ![Service Fabric-sjablonen in Eclipse][sf-eclipse-templates]
+
 2. Kies in dit geval Stateless Service.
+
 3. U wordt gevraagd het gebruik van het Service Fabric-perspectief te bevestigen, dat Eclipse optimaliseert voor gebruik met Service Fabric-projecten. Kies 'Yes'.
 
 ### <a name="deploy-the-application"></a>De toepassing implementeren
@@ -120,6 +133,7 @@ Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepas
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interactie aangaan met Service Fabric-clusters met de Azure-CLI](service-fabric-azure-cli.md)
+* [Problemen met implementatie oplossen](service-fabric-azure-cli.md#troubleshooting)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
@@ -129,6 +143,6 @@ Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepas
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

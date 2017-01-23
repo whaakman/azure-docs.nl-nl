@@ -1,7 +1,7 @@
 ---
 title: Een nieuwe elastische groep maken met Azure Portal | Microsoft Docs
 description: Een schaalbare elastische pool toevoegen aan uw SQL Database-configuratie om deze eenvoudiger te kunnen beheren en resources te delen met een groot aantal databases.
-keywords: schaalbare database,databaseconfiguratie
+keywords: schaalbare database, databaseconfiguratie
 services: sql-database
 documentationcenter: 
 author: ninarn
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ Nadat u de prijscategorie heeft ingesteld, klikt u op Pool configureren. Hier vo
 
     Als de gebruikstelemetrie van de databases waar u mee werkt genoeg is, worden de grafiek **Geschat eDTU- en GB-gebruik** en het staafdiagram **Werkelijk eDTU-gebruik** bijgewerkt zodat u betere beslissingen kunt nemen met betrekking tot de configuratie. De service kan ook een bericht weergeven met een aanbeveling zodat u de groep het juiste formaat kunt geven. Zie [Dynamische aanbevelingen](#dynamic-recommendations).
 
-3. Gebruik de bedieningselementen op de pagina **Groep configureren** om de instellingen te verkennen en uw groep te configureren. Zie [Limieten elastische pools](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) voor meer informatie over de limieten van elke servicecategorie en zie [Prijs- en prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md) voor gedetailleerde richtlijnen voor het juiste formaat van een pool. Zie [Eigenschappen voor elastische pools](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties)voor meer informatie over de instellingen van een pool.
+3. Gebruik de bedieningselementen op de pagina **Groep configureren** om de instellingen te verkennen en uw groep te configureren. Zie [Limieten elastische pools](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) voor meer informatie over de limieten van elke servicecategorie en zie [Prijs- en prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md) voor gedetailleerde richtlijnen voor het juiste formaat van een pool. Zie [Eigenschappen voor elastische pools](sql-database-elastic-pool.md#elastic-pool-properties)voor meer informatie over de instellingen van een pool.
 
     ![Elastische groep configureren](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -99,7 +99,7 @@ Nadat u de prijscategorie heeft ingesteld, klikt u op Pool configureren. Hier vo
 
 ## <a name="understand-pool-recommendations"></a>Aanbevelingen voor groepen begrijpen
 
-De SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of meerdere pools aan wanneer deze kosteneffectiever zijn dan het gebruik van zelfstandige databases. Elke aanbeveling wordt geconfigureerd met een unieke subset van de databases van de server die het meest geschikt zijn voor de groep.
+De SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of meerdere groepen aan wanneer deze kosteneffectiever zijn dan het gebruik van individuele databases. Elke aanbeveling wordt geconfigureerd met een unieke subset van de databases van de server die het meest geschikt zijn voor de groep.
 
 ![aanbevolen groep](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -112,7 +112,7 @@ De aanbevelingen voor de groep bestaan uit:
 
 De service houdt rekening met de laatste 30 dagen telemetrie bij het aanbevelen van groepen. Een database moet tenminste 7 dagen bestaan voordat deze in aanmerking komt voor een elastische pool. Databases die zich al in een elastische pool bevinden, worden niet aanbevolen voor een elastische pool.
 
-De service beoordeelt wat de resource nodig heeft en hoe kosteneffectief het is om de zelfstandige databases in elke servicecategorie te verplaatsen naar pools van dezelfde categorie. Alle Standard databases op een server worden bijvoorbeeld beoordeeld op hoe ze in een Standard elastische groep passen. Dit betekent dat de service geen aanbevelingen doet voor het verplaatsen van databases naar een andere categorie, zoals het verplaatsen van een Standard database naar een Premium groep.
+De service beoordeelt wat de resource nodig heeft en hoe kosteneffectief het is om de individuele databases in elke servicecategorie te verplaatsen naar groepen van dezelfde categorie. Alle Standard databases op een server worden bijvoorbeeld beoordeeld op hoe ze in een Standard elastische groep passen. Dit betekent dat de service geen aanbevelingen doet voor het verplaatsen van databases naar een andere categorie, zoals het verplaatsen van een Standard database naar een Premium groep.
 
 ### <a name="dynamic-recommendations"></a>Dynamische aanbevelingen.
 
@@ -129,6 +129,6 @@ Nadat databases aan de groep zijn toegevoegd, worden dynamische aanbevelingen ge
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

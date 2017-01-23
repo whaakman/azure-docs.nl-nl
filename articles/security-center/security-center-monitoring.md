@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ Op de tegel **Beveiligingsstatus van de resource** kunt u de beveiligingsstatus 
 
 ![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Als in Security Center een beveiligingsprobleem wordt gevonden dat moet worden verholpen, zoals een virtuele machine met ontbrekende beveiligingsupdates of een subnet zonder een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md), wordt dat hier vermeld.
+Als in Security Center een beveiligingsprobleem wordt gevonden dat moet worden verholpen, zoals een virtuele machine met ontbrekende beveiligingsupdates of een subnet zonder een [netwerkbeveiligingsgroep](/virtual-network/virtual-networks-nsg.md), wordt dat hier vermeld.
 
 ### <a name="monitor-virtual-machines"></a>Virtuele machines bewaken
 Wanneer u op **Virtuele machines** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de blade **Virtuele machines** geopend met meer informatie over stappen voor onboarding en preventie, evenals een lijst met alle virtuele machines die worden bewaakt door Security Center, zoals te zien is op de volgende schermafbeelding.
@@ -162,22 +162,22 @@ Deze tabel is gesorteerd (virtuele machines en subnetten) op ernst:
 * Oranje: gemiddelde prioriteit en moet zo snel mogelijk worden opgelost
 * Groen (laatste): integriteitsstatus
 
-In deze topologieweergave bevat het eerste niveau [virtuele netwerken](../virtual-network/virtual-networks-overview.md), [virtuele netwerkgateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) en [virtuele netwerken (klassiek)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Het tweede niveau bevat subnetten en het derde niveau bevat de virtuele machines die horen bij deze subnetten. In de rechterkolom bevindt zich de huidige status van de netwerkbeveiligingsgroep voor deze resources, zoals in het volgende voorbeeld wordt weergegeven:
+In deze topologieweergave bevat het eerste niveau [virtuele netwerken](../virtual-network/virtual-networks-overview.md), [virtuele netwerkgateways](/vpn-gateway/vpn-gateway-site-to-site-create.md) en [virtuele netwerken (klassiek)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Het tweede niveau bevat subnetten en het derde niveau bevat de virtuele machines die horen bij deze subnetten. In de rechterkolom bevindt zich de huidige status van de netwerkbeveiligingsgroep voor deze resources, zoals in het volgende voorbeeld wordt weergegeven:
 
 ![Status van de netwerkbeveiligingsgroep in de sectie Netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze virtuele machine, vergelijkbaar met wat eerder is beschreven. U kunt op een aanbeveling klikken voor meer informatie of om het benodigde beveiligingsbeheer of de benodigde beveiligingsconfiguratie toe te passen.
 
 ### <a name="monitor-data"></a>Gegevens controleren
-Wanneer u op **Gegevens** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de **SQL**-blade geopend met aanbevelingen voor problemen zoals het niet ingeschakeld zijn van controle en Transparent Data Encryption. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database.
+Wanneer u klikt op **Gegevens** in de tegel **Beveiligingsstatus bronnen**, wordt de blade **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center.
 
-![SQL-resourcestatus](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-U kunt op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole is niet ingeschakeld** uitgevouwen.
+U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
 
-![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-De blade **Controleren voor SQL-databases inschakelen** bevat de volgende informatie:
+De blade **Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
 
 * Een lijst met SQL-databases
 * De server waarop deze zich bevinden
@@ -185,13 +185,14 @@ De blade **Controleren voor SQL-databases inschakelen** bevat de volgende inform
 * De huidige status
 * De ernst van het probleem
 
-Als u op de database klikt om deze aanbeveling op te volgen, wordt de blade **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven op de volgende schermafbeelding.
+Als u op de database klikt om deze aanbeveling op te volgen, wordt de blade **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
 
 ![De blade Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
 ### <a name="monitor-applications"></a>Toepassingen bewaken
+
 Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt de blade **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **Aanbevelingen voor toepassingen**. U ziet ook de uitsplitsing van de toepassingen per host/virtueel IP-adres, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Secu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

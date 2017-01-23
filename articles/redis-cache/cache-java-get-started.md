@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/24/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 408026a8e75272cea92ad62e3a75aabaadf98351
-ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
+ms.sourcegitcommit: c42aebb3aaf5c32ebdc4f79e2ace2f127e4fb20d
+ms.openlocfilehash: fe875fba2651b770d910d257282f5e9f41f8a043
 
 
 ---
@@ -45,23 +45,27 @@ In deze zelfstudie wordt Jedis gebruikt, maar u kunt elke andere Java-client geb
 ## <a name="retrieve-the-host-name-and-access-keys"></a>De hostnaam en toegangssleutels ophalen
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-non-ssl-endpoint"></a>Het eindpunt zonder SSL-beveiliging inschakelen
-Sommige Redis-clients bieden geen ondersteuning voor SSL. De [poort zonder SSL-beveiliging is standaard uitgeschakeld voor nieuwe exemplaren van Azure Redis-cache](cache-configure.md#access-ports). Op het moment van publicatie van dit artikel biedt de [Jedis](https://github.com/xetorthio/jedis)-client geen ondersteuning voor SSL. 
+## <a name="connect-to-the-cache-securely-using-ssl"></a>Veilig verbinding maken met de cache via SSL
+De meest recente versies van [jedis](https://github.com/xetorthio/jedis) bieden ondersteuning voor een SSL-verbinding met Azure Redis Cache. Het volgende voorbeeld laat zien hoe u via SSL-eindpunt 6380 verbinding maakt met Azure Redis-cache. Vervang `<name>` door de naam van uw cache en `<key>` door ofwel uw primaire of secundaire sleutel zoals beschreven in het vorige gedeelte genaamd [De hostnaam en toegangssleutels ophalen](#retrieve-the-host-name-and-access-keys).
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+    boolean useSsl = true;
+    /* In this line, replace <name> with your cache name: */
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+    shardInfo.setPassword("<key>"); /* Use your access key. */
+
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Iets toevoegen aan de cache en dit ophalen
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
 
-    /* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
     public class App
     {
       public static void main( String[] args )
       {
+        boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
         jedis.set("foo", "bar");
@@ -76,7 +80,6 @@ Sommige Redis-clients bieden geen ondersteuning voor SSL. De [poort zonder SSL-b
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

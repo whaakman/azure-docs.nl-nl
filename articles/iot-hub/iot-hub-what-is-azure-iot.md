@@ -41,7 +41,7 @@ Raadpleeg de zelfstudie [Aan de slag met IoT Hub][lnk-getstarted] als u code wil
 Wellicht bent u ook geïnteresseerd in [Azure IoT Suite][lnk-iot-suite]. Dit is een verzameling van vooraf geconfigureerde oplossingen. Met IoT-Suite kunt u snel aan de slag en IoT-projecten schalen om veelvoorkomende problemen met algemene IoT-scenario's op te lossen. Denk bijvoorbeeld aan externe controle, beheer van assets en voorspellend onderhoud.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Een Azure-Account instellen voor Media Services
-Als u een Media Services-account wilt maken, gebruikt u de klassieke Azure-portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in de klassieke Azure-portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
+Als u een Media Services-account wilt maken, gebruikt u Azure Portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in Azure Portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
 
 ## <a name="setting-up-for-media-services-development"></a>Configureren voor het ontwikkelen van toepassingen met Media Services
 Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met de Media Services SDK voor Java.
@@ -260,16 +260,16 @@ Vervang de waarden voor de variabelen clientId en clientSecret. De code maakt oo
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Aanvullende resources
-Zie [Azure-bibliotheken voor Java-documentatie][Azure-bibliotheken voor Java-documentatie] voor Javadoc-documentatie voor Media Services.
+Zie [Azure-bibliotheken voor Java-documentatie][Azure Libraries for Java documentation] voor Javadoc-documentatie voor Media Services.
 
 <!-- URLs. -->
 
 [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
-[Azure-bibliotheken voor Java-documentatie]: http://dl.windowsazure.com/javadoc/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
 [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

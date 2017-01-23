@@ -66,7 +66,6 @@
 
 #### [Controlegebeurtenissen](active-directory-reporting-audit-events.md)
 #### [Retentie](active-directory-reporting-retention.md)
-#### [Backfill](active-directory-reporting-backfill.md)
 #### [Wachttijden](active-directory-reporting-latencies.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
 ### Rapporten begrijpen
@@ -297,6 +296,6 @@
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

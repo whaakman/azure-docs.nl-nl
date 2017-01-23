@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
+ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
 
 
 ---
@@ -37,9 +37,9 @@ Een eDTU is een maateenheid voor de reeks resources (DTU's) die kunnen worden ge
 
 ![Inleiding tot SQL Database: eDTU's per laag en niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Een pool krijgt een bepaald aantal eDTU's voor een vaste prijs. Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Bij zware belasting kan een database meer eDTU's verbruiken om aan de vraag te voldoen. Databases verbruiken minder bij lichte belasting en verbruiken geen eDTU's als er geen belasting is. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool.
+Een pool krijgt een bepaald aantal eDTU's voor een vaste prijs. Binnen de elastische pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen de geconfigureerde grenzen. Bij een zware belasting kan een database meer eDTU's verbruiken om te voldoen aan de vraag terwijl databases met een lichte belasting minder verbruiken, tot het punt waar databases zonder enige belasting geen eDTU's verbruiken. Door resources in te richten voor de gehele pool en niet per database, worden beheertaken eenvoudiger en beschikt u over een voorspelbaar budget voor de pool.
 
-Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltijd en zonder gevolgen voor de databases in de elastische pool. En als de extra eDTU's niet meer nodig zijn, kunnen ze op elk moment uit een bestaande pool worden verwijderd. U kunt databases aan de pool toevoegen of uit de pool verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
+Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltijd van de database en zonder gevolgen voor de databases in de pool. En als de extra eDTU's niet meer nodig zijn, kunnen ze op elk moment uit een bestaande pool worden verwijderd. U kunt toevoegen aan of verwijderen uit de pool of de hoeveelheid eDTU's beperken die door een database met zware belasting mag worden gebruikt om zo eDTU's te reserveren voor andere databases. Als een database zoals verwacht minder gebruikmaakt van resources, kunt u deze uit de pool verplaatsen en als een individuele database configureren met de voorspelbare hoeveelheid resources die deze database nodig heeft.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Hoe bepaal ik hoeveel DTU's ik met mijn workload nodig heb?
 Als u een bestaande workload voor virtuele on-premises of SQL Server-machines wilt migreren naar Azure SQL Database, kunt u de [DTU-rekenmachine](http://dtucalculator.azurewebsites.net/) gebruiken om een schatting te maken van het aantal benodigde DTU's. Voor een bestaande Azure SQL Database-workload raadpleegt u [SQL Database Query Performance Insight](sql-database-query-performance.md) voor meer informatie over het verbruik van databaseresources (DTU's) om inzicht te krijgen in hoe u uw workload kunt optimaliseren. U kunt ook de DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) gebruiken om de gegevens over het resourceverbruik van het afgelopen uur te verkrijgen. En in de catalogusweergave [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) kunt u dezelfde gegevens opvragen voor de afgelopen veertien dagen, al hebben deze een iets lagere betrouwbaarheid van gemiddeld vijf minuten.

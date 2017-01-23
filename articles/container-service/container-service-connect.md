@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Verbinding maken met een Azure Container Service-cluster
 De DC/OS-, Kubernetes- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service, maken allemaal REST-eindpunten beschikbaar.  Bij Kubernetes wordt het eindpunt veilig beschikbaar gesteld op internet. U kunt het rechtstreeks openen op elke machine met een internetverbinding. Bij DC/OS en Docker Swarm moet u een SSH-tunnel maken om veilig verbinding te maken met het REST-eindpunt. Deze verbindingen worden hieronder beschreven.
+
+> [!NOTE]
+> Ondersteuning voor Kubernetes in Azure Container Service is momenteel in de preview-fase.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
 U moet het opdrachtregelprogramma `kubectl` installeren voordat u verbinding maakt met een Kubernetes-cluster.  De eenvoudigste manier om dit programma te installeren, is met het opdrachtregelprogramma Azure 2.0 `az`.
@@ -172,6 +176,6 @@ Containers implementeren en beheren met DC/OS of Swarm:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

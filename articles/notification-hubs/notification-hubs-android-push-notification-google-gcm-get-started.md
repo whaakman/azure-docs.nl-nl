@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 ### <a name="create-a-new-android-project"></a>Een nieuw Android-project maken
 1. Start een nieuw Android Studio-project in Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio - nieuw project][13]
 2. Kies de vormfactor voor **Telefoon en tablet** en de **minimale SDK** die u wilt ondersteunen. Klik op **Volgende**.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio - werkstroom voor het maken van een project][14]
 3. Kies **Lege activiteit** als belangrijkste activiteit, klik op **Volgende** en klik vervolgens op **Voltooien**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Google Play-services aan het project toevoegen
@@ -660,10 +660,10 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 
 
 <!-- URLs. -->
-[Aan de slag met pushmeldingen in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[Android-SDK voor Mobile Services]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Naar een bibliotheekproject verwijzen]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

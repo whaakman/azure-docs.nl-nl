@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -27,7 +27,7 @@ In dit onderwerp vindt u een overzicht van Azure SQL-databases. Zie [Logische se
 ## <a name="what-is-azure-sql-database"></a>Wat is een Azure SQL-database?
 Elke database in Azure SQL Database is gekoppeld aan een logische server. De database kan bestaan uit:
 
-- Een zelfstandige database met een [eigen set resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU's)
+- Een individuele database met een [eigen set resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU's)
 - Een onderdeel van een [elastische pool](sql-database-elastic-pool.md) dat [een set resources deelt](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU's)
 - Een onderdeel van een set [uitgeschaalde Shard-databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), welke individuele databases of databases in een groep kunnen zijn
 - Een onderdeel van een set databases die deel uitmaken van een [SaaS-ontwerppatroon met meerdere tenants](sql-database-design-patterns-multi-tenancy-saas-applications.md), waarvan de databases individuele databases of een databases in een groep (of beide) kunnen zijn 
@@ -65,12 +65,12 @@ U kunt logische Azure SQL Database-servers beheren met behulp van een aantal met
 - Zie [Overzicht van logische SQL Database-servers](sql-database-server-overview.md) voor een overzicht van logische Azure SQL-servers
 - Zie [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Verschillen tussen Azure SQL-database en Transact-SQL) voor meer informatie over Transact-SQL-ondersteuning en -verschillen.
 - Voor informatie over specifieke resourcequota en beperkingen op basis van uw **servicelaag**. Zie [SQL Database-servicelagen](sql-database-service-tiers.md) voor een overzicht van servicelagen.
-- Voor beveiligingsrichtlijnen raadpleegt u [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md) (Beveiligingsrichtlijnen en -beperkingen voor Azure SQL Database).
+- Zie [Azure SQL Database Security Overview](sql-database-security-overview.md) (Overzicht van Azure SQL Database-beveiliging) voor een beveiligingsoverzicht.
 - Voor informatie over de beschikbaarheid van stuurprogramma's en ondersteuning voor SQL Database raadpleegt u [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) (Verbindingsbibliotheken voor SQL Database en SQL Server).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 10c350247593c806d2c4e66248dedf5f42734628
-ms.openlocfilehash: 2227ab467aca534c5a8783dfdfa3084cb1c3a126
+ms.sourcegitcommit: b2d7ba14c7cbc5c082a5f962559936e1a60827f2
+ms.openlocfilehash: fd018ed25e5c309a85bb2078d00f2bb0b504e5d2
 
 
 ---
@@ -28,7 +28,7 @@ ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende k
 
 ![Locatiekaart][0]
 
-U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio. 
+U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio.
 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio.
 In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
@@ -58,8 +58,8 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 > [!div class="op_single_selector"]
 > * [Locaties per provider](expressroute-locations.md#locations)
 > * [Providers per locatie](expressroute-locations-providers.md#locations)
-> 
-> 
+>
+>
 
 ### <a name="production-azure"></a>Productie-Azure
 | **Serviceprovider** | **Microsoft Azure** | **Office 365 en CRM Online** | **Locaties** |
@@ -67,12 +67,14 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Ondersteund |Ondersteund |Amsterdam, Dallas, Silicon Valley, Singapore, Tokio, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Londen, Silicon Valley, Singapore, Sydney, Washington DC |
+| **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Ondersteund |Ondersteund |Toronto |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Binnenkort beschikbaar |Binnenkort beschikbaar |Silicon Valley |
 | **China Telecom Global** |Ondersteund |Niet ondersteund |Hongkong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Ondersteund |Binnenkort beschikbaar |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Ondersteund |Ondersteund |Dallas, Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen, Tokio |
 | **Comcast** |Ondersteund |Ondersteund |Chicago, Silicon Valley, Washington DC |
+| **Console**| Ondersteund | Ondersteund |Silicon Valley |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Ondersteund |Ondersteund |Los Angeles |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Ondersteund |Ondersteund |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, Londen, Los Angeles, Melbourne, New York, Osaka, Parijs+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **euNetworks** |Ondersteund |Ondersteund |Amsterdam |
@@ -148,12 +150,20 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 | **Connectiviteitsprovider** | **Exchange** | **Locaties** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
+| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokio |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londen |
+| **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londen, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
-| **[Macquarie](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
+| **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
+| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Frankfurt |  
+| **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
+| **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
+| **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |Chicago, Silicon Valley, Washington DC |
 | **[XO Communications](http://www.xo.com/)** |Equinix |Silicon Valley |
+| **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
+
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
 Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.
@@ -163,6 +173,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **[Avanade Inc.](http://www.avanade.com/)** |Azië, Europa, VS |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europa |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |VS |
+| **[Nelite](http://nelite.com/)** |Europa |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Azië |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |VS |
 | **[Project Leadership](http://www.projectleadership.net/azure)** |VS |

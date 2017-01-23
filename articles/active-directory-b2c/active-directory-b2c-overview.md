@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 217ffc63e07d66de522accc42c246125d01713c8
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
 
 
 ---
@@ -40,7 +40,7 @@ Kijk regelmatig of er nieuwe informatie is over toekomstige wijzigingen in Azure
 * Huidige [servicebeperkingen en -restricties](active-directory-b2c-limitations.md).
 * Ten slotte een [codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) met gebruik van Azure AD B2C & ASP.NET Core.
 
-## <a name="howto-articles"></a>Artikelen met procedures
+## <a name="how-to-articles"></a>Artikelen met procedures
 Lees meer over het gebruik van specifieke functies van Azure Active Directory B2C:
 
 * Configureer accounts van [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) en [LinkedIn](active-directory-b2c-setup-li-app.md) voor gebruik in uw consumententoepassingen.
@@ -67,6 +67,6 @@ We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsinc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Wat is een netwerkbeveiligingsgroep (NSG)
-description: Meer informatie over de gedistribueerde firewall in Azure met netwerkbeveiligingsgroepen (NSG&quot;s) en hoe u NSGs gebruikt om verkeer binnen uw virtuele netwerken (VNET&quot;S) te isoleren en beheren.
+title: Netwerkbeveiligingsgroepen | Microsoft Docs
+description: Leer hoe u de verkeersstroom binnen uw virtuele netwerken kunt isoleren en beheren met de gedistribueerde firewall in Azure met behulp van netwerkbeveiligingsgroepen.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Wat is een netwerkbeveiligingsgroep (NSG)?
-Een netwerkbeveiligingsgroep (NSG) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer voor uw VM-exemplaren in een virtueel netwerk wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. U kunt het verkeer naar een afzonderlijke VM nog verder beperken door een NSG rechtstreeks aan die VM te koppelen.
+# <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
+
+Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer voor uw VM-exemplaren in een virtueel netwerk wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. U kunt het verkeer naar een afzonderlijke VM nog verder beperken door een NSG rechtstreeks aan die VM te koppelen.
+
+> [!NOTE]
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel komen beide modellen aan de orde, maar u wordt aangeraden voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 
 ## <a name="nsg-resource"></a>NSG-resource
 NSG's bevatten de volgende eigenschappen.
@@ -36,10 +40,9 @@ NSG's bevatten de volgende eigenschappen.
 > [!NOTE]
 > ACL's voor eindpunten en netwerkbeveiligingsgroepen worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Zie voor informatie over hoe u dit doet, [Toegangsbeheerlijsten (ACL's) voor eindpunten beheren met PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>NSG-regels
-NSG-regels bevatten de volgende eigenschappen.
+NSG-regels bevatten de volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
@@ -90,55 +93,41 @@ Zoals u kunt zien in de onderstaande standaardregels, wordt verkeer van of naar 
 ## <a name="associating-nsgs"></a>NSG's koppelen
 U kunt een NSG koppelen aan VM's, NIC's en subnetten, afhankelijk van het implementatiemodel dat u gebruikt.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Een NSG koppelen aan een VM (alleen voor klassieke implementaties).** Als u een NSG aan een VM koppelt, worden de netwerktoegangsregels toegepast op al het binnenkomende en uitgaande verkeer van de VM. 
 * **Een NSG koppelen aan een NIC (alleen voor implementaties van Resource Manager).** Als u een NSG aan een NIC koppelt, worden de netwerktoegangsregels in de NSG alleen toegepast op die NIC. Als u een VM meerdere NIC's hebt en er een NSG wordt toegepast op één NIC, heeft dat geen invloed op verkeer dat is gebonden aan andere NIC's. 
 * **Een NSG koppelen aan een subnet (alle implementaties)**. Als u een NSG aan een subnet koppelt, worden netwerktoegangsregels in de NSG toegepast op alle IaaS- en PaaS-resources in het subnet. 
 
 U kunt verschillende NSG's koppelen aan een VM (of NIC, afhankelijk van het implementatiemodel) en het subnet dat met een NIC of VM is verbonden. In dat geval worden alle netwerktoegangsregels toegepast op het verkeer op basis van prioriteit in elke NSG, in de volgende volgorde:
 
-* **Binnenkomend verkeer**
-  
-  1. NSG die is toegepast op het subnet. 
-     
-     Als er een overeenkomende regel is voor de subnet-NSG om verkeer te weigeren, wordt het pakket hier verwijderd.
-  2. NSG die is toegepast op de NIC (Resource Manager) of VM (klassiek). 
-     
-     Als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket verwijderd bij VM\NIC, hoewel de subnet-NSG een overeenkomende regel heeft om verkeer toe te staan.
-* **Uitgaand verkeer**
-  
-  1. NSG die is toegepast op de NIC (Resource Manager) of VM (klassiek). 
-     
-     Als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket hier verwijderd.
-  2. NSG die is toegepast op het subnet.
-     
-     Als de subnet-NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket hier verwijderd, hoewel VM\NIC NSG een overeenkomende regel heeft om verkeer toe te staan.
-     
-      ![ACL's voor NSG](./media/virtual-network-nsg-overview/figure2.png)
+- **Binnenkomend verkeer**
+
+  1. **NSG die is toegepast op het subnet:** als er een overeenkomende regel is voor de subnet-NSG om verkeer te weigeren, wordt het pakket verwijderd.
+
+  2. **NSG die is toegepast op de NIC** (Resource Manager) of VM (klassiek): als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket verwijderd bij VM\NIC, hoewel de subnet-NSG een overeenkomende regel heeft om verkeer toe te staan.
+
+- **Uitgaand verkeer**
+
+  1. **NSG die is toegepast op het subnet** (Resource Manager) of VM (klassiek): als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket verwijderd.
+
+  2. **NSG die is toegepast op het subnet:** als de subnet-NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket hier verwijderd, hoewel VM\NIC NSG een overeenkomende regel heeft om verkeer toe te staan.
 
 > [!NOTE]
 > U kunt slechts één NSG aan een subnet, VM of NIC koppelen, maar u kunt wel dezelfde NSG aan zo veel resources koppelen als u wilt.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implementatie
 U kunt NSG's implementeren in het klassieke implementatiemodel of het implementatiemodel van Resource Manager met behulp van de hieronder vermelde hulpprogramma's.
 
 | Implementatieprogramma | Klassiek | Resource Manager |
 | --- | --- | --- |
-| Klassieke portal |![Nee](./media/virtual-network-nsg-overview/red.png) |![Nee](./media/virtual-network-nsg-overview/red.png) |
-| Azure Portal |![Ja](./media/virtual-network-nsg-overview/green.png) |[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Yes][green]](virtual-networks-create-nsg-classic-ps.md) |[![Yes][green]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
-| ARM-sjabloon |![Nee](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
-
-| **Sleutel** | ![Ja](./media/virtual-network-nsg-overview/green.png) Ondersteund. | ![Nee](./media/virtual-network-nsg-overview/red.png) Niet ondersteund. |
-| --- | --- | --- |
-|  | | |
+| Klassieke portal | Nee  | Nee |
+| Azure Portal   | Ja | [Ja](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](virtual-networks-create-nsg-arm-cli.md) |
+| ARM-sjabloon   | Nee  | [Ja](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planning
-Voordat u NSG's implementeert, moet u de onderstaande vragen beantwoorden:    
+Voordat u NSG's implementeert, moet u de volgende vragen beantwoorden:
 
 1. Van welke typen resources wilt u het binnenkomende of uitgaande verkeer filteren (NIC's in dezelfde VM, VM's of andere resources zoals cloudservices of toepassingsserviceomgevingen die zijn verbonden met hetzelfde subnet, of tussen resources die zijn verbonden met verschillende subnetten)?
 2. Zijn de resources waarvan u het binnenkomende/uitgaande verkeer wilt filteren verbonden met subnetten in bestaande VNET'S of worden ze verbonden met nieuwe VNs of subnetten?
@@ -270,12 +259,8 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 * [NSG's implementeren in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG-logboeken beheren](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
-[geel]: ./media/virtual-network-nsg-overview/yellow.png
-[rood]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

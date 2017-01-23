@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: dca0fb0b2de4943b9a031d2759756654a0c7280f
-ms.openlocfilehash: 6a72b28f95338ebe04e764d7f83e8db3e3e91b78
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
 
 ---
-#<a name="vpn-gateway-documentation"></a>VPN-gatewaydocumentatie
+#<a name="vpn-gateway-documentation"></a>VPN Gateway-documentatie
 
 Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties en tussen virtuele netwerken in Azure (VNet-naar-VNet).  
 
@@ -75,7 +75,7 @@ Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt v
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een site-naar-site-verbinding maken met de Azure-portal</h3>
+                        <h3>Een site-naar-site-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt v
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een punt-naar-site-verbinding maken met de Azure-portal</h3>
+                        <h3>Een punt-naar-site-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt v
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een VNet-naar-VNet-verbinding maken met de Azure-portal</h3>
+                        <h3>Een VNet-naar-VNet-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -122,78 +122,33 @@ Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt v
  
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-referentie</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (klassiek)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>VPN Gateway met Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie over .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Naslaginformatie over de Java-SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API van VPN Gateway</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (klassiek)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +162,6 @@ Documentatie over Azure VPN Gateway downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
