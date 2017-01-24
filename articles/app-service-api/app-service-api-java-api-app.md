@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: rachelap;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
 
 
 ---
@@ -168,13 +168,11 @@ In deze sectie vervangt u de serverimplementatie van de met Swagger gegenereerde
         package io.swagger.api.impl;
    
         import io.swagger.api.*;
-        import io.swagger.model.*;
+        
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-        import java.io.InputStream;
-        import com.sun.jersey.core.header.FormDataContentDisposition;
-        import com.sun.jersey.multipart.FormDataParam;
+               
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
    
@@ -271,7 +269,7 @@ In deze sectie vindt u meer informatie over het maken van een nieuwe API-app met
     ![Java REST API voor contactpersonen live in Azure gebruiken][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel bent u met een Swagger JSON-bestand begonnen en hebt u wat ondersteunde Java-code opgehaald uit de editor Swagger.io. Van daaruit hebben eenvoudige wijzigingen en een Git-implementatieproces geleid tot een functionele API-app, geschreven in Java. In de volgende zelfstudie ziet u hoe u [API-apps met behulp van CORS kunt gebruiken vanuit JavaScript-clients][CORS voor API in App Service]. In latere zelfstudies in de reeks ziet u hoe u verificatie en autorisatie kunt implementeren.
+In dit artikel bent u met een Swagger JSON-bestand begonnen en hebt u wat ondersteunde Java-code opgehaald uit de editor Swagger.io. Van daaruit hebben eenvoudige wijzigingen en een Git-implementatieproces geleid tot een functionele API-app, geschreven in Java. In de volgende zelfstudie ziet u hoe u [API-apps met behulp van CORS kunt gebruiken vanuit JavaScript-clients][App Service API CORS]. In latere zelfstudies in de reeks ziet u hoe u verificatie en autorisatie kunt implementeren.
 
 Om voort te bouwen op dit voorbeeld, kunt u meer lezen over de [opslag-SDK voor Java] voor het persistent maken van de JSON-blobs. U kunt ook gebruikmaken van [Java SDK voor DocumentDB] om uw contactpersoonsgegevens op te slaan in Azure DocumentDB. 
 
@@ -282,7 +280,7 @@ In het [Azure Java Developer Center] vindt u meer informatie over het gebruik va
 
 <!-- URL List -->
 
-[CORS voor API in App Service]: app-service-api-cors-consume-javascript.md
+[App Service API CORS]: app-service-api-cors-consume-javascript.md
 [Azure Portal]: https://portal.azure.com/
 [Java SDK voor DocumentDB]: ../documentdb/documentdb-java-application.md
 [gratis]: https://azure.microsoft.com/pricing/free-trial/
@@ -319,6 +317,6 @@ In het [Azure Java Developer Center] vindt u meer informatie over het gebruik va
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

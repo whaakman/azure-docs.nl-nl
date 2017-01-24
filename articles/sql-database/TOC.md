@@ -21,7 +21,8 @@
 ## [Snel starten van oplossing](sql-database-solution-quick-starts.md)
 ## Beveiliging
 ### [Azure Security Center voor Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-### [SQL-beveiligingscentrum](https://msdn.microsoft.com/library/azure/bb510589)
+### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Aan de slag
 ## Databases en servers
 ### Individuele databases
@@ -46,7 +47,7 @@
 ##### [Elastisch schalen](sql-database-elastic-scale-get-started.md)
 ##### [Schaalbare clouddatabases bouwen](sql-database-elastic-database-client-library.md)
 ##### [Databaseoverschrijdende taken](sql-database-elastic-jobs-overview.md)
-##### [Veelgestelde vragen over Elastic-hulpprogramma’s](sql-database-elastic-scale-faq.md)
+##### [Veelgestelde vragen over Elastic-hulpprogramma's](sql-database-elastic-scale-faq.md)
 ##### [Woordenlijst voor hulpprogramma's voor Elastic Database](sql-database-elastic-scale-glossary.md)
 ##### [Gegevens verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
 #### Wel doen
@@ -189,6 +190,7 @@
 #### [Upgraden via Azure Portal](sql-database-upgrade-server-portal.md)
 #### [Upgraden met PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Aanbevelingen voor prijscategorieën](sql-database-service-tier-advisor.md)
+
 # Procedures
 ## Maken en beheren
 ### Servers en databases
@@ -249,7 +251,7 @@
 ## Controleren en afstemmen
 ### [Inzicht in queryprestaties](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
-### [DMV’s](sql-database-monitoring-with-dmvs.md)
+### [DMV's](sql-database-monitoring-with-dmvs.md)
 ### [Compatibiliteitsniveaus](sql-database-compatibility-level-query-performance-130.md)
 ### [Prestatiemeteritems voor shard-toewijzingsbeheer](sql-database-elastic-database-perf-counters.md)
 ### [Tips voor het afstemmen van prestaties](sql-database-troubleshoot-performance.md)
@@ -285,12 +287,12 @@
 #### [SQL Package-hulpprogramma](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 ### [Laden uit CSV-bestand met BCP](sql-database-load-from-csv-with-bcp.md)
 ### [Gegevens verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
-## Query’s uitvoeren
+## Query's uitvoeren
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
 ### [Multishard-query's uitvoeren](sql-database-elastic-scale-multishard-querying.md)
-### Query’s tussen databases
+### Query's tussen databases
 #### [Overzicht](sql-database-elastic-query-overview.md)
-#### [Databaseoverschrijdende query’s uitvoeren op basis van verschillende schema's](sql-database-elastic-query-vertical-partitioning.md)
+#### [Databaseoverschrijdende query's uitvoeren op basis van verschillende schema's](sql-database-elastic-query-vertical-partitioning.md)
 #### [Databaseoverschrijdende rapportage](sql-database-elastic-query-horizontal-partitioning.md)
 #### [Over clouddatabases gedistribueerde transacties](sql-database-elastic-transactions-overview.md)
 ## Herstellen
@@ -315,7 +317,6 @@
 #### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Problemen oplossen
 ### [Verbindingsproblemen](sql-database-troubleshoot-common-connection-issues.md)
 ### [Tijdelijke verbindingsfout](sql-database-troubleshoot-connection.md)
@@ -325,28 +326,28 @@
 
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell klassiek](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (elastische database)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https:dotnet/api/microsoft.azure.management.sql.models)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database-cmdlets](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server-cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Verwant
 ## SQL Database-beheerbibliotheek
-### [Naslaginformatie SQL Database-beheerbibliotheek](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Het pakket met de SQL Database-beheerbibliotheek downloaden](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server-stuurprogramma's](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
-### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
 
-# Bronnen
+### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
+
+
+# Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/sql-database/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
-ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 Resources voor **Microsoft Power BI Embedded** worden ingericht via [Azure ARM-API's](https://msdn.microsoft.com/library/mt712306.aspx). In dit geval is de resource die u inricht een **Power BI-werkruimteverzameling**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Een werkruimteverzameling maken
 Een **werkruimteverzameling** is een Azure-resource op het hoogste niveau en een container voor de inhoud die wordt ingesloten in uw toepassing. U kunt op twee manieren een **werkruimteverzameling** maken:
@@ -39,16 +39,16 @@ Hier volgen de stappen voor het bouwen van een **werkruimteverzameling** met beh
 1. Open de **Azure-portal**: [http://portal.azure.com](http://portal.azure.com) en meld u aan.
 2. Klik op **+ Nieuw** boven in het venster.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Klik onder **Gegevens en analyse** op **Power BI Embedded**.
 4. Voer op de **blade Maken** de vereiste gegevens in. Informatie over **prijzen** vindt in [Prijzen van Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klik op **Maken**.
 
 Het duurt even voordat de **werkruimteverzameling** is ingericht. Wanneer dit is voltooid, wordt u naar de blade **Workspace Collection Blade** (Werkruimteverzameling) gebracht.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 De **Creation Blade** (Blade Maken) bevat de informatie die u nodig hebt om de API's aan te roepen die werkruimten maken en om hierin inhoud te implementeren.
 
@@ -57,11 +57,11 @@ De **Creation Blade** (Blade Maken) bevat de informatie die u nodig hebt om de A
 ## <a name="view-power-bi-api-access-keys"></a>Toegangssleutels voor Power BI API
 Een van de belangrijkste stukjes informatie die nodig zijn om Power BI REST API's aan te roepen, zijn de **toegangssleutels**. Deze worden gebruikt voor het genereren van de **app-tokens** die worden gebruikt om uw API-aanvragen te verifiëren. U geeft uw **toegangssleutels** weer door te klikken op **Toegangssleutels** op de **blade Instellingen**. Voor meer informatie over **app-tokens** verwijzen wij u naar [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md) (Verifiëren en autoriseren met Power BI Embedded).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 U ziet dat u twee sleutels hebt.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Kopieer deze sleutels en sla ze veilig op in uw toepassing. Het is belangrijk dat u deze sleutels net zo behandelt als wachtwoorden, omdat deze toegang bieden tot de inhoud in uw **werkruimteverzameling**.
 

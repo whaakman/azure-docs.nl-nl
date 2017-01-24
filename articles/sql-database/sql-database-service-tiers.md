@@ -70,7 +70,7 @@ In pools kunnen databases eDTU-resources delen en verbruiken zonder dat er aan e
 
 In de volgende tabel vindt u een beschrijving van de kenmerken van de servicelagen van de pool.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 Elke database in een pool heeft dezelfde kenmerken als die van een enkele database voor deze laag. Zo heeft de Basic-pool een limiet voor het maximumaantal sessies per pool van 4800 tot 28800, maar één database binnen die Basic-pool heeft een databaselimiet van 300 sessies.
 

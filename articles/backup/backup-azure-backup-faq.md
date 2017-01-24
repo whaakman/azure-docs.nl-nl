@@ -1,3 +1,4 @@
+
 ---
 title: Veelgestelde vragen over Azure Backup | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over de Backup-service, Backup-agent, het maken van back-ups en de retentie, het herstel, de beveiliging en andere veelgestelde vragen over het terugzetten van een back-up en herstel na noodgeval.
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-
 | Windows 7 en de meest recente SP's |64 bits |Ultimate, Enterprise, Professional, Home Premium Home Basic, Starter |
 | Windows 8.1 en de meest recente SP's |64 bits |Enterprise, Pro |
 | Windows 10 |64 bits |Enterprise, Pro, Home |
+| Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 en de meest recente SP's |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 en de meest recente SP's |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 en de meest recente SP's |64 bits |Standard, Workgroup |
@@ -172,7 +174,7 @@ Ja. Als u DPM gebruikt, kunt u een dagelijkse, wekelijkse, maandelijkse en jaarl
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>Is er een verschil tussen het bewaarbeleid voor DPM en Windows Server of de Windows-client (dat wil zeggen op Windows Server zonder DPM)?<br/>
 Nee, u kunt zowel voor DPM als voor Windows Server of de Windows-client een dagelijks, wekelijks, maandelijks en jaarlijks bewaarbeleid instellen.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan ik mijn bewaarbeleidsregels selectief configureren, oftewel wekelijks en dagelijks configureren, maar niet jaarlijks en maandelijks?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan ik mijn bewaarbeleidsregels selectief configureren, oftewel wekelijks en dagelijks configureren, maar niet jaarlijks en maandelijks?<br/>
 Ja, de bewaarstructuur van Azure Backup biedt u de volledige flexibiliteit om het bewaarbeleid te configureren overeenkomstig uw vereisten.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Kan ik 'een back-up plannen' om 18:00 uur en voor de 'bewaarbeleidsregels' een ander tijdstip opgeven?<br/>
@@ -275,6 +277,6 @@ Herstelpunten van klassieke virtuele machines in een back-upkluis worden niet au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

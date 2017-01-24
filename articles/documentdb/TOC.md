@@ -3,7 +3,7 @@
 ## [Basisconcepten](documentdb-resources.md)
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
 ## Scenario's
-### [Algemene scenario’s](documentdb-use-cases.md)
+### [Algemene scenario's](documentdb-use-cases.md)
 ### [Socialiseren met DocumentDB](documentdb-social-media-apps.md)
 
 # Aan de slag
@@ -18,6 +18,7 @@
 ### [Java-web-app](documentdb-java-application.md)
 ### [Python Flask web-app](documentdb-python-application.md)
 ## [Lokaal ontwikkelen](documentdb-nosql-local-emulator.md)
+### [Emulatorcertificaten exporteren](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [Veelgestelde vragen](documentdb-faq.md)
 
 # Procedures
@@ -41,13 +42,17 @@
 ### [Resourcequota](documentdb-limits.md)
 ### [Quota verhogen](documentdb-increase-limits.md)
 ### [Aanvraageenheden](documentdb-request-units.md)
-### [Azure-CLI en Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Een account maken](documentdb-automation-resource-manager-cli.md)
+#### [Regio's toevoegen of verwijderen](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewallondersteuning](documentdb-firewall-support.md)
 ### [Geef een boost uw account](documentdb-supercharge-your-account.md)
 
 ## Ontwikkelen
 ### [SQL-query](documentdb-sql-query.md)
 ### [Opgeslagen procedures, triggers en UDF's](documentdb-programming.md)
+### [Wijzigingen bijhouden met een wijzigingsfeed](documentdb-change-feed.md)
 ### [Prestaties testen](documentdb-performance-testing.md)
 ### [Tips voor prestaties](documentdb-performance-tips.md)
 ### DocumentDB voor MongoDB-ontwikkelaars
@@ -71,30 +76,32 @@
 
 ## Integreren
 ### [Een website implementeren met Azure App Service](documentdb-create-documentdb-website.md)
-### [Toepassingslogboeken bijhouden met Logische apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Toepassingslogboeken bijhouden met Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
 ### [Verbinden aan Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Gegevens analyseren met Hadoop](documentdb-run-hadoop-with-hdinsight.md)
 ### [Integreren met Azure Search](documentdb-search-indexer.md)
 ### [Gegevens verplaatsen met Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Realtime gegevens analyseren met Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Meldingen ontvangen met Logische apps](documentdb-change-notification.md)
+### [Meldingen ontvangen met Logic Apps](documentdb-change-notification.md)
 ### [Sensorgegevens in realtime verwerken](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Uw gegevens visualiseren met Power BI](documentdb-powerbi-visualize.md)
 
 
 # Naslaginformatie
-## [Java-SDK](documentdb-sdk-java.md)
-## [.NET-SDK](documentdb-sdk-dotnet.md)
-## [.NET Core-SDK](documentdb-sdk-dotnet-core.md)
-## [.NET-voorbeelden](documentdb-dotnet-samples.md)
-## [Node.js-SDK](documentdb-sdk-node.md)
-## [Node.js-voorbeelden](documentdb-nodejs-samples.md)
-## [Python-SDK](documentdb-sdk-python.md)
-## [Voorbeelden van Python](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Overzichtskaart van SQL-grammatica](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [REST-resourceprovider](/rest/api/documentdbresourceprovider/)
+
+# Verwant
+## [.NET-voorbeelden](documentdb-dotnet-samples.md)
+## [Node.js-voorbeelden](documentdb-nodejs-samples.md)
+## [Voorbeelden van Python](documentdb-python-samples.md)
+## [SQL-syntaxis](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Overzichtskaart van SQL-grammatica](documentdb-sql-query-cheat-sheet.md)
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +117,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

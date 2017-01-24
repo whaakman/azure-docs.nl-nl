@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
+ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
+ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
 
 
 ---
@@ -40,7 +40,7 @@ Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbindin
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |
+| **.NET Framework** |x |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Open protocol op basis van standaarden** | |x |
@@ -55,7 +55,7 @@ De functie [Hybride verbindingen van Azure Relay](relay-hybrid-connections-proto
 De WCF-Relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud.
 
 ## <a name="service-history"></a>Servicegeschiedenis
-De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan voorlopig naast elkaar in de Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan voorlopig naast elkaar in de Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
 
 ## <a name="next-steps"></a>Volgende stappen:
 * [Veelgestelde vragen over Relay](relay-faq.md)
@@ -66,6 +66,6 @@ De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk, die
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

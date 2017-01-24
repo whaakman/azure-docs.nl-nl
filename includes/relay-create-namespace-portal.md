@@ -21,7 +21,7 @@
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
-[verbinding-gegevens]: ./media/relay-create-namespace-portal/connection-info.png
+[connection-info]: ./media/relay-create-namespace-portal/connection-info.png
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

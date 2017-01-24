@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -47,7 +47,7 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 | *Edm.DateTimeOffset* |Datum- en tijdwaarden die worden weergegeven in de OData-V4-indeling (bijvoorbeeld `yyyy-MM-ddTHH:mm:ss.fffZ` of `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Een punt voor een geografische locatie op de wereld. |
 
-U vindt meer gedetailleerde informatie over ondersteunde Azure-Search[-gegevenstypen op MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
+Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Veldkenmerken
 | Kenmerk | Beschrijving |
@@ -59,16 +59,16 @@ U vindt meer gedetailleerde informatie over ondersteunde Azure-Search[-gegevenst
 | *Facetten mogelijk* |Hiermee kunt u een veld gebruiken in een [meervoudige navigatie](search-faceted-navigation.md)structuur om op de gebruiker te filteren. Doorgaans werken velden met terugkerende waarden die u kunt gebruiken om meerdere documenten te groeperen (bijvoorbeeld meerdere documenten die in een bepaalde merk- of servicecategorie vallen) het beste als facetten. |
 | *Doorzoekbaar* |Hiermee kunt u in dit veld in de volledige tekst zoeken. |
 
-U vindt meer gedetailleerde informatie over Azure-Search[-indexkenmerken op MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Gedetailleerdere informatie over ondersteunde Azure-Search[-indexkenmerken vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Richtlijnen voor het definiëren van een indexschema
-Bij het ontwerpen van uw index moet u in de planningsfase de tijd nemen om elke beslissing goed te overwegen. Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://msdn.microsoft.com/library/azure/dn798941.aspx) moeten worden toegewezen. Als u een index wilt wijzigen nadat deze is geïmplementeerd, moet u de gegevens opnieuw opbouwen en laden.
+Bij het ontwerpen van uw index moet u in de planningsfase de tijd nemen om elke beslissing goed te overwegen. Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://docs.microsoft.com/rest/api/searchservice/Create-Index) moeten worden toegewezen. Als u een index wilt wijzigen nadat deze is geïmplementeerd, moet u de gegevens opnieuw opbouwen en laden.
 
 Als u de vereisten voor gegevensopslag wilt wijzigen, kunt u de capaciteit vergroten of verkleinen door partities toe te voegen of te verwijderen. Zie[Uw zoekservice in Azure beheren](search-manage.md) of [Servicelimieten](search-limits-quotas-capacity.md) voor meer informatie.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

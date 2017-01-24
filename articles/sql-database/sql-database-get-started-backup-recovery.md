@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ In deze aan de slag-zelfstudie leert u hoe u Azure Portal kunt gebruiken voor he
 
 * U hebt de zelfstudie [Aan de slag met Azure SQL Database-servers, -databases en -firewallregels met behulp van Azure Portal en SQL Server Management Studio](sql-database-get-started.md) of de equivalente [PowerShell-versie](sql-database-get-started-powershell.md) van deze zelfstudie voltooid. Als u dit niet hebt gedaan, voltooit u eerst deze vereiste zelfstudie of voert u het PowerShell-script aan het einde van de [PowerShell-versie](sql-database-get-started-powershell.md) van deze zelfstudie uit voordat u doorgaat.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> U kunt dezelfde taken uitvoeren in een 'Aan de slag'-zelfstudie met [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Aanmelden met uw bestaande account
 Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) en volg deze stappen om verbinding te maken met Azure Portal.
@@ -179,6 +178,11 @@ In deze sectie van de zelfstudie herstelt u de database naar een nieuwe database
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Langetermijnretentie van automatische back-ups configureren in een Azure Recovery Services-kluis 
 
 In deze sectie van de zelfstudie configureert u [een Azure Recovery Services-kluis voor de retentie van automatische back-ups](sql-database-long-term-retention.md) gedurende een periode die langer is dan de retentietermijn van uw servicecategorie. 
+
+
+> [!TIP]
+> Zie [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Back-ups voor langetermijnretentie verwijderen) als u back-ups wilt verwijderen.
+
 
 1. Open de **SQL Server**-blade voor uw server, **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ In deze sectie van de zelfstudie herstelt u de database naar een nieuwe database
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [automatische back-ups](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD) voor meer informatie over door de service gegenereerde automatische back-ups.
+- Zie [Automatic backups](sql-database-automated-backups.md) (Automatische back-ups) voor meer informatie over door de service gegenereerde automatische back-ups.
 - Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie over back-ups met langetermijnretentie.
 - Zie [Herstellen vanuit back-up](sql-database-recovery-using-backups.md) voor meer informatie over het herstellen van back-ups.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

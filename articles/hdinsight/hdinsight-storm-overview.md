@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ Apache Storm op HDInsight is een beheerd cluster dat is geïntegreerd in de Azur
   * Ondersteunt verschillende programmeertalen: gegevens lezen met Java en vervolgens verwerken met C.#
     
     > [!NOTE]
-    > C#-topologieën worden alleen ondersteund op HDInsight-clusters die zijn gebaseerd op Windows.
+    > Als u een C#-topologie met een cluster op basis van Linux wilt gebruiken, dient u het NuGet-pakket Microsoft.SCP.Net.SDK dat wordt gebruikt door uw project bij te werken naar versie 0.10.0.6 of hoger. De versie van het pakket moet ook overeenkomen met de primaire versie van Storm die op HDInsight is geïnstalleerd. HDInsight-versies 3.3 en 3.4 gebruiken bijvoorbeeld Storm-versie 0.10.x en HDInsight 3.5 gebruikt Storm 1.0.x.
     > 
+    > C#-topologieën met op Linux gebaseerde clusters moeten .NET 4.5 en Mono gebruiken om op het HDInsight-cluster te worden uitgevoerd. De meeste functies zullen werken, maar u kunt het document over [Mono-compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) raadplegen voor mogelijke compatibiliteitsproblemen.
     > 
   * Gebruik de **Trident** Java-interface om Storm-topologieën te maken die ondersteuning bieden voor een eenmalige verwerking van berichten, transactionele DataStore-persistentie en een aantal algemene Stream Analytics-bewerkingen.
 * Bevat ingebouwde functies voor het aanpassen van de schaal: een HDInsight-cluster schalen zonder gevolgen voor de actieve Storm-topologieën.
@@ -206,6 +207,6 @@ Meer informatie over realtime analyseoplossingen met Apache Storm in HDInsight:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

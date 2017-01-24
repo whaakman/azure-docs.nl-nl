@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Er zijn echter enkele dingen die u moet begrijpen en waarmee u rekening moet hou
 In deze sectie voert u de volgende stappen uit om vanuit Azure Portal een nieuw Azure Automation-account te maken.  Hiermee wordt zowel het Uitvoeren als- als het klassieke Uitvoeren als-account gemaakt.  
 
 > [!NOTE]
-> De gebruiker die deze stappen uitvoert, *moet* lid zijn van de rol Abonnementsbeheerders en medebeheerder zijn van het abonnement dat toegang verleent tot het abonnement voor de gebruiker.  De gebruiker moet ook als gebruiker worden toegevoegd aan de standaard Active Directory van dat abonnement. Het account hoeft niet te worden toegewezen aan een bevoorrechte rol.
+> De gebruiker die deze stappen uitvoert, moet lid zijn van de rol Servicebeheerders of co-beheerder zijn van het abonnement dat de gebruiker toegang verleent tot het abonnement. De gebruiker moet ook als gebruiker worden toegevoegd aan de standaard Active Directory van dat abonnement. Het account hoeft niet te worden toegewezen aan een bevoorrechte rol. Gebruikers die, voordat ze worden toegevoegd aan de rol Co-beheerder van het abonnement, geen lid zijn van de Active Directory van dit abonnement, worden als gast toegevoegd aan Active Directory. De waarschuwing 'U bent niet gemachtigd om te maken...' wordt dan weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol Co-beheerder, kunnen worden verwijderd uit de Active Directory van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. Deze situatie kan worden gecontroleerd in het deelvenster **Azure Active Directory** in Azure Portal door **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, selecteer de specifieke gebruiker en daarna **Profiel**.  De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.  
 > 
 > 
 
@@ -394,6 +394,6 @@ U kunt de bijgewerkte voorbeeldcode hieronder, die is overgenomen uit het voorbe
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

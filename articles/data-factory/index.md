@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 627543dce9888903254875eab218d33029000088
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
 
 ---
 # <a name="azure-data-factory-documentation"></a>Documentatie voor Azure Data Factory
@@ -86,52 +86,44 @@ Azure Data Factory is een cloudgebaseerde service voor gegevensintegratie waarme
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Naslaginformatie over Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie over Data Factory</p>
-                    </div>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Naslaginformatie voor Azure Data Factory-ontwikkelaars</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/datafactory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Data Factory</p>
+                        <p><a href="/rest/api/datafactory/">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -147,6 +139,6 @@ Documentatie over Data Factory downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

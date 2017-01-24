@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
-ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java-SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
+> * [Azure-CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -62,7 +62,7 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
       * `Microsoft.Azure.Management.DataLake.StoreUploader`: in deze zelfstudie wordt gebruikgemaakt van v0.10.6-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.8-preview.
         
-        ![Een Nuget-bron toevoegen](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
+        ![Een Nuget-bron toevoegen](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **Nuget Package Manager**.
 6. Open **Program.cs**, verwijder de bestaande code en neem de volgende instructies op om verwijzingen naar naamruimten toe te voegen.
    
@@ -126,7 +126,7 @@ Een aantal dingen die u moet weten over het bovenstaande fragment.
 > 
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
-U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
+U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -138,7 +138,7 @@ U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
-Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../resource-group-create-service-principal-portal.md).
+Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -261,6 +261,6 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

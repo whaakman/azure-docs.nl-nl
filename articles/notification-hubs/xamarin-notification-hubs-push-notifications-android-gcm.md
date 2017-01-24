@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+ms.sourcegitcommit: cafe4f2d9ae9a79fd2e27b8734bda43bb774eeb2
+ms.openlocfilehash: e0ef1b006a2b202c08a71caaff4ef4d763d50d0a
 
 
 ---
@@ -68,10 +68,11 @@ De Notification Hub is nu geconfigureerd om te werken met GCM en u hebt de verbi
 ### <a name="create-a-new-project"></a>Een nieuw project maken
 1. Klik in Xamarin Studio op **Nieuwe oplossing**, klik op **Android-app** en klik op **Volgende**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. Voer uw **appnaam** en **id** in. Klik op de **doelplatforms** die u wilt ondersteunen en klik vervolgens op **Volgende** en **Maken**.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     Hierop wordt een nieuw Android-project gemaakt.
 
@@ -84,7 +85,7 @@ De Notification Hub is nu geconfigureerd om te werken met GCM en u hebt de verbi
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. U kunt **Minimumversie van Android** desgewenst instellen op een ander API-niveau.
 3. Ook kunt u **Doelversie van Android** instellen op een andere API-versie waarvoor u wilt ontwikkelen (dit moet een API-niveau 8 of hoger zijn).
 
@@ -343,10 +344,10 @@ Als u deze app in de emulator uitvoert, gebruikt u een Android Virtual Device (A
 
 1. Klik in **Extra** op **Android Emulator Manager openen**, selecteer uw apparaat en klik vervolgens op **Bewerken**.
    
-       ![][18]
+      ![][18]
 2. Selecteer **Google API's** in **Doel** en klik vervolgens op **OK**.
    
-       ![][19]
+      ![][19]
 3. Klik op de werkbalk aan de bovenkant op **Uitvoeren** en selecteer vervolgens uw app. Hiermee start u de emulator en voert u de app uit.
    
    De app haalt de *registrationId* op uit GCM en wordt geregistreerd bij de Notification Hub.
@@ -371,7 +372,7 @@ In deze sectie worden meldingen verzonden met een .NET-console-app.
 
 1. Maak een nieuwe Visual C#-consoletoepassing:
    
-       ![][20]
+      ![][20]
 2. Klik in Visual Studio achtereenvolgens op **Extra**, **NuGet Package Manager** en **Package Manager-console**.
    
     Hiermee wordt de Package Manager-console in Visual Studio weergegeven.
@@ -398,17 +399,17 @@ In deze sectie worden meldingen verzonden met een .NET-console-app.
          Console.ReadLine();
 7. Druk op de toets F5 om de app uit te voeren. U ontvangt een melding in de app.
    
-       ![][21]
+      ![][21]
 
 #### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(Optioneel) Meldingen verzenden met een mobiele service
 1. Volg [Aan de slag met Mobile Services].
 2. Meld u aan bij de [klassieke Azure Portal] en selecteer uw mobiele service.
 3. Selecteer het tabblad **Scheduler** aan de bovenkant.
    
-       ![][22]
+      ![][22]
 4. Maak een nieuwe geplande taak, voeg een naam in en selecteer **Op aanvraag**.
    
-       ![][23]
+      ![][23]
 5. Wanneer de taak is gemaakt, klikt u op de taaknaam. Klik vervolgens op het tabblad **Script** op de bovenste balk.
 6. Voeg het volgende script in de plannerfunctie in. Zorg ervoor dat de tijdelijke aanduidingen worden vervangen door de Notification Hub-naam en de verbindingsreeks voor *DefaultFullSharedAccessSignature* die u eerder hebt verkregen. Klik op **Opslaan**.
    
@@ -432,12 +433,12 @@ In deze sectie worden meldingen verzonden met een .NET-console-app.
 In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Android-apparaten. Als u zich op specifieke gebruikers wilt richten, raadpleegt u de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]. Als u gebruikers wilt indelen op belangengroepen, raadpleegt u [Notification Hubs gebruiken om belangrijk nieuws te verzenden]. Lees meer over het gebruik van Notification Hubs in [Richtlijnen voor Notification Hubs] en in [Notification Hubs-procedure voor Android].
 
 <!-- Anchors. -->
-[Google Cloud Messaging inschakelen]: #register
-[Uw Notification Hub configureren]: #configure-hub
-[Uw app verbinden met de Notification Hub]: #connecting-app
-[Uw app uitvoeren met de emulator]: #run-app
-[Meldingen verzenden vanuit uw back-end]: #send
-[Volgende stappen]:#next-steps
+[Enable Google Cloud Messaging]: #register
+[Configure your Notification Hub]: #configure-hub
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next steps]:#next-steps
 
 <!-- Images. -->
 
@@ -458,27 +459,27 @@ In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Android-appa
 
 
 <!-- URLs. -->
-[Een app-pagina verzenden]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mijn toepassingen]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK voor Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Aan de slag met Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript en HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [klassieke Azure Portal]: https://manage.windowsazure.com/
-[wns-object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs-procedure voor Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: /manage/services/notification-hubs/notify-users-aspnet
 [Notification Hubs gebruiken om belangrijk nieuws te verzenden]: /manage/services/notification-hubs/breaking-news-dotnet
-[Pagina GCMClient-onderdeel]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub-pagina]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Google Cloud Messaging-clientonderdeel]: http://components.xamarin.com/view/GCMClient/
 [Azure Messaging-onderdeel]: http://components.xamarin.com/view/azure-messaging
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

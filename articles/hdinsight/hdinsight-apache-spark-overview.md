@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 Wanneer u in HDInsight een Spark-cluster maakt, maakt u rekenresources in Azure, waarbij Spark is geïnstalleerd en geconfigureerd. Het maken van een Spark-cluster in HDInsight duurt niet meer dan ongeveer tien minuten. De gegevens die moeten worden verwerkt, worden opgeslagen in Azure Blob Storage. Zie [Azure Blob Storage gebruiken met HDInsight][hdinsight-storage].
 
-![Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark in Azure HDInsight")
 
 **Wilt u aan de slag met Apache Spark in Azure HDInsight?** Zie [Snelstartgids: een Spark-cluster maken in HDInsight Linux en voorbeeldtoepassingen uitvoeren met Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,7 +43,7 @@ Azure HDInsight biedt een volledig beheerde Spark-service. Voordelen van het geb
 | Het gemak van het maken van clusters |U kunt binnen enkele minuten een nieuw Spark-cluster in HDInsight maken met de Azure-beheerportal, Azure PowerShell of de HDInsight-SDK voor .NET. Zie [Aan de slag met Spark-clusters in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Gebruiksgemak |Spark-clusters in HDInsight bevatten vooraf geconfigureerde Jupyter-notebooks. U kunt deze voor de interactieve gegevensverwerking en -visualisatie gebruiken. De URL voor Jupyter Notebook is https://CLUSTERNAME.azurehdinsight.net/jupyter. Vervang **CLUSTERNAAM** door de naam van uw Spark HDInsight-cluster. |
 | REST-API’s |Spark in HDInsight omvat [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), een Spark-taakserver op basis van een REST-API om op afstand taken in te dienen en taken die worden uitgevoerd, te controleren. |
-| Ondersteuning voor Azure Data Lake Store |Spark in HDInsight kan worden geconfigureerd voor het gebruik van Azure Data Lake Store als extra opslag. Zie [Overzicht van Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) voor meer informatie over Data Lake Store. |
+| Ondersteuning voor Azure Data Lake Store |Spark in HDInsight kan worden geconfigureerd voor het gebruik van Azure Data Lake Store als extra opslag en als primaire opslag (alleen met HDInsight 3.5-clusters). Zie [Overzicht van Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) voor meer informatie over Data Lake Store. |
 | Integratie met Azure-services |Spark in HDInsight wordt geleverd met een connector voor Azure Event Hubs. Met behulp van de Event Hubs kunnen klanten ook andere streamingtoepassingen bouwen, naast [Kafka](http://kafka.apache.org/), dat al beschikbaar is als onderdeel van Spark. |
 | Ondersteuning voor R Server |U kunt in een HDInsight Spark-cluster een R Server instellen voor het uitvoeren van gedistribueerde R-berekeningen met de snelheden die worden toegezegd voor een Spark-cluster. Zie [Aan de slag met R Server in HDInsight](hdinsight-hadoop-r-server-get-started.md) voor meer informatie. |
 | Integratie met IntelliJ IDEA |U kunt de HDInsight-invoegtoepassing voor IntelliJ gebruiken voor het maken en verzenden van toepassingen naar een HDInsight Spark-cluster. Zie voor meer informatie [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark-toepassingen te maken voor een HDInsight Spark Linux-cluster](hdinsight-apache-spark-intellij-tool-plugin.md). |
@@ -115,6 +115,6 @@ Begin met het maken van een Spark-cluster in HDInsight Linux. Zie [Snelstartgids
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Hadoop - Wat is Hadoop op HDInsight? | Microsoft Docs
-description: Een inleiding tot Hadoop, gedistribueerde verwerking en analyse van big data en de onderdelen van het Hadoop-ecosysteem in de cloud op HDInsight.
+title: Wat is Hadoop? Inleiding tot Azure HDInsight | Microsoft Docs
+description: Een inleiding tot het ecosysteem en de onderdelen van Hadoop in HDInsight. HDInsight omvat Hadoop Spark, HBase en meer voor de verwerking en analyse van big data.
 keywords: big data-analyse, inleiding tot hadoop, wat is hadoop, hadoop-technologiestack, hadoop-ecosysteem
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 12/14/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
+ms.sourcegitcommit: 10d684bd6c9408f2fbd48a0a8804b011f098d71c
+ms.openlocfilehash: 8f38b9eaf8bcb498a7983756cbf57f3e372d7fe0
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
  Dit artikel bevat een inleiding tot Hadoop op Azure HDInsight en het ecosysteem en de big data van Hadoop. Lees meer over de Hadoop-onderdelen, algemene concepten en scenario's voor big data-analyse.
 
 ## <a name="what-is-hadoop-on-hdinsight"></a>Wat is Hadoop op HDInsight?
-Hadoop verwijst naar een ecosysteem van open-source-software dat een raamwerk biedt voor gedistribueerde verwerking, opslag en analyse van big data-sets op clusters van computers. Azure HDInsight maakt Hadoop-onderdelen uit het **HDP-distributie (Hortonworks Data Platform)** beschikbaar in de cloud en implementeert beheerde clusters met hoge betrouwbaarheid en beschikbaarheid en richt deze in.  
+Hadoop verwijst naar een ecosysteem van open-source-software dat een raamwerk biedt voor gedistribueerde verwerking, opslag en analyse van big data-sets op clusters van computers. Azure HDInsight maakt Hadoop-onderdelen uit het **HDP-distributie (Hortonworks Data Platform)** beschikbaar in de cloud en implementeert beheerde clusters met hoge betrouwbaarheid en beschikbaarheid. Bovendien biedt het beveiliging en beheer op ondernemingsniveau met Active Directory.  
 
-Apache Hadoop was het oorspronkelijke open-source-project voor big data-verwerking. Hierna volgde de ontwikkeling van gerelateerde software en hulpprogramma's die als onderdeel van de Hadoop-technologiestack worden beschouwd, waaronder Apache Hive, Apache HBase, Apache Spark en vele andere. Zie [Overzicht van het Hadoop-ecosysteem in HDInsight](#overview) voor meer informatie.
+Apache Hadoop was het oorspronkelijke open-source-project voor big data-verwerking. Hierna volgde de ontwikkeling van gerelateerde software en hulpprogramma's die als onderdeel van de Hadoop-technologiestack worden beschouwd, waaronder Apache Hive, Apache HBase, Apache Spark, Apache Kafka en vele andere. Zie [Overzicht van het Hadoop-ecosysteem in HDInsight](#overview) voor meer informatie.
 
 ## <a name="what-is-big-data"></a>Wat is big data?
 Big data kan betrekking hebben op elke willekeurige bulk aan digitale gegevens: van tekst uit Twitter-feeds tot de sensorinformatie van industriële apparatuur, en informatie over surfgedrag van klanten en aankopen op een website. Bij big data kan het gaan om historische gegevens (opgeslagen gegevens), maar ook om realtime gegevens (rechtstreeks gestreamd vanuit de bron). Big data worden verzameld in steeds sneller groeiende volumes en in een steeds groter wordend aantal indelingen.
@@ -35,18 +35,23 @@ Big data kan betrekking hebben op elke willekeurige bulk aan digitale gegevens: 
 Om bruikbare informatie of inzichten te verkrijgen uit big data, moet u de relevante gegevens verzamelen en de juiste vragen stellen. U moet er ook voor zorgen dat de gegevens beschikbaar zijn, zijn opgeschoond, zijn geanalyseerd en vervolgens op een bruikbare manier worden gepresenteerd. Big data-analyse met Hadoop in HDInsight kan u hierbij helpen.
 
 ## <a name="a-nameoverviewaoverview-of-the-hadoop-ecosystem-in-hdinsight"></a><a name="overview"></a>Overzicht van het Hadoop-ecosysteem in HDInsight
-HDInsight is een clouddistributie van de snelgroeiende Apache Hadoop-technologiestack in Microsoft Azure voor big data-analyse. HDInsight bevat implementaties van Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari, enzovoort. HDInsight kan ook worden geïntegreerd met hulpprogramma's voor Business Intelligence (BI), zoals Power BI, Excel, SQL Server Analysis Services en SQL Server Reporting Services.
+HDInsight is een clouddistributie van de snelgroeiende Apache Hadoop-technologiestack in Microsoft Azure voor big data-analyse. HDInsight bevat implementaties van Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari, enzovoort. HDInsight kan ook worden geïntegreerd met hulpprogramma's voor Business Intelligence (BI), zoals Power BI, Excel, SQL Server Analysis Services en SQL Server Reporting Services.
 
-### <a name="hadoop-hbase-spark-storm-and-customized-clusters"></a>Hadoop, HBase, Spark, Storm en aangepaste clusters
-HDInsight biedt clusterconfiguraties voor Apache Hadoop, Spark, HBase en Storm. U kunt bovendien [clusters aanpassen met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
+### <a name="hadoop-hbase-spark-kafka-interactive-hive-storm-customized-and-other-clusters"></a>Clusters van Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, aangepaste clusters en andere clusters
+HDInsight biedt de volgende clustertypen:
 
-* **Hadoop**: biedt betrouwbare gegevensopslag met [HDFS](#hdfs) en een eenvoudig [MapReduce](#mapreduce)-programmeermodel om gegevens parallel te verwerken en te analyseren.
-* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: een framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor de analyse van big data te verbeteren. Spark werkt voor SQL, het streamen van gegevens en machine learning. Zie [Overzicht: wat is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
-* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>**: een NoSQL-database gebouwd op Hadoop. Deze biedt willekeurige toegang en sterke consistentie voor grote hoeveelheden (mogelijk miljarden rijen bij miljoenen kolommen) ongestructureerde en semi-gestructureerde gegevens. Zie [Overzicht van HBase in HDInsight](hdinsight-hbase-overview.md).
-* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**: een gedistribueerd, realtime berekeningssysteem voor het snel verwerken van grote gegevensstromen. Storm wordt aangeboden als beheerd cluster in HDInsight. Zie [Realtime-sensorgegevens analyseren met Storm en Hadoop](hdinsight-storm-sensor-data-analysis.md).
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: biedt betrouwbare gegevensopslag met [HDFS](#hdfs) en een eenvoudig [MapReduce](#mapreduce)-programmeermodel om gegevens parallel te verwerken en te analyseren.
+* **[Apache Spark](http://spark.apache.org/)**: een framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor de analyse van big data te verbeteren. Spark werkt voor SQL, het streamen van gegevens en machine learning. Zie [Overzicht: wat is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
+* **[Apache HBase](http://hbase.apache.org/)**: een NoSQL-database gebouwd op Hadoop. Deze biedt willekeurige toegang en sterke consistentie voor grote hoeveelheden (mogelijk miljarden rijen bij miljoenen kolommen) ongestructureerde en semi-gestructureerde gegevens. Zie [Overzicht van HBase in HDInsight](hdinsight-hbase-overview.md).
+* **[Microsoft R Server](https://msdn.microsoft.com/en-us/microsoft-r/rserver)**: een server van ondernemingsniveau voor de hosting van websites en het beheren van parallelle, gedistribueerde R-processen. Het biedt gegevenswetenschappers, statistici en R-programmeurs on-demand toegang tot schaalbare, gedistribueerde analysemethoden in HDInsight. Zie [Overzicht van R Server in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-overview).
+* **[Apache Storm](https://storm.incubator.apache.org/)**: een gedistribueerd, realtime berekeningssysteem voor het snel verwerken van grote gegevensstromen. Storm wordt aangeboden als beheerd cluster in HDInsight. Zie [Realtime-sensorgegevens analyseren met Storm en Hadoop](hdinsight-storm-sensor-data-analysis.md).
+* **[Voorbeeld van Apache Interactive Hive (ook bekend onder de naam: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: caching in geheugen voor interactieve en snellere Hive-query's. Zie [Interactive Hive gebruiken in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-interactive-hive).
+* **[Voorbeeld van Apache Kafka](https://kafka.apache.org/)**: een open source-platform dat wordt gebruikt voor het bouwen van pijplijnen en toepassingen voor het streamen van gegevens. Kafka biedt ook berichtenwachtrijfunctionaliteit waarmee u gegevensstromen kunt publiceren en zich kunt abonneren op gegevensstromen. Zie [Inleiding tot Apache Kafka in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-kafka-introduction).
+* **[Voorbeeld van in domein opgenomen clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)**: een cluster toegevoegd aan een Active Directory-domein, zodat u de toegang kunt controleren en gegevens kunt beheren.
+* **[Aangepaste clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md)**: clusters met scripts die extra onderdelen installeren en worden uitgevoerd tijdens de inrichting.
 
 ### <a name="example-customization-scripts"></a>Voorbeeld van aanpassingsscripts
-Scriptacties zijn scripts die worden uitgevoerd tijdens de clusterinrichting. Ze kunnen worden gebruikt om op het cluster extra onderdelen te installeren. In het geval van op Linux gebaseerde clusters zijn dit Bash-scripts.
+Scriptacties zijn Bash-scripts in Linux die worden uitgevoerd tijdens de clusterinrichting. Ze kunnen worden gebruikt om extra onderdelen op het cluster te installeren.
 
 Het HDInsight-team biedt de volgende voorbeeldscripts:
 
@@ -75,11 +80,11 @@ De volgende onderdelen en hulpprogramma's zijn opgenomen in de HDInsight-cluster
 
 > [!NOTE]
 > Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie over de specifieke onderdelen en versie-informatie
-> 
-> 
+>
+>
 
 ### <a name="a-nameambariaambari"></a><a name="ambari"></a>Ambari
-Apache Ambari is bedoeld voor het inrichten, beheren en controleren van Apache Hadoop-clusters. Het bevat een intuïtieve verzameling hulpprogramma‘s voor operators en een krachtige reeks API‘s die de complexiteit van Hadoop verbergen en de werking van clusters vereenvoudigen. Op Linux gebaseerde HDInsight-clusters bieden zowel de Ambari-webgebruikersinterface als de Ambari REST API, terwijl op Windows gebaseerde clusters een subset van de REST API bieden. Ambari-weergaven op HDInsight-clusters bieden interfacemogelijkheden voor invoegtoepassingen.
+Apache Ambari is bedoeld voor het inrichten, beheren en controleren van Apache Hadoop-clusters. Het bevat een intuïtieve verzameling hulpprogramma‘s voor operators en een krachtige reeks API‘s die de complexiteit van Hadoop verbergen en de werking van clusters vereenvoudigen. HDInsight-clusters in Linux bieden zowel de Ambari-webgebruikersinterface als de Ambari-REST-API, terwijl clusters in Windows een subset van de REST-API bieden. Ambari-weergaven op HDInsight-clusters bieden interfacemogelijkheden voor invoegtoepassingen.
 
 Zie [HDInsight-clusters beheren met Ambari](hdinsight-hadoop-manage-ambari.md) (alleen voor Linux), [Hadoop-clusters in HDInsight beheren met de Ambari-API](hdinsight-monitor-use-ambari-api.md) en <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Informatie over de Apache Ambari-API</a>.
 
@@ -90,10 +95,10 @@ De Avro-bestandsindeling biedt ondersteuning voor het gedistribueerde MapReduce-
 ### <a name="a-namehdfsahdfs"></a><a name="hdfs"></a>HDFS
 Hadoop Distributed File System (HDFS) is een gedistribueerd bestandssysteem dat samen met MapReduce en YARN de kern vormt van het Hadoop-ecosysteem. HDFS is het standaardbestandssysteem voor Hadoop-clusters op HDInsight.
 
-### <a name="a-namehiveahive-hcatalog"></a><a name="hive"></a>Hive & HCatalog
+### <a name="a-namehiveahive--hcatalog"></a><a name="hive"></a>Hive & HCatalog
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a> is datawarehousesoftware die is gebouwd op Hadoop. Hiermee kunt u grote gegevenssets in gedistribueerde opslag doorzoeken en beheren door gebruik te maken van een taal genaamd HiveQL (vergelijkbaar met SQL). Hive is, net zoals Pig, een abstractie die is gebouwd op MapReduce. Wanneer Hive wordt uitgevoerd, vertaalt het query‘s naar een reeks MapReduce-taken. Uit conceptueel oogpunt staat Hive dichter bij een relationeel databasebeheersysteem dan Pig. Daarom is het met name geschikt voor gebruik met meer gestructureerde gegevens. Voor ongestructureerde gegevens kunt u beter Pig gebruiken. Zie [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md).
 
-<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> is een tabel- en opslagbeheerlaag voor Hadoop die gebruikers een relationele weergave van gegevens biedt. In HCatalog kunt u lees- en schrijfbewerkingen uitvoeren in bestanden in elke indeling waarvoor een Hive SerDe-schrijfbewerking (serializer-deserializer) kan worden uitgevoerd.
+<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> is een tabel- en opslagbeheerlaag voor Hadoop die u een relationele weergave van gegevens biedt. In HCatalog kunt u lees- en schrijfbewerkingen uitvoeren in bestanden in elke indeling waarvoor een Hive SerDe-schrijfbewerking (serializer-deserializer) kan worden uitgevoerd.
 
 ### <a name="a-namemahoutamahout"></a><a name="mahout"></a>Mahout
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> is een schaalbare bibliotheek met machine learning-algoritmen die worden uitgevoerd op Hadoop. Machine learning-toepassingen maken gebruik van statistieken om systemen te laten leren van gegevens en om resultaten uit het verleden te gebruiken om toekomstig gedrag te voorspellen. Zie [Filmaanbevelingen genereren met Mahout op Hadoop](hdinsight-mahout.md).
@@ -109,7 +114,7 @@ Zie <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce<
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> is een coördinatiesysteem voor werkstromen waarmee Hadoop-taken worden beheerd. Het is geïntegreerd met de Hadoop-stack en biedt ondersteuning voor Hadoop-taken voor MapReduce, Pig, Hive en Sqoop. Oozie kan ook worden gebruikt voor het plannen van taken die specifiek zijn voor een systeem, zoals Java-programma's of shell-scripts. Zie [Use Oozie with Hadoop](hdinsight-use-oozie.md) (Oozie gebruiken met Hadoop).
 
 ### <a name="a-namephoenixaphoenix"></a><a name="phoenix"></a>Phoenix
-<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> is een relationele databaselaag over HBase. Phoenix bevat een JDBC-stuurprogramma waarmee gebruikers rechtstreeks SQL-tabellen kunnen doorzoeken en beheren. Phoenix vertaalt query‘s en andere instructies naar systeemeigen NoSQL API-aanroepen (in plaats van gebruik te maken van MapReduce). Hierdoor worden snellere toepassingen mogelijk die zijn gebouwd op NoSQL-opslag. Zie [Apache Phoenix en SQuirreL gebruiken met HBase-clusters](hdinsight-hbase-phoenix-squirrel.md).
+<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> is een relationele databaselaag over HBase. Phoenix bevat een JDBC-stuurprogramma waarmee u rechtstreeks SQL-tabellen kunt doorzoeken en beheren. Phoenix vertaalt query‘s en andere instructies naar systeemeigen NoSQL API-aanroepen (in plaats van gebruik te maken van MapReduce). Hierdoor worden snellere toepassingen mogelijk die zijn gebouwd op NoSQL-opslag. Zie [Apache Phoenix en SQuirreL gebruiken met HBase-clusters](hdinsight-hbase-phoenix-squirrel.md).
 
 ### <a name="a-namepigapig"></a><a name="pig"></a>Pig
 <a  target="_blank" href="http://pig.apache.org/">Apache Pig</a> is een platform van hoog niveau waarmee u complexe MapReduce-transformaties kunt uitvoeren op zeer grote gegevenssets door gebruik te maken van een eenvoudige scripttaal genaamd Pig Latin. Pig vertaalt de Pig Latin-scripts, zodat ze kunnen worden uitgevoerd in Hadoop. U kunt door de gebruiker gedefinieerde functies (UDF's) maken om Pig Latin uit te breiden. Zie [Use Pig with Hadoop](hdinsight-use-pig.md) (Pig gebruiken met Hadoop).
@@ -160,7 +165,7 @@ Als onderdeel van het Azure-cloudecosysteem biedt Hadoop in HDInsight een aantal
 * Automatische inrichting van Hadoop-clusters. HDInsight-clusters zijn veel gemakkelijker te maken dan handmatig geconfigureerde Hadoop-clusters. Zie [Hadoop-clusters inrichten in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie.
 * Geavanceerde Hadoop-onderdelen. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie.
 * Hoge beschikbaarheid en betrouwbaarheid van clusters. Zie [Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md) voor meer informatie.
-* Efficiënte en voordelige gegevensopslag met Azure Blob Storage, een optie die compatibel is met Hadoop. Zie [Azure Blob Storage met Hadoop gebruiken in HDInsight](hdinsight-hadoop-use-blob-storage.md) voor meer informatie.
+* Efficiënte en voordelige gegevensopslag met Azure Blob Storage of Azure Data Lake Store, allebei opslagopties die compatibel zijn met Hadoop. Zie [Azure Blob Storage gebruiken met Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md) of [Data Lake Store gebruiken met een HDInsight-cluster](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal) voor meer informatie.
 * Integratie met andere Azure-services, waaronder [web-apps](https://azure.microsoft.com/documentation/services/app-service/web/) en [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 * Aanvullende VM-grootten en -typen voor het uitvoeren van HDInsight-clusters. Zie [Hadoop components, versioning, and service offerings in HDInsight (Hadoop-onderdelen, versiebeheer en serviceaanbiedingen in HDInsight)][component-versioning] voor meer informatie.
 * Clusterschaling. Met clusterschaling kunt u het aantal knooppunten van een actief HDInsight-cluster wijzigen zonder dat u het cluster hoeft te verwijderen of opnieuw hoeft te maken.
@@ -192,8 +197,8 @@ Indien deze zijn geïntegreerd met HDInsight, kunt u met de vertrouwde hulpprogr
 
 Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 
-* [Excel en Hadoop koppelen met Power Query](hdinsight-connect-excel-power-query.md): informatie over hoe u met behulp van Microsoft Power Query voor Excel verbinding maakt tussen Excel en het Azure Storage-account dat de gegevens bevat die zijn gekoppeld aan het HDInsight-cluster. Windows-werkstation is vereist. Werkt met Windows - of Linux-gebaseerd cluster.
-* [Excel en Hadoop koppelen met het stuurprogramma Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md): informatie over hoe u gegevens importeert uit HDInsight met behulp van het stuurprogramma Microsoft Hive ODBC. Windows-werkstation is vereist. Werkt met Windows - of Linux-gebaseerd cluster.
+* [Excel en Hadoop koppelen met Power Query](hdinsight-connect-excel-power-query.md): informatie over hoe u met behulp van Microsoft Power Query voor Excel verbinding maakt tussen Excel en het Azure Storage-account dat de gegevens bevat die zijn gekoppeld aan het HDInsight-cluster. Windows-werkstation is vereist. Werkt met clusters in Linux of Windows.
+* [Excel en Hadoop koppelen met het stuurprogramma Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md): informatie over hoe u gegevens importeert uit HDInsight met behulp van het stuurprogramma Microsoft Hive ODBC. Windows-werkstation is vereist. Werkt met clusters in Linux of Windows.
 * [Microsoft-cloudplatform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): informatie over Power BI voor Office 365, het downloaden van de proefversie van SQL Server, en het instellen van SharePoint Server 2013 en SQL Server BI.
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
@@ -204,6 +209,6 @@ Deze BI-hulpprogramma's kunnen u helpen met big data-analyse:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

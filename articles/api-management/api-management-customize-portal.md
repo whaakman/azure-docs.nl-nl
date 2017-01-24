@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ In deze sectie willen we alleen de stijl van de headers wijzigen. Klik op de opt
 
 Elke regel geeft een stijleigenschap van het geselecteerde element aan. Voor de header die hierboven is geselecteerd, staat de tekengrootte bijvoorbeeld in @font-size-h1 terwijl de naam van het lettertype met alternatieven in @headings-font-family. staat.
 
-> Als u bekend bent met [bootstrap][bootstrap], zijn deze regels in feite [LESS-variabelen][LESS-variabelen] binnen het bootstrapthema dat door de ontwikkelaarsportal wordt gebruikt.
+> Als u bekend bent met [bootstrap][bootstrap]: deze regels zijn in feite [LESS-variabelen][LESS variables] binnen het bootstrapthema dat wordt gebruikt voor de ontwikkelaarsportal.
 > 
 > 
 
@@ -87,14 +87,14 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 ## <a name="next-steps"> </a>Volgende stappen
 * Meer informatie over het aanpassen van de inhoud van ontwikkelaarsportalpagina's met [Sjablonen voor ontwikkelaarsportals](api-management-developer-portal-templates.md).
 
-[De tekst/het logo in de paginaheaders wijzigen]: #change-page-headers
-[ De stijl van de headers wijzigen]: #change-headers-styling
-[De inhoud van een pagina bewerken]: #edit-page-contents
-[Volgende stappen]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[api-management-beheerconsole]: ./media/api-management-customize-portal/api-management-management-console.png
+[api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
@@ -103,10 +103,10 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 
 
 [bootstrap]: http://getbootstrap.com/
-[LESS-variabelen]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

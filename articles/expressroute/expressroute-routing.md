@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -126,9 +126,7 @@ Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, h
 
 Raadpleeg de pagina [ExpressRoute partners and peering locations](expressroute-locations.md) (Overzicht van ExpressRoute-partners en -peeringlocaties) voor een gedetailleerde lijst van de geopolitieke regio's, bijbehorende Azure-regio's en bijbehorende ExpressRoute-peeringlocaties.
 
-U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. Het hebben van meer verbindingen biedt aanzienlijke voordelen wat betreft hoge beschikbaarheid vanwege geografische redundantie. Als u meerdere ExpressRoute-circuits hebt, ontvangt u dezelfde set voorvoegsels die worden geadverteerd vanuit Microsoft op de paden voor openbare peering en Microsoft-peering. Dat betekent dat er vanuit uw netwerk meerdere paden zijn naar Microsoft. Dit kan tot gevolg hebben dat er in uw netwerk suboptimale routeringsbeslissingen worden genomen. Dit kan leiden tot suboptimale connectiviteitservaringen met andere services. 
-
-Daarom markeert Microsoft voorvoegsels die worden geadverteerd via openbare peering en Microsoft-peering met de juiste BGP-communitywaarden. Deze waarden geven de regio aan waarin de voorvoegsels worden gehost. Op basis van de communitywaarden worden de juiste routeringsbeslissingen genomen voor [optimale routering naar klanten](expressroute-optimize-routing.md).
+U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. Het hebben van meer verbindingen biedt aanzienlijke voordelen wat betreft hoge beschikbaarheid vanwege geografische redundantie. Als u meerdere ExpressRoute-circuits hebt, ontvangt u dezelfde set voorvoegsels die worden geadverteerd vanuit Microsoft op de paden voor openbare peering en Microsoft-peering. Dat betekent dat er vanuit uw netwerk meerdere paden zijn naar Microsoft. Dit kan tot gevolg hebben dat er in uw netwerk suboptimale routeringsbeslissingen worden genomen. Dit kan leiden tot suboptimale connectiviteitservaringen met andere services. Op basis van de communitywaarden worden de juiste routeringsbeslissingen genomen voor [optimale routering naar gebruikers](expressroute-optimize-routing.md).
 
 | **Microsoft Azure-regio** | **BGP-communitywaarde** |
 | --- | --- |
@@ -214,6 +212,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

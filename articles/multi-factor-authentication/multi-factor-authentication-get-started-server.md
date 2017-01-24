@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met de Azure Multi-Factor Authentication-server
+title: Aan de slag met de Azure Multi-Factor Authentication-server | Microsoft Docs
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan.
 services: multi-factor-authentication
 keywords: verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 <center>![MFA on-premises](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als de PhoneFactor-server al is geïnstalleerd en u een upgrade wilt uitvoeren, leest u het artikel [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) (Een upgrade uitvoeren naar de Azure Multi-Factor Authentication-server). Als u op zoek bent naar informatie over het installeren van alleen de webservice, leest u het artikel [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md) (Webservice voor mobiele apps van Azure Multi-Factor Authentication-server implementeren).
+Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als de PhoneFactor-server al is geïnstalleerd en u een upgrade wilt uitvoeren, leest u het artikel [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) (Een upgrade uitvoeren naar de Azure Multi-Factor Authentication-server). Als u op zoek bent naar informatie over het installeren van alleen de webservice, leest u het artikel [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md) (Webservice voor mobiele apps van Azure Multi-Factor Authentication-server implementeren).
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>De Azure Multi-Factor Authentication-server downloaden
 U kunt de Azure Multi-Factor Authentication-server op twee verschillende manieren downloaden. Beide downloads verlopen via de Azure-portal. Bij de eerste manier beheert u rechtstreeks de Multi-Factor Authentication-provider. De tweede manier verloopt via de service-instellingen. Voor de tweede manier is een Multi-Factor Authentication-provider of een Azure MFA-, Azure AD Premium- of Enterprise Mobility Suite-licentie vereist.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>De Azure Multi-Factor Authentication-server downloaden via de klassieke Azure-portal
+> [!Important]
+> Deze twee opties lijken op elkaar, maar het is belangrijk te weten welke moet worden gebruikt. Als uw gebruikers licenties hebben die worden geleverd met MFA, hoeft u geen Multi-Factor Authentication-provider te maken voor toegang tot de serverdownload. Gebruik in plaats daarvan optie 2 om de server te downloaden van de pagina met service-instellingen. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Optie 1: de Azure Multi-Factor Authentication-server downloaden via de klassieke Azure-portal
+
+Gebruik deze downloadoptie als u al een Multi-Factor Authentication-provider hebt omdat u voor MFA betaalt per gebruiker of per verificatie. 
 
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Selecteer aan de linkerkant **Active Directory**.
@@ -41,7 +46,10 @@ U kunt de Azure Multi-Factor Authentication-server op twee verschillende maniere
    ![Downloaden](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Sla de download op.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>De Azure Multi-Factor Authentication-server downloaden via de service-instellingen
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Optie 2: de Azure Multi-Factor Authentication-server downloaden via de service-instellingen
+
+Gebruik deze downloadoptie als u Enterprise Mobility Suite-, Azure AD Premium- of Enterprise Cloud Suite-licenties hebt. 
+
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Selecteer aan de linkerkant **Active Directory**.
 3. Dubbelklik op uw exemplaar van Azure AD.
@@ -140,8 +148,8 @@ Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, word
 
 Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/geweigerd) en de reden voor eventuele weigeringen opgeslagen met de verificatiegegevens en beschikbaar gesteld in de verificatie-/gebruiksrapporten.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>Geavanceerde Azure Multi-Factor Authentication-serverconfiguraties
-Zie de onderstaande tabel voor meer informatie over geavanceerde instellingen en configuratie-informatie:
+## <a name="next-steps"></a>Volgende stappen
+Gebruik de koppelingen in de onderstaande tabel voor meer informatie over geavanceerde instellingen en configuratie-informatie:
 
 | Methode | Beschrijving |
 |:--- |:--- |
@@ -158,6 +166,6 @@ Zie de onderstaande tabel voor meer informatie over geavanceerde instellingen en
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
