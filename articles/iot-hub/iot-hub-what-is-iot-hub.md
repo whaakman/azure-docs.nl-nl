@@ -1,6 +1,6 @@
 ---
 title: Overzicht Azure IoT Hub | Microsoft Docs
-description: 'Overzicht van de service Azure IoT Hub: wat is IoT Hub, verbindingsmogelijkheden voor apparaten, communicatiepatronen voor Internet of Things (IoT - Internet der dingen), gateways en service-ondersteunde communicatiepatronen'
+description: 'Overzicht van de service Azure IoT Hub: wat is IoT Hub, verbindingsmogelijkheden voor apparaten, communicatiepatronen voor Internet of Things (IoT - Internet of Things), gateways en service-ondersteunde communicatiepatronen'
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -21,7 +21,7 @@ ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 
 ---
 # <a name="what-is-azure-iot-hub"></a>Wat is Azure IoT Hub?
-Welkom bij Azure IoT Hub. Dit artikel biedt een overzicht van Azure IoT Hub en een beschrijving van waarom u deze service moet gebruiken als u een Internet of Things-oplossing (IoT - Internet der dingen) gaat implementeren. Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt. Azure IoT Hub:
+Welkom bij Azure IoT Hub. Dit artikel biedt een overzicht van Azure IoT Hub en een beschrijving van waarom u deze service moet gebruiken als u een Internet of Things-oplossing (IoT - Internet of Things) gaat implementeren. Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt. Azure IoT Hub:
 
 * Biedt meerdere opties voor communicatie van apparaat naar cloud en cloud naar apparaat, waaronder berichten in één richting en methoden voor aanvraag/antwoord.
 * Biedt opslag waarop query's kunnen worden uitgevoerd voor apparaatmetagegevens en informatie over de gesynchroniseerde status.
