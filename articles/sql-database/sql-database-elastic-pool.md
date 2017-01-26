@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ Elastische groepen met SQL-databases zijn een eenvoudige en voordelige oplossing
 ## <a name="how-it-works"></a>Hoe werkt het?
 Een algemeen SaaS-toepassingspatroon is het databasemodel met één tenant: elke klant krijgt zijn eigen database. Elke klant (database) heeft onvoorspelbare resourcevereisten voor geheugen, I/O en CPU. Hoe wijst u resources op efficiënte en rendabele wijze toe bij een dergelijke onvoorspelbare vraag? Vroeger had u twee opties: (1) een te royale inrichting van resources op basis van piekgebruik, waarbij u dus te veel betaalt, of (2) een te voorzichtige inrichting om kosten te besparen, ten koste van prestaties en klanttevredenheid tijdens pieken. Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de prestaties krijgen die ze nodig hebben, wanneer ze deze nodig hebben. Ze bieden een eenvoudig mechanisme voor het toewijzen van resources binnen een voorspelbaar budget. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 In SQL Database wordt de relatieve mate waarin een database de vraag naar resources kan afhandelen, uitgedrukt in DTU's (Database Transaction Units) voor individuele databases en elastische DTU's (eDTU's) voor individuele databases in een elastische pool. Zie de [Inleiding tot SQL Database](sql-database-technical-overview.md) voor meer informatie over DTU's en eDTU's.
@@ -106,6 +106,6 @@ Voor toepassingen die zwaardere herstelvereisten hebben dan Geo-herstel kan bied
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: c2bf44dc23a3b330994e51317b6b021fab6eef1f
 
 
 ---
@@ -93,11 +93,17 @@ In Azure Search moet de index opnieuw worden gemaakt bij structurele updates voo
 
 Bewerkingen waarvoor de index niet opnieuw hoeft te worden gemaakt, zijn onder andere het toevoegen van een nieuw veld, wijzigen van scoringsprofielen, wijziging van de suggestiefunctie en wijzigen van de taalanalysefunctie. Zie [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) (Index bijwerken) voor meer informatie.
 
-## <a name="next-step"></a>Volgende stap
+## <a name="query-an-index-using-search-explorer"></a>Gegevens uit een index opvragen met Search Explorer
+
+De portal bevat **Search Explorer**, zodat u een query kunt uitvoeren in een index zonder dat u code hoeft te schrijven. U kunt Search Explorer op elke index toepassen.
+
+De manier van zoeken is gebaseerd op de standaardinstellingen, zoals de [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard queryparameter searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). Resultaten worden geretourneerd in JSON, zodat u het hele document kunt inspecteren.
+
+## <a name="next-steps"></a>Volgende stappen
 Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 * [Azure SQL Database indexeren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB indexeren](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB indexeren](search-howto-index-documentdb.md)
 * [Blob Storage indexeren (preview)](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage indexeren (preview)](search-howto-indexing-azure-tables.md)
 
@@ -107,6 +113,6 @@ Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

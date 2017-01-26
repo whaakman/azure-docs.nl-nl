@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Aan de slag met back-up en herstel voor gegevensbescherming en -herstel
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 In deze aan de slag-zelfstudie leert u hoe u Azure Portal kunt gebruiken voor het volgende:
 
 - Bestaande back-ups van een database weergeven
@@ -95,6 +32,9 @@ In deze aan de slag-zelfstudie leert u hoe u Azure Portal kunt gebruiken voor he
 
 **Geschatte tijd**: deze zelfstudie duurt circa 30 minuten (mits u al aan de vereisten voldoet).
 
+> [!TIP]
+> U kunt dezelfde taken uitvoeren in een 'Aan de slag'-zelfstudie met [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -105,11 +45,11 @@ In deze aan de slag-zelfstudie leert u hoe u Azure Portal kunt gebruiken voor he
 * U hebt de zelfstudie [Aan de slag met Azure SQL Database-servers, -databases en -firewallregels met behulp van Azure Portal en SQL Server Management Studio](sql-database-get-started.md) of de equivalente [PowerShell-versie](sql-database-get-started-powershell.md) van deze zelfstudie voltooid. Als u dit niet hebt gedaan, voltooit u eerst deze vereiste zelfstudie of voert u het PowerShell-script aan het einde van de [PowerShell-versie](sql-database-get-started-powershell.md) van deze zelfstudie uit voordat u doorgaat.
 
 
-> [!TIP]
-> U kunt dezelfde taken uitvoeren in een 'Aan de slag'-zelfstudie met [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+> [!NOTE]
+> Deze zelfstudie biedt informatie over de inhoud over deze onderwerpen: [back-ups van SQL-databases](sql-database-automated-backups.md), [Langetermijnbewaring](sql-database-long-term-retention.md) en [Een Azure SQL-database herstellen met behulp van geautomatiseerde back-ups van databases](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Aanmelden met uw bestaande account
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Aanmelden bij Azure Portal met uw Azure-account
 Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) en volg deze stappen om verbinding te maken met Azure Portal.
 
 1. Open de browser van uw keuze en maak verbinding met [Azure Portal](https://portal.azure.com/).
@@ -117,7 +57,6 @@ Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) e
 3. Zodra de **aanmeldingspagina** wordt weergegeven, typt u de referenties voor uw abonnement.
    
    ![Aanmelden](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ In deze sectie van de zelfstudie kunt u informatie bekijken over het oudste hers
 
 1. Open de **SQL-database**-blade voor uw database, **sqldbtutorialdb**.
 
-    ![blade nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![blade nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Klik op de werkbalk op **Herstellen**.
 
-    ![werkbalk herstellen](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![werkbalk herstellen](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. Controleer het oudste herstelpunt op de blade Herstellen.
 
-    ![oudste herstelpunt](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![oudste herstelpunt](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
 
@@ -143,37 +82,37 @@ In deze sectie van de zelfstudie herstelt u de database naar een nieuwe database
 
 1. Controleer op de blade **Herstellen** voor de database de standaardnaam voor de nieuwe database waarnaar u uw database naar een eerder tijdstip wilt herstellen (de naam is de bestaande databasenaam gevolgd door een tijdstempel). Deze naam wordt aangepast in overeenstemming met het tijdstip dat u in de volgende stappen opgeeft.
 
-    ![naam van herstelde database](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![naam van herstelde database](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Klik op het **kalender**pictogram in het invoervak **Herstelpunt (UTC)**.
 
-    ![herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. Selecteer op de kalender een datum binnen de bewaartermijn
 
-    ![datum herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![datum herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. Geef in het invoervak **Herstelpunt (UTC)** de tijd op de geselecteerde datum op waarnaar u de gegevens in de database vanuit de automatische databaseback-ups wilt herstellen.
 
-    ![tijd herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![tijd herstelpunt](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >U ziet dat de databasenaam is gewijzigd in overeenstemming met de datum en tijd die u hebt geselecteerd. U ziet ook dat u de server waarop u naar een bepaald punt in de tijd wilt herstellen, niet kunt wijzigen. Als u wilt herstellen naar een andere server, gebruikt u [Geo-herstel](sql-database-disaster-recovery.md#recover-using-geo-restore). Ten slotte ziet u dat u kunt herstellen naar een [elastische pool](sql-database-elastic-jobs-overview.md) of naar een andere prijscategorie. 
-    >
+   >[!NOTE]
+   >U ziet dat de databasenaam is gewijzigd in overeenstemming met de datum en tijd die u hebt geselecteerd. U ziet ook dat u de server waarop u naar een bepaald punt in de tijd wilt herstellen, niet kunt wijzigen. Als u wilt herstellen naar een andere server, gebruikt u [Geo-herstel](sql-database-disaster-recovery.md#recover-using-geo-restore). Ten slotte ziet u dat u kunt herstellen naar een [elastische pool](sql-database-elastic-jobs-overview.md) of naar een andere prijscategorie. 
+   >
 
 4. Klik op **OK** om de database naar een eerder tijdstip te herstellen naar de nieuwe database.
 
 5. Klik op de werkbalk op het meldingspictogram om de status van de hersteltaak weer te geven.
 
-    ![voortgang hersteltaak](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![voortgang hersteltaak](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. Als de hersteltaak is voltooid, opent u de blade **SQL-databases** om de herstelde database weer te geven.
 
-    ![herstelde database](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![herstelde database](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > Hier kunt u verbinding maken met de herstelde database met behulp van SQL Server Management Studio om noodzakelijke taken uit te voeren, zoals [een deel van de gegevens uit de herstelde database extraheren om naar de bestaande database te kopiëren, of de bestaande database verwijderen en de naam van de herstelde database wijzigen in de naam van de bestaande database](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> Hier kunt u verbinding maken met de herstelde database met behulp van SQL Server Management Studio om noodzakelijke taken uit te voeren, zoals [een deel van de gegevens uit de herstelde database extraheren om naar de bestaande database te kopiëren, of de bestaande database verwijderen en de naam van de herstelde database wijzigen in de naam van de bestaande database](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Langetermijnretentie van automatische back-ups configureren in een Azure Recovery Services-kluis 
 
@@ -182,11 +121,11 @@ In deze sectie van de zelfstudie configureert u [een Azure Recovery Services-klu
 
 > [!TIP]
 > Zie [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Back-ups voor langetermijnretentie verwijderen) als u back-ups wilt verwijderen.
-
+>
 
 1. Open de **SQL Server**-blade voor uw server, **sqldbtutorialserver**.
 
-    ![blade sql-server](./media/sql-database-get-started/sql-server-blade.png)
+   ![blade sql-server](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Klik op **Langetermijnretentie**.
 
@@ -246,9 +185,9 @@ In deze sectie van de zelfstudie configureert u [een Azure Recovery Services-klu
 
    ![recovery services-kluis weergeven](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > Na de configuratie worden back-ups in de kluis binnen de komende zeven dagen weergegeven. Ga pas verder met deze zelfstudie als er back-ups in de kluis worden weergegeven.
-   >
+> [!IMPORTANT]
+> Na de configuratie worden back-ups in de kluis binnen de komende zeven dagen weergegeven. Ga pas verder met deze zelfstudie als er back-ups in de kluis worden weergegeven.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Back-ups met langetermijnretentie weergeven
 
@@ -260,17 +199,17 @@ In deze sectie van de zelfstudie kunt u informatie bekijken over uw databaseback
 
 2. Open de **SQL-database**-blade voor uw database, **sqldbtutorialdb**.
 
-    ![blade nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![blade nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Klik op de werkbalk op **Herstellen**.
 
-    ![werkbalk herstellen](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![werkbalk herstellen](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. Klik op de blade Herstellen op **Lange termijn**.
 
 5. Klik onder de back-ups van de Azure kluis op **Een back-up selecteren** om de beschikbare databaseback-ups met langetermijnretentie weer te geven.
 
-    ![back-ups in kluis](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![back-ups in kluis](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Een database herstellen vanuit een back-up met langetermijnretentie
 
@@ -278,28 +217,25 @@ In deze sectie van de zelfstudie herstelt u de database naar een nieuwe database
 
 1. Klik op de blade **Back-ups Azure kluis** op de back-up die u wilt herstellen en klik vervolgens op **Selecteren**.
 
-    ![back-up in kluis selecteren](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![back-up in kluis selecteren](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. Geef in het tekstvak **Databasenaam** de naam voor de herstelde database op.
 
-    ![nieuwe databasenaam](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![nieuwe databasenaam](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Klik op **OK** om de database vanuit de back-up in de kluis naar de nieuwe database te herstellen.
 
 4. Klik op de werkbalk op het meldingspictogram om de status van de hersteltaak weer te geven.
 
-    ![taakvoortgang herstellen vanuit kluis](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![taakvoortgang herstellen vanuit kluis](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Als de hersteltaak is voltooid, opent u de blade **SQL-databases** om de herstelde database weer te geven.
 
-    ![uit kluis herstelde database](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![uit kluis herstelde database](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > Hier kunt u verbinding maken met de herstelde database met behulp van SQL Server Management Studio om noodzakelijke taken uit te voeren, zoals [een deel van de gegevens uit de herstelde database extraheren om naar de bestaande database te kopiëren, of de bestaande database verwijderen en de naam van de herstelde database wijzigen in de naam van de bestaande database](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> Hier kunt u verbinding maken met de herstelde database met behulp van SQL Server Management Studio om noodzakelijke taken uit te voeren, zoals [een deel van de gegevens uit de herstelde database extraheren om naar de bestaande database te kopiëren, of de bestaande database verwijderen en de naam van de herstelde database wijzigen in de naam van de bestaande database](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -309,6 +245,6 @@ In deze sectie van de zelfstudie herstelt u de database naar een nieuwe database
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 
