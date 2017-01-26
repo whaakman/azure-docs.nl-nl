@@ -9,7 +9,7 @@ ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
 
 # <a name="stream-analytics-documentation"></a>Documentatie voor Stream Analytics
 
-Leer hoe u IoT-analyses (Internet der dingen) kunt uitvoeren in de cloud met Stream Analytics, een volledig beheerde engine voor gebeurtenisverwerking. Zelfstudies en andere documentatie laten zien hoe u in realtime gegevens van toepassingen, sensoren, apparaten, sociale media en meer kunt analyseren. 
+Leer hoe u IoT-analyses (Internet of Things) kunt uitvoeren in de cloud met Stream Analytics, een volledig beheerde engine voor gebeurtenisverwerking. Zelfstudies en andere documentatie laten zien hoe u in realtime gegevens van toepassingen, sensoren, apparaten, sociale media en meer kunt analyseren. 
 
 <ul class="panelContent cardsFTitle">
      <li>
