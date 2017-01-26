@@ -22,7 +22,7 @@ ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
-In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te verzamelen van IoT-apparaten (Internet der dingen). We gebruiken hier een echte IoT-gebruikstoepassing (Internet der dingen) om aan te tonen hoe u snel en economisch een oplossing maakt.
+In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te verzamelen van IoT-apparaten (Internet of Things). We gebruiken hier een echte IoT-gebruikstoepassing (Internet of Things) om aan te tonen hoe u snel en economisch een oplossing maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 * [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/)

@@ -111,7 +111,7 @@ Storm op HDInsight wordt geleverd met een 24-uurs ondersteuning op ondernemingsn
 ## <a name="common-use-cases-for-real-time-analytics"></a>Algemene gebruiksvoorbeelden voor realtime analyses
 Hier volgen enkele algemene scenario's waarvoor u Apache Storm op HDInsight kunt gebruiken. Lees [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Hoe bedrijven Storm gebruiken) voor informatie over praktijkscenario's.
 
-* Internet der dingen (IoT)
+* Internet of Things (IoT)
 * Fraudedetectie
 * Sociale analyses
 * Extraction, Transformation, Loading (ETL)

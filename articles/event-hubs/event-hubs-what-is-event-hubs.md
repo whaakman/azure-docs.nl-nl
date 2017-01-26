@@ -28,7 +28,7 @@ Event Hubs is een verwerkingsservice van gebeurtenissen, die instaat voor de ver
 
 * Toepassingsinstrumentatie
 * Verwerking van gebruikerservaringen of werkstromen
-* Internet der dingen (IoT)-scenario’s
+* Internet of Things (IoT)-scenario’s
 
 Andere belangrijke mogelijkheden van Event Hubs zijn het bijhouden van het gebruik van mobiele apps, verzamelen van informatie over gegevensverkeer van web-farms, het vastleggen van spelgebeurtenissen in consolegames of het verzamelen van telemetriegegevens van industriële machines of verbonden voertuigen.
 
