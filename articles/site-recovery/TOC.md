@@ -17,15 +17,17 @@
 ### [Netwerktoewijzing (VMM)](site-recovery-network-mapping.md)
 ### [Opslagkoppeling tussen on-premises sites](site-recovery-storage-mapping.md)
 ## Repliceren
-### [VMWare-VM's en -servers naar Azure](site-recovery-vmware-to-azure.md)
-### [VMware-VM's en -servers naar secundaire site](site-recovery-vmware-to-vmware.md)
+### [Virtuele VMware-machines en fysieke servers naar Azure](site-recovery-vmware-to-azure.md)
+### [Virtuele VMware-machines en fysieke servers naar een secundaire site](site-recovery-vmware-to-vmware.md)
+### [Virtuele VMware-machines met multitenant-ondersteuning naar Azure met behulp van het CSP-programma](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Virtuele Hyper-V-machines naar Azure (zonder VMM)](site-recovery-vmm-to-azure.md)
 ### [Virtuele Hyper-V-machines naar Azure (zonder VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Virtuele Hyper-V-machines naar secundaire site](site-recovery-vmm-to-vmm.md)
 ### [Virtuele Hyper-V-machines naar secundaire site met SAN](site-recovery-vmm-san.md)
 ### [Virtuele Hyper-V-machines met een enkele VMM-server](site-recovery-single-vmm.md)
 ## Migreren
-### [Migreren tussen Azure-regio’s](site-recovery-migrate-azure-to-azure.md)
+### [Migreren naar Azure](site-recovery-migrate-to-azure.md)
+### [Migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows-instanties naar Azure](site-recovery-migrate-aws-to-azure.md)
 ## Workloads
 ### [Active Directory en DNS](site-recovery-active-directory.md)
@@ -49,8 +51,9 @@
 ## [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell klassiek](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell klassiek](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Verwant
 ## [Azure Automation](/azure/automation/)
@@ -63,6 +66,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: Meer informatie over het gebruik van Azure Storage - Blob-, Table-, Queue-, File- en Virtual Machine Disk-opslag in de cloud. Zelfstudies, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
-ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
+ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
+ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
 
 ---
-#<a name="storage-documentation"></a>Documentatie voor Storage
 
-Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten.  Azure Storage is zeer schaalbaar, elastisch en algemeen toegankelijk en zorgt automatisch voor een gelijkmatige verdeling van de belasting op basis van het gegevensverkeer.  Azure Storage biedt de volgende vier services om te voldoen aan toepassingsvereisten: Blob Storage, Table Storage, Queue Storage, Disk Storage en File Storage.
+# <a name="storage-documentation"></a>Documentatie voor Storage
+
+Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die duurzaam, beschikbaar en schaalbaar is. Zelfstudies, API-referenties en andere documentatie laten zien hoe u Blob, Table, Queue, File en Virtual Machine Disk Storage kunt instellen en beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,91 +87,57 @@ Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen 
 </ul>
 
 ---
-
-## <a name="reference"></a>Naslaginformatie
-
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/storage">PowerShell</a></p>
+                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/storage">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure-CLI</h3>
-                        <p>Naslaginformatie voor Storage via Azure-CLI</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: bronbeheer</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: gegevensverplaatsing</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: blobs, wachtrijen, tabellen en bestanden</a></p>
+                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
+                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
+                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Naslaginformatie voor Storage in Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt347887">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie voor Storage</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storageservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie voor REST API voor Storage</p>
-                    </div>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, wachtrijen, tabellen en bestanden</a></p>
+                        <p><a href="/rest/api/storagerp">Resourceprovider</a></p>
+                        <p><a href="/rest/api/storageimportexport">Importeren/exporteren</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
-        <a href="/rest/api/storagerp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>REST API-verwijzing van opslagresourceprovider</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
 </ul>
 
 <div class="downloadHolder">
@@ -182,6 +150,6 @@ Documentatie voor Storage downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

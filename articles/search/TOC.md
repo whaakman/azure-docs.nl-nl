@@ -61,14 +61,13 @@
 
 # Naslaginformatie
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET Management](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (beheer)](/dotnet/api/microsoft.azure.management.search)
+## [Python (beheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (beheer)](/rest/api/searchmanagement)
 
 # Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=search)
-## Zoeken-API's gebruiken
 ## [API-versies](search-api-versions.md)
 ## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -3,6 +3,8 @@
 ## [Is dit geschikt voor u?](active-directory-ds-comparison.md)
 ## [Functies](active-directory-ds-features.md)
 ## [Scenario's](active-directory-ds-scenarios.md)
+## [Hoe synchronisatie werkt](active-directory-ds-synchronization.md)
+## [Compatibele software van derden](active-directory-ds-compatible-software.md)
 
 # Aan de slag
 ## [Beheergroepen maken](active-directory-ds-getting-started.md)
@@ -21,8 +23,8 @@
 ## [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
 ## [Beveiligde LDAP configureren voor een beheerd domein](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
+## [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
-## [Synchroniseren met uw on-premises directory](active-directory-ds-synchronization.md)
 
 ## Problemen oplossen
 ### [Veelgestelde vragen](active-directory-ds-faqs.md)
@@ -33,13 +35,13 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources 
+# Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Contact opnemen](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 
