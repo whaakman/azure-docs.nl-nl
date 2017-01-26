@@ -1,6 +1,6 @@
 ---
 title: Inleiding tot Stream Analytics | Microsoft Docs
-description: Lees over Stream Analytics, een beheerde service waarmee u streaminggegevens van het Internet der dingen (IoT) in realtime kun analyseren.
+description: Lees over Stream Analytics, een beheerde service waarmee u streaminggegevens van het Internet of Things (IoT) in realtime kun analyseren.
 keywords: analyse als een service, beheerde services, verwerking van streams, analyse van streams, wat is analyse van streams
 services: stream-analytics
 documentationcenter: 
@@ -29,7 +29,7 @@ Met slechts enkele klikken in de Azure-portal kunt u een Stream Analytics-taak m
 Stream Analytics maakt gebruik van jarenlange inspanningen van Microsoft Research op het gebied van de ontwikkeling van uiterst afgestemde streamingengines voor tijdgebonden verwerking, evenals taalintegraties voor intuïtieve specificaties daarvan.
 
 ## <a name="what-can-i-use-stream-analytics-for"></a>Waarvoor kan ik Stream Analytics gebruiken?
-Dagelijks worden enorme hoeveelheden gegevens met hoge snelheid via de kabel getransporteerd. Organisaties die deze streaminggegevens in realtime kunnen verwerken en inzetten, kunnen hun efficiëntie aanzienlijk verbeteren en zich onderscheiden in de markt. Scenario's van de analyse van realtime-gegevens vindt u in alle sectoren: aangepaste analyse van realtime-handel in aandelen en waarschuwingen van financiële diensten, realtime-fraudedetectie, diensten voor gegevens- en identiteitsbescherming, betrouwbare opname en analyse van gegevens die worden gegenereerd door sensoren en aansturingen in fysieke objecten (Internet der dingen of IoT), clickstream-analyse voor websites, CRM-toepassingen (Customer Relationship Management) die waarschuwingen genereren wanneer de klantervaring binnen een periode is gedegradeerd. Bedrijven zoeken altijd de meest flexibele, betrouwbare en rendabele manier om dergelijke gegevensanalyse van realtime-gebeurtenisstromen uit te voeren in een uiterst concurrerende moderne zakenwereld.
+Dagelijks worden enorme hoeveelheden gegevens met hoge snelheid via de kabel getransporteerd. Organisaties die deze streaminggegevens in realtime kunnen verwerken en inzetten, kunnen hun efficiëntie aanzienlijk verbeteren en zich onderscheiden in de markt. Scenario's van de analyse van realtime-gegevens vindt u in alle sectoren: aangepaste analyse van realtime-handel in aandelen en waarschuwingen van financiële diensten, realtime-fraudedetectie, diensten voor gegevens- en identiteitsbescherming, betrouwbare opname en analyse van gegevens die worden gegenereerd door sensoren en aansturingen in fysieke objecten (Internet of Things of IoT), clickstream-analyse voor websites, CRM-toepassingen (Customer Relationship Management) die waarschuwingen genereren wanneer de klantervaring binnen een periode is gedegradeerd. Bedrijven zoeken altijd de meest flexibele, betrouwbare en rendabele manier om dergelijke gegevensanalyse van realtime-gebeurtenisstromen uit te voeren in een uiterst concurrerende moderne zakenwereld.
 
 ## <a name="key-capabilities-and-benefits"></a>Belangrijkste mogelijkheden en voordelen
 * **Gebruiksgemak:** Stream Analytics ondersteunt een eenvoudig, declaratief querymodel voor het beschrijven van transformaties. Voor een optimaal gebruiksgemak gebruikt Stream Analytics een T-SQL-variant, en klanten hoeven zich niet te bekommeren om de technische complexiteit van stroomverwerkingssystemen. Met de [querytaal van Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) in de queryeditor van de browser beschikt u over een intelligente functie voor automatisch aanvullen, waarmee u snel en eenvoudig tijdreeksquery’s, waaronder tijdelijke joins, statistische functies in vensters, tijdelijke filters, en andere veelvoorkomende bewerkingen zoals joins, statistische functies, projecties en filters, kunt implementeren. Daarnaast kunt u de query’s in de browser testen met een voorbeeldgegevensbestand, voor een snelle, herhaaldelijke ontwikkeling.  
@@ -44,7 +44,7 @@ Dagelijks worden enorme hoeveelheden gegevens met hoge snelheid via de kabel get
 Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt kennisgemaakt met Stream Analytics, een beheerde service voor streaminganalyse van gegevens afkomstig van het Internet der dingen. Raadpleeg de volgende onderwerpen voor meer informatie over deze service:
+U hebt kennisgemaakt met Stream Analytics, een beheerde service voor streaminganalyse van gegevens afkomstig van het Internet of Things. Raadpleeg de volgende onderwerpen voor meer informatie over deze service:
 
 * [Aan de slag met Azure Stream Analytics](stream-analytics-get-started.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)

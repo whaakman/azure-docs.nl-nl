@@ -48,7 +48,7 @@ De vooraf geconfigureerde oplossing voor voorspeld onderhoud Azure IoT maakt geb
 *\[1\] A. Saxena en K. Goebel (2008). 'Turbofan Engine Degradation Simulation Data Set', NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie hoe Azure IoT werkt in scenario's voor voorspellend onderhoud vindt u in [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het internet der dingen).
+Meer informatie hoe Azure IoT werkt in scenario's voor voorspellend onderhoud vindt u in [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het Internet of Things).
 
 Volg een [walkthrough][lnk-predictive-walkthrough] over de vooraf geconfigureerde oplossing voor voorspellend onderhoud.
 

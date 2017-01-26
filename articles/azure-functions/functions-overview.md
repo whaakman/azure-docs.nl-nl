@@ -39,12 +39,12 @@ Hier volgen een aantal essentiële functies van Azure Functions:
 * **Open-source**: de runtime van Functions is open-source en [beschikbaar op GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Wat kan ik doen met Functions?
-Azure Functions is de ideale oplossing voor het verwerken van gegevens, integreren van systemen, werken met het internet der dingen (IoT) en het bouwen van eenvoudige API's en microservices. Overweeg het gebruik van Functions voor taken zoals het verwerken van afbeeldingen of bestellingen, onderhouden van bestanden, uitvoeren van langlopende taken in een achtergrond-thread of voor andere taken die u wilt uitvoeren volgens een schema. 
+Azure Functions is de ideale oplossing voor het verwerken van gegevens, integreren van systemen, werken met het Internet of Things (IoT) en het bouwen van eenvoudige API's en microservices. Overweeg het gebruik van Functions voor taken zoals het verwerken van afbeeldingen of bestellingen, onderhouden van bestanden, uitvoeren van langlopende taken in een achtergrond-thread of voor andere taken die u wilt uitvoeren volgens een schema. 
 
 Functions biedt sjablonen waarmee u meteen aan de slag kunt met essentiële scenario's, zoals:
 
 * **BlobTrigger**: verwerk Azure Storage-blobs wanneer ze worden toegevoegd aan containers. Deze functie kunt u bijvoorbeeld gebruiken voor het wijzigen van de grootte van afbeeldingen.
-* **EventHubTrigger**: reageer op gebeurtenissen die worden geleverd aan een Azure Event Hub. Dit is met name handig voor toepassingsinstrumentatie, verwerking van gebruikerservaringen of werkstromen en scenario's met betrekking tot het internet der dingen (IoT).
+* **EventHubTrigger**: reageer op gebeurtenissen die worden geleverd aan een Azure Event Hub. Dit is met name handig voor toepassingsinstrumentatie, verwerking van gebruikerservaringen of werkstromen en scenario's met betrekking tot het Internet of Things (IoT).
 * **Generic webhook**: verwerk HTTP-webhook-aanvragen van services die webhooks ondersteunen.
 * **GitHub webhook**: reageer op gebeurtenissen die plaatsvinden in uw GitHub-opslagplaatsen. Zie voor een voorbeeld [Een webhook of API-functie maken](functions-create-a-web-hook-or-api-function.md).
 * **HTTPTrigger**: activeer de uitvoering van de code met een HTTP-aanvraag.
