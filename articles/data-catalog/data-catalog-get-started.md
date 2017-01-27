@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ U kunt nu gegevensassets uit de Adventure Works-voorbeelddatabase registreren me
 In deze oefening gebruikt u de het hulpprogramma voor registratie om gegevensassets uit de Adventure Works-database te registreren bij de catalogus. Registratie is het proces waarbij belangrijke structurele metagegevens, zoals namen, typen en locaties, worden geëxtraheerd uit de gegevensbron en bijbehorende assets, en worden gekopieerd naar de catalogus. De gegevensbronnen en gegevensassets blijven waar ze zijn, maar de metagegevens worden door de catalogus gebruikt om de gegevensbronnen en gegevensassets eenvoudiger te detecteren en te begrijpen.
 
 ### <a name="register-a-data-source"></a>Een gegevensbron registreren
-1. Ga naar de [startpagina van Azure Data Catalog](https://azuredatacatalog.com) en klik op **Gegevens publiceren**.
+1. Ga naar de [startpagina van Azure Data Catalog](http://azuredatacatalog.com) en klik op **Gegevens publiceren**.
    
    ![Azure Data Catalog - de knop Gegevens publiceren](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Klik op **Toepassing starten** om het hulpprogramma voor registratie te downloaden, te installeren en uit te voeren op uw computer.
@@ -366,6 +366,6 @@ In deze zelfstudie hebt u essentiële mogelijkheden van Azure Data Catalog verke
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

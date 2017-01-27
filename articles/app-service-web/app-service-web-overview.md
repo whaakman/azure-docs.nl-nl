@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
 
 
 ---
@@ -46,7 +46,7 @@ Voor voorbeelden van typische toepassingsscenario's waarvoor u Web Apps kunt geb
 Hier volgen enkele belangrijke functies van Azure App Service die van toepassing zijn op Web Apps:
 
 * **Meerdere talen en frameworks**: App Service biedt uitstekende ondersteuning voor ASP.NET, Node.js, Java, PHP en Python. U kunt ook [PowerShell en andere scripts of uitvoerbare bestanden](web-sites-create-web-jobs.md) uitvoeren op virtuele machines van App Service.
-* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Voer [A/B-tests](app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](../powershell-install-configure.md) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
+* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Voer [A/B-tests](app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
 * **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../monitoring-and-diagnostics/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 * **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP, Siebel en Oracle), SaaS-services (zoals Salesforce en Office 365) en internetservices (zoals Facebook en Twitter). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Beveiliging en naleving**: App Service voldoet aan de vereisten van [ISO, SOC en PCI](https://www.microsoft.com/TrustCenter/).
@@ -58,13 +58,25 @@ Bovendien kan een web-app gebruikmaken van functies die worden aangeboden door [
 Naast Web Apps in App Service biedt Azure nog andere services die kunnen worden gebruikt voor het hosten van websites en web-apps. Voor de meeste scenario's is Web Apps de beste keuze.  Voor microservice-architectuur kunt u wellicht [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) gebruiken. Hebt u meer controle nodig over de virtuele machines waarop uw code wordt uitgevoerd, dan kunt u [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) overwegen. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](choose-web-site-cloud-service-vm.md) voor meer informatie over hoe u moet kiezen tussen deze Azure-services.
 
 ## <a name="getting-started"></a>Aan de slag
-Volg de zelfstudie [In vijf minuten uw eerste web-app implementeren in Azure](app-service-web-get-started.md) als u standaardcode voor een nieuwe web-app in App Service wilt gaan implementeren. U hebt een gratis Azure-account nodig.
+Als u aan de slag wilt gaan door in App Service voorbeeldcode voor een nieuwe web-app te implementeren, volgt u een van de zelfstudies uit de onderstaande vervolgkeuzelijst. U hebt een gratis Azure-account nodig.
 
-Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> [!div class="op_single_selector"]
+> * [In vijf minuten uw eerste HTML-site implementeren in Azure](app-service-web-get-started-html-cli-nodejs.md)
+> * [In vijf minuten uw eerste ASP.NET-web-app implementeren in Azure](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [In vijf minuten uw eerste PHP-web-app implementeren in Azure](app-service-web-get-started-php-cli-nodejs.md)
+> * [In vijf minuten uw eerste Node.js-web-app implementeren in Azure](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [In vijf minuten uw eerste Python-web-app implementeren in Azure](app-service-web-get-started-python-cli-nodejs.md)
+> * [In vijf minuten uw eerste Java-web-app implementeren in Azure](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> 
+> 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

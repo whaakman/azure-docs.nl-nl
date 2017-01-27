@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
 
 
 ---
@@ -180,7 +180,7 @@ De aanroep naar de lijst met sleutels moet een waarde retourneren. Als dat niet 
 Gefeliciteerd! De WordPress-app heeft nu een gecentraliseerde geheugencache om de doorvoer te verbeteren. De Memcache-shim van Web Apps kan worden gebruikt met elke Memcache-client, ongeacht de programmeertaal of het toepassingsframework. Als u feedback wilt geven of een vraag wilt stellen over de Memcache-shim van Web Apps, plaatst u een bericht op de [MSDN-forums][10] of [Stackoverflow][11].
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
@@ -204,6 +204,6 @@ Gefeliciteerd! De WordPress-app heeft nu een gecentraliseerde geheugencache om d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

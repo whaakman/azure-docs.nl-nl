@@ -1,106 +1,137 @@
 ---
 title: Verbinding maken met een Azure Container Service-cluster | Microsoft Docs
-description: Verbinding maken met een Azure Container Service-cluster met een SSH-tunnel
+description: Vanaf een externe computer verbinding maken met een Kubernetes-, DC/OS- of Docker Swarm-cluster in Azure Container Service
 services: container-service
 documentationcenter: 
-author: rgardler
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, DC/OS, Azure
+keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
+ms.sourcegitcommit: 2549ca9cd05f44f644687bbdf588f7af01bae3f4
+ms.openlocfilehash: 79162e5d31346370e596f39fa4827d49625897b3
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Verbinding maken met een Azure Container Service-cluster
-De DC/OS-, Kubernetes- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service, maken allemaal REST-eindpunten beschikbaar.  Bij Kubernetes wordt het eindpunt veilig beschikbaar gesteld op internet. U kunt het rechtstreeks openen op elke machine met een internetverbinding. Bij DC/OS en Docker Swarm moet u een SSH-tunnel maken om veilig verbinding te maken met het REST-eindpunt. Deze verbindingen worden hieronder beschreven.
+Nadat u een Azure Container Service-cluster hebt gemaakt, moet u het cluster verbinden om workloads te kunnen implementeren en beheren. In dit artikel wordt beschreven hoe u vanaf een externe computer verbinding maakt met de hoofd-VM van het cluster. De Kubernetes-, DC/OS- en Docker Swarm-clusters stellen allemaal REST-eindpunten beschikbaar. Bij Kubernetes wordt dit eindpunt veilig beschikbaar gesteld op internet en kunt u het rechtstreeks openen door op een machine met een internetverbinding het opdrachtregelprogramma `kubectl` uit te voeren. Bij DC/OS en Docker Swarm moet u een veilige shell-tunnel (SSH) maken om veilig verbinding te maken met het REST-eindpunt. 
 
 > [!NOTE]
 > Ondersteuning voor Kubernetes in Azure Container Service is momenteel in de preview-fase.
 >
 
-## <a name="connecting-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
-U moet het opdrachtregelprogramma `kubectl` installeren voordat u verbinding maakt met een Kubernetes-cluster.  De eenvoudigste manier om dit programma te installeren, is met het opdrachtregelprogramma Azure 2.0 `az`.
+## <a name="prerequisites"></a>Vereisten
 
-```console
-az acs kubernetes install cli [--install-location=/some/directory]
+* Een Kubernetes-, DC/OS- of Swarm-cluster, [geïmplementeerd in Azure Container Service](container-service-deployment.md).
+* SSH-bestand met persoonlijke sleutel die overeenkomt met de openbare sleutel die tijdens de implementatie is toegevoegd aan het cluster. Met deze opdrachten wordt ervan uitgegaan dat de persoonlijke SSH-sleutel zich bevindt in `$HOME/.ssh/id_rsa` op uw computer. Zie deze instructies voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) voor meer informatie. Als de SSH-verbinding niet werkt, moet u mogelijk [uw SSH-sleutels opnieuw instellen](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+
+## <a name="connect-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
+
+Volg deze stappen om `kubectl` op uw computer te installeren en te configureren.
+
+> [!NOTE] 
+> Op Linux of OS X moet u de opdrachten in deze sectie mogelijk uitvoeren met `sudo`.
+> 
+
+### <a name="install-kubectl"></a>Kubectl installeren
+Eén manier om dit hulpprogramma te installeren, is met de Azure CLI 2.0-opdracht `az acs kubernetes install-cli` (preview). Als u deze opdracht wilt uitvoeren, moet de meest recente versie van Azure CLI 2.0 (preview) zijn [geïnstalleerd](/cli/azure/install-az-cli2) en moet u zijn aangemeld bij een Azure-account (`az login`).
+
+```azurecli
+# Linux or OS X
+az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
+
+# Windows
+az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
 U kunt de client ook rechtstreeks downloaden vanaf de [releasepagina](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
 
-Nadat `kubectl` is geïnstalleerd, kopieert u de clusterreferenties naar uw machine.  De eenvoudigste manier om dit te doen, is door opnieuw het opdrachtregelprogramma `az` te gebruiken:
+### <a name="download-cluster-credentials"></a>Clusterreferenties downloaden
+Nadat `kubectl` is geïnstalleerd, kopieert u de clusterreferenties naar uw machine. Eén manier om de referenties te verkrijgen, is met de opdracht `az acs kubernetes get-credentials`. Geef de naam van de resourcegroep en de naam van de containerserviceresource als volgt door:
 
-```console
-az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+
+```azurecli
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
-Hiermee worden de clusterreferenties gedownload in `$HOME/.kube/config`, waar `kubectl` verwacht dat ze staan.
+Hiermee worden de clusterreferenties gedownload in `$HOME/.kube/config`, waar `kubectl` ze verwacht.
 
-U kunt ook `scp` gebruiken om het bestand veilig te kopiëren van `$HOME/.kube/config` op de hoofd-VM naar uw lokale machine.
+U kunt `scp` ook gebruiken om het bestand veilig te kopiëren van `$HOME/.kube/config` op de hoofd-VM naar uw lokale machine. Bijvoorbeeld:
 
 ```console
 mkdir $HOME/.kube/config
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-Als u Windows gebruikt, moet u Bash met Ubuntu gebruiken of het Putty-programma 'pscp'.
+Als u met Windows werkt, moet u gebruikmaken van Bash op Ubuntu in Windows, de PuTTy-client voor het veilig kopiëren van bestanden of een vergelijkbaar hulpprogramma.
 
-Zodra `kubectl` is geconfigureerd, kunt u dit testen door een lijst van de knooppunten in uw cluster weer te geven:
+
+
+### <a name="use-kubectl"></a>Kubectl gebruiken
+
+Zodra `kubectl` is geconfigureerd, kunt u de verbinding testen door de knooppunten in uw cluster weer te geven:
 
 ```console
 kubectl get nodes
 ```
 
-Tenslotte kunt u het Kubernetes Dashboard bekijken. Voer eerst het volgende uit:
+U kunt andere `kubectl`-opdrachten proberen. Zo zou u bijvoorbeeld het Kubernetes Dashboard kunnen weergeven. Daartoe voert u eerst een proxy uit naar de API-server van Kubernetes:
 
 ```console
 kubectl proxy
 ```
 
-De gebruikersinterface van Kubernetes is nu beschikbaar via: http://localhost:8001/ui
+De gebruikersinterface van Kubernetes is nu beschikbaar via `http://localhost:8001/ui`.
 
-Zie [Snel starten voor Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/) voor meer instructies.
+Raadpleeg de [Snelstartgids van Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/) voor meer informatie.
 
-## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Verbinding maken met een DC/OS- of Swarm-cluster
+## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Verbinding maken met een DC/OS- of Swarm-cluster
 
-DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar Voor het beheren van deze eindpunten moet u een SSH-tunnel (Secure Shell) maken. Nadat een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In dit document vindt u instructies voor het maken van een SSH-tunnel in Linux, OS X en Windows.
+DC/OS- en Docker Swarm-clusters die zijn geïmplementeerd met Azure Container Service stellen REST-eindpunten beschikbaar. Deze eindpunten zijn echter niet openbaar beschikbaar U moet een SSH-tunnel (Secure Shell) maken als u deze eindpunten wilt beheren. Nadat een SSH-tunnel eenmaal is ingesteld, kunt u opdrachten uitvoeren op de eindpunten van het cluster en de gebruikersinterface van het cluster weergeven via een browser op uw eigen systeem. In de volgende secties leest u hoe u een SSH-tunnel maakt vanaf computers met Linux-, OS X- en Windows-besturingssystemen.
 
 > [!NOTE]
-> U kunt een SSH-sessie maken met een clusterbeheersysteem. Dit wordt echter niet aangeraden. Wanneer u rechtstreeks in een beheersysteem werkt, bestaat het risico op onbedoelde configuratiewijzigingen.   
-> 
-> 
-
-## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Een SSH-tunnel maken in Linux of OS X
-Het eerste wat u doet wanneer u een SSH-tunnel in Linux of OS X maakt, is het lokaliseren van de openbare DNS-naam van masters met gelijke taakverdeling. Hiervoor vouwt u de resourcegroep uit zodat elke resource wordt weergegeven. Zoek en selecteer het openbare IP-adres van de master. Hiermee opent u een blade die informatie bevat over het openbare IP-adres, dat de DNS-naam omvat. Bewaar deze naam voor later gebruik. <br />
-
-![Openbare DNS-naam](media/pubdns.png)
-
-Open nu een shell en voer de volgende opdracht uit, waarbij:
-
-**PORT** de naam is van het eindpunt dat u beschikbaar wilt maken. Voor Swarm is dit 2375. Gebruik poort 80 voor DC/OS.  
-**USERNAME** de naam is van de gebruiker die is opgegeven tijdens de implementatie van het cluster.  
-**DNSPREFIX** het DNS-voorvoegsel is dat is opgegeven tijdens de implementatie van het cluster.  
-**REGION** de regio is waarin uw resourcegroep zich bevindt.  
-**PATH_TO_PRIVATE_KEY** [OPTIONEEL] het pad is naar de persoonlijke sleutel die overeenkomt met de openbare sleutel die u hebt opgegeven bij het maken van het containerservicecluster. Gebruik deze optie met de vlag -i.
-
-```bash
-ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
-```
-> De poort voor de SSH-verbinding is 2200 en niet 22 (de standaardpoort).
-> 
+> U kunt een SSH-sessie maken met een clusterbeheersysteem. Dit wordt echter niet aangeraden. Wanneer u rechtstreeks in een beheersysteem werkt, bestaat het risico op onbedoelde configuratiewijzigingen.
 > 
 
-## <a name="dcos-tunnel"></a>DC/OS-tunnel
+### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Een SSH-tunnel maken in Linux of OS X
+Het eerste wat u doet wanneer u een SSH-tunnel in Linux of OS X maakt, is het lokaliseren van de openbare DNS-naam van masters met gelijke taakverdeling. Volg deze stappen:
+
+
+1. Blader in [Azure Portal](https://portal.azure.com) naar de resourcegroep die uw containerservicecluster bevat. Vouw de resourcegroep uit zodat elke resource wordt weergegeven. 
+
+2. Zoek en selecteer de virtuele machine van het model. In een DC/OS-cluster begint de naam van deze resource met **dcos-master-**. 
+
+    De blade **Virtuele machine** bevat informatie over het openbare IP-adres, waarin ook de DNS-naam staat. Bewaar deze naam voor later gebruik. 
+
+    ![Openbare DNS-naam](media/pubdns.png)
+
+3. Open nu een shell en voer de opdracht `ssh` uit door de volgende waarden op te geven: 
+
+    **PORT** de naam is van het eindpunt dat u beschikbaar wilt maken. Voor Swarm gebruikt u poort 2375. Gebruik poort 80 voor DC/OS.  
+    **USERNAME** de naam is van de gebruiker die is opgegeven tijdens de implementatie van het cluster.  
+    **DNSPREFIX** het DNS-voorvoegsel is dat is opgegeven tijdens de implementatie van het cluster.  
+    **REGION** de regio is waarin uw resourcegroep zich bevindt.  
+    **PATH_TO_PRIVATE_KEY** [OPTIONEEL] is het pad naar de persoonlijke sleutel die overeenkomt met de openbare sleutel die u hebt opgegeven bij het maken van het cluster. Gebruik deze optie met de vlag `-i`.
+
+    ```bash
+    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ```
+    > [!NOTE]
+    > De poort voor de SSH-verbinding is 2200 en niet 22 (de standaardpoort). In een cluster met meerdere hoofd-VM's is dit de verbindingspoort naar de eerste hoofd-VM.
+    > 
+
+Zie de voorbeelden voor DC/OS en Swarm in de volgende secties.    
+
+### <a name="dcos-tunnel"></a>DC/OS-tunnel
 Wanneer u een tunnel wilt openen naar de DC/OS-gerelateerde eindpunten, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
@@ -115,7 +146,7 @@ U hebt nu toegang tot de DC/OS-gerelateerde eindpunten op:
 
 U kunt ook de REST API's voor elke toepassing via deze tunnel bereiken.
 
-## <a name="swarm-tunnel"></a>Swarm-tunnel
+### <a name="swarm-tunnel"></a>Swarm-tunnel
 Wanneer u een tunnel wilt openen naar het Swarm-eindpunt, voert u een opdracht uit die vergelijkbaar is met de volgende:
 
 ```bash
@@ -128,54 +159,58 @@ U kunt nu uw omgevingsvariabele DOCKER_HOST als volgt instellen. U kunt uw Docke
 export DOCKER_HOST=:2375
 ```
 
-## <a name="create-an-ssh-tunnel-on-windows"></a>Een SSH-tunnel maken in Windows
-Er zijn meerdere opties voor het maken van SSH-tunnels in Windows. In dit document wordt beschreven hoe u dit met PuTTY kunt doen.
+### <a name="create-an-ssh-tunnel-on-windows"></a>Een SSH-tunnel maken in Windows
+Er zijn meerdere opties voor het maken van SSH-tunnels in Windows. In deze sectie wordt beschreven hoe u PuTTY gebruikt om de tunnel te maken.
 
-Download PuTTY naar uw Windows-systeem en voer de toepassing uit.
+1. [Download PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) naar uw Windows-systeem.
 
-Voer een hostnaam in die bestaat uit de naam van de cluserbeheerdergebruiker en de openbare DNS-naam van de eerste master in het cluster. De **hostnaam** ziet er ongeveer als volgt uit: `adminuser@PublicDNS`. Voer 2200 in bij **Poort**.
+2. Voer de toepassing uit.
 
-![PuTTY-configuratie 1](media/putty1.png)
+3. Voer een hostnaam in die bestaat uit de naam van de cluserbeheerdergebruiker en de openbare DNS-naam van de eerste master in het cluster. De **hostnaam** ziet er ongeveer zo uit: `adminuser@PublicDNSName`. Voer 2200 in bij **Poort**.
 
-Selecteer **SSH** en **Verificatie**. Voeg uw persoonlijke sleutelbestand toe voor verificatiedoeleinden.
+    ![PuTTY-configuratie 1](media/putty1.png)
 
-![PuTTY-configuratie 2](media/putty2.png)
+4. Selecteer **SSH > Verificatie**. Voeg een pad aan uw persoonlijke-sleutelbestand (.ppk-indeling) toe voor verificatie. U kunt een hulpprogramma als [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) gebruiken om dit bestand te genereren vanuit de SSH-sleutel waarmee het cluster is gemaakt.
 
-Selecteer **Tunnels** en configureer de volgende doorgestuurde poorten:
+    ![PuTTY-configuratie 2](media/putty2.png)
 
-* **Bronpoort:** uw voorkeur, gebruik 80 voor DC/OS of 2375 voor Swarm.
-* **Doelpoort:** gebruik localhost:80 voor DC/OS of localhost:2375 voor Swarm.
+5. Selecteer **SSH > Tunnels** en configureer de volgende doorgestuurde poorten:
 
-Het volgende voorbeeld is geconfigureerd voor DC/OS, maar ziet er ongeveer hetzelfde uit voor Docker Swarm.
+    * **Bronpoort:** gebruik 80 voor DC/OS of 2375 voor Swarm.
+    * **Doelpoort:** gebruik localhost:80 voor DC/OS of localhost:2375 voor Swarm.
 
-> [!NOTE]
-> Poort 80 mag niet in gebruik zijn wanneer u deze tunnel maakt.
-> 
-> 
+    Het volgende voorbeeld is geconfigureerd voor DC/OS, maar ziet er ongeveer hetzelfde uit voor Docker Swarm.
 
-![PuTTY-configuratie 3](media/putty3.png)
+    > [!NOTE]
+    > Poort 80 mag niet in gebruik zijn wanneer u deze tunnel maakt.
+    > 
 
-Wanneer u klaar bent, slaat u de verbindingsconfiguratie op en verbindt u de PuTTY-sessie. Wanneer u verbinding maakt, kunt u de poortconfiguratie in het PuTTY-gebeurtenislogboek zien.
+    ![PuTTY-configuratie 3](media/putty3.png)
 
-![PuTTY-gebeurtenislogboek](media/putty4.png)
+6. Wanneer u klaar bent, klikt u op **Sessie > Opslaan** om de verbindingsconfiguratie op te slaan.
 
-Wanneer u de tunnel voor DC/OS hebt geconfigureerd, hebt u toegang tot het gerelateerde eindpunt op:
+7. Klik op **Openen** als u verbinding wilt maken met de PuTTY-sessie. Wanneer u verbinding maakt, kunt u de poortconfiguratie in het PuTTY-gebeurtenislogboek zien.
+
+    ![PuTTY-gebeurtenislogboek](media/putty4.png)
+
+Nadat u de tunnel voor DC/OS hebt geconfigureerd, hebt u toegang tot het gerelateerde eindpunt op:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
 * Mesos: `http://localhost/mesos`
 
-Wanneer u de tunnel voor Docker Swarm hebt geconfigureerd, hebt u toegang tot het Swarm-cluster via de Docker CLI. U moet eerst een Windows-omgevingsvariabele configureren genaamd `DOCKER_HOST` met een waarde van ` :2375`.
+Nadat u de tunnel voor Docker Swarm hebt geconfigureerd, opent u de Windows-instellingen om een systeemomgevingsvariabele te configureren met de naam `DOCKER_HOST` en de waarde `:2375`. Daarna kunt u het Swarm-cluster openen via de Docker CLI.
 
 ## <a name="next-steps"></a>Volgende stappen
-Containers implementeren en beheren met DC/OS of Swarm:
+Containers in het cluster implementeren en beheren:
 
+* [Werken met de Azure Container Service en Kubernetes](container-service-kubernetes-ui.md)
 * [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
 * [Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

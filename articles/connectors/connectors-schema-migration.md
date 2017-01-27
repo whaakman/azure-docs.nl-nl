@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
 
 
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Logische apps migreren naar preview-schemaversie 2015-08-01
+# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Logische apps migreren naar preview-schemaversie 2015-08-01
 U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:  
 
 1. Open uw logische app in de Azure Portal  
@@ -41,11 +41,11 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 * Nadat de migratie is voltooid, werkt u waar mogelijk uw logische apps bij, zodat deze gebruikmaken van de [beheerde API's](apis-list.md). U kunt bijvoorbeeld starten met het gebruik van de Dropbox v2-versie overal waar u DropBox v1 gebruikt.
 
 ## <a name="whats-next"></a>Volgend onderwerp
-* [Meer informatie over het handmatig migreren van uw Logic Apps](../app-service-logic/app-service-logic-schema-2015-08-01.md)
+* [Meer informatie over het handmatig migreren van uw Logic Apps](../logic-apps/logic-apps-schema-2015-08-01.md)
 
 <!--Icon references-->
-[Stap 1]: ./media/connectors-schema-migration/migrateschema1.png
-[Stap 2]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
@@ -55,6 +55,6 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

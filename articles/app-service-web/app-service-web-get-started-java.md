@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Java-web-app in vijf minuten implementeren in Azure | Microsoft Docs
+title: In vijf minuten uw eerste Java-web-app implementeren in Azure (CLI 2.0 Preview) | Microsoft Docs
 description: Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudig het is om web-apps in App Service uit te voeren. U kunt snel een app gaan ontwikkelen en onmiddellijk de resultaten bekijken.
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Uw eerste Java-web-app in vijf minuten implementeren in Azure
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>In vijf minuten uw eerste Java-web-app implementeren in Azure (CLI 2.0 Preview)
+
+> [!div class="op_single_selector"]
+> * [Eerste HTML-site](app-service-web-get-started-html-cli-nodejs.md)
+> * [Eerste .NET-app](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Eerste PHP-app](app-service-web-get-started-php-cli-nodejs.md)
+> * [Eerste Node.js-app](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Eerste Python-app](app-service-web-get-started-python-cli-nodejs.md)
+> * [Eerste Java-app](app-service-web-get-started-java.md)
+> 
+> 
+
 Deze zelfstudie helpt u om een eenvoudige Java-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Met App Service kunt u web-apps, [back-ends voor mobiele apps](/documentation/learning-paths/appservice-mobileapps/) en [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) maken.
 
@@ -32,10 +43,10 @@ U gaat het volgende doen:
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet beschikken over een FTP-/FTPS-client, zoals [FileZilla](https://filezilla-project.org/).
-* Verkrijg een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Verkrijg een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -73,7 +84,7 @@ U gaat nu een Java-app in Azure implementeren via FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. Selecteer in **Java-versie** de optie **Java 8** en klik op **Opslaan**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Wanneer u de melding **Web-appinstellingen zijn bijgewerkt** ziet, gaat u naar http://*&lt;appnaam>*.azurewebsites.net om de JSP-standaardservlet in actie te zien.
 3. Schuif op de blade van de web-app omlaag naar **Referenties voor implementatie** of zoek deze optie en klik erop.
@@ -120,6 +131,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
