@@ -1,4 +1,10 @@
-1. Meld u aan bij [Azure Portal][Azure Portal].
+## <a name="create-a-service-namespace"></a>Een servicenaamruimte maken
+
+Als u Service Bus-wachtrijen in Azure wilt gebruiken, moet u eerst een naamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing. 
+
+Ga als volgt te werk om een naamruimte te maken:
+
+1. Meld u aan bij [Azure Portal][Azure portal].
 2. Klik in het linker navigatiedeelvenster van de portal achtereenvolgens op **Nieuw**, **Enterprise Integration** en **Service Bus**.
 3. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic, Standard of Premium).
@@ -22,12 +28,12 @@
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[verbinding-gegevens]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
