@@ -65,8 +65,8 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
   
    In deze stap wordt de vooraf geconfigureerde VM-installatiekopie gedownload, lokaal opgestart en wordt er vervolgens een lokaal Service Fabric-cluster in ingesteld. Dit kan enkele minuten duren. Als de installatie is voltooid, ziet u een bericht in de uitvoer dat aangeeft dat de cluster wordt gestart.
    
-
     ![Starten van clusterinstallatie na inrichting van VM][cluster-setup-script]
+    
 5. Test of het cluster correct is ingesteld door naar Service Fabric Explorer te gaan op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u het standaard IP-adres van het privénetwerk hebt gehouden).
 
     ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]

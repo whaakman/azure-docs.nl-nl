@@ -3,7 +3,7 @@
    
     Noteer het SDK-pad om het in een later stadium te kunnen gebruiken. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Open het bestand **build.gradle** in de app-map.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
