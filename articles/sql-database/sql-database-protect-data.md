@@ -116,12 +116,12 @@ SQL Database Threat Detection biedt een extra beveiligingslaag boven op Auditing
 ## <a name="compliance"></a>Naleving
 Naast de bovenstaande functies en functionaliteit waarmee uw toepassing kan voldoen aan verschillende nalevingsvereisten met betrekking tot beveiliging, neemt Azure SQL Database ook deel aan reguliere controles en is het gecertificeerd voor een aantal nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://azure.microsoft.com/support/trust-center/services/) vindt, voor meer informatie.
 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van de SQL Database-beveiligingsfuncties.
 - Zie [Toegang beheren](sql-database-control-access.md) voor een discussie over het gebruik van functies voor toegangsbeheer in SQL Database.
 - Zie [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) (Aan de slag met SQL Database Auditing) en [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md) (Aan de slag met SQL Database Threat Detection) voor een discussie over proactieve controle.
-
 
 
 
