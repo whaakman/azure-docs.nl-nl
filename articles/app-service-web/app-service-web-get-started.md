@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 9f262eb2fa4c0bd8bf1442a7a3d013af6d9ad649
 
 
 ---
@@ -31,17 +31,22 @@ U gaat het volgende doen:
 * Zien hoe de code live in productie wordt uitgevoerd.
 * De web-app op dezelfde manier bijwerken als waarop u [Git-doorvoeracties pusht](https://git-scm.com/docs/git-push).
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
+
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
+
+- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
+- [Azure CLI 2.0 (Preview)](app-service-web-get-started.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 ## <a name="prerequisites"></a>Vereisten
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
-* Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2).
+* Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -50,25 +55,40 @@ We gaan een web-app implementeren op Azure App Service.
 
 1. Open een nieuw(e) Windows-opdrachtprompt, PowerShell-venster, Linux-shell of OS X-terminal. Voer `git --version` en `azure --version` uit om te controleren of Git en Azure CLI op uw computer zijn geïnstalleerd.
    
-    ![De installatie van CLI-hulpprogramma's testen voor uw eerste web-app in Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![De installatie van CLI-hulpprogramma's testen voor uw eerste web-app in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
     Als u de hulpprogramma's niet hebt geïnstalleerd, raadpleeg dan [Vereisten](#Prerequisites) voor downloadkoppelingen.
+
 2. Meld u als volgt aan bij Azure:
    
-        azure login
+        az login
    
     Volg de aanwijzingen in het Help-bericht om door te gaan met de aanmelding.
    
-    ![Aanmelden bij Azure om uw eerste web-app te maken](./media/app-service-web-get-started/3-azure-login.png)
-3. Zet Azure CLI in de ASM-modus en stel vervolgens de implementatiegebruiker voor App Service in. U gaat later code implementeren met behulp van de referenties.
+    ![Aanmelden bij Azure om uw eerste web-app te maken](./media/app-service-web-get-started/3-azure-login-2.0.png)
+
+3. Stel de implementatiegebruiker in voor App Service. U gaat later code implementeren met behulp van deze referenties.
    
-        azure config mode asm
-        azure site deployment user set --username <username> --pass <password>
-4. Schakel naar een werkmap (`CD`) en ga als volgt te werk om de voorbeeld-app te kopiëren:
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. Maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). Voor deze eerste App Service-zelfstudie hoeft u nog niet precies te weten wat dat inhoudt.
+
+        az group create --location "<location>" --name my-first-app-group
+
+    Gebruik de CLI-opdracht `az appservice list-locations` om te zien welke waarden u kunt gebruiken voor `<location>`.
+
+3. Maak een nieuw 'GRATIS' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Voor deze eerste App Service-zelfstudie hoeft u alleen te weten dat de web-apps in dit plan niet in rekening worden gebracht.
+
+        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
+
+4. Maak een nieuwe web-app met een unieke naam in `<app_name>`.
+
+        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+
+4. Vervolgens krijgt u voorbeeldcode die u gaat implementeren. Schakel naar een werkmap (`CD`) en ga als volgt te werk om de voorbeeld-app te kopiëren:
    
+        cd <working_directory>
         git clone <github_sample_url>
-   
-    ![Kopieer de voorbeeldcode van de app voor uw eerste web-app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
    
     Voor *&lt;github_sample_url>* gebruikt u een van de volgende URL's, afhankelijk van het framework dat u wilt gebruiken:
    
@@ -78,18 +98,28 @@ We gaan een web-app implementeren op Azure App Service.
    * Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
    * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
    * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
+
+    ![Kopieer de voorbeeldcode van de app voor uw eerste web-app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
+   
 5. Schakel naar de opslagplaats van uw voorbeeld-app. Bijvoorbeeld:
    
         cd app-service-web-html-get-started
-6. Maak de App Service-appresource in Azure met een unieke app-naam en de implementatiegebruiker die u eerder hebt geconfigureerd. Geef het nummer van de gewenste regio op wanneer dit wordt gevraagd.
+
+5. Configureer lokale Git-implementatie voor uw App Service-web-app met de volgende opdracht:
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
+
+    U ziet een JSON-uitvoer zoals de volgende, wat betekent dat de externe Git-opslagplaats is geconfigureerd:
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. Voeg de URL in de JSON toe als een externe Git voor uw lokale opslagplaats (voor de duidelijkheid `azure` genoemd).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
-        azure site create <app_name> --git --gitusername <username>
-   
-    ![De Azure-resource maken voor uw eerste web-app in Azure](./media/app-service-web-get-started/4-create-site.png)
-   
-    Uw app is nu gemaakt in Azure. Bovendien is de huidige map voor Git geïnitialiseerd en als Git remote verbonden met de nieuwe App Service-app.
-    U kunt naar de URL van de app bladeren (http://&lt;app_naam>.azurewebsites.net), om de mooi vormgegeven standaard-HTML-pagina te bekijken, maar in deze zelfstudie gaan we uw code hier neerzetten.
-7. Implementeer de voorbeeldcode in de Azure-app op dezelfde manier als waarop u code zou pushen met Git. Gebruik, wanneer u daarnaar wordt gevraagd, het wachtwoord dat u eerder hebt geconfigureerd.
+7. Implementeer de voorbeeldcode in de externe Git `azure`. Gebruik wanneer dit wordt gevraagd de implementatiereferenties die u eerder hebt geconfigureerd.
    
         git push azure master
    
@@ -100,11 +130,13 @@ We gaan een web-app implementeren op Azure App Service.
 Gefeliciteerd, u hebt uw app geïmplementeerd in Azure App Service.
 
 ## <a name="see-your-app-running-live"></a>Uw app live in werking zien
-Als u uw app in Azure in werking wilt zien, voert u deze opdracht uit vanuit een willekeurige map in de opslagplaats:
 
-    azure site browse
+Voer deze opdracht uit om uw app live in werking te zien in Azure:
+
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Updates aanbrengen in uw app
+
 Nu kunt u met Git op elk moment push-acties uitvoeren vanuit het project (opslagplaats) om een actieve site bij te werken. Dit werkt op dezelfde manier als toen u de code voor het eerst implementeerde. Zo hoeft u telkens wanneer u een nieuwe wijziging wilt pushen die u lokaal hebt getest, alleen de volgende opdrachten uit te voeren vanuit de hoofdmap van het project (opslagplaats):
 
     git add .
@@ -112,16 +144,14 @@ Nu kunt u met Git op elk moment push-acties uitvoeren vanuit het project (opslag
     git push azure master
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zoek als volgt de meest geschikte ontwikkel- en implementatiestappen voor uw taalframework:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started.md)
-> * [Node.js](app-service-web-nodejs-get-started.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
+* [.NET](web-sites-dotnet-get-started.md)
+* [PHP](app-service-web-php-get-started.md)
+* [Node.js](app-service-web-nodejs-get-started.md)
+* [Python](web-sites-python-ptvs-django-mysql.md)
+* [Java](web-sites-java-get-started.md)
 
 Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
@@ -131,6 +161,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

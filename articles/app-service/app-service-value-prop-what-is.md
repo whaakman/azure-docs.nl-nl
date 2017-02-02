@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 692a7e0e54dd8ba6b47f79228696b223123dfb9b
 
 
 ---
@@ -49,7 +49,7 @@ App Service bevat verschillende *app-typen*, die zijn bedoeld voor specifieke ty
 * [**Web Apps**](../app-service-web/app-service-web-overview.md): voor het hosten van websites en webtoepassingen.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md): voor het hosten van de back-end van mobiele apps.
 * [**API-apps**](../app-service-api/app-service-api-apps-why-best-platform.md): voor het hosten van RESTful-API's.
-* [**Logische apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md): voor het automatiseren van bedrijfsprocessen en het integreren van systemen en gegevens tussen clouds zonder code te schrijven.
+* [**Logische apps**](../logic-apps/logic-apps-what-are-logic-apps.md): voor het automatiseren van bedrijfsprocessen en het integreren van systemen en gegevens tussen clouds zonder code te schrijven.
 
 Het woord *app* verwijst hier naar de hostresources die worden toegewezen voor het uitvoeren van een werkbelasting. Neem bijvoorbeeld een 'web-app': u ziet een web-app waarschijnlijk als de rekenresources en toepassingscode die samen functionaliteit bieden aan een browser. Maar in App Service bestaat een *web-app* uit de rekenresources die door Azure worden verstrekt voor het hosten van uw toepassingscode. 
 
@@ -82,18 +82,18 @@ Als u meer schaalbaarheid en netwerkisolatie nodig hebt, kunt u uw apps uitvoere
 Zie [Prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/) voor meer informatie over de prijzen van App Service.
 
 ## <a name="test-drive-app-service"></a>App Service uitproberen
-[Maak een voorbeeld-web-app, mobiele app of logische app](http://go.microsoft.com/fwlink/?LinkId=523751) en speel hier een uur mee, zonder dat u een creditcard nodig hebt, zonder verbintenissen en zonder gedoe.
+[Maak een voorbeeld-web-app, mobiele app of logische app](https://azure.microsoft.com/try/app-service/) en speel hier een uur mee, zonder dat u een creditcard nodig hebt, zonder verbintenissen en zonder gedoe.
 
 Of open een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) en probeer een van onze zelfstudies Aan de slag:
 
 * [Zelfstudie: een web-app maken](../app-service-web/app-service-web-get-started.md)
 * [Zelfstudie: een mobiele app maken](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Zelfstudie: een API-app maken](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Zelfstudie: een logische app maken](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Zelfstudie: een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

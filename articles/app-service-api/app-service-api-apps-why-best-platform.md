@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: b38f1876b3317a44268caf80a953dee638a342d1
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
 
 
 ---
 # <a name="api-apps-overview"></a>Overzicht van API Apps
-API-apps in Azure App Service bevatten functies waarmee API's eenvoudiger kunnen worden ontwikkeld, gehost en gebruikt in de cloud en on-premises. Met API-apps beschikt u over hoogwaardige beveiliging, eenvoudig toegangsbeheer, hybride verbindingen, automatisch genereren van SDK's en naadloze integratie met [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+API-apps in Azure App Service bevatten functies waarmee API's eenvoudiger kunnen worden ontwikkeld, gehost en gebruikt in de cloud en on-premises. Met API-apps beschikt u over hoogwaardige beveiliging, eenvoudig toegangsbeheer, hybride verbindingen, automatisch genereren van SDK's en naadloze integratie met [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 [De Azure App Service](../app-service/app-service-value-prop-what-is.md) is een volledig beheerd platform voor web- en integratiescenario's en mobiele scenario's. API Apps zijn een van de vier typen apps die worden aangeboden door [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
@@ -34,7 +34,7 @@ Hierna ziet u een aantal belangrijke voordelen van API Apps:
 * **Eenvoudig gebruik**: door de geïntegreerde ondersteuning voor [Swagger API-metagegevens](http://swagger.io/) kunnen uw API's eenvoudig worden gebruikt door diverse clients.  Genereer clientcode automatisch voor uw API's in diverse talen, waaronder C#, Java, en Javascript. Configureer [CORS](app-service-api-cors-consume-javascript.md) eenvoudig, zonder uw code te wijzigen. Zie [API Apps-metagegevens van App Service voor het detecteren en genereren van code](app-service-api-metadata.md) en [Een API-app van JavaScript gebruiken met CORS](app-service-api-cors-consume-javascript.md) voor meer informatie. 
 * **Eenvoudig toegangsbeheer**: beveilig een API-app tegen niet-geverifieerde toegang zonder uw code te wijzigen. Met ingebouwde verificatieservices worden API's beveiligd tegen toegang door andere services of door clients waarmee gebruikers worden aangegeven. Ondersteunde identiteitsproviders zijn onder andere Azure Active Directory, Facebook, Twitter, Google en Microsoft-account. Clients kunnen Active Directory Authentication Library (ADAL) of de Mobile Apps SDK gebruiken. Zie [Verificatie en autorisatie voor API Apps in Azure App Service](app-service-api-authentication.md) voor meer informatie.
 * **Visual Studio-integratie**: specifieke hulpprogramma's in Visual Studio stroomlijnen het maken, implementeren, gebruiken en beheren van apps en het opsporen van fouten. Zie [Aankondiging van Azure SDK 2.8.1 voor .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) voor meer informatie.
-* **Integratie met Logic Apps**: API Apps die u maakt, kunnen worden gebruikt door [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Zie [Uw aangepaste API gebruiken die op App Service wordt gehost met logische apps](../app-service-logic/app-service-logic-custom-hosted-api.md) en [Nieuwe previewschemaversie 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md) voor meer informatie.
+* **Integratie met Logic Apps**: API Apps die u maakt, kunnen worden gebruikt door [App Service Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).  Zie [Uw aangepaste API gebruiken die op App Service wordt gehost met logische apps](../logic-apps/logic-apps-custom-hosted-api.md) en [Nieuwe previewschemaversie 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md) voor meer informatie.
 
 Daarnaast kunt u met een API-app gebruikmaken van functies die worden aangeboden door [Web Apps](../app-service-web/app-service-web-overview.md) en [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Het omgekeerde geldt ook: als u een web-app of mobiele app gebruikt om een API te hosten, kan deze app gebruikmaken van functies van API Apps, zoals Swagger-metagegevens voor het genereren van clientcode en CORS voor browsertoegang in meerdere domeinen. Het enige verschil tussen de drie app-typen (API, web, mobiel) is de naam en het pictogram van deze apps in de Azure-portal.
 
@@ -62,6 +62,6 @@ Begin een thread in het [API Apps-forum](https://social.msdn.microsoft.com/Forum
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

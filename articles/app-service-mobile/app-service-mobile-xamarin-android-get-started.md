@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -39,7 +39,7 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 * Visual Studio met Xamarin. Zie [Installeren en instellen voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) voor instructies.
 
 > [!NOTE]
-> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile).  U kunt onmiddellijk een tijdelijke mobiele starter-app in App Service maken. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/).  U kunt onmiddellijk een tijdelijke mobiele starter-app in App Service maken. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -88,6 +88,6 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,9 +1,10 @@
 # Overzicht
-## [Wat is Service Bus Messaging?](service-bus-queues-topics-subscriptions.md)
-## [Azure- en Service Bus-wachtrijen vergelijken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [Wat is Service Bus Messaging?](service-bus-messaging-overview.md)
+## [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Veelgestelde vragen](service-bus-faq.md)
 
 # Aan de slag
+## [Een Service Bus-toepassing met meerdere lagen bouwen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Een naamruimte maken](service-bus-create-namespace-portal.md)
 ## Wachtrijen gebruiken
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -24,11 +25,13 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [Azure- en Service Bus-wachtrijen vergelijken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Prestaties optimaliseren](service-bus-performance-improvements.md)
 ### [Asynchrone berichten en hoge beschikbaarheid](service-bus-async-messaging.md)
 ### [Uitval en noodgevallen afhandelen](service-bus-outages-disasters.md)
 
 ## Ontwikkelen
+### [Wachtrijen, onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md)
 ### [Apps die gebruikmaken van wachtrijen](service-bus-create-queues.md)
 ### [Apps die gebruikmaken van onderwerpen/abonnementen](service-bus-create-topics-subscriptions.md)
 ### [Verificatie en autorisatie](service-bus-authentication-and-authorization.md)
@@ -46,23 +49,27 @@
 ### [AMQP gebruiken met gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Gekoppelde naamruimten](service-bus-paired-namespaces.md)
 ### [Entiteiten koppelen met automatisch doorsturen](service-bus-auto-forwarding.md)
+
 ## Beheren
+### [Service Bus-beheerbibliotheken](service-bus-management-libraries.md)
 ### [Azure Resource Manager-sjablonen gebruiken](service-bus-resource-manager-overview.md)
 ### [PowerShell gebruiken om entiteiten in te richten](service-bus-powershell-how-to-provision.md)
 
 # Naslaginformatie
-## [Prijsdetails](service-bus-pricing-billing.md)
-## [Voorbeelden](service-bus-samples.md)
-## [Uitzonderingen](service-bus-messaging-exceptions.md)
-## [Quota](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Resources
 ## [SQLFilter-syntaxis](service-bus-messaging-sql-filter.md)
 ## [SQLRuleAction-syntaxis](service-bus-messaging-sql-rule-action.md)
 ## [AMQP1.0-protocolhandleiding](service-bus-amqp-protocol-guide.md)
 ### [Bewerkingen op basis van antwoorden op AMQP 1.0-aanvragen](service-bus-amqp-request-response.md)
-
-# Resources
+## [Prijsdetails](service-bus-pricing-billing.md)
+## [Voorbeelden](service-bus-samples.md)
+## [Uitzonderingen](service-bus-messaging-exceptions.md)
+## [Quota](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN-forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +80,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

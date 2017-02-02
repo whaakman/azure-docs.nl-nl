@@ -61,6 +61,7 @@
 ### [Publiceren vanuit VS](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Beheren
+### [Visual Studio Cloud Explorer gebruiken](../app-service-logic/app-service-logic-manage-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Logische apps controleren](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B-berichten controleren](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Volgschema voor AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -89,6 +90,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

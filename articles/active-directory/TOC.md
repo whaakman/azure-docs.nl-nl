@@ -139,12 +139,15 @@
 
 ### [Externe toegang tot uw apps bieden](active-directory-application-proxy-get-started.md)
 #### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
-#### [Apps publiceren](active-directory-application-proxy-publish.md)
+#### Apps publiceren
+##### [Azure Portal](application-proxy-publish-azure-portal.md)
+##### [Klassieke portal](active-directory-application-proxy-publish.md)
 #### Publiceren op een aparte netwerken
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Klassieke portal](active-directory-application-proxy-connectors.md)
 #### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
 #### [Eenmalige aanmelding](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
 #### [Voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md)
@@ -202,6 +205,7 @@
 #### [Instellingen voor groepsbeleid](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Windows 10-instellingen](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Veelgestelde vragen](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Problemen oplossen](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Partners integreren met Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Overzicht](active-directory-b2b-collaboration-overview.md)
 #### [Hoe werkt het?](active-directory-b2b-how-it-works.md)
@@ -211,7 +215,7 @@
 #### [CSV-bestandsindeling](active-directory-b2b-references-csv-file-format.md)
 #### [Gebruikersobjecten](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [Gebruikerstokens](active-directory-b2b-references-external-user-token-format.md)
-### [On-premises identiteiten integreren met Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Toegang tot resources delegeren
@@ -283,7 +287,8 @@
 
 # Verwant
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health (Engelstalig)](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for Developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -296,6 +301,6 @@
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

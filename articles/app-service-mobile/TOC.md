@@ -93,12 +93,12 @@
 #### [Versiebeheer voor client en server](app-service-mobile-client-and-server-versioning.md)
 
 ### Webtaken
-#### [Wat is de Azure WebJobs SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Wat is de Azure WebJobs-SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Een .NET-webtaak maken in Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Het gebruik van Azure Blob Storage met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Queue Storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Service Bus gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Table Storage gebruiken met de WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Het gebruik van Azure Blob Storage met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Queue Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Service Bus gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Table Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### App Service-omgeving
 #### [Een web-app maken in een App Service-omgeving](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -207,16 +207,30 @@
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Naslaginformatie
-## [.NET-API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [SDK voor .NET-back-end](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [SDK voor Node.js-back-end](https://azure.github.io/azure-mobile-apps-node/)
+## [SDK voor Android-client](https://azure.github.io/azure-mobile-apps-android-client/)
+## [SDK voor iOS-client](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [SDK voor JavaScript-/Cordova-client](https://azure.github.io/azure-mobile-apps-js-client/)
+## [SDK voor Windows-/Xamarin-client](https://msdn.microsoft.com/library/azure/mt419521.aspx)
+
+# Verwant
+## [GitHub-opslagplaatsen](https://github.com/Azure/azure-mobile-apps)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
 ## [Prijzen](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Voorbeelden
+### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Synchronisatie van gestructureerde gegevens](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Snelstartgids voltooid
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [.NET-back-end](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Node.js-back-end](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Aanbevolen procedures voor App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Lijst met resources voor WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -225,6 +239,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

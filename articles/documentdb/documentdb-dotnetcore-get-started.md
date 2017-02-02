@@ -1,23 +1,22 @@
 ---
 title: 'NoSQL-zelfstudie: DocumentDB .NET Core SDK | Microsoft Docs'
 description: Een NoSQL-zelfstudie waarmee u een online database en een C#-consoletoepassing maakt met de DocumentDB .NET Core SDK. DocumentDB is een NoSQL-database voor JSON.
-keywords: nosql zelfstudie, onlinedatabase, c#-consoletoepassing
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -49,6 +48,9 @@ Hebt u geen tijd? Geen probleem. De volledige oplossing is beschikbaar via [GitH
 
 Gebruik daarna de stemknoppen boven of onder aan de pagina om ons feedback te geven. Als u graag rechtstreeks contact wilt opnemen, voegt u uw e-mailadres ook toe aan uw reactie.
 
+> [!NOTE]
+> De .NET Core-SDK van de DocumentDB die in deze zelfstudie wordt gebruikt, is nog niet compatibel met UWP-apps (Universal Windows Platform). Voor een preview-versie van de .NET Core-SDK die UWP-apps ondersteunt, stuurt u een e-mail naar [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
 Tijd om aan de slag te gaan.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -70,10 +72,10 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 1. Open **Visual Studio 2015** op uw computer.
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 3. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Sjablonen** / **Visual C#** / **.NET Core**/**Consoletoepassing (.NET Core)**, geef het project een naam en klik vervolgens op **OK**.
-   ![Schermopname van het venster Nieuw project](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Schermopname van het venster Nieuw project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing.
 5. Klik, zonder het menu te verlaten, op **NuGet-pakketten beheren...**
-   ![Schermopname van het snelmenu voor het project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Schermopname van het snelmenu voor het project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Klik op het tabblad **Nuget** op **Bladeren** en typ **azure documentdb** in het zoekvak.
 7. Zoek **Microsoft.Azure.DocumentDB.Core** in de resultaten en klik op **Installeren**.
    De pakket-id voor de DocumentDB-clientbibliotheek is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
@@ -367,7 +369,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt twee DocumentDB-documenten gemaakt.  
 
-![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Stap 7: een query uitvoeren op DocumentDB-resources
 DocumentDB biedt ondersteuning voor uitgebreide [query's](documentdb-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de DocumentDB SQL-syntaxis als LINQ, die we kunnen uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
@@ -421,7 +423,7 @@ Gefeliciteerd. U hebt nu een query uitgevoerd op een DocumentDB-verzameling.
 
 In het volgende diagram ziet u hoe de DocumentDB SQL-querysyntaxis wordt aangeroepen voor de verzameling u hebt gemaakt. Dezelfde logica is ook van toepassing op de LINQ-query.
 
-![Diagram ter illustratie van het bereik en de betekenis van de query die wordt gebruikt in de NoSQL-zelfstudie om een toepassing C#-consoletoepassing te maken](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram ter illustratie van het bereik en de betekenis van de query die wordt gebruikt in de NoSQL-zelfstudie om een toepassing C#-consoletoepassing te maken](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Het trefwoord [FROM](documentdb-sql-query.md#from-clause) is optioneel in de query omdat DocumentDB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. DocumentDB leidt af dat Families, root, of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
 
@@ -556,11 +558,10 @@ Als u de verwijzingen naar de DocumentDB .NET Core SDK in Visual Studio wilt her
 * Meer informatie over het programmeermodel vindt u in de sectie Ontwikkelen van de pagina [DocumentDB-documentatie](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

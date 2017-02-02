@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 88f9a6b7e1f49ad58e91165a772e8453163d224c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
 
 
 ---
@@ -41,7 +41,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * [Visual Studio Community 2015] of een nieuwere versie.
 
 > [!NOTE]
-> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Daar kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
+> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). Daar kunt u direct een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
 > 
 > 
 
@@ -91,6 +91,6 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

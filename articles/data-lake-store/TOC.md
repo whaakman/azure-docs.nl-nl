@@ -7,11 +7,12 @@
 # Aan de slag
 ## [Portal gebruiken](data-lake-store-get-started-portal.md)
 ## [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
-## [.NET SDK gebruiken](data-lake-store-get-started-net-sdk.md)
-## [Java SDK gebruiken](data-lake-store-get-started-java-sdk.md)
-## [REST API gebruiken](data-lake-store-get-started-rest-api.md)
+## [.NET-SDK gebruiken](data-lake-store-get-started-net-sdk.md)
+## [Java-SDK gebruiken](data-lake-store-get-started-java-sdk.md)
+## [REST-API gebruiken](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI gebruiken](data-lake-store-get-started-cli.md)
 ## [Node.js gebruiken](data-lake-store-manage-use-nodejs.md)
+## [Python gebruiken](data-lake-store-get-started-python.md)
 
 # Procedures
 ## Gegevens kopiëren
@@ -21,14 +22,6 @@
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Gegevens uploaden uit offlinebronnen](data-lake-store-offline-bulk-data-upload.md)
 
-## Ontwikkelen
-### [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
-### [.NET SDK gebruiken](data-lake-store-get-started-net-sdk.md)
-### [Java SDK gebruiken](data-lake-store-get-started-java-sdk.md)
-### [REST API gebruiken](data-lake-store-get-started-rest-api.md)
-### [Azure CLI gebruiken](data-lake-store-get-started-cli.md)
-### [Node.js gebruiken](data-lake-store-manage-use-nodejs.md)
-
 ## Beveiligde gegevens
 ### [Beveiligingsoverzicht](data-lake-store-security-overview.md)
 ### [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md)
@@ -36,7 +29,15 @@
 ### [Verificatie van service-tot-service](data-lake-store-authenticate-using-active-directory.md)
 ### [Verificatie van de eindgebruiker](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Prestaties
+### [Richtlijnen voor het afstemmen van de prestaties van Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Spark in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Hive in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Richtlijnen voor het afstemmen van de prestaties van Storm in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+
 ## Integreren met Azure-services
+### [Toegang vanuit VM's in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Gebruiken met Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Met Portal een HDInsight-cluster maken met toegang tot Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [Met PowerShell een HDInsight-cluster maken met toegang tot Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +50,17 @@
 
 ## Beheren
 ### [Toegang tot diagnostische logboeken](data-lake-store-diagnostic-logs.md)
+### [Plannen voor hoge beschikbaarheid](data-lake-store-troubleshooting-guidance.md)
+### [Richtlijnen voor het afstemmen van prestaties](data-lake-store-performance-tuning-guidance.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (accountbeheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (bestandssysteembeheer)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Bronnen
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +72,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

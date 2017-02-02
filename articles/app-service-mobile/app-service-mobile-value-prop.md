@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
 
 
 ---
@@ -68,20 +68,20 @@ De volgende platformfuncties komen eigenlijk altijd van pas voor mobiele product
   Leer meer over [App Service-omgevingen].
 
 ## <a name="getting-started"></a>Aan de slag
-Als u aan de slag wilt met Mobile Apps, volgt u de zelfstudie in [Get Started] (Aan de slag).  Hierin vindt u basisprincipes voor het produceren van een mobiele back-end van uw keuze, informatie over het integreren van verificatie, offlinesynchronisatie en pushmeldingen.  U kunt de zelfstudie in [Get started] (Aan de slag) meerdere keren volgen (één keer voor elke clienttoepassing).
+Als u aan de slag wilt met Mobile Apps, volgt u de zelfstudie in [Get Started] (Aan de slag).  Hierin vindt u basisprincipes voor het produceren van een mobiele back-end van uw keuze, informatie over het integreren van verificatie, offlinesynchronisatie en pushmeldingen.  U kunt de zelfstudie in [Get Started] (Aan de slag) meerdere keren volgen (één keer voor elke clienttoepassing).
 
 Zie ons [leeroverzicht] voor meer informatie over Azure Mobile Apps.
 Zie [Azure App Service] voor meer informatie over het Azure App Service-platform.
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://tryappservice.azure.com/?appServiceName=mobile). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
 <!-- URLs. -->
-[Mobile Service migreren naar App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Aan de slag]: app-service-mobile-ios-get-started.md
+[Get Started]: app-service-mobile-ios-get-started.md
 [Azure-tabelopslag]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [verificatiefuncties]: ./app-service-mobile-auth.md
@@ -104,6 +104,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

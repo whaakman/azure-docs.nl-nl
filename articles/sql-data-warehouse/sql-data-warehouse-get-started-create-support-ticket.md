@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
-ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
+ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
+ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
 
 
 ---
@@ -60,7 +60,7 @@ Als u problemen ondervindt met SQL Data Warehouse, kunt u een ondersteuningstick
      Als u een Premier-ondersteuningsplan hebt, kunt u ook problemen met betrekking tot SQL Data Warehouse rapporteren in de [Microsoft Premier Online-portal][Microsoft Premier online portal].  Zie [Azure-ondersteuningsplannen][Azure support plan] voor meer informatie over de verschillende ondersteuningsplannen, waaronder bereik, reactietijden, prijzen enzovoort.  Zie [Veelgestelde vragen over ondersteuning van Azure][Azure support FAQs] voor veelgestelde vragen over de ondersteuning van Azure.  
      
      ![Ondersteuningsplan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Selecteer het **Probleemtype** en de **Categorie**.
+8. Selecteer het **Probleemtype** en de **Categorie**. In dit voorbeeld hebben we Hulpprogramma's gekozen als het probleemtype en Clienthulpprogramma's als de categorie. 
    
     ![Probleemtype categorie](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. Beschrijf het probleem en kies de impact die het probleem heeft op de bedrijfsactiviteiten.
@@ -101,6 +101,6 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
