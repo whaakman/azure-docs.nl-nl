@@ -13,31 +13,31 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Een index voor Azure Search maken met behulp van de REST-API.
 > [!div class="op_single_selector"]
+>
 > * [Overzicht](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
-> 
-> 
+>
+>
 
-Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) voor Azure Search met behulp van de Azure Search REST-API.
+Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) voor Azure Search met behulp van de Azure Search REST-API.
 
 Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [een Azure Search-service](search-create-service-portal.md) hebben gemaakt.
 
 Als u een index voor Azure Search met behulp van de REST-API wilt maken, verzendt u één HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. De definitie van de index bevindt zich zowel in de aanvraagtekst als de juist-opgemaakte JSON-inhoud.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
-Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om HTTP-aanvragen te verzenden voor het URL-eindpunt van uw service met de REST-API. *Alle* API-aanvragen moeten echter de api-sleutel bevatten die is gegenereerd voor de zoekservice die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
+Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om HTTP-aanvragen te verzenden voor het URL-eindpunt van uw service met de REST-API. *Alle* API-aanvragen moeten de API-sleutel bevatten die is gegenereerd voor de Search-service die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
 2. Ga naar de blade van uw Azure Search-service
@@ -50,13 +50,13 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 Als u een index wilt maken, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
-## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. Een index voor Azure Search definiëren met een goed-opgemaakte JSON
+## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Een index voor Azure Search definiëren met een goed-opgemaakte JSON
 Als u de index wilt maken, hoeft u maar één HTTP POST-aanvraag bij uw service te doen. De hoofdtekst van uw HTTP POST-aanvraag bevat een JSON-object dat uw Azure Search-index definieert.
 
 1. De eerste eigenschap van dit JSON-object is de naam van de index.
 2. De tweede eigenschap van dit JSON-object is een JSON-matrix met de naam `fields`, die een afzonderlijk JSON-object voor elk veld in de index bevat. Elk van deze JSON-objecten bevat meerdere naamwaardeparen voor elk veldkenmerken, zoals naam, type enzovoort.
 
-Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://msdn.microsoft.com/library/azure/dn798941.aspx) moeten worden toegewezen. Deze kenmerken bepalen welke zoekfuncties (filteren, facetten, zoekacties in volledige tekst sorteren enzovoort) beschikbaar zijn in velden. Als u een eigenschap niet expliciet instelt, worden de bijbehorende zoekfuncties standaard ingeschakeld, tenzij u deze functies specifiek hebt uitgeschakeld.
+Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://docs.microsoft.com/rest/api/searchservice/Create-Index) moeten worden toegewezen. Deze kenmerken bepalen welke zoekfuncties (filteren, facetten, zoekacties in volledige tekst sorteren enzovoort) beschikbaar zijn in velden. Als u een eigenschap niet expliciet instelt, worden de bijbehorende zoekfuncties standaard ingeschakeld, tenzij u deze functies specifiek hebt uitgeschakeld.
 
 In ons voorbeeld hebben we onze index hotels genoemd en de velden als volgt ingesteld:
 
@@ -84,24 +84,24 @@ We hebben de waarde van de indexkenmerken zorgvuldig voor elk veld ingesteld op 
 
 In een index van het type `Edm.String` moet precies één veld zijn aangewezen als het sleutelveld.
 
-De bovenstaande indexdefinitie maakt gebruik van een aangepaste taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie [het onderwerp Language support (Taalondersteuning) op MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
+Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie het onderwerp [Language support](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Taalondersteuning) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
 
 ## <a name="iii-issue-the-http-request"></a>III. De HTTP-aanvraag verzenden
-1. U kunt de indexdefinitie gebruiken als aanvraagtekst. Verzend een HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. In de URL moet de naam van de service gebruiken en de hostnaam gebruiken. Bovendien moet u de juiste `api-version` als een queryreeksparameter opgeven (op het moment van publicatie van dit document is `2015-02-28` de API-versie).
+1. U kunt de indexdefinitie gebruiken als aanvraagtekst. Verzend een HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. In de URL moet de naam van de service gebruiken en de hostnaam gebruiken. Bovendien moet u de juiste `api-version` als een queryreeksparameter opgeven (op het moment van publicatie van dit document is `2016-09-01` de API-versie).
 2. Gebruik in de aanvraagheaders `Content-Type` voor `application/json`. U moet ook de administratorsleutel van de service opgeven, zoals die is gedefinieerd in Stap I in de `api-key`-header.
 
 U moet uw eigen servicenaam en API-sleutel opgeven om de onderstaande aanvraag te kunnen doen:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Als een aanvraag is gelukt, ziet u de statuscode 201 (Gemaakt). Ga naar de API-verwijzing op [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx) voor meer informatie over het maken van een index met de REST-API. Zie [HTTP-statuscodes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
+Als een aanvraag is gelukt, ziet u de statuscode 201 (Gemaakt). Ga [hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index) naar de API-verwijzing voor meer informatie over het maken van een index met de REST-API. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
 
 Als u klaar bent met een index en deze weer wilt verwijderen, roept u de aanvraag HTTP DELETE aan De index hotels zou bijvoorbeeld als volgt kunnen worden verwijderd:
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
@@ -110,7 +110,6 @@ Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

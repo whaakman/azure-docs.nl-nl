@@ -58,7 +58,7 @@ ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Introductievideo's van 5 minuten</h3>
+                                    <h3>Introductievideo's van&5; minuten</h3>
                                 </div>
                             </div>
                         </div>

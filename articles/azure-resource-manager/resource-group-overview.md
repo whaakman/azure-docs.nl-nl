@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
+ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
+ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
 
 
 ---
@@ -81,6 +81,10 @@ Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven
 Elke resourceprovider biedt een set resources en bewerkingen voor werken met een Azure-service. Als u bijvoorbeeld sleutels en geheimen wilt opslaan, werkt u met de resourceprovider **Microsoft.KeyVault**. Deze resourceprovider biedt een resourcetype genaamd **kluizen** voor het maken van de sleutelkluis en een resourcetype genaamd **kluizen/geheimen** voor het maken van een geheim in de sleutelkluis. 
 
 Voordat u aan de slag gaat met de implementatie van uw resources, dient u inzicht te hebben in de beschikbare resourceproviders. Als u de namen van resourceproviders en resources kent, bent u beter in staat resources te definiëren die u wilt implementeren in Azure.
+
+U kunt alle resourceproviders bekijken via de portal. Selecteer op de blade voor uw abonnement de optie **Resourceproviders**:
+
+![resourceproviders weergeven](./media/resource-group-overview/view-resource-providers.png)
 
 U kunt alle resourceproviders ophalen met de volgende PowerShell-cmdlet:
 
@@ -322,6 +326,6 @@ Hier volgt een videodemonstratie van dit overzicht:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
