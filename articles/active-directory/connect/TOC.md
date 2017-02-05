@@ -80,6 +80,7 @@
 
 
 # Verwant
+## [Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren](../connect-health/active-directory-aadconnect-health.md)
 ## [Ontwerphandleiding voor hybride identiteit](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Afschaffing van DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

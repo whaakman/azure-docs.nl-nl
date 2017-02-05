@@ -11,7 +11,7 @@
 ### [VM-beschikbaarheid](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Implementatiemodellen](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Implementatiemodellen](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [VM-schaalsets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Containers](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Veelgestelde vragen](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -22,9 +22,10 @@
 ## [Bestanden kopiëren naar een virtuele Linux-machine](../virtual-machines-linux-copy-files-to-linux-vm-using-scp.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Verschillende manieren om een virtuele machine te maken](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Azure CLI installeren](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Een virtuele machine maken met de Azure CLI 2.0 (Preview)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Een virtuele machine maken met de Azure CLI](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Kennismaken met sjablonen](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Een virtuele machine maken met Azure CLI
+### [Azure CLI 1.0](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Kennismaken met sjablonen](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Complexe VM-sjablonen maken en implementeren](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Toepassingsarchitectuur](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Toegang en beveiliging](../virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -34,15 +35,17 @@
 # Procedures
 ## Compute
 ### [Een VM maken op basis van een Azure-sjabloon](../virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Een volledige Linux-omgeving maken via CLI](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Een volledige omgeving maken met Azure CLI
+#### [Azure CLI 1.0](../virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Meerdere VM's maken met schaalsets](../virtual-machines-linux-cli-vmss-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een gegevensschijf koppelen via CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een gegevensschijf koppelen via de portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Poorten en eindpunten openen](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Het formaat van een Linux-VM](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Een VM implementeren in een bestaand virtueel netwerk
-#### [Azure CLI gebruiken](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Azure Portal gebruiken](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure Portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM-installatiekopieën zoeken](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Cloud-init gebruiken](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [SSH-toegang opnieuw instellen, gebruikers beheren en schijven controleren](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -52,6 +55,7 @@
 ### [Docker-hosts maken met de Azure Docker-VM-extensie](../virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Docker Compose met Azure gebruiken](../virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Azure Container Registry gebruiken](/azure/container-registry/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Extern bureaublad installeren en configureren om verbinding te maken met een virtuele Linux-machine](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Storage gebruiken
 ### [Schijven en VHD's](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -60,9 +64,12 @@
 ### [Software-RAID configureren](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LVM configureren](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Azure-bestanden gebruiken](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure File Storage koppelen met behulp van SMB](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Netwerk](../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Toegang tot een VM via CLI toestaan](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Toegang tot een virtuele machine toestaan met de CLI
+#### [Azure CLI 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Interne DNS gebruiken voor VM-naamomzetting](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een FQDN maken via de portal](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een VM met meerdere NIC's maken](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -94,7 +101,7 @@
 
 ## Configureren
 ### [Een VM verplaatsen tussen abonnementen](../virtual-machines-linux-move-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Tags gebruiken](../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Tags gebruiken](../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een VM taggen](../virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Beheren
@@ -184,7 +191,7 @@
 ## [REST](/rest/api/compute)
 
 # Resources
-## [Resource Manager-sjablonen schrijven](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Resource Manager-sjablonen schrijven](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/#Linux)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services/)
@@ -192,6 +199,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

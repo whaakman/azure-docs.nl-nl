@@ -1,14 +1,11 @@
 # Overzicht
 ## [Wat is Azure Automation?](automation-intro.md)
 ## [Beveiliging in Azure Automation](automation-security-overview.md)
-
 # Aan de slag
 ## [Runbook maken](automation-first-runbook-graphical.md)
 ## [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
 ## [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 ## [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
-
-
 # Procedures
 ## Runbooks maken
 ### [Runbooktypen](automation-runbook-types.md)
@@ -26,6 +23,7 @@
 ### [Een runbook plannen](automation-scheduling-a-runbook.md)
 ### [Runbooks uitvoeren in uw datacenter](automation-hybrid-runbook-worker.md)
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
+### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
@@ -44,7 +42,7 @@
 ### [Verbindingen](automation-connections.md)
 ### [Referenties](automation-credentials.md)
 ### [Integratiemodules](automation-integration-modules.md)
-### [Schema’s](automation-schedules.md)
+### [Schema's](automation-schedules.md)
 ### [Variabelen](automation-variables.md)
 ## Scenario's automatiseren
 ### [Runbook-galerie](automation-runbook-gallery.md)
@@ -55,26 +53,22 @@
 ### [VM starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
 ### [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
-
+### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Controle](automation-manage-send-joblogs-log-analytics.md)
-
 ## Migreren
 ### [Migreren vanuit Orchestrator](automation-orchestrator-migration.md)
 ### [Automation-account verplaatsen](automation-migrate-account-subscription.md)
-
 ## Problemen oplossen
 ### [Veelvoorkomende problemen oplossen](automation-troubleshooting-automation-errors.md)
 ### [Runbook-taak onderbroken](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Classic PowerShell](/powershell/servicemanagement)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (klassiek)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Klassieke REST](https://msdn.microsoft.com/library/azure/mt163781)
+## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt163781)
+# Resources
 ## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)
-
-# Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +79,6 @@
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,16 +25,27 @@ ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. 
-> 
-> 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie.
+>
+>
 
 ## <a name="overview"></a>Overzicht
 In deze zelfstudie leert u een eenvoudige toepassing voor de levering van VoD-inhoud (Video-on-Demand) te implementeren met Azure Media Services door gebruik te maken van de Azure Media Services (AMS) SDK voor .NET.
 
 In deze zelfstudie maakt u kennis met de algemene werkstroom voor Media Services en de meest algemene programmeerobjecten en -taken die zijn vereist voor het ontwikkelen van Media Services. Wanneer u de zelfstudie hebt voltooid, kunt u een voorbeeldmediabestand streamen of progressief downloaden dat u hebt eerder hebt geüpload, gecodeerd of gedownload.
 
+### <a name="ams-model"></a>AMS-model
+
+In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij het ontwikkelen van VoD-toepassingen in het Media Services OData-model.
+
+Klik op de afbeelding om deze in volledig formaat weer te geven.  
+
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.14) het hele model bekijken.  
+
 ## <a name="what-youll-learn"></a>Wat u leert
+
 De zelfstudie laat zien hoe u de volgende taken uitvoert:
 
 1. Een Media Services-account (met Azure Portal).
@@ -49,41 +60,38 @@ De zelfstudie laat zien hoe u de volgende taken uitvoert:
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
-* U hebt een Azure-account nodig om deze zelfstudie te voltooien. 
-  
+* U hebt een Azure-account nodig om deze zelfstudie te voltooien.
+
     Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web-apps in Azure App Service.
 * Besturingssystemen: Windows 8 of hoger, Windows 2008 R2, Windows 7.
 * .NET framework 4.0 of hoger
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
-
-## <a name="download-sample"></a>Voorbeeld downloaden
-U kunt [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/) een voorbeeld ophalen en uitvoeren.
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
-   
+
     ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Voer bij **MEDIA SERVICES-ACCOUNT MAKEN** de vereiste waarden in.
-   
+
     ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
    2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
    3. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
-   4. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
+   4. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven.
    5. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
-      
+
        Klik [hier](../storage/storage-introduction.md) voor meer informatie over opslag.
    6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
 4. Klik op **Maken** onder in het formulier.
-   
-    Als het account is gemaakt, wordt de status gewijzigd in **Actief**. 
-   
+
+    Als het account is gemaakt, wordt de status gewijzigd in **Actief**.
+
     ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Streaming-eindpunten configureren met Azure Portal
@@ -100,19 +108,19 @@ Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden
 
 Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
 
-1. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
-2. Klik op het standaardstreaming-eindpunt. 
-   
+1. Klik in het venster **Instellingen** op **Streaming-eindpunten**.
+2. Klik op het standaardstreaming-eindpunt.
+
     Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
 3. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
-   
+
     ![Streaming-eenheden](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
-   
+
    > [!NOTE]
    > Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -123,20 +131,20 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
 
 3. Voeg een verwijzing naar de System.Configuration-assembly toe. Deze assembly bevat de klasse **System.Configuration.ConfigurationManager** die wordt gebruikt voor toegang tot de configuratiebestanden, bijvoorbeeld App.config.
 
-    Verwijzingen toevoegen met behulp van NuGet: klik in Solution Explorer met de rechtermuisknop op de projectnaam en selecteer **Toevoegen** > **Verwijzing...** en het type configuratie in het zoekvak. 
+    Verwijzingen toevoegen met behulp van NuGet: klik in Solution Explorer met de rechtermuisknop op de projectnaam en selecteer **Toevoegen** > **Verwijzing...** en het type configuratie in het zoekvak.
 
 4. Open het bestand App.config (voeg het bestand toe aan uw project als dit niet standaard wordt toegevoegd) en voeg de sectie *appSettings* aan het bestand toe. Stel de waarden voor de naam van uw Azure Media Services-account en de accountsleutel in, zoals wordt weergegeven in het volgende voorbeeld. Voor het verkrijgen van de accountnaam en sleutelinformatie gaat u naar de [Azure Portal](https://portal.azure.com/) en selecteert u uw AMS-account. Selecteer vervolgens **Instellingen** > **Sleutels**. In het venster Sleutels beheren worden de accountnaam en de primaire en secundaire sleutel weergegeven. Kopieer de waarden van de accountnaam en de primaire sleutel.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Overschrijf de bestaande instructies aan het begin van het bestand Program.cs **met** de volgende code.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -146,7 +154,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Maak een nieuwe map in de projectdirectory en kopieer het MP4- of WMV-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad C:\VideoFiles gebruikt.
+6. Maak een nieuwe map (deze kan overal op uw lokaal station zijn opgeslagen) en kopieer een MP4-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad C:\VideoFiles gebruikt.
 
 ## <a name="connect-to-the-media-services-account"></a>Verbinding met het Azure Media Services-account maken
 
@@ -154,6 +162,7 @@ Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-pro
 
 Overschrijf de standaardklasse Program met de volgende code. De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding met Media Services maken via de Media Services SDK voor .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx) voor meer informatie over het maken van verbinding met Media Services.
 
+Zorg ervoor dat de bestandsnaam en het pad waar u het media-bestand hebt opgeslagen, zijn bijgewerkt.
 
 Met de functie **Main** worden methoden aangeroepen die later in deze sectie verder worden gedefinieerd.
 
@@ -184,7 +193,7 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -218,7 +227,7 @@ De methode **CreateFromFile** maakt gebruik van **AssetCreationOptions**, waarme
 
 * **Geen**: er wordt geen versleuteling gebruikt. Dit is de standaardwaarde. Houd er rekening mee dat bij gebruik van deze optie de inhoud tijdens de overdracht of in de opslag niet is beveiligd.
   Als u een MP4-bestand wilt leveren via progressief downloaden, gebruikt u deze optie.
-* **StorageEncrypted**: gebruik deze optie om uw niet-versleutelde inhoud lokaal te versleutelen met Advanced Encryption Standard (AES)&256;-bitsversleuteling, waarna de inhoud wordt geüpload naar en versleuteld wordt bewaard in Azure Storage. De versleuteling van assets die zijn beveiligd met Storage Encryption, wordt automatisch ongedaan gemaakt en de assets worden automatisch in een versleuteld bestandssysteem geplaatst voordat ze worden gecodeerd. Eventueel kunnen ze opnieuw worden versleuteld voordat ze opnieuw worden geüpload als een nieuwe uitvoerasset. Storage Encryption wordt voornamelijk gebruikt om uw invoerbestanden met media van hoge kwaliteit die zijn opgeslagen op de schijf, te beveiligen met een sterke versleuteling.
+* **StorageEncrypted**: gebruik deze optie om uw niet-versleutelde inhoud lokaal te versleutelen met Advanced Encryption Standard (AES) 256-bitsversleuteling, waarna de inhoud wordt geüpload naar en versleuteld wordt bewaard in Azure Storage. De versleuteling van assets die zijn beveiligd met Storage Encryption, wordt automatisch ongedaan gemaakt en de assets worden automatisch in een versleuteld bestandssysteem geplaatst voordat ze worden gecodeerd. Eventueel kunnen ze opnieuw worden versleuteld voordat ze opnieuw worden geüpload als een nieuwe uitvoerasset. Storage Encryption wordt voornamelijk gebruikt om uw invoerbestanden met media van hoge kwaliteit die zijn opgeslagen op de schijf, te beveiligen met een sterke versleuteling.
 * **CommonEncryptionProtected**: gebruik deze optie als u inhoud uploadt die al is versleuteld en beveiligd met Common Encryption of PlayReady DRM (bijvoorbeeld Smooth Streaming beveiligd met PlayReady DRM).
 * **EnvelopeEncryptionProtected**: gebruik deze optie als u een HLS-stream uploadt die is versleuteld met AES. Houd er rekening mee dat de bestanden moeten zijn gecodeerd en versleuteld door Transform Manager.
 
@@ -256,8 +265,7 @@ Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
 
 De volgende code toont u hoe u een codeertaak verzendt. De taak bevat één taak die aangeeft dat het tussentijdse bestand met **Media Encoder Standard** moet worden getranscodeerd in een set MP4-bestanden met een adaptieve bitsnelheid. De code verzendt de taak en wacht totdat de taak is voltooid.
 
-Zodra de taak is voltooid, kunt u uw asset streamen of MP4-bestanden die zijn gemaakt naar aanleiding van een transcodering progressief downloaden.
-U hoeft niet meer dan nul streaming-eenheden te hebben om MP4-bestanden progressief te downloaden.
+Zodra de coderingstaak is voltooid, kunt u de activa publiceren en de MP4-bestanden vervolgens streamen of progressief downloaden.
 
 Voeg de volgende methode toe aan de klasse Program.
 
@@ -299,23 +307,26 @@ Voeg de volgende methode toe aan de klasse Program.
 
 Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming), en SAS-locators (Shared Access Signature), voor het downloaden van mediabestanden. (Ga naar [dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog voor meer informatie over SAS-locators.)
 
-Nadat u de locators hebt gemaakt, kunt u de URL's maken die worden gebruikt om uw bestanden te streamen of te downloaden.
+### <a name="some-details-about-url-formats"></a>Details over URL-indelingen
 
-Een streaming-URL voor Smooth Streaming heeft de volgende indeling:
+Nadat u de locators hebt gemaakt, kunt u de URL's maken die worden gebruikt om uw bestanden te streamen of te downloaden. In het voorbeeld in deze zelfstudie worden URL's geretourneerd die u in de juiste browsers kunt plakken. Deze sectie bevat korte voorbeelden van hoe verschillende indelingen eruitzien.
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Een streaming-URL voor MPEG DASH heeft de volgende indeling:
 
-Een streaming-URL voor HLS heeft de volgende indeling:
+{streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Een streaming-URL voor HLS heeft de volgende indeling:
 
-Een streaming-URL voor MPEG DASH heeft de volgende indeling:
+{streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Een streaming-URL voor Smooth Streaming heeft de volgende indeling:
 
-Een SAS-URL die wordt gebruikt om bestanden te downloaden, heeft de volgende indeling:
+{streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Een SAS-URL die wordt gebruikt om bestanden te downloaden, heeft de volgende indeling:
+
+{blobcontainernaam}/{assetname}/{bestandsnaam}/{SAS-handtekening}
 
 Media Services .NET SDK Extensions bieden handige Help-methoden die ingedeelde URL's voor de gepubliceerde asset retourneren.
 
@@ -389,6 +400,7 @@ Voeg de volgende methode toe aan de klasse Program.
     }
 
 ## <a name="test-by-playing-your-content"></a>Testen door uw inhoud af te spelen
+
 Zodra u het programma uitvoert dat in de vorige sectie is gedefinieerd, worden er URL's in het consolevenster weergegeven die vergelijkbaar zijn met de volgende URL's.
 
 URL's voor adaptief streamen:
@@ -424,18 +436,27 @@ URL's voor progressief downloaden (audio en video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Gebruik [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) om uw video te streamen.
+Plak de URL in het URL-tekstvak in de [Azure Media Services-speler](http://amsplayer.azurewebsites.net/azuremediaplayer.html) om de video te streamen.
 
 Als u het progressief downloaden wilt testen, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome of Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Volgende stappen: Media Services-leertrajecten
+Zie de volgende onderwerpen voor meer informatie:
+
+- [Uw inhoud afspelen op bestaande spelers](media-services-playback-content-with-existing-players.md)
+- [Videospelertoepassingen ontwikkelen](media-services-develop-video-players.md)
+- [Een adaptieve MPEG-DASH-videostream insluiten in een HTML5-toepassing met DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Voorbeeld downloaden
+Het volgende voorbeeld bevat de code die u hebt gemaakt in deze zelfstudie: [voorbeeld](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
+## <a name="next-steps"></a>Volgende stappen 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Zoekt u iets anders?
-Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of het onderwerp op een andere manier niet aan uw behoeften voldoet, kunt u ons via de onderstaande Disqus-thread feedback geven.
+
 
 <!-- Anchors. -->
 
@@ -446,6 +467,6 @@ Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

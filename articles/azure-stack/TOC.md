@@ -16,6 +16,7 @@
 ## [Een opslagaccount maken](azure-stack-provision-storage-account.md)
 ## [Verbinding maken met CLI](azure-stack-connect-cli.md)
 ## [Verbinding maken met PowerShell](azure-stack-connect-powershell.md)
+## [Visual Studio installeren](azure-stack-install-visual-studio.md)
 ## [Veelgestelde vragen](azure-stack-faq.md)
 
 # Services aanbieden aan tenants
@@ -28,6 +29,7 @@
 # Sjablonen gebruiken
 ## [Overzicht van sjablonen](azure-stack-arm-templates.md)
 ## [Sjablonen ontwikkelen](azure-stack-develop-templates.md)
+## [Sjablonen controleren](azure-stack-validate-templates.md)
 ## [Sjablonen implementeren met de portal](azure-stack-deploy-template-portal.md)
 ## [Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Sjablonen implementeren met Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -72,10 +74,10 @@
 ### [De adapter voor de resourceprovider van SQL Server op Azure Stack implementeren](azure-stack-sql-resource-provider-deploy.md)
 
 ## App Service plannen en implementeren
-### [Overzicht van Azure Stack Web-apps](azure-stack-app-service-overview.md)
-### [Voordat u aan de slag gaat met Azure Stack Web-apps](azure-stack-app-service-before-you-get-started.md)
-### [Web-apps: meer webwerkrollen toevoegen](azure-stack-webapps-add-worker-roles.md)
-### [Een resourceprovider voor Web-apps toevoegen aan Azure Stack](azure-stack-app-service-deploy.md)
+### [App Service op Azure Stack-overzicht](azure-stack-app-service-overview.md)
+### [Voordat u aan de slag gaat](azure-stack-app-service-before-you-get-started.md)
+### [Meer webwerkrollen toevoegen](azure-stack-app-service-add-worker-roles.md)
+### [Een App Service-resourceprovider aan Azure Stack toevoegen](azure-stack-app-service-deploy.md)
 
 # Problemen oplossen
 ## [Problemen met Azure Stack oplossen](azure-stack-troubleshooting.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

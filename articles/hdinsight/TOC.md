@@ -10,7 +10,6 @@
 
 # Aan de slag
 ## [Beginnen met Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Beginnen met voorbeeld van Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
 ## [Beginnen met R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Beginnen met Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Beginnen met HBase en NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -62,10 +61,12 @@
 ### [HVAC-prestaties voorspellen](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Resultaten van voedingsinspectie voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Websitelogboeken analyseren](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Zeppelin-notitieblokken gebruiken](hdinsight-apache-spark-use-zeppelin-notebook.md)
 ### [Jupyter-notitieblokkernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Pakketten voor Jupyter-notitieblokken](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Een lokaal Jupyter-notitieblok gebruiken](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Apps ontwikkelen met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Apps ontwikkelen met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Externe foutenopsporing met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Resources beheren](hdinsight-apache-spark-resource-manager.md)
@@ -157,6 +158,7 @@
 #### [Azure CLI gebruiken](hdinsight-administer-use-command-line.md)
 ### [Clusters beheren met Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
 #### [Ambari-REST-API gebruiken](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md)
 ### [Gegevens uploaden voor Hadoop-taken](hdinsight-upload-data.md)
 ### [Gegevens importeren en exporteren met Sqoop](hdinsight-use-sqoop.md)
 #### [Verbinding maken met SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -225,6 +227,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

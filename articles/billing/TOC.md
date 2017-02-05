@@ -1,7 +1,5 @@
-# Aan de slag
-## [Gratis account maken](https://azure.microsoft.com/free/)
+# [Aan de slag](billing-getting-started.md)
 ## [Aanmelden met Office 365-account](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Abonnementsprijzen](https://azure.microsoft.com/pricing/)
 ## [Ondersteunde landen en valuta](../billing-countries-and-currencies.md)
 ## [Limieten en quota](../azure-subscription-service-limits.md)
 ## [Veelgestelde vragen](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [Eigendom van het abonnement overdragen](../billing-subscription-transfer.md)
 ### [Een uitgeschakeld abonnement opnieuw activeren](../billing-subscription-become-disable.md)
 ### [Upgrade uitvoeren van een gratis abonnement](../billing-upgrade-azure-subscription.md)
-### [Overschakelen naar een ander abonnement](../billing-how-to-switch-azure-offer.md)
+### [Van abonnement wisselen](../billing-how-to-switch-azure-offer.md)
 ### [Abonnement annuleren](../billing-how-to-cancel-azure-subscription.md)
 ## Account beheren
 ### [Profiel bewerken](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # Resources
 ## [Contact opnemen met ondersteuning](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

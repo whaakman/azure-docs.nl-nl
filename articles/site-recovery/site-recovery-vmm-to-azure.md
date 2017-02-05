@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ U hebt een Azure-netwerk nodig waarmee de virtuele Azure-machines die na een fai
 * Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
 * Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u het Azure-netwerk instellen in de [Resource Manager-modus](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) of de [klassieke modus](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * U doet er verstandig aan een netwerk in te stellen voordat u begint. Anders moet u dit doen tijdens de implementatie van Site Recovery.
-Let op: Azure-netwerken die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
+Let op: Azure-netwerken die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
 ### <a name="set-up-an-azure-storage-account"></a>Een Azure-opslagaccount instellen
 * U hebt een standaard Azure-opslagaccount nodig om gerepliceerde gegevens op te slaan in Azure. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
 * Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u een account instellen in de [Resource Manager-modus](../storage/storage-create-storage-account.md) of de [klassieke modus](../storage/storage-create-storage-account-classic-portal.md).
 * U doet er verstandig aan een account in te stellen voordat u begint. Anders moet u dit doen tijdens de implementatie van Site Recovery.
-- Let op: opslagaccounts die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
+- Let op: opslagaccounts die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
 ### <a name="prepare-the-vmm-server"></a>De VMM-server voorbereiden
 * Zorg ervoor dat de VMM-server voldoet aan de [vereisten](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Tijdens de implementatie van Site Recovery moet u netwerktoewijzing instellen. B
 
     ![Nieuwe kluis](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Als u meer dan één abonnement hebt, selecteert u een van uw abonnementen.
-4. [Maak een resourcegroep](../resource-group-template-deploy-portal.md) of selecteer een bestaande resourcegroep. Geef een Azure-regio op. Machines worden naar deze regio gerepliceerd. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund
+4. [Maak een resourcegroep](../azure-resource-manager/resource-group-template-deploy-portal.md) of selecteer een bestaande resourcegroep. Geef een Azure-regio op. Machines worden naar deze regio gerepliceerd. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund
 5. Als u de kluis snel wilt openen via het dashboard, klikt u op **Vastmaken aan dashboard** > **Kluis maken**.
 
     ![Nieuwe kluis](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) mee
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
