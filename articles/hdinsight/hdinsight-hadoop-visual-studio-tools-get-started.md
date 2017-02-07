@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ De taakuitvoeringsweergave voor Hive op Tez-taken kan worden gebruikt om gestruc
 ## <a name="run-pig-scripts"></a>Pig-scripts uitvoeren
 Data Lake Tools voor Visual Studio ondersteunt het maken en verzenden van Pig-scripts naar HDInsight-clusters. Gebruikers kunnen een Pig-project maken op basis van een sjabloon en het script vervolgens verzenden naar HDInsight-clusters.
 
-## <a name="feedbacks-known-issues"></a>Feedback en bekende problemen
+## <a name="feedbacks--known-issues"></a>Feedback en bekende problemen
 * Momenteel worden de HiveServer2-resultaten weergegeven als tekst. Dit is niet ideaal. Er wordt momenteel gewerkt aan een oplossing.
 * Als de resultaten zijn gestart met NULL-waarden, worden de resultaten momenteel niet weergegeven. Dit probleem is opgelost en als u vastloopt op dit probleem, kunt u ons een e-mail sturen of contact opnemen met het ondersteuningsteam.
 * Het HQL-script dat door Visual Studio wordt gemaakt, word gecodeerd op basis van de lokale regio-instellingen van de gebruiker. Het script wordt mogelijk niet correct uitgevoerd als de gebruiker het script als een binair bestand uploadt naar het cluster.
