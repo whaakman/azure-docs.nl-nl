@@ -5,17 +5,20 @@
 ## [Interactieve zelfstudie: logboeken van een website analyseren](data-lake-analytics-use-interactive-tutorials.md)
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
+## [.NET-SDK](data-lake-analytics-get-started-net-sdk.md)
+## [Java-SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
+## [Python](data-lake-analytics-get-started-python.md)
 
 # Procedures
 ## Ontwikkelen
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL-vensterfuncties](data-lake-analytics-use-window-functions.md)
 ### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)
+### [Cognitieve functionaliteit van U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Oplossingen maken
 ### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
@@ -24,7 +27,7 @@
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [.NET-SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Code en gegevens structureren met U-SQL-catalogus](data-lake-analytics-use-u-sql-catalog.md)
 
@@ -36,11 +39,11 @@
 ### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Naslaginformatie
-
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 
 # Bronnen
@@ -52,6 +55,6 @@
 ## [Azure Data Lake-blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

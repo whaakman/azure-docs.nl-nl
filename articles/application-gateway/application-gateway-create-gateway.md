@@ -4,7 +4,7 @@ description: Op deze pagina vindt u instructies voor het maken, configureren, op
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: b78d8167ec5aacee34ed235637bc396f9b869a39
 
 
 ---
@@ -28,10 +28,8 @@ ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Application Gateway Overview](application-gateway-introduction.md) (Overzicht van Application Gateway)
+Azure Application Gateway is een load balancer in laag&7;. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Application Gateway Overview](application-gateway-introduction.md) (Overzicht van Application Gateway)
 
 In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
@@ -43,6 +41,7 @@ In dit artikel vindt u meer informatie over de stappen voor het maken, configure
 4. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
+
 Als u de opdracht `New-AzureApplicationGateway` gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
 
 De waarden zijn:
@@ -63,8 +62,6 @@ Ga als volgt te werk om een toepassingsgateway te maken:
 
 > [!NOTE]
 > Als u voor uw toepassingsgateway een aangepaste test moet configureren, raadpleegt u [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
-> 
-> 
 
 ![Voorbeeldscenario][scenario]
 
@@ -72,7 +69,7 @@ Ga als volgt te werk om een toepassingsgateway te maken:
 
 Gebruik de cmdlet `New-AzureApplicationGateway` en vervang de waarden door uw eigen waarden om een gateway te maken. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
 
-In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
+In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1:
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -100,8 +97,6 @@ DnsName       :
 
 > [!NOTE]
 > De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen Small, Medium en Large.
-> 
-> 
 
 *VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd.
 
@@ -166,8 +161,6 @@ Bewerk de waarden tussen de haakjes voor de configuratie-items. Sla het bestand 
 
 > [!IMPORTANT]
 > Het protocolitem Http of Https is hoofdlettergevoelig.
-> 
-> 
 
 In het volgende voorbeeld ziet u hoe u de toepassingsgateway instelt met een configuratiebestand. De voorbeeldbelasting verdeelt het HTTP-verkeer op openbare poort 80 en stuurt netwerkverkeer naar back-endpoort 80 tussen twee IP-adressen.
 
@@ -229,9 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht `Set-AzureApplicationGateway` om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
 
 > [!NOTE]
-> Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van de afzonderlijke items wordt gedefinieerd welke **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model (objectnaam)** er wordt gebruikt.
-> 
-> 
+> Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van het afzonderlijke item wordt gedefinieerd welke `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` er worden gebruikt.
 
 ### <a name="step-1"></a>Stap 1
 
@@ -363,8 +354,6 @@ Nadat de gateway is geconfigureerd, gebruikt u de cmdlet `Start-AzureApplication
 
 > [!NOTE]
 > Het kan 15 tot 20 minuten duren voordat de cmdlet `Start-AzureApplicationGateway` klaar is.
-> 
-> 
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
@@ -458,6 +447,6 @@ Als u meer informatie wilt over de algemene opties voor load balancing, raadplee
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

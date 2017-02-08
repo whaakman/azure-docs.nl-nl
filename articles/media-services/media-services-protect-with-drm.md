@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3600f03c22805789b1f75f892962e0d054e84058
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady en/of Widevine Dynamic Common Encryption gebruiken
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -49,6 +50,7 @@ Dit onderwerp is nuttig voor ontwikkelaars die werken aan toepassingen die media
 U kunt [hier](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) het voorbeeld downloaden dat in dit artikel wordt beschreven.
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Dynamic Common Encryption en DRM-services voor het leveren van licenties configureren
+
 Hieronder volgen enkele algemene stappen die u moet uitvoeren wanneer u uw assets beveiligt met PlayReady met de Media Services-service voor het leveren van licenties en dynamische versleuteling.
 
 1. Maak een asset en upload bestanden in de asset.
@@ -56,13 +58,13 @@ Hieronder volgen enkele algemene stappen die u moet uitvoeren wanneer u uw asset
 3. Maak een inhoudssleutel en koppel deze aan de gecodeerde asset. De inhoudssleutel bevat in Media Services de versleutelingssleutel van de asset.
 4. Configureer het autorisatiebeleid voor de inhoudssleutel. U moet het autorisatiebeleid voor de inhoudssleutel hebben geconfigureerd en de client moet aan dit beleid voldoen om de inhoudssleutel aan de client te kunnen leveren.
 
-Wanneer u het autorisatiebeleid voor inhoudssleutels maakt, moet u het volgende opgeven: leveringsmethode (PlayReady of Widevine), beperkingen (openen of token) en gegevens die specifiek zijn voor het type sleutellevering waarmee wordt gedefinieerd hoe de sleutel aan de client wordt geleverd ([PlayReady](media-services-playready-license-template-overview.md)- of [Widevine](media-services-widevine-license-template-overview.md)-licentiesjabloon).
+    Wanneer u het autorisatiebeleid voor inhoudssleutels maakt, moet u het volgende opgeven: leveringsmethode (PlayReady of Widevine), beperkingen (openen of token) en gegevens die specifiek zijn voor het type sleutellevering waarmee wordt gedefinieerd hoe de sleutel aan de client wordt geleverd ([PlayReady](media-services-playready-license-template-overview.md)- of [Widevine](media-services-widevine-license-template-overview.md)-licentiesjabloon).
 
-1. Configureer het leveringsbeleid voor een asset. De configuratie van een leveringsbeleid omvat: leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, HDS, Smooth Streaming of alle), het type dynamische versleuteling (bijvoorbeeld Common Encryption), URL voor het verkrijgen van een PlayReady- of Widevine-licentie.
+5. Configureer het leveringsbeleid voor een asset. De configuratie van een leveringsbeleid omvat: leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), het type dynamische versleuteling (bijvoorbeeld Common Encryption) en de URL voor het verkrijgen van een PlayReady- of Widevine-licentie.
 
-U kunt voor dezelfde asset een ander beleid voor elk protocol toepassen. U kunt bijvoorbeeld PlayReady-versleuteling toepassen op Smooth/DASH en AES Envelope op HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering hierop is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
+    U kunt voor dezelfde asset een ander beleid voor elk protocol toepassen. U kunt bijvoorbeeld PlayReady-versleuteling toepassen op Smooth/DASH en AES Envelope op HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering hierop is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
 
-1. Maak een OnDemand-locator om een streaming-URL op te halen.
+6. Maak een OnDemand-locator om een streaming-URL op te halen.
 
 Aan het einde van het onderwerp vindt u een volledig .NET-voorbeeld.
 
@@ -101,7 +103,7 @@ Zie [Autorisatiebeleid voor inhoudssleutels configureren](media-services-dotnet-
 Configureer het leveringsbeleid voor uw asset. De configuratie van het leveringsbeleid voor assets omvat onder andere het volgende:
 
 * De URL voor het ophalen van DRM-licenties.
-* Het protocol voor het leveren van assets (bijvoorbeeld MPEG DASH, HLS, HDS, Smooth Streaming of alle).
+* Het protocol voor het leveren van assets (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle).
 * Het type dynamische versleuteling (in dit geval Common Encryption).
 
 Zie [Leveringsbeleid voor assets configureren](media-services-rest-configure-asset-delivery-policy.md) voor gedetailleerde informatie.
@@ -621,6 +623,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

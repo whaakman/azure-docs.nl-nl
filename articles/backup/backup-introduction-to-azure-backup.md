@@ -1,10 +1,10 @@
 ---
 title: Wat is Azure Backup? | Microsoft Docs
-description: Door gebruik te maken van Azure Backup en Recovery Services kunt u back-ups maken en herstellen vanaf Windows-servers, Windows-clientcomputers, System Center DPM-servers en virtuele machines van Azure.
+description: Met Azure Backup en Recovery Services kunt u back-ups van gegevens en toepassingen maken en deze herstellen vanaf Windows-servers, Windows-computers, System Center DPM-servers en virtuele Azure-machines.
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: back-up en herstel; Recovery Services; back-upoplossingen
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/7/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
-ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -53,8 +53,8 @@ Als u niet zeker weet welke Azure Backup-onderdelen geschikt zijn voor uw behoef
 | Onderdeel | Voordelen | Limieten | Wat wordt er beveiligd? | Waar worden de back-ups opgeslagen? |
 | --- | --- | --- | --- | --- |
 | Azure Backup-agent (MARS) |<li>Back-ups maken van bestanden en mappen op een fysiek of virtueel Windows-besturingssysteem (VM's kunnen zich on-premises of in Azure bevinden)<li>Geen afzonderlijk back-upserver vereist. |<li>Drie keer per dag een back-up maken <li>Niet toepassingsbewust; alleen herstelbewerkingen op bestands-, map- of volumeniveau, <li>  Geen ondersteuning voor Linux. |<li>Bestanden, <li>Mappen |Azure Backup-kluis |
-| System Center DPM |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan de Azure Backup-kluis gebruiken<li>Linux Support op virtuele Hyper-V- en VMware-machines <li>Virtuele VMware-machines beschermen met DPM 2012 R2 |Kan geen back-up maken van Oracle-workload.|<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Azure Backup-kluis,<li> Lokaal gekoppelde schijf,<li>  Tape (alleen on-premises) |
-| Azure Backup-server |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan de Azure Backup-kluis gebruiken<li>Linux-ondersteuning (indien gehost op Hyper-V)<li>Virtuele VMware-machines beschermen met DPM 2012 R2<li>Vereist geen System Center-licentie |<li>Kan geen back-up maken van Oracle-workload.<li>Altijd een live Azure-abonnement nodig<li>Geen ondersteuning voor tape met back-up |<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Azure Backup-kluis,<li> Lokaal gekoppelde schijf |
+| System Center DPM |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan de Azure Backup-kluis gebruiken<li>Linux Support op virtuele Hyper-V- en VMware-machines <li>Back-ups maken van virtuele VMware-machines en deze herstellen met DPM 2012 R2 |Kan geen back-up maken van Oracle-workload.|<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Azure Backup-kluis,<li> Lokaal gekoppelde schijf,<li>  Tape (alleen on-premises) |
+| Azure Backup-server |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan de Azure Backup-kluis gebruiken<li>Linux Support op virtuele Hyper-V- en VMware-machines<li>Back-ups maken van virtuele VMware-machines en deze herstellen <li>Vereist geen System Center-licentie |<li>Kan geen back-up maken van Oracle-workload.<li>Altijd een live Azure-abonnement nodig<li>Geen ondersteuning voor tape met back-up |<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Azure Backup-kluis,<li> Lokaal gekoppelde schijf |
 | Back-up van virtuele machines van Azure IaaS |<li>Systeemeigen back-ups voor Windows/Linux<li>Er zijn geen specifieke agentinstallatie vereist<li>Back-ups op infrastructuurniveau zonder dat er een back-upinfrastructuur nodig is |<li>Eens per dag back-ups maken van VM's <li>VM's alleen op schijfniveau herstellen<li>Geen back-up on-premises |<li>VM's, <li>Alle schijven (met PowerShell) |<p>Azure Backup-kluis</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Wat zijn de implementatiescenario's voor elk onderdeel?
@@ -234,6 +234,6 @@ Lees een van de volgende artikelen voor meer informatie over het beschermen van 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

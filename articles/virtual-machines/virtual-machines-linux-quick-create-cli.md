@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Een virtuele Linux-machine maken met behulp van de Azure-CLI 2.0 (Preview)
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 Preview (az.py)
 In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht [az vm create](/cli/azure/vm#create) met de Azure-CLI 2.0 (Preview). 
 
 > [!NOTE] 
-> De Azure-CLI 2.0 (Preview) is onze multi-platform-CLI van de volgende generatie. Probeer deze nieuwe CLI en laat ons weten wat u hiervan vindt op de [GitHub-projectpagina](https://github.com/Azure/azure-cli).
+> De Azure-CLI 2.0 (Preview) is onze multi-platform-CLI van de volgende generatie. [Probeer het nu.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> In de overige documenten wordt gebruikgemaakt van de bestaande Azure-CLI. Zie [Een virtuele machine maken met Azure-CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) als u een virtuele machine wilt maken met de bestaande Azure-CLI en niet met de CLI 2.0 (Preview).
+> In de overige documenten wordt gebruikgemaakt van de bestaande Azure-CLI. Raadpleeg [Een virtuele machine maken met Azure-CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) als u een virtuele machine wilt maken met de bestaande Azure CLI 1.0 en niet met de CLI 2.0 Preview.
 
 Als u een virtuele machine wilt maken, hebt u het volgende nodig: 
 
 * een Azure-account ([krijg een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
-* de [Azure-CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) geïnstalleerd
+* de [Azure-CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2) geïnstalleerd
 * u moet zijn aangemeld bij uw Azure-account (typ [az login](/cli/azure/#login))
 
 (U kunt ook snel een virtuele Linux-machine implementeren met behulp van [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -41,10 +41,10 @@ In het volgende voorbeeld ziet u hoe u een virtuele Debian-machine implementeert
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Typ eerst [az resource group create](/cli/azure/resource/group#create) om een resourcegroep te maken die alle geïmplementeerde resources bevat:
+Typ eerst [az group create](/cli/azure/group#create) om een resourcegroep te maken die alle geïmplementeerde resources bevat:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 De uitvoer ziet er als volgt uit (u kunt een andere `--output`-optie kiezen als u dat wenst):
@@ -127,6 +127,6 @@ U kunt ook het [Azure-stuurprogramma `docker-machine` gebruiken dat verschillend
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

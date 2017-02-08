@@ -59,7 +59,7 @@ U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt
 
   ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap 3 op de optie Back-up klikt en deze kluis op deze blade selecteren.
+5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap&3; op de optie Back-up klikt en deze kluis op deze blade selecteren.
 
 6. Selecteer op de blade Back-upbeleid het back-upbeleid dat u wilt toepassen op de kluis en klik op **OK**.
     ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

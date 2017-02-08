@@ -34,6 +34,7 @@
 ### [Basislijnevaluatie](oms-security-baseline.md)
 ### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systeemupdate-evaluatie](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Verbinding maken met beveiligingsproducten](oms-security-connect-products.md)
 ## [Integreren met OMS](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

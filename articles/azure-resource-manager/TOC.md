@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST-API](resource-group-template-deploy-rest.md)
 ### [Ontwikkel- en testomgevingen](solution-dev-test-environments.md)
+### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Beheren
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -41,7 +42,7 @@
 ### [Service-principal maken met PowerShell](resource-group-authenticate-service-principal.md)
 ### [Service-principal maken met Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Service-principal maken met portal](resource-group-create-service-principal-portal.md)
-### [App-toegang tot abonnementen](resource-manager-api-authentication.md)
+### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Beheerbeleid instellen](resource-manager-policy.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
 ### [Beveiligingsoverwegingen](best-practices-resource-manager-security.md)
@@ -51,23 +52,24 @@
 ### [Implementatiebewerkingen met portal bekijken](resource-manager-troubleshoot-deployments-portal.md)
 ### [Implementatiebewerkingen met PowerShell bekijken](resource-manager-troubleshoot-deployments-powershell.md)
 ### [Implementatiebewerkingen met Azure CLI bekijken](resource-manager-troubleshoot-deployments-cli.md)
-### [Implementatiebewerkingen met REST API bekijken](resource-manager-troubleshoot-deployments-rest.md)
+### [Implementatiebewerkingen met REST-API bekijken](resource-manager-troubleshoot-deployments-rest.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure CLI](/cli/azure)
-## [Java](/java/api)
+## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Sjabloonschema's](https://github.com/Azure/azure-resource-manager-schemas)
-## [Beperkingsaanvragen](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
-# Bronnen
+# Resources
+## [Beperkingsaanvragen](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

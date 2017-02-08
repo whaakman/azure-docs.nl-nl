@@ -36,7 +36,7 @@
 #### [Servicesamenvatting weergeven](storsimple-virtual-array-service-summary.md)
 #### [Apparaatsamenvatting weergeven](storsimple-virtual-array-device-summary.md)
 #### [Opslagaccounts beheren](storsimple-virtual-array-manage-storage-accounts.md)
-#### [ACR’s beheren](storsimple-virtual-array-manage-acrs.md)
+#### [ACR's beheren](storsimple-virtual-array-manage-acrs.md)
 #### [Taken beheren](storsimple-virtual-array-manage-jobs.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-virtual-array-change-device-admin-password.md)
 #### [MPIO op Windows Server-host configureren](storsimple-virtual-array-configure-mpio-windows-server.md)
@@ -49,7 +49,7 @@
 #### [Deactiveren en verwijderen](storsimple-ova-deactivate-and-delete-device.md)
 #### [Servicedashboard controleren](storsimple-ova-service-dashboard.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-ova-change-device-admin-password.md)
-#### [ACR’s beheren](storsimple-ova-manage-acrs.md)
+#### [ACR's beheren](storsimple-ova-manage-acrs.md)
 #### [Opslagaccounts beheren](storsimple-ova-manage-storage-accounts.md)
 #### [Taken beheren](storsimple-ova-manage-jobs.md)
 #### [MPIO op Windows Server-host configureren](storsimple-ova-configure-mpio-windows-server.md)
@@ -109,7 +109,7 @@
 ##### [Volumes beheren - actueel](storsimple-manage-volumes-u2.md)
 ###### [Veelgestelde vragen: Lokaal vastgemaakt volumes](storsimple-local-volume-faq.md)
 ###### [Volumes beheren - Update 1](storsimple-manage-volumes.md)
-##### [ACR’s beheren](storsimple-manage-acrs.md)
+##### [ACR's beheren](storsimple-manage-acrs.md)
 ##### [Bandbreedtesjablonen beheren](storsimple-manage-bandwidth-templates.md)
 ##### [Taken weergeven en beheren - actueel](storsimple-manage-jobs-u2.md)
 ###### [Taken weergeven en beheren - Update 1](storsimple-manage-jobs.md)
@@ -138,6 +138,9 @@
 ##### [MMC-acties gebruiken via StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Oplossingen bouwen
+#### [StorSimple met Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple met Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple met Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Noodherstel bestandsserver voor Azure automatiseren](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple met Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple met VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

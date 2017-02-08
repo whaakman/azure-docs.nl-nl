@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: Ontdek hoe u SQL Server Stretch Database gebruikt om weinig gebruikte gegevens (&quot;cold data&quot;) veilig naar Azure te migreren zonder query&quot;s of toepassingen te wijzigen. Zelfstudies en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: abbb8f04239f633fad5c90cfec8b0037a8e6ae3d
+ms.openlocfilehash: 5febfd07ef0a976b8213e5c71e8e88db2bc108e2
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentatie over SQL Server Stretch Database
 
-SQL Server Stretch Database migreert uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud. SQL Server Stretch Database maakt gegevens die u niet regelmatig gebruikt, op kostenefficiënte manier beschikbaar. U hoeft geen wijzigingen aan te brengen in uw query's of toepassingen en uw gegevens zijn ook tijdens de migratie beveiligd. Stretch Database is bedoeld voor transactionele databases met een grote hoeveelheid gegevens die niet regelmatig worden gebruikt en die doorgaans in een klein aantal tabellen zijn opgeslagen.
+Ontdek hoe u met SQL Server Stretch Database weinig gebruikte gegevens ('cold data') op transparante en veilige wijze naar de Azure-cloud migreert. De zelfstudies en overige documentatie helpen u databases met weinig gebruikte gegevens op rendabele wijze beschikbaar te stellen, zonder dat u hiervoor bestaande query's of toepassingen hoeft te wijzigen.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +98,6 @@ Documentatie over SQL Server Stretch Database downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

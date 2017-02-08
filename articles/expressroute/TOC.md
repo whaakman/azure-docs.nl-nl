@@ -45,13 +45,13 @@
 ### [Asymmetrisch routeren](expressroute-asymmetric-routing.md)
 
 ## Problemen oplossen
+### [ExpressRoute-connectiviteit controleren](expressroute-troubleshooting-expressroute-overview.md)
 ### [ARP-tabellen ophalen](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Naslaginformatie
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Verwant
@@ -76,10 +76,10 @@
 ### [Een virtuele netwerkgateway maken voor ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
 ### [Een virtuele netwerkgateway verbinden met een circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Uw netwerkinfrastructuur ontwikkelen voor connectiviteit](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [Hybride partnerverbanden: on-premises scenario’s mogelijk maken](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+### [Hybride partnerverbanden: on-premises scenario's mogelijk maken](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
