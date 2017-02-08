@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen me
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Firewallregels op serverniveau beheren met behulp van de REST API
-1. Het beheer van firewallregels via de REST API moet worden geverifieerd. Zie [Developer's guide to authorization with the Azure Resource Manager API](../resource-manager-api-authentication.md) (Ontwikkelaarsgids voor verificatie met de Azure Resource Manager API) voor meer informatie.
+1. Het beheer van firewallregels via de REST API moet worden geverifieerd. Zie [Developer's guide to authorization with the Azure Resource Manager API](../azure-resource-manager/resource-manager-api-authentication.md) (Ontwikkelaarsgids voor verificatie met de Azure Resource Manager API) voor meer informatie.
 2. U kunt regels op serverniveau maken, bijwerken en verwijderen met de REST API
    
     Als u een firewallregel op serverniveau wilt maken of bijwerken, voert u de PUT-methode uit met het volgende:
@@ -79,7 +79,7 @@ Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit ope
 Zie [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Databasetoegang en aanmeldingsbeveiliging beheren) als u wilt weten hoe u naar databases navigeert.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-* [Securing your database](sql-database-security.md) (Uw database beveiligen)
+* [Securing your database](sql-database-security-overview.md) (Uw database beveiligen)
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589) (Security Center voor SQL Server Database Engine en Azure SQL Database)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

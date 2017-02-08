@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -185,7 +185,7 @@ Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de vo
   > Als u een oudere versie van Windows Server 2008 or 2008 R2 gebruikt, kunt u deze functie ook gebruiken, maar dan moet u [KB 2386717 downloaden en installeren](https://support.microsoft.com/kb/2386717), anders kunt u uw lokale AD-wachtwoordbeleid niet toepassen in de cloud.
   > 
   > 
-* U hebt het Azure AD Connect-hulpprogramma geïnstalleerd en u hebt uw AD-omgeving voorbereid op synchronisatie naar de cloud.  Zie [Uw on-premises infrastructuur voor identiteiten in de cloud gebruiken](active-directory-aadconnect.md) voor meer informatie.
+* U hebt het Azure AD Connect-hulpprogramma geïnstalleerd en u hebt uw AD-omgeving voorbereid op synchronisatie naar de cloud.  Zie [Uw on-premises infrastructuur voor identiteiten in de cloud gebruiken](connect/active-directory-aadconnect.md) voor meer informatie.
   
   > [!NOTE]
   > Voordat u Wachtwoord terugschrijven test, voert u een volledige importeerbewerking en een volledige synchronisatie uit vanuit AD en Azure AD in Azure AD Connect.
@@ -199,7 +199,7 @@ Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de vo
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Stap 1: de nieuwste versie van Azure AD Connect downloaden
-Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0419.0911** of hoger.  Wachtwoord terugschrijven met automatische accountontgrendeling is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0485.0222** of hoger. Als u een oudere versie gebruikt, voert u een upgrade uit naar ten minste deze versie voordat u doorgaat. [Klik hier om de nieuwste versie van Azure AD Connect te downloaden](active-directory-aadconnect.md#install-azure-ad-connect).
+Wachtwoord terugschrijven is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0419.0911** of hoger.  Wachtwoord terugschrijven met automatische accountontgrendeling is beschikbaar in de releases van Azure AD Connect of in het Azure AD Sync-hulpprogramma met versienummer **1.0.0485.0222** of hoger. Als u een oudere versie gebruikt, voert u een upgrade uit naar ten minste deze versie voordat u doorgaat. [Klik hier om de nieuwste versie van Azure AD Connect te downloaden](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>De versie van Azure AD Sync controleren
 1. Ga naar **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -236,7 +236,7 @@ Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terug
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Wachtwoord terugschrijven inschakelen met Windows PowerShell
 1. Op uw **Directory Sync-computer** opent u een nieuw **verhoogd Windows PowerShell-venster**.
 2. Als de module nog niet is geladen, typt u in de `import-module ADSync`-opdracht om de Azure AD Connect-cmdlets naar uw huidige sessie te laden.
-3. Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. De huidige status van terugschrijven voor de huidige connector ophalen door de volgende cmdlet uit te voeren: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Wachtwoord terugschrijven inschakelen door de cmdlet uit te voeren: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -393,6 +393,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

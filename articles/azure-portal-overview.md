@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Vanaf deze blade kunt u verbinding maken met de virtuele machine met behulp van 
 
 ![Een resource beheren][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Een resourceblade aanpassen
-Azure configureert de blades voor uw resources vooraf, maar de tegels in deze blades kunt u zelf beheren.  U kunt eenvoudig de modus voor aanpassingen openen om tegels toe te voegen, tegels te verwijderen, het formaat ervan te wijzigen of uw tegels opnieuw te rangschikken. Ga als volgt te werk om een blade aan te passen:
-
-1. Blader naar de resource.
-2. Klik op ... boven aan de blade die u wilt aanpassen.
-3. Klik op Onderdelen toevoegen.
-4. Begin met het slepen en neerzetten van onderdelen.  
-
-![Blades aanpassen][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Hulp krijgen
 Als u ooit een probleem hebt, staan we voor u klaar.  De portal heeft een Help- en ondersteuningspagina die antwoord geeft op veel van uw vragen.  Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plans/) kunt u ook rechtstreeks in de portal ondersteuningstickets maken.  Nadat u een ondersteuningsticket hebt gemaakt, kunt u de voortgang van het ticket vanuit de portal beheren. U opent de Help en -ondersteuningspagina door te navigeren naar Bladeren -> Help + ondersteuning.  
 
@@ -97,6 +87,6 @@ De Microsoft Azure Portal vereenvoudigt het maken en beheren van uw toepassingen
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

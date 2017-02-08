@@ -2,6 +2,7 @@
 ## [Wat is DocumentDB?](documentdb-introduction.md)
 ## [Basisconcepten](documentdb-resources.md)
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
+## [NoSQL TCO-analyse](https://aka.ms/documentdb-tco-paper)
 ## Scenario's
 ### [Algemene scenario's](documentdb-use-cases.md)
 ### [Socialiseren met DocumentDB](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Schrijf uw eerste app
 ### [.NET-console-app](documentdb-get-started.md)
 ### [.NET Core-console-app](documentdb-dotnetcore-get-started.md)
+### [Java-console-app](documentdb-java-get-started.md)
 ### [Node.js-console-app](documentdb-nodejs-get-started.md)
 ### [C++-console-app](documentdb-cpp-get-started.md)
 ## Een web-app bouwen
@@ -24,7 +26,6 @@
 # Procedures
 
 ## Plannen
-### [Opslag en prestaties](documentdb-manage.md)
 ### [Partitioneren en schalen](documentdb-partition-data.md)
 ### [Consistentie](documentdb-consistency-levels.md)
 ### [NoSQL en SQL](documentdb-nosql-vs-sql.md)
@@ -39,8 +40,6 @@
 ### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
 ### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
 ### [Prestatieniveaus](documentdb-performance-levels.md)
-### [Resourcequota](documentdb-limits.md)
-### [Quota verhogen](documentdb-increase-limits.md)
 ### [Aanvraageenheden](documentdb-request-units.md)
 ### Azure CLI
 #### [Een account maken](documentdb-automation-resource-manager-cli.md)
@@ -55,12 +54,15 @@
 ### [Wijzigingen bijhouden met een wijzigingsfeed](documentdb-change-feed.md)
 ### [Prestaties testen](documentdb-performance-testing.md)
 ### [Tips voor prestaties](documentdb-performance-tips.md)
-### DocumentDB voor MongoDB-ontwikkelaars
-#### [Protocolondersteuning voor MongoDB](documentdb-protocol-mongodb.md)
-#### [Account maken](documentdb-create-mongodb-account.md)
-#### [Verbinding maken met uw account](documentdb-connect-mongodb-account.md)
-#### [MongoChef gebruiken](documentdb-mongodb-mongochef.md)
-#### [Voorbeelden van protocolondersteuning](documentdb-mongodb-samples.md)
+
+## DocumentDB-ondersteuning voor MongoDB gebruiken
+### [Protocolondersteuning voor MongoDB](documentdb-protocol-mongodb.md)
+### [Account maken](documentdb-create-mongodb-account.md)
+### [Verbinding maken met uw account](documentdb-connect-mongodb-account.md)
+### [Uw gegevens migreren](documentdb-mongodb-migrate.md)
+### [Robomongo gebruiken](documentdb-mongodb-robomongo.md)
+### [MongoChef gebruiken](documentdb-mongodb-mongochef.md)
+### [Voorbeelden van protocolondersteuning](documentdb-mongodb-samples.md)
 
 ## Gebruik de portal
 ### [Een databaseaccount maken](documentdb-create-account.md)
@@ -117,6 +119,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

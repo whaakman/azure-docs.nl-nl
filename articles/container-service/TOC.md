@@ -5,9 +5,7 @@
 ## [Implementeren naar ACS met behulp van Azure CLI 2.0 Preview](container-service-create-acs-cluster-cli.md)
 ## [Verbinding maken met een ACS-cluster](container-service-connect.md)
 ## [Een ACS-cluster schalen](container-service-scale.md)
-
 # Procedures
-
 ## Beheren met DC/OS
 ### [Containerbeheer - web-UI van DC/OS](container-service-mesos-marathon-ui.md)
 ### [Containerbeheer - REST-API van DC/OS](container-service-mesos-marathon-rest.md)
@@ -19,18 +17,24 @@
 ### [Controleren met OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Controleren met Datadog (DC/OS)](container-service-monitoring.md)
 ### [Controleren met Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## [Beheren met Kubernetes](container-service-kubernetes-walkthrough.md)
-## [Beheren met Docker Swarm](container-service-docker-swarm.md)
-
+### [Controleren met Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+## Beheren met Kubernetes
+### [Aan de slag met Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Een service-principal configureren](container-service-kubernetes-service-principal.md)
+### [Interactie met de Kubernetes-webinterface](container-service-kubernetes-ui.md)
+## Beheren met Docker Swarm
+### [Docker CLI en Docker Compose](container-service-docker-swarm.md)
+### [Continue integratie met Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Naslaginformatie
-## [REST-API](/rest/api/compute/containerservices)
-
-# Bronnen
-## [Beschikbaarheid in regio’s](https://azure.microsoft.com/regions/services/)
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
+## [REST](/rest/api/compute/containerservices)
+# Resources
+## [Beschikbaarheid in regio's](https://azure.microsoft.com/regions/services/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

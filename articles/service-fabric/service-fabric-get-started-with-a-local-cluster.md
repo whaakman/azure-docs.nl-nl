@@ -54,7 +54,7 @@ Met behulp van de SDK kunt u op twee manieren een lokaal cluster instellen: via 
     U kunt nu een toepassing implementeren in uw cluster.
 
 ## <a name="deploy-an-application"></a>Een app implementeren
-De Service Fabric SDK bevat een uitgebreide reeks frameworks en ontwikkelaarstools voor het maken van toepassingen.  Zie [uw eerste Service Fabric-toepassing maken in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) als u meer wilt weten over  het maken van toepassingen in Visual Studio.
+De Service Fabric SDK bevat een uitgebreide reeks frameworks en ontwikkelaarstools voor het maken van toepassingen. Zie [uw eerste Service Fabric-toepassing maken in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) als u meer wilt weten over  het maken van toepassingen in Visual Studio.
 
 In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount genoemd), zodat we ons kunnen richten op de beheeraspecten van het platform: implementatie, bewaking en upgrade.
 

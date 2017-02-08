@@ -3,7 +3,7 @@ title: Aan de slag met Azure Batch CLI | Microsoft Docs
 description: Een korte inleiding in de Batch-opdrachten in Azure CLI voor het beheren van Azure Batch-serviceresources
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/30/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Als u Batch-resources maakt, zoals groepen en taken, kunt u een JSON-bestand opg
 
 Hoewel u veel bewerkingen voor het maken van resources kunt uitvoeren met alleen opdrachtregelopties, is voor sommige functies een bestand in de JSON-indeling met de resourcedetails vereist. U moet bijvoorbeeld een JSON-bestand gebruiken als u resourcebestanden wilt opgeven voor een starttaak.
 
-Raadpleeg de documentatie op MSDN [Batch REST-API-naslaginformatie][rest_api] om de vereiste JSON te zoeken voor het maken van een resource. Elk onderwerp *Resourcetype* toevoegen bevat een voorbeeld-JSON voor het maken van een resource. Dit voorbeeld kunt u gebruiken als sjabloon voor de JSON-bestanden. De JSON voor het maken van groepen vindt u bijvoorbeeld in [Een groep toevoegen aan een account][rest_add_pool].
+Raadpleeg de documentatie op MSDN ([Batch REST-API-naslaginformatie][rest_api]) om de vereiste JSON te zoeken voor het maken van een resource. Elk onderwerp *Resourcetype* toevoegen bevat een voorbeeld-JSON voor het maken van een resource. Dit voorbeeld kunt u gebruiken als sjabloon voor de JSON-bestanden. De JSON voor het maken van pools vindt u bijvoorbeeld in [Een pool toevoegen aan een account][rest_add_pool].
 
 > [!NOTE]
 > Als u een JSON-bestand opgeeft bij het maken van een resource, worden alle andere parameters die u opgeeft op de opdrachtregel, genegeerd.
@@ -259,7 +259,7 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 * Gebruik `-h` om **Help-tekst** weer te geven voor elke willekeurige CLI-opdracht
 * Gebruik `-v` en `-vv` om **uitgebreide** opdrachtuitvoer weer te geven. `-vv` is nog uitgebreider en geeft de werkelijke REST-aanvragen en -antwoorden weer. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
 * U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `azure batch pool show "pool001" --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie [JSON-bestanden](#json-files) eerder in dit artikel).
-* Het [Batch-forum op MSDN][batch_forum] is een geweldig hulpmiddel en wordt nauwkeurig bewaakt door Batch-teamleden. Plaats hier uw vraag als u problemen ondervindt of hulp nodig hebt met een bepaalde bewerking.
+* Het [Batch-forum op MSDN][batch_forum] is een uitstekend hulpmiddel en wordt nauwkeurig bewaakt door Batch-teamleden. Plaats hier uw vraag als u problemen ondervindt of hulp nodig hebt met een bepaalde bewerking.
 * Niet elk Batch-resourcebewerking wordt momenteel ondersteund in de Azure-opdrachtregelinterface. U kunt momenteel bijvoorbeeld niet de *versie* van een toepassingspakket voor een groep opgeven, maar alleen de pakket-id. In dergelijke gevallen moet u mogelijk een `--json-file` opgeven voor de opdracht in plaats van opdrachtregelopties te gebruiken. Zorg ervoor dat u beschikt over de meest recente CLI-versie om te kunnen profiteren van toekomstige verbeteringen.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -273,6 +273,6 @@ Deze sectie is bedoeld om u resources te bieden die u kunt gebruiken bij het opl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

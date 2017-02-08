@@ -4,16 +4,20 @@
 ##[Een server maken](analysis-services-create-server.md)
 
 # Procedures 
-## [Implementeren](analysis-services-deploy.md)
-## Beheren
-###[Verbinding maken met een server](analysis-services-connect.md)
-###[Een server beheren](analysis-services-manage.md)
-## Integreren
-###[On-premises gegevensgateway](analysis-services-gateway.md)
+##[Implementeren op een server](analysis-services-deploy.md)
+##[Verbinding maken vanaf een client](analysis-services-connect.md)
 
-# Verwijzingen
+##[Een server beheren](analysis-services-manage.md)
+##[De on-premises gegevensgateway integreren](analysis-services-gateway.md)
+
+# Naslaginformatie
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices)
+
+# Resources
 ##[Gegevensbronverbindingen](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

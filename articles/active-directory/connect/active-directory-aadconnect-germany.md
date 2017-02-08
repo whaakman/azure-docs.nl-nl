@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Azure AD Connect in Microsoft Cloud Duitsland - Openbare preview
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect in Microsoft Cloud Duitsland - Openbare preview
 ## <a name="introduction"></a>Inleiding
 Azure AD Connect voorziet in synchronisatie tussen uw on-premises Active Directory en Azure Active Directory.
 Op dit moment moeten veel van de scenario's in [Microsoft Cloud Duitsland](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) worden uitgevoerd door de operator. Wanneer u Microsoft Cloud Duitsland gebruikt, moet u zich van de volgende zaken bewust zijn:
@@ -49,7 +49,7 @@ Wanneer u zich bij Azure Portal hebt aangemeld, doet u het volgende:
 
 U ziet nu het volgende:
 
-![De Azure AD Connect-blade](media\\active-directory-aadconnect-germany\\germany1.png)
+![De Azure AD Connect-blade](media/active-directory-aadconnect-germany/germany1.png)
 
 In de volgende tabel staan welke functies worden weergegeven in de blade.
 
@@ -68,6 +68,6 @@ Zie [Uw on-premises identiteiten integreren met Azure Active Directory](active-d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

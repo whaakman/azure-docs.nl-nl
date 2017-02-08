@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: cee95b961b45bb0a004eb6dd254222d909ea57b8
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 6c949e62406f2d9029c00e87dfc3ca5530a5497f
 
 ---
+
 # <a name="sql-data-warehouse-documentation"></a>Documentatie voor SQL Data Warehouse
 
 Azure SQL Data Warehouse combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties.  Dankzij de MPP-architectuur (Massively Parallelle Processing) is SQL Data Warehouse berekend op de workload van elke onderneming.
@@ -67,36 +68,34 @@ Azure SQL Data Warehouse combineert de relationele SQL Server-database met schaa
 </ul>
 
 ---
-## <a name="reference"></a>Naslaginformatie
 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Naslaginformatie over Azure PowerShell</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell-cmdlets</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Naslaginformatie over T-SQL</p>
+                        <h3>Talen</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Capaciteitslimieten</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">Taalelementen T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">Overzichten T-SQL</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">Systeemweergaven T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -110,6 +109,6 @@ Documentatie voor SQL Data Warehouse downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
