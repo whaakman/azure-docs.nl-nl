@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -59,7 +59,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu Hub achtereenvolgens **Nieuw** -> **Gegevens en opslag** -> **Opslagaccount**.
+2. Selecteer in het menu Hub achtereenvolgens **Nieuw** -> **Opslag** -> **Opslagaccount**.
 3. Voer een naam in voor het opslagaccount. Zie [Eindpunten van opslagaccounts](#storage-account-endpoints) voor meer informatie over hoe de naam van het opslagaccount wordt gebruikt om uw objecten in Azure Storage te adresseren.
    
    > [!NOTE]
@@ -162,6 +162,6 @@ Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documen
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

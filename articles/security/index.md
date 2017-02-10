@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het aanpassen van beveiligingsopties in Azure-services om te voldoen aan de vereisten van uw service- en gegevensimplementaties in de cloud.
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Documentatie over beveiliging
 
-De infrastructuur van Azure is zo ontworpen dat toepassingen miljoenen klanten tegelijkertijd kunnen hosten en er daarnaast een betrouwbare basis wordt geboden waarop bedrijven kunnen voldoen aan hun beveiligingsbehoeften. Bovendien biedt Azure u een scala aan configureerbare beveiligingsopties en de mogelijkheid om deze te beheren, zodat u de beveiliging kunt afstemmen op de unieke vereisten van uw implementaties.
+Meer informatie over hoe u Azure Security gebruikt om services en gegevens in de cloud te beschermen. Zelfstudies en andere documentatie helpen u bij het aanpassen van beveiligingsopties in Azure-services om te voldoen aan de vereisten van implementaties.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,16 +105,10 @@ De infrastructuur van Azure is zo ontworpen dat toepassingen miljoenen klanten t
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Security downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

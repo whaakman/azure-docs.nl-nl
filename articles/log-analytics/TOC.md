@@ -10,7 +10,7 @@
 ## [Veelgestelde vragen over Log Analytics](log-analytics-faq.md)
 
 # Procedures
-## Integreren
+## Gegevens verzamelen
 ### Verbonden bronnen
 #### [Windows-agents](log-analytics-windows-agents.md)
 #### [Linux-agents](log-analytics-linux-agents.md)
@@ -27,11 +27,15 @@
 #### [IIS-logboeken](log-analytics-data-sources-iis-logs.md)
 #### [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md)
 #### [Aangepaste velden](log-analytics-custom-fields.md)
-## Ontwikkelen
+## Querygegevens
 ### [Overzicht van zoekopdrachten in logboeken](log-analytics-log-searches.md)
 ### [Zoekverwijzing](log-analytics-search-reference.md)
 ### [Computergroepen](log-analytics-computer-groups.md)
 ### [Waarschuwingen](log-analytics-alerts.md)
+## Gegevens analyseren
+### [Dashboards](log-analytics-dashboards.md)
+### [Designer weergeven](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Oplossingen
 #### [Overzicht van oplossingen](log-analytics-add-solutions.md)
 #### [AD-evaluatie](log-analytics-ad-assessment.md)
@@ -46,20 +50,20 @@
 #### [Netwerkprestatiemeter](log-analytics-network-performance-monitor.md)
 #### [Beveiligingscontrole](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL-evaluatie](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Bedradingsgegevens](log-analytics-wire-data.md)
 #### [SCOM-evaluatie](log-analytics-scom-assessment.md)
-## Analyseren
-### [Dashboards](log-analytics-dashboards.md)
-### [Designer weergeven](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Automatiseren
+## Ontwikkelen
 ### [Gegevensverzamelaar-API](log-analytics-data-collector-api.md)
 ### [PowerShell-cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [API voor zoeken in logboeken](log-analytics-log-search-api.md)
 ### [Waarschuwings-API](log-analytics-api-alerts.md)
+
+# Naslaginformatie
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
 
 # Resources
 ## [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -67,6 +71,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

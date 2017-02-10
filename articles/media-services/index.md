@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over veilig streamen van video op aanvraag of live video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en meer.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Documentatie voor Media Services
 
-Azure Media Services is een uitbreidbaar cloudplatform waarmee ontwikkelaars schaalbare toepassingen voor mediabeheer en -levering kunnen ontwikkelen. Media Services is gebaseerd op de REST-API's waarmee u veilig video- of audio-inhoud kunt uploaden, opslaan, coderen en verpakken, zowel voor levering on demand als levering via livestreaming aan verschillende clients (bijvoorbeeld tv, pc en mobiele apparaten).
-
-U kunt volledige end-to-end-werkstromen bouwen met Media Services. U kunt er ook voor kiezen om onderdelen van derde partijen voor sommige onderdelen van uw werkstroom te gebruiken. U kunt bijvoorbeeld voor het coderen van gegevens een coderingsprogramma van derden gebruiken en de gegevens vervolgens uploaden, beveiligen, inpakken en afleveren met Media Services.
+Meer informatie over het streamen van video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -192,7 +191,7 @@ U kunt volledige end-to-end-werkstromen bouwen met Media Services. U kunt er ook
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/media">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/media">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -200,16 +199,9 @@ U kunt volledige end-to-end-werkstromen bouwen met Media Services. U kunt er ook
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Media Services downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

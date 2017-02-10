@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Leer hoe u bewakings- en diagnoseservices kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. API-verwijzingen, aanbevolen procedures en meer.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentatie over Monitoring and Diagnostics
 
-Monitoring and Diagnostics is een platform voor gedistribueerde systemen waarmee schaalbare en betrouwbare microservices eenvoudig kunnen worden verpakt, geïmplementeerd en beheerd. Het platform biedt een antwoord op de grote uitdagingen bij het ontwikkelen en beheren van cloudtoepassingen.  Monitoring and Diagnostics is het middleware-platform van de nieuwe generatie voor het ontwikkelen en beheren van deze hoogwaardige, zakelijke tier-1-toepassingen op cloudschaal.
+Leer hoe u bewakings- en diagnoseservices van Azure kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. Zelfstudies, API-verwijzingen, aanbevolen procedures en andere documentatie geven u inzicht in het gebruik van bewaking en diagnose en het plannen en implementeren van schaalbare en betrouwbare oplossingen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -137,7 +138,7 @@ Monitoring and Diagnostics is een platform voor gedistribueerde systemen waarmee
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/monitor/">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -145,15 +146,10 @@ Monitoring and Diagnostics is een platform voor gedistribueerde systemen waarmee
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Monitoring and Diagnostics downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

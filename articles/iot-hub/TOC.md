@@ -8,7 +8,8 @@
 ### [Aan de slag met IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Aan de slag met IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Aan de slag met IoT Hub (Node)](iot-hub-node-node-getstarted.md)
-## Aan de slag met een Raspberry Pi
+
+## Aan de slag met een Raspberry Pi (Node)
 ### [Aan de slag met Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Les 1: Uw apparaat configureren
 #### [Uw apparaat configureren](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -29,9 +30,123 @@
 #### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [Optioneel: het led-gedrag wijzigen](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Problemen oplossen](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
-## [Aan de slag met de Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
-## [Aan de slag met de Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+## Aan de slag met een Raspberry Pi (C)
+### [Aan de slag met Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-get-started.md)
+### Les 1: Uw apparaat configureren
+#### [Uw apparaat configureren](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+#### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+#### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+#### [De Blink-toepassing maken en implementeren](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+### Les 2: Uw IoT-hub maken
+#### [De Azure-hulpprogramma's downloaden (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+#### [De Azure-hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Les 3: Apparaat-naar-cloud-berichten verzenden
+#### [Een Azure-functie-app en -opslagaccount maken](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+#### [In opslag behouden berichten lezen](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+### Les 4: Cloud-naar-apparaat-berichten verzenden
+#### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Optioneel: het led-gedrag wijzigen](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+### [Problemen oplossen](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+
+## Aan de slag met een Intel Edison (Node)
+### [Aan de slag met een Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
+### Les 1: Uw apparaat configureren
+#### [Uw apparaat configureren](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+#### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+#### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+#### [De Blink-toepassing maken en implementeren](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+### Les 2: Uw IoT-hub maken
+#### [De Azure-hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+#### [De Azure-hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+#### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Les 3: Apparaat-naar-cloud-berichten verzenden
+#### [Een Azure-functie-app en -opslagaccount maken](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+#### [In opslag behouden berichten lezen](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+### Les 4: Cloud-naar-apparaat-berichten verzenden
+#### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [Optioneel: het led-gedrag wijzigen](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+### [Problemen oplossen](iot-hub-intel-edison-kit-node-troubleshooting.md)
+
+## Aan de slag met een Intel Edison (C)
+### [Aan de slag met een Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
+### Les 1: Uw apparaat configureren
+#### [Uw apparaat configureren](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+#### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+#### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+#### [De Blink-toepassing maken en implementeren](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+### Les 2: Uw IoT-hub maken
+#### [De Azure-hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+#### [De Azure-hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+#### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Les 3: Apparaat-naar-cloud-berichten verzenden
+#### [Een Azure-functie-app en -opslagaccount maken](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+#### [In opslag behouden berichten lezen](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+### Les 4: Cloud-naar-apparaat-berichten verzenden
+#### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [Optioneel: het led-gedrag wijzigen](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+### [Problemen oplossen](iot-hub-intel-edison-kit-c-troubleshooting.md)
+
+## [Aan de slag met de Gateway-SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
+## [Aan de slag met de Gateway-SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+
+## Aan de slag met de IoT Gateway-Starter Kit
+### Gesimuleerd apparaat
+
+#### [Aan de slag met een gesimuleerd apparaat](iot-hub-gateway-kit-c-sim-get-started.md)
+#### Les 1: Uw NUC configureren
+##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+
+#### Les 2: Uw IoT-hub maken
+##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+##### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+##### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
+##### [Een IoT-hub maken en uw apparaat registreren](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+
+#### Les 3: Berichten ontvangen van het gesimuleerde apparaat
+##### [De BLE-voorbeeld-app configureren en uitvoeren](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+##### [Berichten van de IoT-hub lezen](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+
+#### Les 4: Berichten opslaan in Azure Table Storage
+##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+
+#### [Problemen oplossen](iot-hub-gateway-kit-c-sim-troubleshooting.md)
+
+### SensorTag-apparaat
+#### [Aan de slag met een SensorTag-apparaat](iot-hub-gateway-kit-c-get-started.md)
+#### Les 1: Uw NUC configureren
+##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+#### Les 2: Uw IoT-hub maken
+##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+##### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+##### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+##### [Een IoT-hub maken en uw apparaat registreren](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+#### Les 3: Berichten ontvangen van het gesimuleerde apparaat
+##### [De BLE-voorbeeld-app configureren en uitvoeren](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+##### [Berichten van de IoT-hub lezen](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+#### Les 4: Berichten opslaan in Azure Table Storage
+##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
+## Aan de slag met IoT Device-SDK
+### [Inleiding tot de Azure IoT Device-SDK voor C](iot-hub-device-sdk-c-intro.md)
+### [IoT Device-SDK voor C: meer informatie over IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [IoT Device-SDK voor C: meer informatie over serialisatiefunctie](iot-hub-device-sdk-c-serializer.md)
 # Procedures
 ## [Zelfstudie Apparaat-naar-cloud-berichten verwerken (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Zelfstudie Apparaat-naar-cloud-berichten verwerken (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +166,7 @@
 ## [Apparaattaken gebruiken om apparaatfirmware bij te werken voor .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Taken plannen en uitzenden voor Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Taken plannen en uitzenden voor .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Uw implementatie plannen
+## Plannen
 ### [IoT Hub met Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
 ### [Uw oplossing schalen](iot-hub-scaling.md)
 ### [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
@@ -74,9 +189,10 @@
 ### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
 ### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
 ### [Woordenlijst](iot-hub-devguide-glossary.md)
-## Service beheren
+## Beheren
 ### [Een IoT-hub maken via de portal](iot-hub-create-through-portal.md)
-### [Een IoT-hub maken met de CLI](iot-hub-create-using-cli.md)
+### [Een IoT-hub maken met de CLI 2.0 Preview](iot-hub-create-using-cli.md)
+### [Een IoT-hub maken met de CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Een IoT-hub maken met REST](iot-hub-rm-rest.md)
 ### [Een IoT-hub maken met Powershell](iot-hub-rm-template-powershell.md)
 ### [Een IoT-hub maken met een sjabloon](iot-hub-rm-template.md)
@@ -85,10 +201,10 @@
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
 ### [IP-filtering configureren](iot-hub-ip-filtering.md)
-## Gateway SDK
-### [Zelfstudie Een apparaat simuleren met de Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Zelfstudie Een apparaat simuleren met de Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Zelfstudie Berichten verzenden vanaf een echt apparaat met de Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
+## Gateway-SDK
+### [Zelfstudie Een apparaat simuleren met de Gateway-SDK (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Zelfstudie Een apparaat simuleren met de Gateway-SDK (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Zelfstudie Berichten verzenden vanaf een echt apparaat met de Gateway-SDK](iot-hub-gateway-sdk-physical-device.md)
 ## Beveiligen
 ### [Fundamentele beveiliging](iot-hub-security-ground-up.md)
 ### [Best practices voor beveiliging](iot-hub-security-best-practices.md)
@@ -96,17 +212,16 @@
 ### [Uw IoT-implementatie beveiligen](iot-hub-security-deployment.md)
 
 # Naslaginformatie
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [SDK’s voor Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [SDK-API voor gateway](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST-API voor resourceprovider](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST-API voor apparaatidentiteiten](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST-API voor apparaatmessaging](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Inleiding tot de Azure IoT Device SDK voor C](iot-hub-device-sdk-c-intro.md)
-## [IoT Device SDK voor C: meer informatie over IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [IoT Device SDK voor C: meer informatie over serialisatiefunctie](iot-hub-device-sdk-c-serializer.md)
+## [Azure CLI 2.0 Preview](/cli/azure/iot)
+## [.NET (service)](/dotnet/api/microsoft.azure.devices)
+## [.NET (apparaten)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (service)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (apparaten)](/java/api/com.microsoft.azure.iothub)
+## [SDK's voor Azure IoT](http://azure.github.io/azure-iot-sdks/)
+## [Gateway-SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (resourceprovider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (apparaatidentiteiten)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (apparaatmessaging) REST-API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Verwant
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -125,6 +240,6 @@
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

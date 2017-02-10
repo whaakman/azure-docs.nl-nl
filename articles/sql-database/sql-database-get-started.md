@@ -1,6 +1,6 @@
 ---
-title: 'SQL Database tutorial: een SQL database maken | Microsoft Docs'
-description: Informatie over het instellen van een logische SQL Database-server, een serverfirewallregel, een SQL Database en voorbeeldgegevens. Lees ook hoe u verbinding met clienthulpprogramma&quot;s maakt, gebruikers configureert en een databasefirewallregel instelt.
+title: 'Azure Portal: Aan de slag met Azure SQL Database | Microsoft Docs'
+description: Meer informatie over hoe u met behulp van Azure Portal een logische SQL Database-server, een firewallregel op serverniveau en databases maakt. U leert ook hoe u met SQL Server Management Studio gegevens opvraagt uit databases.
 keywords: zelfstudie over sql-database, een sql-database maken
 services: sql-database
 documentationcenter: 
@@ -9,118 +9,303 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/07/2016
+ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Database tutorial: maak in slechts enkele minuten een SQL Database met behulp van Azure Portal
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>SQL Database-zelfstudie: Aan de slag met Azure SQL Database-servers, -databases en -firewallregels met behulp van Azure Portal en SQL Server Management Studio
 
-In deze zelfstudie leert u hoe u de Azure-portal kunt gebruiken om:
+In deze aan de slag-zelfstudie leert u hoe u Azure Portal kunt gebruiken voor het volgende:
 
-* Een Azure SQL Database te maken met voorbeeldgegevens.
-* Een firewallregel op serverniveau kunt maken voor een individueel IP-adres of voor een aantal IP-adressen.
+* Een nieuwe Azure-resourcegroep maken
+* Een logische Azure SQL-server maken
+* Eigenschappen van de logische Azure SQL-server bekijken
+* Een serverfirewallregel maken
+* De AdventureWorks LT-voorbeelddatabase als individuele database maken
+* Eigenschappen van de Adventure Works LT-voorbeelddatabase bekijken in Azure
 
-U kunt dezelfde taken uitvoeren met [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
+Daarnaast gebruikt u in deze zelfstudie de nieuwste versie van SQL Server Management Studio voor het volgende:
 
-[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+* Verbinding maken met de logische server en de bijbehorende hoofddatabase
+* Query's uitvoeren voor de hoofddatabase
+* Verbinding maken met de voorbeelddatabase
+* Query's uitvoeren voor de voorbeelddatabase
+
+Aan het eind van deze zelfstudie hebt u een voorbeelddatabase en een lege database gemaakt die worden uitgevoerd in een Azure-resourcegroep en zijn gekoppeld aan een logische server. U hebt dan ook een serverfirewallregel geconfigureerd waarmee de serverprincipal wordt aangemeld bij de server vanaf een opgegeven IP-adres (of IP-adresbereik). 
+
+**Geschatte tijd**: deze zelfstudie duurt circa 30 minuten (mits u al aan de vereisten voldoet).
+
+## <a name="prerequisites"></a>Vereisten
+
+* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+
+* U moet met Azure Portal verbinding kunnen maken met een account dat is gekoppeld aan de eigenaar van het abonnement of de rol Inzender. Zie [Aan de slag met toegangsbeheer in Azure Portal](../active-directory/role-based-access-control-what-is.md) voor meer informatie over op rollen gebaseerd toegangsbeheer (RBAC).
+
+> [!TIP]
+> U kunt dezelfde taken uitvoeren in een aan de slag-zelfstudie met [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
+>
+
+### <a name="sign-in-by-using-your-existing-account"></a>Aanmelden met uw bestaande account
+Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) en volg deze stappen om verbinding te maken met Azure Portal.
+
+1. Open de browser van uw keuze en maak verbinding met [Azure Portal](https://portal.azure.com/).
+2. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+3. Zodra de **aanmeldingspagina** wordt weergegeven, typt u de referenties voor uw abonnement.
+   
+   ![Aanmelden](./media/sql-database-get-started/login.png)
+
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-your-first-azure-sql-database"></a>Uw eerste Azure SQL-database maken
-1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
-2. Klik op **Nieuw**, klik op **Gegevens en opslag** en ga naar **SQL Database**.
-   
-    ![Nieuwe SQL-database 1](./media/sql-database-get-started/sql-database-new-database-1.png)
-3. Klik op **SQL Database** om de blade SQL Database te openen. De inhoud op deze blade is afhankelijk van het aantal abonnementen dat u hebt en van uw bestaande objecten (zoals bestaande servers).
-   
-    ![Nieuwe SQL-database 2](./media/sql-database-get-started/sql-database-new-database-2.png)
-4. Geef in het tekstvak **Databasenaam** een naam op voor uw eerste database, bijvoorbeeld 'mijn-database'. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
-   
-    ![Nieuwe SQL-database 3](./media/sql-database-get-started/sql-database-new-database-3.png)
-5. Selecteer een abonnement als u meerdere abonnementen hebt.
-6. Klik onder **Resourcegroep** op **Nieuwe maken** en geef een naam op voor uw eerste resourcegroep, bijvoorbeeld 'mijn-resourcegroep'. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
-   
-    ![Nieuwe SQL-database 4](./media/sql-database-get-started/sql-database-new-database-4.png)
-7. Klik onder **Bron selecteren** op **Voorbeeld** en klik vervolgens onder **Voorbeeld selecteren** op **AdventureWorksLT [V12]**.
-   
-    ![Nieuwe SQL-database 5](./media/sql-database-get-started/sql-database-new-database-5.png)
-8. Klik onder **Server** op **Vereiste instellingen configureren**.
-   
-    ![Nieuwe SQL-database 6](./media/sql-database-get-started/sql-database-new-database-6.png)
-9. Klik op de blade Server **Een nieuwe server maken**. Er wordt een Azure SQL-database gemaakt binnen een serverobject. Dit kan een nieuwe of een bestaande server zijn.
-   
-    ![Nieuwe SQL-database 7](./media/sql-database-get-started/sql-database-new-database-7.png)
-10. Controleer de blade **Nieuwe server** voor inzicht in de informatie die u voor de nieuwe server moet opgeven.
-    
-    ![Nieuwe SQL-database 8](./media/sql-database-get-started/sql-database-new-database-8.png)
-11. Geef in het tekstvak **Servernaam** een naam op voor uw eerste server, bijvoorbeeld 'mijn-nieuwe-serverobject'. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
-    
-    ![Nieuwe SQL-database 9](./media/sql-database-get-started/sql-database-new-database-9.png)
-12. Geef onder **Aanmeldgegevens van de serverbeheerder** een gebruikersnaam op voor de admin-aanmelding voor deze server, bijvoorbeeld 'mijn-admin-account'. Deze aanmelding wordt de principal-aanmelding op serverniveau genoemd. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
-    
-    ![Nieuwe SQL-database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Geef onder **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het principal-aanmeldingsaccount van de server, bijvoorbeeld "p@ssw0rd1".Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
-    
-    ![Nieuwe SQL-database 11](./media/sql-database-get-started/sql-database-new-database-11.png)
-14. Selecteer onder **Locatie** een geschikt datacentrum voor uw locatie, bijvoorbeeld 'Australië - oost'.
-    
-    ![Nieuwe SQL-database 12](./media/sql-database-get-started/sql-database-new-database-12.png)
-15. Onder **V12-server maken (laatste update) ziet u dat u alleen een actuele versie van Azure SQL-server kunt maken.
-    
-    ![Nieuwe SQL-database 13](./media/sql-database-get-started/sql-database-new-database-13.png)
-16. Het selectievakje voor **Toegang van Azure-services tot server toestaan** is standaard ingeschakeld. Het kan hier niet worden gewijzigd. Dit is een geavanceerde optie. U kunt deze instelling in de firewallinstellingen van de server voor dit serverobject kunt wijzigen, hoewel dit voor de meeste scenario's niet nodig is.
-    
-    ![Nieuwe SQL-database 14](./media/sql-database-get-started/sql-database-new-database-14.png)
-17. Controleer uw selecties op de blade Nieuwe server en klik op **Selecteren** om deze nieuwe server voor de nieuwe database te selecteren.
-    
-    ![Nieuwe SQL-database 15](./media/sql-database-get-started/sql-database-new-database-15.png)
-18. Op de blade SQL Database klikt u onder **Prijscategorie** op **S2 Standard** en vervolgens op **Basis** om de minst dure prijscategorie voor uw eerste database te kiezen. U kunt de prijscategorie later altijd nog wijzigen.
-    
-    ![Nieuwe SQL-database 16](./media/sql-database-get-started/sql-database-new-database-16.png)
-19. Controleer uw selecties op de blade SQL Database en klik op **Maken** om uw eerste server en database te maken. De waarden die u hebt opgegeven, worden gevalideerd en de implementatie start.
-    
-    ![Nieuwe SQL-database 17](./media/sql-database-get-started/sql-database-new-database-17.png)
-20. Klik op de werkbalk van de portal op de items bij **Meldingen** om de status van uw implementatie te controleren.
-    
-    ![Nieuwe SQL-database 18](./media/sql-database-get-started/sql-database-new-database-18.png)
+## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Een nieuwe logische SQL-server maken in Azure Portal
 
-> [!IMPORTANT]
-> Wanneer de implementatie is voltooid, zijn uw nieuwe Azure SQL-server en -database gemaakt in Azure. U kunt pas met behulp van SQL Server-hulpprogramma's verbinding maken met uw nieuwe server of database wanneer u een firewallregel voor de server hebt gemaakt die de SQL Database-firewall opent voor verbindingen van buiten Azure.
-> 
-> 
+1. Klik op **Nieuw**, typ **sql server** en klik vervolgens op **ENTER**.
 
-[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
+    ![logische sql-server](./media/sql-database-get-started/logical-sql-server.png)
+2. Klik op **SQL-server (logische server)**.
+   
+    ![maken-logische sql-server](./media/sql-database-get-started/create-logical-sql-server.png)
+3. Klik op **Maken** om de blade van de nieuwe SQL-server (logische server) te openen.
+
+    ![nieuw-logische sql-server](./media/sql-database-get-started/new-logical-sql-server.png)
+3. Geef in het tekstvak Servernaam een geldige naam op voor de nieuwe logische server. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
+    
+    ![nieuwe servernaam](./media/sql-database-get-started/new-server-name.png)
+
+    > [!IMPORTANT]
+    > De volledige geldige naam voor uw nieuwe server is <uw_servernaam>.database.windows.net.
+    >
+    
+4. Geef in het tekstvak Aanmeldgegevens van serverbeheerder een gebruikersnaam op voor de aanmelding voor SQL-verificatie voor deze server. Deze aanmelding wordt de principal-aanmelding op serverniveau genoemd. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
+    
+    ![Aanmeldgegevens SQL-beheerder](./media/sql-database-get-started/sql-admin-login.png)
+5. Geef in de tekstvakken **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het serverprincipal-aanmeldingsaccount. Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
+    
+    ![Wachtwoord SQL-beheerder](./media/sql-database-get-started/sql-admin-password.png)
+6. Selecteer een abonnement waarmee u toestemming hebt om objecten te maken.
+
+    ![abonnement](./media/sql-database-get-started/subscription.png)
+7. Selecteer in het tekstvak Resourcegroep **Nieuwe maken** en geef vervolgens in hetzelfde tekstvak een geldige naam op voor de nieuwe resourcegroep. U kunt ook een bestaande resourcegroep gebruiken. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
+
+    ![nieuwe resourcegroep](./media/sql-database-get-started/new-resource-group.png)
+
+8. Selecteer in het tekstvak **Locatie** een geschikt datacentrum voor uw locatie, bijvoorbeeld 'Australië - oost'.
+    
+    ![serverlocatie](./media/sql-database-get-started/server-location.png)
+    
+    > [!TIP]
+    > Het tekstvak voor **Toegang van Azure-services tot server toestaan** kan niet worden gewijzigd op deze blade. U kunt deze instelling op de serverfirewallblade wijzigen. Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie.
+    >
+    
+9. Klik op **Create**.
+
+    ![knop Maken](./media/sql-database-get-started/create.png)
+
+## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>De eigenschappen van de logische SQL-server bekijken in Azure Portal
+
+1. Klik in Azure Portal op **Meer services**.
+
+    ![meer services](./media/sql-database-get-started/more-services.png)
+2. Typ **SQL** in het tekstvak Filteren en klik vervolgens op de ster voor SQL-servers om SQL-servers als favoriet in te stellen in Azure. 
+
+    ![favoriet instellen](./media/sql-database-get-started/favorite.png)
+3. Klik op de standaardblade op **SQL-servers** om een lijst met SQL-servers in uw Azure-abonnement te openen. 
+
+    ![nieuwe sql-server](./media/sql-database-get-started/new-sql-server.png)
+
+4. Klik op de nieuwe SQL-server om de bijbehorende eigenschappen in Azure Portal weer te geven. In hiernavolgende zelfstudies komt u meer te weten over de beschikbare opties op deze blade.
+
+    ![blade sql-server](./media/sql-database-get-started/sql-server-blade.png)
+5. Ga naar Instellingen en klik op **Eigenschappen** om de verschillende eigenschappen van de logische SQL-server weer te geven.
+
+    ![sql-servereigenschappen](./media/sql-database-get-started/sql-server-properties.png)
+6. Kopieer de volledige geldige servernaam naar het klembord, zodat u deze later tijdens deze zelfstudie kunt gebruiken.
+
+    ![volledige naam sql-server](./media/sql-database-get-started/sql-server-full-name.png)
+
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in Azure Portal
+
+1. Ga op de blade van de SQL-server naar Instellingen en klik op **Firewall** om de blade Firewall van de SQL-server te openen.
+
+    ![sql-serverfirewall](./media/sql-database-get-started/sql-server-firewall.png)
+
+2. Controleer of het weergegeven IP-adres van de client uw IP-adres is in een internetbrowser naar keuze (vraag "Wat is mijn IP-adres?"). Soms komen ze niet overeen. Dit kan verschillende redenen hebben.
+
+    ![uw IP-adres](./media/sql-database-get-started/your-ip-address.png)
+
+3. Klik als de IP-adressen overeenkomen, op **IP van client toevoegen** in de taakbalk.
+
+    ![IP van client toevoegen](./media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > U kunt de SQL-databasefirewall op de server naar een enkel IP-adres of een reeks adressen openen. Als u de firewall opent, kunnen SQL-beheerders en -gebruikers zich aanmelden bij elke database op de server waarvoor ze geldige aanmeldgegevens hebben.
+    >
+
+4. Klik in de taakbalk op **Opslaan** om deze serverfirewallregel op te slaan. Klik vervolgens op **OK**.
+
+    ![IP van client toevoegen](./media/sql-database-get-started/save-firewall-rule.png)
+
+## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Verbinding maken met de SQL-server met SQL Server Management Studio (SSMS)
+
+1. Zie [SQL Server Management Studio downloaden](https://msdn.microsoft.com/library/mt238290.aspx) voor het downloaden en installeren van de meest recente versie van SSMS, als u dit nog niet hebt gedaan. U wordt in de meest recente versie van SSMS op de hoogte gesteld wanneer er een nieuwe versie kan worden gedownload, zodat u steeds met de nieuwste versie kunt werken.
+
+2. Typ na het installeren **Microsoft SQL Server Management Studio** in het zoekvak van Windows en klik op **Enter** om SSMS te openen:
+
+    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+3. Voer in het dialoogvenster Verbinding maken met server de nodige gegevens in om verbinding te maken met uw SQL-server met behulp van SQL Server-verificatie.
+
+    ![verbinding maken met server](./media/sql-database-get-started/connect-to-server.png)
+4. Klik op **Verbinden**.
+
+    ![verbonden met server](./media/sql-database-get-started/connected-to-server.png)
+5. Vouw in Objectverkenner achtereenvolgens **Databases** **Systeemdatabases** en **hoofd** uit om objecten in de hoofddatabase weer te geven.
+
+    ![hoofddatabase](./media/sql-database-get-started/master-database.png)
+6. Klik met de rechtermuisknop op **hoofd** en klik vervolgens op **Nieuwe query**.
+
+    ![query hoofddatabase](./media/sql-database-get-started/query-master-database.png)
+
+8. Typ de volgende query in het queryvenster:
+
+   ```select * from sys.objects```
+
+9.  Klik in de taakbalk op **Uitvoeren** om een lijst met alle systeemobjecten in de hoofddatabase weer te geven.
+
+    ![query systeemobjecten hoofddatabase](./media/sql-database-get-started/query-master-database-system-objects.png)
+
+    > [!NOTE]
+    > Zie [Aan de slag met SQL-beveiliging](sql-database-get-started-security.md) om meer over SQL-beveiliging te weten te komen
+    >
+
+## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Nieuwe database maken in Azure Portal met behulp van Adventure Works LT-voorbeeld
+
+1. Klik in Azure Portal op de standaardblade op **SQL-databases**.
+
+    ![sql-databases](./media/sql-database-get-started/new-sql-database.png)
+2. Klik op de blade SQL-databases op **Toevoegen**.
+
+    ![sql-database toevoegen](./media/sql-database-get-started/add-sql-database.png)
+3. Controleer op de blade SQL-databases de ingevulde gegevens.
+
+    ![sql database-blade](./media/sql-database-get-started/sql-database-blade.png)
+4. Geef een geldige databasenaam op.
+
+    ![sql-databasenaam](./media/sql-database-get-started/sql-database-name.png)
+5. Klik onder Bron selecteren op **Voorbeeld** en klik vervolgens onder Voorbeeld selecteren op **AdventureWorksLT [V12]**.
+   
+    ![adventure works lt](./media/sql-database-get-started/adventureworkslt.png)
+6. Geef onder Server een gebruikersnaam en wachtwoord op voor de serverbeheerder.
+
+    ![serveraanmeldgegevens](./media/sql-database-get-started/server-credentials.png)
+
+    > [!NOTE]
+    > Wanneer u een database aan een server toevoegt, kunt u ervoor kiezen om deze als individuele database toe te voegen (standaard) of om deze aan een elastische pool toe te voegen. Zie [Elastische pools](sql-database-elastic-pool.md) voor meer informatie over elastische pools.
+    >
+
+7. Wijzig de prijscategorie onder Prijscategorie in **Standaard**. U kunt de prijscategorie desgewenst laten verhogen, maar we raden u aan in deze zelfstudie de laagste prijscategorie te gebruiken.
+
+    ![prijscategorie](./media/sql-database-get-started/pricing-tier.png)
+8. Klik op **Create**.
+
+    ![knop Maken](./media/sql-database-get-started/create.png)
+
+## <a name="view-database-properties-in-the-azure-portal"></a>Database-eigenschappen weergeven in Azure Portal
+
+1. Klik op de blade SQL-databases op uw nieuwe database om de eigenschappen ervan weer te geven in Azure Portal. In hiernavolgende zelfstudies komt u meer te weten over de beschikbare opties op deze blade. 
+
+    ![blade nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-blade.png)
+2. Klik op **Eigenschappen** om meer gegevens over uw database weer te geven.
+
+    ![eigenschappen nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-properties.png)
+
+3. Klik op **Databaseverbindingsreeksen tonen**.
+
+    ![verbindingsreeksen nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-connection-strings.png)
+4. Klik op **Overzicht** en klik vervolgens in het deelvenster Essentials op de naam van uw server.
+    
+    ![essentials-deelvenster nieuwe voorbeelddatabase](./media/sql-database-get-started/new-sample-db-essentials-pane.png)
+5. U ziet uw nieuwe database in het deelvenster Essentials van uw server staan.
+
+    ![essentials-deelvenster nieuwe voorbeelddatabase op server](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
+
+## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Voorbeelddatabases koppelen en er query's op uitvoeren met SQL Server Management Studio
+
+1. Schakel naar SQL Server Management Studio en klik in Objectverkenner op **Databases**. Klik vervolgens op **Vernieuwen** in de taakbalk om de voorbeelddatabase weer te geven.
+
+    ![nieuwe voorbeelddatabase met ssms](./media/sql-database-get-started/new-sample-db-ssms.png)
+2. Vouw in Objectverkenner uw nieuwe database uit om de bijbehorende objecten weer te geven.
+
+    ![objecten nieuwe voorbeelddatabase met ssms](./media/sql-database-get-started/new-sample-db-objects-ssms.png)
+3. Klik met de rechtermuisknop op uw voorbeelddatabase en klik vervolgens op **Nieuwe query**.
+
+    ![query nieuwe voorbeelddatabase met ssms](./media/sql-database-get-started/new-sample-db-query-ssms.png)
+4. Typ de volgende query in het queryvenster:
+
+   ```select * from sys.objects```
+   
+9.  Klik in de taakbalk op **Uitvoeren** om een lijst met alle systeemobjecten in de voorbeelddatabase weer te geven.
+
+    ![systeemobjecten query nieuwe voorbeelddatabase met ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
+
+## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Een nieuwe lege database maken met SQL Server Management Studio
+
+1. Klik in Objectverkenner met de rechtermuisknop op **Databases** en klik vervolgens op **Nieuwe database**.
+
+    ![nieuwe lege database met ssms](./media/sql-database-get-started/new-blank-database-ssms.png)
+
+    > [!NOTE]
+    > U kunt met SSMS ook een databasescript maken waarmee u een nieuwe database kunt maken met Transact-SQL.
+    >
+
+2. Geef in het dialoogvenster Nieuwe database een naam op voor de database in het tekstvak Databasenaam. 
+
+    ![naam nieuwe lege database met ssms](./media/sql-database-get-started/new-blank-database-name-ssms.png)
+
+3. Klik in het dialoogvenster Nieuwe database op **Opties** en wijzig de editie in **Standaard**.
+
+    ![opties nieuwe lege database met ssms](./media/sql-database-get-started/new-blank-database-options-ssms.png)
+
+    > [!TIP]
+    > Bekijk in het dialoogvenster de andere opties die u kunt aanpassen voor een Azure SQL-database. Zie [Database maken](https://msdn.microsoft.com/library/dn268335.aspx) voor meer informatie over deze opties.
+    >
+
+4. Klik op **OK** om een lege database te maken.
+5. Wanneer dit is voltooid, vernieuwt u het databaseknooppunt in Objectverkenner om de nieuwe lege database weer te geven. 
+
+    ![nieuwe lege database in objectverkenner](./media/sql-database-get-started/new-blank-database-object-explorer.png)
+
+> [!TIP]
+> U kunt geld besparen tijdens de zelfstudie door databases die u niet gebruikt, te verwijderen. U kunt databases uit de Standaard-editie binnen zeven dagen herstellen. Verwijder echter geen servers. Als u dit doet, kunt u de server en bijbehorende verwijderde databases niet herstellen.
+>
+
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met wat voorbeeldgegevens, bent u klaar om verder te gaan met uw favoriete tools.
+Nu u deze zelfstudie hebt voltooid, wilt u mogelijk aanvullende zelfstudies volgen die aansluiten op wat u in deze zelfstudie hebt geleerd. 
 
-* Als u bekend bent met Transact-SQL en SQL Server Management Studio (SSMS), ontdek dan hoe u [verbinding kunt maken met een SQL Database en een query op de database kunt uitvoeren met SSMS](sql-database-connect-query-ssms.md).
+* Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie over de beveiliging van Azure SQL Database.
 * Bent u bekend met Excel? Ontdek dan hoe u [verbinding kunt maken met een SQL Database in Azure via Excel](sql-database-connect-excel.md).
 * Als u wilt gaan coderen, kiest u uw programmeertaal in [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md).
-* Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md) voor meer informatie.
+* Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md).
 * Als u met het opdrachtregelprogramma BCP enkele gegevens vanuit een csv-bestand in een nieuwe tabel wilt laden, leest u [Met BCP gegevens vanuit een csv-bestand in SQL Database laden](sql-database-load-from-csv-with-bcp.md).
-* Zie [Getting started with security](sql-database-get-started-security.md) (Aan de slag met beveiliging) voor meer informatie over de beveiliging van Azure SQL Database
+* Als u tabellen en andere objecten wilt maken, raadpleegt u het onderwerp 'Een tabel maken' in [Een tabel maken](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-[Wat is SQL Database?](sql-database-technical-overview.md)
+
+- Zie [Wat is SQL Database?](sql-database-technical-overview.md) voor een technisch overzicht.
+- Zie [Prijs van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor informatie over prijzen.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Meer informatie over het gebruik van Azure StorSimple, een geïntegreerde opslagoplossing voor het beheer van opslagtaken tussen on-premises apparaten en Azure-cloudopslag."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>Documentatie voor StorSimple
 
-StorSimple en Microsoft Azure bieden een unieke, geïntegreerde primaire opslagarchivering, evenals een oplossing voor herstel na noodgeval met Azure als uitbreiding van uw on-premises opslag. Leer hoe u de StorSimple-oplossing implementeert en beheert.
+Meer informatie over het gebruik van Azure StorSimple, een geïntegreerde opslagoplossing voor het beheer van opslagtaken tussen on-premises apparaten en Azure-cloudopslag. Zelfstudies en andere documentatie laten zien hoe u opslagbeheer, locatie-onafhankelijke back-ups en herstel na noodgevallen instelt.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -137,16 +138,10 @@ StorSimple en Microsoft Azure bieden een unieke, geïntegreerde primaire opslaga
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor StorSimple downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

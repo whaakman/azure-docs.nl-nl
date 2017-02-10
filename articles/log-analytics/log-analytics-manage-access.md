@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ U kunt gegevens van uw werkruimte in Azure Portal bekijken. U kunt de gegevens o
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Werkruimtegegevens in Azure Portal bekijken
 
-1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com) als u dat nog niet hebt gedaan.
+1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
 2. Klik in het menu **Hub** op **Meer services** en typ in de lijst met resources op **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
     ![Azure-hub](./media/log-analytics-manage-access/hub.png)  
 3. Selecteer een werkruimte op de blade Abonnementen in Log Analytics.
@@ -242,6 +242,24 @@ Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, ku
 6. Wanneer u uw weergave in de Azure Portal vernieuwt, ziet u dat **Prijscategorie** is bijgewerkt met het abonnement dat u hebt geselecteerd.  
     ![bijgewerkt abonnement](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Wijzigen hoelang gegevens worden opgeslagen in Log Analytics
+
+In de prijscategorie Gratis blijven de gegevens van de afgelopen zeven dagen beschikbaar in Log Analytics.
+In de prijscategorie Standard blijven de gegevens van de afgelopen dertig dagen beschikbaar in Log Analytics.
+In de prijscategorie Premium blijven de gegevens van de afgelopen 365 dagen beschikbaar in Log Analytics.
+In de prijscategorieën Standalone en OMS blijven de gegevens van de afgelopen 31 dagen standaard beschikbaar in Log Analytics.
+
+Wanneer u de prijscategorieën Standalone en OMS gebruikt, kunt u de gegevens van maximaal 2 jaar (730 dagen) bewaren. Als gegevens langer dan 31 dagen (de standaardtermijn) zijn opgeslagen, worden er kosten voor gegevensretentie in rekening gebracht. Zie [Overschrijdingskosten](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
+
+De duur van de gegevensretentie wijzigen:
+
+1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
+2. Blader naar **Log Analytics** en selecteer dit.
+3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
+4. Klik op de blade van de werkruimte onder **Algemeen** op **Retentie**.  
+5. Gebruik de schuifregelaar om het aantal dagen retentie te vergroten of te verkleinen. Klik vervolgens op **Opslaan**
+![Retentie wijzigen](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Een Azure Active Directory-organisatie wijzigen voor een werkruimte
 
 U kunt de Azure Active Directory-organisatie van een werkruimte wijzigen. Door de Azure Active Directory-organisatie te wijzigen, kunt u gebruikers en groepen uit die map toevoegen aan de werkruimte.
@@ -275,6 +293,6 @@ Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekopp
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

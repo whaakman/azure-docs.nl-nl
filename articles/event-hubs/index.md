@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u met Event Hubs miljoenen gebeurtenissen per seconde kunt opnemen van verbonden IoT-apparaten en -toepassingen op een brede reeks platformen.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Documentatie over Event Hubs
 
-Event Hubs is een zeer schaalbare service voor binnenkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' voor een gebeurtenissenpijplijn. Zodra gegevens zijn verzameld in een Event Hub, kunnen die worden omgezet en opgeslagen met een realtime-analyseprovider of batching-/opslagadapter.
+Leer hoe u Event Hubs kunt gebruiken voor het verzamelen en beheren van miljoenen gebeurtenissen per seconde van verbonden IoT-apparaten en -toepassingen. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u schaalbare opname kunt instellen voor gebeurtenissen van een brede reeks platformen.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -107,7 +108,7 @@ Event Hubs is een zeer schaalbare service voor binnenkomende gegevens die miljoe
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/eventhub">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -115,16 +116,10 @@ Event Hubs is een zeer schaalbare service voor binnenkomende gegevens die miljoe
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Event Hubs downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

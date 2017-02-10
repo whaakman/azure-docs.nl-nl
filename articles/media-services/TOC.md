@@ -6,7 +6,7 @@
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
 ## Video op aanvraag leveren
 ### [Portal](media-services-portal-vod-get-started.md)
-### [.NET SDK](media-services-dotnet-get-started.md)
+### [.NET-SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Live streamen
@@ -24,7 +24,9 @@
 ### Verbinding maken via een programma
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Streaming-eindpunten in de portal beheren](media-services-portal-manage-streaming-endpoints.md)
+### [Streaming-eindpunten beheren](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Procedure: Media Services bijwerken na gebruik toegangstoetsen voor opslag](media-services-roll-storage-access-keys.md)
 ### [Quota en beperkingen](media-services-quotas-and-limitations.md)
 
@@ -44,7 +46,7 @@
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Invoermetagegevens](media-services-input-metadata-schema.md)
 ##### [Uitvoermetagegevens](media-services-output-metadata-schema.md)
-#### MES-standaardinstellingen 
+#### [MES-standaardinstellingen](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -76,7 +78,7 @@
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Geavanceerde codering met MES](media-services-advanced-encoding-with-mes.md)
 ##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Video’s bijsnijden met Media Encoder Standard](media-services-crop-video.md)
+##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
 ### Media Encoder Premium Workflow
 #### [Indelingen en codecs voor Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 #### Coderen met Media Encoder Premium Workflow
@@ -91,9 +93,12 @@
 #### [Statische pakketten en versleuteling](media-services-static-packaging.md)
 
 ## [Live streamen](media-services-manage-channels-overview.md)
-### [On-premises coderingsprogramma’s](media-services-live-streaming-with-onprem-encoders.md)
-### [Live streamen met cloudcoderingsprogramma’s](media-services-manage-live-encoder-enabled-channels.md)
-### Zelfstudies voor cloudcoderingsprogramma’s
+### [On-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+### [Live streamen met cloudcoderingsprogramma's](media-services-manage-live-encoder-enabled-channels.md)
+### Zelfstudies voor cloudcoderingsprogramma's
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [On-premises coderingsprogramma's configureren voor gebruik met cloudcoderingsprogramma's](media-services-live-encoders-overview.md)
@@ -134,8 +139,8 @@
 ### [Verwerken met Hyperlapse](media-services-hyperlapse-content.md)
 ### [Verwerken met Face Detector](media-services-face-and-emotion-detection.md)
 ### [Verwerken met Motion Detector](media-services-motion-detection.md)
-### [Verwerken met Gezichten onherkenbaar maken](media-services-face-redaction.md)
-#### [Walkthrough Gezichten onherkenbaar maken](media-services-redactor-walkthrough.md)
+### [Verwerken met Face Redactor](media-services-face-redaction.md)
+#### [Walkthrough Face Redactor](media-services-redactor-walkthrough.md)
 ### [Verwerken met videominiaturen](media-services-video-summarization.md)
 ### [Verwerken met OCR](media-services-video-optical-character-recognition.md)
 
@@ -195,16 +200,18 @@
 ### [Logica voor opnieuw proberen](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Naslaginformatie
-## [Releaseopmerkingen](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Bronnen
+## [Releaseopmerkingen](media-services-release-notes.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services-community](media-services-community.md)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

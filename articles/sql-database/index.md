@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Meer informatie over SQL Database, een database-als-een-service in de cloud. Zelfstudies, video&quot;s en andere documentatie laten zien hoe u een relationele database kunt instellen, verbinden en beheren.
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentatie voor SQL Database
 
-Azure SQL Database is een relationele database-service in de cloud met missiekritische mogelijkheden gebaseerd op de Microsoft SQL Server-engine. SQL Database biedt voorspelbare prestaties, schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging - en dat allemaal vrijwel zonder beheer. Omdat SQL Database is gebaseerd op de SQL Server-engine, worden bestaande SQL Server-hulpprogramma's, -bibliotheken en -API's ondersteund voor een soepele verplaatsing en uitbreiding naar de cloud.
+Meer informatie over het gebruik van SQL Database, een op de Microsoft SQL Server Engine gebaseerde relationele database-als-een-service in de cloud. Zelfstudies, video's en andere documentatie laten zien hoe u een SQL-database kunt instellen, verbinden en beheren.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -144,7 +145,7 @@ Azure SQL Database is een relationele database-service in de cloud met missiekri
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/sql/">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -152,16 +153,10 @@ Azure SQL Database is een relationele database-service in de cloud met missiekri
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor SQL Database downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

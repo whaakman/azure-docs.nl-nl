@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ Als u dynamische versleuteling wilt gebruiken, moet u een asset hebben die een s
 
 Dit onderwerp is nuttig voor ontwikkelaars die werken aan toepassingen die media leveren die worden beveiligd met meerdere DRM's, zoals PlayReady en Widevine. In het onderwerp wordt beschreven hoe u de PlayReady-service voor het leveren van licenties zo met een autorisatiebeleid configureert dat alleen geautoriseerde clients PlayReady- of Widevine-licenties kunnen ontvangen. Ook wordt uitgelegd hoe u dynamische versleuteling met PlayReady of Widevine DRM via DASH gebruikt.
 
-> [!NOTE]
-> Als u dynamische versleuteling wilt gebruiken, moet u eerst ten minste één schaaleenheid (ook wel streaming-eenheid genoemd) ophalen. Zie [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md) (Een mediaservice schalen) voor meer informatie.
->
->
+>[!NOTE]
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
 ## <a name="download-sample"></a>Voorbeeld downloaden
 U kunt [hier](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) het voorbeeld downloaden dat in dit artikel wordt beschreven.
@@ -160,8 +158,7 @@ Het volgende voorbeeld bevat informatie over de functionaliteit die werd geïntr
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Haal ten minste één streaming-eenheid op voor het streaming-eindpunt van waaruit u uw inhoud wilt leveren. Zie [Streaming-eindpunten configureren](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal) voor meer informatie.
-6. Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
+7. Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
 
     Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen waar uw invoerbestanden zich bevinden.
 
@@ -623,6 +620,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

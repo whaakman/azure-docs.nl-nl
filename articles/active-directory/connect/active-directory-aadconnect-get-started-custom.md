@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: abc2b3a55b1c28f290b1b3e3dfe8ab05ab22ec16
+ms.sourcegitcommit: b162ad1b776223cdf848ed8d04b1b44f9437f86d
+ms.openlocfilehash: 431e4283efa6ca985d832ead05e455d49ffdac74
 
 
 ---
@@ -50,7 +50,7 @@ Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige
 | Optie voor eenmalige aanmelding | Beschrijving |
 | --- | --- |
 | Wachtwoordsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. |
-|Pass-through-verificatie (Preview)|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-controller voor validatie. 
+|Pass-through-verificatie (Preview)|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-controller voor validatie.
 | Federatie met AD FS |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises AD FS-exemplaar om zich aan te melden en de verificatie vindt plaats on-premises. |
 | Niet configureren |Geen van beide onderdelen wordt geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
 |Eenmalige aanmelding inschakelen|Deze optie is beschikbaar bij zowel wachtwoordsynchronisatie als Pass-through-verificatie en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk.  Zie [Eenmalige aanmelding](active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.</br>(als PTA niet op hetzelfde moment wordt gepubliceerd)
@@ -95,7 +95,9 @@ Bekijk elk domein waarbij **Niet toegevoegd** en **Niet geverifieerd** staat. Zo
 
 ### <a name="domain-and-ou-filtering"></a>Domein- en OE-filters
 Standaard worden alle domeinen en OE's gesynchroniseerd. Van domeinen of OE’s die u niet wilt synchroniseren naar Azure AD kunt u de selectie opheffen.  
-![Domein- en OE-filters](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Op deze pagina in de wizard configureert u filteren op basis van een domein. Zie voor meer informatie [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![Domein/OE filteren](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Op deze pagina in de wizard configureert u filteren op basis van een domein en OE. Zie voor meer informatie [Domein filteren](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) en [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Als u OE filteren gebruikt, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid.
+
+Als u [Groep filteren](#sync-filtering-based-on-groups) wilt gebruiken, zorg er dan voor dat de OE met de groep is opgenomen en dat u niet filtert met OE filteren. OE filteren wordt geëvalueerd vóór groep filteren.
 
 Sommige domeinen kunnen ook onbereikbaar zijn door firewallbeperkingen. Deze domeinen zijn standaard uitgeschakeld en hebben een waarschuwing.  
 ![Onbereikbare domeinen](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
@@ -148,39 +150,6 @@ In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecte
 | Apparaat terugschrijven |Hiermee kunt u apparaatobjecten in Azure AD terugschrijven naar uw on-premises Active Directory voor scenario's voor voorwaardelijke toegang. Zie voor meer informatie [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Synchronisatie van directory-extensiekenmerken |Door synchronisatie van directory-extensiekenmerken in te schakelen worden de opgegeven kenmerken gesynchroniseerd naar Azure AD. Zie voor meer informatie [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
-### <a name="enabling-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
-Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of Pass-through-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD.  De configuratie omvat de volgende twee stappen:
-
-1.  Het benodigde computeraccount maken in uw on-premises Active Directory.
-2.  Het configureren van de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
-
-#### <a name="creating-the-computer-account-in-active-directory"></a>Het computeraccount maken in Active Directory
-U dient referenties van de domeinbeheerder op te geven voor elk forest dat is toegevoegd via het AAD Connect-hulpprogramma, zodat het computeraccount in elk forest kan worden gemaakt.  De referenties worden alleen gebruikt voor het maken van het account en niet opgeslagen of gebruikt voor andere bewerkingen.  Voeg de referenties toe op de pagina Eenmalige aanmelding inschakelen van de AAD Connect-wizard, zoals hieronder weergegeven:
-
-![Eenmalige aanmelding inschakelen](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->U kunt een forest overslaan als u eenmalige aanmelding niet wilt gebruiken voor dat forest.
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>De intranetzone voor clientcomputers configureren
-Om ervoor te zorgen dat de client zich automatisch in de intranetzone aanmeldt, dient u ervoor te zorgen dat de URL's deel uitmaken van de intranetzone.  Dit zorgt ervoor dat de via het domein gekoppelde desktopcomputers automatisch een Kerberos-ticket verzenden wanneer ze zijn verbonden met het bedrijfsnetwerk.
-Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
-
-1.  Open de hulpprogramma's voor Groepsbeleidsbeheer
-2.  Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast.  Bijvoorbeeld het standaard domeinbeleid.
-3.  Ga naar Huidige gebruiker\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\Het tabblad Beveiliging en selecteer Lijst van zonetoewijzingen voor websites, zoals in de afbeelding hieronder.
-4.  Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
-   
-        Value: https://autologon.microsoftazuread-sso.com
-        Data: 1
-        Value: https://aadg.windows.net.nsatc.net 
-        Data: 1
-
-5.  Het moet er ongeveer uitzien als het volgende: ![Intranetzones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.  Klik twee keer op OK.
-
-
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD-app- en -kenmerkfilters
 Als u wilt beperken welke kenmerken met Azure AD moeten worden gesynchroniseerd, begin dan met te selecteren welke services u gebruikt. Als u de configuratie op deze pagina wijzigt, moet u expliciet een nieuwe service selecteren door de installatiewizard opnieuw uit te voeren.
 
@@ -202,7 +171,40 @@ U kunt het schema in Azure AD uitbreiden met aangepaste kenmerken die door uw or
 
 Zie voor meer informatie [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
 
-## <a name="configuring-federation-with-ad-fs"></a>Federatie met AD FS configureren
+### <a name="enabling-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
+Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of Pass-through-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD. De configuratie omvat de volgende twee stappen:
+
+1.  Maak het benodigde computeraccount in uw on-premises Active Directory.
+2.  Configureer de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
+
+#### <a name="create-the-computer-account-in-active-directory"></a>Het computeraccount maken in Active Directory
+Voor elk forest in Azure AD Connect dat is toegevoegd, moet u referenties van de domeinbeheerder opgeven, zodat het computeraccount in elk forest kan worden gemaakt. De referenties worden alleen gebruikt om het account te maken. Ze worden niet opgeslagen of voor andere zaken gebruikt. Voeg de referenties toe op de pagina **Eenmalige aanmelding inschakelen** van de wizard Azure AD Connect, zoals hieronder wordt weergegeven:
+
+![Eenmalige aanmelding inschakelen](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Forests waarvoor u eenmalige aanmelding niet wilt gebruiken, kunt u overslaan.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>De intranetzone voor clientcomputers configureren
+Als u ervoor wilt zorgen dat de client zich automatisch aanmeldt in de intranetzone, moeten de URL's deel uitmaken van de intranetzone. De desktopcomputers die via het domein zijn gekoppeld, verzenden dan automatisch een Kerberos-ticket wanneer ze zijn verbonden met het bedrijfsnetwerk.
+Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
+
+1.  Open de hulpprogramma's voor Groepsbeleidsbeheer
+2.  Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast. Bijvoorbeeld het standaard domeinbeleid.
+3.  Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
+4.  Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
+
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
+
+5.  Het moet er ongeveer als volgt uitzien:  
+![Intranetzones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Klik twee keer op **OK**.
+
+## <a name="configuring-federation-with-ad-fs"></a>Federatie configureren met AD FS
 AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Voorafgaand aan de configuratie is het volgende vereist.
 
 * Een Windows Server 2012 R2-server als de federatieserver met extern beheer ingeschakeld
@@ -312,16 +314,8 @@ Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sy
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 
-## <a name="related-documentation"></a>Verwante documentatie
-| Onderwerp |
-| --- | --- |
-| Overzicht Azure AD Connect |
-| Installeren met behulp van snelle instellingen |
-| Upgraden van DirSync |
-| Accounts die worden gebruikt voor installatie |
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

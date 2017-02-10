@@ -7,14 +7,15 @@
 # Aan de slag
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Marketplace-app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
-## API-apps
+## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
@@ -60,11 +61,12 @@
 ### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET-apps
-#### [Uw eerste .NET-web-app in vijf minuten implementeren in Azure](app-service-web-get-started-dotnet.md)
+#### [Een ASP.NET-app maken in Azure met Visual Studio](web-sites-dotnet-get-started.md)
 #### [Een REST-service maken met ASP.NET-web-API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Een ASP.NET 5-web-app maken in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Node.js-apps
+#### [Node.js ontwikkelen voor App Service](app-service-web-nodejs-get-started.md)
 #### [Een Node.js-web-app maken](web-sites-nodejs-develop-deploy-mac.md)
 #### [Een Node.js-toepassing voor chatten maken met Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [io.js gebruiken met Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Bouwen en implementeren met WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP-apps
-#### [Uw eerste PHP-web-app in vijf minuten in Azure implementeren](app-service-web-get-started-php.md)
+#### [PHP-apps ontwikkelen voor App Service](app-service-web-php-get-started.md) 
 #### [Een PHP-SQL-web-app maken en implementeren met Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Een WordPress-web-app maken in Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Een MySQL-database in Azure maken en verbinden](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [WordPress-website van bedrijfsklasse in Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Java-apps
-#### [Uw eerste Java-web-app in vijf minuten implementeren in Azure](web-sites-java-get-started.md)
 #### Een Hallo wereld-app maken
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -247,9 +248,9 @@
 ### [Problemen met prestaties van web-apps oplossen](app-service-web-troubleshoot-performance-degradation.md)
 
 # Naslaginformatie
-## [Azure-CLI](/cli/azure/)
-## [Java](/java/api/)
+## [Azure CLI 2.0 Preview](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Verwant
@@ -266,6 +267,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ Microsoft Monitoring Agent moet toegang hebben tot het poortnummer van uw domein
 | \*.ods.opinsights.azure.com |443 |Ja |
 | \*.oms.opinsights.azure.com |443 |Ja |
 | \*.blob.core.windows.net |443 |Ja |
+| \*.azure-automation.net |443 |Ja |
 | ods.systemcenteradvisor.com |443 | |
 
 Volg de volgende procedure om de proxyinstellingen voor Microsoft Monitoring Agent te configureren via het Configuratiescherm. U moet de procedure voor elke server uitvoeren. Als er veel servers zijn die u moet configureren, is het wellicht eenvoudiger om een script te gebruiken om dit proces te automatiseren. Zie de volgende procedure [Proxyinstellingen met een script configureren voor de Microsoft Monitoring Agent](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script) als u dit wilt doen.
@@ -105,6 +106,7 @@ Hier volgt een lijst met resources en poorten voor beheerservers:<br>
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Ja |
+| \*.azure-automation.net |443 |Ja |
 
 <br>
 Hier volgt een lijst met OMS- en Operations Manager-consoleresources en -poorten.<br>
@@ -131,45 +133,46 @@ Voer de volgende procedures uit om uw Operations Manager-beheergroep te registre
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>De proxyserver configureren in de Operations Manager-console
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 2. Vouw **Operationeel inzicht** uit en selecteer **Verbinding met Operationeel inzicht**.<br>  
-    ![Verbinding met Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Verbinding met Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.<br>  
-    ![Proxyserver configureren om Operations Manager met OMS te verbinden](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Proxyserver configureren om Operations Manager met OMS te verbinden](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. Selecteer in het gedeelte Proxyserver van de instellingenwizard van Operationeel inzicht **Een proxyserver gebruiken voor toegang tot de Operationeel inzicht-webservice** en voer de URL in met het poortnummer, bijvoorbeeld **http://myproxy:80**.<br>  
-    ![OMS-proxyadres van Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![OMS-proxyadres van Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Referenties opgeven als er verificatie is vereist voor de proxyserver
  De referenties en instellingen van de proxyserver moeten worden doorgegeven aan beheerde computers die op hun beurt rapporteren aan OMS. Deze servers moeten zich in de *Microsoft System Center Advisor Monitoring Server-groep* bevinden. De referenties worden versleuteld in het register van elke server in de groep.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 2. Selecteer onder **RunAs-configuratie** de optie **Profielen**.
-3. Open het profiel **System Center Advisor RunAs-profielproxy**.  
-    ![afbeelding van het System Center Advisor RunAs-proxyprofiel](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. Klik in de wizard RunAs-profiel op **Toevoegen** om een RunAs-account te gebruiken. U kunt een nieuw RunAs-account maken of een bestaand account gebruiken. Dit account moet over voldoende rechten beschikken voor het doorgeven van de proxyserver.  
-    ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Als u het account voor beheer wilt instellen, kiest u **Een geselecteerde klasse, groep of object** om het vak Object zoeken te openen.  
-    ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**.  
-    ![afbeelding van het vak Object zoeken](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Klik op **OK** om het vak Een RunAs-account toevoegen te sluiten.  
-    ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Voltooi de wizard en sla de wijzigingen op.  
-    ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Open het profiel **System Center Advisor RunAs-profielproxy**.<br>  
+   ![afbeelding van het System Center Advisor RunAs-proxyprofiel](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. Klik in de wizard RunAs-profiel op **Toevoegen** om een RunAs-account te gebruiken. U kunt een nieuw RunAs-account maken of een bestaand account gebruiken. Dit account moet over voldoende rechten beschikken voor het doorgeven van de proxyserver.<br>   
+   ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Als u het account voor beheer wilt instellen, kiest u **Een geselecteerde klasse, groep of object** om het vak Object zoeken te openen.<br>  
+   ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**.<br>  
+   ![afbeelding van het vak Object zoeken](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Klik op **OK** om het vak Een RunAs-account toevoegen te sluiten.<br>  
+   ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Voltooi de wizard en sla de wijzigingen op.<br>  
+   ![afbeelding van de wizard RunAs-profiel](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Controleren of OMS Management Packs worden gedownload
-Als u oplossingen hebt toegevoegd aan OMS, kunt u ze in de Operations Manager-console als Management Packs bekijken via **Beheer**. Zoek naar *System Center Advisor* om ze snel te vinden.  
-    ![Management Packs die zijn gedownload](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) U kunt ook controleren op OMS Management Packs via de volgende Windows PowerShell-opdracht in de Operations Manager-beheerserver:
+Als u oplossingen hebt toegevoegd aan OMS, kunt u ze in de Operations Manager-console als Management Packs bekijken via **Beheer**. Zoek naar *System Center Advisor* om ze snel te vinden.<br>  
+   ![gedownloade managementpacks](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+U kunt ook op OMS Management Packs controleren door de volgende Windows PowerShell-opdracht uit te voeren in de Operations Manager-beheerserver:
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Controleren of Operations Manager gegevens verzendt naar de OMS-service
 1. Open in de Operations Manager-beheerserver de prestatiemeter (perfmon.exe) en selecteer **Prestatiemeter**.
 2. Klik op **Toevoegen** en selecteer **Health Service-beheergroepen**.
-3. Voeg alle items toe die beginnen met **HTTP**.  
-    ![items toevoegen](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Als uw Operations Manager-configuratie goed is, ziet u bij de Health Service Management-items activiteit voor gebeurtenissen en andere gegevensitems. Dit gebeurt op basis van de Management Packs die u in OMS hebt toegevoegd en het geconfigureerde beleid voor de verzameling van logboeken.  
-    ![Prestatiemeter die aangeeft dat er activiteit is](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Voeg alle items toe die beginnen met **HTTP**.<br>  
+   ![items toevoegen](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Als uw Operations Manager-configuratie goed is, ziet u bij de Health Service Management-items activiteit voor gebeurtenissen en andere gegevensitems. Dit gebeurt op basis van de Management Packs die u in OMS hebt toegevoegd en het geconfigureerde beleid voor de verzameling van logboeken.<br>  
+   ![Prestatiemeter die aangeeft dat er activiteit is](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
@@ -177,6 +180,6 @@ Als u oplossingen hebt toegevoegd aan OMS, kunt u ze in de Operations Manager-co
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
