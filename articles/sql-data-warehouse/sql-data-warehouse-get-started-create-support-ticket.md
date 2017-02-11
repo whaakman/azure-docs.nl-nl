@@ -101,6 +101,6 @@ Daarnaast kunt u verbinding maken met de SQL Data Warehouse-community op [Stack 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
