@@ -14,14 +14,17 @@
 ### [Openbare toegang van DC/OS inschakelen](container-service-enable-public-access.md)
 ### [Taakverdelingscontainers in DC/OS](container-service-load-balancing.md)
 ### [App-/gebruikerspecifieke Orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Controleren met OMS (DC/OS)](container-service-monitoring-oms.md)
-### [Controleren met Datadog (DC/OS)](container-service-monitoring.md)
-### [Controleren met Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-### [Controleren met Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+### [Controleren met OMS](container-service-monitoring-oms.md)
+### [Controleren met Datadog](container-service-monitoring.md)
+### [Controleren met Sysdig](container-service-monitoring-sysdig.md)
+### [Controleren met Dynatrace](container-service-monitoring-dynatrace.md)
 ## Beheren met Kubernetes
 ### [Aan de slag met Kubernetes](container-service-kubernetes-walkthrough.md)
 ### [Een service-principal configureren](container-service-kubernetes-service-principal.md)
 ### [Interactie met de Kubernetes-webinterface](container-service-kubernetes-ui.md)
+### [Controleren met OMS](container-service-kubernetes-oms.md)
+### [Controleren met Datadog](container-service-kubernetes-datadog.md)
+### [Controleren met Sysdig](container-service-kubernetes-sysdig.md)
 ## Beheren met Docker Swarm
 ### [Docker CLI en Docker Compose](container-service-docker-swarm.md)
 ### [Continue integratie met Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
@@ -35,6 +38,6 @@
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

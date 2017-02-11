@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscache en berichtbroker die toepassingen snel toegang geeft tot gegevens. Zelfstudies, API-verwijzingen en meer.
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Documentatie voor Redis Cache
 
-Azure Redis Cache is gebaseerd op de populaire open-source Redis Cache. Azure Redis Cache geeft u toegang tot een beveiligde, toegewezen Redis-cache die wordt beheerd door Microsoft en toegankelijk is vanuit elke toepassing binnen Azure. Azure Redis Cache biedt gegevenstoegang met hoge doorvoer en consistente lage latentie voor snelle, schaalbare Azure-toepassingen.
+Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscache en berichtbroker die toepassingen toegang tot gegevens geeft met hoge doorvoer en lage latentie. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Redis Cache gebruikt vanuit een willekeurige toepassing in Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,7 +176,7 @@ Azure Redis Cache is gebaseerd op de populaire open-source Redis Cache. Azure Re
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -183,16 +184,10 @@ Azure Redis Cache is gebaseerd op de populaire open-source Redis Cache. Azure Re
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Redis Cache downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

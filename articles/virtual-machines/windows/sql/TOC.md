@@ -12,10 +12,14 @@
 # Procedures
 ## Hoge beschikbaarheid configureren
 ### [Opties voor hoge beschikbaarheid](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On-beschikbaarheidsgroep automatisch configureren](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-### [Always On-beschikbaarheidsgroep handmatig configureren](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-### [Een interne load balancer configureren voor een beschikbaarheidsgroep](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-### [Een of meerdere listeners voor Always On-beschikbaarheidsgroep configureren](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [AlwaysOn-beschikbaarheidsgroep configureren](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Automatisch - met sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Handmatig - vereisten](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Handmatig - zelfstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+#### [Load balancer - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Load balancer - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Meerdere regio's](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
 ## Beheren
 ### [De SQL Server IaaS Agent-extensie gebruiken](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automatisch patch toepassen](virtual-machines-windows-sql-automated-patching.md)
@@ -45,6 +49,6 @@
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

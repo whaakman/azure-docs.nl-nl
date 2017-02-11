@@ -6,18 +6,19 @@
 # Procedures 
 ##[Implementeren op een server](analysis-services-deploy.md)
 ##[Verbinding maken vanaf een client](analysis-services-connect.md)
-
 ##[Een server beheren](analysis-services-manage.md)
+##[Gebruikers beheren](analysis-services-manage-users.md)
 ##[De on-premises gegevensgateway integreren](analysis-services-gateway.md)
 
 # Naslaginformatie
-##[PowerShell](/powershell/resourcemanager)
+##[PowerShell](analysis-services-powershell.md)
 ##[REST](/rest/api/analysisservices)
 
 # Resources
 ##[Gegevensbronverbindingen](analysis-services-datasource.md)
+##[Gegevensproviders](analysis-services-data-providers.md) 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
