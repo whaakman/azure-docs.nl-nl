@@ -6,17 +6,14 @@
 
 # Aan de slag
 
-## Een SQL Data Warehouse maken
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Zelfstudie voor beginners](sql-data-warehouse-get-started-tutorial.md)
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)
 ## [Ondersteuning krijgen](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # Procedures
 
-## Back-up en herstel
+## Back-ups en herstellen
 
 ### [Overzicht van back-up](sql-data-warehouse-backups.md)
 ### [Overzicht van herstel](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio installeren](sql-data-warehouse-install-visual-studio.md)
+
+## Maken
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Ontwikkelen
 
@@ -145,6 +147,6 @@
 ### [Gegevensbeheer](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

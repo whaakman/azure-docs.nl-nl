@@ -97,6 +97,28 @@
 #### [Optioneel: het led-gedrag wijzigen](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Problemen oplossen](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Aan de slag met een Arduino (knooppunt)
+### [Aan de slag met een Arduino-bord: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Les 1: Uw apparaat configureren
+#### [Uw apparaat configureren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [De Blink-toepassing maken en implementeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Les 2: Uw IoT-hub maken
+#### [De Azure-hulpprogramma's downloaden (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [De Azure-hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Les 3: Apparaat-naar-cloud-berichten verzenden
+#### [Een Azure-functie-app en -opslagaccount maken](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [In opslag behouden berichten lezen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Les 4: Cloud-naar-apparaat-berichten verzenden
+#### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Optioneel: het led-gedrag wijzigen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Problemen oplossen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Aan de slag met de Gateway-SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Aan de slag met de Gateway-SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,10 @@
 ## [Java (apparaten)](/java/api/com.microsoft.azure.iothub)
 ## [SDK's voor Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway-SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (resourceprovider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (apparaatidentiteiten)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (apparaatmessaging) REST-API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (resourceprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (apparaatidentiteiten)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (apparaatberichten)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (taken)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Verwant
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +263,6 @@
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

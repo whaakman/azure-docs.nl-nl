@@ -4,6 +4,12 @@
 # Aan de slag
 ## [Account maken en beheren](media-services-portal-create-account.md)
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Verbinding maken via een programma
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Video op aanvraag leveren
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET-SDK](media-services-dotnet-get-started.md)
@@ -21,13 +27,10 @@
 ### Entiteiten beheren
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Verbinding maken via een programma
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
 ### [Streaming-eindpunten beheren](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Procedure: Media Services bijwerken na gebruik toegangstoetsen voor opslag](media-services-roll-storage-access-keys.md)
+### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
 ### [Quota en beperkingen](media-services-quotas-and-limitations.md)
 
 ## Inhoud uploaden
@@ -35,6 +38,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Grote bestanden uploaden met Aspera](media-services-upload-files-with-aspera.md)
 ### [Bestaande blobs kopiëren](media-services-copying-existing-blob.md)
 
 ## [Inhoud coderen](media-services-encode-asset.md)
@@ -98,7 +102,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streamen met cloudcoderingsprogramma's](media-services-manage-live-encoder-enabled-channels.md)
-### Zelfstudies voor cloudcoderingsprogramma's
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [On-premises coderingsprogramma's configureren voor gebruik met cloudcoderingsprogramma's](media-services-live-encoders-overview.md)
@@ -114,6 +117,7 @@
 ### [AES-128 Clear Key voor uw stream configureren](media-services-protect-with-aes128.md)
 ### [Uw inhoud versleutelen met opslagversleuteling op basis van de AMS-REST-API](media-services-rest-storage-encryption.md)
 ### [Overzicht van sjablonen voor Media Services PlayReady-licentie](media-services-playready-license-template-overview.md)
+### [Overzicht van Widevine-licentiesjablonen](media-services-widevine-license-template-overview.md)
 ### [Levering van DRM-licentie](media-services-deliver-keys-and-licenses.md)
 ### [Partners gebruiken om Widevine-licenties te leveren aan Azure Media Services](media-services-licenses-partner-integration.md)
 ### [PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-drm.md)
@@ -152,16 +156,15 @@
 ### [Mediaverwerking](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming-eindpunten
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Inhoud leveren](media-services-deliver-content-overview.md)
 ### [Dynamische pakketten](media-services-dynamic-packaging-overview.md)
 ### [Overzicht filters en dynamische manifesten](media-services-dynamic-manifest-overview.md)
-### Filters maken
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Filters maken met .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Filters maken met REST](media-services-rest-dynamic-manifest.md)
 ### Inhoud publiceren
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -184,7 +187,6 @@
 ### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Axinom gebruiken om Widevine-licenties te leveren aan Azure Media Services ](media-services-axinom-integration.md)
 ### [castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services](media-services-castlabs-integration.md)
-### [Overzicht van Widevine-licentiesjablonen](media-services-widevine-license-template-overview.md)
 
 ## Controleren
 ### Taakvoortgang controleren
@@ -212,6 +214,6 @@
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

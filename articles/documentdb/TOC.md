@@ -1,3 +1,4 @@
+
 # Overzicht
 ## [Wat is DocumentDB?](documentdb-introduction.md)
 ## [Basisconcepten](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Partitioneren en schalen](documentdb-partition-data.md)
 ### [Consistentie](documentdb-consistency-levels.md)
 ### [NoSQL en SQL](documentdb-nosql-vs-sql.md)
+### [Rendabele lees- en schrijfbewerkingen](documentdb-key-value-store-cost.md)
 
 ## Beheren
 ### [Uw gegevens importeren](documentdb-import-data.md)
@@ -91,6 +93,7 @@
 ### [Meldingen ontvangen met Logic Apps](documentdb-change-notification.md)
 ### [Sensorgegevens in realtime verwerken](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Uw gegevens visualiseren met Power BI](documentdb-powerbi-visualize.md)
+### [Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie](documentdb-nosql-odbc-driver.md)
 
 
 # Naslaginformatie
@@ -123,6 +126,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

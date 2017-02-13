@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Meer informatie over het gebruik van Azure Storage - Blob-, Table-, Queue-, File- en Virtual Machine Disk-opslag in de cloud. Zelfstudies, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
@@ -133,6 +133,7 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, wachtrijen, tabellen en bestanden</a></p>
                         <p><a href="/rest/api/storagerp">Resourceprovider</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">REST-API opslaggegevens </a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +145,6 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
