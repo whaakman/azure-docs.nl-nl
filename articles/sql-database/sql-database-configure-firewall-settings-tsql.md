@@ -1,6 +1,6 @@
 ---
-title: Firewallregels voor Azure SQL Database op serverniveau en databaseniveau met T-SQL | Microsoft Docs
-description: Informatie over het configureren van de firewall voor IP-adressen die toegang hebben tot Azure SQL-databases.
+title: 'T-SQL: Firewallregels voor Azure SQL Database | Microsoft Docs'
+description: Meer informatie over hoe u firewallregels op server- en databaseniveau configureert voor IP-adressen die via Transact-SQL toegang hebben tot Azure SQL-databases.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

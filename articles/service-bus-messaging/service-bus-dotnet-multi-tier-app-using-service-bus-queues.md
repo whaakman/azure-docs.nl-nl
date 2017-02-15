@@ -1,5 +1,5 @@
 ---
-title: .NET-toepassing met meerdere lagen | Microsoft Docs
+title: .NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt | Microsoft Docs
 description: Een .NET-zelfstudie waarmee u in Azure een app met meerdere lagen kunt ontwikkelen die Service Bus-wachtrijen gebruikt voor communicatie tussen lagen.
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -33,7 +33,7 @@ U leert het volgende:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In deze zelfstudie zult u de toepassing met meerdere lagen ontwikkelen en uitvoeren in een cloudservice van Azure. De front-end wordt een ASP.NET MVC-webrol en de back-end een werkrol die gebruikmaakt van een Service Bus-wachtrij. U kunt dezelfde toepassing met meerdere lagen maken met de front-end als een webproject dat wordt geïmplementeerd op een Azure-website in plaats van een cloudservice. Zie het gedeelte [Volgende stappen](#nextsteps) voor instructies over de stappen die anders moeten op een Azure-website-front-end. U kunt ook de zelfstudie [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) gebruiken.
+In deze zelfstudie zult u de toepassing met meerdere lagen ontwikkelen en uitvoeren in een cloudservice van Azure. De front-end is een ASP.NET MVC-webrol en de back-end is een werkrol die gebruikmaakt van een Service Bus-wachtrij. U kunt dezelfde toepassing met meerdere lagen maken met de front-end als een webproject dat wordt geïmplementeerd op een Azure-website in plaats van een cloudservice. Zie het gedeelte [Volgende stappen](#nextsteps) voor instructies over de stappen die anders moeten op een Azure-website-front-end. U kunt ook de zelfstudie [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) gebruiken.
 
 In de volgende schermafbeelding wordt de voltooide toepassing weergegeven.
 
@@ -57,15 +57,6 @@ Dit communicatiemechanisme heeft verschillende voordelen ten opzichte van Direct
   ![][2]
 
 In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt geïmplementeerd.
-
-## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
-Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
-
-1. Installeer de Azure SDK voor .NET via [Hulpprogramma's en SDK ophalen][Hulpprogramma's en SDK ophalen].
-2. Klik op **De SDK installeren** voor de versie van Visual Studio die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
-3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
-4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
-5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
 De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
@@ -109,7 +100,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
 
 1. In het bestand OnlineOrder.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
    ```
 2. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**. Voeg de volgende **using**-instructies aan het begin van het bestand toe om de naamruimten op te nemen voor het model dat u zojuist hebt gemaakt, maar ook voor Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. In het bestand HomeController.cs in Visual Studio vervangt u bovendien de bestaande naamruimtedefinitie door de volgende code. Deze code bevat methoden voor het afhandelen van de verzending van items naar de wachtrij.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
     ![][28]
 11. Wijzig tot slot de verzendpagina om enige informatie over de wachtrij op te nemen. Dubbelklik in **Solution Explorer** op het bestand **Views\Home\Submit.cshtml** om dit te openen in de Visual Studio-editor. Voeg de volgende regel toe na `<h2>Submit</h2>`. Op dit moment is `ViewBag.MessageCount` leeg. U vult dit later in.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. U hebt nu de gebruikersinterface geïmplementeerd. Druk op **F5** om uw toepassing uit te voeren en te controleren of deze voldoet aan uw verwachting.
@@ -207,7 +198,7 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
 2. Geef de klasse de naam **QueueConnector.cs**. Klik op **Toevoegen** om de klasse te maken.
 3. Voeg nu code toe waarin de verbindingsgegevens zijn opgenomen en waarmee de verbinding met een Service Bus-wachtrij wordt geïnitialiseerd. Vervang de volledige inhoud van QueueConnector.cs door de volgende code en voer waarden in voor `your Service Bus namespace` (de naam van uw naamruimte) en `yourKey`. Dit is de **primaire sleutel** die u eerder van Azure Portal hebt gekregen.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
 4. Controleer nu of uw methode voor **Initialiseren** wordt aangeroepen. Dubbelklik in **Solution Explorer** op **Global.asax\Global.asax.cs**.
 5. Voeg de volgende coderegel toe aan het einde van de methode **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Werk tot slot de webcode die u eerder hebt gemaakt, bij om items naar de wachtrij te verzenden. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**.
 7. Werk de methode `Submit()` (de overbelasting waarvoor geen parameters zijn vereist) als volgt bij om het aantal berichten voor de wachtrij te verkrijgen.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
    ```
 8. Werk de methode `Submit(OnlineOrder order)` (de overbelasting waarvoor één parameter moet worden gebruikt) als volgt bij om ordergegevens naar de wachtrij te verzenden.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt 
 10. Blader naar de submap voor **FrontendWebRole\Models** en dubbelklik vervolgens op **OnlineOrder.cs** om het bestand toe te voegen aan dit project.
 11. Wijzig in **WorkerRole.cs** de waarde van de variabele **QueueName** van `"ProcessingQueue"` in `"OrdersQueue"`, zoals weergegeven in de volgende code.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Voeg de volgende instructie toe aan het begin van het bestand WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. In de functie `Run()` binnen de aanroep `OnMessage()` vervangt u de inhoud van de `try`-component door de volgende code.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +353,16 @@ U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt 
 Zie de volgende resources voor meer informatie over Service Bus:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Service Bus-servicepagina][sbwacom]  
-* [Service Bus-wachtrijen gebruiken][sbwacomqhowto]  
+* [Service Bus-servicepagina][sbacom]  
+* [Service Bus-wachtrijen gebruiken][sbacomqhowto]  
 
 Zie voor meer informatie over scenario's voor meerdere lagen:  
 
-* [.NET-toepassing met meerdere lagen die opslagtabellen, wachtrijen en blobs gebruikt][mutitierstorage]  
+* [.NET-toepassing met meerdere lagen met Table Storage, Queue Storage en Blob Storage][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Hulpprogramma's en SDK ophalen]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het instellen van beveiligingsbewaking en beleidsbeheer voor Azure-resources. Zelfstudies, een REST API-verwijzing en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Documentatie over Security Center
 
-Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+Meer informatie over hoe u Security Center gebruikt om inzicht te krijgen in en controle te krijgen over de veiligheid van uw Azure-resources.  Zelfstudies, een REST-API-verwijzing en andere documentatie laten zien hoe u beveiligingsbewaking en beleidsbeheer instelt die geschikt zijn voor een omvangrijk ecosysteem van beveiligingsoplossingen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +77,7 @@ Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op b
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -84,15 +85,10 @@ Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op b
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Security Center downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

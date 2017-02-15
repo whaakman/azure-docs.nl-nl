@@ -6,8 +6,8 @@
 
 # Procedures
 ## Integreren
-### [Web-apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Cloudservices](cdn-cloud-service-with-cdn.md)
+### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
 
@@ -44,12 +44,17 @@
 ### [Bestandscompressie](cdn-troubleshoot-compression.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Azure CDN POP-locaties](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
-# Bronnen
+# Resources
+##  [Verwijzing regelengine](cdn-rules-engine-reference.md)
+### [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+### [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
+### [Functies regelengine](cdn-rules-engine-reference-features.md)
+## [POP-locaties Azure CDN](cdn-pop-locations.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +62,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -19,8 +19,7 @@
 ### [Integratie van bronbeheer](automation-source-control-integration.md)
 ## Runbooks automatiseren
 ### [Een runbook starten](automation-starting-a-runbook.md)
-### [Een runbook starten vanuit een webaanroep](automation-webhooks.md)
-### [Een runbook plannen](automation-scheduling-a-runbook.md)
+### [Een runbook starten vanuit een webhook](automation-webhooks.md)
 ### [Runbooks uitvoeren in uw datacenter](automation-hybrid-runbook-worker.md)
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
 ### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
@@ -60,7 +59,7 @@
 ### [Automation-account verplaatsen](automation-migrate-account-subscription.md)
 ## Problemen oplossen
 ### [Veelvoorkomende problemen oplossen](automation-troubleshooting-automation-errors.md)
-### [Runbook-taak onderbroken](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Problemen met Hybrid Runbook Worker oplossen](automation-troubleshooting-hybrid-runbook-worker.md)
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (klassiek)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
@@ -79,6 +78,6 @@
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

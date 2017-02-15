@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Meer informatie over het beheren van inkomend verkeer voor optimale toepassingsprestaties. Documentatie laat zien hoe u verkeer naar Azure of externe service-eindpunten distribueert.
 translationtype: Human Translation
-ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
-ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentatie over Traffic Manager
@@ -120,13 +120,7 @@ Meer informatie over hoe u Traffic Manager gebruikt om inkomend verkeer te route
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Traffic Manager downloaden </div>
-    </a>
-</div>
+
 
 
 

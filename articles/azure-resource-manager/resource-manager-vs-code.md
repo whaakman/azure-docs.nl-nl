@@ -32,7 +32,7 @@ Als u met de JSON-sjablonen in VS Code wilt werken, moet u een extensie installe
 2. Snel openen starten (Ctrl+P) 
 3. Voer de volgende opdracht uit: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Start VS Code opnieuw op wanneer u daarom wordt gevraagd om de extensie in te schakelen. 
    
    Klaar!

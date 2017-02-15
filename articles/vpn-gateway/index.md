@@ -1,13 +1,26 @@
 ---
+title: VPN Gateway-documentatie - zelfstudies en API-naslaginformatie | Microsoft Docs
+description: Meer informatie over hoe u VPN-gateways (Virtual Private Network) configureert om verkeer tussen virtuele netwerken in de cloud en on-premises of tussen VNets in de cloud te beheren.
+services: vpn-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: vpn-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
+ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
+ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
+
 
 ---
-#<a name="vpn-gateway-documentation"></a>VPN Gateway-documentatie
+# <a name="vpn-gateway-documentation"></a>VPN Gateway-documentatie
 
-Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties en tussen virtuele netwerken in Azure (VNet-naar-VNet).  
+Meer informatie over het configureren van VPN Gateway, een gateway voor een virtueel privénetwerk. Documentatie laat zien hoe u netwerkverkeer verzendt tussen virtuele netwerken van Azure en on-premises locaties of andere virtuele netwerken van Azure (VNets).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -152,16 +165,10 @@ Azure VPN Gateway is een virtueel particulier netwerk (VPN) dat wordt gebruikt v
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Azure VPN Gateway downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

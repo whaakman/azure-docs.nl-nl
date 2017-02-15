@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
-ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
+ms.sourcegitcommit: 381d372b549fa0ed0900d97c03b9584b21624b25
+ms.openlocfilehash: 4a8fb3499ec55e451b54a05d5642bdf9a924294f
 
 
 ---
@@ -25,17 +25,21 @@ ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
-Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie worden een toepassing voor Linux en een service gemaakt met behulp van Java.  De volgende video van Microsoft Virtual Academy leidt u door het proces voor het maken van een Java-app op Linux:  
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie worden een toepassing voor Linux en een service gemaakt met behulp van Java.  
 
 > [!NOTE]
 > Java wordt als eersteklas ingebouwde programmeertaal alleen ondersteund voor het Linux-voorbeeld (ondersteuning in Windows wordt gepland). Alle toepassingen, waaronder Java-toepassingen, kunnen echter worden uitgevoerd als uitvoerbare gastbestanden of in containers op Windows of Linux. Zie voor meer informatie [Een bestaand uitvoerbaar bestand implementeren naar Azure Service Fabric](service-fabric-deploy-existing-app.md) en [Containers implementeren naar Service Fabric](service-fabric-deploy-container.md).
-> 
+>
+
+## <a name="video-tutorial"></a>Zelfstudievideo
+
+De volgende video van Microsoft Virtual Academy leidt u door het proces voor het maken van een Java-app op een Linux-systeem:  
+<center><a target="\_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -47,12 +51,12 @@ Een Service Fabric-toepassing kan een of meer services bevatten, elk met een spe
 1. Typ in een terminal ``yo azuresfjava``.
 2. Geef uw toepassing een naam.
 3. Kies het type van uw eerste service en geef de service een naam. In deze zelfstudie kiezen we voor een Reliable Actor Service.
-   
+
    ![Service Fabric Yeoman-generator voor Java][sf-yeoman]
 
 > [!NOTE]
 > Zie [Service Fabric programming model overview](service-fabric-choose-framework.md) (Overzicht van het Service Fabric-programmeermodel) voor meer informatie over de opties.
-> 
+>
 
 ## <a name="build-the-application"></a>De toepassing bouwen
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de app via de terminal te maken.
@@ -66,13 +70,13 @@ De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https:/
 Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale cluster met behulp van de Azure CLI.
 
 1. Maak verbinding met het lokale cluster van Service Fabric.
-   
+
     ```bash
     azure servicefabric cluster connect
     ```
 
 2. Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
-   
+
     ```bash
     ./install.sh
     ```
@@ -85,14 +89,14 @@ Als de toepassing is gemaakt, kunt u deze kunt implementeren in het lokale clust
 Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
 2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3.
-   
+
     ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
 
 3. Klik op het knooppunt dat u hebt gevonden in de vorige stap en selecteer vervolgens **Deactiveren (opnieuw starten)** in het menu Acties. Met deze actie wordt een van de vijf knooppunten in uw lokale cluster opnieuw gestart en een failover afgedwongen op een van de secundaire replica's die worden uitgevoerd op een ander knooppunt. Let terwijl u deze actie uitvoert op de uitvoer van de testclient en houd er rekening mee dat de teller blijft toenemen ondanks de failover.
@@ -106,7 +110,7 @@ Als u de [Service Fabric-invoegtoepassing](https://docs.microsoft.com/en-us/azur
 De Service Fabric-invoegtoepassing is beschikbaar via Eclipse-uitbreidingsmogelijkheden.
 
 1. Kies in Eclipse **File > Other > Service Fabric**. U ziet een set opties, waaronder Actors en Containers.
-   
+
     ![Service Fabric-sjablonen in Eclipse][sf-eclipse-templates]
 
 2. Kies in dit geval Stateless Service.
@@ -114,7 +118,7 @@ De Service Fabric-invoegtoepassing is beschikbaar via Eclipse-uitbreidingsmogeli
 3. U wordt gevraagd het gebruik van het Service Fabric-perspectief te bevestigen, dat Eclipse optimaliseert voor gebruik met Service Fabric-projecten. Kies 'Yes'.
 
 ### <a name="deploy-the-application"></a>De toepassing implementeren
-De Service Fabric-sjablonen bevatten een aantal Gradle-taken voor het maken en implementeren van toepassingen, die u via Eclipse kunt activeren. 
+De Service Fabric-sjablonen bevatten een aantal Gradle-taken voor het maken en implementeren van toepassingen, die u via Eclipse kunt activeren.
 
 1. Kies **Run > Run Configurations**.
 2. Kies **lokaal** of **cloud**. De standaardinstelling is **lokaal**. Selecteer **cloud** voor een implementatie op een externe cluster.
@@ -125,7 +129,7 @@ De app is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de statu
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
 
-Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
+Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`:
 1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
 2. Voer `yo azuresfjava:AddService` uit.
 

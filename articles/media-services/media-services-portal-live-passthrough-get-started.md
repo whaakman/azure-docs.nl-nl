@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Live streamen met on-premises coderingsprogramma's via Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -34,7 +34,7 @@ Deze zelfstudie bevat de stappen voor het maken van een **kanaal** via Azure Por
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
-* Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
 
 Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
@@ -46,6 +46,9 @@ Het wordt ten zeerste aanbevolen de volgende artikelen te lezen:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Algemeen scenario voor live streamen
 In de volgende stappen worden de taken beschreven voor het maken van algemene toepassingen voor live streamen die kanalen gebruiken die zijn geconfigureerd voor doorvoerlevering. In deze zelfstudie wordt getoond hoe een doorvoerkanaal en live gebeurtenissen worden gemaakt en beheerd.
 
+>[!NOTE]
+>Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
+    
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma waarmee een multi-bitrate RTMP- of Fragmented MP4-stream wordt uitgevoerd. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
    
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
@@ -59,11 +62,7 @@ In de volgende stappen worden de taken beschreven voor het maken van algemene to
 5. Maak een live gebeurtenis/programma. 
    
     Wanneer u Azure Portal gebruikt, wordt bij het maken van een live gebeurtenis ook een asset gemaakt. 
-   
-   > [!NOTE]
-   > Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
-   > 
-   > 
+
 6. Start de gebeurtenis/het programma wanneer u klaar bent om te streamen en te archiveren.
 7. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
 8. Stop de gebeurtenis/het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
@@ -79,29 +78,7 @@ Als u de meldingen en fouten wilt weergeven die door Azure Portal zijn gegeneree
 
 ![Meldingen](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-## <a name="configure-streaming-endpoints"></a>Streaming-eindpunten configureren
-Media Services biedt dynamische pakketten, zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
-
-Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-eenheid voor het streaming-eindpunt hebben van waaruit u uw inhoud wilt leveren.  
-
-Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
-2. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
-3. Klik op het standaardstreaming-eindpunt. 
-   
-    Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
-4. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
-   
-    ![Streaming-eenheden](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
-   
-   > [!NOTE]
-   > Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
-   > 
-   > 
-
-## <a name="create-and-start-passthrough-channels-and-events"></a>Doorvoerkanalen en gebeurtenissen maken en starten
+## <a name="create-and-start-pass-through-channels-and-events"></a>Doorvoerkanalen en gebeurtenissen maken en starten
 Een kanaal is gekoppeld aan gebeurtenissen/programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren gebeurtenissen. 
 
 U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Gebeurtenissen kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
@@ -180,6 +157,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

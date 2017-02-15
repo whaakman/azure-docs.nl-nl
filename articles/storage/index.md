@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Meer informatie over het gebruik van Azure Storage - Blob-, Table-, Queue-, File- en Virtual Machine Disk-opslag in de cloud. Zelfstudies, API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
-ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
@@ -97,7 +97,7 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
                         <p><a href="/powershell/storage">PowerShell</a></p>
-                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
+                        <p><a href="/cli/azure/storage">Azure-CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
                 <div class="card">
                     <div class="cardText">
                         <h3>Talen</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: bronbeheer</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: resourcemanager</a></p>
                         <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: gegevensverplaatsing</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: blobs, wachtrijen, tabellen en bestanden</a></p>
                         <p><a href="/java/api/">Java</a></p>
@@ -132,7 +132,8 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
                         <h3>REST</h3>
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, wachtrijen, tabellen en bestanden</a></p>
                         <p><a href="/rest/api/storagerp">Resourceprovider</a></p>
-                        <p><a href="/rest/api/storageimportexport">Importeren/exporteren</a></p>
+                        <p><a href="/rest/api/storageimportexport">Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">REST-API opslaggegevens </a></p>
                    </div>
                 </div>
             </div>
@@ -140,16 +141,10 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Storage downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO5-->
 
 

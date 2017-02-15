@@ -11,7 +11,7 @@
 
 # Aan de slag
 ## [Vereisten](active-directory-aadconnect-prerequisites.md)
-## [Azure AD Connect installeren](active-directory-aadconnect-accounts-permissions.md)
+## [Azure AD Connect installeren](active-directory-aadconnect-select-installation.md)
 ### [Snelle instellingen](active-directory-aadconnect-get-started-express.md)
 ### [Aangepaste instellingen](active-directory-aadconnect-get-started-custom.md)
 ### [Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Azure AD Connect Sync beheren
-### [Algemene SQL Connector, stap voor stap](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Naslaginformatie
-## [Windows PowerShell-connector](active-directory-aadconnectsync-connector-powershell.md)
-## [Algemene SQL-connector](active-directory-aadconnectsync-connector-genericsql.md)
-## [Algemene LDAP-connector](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino-connector](active-directory-aadconnectsync-connector-domino.md)
 ## [Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Voor hybride identiteit benodigde poorten en protocollen](active-directory-aadconnect-ports.md)
 ## [Functies in preview](active-directory-aadconnect-feature-preview.md)
 ## [Versiegeschiedenis](active-directory-aadconnect-version-history.md)
+## [Accounts en machtigingen](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
 ### [Kenmerken gesynchroniseerd naar Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Afschaffing van DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

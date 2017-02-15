@@ -1,3 +1,4 @@
+
 # Overzicht
 ## [Wat is DocumentDB?](documentdb-introduction.md)
 ## [Basisconcepten](documentdb-resources.md)
@@ -29,12 +30,14 @@
 ### [Partitioneren en schalen](documentdb-partition-data.md)
 ### [Consistentie](documentdb-consistency-levels.md)
 ### [NoSQL en SQL](documentdb-nosql-vs-sql.md)
+### [Rendabele lees- en schrijfbewerkingen](documentdb-key-value-store-cost.md)
 
 ## Beheren
 ### [Uw gegevens importeren](documentdb-import-data.md)
 ### [Modellen voor uw gegevens maken](documentdb-modeling-data.md)
 ### [Georuimtelijke gegevens gebruiken](documentdb-geospatial.md)
 ### [Ontwikkelen voor meerdere regio's](documentdb-developing-with-multiple-regions.md)
+### [Regionale failovers](documentdb-regional-failovers.md)
 ### [Gegevens automatisch laten verlopen](documentdb-time-to-live.md)
 ### [Uw indexen aanpassen](documentdb-indexing-policies.md)
 ### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
@@ -54,6 +57,9 @@
 ### [Wijzigingen bijhouden met een wijzigingsfeed](documentdb-change-feed.md)
 ### [Prestaties testen](documentdb-performance-testing.md)
 ### [Tips voor prestaties](documentdb-performance-tips.md)
+### Aanbevolen procedures
+#### [Meerdere masters instellen](documentdb-multi-region-writers.md)
+#### [Datum/tijd](documentdb-working-with-dates.md)
 
 ## DocumentDB-ondersteuning voor MongoDB gebruiken
 ### [Protocolondersteuning voor MongoDB](documentdb-protocol-mongodb.md)
@@ -78,15 +84,16 @@
 
 ## Integreren
 ### [Een website implementeren met Azure App Service](documentdb-create-documentdb-website.md)
-### [Toepassingslogboeken bijhouden met Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Toepassingslogboeken bijhouden met Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Verbinden aan Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Gegevens analyseren met Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integreren met Azure Search](documentdb-search-indexer.md)
+### [Integreren met Azure Search](../search/search-howto-index-documentdb.md)
 ### [Gegevens verplaatsen met Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Realtime gegevens analyseren met Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Meldingen ontvangen met Logic Apps](documentdb-change-notification.md)
 ### [Sensorgegevens in realtime verwerken](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Uw gegevens visualiseren met Power BI](documentdb-powerbi-visualize.md)
+### [Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie](documentdb-nosql-odbc-driver.md)
 
 
 # Naslaginformatie
@@ -119,6 +126,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

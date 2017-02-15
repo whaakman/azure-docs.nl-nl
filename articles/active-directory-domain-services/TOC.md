@@ -25,6 +25,8 @@
 ## [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
 ## [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
+## [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)
+
 
 ## Problemen oplossen
 ### [Veelgestelde vragen](active-directory-ds-faqs.md)
@@ -42,6 +44,6 @@
 ## [Contact opnemen](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

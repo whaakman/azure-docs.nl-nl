@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Leer hoe u IoT-analyses uitvoert in de cloud met volledig beheerde gebeurtenisverwerking. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Documentatie voor Stream Analytics
 
-Azure Stream Analytics is een volledig beheerde engine voor de verwerking van realtime-gebeurtenissen, waarmee u veel inzicht in gegevens kunt krijgen.  Met Stream Analytics kunt u eenvoudig realtime analytische berekeningen configureren voor gegevensstreaming van apparaten, sensoren, websites, sociale media, toepassingen, infrastructuursystemen en meer.
+Leer hoe u IoT-analyses (Internet of Things) kunt uitvoeren in de cloud met Stream Analytics, een volledig beheerde engine voor gebeurtenisverwerking. Zelfstudies en andere documentatie laten zien hoe u in realtime gegevens van toepassingen, sensoren, apparaten, sociale media en meer kunt analyseren. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,16 +162,10 @@ Azure Stream Analytics is een volledig beheerde engine voor de verwerking van re
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Stream Analytics downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

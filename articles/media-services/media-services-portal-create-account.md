@@ -1,5 +1,5 @@
 ---
-title: " Een Azure Media Services-account maken via Azure Portal | Microsoft Docs"
+title: " Een Azure Media Services-account maken via Azure Portal | Microsoft Docss"
 description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een Azure Media Services-account maakt via Azure Portal.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **+Nieuw** > **Web en mobiel** > **Media Services**.
    
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services-account maken](./media/media-services-create-account/media-services-new1.png)
 3. Voer bij **MEDIA SERVICES-ACCOUNT MAKEN** de vereiste waarden in.
    
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Media Services-account maken](./media/media-services-create-account/media-services-new3.png)
    
    1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
    2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
@@ -69,9 +69,12 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
    6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
 4. Klik op **Maken** onder in het formulier.
    
-    Als het account is gemaakt, wordt de status gewijzigd in **Actief**. 
+    Wanneer het account is gemaakt, worden de overzichtspagina's geladen. In de tabel met het streaming-eindpunt heeft het account een standaardstreaming-eindpunt met de status **Gestopt**. 
+
+    >[!NOTE]
+    >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
    
-    ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services-instellingen](./media/media-services-create-account/media-services-settings.png)
    
     Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
 
@@ -86,7 +89,7 @@ U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toe
     In het venster **Sleutels beheren** worden de accountnaam en de primaire en secundaire sleutel weergegeven. 
 3. Klik op de knop Kopiëren om de waarden te kopiëren.
    
-    ![Media Services-sleutels](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Media Services-sleutels](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media-services-portal-upload-files.md) voor meer informatie.
@@ -100,6 +103,6 @@ U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

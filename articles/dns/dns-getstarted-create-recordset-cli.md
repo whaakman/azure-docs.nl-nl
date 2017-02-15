@@ -73,16 +73,18 @@ U kunt testen of uw DNS-records aanwezig zijn op de Azure DNS-naamservers door g
 
 Als u uw domein nog niet hebt gedelegeerd voor het gebruik van de nieuwe zone in Azure DNS, moet u [de DNS-query rechtstreeks op een van de naamservers voor uw zone richten](dns-getstarted-create-dnszone.md#test-name-servers). Zorg ervoor dat u in de onderstaande opdracht de juiste waarden voor uw records opneemt.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u een particuliere ExpressRoute-verbinding met Microsoft-cloudservices kunt configureren en beheren vanuit uw on-premises infrastructuur of co-locatiefaciliteit.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute-documentatie
 
-Met Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft-cloud uitbreiden via een speciale persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding.
-
+Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding met Microsoft-cloudservices kunt instellen vanuit uw on-premises infrastructuur of co-locatiefaciliteit. Zelfstudies, REST API's en andere documentatie helpen u bij de configuratie en het beheer van een ExpressRoute-circuit.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,7 +89,7 @@ Met Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft-cloud uit
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Naslaginformatie over REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Naslaginformatie over REST-API (klassiek)</a></p>
                     </div>
                 </div>
@@ -98,16 +98,10 @@ Met Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft-cloud uit
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over ExpressRoute downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

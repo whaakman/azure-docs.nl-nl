@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over de implementatie van Multi-Factor Authentication met een reeks verificatiemethoden die een eenvoudig aanmeldingsproces bieden. Zelfstudies, een SDK en meer.
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 6ff0e1c42ad151c56500596d99f63bae200368ed
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentatie over Multi-Factor Authentication
 
-Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verificatie in twee stappen. Azure MFA helpt bij het bewaken van de toegang tot uw gegevens en toepassingen en komt tegemoet aan de wensen van gebruikers die een eenvoudige aanmeldprocedure willen. Het biedt krachtige verificatie via een reeks verificatiemethoden waaronder verificatie per telefoon, sms of mobiele app.
+Meer informatie over de implementatie en het beheer van Azure Multi-Factor Authentication, een twee-stappensysteem voor identiteitsverificatie. Zelfstudies, een SDK en andere documentatie laten zien hoe u met een reeks verificatiemethoden sterke verificatie levert en toch een eenvoudig aanmeldingsproces aanbiedt.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,15 +105,10 @@ Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verifica
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Multi-Factor Authentication downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

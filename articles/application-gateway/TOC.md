@@ -38,14 +38,19 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klassiek)](application-gateway-create-probe-classic-ps.md)
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Beheren
-### [Diagnostics](application-gateway-diagnostics.md)
-### [Problemen oplossen](application-gateway-troubleshooting-502.md)
+## Problemen oplossen
+### [Fouten in Application Gateway oplossen](application-gateway-troubleshooting-502.md)
+### [Diagnostische logboeken en metrische gegevens](application-gateway-diagnostics.md)
 # Naslaginformatie
-## [PowerShell-cmdlets](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Azure CLI 2.0 Preview](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://msdn.microsoft.com/library/mt684941)
-## [Klassieke REST](https://msdn.microsoft.com/library/azure/mt299393)
-
+## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt299393)
 # Verwant
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtueel netwerk](/azure/virtual-network/)
@@ -61,6 +66,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

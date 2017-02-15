@@ -69,15 +69,16 @@
 ## [Virtuele Linux-machines implementeren](azure-stack-linux.md)
 ## [Updates beheren](azure-stack-updates.md)
 ## [Ontwikkelen voor Azure Stack](azure-stack-developer.md)
-## Een SQL- of MySQL-resourceprovider implementeren
-### [MySQL-databases als PaaS op Azure Stack gebruiken](azure-stack-mysql-resource-provider-deploy.md)
-### [De adapter voor de resourceprovider van SQL Server op Azure Stack implementeren](azure-stack-sql-resource-provider-deploy.md)
+## SQL- of MySQL als PaaS aanbieden
+### [MySQL-resourceprovider implementeren](azure-stack-mysql-resource-provider-deploy.md)
+### [SQL-resourceprovider implementeren](azure-stack-sql-resource-provider-deploy.md)
 
-## App Service plannen en implementeren
+## App Service als PaaS aanbieden
 ### [App Service op Azure Stack-overzicht](azure-stack-app-service-overview.md)
 ### [Voordat u aan de slag gaat](azure-stack-app-service-before-you-get-started.md)
+### [App Service-resourceprovider implementeren](azure-stack-app-service-deploy.md)
 ### [Meer webwerkrollen toevoegen](azure-stack-app-service-add-worker-roles.md)
-### [Een App Service-resourceprovider aan Azure Stack toevoegen](azure-stack-app-service-deploy.md)
+
 
 # Problemen oplossen
 ## [Problemen met Azure Stack oplossen](azure-stack-troubleshooting.md)
@@ -88,6 +89,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

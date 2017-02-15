@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over hoe u het Service Fabric-middlewareplatform gebruikt om microservices voor toepassingen op cloudschaal te verpakken en implementeren. Zelfstudies, API-verwijzingen en codevoorbeelden.
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Documentatie over Service Fabric
 
-Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices. Service Fabric biedt ook een oplossing voor de grote uitdaging van het ontwikkelen en beheren van cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. 
+Meer informatie over hoe u Service Fabric gebruikt om schaalbare en betrouwbare microservices te verpakken, implementeren en beheren. Zelfstudies, API-verwijzingen en codevoorbeelden laten zien hoe u dit middlewareplatform gebruikt voor het bouwen en beheren van toepassingen op cloudschaal.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -139,7 +140,7 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicefabric">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/servicefabric">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -148,16 +149,10 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Service Fabric downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

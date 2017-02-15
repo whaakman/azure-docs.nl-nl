@@ -13,7 +13,7 @@
 ### [DPM in klassieke portal](backup-dpm-automation-classic.md)
 ### [Windows Server in Azure Portal](backup-client-automation.md)
 ### [Windows Server in klassieke portal](backup-client-automation-classic.md)
-## Een back-up toepassingsworkloads maken
+## Een back up maken van toepassingsworkloads en deze terugzetten
 ### [DPM-workloads voorbereiden in Azure Portal](backup-azure-dpm-introduction.md)
 ### [DPM-workloads voorbereiden in klassieke portal](backup-azure-dpm-introduction-classic.md)
 ### [Azure Backup Server-workloads voorbereiden in Azure Portal](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +22,7 @@
 ### [Gegevens in de back-upkluis herstellen op een andere DPM-server](backup-azure-alternate-dpm-server.md)
 ### [DPM gebruiken om back-ups van SQL Server-workloads te maken](backup-azure-backup-sql.md)
 ### [DPM gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint.md)
-### [Recovery Services-kluis - veelgestelde vragen](backup-azure-backup-ibiza-faq.md)
-## Back-ups maken van Azure-VM's
+## Back-ups maken van Azure-VM's en deze terugzetten
 ### [Virtuele Azure-machines voorbereiden](backup-azure-vms-prepare.md)
 ### [Virtuele machines geïmplementeerd met Resource Manager voorbereiden](backup-azure-arm-vms-prepare.md)
 ### [VM-back-upinfrastructuur plannen](backup-azure-vms-introduction.md)
@@ -35,7 +34,14 @@
 ### [Waarschuwingen voor Azure-VM's controleren in Azure Portal](backup-azure-monitor-vms.md)
 ### [Virtuele machines herstellen in Azure](backup-azure-restore-vms.md)
 ### [VM's die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal](backup-azure-arm-restore-vms.md)
-## Back-ups maken van Windows-machines
+### [Key Vault-sleutel en -geheim voor versleutelde VM's terugzetten met Azure Backup](backup-azure-restore-key-secret.md)
+## Back-ups maken van Azure SQL-database en deze terugzetten
+### [Langetermijnretentie van back-ups configureren](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Back-ups in een Recovery Services-kluis weergeven](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Back-ups herstellen vanuit een langetermijnretentie](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Langetermijnback-ups van Azure SQL verwijderen](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Back-ups maken van Windows-machines en deze terugzetten
 ### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
 ### [Windows Server met het implementatiemodel van Resource Manager](backup-configure-vault.md)
 ### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +49,7 @@
 ### [Bestanden herstellen op een Windows Server met het implementatiemodel van Resource Manager](backup-azure-restore-windows-server.md)
 ### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
 
+## [Beveiligingsfuncties voor hybride back-ups inschakelen](backup-azure-security-feature.md)
 ## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [Azure Backup gebruiken om uw tape-infrastructuur te vervangen](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +65,11 @@
 
 # Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

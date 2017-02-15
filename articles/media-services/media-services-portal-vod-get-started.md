@@ -1,5 +1,5 @@
 ---
-title: " Aan de slag met het leveren van inhoud op aanvraag met Azure Portal | Microsoft Docs"
+title: " Aan de slag met het leveren van inhoud op aanvraag met behulp van Azure Portal | Microsoft Docss"
 description: In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 473ca94a4b081aee69fa06718790acd61a8b51b3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice v
 Deze zelfstudie bevat de volgende taken:
 
 1. Een Azure Media Services-account maken.
-2. Een streaming-eindpunt configureren.
+2. Streaming-eindpunt starten.
 3. Een videobestand uploaden.
 4. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
 5. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
@@ -60,7 +60,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
    6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
 4. Klik op **Maken** onder in het formulier.
    
-    Als het account is gemaakt, wordt de status gewijzigd in **Actief**. 
+    Wanneer het account is gemaakt, worden de overzichtspagina's geladen. In de tabel met het streaming-eindpunt heeft het account een standaardstreaming-eindpunt met de status **Gestopt**. Het streaming-eindpunt van waar u de inhoud wilt streamen, moet de status **Wordt uitgevoerd** hebben. 
    
     ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toe
    
     ![Media Services-sleutels](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Streaming-eindpunten configureren
-Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming aan de clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties).
+## <a name="start-streaming-endpoints"></a>Streaming-eindpunten starten 
 
-Media Services biedt dynamische pakketten zodat u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming, HDS) zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
+Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming geleverd. Media Services biedt dynamische pakketten waarmee u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming), zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
 
-Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
+>[!NOTE]
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
-* Codeer uw tussentijds (bron)bestand in een set Adaptive Bitrate MP4-bestanden (de coderingsstappen worden verderop in deze zelfstudie uitgelegd).  
-* Maak ten minste één streaming-eenheid voor het *streaming-eindpunt* van waaruit u uw inhoud wilt leveren. De volgende stappen laten zien hoe u het aantal streaming-eenheden wijzigt.
+U start het streaming-eindpunt als volgt:
 
-Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
-
-Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
-
-1. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
+1. Klik in het venster Instellingen op Streaming-eindpunten. 
 2. Klik op het standaardstreaming-eindpunt. 
-   
-    Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
-3. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
-   
-    ![Streaming-eenheden](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
-   
-   > [!NOTE]
-   > Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
-   > 
-   > 
+
+    Het venster DETAILS VAN STANDAARDSTREAMING-EINDPUNT wordt weergegeven.
+
+3. Klik op het pictogram Start.
+4. Klik op de knop Opslaan om uw wijzigingen op te slaan.
 
 ## <a name="upload-files"></a>Bestanden uploaden
 Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uploaden, ze coderen in meerdere bitsnelheden en vervolgens het resultaat publiceren. De eerste stap wordt in deze sectie beschreven. 
@@ -128,14 +117,11 @@ Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uplo
 Nadat het uploaden is voltooid, ziet u de nieuwe asset in het venster **Assets**. 
 
 ## <a name="encode-assets"></a>Assets coderen
-Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH en HDS (alleen voor Adobe PrimeTime/Access-licenties). Als u video's wilt voorbereiden voor Adaptive Bitrate Streaming, moet u de bronvideo coderen in multi-bitrate-bestanden. Gebruik het coderingsprogramma **Media Encoder Standard** om de video's te coderen.  
+Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming en MPEG DASH. Als u video's wilt voorbereiden voor Adaptive Bitrate Streaming, moet u de bronvideo coderen in multi-bitrate-bestanden. Gebruik het coderingsprogramma **Media Encoder Standard** om de video's te coderen.  
 
-Media Services biedt ook dynamische pakkettenm zodat u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS, Smooth Streaming of HDS. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
+Media Services biedt ook dynamische pakketten waarmee u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS en Smooth Streaming. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
-Als u dynamische pakketten wilt gebruiken, moet u het volgende doen:
-
-* Codeer uw bronbestand in een set multi-bitrate MP4-bestanden (de coderingsstappen worden verderop in deze sectie uitgelegd).
-* Haal ten minste één streaming-eenheid op voor het streaming-eindpunt van waaruit u uw inhoud wilt leveren. Zie [Streaming-eindpunten configureren](media-services-portal-vod-get-started.md#configure-streaming-endpoints) voor meer informatie. 
+Als u gebruik wilt maken van dynamische pakketten, moet u het bronbestand coderen in een set multi-bitrate MP4-bestanden (de coderingsstappen worden verderop in deze sectie uitgelegd).
 
 ### <a name="to-use-the-portal-to-encode"></a>De portal gebruiken om te coderen
 In deze sectie wordt beschreven hoe u uw inhoud codeert met Media Encoder Standard.
@@ -221,6 +207,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

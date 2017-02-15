@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Een Azure-Account instellen voor Media Services
-Als u een Media Services-account wilt maken, gebruikt u Azure Portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in Azure Portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
 
-## <a name="setting-up-for-media-services-development"></a>Configureren voor het ontwikkelen van toepassingen met Media Services
+Als u een Media Services-account wilt maken, gebruikt u Azure Portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in Azure Portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
+ 
 Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met de Media Services SDK voor Java.
 
 ### <a name="prerequisites"></a>Vereisten
@@ -34,6 +34,10 @@ Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met
 * De Azure-beheerbibliotheken voor Java, die u kunt installeren vanuit het [Azure Java Developer Center][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Procedure: Media Services gebruiken met Java
+
+>[!NOTE]
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+
 De volgende code geeft aan hoe u een asset maakt, een mediabestand naar de asset uploadt, een taak uitvoert met de opdracht om de asset te transformeren en een locator maakt om uw video te streamen.
 
 U moet een Media Services-account instellen voordat u deze code kunt gebruiken. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het instellen van een account.
@@ -270,6 +274,6 @@ Zie [Azure-bibliotheken voor Java-documentatie][Azure Libraries for Java documen
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

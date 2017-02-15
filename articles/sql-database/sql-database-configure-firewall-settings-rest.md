@@ -1,6 +1,6 @@
 ---
-title: Firewallregels op serverniveau voor Azure SQL Database met de REST API | Microsoft Docs
-description: Informatie over het configureren van de firewall voor IP-adressen die toegang hebben tot Azure SQL-databases.
+title: 'REST-API: Firewallregels op serverniveau voor Azure SQL Database | Microsoft Docs'
+description: Meer informatie over hoe u firewallregels op serverniveau configureert voor IP-adressen die via de REST-API toegang hebben tot Azure SQL-databases.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
 
 
 ---
-# <a name="configure-azure-sql-database-server-level-firewall-rules-using-the-rest-api"></a>Firewallregels op serverniveau voor Azure SQL Database configureren met de REST API
+# <a name="configure-azure-sql-database-server-level-firewall-rules-using-the-rest-api"></a>Firewallregels op serverniveau voor Azure SQL Database configureren met de REST-API
 > [!div class="op_single_selector"]
 > * [Overzicht](sql-database-firewall-configure.md)
 > * [Azure Portal](sql-database-configure-firewall-settings.md)
@@ -38,9 +38,9 @@ Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen me
 > 
 > 
 
-## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Firewallregels op serverniveau beheren met behulp van de REST API
-1. Het beheer van firewallregels via de REST API moet worden geverifieerd. Zie [Developer's guide to authorization with the Azure Resource Manager API](../azure-resource-manager/resource-manager-api-authentication.md) (Ontwikkelaarsgids voor verificatie met de Azure Resource Manager API) voor meer informatie.
-2. U kunt regels op serverniveau maken, bijwerken en verwijderen met de REST API
+## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Firewallregels op serverniveau beheren met behulp van de REST-API
+1. Het beheer van firewallregels via de REST-API moet worden geverifieerd. Zie [Developer's guide to authorization with the Azure Resource Manager API](../azure-resource-manager/resource-manager-api-authentication.md) (Ontwikkelaarsgids voor verificatie met de Azure Resource Manager API) voor meer informatie.
+2. U kunt regels op serverniveau maken, bijwerken en verwijderen met de REST-API
    
     Als u een firewallregel op serverniveau wilt maken of bijwerken, voert u de PUT-methode uit met het volgende:
    
@@ -60,7 +60,7 @@ Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen me
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## <a name="manage-firewall-rules-using-the-rest-api"></a>Firewallregels beheren met behulp van de REST API
+## <a name="manage-firewall-rules-using-the-rest-api"></a>Firewallregels beheren met behulp van de REST-API
 * [Firewallregels maken of bijwerken](https://msdn.microsoft.com/library/azure/mt445501.aspx)
 * [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/mt445502.aspx) (Firewallregel verwijderen)
 * [Firewallregels instellen](https://msdn.microsoft.com/library/azure/mt445503.aspx)

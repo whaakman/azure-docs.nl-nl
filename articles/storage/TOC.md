@@ -59,7 +59,7 @@
 ### [Handleiding voor tabelontwerp](storage-table-design-guide.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Bestanden gebruiken
-### [Overzicht](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Overzicht](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Problemen met Azure-bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Virtuele-machineschijven gebruiken
@@ -75,13 +75,17 @@
 ### [Controlelijst voor prestaties en schaalbaarheid](storage-performance-checklist.md)
 ### [Gelijktijdigheid](storage-concurrency.md)
 ## Ontwikkelen
-### [Voorbeelden](storage-samples.md)
+### Voorbeelden
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [HA-apps ontwerpen met RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Verbindingsreeksen configureren](storage-configure-connection-string.md)
 ### [De opslagemulator gebruiken](storage-use-emulator.md)
 ### [Eigenschappen en metagegevens instellen en ophalen](storage-properties-metadata.md)
 ## Beheren
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Beveiligen
 ### [Beveiligingshandleiding ](storage-security-guide.md)
@@ -149,7 +153,7 @@
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Gegevensverplaatsing](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Gegevensverplaatsing](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, wachtrijen, tabellen en bestanden](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resourceprovider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 
@@ -182,7 +186,7 @@
 ### [Opslagverkenner (preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Blobs beheren met Opslagverkenner (preview)](../vs-azure-tools-storage-explorer-blobs.md)
 
-## Nuget-pakketten
+## NuGet-pakketten
 ### [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 ### [Azure Storage-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 ### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Leer hoe u Log Analytics kunt gebruiken voor het verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud- en on-premises omgevingen, ongeacht de fysieke locatie.
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: bd819da72cbfdd58323321eb41ab28441e043c84
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
 
 ---
 
 # <a name="log-analytics-documentation"></a>Documentatie voor Log Analytics
 
-Log Analytics is een service in Operations Management Suite (OMS) voor het verzamelen en analyseren van gegevens die zijn gegenereerd door resources in uw cloud- en on-premises omgevingen. Hierdoor kunt u in realtime inzichten verkrijgen met behulp van geïntegreerde zoekdashboard en aangepaste dashboards waarmee u eenvoudig miljoenen records voor al uw workloads en servers kunt analyseren, ongeacht de fysieke locatie.
+Leer hoe u Log Analytics kunt gebruiken in Operations Management Suite voor het verzamelen en analyseren van gegevens die zijn gegenereerd door resources in uw cloud- en on-premises omgevingen. Zelfstudies en andere documentatie laten zien hoe u realtime inzicht kunt krijgen in uw werkbelastingen en servers, ongeacht de fysieke locatie.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,16 +86,10 @@ Log Analytics is een service in Operations Management Suite (OMS) voor het verza
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Log Analytics downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 
