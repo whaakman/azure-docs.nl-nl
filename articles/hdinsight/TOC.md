@@ -61,9 +61,10 @@
 ### [HVAC-prestaties voorspellen](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Resultaten van voedingsinspectie voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Websitelogboeken analyseren](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-### [Zeppelin-notitieblokken gebruiken](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Zeppelin-notitieblokken gebruiken](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter-notitieblokkernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Pakketten voor Jupyter-notitieblokken](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Externe pakketten gebruiken met Jupyter-met behulp van magic-pakket voor cellen](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Externe pakketten gebruiken met Jupyter-met behulp van scriptacties](hdinsight-apache-spark-python-package-installation.md)
 ### [Een lokaal Jupyter-notitieblok gebruiken](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Apps ontwikkelen met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -227,6 +228,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

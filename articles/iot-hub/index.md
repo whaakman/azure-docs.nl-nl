@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der dingen) te verbinden, bewaken en controleren. Zelfstudies, API-verwijzingen, video’s en andere documentatie."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Documentatie voor IoT Hub
 
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt.  De service biedt ook uitgebreide controle voor apparaatconnectiviteit en bevat apparaatbibliotheken voor de populairste talen en platformen. 
+Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der dingen) te verbinden, bewaken en controleren. Zelfstudies, API-verwijzingen, video's en andere documentatie helpen u om betrouwbaar en bidirectionele communicatie tussen IoT-apparaten en een oplossingsback-end te implementeren. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -103,81 +104,59 @@ Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweericht
 </ul>
 
 ---
-
-## <a name="reference"></a>Naslaginformatie
-
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure-CLI</h3>
-                        <p>IoT Hub met Azure-CLI</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/cli/azure/iot">Azure-CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Managed Reference-API voor .NET</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (service)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (apparaten)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (service)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (apparaten)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDK's voor Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway-SDK</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Naslaginformatie over de Java-SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie voor REST API voor IoT Hub</p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (resourceprovider)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (apparaatidentiteiten)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (apparaatberichten)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (taken)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor IoT Hub downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

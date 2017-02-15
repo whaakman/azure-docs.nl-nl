@@ -44,7 +44,7 @@
 ### [Indexeerfunctie voor Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexeerfunctie voor Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexeerfunctie voor Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexeerfunctie voor Azure DocumentDB](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Indexeerfunctie voor Azure DocumentDB](search-howto-index-documentdb.md)
 ### [CSV-blobs indexeren](search-howto-index-csv-blobs.md)
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
 ### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)

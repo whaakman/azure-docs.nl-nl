@@ -51,7 +51,6 @@
 ## Beheren
 ### [Toegang tot diagnostische logboeken](data-lake-store-diagnostic-logs.md)
 ### [Plannen voor hoge beschikbaarheid](data-lake-store-troubleshooting-guidance.md)
-### [Richtlijnen voor het afstemmen van prestaties](data-lake-store-performance-tuning-guidance.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)

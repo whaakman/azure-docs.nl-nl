@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
    
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 5. Maak een gebeurtenis/programma (hierbij wordt ook een asset gemaakt). 
-6. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).  
-   
-    Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
+6. Publiceer de gebeurtenis (hierbij wordt ook een OnDemand-locator voor de gekoppelde asset gemaakt).    
 7. Start de gebeurtenis wanneer u klaar bent om te streamen en te archiveren.
 8. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
 9. Stop de gebeurtenis als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
@@ -65,13 +63,12 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 ## <a name="in-this-tutorial"></a>In deze zelfstudie
 In deze zelfstudie wordt Azure Portal gebruikt om de volgende taken uit te voeren: 
 
-1. Configureer streaming-eindpunten.
-2. Maak een kanaal dat is ingeschakeld voor het uitvoeren van live codering.
-3. Haal de URL voor opnemen op om deze aan het live coderingsprogramma te leveren. Het live coderingsprogramma gebruikt deze URL om de stream in het kanaal op te nemen. .
-4. Een gebeurtenis/programma (en een asset) maken
-5. De asset publiceren en streaming-URL's ophalen  
-6. Uw inhoud afspelen 
-7. Opschonen
+1. Maak een kanaal dat is ingeschakeld voor het uitvoeren van live codering.
+2. Haal de URL voor opnemen op om deze aan het live coderingsprogramma te leveren. Het live coderingsprogramma gebruikt deze URL om de stream in het kanaal op te nemen.
+3. Een gebeurtenis/programma (en een asset) maken.
+4. De asset publiceren en streaming-URL's ophalen.  
+5. Uw inhoud afspelen.
+6. Opschonen.
 
 ## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
@@ -81,29 +78,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 * Een Media Services-account. Zie [Account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
-## <a name="configure-streaming-endpoints"></a>Streaming-eindpunten configureren
-Media Services biedt dynamische pakketten waarmee u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS en Smooth Streaming. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
-
-Als u dynamische pakketten wilt gebruiken, moet u ten minste één streaming-eenheid voor het streaming-eindpunt hebben van waaruit u uw inhoud wilt leveren.  
-
-Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor streaming is gereserveerd:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en selecteer uw AMS-account.
-2. Klik in het venster **Instellingen** op **Streaming-eindpunten**. 
-3. Klik op het standaardstreaming-eindpunt. 
-   
-    Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
-4. Geef het aantal streaming-eenheden op door de schuifregelaar **Streaming-eenheden** te verplaatsen.
-   
-    ![Streaming-eenheden](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Klik op de knop **Opslaan** om uw wijzigingen op te slaan.
-   
-   > [!NOTE]
-   > Het kan tot twintig minuten duren tot de toewijzing van nieuwe eenheden is voltooid.
-   > 
-   > 
-
-## <a name="create-a-channel"></a>Een KANAAL maken
+## <a name="create-a-channel"></a>Een kanaal maken
 1. Selecteer in [Azure Portal](https://portal.azure.com/) de optie Media Services en klik vervolgens op de naam van uw Media Services-account.
 2. Selecteer **Live streamen**.
 3. Selecteer **Aangepast maken**. Met deze optie kunt u een kanaal maken dat is ingeschakeld voor real-time codering.
@@ -127,7 +102,7 @@ Ga als volgt te werk als u het aantal eenheden wilt maken en wijzigen dat voor s
         U kunt de protocoloptie niet wijzigen terwijl het kanaal of de gekoppelde gebeurtenissen/programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk streaming-protocol.  
    2. U kunt IP-beperking toepassen op de opname. 
       
-       U kunt de IP-adressen definiëren die een video naar dit kanaal mogen publiceren. Toegestane IP-adressen kunnen worden opgegeven als een enkel IP-adres (bijvoorbeeld&10;.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld&10;.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld '10.0.0.1(255.255.252.0)').
+       U kunt de IP-adressen definiëren die een video naar dit kanaal mogen publiceren. Toegestane IP-adressen kunnen worden opgegeven als een enkel IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld '10.0.0.1(255.255.252.0)').
       
        Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 6. Pas op het tabblad **Voorbeeld** IP-beperking toe op de preview.
@@ -171,6 +146,9 @@ Als u de gearchiveerde inhoud wilt behouden maar deze niet langer voor streaming
 
 ### <a name="createstartstop-events"></a>Gebeurtenissen maken/starten/stoppen
 Zodra de stream het kanaal binnenkomt, kunt u de streaminggebeurtenis starten door een asset, programma en streaming-locator te maken. Hiermee wordt de stream gearchiveerd en beschikbaar gesteld aan kijkers via het streaming-eindpunt. 
+
+>[!NOTE]
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
 Gebeurtenissen kunnen op twee manieren worden gestart: 
 
@@ -216,7 +194,7 @@ Voor het beheren van uw assets selecteert u **Instelling** en klikt u vervolgens
 
 ## <a name="considerations"></a>Overwegingen
 * De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
-* Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
+* Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft.
 
 ## <a name="next-step"></a>Volgende stap
 Media Services-leertrajecten bekijken.
@@ -229,6 +207,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

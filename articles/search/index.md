@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u krachtige zoekmogelijkheden, waaronder activiteitsbewaking, kunt toevoegen aan aangepaste web- of mobiele toepassingen. API-verwijzingen en andere documentatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 680083cd9df823bf0ff89a0b4099c411fa0be078
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Documentatie voor Azure Search
 
-Azure Search is een beheerde cloudzoekservice waarmee u een krachtige zoekfunctionaliteit kunt inbouwen in aangepaste apps, en vervolgens de service-, index- en query-activiteiten kunt volgen via portalweergaven. Tot de belangrijkste functies behoren: schaalbaar doorzoeken van de volledige tekst in meerdere talen, zoeken in verschillende geografische gebieden, navigatie op basis van meervoudig filteren, automatisch aanvullen van query's, markeren van treffers en aangepaste analyse.
+Leer hoe u zoekmogelijkheden kunt toevoegen aan uw aangepaste web- of mobiele apps met Azure Search, een beheerde service voor zoeken in de cloud. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u het volgende kunt toevoegen: schaalbaar doorzoeken van de volledige tekst in meerdere talen, zoeken in verschillende geografische gebieden, navigatie op basis van meervoudig filteren, automatisch aanvullen van query's, markeren van treffers en aangepaste analyse.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,8 +132,8 @@ Azure Search is een beheerde cloudzoekservice waarmee u een krachtige zoekfuncti
                     <div class="cardText">
                         <h3>Talen</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET Management</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (beheer)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (beheer)</a></p>
                    </div>
                 </div>
             </div>
@@ -144,8 +145,8 @@ Azure Search is een beheerde cloudzoekservice waarmee u een krachtige zoekfuncti
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/searchservice">Naslaginformatie over REST-API</a></p>
-                        <p><a href="/rest/api/searchmanagement">Naslaginformatie voor de REST-API voor beheer</a></p>
+                        <p><a href="/rest/api/searchservice">Naslaginformatie over REST API</a></p>
+                        <p><a href="/rest/api/searchmanagement">Naslaginformatie over REST-API voor beheer</a></p>
                     </div>
                 </div>
             </div>
@@ -153,16 +154,10 @@ Azure Search is een beheerde cloudzoekservice waarmee u een krachtige zoekfuncti
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Azure Search downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

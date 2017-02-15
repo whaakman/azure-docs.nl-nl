@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
+description: Documentatie, video&quot;s en voorbeeldmodellen voor Machine Learning, een cloudservice voor data scientists en ontwikkelaars die predictive analytics gebruiken in toepassingen.
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d8c4cf777402393667a521dcff780e839d02e734
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentatie voor Machine Learning
 
-Azure Machine Learning bevat hulpprogramma's om predictive analytics te ontwikkelen en een volledig beheerde service waarmee u uw voorspellende modellen kunt implementeren als gebruiksklare webservices.
+Ontdek hoe data scientists en ontwikkelaars Machine Learning gebruiken om predictive analytics in toepassingen in te bouwen. Zelfstudies, video's en voorbeeldmodellen laten zien hoe u Machine Learning-modellen kunt maken en implementeren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -94,8 +98,8 @@ Azure Machine Learning bevat hulpprogramma's om predictive analytics te ontwikke
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell-module voor Machine Learning</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (nieuw)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (klassiek)</a></p>
                     </div>
                 </div>
             </div>
@@ -119,7 +123,7 @@ Azure Machine Learning bevat hulpprogramma's om predictive analytics te ontwikke
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">Naslaginformatie over REST-API</a></p>
+                        <p><a href="/rest/api/machinelearning">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -127,16 +131,10 @@ Azure Machine Learning bevat hulpprogramma's om predictive analytics te ontwikke
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Machine Learning downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ In de onderstaande stappen worden de taken beschreven voor het maken van algemen
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises livecoderingsprogramma dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP, Smooth Streaming of RTP (MPEG-TS). Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
 
-Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
+    Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 
-1. Maak en start een kanaal.
-2. Haal de URL voor opnemen voor het kanaal op.
+2. Maak en start een kanaal.
+3. Haal de URL voor opnemen voor het kanaal op.
 
-De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
+    De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
 
-1. Haal de voorbeeld-URL voor het kanaal op.
+4. Haal de voorbeeld-URL voor het kanaal op.
 
-Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
+    Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 
-1. Maak een asset.
-2. Als u wilt dat de asset dynamisch worden versleuteld tijdens het afspelen, gaat u als volgt te werk:
-3. Maak een inhoudssleutel.
-4. Configureer het autorisatiebeleid voor de inhoudssleutel.
-5. Configureer het beleid voor de levering van assets (gebruikt door dynamische pakketten en dynamische versleuteling).
-6. Maak een programma en geef op dat de asset die u hebt gemaakt, moet worden gebruikt.
-7. Publiceer de asset die aan het programma is gekoppeld door een OnDemand-locator te maken.
+5. Maak een asset.
+6. Als u wilt dat de asset dynamisch worden versleuteld tijdens het afspelen, gaat u als volgt te werk:
+7. Maak een inhoudssleutel.
+8. Configureer het autorisatiebeleid voor de inhoudssleutel.
+9. Configureer het beleid voor de levering van assets (gebruikt door dynamische pakketten en dynamische versleuteling).
+10. Maak een programma en geef op dat de asset die u hebt gemaakt, moet worden gebruikt.
+11. Publiceer de asset die aan het programma is gekoppeld door een OnDemand-locator te maken.
 
-Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
+    >[!NOTE]
+    >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Het streaming-eindpunt van waar u inhoud wilt streamen, moet de status **Wordt uitgevoerd** hebben. 
 
-1. Start het programma wanneer u klaar bent om te streamen en te archiveren.
-2. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
-3. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
-4. Verwijder het programma (en verwijder desgewenst de asset).
+12. Start het programma wanneer u klaar bent om te streamen en te archiveren.
+13. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
+14. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
+15. Verwijder het programma (en verwijder desgewenst de asset).
 
 ## <a name="what-youll-learn"></a>Wat u leert
 In dit onderwerp wordt beschreven hoe u verschillende bewerkingen op kanalen en programma's met Media Services .NET SDK uitvoert. Aangezien veel bewerkingen langlopend zijn, worden er .NET API's gebruikt waarmee langlopende bewerkingen worden beheerd.
@@ -100,7 +101,6 @@ Als u geen account hebt, kunt u binnen een paar minuten een account voor de grat
 
 ## <a name="considerations"></a>Overwegingen
 * De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
-* Zorg ervoor dat u ten minste één gereserveerde eenheid streaming hebt op het streaming-eindpunt vanaf waar u de inhoud wilt streamen.
 
 ## <a name="download-sample"></a>Voorbeeld downloaden
 U kunt [hier](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) een voorbeeld ophalen en uitvoeren.
@@ -524,12 +524,10 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Zoekt u iets anders?
-Als dit onderwerp niet de informatie bevat die u verwacht, er iets ontbreekt of het onderwerp op een andere manier niet aan uw behoeften voldoet, kunt u ons via de onderstaande Disqus-thread feedback geven.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

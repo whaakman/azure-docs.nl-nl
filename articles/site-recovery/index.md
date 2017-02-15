@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Leer hoe u herstel na noodgevallen en bedrijfscontinuïteit in de cloud kunt instellen voor fysieke servers en virtuele machines door het implementeren en beheren van replicatie."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Documentatie over Site Recovery
 
-Azure Site Recovery draagt bij aan de bedrijfscontinuïteit en de strategie voor herstel na noodgevallen (BCDR) door de replicatie van on-premises virtuele machines en fysieke servers in te delen. U kunt servers en virtuele machines van een primair on-premises datacenter repliceren naar Azure of naar een secundair datacenter. Als er uitval optreedt op de primaire site, schakelt u over naar de secundaire locatie om workloads toegankelijk en beschikbaar te houden.
+Leer hoe u Site Recovery kunt gebruiken voor bedrijfscontinuïteit en een strategie voor herstel na noodgevallen voor privéclouds. Zelfstudies en andere documentatie laten zien hoe u de indeling voor het repliceren van on-premises fysieke servers en virtuele machines naar de cloud of naar een secundair datacenter kunt plannen, implementeren en beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +72,7 @@ Azure Site Recovery draagt bij aan de bedrijfscontinuïteit en de strategie voor
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -79,16 +80,10 @@ Azure Site Recovery draagt bij aan de bedrijfscontinuïteit en de strategie voor
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Site Recovery downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -128,7 +128,6 @@
 #### [Een webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Externe gegevens gebruiken](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Implementeren in meerdere regio's](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publiceren naar Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Webserviceparameters gebruiken](machine-learning-web-service-parameters.md)
 #### [Logboekregistratie inschakelen](machine-learning-web-services-logging.md)
 ### Webservices beheren
@@ -157,23 +156,10 @@
 #### [Hadoop gebruiken met 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [SQL Server gebruiken](machine-learning-data-science-process-sql-walkthrough.md)
 #### [SQL Data Warehouse gebruiken](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Webservicevoorbeelden
-#### [Voorbeelden met R](machine-learning-r-csharp-web-service-examples.md)
-#### [Binaire classificatie](machine-learning-r-csharp-binary-classifier.md)
-#### [Clustermodel](machine-learning-r-csharp-cluster-model.md)
-#### [Multidimensionale lineaire regressie](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Prognoses - Exponentieel vloeiend maken](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Prognoses - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Prognose - ARIMA](machine-learning-r-csharp-arima.md)
-#### [Overlevingsanalyse](machine-learning-r-csharp-survival-analysis.md)
-#### [Op woordenlijsten gebaseerde sentimentanalyse](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Verschil in verhoudingen testen](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
-#### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
-#### [Veelgestelde vragen over Marketplace](machine-learning-marketplace-faq.md)
 
 # Naslaginformatie
-## [PowerShell](machine-learning-powershell-module.md)
+## [PowerShell-module (nieuw)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell-module (klassiek)](machine-learning-powershell-module.md)
 ## [Naslaginformatie over algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 

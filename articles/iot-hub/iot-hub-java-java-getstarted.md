@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 91aa9a15797620e985f44d2aad4ef207d3884672
-ms.openlocfilehash: f76b573737c6b38ffe61c344ac6eb70f71d6ca44
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -42,11 +42,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Als laatste stap noteert u de waarde van de **primaire sleutel** en klikt u daarna op **Messaging**. Noteer op de blade **Messaging** de **Event Hub-compatibele naam** en het **Event Hub-compatibele eindpunt**. U hebt deze drie waarden nodig wanneer u uw **read-d2c-messages**-app maakt.
+Als laatste stap noteert u de waarde van de **primaire sleutel**. Klik vervolgens op **Eindpunten** en op het ingebouwde eindpunt **Gebeurtenissen**. Noteer de **Event Hub-compatibele naam** en het adres van het **Event Hub-compatibele eindpunt** op de blade **Eigenschappen**. U hebt deze drie waarden nodig wanneer u uw **read-d2c-messages**-app maakt.
 
 ![Blade IoT Hub-berichten in Azure Portal][6]
 
-U hebt nu uw IoT Hub gemaakt en u beschikt over de hostnaam en verbindingsreeks van de IoT Hub, de primaire sleutel van de IoT Hub, de Event Hub-compatibele naam en het Event Hub-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
+U hebt nu uw IoT-hub gemaakt. U beschikt over de hostnaam en verbindingsreeks van de IoT Hub, de primaire sleutel van de IoT Hub, de Event Hub-compatibele naam en het Event Hub-compatibele eindpunt. Deze gegevens hebt u nodig voor de rest van deze zelfstudie.
 
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan maken in het identiteitenregister van uw IoT Hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
@@ -63,7 +63,7 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <version>1.0.11</version>
     </dependency>
     ```
 4. Sla het bestand pom.xml op en sluit het af.
@@ -146,7 +146,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.8</version> 
+        <version>0.10.0</version> 
     </dependency>
     ```
 4. Sla het bestand pom.xml op en sluit het af.
@@ -283,7 +283,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert da
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.0.16</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -461,7 +461,7 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

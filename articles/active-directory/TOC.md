@@ -240,12 +240,12 @@
 ## Uw identiteiten beveiligen
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Inschakelen](active-directory-identityprotection-enable.md)
-#### [Aanmeldingservaring](active-directory-identityprotection-flows.md)
-#### [Gebruikers deblokkeren](active-directory-identityprotection-unblock-howto.md)
 #### [Beveiligingslekken detecteren](active-directory-identityprotection-vulnerabilities.md)
-#### [Risicogebeurtenistypen](active-directory-identityprotection-risk-events-types.md)
-#### [Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md)
+#### [Risicogebeurtenissen](active-directory-identity-protection-risk-events.md)
 #### [Meldingen](active-directory-identityprotection-notifications.md)
+#### [Aanmeldingservaring](active-directory-identityprotection-flows.md)
+#### [Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md)
+#### [Gebruikers deblokkeren](active-directory-identityprotection-unblock-howto.md)
 #### [Woordenlijst](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -301,6 +301,6 @@
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

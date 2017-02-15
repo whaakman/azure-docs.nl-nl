@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Meer informatie over het gebruik van Load Balancer voor netwerkprestaties van apps. Beheer het verkeer voor virtuele machines en cloudresources en in virtuele netwerken op verschillende locaties.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Documentatie voor Load Balancer
 
-Azure Load Balancer zorgt dat uw toepassingen een hoge beschikbaarheid hebben en goede netwerkprestaties leveren.  Load Balancer kan zo worden geconfigureerd dat deze binnenkomend internetverkeer gelijkmatig verdeelt over de virtuele machines, verkeer tussen cloudresources in goede banen leidt, verkeer gelijkmatig verdeelt in een virtueel netwerk dat zich uitstrekt over meerdere locaties of het externe verkeer naar een specifieke virtuele machine regelt.
+Meer informatie over hoe u Azure Load Balancer zo configureert dat uw toepassingen worden voorzien van netwerkprestaties met hoge beschikbaarheid. Documentatie laat zien hoe u verkeer naar en van virtuele machines en cloudresources en in virtuele netwerken op verschillende locaties gelijkmatig verdeelt.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,7 +124,7 @@ Azure Load Balancer zorgt dat uw toepassingen een hoge beschikbaarheid hebben en
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">Naslaginformatie over REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -131,16 +132,10 @@ Azure Load Balancer zorgt dat uw toepassingen een hoge beschikbaarheid hebben en
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Load Balancer downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 
