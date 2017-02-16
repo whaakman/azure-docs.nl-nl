@@ -136,6 +136,6 @@ Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu de gebruikers of groep
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
