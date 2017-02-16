@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,13 +87,21 @@ Met DocumentDB kunt u toepassingslogica schrijven als benoemde programma's die v
 
 De JavaScript-uitvoering in DocumentDB is gemodelleerd naar de concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. Als er tijdens de uitvoering een JavaScript-uitzondering optreedt, wordt de volledige transactie afgebroken.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>Zijn er online cursussen over DocumentDB?
+
+Ja, er is een [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847)-cursus over Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Volgende stappen
 Hebt u al een Azure-account? Dan kunt u aan de slag met DocumentDB in [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) door [een DocumentDB-databaseaccount te maken](documentdb-create-account.md).
 
 Hebt u geen Azure-account? U kunt:
 
 * Meld u aan voor een [gratis proefversie van Azure](https://azure.microsoft.com/free/). U hebt dan 30 dagen en €170 om alle Azure-services te proberen. 
-* Als u een MSDN-abonnement hebt, komt u in aanmerking voor [$ 150 aan gratis Azure-tegoed per maand](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dit tegoed kunt u gebruiken voor elke willekeurige Azure-service. 
+* Als u een MSDN-abonnement hebt, komt u in aanmerking voor [$&150; aan gratis Azure-tegoed per maand](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dit tegoed kunt u gebruiken voor elke willekeurige Azure-service. 
 * Download de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) om uw toepassing lokaal te ontwikkelen.
 
 Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/) bezoeken om door alle beschikbare leerresources te bladeren. 
@@ -103,6 +111,6 @@ Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microso
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

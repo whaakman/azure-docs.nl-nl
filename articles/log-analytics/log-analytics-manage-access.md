@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
-Voor het beheren van toegang tot Log Analytics, voert u verschillende beheertaken uit voor werkruimten. Dit artikel biedt adviezen en aanbevolen procedures voor het beheren van werkruimten met behulp van verschillende accounttypen. Een werkruimte is in wezen een container met accountgegevens en eenvoudige configuratiegegevens voor het account. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
+Voor het beheren van toegang tot Log Analytics, voert u verschillende beheertaken uit voor werkruimten. In dit artikel worden adviezen en aanbevolen procedures beschreven voor het beheren van werkruimten. Een werkruimte is in wezen een container met accountgegevens en eenvoudige configuratiegegevens voor het account. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
 
 Het volgende is nodig om een werkruimte te maken:
 
@@ -41,8 +41,9 @@ Een werkruimte biedt momenteel het volgende:
 * Een geografische locatie voor de opslag van gegevens
 * Details voor facturering
 * Gegevensisolatie
+* Bereik voor configuratie
 
-Op basis van de bovenstaande kenmerken kunt u in de volgende gevallen meerdere werkruimten maken:
+Op basis van de voorgaande kenmerken kunt u in de volgende gevallen meerdere werkruimten maken:
 
 * U vertegenwoordigt een mondiaal bedrijf en moet de gegevens opslaan in specifieke regio’s ten behoeve van de onafhankelijkheid van de gegevens of om nalevingsredenen.
 * U gebruikt Azure en wilt kosten voor de overdracht van uitgaande gegevens voorkomen door een werkruimte in dezelfde regio te hebben als de Azure-resource die deze beheert.
@@ -78,8 +79,7 @@ Het verlenen van toegang tot de werkruimte aan gebruikers wordt op twee locaties
 * In Azure kunt u op rollen gebaseerd toegangsbeheer gebruiken voor toegang tot het Azure-abonnement en de gekoppelde Azure-resources. Deze rechten worden ook gebruikt voor toegang tot PowerShell en de REST API.
 * In de OMS-portal kan alleen toegang worden verleend tot de OMS-portal, niet tot het gekoppelde Azure-abonnement.
 
-Gebruikers zien geen gegevens in de tegels van de oplossingen Backup en Site Recovery als u hen alleen deze toegang geeft tot de OMS-portal, maar niet tot het Azure-abonnement dat eraan is gekoppeld.
-Als u alle gebruikers wilt toestaan om in deze oplossingen gegevens te bekijken, moet u ervoor zorgen dat zij ten minste **leesrechten** hebben voor de Back-upkluis en de Site Recovery-kluis die aan de werkruimte zijn gekoppeld.   
+Als u gegevens wilt zien in de tegels voor back-up- en sitehersteloplossingen, moet u beschikken over een machtiging als beheerder of medebeheerder voor het Azure-abonnement waaraan de werkruimte is gekoppeld.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Toegang tot Log Analytics beheren met behulp van de Azure Portal
 Als u gebruikers toegang biedt tot de Log Analytics-werkruimte met behulp van Azure-machtigingen, bijvoorbeeld in de Azure Portal, hebben deze gebruikers ook toegang tot de Log Analytics-portal. Als gebruikers zich in de Azure Portal bevinden, kunnen ze naar de OMS-portal navigeren door te klikken op de taak **OMS Portal** wanneer ze de Log Analytics-werkruimteresource bekijken.
@@ -199,7 +199,7 @@ Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven 
 8. Klik op **OK**. De werkruimte is nu gekoppeld aan uw Azure-account.
 
 > [!NOTE]
-> Als u de werkruimte die u wilt koppelen niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-website.  U moet toegang verlenen tot deze account via de OMS-portal. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) voor meer informatie hierover.
+> Als u de werkruimte die u wilt koppelen niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-website.  Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) om dit account toegang te verlenen vanuit de OMS-portal.
 >
 >
 
@@ -232,15 +232,20 @@ Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waara
 
 Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Een werkruimte wijzigen in een betaald data-abonnement
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Een werkruimte wijzigen in een betaalde prijscategorie
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
 2. Blader naar **Log Analytics** en selecteer dit.
 3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
-4. Klik in de blade van de werkruimte onder **Algemeen** op **Prijscategorie**.  
-5. Selecteer onder **Prijscategorie** een data-abonnement en klik vervolgens op **Selecteren**.  
+4. Klik op de blade van de werkruimte onder **Algemeen** op **Prijscategorie**.  
+5. Selecteer onder **Prijscategorie** een prijscategorie en klik vervolgens op **Selecteren**.  
     ![abonnement selecteren](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Wanneer u uw weergave in de Azure Portal vernieuwt, ziet u dat **Prijscategorie** is bijgewerkt met het abonnement dat u hebt geselecteerd.  
+6. Wanneer u de weergave in Azure Portal vernieuwt, ziet u dat **Prijscategorie** is bijgewerkt met de categorie dat u hebt geselecteerd.  
     ![bijgewerkt abonnement](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Wijzigen hoelang gegevens worden opgeslagen in Log Analytics
 
@@ -293,6 +298,6 @@ Als u een beheerder bent en er aan de werkruimte meerdere gebruikers zijn gekopp
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 02/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f550639f0e48f34200ad480f94524df2cc0b2b6
+ms.sourcegitcommit: 352e1a51787cc369b605fb16b1dfccbb8ff7e12e
+ms.openlocfilehash: 3342516b4f2cf7342761573553901d03e66efc2a
 
 
 ---
@@ -43,6 +43,13 @@ Zie voor meer informatie:
 Alle gebruikers die u hebt ingesteld voor Microsoft Online Services, zijn gedefinieerd als gebruikersaccounts in een of meer exemplaren van Azure AD. U kunt deze accounts instellen voor gratis Azure AD-mogelijkheden, zoals toegang tot cloudtoepassingen.
 
 Daarnaast vormen betaalde Azure AD-services (bijvoorbeeld: Azure AD Basic, Premium, EMS enzovoort) een aanvulling op andere Online Services, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor zakelijk schaalbeheer en beveiliging.
+
+- - -
+
+- - -
+**V: Is er een rapport waarin staat wanneer mijn Azure AD-gebruikerslicenties verlopen?**
+
+**A:** Nee.  Dat is op dit moment niet beschikbaar.
 
 - - -
 ## <a name="getting-started-with-hybrid-azure-ad"></a>Aan de slag met hybride Azure AD
@@ -161,6 +168,6 @@ Zie [Automate User Provisioning and Deprovisioning to SaaS Applications with Azu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

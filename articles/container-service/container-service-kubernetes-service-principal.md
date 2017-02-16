@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
+ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-In Azure Container Service is voor Kubernetes een [service-principal voor Azure Active Directory](../active-directory/active-directory-application-objects.md) vereist als serviceaccount voor gebruik met Azure-API's. De service-principal is nodig om resources zoals [gebruikersgedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md) en de Laag 4 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) dynamisch te beheren.
+In Azure Container Service is voor Kubernetes een [service-principal voor Azure Active Directory](../active-directory/active-directory-application-objects.md) vereist als serviceaccount voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door gebruikers gedefinieerde routes en de Azure Load Balancer uit laag vier dynamisch te beheren.
 
 In dit artikel worden verschillende opties getoond om een service-principal op te geven voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [preview-versie van Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) uitvoeren om tegelijkertijd de Kubernetes-cluster en de service-principal te maken.
 
@@ -39,9 +39,9 @@ In dit artikel worden verschillende opties getoond om een service-principal op t
 
 Hieronder ziet u de vereisten voor de service-principal voor Azure Active Directory in een Kubernetes-cluster in Azure Container Service. 
 
-* **Bereik**: het Azure-abonnement waarin de cluster is geïmplementeerd
+* **Bereik**: het Azure-abonnement waarin het cluster is geïmplementeerd
 
-* **Rol** - **Inzender**
+* **Rol**: **inzender**
 
 * **Clientgeheim**: moet een wachtwoord zijn. U kunt momenteel geen service-principal gebruiken om verificatie via een certificaat in te stellen.
 
@@ -56,30 +56,36 @@ Hieronder ziet u de vereisten voor de service-principal voor Azure Active Direct
 
 Geef bij het maken van de Kubernetes-cluster de **client-id** (vaak de `appId` genoemd, voor toepassings-id) en het **clientgeheim** (`password`) als parameters op voor een bestaande service-principal. Als u een bestaande service-principal gebruikt, moet u ervoor zorgen dat deze voldoet aan de vereisten in de vorige sectie. Zie [Een service-principal maken](#create-a-service-principal-in-azure-active-directory) verderop in dit artikel als u een service-principal wilt maken.
 
-U kunt deze parameters opgeven tijdens het [implementeren van de Kubernetes-cluster](./container-service-deployment.md) via de portal, de Azure CLI (Command-Line Interface) of Azure PowerShell.
+U kunt deze parameters opgeven tijdens het [implementeren van het Kubernetes-cluster](./container-service-deployment.md) via de portal, de Azure CLI (Command-Line Interface) 2.0 (Preview), Azure PowerShell of een andere methode.
 
 >[!TIP] 
 >Zorg ervoor dat u bij het opgeven van de **client-id** gebruikmaakt van de `appId` en niet de `ObjectId` van de service-principal.
 >
 
-In het volgende voorbeeld wordt één manier getoond om de parameters door te geven met behulp van de [Azure CLI](../xplat-cli-install.md) in de [modus Resourcebeheer](../xplat-cli-connect.md). In dit voorbeeld wordt gebruikgemaakt van de [Kubernetes-snelstartsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+In het volgende voorbeeld wordt één manier getoond om de parameters door te geven met behulp van de Azure CLI 2.0 Preview (zie de [instructies voor installeren en instellen](/cli/azure/install-az-cli2)). In dit voorbeeld wordt gebruikgemaakt van de [Kubernetes-snelstartsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) het bestand met sjabloonparameters (azuredeploy.parameters.json) uit GitHub.
+1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) het bestand met sjabloonparameters `azuredeploy.parameters.json` van GitHub.
 
 2. Voer de waarden voor `servicePrincipalClientId` en `servicePrincipalClientSecret` in het bestand in om de service-principal op te geven. (U moet ook uw eigen waarden voor `dnsNamePrefix` en `sshRSAPublicKey` opgeven. De laatste waarde is de openbare SSH-sleutel voor toegang tot de cluster.) Sla het bestand op.
 
     ![Parameters voor de service-principal doorgeven](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Voer de volgende opdracht uit met behulp van de parameter `-e` om het pad naar het bestand azuredeploy.parameters.json in te stellen. Met deze opdracht wordt het cluster geïmplementeerd in een bestaande resourcegroep genaamd `myResourceGroup`.
+3. Voer de volgende opdracht uit met behulp van `--parameters` om het pad naar het bestand azuredeploy.parameters.json in te stellen. Met deze opdracht wordt het cluster geïmplementeerd in een resourcegroep die u `myResourceGroup` hebt genoemd, in de regio VS - west.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Optie 2: de service-principal genereren tijdens het maken van de cluster met de preview-versie van Azure CLI 2.0
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Optie 2: de service-principal genereren tijdens het maken van het cluster met Azure CLI 2.0 (Preview)
 
-Als u de [preview-versie van Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kun u de opdracht [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) uitvoeren om [de cluster te maken](./container-service-create-acs-cluster-cli.md).
+Als u [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kun u de opdracht [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) uitvoeren om [het cluster te maken](./container-service-create-acs-cluster-cli.md).
 
 Net zoals bij andere opties voor het maken van Kubernetes-clusters kunt u parameters voor een bestaande service-principal opgeven tijdens het uitvoeren van `az acs create`. Als u deze parameters echter weglaat, wordt in Azure Container Service automatisch een service-principal gemaakt. Dit vindt transparant plaats tijdens de implementatie. 
 
@@ -93,16 +99,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Azure biedt verschillende methoden om een service-principal te maken in Azure Active Directory voor gebruik in uw Kubernetes-cluster. 
 
-In de volgende voorbeeldopdrachten ziet u hoe u dit kunt doen met de [preview-versie van Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). U kunt ook een service-principal maken met behulp van de [Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), via [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) of via de [klassieke portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+In de volgende voorbeeldopdrachten ziet u hoe u dit kunt doen met de [preview-versie van Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). U kunt ook een service-principal maken met behulp van de [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), via de [klassieke portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) of op een andere manier.
 
 > [!IMPORTANT]
 > Bekijk eerst de vereisten voor de service-principal die eerder in dit artikel worden beschreven.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +122,7 @@ Gemarkeerd zijn de **client-id** (`appId`) en het **clientgeheim** (`password`) 
 
 Bevestig uw service-principal door een nieuwe shell te openen en de volgende opdrachten uit te voeren, ter vervanging in `appId`, `password` en `tenant`:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -137,6 +143,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

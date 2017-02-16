@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute-locaties | Microsoft Docs
-description: Dit artikel bevat een gedetailleerd overzicht van de locaties waar services worden aangeboden en hoe u verbinding maakt met Azure-regio&quot;s.
+title: 'Locaties en connectiviteitsproviders: Azure ExpressRoute | Microsoft Docs'
+description: Dit artikel bevat een gedetailleerd overzicht van de locaties waar services worden aangeboden en hoe u verbinding maakt met Azure-regio&quot;s. Gesorteerd op locatie.
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,14 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/18/2017
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
-ms.openlocfilehash: 1b162e57ee1e7a4e953d1b7593ce45669ff3cca8
+ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
+ms.openlocfilehash: 42180ab35f049aa4cc0c5db79528b172e316036b
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
+
+> [!div class="op_single_selector"]
+> * [Locaties per provider](expressroute-locations.md)
+> * [Providers per locatie](expressroute-locations-providers.md)
+
+
 In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>ExpressRoute-connectiviteitsproviders
@@ -34,14 +40,14 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
-| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - west 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, West-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - west 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, West-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City+, Toronto |
 | **Zuid-Amerika** |Brazilië - zuid |Sao Paulo |
 | **Europa** |Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid |Amsterdam, Dublin, Londen, Newport (Wales), Parijs |
 | **Azië** |Oost-Azië, Zuidoost-Azië |Hongkong, Singapore |
 | **Japan** |Japan - west, Japan - oost |Osaka, Tokio |
 | **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
 | **India** |India - west, India - midden, India - zuid |Chennai, Mumbai |
-| **Zuid-Korea** | Korea Centraal, Korea Zuid | Busan, Seoul |
+| **Zuid-Korea** |Korea Centraal, Korea Zuid |Busan+, Seoul+ |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
@@ -55,17 +61,16 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Locaties van connectiviteitsproviders
-> [!div class="op_single_selector"]
-> * [Locaties per provider](expressroute-locations.md#locations)
-> * [Providers per locatie](expressroute-locations-providers.md#locations)
-> 
-> 
+
+De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md#locations). 
+
 
 ### <a name="production-azure"></a>Productie-Azure
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
+| **Busan** |Sejong Telecom+ |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -83,6 +88,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Parijs** |Interxion, Equinix+ |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
+| **Seoul** |KINX+, Sejong Telecom+ |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
@@ -152,7 +158,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | --- | --- |
 | **Azië** |Avanade Inc., OneAs1a |
 | **Australië** | IT Consultancy |
-| **Europa** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **Europa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
 | **Noord-Amerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **Zuid-Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Volgende stappen
@@ -164,6 +170,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

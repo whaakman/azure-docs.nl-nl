@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
 
 
 ---
@@ -35,10 +35,9 @@ ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 Met de **wizard Kopiëren** van Azure Data Factory kunt u snel en eenvoudig een pijplijn maken die het scenario voor gegevensopname/-verplaatsing implementeert. Daarom wordt u aangeraden de wizard te gebruiken als een eerste stap bij het maken van een voorbeeldpijplijn voor het scenario waarin gegevensverplaatsing plaatsvindt. Deze zelfstudie laat zien hoe u een Azure-gegevensfactory kunt maken, de wizard Kopiëren kunt starten en een reeks stappen kunt uitvoeren om informatie over uw scenario voor gegevensopname/-verplaatsing op te geven. Nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn met een kopieeractiviteit om gegevens te kopiëren uit een Azure Blob-opslag naar Azure SQL-databases. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 
-> [!IMPORTANT]
-> Lees het artikel [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een overzicht van de zelfstudie en voltooi de **vereiste** stappen voordat u deze zelfstudie volgt.
-> 
-> 
+## <a name="prerequisites"></a>Vereisten
+- Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit.
+
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
@@ -146,23 +145,24 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    
    ![App voor bewaking](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
    
-   > [!NOTE]
-   > Klik op de knop **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om de meest recente status te zien. Deze wordt niet automatisch vernieuwd. 
-   > 
-   > 
+   
+   Klik op de knop **Vernieuwen** in de lijst met **ACTIVITEITSVENSTERS** om de meest recente status te zien. Deze wordt niet automatisch vernieuwd. 
+
+> [!NOTE]
+> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Er worden geen invoergegevens mee getransformeerd in uitvoergegevens. Zie [Zelfstudie: uw eerste pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+> 
+> U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie.
 
 ## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |
 |:--- |:--- |
-| [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) |Dit artikel biedt gedetailleerde informatie over de kopieeractiviteit die u tijdens deze zelfstudie hebt gemaakt. |
-| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 | [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
-| [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

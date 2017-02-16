@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
+ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
+ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen me
 > 
 
 ## <a name="server-level-firewall-rules"></a>Firewallregels op serverniveau
-Alleen de hoofdaanmelding op serverniveau of de Azure Active Directory-beheerder kan een firewallregel op serverniveau maken met behulp van Transact-SQL.
+Alleen iemand die zich aanmeldt als Azure SQL-serverbeheerder of Azure Active Directory-beheerder, kan een firewallregel op serverniveau maken met behulp van Transact-SQL.
 
 1. Open een queryvenster en maak met behulp van SQL Server Management Studio verbinding met de virtuele hoofddatabase.
 2. In het queryvenster kunnen firewallregels op serverniveau worden geselecteerd, gemaakt, bijgewerkt of verwijderd.
@@ -61,7 +61,7 @@ Alleen de hoofdaanmelding op serverniveau of de Azure Active Directory-beheerder
 ## <a name="database-level-firewall-rules"></a>Firewallregels op databaseniveau
 Alleen een databasegebruiker met de machtiging **BEHEER** voor de database (zoals de database-eigenaar) kan een firewallregel op databaseniveau maken.
 
-1. Start na het maken van een firewallregel op serverniveau voor uw IP-adres een queryvenster via de klassieke portal of SQL Server Management Studio.
+1. Start na het maken van een firewallregel op serverniveau voor uw IP-adres een queryvenster via Azure Portal of SQL Server Management Studio.
 2. Maak verbinding met de database waarvoor u een firewallregel op databaseniveau wilt maken.
    
     Voer de opgeslagen procedure `sp_set_database_firewall_rule` uit als u een nieuwe firewallregel op databaseniveau wilt maken of een bestaande regel wilt bijwerken. In het volgende voorbeeld wordt een nieuwe regel met de naam ContosoFirewallRule gemaakt.
@@ -99,6 +99,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

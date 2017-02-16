@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ Hier volgen de stappen voor het bouwen van een **werkruimteverzameling** met beh
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Klik onder **Gegevens en analyse** op **Power BI Embedded**.
-4. Voer op de **blade Maken** de vereiste gegevens in. Informatie over **prijzen** vindt in [Prijzen van Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. Voer op de **blade Werkruimteverzameling** de vereiste gegevens in. Informatie over **prijzen** vindt in [Prijzen van Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klik op **Maken**.
@@ -68,6 +68,10 @@ Kopieer deze sleutels en sla ze veilig op in uw toepassing. Het is belangrijk da
 Hoewel er twee sleutels worden vermeld, hebt u er slechts één tegelijk nodig. De tweede sleutel biedt u de mogelijk periodiek opnieuw sleutels te genereren, zonder dat toegang tot de service wordt onderbroken.
 
 Nu u een exemplaar van Power BI voor uw toepassing en **toegangssleutels** hebt, kunt u een rapport in uw eigen app importeren. Voordat u een rapport leert importeren, kunt u in de volgende sectie lezen hoe u Power BI-gegevenssets en -rapporten maakt om deze in een app in te sluiten.
+
+## <a name="working-with-workspaces"></a>Werken met werkruimten
+
+Nadat u de verzameling met werkruimten hebt gemaakt, moet u een werkruimte maken voor rapporten en gegevenssets. U moet de [Post Workspace REST-API](https://msdn.microsoft.com/library/azure/mt711503.aspx) gebruiken om een werkruimte te maken.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Power BI-gegevenssets en -rapporten maken om in een app in te sluiten
 Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
@@ -109,6 +113,6 @@ Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

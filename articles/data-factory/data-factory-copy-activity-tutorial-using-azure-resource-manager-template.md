@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 > 
 
 In deze zelfstudie wordt uitgelegd hoe u een Azure-gegevensfactory maakt en controleert met een Azure Resource Manager-sjabloon. Met de pijplijn in de gegevensfactory worden gegevens gekopieerd van Azure Blob Storage naar Azure SQL Database.
+
+> [!NOTE]
+> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Er worden geen invoergegevens mee getransformeerd in uitvoergegevens. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+> 
+> U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door en voer de **vereiste** stappen uit.
@@ -580,9 +585,14 @@ De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgev
 
 U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bijvoorbeeld veel gegevensfactory's maken met een of meer pijplijnen die dezelfde logica implementeren, maar elke gegevensfactory maakt gebruik van andere Azure Storage- en Azure SQL Database-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken.   
 
+## <a name="see-also"></a>Zie ook
+| Onderwerp | Beschrijving |
+|:--- |:--- |
+| [Pijplijnen](data-factory-create-pipelines.md) |In dit artikel worden pijplijnen en activiteiten in Azure Data Factory nader uitgelegd. |
+| [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

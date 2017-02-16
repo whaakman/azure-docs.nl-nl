@@ -1,6 +1,6 @@
 ---
-title: Hadoop-toepassingen installeren op HDInsight | Microsoft Docs
-description: Informatie over het installeren van HDInsight-toepassingen op HDInsight-toepassingen.
+title: Hadoop-toepassingen van derden installeren op Azure HDInsight | Microsoft Docs
+description: Informatie over het installeren van Hadoop-toepassingen van derden op Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 815a9f357ec020ca02ef0b2bb553cb787ef9b131
 
 
 ---
-# <a name="install-hdinsight-applications"></a>HDInsight-toepassingen installeren
-Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf. In dit artikel leert u een gepubliceerde toepassing installeren. Zie voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Hadoop-toepassingen van derden op Azure HDInsight installeren
 
-Momenteel zijn er drie gepubliceerde toepassingen:
+In dit artikel krijgt u informatie over het installeren van een al gepubliceerde Hadoop-toepassing van derden op Azure HDInsight. Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
+Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf.  
+
+Momenteel zijn er vier gepubliceerde toepassingen:
+
+* **DATAIKU DDS op HDInsight**: Dataiku DSS (Data Science Studio) is software waarmee gegevensprofessionals (gegevenswetenschappers, bedrijfsanalisten, ontwikkelaars enz.) zeer specifieke services kunnen bouwen, testen en implementeren. Met deze services worden onbewerkte gegevens getransformeerd in belangrijke bedrijfsvoorspellingen.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) biedt analisten een interactieve wijze voor het detecteren, analyseren en visualiseren van de resultaten over big data. Betrek eenvoudig aanvullende gegevensbronnen en ontdek snel nieuwe relaties en antwoorden op vragen.
 * **StreamSets Data Collector voor HDInsight** biedt een complete geïntegreerde IDE (Integrated Development Environment) waarin u opnamepijplijnen die stream- en batchgegevens filteren en diverse in-stream transformaties bevatten, in alle richtingen kunt ontwerpen, testen, implementeren en beheren, en dat alles zonder aangepaste code te hoeven schrijven. 
 * **Cask CDAP 3.5 voor HDInsight** biedt het eerste uniforme integratieplatform voor big data waarvan de tijd voor productie voor gegevenstoepassingen en data lakes met 80% wordt verkort. Deze toepassing biedt alleen ondersteuning voor standaard HBase 3.4-clusters.
@@ -42,18 +46,18 @@ De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HD
 **Een HDInsight-toepassing installeren**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Bladeren** en vervolgens op **HDInsight-clusters**.
+2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Meer services** en vervolgens op **HDInsight-clusters**.
 3. Klik op een HDInsight-cluster.  Als u deze niet hebt, maakt u die eerst.  Zie [Clusters maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klik op **Toepassingen** onder de categorie **Configuraties**. U ziet een lijst met geïnstalleerde toepassingen (indien aanwezig).
+4. Klik op **Toepassingen** onder de categorie **Configuraties**. U ziet een lijst met geïnstalleerde toepassingen (indien aanwezig). Als u toepassingen kunt vinden, betekent dit dat er geen toepassingen zijn voor deze versie van het HDInsight-cluster.
    
-    ![menu van HDInsight-toepassingenportal](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![Menu van HDInsight-toepassingenportal](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klik op **Toevoegen** in de menu-blade. 
    
-    ![hdinsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![HDInsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     Er wordt een lijst met bestaande HDInsight-toepassingen weergegeven.
    
-    ![hdinsight-toepassingen, beschikbare toepassingen](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDInsight-toepassingen, beschikbare toepassingen](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Klik op een van de toepassingen, ga akkoord met de juridische bepalingen en klik vervolgens op **Selecteren**.
 
 U kunt de installatiestatus zien in de portalmeldingen (klik boven aan de portal op het belpictogram). Nadat de toepassing is geïnstalleerd, wordt de toepassing weergegeven op de blade Geïnstalleerde apps.
@@ -89,7 +93,7 @@ De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een
 3. Klik op een HDInsight-cluster.
 4. Klik op de blade **Instellingen** onder de categorie **Algemeen** op **Toepassingen**. Op de blade Geïnstalleerde apps vindt u een lijst van de geïnstalleerde toepassingen. 
    
-    ![hdinsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![HDInsight-toepassingen, geïnstalleerde apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Klik op een van de geïnstalleerde toepassingen om de eigenschap weer te geven. Op de blade Eigenschappen staat:
    
    * De naam van de app: de naam van de toepassing.
@@ -118,6 +122,6 @@ Zie [Problemen met de installatie oplossen](hdinsight-apps-install-custom-applic
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse - zelfstudie | Microsoft Docs
-description: Zelfstudie voor Azure SQL Data Warehouse.
+title: 'Azure SQL Data Warehouse: aan de slag-zelfstudie | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u gegevens kunt inrichten en laden in Azure SQL Data Warehouse. U leert ook de basisbeginselen voor schalen, onderbreken en afstemmen.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -12,50 +12,52 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 12/21/2016
-ms.author: elbutter
+ms.date: 01/26/2017
+ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: fe9de0ffad3fe5d4acbf3caf2f08101f6a13daaf
-ms.openlocfilehash: 12f500c01671799612b0d1988e0d07bbfda600da
+ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
+ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
 
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Aan de slag met SQL Data Warehouse
 
-Zelfstudie voor Azure SQL Data Warehouse. In deze zelfstudie leert u de basisbeginselen van het inrichten en laden van gegevens in een SQL Data Warehouse, en een aantal basisbeginselen over schalen, pauzeren en afstemmen. 
+In deze zelfstudie wordt beschreven hoe u gegevens kunt inrichten en laden in Azure SQL Data Warehouse. U leert ook de basisbeginselen voor schalen, onderbreken en afstemmen. Na deze zelfstudie bent u er klaar voor om uw datawarehouse te verkennen en een query voor dit datawarehouse uit te voeren.
 
-**Geschatte duur:** 75 minuten
+**Geschatte tijd om dit te voltooien:** dit is een end-to-end-zelfstudie met voorbeeldcode. Als aan de vereisten wordt voldaan, duurt het ongeveer 30 minuten om deze te voltooien. 
 
 ## <a name="prerequisites"></a>Vereisten
 
+Aangenomen wordt dat u bekend bent met de basisbeginselen van SQL Data Warehouse. Zie [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) als u eerst wat meer informatie nodig hebt. 
 
 ### <a name="sign-up-for-microsoft-azure"></a>Registreren voor Microsoft Azure
-Als u nog geen Microsoft Azure-account hebt, dient u zich te registreren voordat u deze service kunt gebruiken. Deze stap kunt u overslaan als u al een account hebt. 
+Als u nog geen Microsoft Azure-account hebt, moet u zich registreren voordat u deze service kunt gebruiken. Deze stap kunt u overslaan als u al een account hebt. 
 
 1. Ga naar de accountpagina [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Maak een gratis Azure-account of koop een account.
 3. Volg de instructies
 
-### <a name="install-appropriate-sql-client-driver-and-tools"></a>Toepasselijke SQL-clientstuurprogramma en SQL-clienthulpprogramma’s installeren
+### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Toepasselijke stuurprogramma's en hulpprogramma's installeren voor SQL-client
 
-De meeste SQL-clienthulpprogramma’s kunnen verbinding maken met Azure SQL Data Warehouse met behulp van JDBC, ODBC of ADO.net. Vanwege de complexiteit van het product en het grote aantal T-SQL-functies dat SQL Data Warehouse ondersteunt, is mogelijk niet elke clienttoepassing volledig compatibel met SQL Data Warehouse.
+De meeste SQL-clienthulpprogramma's kunnen verbinding maken met SQL Data Warehouse met behulp van JDBC, ODBC of ADO.NET. Vanwege het grote aantal T-SQL-functies waarvoor SQL Data Warehouse ondersteuning biedt, zijn sommige clienttoepassingen niet volledig compatibel met SQL Data Warehouse.
 
 Als u een Windows-besturingssysteem gebruikt, raden we u aan [Visual Studio] of [SQL Server Management Studio] te gebruiken.
-
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## <a name="create-an-azure-sql-data-warehouse"></a>Een Azure SQL Data Warehouse maken
+## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
+
+SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle verwerking op zeer grote schaal. De database wordt gedistribueerd over meerdere knooppunten en query's worden parallel verwerkt. SQL Data Warehouse heeft een besturingselementknooppunt waarmee de activiteiten van alle knooppunten worden ingedeeld. De knooppunten zelf maken gebruik van SQL Database om uw gegevens te beheren.  
 
 > [!NOTE]
 > Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) voor meer informatie.
 >
 
+### <a name="create-a-data-warehouse"></a>Een datawarehouse maken
 
-### <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
 2. Klik op **Nieuw** > **Databases** > **SQL Data Warehouse**.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
@@ -63,82 +65,94 @@ Als u een Windows-besturingssysteem gebruikt, raden we u aan [Visual Studio] of 
 
 3. Vul de implementatiegegevens in
 
-    **Databasenaam**: kies een naam. Als u meerdere SQL DW-exemplaren hebt, raden we u aan details zoals de regio, omgeving enz. in de namen op te nemen, bijvoorbeeld *mydw-westus-1-test*
+    **Databasenaam**: kies een naam. Als u meerdere datawarehouses hebt, raden we u aan details, zoals de regio en omgeving, op te nemen in de namen, bijvoorbeeld *mydw-westus-1-test*.
 
     **Abonnement:** uw Azure-abonnement
 
-    **Resourcegroep**: maak een nieuwe (of gebruik een bestaande als u van plan bent uw Azure SQL Data Warehouse met andere services te gebruiken)
+    **Resourcegroep**: maak een resourcegroep of gebruik een bestaande resourcegroep.
     > [!NOTE]
-    > Services binnen een resourcegroep horen dezelfde levenscyclus te hebben. Resourcegroepen zijn handig voor het beheren van resources, waaronder het bereik van toegangsbeheer controleren en het implementeren met sjablonen. [Hier](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) vindt u meer informatie over resourcegroepen en aanbevolen procedures voor Azure
-    >
+    > Resourcegroepen zijn handig voor het beheren van resources, waaronder het bereik van toegangsbeheer controleren en het implementeren met sjablonen. [Hier](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) vindt u meer informatie over resourcegroepen en aanbevolen procedures voor Azure
 
     **Bron**: lege database
 
     **Server**: selecteer de server die u hebt gemaakt in [Vereisten].
 
-    **Sortering**: laat de standaardsortering SQL_Latin1_General_CP1_CI_AS staan
+    **Sortering**: laat de standaardsortering SQL_Latin1_General_CP1_CI_AS staan.
 
-    **Prestaties selecteren**: we raden aan de standaard 400 DWU te gebruiken
+    **Prestaties selecteren**: we raden aan te beginnen met de standaardinstelling 400 DWU.
 
 4. Kies **Vastmaken aan dashboard**
     ![Vastmaken aan dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Wacht tot uw Azure SQL Data Warehouse begint met implementeren. Dit proces duurt normaal gesproken enkele minuten. De portal geeft een melding wanneer uw exemplaar is geïmplementeerd. 
+5. U hoeft niets te doen. Het datawarehouse wordt automatisch geïmplementeerd. Dit proces duurt normaal gesproken enkele minuten. U ontvangt een waarschuwing via de portal als het datawarehouse klaar is voor gebruik. 
 
-## <a name="connect-to-azure-sql-data-warehouse-through-sql-server-logical-server"></a>Verbinding maken met Azure SQL Data Warehouse via SQL Server (logische server)
+## <a name="connect-to-sql-data-warehouse"></a>Verbinding maken met SQL Data Warehouse
 
-In deze zelfstudie leert u SQL Server Management Studio te gebruiken om verbinding te maken met SQL Data Warehouse. Er kunnen andere hulpprogramma's worden gebruikt om verbinding te maken met SQL Data Warehouse via onze ondersteunde connectors: ADO.NET, JDBC, ODBC en PHP. De functionaliteit is mogelijk beperkt bij hulpprogramma's die niet worden ondersteund door Microsoft.
+In deze zelfstudie leert u SSMS (SQL Server Management Studio) te gebruiken om verbinding te maken met het datawarehouse. U kunt verbinding maken met SQL Data Warehouse via deze ondersteunde connectoren: ADO.NET, JDBC, ODBC en PHP. Let op: de functionaliteit van hulpprogramma's die niet door Microsoft worden ondersteund, is mogelijk beperkt.
 
 
 ### <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
-Om verbinding met uw SQL Data Warehouse te maken, moet u eerst verbinding maken via de SQL Server (logische server) die u hebt gemaakt in [Vereisten].
+Als u verbinding wilt maken met het datawarehouse, moet u eerst verbinding maken via de logische SQL-server die u hebt gemaakt in [Vereisten].
 
-1. Selecteer uw SQL Data Warehouse op het dashboard of zoek het in uw resources.
+1. Selecteer het datawarehouse op het dashboard of zoek het in de resources.
 
     ![Dashboard van SQL Data Warehouse](./media/sql-data-warehouse-get-started-tutorial/sql-dw-dashboard.png)
 
-2. Vind de volledige naam voor de logische server.
+2. Ga naar de volledige naam voor de logische server.
 
     ![Servernaam selecteren](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Open SSMS en gebruik de objectverkenner om verbinding te maken met deze server middels de referenties die u hebt gemaakt in [Vereisten]
+3. Open SSMS en gebruik de objectverkenner om verbinding te maken met deze server met behulp van de referenties voor de serverbeheerder die u hebt gemaakt in [Vereisten]
 
     ![Verbinden met SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
-Als alles goed gaat, hebt u nu verbinding met uw SQL Server-exemplaar (logische server). Met deze serverreferenties kunt u zich bij elke database op de server als de database-eigenaar verifiëren. De aanbevolen procedure is echter om afzonderlijke aanmeldingen en gebruikers voor elke database te maken. In [Een gebruiker voor SQL Data Warehouse maken](./sql-data-warehouse-get-started-tutorial.md#create-a-user-for-sql-data-warehouse) behandelen we het maken van gebruikers. 
+Als alles goed gaat, hebt u nu verbinding met de logische SQL-server. U bent aangemeld als serverbeheerder en kunt daarom verbinding maken met elke database die wordt gehost op de server, inclusief de hoofddatabase. 
 
-## <a name="create-a-user-for-sql-data-warehouse"></a>Een gebruiker voor SQL Data Warehouse maken
+Er is slechts één serverbeheerdersaccount. Dit account heeft van alle gebruikers de meeste bevoegdheden. Zorg ervoor dat niet te veel gebruikers in de organisatie het beheerderswachtwoord kennen. 
 
-### <a name="why-create-a-separate-user"></a>Waarom is het handig een afzonderlijke gebruiker te maken?
+U kunt ook een Azure Active Directory-beheerdersaccount hebben. Hier gaan we verder niet op in. Zie [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) voor meer informatie over het gebruik van Azure Active Directory-verificatie.
 
-We gebruiken de verbinding met de SQL Server (logische server), met de serverreferenties van de vorige stap, voor het maken van een nieuwe gebruiker voor de SQL Data Warehouse. Er zijn twee primaire redenen om een afzonderlijke gebruiker/aanmelding te maken voor uw SQL DW.
+Hierna bespreken we het maken van extra aanmeldingen en gebruikers.
 
-1.  Gebruikers van uw organisatie moeten een ander account gebruiken om te verifiëren. Op die manier kunt u het aantal machtigingen voor de toepassing beperken en de kans op schadelijke activiteiten verkleinen.
 
-2. Standaard gebruikt de aanmelding van de serverbeheerder waarmee u momenteel verbonden bent een kleinere resourceklasse. Resourceklassen helpen u de toewijzing van geheugen en CPU-cycli die worden toegewezen aan een query te beheren. Gebruikers in **smallrc** krijgen een kleiner deel van het geheugen toegewezen en kunnen profiteren van hogere gelijktijdigheid. Daarentegen krijgen gebruikers in **xlargerc** een groter deel van het geheugen toegewezen, waardoor minder van hun query's gelijktijdig kunnen worden uitgevoerd. Voor het laden van gegevens op een manier die compressie optimaliseert, moet de gebruiker die gegevens laadt, deel uitmaken van een grotere resourceklasse. Meer informatie over resourceklassen vindt u [hier](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+## <a name="create-a-database-user"></a>Een databasegebruiker maken
 
-### <a name="creating-a-user-of-a-larger-resource-class"></a>Een gebruiker voor een grotere resourceklasse maken
+In deze stap maakt u een gebruikersaccount voor toegang tot het datawarehouse. We laten ook zien hoe u deze gebruiker de mogelijkheid kunt geven om query's uit te voeren met zeer veel geheugen en CPU-resources.
 
-1. Query's uitvoeren op de **hoofddatabase** van uw server
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Opmerkingen over resourceklassen voor het toewijzen van resources aan query's
+
+- Als u uw gegevens wilt beveiligen, kunt u beter niet het serverbeheerdersaccount gebruiken om query's uit te voeren voor de productiedatabases. Dit account heeft de meeste bevoegdheden van alle gebruikers. Als u het gebruikt om bewerkingen uit te voeren op gebruikersgegevens, lopen uw gegevens mogelijk risico. Aangezien het serverbeheerdersaccount is bedoeld om beheerbewerkingen uit te voeren, wordt voor de uitvoering van deze bewerkingen bovendien slechts een kleine hoeveelheid geheugen en CPU-resources toegewezen. 
+
+- SQL Data Warehouse maakt gebruik van vooraf gedefinieerde databaserollen, 'resourceklassen' genaamd, om verschillende hoeveelheden geheugen, CPU-resources en gelijktijdigheidssleuven toe te wijzen aan gebruikers. Elke gebruiker kan deel uitmaken van een kleine, gemiddelde, grote of extra grote resourceklasse. De resourceklasse van de gebruiker bepaalt de resources die de gebruiker heeft om query's uit te voeren en bewerkingen te laden.
+
+- Voor een optimale compressie van gegevens moet de gebruiker bewerkingen meestal laden met grote of extra grote resourcetoewijzingen. Meer informatie over resourceklassen vindt u [hier](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+
+### <a name="create-an-account-that-can-control-a-database"></a>Een account maken waarmee een database kan worden beheerd
+
+Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanmeldingen en gebruikers te maken.
+
+1. Open een nieuwe query voor **Hoofd** met behulp van SSMS of een andere queryclient.
 
     ![Nieuwe query in Hoofd](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![Nieuwe query in Hoofd1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Een serveraanmelding en -gebruiker maken
+2. Voer in het queryvenster deze T-SQL-opdracht uit om een aanmelding te maken met de naam MedRCLogin en een gebruiker met de naam Gebruiker laden. Deze aanmelding kan verbinding maken met de logische SQL-server.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-3. Een query uitvoeren op de SQL Data Warehouse-database, een nieuwe databasegebruiker op basis van de serveraanmelding maken 
+3. Tijdens het uitvoeren van een query voor de *SQL Data Warehouse-database* maakt u nu een databasegebruiker op basis van de aanmelding die u hebt gemaakt, om toegang te krijgen tot bewerkingen en deze uit te voeren voor de database.
+
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-4. Gebruiker toegang tot de database geven
+4. Verleen de databasegebruiker machtigingen voor de database met de naam NYT. 
+
     ```sql
     GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
     ```
@@ -146,434 +160,464 @@ We gebruiken de verbinding met de SQL Server (logische server), met de serverref
     > Als de databasenaam afbreekstreepjes bevat, omsluit u deze met haken. 
     >
 
-5. Uw databasegebruiker toevoegen aan de resourceklasserol **xlargerc**
-    ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
-    ```
+### <a name="give-the-user-medium-resource-allocations"></a>De gebruiker middelgrote resourcetoewijzingen geven
 
-6. Aanmelden bij de database met uw nieuwe referenties
+1. Voer deze T-SQL-opdracht uit om de gebruiker lid te maken van de middelgrote resourceklasse met de naam mediumrc. 
+
+    ```sql
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
+    ```
+    > [!NOTE]
+    > Klik [hier](sql-data-warehouse-develop-concurrency.md#resource-classes) voor meer informatie over gelijktijdigheid- en resourceklassen. 
+    >
+
+2. Via de nieuwe referenties verbinding maken met de logische server
 
     ![Aanmelden met nieuwe aanmeldgegevens](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## <a name="loading-data"></a>Gegevens laden
+## <a name="load-data-from-azure-blob-storage"></a>Gegevens laden vanuit Azure-blobopslag
 
-### <a name="defining-external-data"></a>Externe gegevens definiëren
-1. Een hoofdsleutel maken en een externe gegevensbron definiëren
+U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt beschreven hoe u gegevens over taxi's in New York kunt laden uit een openbare Azure Storage-blob. 
+
+- Een veelgebruikte manier om gegevens te laden in SQL Data Warehouse is om de gegevens eerst te verplaatsen naar Azure-blobopslag en ze vervolgens in het datawarehouse te laden. Er worden al taxigegevens over New York gehost in de openbare Azure Storage-blob, zodat u gemakkelijker kunt zien hoe u moet laden. 
+
+- Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
+
+
+### <a name="define-external-data"></a>Externe gegevens definiëren
+
+1. Maak een hoofdsleutel. U hoeft maar één hoofdsleutel per database te maken. 
 
     ```sql
     CREATE MASTER KEY;
+    ```
 
+2. Definieer de locatie van de Azure-blob die de taxigegevens bevat.  
+
+    ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
-    TYPE = Hadoop
-    , LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        TYPE = Hadoop,
+        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
     );
     ```
 
+3. De externe bestandsindelingen definiëren
 
-2. De externe bestandsindelingen definiëren
+    De ```CREATE EXTERNAL FILE FORMAT```-opdracht wordt gebruikt om de indeling op te geven van de bestanden die de externe gegevens bevatten. Ze bevatten tekst gescheiden door een of meer tekens, genaamd scheidingstekens. Ter illustratie worden de taxigegevens opgeslagen als niet-gecomprimeerde gegevens en als gecomprimeerde GZip-gegevens.
 
-    De opdracht ```CREATE EXTERNAL FILE FORMAT``` wordt gebruikt om de indeling op te geven van de externe gegevens waaruit wordt geladen. Voor de gegevens van de openbare taxi’s van New York, hebben we de twee indelingen gebruikt voor het opslaan van gegevens in Azure Blob Storage
+    Voer deze T-SQL-opdrachten uit om twee verschillende indelingen te definiëren: niet-gecomprimeerd en gecomprimeerd.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
-    WITH
-    ( FORMAT_TYPE = DELIMITEDTEXT
-    , FORMAT_OPTIONS ( FIELD_TERMINATOR = ','
-    , STRING_DELIMITER = ''
-    , DATE_FORMAT = ''
-    , USE_TYPE_DEFAULT = False
-    )
+    WITH (
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( 
+            FIELD_TERMINATOR = ',',
+            STRING_DELIMITER = '',
+            DATE_FORMAT = '',
+            USE_TYPE_DEFAULT = False
+        )
     );
 
     CREATE EXTERNAL FILE FORMAT compressedcsv
-    WITH
-    ( FORMAT_TYPE = DELIMITEDTEXT
-    , FORMAT_OPTIONS ( FIELD_TERMINATOR = '|'
-    , STRING_DELIMITER = ''
-    , DATE_FORMAT = ''
-    , USE_TYPE_DEFAULT = False
-    )
-    , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+    WITH ( 
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
+            STRING_DELIMITER = '',
+        DATE_FORMAT = '',
+            USE_TYPE_DEFAULT = False
+        ),
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
     );
     ```
 
-3.  Een schema voor de externe bestandsindeling maken
+4.  Maak een schema voor de externe bestandsindeling. 
 
     ```sql
     CREATE SCHEMA ext;
-    GO
     ```
+5. Maak de externe tabellen. Deze tabellen verwijzen naar gegevens die zijn opgeslagen in Azure-blobopslag. Voer de volgende T-SQL-opdrachten uit om verschillende externe tabellen te maken die allemaal verwijzen naar de Azure-blob die eerder is gedefinieerd in de externe gegevensbron.
 
-4. Maak de externe tabellen. Deze tabellen verwijzen naar gegevens die zijn opgeslagen in HDFS of Azure Blob Storage. 
-
-    ```sql
+```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
-    [DateID] int NOT NULL,
-    [Date] datetime NULL,
-    [DateBKey] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DaySuffix] varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeek] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeekInMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeekInYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfQuarter] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfYear] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfMonth] varchar(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Month] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Quarter] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [QuarterName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Year] char(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [YearName] char(7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthYear] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MMYYYY] char(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [FirstDayOfMonth] date NULL,
-    [LastDayOfMonth] date NULL,
-    [FirstDayOfQuarter] date NULL,
-    [LastDayOfQuarter] date NULL,
-    [FirstDayOfYear] date NULL,
-    [LastDayOfYear] date NULL,
-    [IsHolidayUSA] bit NULL,
-    [IsWeekday] bit NULL,
-    [HolidayUSA] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [DateID] int NOT NULL,
+        [Date] datetime NULL,
+        [DateBKey] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DaySuffix] varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeek] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeekInMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeekInYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfQuarter] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfYear] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfMonth] varchar(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Month] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Quarter] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [QuarterName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Year] char(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [YearName] char(7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthYear] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MMYYYY] char(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FirstDayOfMonth] date NULL,
+        [LastDayOfMonth] date NULL,
+        [FirstDayOfQuarter] date NULL,
+        [LastDayOfQuarter] date NULL,
+        [FirstDayOfYear] date NULL,
+        [LastDayOfYear] date NULL,
+        [IsHolidayUSA] bit NULL,
+        [IsWeekday] bit NULL,
+        [HolidayUSA] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Date'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
-    )
+        LOCATION = 'Date',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
+    );
+    
     CREATE EXTERNAL TABLE [ext].[Geography]
     (
-    [GeographyID] int NOT NULL,
-    [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [County] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [City] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [State] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Country] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [ZipCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [GeographyID] int NOT NULL,
+        [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [County] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [City] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [State] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Country] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [ZipCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Geography'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0 
-    )
-    ;
+        LOCATION = 'Geography',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0 
+    );
+        
+    
     CREATE EXTERNAL TABLE [ext].[HackneyLicense]
     (
-    [HackneyLicenseID] int NOT NULL,
-    [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [HackneyLicenseCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [HackneyLicenseID] int NOT NULL,
+        [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [HackneyLicenseCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'HackneyLicense'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'HackneyLicense',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+        
+    
     CREATE EXTERNAL TABLE [ext].[Medallion]
     (
-    [MedallionID] int NOT NULL,
-    [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [MedallionCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [MedallionID] int NOT NULL,
+        [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [MedallionCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Medallion'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Medallion',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+        
     CREATE EXTERNAL TABLE [ext].[Time]
     (
-    [TimeID] int NOT NULL,
-    [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [HourNumber] tinyint NOT NULL,
-    [MinuteNumber] tinyint NOT NULL,
-    [SecondNumber] tinyint NOT NULL,
-    [TimeInSecond] int NOT NULL,
-    [HourlyBucket] varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [DayTimeBucketGroupKey] int NOT NULL,
-    [DayTimeBucket] varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+        [TimeID] int NOT NULL,
+        [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [HourNumber] tinyint NOT NULL,
+        [MinuteNumber] tinyint NOT NULL,
+        [SecondNumber] tinyint NOT NULL,
+        [TimeInSecond] int NOT NULL,
+        [HourlyBucket] varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [DayTimeBucketGroupKey] int NOT NULL,
+        [DayTimeBucket] varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
     )
     WITH
     (
-    LOCATION = 'Time'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Time',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+    
+    
     CREATE EXTERNAL TABLE [ext].[Trip]
     (
-    [DateID] int NOT NULL,
-    [MedallionID] int NOT NULL,
-    [HackneyLicenseID] int NOT NULL,
-    [PickupTimeID] int NOT NULL,
-    [DropoffTimeID] int NOT NULL,
-    [PickupGeographyID] int NULL,
-    [DropoffGeographyID] int NULL,
-    [PickupLatitude] float NULL,
-    [PickupLongitude] float NULL,
-    [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DropoffLatitude] float NULL,
-    [DropoffLongitude] float NULL,
-    [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [PassengerCount] int NULL,
-    [TripDurationSeconds] int NULL,
-    [TripDistanceMiles] float NULL,
-    [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [FareAmount] money NULL,
-    [SurchargeAmount] money NULL,
-    [TaxAmount] money NULL,
-    [TipAmount] money NULL,
-    [TollsAmount] money NULL,
-    [TotalAmount] money NULL
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
     )
     WITH
     (
-    LOCATION = 'Trip2013'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = compressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Trip2013',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = compressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+    
     CREATE EXTERNAL TABLE [ext].[Weather]
     (
-    [DateID] int NOT NULL,
-    [GeographyID] int NOT NULL,
-    [PrecipitationInches] float NOT NULL,
-    [AvgTemperatureFahrenheit] float NOT NULL
+        [DateID] int NOT NULL,
+        [GeographyID] int NOT NULL,
+        [PrecipitationInches] float NOT NULL,
+        [AvgTemperatureFahrenheit] float NOT NULL
     )
     WITH
     (
-    LOCATION = 'Weather2013'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Weather2013',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
     ```
 
-### <a name="create-table-as-select-ctas"></a>Create Table as Select (CTAS)
+### Import the data from Azure blob storage.
 
-5. Laad uw gegevens uit externe tabellen in uw exemplaar van SQL Data Warehouse. 
+SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+
+1. Run this script to import your data.
+
     ```sql
     CREATE TABLE [dbo].[Date]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Date]
+    AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
+    
     CREATE TABLE [dbo].[Geography]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
     AS
-    SELECT *
-    FROM [ext].[Geography]
+    SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
+    
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[HackneyLicense]
+    AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
+    
     CREATE TABLE [dbo].[Medallion]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Medallion]
+    AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
+    
     CREATE TABLE [dbo].[Time]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Time]
+    AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
+    
     CREATE TABLE [dbo].[Weather]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Weather]
+    AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
+    
     CREATE TABLE [dbo].[Trip]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Trip]
+    AS SELECT * FROM [ext].[Trip]
     OPTION (LABEL = 'CTAS : Load [dbo].[Trip]')
     ;
     ```
 
-    > [!NOTE]
-    > U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Voer de volgende DMV-query uit en zet een kopje koffie terwijl Azure SQL Data Warehouse even flink aan de slag gaat.
-    >
+2. View your data as it loads.
 
-6. Maak een nieuwe query en zie hoe de gegevens binnenkomen met deze dynamische beheerweergave (DMV)
-
+   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+    
     ```sql
     SELECT
-    r.command,
-    s.request_id,
-    r.status,
-    count(distinct input_name) as nbr_files,
-    sum(s.bytes_processed)/1024/1024 as gb_processed
-    FROM
-    sys.dm_pdw_exec_requests r
-    inner join sys.dm_pdw_dms_external_work s
-    on r.request_id = s.request_id
+        r.command,
+        s.request_id,
+        r.status,
+        count(distinct input_name) as nbr_files,
+        sum(s.bytes_processed)/1024/1024 as gb_processed
+    FROM 
+        sys.dm_pdw_exec_requests r
+        INNER JOIN sys.dm_pdw_dms_external_work s
+        ON r.request_id = s.request_id
     WHERE
-    r.[label] = 'CTAS : Load [dbo].[Date]' OR
-    r.[label] = 'CTAS : Load [dbo].[Geography]' OR
-    r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
-    r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
-    r.[label] = 'CTAS : Load [dbo].[Time]' OR
-    r.[label] = 'CTAS : Load [dbo].[Weather]' OR
-    r.[label] = 'CTAS : Load [dbo].[Trip]'
+        r.[label] = 'CTAS : Load [dbo].[Date]' OR
+        r.[label] = 'CTAS : Load [dbo].[Geography]' OR
+        r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
+        r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
+        r.[label] = 'CTAS : Load [dbo].[Time]' OR
+        r.[label] = 'CTAS : Load [dbo].[Weather]' OR
+        r.[label] = 'CTAS : Load [dbo].[Trip]'
     GROUP BY
-    r.command,
-    s.request_id,
-    r.status
+        r.command,
+        s.request_id,
+        r.status
     ORDER BY
-    nbr_files desc, gb_processed desc;
+        nbr_files desc, 
+        gb_processed desc;
     ```
 
-7. Alle systeemquery's weergeven
+3. View all system queries.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-8. Al uw gegevens zijn netjes geladen in uw Azure SQL Data Warehouse
+4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
 
-    ![Geladen gegevens bekijken](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
+## Improve query performance
 
-## <a name="querying-data"></a>Query’s op gegevens uitvoeren 
+There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
 
-### <a name="scan-query-with-scaling"></a>Scanquery met schalen
+### See the effect of scaling on query performance 
 
-Laten we bekijken hoe schalen de snelheid van uw query's beïnvloedt.
+One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
 
-Voordat we beginnen, gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijgen van hoe een rekenknooppunt afzonderlijk presteert.
+In this step, you compare performance at two different DWU settings.
 
-1. Ga naar de portal en selecteer uw exemplaar van SQL Data Warehouse.
+First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
 
-2. Selecteer de schaal in de blade SQL Data Warehouse. 
+1. Go to the portal and select your SQL Data Warehouse.
 
-    ![DW schalen vanuit de portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+2. Select scale in the SQL Data Warehouse blade. 
 
-3. Schaal de prestatiebalk omlaag naar 100 DWU en klik op opslaan.
+    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-    ![Schalen en opslaan](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+3. Scale down the performance bar to 100 DWU and hit save.
 
-4. Wacht totdat de schaalbewerking is voltooid.
+    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+
+4. Wait for your scale operation to finish.
 
     > [!NOTE]
-    > Let op: schaalbewerkingen **beëindigen** de query’s die momenteel worden uitgevoerd en voorkomen dat nieuwe query’s kunnen worden uitgevoerd.
+    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
     
-5. Voer een scanbewerking uit op de reisgegevens, waarbij u het eerste miljoen vermeldingen voor alle kolommen selecteert. Als u snel door wilt gaan, kunt u gerust minder rijen selecteren.
+5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
+6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
-Noteer de tijd die nodig was voor het uitvoeren van deze bewerking.
-
-6. Schaal uw exemplaar omhoog naar 400 DWU. Met elke 100 DWU wordt een extra rekenknooppunt aan uw Azure SQL Data Warehouse toegevoegd.
-
-7. Voer de opnieuw query uit. U zou een duidelijk verschil moeten zien. 
+7. Run the query again! You should notice a significant difference. 
 
 > [!NOTE]
-> Azure SQL Data Warehouse is een MPP-platform (Massively Parallel Processing). Bij query's en bewerkingen die taken tussen verschillende knooppunten parallel kunnen uitvoeren, laat Azure SQL Data Warehouse zijn ware kracht zien.
+> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
+> Azure SQL Data Warehouse.
 >
 
-### <a name="join-query-with-statistics"></a>Joinquery met statistieken
+### See the effect of statistics on query performance
 
-1. Een query uitvoeren die de tabel Date met de tabel Trip samenvoegt
+1. Run a query that joins the Date table with the Trip table
 
     ```sql
-    SELECT TOP (1000000) dt.[DayOfWeek]
-    ,tr.[MedallionID]
-    ,tr.[HackneyLicenseID]
-    ,tr.[PickupTimeID]
-    ,tr.[DropoffTimeID]
-    ,tr.[PickupGeographyID]
-    ,tr.[DropoffGeographyID]
-    ,tr.[PickupLatitude]
-    ,tr.[PickupLongitude]
-    ,tr.[PickupLatLong]
-    ,tr.[DropoffLatitude]
-    ,tr.[DropoffLongitude]
-    ,tr.[DropoffLatLong]
-    ,tr.[PassengerCount]
-    ,tr.[TripDurationSeconds]
-    ,tr.[TripDistanceMiles]
-    ,tr.[PaymentType]
-    ,tr.[FareAmount]
-    ,tr.[SurchargeAmount]
-    ,tr.[TaxAmount]
-    ,tr.[TipAmount]
-    ,tr.[TollsAmount]
-    ,tr.[TotalAmount]
+    SELECT TOP (1000000) 
+        dt.[DayOfWeek],
+        tr.[MedallionID],
+        tr.[HackneyLicenseID],
+        tr.[PickupTimeID],
+        tr.[DropoffTimeID],
+        tr.[PickupGeographyID],
+        tr.[DropoffGeographyID],
+        tr.[PickupLatitude],
+        tr.[PickupLongitude],
+        tr.[PickupLatLong],
+        tr.[DropoffLatitude],
+        tr.[DropoffLongitude],
+        tr.[DropoffLatLong],
+        tr.[PassengerCount],
+        tr.[TripDurationSeconds],
+        tr.[TripDistanceMiles],
+        tr.[PaymentType],
+        tr.[FareAmount],
+        tr.[SurchargeAmount],
+        tr.[TaxAmount],
+        tr.[TipAmount],
+        tr.[TollsAmount],
+        tr.[TotalAmount],
     FROM [dbo].[Trip] as tr
-    join
-    dbo.[Date] as dt
-    on tr.DateID = dt.DateID
+        JOIN dbo.[Date] as dt
+        ON  tr.DateID = dt.DateID
     ```
 
-    Zoals te verwachten valt, neemt de query veel meer tijd in beslag wanneer u gegevens tussen de knooppunten verdeelt, met name bij een samenvoegingsbewerking zoals deze query.
+    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
 
-2. We gaan nu kijken hoe deze query verloopt wanneer we statistieken voor de samen te voegen kolom maken door het volgende uit te voeren:
+2. Statistics make a difference. 
+3. Run this statement to create statistics on the join columns.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -581,46 +625,48 @@ Noteer de tijd die nodig was voor het uitvoeren van deze bewerking.
     ```
 
     > [!NOTE]
-    > SQL DW beheert niet automatisch statistieken voor u. Statistieken zijn belangrijk voor de prestaties van query's en we raden u ten zeerste aan statistieken te maken en bij te werken.
+    > SQL DW does not automatically manage statistics for you. Statistics are important for query
+    > performance and it is highly recommended you create and update statistics.
     > 
-    > **U haalt het meeste voordeel uit statistieken bij kolommen die onderdeel uitmaken van samenvoegingen, kolommen met het WHERE-component en kolommen in GROUP BY.**
+    > **You gain the most benefit by having statistics on columns involved in joins, columns
+    > used in the WHERE clause and columns found in GROUP BY.**
     >
 
-3. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een aanmerkelijke versnelling moeten zien. 
+3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
 
-## <a name="next-steps"></a>Volgende stappen
+## Next steps
 
-U bent nu klaar om query’s uit te voeren en te verkennen. Bekijk onze aanbevolen procedures en tips.
+You're now ready to query and explore. Check out our best practices or tips.
 
-Als u klaar bent voor vandaag, zorg dan dat u uw exemplaar onderbreekt. U kunt enorm besparen op de productie door te onderbreken en schalen op basis van uw zakelijke behoeften.
+If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
+savings by pausing and scaling to meet your business needs.
 
-![Onderbreken](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## <a name="useful-readings"></a>Handige documentatie
+## Useful readings
 
-[Gelijktijdigheid en werklastbeheer]
+[Concurrency and Workload Management][]
 
-[Aanbevolen procedures voor Azure SQL Data Warehouse]
+[Best practices for Azure SQL Data Warehouse][]
 
-[Querybewaking]
+[Query Monitoring][]
 
-[Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse]
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
 
-[Gegevens migreren naar Azure SQL Data Warehouse]
+[Migrating Data to Azure SQL Data Warehouse][]
 
-
-[Gelijktijdigheid en werklastbeheer]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Aanbevolen procedures voor Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Querybewaking]: sql-data-warehouse-manage-monitor.md
-[Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Gegevens migreren naar Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Query Monitoring]: sql-data-warehouse-manage-monitor.md
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Vereisten]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
@@ -628,6 +674,6 @@ Als u klaar bent voor vandaag, zorg dan dat u uw exemplaar onderbreekt. U kunt e
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

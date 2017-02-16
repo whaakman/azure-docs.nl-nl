@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/25/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ec708440fd3ab5d18cb7482002e5432e3a5d373c
-ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
 
 
 ---
@@ -31,12 +31,17 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 >
 >
 
-In dit artikel gebruikt u Azure PowerShell voor het maken van uw eerste Azure-gegevensfactory.
+In dit artikel gebruikt u Azure PowerShell voor het maken van uw eerste Azure-gegevensfactory. Als u de zelfstudie wilt volgen met andere hulpprogramma's/SDK's, selecteert u een van de opties uit de vervolgkeuzelijst.
+
+> [!NOTE]
+> Met de gegevenspijplijn in deze zelfstudie worden invoergegevens getransformeerd in uitvoergegevens. Er worden bijvoorbeeld geen gegevens gekopieerd van een brongegevensarchief naar een doelgegevensarchief. Zie [Zelfstudie: gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor informatie over het kopiëren van gegevens met Azure Data Factory.
+> 
+> U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
 * Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om de meest recente versie van Azure PowerShell te installeren op uw computer.
-* (optioneel) Dit artikel omvat niet alle Data Factory-cmdlets. Zie [Naslaginformatie voor Data Factory-cmdlets](https://msdn.microsoft.com/library/dn820234.aspx) (Data Factory Cmdlet Reference) voor uitgebreide documentatie over Data Factory-cmdlets.
+* (optioneel) Dit artikel omvat niet alle Data Factory-cmdlets. Zie [Naslaginformatie voor Data Factory-cmdlets](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) (Data Factory Cmdlet Reference) voor uitgebreide documentatie over Data Factory-cmdlets.
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
 In deze stap gebruikt u Azure PowerShell om een Azure-gegevensfactory met de naam **FirstDataFactoryPSH** te maken. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens. U begint in deze stap met het maken van de gegevensfactory.
@@ -403,16 +408,14 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 ## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |
 |:--- |:--- |
-| [Data Factory-cmdlet-verwijzing](https://msdn.microsoft.com/library/azure/dn820234.aspx) |Zie de uitgebreide documentatie over Data Factory-cmdlets |
-| [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) |Dit artikel bevat een lijst van activiteiten voor gegevenstransformatie (zoals de HDInsight Hive-transformatie die u in deze zelfstudie hebt gebruikt) die door Azure Data Factory worden ondersteund. |
-| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
+| [Data Factory-cmdlet-verwijzing](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) |Zie de uitgebreide documentatie over Data Factory-cmdlets |
 | [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
-| [Pijplijnen bewaken en beheren met de Azure Portal-blades](data-factory-monitor-manage-pipelines.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de Azure Portal-blades. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
+ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Aan de slag met Azure File Storage in Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targ
 ## <a name="video-using-azure-file-storage-with-windows"></a>Video: Azure File Storage gebruiken met Windows
 Hier volgt een video waarin u ziet hoe u Azure-bestandsshares maakt en gebruikt in Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -605,7 +605,7 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
     SAS wordt alleen ondersteund via de REST API of clientbibliotheken. Wanneer u de bestandsshare koppelt via het SMB-protocol, kunt u geen SAS gebruiken om toegang tot de inhoud ervan te delegeren.
 2. **Zijn Azure-bestandsshares publiekelijk zichtbaar via internet of zijn ze alleen toegankelijk vanuit Azure?**
    
-    Zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012), is uw bestandsshare beschikbaar via internet.  
+    Zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012), is uw bestandsshare beschikbaar via internet. Neem contact op met uw lokale ISP-provider om de poort te deblokkeren. In de tussentijd kunt u uw bestanden weergeven met Opslagverkenner of andere software van derden zoals Cloudberry.
 3. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?**
    
     Als de bestandsshare en de virtuele machine zich in verschillende regio's bevinden, wordt het verkeer tussen hen in rekening gebracht als externe bandbreedte.
@@ -646,6 +646,12 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
     
     U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
 
+16. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
+
+    [Versleuteling aan de serverzijde](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is momenteel in preview. Tijdens de preview kan de functie alleen worden ingeschakeld voor nieuwe Azure Resource Manager-opslagaccounts (ARM).
+    U kunt deze functie inschakelen op een Azure Resource Manager-opslagaccount via Azure Portal. De planning is om [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) of de [Microsoft Azure Storage-resourceprovider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) aan het eind van februari klaar te hebben voor het inschakelen van versleuteling voor bestandsopslag. Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Wanneer u Storage Service-versleuteling inschakelt voor Azure File Storage, worden uw gegevens automatisch versleuteld. 
+    Meer informatie over Storage Service-versleuteling. U kunt ook contact opnemen via ssediscussions@microsoft.com voor aanvullende vragen over de preview.
+
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 
@@ -657,6 +663,7 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 * [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)
 * [AzCopy gebruiken met Microsoft Azure Storage](storage-use-azcopy.md)
 * [De Azure CLI gebruiken met Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Problemen met betrekking tot Azure File Storage oplossen](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Naslaginformatie
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,6 +677,6 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

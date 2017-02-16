@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/2/2017
+ms.author: markgal;jimpark;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
 
 
 ---
@@ -45,7 +45,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 **Toepassingsconsistente back-up**: of u nu back-ups maakt van een bestandsserver, een virtuele machine of een SQL-database, u moet weten dat een herstelpunt over alle vereiste gegevens beschikt om de back-up te herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
 
-**Lange bewaartermijn**: maak 99 jaar back-ups van uw gegevens naar Azure. In plaats van het overzetten van back-ups van schijf naar tape, om deze vervolgens voor langdurige opslag te verplaatsen naar een externe locatie, kunt u Azure gebruiken voor zowel kortdurende als langdurige opslag.
+**Langdurige retentie**: in plaats van het overzetten van back-ups van schijf naar tape, om deze vervolgens voor langdurige opslag te verplaatsen naar een externe locatie, kunt u Azure gebruiken voor zowel kortdurende als langdurige opslag. Azure heeft geen beperkingen voor hoelang u gegevens mag bewaren in een Backup- of Recovery Services-kluis. U kunt gegevens zo lang als u wilt in een kluis bewaren. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. Zie het gedeelte [Back-ups en retentie](backup-introduction-to-azure-backup.md#backup-and-retention) in dit artikel voor meer informatie over hoe deze limiet invloed kan hebben op uw back-upbehoeften.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Welke Azure Backup-onderdelen moet ik gebruiken?
 Als u niet zeker weet welke Azure Backup-onderdelen geschikt zijn voor uw behoeften, raadpleegt u de volgende tabel voor informatie over wat u met elk onderdeel kunt beveiligen. Azure Portal bevat een ingebouwde wizard, om u te helpen bij het kiezen van de onderdelen die u kunt downloaden en implementeren. De wizard, die deel uitmaakt van de Recovery Services-kluis, leidt u door de stappen voor het selecteren van een back-uplocatie en het kiezen van de gegevens of de toepassing die u wilt beveiligen.
@@ -175,7 +175,7 @@ Als u een back-up maakt van uw gegevens naar een System Center DPM of Azure Back
 #### <a name="network-throttling"></a>Netwerkbeperking
 De Azure Backup-agent biedt netwerkbeperking, zodat u kunt bepalen hoe de netwerkbandbreedte tijdens de gegevensoverdracht wordt gebruikt. Beperking kan handig zijn wanneer u onder werktijd een back-up van gegeven moet maken, maar niet wilt dat het back-upproces het andere internetverkeer verstoort. De beperking voor de gegevensoverdracht is van toepassing op back-up- en herstelbewerkingen.
 
-### <a name="backup-and-retention"></a>Back-up en retentie
+## <a name="backup-and-retention"></a>Back-up en retentie
 
 Azure Backup heeft een limiet van 9999 herstelpunten, ook wel back-ups of momentopnamen genoemd, *per beveiligd exemplaar*. Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Raadpleeg [Wat is een beveiligd exemplaar?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) voor meer informatie. Een exemplaar is beveiligd zodra er een back-up van de gegevens is opgeslagen. De back-up van de gegevens biedt beveiliging. Als de brongegevens verloren gaan of beschadigd raken, kunt u met de back-up de brongegevens herstellen. In de volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel weergegeven. De configuratie van uw back-upbeleid bepaalt hoe snel u de herstelpunten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
 
@@ -234,6 +234,6 @@ Lees een van de volgende artikelen voor meer informatie over het beschermen van 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -5,7 +5,7 @@ description: Antwoorden op veelgestelde vragen over de Backup-service, Backup-ag
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/1/2017
+ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 7033b660608897819b629d398450cd32ea7b48fa
 
 
 ---
 # <a name="azure-backup-service--faq"></a>Veelgestelde vragen over de Azure Backup-service
-Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. Vragen over Azure Backup kunt u stellen in de sectie Disqus van dit of een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
+Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Wat is de lijst met ondersteunde besturingssystemen waarmee ik een back-up naar Azure met Azure Backup kan maken? <br/>
 Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-ups van bestanden, mappen en workloadtoepassingen die worden beschermd met behulp van Azure Backup Server en SCDPM.
@@ -68,7 +68,7 @@ De back-upgegevens worden verzonden naar het datacenter van de kluis waarbij de 
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Wat gebeurt er als ik de naam van een Windows-server wijzig waarmee back-ups van gegevens naar Azure worden opgeslagen?<br/>
 Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zijn geconfigureerd, gestopt.
-Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan eerder een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) (Andere server) in de wizard **Gegevens herstellen**.
+Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan eerder een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) (Andere server) in de wizard **Gegevens herstellen**.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Van welke typen stations kan ik back-up van bestanden en mappen maken? <br/>
 U kunt geen back-up van de volgende stations/volumes maken:
@@ -89,7 +89,6 @@ De volgende typen worden ondersteund:
 * Gecomprimeerd + Sparse
 * Vaste koppelingen: niet ondersteund, worden overgeslagen
 * Reparsepunt: niet ondersteund, wordt overgeslagen
-* Versleuteld + gecomprimeerd: niet ondersteund, wordt overgeslagen
 * Versleuteld + sparse: niet ondersteund, wordt overgeslagen
 * Gecomprimeerde stream: niet ondersteund, wordt overgeslagen
 * Sparse stream: niet ondersteund, wordt overgeslagen
@@ -277,6 +276,6 @@ Herstelpunten van klassieke virtuele machines in een back-upkluis worden niet au
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

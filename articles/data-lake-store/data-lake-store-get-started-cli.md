@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Data Lake Store met de platformoverschrijdende opdrachtregelinterface | Microsoft Docs
+title: De opdrachtregelinterface gebruiken om aan de slag te gaan met Azure Data Lake Store | Microsoft Docs
 description: De platformoverschrijdende opdrachtregel van Azure gebruiken voor het maken van een Data Lake Store-account en uitvoeren van basisbewerkingen
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -24,14 +24,19 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java-SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
+> * [Azure-CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
+
+> [!NOTE]
+> Voor het uploaden en downloaden van grote hoeveelheden gegevens (grote bestanden, een groot aantal bestanden of beide), raden wij u aan om de [Python-SDK](data-lake-store-get-started-python.md), de [.NET-SDK](data-lake-store-get-started-net-sdk.md) of [Azure PowerShell](data-lake-store-get-started-powershell.md) te gebruiken. Met deze opties profiteert u van betere prestaties, omdat er meerdere threads worden gebruikt om de gegevensverplaatsing parallel te laten verlopen.
+> 
+>  
 
 Informatie over gebruik van de Azure-opdrachtregelinterface voor het maken van een Azure Data Lake Store-account en het uitvoeren van basisbewerkingen, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
 
@@ -177,6 +182,6 @@ Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
