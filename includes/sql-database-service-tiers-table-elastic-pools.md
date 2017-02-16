@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Poolgrootte (eDTU's)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Maximale opslag per pool* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Maximale opslag per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Maximale OLTP-opslag in het geheugen per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Maximaal aantal databases per pool | 100 | 100 | 100 | 100 | 100 | 
 | Maximaal aantal gelijktijdige werknemers per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Maximaal aantal gelijktijdige aanmeldingen per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -79,6 +79,6 @@ sql-database-service-tiers.md
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
