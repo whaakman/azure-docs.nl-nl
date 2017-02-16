@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
+ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 ---
@@ -114,13 +114,13 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). Voor deze eerste PHP-zelfstudie hoeft u nog niet precies te weten wat dat inhoudt.
+3. Maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). Voor deze node.js-zelfstudie hoeft u nog niet precies te weten wat dat inhoudt.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     Gebruik de CLI-opdracht `az appservice list-locations` om te zien welke waarden u kunt gebruiken voor `<location>`.
 
-3. Maak een nieuw 'GRATIS' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Voor deze eerste PHP-zelfstudie hoeft u alleen te weten dat de web-apps in dit plan niet in rekening worden gebracht.
+3. Maak een nieuw 'GRATIS' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Voor deze eerste node.js-zelfstudie hoeft u alleen te weten dat de web-apps in dit plan niet in rekening worden gebracht.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -44,7 +44,7 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 
 ## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **+ Nieuw** > **Gegevens en opslag** > **SQL Data Warehouse**.
+2. Klik op **+ Nieuw** > **Databases** > **SQL Data Warehouse**.
 
     ![Maken](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. Vul op de blade **SQL Data Warehouse** de benodigde informatie in en druk op Maken.
@@ -102,6 +102,6 @@ Het is ook een goed idee om te kijken naar de [Aanbevolen procedures][Best pract
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

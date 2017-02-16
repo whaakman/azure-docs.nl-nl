@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u de preview van Azure Stack kunt gebruiken voor het leveren van Azure-services vanaf uw datacenter. Ontdek en gebruik functies uit een conceptontwerpomgeving.
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Documentatie over Azure Stack
 
-Microsoft Azure Stack is een nieuw hybride cloudplatformproduct waarmee u Azure-services kunt leveren vanuit het datacenter van uw organisatie. Microsoft Azure Stack Technical Preview 2 wordt beschikbaar via een omgeving voor testen van concept (POC; Proof of Concept). De POC is een omgeving voor het leren en laten zien van Azure Stack-functies. Hiermee kunt u alle vereiste onderdelen op één fysieke machine implementeren o een omgeving te maken voor de evaluatie van de belangrijkste concepten en mogelijkheden en voor het valideren van het uitbreidingsmodel voor API's.
+Leer hoe u de technische preview van Azure Stack kunt gebruiken voor het leveren van Azure-services vanaf het datacenter van uw organisatie. Zelfstudies en andere documentatie laten zien hoe u de conceptontwerpomgeving kunt gebruiken om Azure Stack-functies te ontdekken en gebruiken.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Documentatie over Azure Stack downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

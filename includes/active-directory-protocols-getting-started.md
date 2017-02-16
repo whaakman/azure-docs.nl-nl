@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ U moet eerst uw toepassing registreren bij uw AD-tenant (Azure Active Directory-
 * Selecteer de gewenste Azure AD-tenant door rechtsboven op de pagina op uw account te klikken.
 * Klik in het linkernavigatievenster op **Azure Active Directory**.
 * Klik op **App-registraties** en vervolgens op **Toevoegen**.
-* Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. Dit kan een webtoepassing of een systeemeigen toepassing zijn. Voor deze zelfstudie maakt dat geen verschil. Als u behoefte hebt aan specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, raadpleegt u onze [snelstartgidsen](../articles/active-directory/active-directory-developers-guide.md).
+* Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. Dit kan een webtoepassing of een systeemeigen toepassing zijn. Voor deze zelfstudie maakt dat geen verschil. Als u behoefte hebt aan specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, raadpleegt u onze [snelstartgidsen](../articles/active-directory/develop/active-directory-developers-guide.md).
   * Als u een webtoepassing maakt, geeft u de **aanmeldings-URL** op. Dit is de basis-URL van uw toepassing, waar gebruikers zich kunnen aanmelden. Bijvoorbeeld: `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Als u een systeemeigen toepassing maakt, geeft u een **omleidings-URI** op. Deze wordt door Azure AD gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld `http://MyFirstAADApp`.
@@ -36,6 +36,6 @@ U moet eerst uw toepassing registreren bij uw AD-tenant (Azure Active Directory-
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

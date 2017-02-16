@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
+ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
+ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
 Voor de beveiliging regelt SQL Database toegang met firewallregels die de connectiviteit beperken op basis van IP-adres. Met behulp van verificatiemechanismen moeten gebruikers hun identiteit kunnen aantonen en met autorisatiemechanismen worden gebruikers beperkt tot bepaalde gegevens en acties. 
 
 > [!IMPORTANT]
-> Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van de beveiligingsfuncties van SQL Database.
+> Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van de beveiligingsfuncties van SQL Database. Voor een zelfstudie met SQL Server-verificatie raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau). Voor een zelfstudie met Azure Active Directory-verificatie raadpleegt u [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md) (SQL Database zelfstudie: AAD-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
+
 >
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall en firewallregels
@@ -69,10 +70,11 @@ Daarnaast kunnen de volgende functies worden gebruikt om machtigingen te beperke
 - Zie [Aanmeldingen beheren](sql-database-manage-logins.md) voor meer informatie over gebruikers en aanmeldingen. 
 - Zie [Data protection and security](sql-database-protect-data.md) (Gegevensbescherming en beveiliging) voor een discussie over het gebruik van de functies voor gegevensbeveiliging in SQL Database.
 - Zie [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) (Aan de slag met SQL Database Auditing) en [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md) (Aan de slag met SQL Database Threat Detection) voor een discussie over proactieve controle.
+- Voor een zelfstudie met SQL Server-verificatie raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
+- Voor een zelfstudie met Azure Active Directory-verificatie raadpleegt u [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md) (SQL Database zelfstudie: AAD-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

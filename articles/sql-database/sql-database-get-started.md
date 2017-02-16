@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
@@ -44,17 +44,22 @@ Aan het eind van deze zelfstudie hebt u een voorbeelddatabase en een lege databa
 
 **Geschatte tijd**: deze zelfstudie duurt circa 30 minuten (mits u al aan de vereisten voldoet).
 
+> [!TIP]
+> U kunt dezelfde taken uitvoeren in een aan de slag-zelfstudie met [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Vereisten
 
 * U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * U moet met Azure Portal verbinding kunnen maken met een account dat is gekoppeld aan de eigenaar van het abonnement of de rol Inzender. Zie [Aan de slag met toegangsbeheer in Azure Portal](../active-directory/role-based-access-control-what-is.md) voor meer informatie over op rollen gebaseerd toegangsbeheer (RBAC).
 
-> [!TIP]
-> U kunt dezelfde taken uitvoeren in een aan de slag-zelfstudie met [C#](sql-database-get-started-csharp.md) of [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Deze zelfstudie helpt u inzicht te krijgen in de inhoud van de volgende onderwerpen: [Overzicht van de SQL Database-server](sql-database-server-overview.md), [Overzicht SQL-databases](sql-database-overview.md) en [Overzicht van de firewallregels voor Azure SQL Database](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Aanmelden met uw bestaande account
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Aanmelden bij Azure Portal met uw Azure-account
 Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) en volg deze stappen om verbinding te maken met Azure Portal.
 
 1. Open de browser van uw keuze en maak verbinding met [Azure Portal](https://portal.azure.com/).
@@ -103,7 +108,7 @@ Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) e
     ![serverlocatie](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > Het tekstvak voor **Toegang van Azure-services tot server toestaan** kan niet worden gewijzigd op deze blade. U kunt deze instelling op de serverfirewallblade wijzigen. Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie.
+    > Het tekstvak voor **Toegang van Azure-services tot server toestaan** kan niet worden gewijzigd op deze blade. U kunt deze instelling op de serverfirewallblade wijzigen. Zie [Aan de slag met beveiliging](sql-database-control-access-sql-authentication-get-started.md) voor meer informatie.
     >
     
 9. Klik op **Create**.
@@ -183,7 +188,7 @@ Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) e
     ![query systeemobjecten hoofddatabase](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Zie [Aan de slag met SQL-beveiliging](sql-database-get-started-security.md) om meer over SQL-beveiliging te weten te komen
+    > Zie [Aan de slag met SQL-beveiliging](sql-database-control-access-sql-authentication-get-started.md) om meer over SQL-beveiliging te weten te komen
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Nieuwe database maken in Azure Portal met behulp van Adventure Works LT-voorbeeld
@@ -291,7 +296,7 @@ Gebruik uw [bestaande abonnement](https://account.windowsazure.com/Home/Index) e
 ## <a name="next-steps"></a>Volgende stappen
 Nu u deze zelfstudie hebt voltooid, wilt u mogelijk aanvullende zelfstudies volgen die aansluiten op wat u in deze zelfstudie hebt geleerd. 
 
-* Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie over de beveiliging van Azure SQL Database.
+* Zie [Aan de slag met beveiliging](sql-database-control-access-sql-authentication-get-started.md) voor meer informatie over de beveiliging van Azure SQL Database.
 * Bent u bekend met Excel? Ontdek dan hoe u [verbinding kunt maken met een SQL Database in Azure via Excel](sql-database-connect-excel.md).
 * Als u wilt gaan coderen, kiest u uw programmeertaal in [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md).
 * Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md).
@@ -306,6 +311,6 @@ Nu u deze zelfstudie hebt voltooid, wilt u mogelijk aanvullende zelfstudies volg
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

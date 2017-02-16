@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 01/18/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
-ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
-
+ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
+ms.openlocfilehash: 1b162e57ee1e7a4e953d1b7593ce45669ff3cca8
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
@@ -35,20 +34,21 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
-| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - west 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, West-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **Zuid-Amerika** |Brazilië - zuid |Sao Paulo |
 | **Europa** |Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid |Amsterdam, Dublin, Londen, Newport (Wales), Parijs |
 | **Azië** |Oost-Azië, Zuidoost-Azië |Hongkong, Singapore |
 | **Japan** |Japan - west, Japan - oost |Osaka, Tokio |
 | **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
 | **India** |India - west, India - midden, India - zuid |Chennai, Mumbai |
+| **Zuid-Korea** | Korea Centraal, Korea Zuid | Busan, Seoul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
-| **Cloud van de Amerikaanse overheid** |VS (overheid) - Iowa, VS (overheid) - Virginia |Chicago, Dallas, New York, Washington DC |
+| **Cloud van de Amerikaanse overheid** |VS (overheid) - Iowa , VS (overheid) - Virginia, US DoD Centraal+, US DoD Oost+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **China** |China Noord, China Oost |Beijing, Shanghai |
 | **Duitsland** |Duitsland Centraal, Duitsland Oost |Berlijn, Frankfurt |
 
@@ -64,7 +64,7 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 ### <a name="production-azure"></a>Productie-Azure
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -75,16 +75,16 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **New York** |Equinix, Megaport, Zayo Group |
+| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport (Wales)** |Next Generation Data |
-| **Montreal** |Cologix+ |
+| **Montreal** |Cologix |
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Parijs** |Interxion, Equinix+ |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
@@ -98,8 +98,9 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |Equinix, Verizon |
+| **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
+| **Silicon Valley** | Equinix+ |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>China
@@ -113,7 +114,7 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 ### <a name="germany"></a>Duitsland
 | **Locatie** | **Serviceproviders** |
 | --- | --- |
-| **Berlijn** |Colt+, e-shelter |
+| **Berlijn** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
@@ -134,12 +135,14 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 
 | **Locatie** | **Exchange** | **Connectiviteitsproviders** |
 | --- | --- | --- |
-| **Londen** | Equinix | Exponential E |
+| **Amsterdam** | Equinix | Eurofiber |
+| **Londen** | Equinix | Exponential E, HSO |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapore** |Equinix |1CLOUDSTAR |
-| **Sydney** | Megaport | Macquarie |
+| **Sydney** | Megaport | Macquarie Telecom Group|
+| **Tokio** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
@@ -148,9 +151,10 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **Continent** | **Systeemintegratie** |
 | --- | --- |
 | **Azië** |Avanade Inc., OneAs1a |
-| **Europa** |Avanade Inc., Dotnet Solutions |
-| **VS** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **Australië** | IT Consultancy |
+| **Europa** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **Noord-Amerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **Zuid-Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 * Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
@@ -160,6 +164,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

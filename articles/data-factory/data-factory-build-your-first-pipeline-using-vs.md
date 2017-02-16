@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 523687dafa670e1d48087df9a5810b79925c5cde
-ms.openlocfilehash: dc4030ce447349c4cd128a7824e0f726682f9714
+ms.sourcegitcommit: 52cf33c5b9f3c3818ef66b97f22d148f0bf7c859
+ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
 
 
 ---
@@ -75,18 +75,20 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 2. Selecteer **HDInsight On Demand Linked Service** en klik op **Add**.
 3. Vervang de **JSON** door het volgende:
 
-        {
-          "name": "HDInsightOnDemandLinkedService",
-          "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-              "version": "3.2",
-              "clusterSize": 1,
-              "timeToLive": "00:30:00",
-              "linkedServiceName": "AzureStorageLinkedService1"
-            }
-          }
+    ```JSON
+    {
+      "name": "HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "version": "3.2",
+          "clusterSize": 1,
+          "timeToLive": "00:30:00",
+          "linkedServiceName": "AzureStorageLinkedService1"
         }
+      }
+    }
+    ```
 
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
@@ -118,28 +120,29 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
 
     U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die staat voor invoergegevens van een activiteit in de pijplijn. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **inputdata**
 
-        {
-            "name": "AzureBlobInput",
-            "properties": {
-                "type": "AzureBlob",
-                "linkedServiceName": "AzureStorageLinkedService1",
-                "typeProperties": {
-                    "fileName": "input.log",
-                    "folderPath": "adfgetstarted/inputdata",
-                    "format": {
-                        "type": "TextFormat",
-                        "columnDelimiter": ","
-                    }
-                },
-                "availability": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "external": true,
-                "policy": {}
-            }
+    ```JSON
+    {
+        "name": "AzureBlobInput",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService1",
+            "typeProperties": {
+                "fileName": "input.log",
+                "folderPath": "adfgetstarted/inputdata",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {}
         }
-
+    }
+    ```
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
    | Eigenschap | Beschrijving |
@@ -162,24 +165,26 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
 
     In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** en geeft u op welke gegevensstructuur er door het Hive-script wordt geproduceerd. Bovendien geeft u op dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset op maandelijkse basis wordt geproduceerd.
 
-        {
-          "name": "AzureBlobOutput",
-          "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService1",
-            "typeProperties": {
-              "folderPath": "adfgetstarted/partitioneddata",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "availability": {
-              "frequency": "Month",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService1",
+        "typeProperties": {
+          "folderPath": "adfgetstarted/partitioneddata",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
           }
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1
         }
+      }
+    }
+    ```
 
     Raadpleeg het gedeelte **Invoergegevensset maken** voor een beschrijving van deze eigenschappen. U stelt de externe eigenschap niet in op een uitvoergegevensset, omdat de gegevensset wordt geproduceerd door de Data Factory-service.
 4. Sla het bestand **OutputDataset.json** op.
@@ -196,49 +201,50 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
    >
    >
 
-        {
-            "name": "MyFirstPipeline",
-            "properties": {
-                "description": "My first Azure Data Factory pipeline",
-                "activities": [
-                    {
-                        "type": "HDInsightHive",
-                        "typeProperties": {
-                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                            "scriptLinkedService": "AzureStorageLinkedService1",
-                            "defines": {
-                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                            }
-                        },
-                        "inputs": [
-                            {
-                                "name": "AzureBlobInput"
-                            }
-                        ],
-                        "outputs": [
-                            {
-                                "name": "AzureBlobOutput"
-                            }
-                        ],
-                        "policy": {
-                            "concurrency": 1,
-                            "retry": 3
-                        },
-                        "scheduler": {
-                            "frequency": "Month",
-                            "interval": 1
-                        },
-                        "name": "RunSampleHiveActivity",
-                        "linkedServiceName": "HDInsightOnDemandLinkedService"
-                    }
-                ],
-                "start": "2016-04-01T00:00:00Z",
-                "end": "2016-04-02T00:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService1",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2016-04-01T00:00:00Z",
+            "end": "2016-04-02T00:00:00Z",
+            "isPaused": false
         }
-
+    }
+    ```
      In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
 
     In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
@@ -268,45 +274,45 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
 3. Het volgende dialoogvenster wordt weergegeven:
 
    ![Het dialoogvenster Publish](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. Op de pagina Configure data factory doet u het volgende:
+4. Op de pagina **Configure data factory** doet u het volgende:
 
    1. Selecteer **Create New Data Factory**.
-   2. Voer een unieke **naam** in voor de gegevensfactory. Bijvoorbeeld: **FirstDataFactoryUsingVS09152016**. De naam moet wereldwijd uniek zijn.  
+   2. Voer een unieke **naam** in voor de gegevensfactory. Bijvoorbeeld: **FirstDataFactoryUsingVS09152016**. De naam moet wereldwijd uniek zijn.
+   3. Selecteer het juiste abonnement voor het veld **Subscription**. Als u geen abonnement niet ziet, controleert u of u bent aangemeld met een account dat een beheerder of co-beheerder is van het abonnement.
+   4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken.
+   5. Selecteer de **regio** voor de gegevensfactory.
+   6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.)
 
-        > [AZURE.IMPORTANT] Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-3. Selecteer het juiste abonnement voor het veld **Subscription**.
-
-
-        > [AZURE.IMPORTANT] Als u geen abonnement niet ziet, controleert u of u bent aangemeld met een account dat een beheerder of co-beheerder is van het abonnement.  
-
-    4. Selecteer de **resourcegroep** voor de gegevensfactory die u wilt maken.
-    5. Selecteer de **regio** voor de gegevensfactory.
-    6. Klik op **Next** om over te schakelen naar de pagina **Publish Items**. (Druk op **TAB** als u het veld Naam wilt verlaten, maar de knop **Next** is uitgeschakeld.)
+        > [!IMPORTANT]
+        > Als u tijdens het publiceren de foutmelding **Data factory name “FirstDataFactoryUsingVS” is not available** ziet, wijzigt u de naam (bijvoorbeeld in yournameFirstDataFactoryUsingVS). Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.   
 1. Op de pagina **Publish Items** controleert u of alle Data Factory-entiteiten zijn geselecteerd en klikt u op **Next** om over te schakelen naar de pagina **Summary**.     
 2. Controleer de samenvatting en klik op **Next** om te beginnen met het implementatieproces en om de **implementatiestatus** te bekijken.
 3. Op de pagina **Deployment Status** ziet u de status van het implementatieproces. Klik op Finish wanneer de implementatie is uitgevoerd.
 
 Belangrijke punten om op te letten:
 
-* Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
+- Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
+    - Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren.
+        ```PowerShell   
+        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```
+        U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd.
 
-  * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren.
-
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-
-      U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd.
-
-          Get-AzureRmResourceProvider
-  * Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
-* De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
-* Als u Data Factory-exemplaren wilt maken, moet u beheerder/co-beheerder van het Azure-abonnement zijn.
+        ```PowerShell
+        Get-AzureRmResourceProvider
+        ```
+    - Meld u bij de [Azure Portal](https://portal.azure.com) aan met behulp van het Azure-abonnement en navigeer naar een Data Factory-blade of maak een gegevensfactory in de Azure Portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
+- De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
+- Als u Data Factory-exemplaren wilt maken, moet u beheerder/co-beheerder van het Azure-abonnement zijn.
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 ### <a name="monitor-pipeline-using-diagram-view"></a>De pijplijn bewaken met Diagramweergave
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) en doe het volgende:
    1. Klik op **Meer services** en op **Gegevensfactory's**.
-       ![Door gegevensfactory's bladeren](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+       
+        ![Door gegevensfactory’s bladeren](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
    2. Selecteer de naam van de gegevensfactory (bijvoorbeeld: **FirstDataFactoryUsingVS09152016**) in de lijst met gegevensfactory’s.
+   
        ![Uw gegevensfactory selecteren](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. Klik op de startpagina van uw gegevensfactory op **Diagram**.
 
@@ -343,14 +349,15 @@ Belangrijke punten om op te letten:
 11. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
 
     ![Details gegevenssegment](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
+12. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**. 
+  
     ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
     In de logboekbestanden ziet u de Hive-query die is uitgevoerd en de statusinformatie. Deze logboeken komen van pas bij het oplossen van problemen.  
 
 Zie [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor instructies over het gebruik van de Azure Portal om de pijplijn en gegevenssets te bewaken die u tijdens deze zelfstudie hebt gemaakt.
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>De pijplijn bewaken met de app Bewaking en beheer
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>De pijplijn bewaken met de app Bewaking en beheer
 U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
 
 1. Klik op de tegel Bewaking en beheer.
@@ -388,16 +395,18 @@ U kunt in Visual Studio configuratiebestanden gebruiken om de eigenschappen voor
 
 Overweeg de volgende JSON-definitie te gebruiken voor een gekoppelde Azure Storage-service. Geef **connectionString** op met verschillende waarden voor accountname en accountkey op basis van de omgeving (ontwikkeling/tests/productie) waarin u Data Factory-entiteiten implementeert. U kunt dit gedrag bewerkstelligen door een afzonderlijk configuratiebestand te gebruiken voor elke omgeving.
 
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="add-a-configuration-file"></a>Een configuratiebestand toevoegen
 Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit te voeren:   
@@ -408,64 +417,71 @@ Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit
     ![Een configuratiebestand toevoegen](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Voeg configuratieparameters en de bijbehorende waarden toe in de volgende indeling.
 
-        {
-            "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
-            "AzureStorageLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-                }
-            ],
-            "AzureSqlLinkedService1": [
-                {
-                    "name": "$.properties.typeProperties.connectionString",
-                    "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
-            ]
-        }
+    ```JSON
+    {
+        "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+        "AzureStorageLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        ],
+        "AzureSqlLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        ]
+    }
+    ```
 
     In dit voorbeeld configureert u de eigenschap connectionString van een gekoppelde Azure Storage-service en een gekoppelde Azure SQL-service. De syntaxis voor het opgeven van de naam is [JsonPath](http://goessner.net/articles/JsonPath/).   
 
     Als JSON een eigenschap heeft met een matrix van waarden zoals in de volgende code wordt weergegeven:  
 
-        "structure": [
-              {
-                  "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-            }
-        ],
+    ```JSON
+    "structure": [
+          {
+              "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
+        }
+    ],
+    ```
 
     Eigenschappen configureren zoals wordt weergegeven in het volgende configuratiebestand (gebruik op nul gebaseerde indexering):
 
-        {
-            "name": "$.properties.structure[0].name",
-            "value": "FirstName"
-        }
-        {
-            "name": "$.properties.structure[0].type",
-            "value": "String"
-        }
-        {
-            "name": "$.properties.structure[1].name",
-            "value": "LastName"
-        }
-        {
-            "name": "$.properties.structure[1].type",
-            "value": "String"
-        }
+    ```JSON
+    {
+        "name": "$.properties.structure[0].name",
+        "value": "FirstName"
+    }
+    {
+        "name": "$.properties.structure[0].type",
+        "value": "String"
+    }
+    {
+        "name": "$.properties.structure[1].name",
+        "value": "LastName"
+    }
+    {
+        "name": "$.properties.structure[1].type",
+        "value": "String"
+    }
+    ```
 
 ### <a name="property-names-with-spaces"></a>Eigenschapnamen met spaties
 Als de naam van een eigenschap spaties bevat, gebruikt u vierkante haken, zoals in het volgende voorbeeld wordt weergegeven (databaseservernaam):
 
-     {
-         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-         "value": "MyAsqlServer.database.windows.net"
-     }
-
+```JSON
+ {
+     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+     "value": "MyAsqlServer.database.windows.net"
+ }
+```
 
 ### <a name="deploy-solution-using-a-configuration"></a>Een oplossing implementeren met behulp van een configuratie
 Wanneer u Azure Data Factory-entiteiten publiceert in de VS, kunt u opgeven welke configuratie u voor die publicatiebewerking wilt gebruiken.
@@ -507,6 +523,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

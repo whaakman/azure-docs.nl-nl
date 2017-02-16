@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
+ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime berekeningssysteem voor het verwerken van gegevensstromen. Met Storm in Azure HDInsight kunt u een op een cloud gebaseerd Storm-cluster maken dat in realtime big data-analyses uitvoert.
 
-> [!NOTE]
-> Met de stappen in dit artikel maakt u een HDInsight-cluster op basis van Linux. Zie [Zelfstudie voor Apache Storm: aan de slag met het Storm Starter-voorbeeld met behulp van gegevensanalyses in HDInsight](hdinsight-apache-storm-tutorial-get-started.md) voor stappen voor het maken van een Storm-cluster in HDInsight op basis van Windows.
+> [!IMPORTANT]
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight-afschaffing op Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -80,7 +80,7 @@ In deze sectie maakt u een HDInsight versie 3.5-cluster (Storm versie 1.0.1) met
      > * [SSH gebruiken met Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [SSH (PuTTY) gebruiken met Hadoop op basis van Linux in HDInsight via Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Selecteer __Ik ga akkoord met de bovenstaande voorwaarden__, klik op **OK** en selecteer vervolgens __Aan dashboard vastmaken__.
+3. Selecteer __Ik ga akkoord met de bovenstaande voorwaarden__, klik op **OK** en selecteer vervolgens __Vastmaken aan dashboard__
 
 6. Klik op **Kopen**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster te maken.
 
@@ -216,6 +216,6 @@ Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

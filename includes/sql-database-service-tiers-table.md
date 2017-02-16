@@ -9,7 +9,7 @@ sql-database-service-tiers.md
 | **Servicelaag** | **Basic** |
 | --- | :---: |
 | Maximaal aantal DTU's | 5 |
-| Maximale databasegrootte |2 GB|
+| Maximale databasegrootte* |2 GB|
 | Maximale OLTP-opslag in het geheugen |N.v.t. |
 | Maximaal aantal gelijktijdige werknemers |30 |
 | Maximaal aantal gelijktijdige aanmeldingen |30 |
@@ -20,7 +20,7 @@ sql-database-service-tiers.md
 | **Servicelaag** | **S0** | **S1** | **S2** | **S3** |
 | --- |---:| ---:|---:|---:|---:|
 | Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
-| Maximale databasegrootte | 250 GB| 250 GB | 250 GB | 250 GB |
+| Maximale databasegrootte* | 250 GB| 250 GB | 250 GB | 250 GB |
 | Maximale OLTP-opslag in het geheugen | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
 | Maximaal aantal gelijktijdige werknemers | 60 | 90 | 120 | 200 |
 | Maximaal aantal gelijktijdige aanmeldingen | 60 | 90 | 120 | 200 |
@@ -31,13 +31,15 @@ sql-database-service-tiers.md
 | **Servicelaag** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | Maximaal aantal DTU's | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Maximale databasegrootte | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
+| Maximale databasegrootte* | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
 | Maximale OLTP-opslag in het geheugen | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
 | Maximaal aantal gelijktijdige werknemers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximaal aantal gelijktijdige aanmeldingen | 200 | 400| 800| 1600| 2400| 6400 |
 | Maximaal aantal gelijktijdige sessies | 30.000| 30.000| 30.000| 30.000| 30.000| 30.000 |
 |||||||
 
-<!--HONumber=Nov16_HO3-->
+\* De maximale grootte per database verwijst naar de maximale grootte van de gegevensbestanden. De ruimte die logboekbestanden innemen, wordt niet meegerekend.
+
+<!--HONumber=Jan17_HO2-->
 
 

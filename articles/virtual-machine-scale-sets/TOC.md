@@ -2,15 +2,17 @@
 ## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 
 # Aan de slag
-## [Windows-schaalset maken](virtual-machine-scale-sets-windows-create.md)
-## [Linux-schaalset maken](virtual-machine-scale-sets-linux-create-cli.md)
+## [Een schaalset maken in de portal](virtual-machine-scale-sets-portal-create.md)
 
 # Procedures
 ## Plannen en ontwerpen
 ### [Overwegingen bij het ontwerpen](virtual-machine-scale-sets-design-overview.md)
+
 ## Implementeren
 ### [Schaalset met behulp van de portal](virtual-machine-scale-sets-portal-create.md)
 ### [Schaalset met Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Schaalset met PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Schaalset met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Toepassingen op schaalsets](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

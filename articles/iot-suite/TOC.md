@@ -19,6 +19,7 @@
 ## [Een logische app aansluiten op de oplossing voor controle op afstand](iot-suite-logic-apps-tutorial.md)
 ## [Een vooraf geconfigureerde oplossing aanpassen](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-dynamic-telemetry.md)
+## [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-custom-rule.md)
 ## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
 
 # Naslaginformatie
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

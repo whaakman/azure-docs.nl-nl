@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
-ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ In de volgende tabel worden de ERT en RPO vergeleken voor de drie meest voorkome
 | Actieve Geo-replicatie |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Databaseback-ups gebruiken om een database te herstellen
-Door SQL Database wordt automatisch wekelijks een combinatie van volledige databaseback-ups, differentiële databaseback-ups om het uur en transactielogboekback-ups om de vijf minuten uitgevoerd om uw bedrijf te beschermen tegen gegevensverlies. Deze back-ups worden opgeslagen in lokaal redundante opslag gedurende 35 dagen voor databases in de Standaard- en Premium-servicelaag en gedurende zeven dagen voor databases in de Basis-servicelaag. Zie [Servicelagen](sql-database-service-tiers.md) voor meer informatie over servicelagen. Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-scale-up.md). De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie [automatische databaseback-ups](sql-database-automated-backups.md) voor meer informatie.
+Door SQL Database wordt automatisch wekelijks een combinatie van volledige databaseback-ups, differentiële databaseback-ups om het uur en transactielogboekback-ups om de vijf minuten uitgevoerd om uw bedrijf te beschermen tegen gegevensverlies. Deze back-ups worden gedurende 35 dagen opgeslagen in geografisch redundante opslag voor databases in de Standaard- en Premium-servicelaag en gedurende zeven dagen voor databases in de Basis-servicelaag. Zie [Servicelagen](sql-database-service-tiers.md) voor meer informatie over servicelagen. Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-scale-up.md). De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie [automatische databaseback-ups](sql-database-automated-backups.md) voor meer informatie.
 
 Als de ingebouwde retentietermijn niet voldoende is voor uw toepassing, kunt u deze uitbreiden door voor uw database(s) langetermijnretentiebeleid te configureren. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie. 
 
@@ -75,6 +75,10 @@ Gebruik actieve geo-replicatie als uw toepassing voldoet aan een van deze criter
 * Uitvaltijd leidt tot een financiële verplichting.
 * Heeft een hoge frequentie van gegevenswijziging en een uur aan gegevensverlies is niet acceptabel.
 * De extra kosten van actieve geo-replicatie zijn lager dan de mogelijke financiële verplichting en het bijbehorende bedrijfsverlies.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Een database herstellen na een gebruikers- of toepassingsfout
 * Niemand is perfect! Een gebruiker kan mogelijk per ongeluk bepaalde gegevens verwijderen, per ongeluk een belangrijke tabel wissen of zelfs een volledige database verwijderen. Of een toepassing kan mogelijk per ongeluk goede gegevens overschrijven met beschadigde gegevens vanwege een toepassingsfout. 
@@ -154,6 +158,6 @@ Zie [Een toepassing ontwerpen voor noodherstel via de cloud](sql-database-design
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

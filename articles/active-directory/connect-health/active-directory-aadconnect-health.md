@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: fbb95696d8b9267d59d04769d3d7f48c29a8e4dd
+ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
+ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
 
 
 ---
@@ -63,7 +63,7 @@ De volgende video biedt een overzicht van Azure AD Connect Health for Sync
 >
 
 ## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health voor AD DS (preview)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health voor AD DS biedt bewaking voor domeincontrollers die geïnstalleerd zijn in Windows Server 2008 R2, Windows Server 2012 en Windows Server 2012 R2. Een eenvoudige en voordelige statusagent-installatie, waarmee u uw on-premises AD DS-omgeving rechtstreeks vanuit de cloud kunt bewaken. Azure AD Connect Health voor AD DS biedt de volgende set kernfuncties:
+Azure AD Connect Health voor AD DS biedt bewaking voor domeincontrollers die geïnstalleerd zijn in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Een eenvoudige en voordelige statusagent-installatie, waarmee u uw on-premises AD DS-omgeving rechtstreeks vanuit de cloud kunt bewaken. Azure AD Connect Health voor AD DS biedt de volgende set kernfuncties:
 
 * Bewakingswaarschuwingen om te detecteren wanneer domeincontrollers niet in orde zijn, samen met e-mailmeldingen voor kritieke waarschuwingen.
 * Dashboard voor domeincontrollers, waarmee u snel inzicht krijgt in de (operationele) status van uw domeincontrollers.
@@ -121,6 +121,6 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

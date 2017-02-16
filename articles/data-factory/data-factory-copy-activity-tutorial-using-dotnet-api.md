@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/27/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 
 ---
@@ -50,58 +50,41 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 1. Start **PowerShell**.
 2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
 
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
+        Login-AzureRmAccount
 3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
 
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
+        Get-AzureRmSubscription
 4. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement.
 
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
    > [!IMPORTANT]
    > Noteer de **SubscriptionId** en de **TenantId** uit de uitvoer van deze opdracht.
 
 5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.
 
-    ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N).
 
     Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie de naam van uw resourcegroep gebruiken in plaats van ADFTutorialResourceGroup.
 6. Maak een Azure Active Directory-toepassing.
 
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-    ```
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 
     Als u de volgende fout ziet, geeft u een andere URL op en voert u de opdracht opnieuw uit.
-    
-    ```PowerShell
-    Another object with the same value for property identifierUris already exists.
-    ```
+
+        Another object with the same value for property identifierUris already exists.
 7. Maak de AD-service-principal.
 
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 8. Voeg service-principal toe aan de rol **Inzender Data Factory**.
 
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
+        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 9. Haal de toepassings-id op.
 
-    ```PowerShell
-    $azureAdApplication 
-    ```
+        $azureAdApplication
+
     Noteer de toepassings-id (**applicationID** uit de uitvoer).
 
 U moet na deze stappen beschikken over de volgende vier waarden:
@@ -492,10 +475,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 16. Bouw de consoletoepassing. Klik op **Build** in het menu en klik op **Build Solution**.
 17. Controleer of er ten minste één bestand in de **adftutorial**-container in uw Azure Blob Storage staat. Als dit niet het geval is, maakt u in Kladblok het **Emp.txt**-bestand met de volgende inhoud en uploadt u het bestand naar de adftutorial-container.
 
-    ```
-    John, Doe
-    Jane, Doe
-    ```
+       Jan, Vloet    Dena, Vloet
 18. Voer het voorbeeld uit door op **Debug** -> **Start Debugging** te klikken in het menu. Als u **Getting run details of a data slice** ziet, wacht u een paar minuten en drukt u op **ENTER**.
 19. Gebruik Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten:
    * Gekoppelde service: **LinkedService_AzureStorage**
@@ -510,6 +490,6 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

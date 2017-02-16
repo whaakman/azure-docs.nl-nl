@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u DocumentDB kunt gebruiken, een NoSQL-documentdatabase zonder schema. Zelfstudies laten zien hoe u apps kunt integreren en SQL-query&quot;s kunt gebruiken voor JSON-documenten.
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
+ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
 
 ---
 #<a name="documentdb-documentation"></a>Documentatie voor DocumentDB
 
-Azure DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd voor snelle en voorspelbare prestaties, hoge beschikbaarheid, elastisch schalen, globale distributie en een gebruiksvriendelijke manier van ontwikkelen. Als een schemavrije NoSQL-database biedt DocumentDB rijke en vertrouwd SQL-querymogelijkheden met consistente lage latenties voor JSON-gegevens.
+Leer hoe u DocumentDB kunt gebruiken in krachtige toepassingen voor web, mobiel, games en IoT. Zelfstudies en andere documentatie laten zien hoe u JSON-gegevens kunt opslaan en SQL-query’s kunt uitvoeren via een flexibel schema in deze NoSQL-databaseservice.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -176,27 +177,38 @@ Azure DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd v
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
-### <a name="java"></a>Java
-[Naslaginformatie over Java-SDK](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[Naslaginformatie over beheerde .NET](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Knooppunt
-[Naslaginformatie over Node-SDK](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Naslaginformatie over Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[Naslaginformatie over SQL](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[Naslaginformatie over REST API](/rest/api/documentdb)
-
-[Naslaginformatie over API-resourceprovider](/rest/api/documentdbresourceprovider)
+<h2>Naslaginformatie</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Talen</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST-API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">REST-API voor resourceprovider</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 
@@ -210,6 +222,6 @@ Documentatie voor DocumentDB downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

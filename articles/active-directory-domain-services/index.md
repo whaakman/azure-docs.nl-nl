@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers en ze te beheren met groepsbeleid.
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentatie over Active Directory Domain Services
 
-Azure AD Domain Services (DS) biedt beheerde domeinservices, zoals lid worden van een domein, groepsbeleid, LDAP, Kerberos/NTLM-verificatie, die volledig compatibel zijn met Windows Server Active Directory.  Met deze service kunnen gebruikers een breed scala aan computeroplossingen op een flexibele manier implementeren.
+Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers. Zelfstudies en andere documentatie laten zien hoe u virtuele machines kunt beheren met groepsbeleid.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Documentatie over Active Directory Domain Services downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

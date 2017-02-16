@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video&quot;s en meer laten zien hoe u labs kunt maken, beheren en beveiligen.
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
+ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentatie over DevTest Labs
 
-Azure Devtest Labs is een service waarmee ontwikkelaars en testers snel omgevingen kunnen maken in Azure met minimale verspilling en kosten.  U kunt de nieuwste versie van uw toepassing testen door Windows- en Linux-omgevingen snel in te richten met herbruikbare sjablonen en artefacten.
+Leer hoe u met Devtest Labs snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video's en andere documentatie laten zien hoe u labs kunt maken, beheren en beveiligen, en artefacten kunt toevoegen en beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Documentatie over Devtest Lab downloaden </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

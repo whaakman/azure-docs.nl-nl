@@ -24,8 +24,8 @@
 ### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Uitvoer naar DocumentDB](stream-analytics-documentdb-output.md)
 ### [Gegevens analyseren met Power BI](stream-analytics-power-bi-dashboard.md)
-### [Integratie van REST API's en Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-### [Management .NET SDK gebruiken](stream-analytics-dotnet-management-sdk.md)
+### [Integratie van REST-API's en Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+### [Management .NET-SDK gebruiken](stream-analytics-dotnet-management-sdk.md)
 ### [Vensterfuncties](stream-analytics-window-functions.md)
 
 ## Beheren
@@ -40,13 +40,14 @@
 ### [PowerShell met één klik](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Querytaal](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics/)
-## [Releaseopmerkingen](stream-analytics-release-notes.md)
+## [REST](/rest/api/streamanalytics)
+
 
 # Bronnen
+## [Releaseopmerkingen](stream-analytics-release-notes.md)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
@@ -57,6 +58,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

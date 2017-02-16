@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Leer hoe u Container Service kunt gebruiken om toepassingscontainers te implementeren en beheren met DC/OS, Docker Swarm of Kubernetes. Zelfstudies, API-verwijzingen en meer.
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 9bb2c847b6e7b87b58fee04a6fe33edb801f9558
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
-#<a name="azure-container-service-documentation"></a>Documentatie over Azure Container Service
+# <a name="azure-container-service-documentation"></a>Documentatie over Azure Container Service
 
-Azure Container Service helpt u bij het eenvoudig maken, configureren en beheren van een cluster virtuele machines die vooraf zijn geconfigureerd voor het uitvoeren van beperkte toepassingen. Container Service maakt gebruik van een geoptimaliseerde configuratie van populaire open-source tools voor planning en indeling. U kunt hierbij uitgaan van uw eigen vaardigheden of gebruikmaken van een grote en groeiende community experts om toepassingen op basis van containers te implementeren en te beheren in Microsoft Azure.
+Leer hoe u Container Service kunt gebruiken om volledig draagbare toepassingscontainers te implementeren en beheren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u containers kunt schalen en indelen met DC/OS, Docker Swarm of Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -51,55 +52,45 @@ Azure Container Service helpt u bij het eenvoudig maken, configureren en beheren
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Service Management Reference-API</p>
-                    </div>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Naslaginformatie over de REST-API voor Compute</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
@@ -110,6 +101,7 @@ Documentatie over Azure Container Service downloaden </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

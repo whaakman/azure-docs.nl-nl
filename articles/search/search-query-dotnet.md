@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,7 +34,7 @@ Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaak
 
 Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. De query api-sleutel voor de Azure Search-service vaststellen
+## <a name="identify-your-azure-search-services-query-api-key"></a>De query api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-index hebt gemaakt, bent u bijna zover om query's uit te geven met behulp van de .NET SDK. Eerst moet u een van de query api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -48,7 +48,7 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Een instantie van de klasse SearchIndexClient maken
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Een instantie van de klasse SearchIndexClient maken
 Om query's uit te geven met de Azure Search .NET SDK, moet u een instantie van klasse `SearchIndexClient` maken. Deze klasse heeft verschillende constructors. De gewenste constructor krijgt de naam van uw zoekservice, de naam van de index en een `SearchCredentials`-object als parameters. `SearchCredentials` verpakt uw api-sleutel.
 
 Met de code hieronder maakt u een nieuwe `SearchIndexClient` voor de index "hotels" (gemaakt in [Een Azure Search-index maken met behulp van de .NET SDK](search-create-index-dotnet.md)) met waarden voor de naam van de zoekservice en de api-sleutel die zijn opgeslagen in het configuratiebestand van de toepassing (`app.config` of `web.config`):
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` heeft een `Documents`-eigenschap. Deze eigenschap bevat alle methoden die u nodig hebt om een query uit te voeren in een Azure Search-index.
 
-## <a name="iii-query-your-index"></a>III. Een query uitvoeren in uw index
+## <a name="query-your-index"></a>Een query uitvoeren in uw index
 Zoeken met de .NET SDK is net zo eenvoudig als het aanroepen van de `Documents.Search`-methode op uw `SearchIndexClient`. Deze methode heeft een aantal parameters, waaronder de zoektekst, en een `SearchParameters`-object dat kan worden gebruikt om de query te verfijnen.
 
 #### <a name="types-of-queries"></a>Typen query 's
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Zoekresultaten verwerken
+## <a name="handle-search-results"></a>Zoekresultaten verwerken
 De methode `Documents.Search` retourneert een `DocumentSearchResult`-object dat de resultaten van de query bevat. In het voorbeeld in de vorige sectie is gebruikgemaakt van een methode met de naam `WriteDocuments` om de zoekresultaten in de console uit te voeren:
 
 ```csharp
@@ -169,6 +169,6 @@ De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Om documenten in uw index te pushen met behulp van de .NET SDK, moet u het volge
 2. Maak een `IndexBatch` met de documenten die moeten worden toegevoegd, gewijzigd of verwijderd.
 3. Roep de `Documents.Index`-methode van uw `SearchIndexClient` aan om de `IndexBatch` naar uw zoekindex te verzenden.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Een instantie van de klasse SearchIndexClient maken
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Een instantie van de klasse SearchIndexClient maken
 Om de Azure Search .NET SDK te kunnen gebruiken om gegevens in uw index te importeren, moet u een instantie van klasse `SearchIndexClient` maken. U kunt deze instantie zelf samenstellen, maar het is eenvoudiger als u al een `SearchServiceClient`-instantie hebt om de methode `Indexes.GetClient` aan te roepen. U kunt bijvoorbeeld op de volgende manier een `SearchIndexClient` verkrijgen voor de index met de naam "hotels" van een `SearchServiceClient` met de naam `serviceClient`:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` heeft een `Documents`-eigenschap. Deze eigenschap bevat de methoden die u wilt toevoegen, wijzigen, verwijderen, of om documenten in uw index op te vragen.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Bepalen welke indexeerbewerking u moet gebruiken
+## <a name="decide-which-indexing-action-to-use"></a>Bepalen welke indexeerbewerking u moet gebruiken
 Om gegevens te importeren met de .NET SDK, moet u uw gegevens in een `IndexBatch`-object verpakken. Een `IndexBatch` omvat een verzameling van `IndexAction`-objecten, die een document en een eigenschap bevatten die Azure Search aansturen om een bewerking op het document uit te voeren (uploaden, samenvoegen, verwijderen, enzovoort). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
 
 | Bewerking | Beschrijving | Vereiste velden voor elk document | Opmerkingen |
@@ -67,7 +67,7 @@ Om gegevens te importeren met de .NET SDK, moet u uw gegevens in een `IndexBatch
 
 U kunt opgeven welke actie u wilt gebruiken met de verschillende statische methoden van de klassen `IndexBatch` en `IndexAction`, zoals wordt weergegeven in de volgende sectie.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Uw IndexBatch maken
+## <a name="construct-your-indexbatch"></a>Uw IndexBatch maken
 Nu u weet welke bewerkingen u wilt uitvoeren op uw documenten, bent u klaar om de `IndexBatch` samen te stellen. Het volgende voorbeeld laat zien hoe u een batch met verschillende bewerkingen kunt maken. In dit voorbeeld wordt een aangepaste klasse gebruikt met de naam `Hotel`, die wordt toegewezen aan een document in de index "hotels".
 
 ```csharp
@@ -130,7 +130,7 @@ U kunt tot 1000 documenten in een enkele indexeringsaanvraag opnemen.
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Gegevens naar de index importeren
+## <a name="import-data-to-the-index"></a>Gegevens naar de index importeren
 Nu u een geïnitialiseerd `IndexBatch`-object hebt, kunt u het object naar de index sturen door `Documents.Index` aan te roepen op uw `SearchIndexClient`-object. Het volgende voorbeeld laat zien hoe u `Index` kunt aanroepen, plus een aantal extra stappen die u moet uitvoeren:
 
 ```csharp
@@ -234,12 +234,12 @@ Dit is niet alleen een hypothetische probleem: Stel een scenario voor waarin u e
 
 Daarom wordt u aangeraden nullbare typen in uw modelklassen te gebruiken.
 
-## <a name="next"></a>Volgende
+## <a name="next-steps"></a>Volgende stappen
 Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

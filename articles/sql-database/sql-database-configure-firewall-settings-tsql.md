@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Alleen een databasegebruiker met de machtiging **BEHEER** voor de database (zoal
 
 Voor meer informatie over deze opgeslagen procedures raadpleegt u [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) en [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Voor een zelfstudie die laat zien hoe u firewalls op databaseniveau gebruikt, raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
+>
+
+
 ## <a name="next-steps"></a>Volgende stappen
 Voor artikelen met procedures voor het maken van firewallregels op serverniveau met andere methoden raadpleegt u: 
 
@@ -94,6 +99,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

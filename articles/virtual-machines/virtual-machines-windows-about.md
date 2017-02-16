@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 01/20/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+ms.sourcegitcommit: 232e1d1640352be38720e19f713959e84243af72
+ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
 
 Azure Virtual Machines vormen een van de diverse typen schaalbare on-demand computerresources die Azure biedt. Normaal gesproken kiest u voor een virtuele machine als u meer controle nodig hebt over de computeromgeving dan andere opties bieden.
 
-Een virtuele machine in Azure biedt u de flexibiliteit van virtualisatie zonder dat u de fysieke hardware hoeft te kopen en te beheren waarop de virtuele machine wordt uitgevoerd. U moet de virtuele machine echter wel onderhouden (de software die op de virtuele machine wordt uitgevoerd, configureren, patchen en onderhouden). Er is ook meer informatie beschikbaar [over virtuele Linux-machines in Azure](virtual-machines-linux-about.md).
+Een virtuele machine in Azure biedt u de flexibiliteit van virtualisatie zonder dat u de fysieke hardware hoeft te kopen en te beheren waarop de virtuele machine wordt uitgevoerd. U moet de virtuele machine echter wel onderhouden (de software die op de virtuele machine wordt uitgevoerd, configureren, patchen en onderhouden). Er is ook meer informatie beschikbaar [over virtuele Linux-machines in Azure](virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Deze tabel helpt bij het vergelijken van de opties die Azure biedt.
 
@@ -35,13 +35,13 @@ Deze tabel helpt bij het vergelijken van de opties die Azure biedt.
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Probeer een virtuele machine uit door snel een eenvoudige virtuele machine te maken. Zie [Een virtuele machine met Windows maken in de Azure Portal](virtual-machines-windows-hero-tutorial.md) voor instructies.
+Probeer een virtuele machine uit door snel een eenvoudige virtuele machine te maken. Zie [Een virtuele machine met Windows maken in de Azure Portal](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor instructies.
 
-Omdat de zelfstudie u helpt snel een virtuele machine te maken, wordt er slechts één van de manieren getoond waarop u dit kunt doen. Er wordt niet ingegaan op de diverse hulpprogramma’s die u kunt gebruiken om een virtuele machine te maken. Zie voor een overzicht van deze hulpprogramma's en koppelingen naar instructies [Verschillende manieren om een virtuele Windows-machine te maken](virtual-machines-windows-creation-choices.md).
-
-
+Omdat de zelfstudie u helpt snel een virtuele machine te maken, wordt er slechts één van de manieren getoond waarop u dit kunt doen. Er wordt niet ingegaan op de diverse hulpprogramma’s die u kunt gebruiken om een virtuele machine te maken. Zie voor een overzicht van deze hulpprogramma's en koppelingen naar instructies [Verschillende manieren om een virtuele Windows-machine te maken](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

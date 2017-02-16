@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u functies in de gewenste taal kunt ontwikkelen en implementeren voor het uitvoeren van taken op de achtergrond of volgens een schema, zonder speciale infrastructuur.
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Documentatie van Azure Functions
 
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code (functies) in de cloud. U kunt de code schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. U kunt de functies ook ontwikkelen in de door u gewenste taal, zoals C#, F#, Node.js, Python of PHP.
+Leer hoe u Functions kunt gebruiken voor het ontwikkelen en implementeren van kleine codefragmenten in de gewenste taal en in de cloud zonder een infrastructuur te maken. Zelfstudies, sjablonen en andere documentatie laten zien hoe u functies kunt maken voor taken die u wilt uitvoeren in een achtergrondthread of volgens een schema.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Documentatie voor Azure Functions downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

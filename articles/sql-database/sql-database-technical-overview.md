@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Wat is SQL Database? Inleiding tot SQL Database
@@ -26,7 +26,7 @@ SQL Database is een relationele database-service in de Microsoft Cloud op basis 
 
 Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u klaar bent om aan de slag te gaan met praktische zelfstudies, kunt u [uw eerste SQL-database maken](sql-database-get-started.md) of [een elastische pool maken](sql-database-elastic-pool-create-portal.md). Bekijk deze video voor een korte videodemonstratie.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, ben
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

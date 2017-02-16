@@ -41,7 +41,7 @@ Hierdoor kunnen app-ontwikkelaars hun klanten bereiken op een zeer effectieve, n
 ## <a name="open-apis-and-ease-of-integration"></a>Open API's en eenvoudige integratie
 Dankzij de eenvoudige integratie met open API's en SDK's kunt u bestaande gegevens uit CRM-, CMS- en andere back-endsystemen gebruiken.  Hiermee kunt u uw doelgroepen verder verfijnen en uw investering nog beter benutten.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Gegevensbescherming en privacy over de hele wereld
+## <a name="data-protection--privacy-across-the-globe"></a>Gegevensbescherming en privacy over de hele wereld
 Microsoft zet zich al lang in voor privacy, die een integraal onderdeel is van de levenscyclus van onze producten en diensten. We spannen ons in om ons privacybeleid transparant te maken en klanten betekenisvolle privacykeuzen te bieden, en beheren de gegevens die we opslaan op een verantwoorde manier. Net als bij alle andere Azure-services worden gegevens die zijn afgeleid van het eigendom van klanten, niet verkocht of gedeeld door Mobile Engagement. Mobile Engagement is een oplossing die wereldwijd beschikbaar is, waardoor de privacywetgeving van specifieke landen en regio's wordt gehandhaafd.
 
 ### <a name="next-steps"></a>Volgende stappen

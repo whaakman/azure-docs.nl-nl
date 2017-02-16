@@ -1,10 +1,10 @@
 ---
 title: Veelgestelde vragen over VPN-gateways van virtuele netwerken | Microsoft Docs
-description: Veelgestelde vragen over VPN-gateways. Veelgestelde vragen over cross-premises verbinding, verbindingen voor hybride configuraties en VPN-gateways voor Microsoft Azure Virtual Network
+description: Veelgestelde vragen over VPN-gateways. Veelgestelde vragen over cross-premises verbindingen, verbindingen voor hybride configuraties en VPN-gateways voor Microsoft Azure Virtual Network.
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ Standaard wordt de VPN-verbinding niet automatisch op de clientcomputer hersteld
 Automatisch opnieuw verbinding maken en DDNS worden momenteel niet ondersteund in VPN’s met punt-naar-site-verbinding.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Kunnen site-naar-site- en punt-naar-site-configuraties naast elkaar worden gebruikt in hetzelfde virtuele netwerk?
-Ja. Beide oplossingen werken als de gateway een op RouteBased-type VPN heeft. Voor het klassieke implementatiemodel hebt u een dynamische gateway nodig. Punt-naar-site wordt niet ondersteund voor VPN-gateways met statische routering of gateways met een op beleid gebaseerd VPN-type.
+Ja. Beide oplossingen werken als de gateway een op RouteBased-type VPN heeft. Voor het klassieke implementatiemodel hebt u een dynamische gateway nodig. Punt-naar-site wordt niet ondersteund voor VPN-gateways met statische routering of gateways die gebruikmaken van de cmdlet `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Kan ik een punt-naar-site-client configureren om verbinding te maken met meerdere virtuele netwerken tegelijk?
 Ja, dat is mogelijk. De virtuele netwerken kunnen echter geen overlappende IP-voorvoegsels hebben en de punt-naar-site-adresruimten tussen de virtuele netwerken mogen elkaar niet overlappen.
@@ -129,7 +129,7 @@ Ja, u kunt de API en PowerShell-cmdlet Set Pre-Shared Key gebruiken om zowel op 
 ### <a name="can-i-use-other-authentication-options"></a>Kan ik andere verificatieopties gebruiken?
 U kunt alleen PSK-verificatie (vooraf gedeelde sleutels) gebruiken.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Wat is het 'gatewaysubnet' en waarom is het nodig?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Wat is het 'GatewaySubnet' en waarom is het nodig?
 Er is een gatewayservice die wordt uitgevoerd om cross-premises-connectiviteit mogelijk te maken.
 
 Als u een VPN-gateway wilt configureren, moet u eerst een gatewaysubnet voor het VNet maken. Voor een goede werking moeten alle gatewaysubnetten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
@@ -140,7 +140,14 @@ De minimale grootte van het gatewaysubnet is volledig afhankelijk van de configu
 Nee.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Hoe geef ik op welk verkeer via de VPN-gateway loopt?
-Als u de klassieke Azure-beheerportal gebruikt, voegt u elk gewenst bereik dat u via de gateway voor het virtuele netwerk wilt verzenden toe op de pagina Netwerken onder Lokale netwerken.
+
+####<a name="resource-manager-deployment-model"></a>Resource Manager-implementatiemodel
+* PowerShell: gebruik 'AddressPrefix' om verkeer voor de gateway van het lokale netwerk op te geven.
+* Azure Portal: ga naar de gateway van het lokale netwerk > Configuratie > Adresruimte.
+
+####<a name="classic-deployment-model"></a>Klassiek implementatiemodel
+* Azure Portal: ga naar het klassieke virtuele netwerk > VPN-verbindingen > Site-naar-site VPN-verbindingen > naam lokale site > lokale site > adresruimte van client. 
+* Klassieke portal: voeg elk gewenst bereik dat u via de gateway voor het virtuele netwerk wilt verzenden toe op de pagina Netwerken onder Lokale netwerken. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Kan ik geforceerde tunneling configureren?
 Ja. Zie [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Geforceerde tunneling configureren).
@@ -167,7 +174,7 @@ Nee, beide virtuele netwerken moeten gebruikmaken van op route gebaseerde VPN's 
 Ja, het is beveiligd met IPsec/IKE-versleuteling.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Verplaatst VNet-naar-VNet-verkeer zich via de Azure-backbone?
-Ja.
+Ja, dit verkeer passeert de Azure backbone. Het loopt niet via internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Met hoeveel on-premises sites en virtuele netwerken kan één virtueel netwerk verbinding maken?
 Met maximaal 10 gecombineerde sites/netwerken voor de gateways met Basic en Standard dynamische routering, en met max. 30 voor VPN-gateways met hoge prestaties.
@@ -176,7 +183,7 @@ Met maximaal 10 gecombineerde sites/netwerken voor de gateways met Basic en Stan
 Ja, P2S-VPN-verbindingen (punt-naar-site) kunnen worden gebruikt met de VPN-gateways die verbinding maken met meerdere on-premises sites en andere virtuele netwerken.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Kan ik meerdere tunnels tussen mijn virtuele netwerk en mijn on-premises site configureren met multi-site-VPN?
-Nee, redundante tunnels tussen een virtueel netwerk van Azure en een on-premises site wordt niet ondersteund.
+Ja, maar u moet BGP op beide tunnels op dezelfde locatie instellen.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Mogen er overlappende adresruimten zijn tussen de verbonden virtuele netwerken en on-premises lokale sites?
 Nee. Als er overlappende adresruimten zijn, zal het uploaden van het netwerkconfiguratiebestand of het maken van een virtueel netwerk niet lukken.
@@ -185,10 +192,12 @@ Nee. Als er overlappende adresruimten zijn, zal het uploaden van het netwerkconf
 Nee, alle VPN-tunnels, inclusief punt-naar-site-VPN-verbindingen, delen dezelfde Azure VPN-gateway en beschikbare bandbreedte.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Kan ik Azure VPN-gateway gebruiken om verkeer tussen mijn on-premises sites of naar een ander virtueel netwerk over te brengen?
-**Klassiek implementatiemodel**<br>
+
+####<a name="resource-manager-deployment-model"></a>Resource Manager-implementatiemodel
+Ja. Raadpleeg de sectie [BGP](#bgp) voor meer informatie.
+
+####<a name="classic-deployment-model"></a>Klassiek implementatiemodel
 Transitverkeer via Azure VPN-gateway is mogelijk met het klassieke implementatiemodel, maar is afhankelijk van statisch gedefinieerde adresruimten in het netwerkconfiguratiebestand. BGP wordt nog niet ondersteund met Azure Virtual Networks en VPN-gateways via het klassieke implementatiemodel. Zonder BGP is het handmatig definiëren van adresruimten voor doorvoer zeer foutgevoelig en het wordt daarom niet aanbevolen.<br>
-**Resource Manager-implementatiemodel**<br>
-Als u het Resource Manager-implementatiemodel gebruik, raadpleegt u de sectie [BGP](#bgp) voor meer informatie.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Genereert Azure dezelfde vooraf gedeelde IPsec/IKE-sleutel voor al mijn VPN-verbindingen voor hetzelfde virtuele netwerk?
 Nee, Azure genereert standaard verschillende vooraf gedeelde sleutels voor verschillende VPN-verbindingen. U kunt echter de REST-API of PowerShell-cmdlet Set VPN Gateway gebruiken om de gewenste sleutelwaarde in te stellen. De sleutel moet een alfanumerieke tekenreeks van 1 tot 128 tekens zijn.
@@ -216,6 +225,6 @@ Aanvullende informatie over virtuele netwerken vindt u in de [Veelgestelde vrage
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

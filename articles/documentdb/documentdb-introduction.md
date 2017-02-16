@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,9 +44,9 @@ Azure DocumentDB biedt de volgende belangrijke mogelijkheden en voordelen:
 * **Instelbare consistentieniveaus:** Selecteer een van de vier goed gedefinieerde consistentieniveaus voor een optimale balans tussen de consistentie en prestaties. Voor query's en leesbewerkingen biedt DocumentDB vier verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties in DocumentDB te maximaliseren](documentdb-consistency-levels.md) voor meer informatie.
 * **Volledig beheerd:** Elimineer de noodzaak om database- en machineresources te beheren. U hoeft voor een volledig beheerde Microsoft Azure-service geen virtuele machines te beheren, software te implementeren en te configureren, schaalwijzigingen te beheren of complexe upgrades voor gegevenslagen uit te voeren. Er wordt automatisch een back-up van elke database gemaakt en de databases worden automatisch beveiligd tegen regionale fouten. U kunt gemakkelijk een DocumentDB-account toevoegen en capaciteit inrichten als u dit nodig hebt, waardoor u zich kunt richten op uw toepassing in plaats van het besturingssysteem en het beheren van uw database. 
 * **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. U kunt op een eenvoudige en gebruiksvriendelijke manier programmeren voor DocumentDB. Bovendien hebt u geen nieuwe hulpprogramma's nodig en hoeft u geen aangepaste uitbreidingen voor JSON of JavaScript te gebruiken. De volledige databasefunctionaliteit, inclusief CRUD-, query- en JavaScript-verwerking, is toegankelijk via een eenvoudige RESTful HTTP-interface. DocumentDB is geschikt voor bestaande indelingen, talen en standaarden, terwijl daarnaast waardevolle databasemogelijkheden worden geboden.
-* **Automatisch indexeren:** alle documenten in de database worden standaard [automatisch geïndexeerd](documentdb-indexing.md) in DocumentDB, er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](documentdb-indexing-policies.md).
+* **Automatisch indexeren:** alle documenten in de database worden standaard automatisch geïndexeerd in DocumentDB. Er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](documentdb-indexing-policies.md).
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Hoe worden gegevens beheerd in DocumentDB?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Hoe worden gegevens beheerd in DocumentDB?
 JSON-gegevens in Azure DocumentDB worden beheerd via goed gedefinieerde databaseresources. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. DocumentDB biedt voor alle resources een eenvoudig RESTful-programmeermodel op basis van HTTP. 
 
 Het DocumentDB-databaseaccount is een unieke naamruimte die u toegang biedt tot Azure DocumentDB. Voordat u een databaseaccount kunt maken, moet u een Azure-abonnement hebben. Dit abonnement geeft u toegang tot diverse Azure-services. 
@@ -71,6 +71,8 @@ Azure DocumentDB ontsluit resources via een REST API die kan worden aangeroepen 
 | N.v.t. |[JavaScript SDK op de server](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotheek](http://azure.github.io/azure-documentdb-python/) |
 
+Met behulp van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing werkt in de DocumentDB-emulator, kunt u overstappen naar een Azure DocumentDB-account in de cloud.
+
 DocumentDB biedt naast de eenvoudige maak-, lees-, bijwerk- en verwijderbewerkingen een geavanceerde SQL-queryinterface voor het ophalen van JSON-documenten en ondersteuning aan de serverzijde voor de transactionele uitvoering van JavaScript-toepassingslogica. De interfaces voor het uitvoeren van query's en scripts zijn beschikbaar via alle platformbibliotheken en REST API's. 
 
 ### <a name="sql-query"></a>SQL-query
@@ -92,6 +94,7 @@ Hebt u geen Azure-account? U kunt:
 
 * Meld u aan voor een [gratis proefversie van Azure](https://azure.microsoft.com/free/). U hebt dan 30 dagen en €170 om alle Azure-services te proberen. 
 * Als u een MSDN-abonnement hebt, komt u in aanmerking voor [$ 150 aan gratis Azure-tegoed per maand](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dit tegoed kunt u gebruiken voor elke willekeurige Azure-service. 
+* Download de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) om uw toepassing lokaal te ontwikkelen.
 
 Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/) bezoeken om door alle beschikbare leerresources te bladeren. 
 
@@ -100,6 +103,6 @@ Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microso
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

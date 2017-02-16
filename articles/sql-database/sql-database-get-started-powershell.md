@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
 
 
 ---
@@ -566,7 +566,7 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Volgende stappen
 Nu u deze eerste zelfstudie hebt voltooid en een database met enkele voorbeeldgegevens hebt gemaakt, wilt u mogelijk aanvullende zelfstudies volgen die aansluiten op wat u in deze zelfstudie hebt geleerd. 
 
-* Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie over de beveiliging van Azure SQL Database.
+* Zie [Aan de slag met beveiliging](sql-database-control-access-sql-authentication-get-started.md) voor meer informatie over de beveiliging van Azure SQL Database.
 * Bent u bekend met Excel? Ontdek dan hoe u [verbinding kunt maken met een SQL Database in Azure via Excel](sql-database-connect-excel.md).
 * Als u wilt gaan coderen, kiest u uw programmeertaal in [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md).
 * Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md).
@@ -577,6 +577,7 @@ Nu u deze eerste zelfstudie hebt voltooid en een database met enkele voorbeeldge
 [Wat is SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

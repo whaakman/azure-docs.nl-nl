@@ -27,16 +27,12 @@
 ### [Maken en beheren met CLI](key-vault-manage-with-cli.md)
 
 # Naslaginformatie
-## [Over sleutels en geheimen](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [PowerShell-cmdlets voor Key Vault Resource Manager](/powershell/resourcemanager/)
-## [Key Vault klassieke PowerShell-cmdlets](/powershell/servicemanagement/)
-## [Key Vault met Azure CLI](/cli/azure/)
-## [Naslaginformatie voor Key Vault in Java](/java/api/)
-## [API beheerde naslaginformatie voor Key Vault](/dotnet/api/) 
-## [Naslaginformatie voor de REST API van Key Vault](/rest/api/keyvault) 
-## [Node.js voor Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (Preview)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Verwant
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,11 +41,13 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
+## [Over sleutels en geheimen](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

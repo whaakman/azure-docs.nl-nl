@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Secure HDInsight| Microsoft Docs
+title: 'Hadoop-beveiliging: HDInsight-clusters die zijn gekoppeld aan een domein - Azure | Microsoft Docs'
 description: Meer informatie...
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>An introduction to Domain-joined HDInsight clusters (Preview) (Een introductie tot HDInsight-clusters die zijn gekoppeld aan een domein (preview-versie))
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Een introductie tot HDInsight-clusters die zijn gekoppeld aan een domein (preview-versie)
+
 Tot nu toe werd in Azure HDInsight alleen ondersteuning geboden voor één lokale beheerder voor gebruikers. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Naarmate Hadoop-workloads populairder werden bij grote bedrijven, werden functies die voor dergelijke bedrijven relevant zijn, zoals AD-verificatie, ondersteuning voor meerdere gebruikers en toegangsbeheer op basis van rollen, steeds belangrijker. Als u gebruikmaakt van aan een domein gekoppelde HDInsight-clusters, kunt u een HDInsight-cluster maken dat is gekoppeld aan een Active Directory-domein, en een lijst met werknemers uit het bedrijf configureren die zich kunnen verifiëren via Azure Active Directory om zich aan te melden bij het HDInsight-cluster. Mensen van buiten het bedrijf kunnen zich niet aanmelden bij het HDInsight-cluster en hebben er geen toegang toe. De bedrijfsbeheerder kan toegangsbeheer op basis van rollen configureren voor Hive-beveiliging via [Apache Ranger](http://hortonworks.com/apache/ranger/). Op deze manier wordt de toegang tot gegevens alleen beperkt voor zover dit noodzakelijk is. Daarnaast kan de beheerder de toegang tot gegevens controleren voor werknemers en zien wanneer er wijzigingen worden aangebracht aan het toegangscontrolebeleid. Dit zorgt voor een hoge mate van beheer van de bedrijfsresources.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ Het beveiligen van gegevens is belangrijk om te voldoen aan de vereisten voor or
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

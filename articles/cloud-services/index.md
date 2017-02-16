@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Cloud Services kunt gebruiken om schaalbare en maximaal beschikbare API&quot;s en cloudtoepassingen te hosten en uit te voeren.
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
-#<a name="cloud-services-documentation"></a>Documentatie over Cloud Services
+# <a name="cloud-services-documentation"></a>Documentatie over Cloud Services
 
-Cloud Services is een voorbeeld van een PaaS-implementatie (Platform-as-a-Service). Het is bedoeld ter ondersteuning van toepassingen die schaalbaar, betrouwbaar en kostenefficiënt zijn. Met Cloud Services beschikt u niet alleen over virtualisatiemogelijkheden, maar hebt u ook controle over de virtuele machine, zodat u software kunt configureren, patchen en installeren.  
+Leer hoe u Cloud Services kunt gebruiken om maximaal beschikbare, schaalbare cloudtoepassingen en API's te hosten en uit te voeren.  Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u hosts voor virtuele machines kunt beheren en software kunt configureren, patchen en installeren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,48 +87,32 @@ Cloud Services is een voorbeeld van een PaaS-implementatie (Platform-as-a-Servic
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Talen</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Cloud Services</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Schema’s</h3>
-                        <p>Definitieschema voor Cloud Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Configuratieschema voor Cloud Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -141,6 +126,6 @@ Documentatie over Cloud Services downloaden </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

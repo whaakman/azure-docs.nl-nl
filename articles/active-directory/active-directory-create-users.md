@@ -20,7 +20,7 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Nieuwe gebruikers of gebruikers met een Microsoft-account toevoegen aan Azure Active Directory
 Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen in uw organisatie en hoe u gebruikers met een Microsoft-account kunt toevoegen. Zie [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md) (Engelstalig) voor meer informatie over het toevoegen van gebruikers van andere directory's in Azure Active Directory of over het toevoegen van gebruikers van partnerbedrijven. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
 ## <a name="add-a-user"></a>Een gebruiker toevoegen

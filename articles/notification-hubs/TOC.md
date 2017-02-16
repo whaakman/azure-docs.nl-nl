@@ -26,7 +26,7 @@
 
 #### [De huidige gebruiker registreren met ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Platformonafhankelijke meldingen verzenden](notification-hubs-aspnet-cross-platform-notification.md)
-### Werken met server-SDK’s
+### Werken met server-SDK's
 #### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
@@ -59,9 +59,9 @@
 ### [Richtlijnen voor diagnose](notification-hubs-push-notification-fixer.md)
 
 # Naslaginformatie
-## [PowerShell-cmdlets](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/notificationhubs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

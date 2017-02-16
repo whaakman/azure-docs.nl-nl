@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/09/2016
+ms.date: 01/11/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
-ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
 
 
 ---
@@ -29,28 +29,36 @@ ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 > 
 > 
 
-## <a name="data-upload-models-in-azure-search"></a>Modellen voor het uploaden van gegevens in Azure Search
-Er zijn twee manieren om uw Azure Search-index te vullen met uw gegevens. De eerste optie is het handmatig pushen van de gegevens in de index met behulp van de Azure Search [REST-API](search-import-data-rest-api.md) of [.NET SDK](search-import-data-dotnet.md). De tweede optie is om [een ondersteunde gegevensbron](search-indexer-overview.md) te wijzen naar uw Azure Search-index en ervoor te zorgen dat Azure Search automatisch gegevens naar de zoekservice pusht.
-
-Deze handleiding heeft alleen betrekking op instructies voor het gebruik van het pushmodel voor het uploaden van gegevens (dat alleen wordt ondersteund in de [REST-API](search-import-data-rest-api.md) en [.NET SDK](search-import-data-dotnet.md)). U kunt echter meer informatie opvragen over het onderstaande pull-model.
+Er zijn twee manieren om een index te vullen met uw gegevens. De eerste optie is het handmatig pushen van de gegevens in de index met behulp van de Azure Search [REST-API](search-import-data-rest-api.md) of [.NET SDK](search-import-data-dotnet.md). De tweede optie is om [een ondersteunde gegevensbron](search-indexer-overview.md) te laten wijzen naar uw index en ervoor te zorgen dat Azure Search de gegevens automatisch in de zoekservice binnenhaalt.
 
 ## <a name="push-data-to-an-index"></a>Gegevens naar een index verzenden
-Deze aanpak verwijst naar het programmatisch verzenden van uw gegevens naar Azure Search, zodat deze beschikbaar zijn voor een zoekopdracht. Voor toepassingen waarvoor een lage latentie is vereist (bijvoorbeeld wanneer en zoekopdracht gesynchroniseerd is met dynamische inventarisatiedatabases) is de pushoptie de enige mogelijkheid.
+Deze aanpak verwijst naar het programmatisch verzenden van uw gegevens naar Azure Search, zodat deze beschikbaar zijn voor een zoekopdracht. Voor toepassingen die een zeer lage latentie vereisen (bijvoorbeeld als zoekopdrachten gesynchroniseerd moeten zijn met dynamische inventarisatiedatabases) is het pushmodel de enige mogelijkheid.
 
 U kunt de [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) gebruiken om gegevens naar een index te pushen. Er is momenteel geen ondersteuning voor het pushen van gegevens via de portal.
 
 Deze aanpak is flexibeler dan het pull-model, omdat u documenten afzonderlijk of in batches kunt uploaden (maximaal 1000 per batch of 16 MB, afhankelijk van waar de limiet ligt). Met het pushmodel kunt u documenten uploaden naar Azure Search, ongeacht waar uw gegevens zich bevinden.
 
+De gegevensindeling die door Azure Search wordt ondersteund is JSON, en alle documenten in de gegevensset moeten velden toewijzen aan velden die in uw indexschema zijn gedefinieerd. 
+
 ## <a name="pull-data-into-an-index"></a>Gegevens in een index ophalen
-Het pullmodel verkent een ondersteunde gegevensbron en uploadt automatisch de gegevens in uw Azure Search-index. Als u naast het herkennen van nieuwe documenten, wijzigingen en verwijderingen in een bestaand document bijhoudt, hoeft u de gegevens in een index via indexeerfuncties niet actief bij te houden.
+Het pullmodel verkent een ondersteunde gegevensbron en uploadt de gegevens automatisch naar uw index. In Azure Search is deze mogelijkheid geïmplementeerd via *indexeerfuncties*, die momenteel beschikbaar zijn voor [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL-database en SQL Server op Azure VM’s](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
-In Azure Search is deze mogelijkheid geïmplementeerd via *indexeerfuncties*, die momenteel beschikbaar zijn voor [Blob Storage (preview-versie)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database en SQL Server op Azure VM’s](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+Indexeerfuncties verbinden een index met een gegevensbron (meestal een tabel, weergave of equivalente structuur) en wijzen bronvelden toe aan equivalente velden in de index. Tijdens de uitvoering wordt de rijenset automatisch omgezet naar JSON en in de opgegeven index geladen. Alle indexeerfuncties ondersteunen planning. U kunt dus opgeven hoe vaak de gegevens moeten worden vernieuwd. Met de meeste indexeerfuncties kunt u wijzigingen bijhouden als dit door de gegevensbron wordt ondersteund. Als u naast het herkennen van nieuwe documenten, wijzigingen en verwijderingen in een bestaand document bijhoudt, hoeft u de gegevens in een index via indexeerfuncties niet actief bij te houden. 
 
-De functionaliteit van de indexeerfunctie wordt weergegeven in [Azure Portal](search-import-data-portal.md) en de [REST-API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
+Functionaliteit van de indexeerfunctie wordt weergegeven in [Azure Portal](search-import-data-portal.md), de [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) en de [.NET SDK](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
+
+Een voordeel van het gebruik van de portal is dat Azure Search meestal een standaardindexschema voor u kan genereren door de metagegevens van de brongegevensset te lezen. U kunt de gegenereerde index wijzigen totdat de index wordt verwerkt. Daarna zijn alleen schemabewerkingen toegestaan waarvoor de index niet opnieuw gegenereerd hoeft te worden. Als de wijzigingen die u doorvoert, rechtstreeks invloed hebben op het schema, moet u de index opnieuw opbouwen. 
+
+Nadat de index is ingevuld, kunt u **Search Explorer** in de opdrachtbalk van de portal als verificatiestap gebruiken.
+
+## <a name="query-an-index-using-search-explorer"></a>Gegevens uit een index opvragen met Search Explorer
+
+Met **Search Explorer** in de portal kunt u snel een eerste controle van de documentupload uitvoeren. Met de explorer kunt u gegevens uit een index opvragen zonder code te schrijven. De zoekervaring is gebaseerd op standaardinstellingen, zoals de [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard-queryparameter [searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents). Resultaten worden geretourneerd in JSON, zodat u het hele document kunt inspecteren.
+
+> [!TIP]
+> Tal van [Azure Search-codevoorbeelden](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) bevatten ingesloten of kant-en-klare gegevenssets, zodat u gemakkelijk aan de slag kunt gaan. De portal bevat ook een voorbeeldindexeerfunctie en een gegevensbron, bestaande uit een kleine vastgoedgegevensset ('realestate-us-sample'). Als u de vooraf geconfigureerde indexeerfunctie uitvoert met de voorbeeldgegevensbron, wordt er een index gemaakt. Deze wordt geladen met documenten waarvoor u query’s kunt uitvoeren via Search Explorer of met code die u schrijft.
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u BizTalk Services kunt gebruiken om integratie met de cloud te bieden voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft.
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>Documentatie over Biztalk Services
 
-BizTalk Services biedt integratie met de cloud voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft. U kunt verbinding maken met elke HTTP-, FTP-, SFTP- of REST-gegevensbron. U kunt berichten routeren via diverse Azure-artefacten, zoals Service Bus-wachtrijen, onderwerpen, SQL Database en blob-opslag.   
+Leer hoe u BizTalk Services kunt gebruiken om integratie met de cloud te bieden voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft. Zelfstudies en andere documentatie laten zien hoe u de enterprise en de cloud kunt integreren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ Documentatie over Biztalk Services downloaden </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

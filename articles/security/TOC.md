@@ -33,12 +33,10 @@
 ### [Aanbevolen procedures en patronen voor beveiliging](security-best-practices-and-patterns.md)
 ### [Tolerante toepassingen ontwikkelen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Naslaginformatie
+# Verwant
 ## [Vertrouwenscentrum](security-microsoft-trust-center.md)
 ## [Microsoft Security Response Center](azure-security-response-center.md)
 ## [Pen testen](azure-security-pen-testing.md)
-
-# Verwant
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +50,7 @@
 ## [Beveiligingscursussen van Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

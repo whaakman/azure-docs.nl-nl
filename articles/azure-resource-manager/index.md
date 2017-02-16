@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren en beheren en hoe u sjablonen kunt maken voor consistente en herhaalbare resource-implementatie.
 translationtype: Human Translation
-ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
-ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
 
-De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiligings-, controle- en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
+Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren, bewaken en beheren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u resourcegroepen kunt instellen en sjablonen kunt maken voor consistente en herhaalbare implementatie.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,109 +104,50 @@ De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals 
 </ul>
 
 ---
-
-## <a name="reference"></a>Naslaginformatie
-
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdlets</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/cli/azure">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Sjabloonschema's</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure-resources en -resourcegroepen beheren met .NET</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/resources/">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Aan de slag met Resource beheren - Resource beheren - in Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Azure-resources en -resourcegroepen beheren met Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Azure-resources en -resourcegroepen beheren met Python</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Ruby</h3>
-                        <p>Azure-resources en -resourcegroepen beheren met Ruby</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
 
 ---
 <div class="downloadHolder">
@@ -217,6 +159,7 @@ Documentatie over Azure Resource Manager downloaden </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 
