@@ -251,6 +251,6 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

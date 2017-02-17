@@ -129,6 +129,6 @@ Leer hoe u virtuele-machineschaalsets kunt gebruiken om een reeks identieke virt
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -313,7 +313,7 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
 1. Open **Azure PowerShell** en voer de volgende opdracht uit:
    * Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
     ```PowerShell
@@ -593,6 +593,6 @@ U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bij
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

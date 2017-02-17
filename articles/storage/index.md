@@ -156,6 +156,6 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

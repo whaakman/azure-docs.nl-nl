@@ -163,6 +163,6 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
