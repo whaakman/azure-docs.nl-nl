@@ -1,14 +1,25 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Data Catalog - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het instellen van een gegevenscatalogus waar uw organisatie gegevensbronnen kan vinden, begrijpen en gebruiken. Zelfstudies, API-verwijzingen en andere documentatie.
+services: data-catalog
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
-ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Documentatie over Data Catalog
 
-Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie en team te helpen uw gegevensbronnen te vinden, begrijpen en gebruiken. Zelfstudies, REST API-referentiemateriaal en andere documentatie laten zien hoe u uw gegevensopslagplaats kunt plannen en instellen, waar gegevensgebruikers beschikbare gegevensbronnen kunnen vinden en kennis kunnen opdoen die ter beschikking is gesteld door deskundigen.
+Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie en team te helpen uw gegevensbronnen te vinden, begrijpen en gebruiken. Zelfstudies, REST-API-referentiemateriaal en andere documentatie laten zien hoe u uw gegevensopslagplaats kunt plannen en instellen, waar gegevensgebruikers beschikbare gegevensbronnen kunnen vinden en kennis kunnen opdoen die ter beschikking is gesteld door deskundigen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,16 +78,10 @@ Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Data Catalog downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

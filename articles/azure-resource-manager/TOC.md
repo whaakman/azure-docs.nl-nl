@@ -43,19 +43,22 @@
 ### [Service-principal maken met Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Service-principal maken met portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
-### [Beheerbeleid instellen](resource-manager-policy.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
 ### [Beveiligingsoverwegingen](best-practices-resource-manager-security.md)
+## Resourcebeleid instellen
+### [Wat is een resourcebeleid?](resource-manager-policy.md)
+### [Beleid toewijzen en beheren](resource-manager-policy-create-assign.md)
+### [Beleid voor resourcetags](resource-manager-policy-tags.md)
+### [Opslagbeleid](resource-manager-policy-storage.md)
+### [Beleid voor virtuele Linux-machines](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beleid voor virtuele Windows-machines](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Controleren en problemen oplossen
 ### [Veelvoorkomende implementatiefouten oplossen](resource-manager-common-deployment-errors.md)
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)
-### [Implementatiebewerkingen met portal bekijken](resource-manager-troubleshoot-deployments-portal.md)
-### [Implementatiebewerkingen met PowerShell bekijken](resource-manager-troubleshoot-deployments-powershell.md)
-### [Implementatiebewerkingen met Azure CLI bekijken](resource-manager-troubleshoot-deployments-cli.md)
-### [Implementatiebewerkingen met REST-API bekijken](resource-manager-troubleshoot-deployments-rest.md)
+### [Implementatiebewerkingen bekijken](resource-manager-deployment-operations.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI (Preview)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,11 +68,12 @@
 
 # Resources
 ## [Beperkingsaanvragen](resource-manager-request-limits.md)
+## [Asynchrone bewerkingen bijhouden](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs
+description: Gebruik documentatie voor Backup om te leren hoe u een back-up naar de cloud kunt maken. Zie de zelfstudies en video&quot;s voor informatie over het maken van back-ups van toepassingen, Windows-servers en virtuele Azure-machines.
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Documentatie over Backup
 
-Azure Backup is een cloudservice die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud en voor het beveiligen van deze gegevens.  Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing.  
+Meer informatie over hoe u Azure Backup in de cloud kunt gebruiken om gegevens te beschermen voor langetermijnretentie en herstel. Zelfstudies, video's en andere documentatie laten zien hoe u een back-up maakt van gegevens, toepassingen, Windows-servers en virtuele Azure-machines.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,16 +144,10 @@ Azure Backup is een cloudservice die u kunt gebruiken voor het maken van back-up
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Azure Backup downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

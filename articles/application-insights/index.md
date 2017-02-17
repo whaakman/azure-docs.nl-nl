@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Application Insights - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u Application Insights, een uitbreidbare service voor het beheer van toepassingsprestaties, gebruikt om problemen in web-apps en -services te detecteren, filteren en onderzoeken.
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Documentatie voor Application Insights
 
-Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. De service is ook geïntegreerd met uw devOps-proces en heeft verbindingspunten met uiteenlopende andere hulpmiddelen.
+Meer informatie over Application Insights, een uitbreidbare service voor webontwikkelaars voor het beheer van toepassingsprestaties. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u problemen in web-apps en -services kunt detecteren, filteren en onderzoeken.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -151,16 +163,10 @@ Application Insights is een uitbreidbare APM-service (Application Performance Ma
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Application Insights downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

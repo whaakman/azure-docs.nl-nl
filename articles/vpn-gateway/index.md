@@ -1,5 +1,5 @@
 ---
-title: VPN Gateway-documentatie - zelfstudies en API-naslaginformatie | Microsoft Docs
+title: Documentatie voor Azure VPN Gateway - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u VPN-gateways (Virtual Private Network) configureert om verkeer tussen virtuele netwerken in de cloud en on-premises of tussen VNets in de cloud te beheren.
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway-documentatie
@@ -169,6 +168,6 @@ Meer informatie over het configureren van VPN Gateway, een gateway voor een virt
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

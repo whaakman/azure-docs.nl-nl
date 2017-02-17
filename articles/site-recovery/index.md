@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Leer hoe u herstel na noodgevallen en bedrijfscontinuïteit in de cloud kunt instellen voor fysieke servers en virtuele machines door het implementeren en beheren van replicatie."
+services: site-recovery
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: site-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
+ms.sourcegitcommit: 9816de3f1925e79fdd2814f5a65f80d0fe912137
+ms.openlocfilehash: d9bc1b35580377b8b5edd73c4b8797d9da30cf11
 
 ---
 # <a name="site-recovery-documentation"></a>Documentatie over Site Recovery
@@ -72,7 +83,7 @@ Leer hoe u Site Recovery kunt gebruiken voor bedrijfscontinuïteit en een strate
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Naslaginformatie over REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
@@ -84,6 +95,6 @@ Leer hoe u Site Recovery kunt gebruiken voor bedrijfscontinuïteit en een strate
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

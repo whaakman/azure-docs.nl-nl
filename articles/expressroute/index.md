@@ -1,14 +1,26 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure ExpressRoute - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u een particuliere ExpressRoute-verbinding met Microsoft-cloudservices kunt configureren en beheren vanuit uw on-premises infrastructuur of co-locatiefaciliteit.
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 6eb84236ff7814ab7dfade718693060d7e7383b9
+ms.openlocfilehash: a060970a2f2870a40d4925b8eeccf4fec4af1aa4
 
 ---
+
 #<a name="expressroute-documentation"></a>ExpressRoute-documentatie
 
-Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding met Microsoft-cloudservices kunt instellen vanuit uw on-premises infrastructuur of co-locatiefaciliteit. Zelfstudies, REST API's en andere documentatie helpen u bij de configuratie en het beheer van een ExpressRoute-circuit.
+Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding met Microsoft-cloudservices kunt instellen vanuit uw on-premises infrastructuur of co-locatiefaciliteit. Zelfstudies, REST-API's en andere documentatie helpen u bij de configuratie en het beheer van een ExpressRoute-circuit.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,7 +101,7 @@ Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding m
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Naslaginformatie over REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Naslaginformatie over REST-API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Naslaginformatie over REST-API (klassiek)</a></p>
                     </div>
                 </div>
@@ -102,6 +114,6 @@ Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding m
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

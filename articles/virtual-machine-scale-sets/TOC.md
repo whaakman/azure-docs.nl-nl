@@ -16,6 +16,10 @@
 ### [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Toepassingen op schaalsets](virtual-machine-scale-sets-deploy-app.md)
+### [Gegevensschijven met schaalsets gebruiken](virtual-machine-scale-sets-attached-disks.md)
+### [Werken met grote schaalsets](virtual-machine-scale-sets-placement-groups.md)
+### [Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 ## Beheren
 ### [Windows-schaalset met PowerShell](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +28,7 @@
 ### [Upgrades voor schaalsets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC en schaalsets](virtual-machine-scale-sets-dsc.md)
+### [Een sjabloon converteren voor beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Problemen oplossen
 ### [Automatisch schalen](virtual-machine-scale-sets-troubleshoot.md)
@@ -40,6 +45,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Power BI Embedded - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het insluiten van Power BI-gegevensvisualisaties en interactieve rapporten in apps. Zelfstudies, API-verwijzingen en andere documentatie.
+services: power-bi-embedded
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: power-bi-embedded
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
+ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
+ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentatie over Power BI Embedded
@@ -121,7 +132,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">Naslaginformatie over REST API</a></p>
+                        <p><a href="/rest/api/powerbiembedded/">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
@@ -132,6 +143,6 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

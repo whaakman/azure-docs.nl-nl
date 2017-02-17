@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Functions - zelfstudies | Microsoft Docs
 description: Leer hoe u functies in de gewenste taal kunt ontwikkelen en implementeren voor het uitvoeren van taken op de achtergrond of volgens een schema, zonder speciale infrastructuur.
+services: functions
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: functions
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
-ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
+ms.sourcegitcommit: b490d47b03cd3c7c57c3630fafb95777fffaa3aa
+ms.openlocfilehash: b2f2e067fd6c6c2c34bee167356756721c8fd0cd
 
 ---
 #<a name="azure-functions-documentation"></a>Documentatie van Azure Functions
@@ -104,18 +115,9 @@ Leer hoe u Functions kunt gebruiken voor het ontwikkelen en implementeren van kl
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Azure Functions downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

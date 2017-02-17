@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Resource Manager - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren en beheren en hoe u sjablonen kunt maken voor consistente en herhaalbare resource-implementatie.
+services: azure-resource-manager
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: azure-resource-manager
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
-ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
+ms.sourcegitcommit: d3505091d3239bd68b2c4d0bb045d83a53cb6700
+ms.openlocfilehash: 0bb9b8a84d94603f14eef9a93eb0d662cf791a1c
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
@@ -114,7 +125,7 @@ Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te i
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
-                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
+                        <p><a href="/cli/azure/resource">Azure-CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -149,17 +160,10 @@ Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te i
     </li>
 </ul>
 
----
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-resource-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Azure Resource Manager downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

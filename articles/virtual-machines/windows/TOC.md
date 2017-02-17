@@ -1,7 +1,7 @@
 # Overzicht
-## [Informatie over VM's](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Informatie over virtuele machines](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Opslag](../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Virtuele netwerken](../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Virtuele netwerken](../virtual-machines-windows-network-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Poorten, eindpunten en beveiliging](../virtual-machines-windows-endpoints-in-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Load balancers](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM-grootten](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -17,13 +17,13 @@
 ## [Veelgestelde vragen](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Aan de slag
-## [Een VM maken via de portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Aanmelden bij een VM](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Een virtuele machine maken via de portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Aanmelden bij een virtuele machine](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een rol installeren en poorten openen](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Verschillende manieren om een VM te maken](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Verschillende manieren om een virtuele machine te maken](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure PowerShell installeren](/powershell/azureps-cmdlets-docs)
-## [Een VM maken met PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Kennismaken met sjablonen](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Een virtuele machine maken met PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Kennismaken met sjablonen](../virtual-machines-windows-template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Complexe VM-sjablonen maken en implementeren](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toepassingsarchitectuur](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toegang en beveiliging](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,55 +32,71 @@
 
 # Procedures
 ## Storage gebruiken
-### [Een gegevensschijf koppelen](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Veelgestelde vragen over Azure VM-schijven](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Overzicht van Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een beheerde schijf maken](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Een gegevensschijf koppelen
+#### [Azure Portal](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een gegevensschijf ontkoppelen](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een momentopname van een beheerde schijf maken](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Virtuele machines converteren naar beheerde schijven - overzicht](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Azure PowerShell gebruiken](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Schijf met besturingssysteem uitbreiden](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [D: als gegevensschijf gebruiken](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Schijfversleuteling](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## [Netwerk](../virtual-machines-windows-ps-common-network-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Toegang tot een VM via de portal toestaan](../virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Toegang tot een VM via PowerShell toestaan](../virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Toegang tot een virtuele machine via de portal toestaan](../virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Toegang tot een virtuele machine via PowerShell toestaan](../virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een FQDN maken via de portal](../virtual-machines-windows-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een VM met meerdere NIC's maken](../virtual-machines-windows-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een virtuele machine met meerdere NIC's maken](../virtual-machines-windows-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VNET's maken via de portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [NSG's maken via de portal](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een load balancer maken](../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Een statisch openbaar IP-adres maken](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Klassieke en Resource Manager VNets verbinden](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Azure DNS met VM's gebruiken](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Azure Traffic Manager met VM's gebruiken](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Azure DNS met virtuele machines gebruiken](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Azure Traffic Manager met virtuele machines gebruiken](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Implementeren
 ### [Software Assuranc-licenties gebruiken](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VM-installatiekopieën zoeken vanuit PowerShell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Windows-clientinstallatiekopieën gebruiken](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een sjabloon gebruiken om een VM te maken](../virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Meerdere VM's schalen met VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een sjabloon gebruiken om een virtuele machine te maken](../virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Meerdere virtuele machines schalen met VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Meerdere virtuele Azure-machines maken](../virtual-machines-windows-multiple-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een VM met controle en diagnostiek maken](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een virtuele machine met controle en diagnostiek maken](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementeren met Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementeren met C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implementeren met C# en sjablonen](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toepassingsframeworks op basis van een sjabloon implementeren](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [AWS en on-premises VM's migreren naar Managed Disks](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Migreren vanuit Amazon Web Services (AWS) naar Azure Managed Disks](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een gegeneraliseerde VHD uploaden en beheerde schijven gebruiken](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een gespecialiseerde VHD uploaden en een virtuele machine maken](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Installatiekopieën
 #### [VHD voorbereiden voor upload](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een VM generaliseren met Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een VM-installatiekopie uploaden](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een virtuele machine generaliseren met Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een VHD uploaden](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Microsoft Azure-agent](../virtual-machines-windows-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een gegeneraliseerde Azure-VM vastleggen](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een gespecialiseerde Azure-VM kopiëren](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een VM maken vanaf een gegeneraliseerde VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Een VM maken vanaf een gespecialiseerde VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Een VM-installatiekopie maken in Azure
+##### [Een niet-beheerde virtuele machine vastleggen in blobopslag](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Een installatiekopie van een beheerde schijf maken](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een gespecialiseerde virtuele Azure-machine kopiëren](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Een virtuele machine maken vanaf een gegeneraliseerde installatiekopie
+##### [Een niet-beheerde virtuele machine maken vanaf een gegeneraliseerde VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Een virtuele machine maken vanaf een gegeneraliseerde installatiekopie van een beheerde schijf](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Een virtuele machine maken vanaf een gespecialiseerde VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Configureren
 ### [Beschikbaarheidsset maken](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [De beschikbaarheidsset voor een VM wijzigen](../virtual-machines-windows-change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een VM verplaatsen tussen abonnementen](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [De grootte van een VM wijzigen](../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een Windows-wachtwoord opnieuw instellen voor Azure-VM](../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [De beschikbaarheidsset voor een virtuele machine wijzigen](../virtual-machines-windows-change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een virtuele machine verplaatsen tussen abonnementen](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [De grootte van een virtuele machine wijzigen](../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een Windows-wachtwoord opnieuw instellen voor een virtuele Azure-machine](../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Tags gebruiken](../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een VM taggen](../virtual-machines-windows-tag.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een virtuele machine taggen](../virtual-machines-windows-tag.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Algemene PowerShell-taken](../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Algemene CLI-taken](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -92,9 +108,9 @@
 ### [Back-ups maken met Recovery Services](../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Back-ups beheren met PowerShell](../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Resource Manager-beleid](../virtual-machines-windows-policy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM's beheren met PowerShell](../virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM's beheren met C#](../virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM's beheren met CLI](../virtual-machines-windows-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Virtuele machines beheren met PowerShell](../virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Virtuele machines beheren met C#](../virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Virtuele machines beheren met CLI](../virtual-machines-windows-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Automatiseren
 ### [Overzicht van VM-extensies](../virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -110,19 +126,20 @@
 ### [Voorbeelden van configuraties](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Problemen met extensies oplossen](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Overzicht van Azure Automation](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [VM's verticaal schalen](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [De sjabloon voor een VM downloaden](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Virtuele machines verticaal schalen](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [De sjabloon voor een virtuele machine downloaden](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Automatiseren met Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Migreren
 ### [Overzicht van migratie](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Plan voor migratie](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Migreren met PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Alle virtuele machines in een VNET migreren met PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Eén virtuele machine migreren met PowerShell](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Algemene migratiefouten](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Community-hulpprogramma's voor migratie](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Plannen
-### [Aanbevolen procedures voor Windows-VM](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Aanbevolen procedures voor virtuele Windows-machines](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Richtlijnen voor infrastructuur](../virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Abonnementen en accounts](../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Naamgeving](../virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -155,11 +172,11 @@
 ### [Problemen met Extern-bureaubladverbindingen oplossen](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [RDP-wachtwoord opnieuw instellen](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Specifieke RDP-foutberichten oplossen](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Problemen met het maken van een nieuwe VM oplossen](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Problemen met het opnieuw starten of het wijzigen van het formaat van een VM oplossen](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Problemen met het maken van een virtuele machine oplossen](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Problemen met het opnieuw starten of het wijzigen van het formaat van een virtuele machine oplossen](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Problemen met toegang tot toepassingen oplossen](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Toewijzingsfouten oplossen](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Een VM opnieuw implementeren](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Een virtuele machine opnieuw implementeren](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine
 #### [Azure PowerShell](../virtual-machines-windows-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 #### [Azure Portal](../virtual-machines-windows-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -182,6 +199,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
