@@ -60,7 +60,7 @@ Tabellen worden standaard gedistribueerd middels Round Robin.  Dit maakt het gem
 
 Zie ook [Tabeloverzicht][Tabeloverzicht], [Tabeldistributie][Tabeldistributie], [Tabeldistributie selecteren][Tabeldistributie selecteren], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
-## <a name="do-not-overpartition"></a>Niet te veel partities maken
+## <a name="do-not-over-partition"></a>Niet te veel partities maken
 Partities voor uw gegevens maken kan zeer effectief zijn voor het bijhouden van gegevens door te schakelen tussen partities of het optimaliseren van scans door het schrappen van partities. Te veel partities kunnen echter uw query’s vertragen.  Een partitiestrategie met een hoge granulatie die goed werkt voor SQL Server werkt mogelijk niet goed voor SQL Data Warehouse.  Te veel partities kunnen ook geclusterde columnstore-indexen minder effectief maken als elke partitie minder dan 1 miljoen rijen bevat.  Achter de schermen verdeelt SQL Data Warehouse uw gegevens in partities op meer dan 60 databases. Als u een dus een tabel met 100 partities maakt, resulteert dit in werkelijkheid in 6000 partities.  Elke workload is verschillend, en daarom kunt u het beste experimenteren met partities om te zien wat het beste werkt voor uw workload.  Overweeg een lagere granulatie dan die in SQL Server misschien wel effectief was.  U zou bijvoorbeeld wekelijkse of maandelijkse partities kunnen gebruiken in plaats van dagelijkse partities.
 
 Zie ook [Tabellen partitioneren][Tabellen partitioneren]
@@ -155,7 +155,7 @@ Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure
 [sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
 [sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
 [Gids columnstore-indexen]: https://msdn.microsoft.com/library/gg492088.aspx
