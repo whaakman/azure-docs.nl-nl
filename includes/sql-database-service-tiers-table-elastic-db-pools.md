@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Maximaal aantal eDTU’s per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Gedeelde opslag voor pool voor Elastic Database, zodat database-opslag wordt beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is
+\* Gepoolde databases maken gebruik van een gedeelde poolopslag. De database-opslag wordt hierdoor beperkt tot de overgebleven poolopslag of de maximumopslag per database, afhankelijk van wat het kleinste is. De maximumopslag per pool verwijst naar de maximale opslag van de gegevensbestanden in de pool. De ruimte die logboekbestanden innemen, wordt niet meegerekend.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

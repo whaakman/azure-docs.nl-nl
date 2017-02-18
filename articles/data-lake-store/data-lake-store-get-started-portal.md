@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Data Lake Store | Microsoft Docs
-description: De portal gebruiken om een Data Lake Store-account te maken en basisbewerkingen in Data Lake Store uit te voeren
+title: Aan de slag met Azure Data Lake Store met Azure Portal | Microsoft Docs
+description: Azure Portal gebruiken om een Data Lake Store-account te maken en basisbewerkingen in Data Lake Store uit te voeren
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java-SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
+> * [Azure-CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -51,7 +51,7 @@ Bekijk dan de volgende video's om aan de slag te gaan met Data Lake Store.
 2. Klik op **Nieuw**, klik op **Gegevens en opslag** en klik vervolgens op **Azure Data Lake Store**. Lees de informatie op de blade **Azure Data Lake Store** en klik vervolgens op **Maken** in de linkerbenedenhoek van het blad.
 3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in onderstaande schermafbeelding ziet:
    
-    ![Een nieuw Azure Data Lake Store-account maken](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Een nieuw Azure Data Lake Store-account maken](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Een nieuw Azure Data Lake Store-account maken")
    
    * **Naam**. Voer een unieke naam in voor het Data Lake Store-account.
    * **Abonnement**. Selecteer het abonnement waarmee u een nieuw Data Lake Store-account wilt maken.
@@ -62,10 +62,10 @@ Bekijk dan de volgende video's om aan de slag te gaan met Data Lake Store.
      * (Optioneel) Selecteer **Versleuteling niet inschakelen** in de vervolgkeuzelijst als u versleuteling wilt uitschakelen.
      * (Standaard) Selecteer **Sleutels gebruiken die worden beheerd door Azure Data Lake** als u uw versleutelingssleutels wilt beheren met Azure Data Lake Store.
        
-         ![Data Lake Store-versleuteling](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+         ![Versleuteling van Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Versleuteling van Data Lake Store")
      * (Optioneel) Selecteer **Sleutels kiezen uit Azure Key Vault** als u uw eigen sleutels wilt gebruiken die u in uw Azure Key Vault hebt opgeslagen. Met deze optie kunt u ook een Key Vault-account en sleutels maken als u er nog geen hebt.
        
-         ![Data Lake Store-versleuteling](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+         ![Versleuteling van Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Versleuteling van Data Lake Store")
        
        Klik op **OK** in de blade **Versleutelingsinstellingen**.
        
@@ -80,7 +80,7 @@ Als u de sleutels uit een Azure Key Vault hebt gebruikt om versleuteling voor he
 
 1. Als u sleutels uit de Azure Key Vault hebt gebruikt, wordt boven aan de blade voor het Data Lake Store-account een waarschuwing weergegeven. Klik op de waarschuwing om de blade **Key Vault-machtigingen configureren** te openen.
    
-    ![Data Lake Store-versleuteling](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Versleuteling van Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Versleuteling van Data Lake Store")
 2. Op de blade ziet u twee opties om toegang te configureren.
    
    * Klik in de eerste optie op **Toestemming geven** om toegang te configureren. De eerste optie is alleen ingeschakeld als de gebruiker die het Data Lake Store-account heeft gemaakt ook een beheerder is voor de Azure Key Vault.
@@ -92,30 +92,30 @@ U kunt onder uw Data Lake Store-account mappen maken om gegevens te beheren en o
 1. Open het Data Lake Store-account dat u zojuist hebt gemaakt. Klik in het linkerdeelvenster op **Bladeren**, klik op **Data Lake Store** en klik vervolgens op de blade Data Lake Store op de accountnaam waaronder u mappen wilt maken. Als u het account hebt vastgemaakt aan het startboard, klikt u op de tegel voor dat account.
 2. Klik op de blade van het Data Lake Store-account op **Gegevensverkenner**.
    
-    ![Mappen maken in Data Lake Store-account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Mappen maken in het Data Lake Store-account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Mappen maken in het Data Lake Store-account")
 3. Klik op de blade van het Data Lake Store-account op **Nieuwe map**, voer een naam in voor de nieuwe map en klik op **OK**.
    
-    ![Mappen maken in Data Lake Store-account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Mappen maken in het Data Lake Store-account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Mappen maken in het Data Lake Store-account")
    
     De zojuist gemaakte map wordt vermeld op de blade **Gegevensverkenner**. U kunt geneste mappen maken tot elk gewenst niveau.
    
-    ![Mappen maken in Data Lake-account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Mappen maken in het Data Lake-account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Mappen maken in het Data Lake-account")
 
 ## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Gegevens uploaden naar Azure Data Lake Store-account
 Als u gegevens uploadt naar een Azure Data Lake Store-account, kunt u dat direct naar het hoofdniveau doen of naar een map die u in het account hebt gemaakt. Volg de stappen in onderstaande schermafbeelding om een bestand vanuit de blade **Gegevensverkenner** te uploaden naar een submap. In deze schermafbeelding is het bestand geüpload naar een submap die wordt weergegeven in de breadcrumbs (in een rood kader gemarkeerd).
 
 Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken.
 
-![Gegevens uploaden](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Gegevens uploaden](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Gegevens uploaden")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Eigenschappen en acties die beschikbaar zijn voor de opgeslagen gegevens
 Klik op het zojuist toegevoegde bestand om de blade **Eigenschappen** te openen. De eigenschappen van het bestand en de acties die u met het bestand kunt uitvoeren, zijn beschikbaar in deze blade. U kunt ook het volledige pad naar het bestand kopiëren in uw Azure Data Lake Store-account. Dit is in onderstaande schermafbeelding met een rood kader gemarkeerd.
 
-![Eigenschappen van de gegevens](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Eigenschappen van de gegevens](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Eigenschappen van de gegevens")
 
 * Klik op **Voorbeeld** als u rechtstreeks vanuit de browser een voorbeeld van het bestand wilt bekijken. U kunt ook de indeling van het voorbeeld opgeven. Klik op **Voorbeeld**, klik op de blade **Bestandsvoorbeeld** op **Indeling** en geef op de blade **Indeling bestandsvoorbeeld** opties op als het aantal rijen dat u wilt weergeven, de codering die u wilt gebruiken, het gewenste scheidingsteken, enzovoort.
   
-  ![Indeling bestandsvoorbeeld](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
+  ![Indeling van het bestandsvoorbeeld](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Indeling van het bestandsvoorbeeld")
 * Klik op **Downloaden** om het bestand naar uw computer te downloaden.
 * Klik op **Bestandsnaam wijzigen** als u de naam van het bestand wilt wijzigen.
 * Klik op **Bestand verwijderen** als u het bestand wilt verwijderen.
@@ -126,7 +126,7 @@ U kunt de gegevens die zijn opgeslagen in uw Azure Data Lake Store-account bevei
 ## <a name="delete-azure-data-lake-store-account"></a>Azure Data Lake Store-account verwijderen
 Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lake Store-blade op **Verwijderen**. Om de actie te bevestigen, wordt u gevraagd de naam in te voeren van het account dat u wilt verwijderen. Voer de naam in van het account en klik op **Verwijderen**.
 
-![Data Lake-account verwijderen](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Data Lake-account verwijderen](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Data Lake-account verwijderen")
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
@@ -137,6 +137,6 @@ Als u een Azure Data Lake Store-account wilt verwijderen, klikt u in de Data Lak
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

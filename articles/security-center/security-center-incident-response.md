@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center gebruiken voor reacties op incidenten | Microsoft Docs
+title: Beveiligingsincidenten afhandelen met Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe u Azure Security Center kunt gebruiken voor een scenario waarin u op een incident moet reageren.
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -78,13 +78,13 @@ Judy heeft zich aangemeld bij Azure Portal en werkt met de Security Center-conso
 
 1. Klik op de tegel **Beveiligingswaarschuwingen** en open de blade **Beveiligingswaarschuwingen**.
     ![Blade Beveiligingswaarschuwing](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > In dit scenario gaat Judy een waarschuwing over schadelijke SQL-activiteit beoordelen, zoals te zien is in de afbeelding hierboven.
-   > 
-   > 
+   >
+   >
 2. Klik op de waarschuwing **Schadelijke SQL-activiteit** en bekijk de aangevallen resources in de blade **Schadelijke SQL-activiteit**:  ![Details van het incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
-   
+
     In deze blade kan Judy aantekeningen maken over de aangevallen resources, hoe vaak deze aanval heeft plaatsgevonden en wanneer deze is gedetecteerd.
 3. Klik op de **aangevallen resource** voor meer informatie over deze aanval.
 
@@ -103,7 +103,6 @@ Het is heel belangrijk voor uw organisatie om een team samen te stellen voordat 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,60 +1,60 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+Azure Marketplace maakt een groot aantal populaire web-apps beschikbaar die zijn ontwikkeld door Microsoft, door derden of via OOS-initiatieven (Open Source Software). Voor web-apps uit de Microsoft Azure Marketplace hoeft u geen andere software te installeren dan de browser die wordt gebruikt om verbinding te maken met de [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
-In this tutorial, you'll learn:
+In deze zelfstudie leert u:
 
-* How to create a new web app through the Azure Marketplace.
-* How to deploy the web app through the Azure Preview Portal.
+* Hoe u een nieuwe web-app maakt via Azure Marketplace.
+* Hoe u de web-app implementeert via de Azure Preview Portal.
 
-You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
+U maakt een WordPress-blog die gebruikmaakt van een standaardsjabloon. In de volgende afbeelding wordt de voltooide toepassing weergegeven:
 
-![Wordpress blog][13]
+![Wordpress-blog][13]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
-## Create a web app in the portal
-1. Log in to the Azure Preview Portal.
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+## <a name="create-a-web-app-in-the-portal"></a>Een web-app maken in de portal
+1. Meld u aan bij de Azure Preview Portal.
+2. Open Azure Marketplace door op het pictogram van de **Marketplace** te klikken:
    
-    ![Marketplace icon][marketplace]
+    ![Pictogram van Marketplace][marketplace]
    
-    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    Of door rechtsboven in het dashboard op het pictogram **Nieuw** te klikken en onder aan de lijst de optie **Marketplace** te selecteren.
    
     ![Create New][5]
-3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
+3. Selecteer **Web en mobiel**. Zoek naar **WordPress** en klik op het **WordPress**-pictogram.
    
-    ![WordPress from list][7]
-4. After reading the description of the WordPress app, select **Create**.
-5. Click on **Web app**, and provide the required values for configuring your web app.
+    ![WordPress via een lijst][7]
+4. Lees de beschrijving van de WordPress-app en selecteer **Maken**.
+5. Klik op **Web-app** en geef de vereiste waarden op om de web-app te configureren.
    
-    ![configure your app][8]
-6. Click on **Database**, and provide the required values for configuring your MySQL database. 
+    ![de app configureren][8]
+6. Klik op **Database** en geef de vereiste waarden op om de MySQL-database te configureren. 
    
-    ![configure database][database]
-7. Provide a name for a new resource group.
+    ![database configureren][database]
+7. Geef een naam op voor een nieuwe resourcegroep.
    
-    ![Set resource group][groupname]
-8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
-9. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+    ![Resourcegroep instellen][groupname]
+8. Klik indien nodig op **ABONNEMENT** en geef het abonnement op dat u wilt gebruiken. 
+9. Wanneer u klaar bent met het definiëren van de web-app, klikt u op **Maken** en wacht u tot de nieuwe web-app is gemaakt.
    
-   When the app has been created, you will see the resource group containing web app and database.
+   Wanneer de app is gemaakt, ziet u de resourcegroep die de web-app en database bevat.
    
-   ![show group][resourcegroup]
+   ![groep tonen][resourcegroup]
 
-## Launch and manage your WordPress web app
-1. Click on your new web app to see details about your app.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>De WordPress-web-app starten en beheren
+1. Klik op de nieuwe web-app om details over de app te bekijken.
    
-    ![launch dashboard][10]
-2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
+    ![dashboard starten][10]
+2. Klik op de pagina **Essentials** op **Bladeren** of op de koppeling onder **URL** om de welkomstpagina van de web-app te openen.
    
-    ![site URL][browse]
-3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
-4. Click **Login** and enter your credentials.  
-5. You'll have a new WordPress web app that looks similar to the web app below.    
+    ![site-URL][browse]
+3. Als WordPress niet is geïnstalleerd, voert u de juiste configuratiegegevens voor WordPress in en klikt u op **WordPress installeren** om de configuratie te voltooien en de aanmeldingspagina van de web-app te openen.
+4. Klik op **Aanmelden** en voer uw referenties in.  
+5. U hebt een nieuwe WordPress-web-app die er ongeveer zo uitziet als de onderstaande web-app.    
    
-    ![your WordPress site][13]
+    ![uw WordPress-site][13]
 
 [5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
@@ -69,3 +69,8 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+
+
+<!--HONumber=Jan17_HO3-->
+
+

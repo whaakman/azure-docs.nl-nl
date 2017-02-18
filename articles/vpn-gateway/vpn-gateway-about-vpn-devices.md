@@ -1,6 +1,6 @@
 ---
-title: Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways voor Azure Virtual Networks | Microsoft Docs
-description: Dit artikel gaat over VPN-apparaten en IPSec-parameters voor S2S VPN Gateway-verbindingen en bevat koppelingen naar configuratie-instructies en voorbeelden.
+title: Over VPN-apparaten voor cross-premises Azure-verbindingen | Microsoft Docs
+description: Dit artikel gaat over VPN-apparaten en IPSec-parameters voor cross-premises site-naar-site-VPN-gateway-verbindingen. Het artikel bevat koppelingen naar configuratie-instructies en voorbeelden.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
-U hebt een VPN-apparaat nodig om een S2S-VPN-verbinding (site-naar-site) te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod.
+U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod.
 
 > [!NOTE]
 > Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
 | --- | --- | --- |
 | IKE-versie |IKEv1 |IKEv2 |
-| Hash-algoritme |SHA1(SHA128) |SHA1(SHA128) |
+| Hash-algoritme |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Levensduur beveiligingskoppeling (SA) fase 2 (tijd) |3.600 seconden |3.600 seconden |
 | Levensduur beveiligingskoppeling (SA) fase 2 (doorvoer) |102.400.000 kB |- |
 | IPSec-SA-codering en -verificatieaanbiedingen (in volgorde van voorkeur) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N.v.t. |Zie *Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways* (hieronder) |
@@ -153,6 +153,6 @@ In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verifica
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

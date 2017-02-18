@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie voor Apache Storm: aan de slag met Storm op basis van Linux in HDInsight | Microsoft Docs'
+title: Aan de slag met Apache Storm op Azure HDInsight | Microsoft Docs
 description: Aan de slag met big data-analyses met Apache Storm en de Storm Starter-voorbeelden in HDInsight op basis van Linux. Informatie over het gebruik van Storm om gegevens in realtime te verwerken.
 keywords: apache storm, zelfstudie apache storm, big data-analyse, storm starter
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
-ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

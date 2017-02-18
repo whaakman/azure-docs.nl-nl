@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Data Lake Store met REST API| Microsoft Docs
+title: Aan de slag met Azure Data Lake Store met de REST-API | Microsoft Docs
 description: WebHDFS REST-API&quot;s gebruiken om bewerkingen uit te voeren in Data Lake Store
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
+> * [Java-SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
+> * [Azure-CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -264,6 +264,6 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

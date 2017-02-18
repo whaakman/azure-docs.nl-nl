@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ Meer informatie over hoe u WebHDFS REST API's en Data Lake Analytics REST API's 
 ## <a name="authenticate-with-azure-active-directory"></a>Verifiëren bij Azure Active Directory
 Er zijn twee methoden om te verifiëren bij Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
+### <a name="end-user-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
 Met deze methode wordt de gebruiker via de toepassing gevraagd om zich aan te melden. Alle bewerkingen worden uitgevoerd in de context van de gebruiker. 
 
 Volg deze stappen voor interactieve verificatie:
@@ -76,7 +76,7 @@ Volg deze stappen voor interactieve verificatie:
 
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Service-naar-serviceverificatie (niet interactief)
+### <a name="service-to-service-authentication-non-interactive"></a>Service-naar-serviceverificatie (niet interactief)
 Met deze methode worden met de toepassing eigen referenties verstrekt om bewerkingen uit te voeren. Hiervoor moet u een POST-aanvraag uitgeven, zoals in het voorbeeld hieronder: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Vervang \<`REDACTED`\> door het autorisatietoken, \<`AzureSubscriptionID`\> door
         ]
     }
 
-## <a name="submit-usql-jobs"></a>U-SQL-taken verzenden
+## <a name="submit-u-sql-jobs"></a>U-SQL-taken verzenden
 De volgende cURL-opdracht laat zien hoe u een U-SQL-taak verzendt:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ De uitvoer is vergelijkbaar met:
     }
 
 
-## <a name="list-usql-jobs"></a>U-SQL-taken vermelden
+## <a name="list-u-sql-jobs"></a>U-SQL-taken vermelden
 De volgende cURL-opdracht laat zien hoe u U-SQL-taken vermeldt:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ De uitvoer is vergelijkbaar met:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

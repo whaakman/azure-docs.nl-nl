@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 749dae73e9c515f91cd197d0652b4fc499cc3b0e
+ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
+ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 
 
 ---
@@ -252,8 +252,6 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
     ```
      In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
 
-    In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
-
     Het Hive-scriptbestand **partitionweblogs.hql** wordt opgeslagen in het Azure-opslagaccount (opgegeven door de scriptLinkedService met de naam **AzureStorageLinkedService1**) en in de map **script** van de container **adfgetstarted**.
 
     Het gedeelte **defines** wordt gebruikt om de runtime-instellingen die worden doorgegeven aan het Hive-script, op te geven als Hive-configuratiewaarden (bijvoorbeeld ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
@@ -298,7 +296,7 @@ Belangrijke punten om op te letten:
 
 - Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren:
     - Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren.
-        ```PowerShell   
+        ```PowerShell    
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         U kunt de volgende opdracht uitvoeren om te bevestigen dat de Data Factory-provider is geregistreerd.
@@ -528,6 +526,6 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

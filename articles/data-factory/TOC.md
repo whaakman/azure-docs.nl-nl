@@ -25,7 +25,7 @@
 
 # Procedures
 ## Gegevens verplaatsen
-### [Kopieerwizard van Data Factory](data-factory-copy-wizard.md)
+### [Kopieerwizard van Data Factory](data-factory-azure-copy-wizard.md)
 #### [1 TB in 15 minuten laden](data-factory-load-sql-data-warehouse.md)
 ### [Kopieeractiviteit](data-factory-data-movement-activities.md)
 #### [Handleiding voor prestaties en afstemmen van kopieeractiviteit](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Naslaginformatie voor Azure Data Factory-ontwikkelaars](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Resources

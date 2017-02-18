@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd h
 2. Selecteer **Active Directory** en selecteer vervolgens de naam van de organisatiedirectory.
 3. Selecteer de tab **Gebruikers** en selecteer vervolgens in de opdrachtbalk **Gebruiker toevoegen**.
 4. Selecteer op de pagina **Vertel ons meer over deze gebruiker** onder **Type gebruiker** een van de volgende opties:
-   
+
    * **Nieuwe gebruiker in uw organisatie**: hiermee voegt u een nieuw gebruikersaccount toe aan uw directory.
    * **Gebruiker met een bestaand Microsoft-account**: hiermee voegt u een bestaand Microsoft-consumentenaccount toe aan uw directory (bijvoorbeeld een Outlook-account)
 5. Afhankelijk van de waarde van **Type gebruiker** voert u een gebruikersnaam in (voor de nieuwe gebruiker) of een e-mailadres (voor een gebruiker met een Microsoft-account).
@@ -37,11 +37,11 @@ Gebruikers toevoegen om uw directory te vullen. In dit artikel wordt uitgelegd h
 
 > [!IMPORTANT]
 > Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
-> 
+>
 > * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com, toe, **gevolgd door** geoffgrisso@contoso.com.
-> * Voeg **niet** eerst geoffgrisso@contoso.com en dan geoffgrisso@contoso.onmicrosoft.com. toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
-> 
-> 
+> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
+>
+>
 
 ## <a name="change-user-information"></a>Gebruikersgegevens wijzigen
 U kunt elk gebruikerskenmerk wijzigen, behalve de object-ID.
@@ -87,6 +87,6 @@ Vervolgens kunt u de opties voor het beheren van toegang van gastgebruikers bewe
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

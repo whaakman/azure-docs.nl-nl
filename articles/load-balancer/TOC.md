@@ -40,6 +40,7 @@
 ## [Meerdere VIP's configureren voor cloudservice](load-balancer-multivip.md)
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Meerdere IP-configuraties gebruiken](load-balancer-multiple-ip.md)
+### [Meerdere IP-configuraties gebruiken (CLI)](load-balancer-multiple-ip-cli.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 
@@ -67,6 +68,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
