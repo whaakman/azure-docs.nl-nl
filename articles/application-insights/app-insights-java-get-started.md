@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 
 ---
@@ -38,10 +38,10 @@ U hebt de volgende zaken nodig:
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Een Application Insights-instrumentatiesleutel ophalen
 1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
 2. Maak een Application Insights-resource. Stel het toepassingstype in op Java-webtoepassing.
-   
+
     ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/app-insights-java-get-started/02-create.png)
 3. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze sleutel zo dadelijk in de code van uw project plakken.
-   
+
     ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. De Application Insights-SDK voor Java toevoegen aan uw project
@@ -54,6 +54,8 @@ Gebruik de [invoegtoepassing Application Insights-SDK voor Java][eclipse].
 Als uw project al is ingesteld om voor de build Maven te gebruiken, voegt u de volgende code in uw pom.xml-bestand in.
 
 Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
+
+```XML
 
     <repositories>
        <repository>
@@ -71,7 +73,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>1.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Moet u bijwerken naar een nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
@@ -81,6 +83,8 @@ Als uw project al is ingesteld om voor de build Gradle te gebruiken, voegt u de 
 
 Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -89,6 +93,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld: * `version:'1.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Bijwerken naar een nieuwe SDK*
@@ -102,11 +107,11 @@ Voeg de SDK handmatig toe:
 
 ### <a name="questions"></a>Vragen...
 * *Wat is de relatie tussen de `-core`- en `-web`-onderdelen in het zip-bestand?*
-  
+
   * `applicationinsights-core` biedt u de bare-API. U hebt dit onderdeel altijd nodig.
   * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
 * *De SDK bijwerken wanneer er wijzigingen worden gepubliceerd*
-  
+
   * Download de meest recente [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang de oude versie.
   * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -114,6 +119,8 @@ Voeg de SDK handmatig toe:
 Voeg ApplicationInsights.xml toe aan de resourcesmap in uw project of plaats het in het implementatieklassepad van uw project. Kopieer de volgende XML-code naar het bestand.
 
 Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -144,6 +151,7 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
@@ -160,8 +168,10 @@ De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
 
 U kunt de instrumentatiesleutel ook [instellen in code](app-insights-api-custom-events-metrics.md#ikey):
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## <a name="4-add-an-http-filter"></a>4. Een HTTP-filter toevoegen
 De laatste configuratiestap stelt het onderdeel voor de HTTP-aanvraag in staat elke webaanvraag vast te leggen. (Niet vereist als u alleen de bare-API wilt.)
@@ -169,6 +179,8 @@ De laatste configuratiestap stelt het onderdeel voor de HTTP-aanvraag in staat e
 Zoek en open het web.xml-bestand in uw project en voeg de volgende code samen onder het web-app-knooppunt, waar de toepassingsfilters zijn geconfigureerd.
 
 Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters worden toegewezen.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -180,9 +192,12 @@ Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters word
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Als u Spring Web MVC 3.1 of hoger gebruikt
 Bewerk deze elementen in *-servlet.xml zodanig dat het Application Insights-pakket is opgenomen:
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -192,14 +207,18 @@ Bewerk deze elementen in *-servlet.xml zodanig dat het Application Insights-pakk
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### <a name="if-youre-using-struts-2"></a>Als u Struts 2 gebruikt
 Voeg dit item toe aan het Struts-configuratiebestand (meestal struts.xml of struts-default.xml):
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (Als u interceptors hebt gedefinieerd in een standaardstack, kan de interceptor gewoon worden toegevoegd aan die stack.)
 
@@ -220,11 +239,11 @@ Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Gegevens van exemplaren
-Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven. 
+Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven.
 
 In Application Insights worden twee soorten gegevens weergegeven: cumulatieve gegevens (opgeslagen en weergegeven als gemiddelden, aantallen en sommen) en gegevens van exemplaren (afzonderlijke rapporten over HTTP-aanvragen, uitzonderingen, paginaweergaven of aangepaste gebeurtenissen).
 
@@ -233,7 +252,7 @@ Wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de bijbehorende tele
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analyse: krachtige querytaal
-Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het samenvoegen van gegevens als het zoeken naar afzonderlijke exemplaren. [Analyse]() is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
+Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het samenvoegen van gegevens als het zoeken naar afzonderlijke exemplaren.  [Analyse](app-insights-analytics.md) is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
 
 ![Voorbeeld van het hulpprogramma Analyse](./media/app-insights-java-get-started/025.png)
 
@@ -241,16 +260,16 @@ Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het same
 Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de telemetrische gegevens die in de portal binnenkomen.
 
 * Controleer of de firewall het verzenden van telemetrie door uw app naar deze poorten toestaat:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Als uitgaand verkeer via een firewall moet worden gerouteerd, definieert u de systeemeigenschappen `http.proxyHost` en `http.proxyPort`. 
+* Als uitgaand verkeer via een firewall moet worden gerouteerd, definieert u de systeemeigenschappen `http.proxyHost` en `http.proxyPort`.
 
 * Installeer op Windows-servers:
-  
+
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Dit onderdeel schakelt prestatiemeteritems in.)
 
 
@@ -261,7 +280,7 @@ Onverwerkte uitzonderingen worden automatisch verzameld:
 
 Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
-* [Aanroepen naar trackException() invoegen in uw code][apiexceptions]. 
+* [Aanroepen naar trackException() invoegen in uw code][apiexceptions].
 * [De Java-agent installeren op uw server](app-insights-java-agent.md). U specificeert de methoden die u wilt bekijken.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Methodeaanroepen en externe afhankelijkheden bewaken
@@ -275,20 +294,25 @@ Open **Instellingen**, **Servers** om een aantal prestatiemeteritems weer te gev
 ### <a name="customize-performance-counter-collection"></a>Het verzamelen van prestatiemeteritems aanpassen
 Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, voegt u de volgende code toe onder het hoofdknooppunt van het ApplicationInsights.xml-bestand:
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### <a name="collect-additional-performance-counters"></a>Verzamelen van aanvullende prestatiemeteritems
 U kunt opgeven dat er aanvullende prestatiemeteritems moeten worden verzameld.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX-tellers (weergegeven door de virtuele Java-machine)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` - De naam die wordt weergegeven in de Application Insights-portal.
 * `objectName` - De JMX-objectnaam.
@@ -301,12 +325,14 @@ U kunt opgeven dat er aanvullende prestatiemeteritems moeten worden verzameld.
 #### <a name="windows-performance-counters"></a>Windows-prestatiemeteritems
 Elk [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) maakt deel uit van een categorie (net zoals een veld deel uitmaakt van een klasse). Categorieën kunnen globaal zijn, maar ook genummerde of benoemde exemplaren hebben.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName: de naam die wordt weergegeven in de Application Insights-portal.
 * categorynaam: de prestatiemeteritemcategorie (prestatie-object) waaraan dit prestatiemeteritem is gekoppeld.
@@ -344,7 +370,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 ![Voorbeeld van een webtest](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Meer informatie over de webtests voor beschikbaarheid.][availability] 
+[Meer informatie over de webtests voor beschikbaarheid.][availability]
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 [Problemen met Java oplossen](app-insights-java-troubleshoot.md)
@@ -355,13 +381,13 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 * Voeg [bewaking toe aan uw webpagina's](app-insights-javascript.md) om de laadtijden, AJAX-aanroepen en browseruitzonderingen te bewaken.
 * Typ [aangepaste telemetrie](app-insights-api-custom-events-metrics.md) om het gebruik in de browser of op de server bij te houden.
 * Maak [dashboards](app-insights-dashboards.md) om de belangrijkste grafieken voor het bewaken van uw systeem samen te brengen.
-* Gebruik [Analytics](app-insights-analytics.md) om krachtige query’s voor telemetrie uit te voeren vanuit uw app
+* Gebruik [Analytics](app-insights-analytics.md) om vanuit uw app krachtige query's voor telemetrie uit te voeren
 * Raadpleeg het [Java Developer Center](/develop/java/) voor meer informatie.
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -371,6 +397,6 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
