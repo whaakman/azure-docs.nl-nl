@@ -12,13 +12,15 @@
 # Procedures
 ## Hoge beschikbaarheid configureren
 ### [Opties voor hoge beschikbaarheid](virtual-machines-windows-sql-high-availability-dr.md) 
-### [AlwaysOn-beschikbaarheidsgroep configureren](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [AlwaysOn-beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automatisch - met sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Handmatig - vereisten](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Handmatig - zelfstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Load balancer - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Load balancer - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Meerdere regio's](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Failover-clusterexemplaar
+#### [Configureren](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Beheren
 ### [De SQL Server IaaS Agent-extensie gebruiken](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

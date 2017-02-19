@@ -14,6 +14,7 @@
 ### [Een verificatieprovider maken](multi-factor-authentication-get-started-auth-provider.md)
 ### [Instellingen configureren](multi-factor-authentication-whats-next.md)
 ### [Rapporten in MFA](multi-factor-authentication-manage-reports.md)
+### [Bestaande netwerkbeleidservers gebruiken](multi-factor-authentication-nps-extension.md)
 ### Azure MFA on-premises
 #### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [IIS-web-apps](multi-factor-authentication-get-started-server-iis.md)
 ### [Extern bureaublad-gateway](multi-factor-authentication-get-started-server-rdg.md)
 
-## Ontwikkelen 
+## Ontwikkelen
 ### [Inbouwen in aangepaste apps (SDK)](multi-factor-authentication-sdk.md)
 
 ## Problemen oplossen
@@ -46,6 +47,6 @@
 ### [Een vraag stellen](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -14,6 +14,7 @@
 ## Uw back-end beveiligen
 ### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)
+### [Verbinding maken met een intern virtueel netwerk](api-management-using-with-internal-vnet.md)
 ### [Gezamenlijke verificatie via certificaat](api-management-howto-mutual-certificates.md)
 ## Beleidsregels configureren
 ### [Aangepaste caching](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,9 +16,10 @@
 # Procedures
 ## [Routeringsmethode configureren](traffic-manager-configure-routing-method.md)
 ## [Uw instellingen testen](traffic-manager-testing-settings.md)
-## [Problemen met een verslechterd eindpunt oplossen](traffic-manager-troubleshooting-degraded.md)
 ## [Taakverdelingsservices combineren](traffic-manager-load-balancing-azure.md)
 ## [Netwerkresources gebruiken](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Problemen oplossen
+### [Problemen met een verslechterd eindpunt oplossen](traffic-manager-troubleshooting-degraded.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

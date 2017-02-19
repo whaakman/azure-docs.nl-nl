@@ -17,21 +17,24 @@
 
 ## Ontwikkelen
 ### [Veelvoorkomende querypatronen](stream-analytics-stream-analytics-query-patterns.md)
+### [Hulpprogramma's voor Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Invoer maken](stream-analytics-define-inputs.md)
 ### [Uitvoer maken](stream-analytics-define-outputs.md)
 ### [Referentiegegevens gebruiken](stream-analytics-use-reference-data.md)
-### [Uitvoer naar Azure Redis Cache](stream-analytics-functions-redis.md)
+### [Uitvoer naar Azure Functions](stream-analytics-functions-redis.md)
 ### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Uitvoer naar DocumentDB](stream-analytics-documentdb-output.md)
 ### [Gegevens analyseren met Power BI](stream-analytics-power-bi-dashboard.md)
+### [JavaScript UDF-integratie](stream-analytics-javascript-user-defined-functions.md)
 ### [Integratie van REST-API's en Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Management .NET-SDK gebruiken](stream-analytics-dotnet-management-sdk.md)
 ### [Vensterfuncties](stream-analytics-window-functions.md)
 
 ## Beheren
-### [Taken controleren](stream-analytics-monitoring.md)
-### [Taken controleren via een programma](stream-analytics-monitor-jobs.md)
-### [Taken controleren met PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
+### [Taken bewaken](stream-analytics-monitoring.md)
+### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
+### [Taken bewaken via een programma](stream-analytics-monitor-jobs.md)
+### [Taken bewaken met PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Schalen om doorvoer te vergroten](stream-analytics-scale-jobs.md)
 ### [Schalen voor Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Invoer- en uitvoerreferenties roteren](stream-analytics-login-credentials-inputs-outputs.md)
@@ -58,6 +61,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

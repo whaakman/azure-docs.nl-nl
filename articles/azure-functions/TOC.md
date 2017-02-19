@@ -13,8 +13,8 @@
 ## Ontwikkelen
 ### [Functie-apps ontwikkelen](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Werken met triggers en bindingen](functions-triggers-bindings.md)
 #### [DocumentDB-bindingen](functions-bindings-documentdb.md)
 #### [Event Hub-bindingen](functions-bindings-event-hubs.md)
@@ -28,7 +28,7 @@
 ##### [Tabelbindingen](functions-bindings-storage-table.md)
 #### [Timertrigger](functions-bindings-timer.md)
 #### [Twilio-uitvoerbinding](functions-bindings-twilio.md)
-### [Een functie maken vanuit Azure Portal](functions-create-first-azure-function-azure-portal.md)
+### [Een functie maken vanuit Azure Portal](functions-create-first-azure-function-azure-portal.md) 
 ### [Azure Functions testen](functions-test-a-function.md)
 ### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
 ### [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
@@ -39,6 +39,7 @@
 
 ## Implementeren
 ### [Doorlopende implementatie voor Azure Functions](functions-continuous-deployment.md)
+### [Functies implementeren met behulp van Infrastructure as Code (IaC)](functions-infrastructure-as-code.md)
 
 ## Controleren
 ### [Azure Functions controleren](functions-monitoring.md)
@@ -47,9 +48,10 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [GitHub-opslagplaats voor Azure Functions](https://github.com/Azure/Azure-Functions/) 
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

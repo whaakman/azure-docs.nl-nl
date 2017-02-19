@@ -21,25 +21,21 @@
 ## [Zoekopdrachten opslaan en gegevensassets vastzetten](data-catalog-how-to-save-pin.md)
 ## [De zakelijke woordenlijst instellen](data-catalog-how-to-business-glossary.md)
 
-## Ontwikkelen
-### [Concepten van ontwikkelaars](data-catalog-developer-concepts.md)
-### [Voorbeelden voor ontwikkelaars](data-catalog-samples.md)
-
 # Naslaginformatie
 ## [REST](/rest/api/datacatalog/)
+## [Concepten van ontwikkelaars](data-catalog-developer-concepts.md)
+## [Voorbeelden voor ontwikkelaars](data-catalog-samples.md)
 
-# Resources
+# Bronnen
 ## [Sneltoetsen voor Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologie](data-catalog-terminology.md)
-## Releaseopmerkingen
-### [Releaseopmerkingen - nieuw](data-catalog-whats-new.md)
-### [Releaseopmerkingen](data-catalog-release-notes.md)
+## [Releaseopmerkingen](data-catalog-whats-new.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

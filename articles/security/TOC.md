@@ -23,8 +23,11 @@
 ## [Identiteitsbeheer](security-identity-management-overview.md)
 ### [Aanbevolen procedures voor beveiliging van identiteitsbeheer](azure-security-identity-management-best-practices.md)
 ## PaaS-services
-### [Aanbevolen procedures voor IoT-beveiliging](azure-security-iot-best-practices.md)
+### [PaaS-implementaties beveiligen](security-paas-deployments.md)
+#### [PaaS-toepassingen beveiligen met SQL](security-paas-applications-using-sql.md)
+#### [PaaS-toepassingen beveiligen met App Services](security-paas-applications-using-app-services.md)
 ### [IoT-beveiligingsoverzicht](security-internet-of-things-overview.md)
+### [Aanbevolen procedures voor IoT-beveiliging](azure-security-iot-best-practices.md)
 ## Verticale industrieën
 ### [Veilige gezondheidsoplossingen ontwerpen](security-health-care-solution.md)
 ## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
