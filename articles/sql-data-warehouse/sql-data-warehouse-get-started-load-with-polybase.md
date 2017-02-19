@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
 
 
 ---
@@ -35,7 +35,7 @@ In deze zelfstudie ziet u hoe u met AzCopy en PolyBase gegevens laadt in SQL Dat
 * databaseobjecten maakt om de gegevens te definiëren;
 * een TSQL-query uitvoert om de gegevens te laden.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -44,7 +44,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse-database.
 * Een Azure-opslagaccount van het type standaard lokaal redundante opslag (Standard Locally Redundant Storage (Standard-LRS)), standaard geografisch redundante opslag (Standard Geo-Redundant Storage (Standard-GRS)) of standaard geografisch redundante opslag met leestoegang (Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)).
-* AzCopy-opdrachtregelprogramma. Download en installeer de [meest recente versie van AzCopy][meest recente versie van AzCopy] die is geïnstalleerd met de hulpprogramma's van Microsoft Azure Storage.
+* AzCopy-opdrachtregelprogramma. Download en installeer de [meest recente versie van AzCopy][latest version of AzCopy], dat wordt geïnstalleerd met de hulpprogramma's van Microsoft Azure Storage.
   
     ![Hulpprogramma's van Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -107,7 +107,7 @@ Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zie ook [Aan de slag met het AzCopy-opdrachtregelprogramma][Aan de slag met het AzCopy-opdrachtregelprogramma].
+Zie ook [Aan de slag met het AzCopy-opdrachtregelprogramma][Getting Started with the AzCopy Command-Line Utility].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. De Blob Storage-container verkennen
 Controleer als volgt het bestand dat naar Blob Storage is geüpload:
@@ -127,10 +127,10 @@ PolyBase gebruikt externe tabellen voor de toegang tot gegevens in Azure Blob-op
 
 In het voorbeeld in deze stap worden de volgende Transact-SQL-instructies gebruikt om een externe tabel te maken.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] om het geheim van de database-scoped referentie te versleutelen.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] om het geheim van de referenties van de databaseconfiguratie te versleutelen.
 * [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] om verificatiegegevens voor het Azure-opslagaccount op te geven.
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] om de locatie van de Azure-blobopslag op te geven.
-* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] om de indeling van uw gegevens op te geven.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] om de indeling van de gegevens op te geven.
 * [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] om de tabeldefinitie en locatie van de gegevens op te geven.
 
 Voer deze query uit voor uw SQL Data Warehouse-database. Hiermee wordt een externe tabel DimDate2External gemaakt in het DBO-schema dat wijst naar de voorbeeldgegevens in DimDate2.txt in de Azure Blob Storage.
@@ -212,7 +212,7 @@ In SQL Server-objectverkenner in Visual Studio ziet u de externe bestandsindelin
 Nadat de externe tabel is gemaakt, kunt u de gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
 
 * Als u de gegevens in een nieuwe tabel wilt laden, voert u de instructie [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] uit. De kolommen in de nieuwe tabel hebben in de query een naam gekregen. De gegevenstypen van de kolommen komen overeen met de gegevenstypen in de definitie van de externe tabel.
-* Als u de gegevens wilt laden in een bestaande tabel, gebruikt u de instructie [INSERT…SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
+* Als u de gegevens in een bestaande tabel wilt laden, gebruikt u de instructie [INSERT…SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -238,26 +238,26 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Zie [Statistieken][Statistieken] voor meer informatie.  
+Zie [Statistieken][Statistics] voor meer informatie.  
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de [PolyBase-handleiding][PolyBase-handleiding] voor meer informatie over het ontwikkelen van een oplossing die gebruikmaakt van PolyBase.
+Raadpleeg de [PolyBase-handleiding][PolyBase guide] voor meer informatie over het ontwikkelen van een oplossing die gebruikmaakt van PolyBase.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Zelfstudie: PolyBase in SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Gegevens laden met bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Statistieken]: ./sql-data-warehouse-tables-statistics.md
-[PolyBase-handleiding]: ./sql-data-warehouse-load-polybase-guide.md
-[Aan de slag met het AzCopy-opdrachtregelprogramma]: ../storage/storage-use-azcopy.md
-[meest recente versie van AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[ondersteunde bron/sink]: https://msdn.microsoft.com/library/dn894007.aspx
-[kopieerbewerking]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server-doeladapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -278,6 +278,6 @@ Raadpleeg de [PolyBase-handleiding][PolyBase-handleiding] voor meer informatie o
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

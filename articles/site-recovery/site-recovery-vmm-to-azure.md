@@ -1,5 +1,5 @@
 ---
-title: Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Portal | Microsoft Docs
+title: Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure | Microsoft Docs
 description: Dit artikel beschrijft hoe u Site Recovery implementeert om replicatie, failovers en herstel van virtuele Hyper-V-machines in VMM-clouds naar Azure te beheren.
 services: site-recovery
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Portal
+
+> [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klassieke Azure Portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell klassiek](site-recovery-deploy-with-powershell.md)
->
->
+
 
 Welkom bij de Azure Site Recovery-service!
 
@@ -37,7 +38,7 @@ Dit artikel beschrijft hoe u met behulp van Azure Site Recovery in Azure Portal 
 Na het lezen van dit artikel kunt u onderaan eventuele opmerkingen posten. Technische vragen kunt u stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="quick-reference"></a>Snelzoekgids
-Voor een volledige implementatie, raden wij u sterk aan alle stappen in het artikel te volgen. Maar als u niet genoeg tijd bent, vindt u hier een snel overzicht.
+Voor een volledige implementatie, raden wij u sterk aan alle stappen in het artikel te volgen. Maar als u niet genoeg tijd hebt, vindt u hier een snel overzicht.
 
 | **Onderwerp** | **Details** |
 | --- | --- |
@@ -46,7 +47,7 @@ Voor een volledige implementatie, raden wij u sterk aan alle stappen in het arti
 | **On-premises beperkingen** |Op HTTPS gebaseerde proxy wordt niet ondersteund |
 | **Provider/agent** |Gerepliceerde VM’s vereisten de Azure Site Recovery-provider.<br/><br/> Hyper-V-hosts vereist de Recovery Services-agent.<br/><br/> U installeert deze tijdens de implementatie. |
 |  **Azure-vereisten** |Azure-account<br/><br/> Recovery Services-kluis<br/><br/> LRS- of GRS-opslagaccount in kluisregio<br/><br/> Standaardopslagaccount<br/><br/> Virtuele Azure-netwerk in kluisregio. [Volledige details](#azure-prerequisites). |
-|  **Azure-beperkingen** |Als u GRS gebruikt, hebt u een ander LRS-account nodig voor logboekregistratie<br/><br/> Opslagaccounts die zijn gemaakt in Azure Portal, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. <br/><br/> Premium-opslag wordt niet ondersteund.<br/><br/> Azure-netwerken die worden gebruikt voor Site Recovery, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. 
+|  **Azure-beperkingen** |Als u GRS gebruikt, hebt u een ander LRS-account nodig voor logboekregistratie<br/><br/> Opslagaccounts die zijn gemaakt in Azure Portal, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. <br/><br/> Premium-opslag wordt niet ondersteund.<br/><br/> Azure-netwerken die worden gebruikt voor Site Recovery, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement.
 |  **VM-replicatie** |[Virtuele machines moeten voldoen aan de vereisten voor Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **Replicatiebeperkingen** |U kunt geen virtuele machines repliceren waarop Linux wordt uitgevoerd met een statisch IP-adres.<br/><br/> U kunt bepaalde schijven uitsluiten van replicatie, maar niet de besturingssysteemschijf.
 | **Implementatiestappen** |(1) Azure voorbereiden (abonnement, opslag, netwerk) -> 2) On-premises voorbereiden (VMM en de netwerkkoppeling) -> 3) Recovery Services-kluis maken > 4) VMM en Hyper-V-hosts instellen -> 5) Replicatie-instellingen configureren -> 6) Replicatie inschakelen -> 7) Replicatie en failover testen. |
@@ -319,7 +320,7 @@ Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 2. Geef in **Beleid maken en koppelen** een beleidsnaam op.
 3. Geef in **Kopieerfrequentie** op hoe vaak u na de eerste replicatie de verschillen wilt repliceren (elke 30 seconden of elke 5 of 15 minuten).
 4. Geef in **Bewaarperiode van het herstelpunt** op hoeveel uur elk herstelpunt moet worden bewaard. Beveiligde machines kunnen te allen tijde worden hersteld naar een willekeurig punt (binnen een bepaald tijdsvenster).
-5. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (elke 1-12 uur) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen. Hyper-V maakt gebruik van twee soorten momentopnamen: standaardmomentopnamen waarmee steeds incrementele momentopnamen van de volledige virtuele machine worden gemaakt, en toepassingsconsistente momentopnamen waarmee een tijdsgebonden momentopname wordt gemaakt van de toepassingsgegevens in de virtuele machine. Toepassingsconsistente momentopnamen gebruiken Volume Shadow Copy Service (VSS) om ervoor te zorgen dat toepassingen een consistente status hebben wanneer er een momentopname wordt gemaakt. Als u toepassingsconsistente momentopnamen inschakelt, is dit van invloed op de prestaties van de toepassingen die via de virtuele bronmachines worden uitgevoerd. Zorg ervoor dat de waarde die u instelt, kleiner is dan het aantal aanvullende herstelpunten dat u configureert.
+5. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (elke&1;-12 uur) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen. Hyper-V maakt gebruik van twee soorten momentopnamen: standaardmomentopnamen waarmee steeds incrementele momentopnamen van de volledige virtuele machine worden gemaakt, en toepassingsconsistente momentopnamen waarmee een tijdsgebonden momentopname wordt gemaakt van de toepassingsgegevens in de virtuele machine. Toepassingsconsistente momentopnamen gebruiken Volume Shadow Copy Service (VSS) om ervoor te zorgen dat toepassingen een consistente status hebben wanneer er een momentopname wordt gemaakt. Als u toepassingsconsistente momentopnamen inschakelt, is dit van invloed op de prestaties van de toepassingen die via de virtuele bronmachines worden uitgevoerd. Zorg ervoor dat de waarde die u instelt, kleiner is dan het aantal aanvullende herstelpunten dat u configureert.
 6. Geef in **Begintijd initiële replicatie** aan wanneer de initiële replicatie moet worden gestart. De replicatie maakt gebruik van uw internetbandbreedte. Daarom is het een goed idee om de replicatie buiten de drukste tijden in te plannen.
 7. Geef in **Gegevens versleutelen die zijn opgeslagen in Azure** op of u at-rest-gegevens in de Azure-opslag wilt versleutelen. Klik vervolgens op **OK**.
 
@@ -392,16 +393,16 @@ Schakel nu als volgt replicatie in:
 7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-best-practices.md#azure-virtual-machine-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-    
+
     >[!NOTE]
-    > 
-    > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. De besturingssysteemschijf kan niet worden uitgesloten. Het wordt bovendien niet aanbevolen om dynamische schijven uit te sluiten. ASR kan niet bepalen welke schijf VHD-schijf standaard of dynamisch is binnen de virtuele gastmachine.  Als niet alle afhankelijke volumeschijven worden uitgesloten, wordt een beveiligde dynamische schijf geleverd als een niet-werkende schijf op een failover-VM en zijn de gegevens op de schijf niet toegankelijk.   
+    >
+    > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. De besturingssysteemschijf kan niet worden uitgesloten. Het wordt bovendien niet aanbevolen om dynamische schijven uit te sluiten. ASR kan niet bepalen welke schijf VHD-schijf standaard of dynamisch is binnen de virtuele gastmachine.  Als niet alle afhankelijke volumeschijven worden uitgesloten, wordt een beveiligde dynamische schijf geleverd als een niet-werkende schijf op een failover-VM en zijn de gegevens op de schijf niet toegankelijk.
     > * Nadat de replicatie is ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de virtuele machine uitschakelen en vervolgens weer inschakelen.
     > * Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt Azure Automation ook integreren in een herstelplan om de schijf tijdens failover van de machine te maken.
     > * Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks op de virtuele Azure-machine maakt, wordt alleen voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd van Azure naar Hyper-V. U kunt schijven die handmatig zijn gemaakt in de failback of in de omgekeerde replicatie van Hyper-V naar Azure, niet opnemen.
     >
     >
-    
+
 
 8. Selecteer in **Replicatie-instellingen** > **Replicatie-instellingen configureren** het replicatiebeleid dat u op de beveiligde virtuele machines wilt toepassen. Klik vervolgens op **OK**. U kunt het replicatiebeleid wijzigen via **Instellingen** > **Replicatiebeleid** > beleidsnaam > **Instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
 
@@ -418,7 +419,8 @@ Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er r
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen. Opmerking:
+3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
+Opmerking:
 
    * U kunt het doel-IP-adres instellen. Als u geen adres opgeeft, maakt de machine waarvoor een failover is uitgevoerd, gebruik van DHCP. Als u een adres instelt dat tijdens het uitvoeren van de failover niet beschikbaar is, mislukt de failover. Hetzelfde doel-IP-adres kan worden gebruikt voor een testfailover als het adres beschikbaar is in het testfailovernetwerk.
    * Het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Dat werkt als volgt:
@@ -430,19 +432,6 @@ Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er r
 
      ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. In **Schijven** ziet u het besturingssysteem en de gegevensschijven van de virtuele machine die wordt gerepliceerd.
-
-## <a name="step-7-test-your-deployment"></a>Stap 7: uw implementatie testen
-Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één virtuele machine, maar ook een herstelplan uitvoeren dat een of meer virtuele machines bevat.
-
-### <a name="prepare-for-failover"></a>Voorbereiden op een failover
-* Als u een testfailover wilt uitvoeren, is het raadzaam om een nieuw Azure-netwerk te maken dat is geïsoleerd van uw Azure productienetwerk. Dit is een standaardprocedure voor het maken van een nieuw netwerk in Azure. [Meer informatie](site-recovery-failover.md#run-a-test-failover) over het uitvoeren van testfailovers.
-* Voor optimale prestaties bij het uitvoeren van een failover naar Azure installeert u de Azure-agent op de beveiligde machine. Dit zorgt voor sneller opstarten en maakt het oplossen van problemen eenvoudiger. Installeer de agent voor [Linux](https://github.com/Azure/WALinuxAgent) of [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Als u uw implementatie volledig wilt testen, is het van belang dat de infrastructuur voor de gerepliceerde machine naar behoren werkt. Als u Active Directory en DNS wilt testen, kunt u een virtuele machine maken als domeincontroller met DNS en deze naar Azure repliceren met Azure Site Recovery. Zie [Test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations) (Overwegingen bij testfailovers voor Active Directory) voor meer informatie.
-* Als u schijven hebt uitgesloten van replicatie, moet u de schijven na de failover mogelijk handmatig maken in Azure, zodat de toepassing wordt uitgevoerd zoals verwacht.
-* Als u in plaats van een testfailover een ongeplande failover wilt uitvoeren, let u op het volgende:
-
-  * Schakel primaire machines zo mogelijk uit voordat u een ongeplande failover uitvoert. Zo zorgt u ervoor dat niet tegelijkertijd zowel de bronmachines als de gerepliceerde machines worden uitgevoerd.
-  * Wanneer u een niet-geplande failover uitvoert, worden er geen gegevens meer gerepliceerd van primaire machines. Gegevensverschillen worden dus pas overgedragen nadat met de niet-geplande failover is gestart. Als u een niet-geplande failover uitvoert op basis van een herstelplan, wordt deze uitgevoerd totdat het proces is voltooid, zelfs als er een fout optreedt.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 Als u na een failover met RDP verbinding wilt maken met virtuele Azure-machines, doet u het volgende:
@@ -474,26 +463,19 @@ Als u na een failover via een Secure Shell-client (SSH) toegang wilt krijgen tot
 * Er moet een openbaar eindpunt worden gemaakt om inkomende verbindingen met de SSH-poort toe te staan (standaard is dit TCP-poort 22).
 * Als de virtuele machine wordt geopend via een VPN-verbinding (Express Route of site-to-site-VPN), kan de client worden gebruikt om rechtstreeks verbinding te maken met de virtuele machine via SSH.
 
-### <a name="run-a-test-failover"></a>Een testfailover uitvoeren
+
+## <a name="step-7-test-your-deployment"></a>Stap 7: uw implementatie testen
+Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één virtuele machine, maar ook een herstelplan uitvoeren dat een of meer virtuele machines bevat.
+
 1. Als u een failover wilt uitvoeren voor één virtuele machine, gaat u naar **Instellingen** > **Gerepliceerde items**. Klik vervolgens op de virtuele machine > **+Testfailover**.
-2. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Instellingen** > **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.
-3. Selecteer in **Failover testen** het Azure-netwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat er een failover is uitgevoerd.
-4. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen te openen, of door in **Instellingen** > **Site Recovery-taken** op de taak **Testfailover** te klikken.
-5. Wanneer voor de failover de fase **Testen voltooien** is bereikt, doet u het volgende:
+1. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Instellingen** > **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.
+1. Selecteer in **Failover testen** het Azure-netwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat er een failover is uitgevoerd.
+1. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen te openen, of door in **Instellingen** > **Site Recovery-taken** op de taak **Testfailover** te klikken.
+1. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
+1. Als u zich hebt [voorbereid op verbindingen na een failover](#prepare-to-connect-to-Azure-VMs-after-failover), kunt u verbinding maken met het virtuele Azure-netwerk.
+1. Als u klaar bent, klikt u op **Testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u de virtuele machines die tijdens de testfailover zijn gemaakt. 
 
-   1. Bekijk de gerepliceerde virtuele machine in Azure Portal. Controleer of de virtuele machine correct wordt opgestart.
-   2. Als u vanuit uw on-premises netwerk toegang hebt tot virtuele machines, kunt u ook een Extern bureaublad-verbinding naar de virtuele machine starten.
-   3. Klik op **Test voltooien** om de test te voltooien.
-   4. Klik op **Notities** om eventuele opmerkingen over de testfailover vast te leggen en op te slaan.
-   5. Klik op **De testfailover is voltooid**. Schoon de testomgeving zodanig op dat de virtuele testmachine automatisch wordt uitgeschakeld en verwijderd.
-   6. In dit stadium worden alle elementen of virtuele machines verwijderd die tijdens de testfailover automatisch door Site Recovery zijn gemaakt. Eventuele extra elementen die u voor de testfailover hebt gemaakt, worden niet verwijderd.
-
-      > [!NOTE]
-      > Als een testfailover langer dan twee weken duurt, wordt deze geforceerd beëindigd.
-      >
-      >
-6. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
-7. Als u zich hebt [voorbereid op verbindingen na een failover](#prepare-to-connect-to-Azure-VMs-after-failover), kunt u verbinding maken met het virtuele Azure-netwerk.
+Raadpleeg voor meer informatie het document [Testfailover naar Azure](site-recovery-test-failover-to-azure.md).
 
 ## <a name="monitor-your-deployment"></a>Uw implementatie bewaken
 Ga als volgt te werk om de configuratie-instellingen en de status van uw Site Recovery-implementatie te bewaken:
@@ -509,6 +491,6 @@ Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) mee
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

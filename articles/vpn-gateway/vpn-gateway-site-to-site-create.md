@@ -1,10 +1,10 @@
 ---
-title: Een virtueel netwerk met een site-naar-site-VPN-gatewayverbinding maken met behulp van de klassieke Azure-portal | Microsoft Docs
-description: Maak een VNet met een S2S-VPN-gatewayverbinding voor cross-premises en hybride configuraties met behulp van het klassieke implementatiemodel.
+title: 'Uw on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN: klassieke portal | Microsoft Docs'
+description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met de klassieke portal en het klassieke implementatiemodel.
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke Azure Portal
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het klassieke implementatiemodel en de klassieke portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 
-![Site-naar-site-diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -102,6 +102,6 @@ Configureer de gateway van het virtuele netwerk om een beveiligde site-naar-site
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

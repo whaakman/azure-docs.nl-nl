@@ -1,5 +1,5 @@
 ---
-title: Instellen van uw omgeving | Microsoft Docs
+title: Uw Azure Media Services-ontwikkelomgeving instellen | Microsoft Docs
 description: Uw omgeving instellen voor het ontwikkelen met Azure Media Services.
 services: media-services
 documentationcenter: 
@@ -12,22 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 5d49c309a8bfef8f6b4a2825c2bd12a590f19fd9
+ms.sourcegitcommit: e16620b457e82260b27fe484abee715bb4b3aa24
+ms.openlocfilehash: fe69fc0ace47967e1ddf083e47dd25beb8d91d84
 
 
 ---
-# <a name="set-up-your-environment"></a>Uw omgeving instellen
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)
->   <a id="create_account"></a>
-> 
-> 
+# <a name="set-up-your-media-services-development-environment"></a>De Media Services-ontwikkelomgeving instellen
+
 
 De volgende stappen beschrijven de vereisten voor het ontwikkelen met Azure Media Services.
 
@@ -37,16 +31,19 @@ Gebruik Azure Portal, de .NET-SDK of de REST API voor het maken van een Azure Me
 <a id="setup_dev_env"></a>
 
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
-Kies .NET of de REST API voor uw ontwikkelomgeving.
 
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+Zie [dit](media-services-dotnet-how-to-use.md) onderwerp als u een .NET-ontwikkelomgeving wilt instellen.  
+
+Zie [dit](media-services-rest-how-to-use.md) onderwerp als u een REST-ontwikkelomgeving wilt instellen.  
 
 <a id="connect"></a>
 
 ## <a name="connect-programmatically"></a>Verbinding maken via een programma
-Kies .NET of de REST API om via een programma verbinding te maken met Azure Media Services.
 
-[!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+Zie [dit](media-services-dotnet-connect-programmatically.md) onderwerp voor meer informatie over verbinden met Azure Media Services met behulp van .NET.  
+
+Zie [dit](media-services-rest-connect-programmatically.md) onderwerp voor meer informatie over verbinden met Azure Media Services met behulp van REST.  
+
 
 ## <a name="next-steps-azure-media-services-learning-paths"></a>Volgende stappen: Azure Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -57,6 +54,6 @@ Kies .NET of de REST API om via een programma verbinding te maken met Azure Medi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

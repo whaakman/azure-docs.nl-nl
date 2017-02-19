@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 1. Open Visual Studio en klik op **File**, **New**, **Project**.
-2. Vouw het knooppunt **Visual C#** uit in de lijst **Templates**, selecteer **Cloud** en klik op **ASP.NET Web Application**. Zorg ervoor dat **.NET Framework 4.5.2** is geselecteerd.  Typ **ContosoTeamStats** in het tekstvak **Name**. Klik vervolgens op **OK**.
+2. Vouw het knooppunt **Visual C#** uit in de lijst **Templates**, selecteer **Cloud** en klik op **ASP.NET Web Application**. Zorg ervoor dat **.NET Framework 4.5.2** of hoger is geselecteerd.  Typ **ContosoTeamStats** in het tekstvak **Name**. Klik vervolgens op **OK**.
    
     ![Project maken][cache-create-project]
 3. Selecteer **MVC** als het projecttype. Schakel het selectievakje **Host in the cloud** uit. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -852,6 +852,6 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

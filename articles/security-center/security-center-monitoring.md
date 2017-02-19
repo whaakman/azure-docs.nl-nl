@@ -1,5 +1,5 @@
 ---
-title: Beveiligingsstatus bewaken in Azure Security Center | Microsoft Docs
+title: Beveiliging bewaken in Azure Security Center | Microsoft Docs
 description: Dit artikel helpt u aan de slag te gaan met de bewakingsmogelijkheden in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security
 
 > [!NOTE]
 > Alleen virtuele machines met ten minste één openbaar eindpunt worden weergegeven op de blade **Netwerkstatus** in de lijst **Netwerktopologie**.
-> 
-> 
+>
+>
 
 Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding.
 
@@ -87,8 +87,8 @@ Klik op de naam van de virtuele machine om meer informatie voor de aanbeveling w
 
 > [!NOTE]
 > Dit zijn dezelfde beveiligingsaanbevelingen als die op de blade **Aanbevelingen**. Zie het artikel [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen. Dit is niet alleen van toepassing voor virtuele machines, maar ook voor alle resources die beschikbaar zijn in de tegel **Resourcestatus**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Sectie voor virtuele machines
 De sectie voor virtuele machines geeft een overzicht van alle virtuele machines en aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
@@ -217,7 +217,6 @@ In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Secu
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

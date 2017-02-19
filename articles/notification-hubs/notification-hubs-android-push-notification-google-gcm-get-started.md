@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreekse
 ### <a name="create-a-new-android-project"></a>Een nieuw Android-project maken
 1. Start een nieuw Android Studio-project in Android Studio.
    
-     ![Android Studio - nieuw project][13]
+   ![Android Studio - nieuw project][13]
 2. Kies de vormfactor voor **Telefoon en tablet** en de **minimale SDK** die u wilt ondersteunen. Klik op **Volgende**.
    
-     ![Android Studio - werkstroom voor het maken van een project][14]
+   ![Android Studio - werkstroom voor het maken van een project][14]
 3. Kies **Lege activiteit** als belangrijkste activiteit, klik op **Volgende** en klik vervolgens op **Voltooien**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Google Play-services aan het project toevoegen
@@ -619,13 +619,14 @@ Bovendien moet u ervoor zorgen dat u uw Google-account hebt toegevoegd aan uw ac
 #### <a name="running-the-application"></a>De toepassing uitvoeren
 1. Start de app. U zult zien dat de registratie-id meldt dat de registratie is gelukt.
    
-       ![Testing on Android - Channel registration][18]
+      ![Testen op Android - Kanaalregistratie][18]
 2. Voer een melding in die moet worden verzonden naar alle Android-apparaten die zijn geregistreerd bij de hub.
    
-       ![Testing on Android - sending a message][19]
+      ![Testen op Android - een bericht verzenden][19]
+
 3. Druk op **Melding verzenden**. Alle apparaten waarop de app actief is, ontvangen een `AlertDialog`-exemplaar met de pushmelding. Apparaten waarop de app niet actief is, maar die eerder zijn geregistreerd voor pushmeldingen, ontvangen een melding in Android Notification Manager. Deze meldingen kunnen worden bekeken door omlaag te vegen vanuit de linkerbovenhoek.
    
-       ![Testing on Android - notifications][21]
+      ![Testen op Android - meldingen][21]
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt het beste de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden] doornemen. Hierin ziet u hoe u meldingen van een ASP.NET-back-end verzendt met tags voor specifieke gebruikers.
@@ -671,6 +672,6 @@ Zie [Richtlijnen voor Notification Hubs] voor meer algemene informatie over Noti
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
