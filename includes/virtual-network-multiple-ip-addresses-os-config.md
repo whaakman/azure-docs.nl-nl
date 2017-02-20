@@ -6,7 +6,7 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
 
 1. Typ vanaf een opdrachtprompt *ipconfig /all*.  U ziet alleen het *primaire* privé-IP-adres (via DHCP).
 2. Typ *ncpa.cpl* in het opdrachtpromptvenster om het venster **Netwerkverbindingen** te openen.
-3. Open de eigenschappen voor **LAN-verbinding**.
+3. Open de eigenschappen van de geschikte adapter: **LAN-verbinding**.
 4. Dubbelklik op Internet Protocol versie 4 (IPv4).
 5. Selecteer **Het volgende IP-adres gebruiken** en voer de volgende waarden in:
 
@@ -16,9 +16,24 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
     * Klik op **De volgende DNS-serveradressen gebruiken** en voer de volgende waarden in:
         * **DNS-voorkeursserver**: als u niet uw eigen DNS-server gebruikt, voert u 168.63.129.16 in.  Als u uw eigen DNS-server gebruikt, voert u het IP-adres voor de server in.
     * Klik op de knop **Geavanceerd** en voeg extra IP-adressen toe. Voeg elk van de secundaire privé-IP-adressen die in stap 8 worden vermeld, toe aan de NIC met hetzelfde subnet dat voor het primaire IP-adres is opgegeven.
+        >[!WARNING] 
+        >Als u de bovenstaande stappen niet correct uitvoert, kan het zijn dat de verbinding met uw virtuele machine wordt verbroken. Zorg ervoor dat de gegevens die u hebt ingevoerd voor stap 5 kloppen voordat u doorgaat.
+
     * Klik op **OK** om de TCP/IP-instellingen te sluiten en vervolgens nogmaals op **OK** om de instellingen van de netwerkadapter te sluiten. Uw RDP-verbinding wordt opnieuw tot stand gebracht.
+
 6. Typ vanaf een opdrachtprompt *ipconfig /all*. Alle IP-adressen die u hebt toegevoegd, worden weergegeven en DHCP is uitgeschakeld.
-    
+
+
+### <a name="validation-windows"></a>Validatie (Windows)
+
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht nadat u de bovenstaande stappen hebt gevolgd:
+
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>U kunt internet alleen pingen als het privé-IP-adres dat u hierboven gebruikt een bijbehorende openbare IP heeft.
+
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Open een terminalvenster.
@@ -39,13 +54,7 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
         ```
 
     U moet een .CFG-bestand zien.
-4. Open het bestand:
-
-        ```bash
-        vi eth0.cfg
-        ```
-
-    U moet de volgende regels aan het einde van het bestand zien:
+4. Open het bestand. U moet de volgende regels aan het einde van het bestand zien:
 
     ```bash
     auto eth0
@@ -57,6 +66,7 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
     ```bash
     iface eth0 inet static
     address <your private IP address here>
+    netmask <your subnet mask>
     ```
 
 6. Sla het bestand op met de volgende opdracht:
@@ -78,11 +88,11 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
 8. Controleer of het IP-adres is toegevoegd aan de netwerkinterface met de volgende opdracht:
 
     ```bash
-    Ip addr list eth0
+    ip addr list eth0
     ```
 
     Het IP-adres dat u hebt toegevoegd, moet nu in de lijst staan.
-    
+
 ### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS en anderen)
 
 1. Open een terminalvenster.
@@ -122,11 +132,10 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
 
     ```bash
     DEVICE=eth0:0
-        BOOTPROTO=static
-        ONBOOT=yes
-        IPADDR=192.168.101.101
-        NETMASK=255.255.255.0
-
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
     ```
 
 8. Sla het bestand op met de volgende opdracht:
@@ -144,7 +153,31 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
 
     Het IP-adres dat u hebt toegevoegd, *eth0:0*, moet nu in de lijst staan die wordt opgehaald.
 
+### <a name="validation-linux"></a>Validatie (Linux)
 
-<!--HONumber=Feb17_HO1-->
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht:
+
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>U kunt internet alleen pingen als het privé-IP-adres dat u hierboven gebruikt een bijbehorende openbare IP heeft.
+
+Voor virtuele Linux-machines moet u mogelijk geschikte routes toevoegen wanneer u probeert uitgaande verbindingen te valideren vanaf een secundaire NIC. Er zijn meerdere manieren om dit te doen. Zie de relevante documentatie voor uw Linux-distributie. Hieronder staat één van de mogelijke manieren:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- Vervang de volgende zaken:
+    - **10.0.0.5** door het privé-IP-adres waaraan een openbaar IP-adres is gekoppeld
+    - **10.0.0.1** door uw standaardgateway
+    - **eth2** door de naam van uw secundaire NIC
+
+
+<!--HONumber=Feb17_HO2-->
 
 

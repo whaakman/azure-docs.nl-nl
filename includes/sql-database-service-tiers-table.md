@@ -40,6 +40,6 @@ sql-database-service-tiers.md
 
 \* De maximale grootte per database verwijst naar de maximale grootte van de gegevensbestanden. De ruimte die logboekbestanden innemen, wordt niet meegerekend.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

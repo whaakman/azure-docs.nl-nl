@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -47,7 +47,7 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 * Gefilterd op [aankondigingen](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) over de algemene beschikbaarheid (GA) van SQL Database-functies.
 
 > [!TIP]
-> Zie [De Azure SQL Database-compatibiliteit valideren](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) als u wilt testen of een bestaande database compatibel is met Azure SQL Database.
+> Als u wilt testen of een bestaande database compatibel is met Azure SQL Database, raadpleegt u [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md) (Een SQL Server-database migreren naar Azure).
 >
 
 | **Functie** | **SQL Server** | **Azure SQL Database** | 
@@ -161,6 +161,6 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

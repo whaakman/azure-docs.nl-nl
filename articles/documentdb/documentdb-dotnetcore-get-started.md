@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
-ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -78,7 +78,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
    ![Schermopname van het snelmenu voor het project](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Klik op het tabblad **Nuget** op **Bladeren** en typ **azure documentdb** in het zoekvak.
 7. Zoek **Microsoft.Azure.DocumentDB.Core** in de resultaten en klik op **Installeren**.
-   De pakket-id voor de DocumentDB-clientbibliotheek is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
+   De pakket-id van de DocumentDB-clientbibliotheek voor .NET Core is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Als u zich richt op een .NET Framework-versie (zoals net461) die niet wordt ondersteund door dit .NET Core NuGet-pakket, gebruikt u [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) die alle versies van .NET Framework vanaf .NET Framework 4.5 ondersteunt.
 
 Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrijven van code. Op [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) vindt u een voltooid codeproject voor deze zelfstudie.
 
@@ -113,7 +113,7 @@ Ga vervolgens naar [Azure Portal](https://portal.azure.com) om uw URI en primair
 
 Navigeer in de Azure Portal naar uw DocumentDB-account en klik daarna op **Keys**.
 
-Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`. Als u gebruikmaakt van de Azure DocumentDB-emulator, gebruik dan `https://localhost:443` als eindpunt. Gebruik daarnaast de goed gedefinieerde autorisatiesleutel van [Hoe ontwikkelen met behulp van de DocumentDB-Emulator](documentdb-nosql-local-emulator.md).
+Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`. Als u gebruikmaakt van de Azure DocumentDB-emulator, gebruik dan `https://localhost:8081` als eindpunt. Gebruik daarnaast de goed gedefinieerde autorisatiesleutel van [Hoe ontwikkelen met behulp van de DocumentDB-Emulator](documentdb-nosql-local-emulator.md).
 
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Schermopname van Azure Portal waarin een DocumentDB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de DocumentDB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels.][keys]
 
@@ -562,6 +562,6 @@ Als u de verwijzingen naar de DocumentDB .NET Core SDK in Visual Studio wilt her
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

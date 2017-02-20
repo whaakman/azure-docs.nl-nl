@@ -12,26 +12,23 @@ En omdat u programmatisch virtuele machines en Linux-containers kunt maken in Az
 Dit artikel beschrijft deze begrippen niet alleen op hoog niveau, maar bevat ook koppelingen naar meer informatie, zelfstudies en producten die gerelateerd zijn aan het gebruik van containers en clusters in Azure. Als u al op de hoogte bent van al deze informatie en alleen op zoek bent naar de koppelingen, vindt u deze hier: [hulpprogramma's voor het werken met containers](#tools-for-working-with-azure-vms-and-containers).
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>Het verschil tussen virtuele machines en containers
-Virtuele machines worden uitgevoerd in een geïsoleerde hardwarevirtualisatieomgeving die wordt geleverd door een [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure handelt de service voor [virtuele machines](https://azure.microsoft.com/services/virtual-machines/) dat allemaal voor u af: u maakt eenvoudigweg virtuele machines door het besturingssysteem te kiezen en het volgens uw voorkeur te configureren &mdash; of door uw eigen aangepaste VM-installatiekopie te uploaden. Virtuele machines zijn een betrouwbare, 'geharde' technologie en er zijn veel hulpprogramma's beschikbaar om besturingssystemen te beheren en de toepassingen te configureren die u installeert en uitvoert. Alles dat wordt uitgevoerd op een virtuele machine is verborgen voor het hostbesturingssysteem en vanuit het oogpunt van een toepassing of gebruiker die actief is binnen een virtuele machine, lijkt de virtuele machine een autonome fysieke computer te zijn.
+Virtuele machines worden uitgevoerd in een geïsoleerde hardwarevirtualisatieomgeving die wordt geleverd door een [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure handelt de service voor [virtuele machines](https://azure.microsoft.com/services/virtual-machines/) dat allemaal voor u af: u maakt virtuele machines door het besturingssysteem te kiezen en te configureren &mdash;of door een aangepaste VM-installatiekopie te uploaden. Virtuele machines vormen een betrouwbare, beproefde technologie. Bovendien zijn er veel hulpprogramma's beschikbaar om het besturingssysteem en de toepassingen op virtuele machines te beheren.  Apps op een virtuele machine zijn verborgen voor het hostbesturingssysteem. Vanuit het perspectief van een toepassing op of een gebruiker van een virtuele machine lijkt de virtuele machine een autonome fysieke computer.
 
-[Linux-containers ](http://en.wikipedia.org/wiki/LXC)&mdash; inclusief containers die zijn gemaakt en worden gehost met behulp van dockerhulpprogramma's en andere manieren &mdash; vereisen geen en maken geen gebruik van een hypervisor voor isolatie. In plaats daarvan gebruikt de containerhost de proces- en bestandssysteemisolatiefuncties van de Linux-kernel om alleen bepaalde functies van de kernel en het eigen geïsoleerde bestandssysteem (minimaal) weer te geven voor de container (en de toepassing). Vanuit het oogpunt van een toepassing die binnen een container wordt uitgevoerd, lijkt de container een unieke instantie van een besturingssysteem. Een ingesloten toepassing kan processen of andere bronnen buiten de container niet zien.
+[Linux-containers](http://en.wikipedia.org/wiki/LXC) en containers die zijn gemaakt en worden gehost met dockerhulpprogramma's, maken voor het bieden van isolatie geen gebruik van een hypervisor. Bij toepassing van containers gebruikt de containerhost processen en functies voor het isoleren van het bestandssysteem van de Linux-kernel om de apps, bepaalde functies van de kernel en het eigen geïsoleerde bestandssysteem aan de container weer te geven. Vanuit het perspectief van een app die binnen een container wordt uitgevoerd, lijkt de container een unieke instantie van een besturingssysteem. Een ingesloten app kan geen processen of andere resources buiten de container zien.
 
-Omdat in dit isolatie- en uitvoeringsmodel de kernel van de Docker-hostcomputer wordt gedeeld, en omdat de schijfvereisten van de container nu geen volledig besturingssysteem omvatten, zijn zowel de opstarttijd van de container als de benodigde schijfruimte veel en veel lager.
+In een dockercontainer worden veel minder resources gebruikt dan op een virtuele machine. Dockercontainers maken gebruik van toepassingsisolatie en van een uitvoeringsmodel dat de kernel van de dockerhost niet deelt. De container legt veel minder beslag op de schijf omdat deze niet een volledig besturingssysteem bevat. In vergelijking met een virtuele machine is de opstarttijd aanzienlijk korter en de vereiste schijfruimte aanzienlijk kleiner.
+Windows-containers bieden dezelfde voordelen als Linux-containers voor apps die in Windows worden uitgevoerd. Windows-containers ondersteunen het Docker-installatiekopieformaat en Docker-API, maar ze kunnen ook worden beheerd met behulp van PowerShell. Er zijn twee containerruntimes beschikbaar met Windows-containers: Windows Server-containers en Hyper-V-containers. Hyper-V-containers bieden een extra isolatielaag door elke container op een uiterst geoptimaliseerde virtuele machine te hosten. Zie [Informatie over Windows-containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) voor meer informatie over Windows-containers. Leer hoe u [een Azure Container Service-cluster implementeert](/articles/container-service/container-service-deployment.md) om aan de slag te gaan met Windows-containers in Azure.
 
-Dat is niet verkeerd.
+## <a name="what-are-containers-good-for"></a>Waar zijn containers goed voor?
 
-Windows-containers bieden dezelfde voordelen als Linux-containers voor toepassingen die in Windows worden uitgevoerd. Windows-containers ondersteunen het Docker-installatiekopieformaat en Docker-API, maar ze kunnen ook worden beheerd met behulp van PowerShell. Er zijn twee containerruntimes beschikbaar met Windows-containers: Windows Server-containers en Hyper-V-containers. Hyper-V-containers bieden een extra isolatielaag door elke container op een extra geoptimaliseerde virtuele machine te hosten. Zie [Informatie over Windows-containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) voor meer informatie over Windows-containers. Leer hoe u [een Azure Container Service-cluster implementeert](/articles/container-service/container-service-deployment.md) om aan de slag te gaan met Windows-containers in Azure.
+Voordelen van containers:
 
-Dat is ook niet verkeerd.
+* Toepassingscode kan snel worden ontwikkeld en op grote schaal worden gedeeld
+* Apps kunnen snel en op een betrouwbare manier worden getest
+* Apps kunnen snel en op een betrouwbare manier worden geïmplementeerd
 
-### <a name="is-this-too-good-to-be-true"></a>Is dit te mooi om waar te zijn?
-Nou, ja &mdash; en nee. Containers, zoals elke andere technologie, kunnen niet op magische wijze al het harde werk wegnemen dat vereist is voor gedistribueerde toepassingen. Maar met containers verandert het volgende wel ingrijpend:
+Containers worden uitgevoerd op een containerhost &mdash; een besturingssysteem. In Azure betekent dit een virtuele Azure-machine. Zelfs als het idee van containers u aanspreekt, hebt u nog steeds een VM-infrastructuur nodig die als host fungeert voor de containers. Voordelen zijn echter dat het containers niet uitmaakt op welke VM ze worden uitgevoerd (of de container een Linux- of Windows-uitvoeringsomgeving wil is bijvoorbeeld wel van belang).
 
-* hoe snel toepassingscode kan worden ontwikkeld en breed worden gedeeld
-* hoe snel en met welk vertrouwen deze kan worden getest
-* hoe snel en met welk vertrouwen deze kan worden geïmplementeerd
-
-Dit gezegd hebbende, vergeet niet dat containers worden uitgevoerd op een containerhost &mdash; een besturingssysteem, en in Azure betekent dit een virtuele Azure-machine. Zelfs als het idee van containers u aanspreekt, hebt u nog steeds een VM-infrastructuur nodig die als host fungeert voor de containers. Voordelen zijn echter dat het containers niet uitmaakt op welke VM ze worden uitgevoerd (of de container een Linux- of Windows-uitvoeringsomgeving wil is bijvoorbeeld wel van belang).
 
 ## <a name="what-are-containers-good-for"></a>Waar zijn containers goed voor?
 Ze zijn goed voor een groot aantal dingen, maar ze stimuleren &mdash;net als [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) en [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash; het maken van uit een enkele service bestaande, microservicegerichte gedistribueerde toepassingen, waarbij het toepassingsontwerp is gebaseerd op kleinere, samenstelbare delen in plaats van grotere, sterker gekoppelde onderdelen.
@@ -198,6 +195,6 @@ Bekijk [Docker-](https://www.docker.com) en [Windows-containers](https://msdn.mi
 <!--Image references-->
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

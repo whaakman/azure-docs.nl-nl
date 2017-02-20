@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Het is heel eenvoudig om aan de slag te gaan met Azure AD Connect Health. Volg d
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Azure AD Connect Health-agent downloaden en installeren
-* Zorg dat u voldoet aan de vereisten voor Azure AD Connect Health
-* Als u aan de slag wilt gaan met Azure AD Connect Health voor AD FS, kunt u de nieuwste versie van de agent hier downloaden: [Azure AD Connect Health-agent voor AD FS downloaden.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Als u aan de slag wilt gaan met Azure AD Connect Health voor synchroniseren, downloadt en installeert u de [nieuwste versie van Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  De statusagent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).  Azure AD Connect ondersteunt een upgrade die u in plaats van eerdere versies kunt installeren.
-* Als u aan de slag wilt gaan met Azure AD Connect Health voor AD DS, kunt u de nieuwste versie van de agent hier downloaden: [Download Azure AD Connect Health Agent for AD DS (De Azure AD Connect Health-agent voor AD DS downloaden).](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+* Zorg ervoor dat u [voldoet aan de vereisten] (active-directory-aadconnect-health-agent-install.md#requirements) voor Azure AD Connect Health
+* Aan de slag met Azure AD Connect Health voor AD FS
+    * [Download de Azure AD Connect Health-agent voor AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Zie de installatie-instructies](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Aan de slag met Azure AD Connect Health for Sync
+    * [Download en installeer de nieuwste versie van Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). De Health for Sync-agent wordt geïnstalleerd als onderdeel van de Azure AD Connect-installatie (versie 1.0.9125.0 of hoger).
+* Aan de slag met Azure AD Connect Health voor AD DS
+    * [Download de Azure AD Connect Health-agent voor AD DS.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Zie de installatie-instructies](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>Portal voor Azure AD Connect Health
 In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de prestaties controleren en het gebruik analyseren. Via de koppeling https://aka.ms/aadconnecthealth gaat u naar de hoofdblade van Azure AD Connect Health.  Een blade kunt u zien als een venster. Op de hoofdblade ziet u Snel starten, services in Azure AD Connect Health en extra configuratie-opties. Hieronder vindt u een schermafbeelding met een korte uitleg van elk van deze onderdelen.  Nadat u de agents hebt geïmplementeerd, identificeert de Health-service automatisch de services die met Azure AD Connect Health worden bewaakt.
 
@@ -120,7 +123,6 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
-ms.openlocfilehash: 16680e3eaa99524a1aa71501b2d3468004b63625
+ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
+ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
 
 
 ---
@@ -41,21 +41,21 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
-| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - west 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, West-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City+, Toronto |
+| **Noord-Amerika** |VS - oost, VS - west, VS - oost 2, VS - west 2, VS - midden, Zuid-centraal VS, Noord-centraal VS, West-centraal VS, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec, Toronto |
 | **Zuid-Amerika** |Brazilië - zuid |Sao Paulo |
 | **Europa** |Noord-Europa, West-Europa, Verenigd Koninkrijk - west, Verenigd Koninkrijk - zuid |Amsterdam, Dublin, Londen, Newport (Wales), Parijs |
 | **Azië** |Oost-Azië, Zuidoost-Azië |Hongkong, Singapore |
 | **Japan** |Japan - west, Japan - oost |Osaka, Tokio |
 | **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
 | **India** |India - west, India - midden, India - zuid |Chennai, Mumbai |
-| **Zuid-Korea** |Korea Centraal, Korea Zuid |Busan+, Seoul+ |
+| **Zuid-Korea** |Korea Centraal, Korea Zuid |Busan, Seoul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
 De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
-| **Cloud van de Amerikaanse overheid** |VS (overheid) - Iowa , VS (overheid) - Virginia, US DoD Centraal+, US DoD Oost+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
+| **Cloud van de Amerikaanse overheid** |VS (overheid) - Iowa , VS (overheid) - Virginia, US DoD - centraal, US DoD - oost  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **China** |China Noord, China Oost |Beijing, Shanghai |
 | **Duitsland** |Duitsland Centraal, Duitsland Oost |Berlijn, Frankfurt |
 
@@ -90,17 +90,18 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **Internet Solutions - Cloud Connect** |Ondersteund |Ondersteund |Amsterdam, Londen |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Ondersteund |Ondersteund |Amsterdam, Londen, Parijs |
 | **Jisc** |Ondersteund |Ondersteund |Londen |
-| **KINX** |Binnenkort beschikbaar |Binnenkort beschikbaar |Seoul+ |
+| **KINX** |Ondersteund |Ondersteund |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Ondersteund | Ondersteund | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Las Vegas+, Londen, Seattle, Silicon Valley, Singapore, Washington DC |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
+| **LG CNS** |Binnenkort beschikbaar |Binnenkort beschikbaar |Busan+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Quebec, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Ondersteund |Ondersteund |Newport (Wales) |
 | **NEXTDC** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Ondersteund |Ondersteund |Londen, Los Angeles, Osaka, Singapore, Tokio, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Ondersteund |Ondersteund |Hongkong SAR |
-| **Sejong Telecom** |Binnenkort beschikbaar |Binnenkort beschikbaar |Busan+, Seoul+ |
+| **Sejong Telecom** |Ondersteund |Ondersteund |Busan, Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Ondersteund |Ondersteund |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Ondersteund |Ondersteund |Singapore |
 | **Softbank** |Ondersteund |Ondersteund |Osaka, Tokio |
@@ -121,7 +122,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **Serviceprovider** | **Microsoft Azure** | **Office 365** | **Locaties** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Ondersteund |Ondersteund |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Ondersteund |Ondersteund |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Ondersteund |Ondersteund |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Chicago, New York+, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund | Ondersteund | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Ondersteund |Ondersteund |Chicago, Dallas, New York, Washington DC |
@@ -140,7 +141,7 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Ondersteund |Niet ondersteund |Frankfurt |
 | **e-shelter** |Ondersteund |Niet ondersteund |Berlijn |
 | **Interxion** |Ondersteund |Niet ondersteund |Frankfurt |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund  | Niet ondersteund | Berlijn+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund  | Niet ondersteund | Berlijn |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
@@ -204,6 +205,6 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

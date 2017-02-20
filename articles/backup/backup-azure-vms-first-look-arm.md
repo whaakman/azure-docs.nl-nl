@@ -1,6 +1,6 @@
 ---
 title: 'Eerste blik: virtuele machines van Azure beveiligen met een Recovery Services-kluis | Microsoft Docs'
-description: "Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd en virtuele machines voor Premium-opslag om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM&quot;s, maak beleid en beveilig VM&quot;s in Azure."
+description: "Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd, Premium Storage-VM&quot;s, versleutelde virtuele machines en virtuele machines op beheerde schijven om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM&quot;s, maak beleid en beveilig VM&quot;s in Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 02/06/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
-ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
+ms.sourcegitcommit: b73d5bb1f4f9e7adc65bf38a3c98db846a341cb3
+ms.openlocfilehash: 2d8bedcf51cf55e13cc22d5a2d258218f0a786bb
 
 
 ---
@@ -33,10 +33,11 @@ In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups m
 * VM's die zijn geïmplementeerd met Azure Resource Manager
 * Klassieke VM's
 * Standaardopslag-VM's
-* Premium Storage-VM's
+* Premium Storage-VM's 
+* Virtuele machines die op beheerde schijven worden uitgevoerd
 * Virtuele machines die met Azure Disk Encryption zijn versleuteld, met BitLocker-versleutelingssleutels (BEK) en Key Encryption Keys (KEK)
 
-Zie [Back-ups van VM's voor Premium Storage maken en herstellen](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie
+Zie [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie over het beschermen van Premium Storage-VM's. Zie [Back-ups van virtuele machines op beheerde schijven maken en terugzetten](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) voor meer informatie over ondersteuning voor VM's op beheerde schijven
 
 > [!NOTE]
 > In deze zelfstudie wordt ervan uitgegaan dat u een VM in uw Azure-abonnement hebt en dat u maatregelen hebt genomen om toe te staan dat de back-upservice toegang tot de VM kan krijgen.
@@ -45,7 +46,7 @@ Zie [Back-ups van VM's voor Premium Storage maken en herstellen](backup-introduc
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt beschermen. Als u van meerdere virtuele machines een back-up wilt maken in één bewerking, gaat u naar de Recovery Services-kluis en start u het back-up maken vanuit het kluisdashboard. Als u van één VM een back-up wilt maken, kunt u rechtstreeks vanaf de beheerblade van de VM een back-up maken.
+U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt beveiligen. Als u van meerdere virtuele machines een back-up wilt maken in één bewerking, gaat u naar de Recovery Services-kluis en start u de back-up vanuit het kluisdashboard. Als u van één VM een back-up wilt maken, kunt u rechtstreeks vanaf de beheerblade van de VM een back-up maken.
 
 ## <a name="configure-backup-from-vm-management-blade"></a>Back-up configureren vanaf VM-beheerblade
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -246,6 +247,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

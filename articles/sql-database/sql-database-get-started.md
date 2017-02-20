@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 535b16490bb601070c7d2a7135f3d69aa898be1f
-ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Snel starten-zelfstudie: uw eerste Azure SQL Database
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Snelstartzelfstudie: uw eerste Azure SQL Database
 
 In deze zelfstudie leert u:
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u:
 * [Een database verwijderen](sql-database-get-started.md#delete-a-single-database) 
 
 
-Aan het eind van deze zelfstudie hebt u een voorbeelddatabase en een lege database gemaakt die worden uitgevoerd in een Azure-resourcegroep en zijn gekoppeld aan een logische server. U hebt dan ook firewallregels op twp-serverniveau geconfigureerd waarmee de server-principal wordt aangemeld bij de server vanaf twee opgegeven IP-adressen. 
+In deze snelstartzelfstudie maakt u een voorbeelddatabase en een lege database die worden uitgevoerd in een Azure-resourcegroep en zijn gekoppeld aan een logische server. Daarnaast maakt u twee firewallregels op serverniveau waarmee de server-principal vanaf twee opgegeven IP-adressen wordt aangemeld bij de server. Ten slotte leert u hoe u in Azure Portal een query op een database uitvoert, en verbinding maakt en query’s uitvoert met behulp van SQL Server Management Studio. 
 
 **Geschatte tijd**: deze zelfstudie duurt circa 30 minuten (mits u al aan de vereisten voldoet).
 
@@ -88,7 +88,7 @@ Volg de stappen in deze procedure om met Azure Portal een nieuwe logische server
     ![nieuwe servernaam](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > De volledige geldige naam voor uw nieuwe server is <uw_servernaam>.database.windows.net.
+    > De volledig gekwalificeerde naam voor uw nieuwe server ziet er als volgt uit: <uw_servernaam>.database.windows.net.
     >
     
 4. Geef in het tekstvak Aanmeldgegevens van serverbeheerder een gebruikersnaam op voor de aanmelding voor SQL-verificatie voor deze server. Deze aanmelding wordt de principal-aanmelding op serverniveau genoemd. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
@@ -196,7 +196,7 @@ Volg de stappen in deze procedure om verbinding te maken met de logische SQL-ser
 
 ## <a name="create-a-database-with-sample-data"></a>Een database maken met voorbeeldgegevens
 
-Volg de stappen in deze procedure om een database met voorbeeldgegevens te maken met behulp van Azure Portal. U maakt deze database gekoppeld aan de logische server die u eerder hebt gemaakt. Als de Basic-servicelaag niet beschikbaar is in de regio waarin u uw server hebt gemaakt, verwijdert u uw server en maakt u deze opnieuw in een andere regio. Zie de laatste procedure in deze zelfstudie voor het verwijderen.
+Volg de stappen in deze procedure om een database met voorbeeldgegevens te maken met behulp van Azure Portal. De database die u gaat maken, is gekoppeld aan de logische server die u eerder hebt gemaakt. Als de Basic-servicelaag niet beschikbaar is in de regio waarin u uw server hebt gemaakt, verwijdert u uw server en maakt u deze opnieuw in een andere regio. Zie de laatste procedure in deze zelfstudie voor het verwijderen.
 
 1. Klik in Azure Portal op de standaardblade op **SQL-databases**.
 
@@ -275,7 +275,8 @@ Volg de stappen in deze procedure om een query op een database toe te passen met
 
    ```select * from sys.objects```
 
-    ![queryeditor-query](./media/sql-database-get-started/query-editor-query.png) 10 Klik op **Uitvoeren**.
+    ![query editor query](./media/sql-database-get-started/query-editor-query.png)
+10.  Klik op **Run**.
 11. Bekijk de resultaten van de query in het deelvenster **Resultaten**.
 
     ![resultaten queryeditor](./media/sql-database-get-started/query-editor-results.png)
@@ -333,7 +334,7 @@ Volg de stappen in deze procedure om op de logische server een nieuwe database t
 ## <a name="troubleshoot-connectivity"></a>Problemen met verbindingen oplossen
 
 > [!IMPORTANT]
-> Als u problemen met de netwerkverbinding hebt, raadpleegt u [Verbindingsproblemen](sql-database-troubleshoot-common-connection-issues.md).
+> Als u problemen met de netwerkverbinding ondervindt, raadpleegt u [Verbindingsproblemen](sql-database-troubleshoot-common-connection-issues.md).
 > 
 
 ## <a name="delete-a-single-database"></a>Een individuele database verwijderen
@@ -348,7 +349,7 @@ Volg de stappen in deze procedure om een individuele database te verwijderen met
     ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
 
 > [!TIP]
-> Tijdens de retentieperiode voor uw database kunt u deze herstellen vanuit de automatische back-ups die vanaf de server zijn gestart. U kunt databases uit de Standaard-editie binnen zeven dagen herstellen. Verwijder echter geen servers. Als u dit doet, kunt u de server en bijbehorende verwijderde databases niet herstellen. Zie [Learn about SQL Database backups](sql-database-automated-backups.md) (Informatie over SQL Database-back-ups) voor meer informatie over databaseback-ups. Zie [Database recovery](sql-database-recovery-using-backups.md) (Databaseherstel) voor meer informatie over het herstellen van een database vanuit back-ups. Zie [Restore a deleted Azure SQL database - Azure Portal](sql-database-restore-deleted-database-portal.md) (Een verwijderde Azure SQL-database herstellen - Azure Portal) voor een zelfstudie over het herstellen van een verwijderde database.
+> Tijdens de retentieperiode voor uw database kunt u deze herstellen vanuit de automatische back-ups die vanaf de server zijn gestart. U kunt databases uit de Standaard-editie binnen zeven dagen herstellen. Verwijder echter geen servers. Als u dit doet, kunt u de server en bijbehorende verwijderde databases niet herstellen. Zie [Learn about SQL Database backups](sql-database-automated-backups.md) (Informatie over SQL Database-back-ups) voor meer informatie over databaseback-ups. Zie [Database recovery](sql-database-recovery-using-backups.md) (Databaseherstel) voor meer informatie over het herstellen van een database vanuit back-ups. Zie [Restore a deleted Azure SQL database - Azure portal](sql-database-restore-deleted-database-portal.md) (Een verwijderde Azure SQL-database herstellen - Azure Portal) voor instructies voor het herstellen van een verwijderde database.
 >
 
 
@@ -372,6 +373,6 @@ Nu u deze zelfstudie hebt voltooid, wilt u mogelijk aanvullende zelfstudies volg
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

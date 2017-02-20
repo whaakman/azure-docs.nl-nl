@@ -11,7 +11,7 @@
 
    * Als u verbinding wilt maken met de proxy die momenteel op de computer is ingesteld, selecteert u **Verbinding maken met bestaande proxyinstellingen**.
    * Als u wilt dat de provider rechtstreeks verbinding maakt, selecteert u **Rechtstreeks verbinden zonder proxy**.
-   * Als voor de bestaande proxy verificatie is vereist of als u voor de proxyverbinding een aangepaste proxy wilt gebruiken, selecteert u **Verbinding maken met aangepaste proxyinstellingen**.
+   * Als voor de bestaande proxy verificatie is vereist of als u voor de verbinding met de provider een aangepaste proxy wilt gebruiken, selecteert u **Verbinding maken met aangepaste proxyinstellingen**.
 
      * Als u een aangepaste proxy gebruikt, moet u het adres, de poort en de referenties opgeven.
      * Als u een proxy gebruikt, hebt u, als het goed is, de URL’s die worden beschreven in [Vereisten](#configuration-server-prerequisites), al toegestaan.
@@ -26,14 +26,16 @@
 8. Selecteer bij **Details van de omgeving** of u virtuele VMware-machines wilt repliceren. Als dit zo is, wordt tijdens Setup gecontroleerd of PowerCLI 6.0 is geïnstalleerd.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. U kunt een station selecteren met minstens 5 GB schijfruimte, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
+
+9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
 
     ![Installatielocatie](./media/site-recovery-add-configuration-server/combined-wiz8.png)
 10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
 
     ![Netwerk selecteren](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
- 11. Lees de informatie bij **Samenvatting** en klik op **Installeren**. Wanneer de installatie is voltooid, wordt er een wachtwoordzin gegenereerd. U hebt deze nodig bij het inschakelen van de replicatie. Kopieer de wachtwoordzin daarom en bewaar deze op een veilige locatie.
+
+11. Lees de informatie bij **Samenvatting** en klik op **Installeren**. Wanneer de installatie is voltooid, wordt er een wachtwoordzin gegenereerd. U hebt deze nodig bij het inschakelen van de replicatie. Kopieer de wachtwoordzin daarom en bewaar deze op een veilige locatie.
 
     ![Samenvatting](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
