@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/2/2017
-ms.author: markgal;jimpark;trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
-ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -107,6 +107,15 @@ Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opsla
 
 ### <a name="restore-premium-storage-vms"></a>VM's voor Premium-opslag herstellen
 VM's voor Premium Storage kunnen worden hersteld naar de Premium Storage of de normale opslag. De gebruikelijke herstelprocedure voor een VM voor Premium-opslag is om het herstelpunt te herstellen naar Premium-opslag. Het kan echter rendabel zijn om een herstelpunt voor een VM voor Premium-opslag te herstellen naar de standaardopslag. Dit type herstel kan worden gebruikt als u een subset bestanden van de VM nodig hebt.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Virtuele machines op beheerde schijven gebruiken met Azure Backup
+Met Azure Backup beveiligt u virtuele machines op beheerde schijven. Dankzij beheerde schijven hoeft u opslagaccounts van virtuele machines niet te beheren en wordt de VM-inrichting sterk vereenvoudigd.
+
+### <a name="back-up-managed-disk-vms"></a>Back-up maken van virtuele machines op beheerde schijven
+Het maken van een back-up van virtuele machines op beheerde schijven en in Resource Manager gebeurt op dezelfde manier. U kunt de back-up rechtstreeks vanuit de VM-weergave of vanuit de Recovery Services-kluisweergave maken. Back-ups van virtuele machines op beheerde schijven kunnen worden gemaakt via RestorePoint-collecties die zijn gebouwd boven op beheerde schijven. Azure Backup biedt momenteel geen ondersteuning voor back-ups van virtuele machines op beheerde schijven die zijn versleuteld met Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Virtuele machines op beheerde schijven terugzetten
+Met Azure Backup kunt u een volledige virtuele machine terugzetten met beheerde schijven, of beheerde schijven terugzetten naar een Resource Manager-opslagaccount. De schijven die worden gemaakt tijdens het herstelproces worden beheerd door Azure, maar het opslagaccount dat als onderdeel van dit proces wordt gemaakt, wordt net als andere Resource Manager-opslagaccounts beheerd door de klant.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Wat zijn de functies van elk Backup-onderdeel?
 De volgende secties bevatten tabellen met een overzicht van de beschikbaarheid van of de ondersteuning voor verschillende functies in elk Azure Backup-onderdeel. Zie de informatie na elke tabel voor aanvullende ondersteuning of details.
@@ -234,6 +243,6 @@ Lees een van de volgende artikelen voor meer informatie over het beschermen van 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

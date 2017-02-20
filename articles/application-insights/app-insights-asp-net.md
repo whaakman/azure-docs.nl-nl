@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
-ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
+ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
+ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
 
 
 ---
@@ -55,7 +55,7 @@ In Visual Studio ziet u het aantal gebeurtenissen dat is geregistreerd.
 
 ## <a name="3-see-your-telemetry"></a>3. Uw telemetrie weergeven...
 ### <a name="-in-visual-studio"></a>...in Visual Studio
-Open het Application Insights-venster in Visual Studio: klik op de knop Application Insights of klik met de rechtermuisknop op uw project in Solution Explorer:
+Open het Application Insights-venster in Visual Studio: klik op de knop Application Insights of klik met de rechtermuisknop op uw project in Solution Explorer, selecteer `Application Insights` en klik op `Search Live Telemetry`:
 
 ![Tijdens het opsporen van fouten wordt in Visual Studio de knop Application Insights weergegeven.](./media/app-insights-asp-net/55.png)
 
@@ -84,7 +84,7 @@ Klik op een tegel of grafiek om meer details te zien.
 
 ### <a name="more-detail-in-the-portal"></a>Meer details in de portal
 
-* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) toont vrijwel onmiddellijk de telemetrie.
+* [**Live Metrics Stream**](app-insights-live-stream.md) toont vrijwel onmiddellijk de telemetrie.
 
     ![Klik op de blade Overzicht op Live stream](./media/app-insights-asp-net/livestream.png)
 
@@ -134,17 +134,25 @@ Als u wilt upgraden naar een [nieuwe release van de SDK](https://github.com/Micr
 Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
 
 ## <a name="add-more-telemetry"></a>Meer telemetrie toevoegen
-### <a name="web-pages-and-single-page-apps"></a>Webpagina's en apps van één pagina
-1. [Voeg het JavaScript-fragment toe](app-insights-javascript.md) aan uw webpagina's om de blades Browser en Gebruik te markeren met gegevens over paginaweergaven, laadtijden, browseruitzonderingen, prestaties van AJAX-aanroepen en gebruikers- en sessieaantallen.
-2. [Codeer aangepaste gebeurtenissen](app-insights-api-custom-events-metrics.md) om gebruikersacties te tellen of (de tijdsduur ervan) te meten.
-
 ### <a name="dependencies-exceptions-and-performance-counters"></a>Afhankelijkheden, uitzonderingen en prestatiemeteritems
-[Installeer Statuscontrole](app-insights-monitor-performance-live-website-now.md) op elke servermachine om extra telemetrie over de app te verkrijgen. U krijgt het volgende:
+
+[Installeer Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) op elke IIS-servermachine om extra telemetrie over uw web-apps te verkrijgen.
+
+Als het programma al is geïnstalleerd, hoeft u verder niets te doen. 
+
+Het kan zijn dat u Status Monitor al eerder hebt gebruikt, voor het bewaken van een app tijdens runtime. 
+
+Als u Status Monitor gebruikt naast de buildtime-SDK, krijgt u meer volledige telemetrie, met:
 
 * [Prestatiemeteritems](app-insights-performance-counters.md) - 
   Tellers voor CPU, geheugen, schijf en andere prestaties met betrekking tot uw app. 
 * [Uitzonderingen](app-insights-asp-net-exceptions.md): gedetailleerdere telemetrie voor bepaalde uitzonderingen.
-* [Afhankelijkheden](app-insights-asp-net-dependencies.md): aanroepen naar REST API of SQL-services. Ga na of trage reacties van externe onderdelen prestatieproblemen in uw app veroorzaken. (Als uw app wordt uitgevoerd op 4.6 .NET, hebt u Statusmonitor niet nodig om deze telemetrie te verkrijgen.)
+* [Afhankelijkheden](app-insights-asp-net-dependencies.md): inclusief retourwaarden.
+
+### <a name="web-pages-and-single-page-apps"></a>Webpagina's en apps van één pagina
+1. [Voeg het JavaScript-fragment toe](app-insights-javascript.md) aan uw webpagina's om de blades Browser en Gebruik te markeren met gegevens over paginaweergaven, laadtijden, browseruitzonderingen, prestaties van AJAX-aanroepen en gebruikers- en sessieaantallen.
+2. [Codeer aangepaste gebeurtenissen](app-insights-api-custom-events-metrics.md) om gebruikersacties te tellen of (de tijdsduur ervan) te meten.
+
 
 ### <a name="diagnostic-code"></a>Diagnostische code
 Hebt u een probleem? Als u code in uw app wilt invoegen om de app beter te diagnosticeren, hebt u verschillende opties:
@@ -191,11 +199,10 @@ Als u Visual Studio Team Services gebruikt, kunt u [een aantekeningenmarkering o
 | --- | --- |
 | **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens, het in detail analyseren van code. |
 | **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie. |
-| **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

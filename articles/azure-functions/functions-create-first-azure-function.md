@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/02/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: eacba057de5065acc3baa610a76a9ae135d6060a
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -40,7 +40,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. V
 Voordat u uw eerste functie kunt maken, moet u een actief Azure-account hebben. Als u nog geen Azure-account hebt, zijn er [gratis accounts beschikbaar](https://azure.microsoft.com/free/).
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
-2. Typ een unieke **Naam** voor uw nieuwe functie-app of accepteer de gegenereerde naam, selecteer de gewenste **Regio** en klik op **Create + get started**. U moet een geldige naam invoeren die alleen letters, cijfers en afbreekstreepjes bevat. Het onderstrepingsteken (**_**) is niet toegestaan.
+2. Typ een unieke **Naam** voor uw nieuwe functie-app of accepteer de automatisch gegenereerde naam, selecteer de gewenste **Regio** en klik op **Maken en aan de slag**. U moet een geldige naam invoeren die alleen letters, cijfers en afbreekstreepjes bevat. Het onderstrepingsteken (**_**) is niet toegestaan.
 3. Klik in het tabblad **Snelstartgids** op **WebHook en API** en op **JavaScript** en klik vervolgens op **Een functie maken**. Er wordt een nieuwe, vooraf gedefinieerde JavaScript-functie gemaakt. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
@@ -57,6 +57,6 @@ Voordat u uw eerste functie kunt maken, moet u een actief Azure-account hebben. 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

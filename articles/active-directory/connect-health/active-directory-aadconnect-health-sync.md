@@ -1,4 +1,3 @@
-
 ---
 title: Azure AD Connect Health gebruiken met synchronisatie | Microsoft Docs
 description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe u synchronisatie met Azure AD Connect kunt controleren.
@@ -13,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
-ms.openlocfilehash: 6546725b887dd9980913a651219dd2a2c4b8a783
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
 
 
 ---
@@ -106,7 +105,7 @@ De volgende gegevens zijn beschikbaar in de gedetailleerde weergave van elke fou
 ![Details van synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Het foutenrapport downloaden als een CSV
-Deze functie is binnenkort beschikbaar. Blijf ons volgen voor meer updates.
+Als u op Exporteren klikt, downloadt u een CSV-bestand met alle informatie over alle fouten.
 
 ## <a name="related-links"></a>Verwante koppelingen
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md) (Synchronisatiefouten oplossen)
@@ -120,7 +119,6 @@ Deze functie is binnenkort beschikbaar. Blijf ons volgen voor meer updates.
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

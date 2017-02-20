@@ -7,12 +7,13 @@ Omdat de Azure Functions-snelstartgidsen functionele code bevatten, kunt u uw ni
  
     ![](./media/functions-quickstart-test/function-app-develop-tab-testing.png)
 
-3. Ga naar het tekstvak **Aanvraagtekst**, wijzig de waarde van de eigenschap *naam* in uw naam en klik op **Uitvoeren**. U ziet dat de uitvoering wordt geactiveerd door een HTTP-testaanvraag, dat informatie naar de logboeken wordt geschreven en dat het antwoord 'hallo' wordt weergegeven in de **uitvoer**. 
+3. Ga naar het tekstvak **Aanvraagtekst**, wijzig de waarde van de eigenschap *naam* in uw naam en klik op **Uitvoeren**. U ziet dat de uitvoering wordt geactiveerd door een HTTP-testaanvraag, dat informatie naar de logboeken wordt geschreven en dat het antwoord 'hallo...' wordt weergegeven in de **uitvoer**. 
 
 4. Als u de uitvoering van dezelfde functie wilt activeren vanuit een ander HTTP-testprogramma of via een ander browservenster, kopieert u de waarde **Functie-URL** op het tabblad **Ontwikkelen** en plakt u deze in de adresbalk van het programma of de browser. Voeg de queryreekswaarde `&name=yourname` toe aan de URL en voer de aanvraag uit. Dezelfde informatie wordt naar de logboeken geschreven en dezelfde tekenreeks wordt gebruikt in de hoofdtekst van het antwoordbericht.
 
     ![](./media/functions-quickstart-test/function-app-browser-testing.png)
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

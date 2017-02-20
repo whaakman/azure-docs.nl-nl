@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
+ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
+ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
 
 
 ---
@@ -59,7 +59,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
    
     ![Media Services-account maken](./media/media-services-create-account/media-services-new3.png)
    
-   1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
+   1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers en kleine letters worden gebruikt. Spaties zijn niet toegestaan. De naam mag 3 tot 24 tekens lang zijn.
    2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
    3. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
    4. Selecteer in **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
@@ -103,6 +103,6 @@ U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
