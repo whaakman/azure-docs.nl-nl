@@ -1,47 +1,64 @@
 # Overzicht
-
 ## [Wat is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs-overzicht](event-hubs-overview.md)
-## [Event Hubs-API-overzicht](event-hubs-api-overview.md)
-## [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
-
+## [Veelgestelde vragen](event-hubs-faq.md)
 
 # Aan de slag
-## [Aan de slag met Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Programmeerhandleiding voor Event Hubs](event-hubs-programming-guide.md)
-## [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+## [Een Event Hub maken](event-hubs-create.md)
+## Gebeurtenissen verzenden
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Gebeurtenissen ontvangen
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## [Programmeergids](event-hubs-programming-guide.md)
 
 # Procedures
-## De voorbeelden uitvoeren
-### [Gebruikers op de hoogte stellen van de gegevens die zijn ontvangen van de sensoren](event-hubs-sensors-notify-users.md)
-### [Voorbeeldtoepassing voor Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Gebeurtenisverwerking opschalen met Event Hubs-voorbeeldtoepassing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-
+## Plannen en ontwerpen
+### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
+### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
+## Ontwikkelen
+### [Beschikbare API's](event-hubs-api-overview.md)
+#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Diagnostische logboeken](event-hubs-diagnostic-logs.md)
+### [Verificatie en autorisatie](../service-bus-messaging/service-bus-sas.md)
+### [AMQP 1.0-protocolhandleiding](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Beheren
 ### [Event Hubs-beheerbibliotheken](event-hubs-management-libraries.md)
-### [Event Hubs Archive](event-hubs-archive-overview.md)
-### [Event Hubs Archive inschakelen met een sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### Archiveren
+#### [Event Hubs Archive](event-hubs-archive-overview.md)
+#### [Event Hubs Archive inschakelen met een sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+#### [Event Hubs Archive inschakelen met Python](event-hubs-archive-python.md)
 ### [Gegevens van Azure Diagnostics streamen met behulp van Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Event Hub maken en implementeren met een Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md)
-### [Event Hubs Archive inschakelen met Python](event-hubs-archive-python.md)
 
 # Naslaginformatie
-## [.NET](/dotnet/api/microsoft.azure.eventhubs)
-## [Java](/java/api/com.microsoft.azure.eventhubs)
+## .NET
+### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
+## [Uitzonderingen](event-hubs-messaging-exceptions.md)
+## [Quota](event-hubs-quotas.md)
 
 # Resources
-## [Quota en limieten](event-hubs-quotas.md)
-## [Berichtuitzonderingen](event-hubs-messaging-exceptions.md)
-## [AMQP1.0-protocolhandleiding](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Prijzen](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Codevoorbeelden](event-hubs-samples.md)
+## [Prijzen](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

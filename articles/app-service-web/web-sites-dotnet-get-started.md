@@ -1,5 +1,5 @@
 ---
-title: Een ASP.NET-app in Azure App Service implementeren met Visual Studio | Microsoft Docs
+title: Een ASP.NET-app in Azure implementeren met Visual Studio | Microsoft Docs
 description: Ontdek hoe u een ASP.NET-webproject implementeert in een nieuwe web-app in Azure App Service met behulp van Visual Studio.
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Naast de tijd die nodig is voor het installeren van de Azure SDK voor .NET, duur
 * Voor de zelfstudie wordt ervan uitgegaan dat u al eerder hebt gewerkt met ASP.NET MVC en Visual Studio. Als u een inleiding nodig hebt, raadpleegt u [Aan de slag met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Daar kunt u een tijdelijke en eenvoudige app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
+    Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Daar kunt u een tijdelijke en eenvoudige app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>De ontwikkelomgeving instellen
 De zelfstudie is geschreven voor Visual Studio 2015 met de [Azure SDK voor .NET](../dotnet-sdk.md) 2.9 of hoger. 
@@ -222,6 +222,6 @@ In deze zelfstudie hebt u gezien hoe u een eenvoudige web-app makt en hoe u deze
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

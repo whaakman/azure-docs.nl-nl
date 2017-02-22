@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
+ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
+ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
 
 
 ---
@@ -67,7 +67,7 @@ Er zijn momenteel twee SKU's voor Application Gateway: **WAF** en **Standard**.
 
 U kunt maximaal 50 toepassingsgateways per abonnement maken. Elke toepassingsgateway kan maximaal 10 exemplaren hebben. Elke toepassingsgateway kan bestaan uit 20 HTTP-listeners. Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
 
-In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgateway-exemplaar:
+In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgateway-exemplaar waarvoor SSL-offload is uitgeschakeld:
 
 | Antwoord van de back-endpagina | Klein | Middelgroot | Groot |
 | --- | --- | --- | --- |
@@ -95,6 +95,6 @@ Voor meer informatie over het maken van een toepassingsgateway met behulp van UR
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

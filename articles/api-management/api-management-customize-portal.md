@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ U zou nu de nieuwe header op elke pagina moeten zien binnen de ontwikkelaarsport
 > 
 
 ## <a name="change-headers-styling"> </a>De stijl van de headers wijzigen
-De kleuren, lettertypen, grootten, afstanden en andere stijlelementen van pagina's in de portal worden gedefinieerd met stijlregels. Als u de stijlen wilt bewerken, klikt u op **Vormgeving** in het menu **Ontwikkelaarsportal** in de publicatieportal en klikt u vervolgens op **Aanpassing beginnen** om de stijleditor in te schakelen.
+De kleuren, lettertypen, grootten, afstanden en andere stijlelementen van pagina's in de portal worden gedefinieerd met stijlregels. Als u de stijlen wilt bewerken, opent u in de **Ontwikkelaarsportal** aan de linkerkant de werkbalk Aanpassen. Dit doet u door uw muis over het pictogram Aanpassen te bewegen en in de werkbalk Stijlen te selecteren.
 
-Uw browser verandert in een verborgen pagina in de ontwikkelaarsportal die voorbeelden van inhoud bevat, met voorbeelden voor alle stijlregels die op de site worden gebruikt. Als u de stijleditor wilt openen, zet u de cursor op de dunne grijze verticale lijn op het uiterst linkse deel van de pagina. De editorwerkbalk moet zichtbaar worden.
+![Werkbalkknop Aanpassen][api-management-customization-toolbar-button]
+
+Er zijn twee hoofdmanieren om stijlregels te bewerken. U kunt de lijst die standaard wordt weergegeven, bekijken met alle stijlen die overal worden gebruikt en de gewenste stijl wijzigen. U kunt ook **Een element op de pagina selecteren** kiezen en vervolgens op een willekeurige plek op de pagina klikken om alleen de stijlen voor dat element weer te geven.
+
+In deze sectie willen we alleen de stijl van de headers wijzigen. Klik op de optie **Een element op de pagina selecteren** in de stijleditorwerkbalk. 
 
 ![Werkbalk voor aanpassing][api-management-customization-toolbar]
 
-Er zijn twee belangrijke modi voor het bewerken van stijlregels: met **Alle regels bewerken** wordt een lijst met alle stijlregels weergegeven die ergens worden gebruikt, terwijl u met **Element kiezen** een element kunt selecteren van de pagina waarop u zich bevindt en alleen stijlen voor dat element kunt weergeven.
-
-In deze sectie willen we alleen de stijl van de headers wijzigen. Klik op de optie **Element kiezen** op de werkbalk van de stijleditor en klik vervolgens op **Een element selecteren om aan te passen**. Elementen worden nu gemarkeerd als u de muisaanwijzer er overheen beweegt om aan te geven welke stijlen van het element u zou gaan bewerken als u erop klikt. Beweeg de muisaanwijzer over de tekst die de bedrijfsnaam in de header aangeeft ('Fabrikam-ontwikkelaarsportal' als u de instructies in de vorige sectie hebt gevolgd) en klik erop. Een set benoemde en gecategoriseerde stijlregels wordt weergegeven in de stijleditor.
-
-Elke regel geeft een stijleigenschap van het geselecteerde element aan. Voor de header die hierboven is geselecteerd, staat de tekengrootte bijvoorbeeld in @font-size-h1 terwijl de naam van het lettertype met alternatieven in @headings-font-family. staat.
+Elementen worden nu gemarkeerd als u de muisaanwijzer er overheen beweegt om aan te geven welke stijlen van het element u zou gaan bewerken als u erop klikt. Beweeg de muisaanwijzer over de tekst die de bedrijfsnaam in de header aangeeft ('Fabrikam-ontwikkelaarsportal' als u de instructies in de vorige sectie hebt gevolgd) en klik erop. Een set benoemde en gecategoriseerde stijlregels wordt weergegeven in de stijleditor. Elke regel geeft een stijleigenschap van het geselecteerde element aan. Voor de header die hierboven is geselecteerd, staat de tekengrootte bijvoorbeeld in @font-size-h1 terwijl de naam van het lettertype met alternatieven in @headings-font-family staat.
 
 > Als u bekend bent met [bootstrap][bootstrap]: deze regels zijn in feite [LESS-variabelen][LESS variables] binnen het bootstrapthema dat wordt gebruikt voor de ontwikkelaarsportal.
 > 
@@ -63,7 +63,7 @@ Laten we de kleur van de koptekst wijzigen. Selecteer de invoer in het veld **@h
 
 ![Kleurenkiezer][api-management-customization-toolbar-color-picker]
 
-Wanneer u klaar bent met het aanbrengen van wijzigingen in de stijlen van het geselecteerde element, klikt u op **Voorbeeld van wijzigingen** om de resultaten op het scherm te bekijken. Op dit moment zijn ze alleen zichtbaar voor beheerders. Als u deze wijzigingen zichtbaar wilt maken voor iedereen, klikt u op de knop **Publiceren** in de stijleditor en bevestigt u de wijzigingen.
+Wijzigingen worden weergegeven in realtime terwijl u ze toepast, maar zijn alleen zichtbaar voor beheerders. Als u deze wijzigingen zichtbaar wilt maken voor iedereen, klikt u op de knop **Publiceren** in de stijleditor en bevestigt u de wijzigingen.
 
 ![Het menu Publiceren][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpag
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

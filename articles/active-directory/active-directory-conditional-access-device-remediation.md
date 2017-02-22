@@ -6,18 +6,17 @@ keywords: voorwaardelijke toegang op basis van een apparaat, apparaatregistratie
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Als op uw apparaat een van de volgende platforms wordt uitgevoerd, zoekt u in de
 ### <a name="device-is-not-registered"></a>Apparaat is niet geregistreerd
 Als uw apparaat niet is geregistreerd bij Azure AD en de toepassing is beveiligd met een beleid op basis van apparaten, wordt mogelijk een pagina met een van de volgende foutberichten weergegeven:
 
-![Berichten over ontoegankelijke toepassingen voor niet-geregistreerde apparaten](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Scenario](./media/active-directory-conditional-access-device-remediation/01.png "Berichten over ontoegankelijke toepassingen voor niet-geregistreerde apparaten")
 
 Probeer het volgende als het apparaat is toegevoegd aan een Active Directory-domein in uw organisatie:
 
@@ -122,7 +121,7 @@ Misschien hebt u geen toegang als u een toepassing of service probeert te openen
 
 Er wordt een foutpagina weergegeven die er ongeveer als volgt uitziet:
 
-![Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Scenario](./media/active-directory-conditional-access-device-remediation/02.png "Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers")
 
 De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform.
 
@@ -132,6 +131,6 @@ De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

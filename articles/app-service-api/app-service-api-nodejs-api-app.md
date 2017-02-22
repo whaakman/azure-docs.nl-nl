@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ In deze sectie maakt u een lokale Git-opslagplaats met uw servercode voor de API
         git init
    
      ![Nieuwe lokale Git-opslagplaats](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Voer de volgende opdracht uit om een externe Git voor de opslagplaats van uw API-app toe te voegen. 
+3. Als u het eerste deel van deze zelfstudie hebt afgerond en de map `ContactList` hebt gekopieerd, bevatte de kopie waarschijnlijk de map `node_modules`. U hoeft de map `node_modules` niet op te nemen in bronbeheer, aangezien deze voor u wordt gemaakt tijdens het implementatieproces via het bestand `package.json` en `npm install`. Voeg daarom een bestand `.gitignore` toe door de volgende opdracht uit te voeren in de hoofdmap van de projectmap.
+
+         touch .gitignore
+      
+   Open het bestand .gitignore en voeg `node_modules` toe aan de eerste regel van het bestand. U kunt bevestigen dat de map `node_modules` wordt genegeerd door bronbeheer wanneer u `git status` uitvoert en de map niet in de lijst wordt weergegeven. Er is een (GitHub-project)[https://github.com/github/gitignore/blob/master/Node.gitignore] met informatie over aanbevolen bestanden om te negeren in een NodeJS-project, als u meer regels wilt toevoegen.
+ 
+4. Voer de volgende opdracht uit om een externe Git voor de opslagplaats van uw API-app toe te voegen. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Opmerking**: vervang de tekenreeks 'YOUR_GIT_CLONE_URL_HERE' door de Git-kloon-URL die u eerder hebt gekopieerd. 
-4. Voer de volgende opdrachten uit om een doorvoer te maken die alle uw code bevat. 
+5. Voer de volgende opdrachten uit om een doorvoer te maken die alle uw code bevat. 
    
         git add .
         git commit -m "initial revision"
    
     ![Uitvoer van GIT-doorvoer](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Voer de opdracht uit om uw code naar Azure te pushen. Wanneer u wordt gevraagd om een wachtwoord, voert u het wachtwoord in dat u eerder in Azure Portal hebt gemaakt.
+6. Voer de opdracht uit om uw code naar Azure te pushen. Wanneer u wordt gevraagd om een wachtwoord, voert u het wachtwoord in dat u eerder in Azure Portal hebt gemaakt.
    
         git push azure master
    
     Dit activeert een API-app-implementatie.  
-6. Navigeer in uw browser terug naar de blade **Implementaties** voor de API-app. U ziet dan dat de implementatie plaatsvindt. 
+7. Navigeer in uw browser terug naar de blade **Implementaties** voor de API-app. U ziet dan dat de implementatie plaatsvindt. 
    
     ![Implementatie vindt plaats](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ U hebt nu een API-app gemaakt en er Node.js-API-code in geïmplementeerd. In de 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

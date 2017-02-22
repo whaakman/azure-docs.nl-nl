@@ -14,6 +14,6 @@ U kunt uw cache weergeven en configureren vanaf de blade **Redis Cache**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

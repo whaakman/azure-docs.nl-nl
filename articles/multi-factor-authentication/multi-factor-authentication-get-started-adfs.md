@@ -1,5 +1,5 @@
 ---
-title: Azure MFA en AD FS | Microsoft Docs
+title: Verificatie in twee stappen en AD FS - Azure MFA | Microsoft Docs
 description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en AD FS aan de slag kunt gaan.
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcf67cfd5f4d44188f119ca40b227b32c684e1f7
+ms.sourcegitcommit: 00ee90b6d264c1aee4b488cd1c2a5447809a1e3c
+ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-and-active-directory-federation-services"></a>Aan de slag met Azure Multi-Factor Authentication en Active Directory Federation Services
+# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Aan de slag met Azure Multi-Factor Authentication en Active Directory Federation Services
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Als uw organisatie met behulp van AD FS uw on-premises Active Directory heeft gefedereerd met Azure Active Directory, zijn er twee opties voor het gebruik van Azure Multi-Factor Authentication.
@@ -51,7 +51,6 @@ Voor meer informatie over het instellen van Azure Multi-Factor Authentication of
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

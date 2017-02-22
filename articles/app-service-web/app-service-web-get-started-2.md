@@ -1,5 +1,5 @@
 ---
-title: Functionaliteit toevoegen aan uw eerste web-app
+title: Functionaliteit toevoegen aan uw eerste web-app | Microsoft Docs
 description: Voeg in een paar minuten handige functies toe aan uw eerste web-app.
 services: app-service\web
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
@@ -157,6 +157,6 @@ Ontdek hoe u meer kunt doen met uw geïmplementeerde app. Dit zijn slechts enkel
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -21,13 +21,21 @@
 ### [Een artefactenopslagplaats toevoegen](devtest-lab-add-artifact-repo.md)
 ### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
 
-## VM-basissen beheren
-### [Aangepaste installatiekopie maken](devtest-lab-create-template.md)
+## VM-basissen en -sjablonen beheren
+### [Multi-VM-omgevingen maken met Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
-### [Formules beheren](devtest-lab-manage-formulas.md)
 ### [Installatiekopieën met formules vergelijken](devtest-lab-comparing-vm-base-image-types.md)
+### [Formules beheren](devtest-lab-manage-formulas.md)
+### [Aangepaste installatiekopie maken vanaf een virtuele machine](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Aangepaste installatiekopie van een VHD maken met Azure Portal](devtest-lab-create-template.md)
+### [Aangepaste installatiekopie van een VHD maken met PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [VHD-bestand uploaden met AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [VHD-bestand uploaden met PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+### [VHD-bestand uploaden met Opslagverkenner](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# Bronnen
+
+
+# Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
@@ -35,6 +43,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

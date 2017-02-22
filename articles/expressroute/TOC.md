@@ -1,14 +1,15 @@
 # Overzicht
 ## [Wat is ExpressRoute?](expressroute-introduction.md)
 ## [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md)
+## [Connectiviteitsmodellen](expressroute-connectivity-models.md)
 ## [Locaties en partners](expressroute-locations.md)
 ### [Providers per locatie](expressroute-locations-providers.md)
 ### [Locaties per provider](expressroute-locations.md)
 
 # Aan de slag
-## [Circuits en routeringsdomeinen](expressroute-circuit-peerings.md)
 ## [Werkstromen](expressroute-workflows.md)
 ## [Vereisten](expressroute-prerequisites.md)
+## [Circuits en routeringsdomeinen](expressroute-circuit-peerings.md)
 ## [Routeringsvereisten](expressroute-routing.md)
 ## [Routering optimaliseren](expressroute-optimize-routing.md)
 ## [NAT-vereisten](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

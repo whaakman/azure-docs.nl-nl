@@ -1,116 +1,114 @@
-
 ---
-title: Azure Guidance | Microsoft Docs
-description: Best practices and guidance for Azure
-services: ''
-documentationcenter: na
-author: bennage
-manager: marksou
-editor: ''
-tags: ''
-
-ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
+title: Documentatie over Azure-richtlijnen - zelfstudies | Microsoft Docs
+description: Aanbevolen procedures en richtlijnen voor Azure
+services: guidance
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: guidance
-ms.devlang: na
-ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/17/2016
-ms.author: christb
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+translationtype: Human Translation
+ms.sourcegitcommit: f5ced8f436f4d1426e4d2b307fcfb6b644e94aaf
+ms.openlocfilehash: c05d311633b9c9aa5490e55baafe83376d0c8fbc
 
 ---
-# Azure Guidance
+# <a name="azure-guidance"></a>Azure-richtlijnen
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
+Het team van Microsoft voor patronen en procedures maakt deel uit van het Adviesteam voor Azure-klanten. Ons doel is om ontwikkelaars, architecten en IT-specialisten te ondersteunen bij een geslaagde implementatie van het Microsoft Azure-platform. We ontwikkelen richtlijnen met aanbevolen procedures voor het bouwen van cloudoplossingen in Azure.
 
-## Checklists
-These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
+## <a name="checklists"></a>Controlelijsten
+Deze lijsten bieden naslaginformatie over de fundamentele aspecten van beschikbaarheid en schaalbaarheid. 
 
-* [Availability Checklist][AvailabilityChecklist] 
+* [Controlelijst voor beschikbaarheid][AvailabilityChecklist] 
   
-    A summary of recommended practices for ensuring availability.
-* [Scalability Checklist][ScalabilityChecklist]
+    Een samenvatting van de aanbevolen procedures voor het waarborgen van beschikbaarheid.
+* [Controlelijst voor schaalbaarheid][ScalabilityChecklist]
   
-    A summary of recommended practices for designing and implementing scalable services and handling data management.
+    Een samenvatting van aanbevolen procedures voor het ontwerpen en implementeren van schaalbare services en het uitvoeren van gegevensbeheer.
 
-## Best practices articles
-These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
+## <a name="best-practices-articles"></a>Artikelen over aanbevolen procedures
+Deze artikelen gaan uitgebreider in op belangrijke concepten op het gebied van cloud computing. 
 
-* [API Design][APIDesign] 
+* [API ontwerpen][APIDesign] 
   
-    A discussion of design issues to consider when designing a web API.
-* [API Implementation][APIImplementation] 
+    Een bespreking van de ontwerpaspecten waarmee u rekening moet houden tijdens het ontwerpen van een web-API.
+* [API implementeren][APIImplementation] 
   
-    A set of recommended practices for implementing and publishing a web API.
-* [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
+    Een reeks aanbevolen procedures voor het implementeren en publiceren van een web-API.
+* [Richtlijnen voor API-beveiliging](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
   
-    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
-* [Autoscaling guidance][AutoscalingGuidance] 
+    Een bespreking van verificatie- en autorisatiekwesties (zoals tokentypen, autorisatieprotocollen, autorisatiestromen en risicobeperking).
+* [Richtlijnen voor automatisch schalen][AutoscalingGuidance] 
   
-    A summary of considerations for scaling solutions without the need for manual intervention.
-* [Background Jobs guidance][BackgroundJobsGuidance] 
+    Een samenvatting van overwegingen voor het schalen van oplossingen zonder de noodzaak van handmatige tussenkomst.
+* [Richtlijnen voor achtergrondtaken][BackgroundJobsGuidance] 
   
-    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
-* [Content Delivery Network (CDN) guidance][CDNGuidance] 
+    Een beschrijving van de beschikbare opties en aanbevolen procedures voor het implementeren van taken die in de achtergrond moeten worden uitgevoerd, onafhankelijk van eventuele bewerkingen in de voorgrond of interactieve bewerkingen.
+* [CDN-richtlijnen (Content Delivery Network)][CDNGuidance] 
   
-    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
-* [Caching guidance][CachingGuidance] 
+    Algemene richtlijnen en aanbevolen procedures voor gebruik van het CDN om de belasting op uw toepassingen te minimaliseren en de beschikbaarheid en prestaties te maximaliseren.
+* [Richtlijnen voor caching][CachingGuidance] 
   
-    A summary of how to use caching to improve the performance and scalability of a system.
-* [Data Partitioning guidance][DataPartitioningGuidance]
+    Een samenvatting van hoe de cache kan worden gebruikt om de prestaties en schaalbaarheid van een systeem te verbeteren.
+* [Richtlijnen voor gegevenspartitionering][DataPartitioningGuidance]
   
-    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
-* [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+    Strategieën voor het maken van gegevenspartities die u kunt gebruiken om de schaalbaarheid te verbeteren, conflicten te verminderen en de prestaties te optimaliseren.
+* [Richtlijnen voor bewaking en diagnostiek][MonitoringandDiagnosticsGuidance] 
   
-    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
-* [Recommended naming conventions][naming-conventions] 
+    Richtlijnen voor het bijhouden van de manier waarop uw gebruikers uw systeem en resources gebruiken en voor het controleren van de algehele de gezondheid en prestaties van uw systeem.
+* [Aanbevolen naamgevingsregels][naming-conventions] 
   
-    Recommended naming conventions for Azure resources.
-* [Retry General guidance][RetryGeneralGuidance] 
+    Aanbevolen naamgevingsregels voor Azure-resources.
+* [Algemene richtlijnen voor opnieuw proberen][RetryGeneralGuidance] 
   
-    Discussion of the general concepts for handling transient faults.
-* [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+    Bespreking van de algemene concepten voor het verwerken van tijdelijke fouten.
+* [Servicespecifieke richtlijnen voor opnieuw proberen][RetryServiceSpecificGuidance]
   
-    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
+    Dit artikel biedt een samenvatting van de functies voor het opnieuw proberen van een groot aantal Azure-services, waaronder informatie over het gebruiken, aanpassen of uitbreiden van het mechanisme voor opnieuw proberen van de betreffende service.
 
-## Scenario guides
-* [Running Elasticsearch on Azure][elasticsearch] 
+## <a name="scenario-guides"></a>Scenariorichtlijnen
+* [Elasticsearch uitvoeren op Azure][elasticsearch] 
   
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
-* [Identity management for multitenant applications][identity-multitenant] 
+    Elasticsearch is een zeer schaalbare open-source zoekmachine en -database. De service is geschikt voor situaties waarin een snelle analyse en detectie van informatie in grote gegevenssets is vereist. Dit artikel gaat in op een aantal belangrijke aspecten waarmee u rekening moet houden tijdens het ontwerpen van een Elasticsearch-cluster.
+* [Identiteitsbeheer voor multitenant-toepassingen][identity-multitenant] 
   
-    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
-* [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+    Multitenancy is een architectuur waarin meerdere tenants een toepassing delen maar van elkaar zijn geïsoleerd. In dit artikel wordt uitgelegd hoe u gebruikers-id's binnen een multitenant-toepassing kunt beheren met [Azure Active Directory][AzureAD] voor het afhandelen van aanmelding en verificatie.
+* [Big data-oplossingen ontwikkelen](https://msdn.microsoft.com/library/dn749874.aspx)
   
-    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    Dit artikel gaat in op het gebruik van HDInsight voor scenario's als iteratieve gegevensverkenning, als een datawarehouse, voor ETL-processen en voor integratie met bestaande BI-systemen. Daarnaast biedt het meer inzicht in de concepten van big data, het plannen en ontwerpen van big data-oplossingen en het implementeren van deze oplossingen.
 
-## Patterns
-* [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
+## <a name="patterns"></a>Patronen
+* [Cloudontwerppatronen: prescriptieve richtlijnen voor de architectuur van cloudtoepassingen](https://msdn.microsoft.com/library/dn568099.aspx)
   
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
-* [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
+    Dit artikel biedt een bibliotheek met ontwerppatronen en verwante hulponderwerpen. Het gaar in op de voordelen van het gebruik van patronen door te laten zien hoe elk patroon in cloudtoepassingsarchitecturen kan worden ingepast.
+* [De prestaties optimaliseren voor cloudtoepassingen](https://github.com/mspnp/performance-optimization)
   
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    Dit artikel gaat in op de algemene antipatronen die voorkomen dat de schaal van apps onder belasting kan worden aangepast. Het bevat voorbeelden van acht antipatronen, [informatie over prestatie-analyses](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) en richtlijnen voor het [beoordelen van de prestaties ten opzichte van metrische sleutelgegevens](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference architectures
-Our reference architectures are arranged by scenario.
-Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
+## <a name="reference-architectures"></a>Referentiearchitecturen
+Onze referentiearchitecturen zijn geordend op scenario.
+Elke afzonderlijke architectuur biedt aanbevolen procedures, prescriptieve stappen en een uitvoerbare onderdeel waarin de aanbevelingen in acht zijn genomen.
 
-The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+De huidige bibliotheek met referentiearchitecturen is beschikbaar op [http://aka.ms/architecture](http://aka.ms/architecture).
 
-## Resiliency guidance
-These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+## <a name="resiliency-guidance"></a>Tolerantierichtlijnen
+Deze onderwerpen beschrijven hoe u toepassingen kunt ontwerpen die tolerant omgaan met fouten in een gedistribueerde cloudomgeving.   
 
-* [Resiliency overview][ResiliencyOvervew]
+* [Overzicht tolerantie][ResiliencyOvervew]
   
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
-* [Resiliency checklist][resiliency-checklist]
+     Dit artikel laat zien hoe u toepassingen kunt bouwen voor het Azure-platform die zich kunnen herstellen van fouten en die blijven werken. Het biedt een gestructureerde benadering voor het bereiken van tolerantie, van ontwerp en implementatie tot ingebruikname en uitvoering.
+* [Controlelijst voor tolerantie][resiliency-checklist]
   
-    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
-* [Failure mode analysis][resiliency-fma] 
+    Een controlelijst met aanbevelingen die u helpen anticiperen op diverse foutmodi die zich kunnen voordoen.
+* [Analyse van foutmodus][resiliency-fma] 
   
-    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+    Analyse van foutmodus (FMA) is een proces aan de hand waarvan u tolerantie in een systeem kunt inbouwen door mogelijke punten van mislukken te identificeren. Als uitgangspunt voor het FMA-proces bevat dit artikel een catalogus van mogelijke foutmodi en de bijbehorende oplossingen. 
 
 <!-- links -->
 
@@ -151,4 +149,10 @@ These topics describe how to design applications that are resilient to failure i
 [resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
 [resiliency-checklist]: guidance-resiliency-checklist.md
 [ResiliencyOvervew]: guidance-resiliency-overview.md
+
+
+
+
+<!--HONumber=Feb17_HO2-->
+
 

@@ -1,17 +1,24 @@
 # Overzicht
+
 ## [Wat is Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [Wat is de Studio?](machine-learning-what-is-ml-studio.md)
-### [Studiocapaciteiten](machine-learning-studio-overview-diagram.md)
-### [Infographic: basiskennis van ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Team Data Science Process
 ### [Overzicht](http://aka.ms/datascienceprocess)
 ### [Levenscyclus](data-science-process-overview.md)
 ### [Rondleidingen](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [Wat is de Studio?](machine-learning-what-is-ml-studio.md)
+### [Studiocapaciteiten](machine-learning-studio-overview-diagram.md)
+### [Infographic: basiskennis van ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Veelgestelde vragen](machine-learning-faq.md)
 ## [Nieuwe functies](machine-learning-whats-new.md)
+
 # Aan de slag
+
 ## [Uw eerste experiment opzetten](machine-learning-create-experiment.md)
+
 ## Voorbeeldscenario
 ### [Een voorspellende oplossing maken](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Een werkruimte maken](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Trainen en evalueren](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Webservice implementeren](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Webservice openen](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Wetenschappelijke gegevens voor beginners
 ### [1: Vijf vragen](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Zijn de gegevens klaar?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [R snel starten](machine-learning-r-quickstart.md)
 
-
 # Procedures
+
 ## Hulpprogramma's instellen
 ### [Omgevingen instellen](machine-learning-data-science-environment-setup.md)
 ### [Virtuele machines instellen](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Problemen oplossen](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Implementeren met ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Maken in een andere regio](machine-learning-multi-geo.md)
+
 ## Zakelijke behoeften analyseren
 ### [Technische behoeften](machine-learning-data-science-plan-your-environment.md)
 ### [Uw scenario identificeren](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Gegevens ophalen en begrijpen
 ### Gegevens laden in opslag
 #### [Overzicht](machine-learning-data-science-ingest-data.md)
@@ -60,7 +70,7 @@
 #### [AzCopy gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
 #### [Python gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
 #### [SSIS gebruiken](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-#### [Verplaatsen naar een VM](machine-learning-data-science-move-sql-server-virtual-machine.md)
+#### [Verplaatsen naar een virtuele machine](machine-learning-data-science-move-sql-server-virtual-machine.md)
 #### [Verplaatsen naar een SQL-database](machine-learning-data-science-move-sql-azure.md)
 #### [In hive-tabellen laden](machine-learning-data-science-move-hive-tables.md)
 #### [Laden uit on-premises SQL](machine-learning-data-science-move-sql-azure-adf.md)
@@ -95,6 +105,7 @@
 ##### [Scoremodellen](machine-learning-data-science-spark-model-consumption.md)
 ##### [Geavanceerde gegevensverkenning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Scala en Spark gebruiken](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Modellen ontwikkelen
 ### Functies ontwikkelen en selecteren
 #### [Overzicht](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [TDSP-functieselectie](machine-learning-data-science-select-features.md)
 ### Modellen maken en trainen
 #### [Converteren naar score](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Beheer van de levenscyclus van experimenten](machine-learning-version-control.md)
 #### [Iteraties beheren](machine-learning-manage-experiment-iterations.md)
 #### [PowerShell gebruiken om modellen te maken](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Algoritmen selecteren
@@ -120,11 +132,11 @@
 ##### [R-scripts uitvoeren](machine-learning-extend-your-experiment-with-r.md)
 ##### [Aangepaste R-modules schrijven](machine-learning-custom-r-modules.md)
 ##### [Python-scripts uitvoeren](machine-learning-execute-python-scripts.md)
+
 ## Modellen implementeren en gebruiken
 ### [Overzicht](machine-learning-deploy-consume-web-service-guide.md)
 ### Modellen implementeren
 #### [Hoe werkt het?](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Een nieuwe webservice implementeren](machine-learning-webservice-deploy-a-web-service.md)
 #### [Een webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Externe gegevens gebruiken](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Implementeren in meerdere regio's](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Excel gebruiken](machine-learning-consuming-from-excel.md)
 #### [Excel-invoegtoepassing gebruiken](machine-learning-excel-add-in-for-web-services.md)
 #### [Een web-appsjabloon gebruiken](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Voorbeelden
 ### [Voorbeeldexperimenten](machine-learning-sample-experiments.md)
 ### [Voorbeeldgegevenssets](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [SQL Data Warehouse gebruiken](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Naslaginformatie
+
 ## [PowerShell-module (nieuw)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell-module (klassiek)](machine-learning-powershell-module.md)
 ## [Naslaginformatie over algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [Naslaginformatie over de REST-API](/rest/api/machinelearning)
+## [Foutcodes voor webservices](machine-learning-web-service-error-codes.md)
 
 # Verwant
 
@@ -176,6 +191,7 @@
 ### [Zelfstudies](machine-learning-gallery-tutorials.md)
 ### [Verzamelingen](machine-learning-gallery-collections.md)
 ### [Aangepaste modules](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### API's
 #### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection-api.md)
@@ -196,8 +212,8 @@
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Instellen](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
-# Resources
-## [Foutcodes REST voor Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+# Bronnen
+
 ## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Hulp krijgen via live chats](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

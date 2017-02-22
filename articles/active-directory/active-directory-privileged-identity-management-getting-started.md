@@ -3,7 +3,7 @@ title: Aan de slag met Azure AD Privileged Identity Management | Microsoft Docs
 description: Informatie over het beheren van bevoegde identiteiten met de Azure Active Directory Privileged Identity Management-toepassing in de Azure Portal.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Nadat Azure AD Privileged Identity Management is ingesteld, ziet u de navigatieb
 * **Bevoorrechte rollen beheren**: dit is het dashboard waarmee beheerders met bevoorrechte rollen roltoewijzingen kunnen beheren, instellingen voor rolactivering kunnen wijzigen, toegangsbeoordelingen kunnen starten en meer. De opties in dit dashboard zijn uitgeschakeld voor iedereen die geen beheerder met een bevoorrechte rol is.
 * **Bevoegde toegang beoordelen**: hiermee gaat u naar eventuele in behandeling zijnde toegangsbeoordelingen die u moet voltooien, of u nu de toegang beoordeelt voor uzelf of voor iemand anders. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 Het [overzicht van Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) bevat meer informatie over het beheren van beheerderstoegang in uw organisatie.
 
@@ -56,6 +55,6 @@ Het [overzicht van Azure AD Privileged Identity Management](active-directory-pri
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,20 @@
 ---
-layout: LandingPage
-+toc_rel: breadcrumb.json
+title: Documentatie voor Azure Virtual Network - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het gebruik van een virtueel netwerk in de cloud. Documentatie laat zien hoe u een VNet implementeert, dit gebruikt om resources te starten en het integreert met een on-premises netwerk.
+services: virtual-network
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
+ms.sourcegitcommit: c69489141c704965b2406210b3e2c20842c34a6c
+ms.openlocfilehash: 2b130d8b29270e08d432af9a117592c8ce7bac57
 
 ---
 # <a name="virtual-network-documentation"></a>Documentatie voor Virtual Network
@@ -153,6 +163,6 @@ Meer informatie over het gebruik van een Virtual Network (VNet), een logische we
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

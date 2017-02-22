@@ -42,14 +42,13 @@
 ### [Uw indexen aanpassen](documentdb-indexing-policies.md)
 ### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
 ### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
-### [Prestatieniveaus](documentdb-performance-levels.md)
+### [S1, S2, S3 buiten gebruik stellen](documentdb-performance-levels.md)
 ### [Aanvraageenheden](documentdb-request-units.md)
 ### Azure CLI
 #### [Een account maken](documentdb-automation-resource-manager-cli.md)
 #### [Regio's toevoegen of verwijderen](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewallondersteuning](documentdb-firewall-support.md)
-### [Geef een boost uw account](documentdb-supercharge-your-account.md)
 
 ## Ontwikkelen
 ### [SQL-query](documentdb-sql-query.md)
@@ -73,11 +72,12 @@
 ## Gebruik de portal
 ### [Een databaseaccount maken](documentdb-create-account.md)
 ### [Een verzameling maken](documentdb-create-collection.md)
+### [Doorvoer instellen](documentdb-set-throughput.md)
 ### [Wereldwijde replicatie toevoegen](documentdb-portal-global-replication.md)
 ### [Documenten toevoegen en bewerken](documentdb-view-json-document-explorer.md)
 ### [Query's uitvoeren voor documenten](documentdb-query-collections-query-explorer.md)
 ### [Een account beheren](documentdb-manage-account.md)
-### [Een account controleren](documentdb-monitor-accounts.md)
+### [Een account bewaken](documentdb-monitor-accounts.md)
 ### [Scripts beheren](documentdb-view-scripts.md)
 ### [Tips voor probleemoplossing](documentdb-portal-troubleshooting.md)
 
@@ -90,7 +90,7 @@
 ### [Integreren met Azure Search](../search/search-howto-index-documentdb.md)
 ### [Gegevens verplaatsen met Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Realtime gegevens analyseren met Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Meldingen ontvangen met Logic Apps](documentdb-change-notification.md)
+### [Een gewijzigde HL7 FHIR-record ophalen met Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Sensorgegevens in realtime verwerken](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Uw gegevens visualiseren met Power BI](documentdb-powerbi-visualize.md)
 ### [Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie](documentdb-nosql-odbc-driver.md)
@@ -126,6 +126,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

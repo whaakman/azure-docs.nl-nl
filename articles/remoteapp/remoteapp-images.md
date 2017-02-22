@@ -40,7 +40,7 @@ Uw abonnement op Azure RemoteApp omvat drie sjablooninstallatiekopieën:
 
 Lees verder voor meer informatie over de inhoud van elke installatiekopie.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 ('de vanilla-installatiekopie')
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 ('de vanilla-installatiekopie')
 Deze installatiekopie is gebaseerd op het besturingssysteem Microsoft Windows Server 2012 R2 Datacenter en bevat de volgende rollen en functies om te voldoen aan de vereisten voor Azure RemoteApp-sjablooninstallatiekopieën:
 
 * .NET Framework 4.5, 3.5.1, 3.5

@@ -1,14 +1,25 @@
 ---
+title: Documentatie voor Azure App Service API Apps - zelfstudies | Microsoft Docs
+description: "Leer hoe u API Apps in Azure App Service kunt gebruiken om API&quot;s te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video’s en andere documentatie."
+services: app-service\api
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
+ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
 
 ---
 # <a name="app-service---api-apps-documentation"></a>Documentatie voor App Service - API Apps
 
-API-apps zijn een van de vier soorten apps die worden aangeboden door Azure App Service. API-apps in Azure App Service bieden een uitgebreide reeks functies om API's te ontwikkelen, te hosten en te gebruiken in de cloud en on-premises. Azure App Service is een volledig beheerd platform voor web- en integratiescenario's en voor mobiele scenario's.
+Leer hoe u API Apps in Azure App Service kunt gebruiken om API's te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video's en andere documentatie laten zien hoe u API-apps kunt maken en implementeren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,38 +132,10 @@ API-apps zijn een van de vier soorten apps die worden aangeboden door Azure App 
     </li>     
 </ul>
 
----
-
-<h2>Naslaginformatie</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Azure Portal</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">Naslaginformatie voor App Service</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">WebJobs SDK</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Mobile Apps downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

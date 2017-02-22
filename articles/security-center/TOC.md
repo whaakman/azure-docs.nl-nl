@@ -4,10 +4,13 @@
 ## [Gegevensbeveiliging](security-center-data-security.md)
 ## Scenario's
 ### [Reageren op incidenten](security-center-incident-response.md)
+### [Aanbevelingen gebruiken om de beveiliging te verbeteren](security-center-using-recommendations.md)
 
 # Aan de slag
 ## [Snel starten](security-center-get-started.md)
 ## [Planning en bewerkingen](security-center-planning-and-operations-guide.md)
+## [Machtigingen](security-center-permissions.md)
+## [Partnerintegratie](security-center-partner-integration.md)
 ## [Veelgestelde vragen](security-center-faq.md)
 
 # Procedures
@@ -18,11 +21,13 @@
 
 ### [Aanbevelingen voor toepassingen](security-center-application-recommendations.md)
 #### [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md)
+#### [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Aanbevelingen voor netwerken](security-center-network-recommendations.md)
 #### [Een firewall van de volgende generatie toevoegen](security-center-add-next-generation-firewall.md)
 #### [Netwerkbeveiligingsgroepen inschakelen](security-center-enable-network-security-groups.md)
 #### [Toegang beperken via internetgerichte eindpunten](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Verkeer alleen via NGFW sturen](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Aanbevelingen voor SQL-service](security-center-sql-service-recommendations.md)
 #### [Controleren voor SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md)
@@ -33,16 +38,18 @@
 #### [Schijfversleuteling toepassen](security-center-apply-disk-encryption.md)
 #### [Systeemupdates toepassen](security-center-apply-system-updates.md)
 #### [Gegevensverzameling inschakelen](security-center-enable-data-collection.md)
+#### [Versleuteling inschakelen voor opslagaccount](security-center-enable-encryption-for-storage-account.md)
 #### [VM-agent inschakelen](security-center-enable-vm-agent.md)
 #### [Eindpuntbeveiliging installeren](security-center-install-endpoint-protection.md)
 #### [Contactgegevens voor beveiliging verstrekken](security-center-provide-security-contact-details.md)
+#### [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md)
 #### [Statusmeldingen endpoint protection oplossen](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 
-### [Beveiligingsstatus controleren](security-center-monitoring.md)
-### [Partneroplossingen controleren](security-center-partner-solutions.md)
+### [Beveiligingsstatus bewaken](security-center-monitoring.md)
+### [Partneroplossingen bewaken](security-center-partner-solutions.md)
 
 ## Detecteren en reageren
 ### [Detectiecapaciteiten](security-center-detection-capabilities.md)
@@ -69,6 +76,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

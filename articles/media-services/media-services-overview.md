@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ U kunt uw inhoud live streamen of on demand leveren. Dit onderwerp bevat algemen
 
 Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 
-* [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Een van de beschikbare client-SDK's:
     * [Azure Media Services SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java)
@@ -46,7 +46,7 @@ In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij 
 
 Klik op de afbeelding om deze in volledig formaat weer te geven.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.15) het hele model bekijken.  
 
@@ -79,8 +79,8 @@ In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar
 ![VoD-werkstroom](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
-    
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
 
@@ -184,7 +184,8 @@ Media Services ondersteunt de integratie met Azure CDN. Zie [Streaming-eindpunte
 U kunt **Media Services** schalen door het aantal **gereserveerde streaming-eenheden** en **gereserveerde coderingseenheden ** op te geven waarmee u uw account wilt inrichten.
 
 U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk opslagaccount is beperkt tot 500 TB. Als u uw opslag wilt uitbreiden buiten de standaardbeperkingen, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen.
-Klanten van Media Services kiezen ofwel een **Standard**-streaming-eindpunt of een of meer Premium-**streaming**-eindpunten, afhankelijk van hun behoeften. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. Ze bevatten de dezelfde functies als Premium-streaming-eenheden. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. In de volgende gevallen kunt u beter schaaleenheden toewijzen: als u een geavanceerde workload hebt of als de capaciteitsvereisten voor streaming niet overeenkomen met de doorvoerdoelen van een Standard-streaming-eindpunt; of als u de capaciteit van de service StreamingEndpoint zo wilt kunnen regelen dat u de toenemende bandbreedtebehoeften kunt afhandelen door schaaleenheden (ook wel 'Premium-streaming-eenheden' genoemd) aan te passen.
+Klanten van Media Services kiezen ofwel een **Standard**-streaming-eindpunt of een of meer Premium-**streaming**-eindpunten, afhankelijk van hun behoeften. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. Ze bevatten de dezelfde functies als Premium-streaming-eenheden.
+Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. In de volgende gevallen kunt u beter schaaleenheden toewijzen: als u een geavanceerde workload hebt of als de capaciteitsvereisten voor streaming niet overeenkomen met de doorvoerdoelen van een Standard-streaming-eindpunt; of als u de capaciteit van de service StreamingEndpoint zo wilt kunnen regelen dat u de toenemende bandbreedtebehoeften kunt afhandelen door schaaleenheden (ook wel 'Premium-streaming-eenheden' genoemd) aan te passen.
 
 [Dit](media-services-portal-scale-streaming-endpoints.md) onderwerp bevat koppelingen naar relevante onderwerpen.
 

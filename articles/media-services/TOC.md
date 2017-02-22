@@ -21,16 +21,18 @@
 
 # Procedures
 ## Beheren
-### Accounts beheren
+### Accounts
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Entiteiten beheren
+### Entiteiten
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Streaming-eindpunten beheren](media-services-streaming-endpoints-overview.md)
+### [Streaming-eindpunten](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
+### Storage
+#### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
+#### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quota en beperkingen](media-services-quotas-and-limitations.md)
 
 ## Inhoud uploaden
@@ -123,6 +125,8 @@
 ### [PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-drm.md)
 ### [Azure Media Services gebruiken om uw met Apple FairPlay beveiligde HLS-inhoud te streamen](media-services-protect-hls-with-fairplay.md)
 ### [CENC met Multi-DRM en Access Control: een referentieontwerp en -implementatie in Azure en Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Axinom gebruiken om Widevine-licenties te leveren aan Azure Media Services ](media-services-axinom-integration.md)
+### [castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services](media-services-castlabs-integration.md)
 
 ### Levering van assets
 #### Leveringsbeleid voor assets configureren
@@ -165,6 +169,7 @@
 ### [Overzicht filters en dynamische manifesten](media-services-dynamic-manifest-overview.md)
 #### [Filters maken met .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Filters maken met REST](media-services-rest-dynamic-manifest.md)
+### [CDN-beleid voor caching in Media Services-extensie](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Inhoud publiceren
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -180,15 +185,12 @@
 #### [HTML5-toepassing met DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework-spelers](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Advertenties invoeren op de client](media-services-inserting-ads-on-client-side.md)
+### [Licentieverlening Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integreren
-### [CDN-beleid voor caching in Media Services-extensie](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licentieverlening Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
-### [Axinom gebruiken om Widevine-licenties te leveren aan Azure Media Services ](media-services-axinom-integration.md)
-### [castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services](media-services-castlabs-integration.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
-## Controleren
+## Bewaken
 ### Taakvoortgang controleren
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
@@ -214,6 +216,6 @@
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -5,7 +5,7 @@ description: Antwoorden op veelgestelde vragen over de Backup-service, Backup-ag
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/8/2017
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: d842d0a7e6a99a0a0a67b7cf6c695aba16f83d8f
+ms.openlocfilehash: 72cd97798df4e63da1e3d1dc167714f6033d2c86
 
 
 ---
 # <a name="azure-backup-service--faq"></a>Veelgestelde vragen over de Azure Backup-service
-Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. Vragen over Azure Backup kunt u stellen in de sectie Disqus van dit of een verwant artikel. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
+Dit artikel bevat een overzicht met veelgestelde vragen (en de bijbehorende antwoorden) over de Azure Backup-service. De vragen worden doorgaans vrij snel door de community beantwoordt, en als een bepaalde vraag veelvuldig wordt gesteld, wordt deze toegevoegd aan dit artikel. De antwoorden op vragen bevatten doorgaans naslag- en ondersteuningsinformatie. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Wat is de lijst met ondersteunde besturingssystemen waarmee ik een back-up naar Azure met Azure Backup kan maken? <br/>
 Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-ups van bestanden, mappen en workloadtoepassingen die worden beschermd met behulp van Azure Backup Server en SCDPM.
@@ -58,7 +58,7 @@ U kunt het beste de [nieuwste](http://aka.ms/azurebackup_agent) Azure Backup-age
 Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, meldt u zich aan bij de Azure Portal en downloadt u de kluisreferentiebestanden uit uw kluis.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Is er een limiet voor het aantal kluizen dat voor elk Azure-abonnement kan worden gemaakt? <br/>
-Ja. U kunt vanaf september 2016 25 back-upkluizen per abonnement maken. U kunt per abonnement maximaal 25 Recovery Services-kluizen per ondersteunde regio van Azure Backup maken. Als u extra kluizen nodig hebt, maakt u een nieuw abonnement.
+Ja. U kunt vanaf september 2016 25 back-upkluizen per abonnement maken. U kunt per abonnement maximaal 25 Recovery Services-kluizen per ondersteunde regio van Azure Backup maken. Als u extra kluizen nodig hebt, maakt u een extra abonnement.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis? <br/>
 Ja, u kunt maximaal vijftig machines per kluis registreren. Voor virtuele machines van Azure IaaS geldt een limiet van 200 virtuele machines per kluis. Als u meer machines wilt registreren, maakt u een nieuwe kluis.
@@ -68,17 +68,17 @@ De back-upgegevens worden verzonden naar het datacenter van de kluis waarbij de 
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Wat gebeurt er als ik de naam van een Windows-server wijzig waarmee back-ups van gegevens naar Azure worden opgeslagen?<br/>
 Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zijn geconfigureerd, gestopt.
-Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan eerder een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) (Andere server) in de wizard **Gegevens herstellen**.
+Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Andere server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) in de wizard **Gegevens herstellen**.
 
-## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Van welke typen stations kan ik back-up van bestanden en mappen maken? <br/>
-U kunt geen back-up van de volgende stations/volumes maken:
+## <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Van welke typen stations kan ik back-ups van bestanden en mappen maken? <br/>
+U kunt geen back-up maken van de volgende stations/volumes:
 
-* Verwisselbare media: het station moet als vast station worden gerapporteerd om te kunnen worden gebruikt als bron voor back-upitems.
+* Verwisselbare media: de bron van alle back-upitems moet worden gerapporteerd als vast.
 * Alleen-lezenvolumes: de Volume Shadow Copy Service (VSS) werkt alleen als het volume schrijfbaar is.
 * Offlinevolumes: VSS werkt alleen als het volume online is.
 * Netwerkshare: er kan alleen een online back-up worden gemaakt wanneer het volume zich lokaal op de server bevindt.
 * Met BitLocker beveiligde volumes: het volume moet worden ontgrendeld voordat er een back-up kan worden gemaakt.
-* Bestandsysteemidentificatie: NTFS is het enige bestandssysteem dat door deze versie van de onlineback-upservice wordt ondersteund.
+* Bestandssysteemidentificatie: NTFS is het enige bestandssysteem dat wordt ondersteund.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Van welke typen bestanden en mappen op mijn server kan ik een back-up maken?<br/>
 De volgende typen worden ondersteund:
@@ -89,7 +89,6 @@ De volgende typen worden ondersteund:
 * Gecomprimeerd + Sparse
 * Vaste koppelingen: niet ondersteund, worden overgeslagen
 * Reparsepunt: niet ondersteund, wordt overgeslagen
-* Versleuteld + gecomprimeerd: niet ondersteund, wordt overgeslagen
 * Versleuteld + sparse: niet ondersteund, wordt overgeslagen
 * Gecomprimeerde stream: niet ondersteund, wordt overgeslagen
 * Sparse stream: niet ondersteund, wordt overgeslagen
@@ -107,7 +106,7 @@ Nee. De kluis is gemaakt op abonnementsniveau en kan, zodra deze is gemaakt, nie
 Ja. De agentservice converteert de ontdubbelde gegevens naar normale gegevens wanneer de back-upbewerking wordt voorbereid. Vervolgens worden de gegevens geoptimaliseerd voor het maken van een back-up en versleuteld en worden de versleutelde gegevens verzonden naar de online back-upservice.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Als ik een back-uptaak annuleer nadat deze is gestart, worden de overgedragen back-upgegevens dan verwijderd? <br/>
-Nee. Alle gegevens die vóór het annuleren naar de kluis zijn overgedragen, blijven in de kluis. Azure Backup gebruikt een controlepuntmechanisme waarmee tijdens de back-up van tijd tot tijd controlepunten worden toegevoegd aan de back-upgegevens. Omdat de back-upgegevens controlepunten bevatten, kan tijdens het volgende back-upproces de integriteit van de bestanden worden gecontroleerd. De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups dragen alleen nieuwe of gewijzigde gegevens over, zodat de bandbreedte beter wordt benut.
+Nee. Alle gegevens die zijn overgebracht naar de kluis voordat de back-uptaak werd geannuleerd, blijft in de kluis. Azure Backup gebruikt een controlepuntmechanisme waarmee tijdens de back-up van tijd tot tijd controlepunten worden toegevoegd aan de back-upgegevens. Omdat de back-upgegevens controlepunten bevatten, kan tijdens het volgende back-upproces de integriteit van de bestanden worden gecontroleerd. De volgende back-uptaak is incrementeel ten opzichte van de gegevens waarvan eerder een back-up is gemaakt. Incrementele back-ups dragen alleen nieuwe of gewijzigde gegevens over, zodat de bandbreedte beter wordt benut.
 
 Als u een back-uptaak voor een virtuele Azure-machine annuleert, worden eventuele overgedragen gegevens geannuleerd. De volgende back-uptaak draagt incrementele gegevens over van na de vorige succesvolle back-up-taak.
 
@@ -133,7 +132,7 @@ Ja. Installeer de Azure Backup-agent op het Windows-gastbesturingssysteem en maa
 Installeer eerst System Center Data Protection Manager (DPM) en vervolgens de Azure Backup-agent om Azure Backup met DPM te gebruiken. Als u de Azure Backup-onderdelen in deze volgorde installeert, zorgt u ervoor dat de Azure Backup-agent werkt met DPM. Het installeren van de Azure Backup-agent vóór DPM wordt niet geadviseerd of ondersteund.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Wat is de lengte van het bestandspad dat met de Azure Backup-agent kan worden opgegeven als onderdeel van het Azure Backup-beleid? <br/>
-De Azure Backup-agent is afhankelijk van NTFS. De [lengtespecificatie van het bestandspad wordt beperkt door de Windows-API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Wanneer er een back-up wordt gemaakt van bestanden met een bestandspad dat langer is dan door de Windows-API is toegestaan, kunt u ervoor kiezen om een back-up van de bovenliggende map of van het schijfstation van de back-upbestanden te maken.  
+De Azure Backup-agent is afhankelijk van NTFS. De [lengtespecificatie van het bestandspad wordt beperkt door de Windows-API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Als u bestanden wilt beveiligen met een bestandspad dat langer is dan toegestaan door de Windows-API, kunt u een back-up van de bovenliggende map of het schijfstation maken.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Welke tekens zijn toegestaan in het bestandspad van het Azure Backup-beleid met Azure Backup-agent? <br>
  De Azure Backup-agent is afhankelijk van NTFS. Er worden [NTFS-ondersteunde tekens](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) ingeschakeld als onderdeel van de bestandsspecificatie.  
@@ -145,7 +144,7 @@ Ja.
 Ja, de Backup-service beschikt over enkele waarschuwingen op basis van gebeurtenissen die kunnen worden gebruikt met een PowerShell-script. Zie [Meldingen configureren](backup-azure-monitor-vms.md#configure-notifications) voor een volledige beschrijving
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Geldt er een limiet voor de grootte van elke gegevensbron waarvan een back-up wordt gemaakt? <br/>
-Er geldt geen limiet voor de hoeveelheid gegevens waarvan u een back-up kunt maken naar een kluis. Azure Backup beperkt de maximumgrootte voor de gegevensbron. Deze limieten zijn echter extreem hoog. Vanaf augustus 2015 geldt er een maximale gegevensbrongrootte voor de ondersteunde besturingssystemen van:
+Er geldt geen limiet voor de hoeveelheid gegevens waarvan u een back-up kunt maken naar een kluis. Azure Backup beperkt de maximumgrootte voor de gegevensbron. Deze limieten zijn echter hoog. Vanaf augustus 2015 geldt er een maximale gegevensbrongrootte voor de ondersteunde besturingssystemen van:
 
 | S.Nee | Besturingssysteem | Maximale grootte van de gegevensbron |
 |:---:|:--- |:--- |
@@ -193,7 +192,7 @@ Nee, de incrementele kopie wordt verzonden op basis van de tijd die worden verme
 Producten met een lange bewaartermijn slaan de back-upgegevens doorgaans op als volledige punten. De volledige punten maken *inefficiënt* gebruik van de opslagruimte, maar kunnen wel gemakkelijker en sneller worden hersteld. Incrementele kopieën maken *efficiënt* gebruik van de opslagruimte, maar vereisen dat u een keten van gegevens hersteld, wat van invloed is op de hersteltijd. De opslagarchitectuur van Azure Backup biedt u het beste van beide werelden door de gegevens optimaal op te slaan voor snelle herstelbewerkingen en lage opslagkosten. Deze benadering van gegevensopslag zorgt ervoor dat uw bandbreedte voor inkomend en uitgaand verkeer efficiënt wordt gebruikt. Zowel de hoeveelheid gegevens die moet worden opgeslagen als de benodigde tijd om de gegevens te herstellen, blijft tot een minimum beperkt. Lees waarom het gebruik van [incrementele back-ups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) efficiënt is.
 
 ## <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>Geldt er een limiet voor het aantal herstelpunten dat kan worden gemaakt?<br/>
-Nee. De limieten voor herstelpunten zijn verwijderd. U kunt zoveel herstelpunten maken als u wilt.
+U kunt maximaal 9999 herstelpunten maken per beveiligd exemplaar. Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Er is geen limiet voor het aantal beveiligde exemplaren per back-upkluis. Zie voor meer informatie de uitleg van [Back-up en retentie](./backup-introduction-to-azure-backup.md#backup-and-retention) en [Wat is een beveiligd exemplaar?](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)
 
 ## <a name="why-is-the-amount-of-data-transferred-in-backup-not-equal-to-the-amount-of-data-i-backed-upbr"></a>Waarom is de hoeveelheid gegevens die wordt overgedragen naar de back-up niet gelijk aan de hoeveelheid gegevens waarvan ik een back-up heb gemaakt?<br/>
  Alle gegevens waarvan een back-up is gemaakt via Azure Backup-agent, SCDPM of Azure Backup-server, worden gecomprimeerd en versleuteld voordat ze worden overgedragen. Zodra de gegevens zijn gecomprimeerd en versleuteld, is de back-upkluis 30 tot 40% kleiner.
@@ -202,7 +201,7 @@ Nee. De limieten voor herstelpunten zijn verwijderd. U kunt zoveel herstelpunten
  Ja, u kunt in de Backup-agent de optie **Eigenschappen wijzigen** gebruiken om de bandbreedte aan te passen. U kunt de hoeveelheid bandbreedte aanpassen, evenals de tijden waarop deze bandbreedte wordt gebruikt. Zie **[Netwerkbeperking inschakelen](backup-configure-vault.md#enable-network-throttling)** in het artikel [Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel] voor stapsgewijze instructies.
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure-br"></a>Mijn internetbandbreedte wordt beperkt voor de hoeveelheid gegevens waarvan ik een back-up moet maken. Is er een manier om gegevens via een grote netwerkpipe naar een bepaalde locatie te verplaatsen en die gegevens naar Azure te pushen? <br/>
-U kunt een back-up van gegevens naar Azure maken via het standaard onlineback-upprocess, maar u kunt ook de Azure Import/Export-service gebruiken om gegevens naar de Blob Storage in Azure over te dragen. Er zijn geen aanvullende manieren om gegevens waarvan een back-up is gemaakt naar Azure Storage te verplaatsen. Zie het artikel [Offlineback-upwerkstroom](backup-azure-backup-import-export.md) voor meer informatie over het gebruik van de Azure Import/Export-service met Azure Backup.
+U kunt een back-up van gegevens naar Azure maken via het standaard onlineback-upprocess, maar u kunt ook de Azure Import/Export-service gebruiken om gegevens naar de Blob Storage in Azure over te dragen. Er zijn geen aanvullende manieren om gegevens waarvan een back-up is gemaakt naar Azure Storage te verplaatsen. Zie het artikel [Offline Backup workflow](backup-azure-backup-import-export.md) (Werkstroom voor offline back-up) voor meer informatie over het gebruik van de Azure Import/Export-service met Azure Backup.
 
 ## <a name="how-many-recoveries-can-i-perform-on-the-data-that-is-backed-up-to-azurebr"></a>Hoeveel herstelbewerkingen kan ik uitvoeren voor de gegevens waarvan een back-up naar Azure is gemaakt?<br/>
 Er is geen limiet voor het aantal herstelbewerkingen vanuit Azure Backup.
@@ -260,10 +259,10 @@ De volgende locaties worden niet aanbevolen voor de cachemap:
 De cachemap en de metagegevens-VHD hebben beide niet de juiste kenmerken voor de Azure Backup-agent.
 
 ## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Recovery Services-kluizen zijn op basis van Resource Manager. Worden Backup-kluizen (klassieke modus) nog steeds ondersteund? <br/>
-Ja, Backup-kluizen worden nog steeds ondersteund. U maakt Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com). Recovery Services-kluizen worden gemaakt in de [Azure Portal](https://portal.azure.com). We raden u echter aan Recovery Services-kluizen te maken, aangezien alle toekomstige verbeteringen alleen beschikbaar zullen zijn in Recovery Services-kluizen.
+Ja, Backup-kluizen worden nog steeds ondersteund. U maakt Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com). Recovery Services-kluizen worden gemaakt in de [Azure Portal](https://portal.azure.com). We raden u aan Recovery Services-kluizen te maken, aangezien alle toekomstige verbeteringen alleen beschikbaar zullen zijn in Recovery Services-kluizen.
 
 ## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan ik een Backup-kluis migreren naar een Recovery Services-kluis? <br/>
-Op dit moment is het niet mogelijk om de inhoud van een Backup-kluis te migreren naar een Recovery Services-kluis. We zijn bezig met het toevoegen van de functionaliteit, maar deze is momenteel nog niet beschikbaar.
+Het is niet mogelijk om de inhoud van een Backup-kluis te migreren naar een Recovery Services-kluis. We zijn bezig met het toevoegen van de functionaliteit, maar deze is momenteel nog niet beschikbaar.
 
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Ondersteunen Recovery Services-kluizen klassieke virtuele machines of virtuele machines op basis van Resource Manager? <br/>
 Recovery Services-kluizen ondersteunen beide modellen.  U kunt een back-up naar een Recovery Services-kluis maken van een klassieke virtuele machine die in de klassieke portal is gemaakt of van een virtuele Resource Manager-machine die in Azure Portal is gemaakt.
@@ -277,6 +276,6 @@ Herstelpunten van klassieke virtuele machines in een back-upkluis worden niet au
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

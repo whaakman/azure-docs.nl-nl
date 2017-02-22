@@ -252,6 +252,6 @@ In dit artikel hebt u gezien hoe u App Service CORS-ondersteuning kunt inschakel
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

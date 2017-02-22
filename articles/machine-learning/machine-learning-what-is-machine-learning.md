@@ -1,7 +1,7 @@
 ---
-title: Wat is Machine Learning in Microsoft Azure? | Microsoft Docs
+title: Wat is Machine Learning in Azure? | Microsoft Docs
 description: Verklaart de basisconcepten van machine learning in de cloud, beschrijft waarvoor u dit kunt gebruiken en definieert termen voor machine learning.
-keywords: wat is machine learning, termen voor machine learning, predictive, wat is predictive analytics, operationaliseren
+keywords: wat is machine learning, termen voor machine learning, predictive, wat is predictive analytics, termen voor machine learning
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Inleiding tot machine learning in de cloud
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Inleiding tot Azure Machine Learning in de cloud
 ## <a name="what-is-machine-learning"></a>Wat is machine learning?
 Machine learning is een techniek van gegevenswetenschap die computers helpt om te leren uit bestaande gegevens om toekomstig gedrag, resultaten en trends te voorspellen.  
 
@@ -30,47 +30,47 @@ Deze prognoses of voorspellingen op basis van machine learning kunnen apps en ap
 Probeer de videoreeks [Gegevenswetenschap voor beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) voor een kort overzicht. Zonder jargo of wiskunde introduceert Gegevenswetenschap voor beginners machine learning en de leidt u door een eenvoudig voorspelmodel.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Wat is Machine Learning in de Microsoft Azure-cloud?
-Azure Machine Learning is een krachtige cloudservice voor predictive analytics waarmee u snel voorspellende modellen kunt maken en implementeren als analytics-oplossingen. Wanneer u de Azure-cloud gebruikt om machine learning-experimenten uit te voeren of oplossingen te bouwen, hoeft u geen dure hardware of infrastructuur aan te schaffen.
+Azure Machine Learning is een cloudservice voor predictive analytics waarmee u snel voorspellende modellen kunt maken en implementeren als analytics-oplossingen.
+
+U kunt werken vanuit een kant-en-klare bibliotheek met algoritmen. Gebruik ze om modellen te maken op een pc met een internetverbinding en implementeer snel de voorspellende oplossing. Begin met gebruiksklare voorbeelden en oplossingen in de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
 ![Wat is machine learning? De basiswerkstroom om predictive analytics operationeel te maken in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Azure Machine Learning bevat niet alleen hulpprogramma's om predictive analytics te ontwikkelen, maar ook een volledig beheerde service waarmee u de voorspellende modellen kunt implementeren als gebruiksklare webservices. Azure Machine Learning voorziet in hulpprogramma's voor het maken van volledige predictive analytics-oplossingen in de cloud. Hiermee kunt u snel voorspellende modellen opzetten, testen, operationeel maken en beheren.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+Azure Machine Learning bevat niet alleen hulpprogramma's om predictive analytics te ontwikkelen, maar ook een volledig beheerde service waarmee u de voorspellende modellen kunt implementeren als gebruiksklare webservices.
 
 ## <a name="what-is-predictive-analytics"></a>Wat is predictive analytics?
-Predictive analytics gebruiken verschillende wiskundige formules - algoritmen - die historische of huidige data analyseren op patronen of trends om de toekomst te voorspellen.
+Predictive analytics gebruiken wiskundige formules, genaamd algoritmen, om in historische of huidige gegevens te zoeken naar patronen of trends om de toekomst te voorspellen.
 
-Azure Machine Learning is een bijzonder krachtige manier om predictive analytics uit te voeren. U kunt met een kant-en-klare bibliotheek van algoritmen werken, algoritmen gebruiken om modellen te maken op een pc met internetverbinding en de voorspellende oplossing snel implementeren. Om snel resultaten te krijgen, begint u met gebruiksklare voorbeelden en oplossingen in de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
-
-## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Complete machine learning-oplossingen bouwen in de cloud
-Azure Machine Learning heeft alles wat u nodig hebt om predictive analytics-oplossingen te maken in de cloud: van een grote bibliotheek met algoritmen tot een studio voor het ontwikkelen van modellen, en een eenvoudige manier om uw modellen vervolgens als webservices te implementeren.
+## <a name="tools-to-build-complete-machine-learning-solutions-in-the-cloud"></a>Hulpprogramma's voor het bouwen van complete machine learning-oplossingen in de cloud
+Azure Machine Learning heeft alles wat u nodig hebt om volledige predictive analytics-oplossingen te maken in de cloud: van een grote bibliotheek met algoritmen tot een studio voor het ontwikkelen van modellen, en een eenvoudige manier om uw modellen vervolgens als een webservice te implementeren. Maak, test, gebruik en beheer snel voorspellende modellen.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: voorspellende modellen maken
-In [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kunt u snel voorspellende modellen maken door modules te slepen, te verwijderen en te verbinden. Het is gemakkelijk om te experimenteren met verschillende combinaties en u probeert het [gratis](https://studio.azureml.net/?selectAccess=true&o=2).
+In [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kunt u snel voorspellende modellen maken door modules te slepen, te verwijderen en te verbinden. U kunt gemakkelijk experimenteren met verschillende combinaties en dit [gratis uitproberen](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * In de [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) kunt u analyseoplossingen van andere proberen of uw eigen oplossing bijdragne. U kunt vragen en opmerkingen over experimenten plaatsen in de community en koppelingen naar experimenten delen via sociale netwerken, zoals LinkedIn en Twitter.
-  
+
   ![Probeer voorspellende experimenten of deel uw eigen experimenten in de Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Gebruik een grote bibliotheek met [Machine Learning-algoritmen en -modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio om snel aan de slag te gaan met voorspellende modellen. Kies uit voorbeeldexperimenten, R- en Python-pakketten en de allerbeste algoritmen van Microsoft-bedrijven als Xbox en Bing. Breid Studio-modules uit met uw eigen aangepaste [R](machine-learning-r-quickstart.md)- en [Python](machine-learning-execute-python-scripts.md)-scripts.
-  
+
   ![Wat is predictive analytics? Voorbeeld van een predictive analytics-experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Predictive analytics-oplossingen operationeel maken: webservices kopen of uw eigen websites publiceren
-* Koop gebruiksklare webservices op [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), zoals Recommendations, Text Analytics en Anomaly Detection.
-* Predictive analytics-modellen operationeel maken:
-  
-  * [Webservices implementeren](machine-learning-publish-a-machine-learning-web-service.md)
-  * [Modellen trainen en opnieuw trainen via API's](machine-learning-retrain-models-programmatically.md)
-  * [Webservice-eindpunten beheren](machine-learning-create-endpoint.md)
-  * [Een webservice schalen](machine-learning-scaling-webservice.md)
-  * [Webservices gebruiken](machine-learning-consume-web-services.md)
+### <a name="operationalize-predictive-analytics-solutions-by-publishing-your-own"></a>Predictive analytics-oplossingen operationeel maken door uw eigen oplossing te publiceren
+In deze zelfstudies ziet u hoe u de predictive analytics-modellen operationeel kunt maken:
+
+ * [Webservices implementeren](machine-learning-publish-a-machine-learning-web-service.md)
+ * [Modellen opnieuw trainen via API's](machine-learning-retrain-models-programmatically.md)
+ * [Webservice-eindpunten beheren](machine-learning-create-endpoint.md)
+ * [Een webservice schalen](machine-learning-scaling-webservice.md)
+ * [Webservices gebruiken](machine-learning-consume-web-services.md)
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Belangrijkste termen en begrippen op het gebied van machine learning
 Termen op gebied van machine learning kunnen verwarrend zijn. Hier vindt u definities van de belangrijkste termen om u te helpen. Gebruik opmerkingen volgen om ons te laten weten welke andere termen u graag gedefinieerd zou zien.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Gegevensverkenning, beschrijvende analyse en predictive analytics
-**Gegevensverkenning** is het verzamelen van gegevens over een grote en vaak ongestructureerde gegevensset om kenmerken te identificeren voor gerichte analyse. **Gegevensanalyse** verwijst naar geautomatiseerde gegevensverkenning.
+
+**Gegevensverkenning** is het verzamelen van gegevens over een grote en vaak ongestructureerde gegevensset om kenmerken te identificeren voor gerichte analyse.
+
+**Gegevensanalyse** verwijst naar geautomatiseerde gegevensverkenning.
 
 **Beschrijvende analyse** is het analyseren van een gegevensset om een overzicht te maken van wat er is gebeurd. De meeste bedrijfsanalysen, zoals verkoopoverzichten, webmetrieken en sociale-netwerkanalysen, zijn beschrijvend.
 
@@ -115,6 +115,6 @@ U kunt zich de basiskennis van predictive analytics en machine learning eigen ma
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

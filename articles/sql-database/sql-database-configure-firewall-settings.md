@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Klik op **Opslaan** om de wijzigingen op te slaan.
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie de [SQL Database-zelfstudie: een server, serverfirewallregel, voorbeelddatabase en databasefirewallregel maken en koppelen met SQL Server](sql-database-get-started.md) voor een zelfstudie.
-- Zie [Get started with security](sql-database-get-started-security.md) (Aan de slag met beveiliging) voor een zelfstudie over beveiliging
+- Zie [Get started with security](sql-database-control-access-sql-authentication-get-started.md) (Aan de slag met beveiliging) voor een zelfstudie over beveiliging
 - Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit open-source toepassingen of toepassingen van derden raadpleegt u [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snelstartcodevoorbeelden voor clients met SQL Database).
 - Zie [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (SQL Database-verificatie en -autorisatie: toegang verlenen) om te leren hoe u extra gebruikers maakt die met de databases verbinding kunnen maken.
 
@@ -64,6 +64,6 @@ Klik op **Opslaan** om de wijzigingen op te slaan.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

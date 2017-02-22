@@ -1,9 +1,9 @@
 ---
-title: Azure CDN gebruiken | Microsoft Docs
-description: In dit onderwerp leert u hoe u het Content Delivery Network (CDN) voor Azure inschakelt. In deze zelfstudie wordt uitgelegd hoe u een nieuw CDN-profiel en -eindpunt maakt.
+title: Aan de slag met Azure CDN | Microsoft Docs
+description: In dit onderwerp leert u hoe u het Content Delivery Network (CDN) van Azure inschakelt. In deze zelfstudie wordt uitgelegd hoe u een nieuw CDN-profiel en -eindpunt maakt.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
+ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 
 
 ---
-# <a name="using-azure-cdn"></a>Azure CDN gebruiken
+# <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
 In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
 
 > [!IMPORTANT]
@@ -106,6 +106,6 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

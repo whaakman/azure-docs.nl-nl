@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
+ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
 
 
 ---
@@ -73,7 +73,7 @@ Zie [Aan de slag met Azure SQL Database-servers, databases en firewallregels met
 Naast de beheerdersrollen op serverniveau die eerder zijn besproken, biedt SQL Database ook twee beperkte beheerdersrollen in de hoofddatabase waaraan gebruikersaccounts kunnen worden toegevoegd. Deze twee beheerdersrollen verlenen machtigingen voor het maken van databases of voor het beheren van aanmeldingen.
 
 ### <a name="database-creators"></a>Databasemakers
-Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. De gebruiker kan een gebruiker van een ingesloten database zijn, maar ook een gebruiker met een SQL Server-aanmelding in de hoofddatabase.
+Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen nieuwe databases maken. Voor het gebruik van deze rol maakt u een gebruiker in de `master`-database en voegt u deze gebruiker vervolgens toe aan de databaserol **dbmanager**. Om een database te maken, moet de gebruiker een gebruiker zijn op basis van een SQL Server-aanmelding in de hoofddatabase of een gebruiker van een ingesloten database op basis van een Azure Active Directory-gebruiker.
 
 1. Gebruik een beheerdersaccount om verbinding te maken met de hoofddatabase.
 2. Optionele stap: maak een aanmelding voor SQL-verificatie met de instructie [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Voorbeeldinstructie:
@@ -132,7 +132,6 @@ Om extra gebruikers volledig beheer van de database te geven, moet u ze lid make
 
 > [!NOTE]
 > De meest voorkomende reden om databasegebruikers te maken op basis van aanmelding, is wanneer u SQL Server-verificatiegebruikers hebt die toegang tot meerdere databases nodig hebben. Gebruikers op basis van aanmelding zijn gekoppeld aan de aanmelding. Voor deze aanmelding wordt slechts één wachtwoord bijgehouden. Ingesloten databasegebruikers in individuele databases zijn individuele entiteiten en hebben elk een eigen wachtwoord. Dit kan verwarrend zijn voor ingesloten databasegebruikers die hun wachtwoorden niet identiek hebben gehouden.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>De firewall op databaseniveau configureren
 U doet er verstandig aan niet-beheerders alleen via de firewall toegang te verlenen tot de databases die ze gebruiken. In plaats van het machtigen van hun IP-adressen via de firewall op serverniveau en hun toegang te verlenen tot alle databases, kunt u de instructie [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) gebruiken om de firewall op databaseniveau te configureren. De firewall op databaseniveau kan niet worden geconfigureerd met behulp van de portal.
@@ -158,7 +157,8 @@ Er zijn meer dan 100 machtigingen die afzonderlijk kunnen worden verleend of gew
 ### <a name="considerations-and-restrictions"></a>Overwegingen en beperkingen
 Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volgende overwegen:
 
-* U moet zijn verbonden met de **hoofd**database bij het uitvoeren van de `CREATE/ALTER/DROP DATABASE`-instructies. De databasegebruiker in de hoofddatabase die overeenkomt met de aanmelding van de **Serverbeheerder**, kan niet worden gewijzigd of verwijderd. 
+* U moet zijn verbonden met de **hoofd**database bij het uitvoeren van de `CREATE/ALTER/DROP DATABASE`-instructies.   
+* De databasegebruiker die overeenkomt met de aanmelding van de **Serverbeheerder**, kan niet worden gewijzigd of verwijderd. 
 * Amerikaans Engels is de standaardtaal van de aanmelding van de **serverbeheerder**.
 * Alleen de beheerders (aanmelding van **serverbeheerder** of Azure AD-beheerder) en de leden van de databaserol **dbmanager** in de **hoofddatabase** zijn gemachtigd om de instructies `CREATE DATABASE` en `DROP DATABASE` uit te voeren.
 * U moet zijn verbonden met de hoofddatabase bij het uitvoeren van de `CREATE/ALTER/DROP LOGIN`-instructies. Het gebruik van aanmeldingen wordt echter afgeraden. Gebruik in plaats daarvan ingesloten databasegebruikers.
@@ -185,13 +185,14 @@ Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volge
 
 - Zie [Azure SQL Database-firewall](sql-database-firewall-configure.md) voor meer informatie over firewallregels.
 - Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van alle beveiligingsfuncties van SQL Database.
-- Zie [Aan de slag met SQL-beveiliging](sql-database-get-started-security.md) voor een zelfstudie.
+- Zie [Aan de slag met SQL-beveiliging](sql-database-control-access-sql-authentication-get-started.md) voor een zelfstudie.
 - Zie [Weergaven en opgeslagen procedures maken](https://msdn.microsoft.com/library/ms365311.aspx) voor meer informatie over weergaven en opgeslagen procedures.
 - Zie [Toegang verlenen tot een databaseobject](https://msdn.microsoft.com/library/ms365327.aspx) voor meer informatie over het verlenen van toegang tot een databaseobject.
+- Voor een zelfstudie met SQL Server-verificatie raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
+- Voor een zelfstudie met Azure Active Directory-verificatie raadpleegt u [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md) (SQL Database zelfstudie: AAD-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

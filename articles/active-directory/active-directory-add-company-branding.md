@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het
 > [!NOTE]
 > * De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory of als u Office 365 gebruikt. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
 > * De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>De aanmeldingspagina aanpassen
 Als u browsertoegang nodig hebt om de cloud-apps en -services te openen waar uw organisatie op is geabonneerd, gebruikt u de aanmeldingspagina.
@@ -46,8 +46,8 @@ Wanneer u een service gebruikt met niet-tenantspecifieke URL’s (bijvoorbeeld h
 > [!NOTE]
 > * Uw domeinnaam moet als Actief worden weergegeven in het gedeelte **Active Directory** > **Directory** > **Domeinen** van de klassieke Azure Portal waarin u de huisstijl hebt geconfigureerd.
 > * De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de Microsoft-aanmeldingspagina voor klanten. Als u zich met een persoonlijk Microsoft-account aanmeldt, wordt er door Azure AD een reeks gebruikerstegels met huisstijl weergegeven, maar de huisstijl van uw organisatie wordt niet toegepast op de aanmeldingspagina voor Microsoft-accounts.
-> 
-> 
+>
+>
 
 Als u op deze pagina uw bedrijfsmerk en -kleuren en andere aanpasbare elementen wilt weergeven, bekijkt u de volgende afbeeldingen om inzicht te krijgen in het verschil tussen de twee ervaringen.
 
@@ -91,8 +91,8 @@ U kunt de volgende elementen op de aanmeldingspagina aanpassen:
 
 > [!NOTE]
 > Alle elementen zijn optioneel. Als u bijvoorbeeld een logo wilt weergeven in de banner, maar geen grote afbeelding wilt gebruiken, wordt uw logo weergegeven op de aanmeldingspagina en de afbeelding voor de doelsite (in dit geval de Office 365-afbeelding van een snelweg in Californië).
-> 
-> 
+>
+>
 
 Op de aanmeldingspagina kunnen gebruikers er met het selectievakje **Aangemeld blijven** voor zorgen dat ze aangemeld blijven als ze hun browser sluiten en opnieuw openen. Dit heeft geen invloed op de levensduur van de sessie. U kunt het selectievakje op de aanmeldingspagina van Azure Active Directory verbergen.
 
@@ -100,12 +100,12 @@ Of het selectievakje wordt weergegeven, hangt af van wat er bij **KMSI verbergen
 
 ![][9]
 
-Als u het selectievakje wilt verbergen, stelt u deze instelling in op **Verborgen**. 
+Als u het selectievakje wilt verbergen, stelt u deze instelling in op **Verborgen**.
 
 > [!NOTE]
 > Of sommige functies van SharePoint Online en Office 2010 beschikbaar zijn, hangt ervan of gebruikers dit selectievakje wel of niet kunnen inschakelen. Als u deze instelling instelt op Verborgen, krijgen uw gebruikers mogelijk extra en onverwachte prompts te zien om zich aan te melden.
-> 
-> 
+>
+>
 
 U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aangepaste elementen hebt geconfigureerd, kunt u meer versies configureren voor verschillende talen. U kunt ook een combinatie van verschillende elementen gebruiken. U kunt bijvoorbeeld:
 
@@ -163,15 +163,15 @@ Het kan een uur duren voordat de wijzigingen die u aan de huisstijl van de aanme
 4. Klik op **Huisstijl aanpassen**.
 5. Selecteer op de pagina Huisstijl aanpassen de optie **Bestaande huisstijlinstellingen bewerken** en ga naar de volgende pagina.
 6. Afhankelijk van de elementen die u wilt verwijderen, voert u een of meer van de volgende acties uit:
-   
+
     a. Selecteer onder **Logo in banner** de optie **Geüploade logo verwijderen**.
-   
+
     b. Selecteer onder **Logo in tegel** de optie **Geüploade logo verwijderen**.
-   
+
     c. Verwijder de tekst uit alle tekstvakken.
-   
+
     d. Klik op **Volgende**.
-   
+
     e. Verwijder de tekst uit alle tekstvakken.
 7. Klik op **Opslaan** om de elementen te verwijderen.
 8. Klik zo nodig opnieuw op **Huisstijl aanpassen** en herhaal deze stappen voor alle taalspecifieke huisstijlonderdelen die moeten worden verwijderd.
@@ -199,12 +199,12 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 
 | Naam | Beschrijving | Beperkingen | Aanbevelingen |
 | --- | --- | --- | --- |
-| Logo in banner |Het logo in de banner wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x 280 pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
-| Logo in tegel |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving het algemene pictogram voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). |<p>JPG of PNG</p><p>120 x 120 pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
+| Logo in banner |Het logo in de banner wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x&280; pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
+| Logo in tegel |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving het algemene pictogram voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). |<p>JPG of PNG</p><p>120 x&120; pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
 | </p> | | | |
 | Gebruikersnaamlabel op aanmeldingspagina |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving de algemene tekenreeks voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). U kunt deze tekenreeks instellen op zoiets als 'Contoso-account' of 'Contoso-id'. |<p>Unicodetekst, maximaal 50 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |<p>Houd het kort en eenvoudig</p><p>Vraag uw gebruikers hoe ze het werk- of schoolaccount waar u ze van voorziet, meestal noemen.</p> |
 | Tekst van aanmeldingspagina |Deze standaardtekst wordt onder het formulier van de aanmeldingspagina weergegeven en kan worden gebruikt om aanvullende instructies te geven of om de gebruiker te laten weten waar hulp en ondersteuning te vinden zijn. |<p>Unicodetekst, maximaal 256 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |Houd het korter dan 250 tekens (ongeveer 3 regels tekst) |
-| Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
+| Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
 | Achtergrondkleur van de aanmeldingspagina |De achtergrondkleur van de aanmeldingspagina wordt in het gedeelte links van het aanmeldingsformulier gebruikt. |Dit moet een RGB-kleur zijn met een hexadecimale notatie (voorbeeld: #FFFFFF) |<p>De achtergrondkleur kan in plaats van de grote afbeelding worden weergegeven als er een verbinding is met een lage bandbreedte</p><p>Het is een goed idee om de primaire kleur van het logo in de banner te gebruiken</p> |
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -224,6 +224,6 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

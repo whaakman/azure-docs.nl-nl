@@ -12,6 +12,7 @@
 ### [Cross-origin-resources delen](cdn-cors.md)
 
 ## Beheren
+### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ### [Beheren met PowerShell](cdn-manage-powershell.md)
 ### TTL (Time to Live) configureren
 #### [Web Apps/Cloud Services, ASP.NET of IIS-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
@@ -25,7 +26,7 @@
 ### [Assets in cache verwijderen](cdn-purge-endpoint.md)
 ### [Assets in cache vooraf laden](cdn-preload-endpoint.md)
 ### [Tokenverificatie](cdn-token-auth.md)
-### [Resources controleren](cdn-resource-health.md)
+### [Resources bewaken](cdn-resource-health.md)
 ### [Gedrag overschrijven met regels](cdn-rules-engine.md)
 ### [Real-time waarschuwingen](cdn-real-time-alerts.md)
 
@@ -62,6 +63,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

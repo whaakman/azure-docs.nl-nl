@@ -214,6 +214,6 @@ U kunt ook [het Azure-stuurprogramma `docker-machine` gebruiken dat verschillend
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

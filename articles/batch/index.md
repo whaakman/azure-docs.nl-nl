@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Batch - zelfstudies, API-verwijzing | Microsoft Docs
+description: "Meer informatie over hoe u Batch gebruikt om op efficiënte wijze grootschalige parallelle HPC-toepassingen (High Performance Computing) uit te voeren. Zelfstudies, API-verwijzingen en andere documentatie."
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Documentatie over Batch
 
-In Azure Batch kunt u grootschalige parallelle en HPC-toepassingen (High Performance Computing) efficiënt in de cloud uitvoeren. Met de Batch-service definieert u Azure-rekenresources om uw toepassingen parallel en op de juiste schaal uit te voeren. U kunt taken of aanvraag uitvoeren of geplande taken uitvoeren zonder dat u zich hoeft bezig te houden met het handmatig maken of beheren van de infrastructuur.
+Meer informatie over hoe u Batch gebruikt om op efficiënte wijze grootschalige parallelle HPC-toepassingen (High Performance Computing) in de cloud uit te voeren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u de Azure Compute-resources definieert om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +139,7 @@ In Azure Batch kunt u grootschalige parallelle en HPC-toepassingen (High Perform
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -147,16 +159,10 @@ In Azure Batch kunt u grootschalige parallelle en HPC-toepassingen (High Perform
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Azure Batch downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

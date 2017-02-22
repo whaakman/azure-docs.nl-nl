@@ -97,9 +97,10 @@
 ##### [Voorbeeldtoepassing](virtual-networks-sample-app.md)
 
 ## Configureren
-### Versneld netwerken
+### Versneld netwerken voor virtuele machines
 #### [Azure Portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [VM-netwerkdoorvoer optimaliseren](virtual-network-optimize-network-bandwidth.md)
 ### Toegangsbeheerlijsten
 #### [Klassieke portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

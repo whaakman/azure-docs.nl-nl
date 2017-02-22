@@ -1,5 +1,5 @@
 ---
-title: Routeringsvereisten voor ExpressRoute | Microsoft Docs
+title: Routeringsvereisten voor Azure ExpressRoute | Microsoft Docs
 description: Deze pagina bevat gedetailleerde vereisten voor het configureren en beheren van routering voor ExpressRoute-circuits.
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -189,8 +189,12 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | **Nationale clouds Azure-regio**| **BGP-communitywaarde** |
 | --- | --- |
 | **Amerikaanse overheid** |  |
+| VS (overheid) - Arizona | 12076:51106 |
 | VS (overheid) - Iowa | 12076:51109 |
 | VS (overheid) - Virginia | 12076:51105 |
+| VS (overheid) - Texas | 12076:51108 |
+| US DoD - centraal | 12076:51209 |
+| US DoD - oost | 12076:51205 |
 
 
 | **Service in nationale clouds** | **BGP-communitywaarde** |
@@ -212,6 +216,6 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

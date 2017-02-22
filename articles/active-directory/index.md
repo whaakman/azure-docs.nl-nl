@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: Documentatie voor Azure Active Directory - zelfstudies, API-verwijzing | Microsoft Docs
+services: active-directory
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 2dc340dcb864325554700f58057d157dd46f7f7a
+ms.openlocfilehash: ba13ea0d6c17e50e7b1887373d67ca691bdfad01
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Documentatie voor Azure Active Directory
 
-Azure Active Directory Premium is een cloudoplossing voor identiteits- en toegangsbeheer. De oplossing biedt eenmalige aanmelding voor duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitvoert. Azure Active Directory biedt mobiliteits- en samenwerkingsmogelijkheden voor bedrijven, evenals geavanceerde identiteitsbeveiliging met behulp van Multi-Factor Authentication (MFA), beveiligingsrapporten, controles, waarschuwingen en beleid voor voorwaardelijke toegang dat wordt aangepast op basis van de apparaatstatus, de gebruikerslocatie en het risiconiveau.
+Meer informatie over het synchroniseren van adreslijsten en het inschakelen van eenmalige aanmelding met Azure Active Directory (Azure AD). Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u mogelijkheden voor identiteitsbeheer integreert, waaronder Multi-Factor Authentication, apparatuurregistratie, op rollen gebaseerd toegangsbeheer en beveiligingsbewaking en -waarschuwingen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -128,16 +140,8 @@ Azure Active Directory Premium is een cloudoplossing voor identiteits- en toegan
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Azure Active Directory downloaden </div>
-    </a>
-</div>
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

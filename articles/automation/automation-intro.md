@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16f6285577294ff49f11a27f48daea090655a2b1
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Runbooks in Azure Automation zijn gebaseerd op Windows PowerShell of Windows Pow
 De [runbookgalerie](automation-runbook-gallery.md#runbooks-in-runbook-gallery) bevat runbooks van Microsoft en de community die u ongewijzigd in uw omgeving kunt gebruiken of kunt aanpassen voor uw eigen doeleinden. Ze zijn ook nuttig om raad te plegen voor informatie over het maken van uw eigen runbooks. U kunt zelfs uw eigen runbooks aan de galerie toevoegen als u denkt dat deze van nut kunnen zijn voor andere gebruikers. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Runbooks maken met Azure Automation
-U kunt [uw eigen runbooks volledig zelf maken](automation-creating-importing-runbook.md) of runbooks uit de [runbookgalerie](http://msdn.microsoft.com/library/azure/dn781422.aspx) wijzigen zodat ze voldoen aan uw eigen vereisten. Er zijn drie verschillende [runbooktypen](automation-runbook-types.md) waaruit u kunt kiezen op basis van uw vereisten en PowerShell-ervaring. Als u liever rechtstreeks met de PowerShell-code werkt, dan kunt u een [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) of [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) gebruiken dat u offline bewerkt of met de [teksteditor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in de Azure Portal. Als u liever een runbook bewerkt zonder de onderliggende code te zien, dan kunt u een [grafisch runbook](automation-runbook-types.md#graphical-runbooks) maken met behulp van de [grafische editor](automation-graphical-authoring-intro.md) in Azure Portal. 
+U kunt [uw eigen runbooks volledig zelf maken](automation-creating-importing-runbook.md) of runbooks uit de [runbookgalerie](http://msdn.microsoft.com/library/azure/dn781422.aspx) wijzigen zodat ze voldoen aan uw eigen vereisten. Er zijn vier verschillende [runbooktypen](automation-runbook-types.md) waaruit u kunt kiezen op basis van uw vereisten en PowerShell-ervaring. Als u liever rechtstreeks met de PowerShell-code werkt, dan kunt u een [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) of [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) gebruiken dat u offline bewerkt of met de [teksteditor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in de Azure Portal. Als u liever een runbook bewerkt zonder de onderliggende code te zien, dan kunt u een [grafisch runbook](automation-runbook-types.md#graphical-runbooks) maken met behulp van de [grafische editor](automation-graphical-authoring-intro.md) in Azure Portal. 
 
 Wilt u liever kijken dan lezen? Bekijk de onderstaande video van de Microsoft Ignite-sessie in mei 2015. Opmerking: Hoewel de concepten en functies die in deze video worden besproken correct zijn, is er veel vooruitgang geboekt met Azure Automation sinds deze video is opgenomen. Er is nu een uitgebreidere gebruikersinterface in Azure Portal en er worden aanvullende mogelijkheden ondersteund.
 
@@ -87,6 +87,6 @@ Er zijn verschillende bronnen beschikbaar waar u meer informatie kunt vinden ove
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

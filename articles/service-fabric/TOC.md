@@ -21,11 +21,14 @@
 ## Een toepassing bouwen
 ### [Patronen en scenario's](service-fabric-patterns-and-scenarios.md)
 ### Basisbeginselen
-#### [Programmeermodel](service-fabric-choose-framework.md)
 #### [Toepassingsmodel](service-fabric-application-model.md)
+#### [Ondersteund programmeermodel](service-fabric-choose-framework.md)
+#### [Servicestatus](service-fabric-concepts-state.md)
 #### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
+#### [Een webfront-end toevoegen](service-fabric-add-a-web-frontend.md)
 #### [Servicemanifest-resources](service-fabric-service-manifest-resources.md)
-#### [Hulpprogramma's](service-fabric-manage-application-in-visual-studio.md)
+#### [Apps beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Beveiligde verbindingen configureren in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Fouten opsporen
 ##### [Fouten opsporen in een C#-service in Visual Studio](service-fabric-debugging-your-application.md)
 ##### [Fouten opsporen in een Java-service in Eclipse](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [Beveiligingsbeleid configureren voor uw toepassing](service-fabric-application-runas-security.md)  
 #### [Uw toepassing configureren voor meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [Veelvoorkomende fouten en uitzonderingen](service-fabric-errors-and-exceptions.md) 
+
+### Door gast uitvoerbare toepassing
+#### [Een toepassing implementeren die door een gast kan worden uitgevoerd](service-fabric-deploy-existing-app.md)
+#### [Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd](service-fabric-deploy-multiple-apps.md)
+
+### Containertoepassing
+#### [Overzicht](service-fabric-containers-overview.md)
+#### [Windows-container implementeren](service-fabric-deploy-container.md)
+#### [Docker-container implementeren](service-fabric-deploy-container-linux.md)
 
 ### Een Reliable Services-toepassing
 #### [Overzicht](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### Door gast uitvoerbare toepassing
-#### [Een toepassing implementeren die door een gast kan worden uitgevoerd](service-fabric-deploy-existing-app.md)
-#### [Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd](service-fabric-deploy-multiple-apps.md)
-
-### Containertoepassing
-#### [Overzicht](service-fabric-containers-overview.md)
-#### [Windows-container implementeren](service-fabric-deploy-container.md)
-#### [Docker-container implementeren](service-fabric-deploy-container-linux.md)
-
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,7 +98,7 @@
 #### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 #### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 #### [Een cluster beheren met Azure CLI](service-fabric-azure-cli.md) 
-#### [Beveiliging](service-fabric-cluster-security.md)
+#### [Een cluster beveiligen](service-fabric-cluster-security.md)
 #### [Herstel na noodgevallen](service-fabric-disaster-recovery.md)
 
 ### Clusters op Azure
@@ -108,6 +111,7 @@
 #### [Een cluster verwijderen](service-fabric-cluster-delete.md)
 #### [Toegangsbeheer](service-fabric-cluster-security-roles.md)
 #### [Een cluster configureren](service-fabric-cluster-fabric-settings.md)
+#### [Een cluster beveiligen met certificaten](service-fabric-windows-cluster-x509-security.md)
 #### [Clustercertificaten toevoegen of overdragen](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Een Party Cluster gratis proberen](http://aka.ms/tryservicefabric)
 
@@ -116,30 +120,15 @@
 #### [Een zelfstandige cluster maken in Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Een cluster schalen](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Een cluster upgraden](service-fabric-cluster-upgrade-windows-server.md)
-#### [Een cluster beveiligen](service-fabric-windows-cluster-x509-security.md)
 #### [Toegangsbeheer](service-fabric-cluster-security-roles.md)
 #### [Een cluster configureren](service-fabric-cluster-manifest.md)
 #### [Een cluster beveiligen met certificaten](service-fabric-windows-cluster-x509-security.md)  
 #### [Een cluster beveiligen met Windows-beveiliging](service-fabric-windows-cluster-windows-security.md) 
 
-## Clusterbronnen beheren en organiseren
-### [Overzicht van Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager-architectuur](service-fabric-cluster-resource-manager-architecture.md)
-### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Overzicht toepassingsgroepen](service-fabric-cluster-resource-manager-application-groups.md)
-### [Instellingen van Cluster Resource Manager configureren](service-fabric-cluster-resource-manager-configure-services.md)
-### [Bron metrische verbruiksgegevens](service-fabric-cluster-resource-manager-metrics.md)
-### [Serviceaffiniteit gebruiken](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Beleid voor serviceplaatsing](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Een cluster beheren](service-fabric-cluster-resource-manager-management-integration.md)
-### [Clusterdefragmentatie](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Een cluster in balans brengen](service-fabric-cluster-resource-manager-balancing.md)
-### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Toepassingslevenscyclus beheren
 ### [Overzicht](service-fabric-application-lifecycle.md)
 ### [Continue integratie instellen](service-fabric-set-up-continuous-integration.md)
+### [Meer informatie over de instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Toepassingen implementeren of verwijderen
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -154,22 +143,23 @@
 ### [Toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md)
 
 ## Status van toepassing en cluster inspecteren
-### [Service Fabric-status controleren](service-fabric-health-introduction.md)
+### [Service Fabric-status bewaken](service-fabric-health-introduction.md)
 ### [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 ### [Aangepaste statusrapporten toevoegen](service-fabric-report-health.md)
 ### [Problemen met systeemstatusrapporten oplossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 ### [Statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
 
-## Bewaken en diagnosticeren
-### Services lokaal controleren en een diagnose uitvoeren
+## Bewaken en diagnoses uitvoeren
+### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
+### Services lokaal bewaken en er diagnoses op uitvoeren
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 ### Diagnostische logboeken van Azure
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Logboeken verzamelen van een serviceproces](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
+### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [Algemene problemen oplossen](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -191,6 +181,21 @@
 #### [De API's voor knooppuntovergang gebruiken](service-fabric-node-transition-apis.md)
 ### [Uw testtoepassing laden](service-fabric-vso-load-test.md)
 
+## Clusterbronnen beheren en organiseren
+### [Overzicht van Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager-architectuur](service-fabric-cluster-resource-manager-architecture.md)
+### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Overzicht toepassingsgroepen](service-fabric-cluster-resource-manager-application-groups.md)
+### [Instellingen van Cluster Resource Manager configureren](service-fabric-cluster-resource-manager-configure-services.md)
+### [Bron metrische verbruiksgegevens](service-fabric-cluster-resource-manager-metrics.md)
+### [Serviceaffiniteit gebruiken](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Beleid voor serviceplaatsing](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Een cluster beheren](service-fabric-cluster-resource-manager-management-integration.md)
+### [Clusterdefragmentatie](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Een cluster in balans brengen](service-fabric-cluster-resource-manager-balancing.md)
+### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # Naslaginformatie
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [Java-API](/java/api/microsoft.servicefabric.services)
@@ -208,6 +213,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

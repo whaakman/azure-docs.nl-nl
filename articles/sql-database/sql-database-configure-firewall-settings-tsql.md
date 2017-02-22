@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
+ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Database maakt gebruik van firewallregels om verbindingen me
 > 
 
 ## <a name="server-level-firewall-rules"></a>Firewallregels op serverniveau
-Alleen de hoofdaanmelding op serverniveau of de Azure Active Directory-beheerder kan een firewallregel op serverniveau maken met behulp van Transact-SQL.
+Alleen iemand die zich aanmeldt als Azure SQL-serverbeheerder of Azure Active Directory-beheerder, kan een firewallregel op serverniveau maken met behulp van Transact-SQL.
 
 1. Open een queryvenster en maak met behulp van SQL Server Management Studio verbinding met de virtuele hoofddatabase.
 2. In het queryvenster kunnen firewallregels op serverniveau worden geselecteerd, gemaakt, bijgewerkt of verwijderd.
@@ -61,7 +61,7 @@ Alleen de hoofdaanmelding op serverniveau of de Azure Active Directory-beheerder
 ## <a name="database-level-firewall-rules"></a>Firewallregels op databaseniveau
 Alleen een databasegebruiker met de machtiging **BEHEER** voor de database (zoals de database-eigenaar) kan een firewallregel op databaseniveau maken.
 
-1. Start na het maken van een firewallregel op serverniveau voor uw IP-adres een queryvenster via de klassieke portal of SQL Server Management Studio.
+1. Start na het maken van een firewallregel op serverniveau voor uw IP-adres een queryvenster via Azure Portal of SQL Server Management Studio.
 2. Maak verbinding met de database waarvoor u een firewallregel op databaseniveau wilt maken.
    
     Voer de opgeslagen procedure `sp_set_database_firewall_rule` uit als u een nieuwe firewallregel op databaseniveau wilt maken of een bestaande regel wilt bijwerken. In het volgende voorbeeld wordt een nieuwe regel met de naam ContosoFirewallRule gemaakt.
@@ -75,6 +75,11 @@ Alleen een databasegebruiker met de machtiging **BEHEER** voor de database (zoal
         EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
 Voor meer informatie over deze opgeslagen procedures raadpleegt u [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) en [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
+
+> [!NOTE]
+> Voor een zelfstudie die laat zien hoe u firewalls op databaseniveau gebruikt, raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
+>
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor artikelen met procedures voor het maken van firewallregels op serverniveau met andere methoden raadpleegt u: 
@@ -94,6 +99,6 @@ Zie [Manage database access and login security](https://msdn.microsoft.com/libra
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

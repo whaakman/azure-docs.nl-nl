@@ -1,6 +1,6 @@
 ---
-title: Een Azure-functie maken die wordt gebonden aan een Azure-service | Microsoft Docs
-description: Bouw een Azure-functie, een toepassing zonder server, die met andere Azure-services communiceert.
+title: Een functie maken die verbinding met Azure-services maakt | Microsoft Docs
+description: Azure Functions gebruiken om een toepassing zonder server te maken die verbinding maakt met andere Azure-services.
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Een Azure-functie maken die is gekoppeld aan een Azure-service
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Azure Functions gebruiken om een toepassing te maken die verbinding maakt met andere Azure-services
 
-In dit onderwerp leert u hoe u een Azure-functie maakt die luistert naar berichten op een Azure-wachtrij en die berichten naar rijen in een Azure Storage-tabel kopieert. Een door een timer geactiveerde functie wordt gebruikt voor het laden van berichten in de wachtrij. Een tweede functie leest uit de wachtrij en schrijft berichten naar de tabel. De wachtrij en de tabel worden voor u gemaakt door Azure Functions op basis van de bindingsdefinities. 
+In dit onderwerp leert u hoe u een functie maakt in Azure Functions die luistert naar berichten in een Azure Storage-wachtrij en die berichten naar rijen in een Azure Storage-tabel kopieert. Een door een timer geactiveerde functie wordt gebruikt voor het laden van berichten in de wachtrij. Een tweede functie leest uit de wachtrij en schrijft berichten naar de tabel. De wachtrij en de tabel worden voor u gemaakt door Azure Functions op basis van de bindingsdefinities. 
 
-Daarnaast wordt één functie in JavaScript geschreven en de andere in C#-script. Dit laat zien hoe een functie-app functies in verschillende talen kan hebben.
+Daarnaast wordt één functie in JavaScript geschreven en de andere in C#-script. Dit laat zien hoe een functie-app functies in verschillende talen kan hebben. 
 
-## <a name="watch-the-video"></a>Video bekijken
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Dit scenario wordt uitgebeeld in een [video op kanaal 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Een functie die naar de wachtrij schrijft maken
 
@@ -197,6 +194,6 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

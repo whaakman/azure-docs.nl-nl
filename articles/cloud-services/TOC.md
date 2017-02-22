@@ -64,6 +64,13 @@
 #### [Klassieke portal](cloud-services-how-to-scale.md)
 ### [Python gebruiken om Azure-resources te beheren](cloud-services-python-how-to-use-service-management.md)
 
+### [Patches voor gastbesturingssysteem](cloud-services-guestos-msrc-releases.md)
+### Buitengebruikstelling van gastbesturingssysteem
+#### [Stopzetting van beleid](cloud-services-guestos-retirement-policy.md)
+#### [Kennisgeving van buitengebruikstelling van serie 1](cloud-services-guestos-family1-retirement.md)
+### [Releasenieuws voor gastbesturingssysteem](cloud-services-guestos-update-matrix.md)
+### [Overzichtskaart van configuratie van Cloud Services-rollen voor XPath](cloud-services-role-config-xpath.md)
+
 ## Certificaten beheren
 ### [Cloud Services en beheercertificaten](cloud-services-certs-create.md)
 ### SSL configureren 
@@ -101,14 +108,8 @@
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Patches voor gastbesturingssysteem](cloud-services-guestos-msrc-releases.md)
-## Buitengebruikstelling van gastbesturingssysteem
-### [Stopzetting van beleid](cloud-services-guestos-retirement-policy.md)
-### [Kennisgeving van buitengebruikstelling van serie 1](cloud-services-guestos-family1-retirement.md)
-## [Releasenieuws voor gastbesturingssysteem](cloud-services-guestos-update-matrix.md)
-## [Overzichtskaart van configuratie van cloudservicerollen voor XPath](cloud-services-role-config-xpath.md)
 
-# Resources
+# Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
@@ -116,6 +117,6 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

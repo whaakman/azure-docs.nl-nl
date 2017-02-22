@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [Klassieke Azure Portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Een van de functies van het gebruikersbeheer van Azure Active Directory (Azure AD) is de mogelijkheid voor het maken van groepen gebruikers. U gebruikt een groep om beheertaken uit te voeren zoals het toewijzen van licenties of machtigingen aan een aantal gebruikers tegelijk. Ook kunt u groepen gebruiken om toegangsmachtigingen toe te wijzen aan:
 
@@ -73,13 +73,13 @@ Wanneer kenmerken van een gebruiker worden gewijzigd, evalueert het systeem alle
 
 > [!NOTE]
 > U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen. Op dit moment wordt genest groepslidmaatschap niet ondersteund voor toewijzing aan een toepassing op basis van een groep.
-> 
+>
 > Bij dynamisch lidmaatschap voor groepen moet een Azure AD Premium-licentie worden toegewezen aan
-> 
+>
 > * De beheerder die de regel voor een groep beheert
 > * Alle leden van de groep
-> 
-> 
+>
+>
 
 **Dynamische lidmaatschap inschakelen voor een groep**
 
@@ -103,7 +103,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Overstappen op Azure Data Catalog | Microsoft Docs
+title: Aanpak en proces voor het overstappen op Azure Data Catalog | Microsoft Docs
 description: "Dit artikel bevat een benadering en proces voor organisaties die overwegen om over te stappen op Azure Data Catalog, met inbegrip van het definiëren van een visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden en het kiezen van een proefproject."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Overstappen op Azure Data Catalog
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Aanpak en proces voor het overstappen op Azure Data Catalog
 Dit artikel helpt u aan de slag te gaan met de overstap op **Azure Data Catalog** in uw organisatie. Als u wilt overstappen op **Azure Data Catalog**, richt u zich op drie essentiële items: het definiëren van uw visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden binnen uw organisatie en het kiezen van een proefproject.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Introductie van de Azure Data Catalog
@@ -169,6 +169,6 @@ In dit artikel is beschreven hoe u aan de slag kunt met **Azure Data Catalog** i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

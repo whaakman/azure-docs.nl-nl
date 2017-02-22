@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
 
 
 ---
@@ -24,10 +24,26 @@ ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Aan de slag met het leveren van inhoud on demand met .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie.
->
->
+In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Media Services .NET SDK.
+
+## <a name="prerequisites"></a>Vereisten
+
+Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
+
+* Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* .NET framework 4.0 of hoger
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
+
+Deze zelfstudie bevat de volgende taken:
+
+1. Streaming-eindpunt starten (vanuit Azure Portal).
+2. Een Visual Studio-project maken en configureren.
+3. Verbinding maken met het Azure Media Services-account.
+2. Een videobestand uploaden.
+3. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
+4. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
+5. Uw inhoud afspelen.
 
 ## <a name="overview"></a>Overzicht
 In deze zelfstudie leert u een eenvoudige toepassing voor de levering van VoD-inhoud (Video-on-Demand) te implementeren met Azure Media Services door gebruik te maken van de Azure Media Services (AMS) SDK voor .NET.
@@ -40,67 +56,27 @@ In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij 
 
 Klik op de afbeelding om deze in volledig formaat weer te geven.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.15) het hele model bekijken.  
-
-
-## <a name="prerequisites"></a>Vereisten
-Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
-
-* U hebt een Azure-account nodig om deze zelfstudie te voltooien.
-
-    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) voor meer informatie. U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken, zoals de functie Web-apps in Azure App Service.
-* Besturingssystemen: Windows 8 of hoger, Windows 2008 R2, Windows 7.
-* .NET framework 4.0 of hoger
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
-
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
-In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
-2. Klik op **+Nieuw** > **Media + CDN** > **Mediaservices**.
-
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Voer bij **MEDIA SERVICES-ACCOUNT MAKEN** de vereiste waarden in.
-
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
-   2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
-   3. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
-   4. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven.
-   5. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
-
-       Klik [hier](../storage/storage-introduction.md) voor meer informatie over opslag.
-   6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
-4. Klik op **Maken** onder in het formulier.
-
-    Wanneer het account is gemaakt, worden de overzichtspagina's geladen. In de tabel met het streaming-eindpunt heeft het account een standaardstreaming-eindpunt met de status **Gestopt**.
-
-    >[!NOTE]
-    >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
-
-    ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Streaming-eindpunten starten met behulp van Azure Portal
 
 Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming geleverd. Media Services biedt dynamische pakketten waarmee u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming), zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
 
 >[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben.
 
 U start het streaming-eindpunt als volgt:
 
-1. Klik in het venster Instellingen op Streaming-eindpunten. 
-2. Klik op het standaardstreaming-eindpunt. 
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2. Klik in het venster Instellingen op Streaming-eindpunten.
+3. Klik op het standaardstreaming-eindpunt.
 
     Het venster DETAILS VAN STANDAARDSTREAMING-EINDPUNT wordt weergegeven.
 
-3. Klik op het pictogram Start.
-4. Klik op de knop Opslaan om uw wijzigingen op te slaan.
+4. Klik op het pictogram Start.
+5. Klik op de knop Opslaan om uw wijzigingen op te slaan.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -140,7 +116,7 @@ U start het streaming-eindpunt als volgt:
 
 Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-programmeertaken de klasse **CloudMediaContext** gebruiken: verbinding maken met het Media Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende objecten: assets, assetbestanden, taken, toegangsbeleid, locators enzovoort.
 
-Overschrijf de standaardklasse Program met de volgende code. De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding met Media Services maken via de Media Services SDK voor .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx) voor meer informatie over het maken van verbinding met Media Services.
+Overschrijf de standaardklasse Program met de volgende code. De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding met Media Services maken via de Media Services SDK voor .NET](media-services-dotnet-connect-programmatically.md) voor meer informatie over het maken van verbinding met Media Services.
 
 Zorg ervoor dat de bestandsnaam en het pad waar u het media-bestand hebt opgeslagen, zijn bijgewerkt.
 
@@ -243,7 +219,7 @@ Als u gebruik wilt maken van dynamische pakketten, moet u uw tussentijds (bron)b
 De volgende code toont u hoe u een codeertaak verzendt. De taak bevat één taak die aangeeft dat het tussentijdse bestand met **Media Encoder Standard** moet worden getranscodeerd in een set MP4-bestanden met een adaptieve bitsnelheid. De code verzendt de taak en wacht totdat de taak is voltooid.
 
 Zodra de taak is voltooid, kunt u uw asset streamen of MP4-bestanden die zijn gemaakt naar aanleiding van een transcodering progressief downloaden.
- 
+
 Voeg de volgende methode toe aan de klasse Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -426,7 +402,7 @@ Zie de volgende onderwerpen voor meer informatie:
 ## <a name="download-sample"></a>Voorbeeld downloaden
 Het volgende voorbeeld bevat de code die u hebt gemaakt in deze zelfstudie: [voorbeeld](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Volgende stappen 
+## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

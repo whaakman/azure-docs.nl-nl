@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Data Lake Store | Microsoft Docs
+title: Aan de slag met Azure Data Lake Store met PowerShell | Microsoft Docs
 description: Azure Powershell gebruiken om een Data Lake Store-account te maken en basisbewerkingen uit te voeren
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
-ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
 
 
 ---
@@ -63,13 +63,13 @@ In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Store geb
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Een Azure-resourcegroep maken](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+    ![Een Azure-resourcegroep maken](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Een Azure-resourcegroep maken")
 3. Maak een Azure Data Lake Store-account. De naam die u opgeeft, mag alleen kleine letters en cijfers bevatten.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Een Azure Data Lake Store-account maken](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
+    ![Een Azure Data Lake Store-account maken](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Een Azure Data Lake Store-account maken")
 4. Controleer of het account is gemaakt.
 
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
@@ -91,7 +91,7 @@ U kunt onder uw Azure Data Lake Store-account mappen maken om gegevens te behere
 
     De volgende uitvoer moet worden weergegeven:
 
-    ![Map verifiëren](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
+    ![Map controleren](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Map controleren")
 
 ## <a name="upload-data-to-your-azure-data-lake-store"></a>Gegevens uploaden naar uw Azure Data Lake Store
 Als u gegevens uploadt naar Data Lake Store, kunt u dat direct naar het hoogste niveau doen of naar een map die u in het account hebt gemaakt. In de codefragmenten hieronder ziet u hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
@@ -205,6 +205,6 @@ U kunt deze instellingen blijven aanpassen door de **PerFileThreadCount** te ver
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA-cloud versus -server | Microsoft Docs
+title: Kiezen tussen de cloud of server van Azure MFA| Microsoft Docs
 description: 'Kies de Multi-Factor Authentication-beveiligingsoplossing die bij u past, door uzelf de vraag te stellen: &quot;Wat wil ik beveiligen en waar bevinden zich mijn gebruikers?&quot;  Kies vervolgens de cloud, MFA-Server of AD FS.'
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Om te bepalen welke oplossing voor verificatie in twee stappen de juiste is, moe
 | --- |:---:|:---:|
 | Eigen Microsoft-apps |● |● |
 | SaaS-apps in de app-galerie |● |● |
-| IIS-toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD |● |● |
+| Webtoepassingen die zijn gepubliceerd via de toepassingsproxy van Azure AD |● |● |
 | IIS-toepassingen die niet zijn gepubliceerd via toepassingsproxy van Azure AD | |● |
 | Externe toegang zoals VPN, RDG | |● |
 
@@ -62,8 +62,8 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 | Sms in één richting als tweede factor | ● | ● |
 | Sms in twee richtingen als tweede factor | | ● |
 | Hardwaretokens als tweede factor | | ● |
-| App-wachtwoorden voor clients die geen ondersteuning voor MFA bieden | ● | |
-| Beheerdercontrole over verificatiemethoden | | ● |
+| App-wachtwoorden voor Office 365-clients die geen ondersteuning voor MFA bieden | ● | |
+| Beheerdercontrole over verificatiemethoden | ● | ● |
 | Pincodemodus | | ● |
 | Fraudewaarschuwing |● | ● |
 | MFA-rapporten |● | ● |
@@ -73,7 +73,7 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 | Goedgekeurde IP-adressen | ● | ● |
 | MFA herinneren voor vertrouwde apparaten | ● | |
 | Voorwaardelijke toegang | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-premises MFA-server de beste oplossing is, kunnen we beginnen met het instellen en gebruiken van Azure Multi-Factor Authentication. **Selecteer het pictogram dat bij uw scenario past.**
 
@@ -87,6 +87,6 @@ Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-pre
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

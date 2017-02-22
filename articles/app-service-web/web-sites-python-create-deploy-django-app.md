@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ U maakt een toepassing op basis van het Django-webframework (zie andere versies 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
@@ -112,10 +112,10 @@ Externe pakketten nodig voor deze toepassing. Door het implementatiescript wordt
 
 IIS-configuratiebestanden. Het implementatiescript maakt gebruik van de juiste web.x.y.config en kopieert deze als web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Optionele bestanden - implementatie aanpassen
+### <a name="optional-files---customizing-deployment"></a>Optionele bestanden - implementatie aanpassen
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Optionele bestanden - Python-runtime
+### <a name="optional-files---python-runtime"></a>Optionele bestanden - Python-runtime
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Aanvullende bestanden op server
@@ -135,7 +135,7 @@ In de volgende drie gedeelten wordt beschreven hoe u verdergaat met de ontwikkel
 * Windows, met opdrachtregel
 * Mac/Linux, met opdrachtregel
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Ontwikkeling van web-apps - Windows - Python Tools for Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Ontwikkeling van web-apps - Windows - Python Tools for Visual Studio
 ### <a name="clone-the-repository"></a>De opslagplaats klonen
 Kloon eerst de opslagplaats via de URL die in de Azure Portal is opgegeven. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
@@ -201,7 +201,7 @@ De voortgang van de implementatie wordt niet weergegeven in Visual Studio. Als u
 
 Blader naar de Azure-URL om uw wijzigingen te bekijken.
 
-## <a name="web-app-development-windows-command-line"></a>Ontwikkeling van web-apps - Windows - opdrachtregel
+## <a name="web-app-development---windows---command-line"></a>Ontwikkeling van web-apps - Windows - opdrachtregel
 ### <a name="clone-the-repository"></a>De opslagplaats klonen
 Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
@@ -281,7 +281,7 @@ U ziet de uitvoer van het script voor implementatie, inclusief de uitvoer van he
 
 Blader naar de Azure-URL om uw wijzigingen te bekijken.
 
-## <a name="web-app-development-maclinux-command-line"></a>Ontwikkeling van web-apps - Mac/Linux - opdrachtregel
+## <a name="web-app-development---maclinux---command-line"></a>Ontwikkeling van web-apps - Mac/Linux - opdrachtregel
 ### <a name="clone-the-repository"></a>De opslagplaats klonen
 Kloon eerst de opslagplaats via de URL die is opgegeven in de Azure Portal. Voeg daarna de Azure-opslagplaats extern toe. Zie [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service) voor meer informatie.
 
@@ -365,13 +365,13 @@ U ziet de uitvoer van het script voor implementatie, inclusief de uitvoer van he
 
 Blader naar de Azure-URL om uw wijzigingen te bekijken.
 
-## <a name="troubleshooting-package-installation"></a>Probleemoplossing - Installatie van pakketten
+## <a name="troubleshooting---package-installation"></a>Probleemoplossing - Installatie van pakketten
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Probleemoplossing - Virtuele omgeving
+## <a name="troubleshooting---virtual-environment"></a>Probleemoplossing - Virtuele omgeving
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Probleemoplossing - Statische bestanden
+## <a name="troubleshooting---static-files"></a>Probleemoplossing - Statische bestanden
 Voor Django wordt het concept van het verzamelen van statische bestanden gebruikt. Hierbij worden alle statische bestanden vanuit hun oorspronkelijke locatie gekopieerd naar één map. Voor deze toepassing worden ze gekopieerd naar `/static`.
 
 Dit gebeurt omdat statische bestanden mogelijk afkomstig zijn van andere Django-apps. De statische bestanden van Django-beheerinterfaces bevinden zich bijvoorbeeld in een Django-bibliotheeksubmap in de virtuele omgeving. De statische bestanden die door deze toepassing worden gedefinieerd, bevinden zich in `/app/static`. Als u meer Django-apps gebruikt, staan er op meerdere plaatsen statische bestanden.
@@ -392,7 +392,7 @@ U moet het verzamelen dan handmatig uitvoeren op uw lokale machine:
 
 Verwijder de map `\static` uit `.gitignore` en voeg deze toe aan de Git-opslagplaats.
 
-## <a name="troubleshooting-settings"></a>Probleemoplossing - Instellingen
+## <a name="troubleshooting---settings"></a>Probleemoplossing - Instellingen
 Diverse instellingen voor de toepassing kunnen worden gewijzigd in `DjangoWebProject/settings.py`.
 
 Voor het gemak van ontwikkelaars is de foutopsporingsmodus ingeschakeld. Een handige bijkomstigheid is dat u bij lokale uitvoering afbeeldingen en andere statische inhoud kunt zien zonder dat er statische bestanden hoeven te worden verzameld.
@@ -467,6 +467,6 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

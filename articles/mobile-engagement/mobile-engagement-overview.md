@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Azure Mobile Engagement is een SaaS-platform (Software-as-a-Service) voor gebruikersbetrokkenheid dat het volgende biedt: gegevensgestuurde inzichten in het gebruik van apps, segmentering van gebruikers in real time, en contextbewuste pushmeldingen en in-app-berichten
 
 ### <a name="overview-video"></a>Video-overzicht
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -41,7 +41,7 @@ Hierdoor kunnen app-ontwikkelaars hun klanten bereiken op een zeer effectieve, n
 ## <a name="open-apis-and-ease-of-integration"></a>Open API's en eenvoudige integratie
 Dankzij de eenvoudige integratie met open API's en SDK's kunt u bestaande gegevens uit CRM-, CMS- en andere back-endsystemen gebruiken.  Hiermee kunt u uw doelgroepen verder verfijnen en uw investering nog beter benutten.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Gegevensbescherming en privacy over de hele wereld
+## <a name="data-protection--privacy-across-the-globe"></a>Gegevensbescherming en privacy over de hele wereld
 Microsoft zet zich al lang in voor privacy, die een integraal onderdeel is van de levenscyclus van onze producten en diensten. We spannen ons in om ons privacybeleid transparant te maken en klanten betekenisvolle privacykeuzen te bieden, en beheren de gegevens die we opslaan op een verantwoorde manier. Net als bij alle andere Azure-services worden gegevens die zijn afgeleid van het eigendom van klanten, niet verkocht of gedeeld door Mobile Engagement. Mobile Engagement is een oplossing die wereldwijd beschikbaar is, waardoor de privacywetgeving van specifieke landen en regio's wordt gehandhaafd.
 
 ### <a name="next-steps"></a>Volgende stappen
@@ -54,6 +54,6 @@ Microsoft zet zich al lang in voor privacy, die een integraal onderdeel is van d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

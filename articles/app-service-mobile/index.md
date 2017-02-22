@@ -1,14 +1,25 @@
 ---
+title: Documentatie voor Azure Mobile Apps - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u Mobile Apps in Azure App Service kunt gebruiken voor het bouwen en hosten van systeemeigen iOS-, Android- of Windows-apps, of platformoverschrijdende apps met behulp van Xamarin of Cordova.
+services: app-service\mobile
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
-
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Documentatie voor Mobile Apps
 
-Met Mobile Apps in Azure App Service kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een schaalbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+Meer informatie over hoe u Mobile Apps in Azure App Service kunt gebruiken voor het bouwen van systeemeigen iOS-, Android- of Windows-apps, of platformoverschrijdende apps met behulp van Xamarin of Cordova. Zelfstudies, video's en Client SDK-documentatie laten zien hoe u de back-end voor een mobiele app bouwt en host.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -185,8 +196,13 @@ Met Mobile Apps in Azure App Service kunnen ontwikkelaars van ondernemingen en s
                 <div class="card">
                     <div class="cardText">
                         <h3>Talen</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">SDK voor .NET-back-end</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">SDK voor Node.js-back-end</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">SDK voor Android-client</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">SDK voor iOS-client</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">SDK voor JavaScript-/Cordova-client</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">SDK voor Windows-/Xamarin-client</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,6 +210,7 @@ Met Mobile Apps in Azure App Service kunnen ontwikkelaars van ondernemingen en s
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

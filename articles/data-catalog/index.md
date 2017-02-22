@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Data Catalog - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het instellen van een gegevenscatalogus waar uw organisatie gegevensbronnen kan vinden, begrijpen en gebruiken. Zelfstudies, API-verwijzingen en andere documentatie.
+services: data-catalog
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
-ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Documentatie over Data Catalog
 
-Azure Data Catalog is een volledig beheerde cloudservice waarmee gebruikers de gegevensbronnen die ze nodig hebben kunnen detecteren en de gegevensbronnen die ze vinden kunnen begrijpen. Bovendien kunnen organisaties hun bestaande investeringen hiermee beter benutten. Data Catalog bevat mogelijkheden waarmee alle gebruikers, van analisten en gegevenswetenschappers tot ontwikkelaars, gegevensbronnen kunnen detecteren, begrijpen en gebruiken. Data Catalog bevat een crowdsourcing-model met metagegevens en aantekeningen, en maakt het voor alle gebruikers mogelijk hun kennis bij te dragen om zo een community en cultuur van gegevens te bouwen.
+Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie en team te helpen uw gegevensbronnen te vinden, begrijpen en gebruiken. Zelfstudies, REST-API-referentiemateriaal en andere documentatie laten zien hoe u uw gegevensopslagplaats kunt plannen en instellen, waar gegevensgebruikers beschikbare gegevensbronnen kunnen vinden en kennis kunnen opdoen die ter beschikking is gesteld door deskundigen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,36 +61,27 @@ Azure Data Catalog is een volledig beheerde cloudservice waarmee gebruikers de g
 </ul>
 
 ---
-
-## <a name="reference"></a>Naslaginformatie
-
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Data Catalog</p>
+                        <p><a href="/rest/api/datacatalog/">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Data Catalog downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

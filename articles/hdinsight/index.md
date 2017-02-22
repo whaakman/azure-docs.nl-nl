@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure HDInsight - zelfstudies, API-verwijzing | Microsoft Docs
 description: Ontdek Hadoop op HDInsight. Documentatie laat zien hoe u Hadoop, Spark, HBase, R-Server en meer kunt gebruiken om big data te verwerken en te analyseren en hieruit inzichten te verkrijgen.
+services: hdinsight
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: hdinsight
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
+ms.sourcegitcommit: 2d07e801ea3375e06c9f66db49219b6c79f97e61
+ms.openlocfilehash: bf303554aa47116cdfce074d87235901b5390769
 
 ---
+
 #<a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
 
 Leer hoe u Hadoop in de cloud op HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten zien hoe u clusters maakt, big data verwerkt en analyseert en oplossingen ontwikkelt met Hadoop, Spark, HBase, R-Server, Storm en andere technologieën in het Hadoop-ecosysteem.
@@ -171,6 +183,6 @@ Leer hoe u Hadoop in de cloud op HDInsight kunt gebruiken om streaming of histor
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

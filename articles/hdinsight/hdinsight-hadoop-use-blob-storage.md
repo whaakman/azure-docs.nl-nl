@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 41b19d0ed2d77fc94ec7b3a7905b51e8e25e0585
 
 
 ---
@@ -39,7 +39,7 @@ Zie [Aan de slag met HDInsight][hdinsight-get-started] of [HDInsight-clusters ma
 ## <a name="hdinsight-storage-architecture"></a>HDInsight-opslagarchitectuur
 Het volgende diagram biedt een abstracte weergave van de HDInsight-opslagarchitectuur:
 
-![Hadoop-clusters gebruiken de HDFS API voor de toegang tot en opslag van gestructureerde en ongestructureerde gegevens in Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop-clusters gebruiken de HDFS-API voor toegang tot en opslag van gestructureerde en ongestructureerde gegevens in Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage-architectuur")
 
 HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppeld aan de rekenknooppunten. Dit bestandssysteem is toegankelijk via de volledig gekwalificeerde URI, bijvoorbeeld:
 
@@ -101,7 +101,7 @@ In de standaard blob-container wordt clusterspecifieke informatie opgeslagen, zo
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u een bestaand opslagaccount gebruiken of een nieuw opslagaccount maken:
 
-![gegevensbron voor het maken van hdinsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![Gegevensbron voor het maken van HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI gebruiken
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -305,6 +305,6 @@ Zie voor meer informatie:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

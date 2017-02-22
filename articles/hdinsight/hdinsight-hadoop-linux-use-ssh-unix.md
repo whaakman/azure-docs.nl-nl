@@ -1,6 +1,6 @@
 ---
-title: SSH-sleutels gebruiken voor Hadoop (gebaseerd op Linux) in Linux, Unix of OS X | Microsoft Docs
-description: " U kunt met Secure Shell (SSH) HDInsight (gebaseerd op Linux) openen. Dit document bevat informatie over het gebruik van SSH met HDInsight op Linux-, Unix- of OS X-clients."
+title: SSH-sleutels gebruiken met HDInsight (Hadoop) in Windows, Linux, Unix of OS X | Microsoft Docs
+description: " U kunt HDInsight openen met Secure Shell (SSH). Dit document bevat informatie over het gebruik van SSH met HDInsight in Windows-, Linux-, Unix- of OS X-clients."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,27 +13,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>SSH-sleutels gebruiken met HDInsight (Hadoop) in Windows, Linux, Unix of OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kunt u zich aanmelden bij een op Linux gebaseerd HDInsight-cluster en opdrachten uitvoeren via een opdrachtregelinterface. Dit document bevat algemene informatie over SSH en specifieke informatie over het gebruik van SSH met HDInsight.
 
 ## <a name="what-is-ssh"></a>Wat is SSH?
 
-SSH is een cryptografisch netwerkprotocol waarmee u veilig kunt communiceren met een externe server via een onbeveiligd netwerk. SSH wordt gebruikt om veilige opdrachtregelaanmelding te bieden bij een externe server. In dit geval zijn dat de hoofdknooppunten of is dat het randknooppunt van een HDInsight-cluster.
+SSH is een cryptografisch netwerkprotocol waarmee u veilig kunt communiceren met een externe server via een onbeveiligd netwerk. SSH wordt gebruikt om veilige opdrachtregelaanmelding te bieden bij een externe server. In dit geval zijn dat de hoofdknooppunten of is dat het Edge-knooppunt van een HDInsight-cluster.
 
 U kunt ook gebruikmaken van SSH om netwerkverkeer van uw client naar het HDInsight-cluster te leiden. Met een tunnel kunt u services op het HDInsight-cluster openen die niet rechtstreeks toegankelijk zijn via internet. Zie [SSH-tunnels gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie over het gebruik van SSH-tunnels.
 
@@ -44,7 +42,7 @@ Veel besturingssystemen bieden SSH-clientfunctionaliteit via de opdrachtregelpro
 * __ssh__: een algemene SSH-client die kan worden gebruikt voor het maken van een externe opdrachtregelsessie en voor het maken van tunnels.
 * __scp__: een hulpprogramma dat bestanden tussen lokale en externe systemen kopieert met behulp van het SSH-protocol.
 
-Windows heeft in het verleden geen SSH-client aangeboden; deze werd pas beschikbaar vanaf de Windows 10 Anniversary Edition. Deze versie van Windows bevat de Bash on Windows 10-functie voor ontwikkelaars, met `ssh`, `scp` en andere Linux-opdrachten. Zie [Bash on Ubuntu op Windows](https://msdn.microsoft.com/commandline/wsl/about) voor meer informatie over het gebruik van Bash on Windows 10.
+Windows heeft in het verleden geen SSH-client aangeboden; deze werd pas beschikbaar vanaf de Windows 10 Jubileumupdate. Deze versie van Windows ondersteunt Bash, met `ssh`, `scp` en andere Linux-opdrachten. Zie [Bash on Ubuntu op Windows](https://msdn.microsoft.com/commandline/wsl/about) voor meer informatie over het gebruik van Bash on Windows 10.
 
 Als u Windows gebruikt en u geen toegang hebt tot Bash on Windows 10, worden de volgende SSH-clients aanbevolen:
 
@@ -121,9 +119,9 @@ Hoewel er aanvullende SSH-gebruikers kunnen worden toegevoegd aan het cluster na
 
 * Nieuwe SSH-gebruikers hebben dezelfde toegang tot HDInsight als de standaardgebruiker. Er is geen enkele manier om de toegang tot gegevens of taken te beperken in HDInsight op basis van een SSH-gebruikersaccount.
 
-Als u de toegang per gebruiker wilt kunnen beperken, moet u een HDInsight-cluster gebruiken dat is gekoppeld aan een domein. Bij aan een domein gekoppelde HDInsight wordt gebruikgemaakt van Active Directory om de toegang tot clusterresources te beheren.
+Als u de toegang per gebruiker wilt kunnen beperken, moet u een HDInsight-cluster gebruiken dat is gekoppeld aan een domein. Domain-joined HDInsight maakt gebruik van Active Directory om de toegang tot clusterresources te beheren.
 
-Als u een aan een domein gekoppeld HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [HDInsight gekoppeld aan een domein](#domainjoined) voor meer informatie.
+Als u een domain-joined HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [Domain-joined HDInsight](#domainjoined) voor meer informatie.
 
 ##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Verbinding maken met HDInsight
 
@@ -143,7 +141,7 @@ In de volgende voorbeelden ziet u hoe u de hoofdknooppunten en het Edge-knooppun
 
 Als u een wachtwoord gebruikt om het SSH-account te beveiligen, wordt u gevraagd om het wachtwoord in te voeren.
 
-Als u een openbare sleutel gebruikt om het SSH-account te beveiligen, moet u mogelijk het pad opgeven naar de bijbehorende privésleutel. Dat kan met behulp van de `-i`-switch. In het volgende voorbeeld ziet u hoe de `-i`-switch wordt gebruikt:
+Als u een openbare sleutel gebruikt om het SSH-account te beveiligen, moet u mogelijk het pad opgeven naar de bijbehorende privésleutel. Dat kan met behulp van de schakeloptie `-i`. In het volgende voorbeeld ziet u hoe de schakeloptie `-i` wordt gebruikt:
 
     ssh -i /path/to/public.key sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -168,7 +166,7 @@ Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u er
 > [!IMPORTANT]
 > Bij de volgende stappen wordt ervan uitgegaan dat u een op Linux/UNIX gebaseerd systeem gebruikt en dat u werkt met Bash on Windows 10. Als deze stappen niet werken voor uw systeem, moet u mogelijk de documentatie van uw SSH-client raadplegen.
 
-1. Start een teksteditor en open `~/.ssh/config`. Als dit bestand niet bestaat, kunt u dit maken door `touch ~/.ssh/config` in te voeren in een opdrachtregel.
+1. Start een teksteditor en open `~/.ssh/config`. Als dit bestand niet bestaat, kunt u dit maken door `touch ~/.ssh/config` in te voeren op een opdrachtregel.
 
 2. Voeg het volgende toe aan het bestand. Vervang *CLUSTERNAME* door de naam van uw HDInsight-cluster.
 
@@ -198,7 +196,7 @@ Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u er
 
 Met [HDInsight gekoppeld aan een domein](hdinsight-domain-joined-introduction.md) kan Kerberos in Hadoop worden geïntegreerd in HDInsight. Omdat de SSH-gebruiker geen Active Directory-domeingebruiker is, kunt u pas Hadoop-opdrachten uitvoeren nadat u verificatie hebt uitgevoerd met Active Directory. Volg deze stappen om uw SSH-sessie te verifiëren met Active Directory:
 
-1. Maak verbinding met een HDInsight-cluster dat is gekoppeld aan een domein. Doe dit met de SSH, zoals wordt beschreven in het gedeelte [Verbinding maken met HDInsight](#connect). Met de volgende opdracht maakt u bijvoorbeeld verbinding met een HDInsight-cluster met de naam __myhdi__ via een SSH-account met de naam __sshuser__.
+1. Maak verbinding met een domain-joined HDInsight-cluster. Doe dit met de SSH, zoals wordt beschreven in het gedeelte [Verbinding maken met HDInsight](#connect). Met de volgende opdracht maakt u bijvoorbeeld verbinding met een HDInsight-cluster met de naam __myhdi__ via een SSH-account met de naam __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -208,7 +206,7 @@ Met [HDInsight gekoppeld aan een domein](hdinsight-domain-joined-introduction.md
 
      Wanneer hierom wordt gevraagd, voert u de domeingebruikersnaam en het wachtwoord voor de domeingebruiker in.
 
-    Raadpleeg [Aan een domein gekoppelde HDInisight-clusters configureren](hdinsight-domain-joined-configure.md) voor meer informatie over het configureren van domeingebruikers voor aan een domein gekoppelde HDInsight-clusters.
+    Raadpleeg [Domain-joined HDInsight-clusters configureren](hdinsight-domain-joined-configure.md) voor meer informatie over het configureren van domeingebruikers voor domain-joined HDInsight-clusters.
 
 Na verificatie met de opdracht `kinit` kunt u Hadoop-opdrachten zoals `hdfs dfs -ls /` en `hive` gebruiken.
 
@@ -233,6 +231,6 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

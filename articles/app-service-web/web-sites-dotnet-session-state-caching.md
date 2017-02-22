@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a682e51bfaed9056b170c3e9473180ca210557b9
 
 
 ---
@@ -86,10 +86,10 @@ De volgende code haalt deze waarde op uit de sessiestatus.
        strValue = (string)objValue;    
 
 U kunt ook de Redis-cache gebruiken om cacheobjecten in uw web-app te cachen. Zie voor meer informatie [MVC film app met Azure Redis Cache in 15 minuten](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Zie voor meer informatie over het gebruik van ASP.NET-sessiestatus [Overzicht van ASP.NET-sessiestatus][Overzicht van ASP.NET-sessiestatus].
+Zie voor meer informatie over het gebruik van ASP.NET-sessiestatus [Overzicht van ASP.NET-sessiestatus][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](http://go.microsoft.com/fwlink/?LinkId=523751). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 
@@ -98,8 +98,8 @@ Zie voor meer informatie over het gebruik van ASP.NET-sessiestatus [Overzicht va
   
   *Door [Rick Anderson](https://twitter.com/RickAndMSFT)*
 
-[de meest recente geïnstalleerd]: http://www.windowsazure.com/downloads/?sdk=net  
-[Overzicht van ASP.NET-sessiestatus]: http://msdn.microsoft.com/library/ms178581.aspx
+[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
 [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
@@ -108,11 +108,11 @@ Zie voor meer informatie over het gebruik van ASP.NET-sessiestatus [Overzicht va
 [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
 [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
 [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[Sleutels beheren]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

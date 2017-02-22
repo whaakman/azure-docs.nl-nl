@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Handleiding voor het oplossen van problemen met Azure Security Center
-Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders waarvan hun organisaties Azure Security Center gebruiken en die problemen moeten oplossen die betrekking hebben op Security Center.
+Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders van organisaties die Azure Security Center gebruiken en biedt procedures voor het oplossen van problemen met Azure Security Center.
 
 ## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) van het onderdeel met de fout te raadplegen. Met controlelogboeken kunt u het volgende bepalen:
@@ -41,7 +41,7 @@ De controleagent van Security Center wordt gebruikt om gegevens te verzamelen. N
 * ASMMonitoringAgent.exe - Azure Security Monitoring-uitbreiding
 * ASMSoftwareScanner.exe – Azure Scan Manager
 
-De extensie Azure Security Monitoring scant op verschillende, voor beveiliging relevante configuraties en verzamelt beveiligingslogboeken vanaf de virtuele machine. De scanbeheerder wordt gebruikt als patch-scanner.
+De extensie Azure Security Monitoring scant op diverse voor de beveiliging relevante configuraties en verzamelt beveiligingslogboeken vanaf de virtuele machine. De scanbeheerder wordt gebruikt als patch-scanner.
 
 Als de installatie succesvol is uitgevoerd, ziet u een vermelding die vergelijkbaar is met die in de controlelogboeken voor het doel-VM:
 
@@ -51,8 +51,16 @@ U kunt ook meer informatie over het installatieproces krijgen door de logboekbes
 
 > [!NOTE]
 > Als de Azure Security Center-agent zich niet goed gedraagt, dient u het doel-VM opnieuw op te starten omdat er geen opdracht is om de agent te stoppen en te starten.
-> 
-> 
+
+
+Als u nog steeds problemen ondervindt met het verzamelen van gegevens, voert u de volgende stappen uit om de agent te verwijderen:
+
+1. Selecteer in **Azure Portal** de virtuele machine waarop zich problemen met het verzamelen van gegevens voordoen en klik op **Extensies**.
+2. Klik met de rechtermuisknop op **Microsoft.Azure.Security.Monitoring** en selecteer **Verwijderen**.
+
+![De agent verwijderen](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+De extensie Azure Security Monitoring wordt nu binnen enkele minuten automatisch opnieuw geïnstalleerd.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Problemen oplossen met de installatie van de controleagent in Linux
 Bij het oplossen van problemen met de installatie van VM-agent op een Linux-systeem, moet u controleren of de uitbreiding is gedownload naar/var/lib/waagent/. U kunt de onderstaande opdracht uitvoeren om te controleren of deze is geïnstalleerd:
@@ -68,8 +76,12 @@ In een werkend systeem ziet u een verbinding met het mdsd-proces op TCP 29130. D
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemen oplossen met het laden van het dashboard
+
+Als u problemen ondervindt met het laden van het dashboard van Security Center, moet u ervoor zorgen dat de gebruiker die het Security Center-abonnement registreert (de eerste gebruiker die Security Center voor het abonnement opent) en de gebruiker die het verzamelen van gegevens inschakelt, in het abonnement de rol van *Eigenaar* of *Inzender* hebben. Vanaf dat moment kunnen ook gebruikers die in het abonnement de rol van *Lezer* hebben, het dashboard weergeven, en waarschuwingen, aanbevelingen en het beleid bekijken.
+
 ## <a name="contacting-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
-Bepaalde problemen kunnen worden geïdentificeerd aan de hand van de richtlijnen in dit artikel. Andere problemen vindt u ook beschreven in het openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) van Security Center. Als u echter meer problemen wilt oplossen, kunt u als volgt een nieuwe ondersteuningaanvraag openen in de Azure-portal: 
+Bepaalde problemen kunnen worden geïdentificeerd aan de hand van de richtlijnen in dit artikel. Andere problemen vindt u ook beschreven in het openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) van Security Center. Als u aanvullende hulp nodig hebt om bepaalde problemen op te lossen, kunt u via **Azure Portal** een nieuwe ondersteuningsaanvraag openen. Dit doet u als volgt: 
 
 ![Microsoft-ondersteuning](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

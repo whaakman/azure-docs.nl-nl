@@ -1,6 +1,6 @@
 ---
-title: Docker-bewerkingen voor een containerregister | Microsoft Docs
-description: "Pushen en ophalen van Docker-installatiekopieën naar/van een Azure-containerregister met de Docker-CLI"
+title: "Docker-installatiekopieën in Azure Container Registry | Microsoft Azure"
+description: "Docker-installatiekopieën pushen naar en ophalen van een Azure-containerregister met de Docker-CLI"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: 923e1a045062a817dd6726dfce94485be7211ca2
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een containerregister pushen met de Docker-CLI
@@ -49,7 +49,7 @@ docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 > Geef de registernaam op die aan alle vereisten voldoet (zonder hoofdletters). In dit voorbeeld is het `myregistry-contoso.azurecr.io`.
 
 ## <a name="steps-to-pull-and-push-an-image"></a>Stappen voor ophalen en pushen van een installatiekopie
-In het volgende voorbeeld wordt een Nginx-installatiekopie gedownload vanaf het openbare Docker Hub-register, getagd voor uw persoonlijke Azure-containerregister, gepusht naar uw register en vervolgens weer opgehaald.
+In het volgende voorbeeld wordt een Nginx-installatiekopie gedownload uit het openbare Docker Hub-register, getagd voor uw persoonlijke Azure-containerregister, gepusht naar uw register en vervolgens weer opgehaald.
 
 **1. De officiële Docker-installatiekopie ophalen voor Nginx**
 
@@ -118,6 +118,6 @@ Nu u de basisprincipes kent, kunt u uw register gaan gebruiken. Begin bijvoorbee
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

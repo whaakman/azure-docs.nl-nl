@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten | Microsoft Docs
+title: Realtime IoT-gegevensstromen en Azure Stream Analytics | Microsoft Docs
 description: IoT-sensortags en -gegevensstromen met Stream Analytics en realtime-gegevensverwerking
 keywords: IOT-oplossing, aan de slag met iot
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -122,6 +122,6 @@ Het doel van deze zelfstudie is aantonen hoe u verschillende Stream Analytics-qu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

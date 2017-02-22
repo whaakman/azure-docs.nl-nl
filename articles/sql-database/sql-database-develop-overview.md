@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de 
 Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Hier vindt u koppelingen naar de codevoorbeelden: 
 
 * Meer informatie: [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Hulpprogramma's 
+U kunt gebruikmaken van open-source-hulpprogramma's zoals [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli) of [VS Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  U kunt ook de Azure-beheerportal, PowerShell en REST-API's gebruiken als u nog productiever wilt zijn.
 
 ## <a name="resource-limitations"></a>Resourcebeperkingen
 Azure SQL Database beheert de resources die voor een database beschikbaar zijn door twee verschillende mechanismen te gebruiken: Resources Governance en Enforcement of Limits.
@@ -72,11 +75,10 @@ Met elastisch schalen wordt omhoog en omlaag schalen eenvoudiger.
 * [Aan de slag met het voorbeeld voor elastisch schalen voor Azure SQL Database](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk alle [mogelijkheden van SQL Database](https://azure.microsoft.com/services/sql-database/).
+Bekijk alle [mogelijkheden van SQL Database](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

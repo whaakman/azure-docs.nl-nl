@@ -19,22 +19,23 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Vergelijking van producten bewaken](operations-management-suite-monitoring-product-comparison.md)
 ### [Waarschuwingen beheren](operations-management-suite-monitoring-alerts.md)
-## Beheren
-### [Plannen en implementeren](operations-management-suite-solutions-creating.md)
-### [Automation-resources](operations-management-suite-solutions-resources-automation.md)
-### [Weergaven](operations-management-suite-solutions-resources-views.md)
 ## Automatiseren
 ### [Overzicht van Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Back-up maken
 ### [Overzicht van Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Overzicht van Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Beveiligen
-### [Resources controleren](oms-security-monitoring-resources.md)
+### [Resources bewaken](oms-security-monitoring-resources.md)
 ### [Reageren op beveiligingswaarschuwingen](oms-security-responding-alerts.md)
 ### [Basislijnevaluatie](oms-security-baseline.md)
 ### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systeemupdate-evaluatie](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Verbinding maken met beveiligingsproducten](oms-security-connect-products.md)
+## Oplossingen maken
+### [Beheeroplossingen](operations-management-suite-solutions-creating.md)
+### [Automation-resources](operations-management-suite-solutions-resources-automation.md)
+### [Zoekopdrachten en waarschuwingen vastleggen](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Weergaven](operations-management-suite-solutions-resources-views.md)
 ## [Integreren met OMS](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 6de51407a78b3e33e6d3de544caeee714c9d1f4c
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 
 ---
@@ -55,6 +55,10 @@ De meest recente versies van [node_redis](https://github.com/mranney/node_redis)
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
+> [!NOTE]
+> De poort zonder SSL is uitgeschakeld voor nieuwe Azure Redis Cache-exemplaren. Gebruikt u een andere client die geen ondersteuning biedt voor SSL, raadpleeg dan [Toegang inschakelen voor poort zonder SSL](cache-configure.md#access-ports).
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Iets toevoegen aan de cache en dit ophalen
 Het volgende voorbeeld laat zien hoe u verbinding maakt met een exemplaar van de Azure Redis-cache, en hoe u een item opslaat en uit de cache ophaalt. Voor meer voorbeelden van het gebruik van Redis met de [node_redis](https://github.com/mranney/node_redis)-client, verwijzen wij u naar [http://redis.js.org/](http://redis.js.org/).
@@ -85,6 +89,6 @@ Uitvoer:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Een index voor Azure Search maken met behulp van de REST-API.
@@ -36,7 +36,7 @@ Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [e
 
 Als u een index voor Azure Search met behulp van de REST-API wilt maken, verzendt u één HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. De definitie van de index bevindt zich zowel in de aanvraagtekst als de juist-opgemaakte JSON-inhoud.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. De admin api-sleutel voor de Azure Search-service vaststellen
+## <a name="identify-your-azure-search-services-admin-api-key"></a>De admin api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om HTTP-aanvragen te verzenden voor het URL-eindpunt van uw service met de REST-API. *Alle* API-aanvragen moeten de API-sleutel bevatten die is gegenereerd voor de Search-service die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -50,7 +50,7 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 Als u een index wilt maken, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
-## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Een index voor Azure Search definiëren met een goed-opgemaakte JSON
+## <a name="define-your-azure-search-index-using-well-formed-json"></a>Een index voor Azure Search definiëren met een goed-opgemaakte JSON
 Als u de index wilt maken, hoeft u maar één HTTP POST-aanvraag bij uw service te doen. De hoofdtekst van uw HTTP POST-aanvraag bevat een JSON-object dat uw Azure Search-index definieert.
 
 1. De eerste eigenschap van dit JSON-object is de naam van de index.
@@ -86,7 +86,7 @@ In een index van het type `Edm.String` moet precies één veld zijn aangewezen a
 
 Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie het onderwerp [Language support](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Taalondersteuning) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
 
-## <a name="iii-issue-the-http-request"></a>III. De HTTP-aanvraag verzenden
+## <a name="issue-the-http-request"></a>De HTTP-aanvraag verzenden
 1. U kunt de indexdefinitie gebruiken als aanvraagtekst. Verzend een HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. In de URL moet de naam van de service gebruiken en de hostnaam gebruiken. Bovendien moet u de juiste `api-version` als een queryreeksparameter opgeven (op het moment van publicatie van dit document is `2016-09-01` de API-versie).
 2. Gebruik in de aanvraagheaders `Content-Type` voor `application/json`. U moet ook de administratorsleutel van de service opgeven, zoals die is gedefinieerd in Stap I in de `api-key`-header.
 
@@ -105,11 +105,11 @@ Als u klaar bent met een index en deze weer wilt verwijderen, roept u de aanvraa
     api-key: [api-key]
 
 
-## <a name="next"></a>Volgende
+## <a name="next-steps"></a>Volgende stappen
 Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

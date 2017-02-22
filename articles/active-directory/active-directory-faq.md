@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Azure Active Directory | Microsoft Docs
-description: Veelgestelde vragen over Azure Active Directory bevat antwoorden op vragen, samen met informatie over het openen van Azure en Azure Active Directory, wachtwoordbeheer en het openen van toepassingen.
+description: Veelgestelde vragen over Azure Active Directory bevat antwoorden op vragen over toegang tot Azure en Azure Active Directory, wachtwoordbeheer en toegang tot toepassingen.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f550639f0e48f34200ad480f94524df2cc0b2b6
+ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
+ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
 
 
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
-Azure Active Directory is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
+Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
 
-Zie [What is Azure Active Directory?](active-directory-whatis.md) (Wat is Azure Active Directory?) voor meer informatie.
+Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie.
 
-## <a name="accessing-azure-and-azure-active-directory"></a>Azure en Azure Active Directory openen
+
+## <a name="access-azure-and-azure-active-directory"></a>Toegang tot Azure en Azure Active Directory
 **V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in de klassieke Azure-portal (https://manage.windowsazure.com)?**
 
-**A:** Voor toegang tot de klassieke Azure-portal moet elke gebruiker machtigingen hebben voor een Azure-abonnement. Als u een betaald Office 365- of Azure AD-abonnement hebt, gaat u naar  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor een eenmalige activeringsstap, anders moet u een volledige [proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) of een betaald abonnement activeren. 
+**A:** Voor toegang tot de klassieke Azure-portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
 
 Zie voor meer informatie:
 
@@ -38,85 +39,125 @@ Zie voor meer informatie:
 - - -
 **V: Wat is de relatie tussen Azure AD, Office 365 en Azure?**
 
-**A:** Azure Active Directory biedt u een algemene identiteit en toegang tot alle Microsoft Online Services. Ongeacht of u Office 365, Microsoft Azure, Intune of andere toepassingen gebruikt, gebruikt u al Azure AD bij het aanmelden en het toegangsbeheer voor al deze services. 
+**A:** Azure AD biedt u een algemene identiteit en toegang tot alle webservices. Als u Office 365, Microsoft Azure, Intune of andere toepassingen gebruikt, gebruikt u Azure AD al bij het inschakelen van aanmeldings- en toegangsbeheer voor deze services.
 
-Alle gebruikers die u hebt ingesteld voor Microsoft Online Services, zijn gedefinieerd als gebruikersaccounts in een of meer exemplaren van Azure AD. U kunt deze accounts instellen voor gratis Azure AD-mogelijkheden, zoals toegang tot cloudtoepassingen.
+Alle gebruikers die webservices kunnen gebruiken, worden gedefinieerd als gebruikersaccounts in een of meer exemplaren van Azure AD. U kunt deze accounts instellen voor gratis Azure AD-functies, zoals toegang tot cloudtoepassingen.
 
-Daarnaast vormen betaalde Azure AD-services (bijvoorbeeld: Azure AD Basic, Premium, EMS enzovoort) een aanvulling op andere Online Services, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor zakelijk schaalbeheer en beveiliging.
+Betaalde Azure AD-services zoals Enterprise Mobility + Security vormen een aanvulling op andere webservices, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor beheer en beveiliging die ook geschikt zijn voor grote organisaties.
+- - -
+**V: Waarom kan ik me aanmelden bij Azure Portal, maar niet bij de klassieke Azure-portal?**
+
+**A:** Azure Portal vereist geen geldig abonnement. Dit is anders bij de klassieke portal, waarvoor wel een geldig abonnement nodig is.  Als u geen abonnement hebt, kunt u zich niet aanmelden bij de klassieke portal.
+- - -
+**V: Wat zijn de verschillen tussen de rol Abonnementsbeheerder en de rol Directorybeheerder?**
+
+**A:** De rol Abonnementsbeheerder wordt standaard aan u toegewezen wanneer u zich registreert bij Azure. Een Abonnementsbeheerder kan een Microsoft-account of werk- of schoolaccount zijn uit de directory waaraan het Azure-abonnement is gekoppeld.  Deze rol is gemachtigd om services in Azure Portal te beheren.
+
+Als anderen zich moeten aanmelden en services willen gebruiken met hetzelfde abonnement, kunt u hen toevoegen als medebeheerders. Deze rol heeft dezelfde toegangsrechten als de rol Servicebeheerder, maar kan de koppeling van abonnementen aan Azure-directory's niet wijzigen.  Zie voor meer informatie over Abonnementsbeheerders [Beheerdersrollen in Azure toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md) en [Hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+
+
+Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies.  Deze beheerders hebben toegang tot verschillende functies in Azure Portal of de klassieke Azure-portal. De rol van de beheerder bepaalt welke acties hij kan uitvoeren, zoals gebruikers maken of bewerken, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden herstellen, gebruikerslicenties beheren of domeinen beheren.  Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md) voor meer informatie over Directorybeheerders en hun rollen in Azure AD.
+
+Daarnaast vormen betaalde Azure AD-services zoals Enterprise Mobility + Security een aanvulling op andere webservices, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor beheer en beveiliging die ook geschikt zijn voor grote organisaties.
 
 - - -
-## <a name="getting-started-with-hybrid-azure-ad"></a>Aan de slag met hybride Azure AD
+**V: Is er een rapport waarin staat wanneer mijn Azure AD-gebruikerslicenties verlopen?**
+
+**A:** Nee.  Dit is momenteel niet beschikbaar.
+
+- - -
+
+## <a name="get-started-with-hybrid-azure-ad"></a>Aan de slag met hybride Azure AD
+
+
+**V: Hoe verlaat ik een tenant wanneer ik ben toegevoegd als samenwerker?**
+
+**A:** Wanneer u als samenwerker bent toegevoegd aan de tenant van een andere organisatie, kunt u de 'tenantschakelaar' in de rechterbovenhoek gebruiken om te schakelen tussen tenants.  Op dit moment is er geen manier om de organisatie die u heeft uitgenodigd, te verlaten. Microsoft is bezig om deze functie te ontwikkelen.  Tot deze functie beschikbaar is, kunt u de organisatie die u heeft uitgenodigd, vragen om u uit de tenant te verwijderen.
+- - -
 **V: Hoe kan ik mijn on-premises directory verbinden met Azure AD?**
 
-**A:** u kunt uw on-premises directory verbinden met Azure AD via **Azure AD Connect**. 
+**A:** U kunt uw on-premises directory verbinden met Azure AD via Azure AD Connect.
 
 Zie [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Uw on-premises identiteiten integreren met Azure Active Directory) voor meer informatie.
 
 - - -
 **V: Hoe stel ik eenmalige aanmelding in tussen mijn on-premises directory en mijn cloudtoepassingen?**
 
-**A:** U hoeft eenmalige aanmelding alleen in te stellen tussen uw on-premises directory en Azure AD. Zo lang u uw cloudtoepassingen opent via Azure AD, wordt er met de service automatisch voor gezorgd dat uw gebruikers juist worden geverifieerd met hun on-premises referenties.
+**A:** U hoeft eenmalige aanmelding (SSO) alleen in te stellen tussen uw on-premises directory en Azure AD. Zo lang u uw cloudtoepassingen opent via Azure AD, wordt er met de service automatisch voor gezorgd dat uw gebruikers juist worden geverifieerd met hun on-premises referenties.
 
-U kunt eenmalige aanmelding eenvoudig on-premises implementeren met federatieoplossingen, zoals ADFS, of door wachtwoordhashsynchronisatie te configureren. U kunt beide opties eenvoudig implementeren met de wizard Azure AD Connect-configuratie.
+U kunt eenmalige aanmelding eenvoudig on-premises implementeren met federatieoplossingen, zoals Active Directory Federation Services (AD FS), of door wachtwoordhashsynchronisatie te configureren. U kunt beide opties eenvoudig implementeren met de wizard Azure AD Connect-configuratie.
 
 Zie [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Uw on-premises identiteiten integreren met Azure Active Directory) voor meer informatie.
 
 - - -
-**V: Bevat Azure Active Directory een selfserviceportal voor gebruikers in mijn organisatie?**
+**V: Bevat Azure AD een selfserviceportal voor gebruikers in mijn organisatie?**
 
-**A:** Ja, Azure Active Directory bevat het deelvenster [Azure AD Access](http://myapps.microsoft.com) voor selfservice voor gebruikers en toegang tot toepassingen. Als u een Office 365-klant bent, vindt u veel van dezelfde mogelijkheden in de Office 365-portal. 
+**A:** Ja, Azure AD bevat een speciaal [toegangsvenster](http://myapps.microsoft.com). Dit dient als selfserviceportal voor gebruikers en geeft toegang tot toepassingen. Als u Office 365 gebruikt, vindt u veel van dezelfde mogelijkheden in de Office 365-portal.
 
-Zie [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie. 
+Zie [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie.
 
 - - -
 **V: Helpt Azure AD mij bij het beheren van mijn on-premises infrastructuur?**
 
-**A:** ja. **Connect Health** is opgenomen in de Azure AD Premium-versie. Azure AD Connect Health helpt u om inzicht te verkrijgen in uw on-premises infrastructuur voor identiteiten en de synchronisatieservices.  
+**A:** Ja. Azure AD Connect Health is opgenomen in de Azure AD Premium-versie. Azure AD Connect Health helpt u om inzicht te verkrijgen in uw on-premises infrastructuur voor identiteiten en de synchronisatieservices.  
 
 Zie [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md) (Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren) voor meer informatie.  
 
 - - -
 ## <a name="password-management"></a>Wachtwoordbeheer
-**V: Kan ik Terugschrijven van wachtwoord van Azure AD gebruiken zonder wachtwoordsynchronisatie? (Met andere woorden, ik wil Azure AD SSPR gebruiken met Terugschrijven van wachtwoord, maar ik wil niet dat mijn wachtwoorden worden opgeslagen in de cloud.)**
+**V: Kan ik Terugschrijven van wachtwoord van Azure AD gebruiken zonder wachtwoordsynchronisatie? (Is het in dit scenario mogelijk om Azure AD selfservice voor wachtwoordherstel (SSPR) met terugschrijven van wachtwoorden te gebruiken zonder dat er wachtwoorden in de cloud worden opgeslagen?)**
 
-**A:** U hoeft uw AD-wachtwoorden niet te synchroniseren naar Azure AD om terugschrijven in te schakelen. In een federatieve omgeving is eenmalige aanmelding van Azure AD afhankelijk van de on-premises directory voor het verifiëren van de gebruiker. In dit geval is er geen on-premises wachtwoord vereist dat moet worden bijgehouden in Azure AD.
-
-- - -
-**V: Hoe lang duurt het voordat een wachtwoord on-premises is teruggeschreven naar AD?**
-
-**A:** het terugschrijven van het wachtwoord wordt in realtime uitgevoerd. 
-
-Zie [Getting started with Password Management](active-directory-passwords-getting-started.md) (Aan de slag met wachtwoordbeheer) voor meer informatie. 
+**A:** U hoeft uw Active Directory-wachtwoorden niet te synchroniseren naar Azure AD om terugschrijven in te kunnen schakelen. In een federatieve omgeving is eenmalige aanmelding van Azure AD (SSO) afhankelijk van de on-premises directory voor het verifiëren van de gebruiker. In dit geval is er geen on-premises wachtwoord vereist dat moet worden bijgehouden in Azure AD.
 
 - - -
-**V: Kan ik Terugschrijven van wachtwoord gebruiken met wachtwoorden die worden beheerd door een beheerder?**
+**V: Hoelang duurt het voordat een wachtwoord on-premises is teruggeschreven naar Active Directory?**
+
+**A:** Het terugschrijven van het wachtwoord wordt in realtime uitgevoerd.
+
+Zie voor meer informatie [Getting started with password management](active-directory-passwords-getting-started.md).
+
+- - -
+**V: Kan ik de functie Terugschrijven van wachtwoord gebruiken met wachtwoorden die worden beheerd door een beheerder?**
 
 **A:** Ja, als u Terugschrijven van wachtwoord hebt ingeschakeld, worden de wachtwoordbewerkingen van een beheerder teruggeschreven naar uw on-premises omgeving.  
 
-Zie [Password Management Frequently Asked Questions](active-directory-passwords-faq.md) (Veelgestelde vragen over wachtwoordbeheer) voor meer antwoorden op vragen over wachtwoorden.
+Zie [Password management frequently asked questions](active-directory-passwords-faq.md) (Veelgestelde vragen over wachtwoordbeheer) voor meer antwoorden op vragen over wachtwoorden.
+- - -
+**V: Wat moet ik doen als ik mijn bestaande Office 365-/Azure AD-wachtwoord niet meer ken als ik het probeer te wijzigen?**
+
+**A:** In een dergelijke situatie zijn er meerdere oplossingen.  Gebruik selfservice voor wachtwoordherstel (SSPR) als deze optie beschikbaar is.  Of SSPR werkt, is afhankelijk van de configuratie.  Zie voor meer informatie [Hoe werkt de portal voor wachtwoordherstel?](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+
+Office 365-gebruikers kunnen hun beheerder vragen het wachtwoord opnieuw in te stellen via de stappen die worden beschreven in [Gebruikerswachtwoorden opnieuw instellen](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+
+Beheerders kunnen wachtwoorden van Azure AD-accounts via een van de volgende opties opnieuw instellen:
+
+- [Accounts in Azure Portal opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
+- [Accounts in de klassieke portal opnieuw instellen](active-directory-create-users-reset-password.md)
+- [PowerShell gebruiken](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+
 
 - - -
 ## <a name="application-access"></a>Toegang tot toepassingen
 **V: Waar vind ik een lijst met toepassingen die vooraf zijn geïntegreerd met Azure AD en de bijbehorende mogelijkheden?**
 
-**A:** Azure AD heeft meer dan 2600 vooraf geïntegreerde toepassingen van Microsoft, toepassingsserviceproviders of partners. Alle vooraf geïntegreerde toepassingen bieden ondersteuning voor eenmalige aanmelding. Via eenmalige aanmelding kunt u uw referenties voor uw organisatie gebruiken om toegang te krijgen tot uw apps. Een aantal toepassingen ondersteunt ook geautomatiseerde inrichting en het  ongedaan maken van de inrichting.
+**A:** Azure AD bevat meer dan 2.600 vooraf geïntegreerde toepassingen van Microsoft, toepassingsserviceproviders en partners. Alle vooraf geïntegreerde toepassingen bieden ondersteuning voor eenmalige aanmelding (SSO). Via SSO kunt u uw bedrijfsreferenties gebruiken om toegang te krijgen tot uw apps. Een aantal toepassingen ondersteunt ook geautomatiseerde inrichting en het ongedaan maken van de inrichting.
 
 Zie de [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/) voor een volledige lijst met vooraf geïntegreerde toepassingen.
 
 - - -
 **V: Wat moet ik doen als de benodigde toepassing niet beschikbaar in de Azure AD Marketplace?**
 
-**A:** met Azure AD Premium kunt u elke gewenste toepassing toevoegen en configureren. U kunt eenmalige aanmelding en geautomatiseerde inrichting configureren, afhankelijk van de mogelijkheden van uw toepassing en uw voorkeuren.  
+**A:** Met Azure AD Premium kunt u elke gewenste toepassing toevoegen en configureren. U kunt eenmalige aanmelding en geautomatiseerde inrichting configureren, afhankelijk van de mogelijkheden van uw toepassing en uw voorkeuren.  
 
 Zie voor meer informatie:
 
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen) 
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 
 - - -
-**V: Hoe melden gebruikers zich aan bij toepassingen met Azure Active Directory?**
+**V: Hoe melden gebruikers zich met behulp van Azure AD aan bij toepassingen?**
 
-**A:** In Azure Active Directory kunnen gebruikers op verschillende manieren toepassingen weergeven en openen, zoals:
+**A:** In Azure AD kunnen gebruikers op verschillende manieren toepassingen weergeven en openen, zoals:
 
 * Het deelvenster Azure AD Access
 * Het startprogramma voor toepassingen van Office 365
@@ -126,9 +167,9 @@ Zie voor meer informatie:
 Zie [Deploying Azure AD integrated applications to users)](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) (Geïntegreerde Azure AD-toepassingen implementeren voor gebruikers) voor meer informatie.
 
 - - -
-**V: Wat zijn de verschillende manieren waarop verificatie en eenmalige aanmelding kunnen worden ingesteld voor toepassingen met Azure Active Directory?**
+**V: Op welke manieren kunnen met behulp van Azure AD verificatie en eenmalige aanmelding worden ingesteld voor toepassingen?**
 
-**A:** Azure Active Directory biedt ondersteuning voor een groot aantal gestandaardiseerde protocollen voor verificatie en autorisatie, zoals SAML 2.0, OpenID Connect, OAuth 2.0 en WS-Federation. Daarnaast ondersteunt Azure AD het gebruik van wachtwoordkluizen en mogelijkheden voor automatische aanmelding voor apps die alleen ondersteuning bieden voor verificatie op basis van formulieren.  
+**A:** Azure AD biedt ondersteuning voor een groot aantal gestandaardiseerde protocollen voor verificatie en autorisatie, zoals SAML 2.0, OpenID Connect, OAuth 2.0 en WS-Federation. Daarnaast ondersteunt Azure AD het gebruik van wachtwoordkluizen en mogelijkheden voor automatische aanmelding voor apps die alleen ondersteuning bieden voor verificatie op basis van formulieren.  
 
 Zie voor meer informatie:
 
@@ -139,28 +180,31 @@ Zie voor meer informatie:
 - - -
 **V: Kan ik toepassingen toevoegen die ik on-premises uitvoer?**
 
-**A:** Via de Azure AD-toepassingsproxy hebt u eenvoudig en veilig toegang tot on-premises webtoepassingen die u kiest. U kunt deze toepassingen op dezelfde manier openen als uw SaaS-apps in Azure Active Directory. U hebt geen VPN nodig en u hoeft uw netwerkinfrastructuur niet te wijzigen.  
+**A:** Via de Azure AD-toepassingsproxy hebt u eenvoudig en veilig toegang tot on-premises webtoepassingen die u kiest. U kunt deze toepassingen in Azure AD op dezelfde manier openen als uw SaaS-apps (Software as a Service). U hebt geen VPN nodig en u hoeft uw netwerkinfrastructuur niet te wijzigen.  
 
 Zie [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md) (Beveiligde externe toegang bieden voor on-premises toepassingen) voor meer informatie.
 
 - - -
-**V: Op welke manier heb ik MFA nodig voor gebruikers die toegang willen hebben tot een bepaalde toepassing?**
+**V: Hoe maak ik Multi-Factor Authentication verplicht voor gebruikers die toegang hebben tot een bepaalde toepassing?**
 
-**A:** Met voorwaardelijke toegang van Azure AD kunt u een uniek toegangsbeleid toewijzen aan elke toepassing. In uw beleid kunt u aangeven dat MFA altijd is vereist of alleen wanneer gebruikers niet zijn verbonden met het lokale netwerk.  
+**A:** Met voorwaardelijke toegang van Azure AD kunt u een uniek toegangsbeleid toewijzen aan elke toepassing. In uw beleid kunt u aangeven dat Multi-Factor Authentication altijd is vereist of alleen wanneer gebruikers niet zijn verbonden met het lokale netwerk.  
 
 Zie [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md) (De toegang beveiligen tot Office 365 en andere apps die zijn verbonden met Azure Active Directory) voor meer informatie.
 
 - - -
 **V: Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?**
 
-**A:** Met Azure Active Directory kunt u het maken, onderhouden en verwijderen van gebruikers-id's in veel populaire cloudtoepassingen (SaaS) automatiseren. 
+**A:** Met Azure AD kunt u het maken, onderhouden en verwijderen van gebruikers-ID's in veel populaire cloud-apps (SaaS) automatiseren.
 
-Zie [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory) voor meer informatie.
+Zie [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory) voor meer informatie.
 
 - - -
+**V: Kan ik een veilige LDAP-verbinding instellen met Azure AD?**
+
+**A:** Nee.  Azure AD biedt geen ondersteuning voor het LDAP-protocol.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

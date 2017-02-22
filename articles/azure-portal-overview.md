@@ -87,6 +87,6 @@ De Microsoft Azure Portal vereenvoudigt het maken en beheren van uw toepassingen
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

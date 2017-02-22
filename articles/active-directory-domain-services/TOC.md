@@ -16,18 +16,21 @@
 ### [Gesynchroniseerde tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # Procedures
-## [Een Windows Server-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Een Windows Server-VM aan een domein toevoegen met PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Een Linux-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
-## [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
-## [Beveiligde LDAP configureren voor een beheerd domein](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
-## [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
+## Een beheerd domein koppelen
+### [Een Windows Server-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Een Windows Server-VM aan een domein toevoegen met PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Een Linux-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Een beheerd domein beheren
+### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
+### [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
+### [Beveiligde LDAP configureren voor een beheerd domein](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
+### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
-## [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)
-
-
+## Toepassingen implementeren
+### [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Kerberos-beperkte overdracht configureren](active-directory-ds-enable-kcd.md)
+### [Azure AD-toepassingsproxy implementeren](active-directory-ds-deploy-azure-app-proxy.md)
 ## Problemen oplossen
 ### [Veelgestelde vragen](active-directory-ds-faqs.md)
 ### [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)
@@ -44,6 +47,6 @@
 ## [Contact opnemen](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

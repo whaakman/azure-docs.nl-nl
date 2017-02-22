@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van
 
 > [!NOTE]
 > Een Azure Multi-Factor Authentication-provider wordt gebruikt om te kunnen profiteren van de functies van de volledige versie van Azure MFA. Deze is bestemd voor gebruikers die **geen licenties via Azure MFA, Azure AD Premium of EMS** hebben.  Azure MFA, Azure AD Premium en EMS bevatten standaard de volledige versie van Azure MFA.  Als u licenties hebt, hebt u geen Azure Multi-Factor Authentication-provider nodig.
-> 
-> 
 
 Een Azure Multi-Factor Authentication-provider is vereist als u de SDK wilt downloaden.
 
 > [!IMPORTANT]
 > Als u de SDK wilt downloaden, moet u een Azure Multi-Factor Authentication-provider maken, zelfs als u Azure MFA, AAD Premium of EMS-licenties hebt.  Als u een Azure Multi-Factor Authentication-provider voor dit doeleinde maakt en al licenties hebt, moet u ervoor zorgen dat u de provider maakt met het model **Per ingeschakelde gebruiker**. Koppel de provider vervolgens aan de map die de licenties voor Azure MFA, Azure AD Premium of EMS bevat.  Dit zorgt ervoor dat u alleen een rekening ontvangt als u meer unieke gebruikers hebt die de SDK gebruiken dan het aantal licenties dat u in uw bezit hebt.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Een Azure Multi-Factor Authentication-provider maken
+## <a name="create-a-multi-factor-auth-provider"></a>Een Multi-Factor Authentication-provider maken
 Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken.
 
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
@@ -64,6 +60,6 @@ Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider t
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

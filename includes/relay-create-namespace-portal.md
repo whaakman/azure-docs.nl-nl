@@ -1,4 +1,4 @@
-1. Meld u aan bij [Azure Portal][Azure Portal].
+1. Meld u aan bij [Azure Portal][Azure portal].
 2. Klik in het linkernavigatievenster van de portal achtereenvolgens op **Nieuw**, **Bedrijfsintegratie** en **Relay**.
 3. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
@@ -25,9 +27,9 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

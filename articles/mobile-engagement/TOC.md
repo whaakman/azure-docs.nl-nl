@@ -55,8 +55,8 @@
 #### [Uw SDK upgraden](mobile-engagement-web-upgrade-procedure.md)
 
 ### WebView brug-apps
-#### [Android WebView met systeemeigen Android SDK](mobile-engagement-bridge-webview-native-android.md)
-#### [iOS WebView met systeemeigen iOS SDK](mobile-engagement-bridge-webview-native-ios.md)
+#### [Android WebView met systeemeigen Android-SDK](mobile-engagement-bridge-webview-native-android.md)
+#### [iOS WebView met systeemeigen iOS-SDK](mobile-engagement-bridge-webview-native-ios.md)
 
 ### [Windows Phone (Silverlight)](mobile-engagement-windows-phone-sdk-overview.md)
 
@@ -75,12 +75,12 @@
 
 ### Reach
 #### [Aan de slag met het gebruik en beheer van pushes](mobile-engagement-how-tos.md)
-#### [Emoji’s verzenden in meldingen](mobile-engagement-use-emoji-with-push.md)
+#### [Emoji's verzenden in meldingen](mobile-engagement-use-emoji-with-push.md)
 #### [Persoonlijke meldingen verzenden](mobile-engagement-send-personalized-notifications.md)
 
 ### Service-API 's openen
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
-#### [.NET SDK](mobile-engagement-dotnet-sdk-service-api.md)
+#### [.NET-SDK](mobile-engagement-dotnet-sdk-service-api.md)
 
 ## [Beheren](mobile-engagement-user-interface-home.md)
 ### [Account](mobile-engagement-user-interface-my-account.md)
@@ -117,20 +117,23 @@
 
 # Naslaginformatie
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Verwant
 ## SDK-inhoud
-### [Android SDK](mobile-engagement-android-sdk-content.md)
-### [iOS SDK](mobile-engagement-ios-sdk-content.md)
+### [Android-SDK](mobile-engagement-android-sdk-content.md)
+### [iOS-SDK](mobile-engagement-ios-sdk-content.md)
 ### [SDK voor Windows universele apps](mobile-engagement-windows-store-sdk-content.md)
 ### [SDK voor Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-content.md)
+
+# Resources
 ## Releaseopmerkingen
-### [Android SDK](mobile-engagement-android-release-notes.md)
-### [iOS SDK](mobile-engagement-ios-release-notes.md)
-### [Web SDK](mobile-engagement-web-release-notes.md)
+### [Android-SDK](mobile-engagement-android-release-notes.md)
+### [iOS-SDK](mobile-engagement-ios-release-notes.md)
+### [Web-SDK](mobile-engagement-web-release-notes.md)
 ### [SDK voor Windows universele apps](mobile-engagement-windows-store-release-notes.md)
 ### [SDK voor Windows Phone Silverlight](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Voorbeelden van demo-apps](mobile-engagement-demo-apps.md)
 ## [.NET API-voorbeeld](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

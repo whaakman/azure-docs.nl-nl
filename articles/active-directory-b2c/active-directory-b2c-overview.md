@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -54,6 +54,7 @@ Lees meer over het gebruik van specifieke functies van Azure Active Directory B2
 Deze koppelingen zijn handig als u de service uitgebreid wilt verkennen:
 
 * Zie de [Prijsinformatie over Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Bekijk onze [codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) voor Azure Active Directory B2C. 
 * Vraag hulp bij Stack Overflow met de tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) of [adal](http://stackoverflow.com/questions/tagged/adal).
 * Geef ons uw mening via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/). We horen graag wat u ervan vindt. Typ 'AzureADB2C:' in de titel van uw bericht, zodat we dit kunnen vinden.
 * Lees de [naslaginformatie voor Azure AD B2C-protocollen](active-directory-b2c-reference-protocols.md).
@@ -62,11 +63,11 @@ Deze koppelingen zijn handig als u de service uitgebreid wilt verkennen:
 * [Aanvragen voor bestandsondersteuning voor Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ## <a name="get-security-updates-for-our-products"></a>Beveiligingsupdates voor onze producten downloaden
-We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsincidenten optreden door naar [deze pagina](https://technet.microsoft.com/security/dd252948) te gaan en u te abonneren op Security Advisory Alerts.
+We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsincidenten optreden. Ga hiervoor naar [deze pagina](https://technet.microsoft.com/security/dd252948) en abonneer u op Security Advisory Alerts.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

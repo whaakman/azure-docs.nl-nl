@@ -45,21 +45,21 @@
 ###[Bijwerken naar een andere grootte en laag](cache-how-to-scale.md)
 ###[Redis-cluster gebruiken om in/uit te schalen](cache-how-to-premium-clustering.md)
 
-#Naslaginformatie
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Naslaginformatie
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Azure CLI 2.0 Preview](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis-clients](http://redis.io/clients)
 ## [Redis-opdrachten](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Resources
 ## [Voorbeelden van Redis Cache](cache-redis-samples.md)
-
-#Bronnen
-##[Prijzen](https://azure.microsoft.com/pricing/details/cache/)
+## [Prijzen](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 
