@@ -1,5 +1,5 @@
 ---
-title: 'HBase-zelfstudie: aan de slag met HBase-clusters op basis van Linux in Hadoop | Microsoft Docs'
+title: Aan de slag met HBase op Azure HDInsight | Microsoft Docs
 description: Volg deze HBase-zelfstudie om Apache HBase met Hadoop te gebruiken in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query&quot;s uit te voeren op de tabellen.
 keywords: apache hbase,hbase,hbase-shell,hbase-zelfstudie
 services: hdinsight
@@ -13,20 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>HBase-zelfstudie: aan de slag met het gebruik van Apache HBase met Hadoop gebaseerd op Linux in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase-zelfstudie: aan de slag met Apache HBase in HDInsight
 
 Informatie over het maken van een HBase-cluster in HDInsight, het maken van HBase-tabellen en het uitvoeren van query's op tabellen met Hive. Zie [Overzicht van HDInsight HBase][hdinsight-hbase-overview] voor algemene informatie over HBase.
-
-De informatie in dit document is specifiek voor HDInsight-clusters die zijn gebaseerd op Linux. Voor informatie over Windows-clusters gebruikt u de tabselector boven aan de pagina om te schakelen.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -207,7 +204,7 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     U moet de waarden die in de schakeloptie -d zijn opgegeven, met Base64 coderen.  In het voorbeeld:
@@ -231,7 +228,7 @@ HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewake
 
 **De HBase-hoofdinterface openen**
 
-1. Open de Ambari-webinterface op https://&lt;Clustername>.azurehdinsight.net.
+1. Open de Ambari-webinterface op https://&lt;clusternaam>.azurehdinsight.net.
 2. Klik in het linkermenu op **HBase**.
 3. Klik op **Quick links** boven aan de pagina, wijs de actieve Zookeeper-knooppuntkoppeling aan en klik vervolgens op **HBase Master UI**.  De interface wordt in een nieuw browsertabblad geopend:
 
@@ -286,6 +283,6 @@ Voor meer informatie zie:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

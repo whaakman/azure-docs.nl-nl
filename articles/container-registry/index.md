@@ -1,14 +1,26 @@
 ---
+title: Documentatie voor Azure Container Registry - zelfstudies, API-verwijzing | Microsoft Docs
+description: "Leer hoe u containerregisters kunt maken en onderhouden voor het opslaan van uw implementatie-installatiekopieën met een beheerde Docker-registerservice. Zelfstudies, API-verwijzing en meer."
+services: container-registry
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
-ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
+ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
+ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Documentatie voor Azure Container Registry
 
-Azure Container Registry (preview) is een privéregister voor het hosten van installatiekopieën van de container. Met Azure Container Registry kunt u installatiekopieën met Docker-indeling opslaan voor alle typen containerimplementaties. Azure Container Registry is goed te integreren met orchestrators die in Azure Container Service worden gehost, waaronder Docker Swarm, DC/OS en Kubernetes. 
+Leer hoe u Container Registry kunt gebruiken voor het opslaan en beheren van installatiekopieën voor alle typen containerimplementaties. Zelfstudies, REST-API-verwijzing en andere documentatie laten zien hoe u containerregisters kunt maken en onderhouden met deze beheerde Docker-registerservice.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,41 +79,38 @@ Azure Container Registry (preview) is een privéregister voor het hosten van ins
     </li>
 </ul>
 
-## <a name="reference"></a>Naslaginformatie
-
+---
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI</h3>
-                        <p>Naslaginformatie over de CLI</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/cli/azure/acr">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over REST API</p>
-                    </div>
+                        <p><a href="/rest/api/containerregistry">REST-API</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

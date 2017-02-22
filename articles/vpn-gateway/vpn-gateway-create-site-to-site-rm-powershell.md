@@ -1,10 +1,10 @@
 ---
-title: Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met Azure Resource Manager en PowerShell | Microsoft Docs
-description: In dit artikel leert u stapsgewijs hoe u een VNet maakt met het Resource Manager-implementatiemodel en hoe u dit met uw lokale on-premises netwerk verbindt via een S2S VPN-gatewayverbinding.
+title: 'Uw on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN: PowerShell | Microsoft Docs'
+description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: fcc2fda5-4493-4c15-9436-84d35adbda8e
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: e2c1a99a23f8d2d8ceb1fd8a9fe3c0e86abc0b02
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-powershell"></a>Een VNet met een site-naar-site-verbinding maken met PowerShell
+# <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Een VNet met een site-naar-site-VPN-verbinding maken met PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: e2c1a99a23f8d2d8ceb1fd8a9fe3c0e86abc0b02
 
 In dit artikel leert u stapsgewijs hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het Azure Resource Manager-implementatiemodel. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 
-![Site-naar-site-diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site")
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -205,6 +205,6 @@ Volg de onderstaande instructies als u de voorvoegsels voor de gateway van een l
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

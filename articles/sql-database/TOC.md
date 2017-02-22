@@ -6,12 +6,6 @@
 ### [Bronlimieten](sql-database-resource-limits.md)
 ### [Functies](sql-database-features.md)
 ### [Veelgestelde vragen over SQL Database](sql-database-faq.md)
-## Voordelen
-### [Kan leren en zich aanpassen](sql-database-learn-and-adapt.md)
-### [Schaalt onmiddellijk](sql-database-scale-on-the-fly.md)
-### [Bouwt apps voor meerdere tenants](sql-database-build-multi-tenant-apps.md)
-### [Beveiligt en beschermt](sql-database-helps-secures-and-protects.md)
-### [Werkt in uw omgeving](sql-database-works-in-your-environment.md)
 ## Vergelijkingen
 ### [SQL Database versus SQL op een VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL-verschillen](sql-database-transact-sql-information.md)

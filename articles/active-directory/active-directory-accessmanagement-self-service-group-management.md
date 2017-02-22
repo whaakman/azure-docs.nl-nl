@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
@@ -41,7 +41,7 @@ U kunt ook **Gebruikers die zelfservice kunnen gebruiken voor beveiligingsgroepe
 
 U kunt ook het vak **Groep die zelfservice voor beveiligingsgroepen** gebruiken om een eigen naam op te geven voor een groep waarvan de leden zelfservice kunnen gebruiken.
 
-## <a name="additional-information"></a>Aanvullende informatie
+## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
@@ -52,7 +52,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

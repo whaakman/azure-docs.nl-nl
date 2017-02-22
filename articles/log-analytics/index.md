@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Log Analytics - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u Log Analytics kunt gebruiken voor het verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud- en on-premises omgevingen, ongeacht de fysieke locatie.
+services: log-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: log-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
+ms.sourcegitcommit: d2a324dac6c90791c0aca4aa819082515aa479f2
+ms.openlocfilehash: 98ff8af15be112c0ed3f699ddf8344cb81352114
 
 ---
 
@@ -90,6 +101,6 @@ Leer hoe u Log Analytics kunt gebruiken in Operations Management Suite voor het 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

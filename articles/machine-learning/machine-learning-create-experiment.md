@@ -380,6 +380,6 @@ Wilt u meer leren? Zie [Een voorspellende oplossing met Azure Machine Learning o
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

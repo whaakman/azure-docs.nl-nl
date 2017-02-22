@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Application Gateway - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het implementeren van een controller voor cloudtoepassingslevering. Documentatie laat zien hoe u routering op toepassingsniveau en taakverdeling instelt voor een webfront-end.
+services: application-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
-ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Documentatie over Application Gateway
@@ -149,18 +160,12 @@ Meer informatie over de implementatie van de Azure Application Gateway-ADC (appl
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Application Gateway downloaden </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

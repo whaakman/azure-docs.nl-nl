@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Automation - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het gebruik van Automation voor het automatiseren van processen en configuratiebeheer om tijd te besparen en de betrouwbaarheid van veelvoorkomende beheertaken te verbeteren.
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Documentatie over Automation
 
-Azure Automation biedt gebruikers een manier om de handmatige, langlopende, foutgevoelige en regelmatig herhaalde taken te automatiseren die vaak worden uitgevoerd in een cloudomgeving. Het bespaart tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken. Deze worden zelfs gepland om met regelmatige intervallen automatisch te worden uitgevoerd.
+Meer informatie over het gebruik van Automation om tijd te besparen en de betrouwbaarheid van veelvoorkomende administratieve taken in een cloudomgeving te verbeteren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u processen automatiseert met behulp van runbooks of configuratiebeheer automatiseert met behulp van Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +41,7 @@ Azure Automation biedt gebruikers een manier om de handmatige, langlopende, fout
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -123,64 +135,52 @@ Azure Automation biedt gebruikers een manier om de handmatige, langlopende, fout
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Naslaginformatie over Azure PowerShell</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Managed Reference-API voor Azure</p>
-                    </div>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Automation</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Klassieke REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Automation downloaden </div>
-    </a>
-</div>
+</ul>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

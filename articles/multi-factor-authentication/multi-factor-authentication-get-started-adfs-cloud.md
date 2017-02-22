@@ -1,5 +1,5 @@
 ---
-title: Cloudresources beveiligen met Azure MFA en AD FS
+title: Cloudresources beveiligen met Azure MFA en AD FS | Microsoft Docs
 description: Dit is de pagina Azure Multi-Factor Authentication waarop wordt beschreven hoe u aan de slag kunt met Azure MFA en AD FS in de cloud.
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
-Als uw organisatie is gefedereerd met behulp van Azure Active Directory, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services gebruiken om resources te beveiligen die worden gebruikt door Azure AD. Gebruik de volgende procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
+Als uw organisatie is gefedereerd met behulp van Azure Active Directory, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services (AD FS) gebruiken om resources te beveiligen die door Azure AD worden gebruikt. Gebruik de volgende procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Azure AD-resources beveiligen met behulp van AD FS
-Als u uw cloudresource wilt beveiligen, moet u eerst een account inschakelen voor gebruikers en een claimregel instellen. Volg deze procedure om de stappen te doorlopen:
+Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zorgt dat Active Directory Federation Services de multipleauthn-claim verstuurt wanneer een gebruiker de verificatie in twee stappen voltooit. Deze claim wordt doorgegeven aan Azure AD. Volg deze procedure om de stappen te doorlopen:
 
-1. Gebruik de stappen die worden beschreven in [Multi-Factor Authentication inschakelen](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) voor gebruikers die een account willen inschakelen.
-2. Start de AD FS-beheerconsole.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Navigeer naar de **Relying Party-vertrouwensrelaties** en klik met de rechtermuisknop op de Relying Party-vertrouwensrelatie. Selecteer **Claimregels bewerken...**
-4. Klik op **Regel toevoegen...**
-5. Selecteer in de vervolgkeuzelijst **Claimregels verzenden met een aangepaste regel** en klik op **Volgende**.
-6. Voer een naam in voor de claimregel.
-7. Voeg onder Aangepaste regel de volgende tekst toe:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Open AD FS-beheer.
+2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
+3. Klik met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken...**
 
-    Overeenkomende claim:
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Klik op **OK** en vervolgens op **Voltooien**. Sluit de AD FS-beheerconsole.
+4. Klik bij Uitgifte transformatieregels op **Regel toevoegen**.
 
-Gebruikers kunnen zich vervolgens aanmelden via de on-premises methode (zoals smartcard).
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Geef de regel een naam. 
+7. Selecteer **Authenticatiemethodereferenties** als het type voor binnenkomende claims.
+8. Selecteer **Alle claimwaarden doorgeven**.
+    ![Wizard Claimregel voor transformatie toevoegen](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Klik op **Voltooien**. Sluit de AD FS-beheerconsole.
 
 ## <a name="trusted-ips-for-federated-users"></a>Goedgekeurde IP-adressen voor federatieve gebruikers
 Met goedgekeurde IP-adressen zijn beheerders in staat om verificatie in twee stappen te omzeilen voor bepaalde IP-adressen of voor federatieve gebruikers met verzoeken die afkomstig zijn uit hun eigen intranet. In de volgende secties wordt beschreven hoe goedgekeurde IP-adressen van Azure Multi-Factor Authentication bij federatieve gebruikers moeten worden geconfigureerd en hoe verificatie in twee stappen kan worden omzeild als een verzoek afkomstig is uit het intranet van een federatieve gebruiker. Dit wordt bereikt door AD FS zo te configureren dat deze gebruikmaakt van een passthrough of een binnenkomende claimsjabloon filtert met het claimtype Binnen bedrijfsnetwerk.
@@ -56,7 +53,7 @@ Met goedgekeurde IP-adressen zijn beheerders in staat om verificatie in twee sta
 In dit voorbeeld wordt Office 365 gebruikt voor onze Relying Party-vertrouwensrelaties.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>De claimregels van AD FS configureren
-Het eerste wat we moeten doen is de AD FS-claims configureren. We gaan twee claimregels maken, één voor het claimtype Binnen bedrijfsnetwerk en een extra regel om onze gebruikers aangemeld te houden.
+Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee claimregels: één voor het claimtype Binnen bedrijfsnetwerk en een extra regel om de gebruikers aangemeld te houden.
 
 1. Open AD FS-beheer.
 2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
@@ -100,6 +97,6 @@ Dat is alles. Vanaf dit moment hoeven Office 365-gebruikers alleen MFA te gebrui
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

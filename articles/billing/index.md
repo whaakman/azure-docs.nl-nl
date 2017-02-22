@@ -1,17 +1,29 @@
 ---
+title: Documentatie voor Azure Billing - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u inzicht krijgt in uw Azure-facturering, en hoe u het gebruik en de kosten kunt beheren en bewaken. Zelfstudies, veelgestelde vragen, API-verwijzingen en andere documentatie.
+services: billing
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: billing
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
+ms.sourcegitcommit: 4a6b1a9e581904f7f7de2a6592dfb163ab2ec45e
+ms.openlocfilehash: 2284db5eaeba0bad709f7e2181ec357f58201d1e
 
 ---
 # <a name="azure-billing-documentation"></a>Documentatie over Azure Billing
 
-Klanten en partners moeten hun Azure-kosten nauwkeurig kunnen voorspellen en beheren. Wanneer ze van CAPEX overstappen op OPEX, moeten ze ook de showback en chargeback kunnen analyseren, en een consistent proces voor begroting en facturering kunnen hanteren, vooral bij grote cloudimplementaties.
+Meer informatie over hoe u inzicht krijgt in uw Azure-facturering, en hoe u het gebruik en de kosten kunt bewaken. Zelfstudies, veelgestelde vragen, API-verwijzingen en andere documentatie laten zien hoe u uw account kunt beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,17 +110,10 @@ Klanten en partners moeten hun Azure-kosten nauwkeurig kunnen voorspellen en beh
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Billing downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

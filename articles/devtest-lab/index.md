@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure DevTest Labs - zelfstudies | Microsoft Docs
+description: Leer hoe u snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video&quot;s en meer laten zien hoe u labs kunt maken, beheren en beveiligen.
+services: devtest-lab
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
+ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentatie over DevTest Labs
 
-Azure Devtest Labs is een service waarmee ontwikkelaars en testers snel omgevingen kunnen maken in Azure met minimale verspilling en kosten.  U kunt de nieuwste versie van uw toepassing testen door Windows- en Linux-omgevingen snel in te richten met herbruikbare sjablonen en artefacten.
+Leer hoe u met Devtest Labs snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video's en andere documentatie laten zien hoe u labs kunt maken, beheren en beveiligen, en artefacten kunt toevoegen en beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -102,17 +114,10 @@ Azure Devtest Labs is een service waarmee ontwikkelaars en testers snel omgeving
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Devtest Lab downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

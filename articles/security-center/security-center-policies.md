@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ U kunt voor elk abonnement en elke resourcegroep beveiligingsbeleid configureren
    > U kunt het beste gegevensverzameling inschakelen voor al uw abonnementen, omdat dit ervoor zorgt dat beveiligingsbewaking beschikbaar is voor alle bestaande en nieuwe VM's. Bij het inschakelen van gegevensverzameling wordt de bewakingsagent geïnstalleerd. Als u het verzamelen van gegevens nu niet vanaf deze locatie wilt inschakelen, kunt u dit later doen vanuit de weergaven voor de **status** en **aanbevelingen**. U kunt het verzamelen van gegevens ook alleen voor het abonnement of bepaalde VM's inschakelen. Zie [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center) voor meer informatie over de ondersteunde VM's.
    > 
    > 
-5. Als uw opslagaccount nog niet is geconfigureerd, wordt mogelijk een waarschuwing weergegeven zoals die in de volgende schermafbeelding, wanneer u **Beveiligingsbeleid** opent:
+5. Als uw opslagaccount nog niet is geconfigureerd, wordt bij het openen van **Beveiligingsbeleid** mogelijk een waarschuwing weergegeven, zoals die in de volgende schermafbeelding. Als u geen opslagaccount voor elke regio kiest, wordt er een voor u gemaakt.
    
     ![Opslagselectie](./media/security-center-policies/security-center-policies-fig2.png)
 6. Als deze waarschuwing wordt weergegeven, klikt u op deze optie en selecteert u de regio zoals in de volgende schermafbeelding:
@@ -111,6 +111,6 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

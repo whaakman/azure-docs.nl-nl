@@ -1,10 +1,10 @@
 ---
-title: Verbinding maken met VNets met het Resource Manager-implementatiemodel en Azure Portal | Microsoft Docs
+title: 'Een virtueel Azure-netwerk verbinden met een ander VNet: portal | Microsoft Docs'
 description: Een VPN-gatewayverbinding maken tussen VNets met behulp van Resource Manager en Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
-ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -51,7 +51,7 @@ Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar
 
 U kunt zelfs VNet-naar-VNet-communicatie met multi-site-configuraties combineren. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
 
-![Over verbindingen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Over verbindingen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Over verbindingen")
 
 ### <a name="why-connect-virtual-networks"></a>Waarom virtuele netwerken koppelen?
 U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
@@ -64,7 +64,7 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
   
   * Binnen dezelfde regio kunt u vanwege isolatie- of beheervereisten toepassingen met meerdere lagen instellen met meerdere virtuele netwerken die met elkaar zijn verbonden.
 
-Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen over VNet-naar-VNet](#faq) aan het einde van dit artikel.
+Zie voor meer informatie over verbindingen tussen VNets de [Aandachtspunten bij VNet-naar-VNet](#faq) aan het einde van dit artikel.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Voorbeeldinstellingen
 Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfiguratiewaarden gebruiken. Als voorbeeld gebruiken we meerdere adresruimten voor elke VNet. Voor VNet-naar-VNet-configuraties zijn meerdere adresruimten echter niet vereist.
@@ -155,21 +155,21 @@ Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, k
 
 1. In **Alle resources** gaat u naar de virtuele netwerkgateway voor uw VNet. Bijvoorbeeld **TestVNet1GW**. Klik op **TestVNet1GW** om de blade voor de virtuele netwerkgateway te openen.
    
-    ![Blade Verbindingen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Blade Verbindingen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Blade Verbindingen")
 2. Klik op **+Toevoegen** om de blade **Verbinding toevoegen** te openen.
 3. Typ in het naamveld op de blade **Verbinding toevoegen** een naam voor de verbinding. Bijvoorbeeld **TestVNet1toTestVNet4**.
    
-    ![Verbindingsnaam](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Verbindingsnaam](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Verbindingsnaam")
 4. Voor **Verbindingstype** selecteert u **VNet-naar-VNet** in de vervolgkeuzelijst.
 5. De veldwaarde **Eerste virtuele netwerkgateway** wordt automatisch ingevuld omdat u deze verbinding maakt vanuit de opgegeven virtuele netwerkgateway.
 6. Het veld **Tweede virtuele netwerkgateway** is de virtuele netwerkgateway van de VNet waarvoor u een verbinding wilt maken. Klik op **Een andere virtuele netwerkgateway kiezen** om de blade **Virtuele netwerkgateway kiezen** te openen.
    
-    ![Verbinding toevoegen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Verbinding toevoegen](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Een verbinding toevoegen")
 7. Bekijk de virtuele netwerkgateways die worden vermeld op deze blade. U ziet dat er alleen virtuele netwerkgateways worden vermeld die binnen uw abonnement vallen. Als u verbinding wilt maken met een virtuele netwerkgateway die geen deel uitmaakt van uw abonnement, gebruikt u het [PowerShell-artikel](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Klik op de virtuele netwerkgateway waarmee u verbinding wilt maken.
 9. In het veld **Gedeelde sleutel** typt u een gedeelde sleutel voor de verbinding. U kunt deze sleutel ook zelf maken of genereren. In een verbinding tussen sites is de sleutel exact dezelfde voor het on-premises apparaat en uw virtuele netwerkgatewayverbinding. Het concept is hier vergelijkbaar, maar in plaats van een verbinding te maken met een VPN-apparaat, maakt u verbinding met een andere virtuele netwerkgateway.
    
-    ![Gedeelde sleutel](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Gedeelde sleutel](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Gedeelde sleutel")
 10. Klik op **OK** onder aan de blade om de wijzigingen op te slaan.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. De TestVNet4-verbinding configureren
@@ -183,13 +183,13 @@ Controleer de VPN-verbinding. Doe voor elke virtuele netwerkgateway het volgende
 
 Geef de verbindingen weer en controleer de status. Nadat de verbinding is gemaakt, worden de statuswaarden weergegeven als **Geslaagd** en **Verbonden**.
 
-![Geslaagd](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Geslaagd](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Geslaagd")
 
 U kunt afzonderlijk op elke verbinding dubbelklikken voor meer informatie over de verbinding.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Aandachtspunten bij VNet-naar-VNet
 Bekijk de Veelgestelde vragen voor meer informatie over VNet-naar-VNet-verbindingen.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
@@ -199,6 +199,6 @@ Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netw
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

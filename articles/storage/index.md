@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Storage - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het gebruik van Azure Storage - Blob-, Table-, Queue-, File- en Virtual Machine Disk-opslag in de cloud. Zelfstudies, API-verwijzingen en andere documentatie.
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
-ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -145,6 +156,6 @@ Meer informatie over het gebruik van Azure Storage, een cloudopslagservice die d
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

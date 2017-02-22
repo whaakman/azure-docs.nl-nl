@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure BizTalk Services - zelfstudies | Microsoft Docs
+description: Leer hoe u BizTalk Services kunt gebruiken om integratie met de cloud te bieden voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft.
+services: biztalk-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: biztalk-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 8c09bee7be24d8ba18fa67f3aef1c951dfde1434
+ms.openlocfilehash: 80b381d59e95297cf8d7616e6a2eb3186ab26a05
 
 ---
 # <a name="biztalk-services-documentation"></a>Documentatie over Biztalk Services
 
-BizTalk Services biedt integratie met de cloud voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft. U kunt verbinding maken met elke HTTP-, FTP-, SFTP- of REST-gegevensbron. U kunt berichten routeren via diverse Azure-artefacten, zoals Service Bus-wachtrijen, onderwerpen, SQL Database en blob-opslag.   
+Leer hoe u BizTalk Services kunt gebruiken om integratie met de cloud te bieden voor on-premises, bedrijfstakgerichte toepassingen voor SAP, Oracle EBS, SQL Server en PeopleSoft. Zelfstudies en andere documentatie laten zien hoe u de enterprise en de cloud kunt integreren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -66,17 +78,10 @@ BizTalk Services biedt integratie met de cloud voor on-premises, bedrijfstakgeri
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Biztalk Services downloaden </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

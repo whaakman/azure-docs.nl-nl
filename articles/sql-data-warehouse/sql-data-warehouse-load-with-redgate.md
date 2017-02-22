@@ -1,5 +1,5 @@
 ---
-title: Gegevens laden in SQL Data Warehouse met behulp van Data Platform Studio van Redgate | Microsoft Docs
+title: Redgate gebruiken om gegevens in uw Azure datawarehouse te laden | Microsoft Docs
 description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario&quot;s.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
 
 
 ---
@@ -126,7 +126,7 @@ Als u de gegevens in SQL Data Warehouse wilt verkennen, begint u met het bekijke
 Voor meer informatie over Data Platform Studio van Redgate:
 
 * [Ga naar de DPS-startpagina](http://www.dataplatformstudio.com/)
-* [Bekijk een demonstratie van DPS op Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Bekijk een demonstratie van DPS op Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Zie voor een overzicht van andere manieren om te migreren en uw gegevens in SQL Data Warehouse te laden:
 
@@ -154,6 +154,6 @@ Zie het [Overzicht van SQL Data Warehouse voor ontwikkelaars](sql-data-warehouse
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

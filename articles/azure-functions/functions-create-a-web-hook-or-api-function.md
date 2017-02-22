@@ -1,6 +1,6 @@
 ---
 title: Een webhook of API Azure Function maken | Microsoft Docs
-description: Gebruik Azure Functions voor het maken van een functie die wordt opgeroepen door een WebHook of API-aanroep.
+description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen door een webhook of API-aanroep.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -13,18 +13,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
-ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 23a65319fe1825e2ba51f2fd5a2d0b65ca499472
 
 
 ---
 # <a name="create-a-webhook-or-api-azure-function"></a>Een webhook of API Azure-functie maken
 Azure Functions is een gebeurtenisafhankelijke, compute-on-demand service waarmee u geplande of geactiveerde code-eenheden kunt maken voor implementatie in diverse programmeertalen. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
 
-In dit onderwerp wordt beschreven hoe u een Node.js-functie maakt die wordt opgeroepen door een GitHub-webhook. De nieuwe functie is gemaakt op basis van een vooraf gedefinieerde sjabloon in de Azure Functions-portal. U kunt ook een korte video bekijken om te zien hoe deze stappen worden uitgevoerd in de portal.
+In dit onderwerp wordt beschreven hoe u een JavaScript-functie maakt die wordt aangeroepen door een GitHub-webhook. De nieuwe functie is gemaakt op basis van een vooraf gedefinieerde sjabloon in de Azure Functions-portal. U kunt ook een korte video bekijken om te zien hoe deze stappen worden uitgevoerd in de portal.
+
+De algemene stappen in deze zelfstudie kunnen ook worden gebruikt om een functie in C# of F# te maken in plaats van JavaScript. 
 
 ## <a name="watch-the-video"></a>Video bekijken
 In de volgende video laten we zien hoe u de eenvoudige stappen in deze zelfstudie uitvoert 
@@ -33,14 +35,22 @@ In de volgende video laten we zien hoe u de eenvoudige stappen in deze zelfstudi
 >
 >
 
+## <a name="prerequisites"></a>Vereisten
+
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+
++ Een actief Azure-account. Als u nog geen account hebt, kunt u zich [registreren voor een gratis Azure-account](https://azure.microsoft.com/free/).  
+ U kunt ook de ervaring [Functies uitproberen](https://functions.azure.com/try) gebruiken om de zelfstudie te voltooien zonder Azure-account.
++ Een GitHub-account. U kunt zich [registreren voor een gratis GitHub-account](https://github.com/join) als u er nog geen hebt. 
+
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Op basis van de sjabloon een functie maken die door een webhook wordt geactiveerd
-Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. Als u nog geen Azure-account hebt, kunt u [Try Functions](https://functions.azure.com/try) (Functions proberen) bekijken of [een gratis Azure-account maken](https://azure.microsoft.com/free/). 
+Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. 
 
 1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account.
 
 2. Als u een bestaande functie-app hebt die u kunt gebruiken, selecteert u deze in **Uw functie-apps** en klikt u op **Openen**. Als u een functie-app wilt maken, typt u een unieke **Naam** voor uw nieuwe functie-app of accepteert u de gegenereerde naam, selecteert u de gewenste **Regio** en klikt u op **Maken + aan de slag**. 
 
-3. Klik in uw functie-app op **+ nieuwe functie** > **GitHub Webhook - node** > **maken**. In deze stap wordt een functie gemaakt met de standaardnaam die is gebaseerd op de opgegeven sjabloon. 
+3. Klik in uw functie-app op **+ Nieuwe functie** > **GitHub-webhook - JavaScript** > **Maken**. In deze stap wordt een functie gemaakt met de standaardnaam die is gebaseerd op de opgegeven sjabloon. U kunt ook een functie maken voor C# of F#.
    
     ![Een door een GitHub-webhook geactiveerde functie maken](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
@@ -48,7 +58,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. A
 
     ![De functiecode controleren](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
 
-1. Kopieert de **functie-URL** en **GitHub-geheim** waarden. U hebt deze waarden nodig bij het maken van de webhook in GitHub. 
+1. Kopieer de waarden van **Functie-URL** en **GitHub-geheim** en sla ze op. Deze waarden worden in het volgende gedeelte gebruikt om de webhook te configureren in GitHub. 
 
 2. Klik op **Testen**, vermeld de vooraf gedefinieerde JSON-instantie van een probleemopmerking in de **aanvraagtekst** en klik vervolgens op **Uitvoeren**. 
 
@@ -65,7 +75,10 @@ Vervolgens maakt u de werkelijke webhook in uw GitHub-opslagplaats.
 2. Klik op **Instellingen** > **Webhooks & services** > **Webhook toevoegen**.
    
     ![Een GitHub-webhook toevoegen](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)   
-3. Plak uw functie-URL en geheim in **Nettolading URL** en **Geheim**, klik vervolgens op **Ik wil afzonderlijke gebeurtenissen selecteren**, selecteer **Probleemopmerking** en klik op **Webhook toevoegen**.
+
+3. Plak de URL en het geheim van de functie in **URL voor nettolading** en **Geheim**, en selecteer **Toepassing/JSON** als **inhoudstype**.
+
+4. Klik op **Ik wil afzonderlijke gebeurtenissen selecteren**, selecteer **Opmerking bij actie item** en klik op **Webhook toevoegen**.
    
     ![Webhook-URL en geheim instellen](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
 
@@ -73,9 +86,13 @@ Op dit moment is de GitHub-webhook geconfigureerd voor het activeren van de func
 Het is nu tijd om te testen.
 
 ## <a name="test-the-function"></a>De functie testen
-1. Open in uw GitHub-repo het tabblad **Problemen** in een nieuw browservenster en klik op **Nieuw probleem**, typ een titel en klik vervolgens op **Nieuw probleem registreren**. U kunt ook een bestaand probleem openen.
+1. Open in uw GitHub-repo het tabblad **Problemen** in een nieuw browservenster.
 
-2. Typ een opmerking bij probleem en klik op **Opmerking**. Op dit moment kunt u teruggaan naar uw nieuwe webhook in GitHub en ziet u onder **Recente leveringen** dat een webhookaanvraag is verzonden en dat de antwoordtekst `New GitHub comment: <Your issue comment text>` is.
+2. Klik in het nieuwe venster op **Nieuw probleem**, voer een titel in en klik op **Nieuw probleem verzenden**. U kunt ook een bestaand probleem openen.
+
+2. Typ een opmerking bij probleem en klik op **Opmerking**. 
+
+3. Klik in het andere GitHub-venster op **Bewerken** naast uw nieuwe webhook. Blader omlaag naar **Recente leveringen** en controleer of er een webhookaanvraag is verzonden en of de hoofdtekst van het antwoord `New GitHub comment: <Your issue comment text>` is.
 
 3. Blader in de Functions-portal omlaag naar de logs en ga na of de functie werd geactiveerd en de waarde `New GitHub comment: <Your issue comment text>` wordt geschreven naar de streaminglogboeken.
 
@@ -94,6 +111,6 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

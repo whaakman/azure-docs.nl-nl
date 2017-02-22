@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ U kunt alle resourceproviders bekijken via de portal. Selecteer op de blade voor
 
 U kunt alle resourceproviders ophalen met de volgende PowerShell-cmdlet:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Bij Azure CLI haalt u alle resourceproviders op met de volgende opdracht:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 U kunt in de lijst met resultaten zoeken naar de resourceproviders die u wilt gebruiken.
 
 Als u meer informatie over een resourceprovider wilt, voegt u de naamruimte van de provider toe aan de opdracht. De opdracht geeft u de ondersteunde resourcetypen voor de resourceprovider en de ondersteunde locaties en API-versies voor elk resourcetype. Met de volgende PowerShell-cmdlet krijgt u informatie over Microsoft.Compute:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Bij Azure CLI haalt u de ondersteunde resourcetypen, locaties en API-versies voor Microsoft.Compute op met de volgende opdracht:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Zie voor meer informatie [Resource Manager-providers, -regio’s, -API-versies en -schema's](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Zie voor meer informatie over de indeling van de sjabloon en hoe u deze samenste
 
 De sjabloon wordt via Resource Manager verwerkt zoals alle andere aanvragen (zie de afbeelding voor [Consistente beheerlaag](#consistent-management-layer)). De sjabloon wordt geparseerd en de bijbehorende syntaxis wordt geconverteerd naar REST API-bewerkingen voor de juiste resourceproviders. Bijvoorbeeld wanneer Resource Manager een sjabloon ontvangt met de volgende resourcedefinitie:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 De definitie wordt geconverteerd naar de volgende REST API-bewerking, die wordt verzonden naar de Microsoft.Storage-resourceprovider:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 U kunt helemaal zelf bepalen hoe u sjablonen en resourcegroepen definieert en hoe u de oplossing beheert. U kunt de toepassing met drie lagen bijvoorbeeld met een enkele sjabloon implementeren in een enkele resourcegroep.
 
@@ -181,26 +193,32 @@ Resources hoeven niet tot dezelfde resourcegroep te behoren om een tag te kunnen
 
 In het volgende voorbeeld ziet u een tag die is toegepast op een virtuele machine.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Gebruik de volgende PowerShell-cmdlet om alle resources met een tagwaarde op te halen:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Of voer de volgende Azure CLI-opdracht uit:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 U kunt ook getagde resources via Azure Portal weergeven.
 
@@ -242,7 +260,7 @@ In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot reso
 U kunt kritieke resources ook expliciet vergrendelen om te voorkomen dat gebruikers deze wijzigen of verwijderen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Activiteitenlogboeken
-Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Selecteer **Activiteitenlogboeken** op de blade **Instellingen** voor een resourcegroep om de logboeken in te zien. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [Bewerkingen controleren met Resource Manager](resource-group-audit.md).
+Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Selecteer **Activiteitenlogboeken** op de blade **Instellingen** voor een resourcegroep om de logboeken in te zien. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [View activity logs to manage Azure resources](resource-group-audit.md) (Activiteitenlogboeken weergeven met Resource Manager).
 
 ## <a name="customized-policies"></a>Aangepast beleid
 Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De soorten beleid die u maakt, kunnen diverse scenario's bevatten. U kunt een naamgevingsconventie voor resources afdwingen, u kunt beperken welke typen resources en resource-exemplaren kunnen worden geïmplementeerd of u kunt beperken welke regio's als host voor een bepaald type resource kunnen fungeren. U kunt een tagwaarde voor resources verplicht stellen, om te organiseren dat facturering per afdeling plaatsvindt. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. 
@@ -251,17 +269,19 @@ U definieert beleid met JSON en past dat beleid vervolgens toe op uw abonnement 
 
 Het volgende voorbeeld bevat een beleid dat zorgt voor consistentie van tags doordat wordt opgegeven dat alle resources een costCenter-tag moeten bevatten.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Er zijn nog veel meer soorten beleid die u kunt maken. Zie voor meer informatie [Beleid gebruiken voor het beheren van resources en toegang](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ Hier volgt een videodemonstratie van dit overzicht:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

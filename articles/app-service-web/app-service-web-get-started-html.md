@@ -1,5 +1,5 @@
 ---
-title: In vijf minuten uw eerste web-app implementeren in Azure (CLI 2.0 Preview) | Microsoft Docs
+title: In vijf minuten uw eerste HTML-web-app implementeren in Azure (CLI 2.0 Preview) | Microsoft Docs
 description: Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudig het is om web-apps in App Service uit te voeren. U kunt snel een app gaan ontwikkelen en onmiddellijk de resultaten bekijken.
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
+ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
+ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes-cli-20-preview"></a>In vijf minuten uw eerste web-app implementeren in Azure (CLI 2.0 Preview)
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>In vijf minuten uw eerste HTML-web-app implementeren in Azure (CLI 2.0 Preview)
 
 > [!div class="op_single_selector"]
 > * [Eerste HTML-site](app-service-web-get-started-html.md)
@@ -57,7 +57,7 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 * Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -154,6 +154,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

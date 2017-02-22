@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Service Bus - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Meer informatie over het instellen van berichten die toepassingen en services in on-premises en cloudomgevingen verbinden.  Zelfstudies, video’s, API-verwijzingen en meer."
+services: service-bus
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
+ms.sourcegitcommit: 3e94e98bde67db2e136420ada2a7c625ad5a0307
+ms.openlocfilehash: ac803aaa0cf4cbf69fdca9764923eaaf2d29efc0
 
 ---
 #<a name="service-bus-documentation"></a>Documentatie voor Service Bus
@@ -215,7 +226,7 @@ Meer informatie over het gebruik van Service Bus om on-premises en cloudomgeving
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicebus">Naslaginformatie over REST API</a></p>
+                        <p><a href="/rest/api/servicebus">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
@@ -239,6 +250,6 @@ Meer informatie over het gebruik van Service Bus om on-premises en cloudomgeving
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

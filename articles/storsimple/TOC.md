@@ -26,7 +26,8 @@
 
 ## Procedures
 ### [Beheren via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Meest recente update installeren](storsimple-virtual-array-install-update.md)
+#### [Meest recente update installeren](storsimple-virtual-array-install-update-04.md)
+##### [Update 0.3 installeren](storsimple-virtual-array-install-update.md)
 #### [Back-ups maken en beheren](storsimple-virtual-array-backup.md)
 #### [Klonen vanaf back-ups](storsimple-virtual-array-clone.md)
 #### [Failover en DR](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [Taken beheren](storsimple-virtual-array-manage-jobs.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-virtual-array-change-device-admin-password.md)
 #### [MPIO op Windows Server-host configureren](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Problemen vaststellen en oplossen](storsimple-virtual-array-diagnose-problems.md)
+#### [Een ondersteuningsaanvraag registreren](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Beheren via de klassieke Azure Portal](storsimple-ova-manager-service-administration.md)
 #### [Meest recente update installeren](storsimple-ova-install-update-01.md)
@@ -47,7 +50,7 @@
 #### [Herstellen vanaf back-ups](storsimple-ova-restore.md)
 #### [Failover en DR](storsimple-ova-failover-dr.md)
 #### [Deactiveren en verwijderen](storsimple-ova-deactivate-and-delete-device.md)
-#### [Servicedashboard controleren](storsimple-ova-service-dashboard.md)
+#### [Servicedashboard bewaken](storsimple-ova-service-dashboard.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-ova-change-device-admin-password.md)
 #### [ACR's beheren](storsimple-ova-manage-acrs.md)
 #### [Opslagaccounts beheren](storsimple-ova-manage-storage-accounts.md)
@@ -56,7 +59,8 @@
 ### [Configureren via lokale webinterface](storsimple-ova-web-ui-admin.md)
 
 ## Releaseopmerkingen
-### [Update 0.3 - actueel](storsimple-ova-update-03-release-notes.md)
+### [Update 0.4 - actueel](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 en 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000-serie
@@ -78,7 +82,7 @@
 #### [Een 8100 uitpakken, op een rek monteren en aansluiten](storsimple-8100-hardware-installation.md)
 
 #### [Een 8600 uitpakken, op een rek monteren en aansluiten](storsimple-8600-hardware-installation.md)
-#### [Ondersteunde hardware voor 10-GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Ondersteunde hardware voor 10 GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Implementeren
 #### [StorSimple Manager-service](storsimple-manage-service.md)
@@ -147,9 +151,10 @@
 #### [StorSimple met Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
 #### [Gedistribueerde globale naamruimte](https://www.microsoft.com/download/details.aspx?id=45507)
 
-### Controleren
+### Bewaken
 #### [Servicedashboard gebruiken](storsimple-service-dashboard.md)
 #### [Apparaatdashboard gebruiken](storsimple-device-dashboard.md)
+#### [Bewakingsgrafieken gebruiken](storsimple-monitor-device.md)
 #### [Servicewaarschuwingen gebruiken](storsimple-manage-alerts.md)
 #### [Hardwarestatus gebruiken](storsimple-monitor-hardware-status.md)
 #### [Controle-led's gebruiken](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
+#### [Update 4 installeren](storsimple-install-update-4.md)
 #### [Update 3 installeren](storsimple-install-update-3.md)
 #### [Update 2.2 installeren](storsimple-install-update-21.md)
 #### [Update 2 installeren](storsimple-install-update-2.md)
@@ -179,6 +185,7 @@
 #### [Uw apparaat bijwerken](storsimple-update-device.md)
 
 ## Releaseopmerkingen
+### [Update 4 - actueel](storsimple-update4-release-notes.md)
 ### [Update 3 - actueel](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
@@ -203,6 +210,18 @@
 ## Procedures
 ### [.NET gebruiken om gegevens te transformeren](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple voor partners
+## Overzicht
+### [Wat is de oplossing?](storsimple-partner-csp-overview.md)
+
+## Aan de slag
+### [Virtuele matrix voor CSP implementeren](storsimple-partner-csp-deploy.md)
+
+## Releaseopmerkingen
+### [Releaseopmerkingen voor StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Releaseopmerkingen voor CSP](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple voor CSP: veelgestelde vragen](storsimple-partner-csp-faq.md)
+
 # Verwant
 ## [StorSimple 5000-7000-serie](http://onlinehelp.storsimple.com)
 
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

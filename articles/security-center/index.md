@@ -1,9 +1,20 @@
 ---
+title: Documentatie voor Azure Security Center - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het instellen van beveiligingsbewaking en beleidsbeheer voor Azure-resources. Zelfstudies, een REST-API-verwijzing en andere documentatie.
+services: security-center
+author: carolz
+manager: carolz
 layout: LandingPage
-description: Meer informatie over het instellen van beveiligingsbewaking en beleidsbeheer voor Azure-resources. Zelfstudies, een REST API-verwijzing en andere documentatie.
+ms.assetid: 
+ms.service: security-center
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
+ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
+ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
 
 ---
 # <a name="security-center-documentation"></a>Documentatie over Security Center
@@ -77,18 +88,18 @@ Meer informatie over hoe u Security Center gebruikt om inzicht te krijgen in en 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Naslaginformatie over REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse is een schaalbare clouddatabase die geschikt is voor he
 
 SQL Data Warehouse:
 
-* Combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties. U kunt de rekencapaciteit vergroten, verkleinen, onderbreken of hervatten in enkele seconden. U bespaart kosten door de CPU-capaciteit te vergroten of te verkleinen tijdens piek- of daluren.
+* Combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties. U kunt in enkele minuten tot seconden de rekencapaciteit vergroten, verkleinen, onderbreken of hervatten. U bespaart kosten door de CPU-capaciteit te vergroten of te verkleinen tijdens piek- of daluren.
 * Maakt gebruik van het Azure-platform. Het is eenvoudig te implementeren, wordt naadloos onderhouden en is volledig fouttolerant door automatische back-ups.
 * Vormt een aanvulling op de SQL Server-omgeving. Het is te ontwikkelen met de vertrouwde SQL Server Transact-SQL (T-SQL) en hulpprogramma's van SQL Server.
 
@@ -96,21 +96,21 @@ SQL Data Warehouse is gebaseerd op de relationele database-engine van de SQL Ser
 
 * SQL Data Warehouse gebruikt T-SQL-syntaxis voor veel bewerkingen. Deze biedt ook ondersteuning voor diverse traditionele SQL-constructs, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, tabelpartities, indexen en sorteringen.
 * SQL Data Warehouse bevat ook een aantal nieuwere functies van SQL Server, zoals geclusterde **kolomopslag**indexen, PolyBase-integratie en gegevensauditing (inclusief beoordeling van bedreigingen).
-* Bepaalde T-SQL-taalelementen die minder vaak voorkomen in werkbelastingen voor datawarehouses, of die nieuwer zijn voor SQL Server, zijn mogelijk niet beschikbaar. Zie voor meer informatie de [migratiedocumentatie][migratiedocumentatie].
+* Bepaalde T-SQL-taalelementen die minder vaak voorkomen in werkbelastingen voor datawarehouses, of die nieuwer zijn voor SQL Server, zijn mogelijk niet beschikbaar. Voor meer informatie raadpleegt u de [migratiedocumentatie][Migration documentation].
 
 Doordat SQL Server, SQL Data Warehouse, SQL Database en Analytics Platform System de Transact-SQL en diverse functies met elkaar gemeen hebben, kunt u een passende oplossing ontwikkelen voor uw gegevensbehoeften. U kunt besluiten waar u uw gegevens wilt bewaren, op basis van de gewenste prestaties, beveiliging en schaal, en uw gegevens vervolgens van het ene naar het andere systeem verplaatsen.
 
 ## <a name="data-protection"></a>Gegevensbeveiliging
-Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. In het lokale datacentrum worden meerdere synchrone kopieën van de gegevens bewaard voor gegarandeerd transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-gepauzeerde) databases met Azure Storage-momentopnamen. Zie voor meer informatie over hoe Back-ups en herstellen werkt het [Overzicht van Back-ups en herstellen][Overzicht van Back-ups en herstellen].
+Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. In het lokale datacentrum worden meerdere synchrone kopieën van de gegevens bewaard voor gegarandeerd transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-gepauzeerde) databases met Azure Storage-momentopnamen. Zie voor meer informatie over hoe Back-ups en herstellen werkt, het [Overzicht van Back-ups en herstellen][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Geïntegreerd met Microsoft-hulpprogramma's
 SQL Data Warehouse integreert ook veel van de hulpmiddelen waar gebruikers van SQL Server mee bekend zijn. Deze omvatten:
 
 **Traditionele SQL Server-hulpprogramma's:** SQL Data Warehouse is volledig geïntegreerd met SQL Server Analysis Services, Integration Services en Reporting Services.
 
-**Cloud-hulpprogramma's:** SQL Data Warehouse kan worden gebruikt in combinatie met een aantal nieuwe hulpprogramma's in Azure, waaronder Data Factory, Stream Analytics, Machine Learning en Power BI. Zie voor een volledige lijst [Overzicht met geïntegreerde hulpmiddelen][Overzicht met geïntegreerde hulpmiddelen].
+**Cloud-hulpprogramma's:** SQL Data Warehouse kan worden gebruikt in combinatie met een aantal nieuwe hulpprogramma's in Azure, waaronder Data Factory, Stream Analytics, Machine Learning en Power BI. Voor een volledig overzicht raadpleegt u [Overzicht met geïntegreerde hulpmiddelen][Integrated tools overview].
 
-**Hulpprogramma's van derden:** veel externe leveranciers hebben de integratie van hun hulpprogramma's met SQL Data Warehouse laten certificeren. Zie voor een volledige lijst [SQL Data Warehouse-oplossingspartners][SQL Data Warehouse-oplossingspartners].
+**Hulpprogramma's van derden:** veel externe leveranciers hebben de integratie van hun hulpprogramma's met SQL Data Warehouse laten certificeren. Zie voor een volledige lijst [SQL Data Warehouse-oplossingspartners][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Hybride scenario's met gegevensbronnen
 Gecombineerd gebruik van SQL Data Warehouse en PolyBase biedt gebruikers ongekende mogelijkheden om gegevens te verplaatsen binnen hun systeemomgeving, inclusief de mogelijkheid voor geavanceerde hybride scenario's met niet-relationele en on-premises gegevensbronnen.
@@ -122,10 +122,10 @@ PolyBase stelt u in staat gebruik te maken van verschillende gegevensbronnen met
 * PolyBase kan worden gebruikt voor toegang tot Blob Storage die ook wordt gebruikt als opslag voor een HDInsight-cluster. Hierdoor hebt u toegang tot dezelfde gegevens met relationele en niet-relationele hulpprogramma's.
 
 ## <a name="sla"></a>SLA
-SQL Data Warehouse biedt een SLA (Service Level Agreement, serviceovereenkomst) op productniveau als onderdeel van de Microsoft Online Services SLA. Ga voor meer informatie naar [SLA voor SQL Data Warehouse][SLA voor SQL Data Warehouse]. Ga voor SLA-informatie over alle andere producten naar de Azure-pagina [Serviceovereenkomsten] download deze via de pagina [Volumelicenties][Volumelicenties]. 
+SQL Data Warehouse biedt een SLA (Service Level Agreement, serviceovereenkomst) op productniveau als onderdeel van de Microsoft Online Services SLA. Ga voor meer informatie naar [SLA voor SQL Data Warehouse][SLA for SQL Data Warehouse]. Ga voor SLA-informatie over alle andere producten naar de Azure-pagina [Serviceovereenkomsten] download deze via de pagina [Volumelicenties][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][een SQL Data Warehouse maakt] en [voorbeeldgegevens laadt][voorbeeldgegevens laadt]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure-woordenlijst] handig zijn bij het opzoeken van nieuwe terminologie. Zie desgewenst ook deze informatiebronnen voor SQL Data Warehouse.  
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse] en [voorbeeldgegevens laadt][load sample data]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. Zie desgewenst ook deze informatiebronnen voor SQL Data Warehouse.  
 
 * [Succesverhalen van klanten]
 * [Blogs]
@@ -142,13 +142,13 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 
 <!--Article references-->
 [Ondersteuningsticket maken]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[voorbeeldgegevens laden]: ./sql-data-warehouse-load-sample-databases.md
-[een SQL Data Warehouse maakt]: ./sql-data-warehouse-get-started-provision.md
-[migratiedocumentatie]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse-oplossingspartners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Overzicht met geïntegreerde hulpmiddelen]: ./sql-data-warehouse-overview-integrate.md
-[Overzicht van Back-ups en herstellen]: ./sql-data-warehouse-restore-database-overview.md
-[Azure-woordenlijst]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA voor SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[Volumelicenties]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Serviceovereenkomsten]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

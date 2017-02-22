@@ -1,5 +1,5 @@
 ---
-title: Kennismaking met Azure Container Registry | Microsoft Docs
+title: "Privé-Docker-containerregister in Azure | Microsoft Docs"
 description: Kennismaking met de Azure Container Registry-service, waarmee u cloudgebaseerde, beheerde en persoonlijke Docker-registers kunt maken.
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
-ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>Wat is Azure Container Registry?
@@ -34,7 +34,7 @@ Voor achtergrondinformatie over Docker en containers raadpleegt u:
 * [Aankondiging Azure Container Registry-preview](https://azure.microsoft.com/blog/azure-container-registry-preview/) 
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
-* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Elke register wordt ondersteund door een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) op dezelfde locatie. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. 
+* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Elk register wordt ondersteund door een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) op dezelfde locatie. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. 
 
   Registers worden in een hoofddomein geplaatst op basis van de [Azure Active Directory-tenant](../active-directory/active-directory-howto-tenant.md) van het abonnement. Als u bijvoorbeeld een organisatieaccount hebt in het Contoso-domein, heeft uw volledig gekwalificeerde registernaam een indeling zoals `myregistry-contoso.azurecr.io`. 
   
@@ -71,6 +71,6 @@ Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

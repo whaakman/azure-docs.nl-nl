@@ -77,9 +77,7 @@
 ### [Phoenix en SQLLine gebruiken](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Real-time tweets analyseren](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Clusters maken in een virtueel netwerk](hdinsight-hbase-provision-vnet.md)
-### [VPN-connectiviteit configureren](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [DNS-servers configureren](hdinsight-hbase-geo-replication-configure-dns.md)
-### [HBase-geo-replicatie configureren](hdinsight-hbase-geo-replication.md)
+### [HBase-replicatie configureren](hdinsight-hbase-replication.md)
 ### [Een app met Java ontwikkelen](hdinsight-hbase-build-java-maven-linux.md)
 ## Storm gebruiken
 ### [Topologieën implementeren en beheren](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Beginnen met Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Beginnen met Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Beginnen met HBase](hdinsight-hbase-tutorial-get-started.md)
-### [Galerie met voorbeelden van HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Voorbeelden van Hadoop MapReduce uitvoeren](hdinsight-run-samples.md)
 ### [Hadoop-clusters maken](hdinsight-provision-clusters.md)
 #### [Azure Portal gebruiken](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -221,13 +218,13 @@
 ### [Scriptacties ontwikkelen](hdinsight-hadoop-script-actions.md)
 ### [Twitter-gegevens analyseren](hdinsight-analyze-twitter-data.md)
 ### [Clusters beheren met Azure Portal](hdinsight-administer-use-management-portal.md)
-### [Clusters controleren met Ambari-API](hdinsight-monitor-use-ambari-api.md)
+### [Clusters bewaken met Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

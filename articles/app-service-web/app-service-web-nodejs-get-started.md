@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Node.js-web-apps in Azure App Service | Microsoft Docs
+title: Een Node.js-web-app ontwikkelen voor Azure App Service | Microsoft Docs
 description: Leer hoe u een Node.js-toepassing implementeert in een web-app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Aan de slag met Node.js-web-apps in Azure App Service
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Een Node.js-web-app ontwikkelen voor Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe of bash, een eenvoudige [Node.js]-toepassing maakt en implementeert in [Azure App Service]. De instructies in deze zelfstudie kunnen worden uitgevoerd in elk besturingssysteem waarmee Node.js kan worden uitgevoerd.
@@ -45,7 +45,7 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 * Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie] of [uw voordelen als Visual Studio-abonnee activeren].
 
 > [!NOTE]
-> U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -114,13 +114,13 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). Voor deze eerste PHP-zelfstudie hoeft u nog niet precies te weten wat dat inhoudt.
+3. Maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). Voor deze node.js-zelfstudie hoeft u nog niet precies te weten wat dat inhoudt.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     Gebruik de CLI-opdracht `az appservice list-locations` om te zien welke waarden u kunt gebruiken voor `<location>`.
 
-3. Maak een nieuw 'GRATIS' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Voor deze eerste PHP-zelfstudie hoeft u alleen te weten dat de web-apps in dit plan niet in rekening worden gebracht.
+3. Maak een nieuw 'GRATIS' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Voor deze eerste node.js-zelfstudie hoeft u alleen te weten dat de web-apps in dit plan niet in rekening worden gebracht.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

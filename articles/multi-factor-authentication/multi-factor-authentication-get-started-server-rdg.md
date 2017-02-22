@@ -1,22 +1,22 @@
 ---
-title: Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
+title: RDG- en Azure MFA-server gebruiken RADIUS | Microsoft Docs
 description: Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van RD-gateway (Extern bureaublad) en Azure Multi-Factor Authentication-server met RADIUS.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
 
 
 ---
@@ -37,7 +37,7 @@ De RD-gateway gebruikt NPS om de RADIUS-aanvraag te verzenden naar Azure Multi-F
 4. Kopieer dit beleid naar een nieuw beleid. Voeg in het nieuwe beleid een voorwaarde toe die de Beschrijvende naam van client koppelt aan de Beschrijvende naam die in stap 2 hierboven is ingesteld voor de RADIUS-client voor de Azure Multi-Factor Authentication-server. Wijzig de verificatieprovider in Lokale computer. Wanneer een RADIUS-aanvraag wordt ontvangen van de Azure Multi-Factor Authentication-server, zorgt dit beleid ervoor dat de verificatie lokaal wordt uitgevoerd in plaats van dat er een RADIUS-aanvraag wordt teruggestuurd naar de Azure Multi-Factor Authentication-server, waardoor een oneindige lus zou ontstaan. Om deze lussituatie te voorkomen, moet u dit nieuwe beleid BOVEN het oorspronkelijke beleid plaatsen dat de aanvraagt doorstuurt naar de Multi-Factor Authentication-server.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication configureren
-- - -
+
 De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-proxy tussen RD-gateway en NPS.  Het moet worden geïnstalleerd op een in het domein opgenomen server die is gescheiden van de RD-gatewayserver. Gebruik de volgende procedure om de Azure Multi-Factor Authentication-server te configureren.
 
 1. Open de Azure Multi-Factor Authentication-server en klik op het pictogram RADIUS-verificatie. Schakel het selectievakje RADIUS-verificatie inschakelen in.
@@ -47,9 +47,14 @@ De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-pro
 
 ![RADIUS-verificatie](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## <a name="next-steps"></a>Volgende stappen
+
+- Azure MFA en [IIS Web Apps](multi-factor-authentication-get-started-server-iis.md) integreren
+
+- Antwoorden krijgen in de [Veelgestelde vragen Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

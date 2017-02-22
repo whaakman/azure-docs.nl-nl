@@ -1,5 +1,5 @@
 ---
-title: 'NoSQL-zelfstudie: DocumentDB .NET SDK | Microsoft Docs'
+title: 'oSQL-zelfstudie: DocumentDB .NET SDK | Microsoft Docs'
 description: Een NoSQL-zelfstudie waarmee u een online database en een C#-consoletoepassing maakt met de DocumentDB .NET SDK. DocumentDB is een NoSQL-database voor JSON.
 keywords: nosql zelfstudie, onlinedatabase, c#-consoletoepassing
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 414c41cbccb755e058fb76f10bba62bd1ffa1835
-ms.openlocfilehash: d2989a3292117ada029fb26536bfffbce83f5e1b
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 4ddd790efde26b6c2d2215c72e42bd9e2839e50e
 
 
 ---
@@ -627,11 +627,10 @@ Dat is alles, bouw nu de oplossing. Succes!
 * Meer informatie over het programmeermodel vindt u in de sectie Ontwikkelen van de pagina [DocumentDB-documentatie](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

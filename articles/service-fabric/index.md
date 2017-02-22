@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Service Fabric - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u het Service Fabric-middlewareplatform gebruikt om microservices voor toepassingen op cloudschaal te verpakken en implementeren. Zelfstudies, API-verwijzingen en codevoorbeelden.
+services: service-fabric
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-fabric
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
+ms.sourcegitcommit: 964b9b1ab804b8e5d56863ab5a174c984ebf8235
+ms.openlocfilehash: 2180a54f576c8878e8a33bd6a5be3082188abebc
 
 ---
 #<a name="service-fabric-documentation"></a>Documentatie over Service Fabric
@@ -140,19 +151,19 @@ Meer informatie over hoe u Service Fabric gebruikt om schaalbare en betrouwbare 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicefabric">Naslaginformatie over REST API</a></p>
+                        <p><a href="/rest/api/servicefabric">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

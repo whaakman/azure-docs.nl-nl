@@ -1,5 +1,5 @@
 ---
-title: " Bestanden uploaden naar een Media Services-account via Azure Portal | Microsoft Docs"
+title: " Bestanden uploaden naar een Media Services-account via Azure Portal | Microsoft Docss"
 description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u bestanden uploadt naar een Media Services-account via Azure Portal
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -29,9 +29,16 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 > [!NOTE]
 > U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 > 
-> 
+
 
 In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) een asset. De asset kan video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens voor deze bestanden) bevatten. Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming.
+
+
+## <a name="upload-files"></a>Bestanden uploaden
+
+>[!NOTE]
+>Er is een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. Raadpleeg [dit onderwerp](media-services-quotas-and-limitations.md) voor meer informatie over de maximale bestandsgrootte.
+>
 
 1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
 2. Klik in de blade **Instellingen** op **Assets**.
@@ -54,6 +61,8 @@ Nadat het uploaden is voltooid, ziet u de nieuwe asset in het venster **Assets**
 ## <a name="next-steps"></a>Volgende stappen
 U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-portal-encode.md) voor meer informatie.
 
+U kunt ook Azure Functions gebruiken om een coderingstaak te activeren op basis van een bestand dat binnenkomt in de geconfigureerde container. Zie [dit voorbeeld](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) voor meer informatie.
+
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -63,6 +72,6 @@ U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-port
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

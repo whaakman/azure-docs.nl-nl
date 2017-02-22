@@ -23,6 +23,7 @@
 ### [Logische apps als aanroepbare eindpunten](logic-apps-http-endpoint.md)
 ### [Lussen, bereiken en debatching](logic-apps-loops-and-scopes.md)
 ### [Uw aangepaste API gebruiken](logic-apps-custom-hosted-api.md)
+### [Switch-instructie gebruiken](logic-apps-switch-case.md)
 ### [Afhandeling van uitzonderingen](logic-apps-exception-handling.md)
 ### [Scenario voor afhandeling van uitzonderingen](logic-apps-scenario-error-and-exception-handling.md)
 ### [Afhandeling van inhoudstypen](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

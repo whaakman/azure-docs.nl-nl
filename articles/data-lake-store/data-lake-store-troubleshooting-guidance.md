@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -41,7 +41,7 @@ In het geval van een regionale storing kunt u uw gegevens openen vanuit de regio
 Hoewel Azure Data Lake Store gegevensflexibiliteit biedt door middel van automatische replica's, sluit dit niet uit dat de gegevens door uw toepassing (of door ontwikkelaars/gebruikers) worden beschadigd of onbedoeld worden verwijderd.
 
 #### <a name="best-practices"></a>Aanbevolen procedures
-Om onbedoelde verwijdering te voorkomen, is het raadzaam dat u eerst de juiste toegangsbeleiden instelt voor uw Data Lake Store-account met de beschikbare [Data Lake Store-beveiligingsfuncties](data-lake-store-security-overview.md). We raden u ook aan regelmatig kopieën van uw kritieke gegevens te maken met [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) of [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) naar een ander Data Lake Store-account, een andere map of een ander Azure-abonnement.  Dit kan worden gebruikt om gegevens te herstellen nadat ze beschadigd zijn geraakt of per ongeluk zijn verwijderd. Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
+Om onbedoelde verwijdering te voorkomen, is het raadzaam dat u eerst het juiste toegangsbeleid instelt voor uw Data Lake Store-account.  Dit omvat het vergrendelen van belangrijke resources met [Azure-resourcevergrendelingen](../azure-resource-manager/resource-group-lock-resources.md) en het instellen van toegangsbeheer op account- en bestandsniveau met behulp van de beschikbare [beveiligingsfuncties van Data Lake Store](data-lake-store-security-overview.md). We raden u ook aan regelmatig kopieën van uw kritieke gegevens te maken met [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) of [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) naar een ander Data Lake Store-account, een andere map of een ander Azure-abonnement.  Dit kan worden gebruikt om gegevens te herstellen nadat ze beschadigd zijn geraakt of per ongeluk zijn verwijderd. Azure Data Factory is een handige service voor het regelmatig maken en implementeren van pijplijnen voor gegevensverplaatsing.
 
 Bedrijven kunnen ook [Diagnostische gegevens vastleggen](data-lake-store-diagnostic-logs.md) inschakelen voor hun Azure Data Lake Store-account om audittrails voor gegevenstoegang te verzamelen. Deze bieden informatie over wie mogelijk een bestand heeft verwijderd of bijgewerkt.
 
@@ -52,6 +52,6 @@ Bedrijven kunnen ook [Diagnostische gegevens vastleggen](data-lake-store-diagnos
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

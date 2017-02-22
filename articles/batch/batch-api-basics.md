@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Batch-functies voor ontwikkelaars | Microsoft Docs
+title: Overzicht van Azure Batch voor ontwikkelaars | Microsoft Docs
 description: Informatie over de functies van de Batch-service en de API&quot;s ervan, vanuit het standpunt van ontwikkelaars.
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
     Alle knooppunten in een pool zijn even groot. Als u toepassingen met verschillende systeemvereisten en/of workloadniveaus wilt uitvoeren, moet u afzonderlijke pools maken.
 * **Beoogd aantal knooppunten**
 
-    Dit is het aantal rekenknooppunten dat u in de pool wilt implementeren. Dit wordt aangeduid als *beoogd* omdat de pool in sommige gevallen mogelijk niet het gewenste aantal knooppunten bereikt. Een pool bereikt mogelijk niet het gewenste aantal knooppunten als deze het [kernquotum](batch-quota-limit.md#batch-account-quotas) voor uw Batch-account bereikt of als er een formule voor automatisch vergroten/verkleinen is die u hebt toegepast op de pool die het maximumaantal knooppunten bereikt. Zie de volgende sectie (Beleid voor vergroten/verkleinen).
+    Dit is het aantal rekenknooppunten dat u in de pool wilt implementeren. Dit wordt aangeduid als *beoogd* omdat de pool in sommige gevallen mogelijk niet het gewenste aantal knooppunten bereikt. Een pool bereikt mogelijk niet het gewenste aantal knooppunten als deze het [kernquotum](batch-quota-limit.md) voor uw Batch-account bereikt of als er een formule voor automatisch vergroten/verkleinen is die u hebt toegepast op de pool die het maximumaantal knooppunten bereikt. Zie de volgende sectie (Beleid voor vergroten/verkleinen).
 * **Beleid voor vergroten/verkleinen**
 
     Voor dynamische workloads kunt u een [formule voor automatisch schalen](#scaling-compute-resources) opstellen en toepassen op een pool. De Batch-service evalueert de formule periodiek en past het aantal knooppunten in de pool aan op basis van verschillende pool-, job- en taakparameters die u kunt opgeven.
@@ -489,6 +489,6 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

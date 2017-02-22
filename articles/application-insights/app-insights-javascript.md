@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -170,7 +170,7 @@ Klik op een rij voor specifieke informatie.
 Klik op `...` voor de volledige telemetrie voor een AJAX-aanroep.
 
 ### <a name="no-ajax-calls-reported"></a>Zijn er geen AJAX-aanroepen gemeld?
-AJAX-aanroepen zijn HTTP-aanroepen vanuit het script van de webpagina. Als u constateert dat deze niet worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` of `maxAjaxCallsPerView` instelt.
+AJAX-aanroepen zijn HTTP-/HTTPS-aanroepen vanuit het script van de webpagina. Als u constateert dat deze niet worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` of `maxAjaxCallsPerView` instelt.
 
 ## <a name="browser-exceptions"></a>Browseruitzonderingen
 Op de blade Browsers ziet u een grafiek met samenvattingen van uitzonderingen en lager op de blade een raster met typen uitzonderingen.
@@ -193,7 +193,7 @@ Selecteer een gebeurtenis om deze gedetailleerder te bekijken. Klik op de pagina
 > 
 > 
 
-U kunt ook de krachtige [querytaal van Analytics](app-insights-analytics-tour.md) gebruiken om paginaweergaven te doorzoeken.
+U kunt ook de krachtige [querytaal van Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) gebruiken om paginaweergaven te doorzoeken.
 
 ### <a name="page-view-properties"></a>Eigenschappen van paginaweergaven
 * **Duur van paginaweergave** 
@@ -230,6 +230,6 @@ Wilt u weten wat gebruikers met uw app doen?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

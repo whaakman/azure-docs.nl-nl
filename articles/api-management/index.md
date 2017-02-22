@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure API Management - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u API Management kunt gebruiken om API&quot;s veilig en op schaal te publiceren. Documentatie laat zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken.
+services: api-management
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Documentatie over API Management
 
-API Management helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten.  API Management biedt de kerncompetenties voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming.
+Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API's naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +41,7 @@ API Management helpt organisaties bij het publiceren van API's naar externe, par
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,51 +98,55 @@ API Management helpt organisaties bij het publiceren van API's naar externe, par
 
 ---
 
-## <a name="reference"></a>Naslaginformatie
-
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdlets voor API Management Resource Manager</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API van API Management</p>
+                        <p><a href="/rest/api/apimanagement/">REST-API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST-API (oorspronkelijk)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Overige</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Beleidsregels</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Sjablonen</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over API Management downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

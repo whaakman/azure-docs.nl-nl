@@ -26,6 +26,7 @@
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
+### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
 ## Configuration Management (DSC) implementeren
 ### [Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)
@@ -43,17 +44,20 @@
 ### [Integratiemodules](automation-integration-modules.md)
 ### [Schema's](automation-schedules.md)
 ### [Variabelen](automation-variables.md)
+### [Azure PowerShell-modules bijwerken](automation-update-azure-modules.md)
 ## Scenario's automatiseren
 ### [Runbook-galerie](automation-runbook-gallery.md)
 ### [Virtuele machines starten/stoppen](automation-solution-startstopvm-graphical.md)
 ### [Virtuele machines met PowerShell starten/stoppen](automation-solution-startstopvm-psworkflow.md)
 ### [Een Amazon Web Service-VM maken](automation-scenario-aws-deployment.md)
 ### [Een Azure VM-waarschuwing verhelpen](automation-azure-vm-alert-integration.md)
-### [VM starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
+### [Een virtuele machine starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
-### [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
+### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Controle](automation-manage-send-joblogs-log-analytics.md)
+## Bewaken
+### [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Azure Automation-account loskoppelen van Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migreren
 ### [Migreren vanuit Orchestrator](automation-orchestrator-migration.md)
 ### [Automation-account verplaatsen](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

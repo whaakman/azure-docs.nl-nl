@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
-ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
 
 
 ---
@@ -126,7 +126,7 @@ We raden u aan de toegangssleutels voor uw opslagaccount regelmatig te wijzigen 
 Dit is het proces voor roulatie van uw toegangssleutels voor opslag:
 
 1. Werk de verbindingsreeksen in uw toepassingscode bij, zodat wordt verwezen naar de secundaire toegangssleutel van het opslagaccount.
-2. Genereer de primaire toegangssleutel voor uw opslagaccount opnieuw. Klik op de blade **Toegangssleutels** op **Sleutel 1 opnieuw genereren**. Klik vervolgens op **Ja** om te bevestigen dat u een nieuwe sleutel wilt genereren.
+2. Genereer de primaire toegangssleutel voor uw opslagaccount opnieuw. Klik op de blade **Toegangssleutels** op **Sleutel&1; opnieuw genereren**. Klik vervolgens op **Ja** om te bevestigen dat u een nieuwe sleutel wilt genereren.
 3. Werk de verbindingsreeksen in uw code bij, zodat deze verwijzen naar de nieuwe primaire toegangssleutel.
 4. Genereer de secundaire toegangssleutel op dezelfde manier opnieuw.
 
@@ -162,6 +162,6 @@ Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documen
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

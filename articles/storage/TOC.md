@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Disk Storage 
+### [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Een beheerde schijf koppelen aan een virtuele Windows-machine met PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Procedures
 ## [Een opslagaccount maken](storage-create-storage-account.md)
 ## Blobs gebruiken
@@ -62,13 +70,21 @@
 ### [Overzicht](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Problemen met Azure-bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Virtuele-machineschijven gebruiken
+## Schijven gebruiken
+### [Schijven en VHD's voor virtuele Windows-machines](storage-about-disks-and-vhds-windows.md)
+### [Schijven en VHD's voor virtuele Linux-machines](storage-about-disks-and-vhds-linux.md)
+### [Overzicht van Azure Managed Disks](storage-managed-disks-overview.md)
+### [Virtuele Azure-machines migreren naar Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migreren van AWS en andere platforms naar Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Veelgestelde vragen over VM-schijven van Azure IaaS](storage-faq-for-disks.md)
 ### Premium Storage
-#### [Krachtige opslag voor VM-workloads](storage-premium-storage.md)
-#### [Migreren naar Premium Storage](storage-migration-to-premium-storage.md)
+#### [Krachtige Premium Storage voor VM-schijven](storage-premium-storage.md)
 #### [Ontwerp voor hoge prestaties](storage-premium-storage-performance.md)
 ### Standaardopslag
-#### [Back-ups maken van VM-schijven met incrementele momentopnamen](storage-incremental-snapshots.md)
+#### [Rendabele standaardopslag en niet-beheerde en beheerde VM-schijven](storage-standard-storage.md)
+### Niet-beheerde schijven gebruiken
+#### [Migreren naar Premium Storage](storage-migration-to-premium-storage.md)
+#### [Back-ups maken van niet-beheerde VM-schijven met incrementele momentopnamen](storage-incremental-snapshots.md)
 ## Plannen en ontwerpen
 ### [Replicatie](storage-redundancy.md)
 ### [Schaalbaarheids- en prestatiedoelen](storage-scalability-targets.md)
@@ -155,12 +171,12 @@
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
 ### [Gegevensverplaatsing](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, wachtrijen, tabellen en bestanden](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
 ### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

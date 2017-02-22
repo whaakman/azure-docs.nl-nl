@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -37,6 +37,9 @@ Met Copy Activity wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd
 
 > [!NOTE]
 > Dit artikel behandelt niet de volledige Data Factory .NET API. Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK.
+> 
+> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Er worden geen invoergegevens mee getransformeerd in uitvoergegevens. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+
 
 ## <a name="prerequisites"></a>Vereisten
 * Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit.
@@ -92,7 +95,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
     ```PowerShell
     New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
-8. Voeg service-principal toe aan de rol **Inzender Data Factory**.
+8. Voeg de service-principal toe aan de rol **Inzender Data Factory**.
 
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
@@ -504,12 +507,18 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel "**emp**" in de opgegeven Azure SQL-database.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Lees het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md). Dit artikel biedt gedetailleerde informatie over Copy Activity die u tijdens deze zelfstudie hebt gemaakt.
-* Zie [Data Factory .NET API-referentie](https://msdn.microsoft.com/library/mt415893.aspx) voor meer informatie over de Data Factory .NET SDK. Dit artikel behandelt niet de volledige Data Factory .NET API.
+| Onderwerp | Beschrijving |
+|:--- |:--- |
+| [Pijplijnen](data-factory-create-pipelines.md) |In dit artikel worden pijplijnen en activiteiten in Azure Data Factory nader uitgelegd. |
+| [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
+[Naslaginformatie over de .NET API voor Data Factory](/dotnet/api/) | Bevat gedetailleerde informatie over de .NET SDK voor Data Factory (zoek naar Microsoft.Azure.Management.DataFactories.Models in de structuurweergave). 
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

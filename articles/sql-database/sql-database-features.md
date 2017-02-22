@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
 
 
 ---
@@ -47,7 +47,7 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 * Gefilterd op [aankondigingen](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) over de algemene beschikbaarheid (GA) van SQL Database-functies.
 
 > [!TIP]
-> Zie [De Azure SQL Database-compatibiliteit valideren](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) als u wilt testen of een bestaande database compatibel is met Azure SQL Database.
+> Als u wilt testen of een bestaande database compatibel is met Azure SQL Database, raadpleegt u [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md) (Een SQL Server-database migreren naar Azure).
 >
 
 | **Functie** | **SQL Server** | **Azure SQL Database** | 
@@ -57,12 +57,12 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 | AlwaysOn-beschikbaarheidsgroepen | [Ondersteund](https://msdn.microsoft.com/library/hh510230.aspx) | Niet ondersteund - Zie [Actieve geo-replicatie](sql-database-geo-replication-overview.md) |
 | Een database koppelen | [Ondersteund](https://msdn.microsoft.com/library/ms190209.aspx) | Niet ondersteund |
 | Toepassingsrollen | [Ondersteund](https://msdn.microsoft.com/library/ms190998.aspx) | [Ondersteund](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Automatisch schalen | Niet ondersteund | [Ondersteund](sql-database-scale-up.md) |
+| Automatisch schalen | Niet ondersteund | [Ondersteund](sql-database-service-tiers.md) |
 | Azure Active Directory | Niet ondersteund | [Ondersteund](sql-database-aad-authentication.md) |
 | Azure Data Factory | Niet ondersteund - Zie [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Ondersteund](https://azure.microsoft.com/services/data-factory/) |
-| Controleren | [Ondersteund](https://msdn.microsoft.com/library/cc280386.aspx) | [Ondersteund](sql-database-auditing-get-started.md) |
+| Controleren | [Ondersteund](https://msdn.microsoft.com/library/cc280386.aspx) | [Ondersteund](sql-database-auditing.md) |
 | BACPAC-bestand (exporteren) | [Ondersteund](https://msdn.microsoft.com/library/hh213241.aspx) | [Ondersteund](sql-database-export.md) |
-| BACPAC-bestand (importeren) | [Ondersteund](https://msdn.microsoft.com/library/hh710052.aspx) | [Ondersteund](sql-database-import.md) |
+| BACPAC-bestand (importeren) | [Ondersteund](https://msdn.microsoft.com/library/hh710052.aspx) | [Ondersteund](sql-database-import-portal.md) |
 | BACKUP- en RESTORE-instructies | [Ondersteund](https://msdn.microsoft.com/library/ff848768.aspx) | Niet ondersteund |
 | Ingebouwde functies | [Ondersteund](https://msdn.microsoft.com/library/ms174318.aspx) | [De meeste](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Gegevensregistratie wijzigen | [Ondersteund](https://msdn.microsoft.com/library/cc645937.aspx) | Niet ondersteund |
@@ -132,7 +132,7 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 | SQL Server Integration Services (SSIS) | [Ondersteund](https://msdn.microsoft.com/library/ms141026.aspx) | Niet ondersteund - Zie [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Ondersteund](https://msdn.microsoft.com/library/hh245198.aspx) | [Ondersteund](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Ondersteund](https://msdn.microsoft.com/library/ms181091.aspx) | Niet ondersteund - Zie [Uitgebreid gebeurtenissen](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server-replicatie | [Ondersteund](https://msdn.microsoft.com/library/ms151198.aspx) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server-replicatie | [Ondersteund](https://msdn.microsoft.com/library/ms151198.aspx) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Ondersteund](https://msdn.microsoft.com/library/ms159106.aspx) | Niet ondersteund |
 | Opgeslagen procedures | [Ondersteund](https://msdn.microsoft.com/library/ms190782.aspx) | [Ondersteund](https://msdn.microsoft.com/library/ms190782.aspx) |
 | In het systeem opgeslagen functies | [Ondersteund](https://msdn.microsoft.com/library/ff848780.aspx) | [Sommige](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -161,6 +161,6 @@ Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangera
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

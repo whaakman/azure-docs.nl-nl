@@ -1,5 +1,5 @@
 ---
-title: " Aan de slag met het leveren van inhoud op aanvraag met behulp van Azure Portal | Microsoft Docss"
+title: Aan de slag met het leveren van VoD met Azure Portal | Microsoft Docs
 description: In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
 
 
 ---
@@ -25,59 +25,19 @@ ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal.
 
-> [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
-> 
-> 
+## <a name="prerequisites"></a>Vereisten
+Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
+
+* Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 
 Deze zelfstudie bevat de volgende taken:
 
-1. Een Azure Media Services-account maken.
-2. Streaming-eindpunt starten.
-3. Een videobestand uploaden.
-4. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
-5. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
-6. Uw inhoud afspelen.
-
-## <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
-In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
-2. Klik op **+Nieuw** > **Web en mobiel** > **Media Services**.
-   
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Voer bij **MEDIA SERVICES-ACCOUNT MAKEN** de vereiste waarden in.
-   
-    ![Media Services-account maken](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
-   1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers of kleine letters zonder spaties worden gebruikt. De naam mag 3 tot 24 tekens lang zijn.
-   2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
-   3. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
-   4. Selecteer bij **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
-   5. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
-      
-       Klik [hier](../storage/storage-introduction.md) voor meer informatie over opslag.
-   6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
-4. Klik op **Maken** onder in het formulier.
-   
-    Wanneer het account is gemaakt, worden de overzichtspagina's geladen. In de tabel met het streaming-eindpunt heeft het account een standaardstreaming-eindpunt met de status **Gestopt**. Het streaming-eindpunt van waar u de inhoud wilt streamen, moet de status **Wordt uitgevoerd** hebben. 
-   
-    ![Media Services-instellingen](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
-    Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
-
-## <a name="manage-keys"></a>Sleutels beheren
-U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toegang te krijgen tot het Media Services-account.
-
-1. Selecteer uw account in Azure Portal. 
-   
-    Het venster **Instellingen** wordt aan de rechterkant weergegeven. 
-2. Selecteer in het venster **Instellingen** de optie **Sleutels**. 
-   
-    In het venster **Sleutels beheren** worden de accountnaam en de primaire en secundaire sleutel weergegeven. 
-3. Klik op de knop Kopiëren om de waarden te kopiëren.
-   
-    ![Media Services-sleutels](./media/media-services-portal-vod-get-started/media-services-keys.png)
+1. Streaming-eindpunt starten.
+2. Een videobestand uploaden.
+3. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
+4. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
+5. Uw inhoud afspelen.
 
 ## <a name="start-streaming-endpoints"></a>Streaming-eindpunten starten 
 
@@ -88,13 +48,14 @@ Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate
 
 U start het streaming-eindpunt als volgt:
 
-1. Klik in het venster Instellingen op Streaming-eindpunten. 
-2. Klik op het standaardstreaming-eindpunt. 
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
+2. Klik in het venster Instellingen op Streaming-eindpunten. 
+3. Klik op het standaardstreaming-eindpunt. 
 
     Het venster DETAILS VAN STANDAARDSTREAMING-EINDPUNT wordt weergegeven.
 
-3. Klik op het pictogram Start.
-4. Klik op de knop Opslaan om uw wijzigingen op te slaan.
+4. Klik op het pictogram Start.
+5. Klik op de knop Opslaan om uw wijzigingen op te slaan.
 
 ## <a name="upload-files"></a>Bestanden uploaden
 Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uploaden, ze coderen in meerdere bitsnelheden en vervolgens het resultaat publiceren. De eerste stap wordt in deze sectie beschreven. 
@@ -129,7 +90,7 @@ In deze sectie wordt beschreven hoe u uw inhoud codeert met Media Encoder Standa
 1. Selecteer in het venster **Instellingen** de optie **Assets**.  
 2. Selecteer in het venster **Assets** de asset die u wilt coderen.
 3. Klik op de knop **Coderen**.
-4. Selecteer in het venster **Een asset coderen** de processor Media Encoder Standard en een standaardinstelling. Als u bijvoorbeeld weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kunt u de standaardinstelling H264 Multiple Bitrate 1080p gebruiken. Zie [dit](https://msdn.microsoft.com/library/azure/mt269960.aspx) artikel voor meer informatie over standaardinstellingen. Het is belangrijk de standaardinstelling te selecteren die het meest geschikt is voor uw invoervideo. Als u video met een lage resolutie (640 x 360) hebt, gebruikt u niet de standaard geselecteerde instelling H264 Multiple Bitrate 1080p.
+4. Selecteer in het venster **Een asset coderen** de processor Media Encoder Standard en een standaardinstelling. Als u bijvoorbeeld weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kunt u de standaardinstelling H264 Multiple Bitrate 1080p gebruiken. Zie [dit](media-services-mes-presets-overview.md) artikel voor meer informatie over standaardinstellingen. Het is belangrijk de standaardinstelling te selecteren die het meest geschikt is voor uw invoervideo. Als u video met een lage resolutie (640 x 360) hebt, gebruikt u niet de standaard geselecteerde instelling H264 Multiple Bitrate 1080p.
    
    Voor eenvoudiger beheer kunt u de naam van de uitvoerasset en de naam van de taak bewerken.
    
@@ -169,7 +130,7 @@ Een SAS-URL heeft de volgende indeling.
 > 
 > 
 
-Als u de vervaldatum van een locator wilt bijwerken, gebruikt u [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator)- of [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API's. Wanneer u de vervaldatum van een SAS-locator bijwerkt, wordt de URL gewijzigd.
+Als u de vervaldatum van een locator wilt bijwerken, gebruikt u [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- of [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API's. Wanneer u de vervaldatum van een SAS-locator bijwerkt, wordt de URL gewijzigd.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>De portal gebruiken om een asset te publiceren
 Als u de portal wilt gebruiken om een asset te publiceren, gaat u als volgt te werk:
@@ -207,6 +168,6 @@ Media Services-leertrajecten bekijken.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

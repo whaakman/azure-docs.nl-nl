@@ -25,15 +25,15 @@ Ga als volgt te werk om een naamruimte te maken:
    
     ![connection-string][connection-string]
 
+5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

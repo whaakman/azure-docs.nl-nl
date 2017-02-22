@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -25,7 +25,7 @@ In dit artikel wordt beschreven hoe u met behulp van de klassieke Azure-portal e
 
 Nadat u het Azure-abonnement hebt voltooid, kunt u zich aanmelden bij de klassieke Azure-portal en hebt u toegang tot Azure-services. Klik op de Active Directory-extensie om dezelfde directory te beheren waarmee uw Office 365-gebruikers worden geverifieerd.
 
-Als u al een Azure-abonnement hebt, is het beheer van een extra directory ook eenvoudig. Jaap Kleefstra heeft bijvoorbeeld een Office 365-abonnement voor Contoso.com. Hij heeft ook een Azure-abonnement waarbij hij zich heeft aangemeld met zijn Microsoft-account, msmith@hotmail.com.. In dit geval beheert hij twee directory's.
+Als u al een Azure-abonnement hebt, is het beheer van een extra directory ook eenvoudig. Jaap Kleefstra heeft bijvoorbeeld een Office 365-abonnement voor Contoso.com. Hij heeft ook een Azure-abonnement waarbij hij zich heeft geregistreerd met zijn Microsoft-account, msmith@hotmail.com. In dit geval beheert hij twee directory's.
 
 | Abonnement | Office 365 | Azure |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ Jaap Kleefstra moet de volgende stappen uitvoeren om beide directory's te kunnen
 1. Meld u bij de [klassieke Azure-portal](https://manage.windowsazure.com) aan als msmith@hotmail.com.
 2. Klik achtereenvolgens op **Nieuw** > **App Services** > **Active Directory** > **Directory** > **Aangepast maken**.
 3. Klik op Bestaande directory gebruiken en schakel het selectievakje **Ik kan nu worden afgemeld** in.
-4. Meld u aan bij de klassieke Azure-portal als globale beheerder van Contoso.onmicrosoft.com (bijvoorbeeld jkleefstra@contoso.com).
+4. Meld u aan bij de klassieke Azure-portal als globale beheerder van Contoso.onmicrosoft.com (bijvoorbeeld msmith@contoso.com)).
 5. Wanneer u wordt gevraagd **De Contoso-directory gebruiken met Azure?**, klikt u op **Doorgaan**.
 6. Klik op **Nu afmelden**.
 7. Meld u bij de klassieke Azure-portal aan als msmith@hotmail.com. De Contoso-directory en de Standaarddirectory worden weergegeven in de Active Directory-extensie.
@@ -57,9 +57,9 @@ Jaap Kleefstra moet de volgende stappen uitvoeren om beide directory's te kunnen
 Wanneer u deze stappen hebt uitgevoerd, is msmith@hotmail.com een globale beheerder in de Contoso-directory.
 
 ## <a name="to-administer-resources-as-the-global-admin"></a>Resources beheren als globale beheerder
-Stel nu dat Dena Vloet websites en databaseresources moet beheren die zijn gekoppeld aan het Azure-abonnement voor msmith@hotmail.com. Voordat ze dit kan doen, moet Jaap Kleefstra deze extra stappen uitvoeren:
+Stel nu dat Dena Vloet websites en databaseresources moet beheren die zijn gekoppeld aan het Azure-abonnement van msmith@hotmail.com. Voordat ze dit kan doen, moet Jaap Kleefstra deze extra stappen uitvoeren:
 
-1. Zich aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com) met het servicebeheerdersaccount voor het Azure-abonnement (in dit voorbeeld msmith@hotmail.com).
+1. Zich aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com) met het servicebeheerdersaccount voor het Azure-abonnement (in dit voorbeeld msmith@hotmail.com)).
 2. Het abonnement overbrengen naar de Contoso-directory: klik achtereenvolgens op **Instellingen** > **Abonnementen** > selecteer het abonnement > **Directory bewerken** > selecteer **Contoso (Contoso.com)**. Als onderdeel van de overdracht worden werk- of schoolaccounts die medebeheerder zijn van het abonnement, verwijderd.
 3. Dena Vloet toevoegen als medebeheerder van het abonnement: klik achtereenvolgens op **Instellingen** > **Beheerders** > selecteer het abonnement > **Toevoegen** > typ **JohnDoe@Contoso.com**.
 
@@ -68,6 +68,6 @@ Zie [De manier waarop een abonnement is gekoppeld aan een directory](active-dire
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

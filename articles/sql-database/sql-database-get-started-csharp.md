@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Een SQL-database maken met C# met de SQL Database-bibliotheek voor .NET
 
-Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Microsoft Azure SQL Management Library voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een elastische pool maken](sql-database-elastic-pool-create-csharp.md) als u een elastische pool wilt maken.
+Lees hoe u C# gebruikt om een Azure SQL Database te maken met de [Microsoft Azure SQL Management Library voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). In dit artikel wordt beschreven hoe u een individuele database met SQL en C# maakt. Zie [Een elastische pool maken](sql-database-elastic-pool-manage-csharp.md) als u een elastische pool wilt maken.
 
 De Azure SQL Database Management Library voor .NET biedt een op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebaseerde API die de op [Resource Manager gebaseerde SQL Database-REST-API](https://msdn.microsoft.com/library/azure/mt163571.aspx) bevat.
 
@@ -51,9 +51,9 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 Als u een SQL Database met C# wilt maken, laadt u de vereiste beheerbibliotheken (met behulp van de [Package Manager-console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.
-2. Typ `Install-Package Microsoft.Azure.Management.Sql –Pre` om de nieuwste [Microsoft Azure SQL-beheerbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) te installeren.
-3. Typ `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` om de [Microsoft Azure Resource Manager-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) te installeren.
-4. Typ `Install-Package Microsoft.Azure.Common.Authentication –Pre` om de [algemene Microsoft Azure-verificatiebibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) te installeren. 
+2. Typ `Install-Package Microsoft.Azure.Management.Sql -Pre` om de nieuwste [Microsoft Azure SQL-beheerbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) te installeren.
+3. Typ `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` om de [Microsoft Azure Resource Manager-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) te installeren.
+4. Typ `Install-Package Microsoft.Azure.Common.Authentication -Pre` om de [algemene Microsoft Azure-verificatiebibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) te installeren. 
 
 > [!NOTE]
 > De voorbeelden in dit artikel gebruiken een synchrone vorm van elke API-aanvraag en blokkeren totdat de REST-aanroep van de onderliggende service is voltooid. Er zijn asynchrone methoden beschikbaar.
@@ -287,6 +287,6 @@ Nu u SQL Database hebt uitgeprobeerd en een database hebt ingesteld met C#, bent
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

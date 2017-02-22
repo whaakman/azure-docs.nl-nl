@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Storage | Microsoft Docs
+title: Inleiding tot Azure Storage | Microsoft Docs
 description: Een overzicht van Azure Storage, online gegevensopslag van Microsoft in de cloud. Informatie over het gebruik van de beste oplossing voor cloudopslag in uw toepassingen.
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
+
 ## <a name="overview"></a>Overzicht
 Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten. In dit artikel lezen ontwikkelaars, IT-professionals en zakelijke besluitvormers meer over het volgende:
 
@@ -174,7 +175,7 @@ De service Azure Import/Export biedt een manier voor het importeren of exportere
 ## <a name="storage-apis-libraries-and-tools"></a>Storage-API's, -bibliotheken en -hulpprogramma's
 Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aanvragen mogelijk zijn. Daarnaast biedt Azure Storage programmeringsbibliotheken voor verschillende veelgebruikte talen. Deze bibliotheken vereenvoudigen veel aspecten van het werken met Azure Storage door details zoals synchrone en asynchrone aanroepafhandeling, batchverwerking van bewerkingen, uitzonderingsbeheer, automatische nieuwe pogingen, werking enzovoort. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen (deze lijst wordt in de toekomst uitgebreid):
 
-### <a name="azure-storage-data-services"></a>Azure Storage Data Services
+### <a name="azure-storage-data-services"></a>Azure Storage-gegevensservices
 * [REST-API voor Storage-services](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Opslagclientbibliotheek voor .NET, Windows Phone en Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)
@@ -185,7 +186,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Opslagclientbibliotheek voor Python](/develop/python/)
 * [Opslag-cmdlets voor PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
-### <a name="azure-storage-management-services"></a>Azure Storage Management-services
+### <a name="azure-storage-management-services"></a>Azure Storage-beheerservices
 * [REST API-verwijzing van opslagresourceprovider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 * [Clientbibliotheek van opslagresourceprovider voor .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
 * [Cdmlets van opslagresourceprovider voor PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
@@ -208,6 +209,8 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 
 ### <a name="documentation"></a>Documentatie
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Een opslagaccount maken](storage-create-storage-account.md)
+* [Binnen vijf minuten aan de slag met Azure Storage](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>Voor beheerders
 * [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)
@@ -246,12 +249,8 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 * [Queue Storage gebruiken met Python](storage-python-how-to-use-queue-storage.md)
 * [File Storage gebruiken met Python](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Volgende stappen
-
-* [Een opslagaccount maken](storage-create-storage-account.md)
-* [Binnen vijf minuten aan de slag met Azure Storage](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

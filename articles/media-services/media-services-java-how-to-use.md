@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met het leveren van inhoud op aanvraag met Java | Microsoft Docs
-description: Hierin wordt beschreven hoe u Azure Media Services gebruikt om algemene taken uit te voeren, inclusief codering, versleutelen en het streamen van resources.
+description: In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Java.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Aan de slag met het leveren van inhoud op aanvraag met Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Een Azure-Account instellen voor Media Services
+In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Java.
 
-Als u een Media Services-account wilt maken, gebruikt u Azure Portal. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie. Nadat u uw account in Azure Portal hebt gemaakt, bent u klaar om uw computer te configureren voor het ontwikkelen van toepassingen met Media Services.
- 
-Deze sectie bevat algemene vereisten voor het ontwikkelen van Media Services met de Media Services SDK voor Java.
+## <a name="prerequisites"></a>Vereisten
 
-### <a name="prerequisites"></a>Vereisten
-* Een Media Services-account in een nieuw of bestaand Azure-abonnement. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie.
+Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
+
+* Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * De Azure-beheerbibliotheken voor Java, die u kunt installeren vanuit het [Azure Java Developer Center][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Procedure: Media Services gebruiken met Java

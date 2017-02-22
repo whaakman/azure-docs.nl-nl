@@ -8,6 +8,7 @@
 ## [Proxy en firewall](log-analytics-proxy-firewall.md)
 ## [Gebruiksgegevens](log-analytics-usage.md)
 ## [Veelgestelde vragen over Log Analytics](log-analytics-faq.md)
+## [Serviceproviders](log-analytics-service-providers.md)
 
 # Procedures
 ## Gegevens verzamelen
@@ -15,7 +16,7 @@
 #### [Windows-agents](log-analytics-windows-agents.md)
 #### [Linux-agents](log-analytics-linux-agents.md)
 #### [Virtuele machines van Azure](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Azure-resources](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuratiebeheer](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -62,11 +63,13 @@
 ## Ontwikkelen
 ### [Gegevensverzamelaar-API](log-analytics-data-collector-api.md)
 ### [PowerShell-cmdlets](log-analytics-powershell-workspace-configuration.md)
+### [Resource Manager-sjablonen](log-analytics-template-workspace-configuration.md)
 ### [API voor zoeken in logboeken](log-analytics-log-search-api.md)
 ### [Waarschuwings-API](log-analytics-api-alerts.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Resources
 ## [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -74,6 +77,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

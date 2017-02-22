@@ -1,5 +1,5 @@
 ---
-title: Overzicht Stretch Database | Microsoft Docs
+title: Koude gegevens naar Azure archiveren - Stretch Database | Microsoft Docs
 description: Informatie over hoe Stretch Database uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud migreert.
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Overzicht Stretch Database
+# <a name="introduction-to-stretch-database"></a>Inleiding tot Stretch Database
 Stretch Database migreert uw koude gegevens transparant en veilig naar de Microsoft Azure-cloud.
 
 Als u meteen met Stretch Database aan de slag wilt, bekijk dan [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
@@ -84,6 +84,6 @@ Gebruik Stretch Database Advisor, een functie van SQL Server 2016 Upgrade Adviso
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

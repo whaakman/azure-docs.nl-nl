@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 0175f2877a59db214a38bfe27eca74748518a498
+ms.sourcegitcommit: 757e91c3c702a62fb143f45a3144069400c5a757
+ms.openlocfilehash: e2c2611d6f1094d2c1ba2bdb2398b0b17723af8a
 
 
 ---
@@ -25,10 +25,11 @@ ms.openlocfilehash: 0175f2877a59db214a38bfe27eca74748518a498
 ## <a name="what-is-azure-data-factory"></a>Wat is Azure Data Factory?
 Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de **verplaatsing** en **transformatie** van gegevens wordt beheerd en geautomatiseerd. U kunt oplossingen voor gegevensintegratie maken met behulp van de Data Factory-service. Deze kan gegevens uit verschillende gegevensarchieven opnemen, de gegevens transformeren en verwerken, en de resulterende gegevens naar de gegevensarchieven publiceren.
 
-Met Data Factory-service kunt u gegevenspijplijnen maken die gegevens verplaatsen en transformeren, en de pijplijnen vervolgens uitvoeren volgens een opgegeven schema (per uur, dagelijks, wekelijks enz.). U vindt uitgebreide visualisaties om de afkomst en afhankelijkheden tussen uw gegevenspijplijnen weer te geven en al uw gegevenspijplijnen te controleren vanuit één centrale weergave zodat u eenvoudig problemen kunt detecteren en bewakingswaarschuwingen kunt instellen.
+Met Data Factory-service kunt u gegevenspijplijnen maken die gegevens verplaatsen en transformeren, en de pijplijnen vervolgens uitvoeren volgens een opgegeven schema (per uur, dagelijks, wekelijks enz.). U vindt uitgebreide visualisaties om de afkomst en afhankelijkheden tussen uw gegevenspijplijnen weer te geven en de pijplijnen te controleren vanuit één centrale weergave zodat u eenvoudig problemen kunt detecteren en bewakingswaarschuwingen kunt instellen.
 
 ![Diagram: Data Factory-overzicht, een service voor gegevensintegratie](./media/data-factory-introduction/what-is-azure-data-factory.png)
-**Afbeelding 1.** Neem gegevens op van verschillende gegevensbronnen en bereid ze voor, transformeer en analyseer ze en publiceer daarna kant-en-klare gegevens die geschikt zijn voor gebruik.
+
+**Afbeelding1.** Neem gegevens op van verschillende gegevensbronnen en bereid ze voor, transformeer en analyseer ze en publiceer daarna kant-en-klare gegevens die geschikt zijn voor gebruik.
 
 ## <a name="pipelines-and-activities"></a>Pijplijnen en activiteiten
 In een Data Factory-oplossing maakt u een of meer gegevens**pijplijnen**. Een pijplijn is een logische groep activiteiten. Ze worden gebruikt om activiteiten te groeperen in één eenheid waarmee vervolgens een taak kan worden uitgevoerd.
@@ -50,8 +51,8 @@ Als u gegevens wilt verplaatsen naar/van een gegevensarchief dat niet wordt onde
 ## <a name="linked-services"></a>Gekoppelde services
 Met gekoppelde services wordt gedefinieerd welke informatie nodig is om een Data Factory verbinding te laten maken met externe resources (bijvoorbeeld Azure Storage, on-premises SQL Server, Azure HDInsight). Gekoppelde services worden voor twee doeleinden gebruikt in een Data Factory:
 
-* Als vertegenwoordiging van een **gegevensarchief**, zoals een on-premises SQL Server, een Oracle-database, een bestandsshare of een Azure Blob Storage-account. Zie het gedeelte [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor een lijst met ondersteunde gegevensarchieven.
-* Ter vertegenwoordiging van een **rekenresource** die de uitvoering van een activiteit kan hosten. De activiteit HDInsightHive wordt bijvoorbeeld uitgevoerd in een HDInsight Hadoop-cluster. Zie de sectie [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) voor een lijst met ondersteunde rekenomgevingen.
+* Als vertegenwoordiging van een **gegevensarchief**, zoals een on-premises SQL Server, een Oracle-database, een bestandsshare of een Azure Blob Storage-account. Zie het gedeelte [Activiteiten voor gegevensverplaatsing](#data-movement-activities) voor een lijst met ondersteunde gegevensarchieven.
+* Ter vertegenwoordiging van een **rekenresource** die de uitvoering van een activiteit kan hosten. De activiteit HDInsightHive wordt bijvoorbeeld uitgevoerd in een HDInsight Hadoop-cluster. Zie de sectie [Activiteiten voor gegevenstransformatie](#data-transformation-activities) voor een lijst met ondersteunde rekenomgevingen.
 
 ## <a name="datasets"></a>Gegevenssets
 Met gekoppelde services worden gegevensarchieven gekoppeld aan een Azure Data Factory. Gegevenssets vertegenwoordigen gegevensstructuren binnen de gegevensarchieven. Een met Azure Storage gekoppelde service geeft bijvoorbeeld verbindingsgegevens voor de Data Factory zodat deze verbinding kan maken met een Azure Storage-account. Een Azure Blob-gegevensset specificeert de blobcontainer en -map in de Azure Blob-opslag van waaruit de pijplijn de gegevens moet lezen. Op deze manier biedt een gekoppelde Azure SQL-service verbindingsgegevens voor een Azure SQL-database en een Azure SQL-gegevensset specificeert de tabel die de gegevens bevat.   
@@ -69,23 +70,23 @@ U kunt op dit moment gegevensfactory’s maken in de regio’s **VS - west**, **
 
 Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde stromen mee maken om de verplaatsing van gegevens te beheren tussen [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) en om er gegevens mee te verwerken middels [Compute Services](data-factory-compute-linked-services.md) in andere regio's of in een on-premises omgeving. U kunt er ook [werkstromen mee bewaken en beheren](data-factory-monitor-manage-pipelines.md) met zowel programmatische als gebruikersinterfacemechanismen.
 
-Hoewel Azure Data Factory alleen beschikbaar is in **VS - west**, **VS - oost** en **Noord-Europa**, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, [wereldwijd](data-factory-data-movement-activities.md#global) beschikbaar in meerdere regio’s. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een [gegevensbeheergateway](data-factory-move-data-between-onprem-and-cloud.md) die is geïnstalleerd in uw on-premises omgeving.
+Hoewel Data Factory alleen beschikbaar is in **VS - west**, **VS - oost** en **Noord-Europa**, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, [wereldwijd](data-factory-data-movement-activities.md#global) beschikbaar in meerdere regio’s. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een [gegevensbeheergateway](data-factory-move-data-between-onprem-and-cloud.md) die is geïnstalleerd in uw on-premises omgeving.
 
 Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw berekeningsomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw berekeningsomgeving.
 
 Het plan bestaat om ervoor te zorgen dat in de toekomst Azure Data Factory in alle regio’s wordt ondersteund door Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg de stapsgewijze instructies in de onderstaande zelfstudies voor informatie over het bouwen van gegevensfactory’s met gegevenspijplijnen.
+Volg de stapsgewijze instructies in de onderstaande zelfstudies voor informatie over het bouwen van gegevensfactory’s met gegevenspijplijnen:
 
 | Zelfstudie | Beschrijving |
 | --- | --- |
-| [Een gegevenspijplijn maken die gegevens verwerkt met behulp van Hadoop-cluster](data-factory-build-your-first-pipeline.md) |In deze zelfstudie bouwt u uw eerste Azure-gegevensfactory met een gegevenspijplijn die **gegevens verwerkt** door Hive-script uit te voeren op een Azure HDInsight-cluster (Hadoop). |
-| [Een gegevenspijplijn maken voor het verplaatsen van gegevens tussen twee gegevensarchieven in de cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van Blob Storage naar SQL Database. |
-| [Een gegevenspijplijn maken voor het verplaatsen van gegevens tussen een on-premises gegevensopslag en een gegevensarchief in de cloud met behulp van Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van een **on-premises** SQL Server-database naar een Azure-blob. Als onderdeel van de procedure installeert en configureert u de gegevensbeheergateway op uw computer. |
+| [Gegevens verplaatsen tussen twee cloudlocaties voor gegevensopslag](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van Blob Storage naar SQL Database. |
+| [Gegevens transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) |In deze zelfstudie bouwt u uw eerste Azure-gegevensfactory met een gegevenspijplijn die **gegevens verwerkt** door Hive-script uit te voeren op een Azure HDInsight-cluster (Hadoop). |
+| [Gegevens verplaatsen tussen een on-premises gegevensopslag en een gegevensarchief in de cloud met behulp van Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |In deze zelfstudie maakt u een gegevensfactory met een pijplijn die **gegevens verplaatst** van een **on-premises** SQL Server-database naar een Azure-blob. Als onderdeel van de procedure installeert en configureert u de gegevensbeheergateway op uw computer. |
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

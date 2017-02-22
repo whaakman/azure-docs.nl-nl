@@ -1,10 +1,10 @@
 1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com) en klik op **+NIEUW** onder aan het scherm.
 2. Klik op **App Services**, vervolgens op ** Mobile Engagement** en vervolgens op **Maken**.
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 3. Typ de volgende informatie in de pop-up die daarna wordt weergegeven:
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
    
    * **Toepassingsnaam**: naam van uw toepassing. 
    * **Platform**: doelplatform voor de app. U moet voor elk platform waarvoor uw mobiele toepassing is bedoeld één Mobile Engagement-app maken. 
@@ -16,8 +16,10 @@
 5. Klik op **VERBINDINGSGEGEVENS** om de verbindingsinstellingen weer te geven die u in de SDK-integratie in uw mobiele app moet plaatsen.
 6. Kopieer de **VERBINDINGSREEKS** - dit is wat u nodig hebt om deze app in uw toepassingscode te herkennen en om vanuit uw app verbinding te maken met Mobile Engagement.
    
-    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+       ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!--HONumber=Aug16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

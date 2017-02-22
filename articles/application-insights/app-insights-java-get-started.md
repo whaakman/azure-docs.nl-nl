@@ -38,10 +38,10 @@ U hebt de volgende zaken nodig:
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Een Application Insights-instrumentatiesleutel ophalen
 1. Meld u aan bij de [Microsoft Azure Portal](https://portal.azure.com).
 2. Maak een Application Insights-resource. Stel het toepassingstype in op Java-webtoepassing.
-   
+
     ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/app-insights-java-get-started/02-create.png)
 3. Zoek de instrumentatiesleutel van de nieuwe resource. U moet deze sleutel zo dadelijk in de code van uw project plakken.
-   
+
     ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. De Application Insights-SDK voor Java toevoegen aan uw project
@@ -107,11 +107,11 @@ Voeg de SDK handmatig toe:
 
 ### <a name="questions"></a>Vragen...
 * *Wat is de relatie tussen de `-core`- en `-web`-onderdelen in het zip-bestand?*
-  
+
   * `applicationinsights-core` biedt u de bare-API. U hebt dit onderdeel altijd nodig.
   * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
 * *De SDK bijwerken wanneer er wijzigingen worden gepubliceerd*
-  
+
   * Download de meest recente [Application Insights-SDK voor Java](https://aka.ms/qqkaq6) en vervang de oude versie.
   * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -239,11 +239,11 @@ Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Gegevens van exemplaren
-Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven. 
+Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven.
 
 In Application Insights worden twee soorten gegevens weergegeven: cumulatieve gegevens (opgeslagen en weergegeven als gemiddelden, aantallen en sommen) en gegevens van exemplaren (afzonderlijke rapporten over HTTP-aanvragen, uitzonderingen, paginaweergaven of aangepaste gebeurtenissen).
 
@@ -260,16 +260,16 @@ Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het same
 Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de telemetrische gegevens die in de portal binnenkomen.
 
 * Controleer of de firewall het verzenden van telemetrie door uw app naar deze poorten toestaat:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Als uitgaand verkeer via een firewall moet worden gerouteerd, definieert u de systeemeigenschappen `http.proxyHost` en `http.proxyPort`. 
+* Als uitgaand verkeer via een firewall moet worden gerouteerd, definieert u de systeemeigenschappen `http.proxyHost` en `http.proxyPort`.
 
 * Installeer op Windows-servers:
-  
+
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Dit onderdeel schakelt prestatiemeteritems in.)
 
 
@@ -280,7 +280,7 @@ Onverwerkte uitzonderingen worden automatisch verzameld:
 
 Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
-* [Aanroepen naar trackException() invoegen in uw code][apiexceptions]. 
+* [Aanroepen naar trackException() invoegen in uw code][apiexceptions].
 * [De Java-agent installeren op uw server](app-insights-java-agent.md). U specificeert de methoden die u wilt bekijken.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Methodeaanroepen en externe afhankelijkheden bewaken
@@ -370,7 +370,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 ![Voorbeeld van een webtest](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Meer informatie over de webtests voor beschikbaarheid.][availability] 
+[Meer informatie over de webtests voor beschikbaarheid.][availability]
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 [Problemen met Java oplossen](app-insights-java-troubleshoot.md)
@@ -387,7 +387,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -397,6 +397,6 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

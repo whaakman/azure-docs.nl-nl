@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Data Lake Store - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.
+services: data-lake-store
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5ddeaf6f2049983f80618d9e2294f82c60fe9af5
-ms.openlocfilehash: 2948011d1d321d0371928bbdf7a9a9414036589c
+ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
+ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentatie voor Data Lake Store
 
-Azure Data Lake Store is een zeer grote opslagruimte voor big data-analyseworkloads. Met Azure Data Lake kunt u gegevens van elke grootte, type en opnamesnelheid vastleggen op één enkele locatie voor operationele en experimentele analyses.  Azure Data Lake Store kan worden geopend via Hadoop (beschikbaar met HDInsight-cluster) met behulp van de met WebHDFS compatibele scenario’s. Het bevat alle mogelijkheden op bedrijfsniveau voor beveiliging, beheerbaarheid, schaalbaarheid, betrouwbaarheid en beschikbaarheid.
+Leer hoe u Data Lake Store kunt gebruiken om een grootschalige, met Hadoop compatibele opslagplaats te maken voor analyse van gegevens van elke grootte, soort en opnamesnelheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u een Data Lake-opslagplaats kunt instellen, beheren en openen voor operationele en verkennende analyse.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -93,7 +105,7 @@ Azure Data Lake Store is een zeer grote opslagruimte voor big data-analyseworklo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Data Lake Store met de Azure-CLI</h3>
+                        <h3>Aan de slag met Azure Data Lake Store met de Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -157,80 +169,54 @@ Azure Data Lake Store is een zeer grote opslagruimte voor big data-analyseworklo
 </ul>
 
 ---
-
-## <a name="reference"></a>Naslaginformatie
-
+ 
+<h2>Naslaginformatie</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-referentie</p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Beheerde naslaginformatie over .NET</p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (accountbeheer)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (bestandssysteembeheer)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Naslaginformatie over de Java-SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/datalakestore">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Naslaginformatie over de REST-API voor Data Lake Store</p>
+                        <p><a href="/rest/api/datalakestore">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie voor Azure Data Lake Store downloaden </div>
-    </a>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

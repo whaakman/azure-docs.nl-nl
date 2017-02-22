@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-users-create-external-azure-portal.md)
 > * [Klassieke Azure Portal](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
@@ -34,7 +34,7 @@ In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere direct
 2. Selecteer **Active Directory** en open vervolgens uw directory.
 3. Selecteer de tab **Gebruikers** en selecteer vervolgens in de opdrachtbalk **Gebruiker toevoegen**.
 4. Selecteer op de pagina **Vertel ons meer over deze gebruiker** onder **Type gebruiker** een van de volgende opties:
-   
+
    * **Gebruiker in een andere Azure AD-directory**: hiermee voegt u een gebruikersaccount toe aan uw directory dat afkomstig is uit een andere Azure AD-directory. U kunt alleen een gebruiker selecteren in een andere directory als u ook lid van die directory bent.
    * **Gebruikers in partnerbedrijven** - gebruik deze optie om gebruikers van partnerbedrijven uit te nodigen in uw directory (zie [Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md) (Engelstalig)). Hiervoor moet u moet [een CSV-bestand met e-mailadressen uploaden](active-directory-b2b-references-csv-file-format.md).
 5. Geef op de **profielpagina** van de gebruiker een voor- en achternaam op, een gebruiksvriendelijke naam en een gebruikersrol uit de lijst **Rollen**. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen. Activeer desgewenst de optie **Meervoudige verificatie inschakelen** voor de gebruiker.
@@ -42,11 +42,11 @@ In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere direct
 
 > [!IMPORTANT]
 > Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
-> 
+>
 > * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com, toe, **gevolgd door** geoffgrisso@contoso.com.
-> * Voeg **niet** eerst geoffgrisso@contoso.com en dan geoffgrisso@contoso.onmicrosoft.com. toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
-> 
-> 
+> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
+>
+>
 
 Als u informatie wijzigt voor een gebruiker wiens identiteit is gesynchroniseerd met uw on-premises Active Directory-service, kunt u de gebruikersinformatie niet wijzigen in de klassieke Azure-portal. Gebruik uw beheerhulpprogramma's voor on-premises Active Directory om de gebruikersinformatie te wijzigen.
 
@@ -62,8 +62,8 @@ De enige connectie tussen de twee accounts is dat de gebruiker altijd wordt geve
 
 > [!NOTE]
 > U kunt de externe gebruiker nog steeds uitschakelen in de directory. Op deze manier blokkeert u de toegang tot uw directory.
-> 
-> 
+>
+>
 
 Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of zij het Microsoft-account opzegt, bestaat de externe gebruiker nog steeds in uw directory. De gebruiker in uw directory heeft echter geen toegang meer tot resources, omdat hij of zij zich niet kan aanmelden met een oorspronkelijke directory of een Microsoft-account.
 
@@ -79,6 +79,7 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 * PowerBI ondersteunt momenteel geen toegang voor externe gebruikers
 * De Office-portal biedt geen ondersteuning voor de licentieverlening van externe gebruikers
 * Wat betreft Azure AD PowerShell zijn externe gebruikers aangemeld via hun oorspronkelijke directory en kunnen ze geen directory's beheren waarin zij externe gebruikers zijn
+* Tijdens de configuratie van de Dynamics CRM Outlook-invoegtoepassing moeten externe gebruikers mogelijk handmatig de URL van de Dynamics CRM Online-tenant invoeren in plaats van 'CRM Online' te selecteren
 
 ## <a name="whats-next"></a>Volgend onderwerp
 * [Nieuwe gebruikers toevoegen aan Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

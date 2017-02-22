@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 665e0684328538b61bb3eb05180d8d7d0e65ec49
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
 
 ---
 
@@ -75,7 +75,7 @@ Stel dat u het domein contoso.com koopt en een zone met de naam contoso.com in A
 ### <a name="finding-the-name-server-names"></a>De namen van de naamserver zoeken
 Voordat u uw DNS-zone naar Azure DNS kunt delegeren, moet u eerst de servernamen voor uw zone weten. Telkens wanneer er een zone wordt gemaakt, wijst Azure DNS naamservers uit een groep toe.
 
-De eenvoudigste manier om de toegewezen naamservers te bekijken, is via Azure Portal.  In dit voorbeeld zijn de naamservers ns1-01.azure-dns.com, ns2 01.azure dns.net, ns3-01.azure-dns.org en ns4-01.azure-dns.info aan de zone contoso.net toegewezen:
+De eenvoudigste manier om de toegewezen naamservers te bekijken, is via Azure Portal.  In dit voorbeeld zijn de naamservers ns1-01.azure-dns.com, ns2&01;.azure dns.net, ns3-01.azure-dns.org en ns4-01.azure-dns.info aan de zone contoso.net toegewezen:
 
  ![DNS-naamserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -83,36 +83,49 @@ Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegeweze
 
 Met Azure PowerShell kunnen de gezaghebbende NS-records als volgt worden opgehaald. De recordnaam "@" wordt gebruikt om te verwijzen naar records in de apex van de zone.
 
-    PS> $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
-    PS> Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+```powershell
+$zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+```
 
-    Name              : @
-    ZoneName          : contoso.net
-    ResourceGroupName : MyResourceGroup
-    Ttl               : 3600
-    Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
-    RecordType        : NS
-    Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
-                        ns4-01.azure-dns.info}
-    Tags              : {}
+Het volgende voorbeeld is het antwoord.
+
+```
+Name              : @
+ZoneName          : contoso.net
+ResourceGroupName : MyResourceGroup
+Ttl               : 3600
+Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
+RecordType        : NS
+Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                    ns4-01.azure-dns.info}
+Tags              : {}
+```
 
 U kunt ook de platformoverschrijdende CLI van Azure gebruiken om gezaghebbende NS-records op te halen en zodoende de naamservers achterhalen die zijn toegewezen aan uw zone:
 
-    C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
-    info:    Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-    data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 172800
-    data:    NS records
-    data:        Name server domain name     : ns1-01.azure-dns.com.
-    data:        Name server domain name     : ns2-01.azure-dns.net.
-    data:        Name server domain name     : ns3-01.azure-dns.org.
-    data:        Name server domain name     : ns4-01.azure-dns.info.
-    data:
-    info:    network dns record-set show command OK
+```azurecli
+azure network dns record-set show MyResourceGroup contoso.net @ NS
+```
+
+Het volgende voorbeeld is het antwoord.
+
+```
+info:    Executing command network dns record-set show
+    + Looking up the DNS Record Set "@" of type "NS"
+data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+data:    Name                            : @
+data:    Type                            : Microsoft.Network/dnszones/NS
+data:    Location                        : global
+data:    TTL                             : 172800
+data:    NS records
+data:        Name server domain name     : ns1-01.azure-dns.com.
+data:        Name server domain name     : ns2-01.azure-dns.net.
+data:        Name server domain name     : ns3-01.azure-dns.org.
+data:        Name server domain name     : ns4-01.azure-dns.info.
+data:
+info:    network dns record-set show command OK
+```
 
 ### <a name="to-set-up-delegation"></a>Delegering instellen
 
@@ -128,19 +141,21 @@ Nadat het delegeren is voltooid, kunt u controleren of de naamomzetting werkt do
 
 U hoeft de Azure DNS-naamservers niet op te geven, aangezien het normale DNS-omzettingproces automatisch de naamservers zoekt als delegering goed is ingesteld.
 
-    nslookup -type=SOA contoso.com
+```
+nslookup -type=SOA contoso.com
 
-    Server: ns1-04.azure-dns.com
-    Address: 208.76.47.4
+Server: ns1-04.azure-dns.com
+Address: 208.76.47.4
 
-    contoso.com
-    primary name server = ns1-04.azure-dns.com
-    responsible mail addr = msnhst.microsoft.com
-    serial = 1
-    refresh = 900 (15 mins)
-    retry = 300 (5 mins)
-    expire = 604800 (7 days)
-    default TTL = 300 (5 mins)
+contoso.com
+primary name server = ns1-04.azure-dns.com
+responsible mail addr = msnhst.microsoft.com
+serial = 1
+refresh = 900 (15 mins)
+retry = 300 (5 mins)
+expire = 604800 (7 days)
+default TTL = 300 (5 mins)
+```
 
 ## <a name="delegating-sub-domains-in-azure-dns"></a>Subdomeinen delegeren in Azure DNS
 
@@ -186,19 +201,21 @@ Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 U kunt controleren of alles juist is ingesteld door de SOA-record van de onderliggende zone te zoeken.
 
-    nslookup -type=SOA partners.contoso.com
+```
+nslookup -type=SOA partners.contoso.com
 
-    Server: ns1-08.azure-dns.com
-    Address: 208.76.47.8
+Server: ns1-08.azure-dns.com
+Address: 208.76.47.8
 
-    partners.contoso.com
-        primary name server = ns1-08.azure-dns.com
-        responsible mail addr = msnhst.microsoft.com
-        serial = 1
-        refresh = 900 (15 mins)
-        retry = 300 (5 mins)
-        expire = 604800 (7 days)
-        default TTL = 300 (5 mins)
+partners.contoso.com
+    primary name server = ns1-08.azure-dns.com
+    responsible mail addr = msnhst.microsoft.com
+    serial = 1
+    refresh = 900 (15 mins)
+    retry = 300 (5 mins)
+    expire = 604800 (7 days)
+    default TTL = 300 (5 mins)
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -209,6 +226,6 @@ U kunt controleren of alles juist is ingesteld door de SOA-record van de onderli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
+ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
 
 
 ---
@@ -29,7 +29,7 @@ U kunt webtests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk z
 Er zijn twee soorten webtests:
 
 * [URL-pingtest](#create): een eenvoudige test die u in Azure Portal kunt instellen.
-* [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Ultimate of Visual Studio Enterprise maken en uploaden naar de portal.
+* [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Enterprise maken en uploaden naar de portal.
 
 Per toepassingsresource kunt u maximaal 10 webtests maken.
 
@@ -122,7 +122,7 @@ Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visu
 U kunt in uw tests geen gecodeerde functies gebruiken. De scenariostappen moeten als script worden verwerkt in het .webtest-bestand.
 
 #### <a name="1-record-a-scenario"></a>1. Een scenario opnemen
-Gebruik Visual Studio Enterprise of Ultimate om een websessie op te nemen.
+Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
 1. Maak een project om de webprestaties te testen.
 
@@ -239,7 +239,7 @@ Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
 ## <a name="automation"></a>Automatisering
-* Gebruik [PowerShell-scripts](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) om automatisch een webtest in te stellen.
+* Gebruik [PowerShell-scripts](app-insights-powershell.md#add-an-availability-test) om automatisch een webtest in te stellen.
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
@@ -294,6 +294,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

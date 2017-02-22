@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure Virtual Network (VNET)
-description: Meer informatie over virtuele netwerken (VNEt&quot;s) in Azure.
+title: Virtuele netwerken in Azure | Microsoft Docs
+description: Meer informatie over virtuele netwerken in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
+ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
 
 
 ---
-# <a name="virtual-network-overview"></a>Overzicht van Virtual Network
-Een virtueel Azure-netwerk (VNET) is een weergave van uw eigen netwerk in de cloud.  Het is een logische isolatie van de Azure-cloud die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNET ook verder segmenteren in subnetten en Azure IaaS virtuele machines (VM's) en/of [Cloudservices (PaaS-rolexemplaren)](../cloud-services/cloud-services-choose-me.md). Hiermee kunt u het virtuele netwerk via een van de beschikbare [verbindingsopties](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) in Azure verbinden met uw on-premises netwerk. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
+# <a name="virtual-networks"></a>Virtuele netwerken
+Een virtueel Azure-netwerk (VNET) is een weergave van uw eigen netwerk in de cloud.  Het is een logische isolatie van de Azure-cloud die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNET ook verder segmenteren in subnetten en Azure IaaS virtuele machines (VM's) en/of [Cloudservices (PaaS-rolexemplaren)](../cloud-services/cloud-services-choose-me.md). Hiermee kunt u het virtuele netwerk via een van de beschikbare [verbindingsopties](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) in Azure verbinden met uw on-premises netwerk. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
 
 Zie de onderstaande afbeelding van een vereenvoudigd on-premises netwerk om meer inzicht te krijgen in VNET's.
 
@@ -37,21 +37,19 @@ Zie hoe de Azure-infrastructuur de rol van de router overneemt en zo de toegang 
 
 > [!NOTE]
 > Er zijn twee implementatiemodi in Azure: de klassieke modus (ook wel bekend als Service Management) en Azure Resource Manager (ARM). Klassieke VNET's kunnen worden toegevoegd aan een affiniteitsgroep of worden gemaakt als een regionaal VNET. Als u een VNET in een affiniteitsgroep hebt, wordt u aangeraden om het te [migreren naar een regionaal VNET](virtual-networks-migrate-to-regional-vnet.md).
-> 
-> 
+>
 
-## <a name="virtual-network-benefits"></a>Voordelen van Virtual Network
+## <a name="benefits"></a>Voordelen
 * **Isolatie**. VNET's zijn volledig geïsoleerd van elkaar. Hierdoor kunt u onafhankelijke netwerken met dezelfde CIDR-adresblokken maken voor ontwikkeling, testen en productie.
 * **Toegang tot internet**. Alle IaaS virtuele machines en PaaS-rolexemplaren in een VNET hebben standaard toegang tot internet. U kunt de toegang beheren met behulp van netwerkbeveiligingsgroepen (NSG's).
 * **Toegang tot VM's binnen het VNET**. PaaS-rolexemplaren en IaaS VM's kunnen worden gestart in hetzelfde virtuele netwerk en met elkaar verbinding maken via privé-IP-adressen, zelfs als ze zich in verschillende subnetten bevinden. U hoeft hiervoor geen gateway te configureren of openbare IP-adressen te gebruiken.
-* **Naamomzetting**. Azure bevat functionaliteit voor interne naamomzetting voor IaaS VM's en PaaS-rolexemplaren die in uw VNET zijn geïmplementeerd. U kunt ook uw eigen DNS-servers implementeren en het VNET daarvoor configureren.
+* **Naamomzetting**. Azure bevat functionaliteit voor [interne naamomzetting](virtual-networks-name-resolution-for-vms-and-role-instances.md) voor virtuele IaaS-machines en PaaS-rolexemplaren die in uw VNET zijn geïmplementeerd. U kunt ook uw eigen DNS-servers implementeren en het VNET daarvoor configureren.
 * **Beveiliging**. Binnenkomend en uitgaand verkeer van de virtuele machines en PaaS-rolexemplaren in een VNET kan worden beheerd met behulp van netwerkbeveiligingsgroepen.
-* **Connectiviteit**. VNets kunnen met elkaar worden verbonden met netwerkgateways of via VNet-peering. VNets kunnen worden verbonden met on-premises datacenters via site-naar-site-VPN-netwerken of Azure ExpressRoute. Ga naar [Informatie over VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) voor meer informatie over site-naar-site-VPN-connectiviteit. Ga naar [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) voor meer informatie over ExpressRoute. Ga naar [VNet-peering](virtual-network-peering-overview.md) voor meer informatie over VNet-peering.
-  
+* **Connectiviteit**. VNets kunnen met elkaar worden verbonden met netwerkgateways of via VNet-peering. VNets kunnen worden verbonden met on-premises datacenters via site-naar-site-VPN-netwerken of Azure ExpressRoute. Ga naar [Informatie over VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) voor meer informatie over site-naar-site-VPN-connectiviteit. Ga naar [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) voor meer informatie over ExpressRoute. Ga naar [VNet-peering](virtual-network-peering-overview.md) voor meer informatie over VNet-peering.
+
   > [!NOTE]
   > Maak een VNET voordat u IaaS VM's of PaaS-rolexemplaren implementeert in uw Azure-omgeving. Voor VM's op basis van ARM is een VNET vereist. Als u geen bestaand VNET opgeeft, wordt in Azure een standaard-VNET gemaakt met een CIDR-adresblok dat mogelijk conflicteert met uw on-premises netwerk. In dat geval kunt u uw VNET niet verbinden met uw on-premises netwerk.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>Subnetten
 Een subnet is een bereik met IP-adressen in het VNET. U kunt u een VNET onderverdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook routetabellen en NSG's configureren voor een subnet.
@@ -69,7 +67,7 @@ Virtuele machines en cloudservices in een virtueel netwerk kunnen worden blootge
 
 Ga naar [Overzicht van Load balancer](../load-balancer/load-balancer-overview.md) voor meer informatie over taakverdeling en load balancers.
 
-## <a name="network-security-group-nsg"></a>Netwerkbeveiligingsgroep (NSG)
+## <a name="network-security-groups-nsg"></a>Netwerkbeveiligingsgroepen (NSG's)
 U kunt NSG's maken voor het beheer van binnenkomende en uitgaande toegang tot netwerkinterfaces (NIC's), VM's en subnetten. Elke NSG bevat een of meer regels waarmee wordt bepaald of verkeer wordt goedgekeurd of afgewezen op basis van het bron-IP-adres, de bronpoort, het doel-IP-adres en de doelpoort. Ga naar [Wat is een netwerkbeveiligingsgroep](virtual-networks-nsg.md) voor meer informatie over NSG's.
 
 ## <a name="virtual-appliances"></a>Virtuele apparaten
@@ -93,7 +91,6 @@ Er worden geen extra kosten in rekening gebracht voor het gebruik van virtuele n
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

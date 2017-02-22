@@ -1,10 +1,9 @@
-U kunt hier de AMS-leertrajecten bekijken:
+Hier kunt u de leertrajecten van Azure Media Services bekijken:
 
-* [Werkstroom voor AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Werkstroom voor AMS On Demand Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Werkstroom voor Media Services Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Werkstroom voor Media Services on Demand Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

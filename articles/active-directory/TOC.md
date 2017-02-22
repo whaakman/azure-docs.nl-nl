@@ -2,7 +2,7 @@
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Editie kiezen](active-directory-editions.md)
 ## [Over Azure-identiteitsbeheer](fundamentals-identity.md)
-## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
+## [Een voorbeeld bekijken van de Azure AD Portal-ervaring](active-directory-preview-explainer.md)
 
 
 # Aan de slag
@@ -34,7 +34,7 @@
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Klassieke portal](active-directory-accessmanagement-manage-groups.md)
-#### [Powershell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)
@@ -99,22 +99,6 @@
 ### [Uw apparaat registreren](active-directory-azureadjoin-personal-device.md)
 ### [Een apparaat met Windows 10 registreren](active-directory-azureadjoin-user-upgrade.md)
 
-### [Voorwaardelijke toegang](active-directory-conditional-access.md)
-#### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
-#### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
-#### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
-##### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Authenticator-app beheren](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
-#### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
-#### [On-premises implementeren](active-directory-conditional-access-on-premises-setup.md)
-#### [Veelgestelde vragen](active-directory-conditional-faqs.md)
-#### [Problemen oplossen](active-directory-conditional-access-device-remediation.md)
-#### [Naslaginformatie](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)
@@ -122,12 +106,13 @@
 #### [Implementeren](active-directory-azureadjoin-devices-group-policy.md)
 #### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
 #### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Meer informatie over integratie met Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10-apparaten gebruiken](active-directory-azureadjoin-windows10-devices.md)
-
-### Verificatie op basis van certificaat
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [Veelgestelde vragen](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Problemen oplossen
+##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## Apps beheren
 ### [Overzicht](active-directory-enable-sso-scenario.md)
@@ -139,25 +124,31 @@
 
 ### [Externe toegang tot uw apps bieden](active-directory-application-proxy-get-started.md)
 #### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
+#### [Meer informatie over connectors](application-proxy-understand-connectors.md)
+
 #### Apps publiceren
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klassieke portal](active-directory-application-proxy-publish.md)
+#### [Beveiliging](application-proxy-security-considerations.md)
+#### [Netwerken](application-proxy-network-topology-considerations.md)
+#### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publiceren op een aparte netwerken
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Klassieke portal](active-directory-application-proxy-connectors.md)
+#### [Proxyservers](application-proxy-working-with-proxy-servers.md)
 #### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
-#### [Eenmalige aanmelding](active-directory-application-proxy-sso-using-kcd.md)
+#### [Toegang tot apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
+#### [Eenmalige aanmelding](active-directory-application-proxy-sso-using-kcd.md)
 #### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
+#### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
 #### [Voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md)
 #### [Stille installatie](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
-### [Meer informatie over eenmalige aanmelding voor apps](active-directory-appssoaccess-whatis.md)
-
-### SaaS-apps integreren
-#### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
-#### [Klassieke portal](active-directory-sso-integrate-saas-apps.md)
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
@@ -176,10 +167,10 @@
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
+#### [Beperkingen voor tenants](active-directory-tenant-restrictions.md)
 
 ### [SCIM gebruiken voor het inrichten van gebruikers](active-directory-scim-provisioning.md)
 ### [Documentbibliotheek](active-directory-apps-index.md)
-
 
 ## Uw directory beheren
 ### Aangepaste domeinnamen
@@ -206,15 +197,30 @@
 #### [Windows 10-instellingen](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Veelgestelde vragen](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Problemen oplossen](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Partners integreren met Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Overzicht](active-directory-b2b-collaboration-overview.md)
-#### [Hoe werkt het?](active-directory-b2b-how-it-works.md)
-#### [Mogelijkheden vergelijken](active-directory-b2b-compare-external-identities.md)
-#### [Kennismaking](active-directory-b2b-detailed-walkthrough.md)
-#### [Beperkingen](active-directory-b2b-current-preview-limitations.md)
-#### [CSV-bestandsindeling](active-directory-b2b-references-csv-file-format.md)
-#### [Gebruikersobjecten](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [Gebruikerstokens](active-directory-b2b-references-external-user-token-format.md)
+#### [Beheerders die B2B-gebruikers toevoegen](active-directory-b2b-admin-add-users.md)
+#### [Informatiewerkers die B2B-gebruikers toevoegen](active-directory-b2b-iw-add-users.md)
+#### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
+#### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
+#### [Eigenschappen van B2B-gebruikers](active-directory-b2b-user-properties.md)
+#### [Een gastgebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+#### [API en aanpassingen](active-directory-b2b-api.md)
+#### [Uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
+#### [Dynamische groepen en B2B](active-directory-b2b-dynamic-groups.md)
+#### [Multi-Factor Authentication voor B2B](active-directory-b2b-mfa-instructions.md)
+#### [B2B-gebruikerstokens](active-directory-b2b-user-token.md)
+#### [B2B-gebruikersclaims toewijzen](active-directory-b2b-claims-mapping.md)
+#### [Office 365 extern delen](active-directory-b2b-o365-external-user.md)
+#### [B2B en B2C vergelijken](active-directory-b2b-compare-b2c.md)
+#### [SaaS-toepassingen configureren voor B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Code en PowerShell-voorbeelden](active-directory-b2b-code-samples.md)
+#### [Huidige beperkingen](active-directory-b2b-current-limitations.md)
+#### [Licentieverlening](active-directory-b2b-licensing.md)
+#### [Problemen oplossen voor B2B](active-directory-b2b-troubleshooting.md)
+#### [B2B-samenwerking vergelijken met B2C](active-directory-b2b-compare-b2c.md)
+#### [Ondersteuning krijgen voor B2B](active-directory-b2b-support.md)
+#### [Veelgestelde vragen](active-directory-b2b-faq.md)
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -238,6 +244,22 @@
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
 ## Uw identiteiten beveiligen
+### [Voorwaardelijke toegang](active-directory-conditional-access.md)
+#### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
+#### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
+#### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
+##### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Authenticator-app beheren](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
+#### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
+#### [On-premises implementeren](active-directory-conditional-access-on-premises-setup.md)
+#### [Veelgestelde vragen](active-directory-conditional-faqs.md)
+#### [Problemen oplossen](active-directory-conditional-access-device-remediation.md)
+#### [Naslaginformatie](active-directory-conditional-access-technical-reference.md)
+### Verificatie op basis van certificaat
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Inschakelen](active-directory-identityprotection-enable.md)
 #### [Beveiligingslekken detecteren](active-directory-identityprotection-vulnerabilities.md)
@@ -250,8 +272,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Implementeren op Azure VM's](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory op Azure VM's](active-directory-deploying-ws-ad-guidelines.md)
+## [Implementeren op virtuele Azure-machines](virtual-networks-windows-server-active-directory-virtual-machines.md)
+### [Windows Server Active Directory op virtuele Azure-machines](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replicadomeincontroller in een virtueel Azure-netwerk](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Nieuw forest in een virtueel Azure-netwerk](active-directory-new-forest-virtual-machine.md)
 
@@ -301,6 +323,6 @@
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/21/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5565ba8795127ffbdecbe8b764d3aa7f4b93f784
-ms.openlocfilehash: f76734eb4081e08603d98b6a1be11cade3130b1d
+ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
+ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
 
 
 ---
@@ -238,11 +238,11 @@ for (int i=0; i<5; i++)
 Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een onderwerp, maar er is een limiet voor de totale grootte van de berichten in een onderwerp. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB. Als partitioneren is ingeschakeld, is de bovengrens hoger. Zie [Partitioned messaging entities](service-bus-partitioning.md) (Gepartitioneerde berichtentiteiten) voor meer informatie.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Berichten van een abonnement ontvangen
-De aanbevolen manier om berichten te ontvangen van een abonnement is het gebruik van een [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient)-object. **SubscriptionClient**-objecten kunnen werken in twee verschillende modi: [*ReceiveAndDelete* en *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode).
+De aanbevolen manier om berichten te ontvangen van een abonnement is het gebruik van een [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient)-object. **SubscriptionClient**-objecten kunnen werken in twee verschillende modi: [*ReceiveAndDelete* en *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** is de standaardmodus.
 
 Wanneer u de **ReceiveAndDelete**-modus gebruikt, wordt het ontvangen in één bewerking uitgevoerd; dat wil zeggen als Service Bus een leesaanvraag voor een bericht in een abonnement ontvangt, wordt voor het bericht aangegeven dat het is verbruikt en wordt het bericht naar de toepassing geretourneerd. De **ReceiveAndDelete**-modus is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing het niet verwerken van een bericht bij een fout kan tolereren. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, ontbreekt het bericht dat voor het vastlopen is verbruikt wanneer de toepassing opnieuw wordt gestart en het verbruik van berichten opnieuw begint.
 
-In de **PeekLock**-modus (dit is de standaardmodus) wordt het ontvangstproces een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met de verwerking van het bericht (of het bericht veilig heeft opgeslagen voor toekomstige verwerking), wordt de tweede fase van het ontvangstproces voltooid door [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) aan te roepen voor het ontvangen bericht. Wanneer Service Bus de aanroep **Complete** waarneemt, wordt het bericht gemarkeerd als verbruikt en wordt het uit het abonnement verwijderd.
+In de **PeekLock**-modus (de standaardmodus) wordt het ontvangstproces een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met de verwerking van het bericht (of het bericht veilig heeft opgeslagen voor toekomstige verwerking), wordt de tweede fase van het ontvangstproces voltooid door [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) aan te roepen voor het ontvangen bericht. Wanneer Service Bus de aanroep **Complete** waarneemt, wordt het bericht gemarkeerd als verbruikt en wordt het uit het abonnement verwijderd.
 
 Het volgende voorbeeld laat zien hoe berichten kunnen worden ontvangen en verwerkt met de standaardmodus **PeekLock**. Als u een andere [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)-waarde wilt opgeven, kunt u een andere overload voor [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_) gebruiken. In dit voorbeeld wordt de [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_)-callback gebruikt om berichten te verwerken wanneer ze bij het **HighMessages**-abonnement aankomen.
 
@@ -326,6 +326,6 @@ Nu u de basisprincipes van Service Bus-onderwerpen en -abonnementen hebt geleerd
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

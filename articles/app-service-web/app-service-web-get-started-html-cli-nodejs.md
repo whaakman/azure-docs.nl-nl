@@ -1,5 +1,5 @@
 ---
-title: In vijf minuten uw eerste web-app implementeren in Azure | Microsoft Docs
+title: Uw eerste HTML-web-app in vijf minuten in Azure implementeren | Microsoft Docs
 description: Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudig het is om web-apps in App Service uit te voeren. U kunt snel een app gaan ontwikkelen en onmiddellijk de resultaten bekijken.
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 4e2d846ef3ce6e78d5789c7b8e1b8228617837b6
+ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
+ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>In vijf minuten uw eerste web-app implementeren in Azure
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>In vijf minuten uw eerste HTML-web-app implementeren in Azure
 
 > [!div class="op_single_selector"]
 > * [Eerste HTML-site](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 * Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> U kunt [App Service proberen](http://go.microsoft.com/fwlink/?LinkId=523751) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
@@ -135,6 +135,6 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

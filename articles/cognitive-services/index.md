@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Cognitive Services - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u intelligente mogelijkheden kunt toevoegen aan uw toepassingen, zoals visie, spraak en taalanalyse. Verkorte handleidingen en API-verwijzingen downloaden.
+services: cognitive-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentatie over Cognitive Services
 
-Cognitive Services (Preview) is een serie API's die kunnen worden gebruikt om natuurlijke en contextuele interactie tussen uw toepassingen mogelijk te maken.  Cognitive Services biedt de API's Language, Speech, Vision, Search en Knowledge.
+Leer hoe u natuurlijke en contextuele interactie in uw toepassingen kunt inschakelen met Cognitive Services. Korte zelfstudies en API-verwijzingen helpen u kunstmatige-intelligentiemogelijkheden voor tekst, spraak, visie en zoeken te integreren. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -96,16 +108,10 @@ Cognitive Services (Preview) is een serie API's die kunnen worden gebruikt om na
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Cognitive Services downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

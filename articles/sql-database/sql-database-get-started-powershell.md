@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>SQL Database-zelfstudie: Aan de slag met Azure SQL Database-servers, -databases en -firewallregels met behulp van PowerShell
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Zelfstudie: een Azure SQL-database inrichten en openen met PowerShell
 
 In deze aan de slag-zelfstudie leert u hoe u PowerShell kunt gebruiken voor het volgende:
 
@@ -54,7 +54,7 @@ Aan het eind van deze zelfstudie hebt u een voorbeelddatabase en een lege databa
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](https://azure.microsoft.com/free/) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * U moet aangemeld zijn met een account dat lid is van de eigenaar van het abonnement of de rol Inzender. Zie [Aan de slag met toegangsbeheer in Azure Portal](../active-directory/role-based-access-control-what-is.md) voor meer informatie over op rollen gebaseerd toegangsbeheer (RBAC).
 
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Volgende stappen
 Nu u deze eerste zelfstudie hebt voltooid en een database met enkele voorbeeldgegevens hebt gemaakt, wilt u mogelijk aanvullende zelfstudies volgen die aansluiten op wat u in deze zelfstudie hebt geleerd. 
 
-* Zie [Aan de slag met beveiliging](sql-database-get-started-security.md) voor meer informatie over de beveiliging van Azure SQL Database.
+- Zie [SQL-verificatie en -autorisatie](sql-database-control-access-sql-authentication-get-started.md) voor een zelfstudie om aan de slag te gaan met SQL Server-verificatie
+- Zie [Azure AD-verificatie en -autorisatie](sql-database-control-access-aad-authentication-get-started.md) voor een zelfstudie om aan de slag te gaan met Azure Active Directory-verificatie
+* Zie [Openbaar voorbeeld: interactieve query's voor SQL-databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/) als u een query wilt uitvoeren voor de voorbeelddatabase in Azure Portal
 * Bent u bekend met Excel? Ontdek dan hoe u [verbinding kunt maken met een SQL Database in Azure via Excel](sql-database-connect-excel.md).
 * Als u wilt gaan coderen, kiest u uw programmeertaal in [Verbindingsbibliotheken voor SQL Database en SQL Server](sql-database-libraries.md).
 * Als u uw on-premises SQL Server-database wilt verplaatsen naar Azure, raadpleegt u [Een database migreren naar SQL Database](sql-database-cloud-migrate.md).
@@ -577,6 +579,7 @@ Nu u deze eerste zelfstudie hebt voltooid en een database met enkele voorbeeldge
 [Wat is SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO3-->
 
 

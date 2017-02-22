@@ -9,13 +9,15 @@ Zo biedt een Premium P11-database met 1750 DTU's 350 keer meer DTU aan rekenverm
 > 
 > 
 
-### DTU versus eDTU
+### <a name="dtu-vs-edtu"></a>DTU versus eDTU
 De DTU voor individuele databases wordt rechtstreeks omgezet in de eDTU voor elastische databases. Zo biedt een database in een Basic-pool voor elastische databases maximaal 5 eDTU's. Dat zijn dezelfde prestaties als die van één Basic-database. Het verschil is dat de elastische database pas eDTU's uit de groep gebruikt wanneer dat nodig is. 
 
 ![Inleiding tot de SQL Database: elastische pools per laag.](./media/sql-database-understanding-dtus/sqldb_elastic_pools.png)
 
 Een eenvoudig voorbeeld helpt. Stel, we hebben een Basic-pool voor elastische databases met 1000 DTU's en zetten daar 800 databases in. Zolang er op elk moment in de tijd maar 200 van de 800 databases worden gebruikt (5 DTU x 200 = 1000), wordt de capaciteit van de pool niet bereikt en nemen de prestaties van de database niet af. Dit voorbeeld is voor de helderheid vereenvoudigd. De werkelijke berekening is iets gecompliceerder. Deze berekening wordt door de uitgevoerd en u krijgt een aanbeveling op basis van historisch databasegebruik. Zie [Prijs- en prestatieoverwegingen voor een pool voor elastische databases](../articles/sql-database/sql-database-elastic-pool-guidance.md) als u wilt weten hoe de aanbevelingen werken of als u de berekening zelf wilt uitvoeren. 
 
-<!--HONumber=Aug16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

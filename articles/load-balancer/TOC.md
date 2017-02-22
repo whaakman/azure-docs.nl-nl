@@ -40,14 +40,18 @@
 ## [Meerdere VIP's configureren voor cloudservice](load-balancer-multivip.md)
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Meerdere IP-configuraties gebruiken](load-balancer-multiple-ip.md)
+### [Meerdere IP-configuraties gebruiken (CLI)](load-balancer-multiple-ip-cli.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Azure CLI 2.0 (Preview)](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Verwant
@@ -64,6 +68,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

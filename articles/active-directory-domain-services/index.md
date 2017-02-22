@@ -1,13 +1,25 @@
 ---
+title: Documentatie voor Azure Active Directory Domain Services - zelfstudies | Microsoft Docs
+description: Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers en ze te beheren met groepsbeleid.
+services: active-directory-ds
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
+ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentatie over Active Directory Domain Services
 
-Azure AD Domain Services (DS) biedt beheerde domeinservices, zoals lid worden van een domein, groepsbeleid, LDAP, Kerberos/NTLM-verificatie, die volledig compatibel zijn met Windows Server Active Directory.  Met deze service kunnen gebruikers een breed scala aan computeroplossingen op een flexibele manier implementeren.
+Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers. Zelfstudies en andere documentatie laten zien hoe u virtuele machines kunt beheren met groepsbeleid.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -156,18 +168,9 @@ Azure AD Domain Services (DS) biedt beheerde domeinservices, zoals lid worden va
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Documentatie over Active Directory Domain Services downloaden </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

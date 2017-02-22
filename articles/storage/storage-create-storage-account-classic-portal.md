@@ -1,5 +1,5 @@
 ---
-title: Een opslagaccount in de klassieke Azure-portal maken, beheren of verwijderen | Microsoft Docs
+title: Een opslagaccount in de klassieke Azure Portal maken, beheren of verwijderen | Microsoft Docs
 description: Maak een nieuw opslagaccount, beheer de toegangssleutels van uw account of verwijder een opslagaccount in Azure Portal. Meer informatie over Standard en Premium Storage-accounts.
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
 
 
 ---
@@ -175,6 +175,6 @@ Als u een opslagaccount wilt verwijderen dat u niet meer gebruikt, gebruikt u **
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aa
 ## <a name="navigate-to-the-b2c-features-blade"></a>Ga naar de blade B2C-functies
 Als u de blade B2C-functies hebt vastgemaakt aan uw Startboard, ziet u de blade zodra u zich aanmeldt bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van de B2C-tenant.
 
-U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B2C** te klikken in het linkernavigatiedeelvenster in de [Azure Portal](https://portal.azure.com/).
+U kunt de blade ook openen door te klikken op **Meer services** en vervolgens te zoeken op **Azure AD B2C** in het linkernavigatiedeelvenster in [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > U moet een globale beheerder van de B2C-tenant zijn om de blade B2C-functies te kunnen openen. Een globale beheerder van andere tenant of een gebruiker van een tenant heeft hiertoe geen toegang.  U kunt overschakelen naar uw B2C-tenant met behulp van de tenantwisselaar in de rechterbovenhoek van de Azure Portal.
@@ -40,7 +40,7 @@ U kunt de blade ook openen door achtereenvolgens op **Bladeren** en **Azure AD B
 1. Klik op de blade B2C-functies in de Azure Portal op **Toepassingen**.
 2. Klik op **+Toevoegen** boven aan de blade.
 3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld Contoso B2C-app opgeven.
-4. Als u een webtoepassing schrijft, stelt u de schakeloptie **Web-app/web-API opnemen** in op **Ja**. De **Antwoord-URL's** zijn eindpunten waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. Geef bijvoorbeeld `https://localhost:44321/` op. Als uw webtoepassing ook web-API’s aanroept die beveiligd zijn door Azure AD B2C, kunt het best **toepassingsgeheim** maken door te klikken op de knop **Sleutel genereren**.
+4. Als u een webtoepassing schrijft, stelt u de schakeloptie **Web-app/web-API opnemen** in op **Ja**. De **Antwoord-URL's** zijn eindpunten waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. Geef bijvoorbeeld `https://localhost:44316/` op. Als uw webtoepassing ook web-API’s aanroept die beveiligd zijn door Azure AD B2C, kunt het best **toepassingsgeheim** maken door te klikken op de knop **Sleutel genereren**.
    
    > [!NOTE]
    > Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
@@ -63,6 +63,6 @@ Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

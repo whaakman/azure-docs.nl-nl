@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Multi-Factor Authentication - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over de implementatie van Multi-Factor Authentication met een reeks verificatiemethoden die een eenvoudig aanmeldingsproces bieden. Zelfstudies, een SDK en meer.
+services: multi-factor-authentication
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: multi-factor-authentication
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 6ff0e1c42ad151c56500596d99f63bae200368ed
+ms.sourcegitcommit: acd9ead9012043bc6db8c32add86bb7797fcf8c9
+ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
 
 ---
+
 # <a name="multi-factor-authentication-documentation"></a>Documentatie over Multi-Factor Authentication
 
 Meer informatie over de implementatie en het beheer van Azure Multi-Factor Authentication, een twee-stappensysteem voor identiteitsverificatie. Zelfstudies, een SDK en andere documentatie laten zien hoe u met een reeks verificatiemethoden sterke verificatie levert en toch een eenvoudig aanmeldingsproces aanbiedt.
@@ -109,6 +121,6 @@ Meer informatie over de implementatie en het beheer van Azure Multi-Factor Authe
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

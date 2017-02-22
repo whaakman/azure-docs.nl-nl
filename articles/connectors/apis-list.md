@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ Gebruik de bedrijfsconnectoren om logische apps te maken voor B2B-scenario's met
 
 | bedrijfs-<br/>connectoren |  |
 | --- | --- |
-|![API-pictogram][MQicon]<br/>**MQ**|![API-pictogram][SAPicon]<br/>**SAP**|
+|![API-pictogram][MQicon]<br/>**MQ**|![API-pictogram][SAPicon]<br/>**SAP**<br/>[SAP-connector]|
 
 
 
@@ -151,6 +151,7 @@ Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig 
 [youtubedoc]: ./connectors-create-api-youtube.md "Maakt verbinding met YouTube en kan communiceren met video's en kanalen."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Maakt verbinding met SparkPost en kan voor communicatie worden gebruikt."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Gebruikt een bestandssysteemconnector om te communiceren met het on-premises bestandssysteem."
+[SAP-connector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Meer informatie over de SAP-connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Connectors kunnen ook worden gebruikt als acties in uw apps. Acties zijn handig 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

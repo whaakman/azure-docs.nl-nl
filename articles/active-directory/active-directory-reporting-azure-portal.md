@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory-rapportage - preview
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-reporting-azure-portal.md)
-> * [Klassieke Azure Portal](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
 
@@ -48,15 +44,15 @@ In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten va
 
 Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers in het gedeelte **Overzicht** onder **Gebruikers en groepen**.
 
- ![Rapportage](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+ ![Rapportage](./media/active-directory-reporting-azure-portal/05.png "Rapportage")
 
 In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/02.png "Rapportage")
 
 Als u op een dag in de aanmeldingsgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/03.png "Rapportage")
 
 Elke rij in de lijst met aanmeldactiviteiten bevat gedetailleerde informatie over de geselecteerde aanmelding, zoals:
 
@@ -75,27 +71,27 @@ Met een toepassingsgerichte weergave van uw aanmeldgegevens kunt u antwoord vind
 
 Uw beginpunt voor deze gegevens is het overzicht van de drie populairste toepassingen in uw organisatie volgens het rapport van de laatste 30 dagen. Het overzicht vindt u in het gedeelte **Overzicht** onder **Bedrijfstoepassingen**.
 
- ![Rapportage](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+ ![Rapportage](./media/active-directory-reporting-azure-portal/06.png "Rapportage")
 
 In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldingen bij de drie populairste toepassingen gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/78.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/78.png "Rapportage")
 
 Als u wilt, kunt u de focus instellen op een specifieke toepassing.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Rapportage")
 
 Als u op een dag in de appgebruikgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Rapportage")
 
 Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldingsgebeurtenissen voor uw toepassingen.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/85.png "Rapportage")
 
 Met de kolomkiezer kunt u kiezen welke gegevensvelden u wilt weergeven.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/column_chooser.png "Rapportage")
 
 ### <a name="filtering-sign-ins"></a>Aanmeldingen filteren
 U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
@@ -106,12 +102,12 @@ U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperk
 * De clientnaam
 * Aanmeldingsstatus
 
-![Rapportage](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/293.png "Rapportage")
 
 Een andere manier waarop u het aantal aanmeldactiviteiten kunt filteren, is door te zoeken naar specifieke vermeldingen.
 Met deze zoekmethode kunt u zoeken naar aanmeldingen van specifieke **gebruikers** of **groepen** en bij specifieke **toepassingen**.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+![Rapportage](./media/active-directory-reporting-azure-portal/84.png "Rapportage")
 
 ## <a name="audit-logs"></a>Controlelogboeken
 In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.
@@ -126,15 +122,15 @@ Zie de [lijst met rapporten over controlegebeurtenissen](active-directory-report
 
 Uw beginpunt voor alle controlegegevens is **Controlelogboeken** in het gedeelte **Activiteit** van **Azure Active Directory**.
 
-![Controleren](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/61.png "Controle")
 
 Een controlelogboek heeft een lijstweergave met daarin de actoren (wie), de activiteiten (wat) en de doelen.
 
-![Controleren](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/345.png "Controle")
 
 Wanneer u op een item in de lijstweergave klikt, krijgt u er meer informatie over te zien.
 
-![Controleren](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/873.png "Controle")
 
 ### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
 Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
@@ -150,7 +146,7 @@ Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op
 
 Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan gebruikers en groepen, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Gebruikers en groepen**.
 
-![Controleren](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/93.png "Controle")
 
 ### <a name="application-audit-logs"></a>Controlelogboeken van toepassingen
 Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
@@ -163,7 +159,7 @@ Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen z
 
 Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan toepassingen, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Bedrijfstoepassingen**.
 
-![Controleren](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/134.png "Controle")
 
 ### <a name="filtering-audit-logs"></a>Controlelogboeken filteren
 U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
@@ -173,7 +169,7 @@ U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperk
 * Type activiteit
 * Activiteit
 
-![Controleren](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/356.png "Controle")
 
 De inhoud van de lijst **Activiteitstype** is gekoppeld aan uw ingangspunt voor deze blade.  
 Als uw ingangspunt Azure Active Directory is, bevat deze lijst alle mogelijke activiteitstypen:
@@ -186,16 +182,16 @@ Als uw ingangspunt Azure Active Directory is, bevat deze lijst alle mogelijke ac
 * Beleid
 * Overige
 
-![Controleren](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/825.png "Controle")
 
 De vermelde activiteiten worden ingedeeld per activiteitstype.
 Als u bijvoorbeeld **Groep** hebt geselecteerd als **activiteitstype**, bevat de lijst **Activiteit** alleen groepsgerelateerde activiteiten.   
 
-![Controleren](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/654.png "Controle")
 
 Een andere manier waarop u de vermeldingen in een controlelogboek kunt filteren, is door te zoeken naar specifieke vermeldingen.
 
-![Controleren](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![Controle](./media/active-directory-reporting-azure-portal/237.png "Controle")
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
@@ -203,6 +199,6 @@ Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

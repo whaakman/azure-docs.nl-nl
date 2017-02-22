@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Een nieuwe Azure SQL-database maken
+## <a name="create-a-new-azure-sql-database"></a>Een nieuwe Azure SQL-database maken
 Voer de volgende stappen uit in de Azure-portal als u een nieuwe Azure SQL-database wilt maken op een nieuwe of bestaande logische server met Azure SQL Database.
 
 1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
@@ -33,7 +33,7 @@ Voer de volgende stappen uit in de Azure-portal als u een nieuwe Azure SQL-datab
    * Prijscategorie: als u nog maar net begint, gebruik dan de standaardwaarde S0.
    * Sortering: dit is alleen van toepassing als een lege database is gekozen.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![Nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. Klik op **Create**. In het systeemvak ziet u dat de implementatie is gestart.
    
     ![Nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,6 +41,8 @@ Voer de volgende stappen uit in de Azure-portal als u een nieuwe Azure SQL-datab
    
      ![Nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

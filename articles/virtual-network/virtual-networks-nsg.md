@@ -1,10 +1,10 @@
 ---
-title: Netwerkbeveiligingsgroepen | Microsoft Docs
+title: Netwerkbeveiligingsgroepen in Azure | Microsoft Docs
 description: Leer hoe u de verkeersstroom binnen uw virtuele netwerken kunt isoleren en beheren met de gedistribueerde firewall in Azure met behulp van netwerkbeveiligingsgroepen.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Netwerkverkeer met netwerkbeveiligingsgroepen beheren
 
 Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer voor uw VM-exemplaren in een virtueel netwerk wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. U kunt het verkeer naar een afzonderlijke VM nog verder beperken door een NSG rechtstreeks aan die VM te koppelen.
 
@@ -180,7 +180,7 @@ In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund
 * Veel Azure-services kunnen niet worden verbonden met virtuele Azure-netwerken en daarom kan verkeer van en naar deze netwerken niet met NSG's worden gefilterd.  Raadpleeg de documentatie bij de services die u gebruikt om te bepalen of deze kunnen worden gebruikt in combinatie met VNET's.
 
 ## <a name="sample-deployment"></a>Voorbeeldimplementatie
-Ter illustratie van de toepassing van de informatie in dit artikel, definiëren we NSG's voor het filteren van het netwerkverkeer naar een 2-laags workloadoplossing met de volgende vereisten:
+Ter illustratie van de toepassing van de informatie in dit artikel, definiëren we NSG's voor het filteren van het netwerkverkeer naar een&2;-laags workloadoplossing met de volgende vereisten:
 
 1. Scheiding van verkeer tussen front-end (Windows-webservers) en back-end (SQL Database-servers).
 2. Taakverdelingsregels waarmee verkeer naar de load balancer wordt doorgestuurd naar alle webservers op poort 80.
@@ -261,6 +261,6 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

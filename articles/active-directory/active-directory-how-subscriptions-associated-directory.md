@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Hier meldt bijvoorbeeld een gebruiker met een Microsoft-account zich aan bij de 
 
 > [!NOTE]
 > Als u zich met msmith@hotmail.com wilt aanmelden bij de klassieke Azure-portal, moet er een Azure-abonnement aan dat account gekoppeld zijn. Het account moet een servicebeheerder of medebeheerder van het abonnement zijn.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 
 > [!NOTE]
 > Deze stappen kunnen alleen worden uitgevoerd wanneer een gebruiker is aangemeld met een Microsoft-account. Als de gebruiker is aangemeld met een werk- of schoolaccount, is de optie **Bestaande directory gebruiken** niet beschikbaar omdat een werk- of schoolaccount alleen kan worden geverifieerd met de basisdirectory (de directory waarin het werk- of schoolaccount is opgeslagen en die het eigendom is van werk of school).
-> 
-> 
+>
+>
 
 1. Meld u aan bij de klassieke Azure Portal met behulp van uw Microsoft-account.
 2. Klik achtereenvolgens op **Nieuw** > **App Services** > **Active Directory** > **Directory** > **Aangepast maken**.
@@ -116,7 +116,7 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 7. Meld u weer aan bij de klassieke Azure Portal met behulp van uw Microsoft-account. Beide directory’s worden nu weergegeven in de Active Directory-extensie.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md)
+* Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
 * Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md) voor meer informatie over het toewijzen van rollen in Azure AD.
 * [Als organisatie registreren voor Azure](sign-up-organization.md)
@@ -128,6 +128,6 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

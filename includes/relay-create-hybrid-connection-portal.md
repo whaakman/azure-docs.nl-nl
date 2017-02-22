@@ -2,7 +2,7 @@ Zorg ervoor dat u al een Relay-naamruimte hebt gemaakt, zoals [hier][namespace-h
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkernavigatievenster van de portal op **Relay**.
-3. Selecteer de naamruimte waarin u de hybride verbinding wilt maken. In dit geval is dit **mynewns1**.
+3. Selecteer de naamruimte waarin u de hybride verbinding wilt maken. In dit geval is dit **mynewns**.
    
     ![Een hybride verbinding maken](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
 4. In de blade **Relay-naamruimte** selecteert u **Hybride verbindingen** en klikt u op **+ Hybride verbinding**.
@@ -15,6 +15,6 @@ Zorg ervoor dat u al een Relay-naamruimte hebt gemaakt, zoals [hier][namespace-h
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,23 +1,20 @@
 ---
-title: Overzicht van Operations Management Suite (OMS) | Microsoft Docs
-description: Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen.  In dit artikel worden de verschillende services van OMS beschreven en vindt u koppelingen naar gedetailleerde inhoud.
+title: Documentatie voor Azure Operations Management (OMS) - zelfstudies | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen. In dit artikel worden de verschillende services van OMS beschreven en vindt u koppelingen naar gedetailleerde inhoud.
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Wat is Operations Management Suite (OMS)?
@@ -32,7 +29,7 @@ De volgende secties bevatten een algemene beschrijving van de diverse waardegebi
 
 U kunt eenvoudig oplossingen toevoegen aan Log Analytics die bepalen welke gegevens er moeten worden verzameld en welke logica er moet worden gebruikt om ze te analyseren.  Deze oplossingen bieden mogelijk aanvullende functionaliteit die automatisch wordt geleverd aan agents met een minimale of geen configuratie.  U kunt naast het gebruik van analysehulpprogramma's die deel uitmaken van afzonderlijke oplossingen, aangepaste zoekopdrachten uitvoeren in de volledige gegevensset om zo correlaties te vinden tussen gegevens van systemen en van toepassingen.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automation en besturing](media/operations-management-suite-overview/icon-automation-control.png) Automation en besturing
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Automation en besturing](media/operations-management-suite-overview/icon-automation-control.png) Automation en besturing
 Met Azure Automation automatiseert u administratieve processen door middel van [runbooks](../automation/automation-runbook-types.md) die zijn gebaseerd op PowerShell en in de Azure-cloud worden uitgevoerd.  Runbooks hebben toegang tot andere producten of services die kunnen worden beheerd met PowerShell, met inbegrip van resources in andere clouds zoals Amazon Web Services (AWS).  Runbooks kunnen ook worden uitgevoerd op een server in uw lokale datacentrum om lokale resources te beheren.
 
 Azure Automation biedt configuratiebeheer met [PowerShell DSC](../automation/automation-dsc-overview.md).  U kunt DSC-resources maken en beheren die in Azure worden gehost. U kunt deze vervolgens toepassen op systemen in de cloud of op on-premises systemen om zo hun configuratie te definiëren en deze automatisch af te dwingen.
@@ -58,6 +55,6 @@ Beveiliging en naleving helpt u beveiligingsrisico's voor uw infrastructuur te i
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

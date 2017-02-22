@@ -1,10 +1,10 @@
 ---
-title: Beveiligingsincidenten afhandelen in Azure Security Center | Microsoft Docs
+title: Beveiligingswaarschuwingen verwerken in Azure Security Center | Microsoft Docs
 description: Dit document bevat informatie over het gebruik van de mogelijkheden van Azure Security Center om beveiligingsincidenten af te handelen.
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 
 
 ---
@@ -32,25 +32,25 @@ In het Beveiligingscentrum is een beveiligingsincident een samenloop van alle wa
 U kunt uw huidige beveiligingsincidenten controleren met de tegel Beveiligingswaarschuwingen. Open Azure Portal en voer de volgende stappen uit om meer informatie over elk incident weer te geven:
 
 1. Op het Security Center-dashboard ziet u de tegel **Beveiligingswaarschuwingen**.
-   
+
     ![De tegel Beveiligingswaarschuwingen in Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Klik op deze tegel om hem uit te breiden. Als er een beveiligingsincident wordt gedetecteerd, verschijnt hij onder de grafiek beveiligingswaarschuwingen zoals hieronder afgebeeld:
-   
+
     ![Beveiligingsincident](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Merk op dat de beschrijving van een beveiligingsincident een ander pictogram heeft vergeleken met andere waarschuwingen. Klik erop om meer informatie over dit incident te bekijken.
-   
+
     ![Beveiligingsincident](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. Op de blade **incident** ziet u meer details over dit beveiligingsincident, waaronder een volledige omschrijving, ernst (in dit geval hoog), huidige status (in dit geval *actief*, wat impliceert dat de gebruiker nog niets heeft gedaan - dit kan door met de rechtermuisknop te klikken op het incident op de blade **Beveiligingswaarschuwingen**), de aangevallen resource (in dit geval *VM1*) en de stappen om het incident te herstellen. In het onderste venster ziet u de waarschuwingen die in dit incident zijn opgenomen. Als u meer informatie wilt over elke waarschuwing, klikt u er gewoon op. Er wordt nu een nieuwe blade geopend, zoals hieronder aangegeven:
-   
+
     ![Beveiligingsincident](./media/security-center-incident/security-center-incident-fig4.png)
 
 De informatie op deze blade verschilt, afhankelijk van de waarschuwing. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer info over het beheren van deze waarschuwingen. Enkele belangrijke overwegingen met betrekking tot deze mogelijkheid:
 
-* Een nieuw filter kunt u de weergave alleen Incident, alleen waarschuwingen of zowel kunt aanpassen. 
-* Dezelfde waarschuwing kan als onderdeel van een incident (indien van toepassing) bestaan en worden weergegeven als een afzonderlijke waarschuwing. 
+* Een nieuw filter kunt u de weergave alleen Incident, alleen waarschuwingen of zowel kunt aanpassen.
+* Dezelfde waarschuwing kan als onderdeel van een incident (indien van toepassing) bestaan en worden weergegeven als een afzonderlijke waarschuwing.
 
 ## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u de mogelijkheid beveiligingsincidenten in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
@@ -64,7 +64,6 @@ In dit document hebt u kunnen lezen hoe u de mogelijkheid beveiligingsincidenten
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

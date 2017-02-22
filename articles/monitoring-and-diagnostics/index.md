@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: Documentatie voor Azure Monitoring and Diagnostics - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u bewakings- en diagnoseservices kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. API-verwijzingen, aanbevolen procedures en meer.
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentatie over Monitoring and Diagnostics
 
 Leer hoe u bewakings- en diagnoseservices van Azure kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. Zelfstudies, API-verwijzingen, aanbevolen procedures en andere documentatie geven u inzicht in het gebruik van bewaking en diagnose en het plannen en implementeren van schaalbare en betrouwbare oplossingen.
@@ -138,7 +148,21 @@ Leer hoe u bewakings- en diagnoseservices van Azure kunt gebruiken om prestaties
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">Naslaginformatie over REST API</a></p>
+                        <p><a href="/rest/api/monitor/">Naslaginformatie over REST-API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics-schema</a></h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics-schema 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics-schema 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5">Azure Diagnostics-schema 1.3 tot 1.5</a></p>
                     </div>
                 </div>
             </div>
@@ -150,6 +174,6 @@ Leer hoe u bewakings- en diagnoseservices van Azure kunt gebruiken om prestaties
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

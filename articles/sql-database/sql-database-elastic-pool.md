@@ -4,26 +4,26 @@ description: Beheer honderden of duizenden databases met een groep. Een enkele p
 keywords: elastische pool, sql-databases
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/11/2017
-ms.author: CarlRabeler
+ms.date: 02/01/2017
+ms.author: ddove
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
+ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
+ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
 
 
 ---
-# <a name="what-is-an-azure-elastic-pool"></a>Wat is een elastische groep van Azure?
-Elastische groepen met SQL-databases zijn een eenvoudige en voordelige oplossing voor het beheer van de prestatiedoelen voor databases met breed uiteenlopende en onvoorspelbare gebruikspatronen.
+# <a name="what-is-an-azure-sql-elastic-pool"></a>Wat is een elastische pool van Azure SQL?
+Een elastische SQL-pool krijgt, voor een vaste prijs, een bepaald aantal eDTU's op een logische Azure-server. Deze eDTU's worden gedeeld tussen databases in een databasepool op die server. Elastische groepen met SQL-databases zijn een eenvoudige en voordelige oplossing voor het beheer van de prestatiedoelen voor databases met breed uiteenlopende en onvoorspelbare gebruikspatronen.
 
 > [!NOTE]
 > Elastische pools zijn algemeen beschikbaar in alle Azure-regio's, behalve in West-India, waar deze zich momenteel in de previewfase bevinden.  Algemene beschikbaarheid van elastische pools in deze regio zal zo snel mogelijk plaatsvinden.
@@ -106,6 +106,6 @@ Voor toepassingen die zwaardere herstelvereisten hebben dan Geo-herstel kan bied
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

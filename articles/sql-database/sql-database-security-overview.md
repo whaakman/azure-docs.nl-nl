@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ Uw gegevens worden beveiligd met SQL Database met behulp van mogelijkheden voor 
 ### <a name="auditing"></a>Controleren
 SQL Database Auditing houdt databaseactiviteiten bij en helpt u bij de naleving van regelgeving door databasegebeurtenissen vast te leggen in een auditlogboek in uw Azure Storage-account. Door te controleren krijgt u informatie over actieve databaseactiviteiten. Het helpt u ook bij het analyseren en onderzoeken van activiteiten uit het verleden. Op deze manier kunt u mogelijke dreigingen, vermoedelijk misbruik of schendingen van de beveiliging identificeren. Zie [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) (Aan de slag met SQL Database Auditing) voor aanvullende informatie.  
 
-### <a name="threat-detection"></a>Detectie van bedreigingen
+### <a name="auditing--threat-detection"></a>Controle en detectie van bedreigingen 
+SQL Database Auditing houdt databaseactiviteiten bij en helpt u bij de naleving van regelgeving door databasegebeurtenissen vast te leggen in een auditlogboek in uw Azure Storage-account. Door te controleren krijgt u informatie over actieve databaseactiviteiten. Het helpt u ook bij het analyseren en onderzoeken van activiteiten uit het verleden. Op deze manier kunt u mogelijke dreigingen, vermoedelijk misbruik of schendingen van de beveiliging identificeren. Zie [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) (Aan de slag met SQL Database Auditing) voor aanvullende informatie.  
+ 
 Controle wordt aangevuld door detectie van dreigingen, door middel van een extra beveiligingslaag die is ingebouwd in de Azure SQL Database-service. Dit is een doorlopend proces waarbij afwijkende databaseactiviteiten worden gedetecteerd, geprofileerd en geanalyseerd. U wordt gewaarschuwd bij verdachte activiteiten, potentiële kwetsbaarheden, SQL-injectieaanvallen en afwijkende patronen voor databasetoegang. U kunt reageren op waarschuwingen door de opgegeven informatieve en bruikbare instructies te volgen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection-get-started.md) voor meer informatie.  
-
+ 
+### <a name="data-masking"></a>Gegevensmaskering 
+Met dynamische gegevensmaskering in SQL Database wordt de blootstelling van gevoelige gegevens beperkt door deze gegevens te maskeren voor niet-gemachtigde gebruikers. Met dynamische gegevensmaskering worden potentieel gevoelige gegevens in Azure SQL Database automatisch ontdekt. Er worden bruikbare aanbevelingen gedaan om deze velden te maskeren op een manier die de toepassingslaag minimaal beïnvloedt. Dit werkt als volgt: de gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden, worden bedekt, terwijl de gegevens in de database niet worden gewijzigd. Zie [Aan de slag met SQL Database dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) voor meer informatie.
+ 
 ## <a name="compliance"></a>Naleving
 Naast de bovenstaande functies en functionaliteit waarmee uw toepassing kan voldoen aan verschillende nalevingsvereisten met betrekking tot beveiliging, neemt Azure SQL Database ook deel aan reguliere controles en is het gecertificeerd voor een aantal nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://azure.microsoft.com/support/trust-center/services/) vindt, voor meer informatie.
 
@@ -84,6 +89,7 @@ Naast de bovenstaande functies en functionaliteit waarmee uw toepassing kan vold
 - Zie [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) (Aan de slag met SQL Database Auditing) en [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md) (Aan de slag met SQL Database Threat Detection) voor een discussie over proactieve controle.
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

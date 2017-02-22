@@ -53,8 +53,8 @@
 # Beveiligde waarden beheren met Key Vault
 ## [Inleiding](azure-stack-kv-intro.md)
 ## [Aan de slag](azure-stack-kv-getting-started.md)
-## [Een VM implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
-## [Een VM maken met een Key Vault-certificaat](azure-stack-kv-push-secret-into-vm.md)
+## [Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
+## [Een virtuele machine maken met een Key Vault-certificaat](azure-stack-kv-push-secret-into-vm.md)
 ## [Voorbeeld-app van Key Vault](azure-stack-kv-sample-app.md)
 
 # Gebruik bijhouden voor facturering en toerekening
@@ -78,6 +78,8 @@
 ### [Voordat u aan de slag gaat](azure-stack-app-service-before-you-get-started.md)
 ### [App Service-resourceprovider implementeren](azure-stack-app-service-deploy.md)
 ### [Meer webwerkrollen toevoegen](azure-stack-app-service-add-worker-roles.md)
+### [FTP-publicatie inschakelen](azure-stack-app-service-enable-ftp.md)
+### [Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md)
 
 
 # Problemen oplossen
@@ -89,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

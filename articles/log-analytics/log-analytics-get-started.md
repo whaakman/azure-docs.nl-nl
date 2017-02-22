@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Log Analytics | Microsoft Docs
-description: U kunt binnen enkele minuten aan de slag met Log Analytics.
+title: Aan de slag met een Azure Log Analytics-werkruimte | Microsoft Docs
+description: U kunt binnen enkele minuten aan de slag met een Azure Log Analytics-werkruimte.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,140 +12,147 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
-ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
+ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
+ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
 
 
 ---
-# <a name="get-started-with-log-analytics"></a>Aan de slag met Log Analytics
-Binnen enkele minuten kunt u aan de slag met Log Analytics in de Microsoft Operations Management Suite (OMS). U beschikt over twee opties voor het maken van een OMS-werkruimte (vergelijkbaar met een account):
+# <a name="get-started-with-a-log-analytics-workspace"></a>Aan de slag met een Log Analytics-werkruimte
+U kunt snel aan de slag met Azure Log Analytics. Deze service helpt u bij het evalueren van operationele gegevens die over uw IT-infrastructuur zijn verzameld. Aan de hand van dit artikel kunt u gemakkelijk beginnen met het verkennen, analyseren en benutten van gegevens die u *gratis* verzamelt.
 
-* Microsoft Operations Management Suite-website
-* Microsoft Azure-abonnement
+Dit artikel fungeert als inleiding op Log Analytics. Het bevat een korte zelfstudie die u stapsgewijs laat zien hoe u een minimale implementatie in Azure uitvoert. U kunt de verworven kennis daarna meteen in de praktijk brengen. Een werkruimte is een logische container waarin uw beheergegevens in Azure worden opgeslagen. Nadat u deze informatie hebt doorgenomen en uw eigen evaluatie hebt voltooid, kunt u de evaluatiewerkruimte verwijderen. Omdat dit artikel een zelfstudie betreft, blijven specifieke bedrijfsbehoeften, planningsvereisten en architectuurrichtlijnen buiten beschouwing.
 
-U kunt een gratis OMS-werkruimte maken met behulp van de OMS-website. U kunt ook een Microsoft Azure-abonnement gebruiken om een gratis Log Analytics-werkruimte te maken. In beide gevallen zijn de werkruimten even functioneel. Met gratis werkruimten kunt u slechts 500 MB aan gegevens per dag naar de OMS-service verzenden. Voor alle Azure-werkruimten is een Azure-abonnement vereist. U kunt dat abonnement ook gebruiken voor toegang tot andere Azure-services. Ongeacht de methode die u gebruikt om de werkruimte te maken, maakt u de werkruimte met een Microsoft-account of een organisatieaccount.
+>[!NOTE]
+>Als u de Microsoft Azure Government Cloud gebruikt, neemt u in plaats van dit artikel [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) (Documentatie voor Azure Government Monitoring + Management) door.
 
-Hier volgt een overzicht van het proces:
+Hier volgt een kort overzicht van het proces dat u doorloopt om aan de slag te gaan:
 
-![diagram van de voorbereidingen](./media/log-analytics-get-started/oms-onboard-diagram.png)
+![procesdiagram](./media/log-analytics-get-started/onboard-oms.png)
 
-## <a name="log-analytics-prerequisites-and-deployment-considerations"></a>Vereisten en overwegingen voor implementatie van Log Analytics
-* U hebt een betaald abonnement op Microsoft Azure nodig om volledig gebruik te kunnen maken van Log Analytics. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) waarmee u gedurende 30 dagen toegang hebt tot alle Azure-services. U kunt ook een gratis OMS-account maken via de website van [Operations Management Suite](http://microsoft.com/oms).
-* U moet een werkruimte maken
-* Op elke Windows-computer waarop u gegevens wilt verzamelen, moet Windows Server 2008 SP1 of hoger worden uitgevoerd
-* [Firewall](log-analytics-proxy-firewall.md)toegang tot de adressen van de OMS-webservice
-* Stel vast of uw computers directe toegang tot internet hebben. Als dit niet het geval is, hebben ze een gatewayserver nodig voor toegang tot de sites van de OMS-webservice. Alle toegang gaat via HTTPS. U kunt een [OMS-gatewayserver](log-analytics-oms-gateway.md) instellen om verkeer van servers door te sturen naar OMS als er op de computers geen toegang tot internet beschikbaar is.
-* Als u Operations Manager gebruikt, worden Operations Manager 2012 SP1 UR6 en hoger en Operations Manager 2012 R2 UR2 en hoger door Log Analytics ondersteund. Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3. Stel vast hoe dit moet worden geïntegreerd met OMS.
-* Bepaal welke technologieën en servers gegevens verzenden naar OMS. Bijvoorbeeld: domeincontrollers, SQL Server, enzovoort.
-* Verleen machtigingen aan gebruikers in OMS en Azure.
-* Als u zich zorgen maakt over het gegevensgebruik, kunt u elke oplossing afzonderlijk implementeren en de invloed op de prestaties testen voordat u extra oplossingen toevoegt.
-* Controleer het gegevensgebruik en de prestaties terwijl u oplossingen en functies aan Log Analytics toevoegt. Dit omvat de gebeurtenisverzameling, logboekverzameling, verzameling van prestatiegegevens, enzovoort. U kunt beter beginnen met minimale verzameling totdat het gegevensgebruik of de invloed op de prestaties zijn geïdentificeerd.
-* Controleer of de Windows-agents niet ook worden beheerd met behulp van Operations Manager, want dit leidt tot dubbele gegevens. Dit geldt ook voor op Azure gebaseerde agents waarvoor Azure Diagnostics is ingeschakeld.
-* Controleer nadat u agents hebt geïnstalleerd, of de agent goed werkt. Als dit niet het geval is, controleert u of Cryptography API: Next Generation (CNG) Key Isolation niet is uitgeschakeld via Groepsbeleid.
-* Voor een aantal Log Analytics-oplossingen gelden aanvullende vereisten
+## <a name="1-create-an-azure-account-and-sign-in"></a>1 Een Azure-account maken en u aanmelden
 
-## <a name="sign-up-in-3-steps-using-oms"></a>In drie stappen registreren met OMS
-1. Ga naar de [Microsoft Operations Management Suite](http://microsoft.com/oms)-website. Meld u aan met uw Microsoft-account, zoals Outlook.com, of met een organisatie-account dat door uw bedrijf of onderwijsinstelling wordt aangeboden voor gebruik met Office 365 of andere Microsoft-services.
-2. Geef een unieke werkruimtenaam op. Een werkruimte is een logische container waarin uw beheergegevens worden opgeslagen. Werkruimtes bieden u een manier om gegevens te partitioneren tussen verschillende teams in uw organisatie, aangezien de gegevens uitsluitend van toepassing zijn voor de relevante werkruimte. Geef een e-mailadres op, evenals de regio waarin u uw gegevens hebt opgeslagen.  
-    ![werkruimte maken en abonnement koppelen](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
-3. Maak vervolgens een nieuw gratis Azure-abonnement of geef een koppeling op naar een bestaand Azure-abonnement.  
-   ![werkruimte maken en abonnement koppelen](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
+Als u nog geen Azure-account hebt, moet u er een maken om Log Analytics te kunnen gebruiken. U kunt een [gratis account](https://azure.microsoft.com/free/) maken dat 30 dagen geldig is en waarmee u toegang hebt tot alle Azure-services.
 
-U kunt nu aan de slag met de Operations Management Suite-portal.
+### <a name="to-create-a-free-account-and-sign-in"></a>Een gratis account maken en aanmelden
+1. Volg de aanwijzingen in [Een gratis Azure-account maken](https://azure.microsoft.com/free/).
+2. Ga naar [Azure Portal](https://portal.azure.com) en meld u aan.
 
-In [Werkruimten beheren](log-analytics-manage-access.md) vindt u meer informatie over het instellen van uw werkruimte en het koppelen van bestaande Azure-gebruikersaccounts aan werkruimten die zijn gemaakt met de Operations Management Suite.
+## <a name="2-create-a-workspace"></a>2 Een werkruimte maken
 
-## <a name="sign-up-quickly-using-microsoft-azure"></a>Snel aanmelden met Microsoft Azure
-1. Ga naar [Azure Portal](https://portal.azure.com) en meld u aan. Blader door de lijst met services en selecteer **Log Analytics**.  
-    ![Azure Portal](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
-2. Klik op **Toevoegen** en selecteer opties voor de volgende items:
-   * Naam voor de **OMS-werkruimte**
+De volgende stap is het maken van een werkruimte.
+
+1. Ga in de Marketplace in Azure Portal naar de lijst met services voor *Log Analytics* en selecteer **Log Analytics**.  
+    ![Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
+2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
+   * **OMS-werkruimte**: geef een naam op voor uw werkruimte.
    * **Abonnement**: als u meerdere abonnementen hebt, kiest u het abonnement dat u aan de nieuwe werkruimte wilt koppelen.
    * **Resourcegroep**
    * **Locatie**
    * **Prijscategorie**  
        ![snel maken](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Klik op **OK**. U krijgt nu een lijst te zien met uw werkruimten.
+3. Klik op **OK** om een lijst met uw werkruimten weer te geven.
 4. Selecteer een werkruimte om de details ervan in Azure Portal te bekijken.       
     ![details van de werkruimte](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
-5. Klik op de koppeling van de **OMS Portal** om de website van Operations Management-Suite te openen met uw nieuwe werkruimte.
 
-U kunt nu aan de slag met de Operations Management Suite-portal.
+## <a name="3-add-solutions-and-solution-offerings"></a>3 Oplossingen en oplossingenpakketten toevoegen
 
-In [Toegang tot Log Analytics beheren](log-analytics-manage-access.md) kunt u meer informatie vinden over het instellen van uw werkruimte en het koppelen van bestaande werkruimten die u hebt gemaakt met de Operations Management Suite, aan Azure-abonnementen.
+Voeg vervolgens beheeroplossingen en oplossingenpakketten toe. Beheeroplossingen bestaan uit een combinatie van logica, visualisatiemogelijkheden en regels voor gegevensverwerving die metrische gegevens bieden met betrekking tot een specifiek probleemgebied. Een oplossingenpakket is een samenstelling van meerdere beheeroplossingen.
 
-## <a name="get-started-with-the-operations-management-suite-portal"></a>Aan de slag met de Operations Management Suite-portal
-Als u oplossingen wilt kiezen en verbinding wilt maken met de servers die u wilt beheren, klikt u op de tegel **Instellingen** en volgt u de stappen in deze sectie.  
+Als u oplossingen aan uw werkruimte toevoegt, kan Log Analytics diverse soorten gegevens verzamelen van computers die met uw werkruimte zijn verbonden. Hiervoor worden agents gebruikt. Het onboarden van deze agents komt later aan bod.
 
-![aan de slag](./media/log-analytics-get-started/oms-onboard-get-started.png)  
+### <a name="to-add-solutions-and-solution-offerings"></a>Oplossingen en oplossingenpakketten toevoegen
 
-1. **Oplossingen toevoegen**: de geïnstalleerde oplossingen weergeven.  
-    ![oplossingen](./media/log-analytics-get-started/oms-onboard-solutions.png)  
-    Klik op **Ga naar de galerie** om meer oplossingen toe te voegen.  
-    ![oplossingen](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
-    Selecteer een oplossing en klik vervolgens op **Toevoegen**.
-2. **Verbinding maken met een bron**: kies hoe u verbinding wilt maken met uw serveromgeving om gegevens te verzamelen:
+1. Klik in Azure Portal op **Nieuw** en typ in het vak **Marketplace doorzoeken** de tekst **Activity Log Analytics**. Druk vervolgens op ENTER.
+2. Selecteer op de blade Alles de optie **Activity Log Analytics** en klik op **Maken**.  
+    ![Activity Log Analytics](./media/log-analytics-get-started/activity-log-analytics.png)  
+3. Selecteer op de blade *Naam beheeroplossing* de werkruimte die u aan de beheeroplossing wilt koppelen.
+4. Klik op **Maken**.  
+    ![werkruimte voor de oplossing](./media/log-analytics-get-started/solution-workspace.png)  
+5. Herhaal stappen 1-4 om het volgende toe te voegen:
+    - Het servicepakket **Security & Compliance** met de oplossingen Antimalware Assessment en Security and Audit.
+    - Het servicepakket **Automation & Control** met de oplossingen Automation Hybrid Worker, 	Change Tracking en System Update Assessment (ook wel Update Management genoemd). Wanneer u een servicepakket toevoegt, moet u een Automation-account maken.  
+        ![Automation-account](./media/log-analytics-get-started/automation-account.png)  
+6. U kunt de beheeroplossingen die u aan uw werkruimte hebt toegevoegd, weergeven door te navigeren naar **Log Analytics** > **Abonnementen** > ***Werkruimtenaam*** > **Overzicht**. Er worden nu tegels weergegeven voor de beheeroplossingen die u hebt toegevoegd.  
+    >[!NOTE]
+    >Omdat we nog geen agents aan de werkruimte hebben gekoppeld, ziet u geen gegevens voor de oplossingen die u hebt toegevoegd.  
 
-   * Direct verbinding maken met een willekeurige Windows-server of -client door een agent te installeren.
-   * Linux-servers verbinden met de OMS-agent voor Linux.
-   * Een Azure Storage-account gebruiken dat is geconfigureerd met de diagnostische virtuele Azure-machine-extensie van Windows of Linux.
-   * System Center Operations Manager gebruiken om uw beheergroepen of de gehele Operations Manager-implementatie te koppelen.
-   * Schakel Windows-telemetrie in om Upgradeanalyse te gebruiken.
-       ![verbonden bronnen](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
-3. **Gegevens verzamelen**Configureer ten minste één gegevensbron om uw werkruimte met gegevens te vullen. Klik op **Opslaan** als u klaar bent.    
+    ![oplossingstegels zonder gegevens](./media/log-analytics-get-started/solutions-no-data.png)
 
-    ![gegevens verzamelen](./media/log-analytics-get-started/oms-onboard-logs.png)    
+## <a name="4-create-a-vm-and-onboard-an-agent"></a>4 Een virtuele machine maken en een agent onboarden
 
-## <a name="optionally-connect-windows-computers-by-installing-an-agent"></a>U kunt optioneel Windows-computers verbinden door een agent te installeren
-Het volgende voorbeeld laat zien hoe een Windows-agent installeert.
+Maak vervolgens een eenvoudige virtuele machine in Azure. Nadat u een virtuele machine hebt gemaakt, onboardt u de OMS-agent om deze in te schakelen. Door het inschakelen van de agent begint het verzamelen van gegevens vanaf de virtuele machine en worden er gegevens naar Log Analytics verzonden.
 
-1. Klik op de tegel **Instellingen**, klik op het tabblad **Verbonden bronnen**, klik op een tabblad voor het type bron dat u wilt toevoegen en download een agent of lees meer informatie over het inschakelen van een agent. Klik bijvoorbeeld op **Windows-agent downloaden (64-bits)**. Voor Windows-agents kunt u de agent alleen installeren op Windows Server 2008 SP 1 of hoger of op Windows 7 SP1 of hoger.
-2. Installeer de agent op een of meer servers. U kunt agents één voor één installeren of een meer geautomatiseerde methode met een [aangepast script](log-analytics-windows-agents.md) gebruiken. U kunt ook een bestaande distributie-oplossing voor software gebruiken die u mogelijk hebt.
-3. Nadat u akkoord bent gegaan met de gebruiksrechtovereenkomst en u de installatiemap hebt gekozen, selecteert u de optie voor het **koppelen van de agent aan Azure Log Analytics (OMS)**.   
-    ![agent instellen](./media/log-analytics-get-started/oms-onboard-agent.png)
-4. Op de volgende pagina wordt u gevraagd om uw werkruimte-ID en werkruimtesleutel. Uw werkruimte-ID en -sleutel worden weergegeven op het scherm waarop u het agentbestand hebt gedownload.  
-    ![agentsleutels](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
+### <a name="to-create-a-virtual-machine"></a>Een virtuele machine maken
 
-    ![servers toevoegen](./media/log-analytics-get-started/oms-onboard-key.png)
-5. Tijdens de installatie klikt u op **Geavanceerd** om desgewenst uw proxyserver in te stellen en verificatiegegevens op te geven. Klik op de knop **Volgende** om terug te keren naar het scherm met de werkruimtegegevens.
-6. Klik op **Volgende** om uw werkruimte-ID en -sleutel te valideren. Als er fouten worden gevonden, kunt u op **Terug** klikken om correcties aan te brengen. Wanneer uw werkruimte-ID en -sleutel zijn gevalideerd, klikt u op **Installeren** om de agentinstallatie te voltooien.
-7. Klik in het Configuratiescherm op Microsoft Monitoring Agent > tabblad Azure Log Analytics (OMS). Er wordt een groen vinkje weergegeven wanneer de agents met de Operations Management Suite-service communiceren. Dit duurt in eerste instantie 5-10 minuten.
+- Volg de aanwijzingen in [Uw eerste virtuele Windows-machine maken met behulp van Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) en start de nieuwe virtuele machine.
 
-> [!NOTE]
-> De oplossingen voor capaciteitsbeheer en configuratiebeoordeling worden momenteel niet ondersteund door servers die rechtstreeks zijn verbonden met de Operations Management Suite.
+### <a name="connect-the-virtual-machine-to-log-analytics"></a>De virtuele machine verbinden met Log Analytics
 
+- Volg de aanwijzingen in [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Virtuele Azure-machines verbinden met Log Analytics) om de virtuele machine te verbinden met Log Analytics met behulp van Azure Portal.
 
-U kunt de agent ook verbinden met System Center Operations Manager 2012 SP1 en hoger. Als u dit wilt doen, selecteert u de optie voor het **verbinden van de agent met System Center Operations Manager**. Als u die optie kiest, kunt u gegevens verzenden naar de service zonder extra hardware of belasting van uw beheergroepen.
+## <a name="5-view-and-act-on-data"></a>5 Gegevens weergeven en er actie op ondernemen
 
-Meer informatie over het verbinden van agents met de Operations Management Suite vindt u in [Windows-computers verbinden met Log Analytics](log-analytics-windows-agents.md).
+U hebt de oplossing Activity Log Analytics en de servicepakketten Security & Compliance en Automation & Control al ingeschakeld. Nu gaan we kijken naar de gegevens die door deze oplossingen zijn verzameld en naar de resultaten van zoeken in logboeken.
 
-## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>Servers verbinden met System Center Operations Manager (optioneel)
-1. Selecteer **Beheer** in de Operations Manager-console.
-2. Vouw het knooppunt **Operational Insights** uit en selecteer **Verbinding met Operational Insights**.
+Bekijk eerst de gegevens die vanuit de oplossingen zijn aangeleverd. Bekijk vervolgens de resultaten van enkele zoekopdrachten in logboeken. Met zoeken in logboeken kunt u alle machinegegevens vanuit meerdere bronnen binnen uw omgeving combineren en correleren. Zie [Log searches in Log Analytics](log-analytics-log-searches.md) (Zoeken in logboeken via Log Analytics) voor meer informatie. Neem tot slot actie op de gegevens die we hebben gevonden. Gebruik hiervoor de OMS-portal, die zich buiten Azure Portal bevindt.
 
-   > [!NOTE]
-   > Afhankelijk van het updatepakket van SCOM dat u gebruikt, wordt er een knooppunt voor *System Center Advisor*, *Operational Insights* of *Operations Management Suite* weergegeven.
-   >
-   >
-3. Klik rechts bovenaan op de koppeling **Registreren bij Operational Insights** en volg de instructies.
-4. Nadat de registratiewizard is voltooid, klikt u op de koppeling **Een computer/groep toevoegen**.
-5. In het dialoogvenster **Computer zoeken** kunt u zoeken naar computers of groepen die worden bewaakt door Operations Manager. Selecteer computers of groepen om deze toe te voegen aan Log Analytics, klik op **Toevoegen** en klik vervolgens op **OK**. U kunt controleren of de OMS-service gegevens ontvangt door naar de tegel **Gebruik** in de Operations Management Suite-portal te gaan. Gegevens moeten na ongeveer 5 tot 10 minuten worden weergegeven.
+### <a name="to-view-antimalware-data"></a>Gegevens van Antimalware Assessment weergeven
 
-Meer informatie over het verbinden van Operations Manager met de Operations Management Suite vindt u in [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
+1. Navigeer in Azure Portal naar **Log Analytics** > ***uw werkruimte***.
+2. Klik op de blade voor uw werkruimte onder **Algemeen** op **Overzicht**.  
+    ![Overzicht](./media/log-analytics-get-started/overview.png)
+3. Klik op de tegel **Antimalware Assessment**. In dit voorbeeld ziet u dat op één computer Windows Defender is geïnstalleerd, maar dat de handtekening is verouderd.  
+    ![Antimalware](./media/log-analytics-get-started/solution-antimalware.png)
+4. Voor dit voorbeeld klikt u onder **Beveiligingsstatus** op **Handtekening verouderd** om Zoeken in logboeken te openen en details weer te geven over de computers die verouderde handtekeningen hebben. In dit voorbeeld heeft de computer de naam *getstarted*. Als er meer dan één computer met verouderde handtekeningen zou zijn, zouden deze allemaal worden weergegeven in de resultaten van Zoeken in logboeken.  
+    ![Antimalware verouderd](./media/log-analytics-get-started/antimalware-search.png)
 
-## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>Gegevens uit cloudservices analyseren in Microsoft Azure (optioneel)
-Met de Operations Management-Suite kunt u snel zoeken naar gebeurtenis- en IIS-logboeken voor cloudservices en virtuele machines door diagnostische gegevens in te schakelen voor Azure Cloud Services. U kunt ook extra inzichten ontvangen voor uw virtuele Azure-machines door de Microsoft Monitoring Agent te installeren. Meer informatie over het configureren van uw Azure-omgeving voor het gebruik van de Operations Management Suite vindt u in [Azure Storage verbinden met Log Analytics](log-analytics-azure-storage.md).
+### <a name="to-view-security-and-audit-data"></a>Gegevens van Security and Audit weergeven
+
+1. Klik op de blade voor uw werkruimte onder **Algemeen** op **Overzicht**.  
+2. Klik op de tegel **Security and Audit**. In dit voorbeeld ziet u dat er twee belangrijke problemen zijn: er is een computer waarop essentiële updates ontbreken en er is een computer met onvoldoende beveiliging.  
+    ![Beveiliging en controle](./media/log-analytics-get-started/security-audit.png)
+3. Voor dit voorbeeld klikt u onder **Problemen die aandacht vereisen** op **Computers waarop essentiële updates ontbreken** om Zoeken in logboeken te openen en meer informatie weer te geven over computers waarop essentiële updates ontbreken. In dit voorbeeld ontbreekt er één essentiële update, plus nog 63 andere updates.  
+    ![Zoeken in logboeken met betrekking tot beveiliging en controle](./media/log-analytics-get-started/security-audit-log-search.png)
+
+### <a name="to-view-and-act-on-system-update-data"></a>Systeemupdategegevens weergeven en er actie op ondernemen
+
+1. Klik op de blade voor uw werkruimte onder **Algemeen** op **Overzicht**.  
+2. Klik op de tegel **System Update Assessment**. In dit voorbeeld ziet u dat er een Windows-computer is met de naam *getstarted* die essentiële updates vereist en een computer die definitie-updates vereist.  
+    ![Systeemupdates](./media/log-analytics-get-started/system-updates.png)
+3. Voor dit voorbeeld klikt u onder **Ontbrekende updates** op **Essentiële updates** om Zoeken in logboeken te openen en geeft u details weer over computers waarop essentiële updates ontbreken. In dit voorbeeld ontbreekt één update en is er één vereiste update.  
+    ![Zoeken in logboeken met betrekking tot systeemupdates](./media/log-analytics-get-started/system-updates-log-search.png)
+4. Ga naar de [Operations Management Suite](http://microsoft.com/oms)-website en meld aan met uw Azure-account. Wanneer u bent aangemeld, ziet u hier vrijwel identieke informatie over de oplossing als in Azure Portal.  
+    ![OMS-portal](./media/log-analytics-get-started/oms-portal.png)
+5. Klik op de tegel **Update Management**.
+6. Op het dashboard Update Management ziet u dat de systeemupdate-informatie identiek is aan die in Azure Portal. De tegel **Manage Update Deployments** is echter nieuw. Klik op de tegel **Manage Update Deployments**.  
+    ![Tegel Update Management](./media/log-analytics-get-started/update-management.png)
+7. Klik op de pagina **Update Deployments** op **Add** om een *update uit te voeren*.  
+    ![Update-implementaties](./media/log-analytics-get-started/update-management-update-deployments.png)
+8.  Geef op de pagina **New Update Deployment** een naam op voor de update-implementatie, selecteer de computers die u wilt bijwerken (in dit voorbeeld *getstarted*), kies een planning en klik vervolgens op **Save**.  
+    ![Nieuwe implementatie](./media/log-analytics-get-started/new-deployment.png)  
+    Nadat u de update-implementatie hebt opgeslagen, ziet u de geplande update.  
+    ![geplande update](./media/log-analytics-get-started/scheduled-update.png)  
+    Nadat de update is uitgevoerd, wordt de status **Finished** weergegeven.
+    ![voltooide update](./media/log-analytics-get-started/completed-update.png)
+9. Nadat de update is uitgevoerd, kunt u nagaan of de implementatie is gelukt en kunt u details over de toegepaste updates weergeven.
+
+## <a name="after-evaluation"></a>Evaluatie van deze zelfstudie
+
+In deze zelfstudie hebt u een agent geïnstalleerd op een virtuele machine en bent u snel aan de slag gegaan. De stappen die u hebt gevolgd, waren snel en eenvoudig. De meeste grote organisaties en ondernemingen hebben echter complexe on-premises IT-infrastructuren. Het verzamelen van gegevens over deze complexe omgevingen vereist aanzienlijk meer planning en inspanning dan nodig waren voor deze zelfstudie. In het gedeelte Volgende stappen hieronder vindt u koppelingen naar nuttige artikelen.
+
+Desgewenst kunt u de werkruimte die u in deze zelfstudie hebt gemaakt, nu verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
+* Meer informatie over het verbinden van [Windows-agents](log-analytics-windows-agents.md) met Log Analytics.
+* Meer informatie over het verbinden van [Operations Manager-agents](log-analytics-om-agents.md) met Log Analytics.
 * [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 * Vertrouwd raken met [zoekopdrachten naar logboeken](log-analytics-log-searches.md) om gedetailleerde informatie te bekijken die is verzameld door oplossingen.
-* [Dashboards](log-analytics-dashboards.md) gebruiken voor het opslaan en weergeven van uw eigen aangepaste zoekopdrachten.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

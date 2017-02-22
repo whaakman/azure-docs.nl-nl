@@ -1,6 +1,6 @@
 # Overzicht
-## [Berichten](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Relay](../service-bus-relay/relay-what-is-it.md)
+## [Berichten](/azure/service-bus-messaging)
+## [Relay](/azure/service-bus-relay)
 # Naslaginformatie
 ## [Resource Manager-cmdlets in PowerShell](/powershell/resourcemanager)
 ## [Managed Reference-API voor Service Bus](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
