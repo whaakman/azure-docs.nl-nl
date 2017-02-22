@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff7ea65c329a37acf8b2febb52fd140954d81e97
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
 
 
 ---
@@ -28,7 +28,7 @@ Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implem
 * de [Azure-CLI](../xplat-cli-install.md) die is aangemeld bij `azure login`.
 * de Azure-CLI *moet in de *Azure Resource Manager-modus`azure config mode arm` staan.
 
-U kunt een Linux-VM-sjabloon ook snel implementeren met behulp van de [Azure Portal](virtual-machines-linux-quick-create-portal.md).
+U kunt een Linux-VM-sjabloon ook snel implementeren met behulp van de [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-command-summary"></a>Beknopt overzicht van opdrachten
 ```azurecli

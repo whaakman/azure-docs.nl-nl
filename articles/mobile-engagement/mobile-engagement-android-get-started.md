@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
 
 
 ---
@@ -33,8 +33,8 @@ Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 
 > [!IMPORTANT]
 > U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started) voor meer informatie.
-> 
-> 
+>
+>
 
 ## <a name="set-up-mobile-engagement-for-your-android-app"></a>Mobile Engagement instellen voor uw Android-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
@@ -46,24 +46,24 @@ De volledige integratiedocumentatie is te vinden in de [Mobile Engagement Androi
 
 ### <a name="create-an-android-project"></a>Een Android-project maken
 1. Start **Android Studio** en selecteer **Start a new Android Studio project** in het pop-upvenster.
-   
+
     ![][1]
 2. Geef een naam voor de app en het bedrijfsdomein op. Schrijf op wat u invult, omdat u deze gegevens later nodig hebt. Klik op **Volgende**.
-   
+
     ![][2]
 3. Selecteer de doel-vormfactor en het API-niveau en klik op **Next**.
-   
+
    > [!NOTE]
    > Mobile Engagement vereist minimaal API-niveau 10 (Android 2.3.3).
-   > 
-   > 
-   
+   >
+   >
+
     ![][3]
 4. Selecteer hier **Blank Activity** (Blanco activiteit). Dit is het enige scherm voor deze app. Klik vervolgens op **Next** (Volgende).
-   
+
     ![][4]
 5. Laat verder alle standaardinstellingen zoals ze zijn en klik op **Finish**.
-   
+
     ![][5]
 
 Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
@@ -72,35 +72,35 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
 1. Download de [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Pak het bestand uit in een map op uw computer.
 3. Zoek de JAR-bibliotheek voor de huidige versie van deze SDK en kopieer die naar het Klembord.
-   
+
       ![][6]
 4. Navigeer naar de sectie **Project** (1) en plak de JAR in de map libs (2).
-   
+
       ![][7]
 5. Synchroniseer het project om de bibliotheek te laden.
-   
+
       ![][8]
 
 ### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Uw app verbinden met de back-end van Mobile Engagement via de verbindingsreeks
 1. Kopieer de volgende regels code in het maken van de activiteit (dit moet worden uitgevoerd op één plek in de toepassing, meestal de belangrijkste activiteit). Open voor deze voorbeeld-app de MainActivity onder src -> main -> java en voeg het volgende toe:
-   
+
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
 2. Zet de verwijzingen om door op Alt+Enter te drukken of de volgende importinstructies toe te voegen:
-   
+
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. Ga terug naar de klassieke Azure-portal op de pagina **Verbindingsgegevens** van de app en kopieer de **verbindingsreeks**.
-   
+
       ![][9]
 4. Plak deze in de `setConnectionString`-parameter, waarbij u de gehele tekenreeks vervangt die in de volgende code wordt weergegeven:
-   
+
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
 ### <a name="add-permissions-and-a-service-declaration"></a>Machtigingen en een servicedeclaratie toevoegen
 1. Voeg machtigingen toe aan het bestand Manifest.xml van uw project direct vóór of na de tag `<application>`:
-   
+
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -108,7 +108,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 2. Voeg deze code toe tussen de tags `<application>` en `</application>` om de agentservice te declareren:
-   
+
         <service
              android:name="com.microsoft.azure.engagement.service.EngagementService"
              android:exported="false"
@@ -124,29 +124,29 @@ Ga naar **MainActivity.java** en voeg het volgende toe ter vervanging van de bas
     public class MainActivity extends EngagementActivity {
 
 > [!NOTE]
-> Als de basisklasse niet *Activity* is, raadpleegt u [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Geavanceerde Android-rapportages) voor het overnemen van verschillende klassen.
-> 
-> 
+> Als de basisklasse niet *Activity* is, raadpleegt u [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md) (Geavanceerde Android-rapportages) voor het overnemen van verschillende klassen.
+>
+>
 
 Maak de volgende regel onzichtbaar voor dit eenvoudige voorbeeldscenario:
 
     // setSupportActionBar(toolbar);
 
-Als u de `ActionBar` in uw app wilt behouden, verwijzen wij u naar [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Geavanceerde Android-rapportages).
+Als u de `ActionBar` in uw app wilt behouden, verwijzen wij u naar [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md) (Geavanceerde Android-rapportages).
 
-## <a name="connect-app-with-realtime-monitoring"></a>App verbinden met realtime-bewaking
+## <a name="connect-app-with-real-time-monitoring"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="enable-push-notifications-and-inapp-messaging"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a name="enable-push-notifications-and-in-app-messaging"></a>Pushmeldingen en in-app-berichten inschakelen
 Tijdens een campagne kunt u met Mobile Engagement met uw gebruikers communiceren en ze bereiken met pushmeldingen en in-app-berichten. Deze module heet REACH in de Mobile Engagement-portal.
 In de volgende gedeelten stelt u de app in om die meldingen en berichten te ontvangen.
 
 ### <a name="copy-sdk-resources-in-your-project"></a>SDK-bronnen naar uw project kopiëren
 1. Ga terug naar de gedownloade SDK-inhoud en kopieer de map **res**.
-   
+
     ![][10]
 2. Ga terug naar Android Studio, selecteer de map **main** van uw projectbestanden en plak de gekopieerde map om de resources toe te voegen aan het project.
-   
+
     ![][11]
 
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]

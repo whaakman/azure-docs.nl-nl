@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Verkeer dat afkomstig is van uw netwerk en is bestemd voor Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Verkeer dat afkomstig is van uw netwerk en is bestemd voor Microsoft
 * U moet ervoor zorgen dat verkeer het pad voor Microsoft-peering binnenkomt met een geldig openbaar IPv4-adres. Microsoft moet de eigenaar van de IPv4 NAT-adresgroep kunnen controleren in het regionale Routing Internet Registry (RIR) of een Internet Routing Registry (IRR). Er wordt een controle uitgevoerd op basis van het AS-nummer waaraan het wordt gekoppeld en de IP-adressen die voor de NAT worden gebruikt. Raadpleeg de pagina [ExpressRoute routing requirements](expressroute-routing.md) (Routeringsvereisten voor ExpressRoute) voor meer informatie over routeringsregisters.
 * IP-adressen die worden gebruikt voor de configuratie van openbare Azure-peering en andere ExpressRoute-circuits mogen niet aan Microsoft worden geadverteerd via de BGP-sessie. Er is geen lengtebeperking voor het NAT IP-voorvoegsel dat via deze peering wordt geadverteerd.
   
@@ -54,7 +54,7 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Verkeer dat afkomstig is van Microsoft en is bestemd voor Microsoft
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Verkeer dat afkomstig is van Microsoft en is bestemd voor Microsoft
 * In bepaalde scenario's moet Microsoft connectiviteit starten met service-eindpunten die worden gehost in uw netwerk. Een typisch voorbeeld van het scenario is connectiviteit met ADFS-servers die vanuit Office 365 wordt gehost in uw netwerk. In dergelijke gevallen moet u vanuit uw netwerk geschikte voorvoegsels naar de Microsoft-peering laten lekken. 
 * U moet verkeer dat is bestemd voor IP-adressen in uw netwerk vanuit Microsoft met SNAT omzetten. 
 
@@ -70,6 +70,6 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

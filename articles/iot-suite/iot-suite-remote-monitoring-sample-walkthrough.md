@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: db1cd76d4a99b2b25cc9589f131f3d8da3c2d84a
 
 
 ---
@@ -37,7 +37,7 @@ Het volgende diagram geeft een overzicht van de logische onderdelen van de voora
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
-In de vooraf geconfigureerde oplossing vertegenwoordigt het gesimuleerde apparaat een koelapparaat (zoals een airconditioner of een luchtververser in een gebouw). Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u ook automatisch vier gesimuleerde apparaten in waarop een [Azure-webtaak][lnk-webjobs] wordt uitgevoerd. Met de gesimuleerde apparaten kunt u eenvoudig het gedrag van de oplossing bekijken zonder dat u fysieke apparaten hoeft te implementeren. Zie de zelfstudie [Connect your device to the remote monitoring preconfigured solution][Ink-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle) om een echt fysiek apparaat te implementeren.
+In de vooraf geconfigureerde oplossing vertegenwoordigt het gesimuleerde apparaat een koelapparaat (zoals een airconditioner of een luchtververser in een gebouw). Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u ook automatisch vier gesimuleerde apparaten in waarop een [Azure-webtaak][lnk-webjobs] wordt uitgevoerd. Met de gesimuleerde apparaten kunt u eenvoudig het gedrag van de oplossing bekijken zonder dat u fysieke apparaten hoeft te implementeren. Zie de zelfstudie [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle) om een echt fysiek apparaat te implementeren.
 
 Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden naar IoT Hub:
 
@@ -81,7 +81,7 @@ De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die van het da
 De bevestiging van de opdracht voor het apparaat wordt via IoT Hub verzonden naar de back-end van de oplossing.
 
 ## <a name="iot-hub"></a>IoT Hub
-De [IoT Hub][Ink-iothub] neemt gegevens op die vanaf de apparaten worden verzonden naar de cloud, en maakt ze beschikbaar voor de ASA-taken (Azure Stream Analytics). Via IoT Hub worden ook opdrachten naar de apparaten verzonden namens de portal voor apparaten. Voor elke stream maakt de ASA-taak gebruik van een afzonderlijke IoT Hub-consumentengroep om de stroom berichten van de apparaten te lezen.
+De [IoT Hub][lnk-iothub] neemt gegevens op die vanaf de apparaten worden verzonden naar de cloud, en maakt ze beschikbaar voor de ASA-taken (Azure Stream Analytics). Via IoT Hub worden ook opdrachten naar de apparaten verzonden namens de portal voor apparaten. Voor elke stream maakt de ASA-taak gebruik van een afzonderlijke IoT Hub-consumentengroep om de stroom berichten van de apparaten te lezen.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Bij de oplossing voor externe controle worden via [ASA (Azure Stream Analytics)][Ink-asa] apparaatberichten die zijn ontvangen via de IoT Hub, verzonden naar andere back-endonderdelen voor verwerking of opslag. Met verschillende ASA-taken worden specifieke functies uitgevoerd gebaseerd op de inhoud van de berichten.
@@ -216,7 +216,7 @@ De volgende TechNet-blogberichten bieden meer details over de vooraf geconfigure
 
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
 
-* [Connect your device to the remote monitoring preconfigured solution][Ink-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle)
+* [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle][lnk-connect-rm]
 * [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com)
 
 [Ink-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -229,6 +229,6 @@ U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
