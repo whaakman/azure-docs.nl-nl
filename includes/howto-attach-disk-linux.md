@@ -1,5 +1,5 @@
 
-Zie [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informatie over schijven en VHD's voor virtuele machines) voor meer informatie over schijven.
+Zie [About Disks and VHDs for Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informatie over schijven en VHD's voor virtuele machines) voor meer informatie over schijven.
 
 <a id="attachempty"></a>
 
@@ -117,6 +117,6 @@ Als u een bestaande schijf wilt koppelen, dient u een .vhd beschikbaar te hebben
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Wat is SQL Database? Inleiding tot SQL Database | Microsoft Docs
+title: Wat is de service Azure SQL Database? | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: inleiding in sql,intro in sql,wat is sql-database
 services: sql-database
@@ -11,27 +11,27 @@ ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 12/20/2016
-ms.author: shkurhek;carlrab
+ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Wat is SQL Database? Inleiding tot SQL Database
 SQL Database is een relationele database-service in de Microsoft Cloud op basis van de toonaangevende Microsoft SQL Server-engine en is in staat bedrijfskritieke workloads af te handelen. SQL Database biedt voorspelbare prestaties op meerdere serviceniveaus, dynamische schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging, allemaal praktisch zonder beheer. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. Omdat SQL Database is gebaseerd op de [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-engine, worden bestaande SQL Server-hulpprogramma's, -bibliotheken en -API's ondersteund. Als gevolg hiervan kunt u eenvoudig nieuwe oplossingen ontwikkelen, uw bestaande SQL Server-oplossingen verplaatsen en uw bestaande SQL Server-oplossingen uitbreiden naar de Microsoft Cloud zonder nieuwe vaardigheden te hoeven aanleren.
 
-Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u klaar bent om aan de slag te gaan met praktische zelfstudies, kunt u [uw eerste SQL-database maken](sql-database-get-started.md) of [een elastische pool maken](sql-database-elastic-pool-create-portal.md). Bekijk deze video voor een korte videodemonstratie.
+Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u klaar bent om aan de slag te gaan met praktische zelfstudies, kunt u [uw eerste SQL-database maken](sql-database-get-started.md) of [een elastische pool maken](sql-database-elastic-pool-manage-portal.md). Bekijk deze video voor een korte videodemonstratie.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
-De SQL Database-service biedt drie servicelagen: Basic, Standard en Premium. Elke servicelaag biedt [verschillende niveaus qua prestaties en mogelijkheden](sql-database-service-tiers.md) voor lichte tot zware workloads van databases. U kunt uw eerste app ontwikkelen op een kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch [de servicelaag wijzigen](sql-database-scale-up.md), zodat deze beter past bij de behoeften van uw oplossing. U kunt dit doen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+De SQL Database-service biedt drie servicelagen: Basic, Standard en Premium. Elke servicelaag biedt [verschillende niveaus qua prestaties en mogelijkheden](sql-database-service-tiers.md) voor lichte tot zware workloads van databases. U kunt uw eerste app ontwikkelen op een kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch [de servicelaag wijzigen](sql-database-service-tiers.md), zodat deze beter past bij de behoeften van uw oplossing. U kunt dit doen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 Voor veel bedrijven en apps is het kunnen maken van enkele databases en het naar wens omhoog of omlaag schalen van de prestaties al voldoende, vooral als de gebruikspatronen redelijk voorspelbaar zijn. Bij onvoorspelbare gebruikspatronen kan het echter lastig zijn uw kosten en bedrijfsmodel effectief te beheren. [Elastische pools](sql-database-elastic-pool.md) zijn ontworpen om dit probleem te verhelpen. Het concept is eenvoudig. U wijst prestatieresources toe aan een pool in plaats van aan een individuele database en betaalt voor de collectieve prestatieresources van de pool in plaats van voor de prestaties van een individuele database. Met elastische pools hoeft u zich niet bezig te houden met het verhogen en verlagen van de databaseprestaties als de vraag naar resources fluctueert. De gepoolde databases maken naar behoefte gebruik van de prestatieresources van de elastische pool. Gepoolde databases tellen mee voor het verbruik tot het maximum voor de pool is bereikt. Zo blijven uw kosten voorspelbaar, ook al is uw gebruik van de individuele database dat niet. Bovendien kunt u [databases aan de groep toevoegen of eruit verwijderen](sql-database-elastic-pool-manage-portal.md). Zo kan uw app kan worden opgeschaald van een handjevol databases naar duizenden databases, allemaal binnen het budget dat u zelf bepaalt. Ten slotte kunt u ook de minimale en maximale beschikbare resources die voor databases beschikbaar zijn in de pool beheren om ervoor te zorgen dat er geen database in de pool is die alle poolresources gebruikt en dat elke gepoolde database een gegarandeerd minimum aan resources heeft. Zie [Ontwerppatronen voor SaaS-toepassingen met meerdere tenants met behulp van Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) voor meer informatie over ontwerppatronen voor SaaS-toepassingen met elastische groepen.
@@ -62,6 +62,6 @@ Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, ben
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

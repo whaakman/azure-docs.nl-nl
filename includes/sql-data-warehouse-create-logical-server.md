@@ -23,7 +23,7 @@
 4. Geef in het tekstvak Aanmeldgegevens van serverbeheerder een gebruikersnaam op voor de aanmelding voor SQL-verificatie voor deze server. Deze aanmelding wordt de principal-aanmelding op serverniveau genoemd. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
     
     ![Aanmeldgegevens SQL-beheerder](./media/sql-data-warehouse-create-logical-server/sql-admin-login.png)
-5. Geef in de tekstvakken **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het serverprincipal-aanmeldingsaccount. Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
+5. Geef in de tekstvakken **Wachtwoord** en **Wachtwoord bevestigen** een wachtwoord op voor het server-principal-aanmeldingsaccount. Een groen vinkje geeft aan dat u een geldig wachtwoord hebt opgegeven.
     
     ![Wachtwoord SQL-beheerder](./media/sql-data-warehouse-create-logical-server/sql-admin-password.png)
 6. Selecteer een abonnement waarmee u toestemming hebt om objecten te maken.
@@ -38,7 +38,7 @@
     ![serverlocatie](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > Het tekstvak voor **Toegang van Azure-services tot server toestaan** kan niet worden gewijzigd op deze blade. U kunt deze instelling op de serverfirewallblade wijzigen. Zie [Aan de slag met beveiliging](../articles/sql-database/sql-database-get-started-security.md) voor meer informatie.
+    > Het tekstvak voor **Toegang van Azure-services tot server toestaan** kan niet worden gewijzigd op deze blade. U kunt deze instelling op de serverfirewallblade wijzigen. Zie [Aan de slag met beveiliging](../articles/sql-database/sql-database-manage-servers-portal.md) voor meer informatie.
     >
     
 9. Klik op **Create**.
@@ -47,6 +47,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
