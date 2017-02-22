@@ -13,8 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: d3505091d3239bd68b2c4d0bb045d83a53cb6700
-ms.openlocfilehash: 0bb9b8a84d94603f14eef9a93eb0d662cf791a1c
+ms.sourcegitcommit: c4a7875e7a5cace68b592cc7c4ea673851e0b070
+ms.openlocfilehash: ecf5fcec2ec5c1d11c34a035f24d78f991d66b57
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
@@ -124,7 +124,7 @@ Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te i
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">Azure-CLI</a></p>
                     </div>
                 </div>
@@ -164,6 +164,6 @@ Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te i
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
