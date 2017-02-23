@@ -1,6 +1,6 @@
 # Overzicht
 ## [Informatie over virtuele machines](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Opslag](../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Opslag](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuele netwerken](../virtual-machines-windows-network-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Poorten, eindpunten en beveiliging](../virtual-machines-windows-endpoints-in-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Load balancers](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -150,6 +150,7 @@
 ### [Infrastructuurvoorbeeld](../virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Gepland Azure-onderhoud](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Planning](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Geplande gebeurtenissen](../virtual-machines-scheduled-events.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Workloads beheren
 ### [HPC (High Performance Computing)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -189,6 +190,7 @@
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
 ## [Compute REST](/rest/api/compute)
+## [Managed Disks REST](/rest/api/manageddisks)
 
 # Resources
 ## [Resource Manager-sjablonen schrijven](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -199,6 +201,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

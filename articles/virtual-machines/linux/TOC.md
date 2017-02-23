@@ -53,7 +53,9 @@
 #### [Azure Portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM-installatiekopieën zoeken](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Cloud-init gebruiken](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [SSH-toegang opnieuw instellen, gebruikers beheren en schijven controleren](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### SSH-toegang opnieuw instellen, gebruikers beheren en schijven controleren
+#### [Azure CLI 1.0](../virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [SSH-wachtwoorden uitschakelen door het configureren van SSHD](../virtual-machines-linux-mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een virtuele Red Hat-machine koppelen aan een Azure Active Directory-domeinservice](../virtual-machines-linux-join-redhat-linux-vm-to-azure-active-directory-domain-service.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Docker Machine met Azure gebruiken](../virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,13 +77,17 @@
 ### [Software-RAID configureren](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LVM configureren](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Azure-bestanden gebruiken](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Azure File Storage koppelen met behulp van SMB](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Azure File Storage koppelen met behulp van SMB
+#### [Azure CLI 1.0](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Netwerk](../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Toegang tot een virtuele machine toestaan met de CLI
 #### [Azure CLI 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Interne DNS gebruiken voor VM-naamomzetting](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Interne DNS gebruiken voor VM-naamomzetting
+#### [Azure CLI 1.0](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Een FQDN maken via de portal](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Een virtuele machine met meerdere NIC's maken
 #### [Azure CLI 1.0](../virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -176,7 +182,9 @@
 ### [SAP DBMS-gids](../virtual-machines-linux-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Snelstartgids voor SAP SUSE](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Overzicht van Data Science VM](../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [MongoDB](../virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### MongoDB
+#### [Azure CLI 1.0](../virtual-machines-linux-install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [MySQL](../virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [PostgreSQL](../virtual-machines-linux-postgresql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LAMP-stack implementeren](../virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -197,7 +205,8 @@
 ### [Oplossen van implementatieproblemen](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Virtuele Machine opnieuw implementeren naar een nieuw knooppunt voor Azure](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine
-#### [Azure CLI](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure CLI 1.0](../virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 #### [Azure Portal](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Naslaginformatie
@@ -207,7 +216,8 @@
 ## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
-## [REST](/rest/api/compute)
+## [Compute REST](/rest/api/compute)
+## [Managed Disks](/rest/api/manageddisks)
 
 # Resources
 ## [Resource Manager-sjablonen schrijven](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -218,6 +228,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

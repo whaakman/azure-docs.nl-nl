@@ -195,7 +195,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue Storage voor het bewaken van taakmeldingen](media-services-dotnet-check-job-progress-with-queues.md)
+### [Taakmeldingen bewaken met behulp van Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Taakmeldingen bewaken met behulp van webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Problemen oplossen
 ### [Veelgestelde vragen](media-services-frequently-asked-questions.md)
@@ -216,6 +217,6 @@
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

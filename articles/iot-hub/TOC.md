@@ -7,11 +7,10 @@
 ## Een gesimuleerd apparaat gebruiken
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Een Raspberry Pi gebruiken
-### Node.js
-#### [Beginnen](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [Optioneel: het led-gedrag wijzigen](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Problemen oplossen](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Beginnen](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Problemen oplossen](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Een Intel Edison gebruiken
-### Node.js
-#### [Beginnen](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [Optioneel: het led-gedrag wijzigen](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Problemen oplossen](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Beginnen](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Problemen oplossen](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Een Arduino gebruiken
-### Node.js
-#### [Beginnen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Simulatie op Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Het IoT Gateway-startpakket gebruiken
-### Gesimuleerd apparaat
-
-#### [Beginnen](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Gesimuleerd apparaat](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Les 1: Uw NUC configureren
 ##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Problemen oplossen](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### SensorTag-apparaat
-#### [Beginnen](iot-hub-gateway-kit-c-get-started.md)
+### [SensorTag-apparaat](iot-hub-gateway-kit-c-get-started.md)
 #### Les 1: Uw NUC configureren
 ##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## De IoT-apparaat-SDK voor C gebruiken
-### [Inleiding](iot-hub-device-sdk-c-intro.md)
+## [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
 ### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
 ### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

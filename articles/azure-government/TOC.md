@@ -1,29 +1,33 @@
 # Overzicht
-## [Wat is Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Wat is Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justitie en openbare veiligheid](documentation-government-overview-jps.md)
 ## [Ministerie van Defensie](documentation-government-overview-dod.md)
 
 # Aan de slag
-## [Ontwikkelaarsgids](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Ontwikkelaarsgids](documentation-government-developer-guide.md)
+## [Aanmelden bij de Azure Government-portal](documentation-government-get-started-connect-with-portal.md)
+## [Een web-app inrichten](documentation-government-howto-deploy-webandmobile.md)
+## [Verbinding maken met PowerShell](documentation-government-get-started-connect-with-ps.md)
+## [Verbinding maken met CLI](documentation-government-get-started-connect-with-cli.md)
+## [Visual Studio instellen voor Azure Government](documentation-government-get-started-connect-with-vs.md)
+## [Beschikbare services](documentation-government-services.md)
 
 # Procedures
 ## Plannen
 ### [Beveiliging](documentation-government-plan-security.md)
 ### [Naleving](documentation-government-plan-compliance.md)
 ## Beheren
-### [Installatiekopieën](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
-### [Marketplace](documentation-government-manage-marketplace.md)
-### [Marketplace voor partners](documentation-government-manage-marketplace-partners.md)
-### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonnement](documentation-government-manage-subscriptions.md)
-## Implementeren
-### Web en mobiel
-#### [App Services](documentation-government-howto-deploy-webandmobile.md)
+
 
 # Naslaginformatie
-## [Services](documentation-government-services.md)
+## [Installatiekopieën](documentation-government-image-gallery.md)
+## [Marketplace](documentation-government-manage-marketplace.md)
+## [Marketplace voor partners](documentation-government-manage-marketplace-partners.md)
+
+## Services
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
@@ -31,6 +35,7 @@
 ### [Beveiliging en identiteit](documentation-government-services-securityandidentity.md)
 ### [Controle en beheer](documentation-government-services-monitoringandmanagement.md)
 ### [Web en mobiel](documentation-government-services-webandmobile.md)
+
 
 # Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/)

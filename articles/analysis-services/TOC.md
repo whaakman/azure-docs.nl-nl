@@ -16,7 +16,8 @@
 
 # Resources
 ##[Gegevensbronverbindingen](analysis-services-datasource.md)
-##[Gegevensproviders](analysis-services-data-providers.md) 
+##[Gegevensproviders](analysis-services-data-providers.md)
+##[Een ODC-bestand maken](analysis-services-odc.md)
 
 
 <!--HONumber=Feb17_HO3-->

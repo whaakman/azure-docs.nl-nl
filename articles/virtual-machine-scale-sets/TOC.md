@@ -3,6 +3,7 @@
 
 # Aan de slag
 ## [Een schaalset maken in de portal](virtual-machine-scale-sets-portal-create.md)
+## [Een schaalset maken met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -10,6 +11,7 @@
 
 ## Implementeren
 ### [Schaalset met behulp van de portal](virtual-machine-scale-sets-portal-create.md)
+### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Schaalset met Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Schaalset met PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Schaalset met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +21,7 @@
 ### [Gegevensschijven met schaalsets gebruiken](virtual-machine-scale-sets-attached-disks.md)
 ### [Werken met grote schaalsets](virtual-machine-scale-sets-placement-groups.md)
 ### [Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Beheren
@@ -36,7 +39,7 @@
 # Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Bronnen
 ## Prijzen 
@@ -45,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
