@@ -8,6 +8,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Gegevens toevoegen](search-what-is-data-import.md)
+### [Azure Portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Een index doorzoeken](search-query-overview.md)
@@ -25,7 +26,6 @@
 ### [Servicelimieten](search-limits-quotas-capacity.md)
 ### [Schaalbaarheid van service](search-capacity-planning.md)
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
-
 
 ## Ontwikkelen
 ### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
@@ -49,15 +49,16 @@
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
 ### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Veldtoewijzingen in indexeerfuncties](search-indexer-field-mappings.md)
-##  Zoekervaring ontwerpen
+##  Zoekervaring
+### [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 ### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
-### [Scoreprofielen](search-get-started-scoring-profiles.md)
-### [Suggesties](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
-### [Tagverbetering](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
+### [Filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### [Scoren](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Facetnavigatie](search-faceted-navigation.md)
-### [Taalanalyse](https://msdn.microsoft.com/library/azure/dn879793)
-### [Analysevoorzieningen aanpassen](https://msdn.microsoft.com/library/azure/mt605304)
-### [Zoeken in meerdere talen](search-language-support.md)
+### [Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Naslaginformatie
 ## [.NET](/dotnet/api/microsoft.azure.search)
@@ -86,6 +87,6 @@
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

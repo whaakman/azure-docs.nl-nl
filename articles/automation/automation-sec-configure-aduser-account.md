@@ -1,6 +1,6 @@
 ---
 title: Gebruikersaccount voor Azure AD configureren | Microsoft Docs
-description: "In dit artikel wordt beschreven hoe u gebruikersaccountreferenties van Azure AD voor runbooks in Azure Automation configureert om te verifiëren met ARM en ASM."
+description: In dit artikel wordt beschreven hoe u gebruikersaccountreferenties van Azure AD voor runbooks in Azure Automation configureert voor verificatie.
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Runbooks met Azure Service Management en Resource Manager verifiëren
-In dit artikel worden de stappen beschreven die u moet uitvoeren om een gebruikersaccount van Azure AD te configureren voor Azure Automation-runbooks die worden uitgevoerd met resources van Azure Service Management (ASM) of Azure Resource Manager (ARM).  Hoewel dit een ondersteunde verificatie-identiteit blijft voor de op ARM gebaseerde runbooks, is het gebruik van het nieuwe Uitvoeren als-account voor Azure de aanbevolen methode.       
+In dit artikel worden de stappen beschreven die u moet uitvoeren om een Azure AD-gebruikersaccount te configureren voor Azure Automation-runbooks die worden uitgevoerd met resources van Azure Service Management of Azure Resource Manager.  Hoewel dit een ondersteunde verificatie-identiteit blijft voor op Azure Resource Manager gebaseerde runbooks, is het gebruik van het nieuwe Uitvoeren als-account voor Azure de aanbevolen methode.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Een nieuwe Azure Active Directory-gebruiker maken
 1. Meld u aan bij de klassieke Azure-portal als servicebeheerder voor het Azure-abonnement dat u wilt beheren.
@@ -39,12 +39,12 @@ In dit artikel worden de stappen beschreven die u moet uitvoeren om een gebruike
 12. Meld u af bij Azure en meld u opnieuw aan met het account dat u zojuist hebt gemaakt. U wordt gevraagd om het wachtwoord van de gebruiker te wijzigen.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Een Automation-account maken in de klassieke Azure-portal
-In deze sectie voert u de volgende stappen uit om een nieuw Azure Automation-account te maken in Azure Portal, dat wordt gebruikt met uw resources waarmee runbooks worden beheerd in ASM- en ARM-modus.  
+In deze sectie voert u de volgende stappen uit om in Azure Portal een nieuw Azure Automation-account te maken voor gebruik met uw resources waarmee runbooks worden beheerd in de modi Azure Service Manager en Azure Resource Manager.  
 
 > [!NOTE]
 > Automation-accounts die met de klassieke Azure-portal zijn gemaakt, kunnen worden beheerd met zowel de klassieke Azure-portal als Azure Portal en een van de sets met cmdlets. Zodra het account is gemaakt, maakt het niet meer uit hoe u resources binnen het account maakt en beheert. Als u van plan bent om de klassieke Azure-portal te blijven gebruiken, moet u deze gebruiken in plaats van Azure Portal voor het maken van Automation-accounts.
->
->
+> 
+> 
 
 1. Meld u aan bij de klassieke Azure-portal als servicebeheerder voor het Azure-abonnement dat u wilt beheren.
 2. Selecteer **Automation**.
@@ -60,7 +60,7 @@ In deze sectie voert u de volgende stappen uit om een nieuw Azure Automation-acc
 12. Typ op de volgende pagina **Referentie definiëren** de gebruikersnaam van het eerder gemaakte AD-gebruikersaccount in het veld **Gebruikersnaam** en het wachtwoord in het veld **Wachtwoord** en **Wachtwoord bevestigen**. Klik op **OK** om uw wijzigingen op te slaan.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Een Automation-account maken in Azure Portal
-In deze sectie voert u de volgende stappen uit om een nieuw Azure Automation-account te maken in Azure Portal, dat wordt gebruikt met uw resources waarmee runbooks worden beheerd in ARM-modus.  
+In deze sectie voert u de volgende stappen uit om in Azure Portal een nieuw Azure Automation-account te maken voor gebruik met uw resources waarmee runbooks worden beheerd in de modus Azure Resource Manager.  
 
 1. Meld u aan bij Azure Portal als servicebeheerder voor het Azure-abonnement dat u wilt beheren.
 2. Selecteer **Automation-accounts**.
@@ -68,12 +68,12 @@ In deze sectie voert u de volgende stappen uit om een nieuw Azure Automation-acc
 4. Typ op de blade **Automation-account toevoegen** in het vak **Naam** een naam voor uw nieuwe Automation-account.
 5. Als u meer dan één abonnement hebt, geeft u het abonnement voor het nieuwe account op, evenals een nieuwe of bestaande **resourcegroep** en de **locatie** van een Azure-datacenter.
 6. Selecteer de waarde **Nee** voor de optie **Een Uitvoeren als-account voor Azure maken** en klik op de knop **Maken**.  
-
+   
    > [!NOTE]
-   > Als u de optie **Nee** selecteert omdat u geen Uitvoeren als-account wilt maken, wordt een waarschuwing weergegeven op de blade **Automation-account toevoegen**.  Hoewel het account wordt gemaakt en wordt toegewezen aan de rol **Inzender** in het abonnement, heeft het account geen overeenkomstige verificatie-id in de adreslijstservice van uw abonnementen en daardoor ook geen toegang tot resources in uw abonnement.  Hierdoor kunnen runbooks die naar dit account verwijzen, geen taken verifiëren en uitvoeren voor ARM-resources.
-   >
-   >
-
+   > Als u de optie **Nee** selecteert omdat u geen Uitvoeren als-account wilt maken, wordt een waarschuwing weergegeven op de blade **Automation-account toevoegen**.  Hoewel het account wordt gemaakt en wordt toegewezen aan de rol **Inzender** in het abonnement, heeft het account geen overeenkomstige verificatie-id in de adreslijstservice van uw abonnementen en daardoor ook geen toegang tot resources in uw abonnement.  Hierdoor kunnen alle runbooks die naar dit account verwijzen, geen taken verifiëren en uitvoeren in Azure Resource Manager-resources.
+   > 
+   > 
+   
     ![Waarschuwing bij Automation-account toevoegen](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. Terwijl in Azure het Automation-account wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen.
 
@@ -93,6 +93,7 @@ U moet deze regels na [controlepunten](http://technet.microsoft.com/library/dn46
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

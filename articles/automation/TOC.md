@@ -55,6 +55,7 @@
 ### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
 ### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Bronbeheerintegratie met VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Bewaken
 ### [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Automation-account loskoppelen van Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

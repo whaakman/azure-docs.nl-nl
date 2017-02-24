@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Data Lake Analytics met .NET SDK | Microsoft Docs
-description: 'Informatie over het gebruik van de SDK voor .NET voor het maken van Data Lake Store-accounts, het maken van Data Lake Analytics-taken en het verzenden van taken die zijn geschreven in U-SQL. '
+description: 'Informatie over het gebruik van de SDK voor .NET voor het maken van Data Lake Analytics-accounts, het maken van Data Lake Analytics-taken en het verzenden van taken die zijn geschreven in U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekop
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekop
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekop
           }
         }
 
-1. Druk op **F5** om de toepassing uit te voeren. De uitvoer is vergelijkbaar met:
+5. Druk op **F5** om de toepassing uit te voeren. De uitvoer is vergelijkbaar met:
    
     ![U-SQL .NET SDK-uitvoer van Azure Data Lake Analytics-taak](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Controleer het uitvoerbestand.  De standaardnaam voor het pad en het bestand is c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Controleer het uitvoerbestand.  De standaardnaam voor het pad en het bestand is c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Zie ook
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
@@ -257,6 +257,6 @@ U dient absolute paden te gebruiken om toegang te krijgen tot bestanden in gekop
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

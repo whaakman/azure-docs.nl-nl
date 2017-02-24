@@ -4,7 +4,7 @@
 
 # Aan de slag
 ## [Een register maken in de portal](container-registry-get-started-portal.md)
-## [Een register maken met de CLI](container-registry-get-started-azure-cli.md)
+## [Een register maken met Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Een installatiekopie pushen en ophalen](container-registry-get-started-docker-cli.md)
 
 # Procedures
@@ -14,7 +14,7 @@
 
 # Naslaginformatie
 
-## [Azure CLI 2.0 Preview](/cli/azure/acr)
+## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Verwant
@@ -27,6 +27,6 @@
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

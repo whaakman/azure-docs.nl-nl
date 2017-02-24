@@ -52,8 +52,19 @@
 ## [Adviezen voor cyberbeveiliging](azure-security-cyber-services.md)
 ## [Beveiligingscursussen van Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)
+## [Threat Modeling Tool](azure-security-threat-modeling-tool.md)
+###[Controle en logboekregistratie](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Verificatie](azure-security-threat-modeling-tool-authentication.md)
+###[Autorisatie](azure-security-threat-modeling-tool-authorization.md)
+###[Communicatiebeveiliging](azure-security-threat-modeling-tool-communication-security.md)
+###[Configuratiebeheer](azure-security-threat-modeling-tool-configuration-management.md)
+###[Cryptografie](azure-security-threat-modeling-tool-cryptography.md)
+###[Uitzonderingenbeheer](azure-security-threat-modeling-tool-exception-management.md)
+###[Invoervalidatie](azure-security-threat-modeling-tool-input-validation.md)
+###[Gevoelige gegevens](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Sessiebeheer](azure-security-threat-modeling-tool-session-management.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

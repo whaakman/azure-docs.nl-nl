@@ -45,15 +45,15 @@
 ## [Azure Diagnostics-schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [Diagnostics-schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [Diagnostics-schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [Diagnostics-schema 1.3 tot 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [Diagnostics-schema 1.3 tot 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
 
 
-# Bronnen
+# Resources
 ## [PowerShell-voorbeelden](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure CLI 1.0-voorbeelden](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Overzicht van ondersteunde metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

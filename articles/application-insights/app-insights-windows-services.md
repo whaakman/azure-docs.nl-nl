@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
     `<InstrumentationKey>` *de instrumentatiesleutel die u hebt gekopieerd* `</InstrumentationKey>`
 * Zorg ervoor dat de eigenschappen van ApplicationInsights.config in Solution Explorer zijn ingesteld op **Buildactie = Inhoud, Naar uitvoermap kopiëren = Kopiëren**.
 
+Het is handig om de instrumentatiesleutel in code in te stellen als u [de sleutel voor verschillende buildconfiguraties wilt toepassen](app-insights-separate-resources.md). Als u de sleutel in code instelt, hoeft u deze niet in het `.config`-bestand in te stellen.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Uw project uitvoeren
 Gebruik **F5** om uw toepassing te starten en uit te proberen. Open verschillende pagina’s om telemetrie te genereren.
 
@@ -132,6 +134,6 @@ Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
