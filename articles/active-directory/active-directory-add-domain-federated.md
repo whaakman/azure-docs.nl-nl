@@ -3,7 +3,7 @@ title: Uw aangepaste domeinnaam toevoegen aan en federatieve aanmelding instelle
 description: Hoe u de domeinnamen van uw bedrijf toevoegt aan Azure Active Directory en hoe u federatieve aanmelding instelt tussen Azure Active Directory en uw on-premises federatieoplossing.
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

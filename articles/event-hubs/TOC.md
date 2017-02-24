@@ -20,6 +20,7 @@
 ## Plannen en ontwerpen
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
+### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
 ## Ontwikkelen
 ### [Beschikbare API's](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

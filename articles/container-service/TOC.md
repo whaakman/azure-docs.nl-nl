@@ -3,7 +3,7 @@
 ## [Veelgestelde vragen](container-service-faq.md)
 # Aan de slag
 ## [Een ACS-cluster implementeren](container-service-deployment.md)
-## [Implementeren naar ACS met behulp van Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md)
+## [Implementeren naar ACS met behulp van Azure CLI 2.0](container-service-create-acs-cluster-cli.md)
 ## [Verbinding maken met een ACS-cluster](container-service-connect.md)
 ## [Een ACS-cluster schalen](container-service-scale.md)
 # Procedures
@@ -23,6 +23,7 @@
 #### [Bewaken met Dynatrace](container-service-monitoring-dynatrace.md)
 ## Beheren met Kubernetes
 ### [Aan de slag met Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Aan de slag met Kubernetes en Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Een service-principal configureren](container-service-kubernetes-service-principal.md)
 ### [Containerbeheer - UI van Kubernetes](container-service-kubernetes-ui.md)
 ### [Taakverdeling instellen voor Kubernetes-containers](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker CLI en Docker Compose](container-service-docker-swarm.md)
 ### [Continue integratie met Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Naslaginformatie
-## [Azure CLI 2.0 (Preview)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

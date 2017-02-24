@@ -3,6 +3,7 @@
 ## [Wat is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service-abonnementen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service op Linux](app-service-linux-intro.md)
+## [Veelgestelde vragen over App Service op Linux](app-service-linux-faq.md)
 
 # Aan de slag
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Marketplace-app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET-apps
 #### [Een ASP.NET-app maken in Azure met Visual Studio](web-sites-dotnet-get-started.md)
 #### [Een REST-service maken met ASP.NET-web-API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Een ASP.NET 5-web-app maken in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [.NET Core gebruiken in Web Apps op Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js-apps
 #### [Node.js ontwikkelen voor App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Bouwen en implementeren met WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP-apps
-#### [PHP-apps ontwikkelen voor App Service](app-service-web-php-get-started.md) 
+#### [PHP-apps ontwikkelen voor App Service](app-service-web-php-get-started.md)    
 #### [Een PHP-SQL-web-app maken en implementeren met Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Een WordPress-web-app maken in Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Een MySQL-database in Azure maken en verbinden](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Flask en Table Storage met Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django en MySQL in Azure met Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django en SQL Database in Azure met Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Ruby-apps
+#### [Ruby gebruiken in Web Apps op Linux](app-service-linux-using-ruby.md)
 
 ### [In vijf minuten uw eerste algemene web-app implementeren in Azure](app-service-web-get-started-html.md)
 ### [Aan de slag met testen tijdens productie voor Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Python configureren](web-sites-python-configure.md)
 #### [Node.js opstarten op Linux configureren](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Aangepaste domeinen
 #### [Aangepaste domeinen kopen en configureren](custom-dns-web-site-buydomains-web-app.md)
 #### [Uw eigen aangepaste domein toewijzen](web-sites-custom-domain-name.md)
+#### [Een actief aangepast domein migreren](app-service-custom-domain-name-migrate.md)
 #### [GoDaddy-domeinen configureren](web-sites-godaddy-custom-domain-name.md)
 #### [Aangepaste domeinen met Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
