@@ -1,6 +1,6 @@
 ---
-title: Een virtuele-machineschaalset maken met PowerShell | Microsoft Docs
-description: Een virtuele-machineschaalset maken met PowerShell
+title: Een virtuele-machineschaalset in Azure maken met PowerShell | Microsoft Docs
+description: Een virtuele-machineschaalset in Azure maken met PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
 
 
 ---
@@ -55,46 +55,6 @@ Een virtuele-machineschaalset moet zijn opgenomen in een resourcegroep.
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
-
-### <a name="storage-account"></a>Storage-account
-Een virtuele machine gebruikt een opslagaccount voor het opslaan van de besturingssysteemschijf en diagnostische gegevens die voor schalen worden gebruikt. Indien mogelijk kunt u het beste een afzonderlijk opslagaccount gebruiken voor elke virtuele machine in een schaalset. Als dit niet mogelijk is, plan dan niet meer dan 20 VM's per opslagaccount. In het voorbeeld in dit artikel worden drie opslagaccounts gemaakt voor drie virtuele machines.
-
-1. Vervang de waarde van **$saName** door de gewenste naam voor het opslagaccount. Test of de naam uniek is. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Als het antwoord **True** is, is de gewenste naam uniek.
-2. Vervang de waarde van **$saType** door het gewenste type voor het opslagaccount en maak de variabele:  
-   
-        $saType = "storage account type"
-   
-    Mogelijke waarden zijn: Standard_LRS, Standard_GRS, Standard_RAGRS en Premium_LRS.
-3. Het account maken:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    U zou iets moeten zien zoals in dit voorbeeld wordt weergegeven:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Herhaal stappen 1 tot 4 om drie opslagaccounts te maken, bijvoorbeeld myst1, myst2 en myst3.
 
 ### <a name="virtual-network"></a>Virtueel netwerk
 Voor de virtuele machines in de schaalset is een virtueel netwerk vereist.
@@ -173,12 +133,10 @@ U hebt alle benodigde resources voor het configureren van de schaalset. We kunne
         $imageSku = "2012-R2-Datacenter"
    
     Raadpleeg [Door installatiekopieën van virtuele Azure-machines navigeren en deze selecteren met Windows PowerShell en Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over het gebruiken van andere installatiekopieën.
-3. Vervang de waarden van **$vhdContainers** door een lijst met paden naar de locaties waar de virtuele vaste schijven zijn opgeslagen, zoals https://mystorage.blob.core.windows.net/vhds, en maak de variabele:
+
+3. Het opslagprofiel maken:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Het opslagprofiel maken:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Schaalset voor virtuele machines
 Nu kunt u de schaalset maken.
@@ -225,6 +183,6 @@ Gebruik deze resources om de door u gemaakte virtuele-machineschaalset te verken
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 
