@@ -15,18 +15,16 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
 
 
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>Migreren naar Azure met Site Recovery?
+# <a name="migrate-to-azure-with-site-recovery"></a>Migreren naar Azure met Site Recovery
 
 Lees dit artikel voor een overzicht van hoe u de service Azure Site Recovery gebruikt om virtuele machines en fysieke servers te migreren.
 
-Organisaties hebben een BCDR-strategie nodig die bepaalt op welke wijze toepassingen, workloads en gegevens beschikbaar blijven tijdens geplande en ongeplande uitval, en ervoor zorgt dat deze zo snel mogelijk worden hersteld naar een normale manier van functioneren. In uw BCDR-strategie moeten bedrijfsgegevens veilig en herstelbaar blijven. Ook moet ervoor worden gezorgd dat workloads continu beschikbaar blijven wanneer zich een noodsituatie voordoet.
-
-Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md)
+Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md) U kunt Site Recovery ook gebruiken om uw bestaande on-premises workloads te migreren naar Azure om uw traject naar de cloud te versnellen en gebruik te maken van de reeks functies die Azure biedt.
 
 Dit artikel beschrijft de implementatie in [Azure Portal](https://portal.azure.com). De [klassieke Azure-portal](https://manage.windowsazure.com/) kan worden gebruikt voor het onderhoud van de bestaande Site Recovery-kluizen. U kunt geen nieuwe kluizen maken.
 
@@ -35,7 +33,7 @@ U kunt onder aan dit artikel eventuele opmerkingen plaatsen. Technische vragen k
 
 ## <a name="what-do-we-mean-by-migration"></a>Wat wordt precies bedoeld met 'migreren’?
 
-U kunt Site Recovery implementeren voor volledige replicatie van on-premises VM's en fysieke servers, naar Azure of een secundaire site. U repliceert machines, voert een failover uit vanaf de primaire site wanneer er een storing is en voert weer een failback naar de primaire site uit wanneer de storing is hersteld. Behalve voor een volledige replicatie kunt u Site Recovery ook gebruiken om VM's en fysieke servers te migreren naar Azure, zodat gebruikers vanaf Azure VM's toegang hebben tot de workload. Migratie brengt replicatie evenals failover van de primaire site naar Azure met zich mee. In tegenstelling tot volledige replicatie omvat migratie echter geen mechanisme voor failback.
+U kunt Site Recovery implementeren voor de replicatie van on-premises virtuele machines en fysieke servers, naar Azure of naar een secundaire site. U repliceert machines, voert een failover uit vanaf de primaire site wanneer er storingen optreden en voert een failback uit naar de primaire site wanneer deze wordt hersteld. Daarnaast kunt u Site Recovery gebruiken om virtuele machines en fysieke servers te migreren naar Azure, zodat gebruikers deze kunnen gebruiken als virtuele Azure-machines. Migratie brengt replicatie en failover van de primaire site naar Azure met zich mee, evenals een volledig migratiebeheer.
 
 ## <a name="what-can-site-recovery-migrate"></a>Wat kan er met Site Recovery worden gemigreerd?
 
@@ -49,11 +47,13 @@ U kunt:
 
 Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie. U stelt een Recovery Services-kluis in, configureert de vereiste beheerservers (afhankelijk van wat u wilt migreren), voegt deze toe aan de kluis en geeft replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit om te controleren of alles naar behoren werkt.
 
-Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md#failover-and-failback) voor uw scenario. Voor migratie hoeft u geen failover door te voeren of iets te verwijderen. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren. Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
+Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md#failover-and-failback) voor uw scenario. Voor migratie hoeft u geen failover door te voeren. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren. Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
+
+![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migreren tussen Azure-regio's
 
-Met Site Recovery kunt u virtuele Azure-machines migreren tussen gebieden. In dit scenario wordt alleen migratie ondersteund. Met andere woorden, u kunt de Azure-VM's repliceren en een failover naar een andere regio uitvoeren, maar u kunt geen failback uitvoeren. In dit scenario stelt u een Recovery Services-kluis in en implementeert u een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
+Met Site Recovery kunt u virtuele Azure-machines migreren tussen gebieden. In dit scenario wordt alleen migratie ondersteund. Met andere woorden: u kunt de virtuele Azure-machines repliceren en een failover naar een andere regio uitvoeren, maar u kunt geen failback uitvoeren. In dit scenario stelt u een Recovery Services-kluis in en implementeert u een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
 
 ## <a name="migrate-aws-to-azure"></a>AWS migreren naar Azure
 
@@ -65,7 +65,6 @@ U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen mig
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Virtuele VMware-machines migreren naar Azure](site-recovery-vmware-to-azure.md)
-- [Fysieke servers migreren naar Azure](site-recovery-vmware-to-azure.md)
 - [Virtuele Hyper-V-machines in VMM-clouds migreren naar Azure](site-recovery-vmm-to-azure.md)
 - [Virtuele Hyper-V-machines zonder VMM migreren naar Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Virtuele Azure-machines migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
@@ -73,6 +72,6 @@ U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen mig
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
 
 
 ---
@@ -55,7 +55,7 @@ Zie hoe de Azure-infrastructuur de rol van de router overneemt en zo de toegang 
 Een subnet is een bereik met IP-adressen in het VNET. U kunt u een VNET onderverdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook routetabellen en NSG's configureren voor een subnet.
 
 ## <a name="ip-addresses"></a>IP-adressen
-Er kunnen twee soorten IP-adressen worden toegewezen aan bronnen in Azure: *openbare* en *privé* IP-adressen. Openbare IP-adressen worden gebruikt om Azure-bronnen te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/) en [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privé IP-adressen worden gebruikt voor communicatie tussen bronnen in een virtueel netwerk, samen met bronnen die verbonden zijn via een VPN, zonder gebruik te maken van via internet routeerbare IP-adressen.
+Er kunnen twee soorten IP-adressen worden toegewezen aan bronnen in Azure: *openbare* en *privé* IP-adressen. Openbare IP-adressen worden gebruikt om Azure-resources te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/) en [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privé-IP-adressen worden gebruikt voor communicatie tussen resources in een virtueel netwerk, waaronder resources die verbonden zijn via een VPN, zonder gebruik te maken van via internet routeerbare IP-adressen.
 
 Ga naar [IP-adressen in het virtuele netwerk](virtual-network-ip-addresses-overview-arm.md) voor meer informatie over IP-adressen in Azure
 
@@ -91,6 +91,6 @@ Er worden geen extra kosten in rekening gebracht voor het gebruik van virtuele n
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -14,37 +14,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: anhowe
 translationtype: Human Translation
-ms.sourcegitcommit: 7ed8fb75f057d5a7cfde5436e72e8fec52d07156
-ms.openlocfilehash: f3b2fc301bf7083f192c0ec872c4e032472eef97
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---kubernetes-walkthrough"></a>Microsoft Azure Container Service-engine - Kennismaking met Kubernetes
+# <a name="azure-container-service---kubernetes-walkthrough"></a>Azure Container Service - Kennismaking met Kubernetes
+
+
+Met de instructies in dit artikel kunt u de Azure CLI 2.0-opdrachten gebruiken om een Kubernetes-cluster te maken. Vervolgens gebruikt u het opdrachtregelprogramma `kubectl` om aan de slag te gaan met containers in het cluster.
+
+Op de volgende afbeelding ziet u de architectuur van een Container Service-cluster met één master en twee agents. De master dient de Kubernetes REST-API. De agentknooppunten worden gegroepeerd in een Azure-beschikbaarheidsset en voeren uw containers uit. Alle virtuele machines bevinden zich in hetzelfde virtuele privénetwerk en hebben volledige toegang tot elkaar.
+
+![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Vereisten
-In dit scenario wordt ervan uitgegaan dat u het [opdrachtregelprogramma 'azure-cli'](https://github.com/azure/azure-cli#installation) hebt geïnstalleerd en een [openbare SSH-sleutel](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) hebt gemaakt op `~/.ssh/id_rsa.pub`.
+In dit scenario wordt ervan uitgegaan dat u [Azure CLI-versie 2.0](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld. Ook moet u een openbare SSH-RSA-sleutel hebben op `~/.ssh/id_rsa.pub`. Als u er geen hebt, raadpleegt u de stappen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
 
-## <a name="overview"></a>Overzicht
 
-Met de onderstaande instructies maakt u een Kubernetes-cluster met één hoofdkooppunt en twee werkknooppunten.
-De master dient de Kubernetes REST-API.  De werkknooppunten worden gegroepeerd in een Azure-beschikbaarheidset en voeren uw containers uit. Alle virtuele machines bevinden zich in hetzelfde persoonlijke VNET en hebben volledige toegang tot elkaar.
 
-> [!NOTE]
-> Ondersteuning voor Kubernetes in Azure Container Service is momenteel in de preview-fase.
->
 
-De volgende afbeelding geeft de architectuur van een clustercontainerservice weer met één master en twee agents:
 
-![Afbeelding van Kubernetes-cluster op Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
-## <a name="creating-your-kubernetes-cluster"></a>Uw Kubernetes-cluster maken
+## <a name="create-your-kubernetes-cluster"></a>Uw Kubernetes-cluster maken
+
+Hier vindt u korte shellopdrachten voor de Azure CLI 2.0 waarmee u een cluster kunt maken. Zie [Azure CLI 2.0 gebruiken voor het maken van een Azure Container Service-cluster](container-service-create-acs-cluster-cli.md) voor meer informatie.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-Als u het cluster wilt maken, moet u eerst een resourcegroep maken op een specifieke locatie. U doet dit met:
+Als u het cluster wilt maken, moet u eerst een resourcegroep maken op een specifieke locatie. De uitvoering van de opdrachten is vergelijkbaar met het volgende:
+
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
@@ -52,27 +54,32 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### <a name="create-a-cluster"></a>Een cluster maken
-Als u een resourcegroep hebt, kunt u een cluster maken in de groep met:
+Als u een resourcegroep hebt, kunt u een cluster maken in de groep:
+
 ```console
 DNS_PREFIX=some-unique-value
-SERVICE_NAME=any-acs-service-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$SERVICE_NAME --dns-prefix=$DNS_PREFIX
+CLUSTER_NAME=any-acs-cluster-name
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX
 ```
 
 > [!NOTE]
-> azure-cli uploadt `~/.ssh/id_rsa.pub` naar de virtuele Linux-machines.
+> Tijdens de implementatie uploadt de CLI `~/.ssh/id_rsa.pub` naar de Linux-VM's.
 >
 
 Als deze opdracht is voltooid, hebt u als het goed is een werkend Kubernetes-cluster.
 
-### <a name="configure-kubectl"></a>Kubectl configureren
-`kubectl` is de Kubernetes-opdrachtregelclient.  Als u deze nog niet hebt geïnstalleerd, kunt u dit doen met:
+### <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+
+Hieronder vindt u Azure CLI-opdrachten waarmee u verbinding kunt maken met het Kubernetes-cluster vanaf uw clientcomputer met behulp van `kubectl`, de Kubernetes-opdrachtregelclient. Zie [Verbinding maken met een Azure Container Service-cluster](container-service-connect.md) voor meer informatie.
+
+Als u `kubectl` nog niet hebt geïnstalleerd, kunt u dit doen met:
 
 ```console
 az acs kubernetes install-cli
 ```
 
-Als `kubectl` is geïnstalleerd, downloadt u met de onderstaande opdracht de hoofdclusterconfiguratie naar het bestand ~/.kube/config
+Als `kubectl` is geïnstalleerd, downloadt u met de volgende opdracht de hoofdclusterconfiguratie naar het bestand ~/.kube/config:
+
 ```console
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
 ```
@@ -82,7 +89,7 @@ U moet nu toegang hebben tot uw cluster vanaf uw computer. Probeer het volgende 
 kubectl get nodes
 ```
 
-Controleer of u de machines in het cluster kunt zien.
+Controleer of u een lijst met de machines in het cluster kunt zien.
 
 ## <a name="create-your-first-kubernetes-service"></a>Uw eerste Kubernetes-service maken
 
@@ -92,40 +99,40 @@ Als u deze handleiding hebt voltooid, weet u:
  * en hoe u toegang krijgt tot het Kubernetes-dashboard.
 
 ### <a name="start-a-simple-container"></a>Een eenvoudige container starten
-U kunt een eenvoudige container uitvoeren (in dit geval de `nginx`-webserver) door het volgende uit te voeren:
+U kunt een eenvoudige container uitvoeren (in dit geval de Nginx-webserver) door het volgende uit te voeren:
 
 ```console
 kubectl run nginx --image nginx
 ```
 
-Met deze opdracht start de Docker-container nginx in een schil op een van de knooppunten.
+Met deze opdracht start de Docker-container Nginx in een schil op een van de knooppunten.
 
-U kunt het volgende uitvoeren
+Om de werkende container te zien, voert u het volgende uit:
+
 ```console
 kubectl get pods
 ```
 
-om de werkende container te zien.
-
 ### <a name="expose-the-service-to-the-world"></a>De service voor iedereen zichtbaar maken
-Ga als volgt te werk om de service voor iedereen zichtbaar maken.  U maakt een Kubernetes `Service` van het type `LoadBalancer`:
+Als u de service voor iedereen zichtbaar wilt maken, maakt u een Kubernetes `Service` van het type `LoadBalancer`:
 
 ```console
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-Hierdoor maakt Kubernetes een Azure Load Balancer met een openbaar IP-adres. De wijziging wordt in ongeveer 2-3 minuten doorgegeven aan de load balancer.
+Hierdoor maakt Kubernetes een Azure Load Balancer-regel met een openbaar IP-adres. De wijziging wordt in enkele minuten doorgegeven aan de load balancer. Zie voor meer informatie [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Taakverdeling instellen voor containers in een Kubernetes-cluster in Azure Container Service).
 
-Typ het volgende om de service te wijzigen van 'in behandeling' in een extern IP-adres:
+Voer de volgende opdracht uit om de service te wijzigen van `pending` in een extern IP-adres:
+
 ```console
 watch 'kubectl get svc'
 ```
 
-  ![Afbeelding van de overgang van in behandeling naar extern IP-adres](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
+  ![Afbeelding van de overgang van 'in behandeling' naar extern IP-adres](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
 
 Als u het externe IP-adres ziet, kunt u ernaar bladeren in uw browser:
 
-  ![Afbeelding van bladeren naar nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+  ![Afbeelding van bladeren naar Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
 ### <a name="browse-the-kubernetes-ui"></a>Naar de Kubernetes-gebruikersinterface bladeren
@@ -134,7 +141,7 @@ Als u de Kubernetes-webinterface wilt bekijken, kunt u het volgende gebruiken:
 ```console
 kubectl proxy
 ```
-Hiermee wordt een eenvoudige geverifieerde proxy uitgevoerd op localhost, die u kunt gebruiken om de [kubernetes-ui](http://localhost:8001/ui) weer te geven
+Hiermee wordt een eenvoudige geverifieerde proxy uitgevoerd op localhost, die u kunt gebruiken om de [Kubernetes-webinterface](http://localhost:8001/ui) weer te geven. Zie voor meer informatie [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (De Kubernetes-webinterface gebruiken met Azure Container Service).
 
 ![Afbeelding van Kubernetes-dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -142,11 +149,12 @@ Hiermee wordt een eenvoudige geverifieerde proxy uitgevoerd op localhost, die u 
 Met Kubernetes kunt u opdrachten uitvoeren in een externe Docker-container die in het cluster wordt uitgevoerd.
 
 ```console
-# Get the name of your nginx pod
+# Get the name of your nginx pods
 kubectl get pods
 ```
 
 Met de naam van uw schil kunt u een externe opdracht uitvoeren op uw schil.  Bijvoorbeeld:
+
 ```console
 kubectl exec nginx-701339712-retbj date
 ```
@@ -157,46 +165,20 @@ U kunt ook een volledig interactieve sessie openen met de `-it`-vlaggen:
 kubectl exec nginx-701339712-retbj -it bash
 ```
 
-![Afbeelding van curl naar podIP](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
-
-## <a name="details"></a>Details
-### <a name="installing-the-kubectl-configuration-file"></a>Het configuratiebestand kubectl installeren
-Tijdens het uitvoeren van `az acs kubernetes get-credentials` is het configuratiebestand kube voor externe toegang opgeslagen in de basismap ~/.kube/config.
-
-Als u het ooit rechtstreeks moet downloaden, kunt u `ssh` gebruiken in Linux of OS X, of `Putty` in Windows:
-
-#### <a name="windows"></a>Windows
-Ga als volgt te werk om pscp vanuit [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) te gebruiken.  Zorg ervoor dat uw certificaat toegankelijk is via [pageant](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#key-management-and-agent-forwarding-with-windows-pageant):
-  ```
-  # MASTERFQDN is obtained in step1
-  pscp azureuser@MASTERFQDN:.kube/config .
-  SET KUBECONFIG=%CD%\config
-  kubectl get nodes
-  ```
-
-#### <a name="os-x-or-linux"></a>OS X of Linux:
-  ```
-  # MASTERFQDN is obtained in step1
-  scp azureuser@MASTERFQDN:.kube/config .
-  export KUBECONFIG=`pwd`/config
-  kubectl get nodes
-  ```
-## <a name="learning-more"></a>Meer informatie
-
-### <a name="azure-container-service"></a>Azure Container Service
-
-1. [Documentatie over Azure Container Service](https://azure.microsoft.com/en-us/documentation/services/container-service/)
-2. [Open Source-engine van Azure Container Service ](https://github.com/azure/acs-engine)
-
-### <a name="kubernetes-community-documentation"></a>Documentatie van de Kubernetes-gemeenschap
-
-1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/): hier leest u hoe u toepassingen in containers kunt implementeren, schalen en bijwerken, en hoe u fouten kunt opsporen.
-2. [Gebruikershandleiding voor Kubernetes](http://kubernetes.io/docs/user-guide/): bevat informatie over het uitvoeren van programma's in een bestaand Kubernetes-cluster.
-3. [Voorbeelden van Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples): biedt een aantal voorbeelden voor het uitvoeren van echte toepassingen met Kubernetes.
+![Externe sessie binnen een container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
 
 
 
-<!--HONumber=Jan17_HO4-->
+## <a name="next-steps"></a>Volgende stappen
+
+Om meer te doen met uw Kubernetes-cluster raadpleegt u de volgende resources:
+
+* [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/): hier leest u hoe u toepassingen in containers kunt implementeren, schalen en bijwerken, en hoe u fouten kunt opsporen.
+* [Gebruikershandleiding voor Kubernetes](http://kubernetes.io/docs/user-guide/): bevat informatie over het uitvoeren van programma's in een bestaand Kubernetes-cluster.
+* [Voorbeelden van Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples): biedt een aantal voorbeelden voor het uitvoeren van echte toepassingen met Kubernetes.
+
+
+
+<!--HONumber=Feb17_HO4-->
 
 

@@ -1,0 +1,33 @@
+**Premium niet-beheerde schijven van virtuele machines: limieten per account**
+
+| Resource | Standaardlimiet |
+| --- | --- |
+| Totale schijfcapaciteit per account |35 TB |
+| Totale momentopnamecapaciteit per account |10 TB |
+| Maximale bandbreedte per account (inkomend en uitgaand<sup>1</sup>) |<=50 Gbps |
+
+<sup>1</sup>*Inkomend* verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. *Uitgaand* verwijst naar alle gegevens (reacties) die worden ontvangen van een opslagaccount.
+
+**Premium niet-beheerde schijven van virtuele machines: limieten per schijf**
+
+| Schijftype voor Premium Storage | P10 | P20 | P30 |
+| --- | --- | --- | --- |
+| Schijfgrootte |128 GiB |512 GiB |1024 GiB (1 TB) |
+| Max. aantal IOP's per schijf |500 |2300 |5000 |
+| Max. doorvoer per schijf |100 MB/s | 150 MB/s |200 MB/s |
+| Max. aantal schijven per opslagaccount |280 |70 |35 |
+
+**Premium niet-beheerde schijven van virtuele machines: limieten per VM**
+
+| Resource | Standaardlimiet |
+| --- | --- |
+| Max. aantal IOP's per VM |80.000 IOP's met GS5 VM<sup>1</sup> |
+| Max. doorvoer per VM |2000 MB/s met GS5 VM<sup>1</sup> |
+
+<sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten. 
+
+
+
+<!--HONumber=Feb17_HO3-->
+
+

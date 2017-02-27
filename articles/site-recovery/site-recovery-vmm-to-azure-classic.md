@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
+ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 >
 >
 
-De Azure Site Recovery-service draagt bij aan de bedrijfscontinuïteit en de strategie voor herstel na noodgevallen (BCDR) door de replicatie, failover en het herstel van virtuele machines en fysieke servers in te delen. Machines kunnen worden gerepliceerd naar Azure of een secundaire on-premises datacentrum. Lees voor een snel overzicht [Wat is Azure Site Recovery?](site-recovery-overview.md).
+De Azure Site Recovery-service draagt bij aan de bedrijfscontinuïteit en de strategie voor herstel na noodgevallen (BCDR) door de replicatie, failover en het herstel van virtuele machines en fysieke servers in te delen. Machines kunnen worden gerepliceerd naar Azure of een secundaire on-premises datacentrum. Lees voor een snel overzicht [Wat is Azure Site Recovery?](site-recovery-overview.md)
 
 ## <a name="overview"></a>Overzicht
 In dit artikel wordt beschreven hoe u Site Recovery implementeert om Hyper-V virtuele machines op Hyper-V-hostservers in VMM-privéclouds naar Azure repliceren.
@@ -65,8 +65,8 @@ Dit is wat u on-premises nodig hebt.
 ## <a name="network-mapping-prerequisites"></a>Vereisten voor netwerktoewijzing
 Wanneer u virtuele machines in Azure beveiligt, zorgen de koppelingen van netwerktoewijzingen tussen VM-netwerken op de bron-VMM-server en doel-Azure-netwerken voor het volgende:
 
-* Alle machines met failover in hetzelfde netwerk kunnen met worden verbonden, ongeacht van welk herstelplan ze deel uitmaken.
-* Als een netwerkgateway is ingesteld in het doel-Azure-netwerk, kunnen virtuele machines worden verbonden met andere on-premises virtuele machines.
+* Alle machines waarvoor een failover wordt uitgevoerd in hetzelfde netwerk, kunnen met elkaar worden verbonden, ongeacht het herstelplan waarvan ze deel uitmaken.
+* Als er in het doel-Azure-netwerk een netwerkgateway is ingesteld, kunnen virtuele machines worden verbonden met andere on-premises virtuele machines.
 * Als u geen netwerktoewijzing configureert, kunnen alleen virtuele machines met failover in hetzelfde herstelplan met elkaar worden verbonden na failover naar Azure.
 
 Als u netwerktoewijzing wilt implementeren, hebt u het volgende nodig:
@@ -74,13 +74,6 @@ Als u netwerktoewijzing wilt implementeren, hebt u het volgende nodig:
 * De virtuele machines die u wilt beveiligen op de bron-VMM-server, moeten zijn verbonden met een VM-netwerk. Dit netwerk moet zijn gekoppeld aan een logisch netwerk dat is gekoppeld aan de cloud.
 * Een Azure-netwerk waarmee gerepliceerde virtuele machines verbinding kunnen maken na failover. U selecteert dit netwerk op het moment van failover. Het netwerk moet zich in dezelfde regio bevinden als uw Azure Site Recovery-abonnement.
 
-Tref als volgt voorbereidingen voor netwerktoewijzing:
-
-1. [Meer informatie over](site-recovery-network-mapping.md) vereisten voor netwerktoewijzing.
-2. Bereid VM-netwerken in VMM voor:
-
-   * [Stel logische netwerken in](https://technet.microsoft.com/library/jj721568.aspx).
-   * [Stel VM-netwerken in](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Stap 1: Een Site Recovery-kluis maken
 1. Meld u aan bij de [beheerportal](https://portal.azure.com) vanuit de VMM-server die u wilt registreren.
@@ -146,9 +139,9 @@ Genereer een registratiesleutel in de kluis. Nadat u Azure Site Recovery Provide
 12. Geef bij **Cloudmetagegevens synchroniseren** aan of u metagegevens voor alle clouds op de VMM-server met de kluis wilt synchroniseren. Deze actie hoeft op elke server slechts één keer te worden uitgevoerd. Als u niet alle clouds wilt synchroniseren, laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de cloudeigenschappen in de VMM-console.
 13. Klik op **Volgende** om het proces te voltooien. Na de registratie worden door Azure Site Recovery metagegevens van de VMM-server opgehaald. De server wordt weergegeven op het tabblad **VMM-servers** op de pagina **Servers** in de kluis.
 
-    ![LastPage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![Laatste pagina](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-Na de registratie worden door Azure Site Recovery metagegevens van de VMM-server opgehaald. De server wordt weergegeven op het tabblad **VMM-servers** op de pagina **Servers** in de kluis.
+Na de registratie worden door Azure Site Recovery metagegevens van de VMM-server opgehaald. De server wordt weergegeven op het tabblad **VMM-servers**, op de pagina **Servers** in de kluis.
 
 ### <a name="command-line-installation"></a>Installatie vanaf de opdrachtregel
 Azure Site Recovery Provider kan ook worden geïnstalleerd met de volgende opdrachtregel. Deze methode kan worden gebruikt om Provider in Server Core voor Windows Server 2012 R2 te installeren.
@@ -217,7 +210,7 @@ Nadat de VMM-server is geregistreerd, kunt u cloudbeveiligingsinstellingen confi
 2. Klik op het tabblad **Beveiligde items** op de cloud die u wilt configureren, en ga naar het tabblad **Configuratie**.
 3. Selecteer in **Doel** de optie **Azure**.
 4. Selecteer in **Opslagaccount** het Azure Storage-account dat u voor replicatie gebruikt.
-5. Stel **Opgeslagen gegevens versleutelen** in op **Uit**. Met deze instelling wordt opgegeven dat gegevens versleuteld moeten worden gerepliceerd tussen de on-premises site en Azure.
+5. Stel **Opgeslagen gegevens versleutelen** in op **Uit**. Met deze instelling wordt opgegeven dat gegevens moeten worden versleuteld tijdens replicatie tussen de on-premises site en Azure.
 6. Laat in **Kopieerfrequentie** de standaardinstelling ongewijzigd. Met deze waarde wordt bepaald hoe vaak gegevens moeten worden gesynchroniseerd tussen de bron- en doellocatie.
 7. Laat in **Herstelpunten behouden voor** de standaardinstelling ongewijzigd. Bij de standaardwaarde nul wordt alleen het meest recente herstelpunt voor een primaire virtuele machine opgeslagen op een replicahostserver.
 8. Laat in **Frequentie van toepassingsconsistente momentopnamen** de standaardinstelling ongewijzigd. Met deze waarde wordt bepaald hoe vaak momentopnamen worden gemaakt. Momentopnamen gebruiken Volume Shadow Copy Service (VSS) om ervoor te zorgen dat toepassingen een consistente status hebben wanneer er een momentopname wordt gemaakt.  Als u wel een waarde instelt, moet u ervoor zorgen dat dit minder is dan het aantal aanvullende herstelpunten dat u configureert.
@@ -274,7 +267,7 @@ Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beve
     ![Virtuele machines controleren](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Op het tabblad **Configureren** van de eigenschappen van de virtuele machines kunnen de volgende netwerkeigenschappen worden gewijzigd.
 
-* **Aantal netwerkadapters op de virtuele doelmachine**: het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Raadpleeg [de specificaties voor de grootte van virtuele machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) voor het aantal ondersteunde adapters voor de verschillende grootten van een virtuele machine. Wanneer u de grootte voor een virtuele machine wijzigt en de instellingen opslaat, wordt het aantal netwerkadapters gewijzigd wanneer u de pagina **Configureren** opnieuw opent. Het aantal netwerkadapters van de virtuele doelmachines is het minimum aantal netwerkadapters op de virtuele bronmachine en het maximum aantal netwerkadapters dat wordt ondersteund door de grootte van de gekozen virtuele machine, waarbij het volgende geldt:
+* **Aantal netwerkadapters op de virtuele doelmachine**: het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Raadpleeg [de specificaties voor de grootte van virtuele machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) voor het aantal ondersteunde adapters voor de verschillende grootten van een virtuele machine. Wanneer u de grootte voor een virtuele machine wijzigt en de instellingen opslaat, is het aantal netwerkadapters gewijzigd wanneer u de pagina **Configureren** een volgende keer opent. Het aantal netwerkadapters van de virtuele doelmachines is het minimum aantal netwerkadapters op de virtuele bronmachine en het maximum aantal netwerkadapters dat wordt ondersteund door de grootte van de gekozen virtuele machine, waarbij het volgende geldt:
 
   * Als het aantal netwerkadapters op de bronmachine kleiner is dan of gelijk is aan het aantal adapters dat is toegestaan voor de grootte van de doelmachine, heeft het doel hetzelfde aantal adapters als de bron.
   * Als het aantal adapters voor de virtuele bronmachine meer is dan is toegestaan voor de doelgrootte, wordt het maximum voor de doelgrootte gebruikt.
@@ -296,15 +289,15 @@ Als u uw implementatie wilt testen, kunt u een testfailover voor één virtuele 
 Met een testfailover wordt uw failover- en herstelmechanisme in een geïsoleerd netwerk gesimuleerd. Houd rekening met het volgende:
 
 * Als u na de failover verbinding wilt maken met de virtuele machine in Azure met Extern bureaublad, schakelt u Verbinding met extern bureaublad in op de virtuele machine voordat u de testfailover uitvoert.
-* Na de failover gebruikt u een openbaar IP-adres om met Extern bureaublad verbinding te maken met de virtuele machine in Azure. Als u dit wilt doen, zorgt u ervoor dat u geen domeinbeleid hebt waarmee het verbinden met een virtuele machine via een openbaar adres wordt verhinderd.
+* Na een failover gebruikt u een openbaar IP-adres om met Extern bureaublad verbinding te maken met de virtuele Azure-machine. Als u dit wilt doen, zorgt u ervoor dat u geen domeinbeleid hebt waarmee het verbinden met een virtuele machine via een openbaar adres wordt verhinderd.
 
 > [!NOTE]
-> Voor de beste prestaties bij een failover naar Azure moet de Azure-agent op de beveiligde machine zijn geïnstalleerd. Dit helpt bij het sneller opstarten en helpt ook bij de diagnose in geval van problemen. De Linux-agent is [hier](https://github.com/Azure/WALinuxAgent) en de Windows-agent [hier](http://go.microsoft.com/fwlink/?LinkID=394789) beschikbaar.
+> Voor optimale prestaties bij het uitvoeren van een failover naar Azure zorgt u ervoor dat u de Azure-agent op de beveiligde machine hebt geïnstalleerd. Dit zorgt ervoor dat u sneller kunt opstarten en dat problemen sneller worden opgelost. Download de [Linux-agent](https://github.com/Azure/WALinuxAgent) of de [Windows-agent](http://go.microsoft.com/fwlink/?LinkID=394789).
 >
 >
 
 ### <a name="create-a-recovery-plan"></a>Een herstelplan maken
-1. Voeg op het tabblad **Herstelplannen** een nieuw plan toe. Geef een naam op, geef **VMM** op bij **Brontype** en geef in **Bron** de bron-VMM-server op. Azure is het doel.
+1. Voeg op het tabblad **Herstelplannen** een nieuw plan toe. Geef een naam op, geef **VMM** op bij **Brontype** en geef in **Bron** de bron-VMM-server op. Het doel is Azure.
 
     ![Herstelplan maken](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 2. Selecteer op de pagina **Virtuele machines selecteren** de virtuele machines die u aan het herstelplan wilt toevoegen. Deze virtuele machines worden toegevoegd aan de standaardgroep voor het herstelplan: groep 1. Er zijn maximaal 100 virtuele machines in één herstelplan getest.
@@ -333,13 +326,13 @@ Ga als volgt te werk om een testfailover uit te voeren:
 
     ![Geen netwerk](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Als voor de cloud gegevensversleuteling is ingeschakeld, selecteert u in **Versleutelingssleutel** het certificaat dat is uitgegeven tijdens de installatie van Provider op de VMM-server als u de optie voor het inschakelen van gegevensversleuteling voor een cloud hebt ingeschakeld.
-4. Op het tabblad **Taken** kunt u de voortgang van de failover volgen. U moet ook de testreplica van de virtuele machine in Azure Portal kunnen zien. Als u klaar bent om toegang tot virtuele machines te krijgen vanaf uw on-premises netwerk, kunt u een Extern bureaublad-verbinding naar de virtuele machine starten.
-5. Wanneer de fase **Testen voltooien** van de failover is bereikt, klikt u op **Test voltooien** om de testfailover te voltooien. U kunt inzoomen op het tabblad **Taak** om de voortgang en status van de failover bij te houden en de benodigde acties uit te voeren.
+4. Op het tabblad **Taken** kunt u de voortgang van de failover volgen. U moet ook de testreplica van de virtuele machine in Azure Portal kunnen zien. Als u vanuit uw on-premises netwerk toegang hebt tot virtuele machines, kunt u ook een Extern bureaublad-verbinding naar de virtuele machine starten.
+5. Wanneer de fase **Testen voltooien** van de failover is bereikt, klikt u op **Test voltooien** om deze te voltooien. U kunt inzoomen op het tabblad **Taak** om de voortgang en status van de failover bij te houden en de benodigde acties uit te voeren.
 6. Na de failover wordt de testreplica van de virtuele machine in Azure Portal weergegeven. Als u vanuit uw on-premises netwerk toegang hebt tot virtuele machines, kunt u ook een Extern bureaublad-verbinding naar de virtuele machine starten. Ga als volgt te werk:
 
    1. Controleer of de virtuele machines zijn gestart.
    2. Als u na de failover verbinding wilt maken met de virtuele machine in Azure met Extern bureaublad, schakelt u Verbinding met extern bureaublad in op de virtuele machine voordat u de testfailover uitvoert. U moet ook een RDP-eindpunt op de virtuele machine toevoegen. U kunt hiervoor een [Azure Automation-runbook](site-recovery-runbook-automation.md) gebruiken.
-   3. Als u na de failover een openbaar IP-adres gebruikt om met Extern bureaublad verbinding te maken met de virtuele machine in Azure, zorgt u ervoor dat u geen domeinbeleid hebt waarmee het verbinden met een virtuele machine via een openbaar adres wordt verhinderd.
+   3. Als u na de failover een openbaar IP-adres gebruikt om met behulp van Extern bureaublad verbinding te maken met de virtuele Azure-machine, moet u ervoor zorgen dat u geen domeinbeleid hebt waarmee het verbinden met een virtuele machine via een openbaar adres wordt verhinderd.
 7. Nadat de test is voltooid, gaat u als volgt te werk:
 
    * Klik op **De testfailover is voltooid**. Schoon de testomgeving op om automatisch uit te schakelen en de virtuele testmachines te verwijderen.
@@ -351,6 +344,6 @@ Meer informatie over [herstelplannen maken](site-recovery-create-recovery-plans.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

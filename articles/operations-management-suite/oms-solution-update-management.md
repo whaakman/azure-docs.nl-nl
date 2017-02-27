@@ -4,7 +4,7 @@ description: Dit artikel is bedoeld om u te leren begrijpen hoe u deze oplossing
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/21/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
+ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 
 
 ---
@@ -24,6 +24,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 Met de oplossing voor updatebeheer in OMS kunt u updates voor uw Windows- en Linux-computers beheren.  U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers te starten. 
 
 ## <a name="prerequisites"></a>Vereisten
+* De oplossing biedt alleen ondersteuning voor updatebeoordelingen op Windows Server 2008 en hoger en update-implementaties op Windows Server 2012 en hoger.  Server Core- en nanoserverinstallatieopties worden niet ondersteund.
+* Windows-clientbesturingssystemen worden niet ondersteund.  
 * Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server (Windows Server Update Services of toegang hebben tot Microsoft Update.  
   
   > [!NOTE]
@@ -104,7 +106,9 @@ Klik op de tegel **Updatebeheer** om het dashboard **Updatebeheer** te openen. H
 ## <a name="installing-updates"></a>Updates installeren
 Zodra updates zijn beoordeeld voor alle Windows-computers in uw omgeving, kunt u de vereiste updates installeren door een *Update-implementatie* te maken.  Een Update-implementatie is een geplande installatie van de vereiste updates voor een of meer Windows-computers.  U geeft de datum en tijd op voor de implementatie, samen met een computer of een groep computers die moet worden opgenomen.  
 
-Updates worden geïnstalleerd door runbooks in Azure Automation.  U kunt deze runbooks momenteel niet weergeven en ze vereisen geen configuratie.  Wanneer een Update-implementatie wordt gemaakt, maakt het een planning waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip.  Deze master-runbook start een onderliggend runbook op elke Windows-agent die installatie van de vereiste updates uitvoert.  
+Updates worden geïnstalleerd door runbooks in Azure Automation.  U kunt deze runbooks niet weergeven en ze vereisen geen configuratie.  Wanneer een Update-implementatie wordt gemaakt, maakt het een planning waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip.  Deze master-runbook start een onderliggend runbook op elke Windows-agent die installatie van de vereiste updates uitvoert.  
+
+Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die is geïmplementeerd in Azure.  Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.  
 
 ### <a name="viewing-update-deployments"></a>Update-implementaties weergeven
 Klik op de tegel **Update-implementatie** om de lijst met bestaande Update-implementaties weer te geven.  Ze zijn gegroepeerd op status – **Gepland**, **Wordt uitgevoerd** en **voltooid**.<br><br> ![Pagina Planning update-implementaties](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -247,6 +251,6 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

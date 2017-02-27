@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
 
 
 ---
@@ -29,15 +29,15 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Welke containerorchestrators worden ondersteund door Azure Container Service? 
 
-Er is ondersteuning voor open-source DC/OS, Docker Swarm en Kubernetes. Ondersteuning voor DC/OS en Docker Swarm is algemeen beschikbaar, maar Kubernetes-ondersteuning is momenteel in preview beschikbaar. Zie het [overzicht](container-service-intro.md) voor meer informatie.
+Er is ondersteuning voor open-source DC/OS, Docker Swarm en Kubernetes. Zie het [overzicht](container-service-intro.md) voor meer informatie.
  
-### <a name="do-you-support-swarm-mode"></a>Wordt de Swarm-modus ondersteund? 
+### <a name="do-you-support-docker-swarm-mode"></a>Wordt de Docker Swarm-modus ondersteund? 
 
 Swarm-modus wordt momenteel niet ondersteund, maar we zijn er wel mee bezig. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Biedt Azure Container Service ondersteuning voor Windows-containers?  
 
-Momenteel worden alleen Linux-containers ondersteund. Er wordt gewerkt aan ondersteuning voor Windows-containers met DC/OS-, Docker Swarm- en Kubernetes-orchestrators. 
+Momenteel worden Linux-containers alleen ondersteund met alle orchestrators. De ondersteuning voor Windows-containers met Kubernetes is momenteel beschikbaar als preview.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Welke orchestrator in Azure Container Service wordt aanbevolen? 
 In het algemeen bevelen we geen specifieke orchestrators aan. Als u ervaring hebt met een van de ondersteunde orchestrators, kunt u die ervaring toepassen op Azure Container Service. Gegevenstrends suggereren echter dat DC/OS goed werkt voor big data- en IoT-workloads, dat Kubernetes geschikt is voor cloudworkloads en dat Docker Swarm bekendstaat om de integratie met Docker-hulpprogramma's en de toegankelijkheid.
@@ -55,29 +55,23 @@ Azure Container Service is een Azure-service met SLA en functies in Azure Portal
 
 U kunt standaardprogramma's op uw besturingssysteem gebruiken om een sleutelpaar met openbare en privé-SSH RSA-sleutel te maken voor verificatie met de virtuele Linux-machines voor uw cluster. Raadpleeg de stappen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-Als u [Azure CLI 2.0-opdrachten (Preview)](container-service-create-acs-cluster-cli.md) gebruikt om een Container Service-cluster te implementeren, kunnen de SSH-sleutels automatisch worden gegenereerd voor uw cluster.
+Als u [Azure CLI 2.0-opdrachten](container-service-create-acs-cluster-cli.md) gebruikt om een Container Service-cluster te implementeren, kunnen de SSH-sleutels automatisch worden gegenereerd voor uw cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Hoe kan ik een service-principal maken voor mijn Kubernetes-cluster?
 
-Voor het maken van een Kubernetes-cluster in Azure Container Service zijn ook een id en wachtwoord nodig voor de service-principal van Azure Active Directory nodig. Zie [Over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie
+Voor het maken van een Kubernetes-cluster in Azure Container Service zijn ook een id en wachtwoord nodig voor de service-principal van Azure Active Directory nodig. Zie [Over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie.
 
 
-Als u [Azure CLI 2.0-opdrachten (Preview)](container-service-create-acs-cluster-cli.md) gebruikt om een Kubernetes-cluster te implementeren, kunnen de referenties van de service-principal automatisch worden gegenereerd voor uw cluster.
+Als u [Azure CLI 2.0-opdrachten](container-service-create-acs-cluster-cli.md) gebruikt om een Kubernetes-cluster te implementeren, kunnen de referenties van de service-principal automatisch worden gegenereerd voor uw cluster.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Hoe kan ik het aantal masters verhogen nadat een cluster is gemaakt? 
-Nadat het cluster is gemaakt, staat het aantal masters vast en kan dit niet worden gewijzigd. We raden u aan om bij het maken van het cluster drie of vijf masters te selecteren voor hogere beschikbaarheid.
+Nadat het cluster is gemaakt, staat het aantal masters vast en kan dit niet worden gewijzigd. We raden u aan om bij het maken van het cluster meerdere masters te selecteren voor hogere beschikbaarheid.
 
-> [!NOTE]
-> In de preview-versie kan een Kubernetes-cluster in Azure Container Service slechts één master hebben.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Hoe kan ik het aantal agents verhogen nadat een cluster is gemaakt? 
 U kunt het aantal agents in het cluster schalen via Azure Portal of met opdrachtregelprogramma's. Zie [Scale an Azure Container Service cluster](container-service-scale.md) (Een Azure Container Service-cluster schalen).
 
-> [!NOTE]
-> In de preview-versie heeft een Kubernetes-cluster in Azure Container Service een bepaald aantal masters. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Wat zijn de URL's van mijn masters en agents? 
 De URL's van clusterresources in Azure Container Service zijn gebaseerd op het DNS-naamvoorvoegsel dat u opgeeft en de naam van de Azure-regio die u hebt gekozen voor implementatie. De volledig gekwalificeerde domeinnaam (FQDN) van het hoofdknooppunt ziet er bijvoorbeeld als volgt uit:
@@ -114,9 +108,9 @@ Zie [Verbinding maken met een Azure Container Service-cluster](container-service
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie](container-service-intro.md) over Azure Container Service.
-* Implementeer een Container Service-cluster met de [portal](container-service-deployment.md) of [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md).
+* Implementeer een Container Service-cluster met de [portal](container-service-deployment.md) of [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

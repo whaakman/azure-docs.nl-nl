@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een containerregister pushen met de Docker-CLI
@@ -33,7 +33,7 @@ Zie voor meer achtergrondinformatie en concepten [Wat is Azure Container Registr
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld [Azure Portal](container-registry-get-started-portal.md) of de [Azure-CLI 2.0 (Preview)](container-registry-get-started-azure-cli.md).
+* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld [Azure Portal](container-registry-get-started-portal.md) of de [Azure-CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Docker-CLI**: installeer de [Docker-engine](https://docs.docker.com/engine/installation/) om uw lokale computer als een Docker-host in te stellen en de Docker-CLI-opdrachten te gebruiken.
 
 ## <a name="log-in-to-a-registry"></a>Aanmelden bij een register
@@ -118,6 +118,6 @@ Nu u de basisprincipes kent, kunt u uw register gaan gebruiken. Begin bijvoorbee
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Werkruimten beheren | Microsoft Docs
-description: Beheer toegang tot werkruimten in Log Analytics met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
+description: Beheer toegang tot werkruimten in Azure Log Analytics met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
 
 
 ---
@@ -97,10 +97,13 @@ Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet hou
 
   De URL ziet er als volgt uit: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Als u bijvoorbeeld beheeroplossingen wilt toevoegen of verwijderen, moet de gebruiker in Azure Portal een beheerder of inzender zijn van het Azure-abonnement. Bovendien moet de gebruiker de OMS-rol van werkruimte-inzender of beheerder hebben in de OMS-portal.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Gebruikers beheren in de OMS-portal
 U beheert gebruikers en groepen op het tabblad **Gebruikers beheren** onder het tabblad **Accounts** op de pagina Instellingen.   
 
 ![gebruikers beheren](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Een gebruiker toevoegen aan een bestaande werkruimte
 Voer de volgende stappen uit om een gebruiker of groep toe te voegen aan een werkruimte.

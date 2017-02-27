@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: 5adacea6033070e808f9bf5e76bae0f45f7f1199
+ms.openlocfilehash: e922590c500517c93f7682b5cca5ef6a2c89de53
 
 
 ---
@@ -49,6 +49,9 @@ Dit kan Site Recovery voor uw bedrijf betekenen:
 * **Meerdere VM-failovers**: u kunt herstelplannen configureren die ook scripts en Azure Automation-runbooks omvatten. Met herstelplannen kunt u failover en herstel modelleren en aanpassen voor toepassingen met meerdere lagen die worden verdeeld over meerdere virtuele machines.
 * **Integreren met bestaande BCDR-technologieën**: Site Recovery kan worden geïntegreerd met andere BCDR-technologieën. U kunt Site Recovery bijvoorbeeld gebruiken ter bescherming van de SQL Server-back-end van zakelijke workloads. Hierbij wordt ook systeemeigen ondersteuning geboden voor SQL Server AlwaysOn voor het beheren van failovers van beschikbaarheidsgroepen.
 
+## <a name="which-regions-are-supported"></a>Welke regio's worden ondersteund?
+[Hier](https://azure.microsoft.com/en-us/regions/services/) vindt u meer informatie over de regio's waar Azure Site Recovery beschikbaar is. 
+
 ## <a name="what-can-i-replicate"></a>Wat kan ik repliceren?
 Nu volgt een samenvatting van wat u met Site Recovery kunt repliceren.
 
@@ -78,7 +81,6 @@ Site Recovery maakt toepassingsgevoelige replicatie mogelijk, zodat workloads en
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

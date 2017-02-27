@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/10/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: 1f7faf166c1ddab8b25fb6a1fe4cc432b8a47432
 
 
 ---
@@ -38,9 +38,9 @@ U kunt een DocumentDB-account maken met Azure Portal, Azure Resource Manager-sja
 Bent u niet bekend met DocumentDB? Bekijk [deze](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vier minuten durende video van Scott Hanselman om te zien hoe u de meest algemene taken in de online portal uitvoert.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in de snelbalk achtereenvolgens op **Nieuw**, **Databases** en **DocumentDB (NoSQL)**.
+2. Klik in de linkernavigatie achtereenvolgens op **Nieuw**, **Databases** en **NoSQL (DocumentDB)**.
 
-   ![Schermopname van Azure Portal waarbij Meer services en DocumentDB (NoSQL) zijn gemarkeerd](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Schermopname van Azure Portal waarbij Meer services en NoSQL (DocumentDB) zijn gemarkeerd](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. In de blade **Nieuw account** geeft u de gewenste configuratie op voor het DocumentDB-account.
 
     ![Schermopname van de nieuwe DocumentDB-blade](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -90,6 +90,6 @@ Raadpleeg de volgende informatie voor meer informatie over DocumentDB:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

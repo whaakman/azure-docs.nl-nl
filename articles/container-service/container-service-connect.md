@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
 
 
 ---
@@ -29,14 +29,11 @@ De Kubernetes-, DC/OS- en Docker Swarm-clusters stellen lokale HTTP-eindpunten b
 
 Voor DC/OS en Docker Swarm moet u een veilige shell-tunnel (SSH) naar een intern systeem maken. Wanneer de tunnel is ingesteld, kunt u opdrachten uitvoeren die gebruikmaken van de HTTP-eindpunten en kunt u de webinterface van het cluster vanuit uw lokale systeem bekijken. 
 
-> [!NOTE]
-> Ondersteuning voor Kubernetes in Azure Container Service is momenteel in de preview-fase.
->
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Kubernetes-, DC/OS- of Swarm-cluster, [geïmplementeerd in Azure Container Service](container-service-deployment.md).
-* SSH-bestand met persoonlijke sleutel die overeenkomt met de openbare sleutel die tijdens de implementatie is toegevoegd aan het cluster. Met deze opdrachten wordt ervan uitgegaan dat de persoonlijke SSH-sleutel zich bevindt in `$HOME/.ssh/id_rsa` op uw computer. Zie deze instructies voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) voor meer informatie. Als de SSH-verbinding niet werkt, moet u mogelijk [uw SSH-sleutels opnieuw instellen](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* SSH RSA-bestand met persoonlijke sleutel die overeenkomt met de openbare sleutel die tijdens de implementatie is toegevoegd aan het cluster. Met deze opdrachten wordt ervan uitgegaan dat de persoonlijke SSH-sleutel zich bevindt in `$HOME/.ssh/id_rsa` op uw computer. Zie deze instructies voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) voor meer informatie. Als de SSH-verbinding niet werkt, moet u mogelijk [uw SSH-sleutels opnieuw instellen](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
 
@@ -47,7 +44,7 @@ Volg deze stappen om `kubectl` op uw computer te installeren en te configureren.
 > 
 
 ### <a name="install-kubectl"></a>Kubectl installeren
-Eén manier om dit hulpprogramma te installeren, is met de Azure CLI 2.0-opdracht `az acs kubernetes install-cli` (preview). Als u deze opdracht wilt uitvoeren, moet de meest recente versie van Azure CLI 2.0 (preview) zijn [geïnstalleerd](/cli/azure/install-az-cli2) en moet u zijn aangemeld bij een Azure-account (`az login`).
+Eén manier om dit hulpprogramma te installeren, is met de Azure CLI 2.0-opdracht `az acs kubernetes install-cli`. Als u deze opdracht wilt uitvoeren, moet de meest recente versie van Azure CLI 2.0 zijn [geïnstalleerd](/cli/azure/install-az-cli2) en moet u zijn aangemeld bij een Azure-account (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +54,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-U kunt de client ook rechtstreeks downloaden vanaf de [releasepagina](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+U kunt de nieuwste client ook rechtstreeks downloaden vanaf de [Kubernetes-releasepagina](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Zie [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/) (kubectl installeren en instellen) voor meer informatie.
 
 ### <a name="download-cluster-credentials"></a>Clusterreferenties downloaden
 Nadat `kubectl` is geïnstalleerd, kopieert u de clusterreferenties naar uw machine. Eén manier om de referenties te verkrijgen, is met de opdracht `az acs kubernetes get-credentials`. Geef de naam van de resourcegroep en de naam van de containerserviceresource als volgt door:
@@ -221,6 +218,6 @@ Containers in het cluster implementeren en beheren:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 
