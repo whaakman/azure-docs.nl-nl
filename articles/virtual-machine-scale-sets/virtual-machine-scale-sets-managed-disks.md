@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/14/2017
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
@@ -35,7 +35,7 @@ ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
 
 Een eenvoudige manier om aan de slag te gaan met schaalsets met beheerde schijven, is door er een te implementeren vanuit Azure Portal. Raadpleeg [dit artikel](./virtual-machine-scale-sets-portal-create.md) voor meer informatie. Een andere eenvoudige manier om aan de slag te gaan, is door [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) te gebruiken om een schaalset te implementeren. In het volgende voorbeeld ziet u hoe een op Ubuntu gebaseerde schaalset met 10 virtuele machines wordt gemaakt, elk met een gegevensschijf van 50 GB en 100 GB:
 
-```bash
+```azurecli
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
