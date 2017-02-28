@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Schijfpersistentie 
+
+De volgende tabel illustreert de verschillende statussen voor de verschillende schijven in een virtuele Azure-machine. Ook wordt aangegeven of de gegevens in een bepaalde status al dan niet worden bewaard.
+
+| Schijf | Starten | Stoppen/<br>Toewijzing ongedaan maken | Onderbreken | Opnieuw<br>opstarten | Afsluiten<br>down | Verwijderen | Fout | Formaat wijzigen | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Besturingssysteemschijf | Ja | Ja  | Ja | Ja | Ja  | Nee | Nee  | Ja | 
+| RAM  | Ja | Ja | Ja | Ja | Nee   | Nee | Nee | Nee | 
+| Lokale tijdelijke schijf | Ja | Nee | Ja | Nee | Nee  | Nee | Nee | Nee | 
+| Gekoppelde gegevensschijf | Ja | Ja | Ja | Ja | Ja  | Ja | Ja | Ja | 
+
 ## <a name="about-vhds"></a>Over VHD's
 
 De VHD's die worden gebruikt in Azure zijn .vhd-bestanden opgeslagen als pagina-blobs in een Standard Storage- of Premium Storage-account in Azure. Zie [Understanding block blobs and page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Inzicht in blok-blobs en pagina-blobs) voor meer informatie over pagina-blobs. Zie [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Hoogwaardige Premium Storage en virtuele Azure-machines) voor meer informatie over Premium Storage.
@@ -49,12 +60,6 @@ De volgende tabel bevat een vergelijking van Premium en Standard voor niet-behee
 | Schijftype | Solid-state drives (SSD) | Hardeschijfstation (HDD)  |
 | Overzicht  | Hoogwaardige schijfondersteuning met lage latentie op basis van SSD's voor virtuele machines die IO-intensieve workloads uitvoeren of een bedrijfskritieke productieomgeving hosten | Voordelige schijfondersteuning op basis van HDD's voor het ontwikkelen/testen van virtuele machines |
 | Scenario  | Productie- en prestatiegevoelige workloads | Ontwikkelen/testen, niet-kritiek, <br>Incidentele toegang |
-| Schijfgrootte | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Niet-beheerde schijven: 1 GB – 1TB <br><br>Beheerde schijven:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
+| Schijfgrootte | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Niet-beheerde schijven: 1 GB – 1 TB <br><br>Beheerde schijven:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Max. doorvoer per schijf | 200 MB/s | 60 MB/s |
 | Max. IOP's per schijf | 5000 IOP's | 500 IOP's |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
