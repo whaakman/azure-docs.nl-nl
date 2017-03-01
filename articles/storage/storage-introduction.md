@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [REST-API voor Storage-services](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Opslagclientbibliotheek voor .NET, Windows Phone en Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)
-* [Opslagclientbibliotheek voor Java/Android](/develop/java/)
+* [Opslagclientbibliotheek voor Java/Android](https://azure.microsoft.com/develop/java/)
 * [Opslagclientbibliotheek voor Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Opslagclientbibliotheek voor PHP](/develop/php/)
-* [Opslagclientbibliotheek voor Ruby](/develop/ruby/)
-* [Opslagclientbibliotheek voor Python](/develop/python/)
+* [Opslagclientbibliotheek voor PHP](https://azure.microsoft.com/develop/php/)
+* [Opslagclientbibliotheek voor Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Opslagclientbibliotheek voor Python](https://azure.microsoft.com/develop/python/)
 * [Opslag-cmdlets voor PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage-beheerservices
-* [REST API-verwijzing van opslagresourceprovider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Clientbibliotheek van opslagresourceprovider voor .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Cdmlets van opslagresourceprovider voor PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [REST API-verwijzing van opslagresourceprovider](/rest/api/storagerp/)
+* [Clientbibliotheek van opslagresourceprovider voor .NET](/dotnet/api/microsoft.azure.management.storage)
+* [Cdmlets van opslagresourceprovider voor PowerShell 1.0](/powershell/storage/)
 * [REST API van opslagservicebeheer (klassiek)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage-services voor gegevensverplaatsing
-* [REST-API van Storage Import/Export-service](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [REST-API van Storage Import/Export-service](storage-import-export-service.md)
 * [Clientbibliotheek van opslaggegevensverplaatsing voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Hulpprogramma's
@@ -248,9 +249,4 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 * [Table Storage gebruiken met Python](storage-python-how-to-use-table-storage.md)
 * [Queue Storage gebruiken met Python](storage-python-how-to-use-queue-storage.md)
 * [File Storage gebruiken met Python](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

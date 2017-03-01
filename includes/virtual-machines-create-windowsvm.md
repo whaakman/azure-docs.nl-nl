@@ -16,7 +16,7 @@ Op de blade Grondbeginselen worden administratieve gegevens voor de virtuele mac
 
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de VM. In het voorbeeld is _azureuser_ de naam van de gebruiker.
 
- Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines.md/virtual-machines-windows-faq).
+ Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/virtual-machines-windows-faq.md).
 
 3. Het **abonnement** is optioneel. Een algemene instelling is 'Betalen naar gebruik'.
 
@@ -51,15 +51,6 @@ De blade Samenvatting geeft een lijst weer met de instellingen die zijn opgegeve
 
  ![Rapport van de blade Samenvatting met de opgegeven instellingen van de virtuele machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 Nadat de virtuele machine is gemaakt, wordt de nieuwe virtuele machine in de portal onder **Alle resources** weergegeven. Op het dashboard wordt een tegel van de virtuele machine weergegeven. Ook worden de bijbehorende cloudservice en het opslagaccount gemaakt en weergegeven. Zowel de virtuele machine als de cloudservice wordt automatisch gestart. Deze krijgen de status **Actief**.
 
  ![VM-agent en de eindpunten van de virtuele machine configureren](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

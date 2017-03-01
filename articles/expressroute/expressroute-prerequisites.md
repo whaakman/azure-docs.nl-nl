@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 304acc7d2bfdefffde700ecd469b6335b08b85e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -30,7 +31,7 @@ Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-ser
 * Een actief Office 365-abonnement (als u Office 365-services gebruikt). Voor meer informatie raadpleegt u de sectie [Specifieke vereisten voor Office 365](#office-365-specific-requirements) in dit artikel.
 
 ## <a name="connectivity-provider"></a>Connectiveitsprovider
-* U kunt met een [ExpressRoute-connectiviteitspartner](expressroute-locations.md#partners) werken om verbinding te maken met de Microsoft Cloud. U kunt op [drie manieren](expressroute-introduction.md#howtoconnect) een verbinding instellen tussen uw on-premises netwerk en Microsoft. 
+* U kunt met een [ExpressRoute-connectiviteitspartner](expressroute-locations.md#partners) werken om verbinding te maken met de Microsoft Cloud. U kunt op [drie manieren](expressroute-introduction.md) een verbinding instellen tussen uw on-premises netwerk en Microsoft. 
 * Als uw provider geen ExpressRoute-connectiviteitspartner is, kunt u via een [cloudexchange-provider](expressroute-locations.md#nonpartners) verbinding maken met de Microsoft Cloud.
 
 ## <a name="network-requirements"></a>Netwerkvereisten
@@ -64,10 +65,5 @@ Als u CRM Online op ExpressRoute wilt inschakelen, raadpleegt u de volgende docu
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-classic.md)
   * [Routering configureren](expressroute-howto-routing-classic.md)
   * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

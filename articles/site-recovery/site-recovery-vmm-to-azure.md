@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
-ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -66,7 +67,7 @@ On-premises hebt u het volgende nodig
 ## <a name="protected-machine-prerequisites"></a>Vereisten voor beveiligde machines
 | **Vereiste** | **Details** |
 | --- | --- |
-| **Beveiligde virtuele machines** |Voordat u een failover uitvoert voor een virtuele machine, moet u ervoor zorgen dat de naam die aan de virtuele Azure-machine wordt toegewezen, voldoet aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt de naam wijzigen nadat u replicatie voor de virtuele machine hebt ingeschakeld. <br/><br/> Op beveiligde machines mag de capaciteit per schijf niet meer dan 1023 GB bedragen. Een virtuele machine mag maximaal 64 schijven hebben (maximaal 64 TB).<br/><br/> Gastclusters met gedeelde schijven worden niet ondersteund.<br/><br/> Opstarten op basis van Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface(EFI) wordt niet ondersteund.<br/><br/> Als de virtuele bronmachine is voorzien van een NIC-koppeling, wordt er na de failover naar Azure slechts één NIC gebruikt.<br/><br/>Het beveiligen van virtuele Hyper-V-machines waarop Linux wordt uitgevoerd met een statisch IP-adres, wordt niet ondersteund. |
+| **Beveiligde virtuele machines** |Voordat u een failover uitvoert voor een virtuele machine, moet u ervoor zorgen dat de naam die aan de virtuele Azure-machine wordt toegewezen, voldoet aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). U kunt de naam wijzigen nadat u replicatie voor de virtuele machine hebt ingeschakeld. <br/><br/> Op beveiligde machines mag de capaciteit per schijf niet meer dan 1023 GB bedragen. Een virtuele machine mag maximaal 64 schijven hebben (maximaal 64 TB).<br/><br/> Gastclusters met gedeelde schijven worden niet ondersteund.<br/><br/> Opstarten op basis van Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface(EFI) wordt niet ondersteund.<br/><br/> Als de virtuele bronmachine is voorzien van een NIC-koppeling, wordt er na de failover naar Azure slechts één NIC gebruikt.<br/><br/>Het beveiligen van virtuele Hyper-V-machines waarop Linux wordt uitgevoerd met een statisch IP-adres, wordt niet ondersteund. |
 
 ## <a name="prepare-for-deployment"></a>Implementatie voorbereiden
 U moet het volgende doen om de implementatie voor te bereiden:
@@ -359,7 +360,8 @@ Schakel nu als volgt replicatie in:
 6. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-best-practices.md#azure-virtual-machine-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
+
+7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -380,7 +382,7 @@ Schakel nu als volgt replicatie in:
 U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Eigenschappen van virtuele machines weergeven en beheren
-Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Klik op **Instellingen** > **Beveiligde items** > **Gerepliceerde items** en selecteer een machine om de details ervan te bekijken.
 
@@ -388,7 +390,7 @@ Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er r
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
+3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
 Opmerking:
 
    * U kunt het doel-IP-adres instellen. Als u geen adres opgeeft, maakt de machine waarvoor een failover is uitgevoerd, gebruik van DHCP. Als u een adres instelt dat tijdens het uitvoeren van de failover niet beschikbaar is, mislukt de failover. Hetzelfde doel-IP-adres kan worden gebruikt voor een testfailover als het adres beschikbaar is in het testfailovernetwerk.
@@ -457,9 +459,4 @@ Ga als volgt te werk om de configuratie-instellingen en de status van uw Site Re
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) meer lezen over de verschillende soorten failovers.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

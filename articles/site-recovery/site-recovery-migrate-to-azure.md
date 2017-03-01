@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -47,7 +48,7 @@ U kunt:
 
 Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie. U stelt een Recovery Services-kluis in, configureert de vereiste beheerservers (afhankelijk van wat u wilt migreren), voegt deze toe aan de kluis en geeft replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit om te controleren of alles naar behoren werkt.
 
-Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md#failover-and-failback) voor uw scenario. Voor migratie hoeft u geen failover door te voeren. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren. Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
+Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md) voor uw scenario. Voor migratie hoeft u geen failover door te voeren. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren. Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -69,9 +70,4 @@ U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen mig
 - [Virtuele Hyper-V-machines zonder VMM migreren naar Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Virtuele Azure-machines migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
 - [AWS-exemplaren migreren naar Azure](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
