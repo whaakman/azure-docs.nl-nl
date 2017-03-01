@@ -3,7 +3,7 @@
     ![Voordat u begint](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. Klik bij **Licentievoorwaarden voor software van derden** op **Ik ga akkoord** om MySQL te downloaden en te installeren.
 
-    ![Software van derden](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Software van derden](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. Selecteer bij **Registratie** de registratiesleutel die u hebt gedownload uit de kluis.
 
     ![Registratie](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * Als voor de bestaande proxy verificatie is vereist of als u voor de verbinding met de provider een aangepaste proxy wilt gebruiken, selecteert u **Verbinding maken met aangepaste proxyinstellingen**.
 
      * Als u een aangepaste proxy gebruikt, moet u het adres, de poort en de referenties opgeven.
-     * Als u een proxy gebruikt, hebt u, als het goed is, de URL’s die worden beschreven in [Vereisten](#configuration-server-prerequisites), al toegestaan.
+     * Als u een proxy gebruikt, hebt u, als het goed is, de URL’s die worden beschreven in [Vereisten](#prerequisites), al toegestaan.
 
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Tijdens Setup wordt in **Controle op vereisten** gecontroleerd of de installatie kan worden uitgevoerd. Als er een waarschuwing wordt weergegeven over **Synchronisatiecontrole voor algemene tijd**, moet u controleren of de tijd op de systeemklok (instellingen voor **datum en tijd**) overeenkomt met de tijdzone.
@@ -42,6 +42,6 @@
 Na voltooiing van de registratie wordt de server weergegeven op de blade **Instellingen** > **Servers** in de kluis.
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

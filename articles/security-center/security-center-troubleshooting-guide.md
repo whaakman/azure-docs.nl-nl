@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 02/15/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
-ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
+ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
+ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
 
 
 ---
@@ -75,6 +75,20 @@ De andere logboekbestanden die u kunt bekijken voor het oplossen van problemen z
 In een werkend systeem ziet u een verbinding met het mdsd-proces op TCP 29130. Dit is de communicatie tussen syslog en het mdsd-proces. U kunt dit gedrag controleren door de onderstaande opdracht uit te voeren:
 
 `netstat -plantu | grep 29130`
+
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Oplossen van problemen met niet goed werkende eindpuntbeveiliging
+
+De gastagent is het bovenliggende proces van alles wat de [Microsoft Antimalware](../security/azure-security-antimalware.md)-extensie doet. Wanneer het proces van de gastagent mislukt, kan de Microsoft Antimalware die wordt uitgevoerd als onderliggend proces van de gastagent ook mislukken.  In dergelijke scenario's wordt aanbevolen de volgende opties te controleren:
+
+- Als de doel-VM een aangepaste installatiekopie is en de maker van de VM nooit een gastagent heeft geïnstalleerd.
+- Als het doel een Linux-VM in plaats van een Windows-VM is, mislukt het installeren van de Windows-versie van de anti-malware-extensie op een Linux-VM. De Linux-gastagent heeft specifieke vereisten voor het besturingssysteem en de vereiste pakketten. Als niet aan deze vereisten wordt voldaan, werkt de VM-agent ook niet. 
+- Als de VM is gemaakt met een oudere versie van gastagent. Als dat het geval is, houd er dan rekening mee dat een aantal oude agents niet automatisch kunnen bijwerken naar de nieuwe versie en dat dit tot dit probleem kan leiden. Gebruik altijd de nieuwste versie van gastagent als u uw eigen installatiekopieën maakt.
+- Sommige beheersoftware van derden kan de gastagent uitschakelen of toegang tot bepaalde bestandslocaties blokkeren. Als u beheersoftware van derden op de VM hebt geïnstalleerd, zorgt u ervoor dat de agent op de uitsluitingslijst staat.
+- Bepaalde firewallinstellingen of netwerkbeveiligingsgroepen (NSG) blokkeren mogelijk het netwerkverkeer naar en van de gastagent.
+- Een toegangsbeheerlijst (ACL) blokkeert mogelijk de toegang tot de schijf.
+- Onvoldoende schijfruimte kan er voor zorgen dat de gastagent niet goed functioneert. 
+
+De gebruikersinterface van Microsoft Antimalware is standaard uitgeschakeld. Zie [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (De Microsoft Antimalware-gebruikersinterface inschakelen op Azure Resource Manager-VM's na implementatie) voor meer informatie over hoe u deze kunt inschakelen.
 
 ## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemen oplossen met het laden van het dashboard
 

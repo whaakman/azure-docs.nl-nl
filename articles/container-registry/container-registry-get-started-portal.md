@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 97bbb72e044d86375afd1dc2ba40c90681e5d9a1
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Een containerregister maken met Azure Portal
-Gebruik Azure Portal om een containerregister te maken en de instellingen ervan te beheren. U kunt ook containerregisters maken en beheren met de [Azure-CLI 2.0 Preview-opdrachten](container-registry-get-started-azure-cli.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
+Gebruik Azure Portal om een containerregister te maken en de instellingen ervan te beheren. U kunt ook containerregisters maken en beheren met de [Azure CLI 2.0-opdrachten](container-registry-get-started-azure-cli.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
 
 Zie voor achtergrondinformatie en concepten [Wat is Azure Container Registry?](container-registry-intro.md)
 
@@ -77,6 +77,6 @@ Nadat u het register hebt gemaakt, kunt u de registerinstellingen openen via de 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
-ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
 
 
 ---
@@ -78,37 +78,20 @@ In deze grafieken staan de resultaten van alle webtests die voor deze toepassing
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.
 
-![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-U kunt ook omlaag scrollen en op een test klikken die voor minder dan 100% is geslaagd.
 
-![Op een specifieke webtest klikken](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Vanuit een webtestresultaat kunt u:
 
-De resultaten van die test worden geopend.
+* De reactie inspecteren die is ontvangen van uw server.
+* De telemetrie openen die door uw server-app is verzonden tijdens het verwerken van de mislukte aanvraag.
+* Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
+* Het webtestresultaat openen in Visual Studio.
 
-![Op een specifieke webtest klikken](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-De test wordt vanaf verschillende locaties uitgevoerd. Kies een test met een slagingspercentage van minder dan 100%.
-
-![Op een specifieke webtest klikken](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Scroll omlaag naar **Mislukte tests** en kies een resultaat.
-
-Klik op het resultaat om het in de portal te bekijken en na te gaan waarom de test is mislukt.
-
-![Resultaat van uitgevoerde webtest](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-U kunt het resultatenbestand ook downloaden en bekijken in Visual Studio.
 
 *Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
 
-### <a name="open-the-server-request-and-exceptions"></a>De serveraanvraag en uitzonderingen openen
-
-U kunt vanuit de gedetailleerde eigenschappen van een bepaalde test het rapport van een aanvraag op de server openen, samen met andere gebeurtenissen zoals uitzonderingen.
-
-![Resultaat van uitgevoerde webtest](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Als er geen gerelateerde items worden weergegeven, kan dit zijn omdat er [steekproeven](app-insights-sampling.md) worden uitgevoerd.
+*Zijn er geen verwante items?* Dat komt mogelijk doordat er [steekproeven](app-insights-sampling.md) worden genomen.
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
@@ -294,6 +277,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

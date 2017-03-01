@@ -1,5 +1,5 @@
 ---
-title: .NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt | Microsoft Docs
+title: .NET-toepassing met meerdere lagen die Azure Service Bus gebruikt | Microsoft Docs
 description: Een .NET-zelfstudie waarmee u in Azure een app met meerdere lagen kunt ontwikkelen die Service Bus-wachtrijen gebruikt voor communicatie tussen lagen.
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
 
 
 ---
@@ -61,7 +61,7 @@ In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
 
-1. Installeer de Azure SDK voor .NET via [Hulpprogramma's en SDK ophalen](https://azure.microsoft.com/downloads/).
+1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
 2. Klik in de kolom **.NET** op de versie van Visual Studio die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
 3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
@@ -397,6 +397,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

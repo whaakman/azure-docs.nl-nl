@@ -1,6 +1,6 @@
 ---
 title: Een Docker-containercluster implementeren - Azure CLI | Microsoft Docs
-description: Een Azure Container Service-cluster implementeren met Azure CLI 2.0 Preview
+description: Een Azure Container Service-cluster implementeren met Azure CLI 2.0
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 (Preview) gebruiken voor het maken van een Azure Container Service-cluster
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 gebruiken voor het maken van een Azure Container Service-cluster
 
-Gebruik de `az acs`-opdrachten in Azure CLI 2.0 (Preview) om clusters te maken en te beheren in Azure Container Service. U kunt ook een Azure Container Service-cluster implementeren met behulp van [Azure Portal](container-service-deployment.md) of de Azure Container Service-API’s.
+Gebruik de `az acs`-opdrachten in Azure CLI 2.0 om clusters te maken en te beheren in Azure Container Service. U kunt ook een Azure Container Service-cluster implementeren met behulp van [Azure Portal](container-service-deployment.md) of de Azure Container Service-API’s.
 
 Voor meer informatie over `az acs`-opdrachten, gebruikt u de parameter `-h` voor een opdracht. Bijvoorbeeld: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Vereisten
-Als u een Azure Container Service-cluster wilt maken met Azure CLI 2.0 (Preview), moet u:
+Als u een Azure Container Service-cluster wilt maken met Azure CLI 2.0, moet u:
 * beschikken over een Azure-account ([krijg een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI versie 2.0 (Preview)](/cli/azure/install-az-cli2) installeren en instellen
+* [Azure CLI 2.0](/cli/azure/install-az-cli2) hebben geïnstalleerd en ingesteld
 
 ## <a name="get-started"></a>Aan de slag 
 ### <a name="log-in-to-your-account"></a>Meld u aan bij uw account
@@ -41,7 +41,7 @@ Als u een Azure Container Service-cluster wilt maken met Azure CLI 2.0 (Preview)
 az login 
 ```
 
-Volg de aanwijzingen om u interactief aan te melden. Raadpleeg [Aan de slag met Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) voor informatie over andere aanmeldingsmethoden.
+Volg de aanwijzingen om u interactief aan te melden. Raadpleeg [Aan de slag met Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) voor informatie over andere aanmeldingsmethoden.
 
 ### <a name="set-your-azure-subscription"></a>Uw Azure-abonnement instellen
 
@@ -74,7 +74,7 @@ Andere invoer is ingesteld op standaardwaarden (zie het volgende scherm), tenzij
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Snel `acs create` met standaardinstellingen
-Als u een openbaar SSH-sleutelbestand (`id_rsa.pub`) hebt op de standaardlocatie (of als u er een hebt gemaakt voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), gebruikt u een opdracht als de volgende:
+Als u een openbaar SSH RSA-sleutelbestand (`id_rsa.pub`) hebt op de standaardlocatie (of als u er een hebt gemaakt voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), gebruikt u een opdracht als de volgende:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -145,6 +145,6 @@ Nu u een werkend cluster hebt, kunt u deze documenten lezen voor meer informatie
 * [Werken met de Azure Container Service en Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
 
 
 ---
@@ -47,6 +47,12 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
     - Benodigde tijd voor het verzamelen en indexeren van gegevens
 - Lijst met query's
 
+## <a name="understanding-nodes-for-oms-offers"></a>Knooppunten voor OMS-aanbiedingen
+
+Als u gebruikmaakt van de prijscategorie *per knooppunt (OMS)*, worden de kosten berekend op basis van het aantal knooppunten en oplossingen dat u hebt ingeschakeld. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.
+
+![gebruiksdashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
 1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
 2. Klik in het menu **Hub** op **Meer services** en typ in de lijst met resources op **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
@@ -66,6 +72,6 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: Ontdek hoe u een ASP.NET-webproject implementeert in een nieuwe web
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
 ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -218,10 +219,5 @@ In deze zelfstudie hebt u gezien hoe u een eenvoudige web-app makt en hoe u deze
   
     Zie [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md) (Resources implementeren met Resource Manager-sjablonen en Azure Portal) voor meer informatie over het werken met resourcegroepen in Azure Portal.   
 * Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET web-app maken en implementeren in Azure App Service) en [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Een mobiele app maken en implementeren in Azure App Service) uit de 2015 Connect-[demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) van [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) voor meer voorbeelden van het maken van een ASP.NET web-app in de App Service. Voor meer snelstartgidsen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Snelstartgidsen voor ontwikkelhulpprogramma’s voor Azure).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

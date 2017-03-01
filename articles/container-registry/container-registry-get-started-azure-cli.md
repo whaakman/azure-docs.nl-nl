@@ -1,6 +1,6 @@
 ---
 title: Een Azure-containerregister maken - CLI | Microsoft Docs
-description: Aan de slag met het maken en beheren van Azure-containerregisters met de Azure-CLI 2.0 (Preview)
+description: Aan de slag met het maken en beheren van Azure-containerregisters met Azure CLI 2.0
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Een containerregister maken met de Azure-CLI
-Gebruik opdrachten in de [Azure-CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) om een containerregister te maken en de instellingen hiervan te beheren op een Linux-, Mac- of Windows-computer. U kunt ook containerregisters maken en beheren via [Azure Portal](container-registry-get-started-portal.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
+Gebruik opdrachten in de [Azure-CLI 2.0](https://github.com/Azure/azure-cli) om een containerregister te maken en de instellingen hiervan te beheren op een Linux-, Mac- of Windows-computer. U kunt ook containerregisters maken en beheren via [Azure Portal](container-registry-get-started-portal.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
 
 
 * Zie voor achtergrondinformatie en concepten [Wat is Azure Container Registry?](container-registry-intro.md)
@@ -34,9 +34,9 @@ Gebruik opdrachten in de [Azure-CLI 2.0 (Preview)](https://github.com/Azure/azur
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-CLI 2.0 (Preview)**: zie de [installatie-instructies](https://github.com/Azure/azure-cli/blob/master/README.rst) om de CLI 2.0 Preview te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren.
-* **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0 Preview-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/arm) om een resourcegroep te maken met de CLI 2.0 Preview. 
-* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0 Preview-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/storage) om een opslagaccount te maken met de CLI 2.0 Preview.
+* **Azure-CLI 2.0**: zie de [installatie-instructies](https://github.com/Azure/azure-cli/blob/master/README.rst) om de CLI 2.0 te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren.
+* **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/arm) om een resourcegroep te maken met de CLI 2.0. 
+* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/storage) om een resourcegroep te maken met de CLI 2.0.
 * **Service-principal** (optioneel): wanneer u met de CLI een register maakt, is dit standaard niet ingesteld voor toegang. U kunt een bestaande service-principal van Azure Active Directory aan een register toewijzen (of een nieuwe maken en deze toewijzen) of het beheerdersaccount van het register inschakelen. Zie de gedeelten verderop in dit artikel. Bekijk voor meer informatie over registertoegang [Verifiëren met het containerregister](container-registry-authentication.md). 
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
@@ -66,7 +66,7 @@ Belangrijk:
 * `loginServer`: de door u opgegeven naam die aan alle vereisten voldoet voor het [aanmelden bij het register](container-registry-authentication.md). De naam in dit voorbeeld is `myregistry-contoso.exp.azurecr.io` (zonder hoofdletters).
 
 ## <a name="assign-a-service-principal"></a>Een service-principal toewijzen
-Gebruik CLI 2.0 Preview-opdrachten om een service-principal van Azure Active Directory aan een register toe te wijzen. Aan de service-principal in deze voorbeelden is de rol Eigenaar toegewezen, maar u kunt ook [andere rollen](../active-directory/role-based-access-control-configure.md) toewijzen.
+Gebruik CLI 2.0-opdrachten om een service-principal van Azure Active Directory aan een register toe te wijzen. Aan de service-principal in deze voorbeelden is de rol Eigenaar toegewezen, maar u kunt ook [andere rollen](../active-directory/role-based-access-control-configure.md) toewijzen.
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Een service-principal maken en toegang tot het register toewijzen
 In de volgende opdracht wordt aan een nieuwe service-principal de rol Eigenaar toegewezen voor toegang tot de register-id die met de parameter `--scopes` wordt doorgegeven. Geef een sterk wachtwoord op voor de parameter `--password`.
@@ -131,6 +131,6 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

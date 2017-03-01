@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
-ms.openlocfilehash: 815a9f357ec020ca02ef0b2bb553cb787ef9b131
+ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
+ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
 
 
 ---
@@ -48,7 +48,7 @@ De volgende procedure beschrijft hoe u HDInsight-toepassingen in een bestaand HD
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**.  Als u dit niet ziet, klikt u op **Meer services** en vervolgens op **HDInsight-clusters**.
 3. Klik op een HDInsight-cluster.  Als u deze niet hebt, maakt u die eerst.  Zie [Clusters maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klik op **Toepassingen** onder de categorie **Configuraties**. U ziet een lijst met geïnstalleerde toepassingen (indien aanwezig). Als u toepassingen kunt vinden, betekent dit dat er geen toepassingen zijn voor deze versie van het HDInsight-cluster.
+4. Klik op **Toepassingen** onder de categorie **Configuraties**. U ziet een lijst met geïnstalleerde toepassingen (indien aanwezig). Als u Toepassingen niet kunt vinden, betekent dit dat er geen toepassingen zijn voor deze versie van het HDInsight-cluster.
    
     ![Menu van HDInsight-toepassingenportal](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klik op **Toevoegen** in de menu-blade. 
@@ -122,6 +122,6 @@ Zie [Problemen met de installatie oplossen](hdinsight-apps-install-custom-applic
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

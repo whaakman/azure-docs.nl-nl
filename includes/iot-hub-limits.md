@@ -3,10 +3,10 @@ De volgende tabel bevat de limieten die aan de verschillende servicelagen (S1, S
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
 | --- | --- | --- | --- | --- |
 | Berichten/dag |400,000 |6,000,000 |300,000,000 |8,000 |
-| Maximum aantal eenheden |200 |200 |200 |1 |
+| Maximum aantal eenheden |200 |200 |10 |1 |
 
 > [!NOTE]
-> Neem contact op met Microsoft Ondersteuning als u verwacht dat u meer dan 200 eenheden met een hub uit de servicelaag S1, S2 of S3 gaat gebruiken.
+> Neem contact op met Microsoft Ondersteuning als u verwacht dat u meer dan 200 eenheden met een hub uit de servicelaag S1 of S2, of meer dan 10 eenheden met een hub uit S3 gaat gebruiken.
 > 
 > 
 
@@ -16,16 +16,16 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | --- | --- |
 | Maximum aantal betaalde IoT-hubs per Azure-abonnement |10 |
 | Maximum aantal gratis IoT-hubs per Azure-abonnement |1 |
-| Maximum aantal apparaat-id's<br/>  dat in één aanroep wordt geretourneerd |1000 |
+| Maximumaantal apparaat-id's<br/> dat in één aanroep wordt geretourneerd |1000 |
 | Maximale bewaartermijn van IoT Hub-berichten voor apparaat-naar-cloud berichten |7 dagen |
 | Maximale grootte van apparaat-naar-cloud berichten |256 kB |
 | Maximale grootte van apparaat-naar-cloud batch |256 kB |
 | Maximum aantal berichten in apparaat-naar-cloud batch |500 |
 | Maximale grootte van cloud-naar-apparaat bericht |64 kB |
 | Maximale TTL voor cloud-naar-apparaat berichten |2 dagen |
-| Maximum aantal bezorgingen voor cloud-naar-apparaat <br/> berichten |100 |
-| Maximum aantal leveringen voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |100 |
-| Maximale TTL voor feedbackberichten als <br/> antwoord op een cloud-naar-apparaat bericht |2 dagen |
+| Maximumaantal leveringen voor cloud-naar-apparaat <br/> berichten |100 |
+| Maximumaantal leveringen voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |100 |
+| Maximale TTL voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |2 dagen |
 | Maximale grootte van apparaatdubbel <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
 | Maximale grootte van tekenreekswaarde van apparaatdubbel | 512 bytes |
 | Maximale diepte van object in apparaatdubbel | 5 |
@@ -57,6 +57,6 @@ De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschr
 | Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 5000 per minuut per eenheid (voor S3), 100 per minuut per eenheid (voor S2), 100 per minuut per eenheid (voor S1) |
 | Doorvoer van taken per apparaat bewerkingen | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/06/2017
-ms.author: markgal; jimpark
+ms.date: 02/15/2017
+ms.author: markgal;jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: b73d5bb1f4f9e7adc65bf38a3c98db846a341cb3
-ms.openlocfilehash: 2d8bedcf51cf55e13cc22d5a2d258218f0a786bb
+ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
+ms.openlocfilehash: 7aa9305bf8a32bb7e911dfda3d331adcf1c70383
 
 
 ---
@@ -33,11 +33,11 @@ In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups m
 * VM's die zijn geïmplementeerd met Azure Resource Manager
 * Klassieke VM's
 * Standaardopslag-VM's
-* Premium Storage-VM's 
+* Premium Storage-VM's
 * Virtuele machines die op beheerde schijven worden uitgevoerd
 * Virtuele machines die met Azure Disk Encryption zijn versleuteld, met BitLocker-versleutelingssleutels (BEK) en Key Encryption Keys (KEK)
 
-Zie [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie over het beschermen van Premium Storage-VM's. Zie [Back-ups van virtuele machines op beheerde schijven maken en terugzetten](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) voor meer informatie over ondersteuning voor VM's op beheerde schijven
+Zie het artikel [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie over het beschermen van Premium Storage-VM's. Zie [Back-ups van virtuele machines op beheerde schijven maken en terugzetten](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) voor meer informatie over ondersteuning voor virtuele machines op beheerde schijven.
 
 > [!NOTE]
 > In deze zelfstudie wordt ervan uitgegaan dat u een VM in uw Azure-abonnement hebt en dat u maatregelen hebt genomen om toe te staan dat de back-upservice toegang tot de VM kan krijgen.
@@ -46,37 +46,74 @@ Zie [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](b
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-U kunt op verschillende punten beginnen, op basis van het aantal VM's dat u wilt beveiligen. Als u van meerdere virtuele machines een back-up wilt maken in één bewerking, gaat u naar de Recovery Services-kluis en start u de back-up vanuit het kluisdashboard. Als u van één VM een back-up wilt maken, kunt u rechtstreeks vanaf de beheerblade van de VM een back-up maken.
+Afhankelijk van het aantal virtuele machines dat u wilt beveiligen, kunt u vanaf verschillende beginpunten starten. Als u in één bewerking een back-up wilt maken van meerdere virtuele machines, gaat u naar de Recovery Services-kluis en [start u de back-uptaak vanuit het dashboard van de kluis](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Als u een back-up van één virtuele machine wilt maken, kunt u de back-uptaak starten vanaf de VM-beheerblade.
 
-## <a name="configure-backup-from-vm-management-blade"></a>Back-up configureren vanaf VM-beheerblade
+## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>De back-uptaak configureren vanaf de VM-beheerblade
+
+Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. Deze stappen zijn niet van toepassing op virtuele machines in de klassieke portal.
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in de lijst met resources.  De lijst met virtuele machines wordt weergegeven. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken. Hiermee wordt de beheerblade van de virtuele machine geopend.
+2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer u Virtuele machines ziet, selecteert u deze optie.
+
+  ![Klik in het menu Hub op Meer services om een tekstvenster te openen. Typ hierin 'Virtuele machines'.](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+
+  De lijst met virtuele machines in het abonnement wordt weergegeven.
+
+  ![De lijst met virtuele machines in het abonnement wordt weergegeven.](./media/backup-azure-vms-first-look-arm/list-of-vms.png)
+
+3. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken.
+
+  ![De lijst met virtuele machines in het abonnement wordt weergegeven.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
+
+  Wanneer u de virtuele machine selecteert, schuift de lijst met virtuele machines naar links en worden de VM-beheerblade en het dashboard Virtuele machine geopend.
  ![VM-beheerblade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
 
-3. Klik op de beheerblade van de VM op de optie Back-up (aan de linkerkant, onder Instellingen).
-![Back-upoptie op VM-beheerblade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+4. Klik in de sectie **Instellingen** van de VM-beheerblade op **Back-up**.
+![Optie Back-up op de VM-beheerblade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+    De blade Back-up inschakelen wordt geopend.
 
-4. Hiermee wordt de blade Back-up inschakelen geopend. Deze blade heeft twee verwachte invoeren: Recovery Services-kluis (een back-upmiddel van Azure dat wordt gebruikt om back-ups van de VM's op te slaan) en Back-upbeleid. Het ingestelde back-upbeleid specificeert het back-upschema en bepaalt hoelang back-upkopieën moeten worden bewaard. Deze blade heeft standaardopties. U kunt deze aanpassen op basis van uw back-upvereisten.
+  ![Back-upoptie op VM-beheerblade](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+5. Klik voor de Recovery Services-kluis op **Bestaande selecteren** en kies de kluis uit de vervolgkeuzelijst.
 
-5. Voor Recovery Services-kluis kunt u een bestaande kluis selecteren of een nieuwe maken. Als u een nieuwe kluis maakt, wordt deze in dezelfde resourcegroep gemaakt als de virtuele machine en is de locatie hetzelfde als die van de virtuele machine. Als u een Recovery Services-kluis met verschillende waarden wilt maken, kunt u [een Recovery Services-kluis maken](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) voordat u in stap&3; op de optie Back-up klikt en deze kluis op deze blade selecteren.
+    ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-6. Selecteer op de blade Back-upbeleid het back-upbeleid dat u wilt toepassen op de kluis en klik op **OK**.
-    ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    Als er geen Recovery Services-kluizen zijn of als u een nieuw kluis wilt gebruiken, klikt u op **Nieuwe maken** en geeft u de naam op voor de nieuwe kluis. Een nieuwe kluis wordt in dezelfde resourcegroep en op dezelfde locatie als de virtuele machine gemaakt. Als u een Recovery Services-kluis met verschillende waarden wilt maken, raadpleeg dan de sectie over [het maken van een Recovery Services-kluis](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
-    De details van het standaardbeleid worden in de details weergegeven. Als u een beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. De vervolgkeuzelijst biedt ook een optie waarmee u de tijd kunt wijzigen waarop de momentopname wordt gemaakt. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid. Nadat u op **OK** hebt geklikt, is het back-upbeleid gekoppeld aan de virtuele machine.
+6. Klik op **Back-up beleid** als u de details van het back-upbeleid wilt bekijken.
 
-7. Klik op Back-up inschakelen om het maken van een back-up te configureren op de virtuele machine. Hiermee wordt een implementatie geactiveerd.
-![Knop Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+    De blade **Back-upbeleid** met de details van het geselecteerde beleid wordt geopend. Als er nog andere beleidsregels zijn, gebruikt u de vervolgkeuzelijst om een ander back-upbeleid te kiezen. Als u een nieuw beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid. Als u de wijzigingen in het back-upbeleid wilt opslaan en naar de blade Back-up inschakelen wilt terugkeren, klikt u op **OK**.
 
-8. U kunt de voortgang van de configuratie via meldingen volgen.
+    ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+
+7. Klik op de blade Back-upbeleid inschakelen op **Back-up inschakelen** om de beleidsimplementatie te activeren waarmee het beleid aan de kluis en de virtuele machine(s) wordt gekoppeld.
+
+  ![Knop Backup inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. U kunt de voortgang van de configuratie volgen via de meldingen die in de portal worden weergegeven. In het volgende voorbeeld ziet u dat de implementatie is gestart.
 ![Back-upmeldingen inschakelen](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
-9. Wanneer de implementatie van Back-up configureren voltooid is, kunt u op de optie Back-up op de VM-beheerblade klikken om naar de blade Back-upitem te gaan die hoort bij de VM waarvan een back-up is gemaakt.
-![Weergave Back-upitem VM](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+9. Klik na voltooiing van de configuratie op de VM-beheerblade op **Back-up** om de blade Back-upitem te openen en de details te bekijken.
 
-## <a name="configure-backup-from-recovery-services-vault-view"></a>Back-up configureren vanuit de Recovery Services-kluisweergave
+  ![Weergave Back-upitem VM](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+  Zolang de eerste back-up nog niet is voltooid, wordt voor **Status van de laatste back-up** de tekst **Waarschuwing (eerste back-up in behandeling)** weergegeven. Als u wilt nagaan wanneer de volgende geplande back-uptaak wordt uitgevoerd, klikt u onder **Back-upbeleid** op de naam van het beleid. De blade Back-upbeleid met het tijdstip van de geplande back-up wordt geopend.
+
+10. Als u een back-uptaak wilt uitvoeren en het eerste herstelpunt wilt maken, klikt u op de blade Back-upkluis op **Nu back-up maken**.
+
+  ![Op Nu back-up maken klikken om de eerste back-up uit te voeren](./media/backup-azure-vms-first-look-arm/backup-now.png)
+
+  De blade Nu back-up maken wordt geopend.
+
+  ![toont de blade Nu back-up maken](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+11. Klik op de blade Nu back-up maken op het kalenderpictogram en selecteer in de kalender de laatste dag dat dit herstelpunt wordt bewaard. Klik vervolgens op **Back-up**.
+
+  ![de laatste dag instellen dat het herstelpunt van Nu back-up maken wordt bewaard](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren.
+
+## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>De back-uptaak configureren vanuit de Recovery Services-kluis
 U voert hierbij de volgende basisstappen uit.  
 
 1. Een Recovery Services-kluis voor een VM maken.
@@ -93,31 +130,47 @@ Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunt
 
 Een Recovery Services-kluis maken:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu Hub op **Bladeren** en typ in de lijst met resources **Recovery Services**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Recovery Services-kluis**.
+1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com/) als u dit nog niet hebt gedaan.
+2. Klik in het menu Hub op **Meer services** en typ **Recovery Services** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer Recovery Services-kluizen in de lijst wordt weergegeven, klikt u erop.
 
-    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    De lijst met Recovery Services-kluizen wordt weergegeven.
+    Als er Recovery Services-kluizen in het abonnement aanwezig zijn, worden deze weergegeven.
+
+    ![Een Recovery Services-kluis maken, stap 2](./media/backup-azure-vms-first-look-arm/list-of-rs-vault.png)
 3. Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
 
-    ![Een Recovery Services-kluis maken, stap 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Een Recovery Services-kluis maken, stap 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
     De blade Recovery Services-kluis wordt geopend en u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** in te voeren.
 
-    ![Een Recovery Services-kluis maken, stap 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Een Recovery Services-kluis maken, stap 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
+
 4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
-5. Klik op **Abonnement** om de beschikbare lijst met abonnementen te bekijken. Als u niet zeker weet welk abonnement u moet gebruiken, gebruikt u het standaard- (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
-6. Klik op **Resourcegroep** om de lijst met beschikbare resourcegroepen te bekijken of klik op **Nieuw** om een resourcegroep te maken. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
-7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. De kluis **moet** zich in dezelfde regio bevinden als de virtuele machines die u wilt beveiligen.
 
-   > [!IMPORTANT]
-   > Als u niet zeker weet op welke locatie uw VM zich bevindt, sluit u het dialoogvenster voor het maken van de kluis en gaat u naar de lijst met virtuele machines in de portal. Als u virtuele machines in meerdere regio's hebt, moet u in elke regio een Recovery Services-kluis maken. Maak de kluis op de eerste locatie voordat u verdergaat met de volgende locatie. U hoeft geen opslagaccounts voor het opslaan van de back-upgegevens op te geven: dit wordt automatisch door de Recovery Services-kluis en de Azure Backup-service afgehandeld.
-   >
-   >
-8. Klik op **Create**. Het kan even duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
+5. Kies het Azure-abonnement in de vervolgkeuzelijst in het gedeelte **Abonnement**. Als u slechts één abonnement hebt, wordt dit weergegeven en kunt u doorgaan met de volgende stap. Als u niet zeker weet welk abonnement u moet gebruiken, gebruikt u het standaard- (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
 
-    ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+6. In het gedeelte **Resourcegroep**:
+
+    * selecteert u **Nieuw** als u een nieuwe resourcegroep wilt maken,
+    of
+    * selecteert u **Bestaande gebruiken** en klikt u op de vervolgkeuzelijst om de lijst met beschikbare resourcegroepen te zien.
+
+  Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
+
+7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. Deze keuze bepaalt de geografische regio waar uw back-upgegevens naartoe worden verzonden.
+
+  > [!IMPORTANT]
+  > Als u niet zeker weet op welke locatie uw VM zich bevindt, sluit u het dialoogvenster voor het maken van de kluis en gaat u naar de lijst met virtuele machines in de portal. Als u virtuele machines in meerdere regio's hebt, moet u in elke regio een Recovery Services-kluis maken. Maak de kluis op de eerste locatie voordat u verdergaat met de volgende locatie. U hoeft geen opslagaccounts voor het opslaan van de back-upgegevens op te geven: dit wordt automatisch door de Recovery Services-kluis en de Azure Backup-service afgehandeld.
+  >
+
+8. Klik onder aan de blade Recovery Services-kluis op **Maken**.
+
+    Het kan enkele minuten duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen. Als u uw kluis na enkele minuten niet ziet, klik dan op **Vernieuwen**.
+
+    ![Op de knop Vernieuwen klikken](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+
+    Wanneer u uw kluis in de lijst met Recovery Services-kluizen ziet, kunt u de opslagredundantie instellen.
 
 Nu u uw kluis hebt gemaakt, leert u hoe u de opslagreplicatie instelt.
 
@@ -126,59 +179,72 @@ U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante o
 
 De instelling voor opslagreplicatie bewerken:
 
-1. Selecteer de kluis om het kluisdashboard en de blade Instellingen te openen. Als de blade **Instellingen** niet wordt geopend, klikt u op **Alle instellingen** op het kluisdashboard.
-2. Klik op de blade **Instellingen** op **Back-upinfrastructuur** > **Back-upconfiguratie** om de blade **Back-upconfiguratie** te openen. Kies op de blade **Back-upconfiguratie** de optie voor opslagreplicatie voor uw kluis.
+1. Klik op de blade **Recovery Services-kluizen** op de nieuwe kluis.
 
-    ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+  ![De nieuwe kluis in de lijst met Recovery Services-kluizen selecteren](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Nadat u de opslagoptie voor uw kluis hebt gekozen, bent u klaar om de VM aan de kluis te koppelen. Voordat u de VM aan de kluis koppelt, moet u eerst de virtuele Azure-machines detecteren en registreren.
+  Wanneer u de kluis selecteert, wordt de blade **Recovery Services-kluis** smaller en worden de blade Instellingen (*met bovenaan de kluisnaam*) en de blade met kluisdetails geopend.
+
+    ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+2. Schuif op de blade Instellingen van de nieuwe kluis omlaag naar het gedeelte Beheren en klik op **Back-upinfrastructuur**.
+    De blade Back-up maken van infrastructuur wordt geopend.
+3. Klik op de blade Back-up maken van infrastructuur op **Back-up maken van configuratie** om de blade **Back-up maken van configuratie** te openen.
+
+    ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+4. Kies het type opslagreplicatie dat geschikt is voor uw kluis.
+
+    ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/storage-redundancy.md).
+
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren welke items moeten worden beveiligd
 Voordat u een VM met een kluis registreert, voert u het detectieproces uit om ervoor te zorgen dat nieuwe virtuele machines die zijn toegevoegd aan het abonnement, worden geïdentificeerd. Er wordt een query uitgevoerd om de virtuele Azure-machines in het abonnement weer te geven, samen met aanvullende informatie zoals de naam van de cloudservice en de regio. In Azure Portal wordt met scenario verwezen naar wat u in de Recovery Services-kluis wilt opnemen. Het beleid is de planning voor hoe vaak en wanneer er herstelpunten worden gemaakt. Het beleid bevat ook de bewaartermijn voor de herstelpunten.
 
-1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Als er nog geen Recovery Services-kluis is geopend, maar Azure Portal wordt weergeven, klikt u in het menu Hub op **Bladeren**.
+1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Anders klikt u in het menu Hub op **Meer services**, typt u **Recovery Services** in de lijst met resources en klikt u op **Recovery Services-kluizen**.
 
-   * Typ in de lijst met resources **Recovery Services**.
-   * Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Wanneer **Recovery Services-kluizen** wordt weergegeven, klikt u erop.
+    ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-     ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    De lijst met Recovery Services-kluizen wordt weergegeven.
 
-     De lijst met Recovery Services-kluizen wordt weergegeven.
-   * Selecteer in de lijst met Recovery Services-kluizen een kluis.
+    ![Weergave van de lijst met Recovery Services-kluizen](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-     Het geselecteerde kluisdashboard wordt geopend.
+    Selecteer een kluis in de lijst met Recovery Services-kluizen om het dashboard ervan te openen.
 
-     ![Blade Kluis openen](./media/backup-azure-vms-first-look-arm/vault-settings.png)
+     ![Blade Kluis openen](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+
 2. Klik in het menu van het kluisdashboard op **Back-up** om de blade Back-up te openen.
 
-    ![Blade Back-up openen](./media/backup-azure-vms-first-look-arm/backup-button.png)
+    ![Blade Back-up openen](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Wanneer de blade wordt geopend, wordt met de Backup-service gezocht naar nieuwe VM's in het abonnement.
+    De blades Back-up en Doel van de back-up worden geopend.
 
-    ![VM's detecteren](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
-3. Klik op de blade Back-up op **Back-updoel** om de blade Back-updoel openen.
+    ![Blade Scenario openen](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+3. Kies Azure in de vervolgkeuzelijst **Waar wordt uw werkbelasting uitgevoerd?** van de blade Doel van de back-up. Kies Virtuele machine in de vervolgkeuzelijst **Waarvan wilt u een back-up maken** en klik op **OK**.
 
-    ![Blade Scenario openen](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
-4. Stel op de blade Back-updoel **Waar wordt de workload uitgevoerd** in op Azure en **Waarvan wilt u een back-up maken** op Virtuele machine klik vervolgens op **OK**.
+    Hiermee wordt de VM-extensie bij de kluis geregistreerd. De blade Doel van de back-up wordt gesloten en de blade **Back-upbeleid** wordt geopend.
 
-    De blade Back-updoel wordt gesloten en de blade Back-upbeleid wordt geopend.
+    ![Blade Scenario openen](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-    ![Blade Scenario openen](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
-5. Selecteer op de blade Back-upbeleid het back-upbeleid dat u wilt toepassen op de kluis en klik op **OK**.
+4. Selecteer op de blade Back-upbeleid het back-upbeleid dat u op de kluis wilt toepassen.
 
-    ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    ![Back-upbeleid selecteren](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    De details van het standaardbeleid worden in de details weergegeven. Als u een beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. De vervolgkeuzelijst biedt ook een optie waarmee u de tijd kunt wijzigen in 19.00 uur, wanneer de momentopname wordt gemaakt. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid. Nadat u op **OK** hebt geklikt, is het back-upbeleid gekoppeld aan de kluis.
+    De details van het standaardbeleid worden onder de vervolgkeuzelijst weergegeven. Als u een nieuw beleid wilt maken, selecteert u **Nieuw maken** in de vervolgkeuzelijst. Zie [Een back-upbeleid definiëren](backup-azure-vms-first-look-arm.md#defining-a-backup-policy) voor instructies over het definiëren van een back-upbeleid.
+    Klik op **OK** om het back-upbeleid aan de kluis te koppelen.
 
-    Kies vervolgens de VM's die u aan de kluis wilt koppelen.
-6. Kies de virtuele machines die u aan het opgegeven beleid wilt koppelen, en klik op **Selecteren**.
+    De blade Back-upbeleid wordt gesloten en de blade **Virtuele machines selecteren** wordt geopend.
+5. Kies op de blade **Virtuele machines selecteren** de virtuele machines die u aan het opgegeven beleid wilt koppelen en klik op **OK**.
 
-    ![Workload selecteren](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    ![Workload selecteren](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Als de gewenste VM niet wordt weergegeven, controleert u of deze bestaat op dezelfde Azure-locatie als de Recovery Services-kluis.
-7. Nu alle instellingen voor de kluis zijn gedefinieerd, klikt u op de blade Back-up op **Back-up inschakelen** onder aan de pagina. Hierop wordt het beleid voor de kluis en de VM's geïmplementeerd.
+    De geselecteerde virtuele machine wordt gevalideerd. Als u de verwachte virtuele machines niet ziet, controleert u of ze bestaan op dezelfde Azure-locatie als de Recovery Services-kluis. De locatie van de Recovery Services-kluis wordt weergegeven op het kluisdashboard.
 
-    ![Back-up inschakelen](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+6. Nu u alle instellingen voor de kluis hebt gedefinieerd, klikt u op de blade Back-up op **Back-up inschakelen**. Hierop wordt het beleid voor de kluis en de VM's geïmplementeerd. Hiermee wordt niet het eerste herstelpunt voor de virtuele machine gemaakt.
+
+    ![Back-up inschakelen](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+Nadat de back-up is ingeschakeld, wordt het back-upbeleid volgens het schema uitgevoerd. Ga echter verder om de eerste back-uptaak te starten.
 
 ## <a name="initial-backup"></a>Eerste back-up
 Als u een back-upbeleid op de virtuele machine hebt geïmplementeerd, betekent dit niet dat er een back-up van de gegevens is gemaakt. De eerste geplande back-up (zoals gedefinieerd in het back-upbeleid) is standaard de eerste back-up. Totdat de eerste back-up plaatsvindt, wordt voor de status van de laatste back-up op de blade **Back-uptaken** de tekst **Waarschuwing (eerste back-up in behandeling)** weergegeven.
@@ -187,34 +253,60 @@ Als u een back-upbeleid op de virtuele machine hebt geïmplementeerd, betekent d
 
 Tenzij de eerste back-up binnenkort wordt gemaakt, wordt aanbevolen dat u **Nu een back-up maken** uitvoert.
 
-Voer **Nu een back-up maken** als volgt uit:
+De eerste back-uptaak uitvoeren:
 
-1. Klik op het kluisdashboard op de tegel **Back-up** op **Azure Virtual Machines** <br/>
-    ![Pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. Klik op het kluisdashboard op het getal onder **Back-upitems** of klik op de tegel **Back-upitems**. <br/>
+  ![Pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    De blade **Back-upitems** wordt geopend.
-2. Klik met de rechtermuisknop op de blade **Back-upitems** op de kluis waarvan u een back-up wilt maken, en klik op **Nu een back-up maken**.
+  De blade **Back-upitems** wordt geopend.
 
-    ![Het pictogram Instellingen](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+  ![Back-upitems](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-    De back-uptaak wordt geactiveerd. <br/>
+2. Selecteer het item op de blade **Back-upitems**.
 
-    ![Geactiveerde back-uptaak](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. Geef weer dat de eerste back-up is voltooid door op het kluisdashboard op de tegel **Back-uptaken** op **Azure Virtual Machines** te klikken.
+  ![Het pictogram Instellingen](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+  De lijst **Back-upitems** wordt geopend. <br/>
 
-    De blade Back-uptaken wordt geopend.
-4. Op de blade Back-uptaken ziet u de status van alle taken.
+  ![Geactiveerde back-uptaak](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-    ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+3. Klik in de lijst **Back-upitems** op het weglatingsteken **... ** om het contextmenu te openen.
 
-   > [!NOTE]
-   > Als onderdeel van de back-upbewerking wordt met de Azure Backup-service aan de back-upextensie in elke VM opdracht gegeven om alle schrijfbewerkingen leeg te maken en een consistente momentopname te maken.
-   >
-   >
+  ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-    Wanneer de back-uptaak is voltooid, wordt de status gewijzigd in *Voltooid*.
+  Het contextmenu wordt weergegeven.
+
+  ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+
+4. Klik in het contextmenu op **Nu back-up maken**.
+
+  ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+
+  De blade Nu back-up maken wordt geopend.
+
+  ![toont de blade Nu back-up maken](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+5. Klik op de blade Nu back-up maken op het kalenderpictogram en selecteer in de kalender de laatste dag dat dit herstelpunt wordt bewaard. Klik vervolgens op **Back-up**.
+
+  ![de laatste dag instellen dat het herstelpunt van Nu back-up maken wordt bewaard](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren. Afhankelijk van de grootte van de virtuele machine kan het maken van de eerste back-up even duren.
+
+6. Als u de status van de eerste back-up wilt bekijken of volgen, klikt u op de tegel **Back-uptaken** van het kluisdashboard op **Bezig**.
+
+  ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+
+  De blade Back-uptaken wordt geopend.
+
+  ![Tegel Back-uptaken](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+
+  Op de blade **Back-uptaken** kunt u de status van alle taken bekijken. Controleer of de back-uptaak voor de virtuele machine nog steeds bezig is of is voltooid. Wanneer de back-uptaak is voltooid, verandert de status in *Voltooid*.
+
+  > [!NOTE]
+  > Als onderdeel van de back-upbewerking wordt met de Azure Backup-service aan de back-upextensie in elke VM opdracht gegeven om alle schrijfbewerkingen leeg te maken en een consistente momentopname te maken.
+  >
+  >
+
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
@@ -247,6 +339,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [st
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

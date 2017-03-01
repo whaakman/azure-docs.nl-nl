@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
-ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
+ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
+ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
 
 ---
 
@@ -30,7 +30,7 @@ Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet wo
 U kunt de Azure Multi-Factor Authentication-server op twee verschillende manieren downloaden. Beide downloads verlopen via de Azure-portal. Bij de eerste manier beheert u rechtstreeks de Multi-Factor Authentication-provider. De tweede manier verloopt via de service-instellingen. Voor de tweede manier is een Multi-Factor Authentication-provider of een Azure MFA-, Azure AD Premium- of Enterprise Mobility Suite-licentie vereist.
 
 > [!Important]
-> Deze twee opties lijken op elkaar, maar het is belangrijk te weten welke moet worden gebruikt. Als uw gebruikers licenties hebben die worden geleverd met MFA, hoeft u geen Multi-Factor Authentication-provider te maken voor toegang tot de serverdownload. Gebruik in plaats daarvan optie 2 om de server te downloaden van de pagina met service-instellingen. 
+> Deze twee opties lijken op elkaar, maar het is belangrijk te weten welke moet worden gebruikt. Als uw gebruikers licenties hebben die worden geleverd met MFA (Azure MFA, Azure AD Premium of Enterprise Mobility + Security), hoeft u geen Multi-Factor Authentication-provider te maken voor toegang tot de serverdownload. Gebruik in plaats daarvan optie 2 om de server te downloaden van de pagina met service-instellingen. 
 
 ### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Optie 1: de Azure Multi-Factor Authentication-server downloaden via de klassieke Azure-portal
 

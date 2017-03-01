@@ -16,8 +16,9 @@ ms.workload: powerbi
 ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
-ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
+ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
+ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -77,7 +78,7 @@ Nadat u de verzameling met werkruimten hebt gemaakt, moet u een werkruimte maken
 Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
 
 > [!NOTE]
-> Meer informatie over het gebruik van **Power BI Desktop** vindt u in [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+> Meer informatie over het gebruik van **Power BI Desktop** vindt u in [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Met **Power BI Desktop** maakt u verbinding met uw gegevensbron door een kopie van de gegevens te importeren in **Power BI Desktop** of door een rechtstreekse verbinding te maken met de gegevensbron via **DirectQuery**.
 
@@ -109,10 +110,5 @@ In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en ge
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

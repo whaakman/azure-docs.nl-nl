@@ -4,7 +4,7 @@ description: Informatie over het gebruik en de optimalisatie van Mobile Engageme
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -130,10 +131,5 @@ Al dit soort gegevens kunnen worden uitgebreid met parameters (*extra gegevens* 
 <!-- URLs. -->
 [Mobile Engagement-concepten]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Zelfstudies]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

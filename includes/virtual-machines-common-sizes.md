@@ -50,6 +50,7 @@ We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier t
 | [G1-G5](#g-series) |180 - 240* |
 | [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
 ACU's die met een * zijn gemarkeerd, maken gebruik van Intel® Turbo-technologie om de CPU-frequentie te verhogen en nóg betere prestaties te leveren.  Hoe groot die extra prestaties zijn, is afhankelijk van de VM-grootte, de workload en de andere workloads die op dezelfde host worden uitgevoerd.
 
@@ -251,8 +252,26 @@ Zie [About the H-series and compute-intensive A-series VMs](../articles/virtual-
 
 <br>
 
+
+## <a name="ls-series"></a>Ls-serie 
+
+De Ls-serie is geoptimaliseerd voor workloads die lokale opslag met lage latentie vereisen, zoals NoSQL-databases (bijvoorbeeld Cassandra, MongoDB, Cloudera en Redis). De Ls-serie biedt maximaal 32 CPU-kernen en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Deze biedt dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per CPU-kern.  
+
+ 
+| Grootte          | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer voor schijf met caching: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | N.V.T./N.V.T. (0)          | 5000 / 125                               | 2/hoog       | 
+| Standard_L8s  | 8    | 64   | 1388 | 16             | N.V.T./N.V.T. (0)          | 10.000 / 250                              | 4/zeer hoog  | 
+| Standard_L16s | 16   | 128  | 2807 | 32             | N.V.T./N.V.T. (0)          | 20.000 / 500                              | 8/zeer hoog | 
+| Standard_L32s | 32   | 256  | 5630 | 64             | N.V.T./N.V.T. (0)          | 40.000 / 1,000                            | 8/zeer hoog | 
+ 
+MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes. 
+
+
+
 ## <a name="n-series"></a>N-serie
 De NC- en NV-grootten worden ook wel GPU-exemplaren genoemd. Dit zijn speciale virtuele machines die NVIDIA GPU-kaarten bevatten, geoptimaliseerd voor verschillende scenario’s en toepassingen. De NV-grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering en VDI-scenario’s waarin frameworks als OpenGL en DirectX worden gebruikt. De NC-grootten zijn meer geoptimaliseerd voor reken- en netwerkintensieve toepassingen en algoritmen, waaronder CUDA - en OpenCL-toepassingen en -simulaties. 
+
 
 ### <a name="nv-instances"></a>NV-exemplaren
 De NV-exemplaren worden aangestuurd door een NVIDIA Tesla M60 GPU-kaart en NVIDIA GRID voor bureaubladtoepassingen en virtuele bureaubladen waarmee klanten hun gegevens of simulatie kunnen visualiseren. Gebruikers kunnen hun grafisch intensieve werkstromen op de NV-exemplaren visualiseren voor grafische mogelijkheden en daarnaast enkelvoudige precisieworkloads uitvoeren, zoals codering en rendering. De Tesla M60 biedt 4096 CUDA-kernen in een ontwerp met dubbele GPU, met maximaal 36 streams van 1080p H.264. 
@@ -306,6 +325,6 @@ In het klassieke implementatiemodel verschillen sommige namen van VM-grootten en
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Hybride on-premises/cloudtoepassing (.NET) | Microsoft Docs
+title: Hybride on-premises/cloudtoepassing (.NET) met Azure WCF Relay | Microsoft Docs
 description: Informatie over het maken van een hybride .NET-on-premises-+/cloudtoepassing met Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: ae5e08e7a5c483fd89390580647722b2c9da0ecb
 
 
 ---
@@ -36,7 +36,7 @@ Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die i
 
 Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Ze ondervinden dan dat bestaande serviceassets die ze willen gebruiken als bouwstenen voor hun oplossingen, zich binnen de firewall van het bedrijf bevinden en niet gemakkelijk bereikbaar zijn voor de cloudoplossing. Veel interne services worden niet zo gemaakt of gehost dat ze gemakkelijk beschikbaar kunnen worden gemaakt aan de rand van het bedrijfsnetwerk.
 
-Azure Relay is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS](../service-bus-messaging/service-bus-sas-overview.md)-verificatie (Shared Access Signature) te gebruiken.
+[Azure Relay](https://azure.microsoft.com/services/service-bus/) is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS (Shared Access Signature)](../service-bus-messaging/service-bus-sas.md)-verificatie te gebruiken.
 
 ## <a name="solution-scenario"></a>Oplossingsscenario
 In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
@@ -50,18 +50,16 @@ Hier volgt een schermopname van de startpagina van de voltooide webtoepassing.
 ![][1]
 
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
-Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
+Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te downloaden en uw ontwikkelomgeving in te stellen:
 
-1. Installeer de Azure-SDK voor .NET via de pagina [Hulpprogramma's en SDK ophalen][Get Tools and SDK].
-2. Klik op **De SDK installeren** voor de versie van Visual Studio die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
+1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
+2. Klik in de kolom **.NET** op de versie van Visual Studio die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
 3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio. Als Visual Studio nog niet is geïnstalleerd, wordt met de SDK ook het gratis programma Visual Studio Express geïnstalleerd.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
 
 ## <a name="create-an-on-premises-server"></a>Een on-premises server maken
 U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
@@ -69,7 +67,7 @@ U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is
 Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
 
 ### <a name="create-the-project"></a>Het project maken
-1. Start Microsoft Visual Studio met administratorbevoegdheden. U kunt Visual Studio starten met administratorbevoegdheden door met de rechtermuisknop op het programmapictogram **Visual Studio** te klikken en vervolgens te klikken op **Als administrator uitvoeren**.
+1. Start Microsoft Visual Studio met administratorbevoegdheden. Om dit te doen, klikt u met de rechtermuisknop op het pictogram van het Visual Studio-programma en vervolgens op **Als administrator uitvoeren**.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
 3. Klik in **Geïnstalleerde sjablonen** onder **Visual C#** op **Consoletoepassing**. Typ in het vak **Naam** de naam **ProductsServer**:
 
@@ -86,7 +84,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
 9. Typ in het vak **Naam** de naam **ProductsContract.cs**. Klik vervolgens op **Toevoegen**.
 10. Vervang in **ProductsContract.cs** de naamruimtedefinitie door de volgende code waarmee het contract voor de service wordt gedefinieerd.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -122,7 +120,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
     ```
 11. Vervang in Program.cs de naamruimtedefinitie door de volgende code waarmee de profielservice en de host voor deze service worden toegevoegd.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -174,9 +172,9 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
         }
     }
     ```
-12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Aan de onderkant van het **&lt;system.ServiceModel&gt;**-element (maar nog steeds binnen &lt;system.ServiceModel&gt;) voegt u de volgende XML-code toe. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
+12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Voeg onderaan het `<system.ServiceModel>`-element (maar nog wel binnen `<system.ServiceModel>`) de volgende XML-code toe. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -197,9 +195,9 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
       </behaviors>
     </system.serviceModel>
     ```
-13. Vervang verder in App.config in het **&lt;appSettings&gt;**-element de verbindingsreekswaarde door de verbindingsreeks die u eerder hebt verkregen via de portal.
+13. Terwijl App.config actief is, vervangt u in het `<appSettings>`-element de verbindingsreekswaarde door de verbindingsreeks die u eerder hebt verkregen via de portal.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -236,22 +234,22 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 ### <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 1. In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+    {
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+    }
+    ```
 2. Vouw in Solution Explorer de map **Controllers** uit en dubbelklik vervolgens op het bestand **HomeController.cs** om het te openen in Visual Studio.
 3. In **HomeController.cs** vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -278,7 +276,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 7. Vouw in Solution Explorer de map Views\Home uit en dubbelklik vervolgens op **Index.cshtml** om dit in de Visual Studio-editor te openen.
    Vervang de volledige inhoud van het bestand door de volgende code.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -334,7 +332,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
    ![][24]
 6. Open nu het bestand **HomeController.cs** in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw servicenaamruimte en *yourKey* door de SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +439,6 @@ Raadpleeg de volgende resources voor meer informatie over Azure Relay:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -468,6 +465,6 @@ Raadpleeg de volgende resources voor meer informatie over Azure Relay:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

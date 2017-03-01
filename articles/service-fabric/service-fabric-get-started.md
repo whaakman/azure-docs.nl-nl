@@ -1,5 +1,5 @@
 ---
-title: Uw ontwikkelomgeving instellen | Microsoft Docs
+title: Een ontwikkelomgeving voor Azure-microservices instellen | Microsoft Docs
 description: Installeer de runtime, SDK en hulpprogramma&quot;s en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 02/14/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
+ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
 
 
 ---
@@ -37,6 +37,7 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 * Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +45,33 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>De runtime, SDK en hulpprogramma's installeren
-Het webplatforminstallatieprogramma biedt twee configuraties voor Service Fabric-ontwikkeling.
+## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
+### <a name="to-use-visual-studio-2017-rc"></a>Visual Studio 2017 RC gebruiken
+Hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling en beheer in Visual Studio 2017 RC. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
+Bovendien moet u de Microsoft Azure Service Fabric SDK installeren met behulp van het webplatforminstallatieprogramma.
 
-Visual Studio 2017 (Azure Development and Management Workload moet worden geïnstalleerd):
+* [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
-* [Installeer de Service Fabric-runtime en -SDK (geen hulpprogramma's voor Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
+Hulpprogramma's voor Service Fabric worden in Visual Studio 2015 geïnstalleerd samen met de SDK met behulp van het webplatforminstallatieprogramma:
 
-Visual Studio 2015 (vereist Visual Studio 2015 update 2 of hoger):
+* [SDK en hulpprogramma's voor Microsoft Azure Service Fabric installeren][full-bundle-vs2015]
 
-* [Installeer de Service Fabric-runtime, -SDK en hulpprogramma's)][full-bundle-vs2015]
-* [Installeer de Service Fabric-runtime en -SDK (geen hulpprogramma's voor Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Alleen SDK-installatie
+Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
+* [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 > [!WARNING]
-> Klanten hebben fouten gerapporteerd tijdens installatie bij het gebruik van deze startkoppelingen of wanneer deze koppelingen werden gebruikt in de Chrome-browser. Dit zijn bekende problemen in het webplatforminstallatieprogramma. Ze worden binnenkort aangepakt.  Probeer het volgende als een tijdelijke oplossing:
->- Start de bovenstaande koppelingen in een Internet Explorer- of Edge-browser, of
+> Klanten hebben fouten gerapporteerd tijdens installatie bij het gebruik van deze startkoppelingen of wanneer deze koppelingen werden gebruikt in de Chrome-browser. Deze fouten zijn bekende problemen in het installatieprogramma van het webplatform. Hier wordt aan gewerkt.  Probeer de volgende tijdelijke oplossingen:
+>- Start de hiervoor vermelde koppelingen in een Internet Explorer- of Edge-browser, of
 >- Start het webplatforminstallatieprogramma vanuit het menu Start, zoek naar 'Service Fabric' en installeer de SDK
 > 
 > Onze excuses voor het ongemak. 
 
 De huidige versies zijn:
-* Service Fabric SDK 2.4.145
-* Service Fabric-runtime 5.4.145
-* Visual Studio 2015-hulpprogramma's 1.4.41209
+* Service Fabric SDK 2.4.164
+* Service Fabric-runtime 5.4.164
+* Visual Studio 2015-hulpprogramma's 1.4.50124
 
 Zie [Ondersteuning voor Service Fabric](service-fabric-support.md) voor een lijst met ondersteunde versies.
 
@@ -97,6 +102,6 @@ Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoer
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

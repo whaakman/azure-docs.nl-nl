@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 01/13/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
+ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
 
 
 ---
@@ -119,7 +119,7 @@ Zie [Volgende stappen](#next-steps) voor informatie over andere dingen die u via
 
 ## <a name="using-unmanaged-disks"></a>Niet-beheerde schijven gebruiken 
 
-Virtuele machines die gebruikmaken van niet-beheerde opslagschijven hebben niet-beheerde opslagaccounts. Typ [az group create](/cli/azure/group#create) om ervoor te zorgen dat uw resourcegroep alle geïmplementeerde resources bevat:
+Virtuele machines met niet-beheerde opslagschijven hebben ook niet-beheerde opslagaccounts. Typ eerst [az group create](/cli/azure/group#create) om een resourcegroep te maken die alle geïmplementeerde resources bevat:
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +142,7 @@ De uitvoer ziet er als volgt uit (u kunt een andere `--output`-optie kiezen als 
 
 ### <a name="create-your-vm"></a>Een virtuele machine maken 
 
-U kunt nu de virtuele machine en de omgeving hiervan maken. Denk eraan de waarde `--public-ip-address-dns-name` te vervangen door een unieke waarde. De onderstaande waarde wordt mogelijk al gebruikt.
+U kunt nu de virtuele machine en de omgeving hiervan maken. Gebruik de markering `--use-unmanaged-disk` om een virtuele machine te maken met niet-beheerde schijven. Er wordt ook een niet-beheerd opslagaccount gemaakt. Denk eraan de waarde `--public-ip-address-dns-name` te vervangen door een unieke waarde. De onderstaande waarde wordt mogelijk al gebruikt.
 
 ```azurecli
 az vm create \
@@ -153,7 +153,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 De uitvoer ziet er als volgt uit. Noteer ofwel de waarde `publicIpAddress` ofwel `fqdn` voor **ssh** in uw VM.
@@ -206,6 +206,6 @@ U kunt ook het [Azure-stuurprogramma `docker-machine` gebruiken dat verschillend
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

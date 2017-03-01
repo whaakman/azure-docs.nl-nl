@@ -3,7 +3,7 @@
 ## [Wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overzicht van apparaatbeheer](iot-hub-device-management-overview.md)
 
-# Aan de slag
+# [Aan de slag](iot-hub-get-started.md)
 ## Een gesimuleerd apparaat gebruiken
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Les 3: Apparaat-naar-cloud-berichten verzenden
-##### [Een Azure-functie-app en -opslagaccount maken]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Een Azure-functie-app en -opslagaccount maken](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [In opslag behouden berichten lezen](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Les 4: Cloud-naar-apparaat-berichten verzenden
@@ -66,7 +66,7 @@
 ##### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Les 3: Apparaat-naar-cloud-berichten verzenden
-##### [Een Azure-functie-app en -opslagaccount maken]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Een Azure-functie-app en -opslagaccount maken](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [In opslag behouden berichten lezen](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Les 4: Cloud-naar-apparaat-berichten verzenden
@@ -107,13 +107,13 @@
 ##### [De Azure-hulpprogramma's downloaden (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [De Azure-hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [De Azure-hulpprogramma's downloaden (MacOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Uw IoT-hub maken en uw Raspberry Pi registreren]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Uw IoT-hub maken en uw Raspberry Pi registreren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Les 3: Apparaat-naar-cloud-berichten verzenden
-##### [Een Azure-functie-app en -opslagaccount maken]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Een Azure-functie-app en -opslagaccount maken](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [De voorbeeldtoepassing om berichten te verzenden uitvoeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [In opslag behouden berichten lezen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Les 4: Cloud-naar-apparaat-berichten verzenden
-##### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Optioneel: het led-gedrag wijzigen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Problemen oplossen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [Uw oplossing schalen](iot-hub-scaling.md)
 ### [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
 ### [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
-## Ontwikkelen
+## [Ontwikkelen](iot-hub-how-to.md)
 ### [Ontwikkelaarsgids](iot-hub-devguide.md)
 #### [Berichten verzenden en ontvangen](iot-hub-devguide-messaging.md)
 #### [Gids voor apparaat-naar-cloud-functies](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
