@@ -51,7 +51,7 @@
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 
 # Naslaginformatie
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -79,8 +79,3 @@
 ### [Uw netwerkinfrastructuur ontwikkelen voor connectiviteit](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Hybride partnerverbanden: on-premises scenario's mogelijk maken](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

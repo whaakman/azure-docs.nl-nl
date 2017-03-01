@@ -6,11 +6,11 @@
 
 ## [Een DNS-zone maken](dns-getstarted-create-dnszone-portal.md)
 ### [PowerShell](dns-getstarted-create-dnszone.md)
-### [CLI](dns-getstarted-create-dnszone-cli.md)
+### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 ## [DNS-records maken](dns-getstarted-create-recordset-portal.md)
 ### [PowerShell](dns-getstarted-create-recordset.md)
-### [CLI](dns-getstarted-create-recordset-cli.md)
+### [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md)
 ## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)
@@ -19,14 +19,15 @@
 
 ## DNS-zones beheren
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
+
 
 ## [DNS-records beheren](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## [Reverse-DNS-records beheren](dns-reverse-dns-record-operations-ps.md)
-### [CLI](dns-reverse-dns-record-operations-cli.md)
+### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Een DNS-zonebestand importeren en exporteren](dns-import-export.md)
@@ -39,7 +40,7 @@
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Azure CLI 2.0 (Preview)](/cli/azure/network/dns)
+## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -60,8 +61,3 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/dns/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

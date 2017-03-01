@@ -39,6 +39,7 @@
 ### [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md)
 ### [Wachtrijen voor onbestelbare berichten](service-bus-dead-letter-queues.md)
 ### [Transactieverwerking](service-bus-transactions.md)
+### [Diagnostische logboeken](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
