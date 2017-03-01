@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
 
 
 ---
@@ -24,13 +24,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Lees dit artikel om inzicht te krijgen in de onderliggende architectuur van de Azure Site Recovery-service en de onderdelen daarvan.
 
-Organisaties hebben een BCDR-strategie nodig die bepaalt op welke wijze toepassingen, workloads en gegevens beschikbaar blijven tijdens geplande en ongeplande uitval, en ervoor zorgt dat deze zo snel mogelijk worden hersteld naar een normale manier van functioneren. In uw BCDR-strategie moeten bedrijfsgegevens veilig en herstelbaar blijven. Ook moet ervoor worden gezorgd dat workloads continu beschikbaar blijven wanneer zich een noodsituatie voordoet.
-
 Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md)
 
 Dit artikel beschrijft de implementatie in [Azure Portal](https://portal.azure.com). De [klassieke Azure-portal](https://manage.windowsazure.com/) kan worden gebruikt voor het onderhoud van de bestaande Site Recovery-kluizen. U kunt geen nieuwe kluizen maken.
 
-U kunt onder aan dit artikel eventuele opmerkingen plaatsen. Technische vragen kunt u stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
 
 
 ## <a name="deployment-scenarios"></a>Implementatiescenario's
@@ -133,10 +131,11 @@ Er zijn enkele vereisten voor een failback:
 
 **Onderdeel** | **Details**
 --- | ---
+
 **Azure** | U hebt in Azure een Microsoft Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig.<br/><br/> Opslag en netwerk kunnen Resource Manager-gebaseerd of klassieke accounts zijn.<br/><br/> Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
-**VMM-server** | Als de Hyper-V-hosts zich in de VMM-clouds bevinden, hebt u logische netwerken en VM-netwerken nodig die zijn ingesteld om de [netwerkkoppeling](site-recovery-network-mapping.md) te configureren. Een netwerk met virtuele machines moet zijn gekoppeld aan een logisch netwerk dat verbinding heeft met de cloud.
-**Hyper-V-host** | U hebt één of meer Hyper-V-hostservers nodig.
-**Virtuele Hyper-V-machines** | U hebt één of meer virtuele machines nodig op de Hyper-V-hostserver. De provider die de Hyper-V-host uitvoert, coördineert en stuurt replicatie met de Site Recovery-service via internet. De agent handelt de gegevens voor gegevensreplicatie af via HTTPS 443. De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
+**VMM-server** | Als de Hyper-V-hosts zich in de VMM-clouds bevinden, hebt u logische netwerken en VM-netwerken nodig die zijn ingesteld om de netwerkkoppeling te configureren. Een netwerk met virtuele machines moet zijn gekoppeld aan een logisch netwerk dat verbinding heeft met de cloud.
+**Hyper-V-hosts** | U hebt één of meer Hyper-V-hostservers nodig.
+**Virtuele Hyper-V-machines** | u hebt een of meer virtuele machines nodig op de Hyper-V-hostserver. De provider die de Hyper-V-host uitvoert, coördineert en stuurt replicatie met de Site Recovery-service via internet. De agent handelt de gegevens voor gegevensreplicatie af via HTTPS 443. De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
 
 
 ## <a name="replication-process"></a>Replicatieproces
@@ -200,8 +199,8 @@ Er zijn enkele vereisten voor een failback:
 
 1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
-4. Als u een niet-geplande failover naar een secundaire site uitvoert wanneer de failovermachines in de secundaire locatie niet zijn ingeschakeld voor beveiliging of replicatie. Als u een geplande failover hebt uitgevoerd nadat de failovermachines in de secundaire locatie zijn beveiligd.
-5. U geeft de failover vervolgens toegang tot de workload via de replica-VM.
+4. Als u een niet-geplande failover naar een secundaire site uitvoert wanneer de failovermachines in de secundaire locatie niet zijn ingeschakeld voor beveiliging of replicatie. Als u een geplande failover hebt uitgevoerd, zijn de machines op de secundaire locatie na de failover beveiligd.
+5. U geeft de failover vervolgens toegang tot de werkbelasting via de replica-VM.
 6. Als uw primaire site weer beschikbaar is, start u de omgekeerde replicatie van de secundaire site naar de primaire site. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
 7. Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
@@ -223,10 +222,10 @@ Er zijn enkele vereisten voor een failback:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Implementatie voorbereiden](site-recovery-best-practices.md)
+[Vereisten controleren](site-recovery-prereq.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

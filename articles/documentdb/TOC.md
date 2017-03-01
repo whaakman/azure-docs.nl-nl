@@ -44,8 +44,9 @@
 ### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
 ### [S1, S2, S3 buiten gebruik stellen](documentdb-performance-levels.md)
 ### [Aanvraageenheden](documentdb-request-units.md)
-### Azure CLI
-#### [Een account maken](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [Een account maken](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Regio's toevoegen of verwijderen](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewallondersteuning](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Gegevensconsistentie uitgelegd aan de hand van honkbal](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Boek: Microsoft Azure DocumentDB gebruiken in een Node.js-toepassing](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

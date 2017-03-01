@@ -4,7 +4,7 @@ description: Voeg in een paar minuten handige functies toe aan uw eerste web-app
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ Ontdek hoe u meer kunt doen met uw geïmplementeerde app. Dit zijn slechts enkel
   Scan uw web-app op actieve bedreigingen met behulp van de service die wordt geleverd door [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Achtergrondtaken uitvoeren](../azure-functions/functions-overview.md): voer taken uit voor gegevensverwerking, rapportage, enzovoort.
 * [Ontdek hoe App Service werkt](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

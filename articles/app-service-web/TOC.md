@@ -257,7 +257,7 @@
 ### [Problemen met prestaties van web-apps oplossen](app-service-web-troubleshoot-performance-degradation.md)
 
 # Naslaginformatie
-## [Azure CLI 2.0 Preview](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # Bronnen
 ## [Aanbevolen procedures](app-service-best-practices.md)
 ## [Lijst met resources voor WebJobs](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: Back-up van Windows-bestanden en -mappen maken in Azure met het Resource Manager-implementatiemodel van Azure Backup | Microsoft Docs
+title: Back-up van Windows-bestanden en -mappen maken in Azure met het Resource Manager-implementatiemodel | Microsoft Docs
 description: Leer hoe u een back-up van Windows-bestanden en -mappen maakt in Azure met behulp van Resource Manager-implementatie.
 services: backup
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 2/10/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
 
 
 ---
@@ -232,6 +232,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [s
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: Ontdek hoe u met behulp van Visual Studio 2015 een ASP.NET API-app 
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -438,10 +439,5 @@ Als u geheel nieuwe API-app-projecten wilt maken, gebruikt u de **Azure-API-app*
 ![API-app-sjabloon in Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Gebruik van de **Azure-API-app**-projectsjabloon geeft hetzelfde resultaat als wanneer u de **lege** ASP.NET 4.5.2-sjabloon kiest, het selectievakje inschakelt om Web API-ondersteuning toe te voegen en vervolgens het Swashbuckle NuGet-pakket installeert. Daarnaast voegt de sjabloon Swashbuckle-configuratiecode toe die tot doel heeft om te voorkomen dat er dubbele Swagger-bewerkings-id's worden gemaakt. Nadat u een API-app-project hebt gemaakt, kunt u dit op dezelfde manier implementeren in een API-app als u in deze zelfstudie hebt gezien.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

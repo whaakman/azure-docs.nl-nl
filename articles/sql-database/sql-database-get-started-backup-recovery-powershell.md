@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met back-ups en herstel van Azure SQL-databases voor gegevensbescherming en -herstel met behulp van Azure PowerShell | Microsoft Docs
+title: 'Powershell: back-up maken en herstellen van een Azure SQL-database | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u via geautomatiseerde back-ups kunt herstellen naar een eerder tijdstip, geautomatiseerde back-ups kunt opslaan in de Azure Recovery Services-kluis en kunt herstellen vanuit de Azure Recovery Services-kluis met behulp van PowerShell
 keywords: zelfstudie sql-database
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Aan de slag met back-ups en herstel voor gegevensbescherming en -herstel met PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Zelfstudie: back-up maken en herstellen van een Azure SQL-database met behulp van Powershell
 
-In deze Aan de slag-zelfstudie leert u hoe u Azure PowerShell kunt gebruiken voor het volgende:
+In deze zelfstudie leert u hoe u Azure Powershell kunt gebruiken om:
 
 - Bestaande back-ups van een database weergeven
 - Een database herstellen naar een eerder tijdstip
@@ -38,7 +38,7 @@ In deze Aan de slag-zelfstudie leert u hoe u Azure PowerShell kunt gebruiken voo
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* U hebt een Azure-account nodig. U kunt [een gratis Azure-account openen](https://azure.microsoft.com/free/) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * U moet verbinding maken met Azure met een account dat eigenaar is van het abonnement of de rol Inzender heeft. Zie [Aan de slag met toegangsbeheer in Azure Portal](../active-directory/role-based-access-control-what-is.md) voor meer informatie over op rollen gebaseerd toegangsbeheer (RBAC).
 
@@ -47,7 +47,7 @@ In deze Aan de slag-zelfstudie leert u hoe u Azure PowerShell kunt gebruiken voo
 * U hebt de zelfstudie [Aan de slag met Azure SQL Database-servers, -databases en -firewallregels met behulp van Azure Portal en SQL Server Management Studio](sql-database-get-started.md) of de equivalente [PowerShell-versie](sql-database-get-started-powershell.md) voltooid. Als u dit niet hebt gedaan, voltooit u eerst deze vereiste zelfstudie of voert u het PowerShell-script aan het einde van de [PowerShell-versie](sql-database-get-started-powershell.md) voordat u doorgaat.
 
 > [!TIP]
-> U kunt dezelfde taken uitvoeren in een Aan de slag-zelfstudie met [Azure Portal](sql-database-get-started-backup-recovery.md).
+> U kunt dezelfde taken uitvoeren in een Aan de slag-zelfstudie met [Azure Portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +114,7 @@ In deze sectie van de zelfstudie configureert u [een Azure Recovery Services-klu
 
 
 > [!TIP]
-> Zie [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Back-ups voor langetermijnretentie verwijderen) als u back-ups voor langetermijnretentie wilt verwijderen.
+> Zie [Manage long-term backup retention using PowerShell](sql-database-manage-long-term-backup-retention-powershell.md) (Langetermijnretentie van back-ups beheren met PowerShell) als u back-ups voor langetermijnretentie wilt verwijderen.
 
 
 ### <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Zie [Herstellen vanuit back-up](sql-database-recovery-using-backups.md) voor meer informatie over het herstellen van back-ups.
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

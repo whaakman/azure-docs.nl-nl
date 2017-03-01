@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
-ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
 
 
 ---
@@ -28,10 +28,7 @@ ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 Azure Container Service biedt een snelle implementatie van populaire open-sourceoplossingen voor containerclustering en -orchestration. In dit document vindt u instructies voor het implementeren van een Azure Container Service-cluster met behulp van Azure Portal of een Azure Resource Manager-snelstartsjabloon. 
 
-> [!NOTE]
-> Ondersteuning voor Kubernetes in Azure Container Service is momenteel in de preview-fase.
-
-U kunt ook een Azure Container Service-cluster implementeren met behulp van [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md) of de Azure Container Service-API’s.
+U kunt ook een Azure Container Service-cluster implementeren met behulp van de [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) of de Azure Container Service-API's.
 
 
 
@@ -39,7 +36,7 @@ U kunt ook een Azure Container Service-cluster implementeren met behulp van [Azu
 
 * **Azure-abonnement**: als u nog geen abonnement hebt, kunt u zich registreren voor een [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-* **Openbare SSH-sleutel**: wanneer u implementeert via de portal of een van de snelstartsjablonen van Azure, moet u de openbare sleutel opgeven voor verificatie bij de virtuele machines van Azure Container Service. Als u SSH-sleutels (Secure Shell) wilt maken, ziet u de richtlijnen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Openbare SSH RSA-sleutel**: wanneer u implementeert via de portal of een van de snelstartsjablonen van Azure, moet u de openbare sleutel opgeven voor verificatie bij de virtuele machines van Azure Container Service. Als u SSH RSA-sleutels (Secure Shell) wilt maken, ziet u de richtlijnen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
 * **Service-principal-client-id en -geheim** (alleen Kubernetes): zie [Informatie over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie over en richtlijnen voor het maken van een service-principal.
 
@@ -58,32 +55,32 @@ U kunt ook een Azure Container Service-cluster implementeren met behulp van [Azu
 
     * **User name**: de gebruikersnaam voor een account op elk van de virtuele machines en virtuele-machineschaalsets in het Azure Container Service-cluster.
     * **Subscription**: selecteer een Azure-abonnement.
-    * **Resource group**: selecteer een bestaande resourcegroep of maak een nieuwe.
+    * **Resource group**: selecteer een bestaande resourcegroep of maak een nieuwe. Als best practice gebruikt u een nieuwe resourcegroep voor elke implementatie.
     * **Location**: selecteer een Azure-regio voor de Azure Container Service-implementatie.
-    * **SSH public key**: voeg de openbare sleutel toe die wordt gebruikt voor verificatie bij de virtuele machines voor Azure Container Service. Het is belangrijk dat deze sleutel geen regeleinden bevat, maar wel het voorvoegsel `ssh-rsa`. Het achtervoegsel `username@domain` is optioneel. De sleutel moet er ongeveer zo uitzien: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **SSH RSA public key**: voeg de openbare sleutel toe die wordt gebruikt voor verificatie bij de virtuele machines voor Azure Container Service. Het is belangrijk dat deze sleutel geen regeleinden bevat, maar wel het voorvoegsel `ssh-rsa`. Het achtervoegsel `username@domain` is optioneel. De sleutel moet er ongeveer zo uitzien: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Klik op **OK** wanneer u klaar bent om door te gaan.
 
     ![Basisinstellingen](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Selecteer een Orchestration-type. De opties zijn:
+5. Op de blade **Framework-configuratie** selecteert u een **orchestrator-configuratie**. De opties zijn:
 
   * **DC/OS**: implementeert een DC/OS-cluster.
   * **Swarm**: implementeert een Docker Swarm-cluster.
-  * **Kubernetes**: implementeert een Kubernetes-cluster
+  * **Kubernetes**: implementeert een Kubernetes-cluster.
 
 
 6. Klik op **OK** wanneer u klaar bent om door te gaan.
 
     ![Een orchestrator kiezen](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. Als in de vervolgkeuzelijst de optie **Kubernetes** is geselecteerd, moet u de client-id en het clientgeheim van de service-principal invoeren. Zie [Over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie.
+7. Als in de vervolgkeuzelijst de optie **Kubernetes** is geselecteerd, moet u de client-id ook wel appId genoemd) en het clientgeheim (het wachtwoord) van de service-principal invoeren. Zie [Over de service-principal voor een Kubernetes-cluster](container-service-kubernetes-service-principal.md) voor meer informatie.
 
     ![Service-principal voor Kubernetes invoeren](media/container-service-deployment/acs-portal10.png)  <br />
 
-7. Voer de volgende gegevens in op de blade **Azure Container Service**-instellingen:
+7. Voer de volgende gegevens in op de blade **Azure Container Service-instellingen**:
 
-    * **Master count**: het aantal masters in het cluster. Als Kubernetes is geselecteerd, wordt het aantal masters ingesteld op een standaardwaarde van 1.
+    * **Master count**: het aantal masters in het cluster.
     * **Agent count**: voor Docker Swarm en Kubernetes is dit het oorspronkelijke aantal agents in de agentschaalset. Voor DC/OS is dit het oorspronkelijke aantal agents in een persoonlijke schaalset. Bovendien wordt een openbare schaalset gemaakt voor DC/OS, die een vooraf bepaald aantal agents bevat. Het aantal agents in deze openbare schaalset wordt bepaald door het aantal masters dat in het cluster is gemaakt: één openbare agent voor één master en twee openbare agents voor drie of vijf masters.
     * **Agent virtual machine size**: de grootte van de virtuele machines van de agent.
     * **DNS prefix**: een wereldwijd unieke naam die wordt gebruikt om sleutelonderdelen toe te voegen voor de volledig gekwalificeerde domeinnamen voor de service.
@@ -112,12 +109,12 @@ Het duurt enkele minuten om de implementatie te voltooien. Daarna is het Azure C
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Een cluster maken met het snelstartsjabloon
 Er zijn Azure-snelstartsjablonen beschikbaar voor het implementeren van clusters in Azure Container Service. De verstrekte snelstartsjablonen kunnen worden aangepast om aanvullende of geavanceerde Azure-configuratie toe te voegen. Als u een Azure Container Service-cluster wilt maken met een Azure-snelstartsjabloon, hebt u een Azure-abonnement nodig. Als u er geen hebt, kunt u zich [registreren voor een gratis proefversie](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Volg deze stappen voor het implementeren van een cluster middels een sjabloon en Azure CLI 2.0 (Preview) (zie de [instructies voor installeren en instellen](/cli/azure/install-az-cli2.md)).
+Volg deze stappen voor het implementeren van een cluster middels een sjabloon en Azure CLI 2.0 (zie de [instructies voor installeren en instellen](/cli/azure/install-az-cli2.md)).
 
 > [!NOTE] 
 > Als u een Windows-systeem gebruikt, kunt u vergelijkbare stappen volgen voor het implementeren van een sjabloon, maar dan via Azure PowerShell. De stappen worden verderop in dit gedeelte beschreven. U kunt sjablonen ook implementeren via de [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) of op een andere manier.
 
-1. Selecteer een van de volgende sjablonen van GitHub om een DC/OS-, Docker Swarm- of Kubernetes-cluster te implementeren. De DC/OS- en Swarm-sjablonen zijn hetzelfde, behalve voor wat betreft de standaardselectie voor de orchestrator.
+1. Selecteer een van de beschikbare snelstartsjablonen van GitHub om een DC/OS-, Docker Swarm- of Kubernetes-cluster te implementeren. Hierna volgt een gedeeltelijke lijst. De DC/OS- en Swarm-sjablonen zijn hetzelfde, behalve voor wat betreft de standaardselectie voor de orchestrator.
 
     * [DC/OS-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -165,7 +162,7 @@ Volg deze stappen voor het implementeren van een cluster middels een sjabloon en
 ### <a name="equivalent-powershell-commands"></a>Vergelijkbare PowerShell-opdrachten
 U kunt een Azure Container Service-clustersjabloon ook implementeren met PowerShell. Dit document is gebaseerd op versie 1.0 van de [Azure PowerShell-module](https://azure.microsoft.com/blog/azps-1-0/).
 
-1. Selecteer een van de volgende sjablonen om een DC/OS-, Docker Swarm- of Kubernetes-cluster te implementeren. De DC/OS- en Swarm-sjablonen zijn hetzelfde, behalve voor wat betreft de standaardselectie voor de orchestrator.
+1. Selecteer een van de beschikbare snelstartsjablonen van GitHub om een DC/OS-, Docker Swarm- of Kubernetes-cluster te implementeren. Hierna volgt een gedeeltelijke lijst. De DC/OS- en Swarm-sjablonen zijn hetzelfde, behalve voor wat betreft de standaardselectie voor de orchestrator.
 
     * [DC/OS-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -214,6 +211,6 @@ Nu u een werkend cluster hebt, kunt u deze documenten lezen voor meer informatie
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

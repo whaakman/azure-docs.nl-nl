@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -406,7 +407,7 @@ In het volgende diagram ziet u hoe de DocumentDB SQL-querysyntaxis wordt aangero
 
 ![Node.js-zelfstudie: diagram waarin het bereik en de betekenis van de query worden beschreven - Knooppuntdatabase](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Het trefwoord [FROM](documentdb-sql-query.md#from-clause) is optioneel in de query omdat DocumentDB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. DocumentDB leidt af dat Families, root, of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
+Het trefwoord [FROM](documentdb-sql-query.md#FromClause) is optioneel in de query omdat DocumentDB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. DocumentDB leidt af dat Families, root, of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
 
 Kopieer en plak de code onder de aanroep van **getFamilyDocument** om de functie **queryCollection** uit te voeren.
 
@@ -627,9 +628,4 @@ Dat is alles, bouw nu de oplossing. Succes!
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

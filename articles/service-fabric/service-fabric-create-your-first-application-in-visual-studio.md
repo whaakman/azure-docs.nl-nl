@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Service Fabric-toepassing in Visual Studio maken | Microsoft Docs
+title: Uw eerste Azure-microservices-app maken | Microsoft Docs
 description: Een Service Fabric-toepassing met Visual Studio maken, implementeren en foutopsporing uitvoeren
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 
 
 ---
@@ -36,7 +36,7 @@ Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld]
 ## <a name="video-walkthrough"></a>Video-overzicht
 De volgende video leidt u door de stappen in deze zelfstudie:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +122,19 @@ Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevo
 
 Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen verwijderd die op het cluster zijn ingericht of worden uitgevoerd.
 
+U kunt de clustermodus ook wijzigen met behulp van PowerShell:
+
+1. Start een nieuw PowerShell-venster als beheerder.
+2. Voer het installatiescript van het  cluster uit wat in de SDK-map staat:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Het installeren van een cluster duurt even. Nadat Setup is voltooid, ziet u soortgelijke uitvoer als deze:
+   
+    ![Cluster-installatieuitvoer][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Opschonen
 Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
 
@@ -150,9 +163,10 @@ Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

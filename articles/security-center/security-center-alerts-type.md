@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
 
 
 ---
@@ -182,7 +182,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 ![Uitgaande DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Resourceanalyse
-Een resourceanalyse door Security Center richt zich op PaaS-services, zoals de integratie met de functie [Azure SQL Db-bedreigingsdetectie](../sql-database/sql-database-threat-detection-get-started.md). Op basis van de analyseresultaten van deze gebieden, activeert Security Center een aan een resource gerelateerde waarschuwing.
+Een resourceanalyse door Security Center richt zich op PaaS-services, zoals de integratie met de functie [Azure SQL Database-detectie van bedreigingen](../sql-database/sql-database-threat-detection.md). Op basis van de analyseresultaten van deze gebieden, activeert Security Center een aan een resource gerelateerde waarschuwing.
 
 ### <a name="potential-sql-injection"></a>Mogelijke SQL-injectie
 SQL-injectie is een aanval waarbij schadelijke code wordt ingevoegd in tekenreeksen die later worden doorgegeven aan een exemplaar van SQL Server om te worden geparseerd en uitgevoerd. Elke procedure die SQL-instructies construeert, moet worden gecontroleerd op beveiligingsproblemen met injectie omdat SQL Server alle syntactisch geldige query's uitvoert die deze ontvangt. SQL-bedreigingsdetectie maakt gebruik van machine learning, gedragsanalyse en detectie van afwijkingen om verdachte gebeurtenissen op te sporen die in uw Azure SQL-databases mogelijk plaatsvinden. Bijvoorbeeld:
@@ -216,6 +216,6 @@ In dit document bent u meer te weten gekomen over de verschillende soorten bevei
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

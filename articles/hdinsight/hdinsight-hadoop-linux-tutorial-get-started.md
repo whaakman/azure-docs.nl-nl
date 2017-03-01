@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
+ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
+ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
 
 
 ---
@@ -26,7 +26,6 @@ ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
 Informatie over het maken van [Hadoop](http://hadoop.apache.org/)-clusters in HDInsight en het uitvoeren van Hive-taken in HDInsight. [Apache Hive](https://hive.apache.org/) is het meest populaire onderdeel in het Hadoop-ecosysteem. Momenteel wordt HDInsight geleverd met zes verschillende clustertypen: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) en [R Server](hdinsight-hadoop-r-server-overview.md).  Elk clustertype ondersteunt een andere set onderdelen. Alle zes de clustertypen ondersteunen Hive. Zie voor een lijst van ondersteunde onderdelen in HDInsight [Wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
@@ -59,11 +58,13 @@ De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich
     Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren.
 
     * **Locatie**: zowel de locatie van het cluster en het afhankelijke opslagaccount gebruiken dezelfde locatie als resourcegroep.
-    * **Clusterversie**: 3.4
+    * **Clusterversie**: 3.5
     * **Type besturingssysteem**: Linux
     * **Het aantal worker-knooppunten**: 2
 
-     Elk cluster is afhankelijk van een Azure Blob Storage-account. Meestal wordt ernaar gerefereerd als het standaard opslagaccount. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd. De naam van het standaard opslagaccount wordt in de sjabloon gedefinieerd als de naam van het cluster waaraan 'store' is toegevoegd. 
+     Elk cluster is afhankelijk van een Azure Blob Storage-account. Meestal wordt ernaar gerefereerd als het standaard opslagaccount. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd. 
+     
+     Raadpleeg voor meer uitleg over deze eigenschappen [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden** en **Vastmaken aan dashboard** en klik vervolgens op **Kopen**. U ziet een nieuwe tegel met de titel **Implementatiesjabloon implementeren** in het portaldashboard. Het duurt ongeveer 20 minuten om een cluster te maken. Als het cluster is gemaakt, wordt de ondertiteling van de tegel gewijzigd in de opgegeven naam van de resourcegroep. Via de portal wordt de resourcegroep automatisch geopend in een nieuwe blade. U ziet dat zowel het cluster als de standaardopslag worden vermeld.
    
@@ -148,28 +149,16 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-open]: /powershell/azureps-cmdlets-docs#Install
-
-[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.browse.output.png
-[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

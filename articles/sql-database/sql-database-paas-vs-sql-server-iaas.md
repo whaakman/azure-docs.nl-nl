@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
 
 
 ---
@@ -142,14 +142,13 @@ Kies voor **SQL Server op Azure VM's** als:
 * U hebt bestaande IT-resources en kunt eigenaar zijn van patchen, back-ups en hoge beschikbaarheid van databases. Houd er rekening mee dat sommige geautomatiseerde functies deze bewerkingen aanzienlijk kunnen vereenvoudigen. 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [SQL Database tutorial: maak in slechts enkele minuten een SQL database met behulp van Azure Portal](sql-database-get-started.md) om aan de slag te gaan met SQL Database.
+* Zie [Uw eerste Azure SQL Database](sql-database-get-started.md) om aan de slag te gaan met SQL Database.
 * Zie [Prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Zie [Provision a SQL Server virtual machine in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) om aan de slag te kunnen met SQL Server op Azure VM’s.
-* Zie [SQL Server op een virtuele Azure-machine: pad leren](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

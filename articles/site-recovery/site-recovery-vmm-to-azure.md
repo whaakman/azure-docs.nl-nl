@@ -1,6 +1,6 @@
 ---
 title: Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure | Microsoft Docs
-description: Dit artikel beschrijft hoe u Site Recovery implementeert om replicatie, failovers en herstel van virtuele Hyper-V-machines in VMM-clouds naar Azure te beheren.
+description: Replicatie, failovers en herstel van virtuele Hyper-V-machines in System Center VMM-clouds naar Azure beheren
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,16 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/23/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Portal
-
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Site Recovery in Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klassieke Azure Portal](site-recovery-vmm-to-azure-classic.md)
@@ -29,45 +29,12 @@ ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 > * [PowerShell klassiek](site-recovery-deploy-with-powershell.md)
 
 
-Welkom bij de Azure Site Recovery-service!
+In dit artikel wordt beschreven hoe u met behulp van [Azure Site Recovery](site-recovery-overview.md) in Azure Portal on-premises virtuele Hyper-V-machines die in System Center Virtual Machine Manager-clouds (VMM) worden beheerd, naar Azure kunt repliceren.
 
-Site Recovery is een Azure-service die bijdraagt tot uw bedrijfscontinuïteit en noodherstel (BCDR). Site Recovery organiseert de replicatie van on-premises fysieke servers en virtuele machines naar de cloud (Azure) of naar een secundair datacenter. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Zie [Wat is Azure Site Recovery?](site-recovery-overview.md) voor meer informatie
-
-Dit artikel beschrijft hoe u met behulp van Azure Site Recovery in Azure Portal on-premises virtuele Hyper-V-machines die in System Center Virtual Machine Manager-clouds (VMM) worden beheerd, naar Azure kunt repliceren.
-
-Na het lezen van dit artikel kunt u onderaan eventuele opmerkingen posten. Technische vragen kunt u stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="quick-reference"></a>Snelzoekgids
-Voor een volledige implementatie, raden wij u sterk aan alle stappen in het artikel te volgen. Maar als u niet genoeg tijd hebt, vindt u hier een snel overzicht.
-
-| **Onderwerp** | **Details** |
-| --- | --- |
-| **Implementatiescenario** |Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Azure Portal |
-| **On-premises-vereisten** |Een of meer VMM-servers met System Center 2012 R2, met een of meer clouds.<br/><br/> Clouds moeten een of meer VVM-hostgroepen bevatten.<br/><br/> Op minstens één Hyper-V-server in de cloud moet ten minste Windows Server 2012 R2 met de Hyper-V-rol of Microsoft Hyper-V Server 2012 R2 worden uitgevoerd en moeten de meest recente updates zijn geïnstalleerd.<br/><br/> VMM-servers en Hyper-V-hosts vereisten internettoegang en moeten direct toegang krijgen tot specifieke URL's of via een proxyserver. [Volledige details](#on-premises-prerequisites). |
-| **On-premises beperkingen** |Op HTTPS gebaseerde proxy wordt niet ondersteund |
-| **Provider/agent** |Gerepliceerde VM’s vereisten de Azure Site Recovery-provider.<br/><br/> Hyper-V-hosts vereist de Recovery Services-agent.<br/><br/> U installeert deze tijdens de implementatie. |
-|  **Azure-vereisten** |Azure-account<br/><br/> Recovery Services-kluis<br/><br/> LRS- of GRS-opslagaccount in kluisregio<br/><br/> Standaardopslagaccount<br/><br/> Virtuele Azure-netwerk in kluisregio. [Volledige details](#azure-prerequisites). |
-|  **Azure-beperkingen** |Als u GRS gebruikt, hebt u een ander LRS-account nodig voor logboekregistratie<br/><br/> Opslagaccounts die zijn gemaakt in Azure Portal, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement. <br/><br/> Premium-opslag wordt niet ondersteund.<br/><br/> Azure-netwerken die worden gebruikt voor Site Recovery, kunnen niet worden verplaatst naar andere resourcegroepen in hetzelfde abonnement of in een ander abonnement.
-|  **VM-replicatie** |[Virtuele machines moeten voldoen aan de vereisten voor Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
-|  **Replicatiebeperkingen** |U kunt geen virtuele machines repliceren waarop Linux wordt uitgevoerd met een statisch IP-adres.<br/><br/> U kunt bepaalde schijven uitsluiten van replicatie, maar niet de besturingssysteemschijf.
-| **Implementatiestappen** |(1) Azure voorbereiden (abonnement, opslag, netwerk) -> 2) On-premises voorbereiden (VMM en de netwerkkoppeling) -> 3) Recovery Services-kluis maken > 4) VMM en Hyper-V-hosts instellen -> 5) Replicatie-instellingen configureren -> 6) Replicatie inschakelen -> 7) Replicatie en failover testen. |
-
-## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery in Azure Portal
-
-Azure heeft twee verschillende [implementatiemodellen](../resource-manager-deployment-model.md) voor het maken van en werken met resources: Azure Resource Manager en het klassieke model. Ook Azure heeft twee portals: de klassieke Azure-portal en Azure Portal. Dit artikel beschrijft hoe u kunt implementeren in Azure Portal.
+Na het lezen van dit artikel kunt u onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
 
 
-Dit artikel beschrijft hoe u kunt implementeren in de Azure Portal, wat zorgt voor een gestroomlijnde ervaring. De klassieke portal kan worden gebruikt om bestaande kluizen te onderhouden. U kunt via de klassieke portal geen nieuwe kluizen maken.
 
-
-## <a name="site-recovery-in-your-business"></a>Site Recovery in uw bedrijf
-
-Organisaties hebben een BCDR-strategie nodig die bepaalt op welke wijze toepassingen en gegevens beschikbaar blijven tijdens een geplande en ongeplande uitval en ervoor zorgt dat deze zo snel mogelijk worden hersteld naar een normale manier van functioneren. Dit is wat Site Recovery kan:
-
-* Off-sitebeveiliging voor business-apps op virtuele Hyper-V-machines worden uitgevoerd.
-* Eén locatie voor het instellen, beheren en bewaken van replicatie, failover en herstel.
-* Eenvoudige failover en failback (herstel) van Azure naar Hyper-V-hostservers op uw on-premises-site.
-* Herstelplannen met meerdere virtuele machines configureren, zodat er voor gelaagde toepassingsworkloads gelijktijdig een failover wordt uitgevoerd.
 
 ## <a name="scenario-architecture"></a>Scenario-architectuur
 Dit zijn de scenario-onderdelen:
@@ -100,7 +67,7 @@ On-premises hebt u het volgende nodig
 ## <a name="protected-machine-prerequisites"></a>Vereisten voor beveiligde machines
 | **Vereiste** | **Details** |
 | --- | --- |
-| **Beveiligde virtuele machines** |Voordat u een failover uitvoert voor een virtuele machine, moet u ervoor zorgen dat de naam die aan de virtuele Azure-machine wordt toegewezen, voldoet aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt de naam wijzigen nadat u replicatie voor de virtuele machine hebt ingeschakeld. <br/><br/> Op beveiligde machines mag de capaciteit per schijf niet meer dan 1023 GB bedragen. Een virtuele machine mag maximaal 64 schijven hebben (maximaal 64 TB).<br/><br/> Gastclusters met gedeelde schijven worden niet ondersteund.<br/><br/> Opstarten op basis van Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface(EFI) wordt niet ondersteund.<br/><br/> Als de virtuele bronmachine is voorzien van een NIC-koppeling, wordt er na de failover naar Azure slechts één NIC gebruikt.<br/><br/>Het beveiligen van virtuele Hyper-V-machines waarop Linux wordt uitgevoerd met een statisch IP-adres, wordt niet ondersteund. |
+| **Beveiligde virtuele machines** |Voordat u een failover uitvoert voor een virtuele machine, moet u ervoor zorgen dat de naam die aan de virtuele Azure-machine wordt toegewezen, voldoet aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). U kunt de naam wijzigen nadat u replicatie voor de virtuele machine hebt ingeschakeld. <br/><br/> Op beveiligde machines mag de capaciteit per schijf niet meer dan 1023 GB bedragen. Een virtuele machine mag maximaal 64 schijven hebben (maximaal 64 TB).<br/><br/> Gastclusters met gedeelde schijven worden niet ondersteund.<br/><br/> Opstarten op basis van Unified Extensible Firmware Interface (UEFI) / Extensible Firmware Interface(EFI) wordt niet ondersteund.<br/><br/> Als de virtuele bronmachine is voorzien van een NIC-koppeling, wordt er na de failover naar Azure slechts één NIC gebruikt.<br/><br/>Het beveiligen van virtuele Hyper-V-machines waarop Linux wordt uitgevoerd met een statisch IP-adres, wordt niet ondersteund. |
 
 ## <a name="prepare-for-deployment"></a>Implementatie voorbereiden
 U moet het volgende doen om de implementatie voor te bereiden:
@@ -108,7 +75,7 @@ U moet het volgende doen om de implementatie voor te bereiden:
 1. [Een Azure-netwerk instellen](#set-up-an-azure-network) waarin de virtuele Azure-machines worden opgeslagen na de failover.
 2. [Een Azure-opslagaccount instellen](#set-up-an-azure-storage-account) voor gerepliceerde gegevens.
 3. [De VMM-server voorbereiden](#prepare-the-vmm-server) op de implementatie van Site Recovery.
-4. [Voorbereiden op netwerktoewijzing](#prepare-for-network-mapping). Stel netwerken zodanig in dat u tijdens de implementatie van Site Recovery netwerktoewijzing kunt configureren.
+4. Voorbereiden op netwerktoewijzing. Stel netwerken zodanig in dat u tijdens de implementatie van Site Recovery netwerktoewijzing kunt configureren.
 
 ### <a name="set-up-an-azure-network"></a>Een Azure-netwerk instellen
 U hebt een Azure-netwerk nodig waarmee de virtuele Azure-machines die na een failover worden gemaakt, kunnen worden verbonden.
@@ -137,7 +104,6 @@ Tijdens de implementatie van Site Recovery moet u netwerktoewijzing instellen. B
 
   * Zorg ervoor dat de virtuele machines op de Hyper-V-bronhostserver zijn verbonden met een VMM-netwerk met virtuele machines. Dit netwerk moet zijn gekoppeld aan een logisch netwerk dat is verbonden met de cloud.
   * Een Azure-netwerk zoals [hierboven](#set-up-an-azure-network) wordt beschreven
-* [Meer informatie](site-recovery-network-mapping.md) over hoe netwerktoewijzing werkt.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -177,14 +143,17 @@ Installeer de Azure Site Recovery-provider op de VMM-server en registreer de ser
 1. Klik op **Stap 2: infrastructuur voorbereiden** > **Bron**.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source1.png)
+    
 2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source2.png)
+    
 3. Controleer op de blade **Server toevoegen** of **System Center VMM-server** wordt weergegeven in **Servertype** en of de VMM-server voldoet aan de [algemene vereisten en de URL-vereisten](#on-premises-prerequisites).
 4. Download het installatieprogramma voor de Azure Site Recovery-provider.
 5. Download de registratiesleutel. U hebt deze nodig wanneer u de installatie uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source3.png)
+    
 6. Installeer de Azure Site Recovery-provider op de VMM-server.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>De Azure Site Recovery-provider installeren
@@ -274,7 +243,7 @@ Geef op welk Azure-opslagaccount moet worden gebruikt voor replicatie en met wel
     ![Opslag](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
-    ![Opslag](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+      ![Opslag](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 4. Als u nog geen opslagaccount hebt gemaakt en u er een wilt maken met Resource Manager, klikt u op **+Opslagaccount** om dat inline te doen.  Geef op de blade **Opslagaccount maken** een accountnaam, het type, het abonnement en de locatie op. Het account moet zich op dezelfde locatie bevinden als de Recovery Services-kluis.
 
@@ -291,7 +260,8 @@ Geef op welk Azure-opslagaccount moet worden gebruikt voor replicatie en met wel
    Als u een netwerk wilt maken op basis van het klassieke model, doet u dat in Azure Portal. [Meer informatie](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>Netwerktoewijzing configureren
-* [Lees](#prepare-for-network-mapping) een kort overzicht van wat netwerktoewijzing inhoudt. [Lees dit artikel](site-recovery-network-mapping.md) voor gedetailleerdere uitleg.
+
+* [Lees](#prepare-for-network-mapping) een kort overzicht van wat netwerktoewijzing inhoudt.
 * Controleer of de virtuele machines op de VMM-server verbonden zijn met een netwerk met virtuele machines en of u ten minste één virtueel Azure-netwerk hebt gemaakt. Aan één Azure-netwerk kunnen meerdere netwerken met virtuele machines worden toegewezen.
 
 Configureer het toewijzen als volgt:
@@ -390,16 +360,17 @@ Schakel nu als volgt replicatie in:
 6. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-best-practices.md#azure-virtual-machine-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
+
+7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem. Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie. Mogelijk wilt u een of meer schijven uitsluiten van replicatie om het verbruik van bandbreedte van het repliceren van onnodige gegevens naar Azure te verminderen. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of toepassing opnieuw wordt gestart (bijvoorbeeld pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen. Controleer of de naam van de virtuele Azure-machine (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) en wijzig deze indien nodig. Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
     >[!NOTE]
     >
-    > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. De besturingssysteemschijf kan niet worden uitgesloten. Het wordt bovendien niet aanbevolen om dynamische schijven uit te sluiten. ASR kan niet bepalen welke schijf VHD-schijf standaard of dynamisch is binnen de virtuele gastmachine.  Als niet alle afhankelijke volumeschijven worden uitgesloten, wordt een beveiligde dynamische schijf geleverd als een niet-werkende schijf op een failover-VM en zijn de gegevens op de schijf niet toegankelijk.
+    > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. De besturingssysteemschijven kunnen niet worden uitgesloten. Het wordt bovendien niet aanbevolen om dynamische schijven uit te sluiten. Site Recovery kan in de gast-VM niet vaststellen of een VHD-schijf een basisschijf of een dynamische schijf is.  Als niet alle afhankelijke, dynamische volumeschijven worden uitgesloten, wordt een beveiligde dynamische schijf geleverd als een niet-werkende schijf tijdens een VM-failover. De gegevens op de schijf zijn dan niet toegankelijk.
     > * Nadat de replicatie is ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de virtuele machine uitschakelen en vervolgens weer inschakelen.
     > * Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt Azure Automation ook integreren in een herstelplan om de schijf tijdens failover van de machine te maken.
-    > * Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks op de virtuele Azure-machine maakt, wordt alleen voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd van Azure naar Hyper-V. U kunt schijven die handmatig zijn gemaakt in de failback of in de omgekeerde replicatie van Hyper-V naar Azure, niet opnemen.
+    > * Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en u er twee rechtstreeks op de virtuele Azure-machine maakt, wordt slechts voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd van Azure naar Hyper-V. U kunt schijven die handmatig zijn gemaakt niet opnemen in de failback of in de omgekeerde replicatie van Hyper-V naar Azure.
     >
     >
 
@@ -411,7 +382,7 @@ Schakel nu als volgt replicatie in:
 U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Eigenschappen van virtuele machines weergeven en beheren
-Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Klik op **Instellingen** > **Beveiligde items** > **Gerepliceerde items** en selecteer een machine om de details ervan te bekijken.
 
@@ -419,7 +390,7 @@ Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er r
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
+3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
 Opmerking:
 
    * U kunt het doel-IP-adres instellen. Als u geen adres opgeeft, maakt de machine waarvoor een failover is uitgevoerd, gebruik van DHCP. Als u een adres instelt dat tijdens het uitvoeren van de failover niet beschikbaar is, mislukt de failover. Hetzelfde doel-IP-adres kan worden gebruikt voor een testfailover als het adres beschikbaar is in het testfailovernetwerk.
@@ -473,7 +444,7 @@ Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één
 1. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen te openen, of door in **Instellingen** > **Site Recovery-taken** op de taak **Testfailover** te klikken.
 1. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
 1. Als u zich hebt [voorbereid op verbindingen na een failover](#prepare-to-connect-to-Azure-VMs-after-failover), kunt u verbinding maken met het virtuele Azure-netwerk.
-1. Als u klaar bent, klikt u op **Testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u de virtuele machines die tijdens de testfailover zijn gemaakt. 
+1. Als u klaar bent, klikt u op **Testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u de virtuele machines die tijdens de testfailover zijn gemaakt.
 
 Raadpleeg voor meer informatie het document [Testfailover naar Azure](site-recovery-test-failover-to-azure.md).
 
@@ -483,14 +454,9 @@ Ga als volgt te werk om de configuratie-instellingen en de status van uw Site Re
 1. Klik op de kluisnaam om het dashboard **Essentials** te openen. Op dit dashboard ziet u een overzicht van de Site Recovery-taken, de replicatiestatus, de herstelplannen, de serverstatus en de gebeurtenissen.  U kunt **Essentials** zo aanpassen dat de tegels en indelingen worden weergegeven die voor u het belangrijkst zijn. Dit heeft ook betrekking op de status van andere Site Recovery- en Backup-kluizen.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. Op de tegel **Status** kunt u problemen op siteservers (VMM- of configuratieservers) bewaken. Bovendien kunt u hier zien welke gebeurtenissen er de afgelopen 24 uur door Site Recovery zijn gemeld.
+2. In *Status** kunt u problemen op servers on-premises (VMM- of configuratieservers) bewaken. Bovendien kunt u hier zien welke gebeurtenissen er de afgelopen 24 uur door Site Recovery zijn gemeld.
 3. U kunt replicatie beheren en bewaken via de tegels **Gerepliceerde items**, **Herstelplannen** en **Site Recovery-taken**. U kunt inzoomen op taken via **Instellingen** > **Taken** > **Site Recovery-taken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) meer lezen over de verschillende soorten failovers.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

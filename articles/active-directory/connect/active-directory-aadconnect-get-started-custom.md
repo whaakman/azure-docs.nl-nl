@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
 
 
 ---
@@ -95,7 +95,10 @@ Bekijk elk domein waarbij **Niet toegevoegd** en **Niet geverifieerd** staat. Zo
 
 ### <a name="domain-and-ou-filtering"></a>Domein- en OE-filters
 Standaard worden alle domeinen en OE's gesynchroniseerd. Van domeinen of OE’s die u niet wilt synchroniseren naar Azure AD kunt u de selectie opheffen.  
-![Domein/OE filteren](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Op deze pagina in de wizard configureert u filteren op basis van een domein en OE. Zie voor meer informatie [Domein filteren](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) en [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Als u OE filteren gebruikt, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid.
+![Domein- en OE-filters](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+Op deze pagina in de wizard configureert u filteren op basis van een domein en OE. Als u wijzigingen wilt aanbrengen, gaat u naar [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) en [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) voordat u deze wijzigingen aanbrengt. Sommige OE's zijn essentieel voor de functionaliteit en mogen niet worden uitgeschakeld.
+
+Als u OE filteren gebruikt, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid.
 
 Als u [Groep filteren](#sync-filtering-based-on-groups) wilt gebruiken, zorg er dan voor dat de OE met de groep is opgenomen en dat u niet filtert met OE filteren. OE filteren wordt geëvalueerd vóór groep filteren.
 
@@ -174,8 +177,8 @@ Zie voor meer informatie [Directory extensions](active-directory-aadconnectsync-
 ### <a name="enabling-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
 Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of Pass-through-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD. De configuratie omvat de volgende twee stappen:
 
-1.  Maak het benodigde computeraccount in uw on-premises Active Directory.
-2.  Configureer de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
+1.    Maak het benodigde computeraccount in uw on-premises Active Directory.
+2.    Configureer de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Het computeraccount maken in Active Directory
 Voor elk forest in Azure AD Connect dat is toegevoegd, moet u referenties van de domeinbeheerder opgeven, zodat het computeraccount in elk forest kan worden gemaakt. De referenties worden alleen gebruikt om het account te maken. Ze worden niet opgeslagen of voor andere zaken gebruikt. Voeg de referenties toe op de pagina **Eenmalige aanmelding inschakelen** van de wizard Azure AD Connect, zoals hieronder wordt weergegeven:
@@ -189,20 +192,20 @@ Voor elk forest in Azure AD Connect dat is toegevoegd, moet u referenties van de
 Als u ervoor wilt zorgen dat de client zich automatisch aanmeldt in de intranetzone, moeten de URL's deel uitmaken van de intranetzone. De desktopcomputers die via het domein zijn gekoppeld, verzenden dan automatisch een Kerberos-ticket wanneer ze zijn verbonden met het bedrijfsnetwerk.
 Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
 
-1.  Open de hulpprogramma's voor Groepsbeleidsbeheer
-2.  Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast. Bijvoorbeeld het standaard domeinbeleid.
-3.  Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
-4.  Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
+1.    Open de hulpprogramma's voor Groepsbeleidsbeheer
+2.    Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast. Bijvoorbeeld het standaard domeinbeleid.
+3.    Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
+4.    Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        Waarde:`https://autologon.microsoftazuread-sso.com`  
+        Gegevens: 1  
+        Waarde:`https://aadg.windows.net.nsatc.net`  
+        Gegevens: 1
 
-5.  Het moet er ongeveer als volgt uitzien:  
+5.    Het moet er ongeveer als volgt uitzien:  
 ![Intranetzones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  Klik twee keer op **OK**.
+6.    Klik twee keer op **OK**.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Federatie configureren met AD FS
 AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Voorafgaand aan de configuratie is het volgende vereist.
@@ -316,6 +319,6 @@ Lees meer over het [integreren van uw on-premises identiteiten met Azure Active 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

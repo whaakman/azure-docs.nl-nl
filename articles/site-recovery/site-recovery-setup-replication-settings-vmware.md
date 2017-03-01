@@ -15,79 +15,80 @@ ms.topic: hero-article
 ms.date: 01/19/2017
 ms.author: sutalasi
 translationtype: Human Translation
-ms.sourcegitcommit: 74d51269cdd55e39eaa2963fec2b409decb47d0a
-ms.openlocfilehash: a279fdc35c62c76e6f0858d52c64240032669f15
+ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
+ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
 
 
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Replicatiebeleid voor VMware naar Azure beheren
 
 
-## <a name="create-a-new-replication-policy"></a>Een nieuw replicatiebeleid maken
+## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-1. Klik op Beheren -> Site Recovery-infrastructuur in het menu aan de linkerzijde. 
-2. Selecteer Replicatiebeleid in het gedeelte Voor VMware en fysieke machines.
-3. Klik in de rechterbovenhoek op +Replicatiebeleid.
+1. Selecteer **Beheren** > **Infrastructuur voor Site Recovery**.
+2. Selecteer **Replicatiebeleid** onder **Voor VMware en fysieke machines**.
+3. Selecteer **+Replicatiebeleid**.
 
-    ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+      ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Voer de naam van het beleid in.
 
-5. Geef de limiet voor de RPO op bij RPO-drempelwaarde. Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.
-6. Geef in Bewaarperiode van het herstelpunt op hoeveel uur elk herstelpunt moet worden bewaard. Beveiligde machines kunnen te allen tijde worden hersteld naar een willekeurig punt (binnen een bepaald tijdsvenster). 
+5. Geef de limiet voor de RPO op bij **RPO-drempelwaarde**. Wanneer de continue replicatie deze limiet overschrijdt, worden er waarschuwingen gegenereerd.
+6. Geef in **Bewaarperiode van het herstelpunt** de duur (in uren) op dat elk herstelpunt moet worden bewaard. Beveiligde machines kunnen binnen een bepaald tijdsvenster te allen tijde worden hersteld naar een willekeurig punt.
 
-    > [!NOTE] 
-    > Machines die worden gerepliceerd naar Premium-opslag, kunnen maximaal 24 uur worden bewaard. Machines die worden gerepliceerd naar Standard-opslag, kunnen maximaal 72 uur worden bewaard.
-    
-    > [!NOTE] 
+    > [!NOTE]
+    > Een bewaarperiode van maximaal 24 uur wordt ondersteund voor computers die worden gerepliceerd naar Premium Storage. Een bewaarperiode van maximaal 72 uur wordt ondersteund voor computers die worden gerepliceerd naar Standard Storage.
+
+    > [!NOTE]
     > Er wordt automatisch een replicatiebeleid voor failback gemaakt.
 
-7. Geef in Frequentie van de app-consistente momentopname op hoe vaak (in minuten) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen.
+7. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (in minuten) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen.
 
-8. Klik op OK. Het beleid wordt binnen 30 seconden tot 1 minuut gemaakt.
+8. Klik op **OK**. Het beleid wordt binnen 30 seconden tot 60 minuut gemaakt.
 
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
+![Replicatiebeleid genereren](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
-## <a name="associate-configuration-server-with-replication-policy"></a>Een configuratieserver koppelen aan het replicatiebeleid
-1. Klik op het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
-2. Klik bovenaan op Koppelen.
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
+## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Een configuratieserver koppelen aan het replicatiebeleid
+1. Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
+2. Klik op **Koppelen**.
+![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-3. Selecteer Configuratieserver in de lijst met servers.
-4. Klik op OK. De configuratieserver wordt in ongeveer 1 tot 2 minuten gekoppeld.
+3. Selecteer de configuratieserver in de lijst met servers.
+4. Klik op **OK**. De configuratieserver wordt binnen één tot twee minuten gekoppeld.
 
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
+![Configuratieserver koppelen](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
-## <a name="edit-replication-policy"></a>Replicatiebeleid bewerken
-1. Klik op het replicatiebeleid waarvan u de replicatie-instellingen wilt bewerken.
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+## <a name="edit-a-replication-policy"></a>Een replicatiebeleid bewerken
+1. Kies het replicatiebeleid waarvan u de replicatie-instellingen wilt bewerken.
+![Replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
 
-2. Klik bovenaan op Instellingen bewerken.
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
+2. Klik op **Instellingen bewerken**.
+![Instellingen van replicatiebeleid bewerken](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Wijzig de instellingen op basis van uw behoeften.
-4. Klik bovenaan op Opslaan. Het beleid wordt binnen ongeveer 2 tot 5 minuten opgeslagen. Dit is afhankelijk van hoeveel virtuele machines dit replicatiebeleid gebruiken.
+4. Klik op **Opslaan**. Het beleid wordt binnen twee tot vijf minuten opgeslagen. Dit is afhankelijk van hoeveel virtuele machines gebruikmaken van dit replicatiebeleid.
 
-![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
+![Replicatiebeleid opslaan](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
-## <a name="dissociate-configuration-server-from-replication-policy"></a>Een configuratieserver loskoppelen van het replicatiebeleid
-1. Klik op het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
-2. Klik bovenaan op Loskoppelen.
-3. Selecteer Configuratieserver in de lijst met servers.
-4. Klik op OK. De configuratieserver wordt in ongeveer 1 tot 2 minuten losgekoppeld.
-    
-    > [!NOTE] 
-    > U kunt een configuratieserver niet loskoppelen als het beleid door een of meer gerepliceerde items wordt gebruikt. Zorg ervoor dat geen gerepliceerde items het beleid gebruiken voordat u de configuratieserver loskoppelt.
+## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Een configuratieserver loskoppelen van een replicatiebeleid
+1. Kies het replicatiebeleid waaraan u de configuratieserver wilt koppelen.
+2. Klik op **Ontkoppelen**.
+3. Selecteer de configuratieserver in de lijst met servers.
+4. Klik op **OK**. De configuratieserver wordt binnen één tot twee minuten ontkoppeld.
 
-## <a name="delete-replication-policy"></a>Replicatiebeleid verwijderen 
+    > [!NOTE]
+    > U kunt een configuratieserver niet ontkoppelen als het beleid door een of meer gerepliceerde items wordt gebruikt. Voordat u de configuratieserver ontkoppelt, moet u ervoor zorgen dat het beleid niet door gerepliceerde items wordt gebruikt.
 
-1. Klik op het replicatiebeleid dat u wilt verwijderen.
-2. Klik op verwijderen. Het beleid wordt binnen 30 seconden tot 1 minuut verwijderd.
+## <a name="delete-a-replication-policy"></a>Een replicatiebeleid verwijderen
 
-    > [!NOTE] 
-    > U kunt een replicatiebeleid niet verwijderen als er een of meer configuratieservers aan zijn gekoppeld. Zorg ervoor dat geen gerepliceerde items het beleid gebruiken en verwijder alle gekoppelde configuratieservers voordat u het beleid verwijdert.
+1. Kies het replicatiebeleid dat u wilt verwijderen.
+2. Klik op **Verwijderen**. Het beleid wordt binnen 30 seconden tot 60 minuut verwijderd.
+
+    > [!NOTE]
+    > U kunt een replicatiebeleid niet verwijderen als er een of meer configuratieservers aan zijn gekoppeld. Zorg ervoor dat het beleid niet door gerepliceerde items wordt gebruikt en verwijder alle gekoppelde configuratieservers voordat u het beleid verwijdert.
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

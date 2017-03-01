@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
-ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
+ms.sourcegitcommit: f9a0218b55ed30c0dd5022965241d1374c70c3d7
+ms.openlocfilehash: 1b5f96750b92bc7b7398fdaa177f360746747964
 
 
 ---
@@ -139,7 +139,7 @@ Nu u een beleid voor het opnieuw instellen van wachtwoorden door gebruikers hebt
 4. Kies er in dat geval voor om eerst te **bellen** naar het **zakelijke telefoonnummer**.  Wanneer de telefoonmethode wordt geselecteerd, wordt gebruikers gevraagd om hun telefoonnummer **te verifiëren** voordat ze hun wachtwoord opnieuw instellen.  Dit is om te voorkomen dat kwaadwillende personen gebruikers in uw organisatie gaan lastigvallen via hun telefoonnummers.
    
    ![][014]
-5. Wanneer de gebruiker zijn of haar telefoonnummer heeft bevestigd en deze op Bellen heeft geklikt, wordt er een spinner weergegeven en gaat de telefoon over.  Er wordt een bericht afgespeeld wanneer hij of zij de telefoon opneemt. De gebruiker moet **op # klikken** om zijn of haar account te verifiëren.  Wanneer op deze toets wordt gedrukt, wordt automatisch geverifieerd dat de gebruiker de eerste uitdaging heeft doorstaan en gaat deze in de gebruikersinterface door naar de tweede verificatiestap.
+5. Wanneer de gebruiker zijn of haar telefoonnummer heeft bevestigd en op Bellen heeft geklikt, wordt er een spinner weergegeven en gaat de telefoon over.  Er wordt een bericht afgespeeld wanneer hij of zij de telefoon opneemt. De gebruiker moet **op # klikken** om zijn of haar account te verifiëren.  Wanneer op deze toets wordt gedrukt, wordt automatisch geverifieerd dat de gebruiker de eerste uitdaging heeft doorstaan en gaat deze in de gebruikersinterface door naar de tweede verificatiestap.
    
    ![][015]
 6. Wanneer u de eerste uitdaging hebt doorstaan, wordt de gebruikersinterface automatisch bijgewerkt zodat deze niet meer in de lijst opties van de gebruiker staat.  Omdat u het **zakelijke telefoonnummer** al hebt gebruikt, zijn alleen het **mobiele telefoonnummer** en het **alternatieve e-mailadres** nog beschikbaar als opties voor de tweede verificatiestap.  Klik op de optie **Stuur e-mail naar mijn alternatieve e-mailadres**.  Wanneer u dat hebt gedaan, wordt er een e-mail naar het geregistreerde alternatieve e-mailadres gestuurd wanneer u op E-mailen klikt.
@@ -393,6 +393,6 @@ Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wac
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 
