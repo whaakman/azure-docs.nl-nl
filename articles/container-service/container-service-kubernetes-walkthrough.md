@@ -19,6 +19,7 @@ ms.author: anhowe
 translationtype: Human Translation
 ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
 ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -81,7 +82,7 @@ az acs kubernetes install-cli
 Als `kubectl` is geïnstalleerd, downloadt u met de volgende opdracht de hoofdclusterconfiguratie naar het bestand ~/.kube/config:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 U moet nu toegang hebben tot uw cluster vanaf uw computer. Probeer het volgende uit te voeren:
@@ -176,9 +177,4 @@ Om meer te doen met uw Kubernetes-cluster raadpleegt u de volgende resources:
 * [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/): hier leest u hoe u toepassingen in containers kunt implementeren, schalen en bijwerken, en hoe u fouten kunt opsporen.
 * [Gebruikershandleiding voor Kubernetes](http://kubernetes.io/docs/user-guide/): bevat informatie over het uitvoeren van programma's in een bestaand Kubernetes-cluster.
 * [Voorbeelden van Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples): biedt een aantal voorbeelden voor het uitvoeren van echte toepassingen met Kubernetes.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

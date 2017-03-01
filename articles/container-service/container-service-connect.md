@@ -19,6 +19,7 @@ ms.author: rogardle
 translationtype: Human Translation
 ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
 ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -125,7 +126,7 @@ Het eerste wat u doet wanneer u een SSH-tunnel in Linux of OS X maakt, is het lo
     **PATH_TO_PRIVATE_KEY** [OPTIONEEL] is het pad naar de persoonlijke sleutel die overeenkomt met de openbare sleutel die u hebt opgegeven bij het maken van het cluster. Gebruik deze optie met de vlag `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > De poort voor de SSH-verbinding is 2200 en niet de standaardpoort 22. In een cluster met meerdere hoofd-VM's is dit de verbindingspoort naar de eerste hoofd-VM.
@@ -214,10 +215,5 @@ Containers in het cluster implementeren en beheren:
 * [Werken met de Azure Container Service en Kubernetes](container-service-kubernetes-ui.md)
 * [Werken met de Azure Container Service en DC/OS](container-service-mesos-marathon-rest.md)
 * [Werken met de Azure Container Service en Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

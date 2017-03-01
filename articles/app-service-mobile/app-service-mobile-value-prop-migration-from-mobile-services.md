@@ -4,7 +4,7 @@ description: Lees welke voordelen App Service heeft voor uw bestaande Mobile Ser
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -63,10 +64,5 @@ U kunt automatisch een back-up maken van uw back-end en database. Uw code en geg
 Met *Azure App Service* kunt u nu meerdere persoonlijke test- en faseringsomgevingen maken voor uw mobiele apps. Gebruik deze omgevingen om apps te testen voordat u ze implementeert. U kunt zonder uitvaltijd wisselen naar de productieomgeving. Web-apps worden vooraf geladen, zodat de beste gebruikerservaring wordt geboden.
 
 Volg deze [zelfstudie](app-service-mobile-migrating-from-mobile-services.md) als u ook wilt profiteren van alle voordelen die *App Service* biedt voor uw bestaande Mobile Service-projecten.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
