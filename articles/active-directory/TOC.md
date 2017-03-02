@@ -9,12 +9,31 @@
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
-## [AD-licenties beheren](active-directory-licensing-what-is.md)
+## Azure AD-licenties beheren
+### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
+### [Klassieke portal](active-directory-licensing-what-is.md)
 ## [Azure kopen voor uw organisatie](sign-up-organization.md)
 ## [Veelgestelde vragen](active-directory-faq.md)
 ## [Zelfstudies voor SaaS-app](active-directory-saas-tutorial-list.md)
 
 # Procedures
+## Plannen en ontwerpen
+### [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Vereisten bepalen
+##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Directory-synchronisatie](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Levenscyclus van identiteit plannen](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Plan voor gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Inhoudsbeheer](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Toegangsbeheer](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Reageren op incidenten](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Levenscyclus van identiteit plannen
+##### [Taken](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Acceptatiestrategie](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Volgende stappen](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Gebruikers beheren
 ### Gebruikers toevoegen
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -47,17 +66,26 @@
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Klassieke portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Groepslicenties](active-directory-licensing-whatis-azure-portal.md)
+#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licentieproblemen van een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
 ### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
 
-## [Activiteiten- en beveiligingsrapporten weergeven](active-directory-view-access-usage-reports.md)
-### [Azure AD-rapportage](active-directory-reporting-getting-started.md)
+## [Activiteitenrapporten weergeven](active-directory-view-access-usage-reports.md)
+### [Aanmeldingen](active-directory-reporting-activity-sign-ins.md)
+### [Controlelogboeken](active-directory-reporting-activity-audit-logs.md)
+### [Gebruikers die risico lopen](active-directory-reporting-security-user-at-risk.md)
+### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
 ### [Rapporten migreren](active-directory-reporting-migration.md)
-
 ### [Bekende netwerken](active-directory-known-networks.md)
 
-### [Handleiding over rapportering](active-directory-reporting-guide.md)
+### Klassieke portal
+#### [Azure AD-rapportage](active-directory-reporting-getting-started.md)
+#### [Handleiding over rapportering](active-directory-reporting-guide.md)
 #### [Preview](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [Vereisten](active-directory-reporting-api-prerequisites.md)
 ##### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [Controlegebeurtenissen](active-directory-reporting-audit-events.md)
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
-### Rapporten begrijpen
-#### [Onregelmatige aanmeldingen](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Meerdere fouten](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Verdachte IP-adressen](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Meerdere locaties](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Mogelijk geïnfecteerde apparaten](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Onbekende bronnen](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Afwijkende aanmeldingen](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Rapporten begrijpen
+##### [Onregelmatige aanmeldingen](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Meerdere fouten](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Verdachte IP-adressen](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Meerdere locaties](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Mogelijk geïnfecteerde apparaten](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Onbekende bronnen](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Afwijkende aanmeldingen](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Wachtwoorden beheren](active-directory-manage-passwords.md)
 ### [Uw eigen wachtwoord bijwerken](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
 
 ## Apparaten beheren
+### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
+#### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
+#### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Uw apparaat registreren](active-directory-azureadjoin-personal-device.md)
 ### [Een apparaat met Windows 10 registreren](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [Documentbibliotheek](active-directory-apps-index.md)
 
 ## Uw directory beheren
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
 #### [Overzicht](active-directory-add-domain-concepts.md)
 #### Uw domeinnaam toevoegen
@@ -249,10 +278,6 @@
 ### [Voorwaardelijke toegang](active-directory-conditional-access.md)
 #### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
-#### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
-#### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
-##### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Authenticator-app beheren](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
 #### [On-premises implementeren](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Implementeren op virtuele Azure-machines](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [AD DS implementeren op Azure-VM's](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory op virtuele Azure-machines](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replicadomeincontroller in een virtueel Azure-netwerk](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Nieuw forest in een virtueel Azure-netwerk](active-directory-new-forest-virtual-machine.md)
 
-## [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
-### Vereisten bepalen
-#### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Directory-synchronisatie](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Levenscyclus van identiteit plannen](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Plan voor gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [Inhoudsbeheer](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Toegangsbeheer](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Reageren op incidenten](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Levenscyclus van identiteit plannen
-#### [Taken](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Acceptatiestrategie](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Volgende stappen](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [AD FS in Azure implementeren](active-directory-aadconnect-azure-adfs.md)
 ### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

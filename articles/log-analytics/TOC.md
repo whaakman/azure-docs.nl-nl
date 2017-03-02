@@ -16,7 +16,7 @@
 #### [Windows-agents](log-analytics-windows-agents.md)
 #### [Linux-agents](log-analytics-linux-agents.md)
 #### [Virtuele machines van Azure](log-analytics-azure-vm-extension.md)
-#### [Azure-resources](log-analytics-azure-storage.md)
+#### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuratiebeheer](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Querygegevens
 ### [Overzicht van zoekopdrachten in logboeken](log-analytics-log-searches.md)
 ### [Zoekverwijzing](log-analytics-search-reference.md)
+#### [Reguliere expressies](log-analytics-log-searches-regex.md)
 ### [Computergroepen](log-analytics-computer-groups.md)
-### [Waarschuwingen](log-analytics-alerts.md)
 ## Gegevens analyseren
 ### [Dashboards](log-analytics-dashboards.md)
 ### [Designer weergeven](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [AD-evaluatie](log-analytics-ad-assessment.md)
 #### [AD-replicatiestatus](log-analytics-ad-replication-status.md)
 #### [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)
+#### [Azure SQL-analyses](log-analytics-azure-sql.md)
 #### [Capaciteitsbeheer](log-analytics-capacity.md)
 #### [Tracering wijzigen](log-analytics-change-tracking.md)
 #### [Containers](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Bedradingsgegevens](log-analytics-wire-data.md)
 #### [SCOM-evaluatie](log-analytics-scom-assessment.md)
+## Waarschuwingen maken
+### [Informatie over waarschuwingen](log-analytics-alerts.md)
+### [Waarschuwingsacties](log-analytics-alerts-actions.md)
+### Waarschuwingsregels maken
+#### [OMS-portal](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager-sjabloon](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Voorbeeld van webhookactie](log-analytics-alerts-webhooks.md)
+### [Waarschuwingsbeheeroplossing](log-analytics-solution-alert-management.md)
 ## Ontwikkelen
 ### [Gegevensverzamelaar-API](log-analytics-data-collector-api.md)
 ### [PowerShell-cmdlets](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

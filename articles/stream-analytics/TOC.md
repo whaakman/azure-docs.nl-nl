@@ -31,6 +31,7 @@
 ### [Vensterfuncties](stream-analytics-window-functions.md)
 
 ## Beheren
+### [Betrouwbaarheid van taken](stream-analytics-job-reliability.md)
 ### [Taken bewaken](stream-analytics-monitoring.md)
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
 ### [Taken bewaken via een programma](stream-analytics-monitor-jobs.md)
@@ -59,8 +60,3 @@
 ## [Feedbackforum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
