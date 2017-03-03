@@ -4,9 +4,9 @@
 ## [DevTest Labs-concepten](devtest-lab-concepts.md)
 
 # Aan de slag
-## [Een lab maken](devtest-lab-create-lab.md)
-## [VM-artefacten maken](devtest-lab-add-vm-with-artifacts.md)
-## [Een lab maken voor training](devtest-lab-training-lab.md)
+## [Lab maken](devtest-lab-create-lab.md)
+## [VM maken](devtest-lab-add-vm.md)
+## [Lab maken voor training](devtest-lab-training-lab.md)
 ## [Veelgestelde vragen](devtest-lab-faq.md)
 
 # Procedures
@@ -20,6 +20,7 @@
 ## Artefacten beheren
 ### [Een artefactenopslagplaats toevoegen](devtest-lab-add-artifact-repo.md)
 ### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
+### [Artefacten beheren](devtest-lab-add-vm-with-artifacts.md)
 
 ## VM-basissen en -sjablonen beheren
 ### [Multi-VM-omgevingen maken met Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

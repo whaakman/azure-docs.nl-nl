@@ -54,6 +54,7 @@
 ### [RStudio installeren](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contexten berekenen](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Spark gebruiken voor in-memory verwerking
+### [Caffe gebruiken voor deep learning](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Met Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Met BI-hulpprogramma's](hdinsight-apache-spark-use-bi-tools.md)
 ### [Zelfstandige app](hdinsight-apache-spark-create-standalone-application.md)
@@ -223,8 +224,3 @@
 # Resources
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

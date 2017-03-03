@@ -17,6 +17,7 @@
 ### [Sjablonen maken](resource-group-authoring-templates.md)
 ### [Sjabloonfuncties](resource-group-template-functions.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
+### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
 ### [Meerdere exemplaren maken van resourcetype](resource-group-create-multiple.md)
 ### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

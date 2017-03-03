@@ -45,7 +45,7 @@
 
 ## Disk Storage 
 ### [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Een beheerde schijf koppelen aan een virtuele Windows-machine met PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Eigenschappen en metagegevens instellen en ophalen](storage-properties-metadata.md)
 ## Beheren
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Beveiligen
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

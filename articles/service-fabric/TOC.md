@@ -105,6 +105,7 @@
 #### Een cluster maken op Azure
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio en Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Knooppunttypen en VM-schaalsets](service-fabric-cluster-nodetypes.md)
 #### [Een cluster schalen](service-fabric-cluster-scale-up-down.md)
 #### [Een cluster upgraden](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Een Party Cluster gratis proberen](http://aka.ms/tryservicefabric)
 
 ### Zelfstandige clusters
+#### [Implementatie plannen en voorbereiden](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Inhoud van het zelfstandige pakket voor Service Fabric](service-fabric-cluster-standalone-package-contents.md)
 #### [Een zelfstandige cluster maken](service-fabric-cluster-creation-for-windows-server.md)
 #### [Een zelfstandige cluster maken in Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Een cluster schalen](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -22,8 +22,10 @@
 ## Plannen en ontwerpen
 ### [Ontwerpconcepten](active-directory-aadconnect-design-concepts.md)
 ### [Topologieën voor Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Eenmalige aanmelding](active-directory-aadconnect-sso.md)
+### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Speciale overwegingen voor exemplaren](active-directory-aadconnect-instances.md)
-
+### [Als u Azure AD al hebt](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md)
 ### [Certificaten vernieuwen voor O365 en Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Write-back van apparaat inschakelen](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Azure AD Connect Sync beheren
 ### [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Pass-through-verificatie](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installatiewizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [De standaardconfiguratie wijzigen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Filteren configureren](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Bewerkingen](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Bewerkingen](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaverse-ontwerper](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaverse zoeken](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Federation Services beheren
 ### [Beheren en aanpassen](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Bronnen
 ##[Veelgestelde vragen over Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Afschaffing van DirSync](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-
