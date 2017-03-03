@@ -20,8 +20,10 @@
 ### [Overwegingen voor netwerkinfrastructuur](site-recovery-network-design.md)
 ### [De Site Recovery Capacity Planner gebruiken](site-recovery-capacity-planner.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
+### [De Deployment Planner uitvoeren voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
 ## Configureren
-### [De bronreplicatieomgeving instellen](site-recovery-set-up-vmware-to-azure.md)
+### [De bronomgeving instellen](site-recovery-set-up-vmware-to-azure.md)
+### [De doelomgeving instellen](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Replicatie-instellingen configureren](site-recovery-setup-replication-settings-vmware.md)
 ### [De Mobility-service voor VMware-replicatie implementeren](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [De Mobility-service implementeren met behulp van System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -32,7 +34,8 @@
 #### [Azure-runbooks aan herstelplannen toevoegen](site-recovery-runbook-automation.md)
 ### [Een testfailover naar Azure uitvoeren](site-recovery-test-failover-to-azure.md)
 ### [Een testfailover tussen twee VMM-sites uitvoeren](site-recovery-test-failover-vmm-to-vmm.md)
-### [Failback virtuele VMware-machines en fysieke servers](site-recovery-failback-azure-to-vmware.md)
+### [Failback van Azure naar virtuele VMware-machines/fysieke servers](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Failback van Azure naar virtuele Hyper-V-machines](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Migreren
 ### [Migreren naar Azure](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [Hyper-V-replicatie naar een secundaire site automatiseren (met VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Beheren
 ### [Servers verwijderen en beveiliging uitschakelen](site-recovery-manage-registration-and-protection.md)
-### [Replicatie-instellingen bewerken](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
+### [Processervers uitschalen](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
@@ -70,8 +73,3 @@
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=site-recovery)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

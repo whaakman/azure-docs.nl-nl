@@ -15,6 +15,7 @@
 ### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)
 ### [Verbinding maken met een intern virtueel netwerk](api-management-using-with-internal-vnet.md)
+### [Application Gateway in een interne VNET integreren](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Gezamenlijke verificatie via certificaat](api-management-howto-mutual-certificates.md)
 ## Beleidsregels configureren
 ### [Aangepaste caching](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Index naslaginformatie over beleid](api-management-policy-reference.md)
 ### [Overzicht beleid](api-management-howto-policies.md)
 ### [Geheimen beheren met behulp van eigenschappen](api-management-howto-properties.md)
+### [API's beveiligen met clientverificatie via certificaat](api-management-howto-mutual-certificates-for-clients.md)
 ## De ontwikkelaarservaring aanpassen
-### [De ontwikkelaarsportal aanpassen](api-management-customize-portal.md)
+### [Pagina-inhoud en -indeling wijzigen](api-management-modify-content-layout.md)
+### [Stijl van pagina-elementen aanpassen](api-management-customize-styles.md)
+### [Systeempagina's aanpassen met behulp van sjablonen](api-management-developer-portal-templates.md)
 ### [Verificatie met AAD](api-management-howto-aad.md)
+### [Verificatie met AAD B2C](api-management-howto-aad-b2c.md)
 ### [Gedelegeerde verificatie](api-management-howto-setup-delegation.md)
 ### [E-mailmeldingen en sjablonen](api-management-howto-configure-notifications.md)
 ### [OAuth-ondersteuning in de console inschakelen](api-management-howto-oauth2.md)
-### [Aanpassen met behulp van sjablonen](api-management-developer-portal-templates.md)
 ## Beheren tijdens productie
 ### [Groepen beheren](api-management-howto-create-groups.md)
 ### [Implementeren naar meerdere Azure-regio's](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Toegang bieden die lijkt op RBAC met behulp van de REST-API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [PostMan instellen voor het aanroepen van API Management-API's](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management-invoegtoepassing voor SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

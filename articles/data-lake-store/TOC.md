@@ -21,6 +21,7 @@
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Gegevens uploaden uit offlinebronnen](data-lake-store-offline-bulk-data-upload.md)
+### [Azure Data Lake Store migreren tussen regio's](data-lake-store-migration-cross-region.md)
 
 ## Beveiligde gegevens
 ### [Beveiligingsoverzicht](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [Feedback geven op UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Data Lake Store-blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

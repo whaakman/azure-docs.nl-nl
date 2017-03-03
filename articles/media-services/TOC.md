@@ -45,9 +45,17 @@
 
 ## [Inhoud coderen](media-services-encode-asset.md)
 ### [Encoders vergelijken](media-services-compare-encoders.md)
-### [Foutcodes](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Indelingen en codecs voor Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [MES gebruiken om automatisch een bitrate ladder te genereren](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Coderen met Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Geavanceerde codering met MES](media-services-advanced-encoding-with-mes.md)
+##### [Voorinstellingen van Media Encoder Standard aanpassen](media-services-custom-mes-presets-with-dotnet.md)
+##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
 #### MES-schema's
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Invoermetagegevens](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Coderen met Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Geavanceerde codering met MES](media-services-advanced-encoding-with-mes.md)
-##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
 ### Media Encoder Premium Workflow
 #### [Indelingen en codecs voor Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 #### Coderen met Media Encoder Premium Workflow
@@ -92,9 +93,11 @@
 ##### [Zelfstudies voor Media Encoder Premium Workflow](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium Workflow met verschillende invoer](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Een taak maken waarmee fMP4-chunks worden gegenereerd](media-services-generate-fmp4-chunks.md)
 ### Media-processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Foutcodes](media-services-encoding-error-codes.md)
 ### Afgeschaft
 #### [Statische pakketten en versleuteling](media-services-static-packaging.md)
 
@@ -215,8 +218,3 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services-community](media-services-community.md)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
