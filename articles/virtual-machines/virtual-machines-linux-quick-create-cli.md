@@ -1,6 +1,6 @@
 ---
-title: Een virtuele Linux-machine maken met behulp van de Azure-CLI 2.0 (Preview) | Microsoft Azure
-description: Een virtuele Linux-machine maken met behulp van de Azure-CLI 2.0 (Preview).
+title: Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 | Microsoft Azure
+description: Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
-ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 Preview (az.py)
-In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht [az vm create](/cli/azure/vm#create) met de Azure-CLI 2.0 (Preview). Er wordt uitleg gegeven over het gebruik van Managed Disks en het gebruik van schijven in systeemeigen opslagaccounts.
-
-> [!NOTE] 
-> De Azure-CLI 2.0 (Preview) is onze multi-platform-CLI van de volgende generatie. [Probeer het nu.](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Raadpleeg [Een virtuele machine maken met de Azure-CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) als u een virtuele machine wilt maken met de bestaande Azure-CLI 1.0 en niet met de Azure-CLI 2.0 Preview.
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0
+In dit artikel leest u hoe u in Azure snel een virtuele Linux-machine kunt implementeren via de Azure CLI 2.0 met behulp van de opdracht [az vm create](/cli/azure/vm#create) voor zowel beheerde schijven als schijven in systeemeigen opslagaccounts. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Als u een virtuele machine wilt maken, hebt u het volgende nodig: 
 
 * een Azure-account ([krijg een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
-* de [Azure-CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2) geïnstalleerd
+* de [Azure CLI 2.0](/cli/azure/install-az-cli2) moet zijn geïnstalleerd
 * u moet zijn aangemeld bij uw Azure-account (typ [az login](/cli/azure/#login))
 
 (U kunt een virtuele Linux-machine ook implementeren met behulp van [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -202,10 +198,5 @@ De opdracht `az vm create` is een goede manier om snel een virtuele machine te i
 * [Een met SSH beveiligde virtuele Linux-machine in Azure maken met behulp van sjablonen](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 U kunt ook het [Azure-stuurprogramma `docker-machine` gebruiken dat verschillende opdrachten heeft om snel een Linux-VM als een docker host](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) te maken. Als u Java gebruikt, kunt u daarnaast de methode [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine) proberen.
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 
