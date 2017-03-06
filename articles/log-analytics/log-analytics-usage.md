@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
 ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -69,9 +70,4 @@ Als u gebruikmaakt van de prijscategorie *per knooppunt (OMS)*, worden de kosten
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [Log searches in Log Analytics](log-analytics-log-searches.md) (Zoekopdrachten in logboeken in Log Analytics) om gedetailleerde informatie te bekijken die is verzameld en verzonden naar OMS, per functie en per oplossing.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
