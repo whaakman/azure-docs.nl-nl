@@ -18,6 +18,7 @@ ms.author: denlee
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -761,9 +762,4 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 22. Zie [Stap 6: de Java-toepassing implementeren naar Azure Websites](#Deploy) om uw project naar een Azure-website te implementeren.
 
 [1]: media/documentdb-java-application/keys.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
