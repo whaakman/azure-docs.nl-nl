@@ -5,7 +5,7 @@ services: active-directory
 keywords: apparaatregistratie, apparaatregistratie inschakelen, apparaatregistratie en MDM
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ Apparaten met Windows 7 en Windows 8.1 herkennen de apparaatregistratieservice d
 
 U moet een DNS CNAME-record maken die verwijst naar de record A die is gekoppeld aan uw service voor Azure Active Directory-apparaatregistratie. De CNAME-record moet het bekende voorvoegsel 'enterpriseregistration' gebruiken, gevolgd door het UPN-achtervoegsel dat wordt gebruikt voor de gebruikersaccounts in uw organisatie. Gebruikt uw organisatie meerdere UPN-achtervoegsels, dan moeten er meerdere CNAME-records worden gemaakt in DNS.
 
-Als u bijvoorbeeld twee UPN-achtervoegsels gebruikt binnen uw organisatie met de namen @contoso.com en @region.contoso.com,, maakt u de volgende DNS-records.
+Als u bijvoorbeeld twee UPN-achtervoegsels gebruikt binnen uw organisatie met de namen @contoso.com en @region.contoso.com, maakt u de volgende DNS-records.
 
 | Vermelding | Type | Adres |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ U kunt uw Windows 7- en Windows 8.1-apparaten die deelnemen aan een domein regis
 * [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md) (Automatische apparaatregistratie configureren voor Windows 7-apparaten die aan een domein deelnemen)
 * [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows-8-1.md) (Automatische apparaatregistratie configureren voor Windows 8.1-apparaten die aan een domein deelnemen)
 * [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices](active-directory-azureadjoin-devices-group-policy.md) (Automatische apparaatregistratie met Azure Active Directory voor Windows 10-apparaten die aan een domein deelnemen)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

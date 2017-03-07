@@ -4,7 +4,7 @@ description: Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudi
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>In vijf minuten uw eerste HTML-web-app implementeren in Azure (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [Eerste HTML-site](app-service-web-get-started-html.md)
-> * [Eerste .NET-app](app-service-web-get-started-dotnet.md)
-> * [Eerste PHP-app](app-service-web-get-started-php.md)
-> * [Eerste Node.js-app](app-service-web-get-started-nodejs.md)
-> * [Eerste Python-app](app-service-web-get-started-python.md)
-> * [Eerste Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Deze zelfstudie helpt u om een eenvoudige HTML-CSS-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Met App Service kunt u web-apps, [back-ends voor mobiele apps](/documentation/learning-paths/appservice-mobileapps/) en [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) maken.
@@ -49,7 +41,7 @@ U gaat het volgende doen:
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-html.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- [Azure CLI 2.0](app-service-web-get-started-html.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 ## <a name="prerequisites"></a>Vereisten
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 * Probeer [andere manieren om uw code in Azure te implementeren](web-sites-deploy.md). Als u bijvoorbeeld wilt implementeren vanuit een van uw GitHub-opslagplaatsen, selecteert u in **Implementatieopties** **GitHub** in plaats van **Lokale Git-opslagplaats**.
 * Breng uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiewaarschuwingen in. Dit alles met slechts enkele klikken. Zie [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

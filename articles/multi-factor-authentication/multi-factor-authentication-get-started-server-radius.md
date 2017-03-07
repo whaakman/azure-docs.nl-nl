@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 749267a5bb6e45714daa1fc06cd3aabcac326e76
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: e696b95c9db86b062440f0c4fd788bf97223317a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>RADIUS-verificatie en Azure Multi-Factor Authentication-server
+# <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>RADIUS-verificatie integreren met Azure Multi-Factor Authentication-server
 Gebruik het gedeelte RADIUS-verificatie van Azure MFA-server om RADIUS-verificatie in te schakelen en te configureren. RADIUS is een standaardprotocol om verificatieaanvragen te accepteren en te verwerken. De Azure Multi-Factor Authentication-server fungeert als een RADIUS-server. Deze plaatst u tussen uw RADIUS-client (VPN-apparaat) en het verificatiedoel, bijvoorbeeld Active Directory (AD), een LDAP-adreslijstdirectory of een andere RADIUS-server, om Azure Multi-Factor Authentication toe te voegen. Azure Multi-Factor Authentication (MFA) werkt alleen als u de Azure MFA-server zo configureert dat deze kan communiceren met zowel de clientservers als het verificatiedoel. De Azure MFA-server accepteert aanvragen van een RADIUS-client, controleert referenties met behulp van het verificatiedoel, voegt Azure Multi-Factor Authentication toe en stuurt een antwoord terug naar de RADIUS-client. De verificatieaanvraag slaagt alleen als zowel de primaire verificatie als de Azure Multi-Factor Authentication slaagt.
 
 > [!NOTE]
@@ -76,10 +77,5 @@ Als u de RADIUS-client wilt configureren, gebruikt u de volgende richtlijnen:
 * Configureer uw toestel/server voor verificatie via RADIUS bij het IP-adres van de Azure Multi-Factor Authentication-server, die als de RADIUS-server fungeert.
 * Gebruik hetzelfde gedeelde geheim dat eerder is geconfigureerd.
 * Stel de time-out voor RADIUS in op 30 tot 60 seconden, zodat er voldoende tijd is om de referenties van de gebruiker te valideren, verificatie in twee stappen uit te voeren, de reactie daarop te ontvangen en vervolgens te reageren op de RADIUS-toegangsaanvraag.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

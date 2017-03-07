@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -40,9 +41,7 @@ Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis,
 > 
 > 
 
-De logboeken die u verzamelt, kunnen met behulp van de logboekanalyse van de Operations Management Suite worden gevisualiseerd. Zie [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (Azure Sleutelkluis-oplossing (preview) in loganalyse) voor meer informatie.
-
-Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie over Azure Sleutelkluis.
+Zie [Wat is Azure Key Vault?](key-vault-whatis.md) voor algemene informatie over Azure Key Vault.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
@@ -254,6 +253,10 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 | SecretList |[Geheimen in een kluis weergeven](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Versies van een geheim weergeven](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Log Analytics gebruiken
+
+Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren. Zie [Azure Key Vault solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (De oplossing Azure Key Vault in Log Analytics) voor meer informatie. Dit artikel bevat ook instructies voor als u moet migreren van de oude Key Vault-oplossing die tijdens de preview van Log Analytics werd aangeboden en waarbij u uw logboeken eerst moest doorsturen naar een Azure-opslagaccount en Log Analytics moest configureren om van daaruit te lezen.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Volgende stappen
 Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een zelfstudie over het gebruik van Azure Key Vault in een webtoepassing.
 
@@ -262,10 +265,5 @@ Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guid
 Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met Azure PowerShell 1.0- cmdlets voor Azure Sleutelkluis.
 
 Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Sleutelkluis instellen met end-to-endsleutelrotatie en -controle) voor een zelfstudie over sleutelrotatie en logboekcontrole met Azure Sleutelkluis.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

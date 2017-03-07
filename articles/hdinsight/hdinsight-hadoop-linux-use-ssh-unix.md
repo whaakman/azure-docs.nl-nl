@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>SSH-sleutels gebruiken met HDInsight (Hadoop) in Windows, Linux, Unix of OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>SSH gebruiken met HDInsight (Hadoop) vanuit Bash op Windows 10, Linux, Unix of OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ Veel besturingssystemen bieden SSH-clientfunctionaliteit via de opdrachtregelpro
 * __ssh__: een algemene SSH-client die kan worden gebruikt voor het maken van een externe opdrachtregelsessie en voor het maken van tunnels.
 * __scp__: een hulpprogramma dat bestanden tussen lokale en externe systemen kopieert met behulp van het SSH-protocol.
 
-Windows heeft in het verleden geen SSH-client aangeboden; deze werd pas beschikbaar vanaf de Windows 10 Jubileumupdate. Deze versie van Windows ondersteunt Bash, met `ssh`, `scp` en andere Linux-opdrachten. Zie [Bash on Ubuntu op Windows](https://msdn.microsoft.com/commandline/wsl/about) voor meer informatie over het gebruik van Bash on Windows 10.
+Windows 10 Jubileumupdate biedt Bash als een functie voor ontwikkelaars. Het biedt `ssh`, `scp` en andere Linux-opdrachten. Zie [Bash on Ubuntu op Windows](https://msdn.microsoft.com/commandline/wsl/about) voor meer informatie over het gebruik van Bash on Windows 10.
 
 Als u Windows gebruikt en u geen toegang hebt tot Bash on Windows 10, worden de volgende SSH-clients aanbevolen:
 
 * [Git voor Windows](https://git-for-windows.github.io/): voorziet in de opdrachtregelhulpprogramma’s `ssh` en `scp`.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): voorziet in een grafische SSH-client.
-* [MobaXterm](http://mobaxterm.mobatek.net/): voorziet in een grafische SSH-client.
 * [Cygwin](https://cygwin.com/): voorziet in de opdrachtregelhulpprogramma’s `ssh` en `scp`.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ Als u openbare-sleutelcryptografie gebruikt, maakt u een _openbare sleutel_ en e
 
 * De **privésleutel** biedt u aan het HDInsight-cluster aan wanneer u zich aanmeldt met een SSH-client. De sleutel dient om uw identiteit te verifiëren. Houd deze privésleutel geheim. Deel deze niet.
 
-    U kunt extra beveiliging toevoegen door een wachtwoordzin te maken voor de privésleutel. U moet de wachtwoordzin opgeven om de sleutel te kunnen gebruiken.
+    U kunt extra beveiliging toevoegen door een wachtwoordzin te maken voor de privésleutel. Als u een wachtwoordzin gebruikt, dient u deze in te voeren bij het verifiëren met SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Een openbare sleutel en een privésleutel maken
 
@@ -91,7 +90,7 @@ Wanneer de opdracht is voltooid, hebt u twee nieuwe bestanden:
 * __id\_rsa__: dit bestand bevat de privésleutel.
 
     > [!WARNING]
-    > U moet de toegang tot dit bestand beperken om onbevoegde toegang tot services die worden beveiligd met de openbare sleutel, te voorkomen.
+    > Beperk de toegang tot dit bestand om onbevoegde toegang tot services die worden beveiligd met de openbare sleutel, te voorkomen.
 
 * __id\_rsa.pub__: dit bestand bevat de openbare sleutel. U gebruikt dit bestand bij het maken van een HDInsight-cluster.
 
@@ -115,13 +114,13 @@ Raadpleeg een van de volgende documenten voor meer informatie over het configure
 
 Hoewel er aanvullende SSH-gebruikers kunnen worden toegevoegd aan het cluster nadat het is gemaakt, wordt dit niet aanbevolen.
 
-* U moet handmatig nieuwe SSH-gebruikers toevoegen aan elk knooppunt in het cluster.
+* Nieuwe SSH-gebruikers moeten aan elk knooppunt in het cluster worden toegevoegd.
 
 * Nieuwe SSH-gebruikers hebben dezelfde toegang tot HDInsight als de standaardgebruiker. Er is geen enkele manier om de toegang tot gegevens of taken te beperken in HDInsight op basis van een SSH-gebruikersaccount.
 
 Als u de toegang per gebruiker wilt kunnen beperken, moet u een HDInsight-cluster gebruiken dat is gekoppeld aan een domein. Domain-joined HDInsight maakt gebruik van Active Directory om de toegang tot clusterresources te beheren.
 
-Als u een domain-joined HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [Domain-joined HDInsight](#domainjoined) voor meer informatie.
+Als u een domain-joined HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [HDInsight gekoppeld aan een domein](#domainjoined) voor meer informatie.
 
 ##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Verbinding maken met HDInsight
 
@@ -147,7 +146,7 @@ Als u een openbare sleutel gebruikt om het SSH-account te beveiligen, moet u mog
 
 ### <a name="connect-to-other-nodes"></a>Verbinding maken met andere knooppunten
 
-De werkrolknooppunten en de Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk van buiten het cluster, maar ze zijn wel toegankelijk via de clusterhoofdknooppunten en Edge-knooppunten. Hier volgen de algemene stappen om dit te doen:
+De werkrolknooppunten en de Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk van buiten het cluster, maar ze zijn wel toegankelijk via de clusterhoofdknooppunten en Edge-knooppunten. Hier volgen de algemene stappen om verbinding te maken met andere knooppunten:
 
 1. SSH gebruiken om verbinding te maken met een hoofd- of Edge-knooppunt:
 
@@ -183,7 +182,7 @@ Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u er
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Als er niets wordt geretourneerd, betekent dit dat `ssh-agent` niet wordt uitgevoerd. Raadpleeg de opstartscriptinformatie voor agents op [ssh-agent gebruiken met ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) of raadpleeg de documentatie bij de SSH-client voor specifieke stappen voor het installeren en configureren van `ssh-agent`.
+    Als er niets wordt geretourneerd, wordt `ssh-agent` niet uitgevoerd. Raadpleeg de opstartscriptinformatie voor agents op [ssh-agent gebruiken met ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) of raadpleeg de documentatie bij de SSH-client voor specifieke stappen voor het installeren en configureren van `ssh-agent`.
 
 4. Zodra u hebt gecontroleerd of **ssh-agent** wordt uitgevoerd, gebruikt u de volgende opdracht om uw persoonlijke SSH-sleutel toe te voegen aan de agent:
 
@@ -196,7 +195,7 @@ Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u er
 
 Met [HDInsight gekoppeld aan een domein](hdinsight-domain-joined-introduction.md) kan Kerberos in Hadoop worden geïntegreerd in HDInsight. Omdat de SSH-gebruiker geen Active Directory-domeingebruiker is, kunt u pas Hadoop-opdrachten uitvoeren nadat u verificatie hebt uitgevoerd met Active Directory. Volg deze stappen om uw SSH-sessie te verifiëren met Active Directory:
 
-1. Maak verbinding met een domain-joined HDInsight-cluster. Doe dit met de SSH, zoals wordt beschreven in het gedeelte [Verbinding maken met HDInsight](#connect). Met de volgende opdracht maakt u bijvoorbeeld verbinding met een HDInsight-cluster met de naam __myhdi__ via een SSH-account met de naam __sshuser__.
+1. Maak met behulp van SSH verbinding met een HDInsight-cluster dat is gekoppeld aan een domein. Met de volgende opdracht maakt u bijvoorbeeld verbinding met een HDInsight-cluster met de naam __myhdi__ via een SSH-account met de naam __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,7 +211,7 @@ Na verificatie met de opdracht `kinit` kunt u Hadoop-opdrachten zoals `hdfs dfs 
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunneling
 
-SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt vervolgens naar de aangevraagde resource gerouteerd, alsof de aanvraag afkomstig is van het hoofdknooppunt van het HDInsight-cluster.
+SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt doorgestuurd naar het cluster en vervolgens opgelost binnen het cluster.
 
 > [!IMPORTANT]
 > Een SSH-tunnel is vereist voor toegang tot de webgebruikersinterface voor bepaalde Hadoop-services. De gebruikersinterface van bijvoorbeeld Taakgeschiedenis of Resource Manager is alleen toegankelijk via een SSH-tunnel.
@@ -228,9 +227,4 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 * [MapReduce-taken gebruiken met HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

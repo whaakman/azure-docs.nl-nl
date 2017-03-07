@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 02/25/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: d3a122d7d26635e13281b1cba450937519ed4be6
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="getting-started-with-the-mfa-server-mobile-app-web-service"></a>Aan de slag met de webservice voor mobiele apps voor de MFA-server
+# <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Authenticatie met de mobiele app integreren met Azure Multi-Factor Authentication-server
+
 De Microsoft verificator-app biedt een extra optie voor verificatie buiten de band. In plaats van tijdens het aanmelden een automatisch telefoongesprek met de gebruiker tot stand te brengen of hem een sms-bericht te sturen, verzendt Azure Multi-Factor Authentication een melding naar de Microsoft verificator-app op de smartphone of tablet van de gebruiker. De gebruiker hoeft in de app enkel op **Verifiëren** te tikken (of een pincode in te voeren en op Verifiëren te tikken) om de aanmelding te voltooien. 
 
 Het gebruik van een mobiele app voor verificatie in twee stappen wordt aanbevolen wanneer het telefonische bereik onbetrouwbaar is. Als u de app als een OATH-tokengenerator gebruikt, hebt u geen netwerk- of internetverbinding nodig. 
@@ -99,9 +101,4 @@ Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Fact
 5. Voer de URL in die wordt gebruikt met de virtuele map die is gemaakt bij de installatie van de Azure- MultiFactorAuthenticationMobileAppWebServiceSetup. U kunt een accountnaam invoeren in het daarvoor bestemde vak. Deze bedrijfsnaam wordt weergegeven in de mobiele toepassing. Als u dit vak leeg laat, wordt de naam weergegeven van de provider voor Multi-Factor Authentication die in de klassieke Azure-portal is gemaakt.
 
 <center>![Instellen](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: Netwerkinterfaces in Azure | Microsoft Docs
-description: Meer informatie over Azure-netwerkinterfaces in het Azure Resource Manager-implementatiemodel.
+description: Meer informatie over Azure-netwerkinterfaces en hoe ze worden gebruikt met virtuele machines.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Netwerkinterfaces in Azure
+# <a name="what-are-network-interfaces"></a>Wat zijn netwerkinterfaces?
+
 Een netwerkinterface (NIC) is de onderlinge verbinding tussen een virtuele machine (VM) en het onderliggende softwarenetwerk. In dit artikel wordt uitgelegd wat een netwerkinterface is en hoe deze wordt gebruikt in het Azure Resource Manager-implementatiemodel.
 
 Microsoft raadt het implementeren van nieuwe resources met het Resource Manager-implementatiemodel aan. U kunt ook VM's met netwerkverbinding implementeren via het [klassieke](virtual-network-ip-addresses-overview-classic.md) implementatiemodel. Als u vertrouwd bent met het klassieke model, zijn er belangrijke verschillen in VM-netwerken in het Resource Manager-implementatiemodel. Meer informatie over de verschillen leest u in het artikel [Virtuele machinenetwerk - klassiek](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -34,7 +37,7 @@ Een netwerkinterface in Azure:
 4. Kan worden gekoppeld aan een virtuele machine, maar kan alleen worden gekoppeld aan één enkele virtuele machine die zich op dezelfde locatie als de NIC bevindt.
 5. Heeft een eigen MAC-adres dat behouden blijft zolang de NIC is gekoppeld aan een virtuele machine. Het MAC-adres blijft behouden, ongeacht of de virtuele machine opnieuw wordt opgestart (van binnen het besturingssysteem) of gestopt (toewijzing ongedaan gemaakt) met Azure Portal, Azure PowerShell of de Azure-opdrachtregelinterface. Als de NIC wordt losgekoppeld van de virtuele machine en aan een andere virtuele machine wordt gekoppeld, ontvangt de NIC een ander MAC-adres. Als de NIC is verwijderd, wordt het MAC-adres toegewezen aan andere NIC's.
 6. Moet beschikken over één toegewezen primair statisch of dynamisch **privé**-*IPv4*-IP-adres.
-7. Kan beschikken over één gekoppelde openbare IP-adresresource.
+7. Kan aan een of meer IP-adresbronnen zijn gekoppeld; gebruik de documentatie [Meerdere IP-adressen per NIC](virtual-network-multiple-ip-addresses-portal.md) voor meer informatie.
 8. Ondersteunt versnelde netwerken met I/O-virtualisatie met één root (SR-IOV) voor specifieke VM-grootten waarop specifieke versies van het besturingssysteem Microsoft Windows Server worden uitgevoerd. Lees het artikel [Versnelde netwerken voor een virtuele machine](virtual-network-accelerated-networking-powershell.md) voor meer informatie over deze PREVIEW-functie.
 9. Kan verkeer ontvangen dat niet bedoeld is voor privé-IP-adressen die eraan zijn toegewezen, als Doorsturen via IP is ingeschakeld voor de NIC. Als een virtuele machine bijvoorbeeld firewallsoftware uitvoert, worden pakketten die niet bestemd zijn voor de eigen IP-adressen, gerouteerd. Op de virtuele machine moet nog steeds software worden uitgevoerd die geschikt is voor routering of doorsturen van verkeer. Hiervoor moet u echter Doorsturen via IP inschakelen voor een NIC.
 10. Wordt vaak gemaakt in dezelfde resourcegroep waarin de virtuele machine zich bevindt die aan de NIC is gekoppeld of in hetzelfde VNet waarmee de NIC is verbonden. Dit is echter niet vereist.
@@ -52,10 +55,5 @@ Aan een virtuele machine kunnen meerdere NIC's worden gekoppeld, maar houd hierb
 * Lees het artikel [Een VM maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor meer informatie over het maken van een virtuele machine met één NIC.
 * Lees het artikel [Een VM implementeren met meerdere NIC's](virtual-network-deploy-multinic-arm-ps.md) voor meer informatie over het maken van een virtuele machine met meerdere NIC's.
 * Lees het artikel [Meerdere IP-adressen voor virtuele Azure-machines](virtual-network-multiple-ip-addresses-powershell.md) voor meer informatie over het maken van een NIC met meerdere IP-configuraties.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

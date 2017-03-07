@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
-ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Met de oplossing voor updatebeheer in OMS kunt u updates voor uw Windows- en Lin
 Voer de volgende stappen om de oplossing Updatebeheer toe te voegen aan uw OMS-werkruimte en Linux-agents toe te voegen. Windows-agents worden automatisch toegevoegd zonder extra configuratie.
 
 > [!NOTE]
-> Als u deze oplossing inschakelt is het momenteel zo dat alle Windows-computers die verbonden zijn met uw OMS-werkruimte automatisch worden geconfigureerd als Hybrid Runbook Worker zodat de runbooks die deel uitmaken van deze oplossing worden ondersteund.  De oplossing wordt echter niet geregistreerd bij Hybrid Worker-groepen die u hebt gemaakt in uw Automation-account en u kunt de oplossing niet toevoegen aan een Hybrid Worker-groep om uw eigen runbooks uit te voeren.  Als een Windows-computer al is ingesteld als Hybrid Runbook Worker en wordt verbonden met de OMS-werkruimte, moet u deze verwijderen uit de OMS-werkruimte voordat u de oplossing toevoegt. Zo voorkomt u dat runbooks niet naar behoren werken.  
+> Als u deze oplossing inschakelt zal elke Windows-computer die verbonden is met uw OMS-werkruimte automatisch worden geconfigureerd als Hybrid Runbook Worker zodat de runbooks die in deze oplossing zijn opgenomen, worden ondersteund.  De computer wordt echter niet geregistreerd bij alle Hybrid Worker-groepen die u mogelijk al hebt gedefinieerd in uw Automation-account.  Deze kan aan een Hybrid Runbook Worker-groep in uw Automation-account worden toegevoegd voor ondersteuning van Automation-runbooks als u maar hetzelfde account gebruikt voor zowel de oplossing als het lidmaatschap van de Hybrid Runbook Worker-groep.  Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.   
 
 1. Voeg de oplossing Updatebeheer toe aan uw OMS-werkruimte met het volgens de procedure die is beschreven in [OMS-oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md) vanaf de Galerie van oplossingen.  
 2. Selecteer in de OMS-portal de optie **Instellingen** en vervolgens **Verbonden bronnen**.  Noteer de **Werkruimte-ID** en ofwel de **primaire sleutel**, ofwel de **secundaire sleutel**.
@@ -247,10 +248,5 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 * Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) die de updatecompatibiliteit voor uw beheerde computers weergeven.
 * [Maak waarschuwingen](../log-analytics/log-analytics-alerts.md) wanneer wordt vastgesteld dat er essentiële updates ontbreken op de computers of als automatische updates is uitgeschakeld voor een computer.  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: vakarand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
-ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="using-azure-ad-connect-health-for-sync"></a>Azure AD Connect Health for Sync gebruiken
+# <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
 
 ![Azure AD Connect Health voor synchroniseren](./media/active-directory-aadconnect-health-sync/sync-blade.png)
@@ -117,8 +118,3 @@ Als u op Exporteren klikt, downloadt u een CSV-bestand met alle informatie over 
 * [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
 * [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: Overzicht van de service Azure Batch | Microsoft Docs
+title: Met Azure Batch worden oplossingen voor grootschalige parallelle rekenbewerkingen uitgevoerd in de cloud | Microsoft Docs
 description: Meer informatie over het gebruik van de Azure Batch-service voor grootschalige parallelle en HPC-workloads
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Basisbeginselen van Azure Batch
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Intrinsiek parallelle workloads uitvoeren met Batch
+
 Azure Batch is een platformservice voor het efficiënt uitvoeren van grootschalige parallelle en HPC-toepassingen (High Performance Computing) in de cloud. Azure Batch plant de uitvoering van rekenintensief werk op een beheerde verzameling van virtuele machines en kan automatisch het aantal rekenresources aanpassen aan de behoeften van uw jobs.
 
 Met Azure Batch kunt u gemakkelijk Azure-rekenresources definiëren om uw toepassingen parallel en op de juiste schaal uit te voeren. U hoeft niet handmatig een HPC-cluster, individuele virtuele machines, virtuele netwerken of een complexe job- en taakplanningsinfrastructuur te maken, te configureren en te beheren. Azure Batch automatiseert of vereenvoudigt deze taken voor u.
@@ -156,9 +159,4 @@ Nu u een gedetailleerd overzicht van de Batch-service hebt gezien, is het tijd o
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
-ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
+ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
+ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -102,50 +103,93 @@ Ga terug naar het servicedashboard, schuif omlaag en dubbelklik op de tegel **In
 ## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Een query uitvoeren voor de index
 U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is een queryprogramma dat is ingebouwd in de portal. Er wordt een zoekvak geboden zodat u kunt controleren of de zoekresultaten aan de verwachting voldoen. 
 
-   ![Opdracht Search Explorer][5]
-
 > [!TIP]
 > In de [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138) worden de volgende stappen na 6 min 8 sec gedemonstreerd.
 >
 
 1. Klik op **Search explorer** in de opdrachtbalk.
 
+   ![Opdracht Search Explorer][5]
+
 2. Klik in de opdrachtbalk op **Index wijzigen** om te schakelen naar *realestate-us-sample*.
 
    ![Index- en API-opdrachten][6]
 
-3. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Met voorbeeld-API's hebt u toegang tot nieuwe functies die nog niet algemeen zijn uitgebracht. Gebruik de algemeen beschikbare versie (2016-09-01) tenzij u andere instructies krijgt. 
+3. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Met voorbeeld-API's hebt u toegang tot nieuwe functies die nog niet algemeen zijn uitgebracht. Gebruik voor onderstaande query’s de algemeen beschikbare versie (01-09-2016) tenzij u andere instructies krijgt. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) en de [.NET-bibliotheek](search-howto-dotnet-sdk.md#core-scenarios) zijn volledig equivalent, maar **Search Explorer** is alleen uitgerust om REST-oproepen te verwerken. Er wordt syntaxis geaccepteerd voor [eenvoudige querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene-queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle zoekparameters die beschikbaar zijn in bewerkingen voor [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
-    > Met **Search Explorer** worden resultaten geretourneerd in JSON. Deze indeling is uitgebreid en moeilijk te lezen als documenten een compacte structuur hebben. Afhankelijk van uw documenten moet u mogelijk code schrijven die zoekresultaten verwerkt, om belangrijke elementen uit te pakken.
 
 4. Voer in de zoekbalk de onderstaande querytekenreeksen in en klik op **Zoeken**.
 
   ![Voorbeeld van zoekquery][7]
 
-**`search=seattle`** De parameter `search` wordt gebruikt om een zoekopdracht met trefwoorden in te voeren waarmee, in dit geval, vermeldingen in King County, Washington state worden geretourneerd die Seattle bevatten in elke doorzoekbaar veld van het document.
+**`search=seattle`**
 
-**`search=seattle&facet=beds`**De parameter `facet` retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op het aantal slaapkamers, met het aantal documenten of overeenkomsten. `"beds"` kan worden gespecificeerd als een facet, omdat het is gemarkeerd als een veld dat filterbaar en geschikt voor facetten is. En de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen (vermeldingen met 3 slaapkamers, 4 slaapkamers).  Het symbool `&` wordt gebruikt om zoekparameters toe te voegen.
++ De parameter `search` wordt gebruikt om een zoekopdracht voor zoeken in volledige tekst in te voeren waarmee, in dit geval, vermeldingen in King County, Washington state worden geretourneerd die *Seattle* bevatten in elk doorzoekbaar veld van het document. 
 
-**`search=seattle&filter=bed gt 3`** De parameter `filter` retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. Filtersyntaxis is een OData-constructie. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
++ Met **Search Explorer** worden resultaten geretourneerd in JSON. Deze indeling is uitgebreid en moeilijk te lezen als documenten een compacte structuur hebben. Afhankelijk van uw documenten moet u mogelijk code schrijven die zoekresultaten verwerkt, om belangrijke elementen uit te pakken. 
 
-**`search=granite countertops&highlight=description`** Met markeringen voor treffers wordt opmaak toegevoegd aan tekst die overeenkomt met het trefwoord, overeenkomsten die zijn aangetroffen in een bepaald veld. Als de zoekterm verborgen is in een beschrijving, kunt u de treffers markeren om deze makkelijker te vinden. In dit geval is de opgemaakte woordgroep `"granite countertops"` gemakkelijker te zien in het omschrijvingsveld.
++ Documenten bestaan uit alle velden die in de index zijn gemarkeerd als 'Ophalen mogelijk'. Als u in de portal indexkenmerken wilt weergeven, gaat u naar de tegel **Indexen** en klikt u op *realestate-us-sample*.
 
-**`search=mice&highlight=description`** Met zoekopdrachten in de volledige tekst kunnen woorden met vergelijkbare semantiek worden gevonden. In dit geval bevatten zoekresultaten gemarkeerde tekst voor ´muis´, bij een zoekopdracht naar ´muizen´ voor huizen die te maken hebben met een muizenplaag. De resultaten kunnen verschillende vormen van hetzelfde woord bevatten vanwege taalkundige analyse. Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Standaard wordt Lucene Analyzer gebruikt voor Azure Search. 
+**`search=seattle&$count=true&$top=100`**
 
-**`search=samamish`** Voor verkeerd gespelde woorden (bijvoorbeeld 'samamish' voor het Samammish plateau in de regio Seattle) worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. In het volgende voorbeeld ziet u hoe dit in zijn werk gaat.
++ Het symbool `&` wordt gebruikt om zoekparameters toe te voegen. Deze kunnen in willekeurige volgorde worden opgegeven. 
 
-**`search=samamish~&queryType=full`** Fuzzy zoekopdrachten is ingeschakeld als u het symbool `~` opgeeft en de volledige queryparser gebruikt waarmee de `~`-syntaxis wordt geïnterpreteerd en juist geparseerd. Standaard wordt de eenvoudige queryparser gebruikt omdat deze sneller is. Maar u kunt ervoor kiezen om de volledige queryparser te gebruiken als u behoefte hebt aan fuzzy zoekopdrachten, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's. Zie [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor meer informatie over queryscenario's op basis van de volledige queryparser.
++  De parameter `$count=true` retourneert het totale aantal geretourneerde documenten. U kunt filterquery's controleren door de wijzigingen te controleren die door `$count=true` worden gerapporteerd. 
 
-**`search=*`** Bij lege zoekopdrachten wordt alles geretourneerd. U kunt een lege query gebruiken om het totale aantal documenten in uw index te zien, of als u de volledige set documenten wilt filteren of geschikt wilt maken voor facetten. Dit wordt hierna beschreven.
++ De `$top=100` retourneert de 100 hoogst scorende documenten in dit totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via `$top`.
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) op een veld met coördinaten. Met deze query worden alle resultaten voor positionele gegevens gefilterd die minder dan 10 kilometer zijn verwijderd van een opgegeven punt (via coördinaten voor lengte- en breedtegraad). Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+**`search=*&facet=city&$top=2`**
 
-Normaal gesproken worden filterexpressies opgegeven als $filter met een `$`-teken. In Search Explorer moet u `$` weglaten.
++ `search=*` is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld een facetnavigatiestructuur die bestaat uit alle plaatsen in de index.
 
-Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt zoeken´ heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
++  `facet` retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op het aantal plaatsen. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
+
++ `$top=2` retourneert twee documenten, om te illustreren dat u `top` kunt gebruiken om het aantal resultaten te verlagen of te verhogen.
+
+**`search=seattle&facet=beds`**
+
++ Deze query gebruikt het facet bedden in een tekstuele zoekopdracht naar *Seattle*. `"beds"` kan worden opgegeven als een facet, omdat het veld in de index is gemarkeerd als ophaalbaar, filterbaar en bruikbaar als facet. En de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen (vermeldingen met 3 slaapkamers, 4 slaapkamers). 
+
++ Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
+
+**`search=seattle&$filter=beds gt 3`**
+
++ De parameter `filter` retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. 
+
++ Filtersyntaxis is een OData-constructie. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
+
+**`search=granite countertops&highlight=description`**
+
++ Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het trefwoord, overeenkomsten die in een bepaald veld zijn aangetroffen. Als de zoekterm verborgen is in een beschrijving, kunt u de treffers markeren om deze makkelijker te vinden. In dit geval is de opgemaakte woordgroep `"granite countertops"` gemakkelijker te zien in het omschrijvingsveld.
+
+**`search=mice&highlight=description`**
+
++ Met zoekopdrachten in de volledige tekst kunnen woorden met vergelijkbare semantiek worden gevonden. In dit geval bevatten zoekresultaten gemarkeerde tekst voor ´muis´, bij een zoekopdracht naar ´muizen´ voor huizen die te maken hebben met een muizenplaag. De resultaten kunnen verschillende vormen van hetzelfde woord bevatten vanwege taalkundige analyse. 
+
++ Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Standaard wordt Lucene Analyzer gebruikt voor Azure Search. 
+
+**`search=samamish`**
+
++ Voor verkeerd gespelde woorden (bijvoorbeeld 'samamish' voor het Samammish plateau in de regio Seattle) worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. In het volgende voorbeeld ziet u hoe dit in zijn werk gaat.
+
+**`search=samamish~&queryType=full`**
+
++ Fuzzy zoeken wordt ingeschakeld als u het symbool `~` opgeeft en de volledige queryparser gebruikt. Hiermee wordt de `~`-syntaxis geïnterpreteerd en juist geparseerd. 
+
++ Fuzzy zoeken is beschikbaar wanneer u voor de volledige queryparser kiest. Deze wordt weergegeven wanneer u `queryType=full` instelt. Zie [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor meer informatie over queryscenario's op basis van de volledige queryparser.
+
++ Als `queryType` niet is opgegeven, wordt standaard de eenvoudige queryparser gebruikt. De eenvoudige queryparser is sneller, maar als u gebruik wilt maken van fuzzy zoeken, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's, dan hebt u de volledige syntaxis nodig. 
+
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+
++ Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een veld met coördinaten. Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
++ Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door `$count` toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt. 
+
++ Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt zoeken´ heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -153,9 +197,9 @@ Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt
 
   Als u afzonderlijke onderdelen wilt weergeven, klikt u op **Index**, **Indexeerfunctie** of op de tegel **Gegevensbronnen** op uw dashboard om een lijst met bestaande objecten weer te geven. Zie [Index bijwerken (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) voor informatie over indexbewerkingen waarvoor opnieuw bouwen niet is vereist.
 
-+ Probeer de hulpprogramma's en stappen met andere gegevensbronnen. De voorbeeldgegevensset (`realestate-us-sample`) komt uit een Azure SQL-database die kan worden verkend met Azure Search. Naast Azure SQL-databases, kunnen met Azure Search ook Azure Table-opslag, Blob-opslag, SQL Server op een virtuele Azure-machine en DocumentDB worden verkend. Al deze gegevensbronnen worden ondersteund in de wizard. U kunt gemakkelijk in code een index maken en vullen met behulp van een *indexeerfunctie*.
++ Probeer de hulpprogramma's en stappen met andere gegevensbronnen. De voorbeeldgegevensset (`realestate-us-sample`) komt uit een Azure SQL-database die kan worden verkend met Azure Search. Naast Azure SQL Database kan Azure Search ook een index uit platte gegevensstructuren in Azure Table-opslag, Blob-opslag, SQL Server op een virtuele Azure-machine en DocumentDB verkennen of afleiden. Al deze gegevensbronnen worden ondersteund in de wizard. In code kunt u een index gemakkelijk vullen met behulp van een *indexeerfunctie*.
 
-+ Alle andere gegevensbronnen worden ondersteund via een pushmodel, waarbij de code nieuwe en gewijzigde rijensets in JSON naar de index pusht. Zie [Documenten toevoegen, bijwerken of verwijderen in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor meer informatie.
++ Alle andere gegevensbronnen die geen indexeerfunctie zijn, worden ondersteund via een pushmodel, waarbij de code nieuwe en gewijzigde rijensets in JSON naar de index pusht. Zie [Documenten toevoegen, bijwerken of verwijderen in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor meer informatie.
 
 Voor meer informatie over andere functies die in dit artikel worden vermeld, gaat u naar deze koppelingen:
 
@@ -175,8 +219,3 @@ Voor meer informatie over andere functies die in dit artikel worden vermeld, gaa
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
-
-
-<!--HONumber=Feb17_HO3-->
-
-
