@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -50,7 +51,7 @@ In deze zelfstudie wordt een clientgeheim in de Azure AD-toepassing gebruikt om 
 2. Haal de client-id, het client-geheim en het tokeneindpunt voor de Azure AD-webtoepassing op.
 3. Configureer de toegang tot de Azure AD-webtoepassing in het/de Data Lake Store-bestand/-map dat/die u wilt openen vanuit de Java-toepassing die u maakt.
 
-Zie [Een Active Directory-toepassing maken](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application) voor instructies om deze stappen uit te voeren.
+Zie [Een Active Directory-toepassing maken](data-lake-store-authenticate-using-active-directory.md) voor instructies om deze stappen uit te voeren.
 
 Azure Active Directory biedt andere opties naast het ophalen van een token. U kunt uit verschillende verificatiemechanismen kiezen aan de hand van uw scenario, bijvoorbeeld een toepassing die wordt uitgevoerd in een browser, een toepassing die wordt gedistribueerd als een bureaubladtoepassing of een servertoepassing die on-premises of in een virtuele Azure-machine wordt uitgevoerd. U kunt ook uit verschillende soorten referenties kiezen, zoals wachtwoorden, certificaten, tweeledige authenticatie enzovoort. Daarnaast stelt Azure Active Directory u in staat uw on-premises Active Directory-gebruikers te synchroniseren met de cloud. Zie [Verificatiescenario's voor Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) voor meer informatie. 
 
@@ -158,10 +159,5 @@ Bestanden worden gelezen en geschreven met behulp van standaard Java-streams. Di
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

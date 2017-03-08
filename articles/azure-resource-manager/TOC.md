@@ -36,8 +36,6 @@
 ### [REST-API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
-### [Verwante resources koppelen](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Toegang beheren
 ### [Service-principal maken met PowerShell](resource-group-authenticate-service-principal.md)
 ### [Service-principal maken met Azure CLI](resource-group-authenticate-service-principal-cli.md)

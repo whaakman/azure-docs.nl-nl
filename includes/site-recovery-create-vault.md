@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
+
 1. Aanmelden bij [Azure Portal](https://portal.azure.com) > **Site Recovery**
 2. Klik op **Nieuw** > **bestuur** >.
 3. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Als u meer dan één abonnement hebt, selecteert u een van uw abonnementen.
@@ -8,8 +8,3 @@
    ![Nieuwe kluis](./media/site-recovery-create-vault/new-vault-settings.png)
 
    De nieuwe kluis wordt weergegeven in **Dashboard** > **Alle resources** en op de hoofdblade **Recovery Services-kluizen**.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

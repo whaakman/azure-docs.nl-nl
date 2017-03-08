@@ -3,6 +3,7 @@
 ## [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Datawarehouse-workload](sql-data-warehouse-overview-workload.md)
 ## [Gedistribueerde gegevens](sql-data-warehouse-distributed-data.md)
+## [Veelgestelde vragen](sql-data-warehouse-overview-faq.md)
 
 # Aan de slag
 
@@ -10,6 +11,7 @@
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)
 ## [Ondersteuning krijgen](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
 
 # Procedures
 
@@ -114,7 +116,6 @@
 ### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Query's](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
-### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
 
 ## Beveiliging
 

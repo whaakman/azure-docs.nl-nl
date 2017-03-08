@@ -25,8 +25,3 @@
 # Verwant
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Op rollen gebaseerd toegangsbeheer](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

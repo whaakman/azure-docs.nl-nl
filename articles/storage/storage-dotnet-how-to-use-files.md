@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
-ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Als voorbeeld van het koppelen van een Azure-bestandsshare maken we nu een virtu
 3. Open een PowerShell-venster op de virtuele machine.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>De referenties van het opslagaccount voor de virtuele machine persistent maken
-Voordat u de bestandsshare kunt koppelen, moet u eerst de referenties van het opslagaccount op de virtuele machine persistent maken. Met deze stap kan Windows automatisch opnieuw verbinding maken met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. Als u de accountreferenties persistent wilt maken, voert u de opdracht `cmdkey` uit vanuit het PowerShell-venster op de virtuele machine. Vervang `<storage-account-name>` door de naam van uw opslagaccount en `<storage-account-key>` door de sleutel van uw opslagaccount.
+Voordat u de bestandsshare kunt koppelen, moet u eerst de referenties van het opslagaccount op de virtuele machine persistent maken. Met deze stap kan Windows automatisch opnieuw verbinding maken met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. Als u de accountreferenties persistent wilt maken, voert u de opdracht `cmdkey` uit vanuit het PowerShell-venster op de virtuele machine. Vervang `<storage-account-name>` door de naam van uw opslagaccount en `<storage-account-key>` door de sleutel van uw opslagaccount. U moet het domein 'AZURE' expliciet opgeven conform onderstaand voorbeeld. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Windows maakt nu opnieuw verbinding met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. U kunt controleren of de share opnieuw is verbonden door de opdracht `net use` uit te voeren vanuit een PowerShell-venster.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Omdat u de referenties van het opslagaccount in de vorige stap persistent hebt gemaakt, hoeft u ze niet op te geven met de opdracht `net use`. Als u uw referenties nog niet persistent hebt gemaakt, neem ze dan als een parameter op die wordt doorgegeven aan de opdracht `net use`, zoals wordt weergegeven in het volgende voorbeeld.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Nu kunt u de File Storage-share, net zoals ieder ander station, gebruiken vanaf de virtuele machine. U kunt standaardbestandsopdrachten uitvoeren vanaf de opdrachtprompt, of de gekoppelde share en de inhoud ervan bekijken vanuit de Verkenner. Ook met behulp van de standaard Windows-API's voor bestands-I/O, zoals de API’s die worden verstrekt door de [System.IO-naamruimten](http://msdn.microsoft.com/library/gg145019.aspx) in het .NET Framework, kunt u code uitvoeren op de virtuele machine die toegang heeft tot de bestandsshare.
@@ -602,51 +603,57 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
    
     Op dit moment wordt verificatie op basis van AD of ACL's nog niet ondersteund, maar deze mogelijkheid staat wel in onze lijst met functieaanvragen. Op dit moment worden Azure Storage-accountsleutels gebruikt voor verificatie naar de bestandsshare. We bieden een tijdelijke oplossing met Shared Access Signatures (SAS) via de REST API of de clientbibliotheken. Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand. Iedereen die over dit token beschikt gedurende de tijd dat het geldig is, heeft alleen-lezen toegang tot dit bestand.
    
-    SAS wordt alleen ondersteund via de REST API of clientbibliotheken. Wanneer u de bestandsshare koppelt via het SMB-protocol, kunt u geen SAS gebruiken om toegang tot de inhoud ervan te delegeren.
-2. **Zijn Azure-bestandsshares publiekelijk zichtbaar via internet of zijn ze alleen toegankelijk vanuit Azure?**
-   
-    Zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012), is uw bestandsshare beschikbaar via internet. Neem contact op met uw lokale ISP-provider om de poort te deblokkeren. In de tussentijd kunt u uw bestanden weergeven met Opslagverkenner of andere software van derden zoals Cloudberry.
-3. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?**
+    SAS wordt alleen ondersteund via de REST API of clientbibliotheken. Wanneer u de bestandsshare koppelt via het SMB-protocol, kunt u geen SAS gebruiken om toegang tot de inhoud ervan te delegeren. 
+
+2. **Hoe verstrek ik via een webbrowser toegang tot een specifiek bestand?**
+   Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand voor een bepaalde periode. Iedereen die deze URL heeft, kan rechtstreeks via elke webbrowser downloaden zolang de URL geldig is. SAS-sleutels kunnen eenvoudig worden gegenereerd vanuit een gebruikersinterface zoals Opslagverkenner.
+
+3.   **Wat zijn de verschillende manieren om toegang te krijgen tot bestanden in Azure File Storage?**
+    U kunt de bestandsshare koppelen op uw lokale computer met het SMB 3.0-protocol, of gebruikmaken van hulpprogramma's zoals [Opslagverkenner](http://storageexplorer.com/) of Cloudberry om toegang te krijgen tot bestanden in de bestandsshare. Vanuit uw toepassing kunt u clientbibliotheken, REST API of Powershell gebruiken om toegang te krijgen tot uw bestanden in de Azure-bestandsshare.
+    
+4.   **Hoe kan ik de Azure-bestandsshare op mijn lokale computer koppelen?** U kunt de bestandsshare via het SMB-protocol koppelen zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012). Neem contact op met uw lokale ISP-provider om de poort te deblokkeren. In de tussentijd kunt u uw bestanden weergeven met Opslagverkenner of andere software van derden zoals Cloudberry.
+
+5. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?**
    
     Als de bestandsshare en de virtuele machine zich in verschillende regio's bevinden, wordt het verkeer tussen hen in rekening gebracht als externe bandbreedte.
-4. **Is het netwerkverkeer gratis tussen een virtuele machine en een bestandsshare in dezelfde regio?**
+6. **Is het netwerkverkeer gratis tussen een virtuele machine en een bestandsshare in dezelfde regio?**
    
     Ja. Het is gratis als het verkeer plaatsvindt in dezelfde regio.
-5. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?**
+7. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?**
    
     Nee. Als u niet over ExpressRoute beschikt, hebt u nog steeds toegang tot de bestandsshare vanaf een on-premises computer, zolang poort 445 (TCP uitgaand) is geopend voor internettoegang. Indien gewenst kunt u ExpressRoute echter met File Storage gebruiken.
-6. **Is een 'File Share Witness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
+8. **Is een 'File Share Witness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
    
     Dit wordt momenteel niet ondersteund.
-7. **File Storage wordt op dit moment toch alleen gerepliceerd via LRS of GRS?**  
+9. **File Storage wordt op dit moment toch alleen gerepliceerd via LRS of GRS?**  
    
     We willen RA-GRS ook gaan ondersteunen, maar we kunnen nog niet zeggen op welke termijn dit gaat gebeuren.
-8. **Wanneer kan ik bestaande opslagaccounts gebruiken voor Azure File Storage?**
+10. **Wanneer kan ik bestaande opslagaccounts gebruiken voor Azure File Storage?**
    
     Azure File Storage is nu ingeschakeld voor alle opslagaccounts.
-9. **Wordt een naamswijziging ook toegevoegd aan de REST API?**
+11. **Wordt een naamswijziging ook toegevoegd aan de REST API?**
    
     Naamswijzigingen worden nog niet ondersteund in onze REST API.
-10. **Zijn geneste shares mogelijk, dus een share onder een share?**
+12. **Zijn geneste shares mogelijk, dus een share onder een share?**
     
     Nee. De bestandsshare is het virtuele stuurprogramma dat u kunt koppelen. Geneste shares worden dus niet ondersteund.
-11. **Is het mogelijk om alleen-lezen of alleen-schrijven machtigingen op te geven voor mappen in de share?**
+13. **Is het mogelijk om alleen-lezen of alleen-schrijven machtigingen op te geven voor mappen in de share?**
     
     Dit niveau van controle over machtigingen is niet mogelijk wanneer u de bestandsshare koppelt via SMB. U kunt dit echter wel bereiken door een Shared Access Signature (SAS) te maken via de REST API of clientbibliotheken.  
-12. **Het uitpakken van bestanden in File Storage ging erg traag. Wat moet ik doen?**
+14. **Het uitpakken van bestanden in File Storage ging erg traag. Wat moet ik doen?**
     
     Als u veel bestanden wilt overbrengen naar File Storage, kunt u beter gebruikmaken van AzCopy, Azure Powershell (Windows) of de Azure CLI (Linux/Unix). Deze hulpprogramma's zijn geoptimaliseerd voor netwerkoverdracht.
-13. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
+15. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
     
     Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2).
-14. **Azure File Storage gebruiken met IBM MQ**
+16. **Azure File Storage gebruiken met IBM MQ**
     
     IBM heeft een document uitgegeven om IBM MQ-klanten te helpen bij de configuratie van Azure File Storage met hun service. Voor meer informatie raadpleegt u [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (IBM MQ-wachtrijbeheer voor meerdere instanties instellen met Microsoft Azure File-service.
-15. **Hoe kan ik fouten bij Azure File Storage oplossen?**
+17. **Hoe kan ik fouten bij Azure File Storage oplossen?**
     
     U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
 
-16. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
+18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
 
     [Versleuteling aan de serverzijde](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is momenteel in preview. Tijdens de preview kan de functie alleen worden ingeschakeld voor nieuwe Azure Resource Manager-opslagaccounts (ARM).
     U kunt deze functie inschakelen op een Azure Resource Manager-opslagaccount via Azure Portal. De planning is om [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) of de [Microsoft Azure Storage-resourceprovider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) aan het eind van februari klaar te hebben voor het inschakelen van versleuteling voor bestandsopslag. Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Wanneer u Storage Service-versleuteling inschakelt voor Azure File Storage, worden uw gegevens automatisch versleuteld. 
@@ -674,9 +681,4 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 * [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Persisting connections to Microsoft Azure Files (Permanente verbindingen met Microsoft Azure-bestanden)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

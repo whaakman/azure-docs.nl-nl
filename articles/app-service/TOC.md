@@ -28,20 +28,6 @@
 ### [Marketplace-app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Algemene voorbeelden
-## CLI-voorbeelden
-### [Een web-app maken en code implementeren vanuit GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Een web-app maken met doorlopende implementatie vanuit GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Een web-app maken en code implementeren vanuit een lokale Git-opslagplaats](./scripts/app-service-cli-deploy-local-git.md)
-### [Een web-app maken en code implementeren in een faseringsomgeving](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Een ASP.NET Core-web-app maken in een Docker-container](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Een aangepast domein aan een web-app toewijzen](./scripts/app-service-cli-configure-custom-domain.md)
-### [Een web-app handmatig schalen](./scripts/app-service-cli-scale-manual.md)
-### [Een web-app wereldwijd schalen met een architectuur voor hoge beschikbaarheid](./scripts/app-service-cli-scale-high-availability.md)
-### [Een web-app verbinden met een SQL-database](./scripts/app-service-cli-app-service-sql.md)
-### [Een web-app verbinden met een opslagaccount](./scripts/app-service-cli-app-service-storage.md)
-### [Een web-app bewaken met webserverlogboeken](./scripts/app-service-cli-monitor.md)
-
 # Procedures
 
 ## Plannen en ontwerpen
@@ -159,7 +145,7 @@
 ### [Streaminglogboekbestanden en de console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Bronnen
+# Resources
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Aanbevolen procedures](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)

@@ -38,8 +38,4 @@ sql-database-service-tiers.md
 | Maximaal aantal gelijktijdige sessies | 30.000| 30.000| 30.000| 30.000| 30.000| 30.000 |
 |||||||
 
-\* De maximale grootte per database verwijst naar de maximale grootte van de gegevensbestanden. De ruimte die logboekbestanden innemen, wordt niet meegerekend.
-
-<!--HONumber=Feb17_HO2-->
-
-
+\*De maximale databasegrootte verwijst naar de maximale grootte van de gegevens in de database.

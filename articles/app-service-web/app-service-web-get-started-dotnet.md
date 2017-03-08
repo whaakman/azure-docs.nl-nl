@@ -4,7 +4,7 @@ description: Ontdek door implementatie van een ASP.NET-voorbeeld-app hoe eenvoud
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
@@ -15,22 +15,15 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5ce3d205ebdf5fa7e52ebe0a6402400556da0f64
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 1ac3af3af2dddb260dc957ef425eda1fefef53c1
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-aspnet-web-app-to-azure-in-five-minutes-cli-20-preview"></a>In vijf minuten uw eerste ASP.NET-web-app implementeren in Azure (CLI 2.0 Preview)
 
-> [!div class="op_single_selector"]
-> * [Eerste HTML-site](app-service-web-get-started-html.md)
-> * [Eerste .NET-app](app-service-web-get-started-dotnet.md)
-> * [Eerste PHP-app](app-service-web-get-started-php.md)
-> * [Eerste Node.js-app](app-service-web-get-started-nodejs.md)
-> * [Eerste Python-app](app-service-web-get-started-python.md)
-> * [Eerste Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Deze zelfstudie helpt u om een eenvoudige ASP.NET-web-app te implementeren in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Met App Service kunt u web-apps, [back-ends voor mobiele apps](/documentation/learning-paths/appservice-mobileapps/) en [API-apps](../app-service-api/app-service-api-apps-why-best-platform.md) maken.
@@ -49,7 +42,7 @@ U gaat het volgende doen:
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
 - [Azure CLI 1.0](app-service-web-get-started-dotnet-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-dotnet.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- [Azure CLI 2.0](app-service-web-get-started-dotnet.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 ## <a name="prerequisites"></a>Vereisten
 * [Git](http://www.git-scm.com/downloads).
@@ -62,7 +55,7 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 > 
 
 ## <a name="deploy-an-aspnet-web-app"></a>Een ASP.NET-web-app implementeren
-1. Open een nieuw(e) Windows-opdrachtprompt, PowerShell-venster, Linux-shell of OS X-terminal. Voer `git --version` en `azure --version` uit om te controleren of Git en Azure CLI op uw computer zijn geïnstalleerd.
+1. Open een nieuw(e) Windows-opdrachtprompt, PowerShell-venster, Linux-shell of OS X-terminal. Voer `git --version` en `az --version` uit om te controleren of Git en Azure CLI op uw computer zijn geïnstalleerd.
    
     ![De installatie van CLI-hulpprogramma's testen voor uw eerste web-app in Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -128,7 +121,7 @@ Gefeliciteerd, u hebt uw app geïmplementeerd in Azure App Service.
 ## <a name="see-your-app-running-live"></a>Uw app live in werking zien
 Als u uw app in Azure in werking wilt zien, voert u deze opdracht uit vanuit een willekeurige map in de opslagplaats:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Updates aanbrengen in uw app
 Nu kunt u met Git op elk moment push-acties uitvoeren vanuit het project (opslagplaats) om een actieve site bij te werken. Dit werkt op dezelfde manier als toen u de code voor het eerst implementeerde. Zo hoeft u telkens wanneer u een nieuwe wijziging wilt pushen die u lokaal hebt getest, alleen de volgende opdrachten uit te voeren vanuit de hoofdmap van het project (opslagplaats):
@@ -145,10 +138,5 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 * Probeer [andere manieren om uw code in Azure te implementeren](web-sites-deploy.md). Als u bijvoorbeeld wilt implementeren vanuit een van uw GitHub-opslagplaatsen, selecteert u in **Implementatieopties** **GitHub** in plaats van **Lokale Git-opslagplaats**.
 * Breng uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiewaarschuwingen in. Dit alles met slechts enkele klikken. Zie [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

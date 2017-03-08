@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Een virtuele Linux-machine maken met een Azure-sjabloon
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Een virtuele Linux-machine maken met behulp van een Azure Resource Manager-sjabloon
 Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van een Azure-sjabloon.  Het artikel schrijft het volgende als vereiste voor:
 
 * een Azure-account ([probeer een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
@@ -78,10 +80,5 @@ In dat voorbeeld werd een virtuele machine geïmplementeerd met de parameter `--
 
 ## <a name="next-steps"></a>Volgende stappen
 Doorzoek de [Sjablonengalerie](https://azure.microsoft.com/documentation/templates/) om te bekijken welke app-frameworks u hierna wilt gaan implementeren.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

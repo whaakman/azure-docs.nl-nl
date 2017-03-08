@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Overzicht van virtuele-machineschaalsets
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
 Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Bij VM-schaalsets worden alle VM's op dezelfde manier geconfigureerd, waardoor de schaalsets echt automatisch schalen ondersteunen. VM’s hoeven niet vooraf te worden ingericht, waardoor het eenvoudiger wordt om services op grote schaal te bouwen voor big compute, big data en workloads met containers.
 
 Voor toepassingen die compute-resources in en uit moeten schalen, worden schaalaanpassingen impliciet verdeeld over fout- en updatedomeinen. Raadpleeg de [aankondiging in het Azure-blog](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/) voor een introductie over VM-schaalsets.
@@ -127,9 +129,4 @@ In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd.
 **V:** Maken VM-schaalsets gebruik van beschikbaarheidssets van Azure?
 
 **A:** Ja. Een VM-schaalset is een impliciete beschikbaarheidsset met vijf foutdomeinen en vijf upgradedomeinen. U hoeft onder virtualMachineProfile niets te configureren. VM-schaalsets met meer dan 100 virtuele machines omvatten meerdere 'plaatsingsgroepen' die gelijkwaardig aan meerdere beschikbaarheidssets zijn. Een beschikbaarheidsset van virtuele machines kan bestaan in hetzelfde VNET als een schaalset van virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's, waarvoor vaak unieke configuratie in de beschikbaarheidsset nodig is, en gegevensknooppunten in de schaalset te zetten.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,8 +1,8 @@
 
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (Preview)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Wanneer u [Azure CLI 2.0 (Preview) hebt geïnstalleerd](https://docs.microsoft.com/cli/azure/install-az-cli2), gebruikt u de opdracht `az vm image list` om een cachelijst met populaire VM-installatiekopieën weer te geven. Dit voorbeeld van de opdracht `az vm image list -o table` geeft bijvoorbeeld het volgende weer:
+Wanneer u [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) hebt geïnstalleerd, gebruikt u de opdracht `az vm image list` om een cachelijst met populaire VM-installatiekopieën weer te geven. Dit voorbeeld van de opdracht `az vm image list -o table` geeft bijvoorbeeld het volgende weer:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -294,7 +294,3 @@ Kopieer de naam van de gewenste SKU uit deze lijst. Nu hebt u alle benodigde geg
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Feb17_HO3-->
-
-

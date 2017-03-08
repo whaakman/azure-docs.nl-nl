@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
 
-Dit artikel laat zien hoe u met behulp van [Resource Manager](../azure-resource-manager/resource-group-overview.md) en PowerShell snel een virtuele machine in Azure maakt met Windows Server, evenals de hiervoor benodigde resources. Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten. Vervang voorbeeldparameterwaarden in de opdrachten met namen die logisch zijn voor uw omgeving.
+Dit artikel laat zien hoe u met behulp van [Resource Manager](../azure-resource-manager/resource-group-overview.md) en Azure PowerShell snel een virtuele Azure-machine maakt met Windows Server, evenals de hiervoor benodigde resources.  
+
+Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten. Vervang voorbeeldparameterwaarden in de opdrachten met namen die logisch zijn voor uw omgeving.
 
 ## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
 
 Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
+
+> [!NOTE]
+> U moet Azure Powershell mogelijk opnieuw installeren om gebruik te kunnen maken van de functionaliteit in dit artikel. De mogelijkheden voor Managed Disks zijn beschikbaar in versie 3.5 en hoger.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>Stap 2: Een resourcegroep maken
 
@@ -175,10 +183,5 @@ Nu u alle benodigde onderdelen hebt verzameld, is het tijd om de virtuele machin
 * Als er problemen zijn met de implementatie raadpleegt u allereerst [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) (Veelvoorkomende problemen met de implementatie van Azure oplossen met Azure Resource Manager)
 * Informatie over het beheren van de virtuele machine die u hebt gemaakt, vindt u in [Virtuele machines beheren met Azure Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Profiteer van het gebruik van een sjabloon voor het maken van een virtuele machine met behulp van de informatie in [Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
