@@ -57,7 +57,7 @@ Functions biedt sjablonen waarmee u meteen aan de slag kunt met essentiële scen
 
 Azure Functions ondersteunt *triggers*, waarmee de uitvoering van code kan worden gestart, en *bindingen*, waarmee het coderen voor invoer- en uitvoergegevens kan worden vereenvoudigd. Zie [Naslaginformatie voor ontwikkelaars over triggers en bindingen van Azure Functions](functions-triggers-bindings.md) voor een gedetailleerde beschrijving van de triggers en bindingen van Azure Functions.
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integraties
+## <a name="integrations"></a>Integraties
 Azure Functions integreert met diverse services van Azure en derden. Deze services kunnen uw functie activeren en het uitvoeren starten, of fungeren als invoer en uitvoer voor uw code. De volgende service-integraties worden ondersteund door Azure Functions. 
 
 * Azure DocumentDB
@@ -70,7 +70,7 @@ Azure Functions integreert met diverse services van Azure en derden. Deze servic
 * On-premises (met Service Bus)
 * Twilio (SMS-berichten)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Wat kost Functions?
+## <a name="pricing"></a>Wat kost Functions?
 Azure Functions heeft twee soorten prijsstelling; kies de variant die het beste past bij uw behoeften: 
 
 * **Consumption-abonnement**: wanneer de functie wordt uitgevoerd, biedt Azure alle benodigde rekenbronnen. U hoeft u geen zorgen te maken over het beheer van bronnen en betaalt alleen voor de tijd die nodig is voor het uitvoeren van de code. 

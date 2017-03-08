@@ -34,7 +34,7 @@ U hebt de volgende zaken nodig:
 
 * Een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a> Een Application Insights-resource maken
+## <a name="add"></a> Een Application Insights-resource maken
 Meld u aan bij [Azure Portal][portal] en maak een nieuwe Application Insights-resource. Een [resource][roles] in Azure is een exemplaar van een service. In deze resource wordt de telemetrie van uw app geanalyseerd en aan u gepresenteerd.
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin i
 
 ![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> De SDK installeren in uw toepassing
+## <a name="sdk"></a> De SDK installeren in uw toepassing
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ De instrumentatiesleutel kan ook worden ingesteld in de omgevingsvariabele APPIN
 
 U kunt de SDK uitproberen zonder telemetrie te verzenden. Stel de instrumentatiesleutel hiertoe in op een niet-lege tekenreeks.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Uw project uitvoeren
+## <a name="run"></a> Uw project uitvoeren
 Start uw toepassing en probeer deze uit. Open verschillende pagina’s om telemetrie te genereren.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Uw telemetrie weergeven
+## <a name="monitor"></a> Uw telemetrie weergeven
 Ga naar de [Azure Portal](https://portal.azure.com) en blader naar uw Application Insights-resource.
 
 Zoek naar gegevens op de pagina Overzicht. Aanvankelijk ziet u slechts één of twee punten. Bijvoorbeeld:

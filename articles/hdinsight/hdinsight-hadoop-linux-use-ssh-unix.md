@@ -122,7 +122,7 @@ Als u de toegang per gebruiker wilt kunnen beperken, moet u een HDInsight-cluste
 
 Als u een domain-joined HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [HDInsight gekoppeld aan een domein](#domainjoined) voor meer informatie.
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Verbinding maken met HDInsight
+##<a id="connect"></a> Verbinding maken met HDInsight
 
 Op alle knooppunten in een HDInsight-cluster wordt de SSH-server uitgevoerd, maar u kunt alleen via het openbare internet verbinding maken met de hoofd- of Edge-knooppunten.
 
@@ -209,7 +209,7 @@ Met [HDInsight gekoppeld aan een domein](hdinsight-domain-joined-introduction.md
 
 Na verificatie met de opdracht `kinit` kunt u Hadoop-opdrachten zoals `hdfs dfs -ls /` en `hive` gebruiken.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunneling
+## <a id="tunnel"></a>SSH-tunneling
 
 SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt doorgestuurd naar het cluster en vervolgens opgelost binnen het cluster.
 

@@ -199,7 +199,7 @@ Ga terug naar de pagina **Topology summary** voor de word-count-topologie en kli
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Volgende stappen
+## <a id="next"></a>Volgende stappen
 
 In deze zelfstudie voor Apache Storm hebt u de basisbeginselen van het werken met Storm op HDInsight geleerd. U kunt nu gaan leren hoe u [op Java gebaseerde topologieën met Maven ontwikkelt](hdinsight-storm-develop-java-topology.md).
 

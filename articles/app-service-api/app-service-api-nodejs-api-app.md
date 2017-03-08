@@ -162,7 +162,7 @@ App Service ondersteunt vele manieren voor het implementeren van uw code in een 
    
     ![Swagger-UI](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Een nieuwe API-app maken
+## <a id="createapiapp"></a> Een nieuwe API-app maken
 In deze sectie gebruikt u Azure Portal voor het maken van een nieuwe API-app in Azure. Deze API-app vertegenwoordigt de rekenresources die Azure biedt om uw code uit te voeren. In latere secties implementeert u uw code in de nieuwe API-app.
 
 1. Blader naar de [Azure Portal](https://portal.azure.com/). 

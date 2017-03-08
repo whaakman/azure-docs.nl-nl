@@ -71,7 +71,7 @@ Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunn
 
 Blob Storage kan worden gebruikt voor gestructureerde en ongestructureerde gegevens. De gegevens in Blob Storage-containers worden opgeslagen als sleutel-waardeparen en er is geen maphiërarchie. Maar het slash-teken (/) kan echter worden gebruikt binnen de sleutelnaam deze weergegeven, zodat het lijkt alsof een bestand is opgeslagen in een mapstructuur. De sleutel van de blob kan bijvoorbeeld *input/log1.txt* zijn. Er is niet echt een *invoermap* aanwezig, maar als gevolg van de aanwezigheid van het slash-teken in de naam van de sleutel ziet dit eruit als een bestandspad.
 
-### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Voordelen van Blob Storage
+### <a id="benefits"></a>Voordelen van Blob Storage
 De kosten als gevolg van de verschillende locaties voor de rekenclusters en opslagbronnen worden beperkt door de manier waarop de rekenclusters dicht bij de resources van het opslagaccount in de Azure-regio worden geplaatst. Dankzij het netwerk met hoge snelheid kunnen de rekenknooppunten zich op efficiënte wijze toegang verschaffen tot de gegevens in Azure Blob Storage.
 
 Het opslaan van gegevens in Azure Blob Storage in plaats van HDFS heeft enkele voordelen:

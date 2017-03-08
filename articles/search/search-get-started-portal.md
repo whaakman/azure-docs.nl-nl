@@ -57,7 +57,7 @@ Veel klanten beginnen met de gratis service. Deze versie is beperkt tot drie ind
 > ![Tegels voor indexeerfuncties en gegevensbronnen][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Een index maken en gegevens laden
+## <a name="create-index"></a> Een index maken en gegevens laden
 Zoekopdrachten worden over een *index* herhaald met doorzoekbare gegevens, metagegevens en constructies, die worden gebruikt om bepaald zoekgedrag te optimaliseren.
 
 We gebruiken een ingebouwde voorbeeldgegevensset die met behulp van een indexeerfunctie kan worden verkend via de wizard **Gegevens importeren**, om deze taak portal-gebaseerd te houden. 
@@ -100,7 +100,7 @@ Ga terug naar het servicedashboard, schuif omlaag en dubbelklik op de tegel **In
 
    ![Voortgangsbericht voor de indexeerfunctie][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Een query uitvoeren voor de index
+## <a name="query-index"></a> Een query uitvoeren voor de index
 U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is een queryprogramma dat is ingebouwd in de portal. Er wordt een zoekvak geboden zodat u kunt controleren of de zoekresultaten aan de verwachting voldoen. 
 
 > [!TIP]
