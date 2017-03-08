@@ -17,8 +17,9 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
+ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
+ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Wat is SQL Database? Inleiding tot SQL Database
@@ -43,7 +44,7 @@ Waarvoor u ook kiest - individuele databases of elastische pools - u zit er niet
 Maar hoe kunt u de relatieve prestaties van individuele databases en elastische pools vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? U gebruikt de [ingebouwde tools voor prestatiebewaking](sql-database-performance.md) en [waarschuwingen](sql-database-insights-alerts-portal.md), gecombineerd met de prestatiebeoordelingen op basis van [Database Transaction Units (DTU's) voor individuele databases en DTU's (eDTU's) voor elastische pools](sql-database-what-is-a-dtu.md). Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige prestatiebehoeften of de prestatiebehoeften van uw project. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
 
 ## <a name="keep-your-app-and-business-running"></a>Continuïteit van uw app en uw bedrijf
-De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Elke SQL-database is voorzien van ingebouwde beveiliging, fouttolerantie en [gegevensbeveiliging](sql-database-automated-backups.md) die u anders zelf zou moeten kopen of ontwerpen, ontwikkelen en beheren. Elke servicelaag van SQL Database bevat een uitgebreide set functies en opties voor bedrijfscontinuïteit, waarmee u ervoor kunt zorgen dat u aan de slag kunt gaan en blijven. Met behulp van [herstelpunten](sql-database-recovery-using-backups.md) kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. U kunt [back-upretentie voor een lange termijn](sql-database-long-term-retention.md) configureren voor het opslaan van back-ups in een beveiligde kluis gedurende maximaal tien jaar. Als er een storing optreedt in het datacenter dat uw databases host, kunt u bovendien databases herstellen met [geografisch redundante back-upkopieën] ((sql-databaseherstel-met-back-ups.md). Indien nodig kunt u ook [geografisch redundante leesbare replica's](sql-database-geo-replication-overview.md) configureren in een of meer regio's voor snelle failover in het geval van een storing in een datacenter. U kunt deze replica's ook gebruiken voor snellere leesprestaties in verschillende geografische regio's of voor [toepassingsupgrades zonder uitvaltijd](sql-database-manage-application-rolling-upgrade.md). 
+De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Elke SQL-database is voorzien van ingebouwde beveiliging, fouttolerantie en [gegevensbeveiliging](sql-database-automated-backups.md) die u anders zelf zou moeten kopen of ontwerpen, ontwikkelen en beheren. Elke servicelaag van SQL Database bevat een uitgebreide set functies en opties voor bedrijfscontinuïteit, waarmee u ervoor kunt zorgen dat u aan de slag kunt gaan en blijven. Met behulp van [herstelpunten](sql-database-recovery-using-backups.md) kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. U kunt [back-upretentie voor een lange termijn](sql-database-long-term-retention.md) configureren voor het opslaan van back-ups in een beveiligde kluis gedurende maximaal tien jaar. Als er een storing optreedt in het datacenter dat uw databases host, kunt u bovendien databases terugzetten met [geografisch redundante back-upkopieën](sql-database-recovery-using-backups.md). Indien nodig kunt u ook [geografisch redundante leesbare replica's](sql-database-geo-replication-overview.md) configureren in een of meer regio's voor snelle failover in het geval van een storing in een datacenter. U kunt deze replica's ook gebruiken voor snellere leesprestaties in verschillende geografische regio's of voor [toepassingsupgrades zonder uitvaltijd](sql-database-manage-application-rolling-upgrade.md). 
 
 ![Geo-replicatie in SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,9 +60,4 @@ Nu u de inleiding tot SQL Database hebt gelezen en weet wat SQL Database is, ben
 * Lees meer over [elastische groepen](sql-database-elastic-pool.md).
 * Ga aan de slag met het [maken van uw eerste database](sql-database-get-started.md).
 * Bouw uw eerste app in C#, Java, Node.js, PHP, Python of Ruby: [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

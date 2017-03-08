@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,8 +30,8 @@ Als u meer informatie over Azure Storage wilt voordat u met de code aan de slag 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, moet aan de volgende vereisten zijn voldaan:
 
-1. Voor het samenstellen en maken van de toepassing moet er een versie van [Visual Studio](https://www.visualstudio.com/) op uw computer zijn geïnstalleerd.
-2. Installeer de nieuwste versie van [Azure SDK voor .NET](https://azure.microsoft.com/downloads/). De SDK bevat de Azure QuickStart-voorbeeldprojecten, de Azure-opslagemulator en de [Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+1. Voor het samenstellen en maken van de toepassing heeft u [Visual Studio 2015](https://www.visualstudio.com/) of hoger nodig op uw computer.
+2. Installeer de nieuwste versie van de [Azure-SDK voor .NET](https://azure.microsoft.com/downloads/). De SDK bevat de Azure QuickStart-voorbeeldprojecten, de Azure-opslagemulator en de [Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Zorg ervoor dat [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) op uw computer is geïnstalleerd. Dit is vereist voor de Azure QuickStart-voorbeeldprojecten die in deze zelfstudie worden gebruikt.
 
     Als u niet zeker weet welke versie van .NET Framework er op uw computer is geïnstalleerd, raadpleegt u [Procedure: Vaststellen welke .NET Framework-versies er zijn geïnstalleerd](https://msdn.microsoft.com/vstudio/hh925568.aspx). Of druk op de **Start**-knop of de Windows-toets en typ **Configuratiescherm**. Klik vervolgens op **Programma's** > **Programma's en onderdelen** en controleer of .NET Framework 4.5 tussen de geïnstalleerde programma's staat.
@@ -45,9 +46,12 @@ Als u een account hebt, kunt u een eenvoudige Azure Storage-toepassing maken met
 1. Start Visual Studio.
 2. Klik in het menu **Bestand** op **Nieuw project**.
 3. Klik in het dialoogvenster **Nieuw project** op **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
-    a. Kies een van de volgende sjablonen: **Azure Storage: blobs**, **Azure Storage: bestanden**, **Azure Storage: wachtrijen** of **Azure Storage: tabellen**.
-    b. Zorg ervoor dat **.NET Framework 4.5** als doelframework is geselecteerd.
-    c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
+   
+   a. Kies een van de volgende sjablonen: **Azure Storage: blobs**, **Azure Storage: bestanden**, **Azure Storage: wachtrijen** of **Azure Storage: tabellen**.
+   
+   b. Zorg ervoor dat **.NET Framework 4.5** als doelframework is geselecteerd.
+   
+   c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
 
     ![Azure Quick Starts][Image1]
 
@@ -55,11 +59,11 @@ Mogelijk wilt u de broncode controleren voordat u de toepassing uitvoert. Als u 
 
 Voer daarna de voorbeeldtoepassing uit:
 
-1. Selecteer in Visual Studio **Solution Explorer** in het menu **Beeld**. Open het bestand App.config en uitcommentarieer de verbindingsreeks voor de Azure-opslagemulator:
+1. Selecteer in Visual Studio **Solution Explorer** in het menu **Beeld**. Open het bestand **App.config** en uitcommentarieer de verbindingsreeks voor de Azure-opslagemulator:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Verwijder de opmerkingen in de verbindingsreeks voor de Azure Storage-service en geef de naam en toegangssleutel van het opslagaccount op in het bestand App.config:
+2. Verwijder de commentaarmarkering in de verbindingsreeks voor de Azure Storage-service in het bestand App.config en vervang `[AccountName]` en `[AccountKey]` door uw accountreferenties:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Laten we eerst een eenvoudige Azure Storage-toepassing maken met behulp van een 
 1. Start Visual Studio.
 2. Klik in het menu **Bestand** op **Nieuw project**.
 3. Klik in het dialoogvenster **Nieuw project** op **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
+    
     a. Kies een van de volgende sjablonen: **Azure Storage: blobs**, **Azure Storage: bestanden**, **Azure Storage: wachtrijen** of **Azure Storage: tabellen**.
+    
     b. Zorg ervoor dat **.NET Framework 4.5** als doelframework is geselecteerd.
+    
     c. Geef een naam op voor uw project en maak de nieuwe Visual Studio-oplossing, zoals afgebeeld:
 
     ![Azure Quick Starts][Image1]
@@ -109,9 +116,4 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 * [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

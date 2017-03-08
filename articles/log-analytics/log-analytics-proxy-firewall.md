@@ -17,6 +17,7 @@ ms.author: banders;magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
 ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -185,9 +186,4 @@ U kunt ook op OMS Management Packs controleren door de volgende Windows PowerShe
 ## <a name="next-steps"></a>Volgende stappen
 * [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 * Vertrouwd raken met [zoekopdrachten naar logboeken](log-analytics-log-searches.md) om gedetailleerde informatie te bekijken die is verzameld door oplossingen.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

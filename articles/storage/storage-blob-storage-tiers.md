@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: opslaglagen voor 'hot' blobs en 'cool' blobs
 ## <a name="overview"></a>Overzicht
-Azure Storage biedt nu twee opslaglagen voor Blob-objectopslag, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en een lange levensduur hebben. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten aanvaardbaar vanwege de veel lagere opslagkosten.
+Azure Storage biedt twee opslaglagen voor Blob-objectopslag, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en een lange levensduur hebben. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten aanvaardbaar vanwege de veel lagere opslagkosten.
 
 Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
 
@@ -341,10 +342,5 @@ Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voo
 [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 
 [Uw opslagaccounts bekijken en verkennen](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

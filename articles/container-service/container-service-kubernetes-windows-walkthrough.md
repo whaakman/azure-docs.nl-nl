@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: dlepow
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 010a9a4a9ad0f6f7584b1c9a54e665557078d25b
+ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
+ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,9 +56,13 @@ Alle virtuele machines bevinden zich in hetzelfde virtuele privénetwerk en hebb
 
 ## <a name="create-the-cluster"></a>Het cluster maken
 
-U kunt Azure Portal gebruiken om [een Kubernetes-cluster te maken](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) met Windows-agentknooppunten. 
+U kunt Azure Portal gebruiken om [een Kubernetes-cluster te maken](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) met Windows-agentknooppunten. Let op de volgende instellingen bij het maken van het cluster:
 
-In het deelvenster **Framework-configuratie** selecteert u in **Orchestrator-configuratie** de optie **Kubernetes - Windows**. 
+* Selecteer in de blade **Basics** in **Orchestrator** de optie **Kubernetes**. 
+* Voer in de blade **Master configuration** de gebruikersreferenties en service-principalreferenties voor de Linux-hoofdknooppunten in.
+* Selecteer in de blade **Agent configuration** in **Operating system** de optie **Windows (preview)**. Voer beheerdersreferenties voor de Windows-agentknooppunten in.
+
+Zie [Een Azure Container Service-cluster implementeren](container-service-deployment.md) voor details.
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
@@ -67,7 +72,7 @@ Gebruik het opdrachtregelhulpprogramma `kubectl` om via uw lokale computer verbi
 
 Wanneer u het cluster hebt gemaakt en u verbinding hebt gemaakt met `kubectl`, kunt u een eenvoudige Windows-web-app openen en deze beschikbaar maken op internet. In dit voorbeeld geeft u de containerresources op met een YAML-bestand en maakt u het met `kubctl apply`.
 
-1. Typ `kubectl get nodes` om een lijst met alle knooppunten te bekijken.  Typ het volgende als u alle gegevens over de knooppunten wilt bekijken:  
+1. Typ `kubectl get nodes` om een lijst met alle knooppunten te bekijken. Typ het volgende als u alle gegevens over de knooppunten wilt bekijken:  
 
   ```
   kubectl get nodes -o yaml
@@ -198,8 +203,3 @@ Hier volgen aanbevolen koppelingen om meer te weten te komen over Kubernetes:
 * [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html): hier leest u hoe u toepassingen in containers kunt implementeren, schalen en bijwerken, en hoe u fouten kunt opsporen.
 * [Gebruikershandleiding voor Kubernetes](http://kubernetes.io/docs/user-guide/): bevat informatie over het uitvoeren van programma's in een bestaand Kubernetes-cluster.
 * [Voorbeelden van Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples): biedt een aantal voorbeelden voor het uitvoeren van echte toepassingen met Kubernetes.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

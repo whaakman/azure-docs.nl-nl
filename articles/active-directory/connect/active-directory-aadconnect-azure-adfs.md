@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>AD FS-implementatie in Azure
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
 De implementatie van AD FS in Azure heeft verschillende voordelen, waaronder de volgende:
 
@@ -209,7 +210,7 @@ Op die manier komt alle communicatie met betrekking tot fs.contoso.com terecht b
 ### <a name="7----configuring-the-web-application-proxy-server"></a>7.    De webtoepassingsproxyserver configureren
 **7.1.    De webtoepassingsproxyservers configureren om de AD FS-servers te bereiken**
 
-U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken. Daarom maakt u in de map %systemroot%\system32\drivers\etc\hosts een record voor de ILB. De DN-naam (Distinguished Name) moet de naam van de federatieservice zijn, bijvoorbeeld fs.contoso.com. De IP-vermelding moet het IP-adres van de ILB zijn (in het voorbeeld is dit 10.3.0.8).
+U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken. Daarom maakt u in de map %systemroot%\system32\drivers\etc\hosts een record voor de ILB. De DN-naam (Distinguished Name) moet de naam van de federatieservice zijn, bijvoorbeeld fs.contoso.com. De IP-vermelding moet het IP-adres van de ILB zijn (in het voorbeeld is dit&10;.3.0.8).
 
 **7.2.    De webtoepassingsproxyrol installeren**
 
@@ -353,10 +354,5 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
 * [De AD FS configureren en beheren met Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

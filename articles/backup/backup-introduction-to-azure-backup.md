@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Backup? | Microsoft Docs
-description: Met Azure Backup en Recovery Services kunt u back-ups van gegevens en toepassingen maken en deze herstellen vanaf Windows-servers, Windows-computers, System Center DPM-servers en virtuele Azure-machines.
+description: Met Azure Backup en Recovery Services kunt u back-ups van gegevens en toepassingen maken en deze herstellen vanaf Windows-servers en -werkstations, System Center DPM-servers en -workloads, en virtuele Azure-machines.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 2/23/2017
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
-ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
+ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
+ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -45,7 +46,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 **Toepassingsconsistente back-up**: of u nu back-ups maakt van een bestandsserver, een virtuele machine of een SQL-database, u moet weten dat een herstelpunt over alle vereiste gegevens beschikt om de back-up te herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
 
-**Langdurige retentie**: in plaats van het overzetten van back-ups van schijf naar tape, om deze vervolgens voor langdurige opslag te verplaatsen naar een externe locatie, kunt u Azure gebruiken voor zowel kortdurende als langdurige opslag. Azure heeft geen beperkingen voor hoelang u gegevens mag bewaren in een Backup- of Recovery Services-kluis. U kunt gegevens zo lang als u wilt in een kluis bewaren. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. Zie het gedeelte [Back-ups en retentie](backup-introduction-to-azure-backup.md#backup-and-retention) in dit artikel voor meer informatie over hoe deze limiet invloed kan hebben op uw back-upbehoeften.  
+**Langdurige opslag**: in plaats van het overzetten van back-ups van schijf naar tape en deze te verplaatsen naar een externe locatie, kunt u Azure gebruiken voor zowel kortdurende als langdurige opslag. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Backup- of Recovery Services-kluis. U kunt gegevens zo lang als u wilt in een kluis bewaren. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. Zie het gedeelte [Back-ups en retentie](backup-introduction-to-azure-backup.md#backup-and-retention) in dit artikel voor meer informatie over hoe deze limiet invloed kan hebben op uw back-upbehoeften.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Welke Azure Backup-onderdelen moet ik gebruiken?
 Als u niet zeker weet welke Azure Backup-onderdelen geschikt zijn voor uw behoeften, raadpleegt u de volgende tabel voor informatie over wat u met elk onderdeel kunt beveiligen. Azure Portal bevat een ingebouwde wizard, om u te helpen bij het kiezen van de onderdelen die u kunt downloaden en implementeren. De wizard, die deel uitmaakt van de Recovery Services-kluis, leidt u door de stappen voor het selecteren van een back-uplocatie en het kiezen van de gegevens of de toepassing die u wilt beveiligen.
@@ -112,10 +113,10 @@ VM's voor Premium Storage kunnen worden hersteld naar de Premium Storage of de n
 Met Azure Backup beveiligt u virtuele machines op beheerde schijven. Dankzij beheerde schijven hoeft u opslagaccounts van virtuele machines niet te beheren en wordt de VM-inrichting sterk vereenvoudigd.
 
 ### <a name="back-up-managed-disk-vms"></a>Back-up maken van virtuele machines op beheerde schijven
-Het maken van een back-up van virtuele machines op beheerde schijven en in Resource Manager gebeurt op dezelfde manier. U kunt de back-up rechtstreeks vanuit de VM-weergave of vanuit de Recovery Services-kluisweergave maken. Back-ups van virtuele machines op beheerde schijven kunnen worden gemaakt via RestorePoint-collecties die zijn gebouwd boven op beheerde schijven. Azure Backup biedt momenteel geen ondersteuning voor back-ups van virtuele machines op beheerde schijven die zijn versleuteld met Azure Disk Encryption (ADE).
+Het maken van een back-up van virtuele machines op beheerde schijven en in Resource Manager gebeurt op dezelfde manier. In de Azure Portal kunt u de back-uptaak rechtstreeks configureren in de weergave Virtuele machine of in de weergave Recovery Services-kluis. U kunt back-ups maken van virtuele machines op beheerde schijven via RestorePoint-verzamelingen die zijn gebouwd boven op beheerde schijven. Azure Backup biedt momenteel geen ondersteuning voor het maken van back-ups van virtuele machines op beheerde schijven die zijn versleuteld met Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Virtuele machines op beheerde schijven terugzetten
-Met Azure Backup kunt u een volledige virtuele machine terugzetten met beheerde schijven, of beheerde schijven terugzetten naar een Resource Manager-opslagaccount. De schijven die worden gemaakt tijdens het herstelproces worden beheerd door Azure, maar het opslagaccount dat als onderdeel van dit proces wordt gemaakt, wordt net als andere Resource Manager-opslagaccounts beheerd door de klant.
+Met Azure Backup kunt u een volledige virtuele machine terugzetten met beheerde schijven, of beheerde schijven terugzetten naar een Resource Manager-opslagaccount. Met Azure worden de beheerde schijven beheert tijdens het herstelproces. U (de klant) beheert het opslagaccount dat is gemaakt als onderdeel van het herstelproces.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Wat zijn de functies van elk Backup-onderdeel?
 De volgende secties bevatten tabellen met een overzicht van de beschikbaarheid van of de ondersteuning voor verschillende functies in elk Azure Backup-onderdeel. Zie de informatie na elke tabel voor aanvullende ondersteuning of details.
@@ -137,8 +138,6 @@ De Backup-kluis is de gewenste doelopslag voor alle onderdelen. System Center DP
 #### <a name="compression"></a>Compressie
 Back-ups worden gecomprimeerd zodat er minder opslagruimte nodig is. Het enige onderdeel dat u geen compressie gebruikt, is de VM-extensie. De VM-extensie kopieert alle back-upgegevens van uw opslagaccount naar de back-upkluis in dezelfde regio. Er wordt geen compressie toegepast bij het overdragen van de gegevens. Omdat de gegevens zonder compressie worden overgedragen, wordt er iets meer opslag gebruikt. Doordat de gegevens echter niet worden gecomprimeerd, kunnen ze sneller worden hersteld.
 
-#### <a name="incremental-backup"></a>Incrementele back-up
-Elk onderdeel biedt ondersteuning voor incrementele back-ups, ongeacht de doelopslag (schijf, tape, back-upkluis). Een incrementele back-up zorgt ervoor dat back-ups opslag- en tijdsefficiënt zijn door alleen de wijzigingen sinds de laatste back-up over te dragen.
 
 #### <a name="disk-deduplication"></a>Schijfontdubbeling
 U kunt profiteren van ontdubbeling wanneer u System Center DPM of Azure Backup Server implementeert [op een virtuele Hyper-V-machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server voert gegevensontdubbeling uit (op hostniveau) op virtuele harde schijven (VHD's) die als back-upopslag zijn gekoppeld aan de virtuele machine.
@@ -147,6 +146,21 @@ U kunt profiteren van ontdubbeling wanneer u System Center DPM of Azure Backup S
 > Ontdubbeling is niet beschikbaar in Azure voor Backup-onderdelen. Wanneer de System Center DPM en de Bakckup-server zijn geïmplementeerd in Azure, kunnen de opslagschijven die aan de virtuele machine zijn gekoppeld, niet worden ontdubbeld.
 >
 >
+
+### <a name="incremental-backup-explained"></a>Incrementele back-up uitgelegd
+Elk Azure Backup-onderdeel biedt ondersteuning voor incrementele back-ups, ongeacht de doelopslag (schijf, tape, back-upkluis). Een incrementele back-up zorgt ervoor dat back-ups opslag- en tijdsefficiënt zijn door alleen de wijzigingen sinds de laatste back-up over te dragen.
+
+#### <a name="comparing-full-differential-and-incremental-backup"></a>Vergelijking tussen Volledige, Differentiële en Incrementele back-ups
+
+Opslagverbruik, Beoogde hersteltijd (RTO) en netwerkverbruik varieert voor elke back-upmethode. Als u de TCO (totale eigendomskosten) laag wilt houden, moet u de voor u geschikte back-upoplossing kiezen. In de volgende afbeelding worden de Volgende back-up, Differentiële back-up en Incrementele back-up vergeleken. In de afbeelding bestaat gegevensbron A uit 10 opslagblokken A1-A10, waarvan maandelijks een back-up wordt gemaakt. Blokken A2, A3, A4 en A9 zijn in de eerste maand gewijzigd, en blok A5 is de maand erna gewijzigd.
+
+![afbeelding met vergelijkingen van back-upmethoden](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
+
+Bij **Volledige back-up** bevat elke back-up de hele gegevensbron. Bij Volledige back-up wordt een grote hoeveelheid netwerkbandbreedte en -opslag verbruikt telkens wanneer een back-upexemplaar wordt overgedragen.
+
+Bij **Differentiële back-up** worden alleen de blokken opgeslagen die zijn gewijzigd sinds de initiële volledige back-up. Dit resulteert in een lager netwerk- en opslagverbruik. Bij differentiële back-ups worden geen redundante exemplaren met ongewijzigde gegevens bewaard. Omdat de gegevensblokken die ongewijzigd blijven tussen opeenvolgende back-ups, worden overgedragen en opgeslagen, zijn differentiële back-ups inefficiënt. In de tweede maand worden er back-ups gemaakt van A2, A3, A4 en A9. In de derde maand wordt er opnieuw een back-up gemaakt van dezelfde blokken en van het gewijzigde blok A5. Van de gewijzigde blokken worden back-ups gemaakt totdat de volgende volledige back-up wordt uitgevoerd.
+
+Bij **Incrementele back-up** is sprake van zeer efficiëntie opslag en netwerk door alleen gegevensblokken op te slaan die sinds de vorige back-up zijn gewijzigd. Met incrementele back-up hoeft u geen periodieke volledige back-ups te maken. In het voorbeeld worden, nadat de volledige back-up voor de eerste maand is gemaakt, de blokken A2, A3, A4 en A9 gemarkeerd als gewijzigd en overgedragen naar de tweede maand. In het derde maand wordt alleen gewijzigd blok A5 gemarkeerd als gemarkeerd en overgedragen. Door minder gegevens te verplaatsen worden opslag- en netwerkresources bespaard, waardoor de totale eigendomskosten worden verlaagd.   
 
 ### <a name="security"></a>Beveiliging
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
@@ -179,14 +193,14 @@ Als u back-ups van virtuele machines van Azure wilt maken, moet u de versleuteli
 
 De VM-extensie (op de IaaS-VM) leest de gegevens rechtstreeks vanuit het Azure Storage-account via het opslagnetwerk. Dit verkeer hoeft daarom niet te worden gecomprimeerd.
 
-Als u een back-up maakt van uw gegevens naar een System Center DPM of Azure Backup Server, kunt u gegevens comprimeren die van de primaire server naar de back-upserver worden overgebracht. Wanneer gegevens worden gecomprimeerd voordat er een back-up van wordt gemaakt op DPM of Azure Backup Server, bespaart u bandbreedte.
+Als u een back-up maakt van gegevens naar een System Center DPM of Azure Backup Server, kunt u gegevens comprimeren die van de primaire server naar de back-upserver worden overgebracht. Wanneer gegevens worden gecomprimeerd voordat er een back-up van wordt gemaakt op DPM of Azure Backup Server, bespaart u bandbreedte.
 
 #### <a name="network-throttling"></a>Netwerkbeperking
 De Azure Backup-agent biedt netwerkbeperking, zodat u kunt bepalen hoe de netwerkbandbreedte tijdens de gegevensoverdracht wordt gebruikt. Beperking kan handig zijn wanneer u onder werktijd een back-up van gegeven moet maken, maar niet wilt dat het back-upproces het andere internetverkeer verstoort. De beperking voor de gegevensoverdracht is van toepassing op back-up- en herstelbewerkingen.
 
 ## <a name="backup-and-retention"></a>Back-up en retentie
 
-Azure Backup heeft een limiet van 9999 herstelpunten, ook wel back-ups of momentopnamen genoemd, *per beveiligd exemplaar*. Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Raadpleeg [Wat is een beveiligd exemplaar?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) voor meer informatie. Een exemplaar is beveiligd zodra er een back-up van de gegevens is opgeslagen. De back-up van de gegevens biedt beveiliging. Als de brongegevens verloren gaan of beschadigd raken, kunt u met de back-up de brongegevens herstellen. In de volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel weergegeven. De configuratie van uw back-upbeleid bepaalt hoe snel u de herstelpunten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
+Azure Backup heeft een limiet van 9999 herstelpunten, ook wel back-ups of momentopnamen genoemd, *per beveiligd exemplaar*. Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Raadpleeg [Wat is een beveiligd exemplaar](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) voor meer informatie. Een exemplaar is beveiligd zodra er een back-up van de gegevens is opgeslagen. De back-up van de gegevens biedt beveiliging. Als de brongegevens verloren gaan of beschadigd raken, kunt u met de back-up de brongegevens herstellen. In de volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel weergegeven. De configuratie van uw back-upbeleid bepaalt hoe snel u de herstelpunten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
 
 |  | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
@@ -203,8 +217,8 @@ Een beveiligd exemplaar is een algemene verwijzing naar een Windows-computer, ee
 Enkele voorbeelden van veelgebruikte beveiligde exemplaren zijn virtuele machines, toepassingsservers, databases en pc's met het Windows-besturingssysteem. Bijvoorbeeld:
 
 * Een virtuele machine met de hypervisorinfrastructuur Hyper-V of Azure IaaS. Het gastbesturingssysteem voor de virtuele machine kan Windows Server of Linux zijn.
-* Een toepassingsserver: de toepassingsserver kan een fysieke of virtuele machine zijn met Windows Server en werkbelastingen met gegevens waarvan een back-up moet worden gemaakt. Veelvoorkomende werkbelastingen zijn: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics en de bestandsserverfunctie van Windows Server. Als u een back-up wilt maken van deze werkbelastingen, hebt u System Center Data Protection Manager (DPM) of Azure Backup Server nodig.
-* Een pc of laptop met het Windows-besturingssysteem.
+* Een toepassingsserver: de toepassingsserver kan een fysieke of virtuele machine zijn met Windows Server en werkbelastingen met gegevens waarvan een back-up moet worden gemaakt. Veelvoorkomende werkbelastingen zijn: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server en de bestandsserverfunctie van Windows Server. Als u een back-up wilt maken van deze werkbelastingen, hebt u System Center Data Protection Manager (DPM) of Azure Backup Server nodig.
+* Een pc, werkstation of laptop met het Windows-besturingssysteem.
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Wat is het kluisreferentiebestand?
@@ -213,7 +227,7 @@ Het kluisreferentiebestand is een certificaat dat de portal voor elke Backup Vau
 U kunt de kluisreferentie alleen gebruiken om de servers of computers te registreren. Wees echter voorzichtig met de kluisreferenties. Als u deze kwijtraakt of als ze door anderen worden onderschept, kunnen de kluisreferenties worden gebruikt om andere machines bij dezelfde kluis te registreren. Aangezien de back-upgegevens worden versleuteld met een wachtwoordzin waartoe alleen u toegang hebt, kan er geen inbreuk op de beveiliging van de bestaande back-upgegevens worden gemaakt. De kluisreferenties verlopen na 48 uur. Hoewel u de kluisreferenties van de Backup Vault zo vaak kunt downloaden als u wilt kunt u alleen de meest recente referenties gebruiken voor registratie.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Wat is het verschil tussen Azure Backup en Azure Site Recovery?
-Azure Backup en Azure Site Recovery lijken in die zin op elkaar dat u met beide services back-ups kunt maken en gegevens kunt herstellen. In de kern zijn het echter twee verschillende services.
+Azure Backup en Azure Site Recovery lijken in die zin op elkaar dat u met beide services back-ups kunt maken en gegevens kunt herstellen. Deze services hebben echter andere waardevoorstellen.
 
 Azure Backup beschermt gegevens zowel on-premises als in de cloud. Azure Site Recovery coördineert de replicatie, failover en failback van virtuele machines en fysieke servers. Beide services zijn belangrijk omdat uw noodhersteloplossing uw gegevens veilig en herstelbaar (Backup) *en* uw workloads in het geval van een storing beschikbaar moet houden (Site Recovery).
 
@@ -240,9 +254,4 @@ Lees een van de volgende artikelen voor meer informatie over het beschermen van 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

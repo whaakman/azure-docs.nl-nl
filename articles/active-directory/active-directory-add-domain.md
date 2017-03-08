@@ -3,7 +3,7 @@ title: Uw aangepaste domeinnaam toevoegen aan Azure Active Directory | Microsoft
 description: "Hier leest u hoe u de domeinnamen van uw bedrijf kunt toevoegen aan Azure Active Directory en hoe u de domeinnaam kunt verifiëren."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend is bij uw gebruikers, zoals ‘alice@contoso.com.’ Het proces is eenvoudig:
+U hebt een of meer domeinnamen die door uw organisatie worden gebruikt voor zakelijke activiteiten en uw gebruikers melden zich aan bij uw bedrijfsnetwerk via uw bedrijfsdomeinnaam. Nu u Azure Active Directory (Azure AD) gebruikt, kunt u uw zakelijke domeinnaam ook toevoegen aan Azure AD. U kunt dan gebruikersnamen toewijzen in de directory die bekend zijn bij uw gebruikers, zoals 'alice@contoso.com'. Het proces is eenvoudig:
 
 1. Voeg de aangepaste domeinnaam toe aan uw directory.
 2. Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
@@ -85,10 +86,5 @@ Als uw organisatie meerdere aangepaste domeinnamen gebruikt, zoals contoso.com e
 * [Meer informatie over concepten met betrekking tot domeinbeheer in Azure AD](active-directory-add-domain-concepts.md)
 * [De huisstijl van uw bedrijf weergeven wanneer uw gebruikers zich aanmelden](active-directory-add-company-branding.md)
 * [PowerShell gebruiken voor het beheer van domeinnamen in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

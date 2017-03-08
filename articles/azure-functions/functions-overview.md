@@ -14,16 +14,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
-ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-overview"></a>Overzicht van Azure Functions
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Met Functions wordt ontwikkelen nog efficiënter en kunt u de door u gewenste programmeertaal gebruiken, zoals C#, F#, Node.js, Python of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen.
+# <a name="an-introduction-to-azure-functions"></a>Een inleiding tot Azure Functions  
+Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Met Functions wordt ontwikkelen nog efficiënter en kunt u de door u gewenste programmeertaal gebruiken, zoals C#, F#, Node.js, Python of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen. Met Azure Functions kunt u toepassingen zonder server ontwikkelen op Microsoft Azure.
 
 Dit onderwerp bevat een globaal overzicht van Azure Functions. Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerste Azure-functie maken](functions-create-first-azure-function.md). Als u behoefte hebt aan meer technische informatie over Functions, raadpleegt u de [naslaginformatie voor ontwikkelaars](functions-reference.md).
 
@@ -39,7 +41,7 @@ Hier volgen een aantal essentiële functies van Azure Functions:
 * **Open-source**: de runtime van Functions is open-source en [beschikbaar op GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Wat kan ik doen met Functions?
-Azure Functions is de ideale oplossing voor het verwerken van gegevens, integreren van systemen, werken met het internet der dingen (IoT) en het bouwen van eenvoudige API's en microservices. Overweeg het gebruik van Functions voor taken zoals het verwerken van afbeeldingen of bestellingen, onderhouden van bestanden, uitvoeren van langlopende taken in een achtergrond-thread of voor andere taken die u wilt uitvoeren volgens een schema. 
+Azure Functions is de ideale oplossing voor het verwerken van gegevens, integreren van systemen, werken met het internet der dingen (IoT) en het bouwen van eenvoudige API's en microservices. Overweeg om Functions te gebruiken voor taken zoals het verwerken van afbeeldingen of bestellingen, onderhouden van bestanden, of voor andere taken die u wilt uitvoeren volgens een planning. 
 
 Functions biedt sjablonen waarmee u meteen aan de slag kunt met essentiële scenario's, zoals:
 
@@ -55,7 +57,7 @@ Functions biedt sjablonen waarmee u meteen aan de slag kunt met essentiële scen
 
 Azure Functions ondersteunt *triggers*, waarmee de uitvoering van code kan worden gestart, en *bindingen*, waarmee het coderen voor invoer- en uitvoergegevens kan worden vereenvoudigd. Zie [Naslaginformatie voor ontwikkelaars over triggers en bindingen van Azure Functions](functions-triggers-bindings.md) voor een gedetailleerde beschrijving van de triggers en bindingen van Azure Functions.
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integraties
+## <a name="integrations"></a>Integraties
 Azure Functions integreert met diverse services van Azure en derden. Deze services kunnen uw functie activeren en het uitvoeren starten, of fungeren als invoer en uitvoer voor uw code. De volgende service-integraties worden ondersteund door Azure Functions. 
 
 * Azure DocumentDB
@@ -66,8 +68,9 @@ Azure Functions integreert met diverse services van Azure en derden. Deze servic
 * Azure Storage (blob, wachtrijen en tabellen) 
 * GitHub (webhooks)
 * On-premises (met Service Bus)
+* Twilio (SMS-berichten)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Wat kost Functions?
+## <a name="pricing"></a>Wat kost Functions?
 Azure Functions heeft twee soorten prijsstelling; kies de variant die het beste past bij uw behoeften: 
 
 * **Consumption-abonnement**: wanneer de functie wordt uitgevoerd, biedt Azure alle benodigde rekenbronnen. U hoeft u geen zorgen te maken over het beheer van bronnen en betaalt alleen voor de tijd die nodig is voor het uitvoeren van de code. 
@@ -86,10 +89,5 @@ Volledige prijsinformatie is beschikbaar op de pagina [Prijzen voor Functions](h
   Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
 * [Meer informatie over Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions maakt gebruik van het Azure App Service-platform voor kernfunctionaliteit zoals implementaties, omgevingsvariabelen en diagnostische procedures. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

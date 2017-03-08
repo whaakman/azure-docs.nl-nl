@@ -4,7 +4,7 @@ description: Hier ontdekt u door een voorbeeld-app te implementeren hoe eenvoudi
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 2c750583212d7ed13e3bb5f4d0770d52aa9610b2
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: d8f3c95852361fd92eada1e6a50d735cc305279d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ U gaat het volgende doen:
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
 - [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- [Azure CLI 2.0](app-service-web-get-started.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 ## <a name="prerequisites"></a>Vereisten
 * [Git](http://www.git-scm.com/downloads).
@@ -136,10 +137,5 @@ Of doe meer met uw eerste web-app. Bijvoorbeeld:
 
 * Probeer [andere manieren om uw code in Azure te implementeren](web-sites-deploy.md). Als u bijvoorbeeld wilt implementeren vanuit een van uw GitHub-opslagplaatsen, selecteert u in **Implementatieopties** **GitHub** in plaats van **Lokale Git-opslagplaats**.
 * Breng uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiewaarschuwingen in. Dit alles met slechts enkele klikken. Zie [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

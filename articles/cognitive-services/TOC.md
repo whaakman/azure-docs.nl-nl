@@ -2,6 +2,7 @@
 # Overzicht
 ## [Wat zijn cognitieve services?](https://azure.microsoft.com/services/cognitive-services/)
 # Aan de slag
+## [Een account maken](cognitive-services-apis-create-account.md)
 ## [Snel aan de slag met Tekstanalyse](cognitive-services-text-analytics-quick-start.md)
 ## [Snel aan de slag met Recommendations](cognitive-services-recommendations-quick-start.md)
 
@@ -52,8 +53,3 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

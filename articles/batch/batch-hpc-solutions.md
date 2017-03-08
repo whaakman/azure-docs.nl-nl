@@ -1,5 +1,5 @@
 ---
-title: Batch- en HPC-oplossingen in de cloud | Microsoft Docs
+title: Batch- en HPC-oplossingen in de cloud - Azure | Microsoft Docs
 description: Meer informatie over batchverwerkings- en High Performance Computing-scenario&quot;s (HPC en Big Compute) en oplossingsopties in Azure
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Batch- en HPC-oplossingen in de Azure-cloud
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch- en HPC-oplossingen voor grootschalige rekenworkloads
+
 Azure biedt efficiënte, schaalbare cloudoplossingen voor batchverwerking en High Performance Computing (HPC), ook wel *Big Compute* genoemd. Ontdek hier meer over Big Compute-workloads en de Azure-services om ze te ondersteunen of ga direct naar de [oplossingscenario's](#scenarios) verderop in dit artikel. Dit artikel is hoofdzakelijk bestemd voor technische besluitvormers, IT-managers en onafhankelijke softwareleveranciers, maar ook andere IT-professionals en ontwikkelaars kunnen het gebruiken om vertrouwd te raken met deze oplossingen.
 
 Organisaties kampen met grootschalige rekenproblemen: technische ontwerpen en analyses, opbouwen van afbeeldingen, complexe modellering, Monte Carlo-simulaties, berekeningen van financiële risico's enz. Azure helpt organisaties deze problemen op te lossen met de benodigde resources, schaal en planning. Met Azure kunnen organisaties:
@@ -134,9 +137,4 @@ Uw Big Compute-oplossing heeft mogelijk andere Azure-services nodig om verbindin
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

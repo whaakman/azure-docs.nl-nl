@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
-ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,7 +61,7 @@ Dit is wat u on-premises nodig hebt.
 | --- | --- |
 | **VMM** |U moet ten minste één VMM-server hebben die als fysieke of virtuele zelfstandige server of als virtueel cluster is geïmplementeerd. <br/><br/>Op de VMM-server moet System Center 2012 R2 met de meest recente cumulatieve updates worden uitgevoerd.<br/><br/>Er moet ten minste één cloud zijn geconfigureerd op de VMM-server.<br/><br/>De broncloud die u wilt beveiligen, moet een of meer VMM-hostgroepen bevatten.<br/><br/>Meer informatie over het instellen van VMM-clouds in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Overzicht: privéclouds maken met System Center 2012 SP1 VMM) in het blog van Keith Mayer. |
 | **Hyper-V** |U hebt een of meer Hyper-V-hostservers of -clusters in de VMM-cloud nodig. De hostserver moet een of meer VM's hebben. <br/><br/>Op de Hyper-V-server moet ten minste **Windows Server 2012 R2** met de Hyper-V-rol of **Microsoft Hyper-V Server 2012 R2** worden uitgevoerd en moeten de meest recente updates zijn geïnstalleerd.<br/><br/>Alle Hyper-V-servers met VM's die u wilt beveiligen, moeten zich in een VMM-cloud bevinden.<br/><br/>Als u Hyper-V in een cluster uitvoert, wordt die clusterbroker niet automatisch gemaakt als u een cluster op basis van een statisch IP-adres hebt. U moet de clusterbroker handmatig configureren. [Meer informatie](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in het blog van Aidan Finn. |
-| **Beveiligde machines** |VM's die u wilt beveiligen, moeten voldoen aan de [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
+| **Beveiligde machines** | VM's die u wilt beveiligen, moeten voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). |
 
 ## <a name="network-mapping-prerequisites"></a>Vereisten voor netwerktoewijzing
 Wanneer u virtuele machines in Azure beveiligt, zorgen de koppelingen van netwerktoewijzingen tussen VM-netwerken op de bron-VMM-server en doel-Azure-netwerken voor het volgende:
@@ -73,6 +74,12 @@ Als u netwerktoewijzing wilt implementeren, hebt u het volgende nodig:
 
 * De virtuele machines die u wilt beveiligen op de bron-VMM-server, moeten zijn verbonden met een VM-netwerk. Dit netwerk moet zijn gekoppeld aan een logisch netwerk dat is gekoppeld aan de cloud.
 * Een Azure-netwerk waarmee gerepliceerde virtuele machines verbinding kunnen maken na failover. U selecteert dit netwerk op het moment van failover. Het netwerk moet zich in dezelfde regio bevinden als uw Azure Site Recovery-abonnement.
+
+
+Het voorbereiden van netwerken in VMM:
+
+   * [Stel logische netwerken in](https://technet.microsoft.com/library/jj721568.aspx).
+   * [Stel VM-netwerken in](https://technet.microsoft.com/library/jj721575.aspx).
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Stap 1: Een Site Recovery-kluis maken
@@ -246,7 +253,7 @@ Als het doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde 
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>Stap 8: Beveiliging voor virtuele machines inschakelen
 Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beveiliging voor virtuele machines in de cloud inschakelen. Houd rekening met het volgende:
 
-* Virtuele machines moeten voldoen aan [Azure-vereisten](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Virtuele machines moeten voldoen aan [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 * Als u beveiliging wilt inschakelen, moeten het besturingssysteem en de schijfeigenschappen van het besturingssysteem zijn ingesteld voor de virtuele machine. Wanneer u een virtuele machine in VMM maakt met een sjabloon voor een virtuele machine, kunt u de eigenschap instellen. U kunt deze eigenschappen ook voor bestaande virtuele machines instellen op de tabbladen **Algemeen** en **Hardwareconfiguratie** van de eigenschappen van de virtuele machines. Als u deze eigenschappen niet in VMM instelt, kunt u ze configureren in de Azure Site Recovery-portal.
 
     ![Virtuele machine maken](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -315,7 +322,7 @@ Er zijn twee manieren om een testfailover naar Azure uit te voeren.
 * **Testfailover zonder een Azure-netwerk**: bij dit type testfailover wordt gecontroleerd of de virtuele machine correct in Azure wordt ingesteld. De virtuele machine wordt niet verbonden met een Azure-netwerk na een failover.
 * **Testfailover met een Azure-netwerk**: bij dit type failover wordt gecontroleerd of de volledige replicatieomgeving naar verwachting wordt ingesteld en of de virtuele machines na failover worden verbonden met het opgegeven doel-Azure-netwerk. Wat betreft de afhandeling van het subnet wordt het subnet van de virtuele testmachine voor de testfailover gekozen op basis van het subnet van de gerepliceerde virtuele machine. Dit is anders dan bij de normale replicatie wanneer het subnet van een gerepliceerde virtuele machine wordt gebaseerd op het subnet van de virtuele bronmachine.
 
-Als u voor een virtuele machine die is ingeschakeld voor beveiliging, een testfailover naar Azure wilt uitvoeren zonder een Azure-doelnetwerk op te geven, hoeft u niets voor te bereiden. Als u een testfailover wilt uitvoeren met een Azure-doelnetwerk, moet u een nieuw Azure-netwerk maken dat is geïsoleerd van uw Azure productienetwerk (standaardwerking wanneer u een nieuw netwerk in Azure maakt). Zie [Een testfailover uitvoeren](site-recovery-failover.md#run-a-test-failover) voor meer informatie.
+Als u voor een virtuele machine die is ingeschakeld voor beveiliging, een testfailover naar Azure wilt uitvoeren zonder een Azure-doelnetwerk op te geven, hoeft u niets voor te bereiden. Als u een testfailover wilt uitvoeren met een Azure-doelnetwerk, moet u een nieuw Azure-netwerk maken dat is geïsoleerd van uw Azure productienetwerk (standaardwerking wanneer u een nieuw netwerk in Azure maakt). Zie [Een testfailover uitvoeren](site-recovery-failover.md) voor meer informatie.
 
 U moet ook de infrastructuur zo instellen dat de gerepliceerde virtuele machine naar verwachting werkt. Een virtuele machine met Domain Controller en DNS bijvoorbeeld kan worden gerepliceerd naar Azure met Azure Site Recovery en kan met Testfailover in het testnetwerk worden gemaakt. Zie [Testfailover-overwegingen voor Active Directory](site-recovery-active-directory.md#test-failover-considerations) voor meer informatie.
 
@@ -341,9 +348,4 @@ Ga als volgt te werk om een testfailover uit te voeren:
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [herstelplannen maken](site-recovery-create-recovery-plans.md) en [failover](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
