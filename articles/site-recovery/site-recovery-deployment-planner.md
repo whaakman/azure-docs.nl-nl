@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 
 **90% van de tijd aan de RPO voldoen**: als u vanwege de kosten voor een breedbandverbinding of om een andere reden niet de benodigde bandbreedte kunt toepassen om altijd aan de RPO te voldoen, kunt u een lager bedrag voor bandbreedte kiezen waarmee u 90% van de tijd aan de RPO kunt voldoen. Voor inzicht in de gevolgen van het toepassen van deze lagere bandbreedte bevat het rapport een what-if-analyse van het aantal en de duur van de RPO-schendingen die u kunt verwachten.
 
-**Behaalde doorvoer:** de doorvoer van de server waar u de GetThroughput-opdracht hebt uitgevoerd naar de Microsoft Azure-regio waar het Azure-opslagaccount zich bevindt. Hier ziet u de geschatte doorvoer die kan worden behaald als u de compatibele virtuele machines beveiligt met Azure Site Recovery, op voorwaarde dat de kenmerken van uw configuratieserver-/processerveropslag gelijk blijven als die van de server waarop u het hulpprogramma hebt uitgevoerd. De behaalde doorvoer is de doorvoer van de server waar u de GetThroughput-opdracht hebt uitgevoerd naar de Microsoft Azure-regio waar het Azure-opslagaccount zich bevindt. Hier ziet u de geschatte doorvoer die kan worden behaald als u de compatibele virtuele machines beveiligt met Azure Site Recovery, op voorwaarde dat de kenmerken van uw configuratieserver-/processerveropslag gelijk blijven als die van de server waarop u het hulpprogramma hebt uitgevoerd.
+**Behaalde doorvoer:** de doorvoer van de server waar u de GetThroughput-opdracht hebt uitgevoerd naar de Microsoft Azure-regio waar het Azure-opslagaccount zich bevindt. Hier ziet u de geschatte doorvoer die kan worden behaald als u de compatibele virtuele machines beveiligt met Azure Site Recovery, op voorwaarde dat de kenmerken van uw configuratieserver-/processerveropslag gelijk blijven als die van de server waarop u het hulpprogramma hebt uitgevoerd.    
 
 Voor replicatie moet u de aanbevolen bandbreedte toepassen om te allen tijde aan de RPO te voldoen. Als u zelfs na het toepassen van de juiste bandbreedte geen toename ziet in de door het hulpprogramma gerapporteerde behaalde doorvoer, controleert u het volgende:
 
