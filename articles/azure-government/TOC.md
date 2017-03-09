@@ -1,3 +1,4 @@
+
 # Overzicht
 ## [Wat is Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
+### [Intelligence en analyse](documentation-government-services-intelligenceandanalytics.md)
 ### [Netwerken](documentation-government-networking.md)
 ### [Beveiliging en identiteit](documentation-government-services-securityandidentity.md)
 ### [Controle en beheer](documentation-government-services-monitoringandmanagement.md)
@@ -42,8 +44,3 @@
 ## [Proefversie](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Government-website](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

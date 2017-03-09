@@ -1,6 +1,7 @@
 # Overzicht
 ## [Wat is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [Hoe werkt het?](multi-factor-authentication-how-it-works.md)
+## [Hoe kan ik Azure MFA verkrijgen?](multi-factor-authentication-versions-plans.md)
 
 # Aan de slag
 ## [Implementatielocatie selecteren](multi-factor-authentication-get-started.md)
@@ -20,6 +21,7 @@
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webservice voor mobiele apps](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows-verificatie](multi-factor-authentication-get-started-server-windows.md)
+#### [MFA-server upgraden](multi-factor-authentication-server-upgrade.md)
 #### [Upgraden van PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Gebruikers beheren
@@ -45,8 +47,3 @@
 ## Problemen oplossen
 ### [Veelgestelde vragen](multi-factor-authentication-faq.md)
 ### [Een vraag stellen](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
