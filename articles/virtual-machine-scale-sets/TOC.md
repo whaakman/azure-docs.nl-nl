@@ -4,6 +4,7 @@
 # Aan de slag
 ## [Een schaalset maken in de portal](virtual-machine-scale-sets-portal-create.md)
 ## [Een schaalset maken met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Een schaalset maken met een Resource Manager-sjabloon](virtual-machine-scale-sets-mvss-start.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

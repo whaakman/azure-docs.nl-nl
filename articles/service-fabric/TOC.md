@@ -81,9 +81,10 @@
 #### [Timers en herinneringen](service-fabric-reliable-actors-timers-reminders.md)
 #### [Gebeurtenissen](service-fabric-reliable-actors-events.md)
 #### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
-#### [State-provider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [KvsActorStateProvider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [ReliableDictionaryActorStateProvider configureren](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio en Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Clusternetwerkpatronen](service-fabric-patterns-networking.md)
 #### [Knooppunttypen en VM-schaalsets](service-fabric-cluster-nodetypes.md)
 #### [Een cluster schalen](service-fabric-cluster-scale-up-down.md)
 #### [Een cluster upgraden](service-fabric-cluster-upgrade.md)

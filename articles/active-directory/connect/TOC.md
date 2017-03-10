@@ -60,7 +60,8 @@
 ## Problemen oplossen
 ### [Connectiviteit](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Fouten tijdens synchronisatie](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Naslaginformatie
 ## [Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

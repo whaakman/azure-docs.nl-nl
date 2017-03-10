@@ -1,12 +1,16 @@
 # Overzicht
 ## [Wat is Azure Automation?](automation-intro.md)
-## [Beveiliging in Azure Automation](automation-security-overview.md)
 # Aan de slag
 ## [Runbook maken](automation-first-runbook-graphical.md)
 ## [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
 ## [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 ## [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
 # Procedures
+## Verificatie instellen
+### [Verificatie in Azure Automation](automation-security-overview.md)
+### [Azure Run As-account](automation-sec-configure-azure-runas-account.md)
+### [Beheer van Azure-services en Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Runbooks maken
 ### [Runbooktypen](automation-runbook-types.md)
 ### [Runbooks maken en importeren](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
 ## Configuration Management (DSC) implementeren
-### [Desired State Configuration (DSC)](automation-dsc-overview.md)
+### [Overzicht van Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)
 ### [Onboarding van machines voor beheer](automation-dsc-onboarding.md)
 ### [DSC-configuraties compileren](automation-dsc-compile.md)
 ### [Doorlopende implementatie met Chocolatey](automation-dsc-cd-chocolatey.md)
-## Verificatie instellen
-### [Beheer van Azure-services en Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Azure RunAs account](automation-sec-configure-azure-runas-account.md)
 ## Automatiseringsactiva beheren
 ### [Certificaten](automation-certificates.md)
 ### [Verbindingen](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Azure PowerShell-modules bijwerken](automation-update-azure-modules.md)
 ## Scenario's automatiseren
 ### [Runbook-galerie](automation-runbook-gallery.md)
-### [Virtuele machines starten/stoppen](automation-solution-startstopvm-graphical.md)
-### [Virtuele machines met PowerShell starten/stoppen](automation-solution-startstopvm-psworkflow.md)
 ### [Een Amazon Web Service-VM maken](automation-scenario-aws-deployment.md)
 ### [Een Azure VM-waarschuwing verhelpen](automation-azure-vm-alert-integration.md)
 ### [Een virtuele machine starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Azure Automation-training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
