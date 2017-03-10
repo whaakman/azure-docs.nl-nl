@@ -12,8 +12,7 @@
 ### [Naamomzetting](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Aan de slag
-## [Een virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md)
-## [Een VM implementeren naar een virtueel netwerk](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Uw eerste virtuele netwerk maken](virtual-network-get-started-vnet-subnet.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -146,8 +145,3 @@
 ## [Netwerkforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
