@@ -13,35 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
-ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
 U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod.
 
-> [!NOTE]
-> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
->
->
-
-Zie het gedeelte [Niet-gevalideerde VPN-apparaten](#additionaldevices) als het apparaat niet voorkomt in de tabel [Gevalideerde VPN-apparaten](#devicetable) van dit artikel. Het is mogelijk dat het apparaat toch werkt met Azure. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
 > [!IMPORTANT]
 > Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en Azure VPN-gateways.
+> 
+> 
 
-**Waar u op moet letten wanneer u de tabellen bekijkt:**
+
+###<a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
 
 * Er is een terminologiewijziging voor statische en dynamische routering. Waarschijnlijk komt u beide termen tegen. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
 * De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
 
-## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Gevalideerde VPN-apparaten
+> [!NOTE]
+> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
+>
+>
+
+
+## <a name="devicetable"></a>Gevalideerde VPN-apparaten
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren.
 
 Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
@@ -73,13 +77,13 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 
 (*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN-verbindingen.
 
-## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
-Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Controleer of uw VPN-apparaat voldoet aan de minimale vereisten die worden beschreven in de sectie Gatewayvereisten van het artikel [Over VPN Gateways](vpn-gateway-about-vpngateways.md). Apparaten die voldoen aan de minimumvereisten zouden ook met VPN-gateways moeten werken. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
+## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
+Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
 
-## <a name="editing-device-configuration-samples"></a>Voorbeelden van het bewerken van apparaatconfiguraties
+## <a name="editing"></a>Voorbeelden van het bewerken van apparaatconfiguraties
 Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving.
 
-**U bewerkt een voorbeeld als volgt:**
+###<a name="to-edit-a-sample"></a>U bewerkt een voorbeeld als volgt:
 
 1. Open het voorbeeld met Kladblok.
 2. Zoek alle <*tekst*>-tekenreeksen en vervang ze door de waarden die betrekking hebben op uw omgeving. Zorg dat u < en > opneemt. Als u een naam opgeeft, moet deze uniek zijn. Als een opdracht niet werkt, raadpleeg dan de documentatie van de fabrikant van uw apparaat.
@@ -98,7 +102,7 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal als **IP-adres van gateway**. |
 | &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
 
-## <a name="ipsec-parameters"></a>IPsec-parameters
+## <a name="IPSec"></a>IPsec-parameters
 > [!NOTE]
 > Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, is er momenteel geen enkele manier waarop u vanuit de Azure VPN-gateway een specifieke combinatie kunt opgeven of selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u MSS vastzetten op 1350.
 >
@@ -121,7 +125,7 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | Hash-algoritme |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Levensduur beveiligingskoppeling (SA) fase 2 (tijd) |3.600 seconden |3.600 seconden |
 | Levensduur beveiligingskoppeling (SA) fase 2 (doorvoer) |102.400.000 kB |- |
-| IPSec-SA-codering en -verificatieaanbiedingen (in volgorde van voorkeur) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N.v.t. |Zie *Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways* (hieronder) |
+| IPSec-SA-codering en -verificatieaanbiedingen (in volgorde van voorkeur) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N.v.t. |Zie 'Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways' (hieronder) |
 | Perfect Forward Secrecy (PFS) |Nee |Nee (*) |
 | Dead Peer Detection |Niet ondersteund |Ondersteund |
 
@@ -154,21 +158,16 @@ In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verifica
 * U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en VPN-gateways met hoge prestaties. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist.  Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
 * Gebruik voor cross-premises connectiviteit via internet de standaardinstellingen voor Azure VPN-gateways met versleuteling en hash-algoritmen die in de tabel hierboven worden vermeld, om beveiliging van uw kritieke communicatie te waarborgen.
 
-## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Bekende compatibiliteitsproblemen
+## <a name="known"></a>Bekende compatibiliteitsproblemen
 
 > [!IMPORTANT]
-> Dit zijn bekende compatibiliteitsproblemen tussen VPN-apparaten van derden en Azure VPN-gateways. Het team van Azure werkt samen met de leveranciers aan een oplossing voor de hier vermelde problemen. Zodra de problemen zijn opgelost, wordt deze pagina bijgewerkt met de meest actuele informatie. Bekijk deze pagina daarom regelmatig.
+> Dit zijn de bekende compatibiliteitsproblemen tussen VPN-apparaten van derden en Azure VPN-gateways. Het team van Azure werkt samen met de leveranciers aan een oplossing voor de hier vermelde problemen. Zodra de problemen zijn opgelost, wordt deze pagina bijgewerkt met de meest actuele informatie. Bekijk deze pagina daarom regelmatig.
 
 ###<a name="feb-16-2017"></a>16 februari 2017
 
 **Palo Alto Networks-apparaten met een oudere versie dan 7.1.4** voor op route gebaseerde Azure VPN: als u VPN-apparaten van Palo Alto Networks gebruikt met een PAN-OS-versie die ouder is dan 7.1.4 en u connectiviteitsproblemen hebt met op route gebaseerde Azure VPN-gateways, voert u de volgende stappen uit:
 
-1. Controleer de firmwareversie van uw Palo Alto Networks-apparaat. Als de PAN-OS-versie ouder is dan 7.1.4, voert u een upgrade uit naar 7.1.4
-2. Op het Palo Alto Networks-apparaat wijzigt u de levensduur van de beveiligingskoppeling fase 2 (of de beveiligingskoppeling in snelle modus) in 28.800 seconden (8 uur) wanneer er verbinding met de Azure VPN-gateway wordt gemaakt
-3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via Azure Portal 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+1. Controleer de firmwareversie van uw Palo Alto Networks-apparaat. Als de PAN-OS-versie ouder is dan 7.1.4, voert u een upgrade uit naar 7.1.4.
+2. Op het Palo Alto Networks-apparaat wijzigt u de levensduur van de beveiligingskoppeling fase 2 (of de beveiligingskoppeling in snelle modus) in 28.800 seconden (8 uur) wanneer er verbinding met de Azure VPN-gateway wordt gemaakt.
+3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via Azure Portal.
 

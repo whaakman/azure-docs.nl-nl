@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js voor MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Stap 2: uw C++-toepassing instellen
+## <a id="SetupC++"></a>Stap 2: uw C++-toepassing instellen
 1. Open Visual Studio en klik in het menu **Bestand** op **Nieuw** en vervolgens op **Project**. 
 2. Vouw in het venster **Nieuw project**, in het deelvenster **Geïnstalleerd**, **Visual C++** uit, klik op **Win32** en klik vervolgens op **Win32-consoletoepassing**. Noem het project hellodocumentdb en klik vervolgens op **OK**. 
    
@@ -79,12 +81,12 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
    
     Zodra de pakketten aan uw project zijn toegevoegd, kunt u code gaan schrijven.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Stap 3: verbindingsgegevens kopiëren vanuit Azure Portal voor uw DocumentDB-database
+## <a id="Config"></a>Stap 3: verbindingsgegevens kopiëren vanuit Azure Portal voor uw DocumentDB-database
 Open [Azure Portal](https://portal.azure.com) en ga naar het NoSQL-databaseaccount (DocumentDB) dat u hebt gemaakt. U hebt de URI en de primaire sleutel uit Azure Portal nodig in de volgende stap om verbinding te maken vanaf uw C++-codefragment. 
 
 ![DocumentDB-URI en sleutels in Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Stap 4: verbinding maken met een DocumentDB-account
+## <a id="Connect"></a>Stap 4: verbinding maken met een DocumentDB-account
 1. Voeg de volgende kopteksten en naamruimtes toe aan uw broncode, na `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ Open [Azure Portal](https://portal.azure.com) en ga naar het NoSQL-databaseaccou
    
     Nu u beschikt over de code om de DocumentDB-client opnieuw te initialiseren, kunt u zich verder verdiepen in het werken met DocumentDB-resources.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Stap 5: een C++-database en -verzameling maken
+## <a id="CreateDBColl"></a>Stap 5: een C++-database en -verzameling maken
 Voordat we deze stap uitvoeren, behandelen we eerst hoe een database, verzameling en documenten met elkaar communiceren, voor het geval dat DocumentDB nieuw voor u is. Een [database](documentdb-resources.md#databases) is een logische container voor documentopslag, gepartitioneerd in verzamelingen. Een [verzameling](documentdb-resources.md#collections) is een container van JSON-documenten en de bijbehorende JavaScript-toepassingslogica. Meer informatie over het hiërarchisch bronmodel en concepten voor DocumentDB vindt u in [Hiërarchisch DocumentDB-resourcemodel en -concepten](documentdb-resources.md).
 
 Voeg de volgende code toe aan het eind van de main-functie om een database en bijbehorende verzameling te maken. Hiermee maakt u een database genaamd 'FamilyRegistry' en een verzameling genaamd 'FamilyCollection' met behulp van de klantconfiguratie die u in de vorige stap hebt ingesteld.
@@ -115,7 +117,7 @@ Voeg de volgende code toe aan het eind van de main-functie om een database en bi
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Stap 6: een document maken
+## <a id="CreateDoc"></a>Stap 6: een document maken
 [Documenten](documentdb-resources.md#documents) bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een document invoegen in DocumentDB. U kunt een document maken door de volgende code aan het einde van de main-functie te plakken. 
 
     try {
@@ -137,7 +139,7 @@ Kort samengevat maakt deze code een DocumentDB-database, -verzameling en -docume
 
 ![C++-zelfstudie: diagram waarin u de hiërarchische relatie ziet tussen het account, de database, de verzameling en de documenten](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Stap 7: een query uitvoeren op DocumentDB-resources
+## <a id="QueryDB"></a>Stap 7: een query uitvoeren op DocumentDB-resources
 DocumentDB biedt ondersteuning voor [uitgebreide query's](documentdb-sql-query.md) in de JSON-documenten die zijn opgeslagen in verzamelingen. De volgende voorbeeldcode bevat een query die is gemaakt met de DocumentDB SQL-syntaxis. Deze query kan worden uitgevoerd voor de documenten die we in de vorige stap hebben gemaakt.
 
 De functie omvat als argumenten de unieke id of resource-id voor de database en de verzameling, samen met het clientdocument. Voeg deze code toe voor de main-functie.
@@ -168,7 +170,7 @@ De functie omvat als argumenten de unieke id of resource-id voor de database en 
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Stap 8: een document vervangen
+## <a id="Replace"></a>Stap 8: een document vervangen
 DocumentDB ondersteunt het vervangen van JSON-documenten, zoals in de volgende code wordt gedemonstreerd. Voeg deze code toe na de functie executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB ondersteunt het vervangen van JSON-documenten, zoals in de volgende c
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Stap 9: een document verwijderen
+## <a id="Delete"></a>Stap 9: een document verwijderen
 DocumentDB ondersteunt het verwijderen van JSON-documenten. U kunt deze documenten verwijderen door de volgende code te kopiëren en achter de functie replacedocument te plakken. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB ondersteunt het verwijderen van JSON-documenten. U kunt deze document
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Stap 10: een database verwijderen
+## <a id="DeleteDB"></a>Stap 10: een database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten enz.) verwijderd.
 
 Kopieer en plak het volgende codefragment (functie cleanup) na de functie deletedocument om de database en alle onderliggende resources te verwijderen.
@@ -216,7 +218,7 @@ Kopieer en plak het volgende codefragment (functie cleanup) na de functie delete
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Stap 11: uw C++-consoletoepassing volledig uitvoeren
+## <a id="Run"></a>Stap 11: uw C++-consoletoepassing volledig uitvoeren
 U hebt nu code toegevoegd om verschillende DocumentDB-resources te maken, aan te passen, te verwijderen en er query’s op toe te passen.  Nu is het tijd om alles te verbinden door calls toe te voegen aan de verschillende functies vanuit de main-functie in hellodocumentdb.cpp, samen met een aantal diagnostische berichten.
 
 U doet dit door de main-functie van uw toepassing te vervangen door de volgende code. Deze overschrijft de account_configuration_uri en primary_key die u in de code hebt geplakt in stap 3, dus bewaar deze regel of kopieer en plak de waarden opnieuw vanuit de portal. 
@@ -276,7 +278,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de vol
 
 Gefeliciteerd. U hebt de C++-zelfstudie voltooid en u beschikt nu over uw eerste DocumentDB-consoletoepassing.
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>De volledige C++-zelfstudieoplossing ophalen
+## <a id="GetSolution"></a>De volledige C++-zelfstudieoplossing ophalen
 Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel bevat, hebt u het volgende nodig:
 
 * [DocumentDB-account][documentdb-create-account].
@@ -289,10 +291,5 @@ Als u een GetStarted-oplossing wilt bouwen die alle voorbeelden uit dit artikel 
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

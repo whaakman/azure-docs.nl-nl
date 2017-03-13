@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2013 of 2015**. In onderstaande instructies wordt Visual Studio 2015 gebruikt.
+
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Azure Data Lake Store-account**. Zie voor instructies over het maken van een account [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
 * **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ## <a name="create-a-net-application"></a>Een .NET-toepassing maken
@@ -58,9 +62,9 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
    2. Controleer op het tabblad **Nuget Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
    3. Zoek en installeer de volgende NuGet-pakketten:
       
-      * `Microsoft.Azure.Management.DataLake.Store`: in deze zelfstudie wordt gebruikgemaakt van v0.12.5-preview.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader`: in deze zelfstudie wordt gebruikgemaakt van v0.10.6-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.8-preview.
+      * `Microsoft.Azure.Management.DataLake.Store`: in deze zelfstudie wordt gebruikgemaakt van v1.0.4.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader`: in deze zelfstudie wordt gebruikgemaakt van v1.0.1-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in deze zelfstudie wordt gebruikgemaakt van v2.2.11.
         
         ![Een Nuget-bron toevoegen](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **Nuget Package Manager**.
@@ -71,7 +75,11 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Declareer de variabelen zoals hieronder weergegeven, en geef de waarden op voor de naam van de Data Lake Store en de naam van de resourcegroep die al bestaat. Ook het lokale pad en de bestandsnaam die u hier opgeeft, moeten al bestaan op de computer. Voeg het volgende codefragment toe na de naamruimtedeclaraties.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ Lees hoe u met de [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/li
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
 ## <a name="authentication"></a>Authentication
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Als u gebruikmaakt van verificatie door eindgebruikers (aanbevolen voor deze zelfstudie)
-Gebruik dit met een bestaande systeemeigen Azure AD-clienttoepassing. Hieronder wordt er u een aangeboden. Door voor deze aanpak te kiezen, kunt u deze zelfstudie sneller voltooien.
+
+Gebruik deze met een bestaande systeemeigen Azure AD-toepassing om uw toepassing **interactief** te verifiëren. Dit betekent dat u wordt gevraagd uw Azure-inloggegevens in te voeren. 
+
+Voor het gebruiksgemak gebruikt het onderstaande codefragment standaardwaarden voor de client-ID en omleidings-URI dat met een Azure-abonnement werkt. Door voor deze aanpak te kiezen, kunt u deze zelfstudie sneller voltooien. In onderstaand codefragment hoeft u alleen de waarde voor uw tenant-ID op te geven. U kunt het met behulp van de instructies ophalen bij [Een Active Directory-toepassing maken](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Een aantal dingen die u moet weten over het bovenstaande fragment.
 
 * Omdat dit fragment gebruikmaakt van een Azure AD-domein en -client-id die standaard beschikbaar zijn voor alle Azure-abonnementen, kunt u deze zelfstudie sneller voltooien. U kunt **dit fragment dus in zijn huidige vorm in uw toepassing gebruiken**.
-* Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-domein, de client-id en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [Een Active Directory-toepassing maken](data-lake-store-end-user-authenticate-using-active-directory.md) voor instructies.
-
-> [!NOTE]
-> De instructies in de bovenstaande koppelingen zijn voor een Azure AD-webtoepassing. De stappen zijn echter precies hetzelfde, ook als u in plaats daarvan een systeemeigen clienttoepassing maakt. 
-> 
-> 
+* Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-tenant-ID, de client-ID en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [Een Active Directory-toepassing voor verificatie van eindgebruikers maken met Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) voor instructies.
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Als u gebruikmaakt van service-naar-serviceverificatie met clientgeheim
-U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+U kunt het volgende codefragment gebruiken voor het **niet-interactief** verifiëren van uw toepassing, door gebruik te maken van het clientgeheim of de clientsleutel voor een toepassing/service-principal. Gebruik dit met een bestaande Azure AD-toepassing voor webtoepassingen. Zie [Een Active Directory-toepassing voor service-naar-service-verificatie maken met Data Lake Store](data-lake-store-authenticate-using-active-directory.md) voor instructies over het maken van de Azure AD-webtoepassing en het ophalen van de client-ID en het clientgeheim die vereist zijn in het onderstaande codefragment.
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Als u gebruikmaakt van service-naar-serviceverificatie met certificaat
-Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het certificaat van een toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing voor webtoepassingen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Een derde mogelijkheid is door het volgende codefragment te gebruiken voor het **niet-interactief** verifiëren van uw toepassing, door gebruik te maken van het certificaat van een Azure Active Directory-toepassing/service-principal. Gebruik dit met een bestaande [Azure AD-toepassing met certificaten](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ Het volgende codefragment bevat de methode `DownloadFile`, die u kunt gebruiken 
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Naslaginformatie over Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Naslaginformatie over Data Lake Store REST](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

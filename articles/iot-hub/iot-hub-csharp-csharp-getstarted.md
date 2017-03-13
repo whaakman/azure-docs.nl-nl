@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 969e6bd55ca69e293f13b66f1a51f1d5fd1996b7
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-net"></a>Aan de slag met Azure IoT Hub (.NET)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Aan het eind van deze zelfstudie beschikt u over drie .NET-consoletoepassingen:
@@ -36,7 +38,7 @@ Aan het eind van deze zelfstudie beschikt u over drie .NET-consoletoepassingen:
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -46,7 +48,7 @@ U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreek
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id kan maken in het identiteitenregister van uw IoT Hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **CreateDeviceIdentity**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de nieuwe oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Geef het project de naam **CreateDeviceIdentity** en geef de oplossing de naam **IoTHubGetStarted**.
    
     ![Nieuw Windows Classic Desktop-project in Visual C#][10]
 2. Klik in Solution Explorer met de rechtermuisknop op het project **CreateDeviceIdentity** en klik vervolgens op **Manage NuGet Packages**.
@@ -101,9 +103,9 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
 > 
 > 
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **ReadDeviceToCloudMessages**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **ReadDeviceToCloudMessages**.
    
-    ![Nieuw Windows Classic Desktop-project in Visual C#][10]
+    ![Nieuw Windows Classic Desktop-project in Visual C#][10a]
 2. Klik in Solution Explorer met de rechtermuisknop op het project **ReadDeviceToCloudMessages** en klik vervolgens op **Manage NuGet Packages**.
 3. In het venster **NuGet Package Manager** zoekt u **WindowsAzure.ServiceBus**. Accepteer de gebruikersvoorwaarden en klik op **Install**. Met deze procedure worden [Azure Service Bus][lnk-servicebus-nuget] en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd. Met dit pakket kan de toepassing verbinding maken met het eindpunt dat compatibel is met event hubs op uw IoT-hub.
 4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
@@ -158,9 +160,9 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **SimulatedDevice**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **SimulatedDevice**.
    
-    ![Nieuw Windows Classic Desktop-project in Visual C#][10]
+    ![Nieuw Windows Classic Desktop-project in Visual C#][10b]
 2. Klik in Solution Explorer met de rechtermuisknop op het project **SimulatedDevice** en klik vervolgens op **Manage NuGet Packages**.
 3. Klik in de **NuGet Package Manager** op **Browse** en zoek naar **Microsoft.Azure.Devices.Client**. Accepteer de gebruiksvoorwaarden en klik op **Install** om het **Microsoft.Azure.Devices.Client**-pakket te installeren. Met deze procedure worden het [Azure IoT Device SDK NuGet-pakket][lnk-device-nuget] en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
 4. Voeg aan het begin van het bestand **Program.cs** de volgende `using`-instructie toe:
@@ -245,6 +247,8 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
+[10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
 [11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
@@ -267,9 +271,4 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

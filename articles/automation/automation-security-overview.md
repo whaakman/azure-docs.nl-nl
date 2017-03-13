@@ -1,28 +1,30 @@
 ---
-title: Azure Automation-beveiliging | Microsoft Docs
-description: Dit artikel geeft een overzicht van automatische beveiliging en de diverse verificatiemethoden die beschikbaar zijn voor Automation-accounts in Azure Automation.
+title: Inleiding tot verificatie in Azure Automation | Microsoft Docs
+description: Dit artikel geeft een overzicht van Automation-beveiliging en de diverse verificatiemethoden die beschikbaar zijn voor Automation-accounts in Azure Automation.
 services: automation
 documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: Automation-beveiliging, Automation beveiligen
+keywords: automation-beveiliging, veilige automation; automation-verificatie
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: 432321c66fc991136b0b473abd0880876c31887e
+ms.sourcegitcommit: 7224da31e71f3f6c912cd486198135945f90a8a4
+ms.openlocfilehash: aa639886ba3379ef30f9abef8f3dff4acb5b1181
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-automation-security"></a>Azure Automation-beveiliging
-Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders zoals Amazon Web Services (AWS).  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement.  
+# <a name="introduction-to-authentication-in-azure-automation"></a>Inleiding tot verificatie in Azure Automation  
+Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders zoals Amazon Web Services (AWS).  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement. 
+ 
 In dit artikel worden de verschillende verificatiescenario's beschreven die door Azure Automation worden ondersteund, en wordt uitgelegd hoe u aan de slag kunt gaan afhankelijk van de omgeving(en) die u wilt beheren.  
 
 ## <a name="automation-account-overview"></a>Overzicht van Automation-account
@@ -32,7 +34,6 @@ De Automation-resources voor elk Automation-account zijn gekoppeld aan één Azu
 
 > [!NOTE]
 > Automation-accounts, en de resources die deze bevatten die in de Azure-portal worden gemaakt, zijn niet toegankelijk via de klassieke Azure-portal. Als u deze accounts of de bijbehorende resources wilt beheren met Windows PowerShell, moet u gebruikmaken van de Azure Resource Manager-modules.
-> 
 > 
 
 Alle taken die u uitvoert op resources met behulp van Azure Resource Manager en de Azure-cmdlets in Azure Automation moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  De oorspronkelijke verificatiemethode voor de Azure Service Management-modus was gebaseerd op certificaten, maar het instellen hiervan was ingewikkeld.  Verificatie bij Azure met Azure AD-gebruiker is in 2014 geïntroduceerd, niet alleen met het doel om het proces waarmee een verificatieaccount kon worden geconfigureerd te vereenvoudigen, maar ook om de mogelijkheid te ondersteunen om op een niet-interactieve wijze bij Azure te verifiëren met één gebruikersaccount dat zowel in Azure Resource Manager als in de klassieke resources werkte.   
@@ -56,10 +57,5 @@ De volgende tabel bevat een overzicht van de verschillende verificatiemethoden v
 | Klassieke Azure Uitvoeren als-account |Azure Service Management |[Runbooks verifiëren met een Azure Uitvoeren als-account](automation-sec-configure-azure-runas-account.md) |
 | Windows-verificatie |On-premises datacenter |[Runbooks verifiëren voor Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
 | AWS-referenties |Amazon Web Services |[Runbooks verifiëren met Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

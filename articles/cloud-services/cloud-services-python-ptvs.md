@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -25,15 +26,17 @@ ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
-* Visual Studio 2013 of 2015
+* [Visual Studio 2013, 2015 of 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK-hulpprogramma’s voor VS 2013][Azure SDK-hulpprogramma’s voor VS 2013] of [Azure SDK-hulpprogramma’s voor VS 2015][Azure SDK-hulpprogramma’s voor VS 2015]
-* [Python 2.7 32-bits][Python 2.7 32-bits] of [Python 3.5 32-bits][Python 3.5 32-bits]
+* [Azure SDK-hulpprogramma’s voor VS 2013][Azure SDK Tools for VS 2013] of  
+[Azure SDK-hulpprogramma’s voor VS 2015][Azure SDK Tools for VS 2015] of  
+[Azure SDK-tools voor VS 2017][Azure SDK Tools for VS 2017]
+* [Python 2.7 32-bits][Python 2.7 32-bit] of [Python 3.5 32-bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Wat zijn Python-web- en -werkrollen?
-Azure biedt drie compute-modellen voor het uitvoeren van toepassingen: [Web Apps in Azure App Service][uitvoeringsmodel voor websites], [Azure Virtual Machines][uitvoeringsmodel voor virtuele machines] en [Azure Cloud Services][uitvoeringsmodel voor cloudservices]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
+Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: [web-appsfunctie in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] en [Azure Cloud Services][execution model-cloud services]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
 
 Zie [Wat is een cloudservice?] voor meer informatie.
 
@@ -329,43 +332,39 @@ Nadat de virtuele machine van de cloudservice wordt gestart en Python installeer
 ## <a name="next-steps"></a>Volgende stappen
 Zie de documentatie bij PTVS voor meer informatie over het werken met web- en werkrollen in Python-tools voor Visual Studio:
 
-* [Cloudserviceprojecten][Cloudserviceprojecten]
+* [Cloudserviceprojecten][Cloud Service Projects]
 
 Zie de volgende artikelen voor meer informatie over het gebruik van Azure-services via uw web- en werkrollen, zoals het gebruik van Azure Storage of Service Bus.
 
-* [Blob-service][Blob-service]
-* [Tabelservice][Tabelservice]
-* [Wachtrijservice][Wachtrijservice]
-* [Service Bus-wachtrijen][Service Bus-wachtrijen]
-* [Service Bus-onderwerpen][Service Bus-onderwerpen]
+* [Blob-service][Blob Service]
+* [Tabelservice][Table Service]
+* [Wachtrijservice][Queue Service]
+* [Service Bus-wachtrijen][Service Bus Queues]
+* [Service Bus-onderwerpen][Service Bus Topics]
 
 <!--Link references-->
 
 [Wat is een cloudservice?]: cloud-services-choose-me.md
-[uitvoeringsmodel voor websites]: ../app-service-web/app-service-web-overview.md
-[uitvoeringsmodel voor virtuele machines]: ../virtual-machines/virtual-machines-windows-about.md
-[uitvoeringsmodel voor cloudservices]: cloud-services-choose-me.md
+[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob-service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Wachtrijservice]: ../storage/storage-python-how-to-use-queue-storage.md
-[Tabelservice]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus-wachtrijen]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Service Bus-onderwerpen]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Documentatie Python Tools voor Visual Studio]: http://aka.ms/ptvsdocs
-[Cloudserviceprojecten]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK-hulpprogramma’s voor VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK-hulpprogramma’s voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bits]: https://www.python.org/downloads/
-[Python 3.5 32-bits]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 

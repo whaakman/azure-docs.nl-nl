@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: bf3aa51b4b1224840ae6897ff7df86cf3d2b3477
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
 
 > [!NOTE]
-> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 90 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-policies.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
+> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-policies.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
 >
 >
 
@@ -91,9 +92,4 @@ In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Cen
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8d24ab744715df69c707df5a119fa71c72338b62
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
 In dit document worden de geavanceerde detectiemogelijkheden van Azure Security Center besproken, waarmee actieve bedreigingen die gericht zijn op uw Microsoft Azure-resources kunnen worden geïdentificeerd en waarmee u de inzichten krijgt die nodig zijn om snel te kunnen reageren.
 
 > [!NOTE]
-> Geavanceerde detecties zijn beschikbaar in de Standard-laag van Azure Security Center. Er is een gratis proefversie voor 90 dagen beschikbaar. U kunt uw versie opwaarderen door Prijscategorie te selecteren in het gedeelte [Beveiligingsbeleid](security-center-policies.md). Ga naar de [Security Center-pagina](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tarieven. 
+> Geavanceerde detecties zijn beschikbaar in de Standard-laag van Azure Security Center. Er is een gratis proefversie voor 60 dagen beschikbaar. U kunt uw versie opwaarderen door Prijscategorie te selecteren in het gedeelte [Beveiligingsbeleid](security-center-policies.md). Ga naar de [Security Center-pagina](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tarieven. 
 > 
 > 
 
@@ -89,10 +90,5 @@ In dit document hebt u kunnen lezen hoe de detectiemogelijkheden in Azure Securi
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
