@@ -34,15 +34,13 @@
 ##### [Acceptatiestrategie](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Volgende stappen](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Gebruikers beheren
 ### Gebruikers toevoegen
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Klassieke portal](active-directory-create-users.md)
 
-### Gebruikers uit andere mappen toevoegen
-#### [Azure Portal](active-directory-users-create-external-azure-portal.md)
-#### [Klassieke portal](active-directory-create-users-external.md)
-
+### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
 ### [Gebruikers verwijderen](active-directory-users-delete-user-azure-portal.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
@@ -74,27 +72,28 @@
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
 ### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
 
-## [Activiteitenrapporten weergeven](active-directory-view-access-usage-reports.md)
-### [Aanmeldingen](active-directory-reporting-activity-sign-ins.md)
-### [Controlelogboeken](active-directory-reporting-activity-audit-logs.md)
+## [Rapporten beheren](active-directory-reporting-azure-portal.md)
+### [Aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins.md)
+### [Activiteit controleren](active-directory-reporting-activity-audit-logs.md)
 ### [Gebruikers die risico lopen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
+### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
+### [Benoemde netwerken](active-directory-known-networks-azure-portal.md)
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
 ### [Rapporten migreren](active-directory-reporting-migration.md)
-### [Bekende netwerken](active-directory-known-networks.md)
-
-### Klassieke portal
+### [Retentie](active-directory-reporting-retention.md)
+###    Toegang op programmeerniveau
+#### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
+#### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
+#### [Vereisten](active-directory-reporting-api-prerequisites.md)
+#### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Klassieke portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportage](active-directory-reporting-getting-started.md)
 #### [Handleiding over rapportering](active-directory-reporting-guide.md)
-#### [Preview](active-directory-reporting-azure-portal.md)
+#### [Bekende netwerken](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
-##### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
-##### [Vereisten](active-directory-reporting-api-prerequisites.md)
-##### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Controlegebeurtenissen](active-directory-reporting-audit-events.md)
-#### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
 #### Rapporten begrijpen
@@ -108,6 +107,7 @@
 
 ## [Wachtwoorden beheren](active-directory-manage-passwords.md)
 ### [Uw eigen wachtwoord bijwerken](active-directory-passwords-update-your-own-password.md)
+### [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-passwords.md)
 ### [Meer informatie over wachtwoordbeheer](active-directory-passwords-how-it-works.md)
 ### [Meer informatie over beleidsregels en beperkingen](active-directory-passwords-policy.md)
 ### Wachtwoorden opnieuw instellen
@@ -117,7 +117,6 @@
 ### Wachtwoordbeheer inschakelen
 #### [Aan de slag](active-directory-passwords-getting-started.md)
 #### [Implementeren](active-directory-passwords-best-practices.md)
-#### [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-passwords.md)
 #### [Aanpassen](active-directory-passwords-customize.md)
 #### [Rapporten weergeven](active-directory-passwords-get-insights.md)
 #### [Meer informatie](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
 #### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
 #### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Uw apparaat registreren](active-directory-azureadjoin-personal-device.md)
-### [Een apparaat met Windows 10 registreren](active-directory-azureadjoin-user-upgrade.md)
+#### [Veelgestelde vragen](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Problemen oplossen
+##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)
 #### [Nieuwe apparaten registreren](active-directory-azureadjoin-user-frx.md)
 #### [Implementeren](active-directory-azureadjoin-devices-group-policy.md)
-#### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
-#### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Meer informatie over integratie met Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10-apparaten gebruiken](active-directory-azureadjoin-windows10-devices.md)
-#### [Veelgestelde vragen](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Problemen oplossen
-##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Uw apparaat toevoegen](active-directory-azureadjoin-personal-device.md)
+#### [Een apparaat met Windows 10 toevoegen](active-directory-azureadjoin-user-upgrade.md)
 
 ## Apps beheren
 ### [Overzicht](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
 #### [Eigenschappen van B2B-gebruikers](active-directory-b2b-user-properties.md)
 #### [Een gastgebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+#### [Controle en rapportage](active-directory-b2b-auditing-and-reporting.md)
 #### [API en aanpassingen](active-directory-b2b-api.md)
 #### [Uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
 #### [Dynamische groepen en B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Problemen oplossen](active-directory-conditional-access-device-remediation.md)
 #### [Naslaginformatie](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
+#### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)
 ### Verificatie op basis van certificaat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
+ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
+ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -152,7 +153,7 @@ In deze stap maakt u een gegevensset met de naam **InputDataset** die verwijst n
    
    Als u geen **fileName** opgeeft voor een **invoer**gegevensset, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
    
-   Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid\&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2016-09-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2016/09/20 en wordt fileName ingesteld op 08.csv. 
   
@@ -379,10 +380,5 @@ Zie [Gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

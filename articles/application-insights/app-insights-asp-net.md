@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
-ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
+ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
+ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -33,19 +34,26 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 * [Een web-app instrumenteren tijdens runtime](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Stap 1: de Application Insights-SDK toevoegen
-Wanneer u in Visual Studio een nieuw project maakt, controleert u of Application Insights is geselecteerd.
+## <a name="ide"></a> Stap 1: de Application Insights-SDK toevoegen
 
-![Schermopname van nieuw ASP.NET-project](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-Als het om een bestaand project gaat, klikt u in Solution Explorer met de rechtermuisknop op het project. Klik vervolgens op **Application Insights Telemetry toevoegen...** of op **Application Insights configureren**.
+Klik in Solution Explorer met de rechtermuisknop op het web-app-project. Klik op **Toevoegen** en daarna op **Application Insights Telemetry** of **Application Insights configureren**.
 
 ![Schermopname van Solution Explorer waarin Application Insights Telemetry toevoegen is gemarkeerd](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> Als u met een ASP.NET Core-project werkt, [volgt u deze instructies voor het repareren van enkele coderegels](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(In Visual Studio 2015 is er ook een optie om Application Insights toe te voegen aan het dialoogvenster Nieuw project.)
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Stap 2: uw app uitvoeren
+Ga door naar de pagina voor Application Insights-configuratie:
+
+![Schermopname van de pagina Uw app registreren bij Application Insights](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Selecteer het account en het abonnement die u gebruikt voor toegang tot Azure.
+2. Selecteer de resource in Azure die u wilt gebruiken om de gegevens van uw app te bekijken. Meestal maakt u voor elke app een afzonderlijke resource. Als u een resourcegroep of locatie wilt instellen voor het opslaan van uw gegevens, klikt u op **Instellingen configureren**. Resourcegroepen worden gebruikt om toegang tot gegevens te beheren. Als u verschillende apps hebt die deel uitmaken van hetzelfde systeem, kunt u hun Application Insights-gegevens in dezelfde resourcegroep plaatsen.
+3. Application Insights is gratis te gebruiken, tot een bepaald telemetrievolume. U kunt een limiet instellen om kosten te voorkomen. Wanneer de resource is gemaakt, kunt u de selectie in de portal wijzigen door naar **Kenmerken + prijzen**, **Gegevensvolumebeheer**, **Dagelijks volumelimiet** te gaan.
+4. Klik op **Registreren** om Application Insights te configureren voor uw web-app. Er wordt telemetrie verzonden naar [Azure Portal](https://portal.azure.com), zowel tijdens de foutopsporing als na het publiceren van de app.
+5. U kunt ook alleen de Application Insights-SDK toevoegen aan uw app. In dit geval kunt u de telemetrie in Visual Studio bekijken tijdens de foutopsporing. U kunt later terugkeren naar deze configuratiepagina, of u kunt wachten tot de app is geïmplementeerd en [telemetrie inschakelen tijdens runtime](app-insights-monitor-performance-live-website-now.md).
+
+
+## <a name="run"></a> Stap 2: uw app uitvoeren
 Voer uw app uit met F5. Open verschillende pagina's om telemetrie te genereren.
 
 In Visual Studio ziet u het aantal gebeurtenissen dat is geregistreerd.
@@ -116,7 +124,7 @@ U kunt uw telemetrie ook blijven analyseren in [Visual Studio](app-insights-visu
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a>Wat doet de opdracht Application Insights toevoegen?
+## <a name="land"></a>Wat doet de opdracht Application Insights toevoegen?
 Application Insights verzendt telemetrie van uw app naar de Application Insights-portal (die wordt gehost in Azure).
 
 ![Diagram van verplaatsing van telemetrie](./media/app-insights-asp-net/01-scheme.png)
@@ -194,9 +202,4 @@ Als u Visual Studio Team Services gebruikt, kunt u [een aantekeningenmarkering o
 **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
 
 **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/> Bevat informatie over dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

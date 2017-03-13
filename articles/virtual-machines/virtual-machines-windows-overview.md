@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ In deze tabel staan enkele manieren om een lijst met beschikbare locaties te ver
 | Methode | Beschrijving |
 | --- | --- |
 | Azure Portal |Selecteer een locatie in de lijst bij het maken van een VM. |
-| Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| REST API |Gebruik de bewerking [Locaties vermelden](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| REST API |Gebruik de bewerking [Locaties vermelden](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>VM-grootte
 De [grootte](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van de VM die u gebruikt, wordt bepaald door de workload die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure biedt een groot aantal verschillende grootten voor verschillende manieren van gebruik.
@@ -79,8 +80,8 @@ In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installat
 | Methode | Beschrijving |
 | --- | --- |
 | Azure Portal |De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx): locatie "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx): locatie "location", uitgever "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx): locatie "location", uitgever "publisherName", aanbieding: "offerName" |
-| REST-API’s |[Uitgevers van installatiekopieën weergeven](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Aanbiedingen van installatiekopieën weergeven](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Installatiekopie-SKU's weergeven](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher): locatie "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer): locatie "location", uitgever "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku): locatie "location", uitgever "publisherName", aanbieding: "offerName" |
+| REST-API’s |[Uitgevers van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Aanbiedingen van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Installatiekopie-SKU's weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 U kunt ervoor kiezen om [uw eigen installatiekopie te uploaden en te gebruiken](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Wanneer u dit doet, worden de uitgeversnaam, aanbieding en SKU niet gebruikt.
 
@@ -91,7 +92,7 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 
 * **Aangepaste scripts uitvoeren**: de [aangepaste scriptextensie](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt u workloads op de VM te configureren door uw script uit te voeren wanneer de VM is ingericht.
 * **Configuraties implementeren en beheren**: de [PowerShell Desired State Configuration (DSC)-extensie](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt bij het instellen van DSC op een VM voor het beheren van configuraties en omgevingen.
-* **Diagnostische gegevens verzamelen**: de [Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) helpt u bij het configureren van de VM voor het verzamelen van diagnostische gegevens die kunnen worden gebruikt voor het bewaken van de status van uw toepassing.
+* **Diagnostische gegevens verzamelen**: de [Azure Diagnostics-extensie](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt u bij het configureren van de VM voor het verzamelen van diagnostische gegevens die kunnen worden gebruikt voor het bewaken van de status van uw toepassing.
 
 ### <a name="related-resources"></a>Gerelateerde resources
 De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worden gemaakt wanneer de VM wordt gemaakt.
@@ -116,7 +117,7 @@ Deze tabel bevat informatie om u te helpen uw VM te maken.
 | Sjablonen |[Een virtuele Windows-machine maken met een Resource Manager-sjabloon](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Een Windows-VM maken met behulp van PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Client-SDK 's |[Azure-bronnen implementeren met C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST-API’s |[Een VM maken of bijwerken](https://msdn.microsoft.com/library/mt163591.aspx) |
+| REST-API’s |[Een VM maken of bijwerken](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 U hoopt natuurlijk dat alles goed gaat, maar soms gaat er iets fout. Als deze situatie u ooit overkomt, bekijkt u de informatie in [Problemen met Resource Manager-implementatie bij het maken van een virtuele Windows-machine in Azure oplossen](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -130,7 +131,7 @@ In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt
 | --- | --- |
 | Azure Portal |Klik in het hub-menu op **Virtuele Machines** en selecteer vervolgens de VM uit de lijst. Op de blade voor de VM kunt u informatie inzien, waarden instellen en metrische gegevens controleren. |
 | Azure PowerShell |Zie voor meer informatie over het gebruik van PowerShell voor het beheren van VM's [Virtuele machines van Azure beheren met behulp van Resource Manager en PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST API |Gebruik de bewerking [VM-informatie ophalen](https://msdn.microsoft.com/library/mt163682.aspx) voor het verkrijgen van informatie over een VM. |
+| REST API |Gebruik de bewerking [VM-informatie ophalen](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) voor het verkrijgen van informatie over een VM. |
 | Client-SDK 's |Zie voor meer informatie over het gebruik van C# voor het beheren van VM's [Virtuele machines van Azure beheren met behulp van Azure Resource Manager en C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Aanmelden bij de VM
@@ -148,10 +149,5 @@ In zowel Azure Backup als Azure Site Recovery-services wordt een [Recovery Servi
 * Als u met Linux-VM's wilt werken, bekijkt u [Azure en Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Meer informatie over de richtlijnen voor het instellen van uw infrastructuur vindt u in het [Voorbeeldoverzicht van Azure-infrastructuur](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Zorg ervoor dat u zich houdt aan de [Aanbevolen procedures voor het uitvoeren van een Windows-VM op Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

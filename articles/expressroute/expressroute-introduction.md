@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mo
 * Dynamische routering tussen uw netwerk en Microsoft via standaardprotocollen (BGP).
 * Ingebouwde redundantie op elke peeringlocatie voor hogere betrouwbaarheid.
 * [SLA](https://azure.microsoft.com/support/legal/sla/) voor verbindingsbedrijfstijd.
-* QoS en ondersteuning voor meerdere serviceklassen van speciale toepassingen, zoals Skype voor Bedrijven.
+* QoS-ondersteuning voor Skype voor Bedrijven.
 
 Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie.
 
@@ -108,8 +109,4 @@ U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies e
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-portal-resource-manager.md)
   * [Routering configureren](expressroute-howto-routing-portal-resource-manager.md)
   * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

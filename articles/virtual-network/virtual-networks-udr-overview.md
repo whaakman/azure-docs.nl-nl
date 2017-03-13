@@ -1,10 +1,10 @@
 ---
-title: Wat zijn door de gebruiker gedefinieerde routes en Doorsturen via IP?
-description: Meer informatie over het gebruik van door de gebruiker gedefinieerde routes (UDR) en Doorsturen via IP om verkeer door te sturen naar virtuele apparaten in Azure.
+title: Door de gebruiker gedefinieerde routes en doorsturen via IP in Azure | Microsoft Docs
+description: Meer informatie over het gebruik van door de gebruiker gedefinieerde routes (UDR-route) en doorsturen via IP om verkeer door te sturen naar virtuele apparaten in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Wat zijn door de gebruiker gedefinieerde routes en Doorsturen via IP?
+# <a name="user-defined-routes-and-ip-forwarding"></a>Door de gebruiker gedefinieerde routes en doorsturen via IP
+
 Als u virtuele machines (VM's) aan een virtueel netwerk (VNet) in Azure toevoegt, ziet u dat de virtuele machines automatisch met elkaar kunnen communiceren via het netwerk. U hoeft geen gateway op te geven, ook niet als de virtuele machines tot verschillende subnetten behoren. Hetzelfde geldt voor de communicatie tussen VM's en internet. Als er een hybride verbinding is tussen Azure en uw eigen datacentrum, is er zelfs communicatie met uw on-premises netwerk mogelijk.
 
 Deze communicatiestroom is mogelijk omdat de IP-verkeersstromen in Azure wordt gedefinieerd met behulp van een reeks systeemroutes. Systeemroutes bepalen de communicatiestroom in de volgende scenario's:
@@ -53,8 +56,8 @@ Pakketten worden gerouteerd via een TCP/IP-netwerk op basis van een routetabel d
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
 | Adresvoorvoegsel |De doel-CIDR waarop de route van toepassing is, zoals 10.1.0.0/16. |Dit moet een geldig CIDR-bereik zijn van adressen op internet, in een virtueel Azure-netwerk of in een on-premises datacentrum. |Zorg ervoor dat het **adresvoorvoegsel** niet het adres voor het **Nexthop-adres** bevat, anders raken de pakketten in een lus van de bron naar de volgende hop zonder ooit hun doel te bereiken. |
-| Volgend hoptype |Het type hop in Azure waarnaar het pakket moet worden doorgestuurd. |Dit moet een van de volgende waarden zijn: <br/> **Virtueel netwerk**. Hiermee geeft u het lokale virtuele netwerk op. Als u bijvoorbeeld twee subnetten, 10.1.0.0/16 en 10.2.0.0/16, in hetzelfde virtuele netwerk hebt, heeft de route voor elk subnet in de routetabel de waarde *Virtueel netwerk* voor de volgende hop. <br/> **Gateway voor een virtueel netwerk**. Hiermee geeft u een Azure S2S VPN-gateway op. <br/> **Internet**. Hiermee geeft u de standaard-internetgateway van de Azure-infrastructuur op. <br/> **Virtueel apparaat**. Hiermee geeft u een virtueel apparaat op dat u hebt toegevoegd aan uw virtuele Azure-netwerk. <br/> **Geen**. Hiermee geeft u een black hole op. Pakketten die worden doorgestuurd naar een black hole, worden helemaal niet doorgestuurd. |Overweeg het gebruik van het type **Geen** als u het doorsturen van pakketten naar een bepaalde bestemming wilt stoppen. |
-| Adres van de volgende hop |Het adres voor de volgende hop bevat het IP-adres waarnaar pakketten moeten worden doorgestuurd. Waarden voor de volgende hop zijn alleen toegestaan in routes waar het volgende hoptype *Virtueel apparaat* is. |Moet een IP-adres zijn dat bereikbaar is binnen het virtuele netwerk waar de door de gebruiker gedefinieerde route wordt toegepast. |Als het IP-adres een VM vertegenwoordigt, moet u [Doorsturen via IP](#IP-forwarding) in Azure voor de VM inschakelen. |
+| Volgend hoptype |Het type hop in Azure waarnaar het pakket moet worden doorgestuurd. |Dit moet een van de volgende waarden zijn: <br/> **Virtueel netwerk**. Hiermee geeft u het lokale virtuele netwerk op. Als u bijvoorbeeld twee subnetten, 10.1.0.0/16 en 10.2.0.0/16, in hetzelfde virtuele netwerk hebt, heeft de route voor elk subnet in de routetabel de waarde *Virtueel netwerk* voor de volgende hop. <br/> **Gateway voor een virtueel netwerk**. Hiermee geeft u een Azure S2S VPN-gateway op. <br/> **Internet**. Hiermee geeft u de standaard-internetgateway van de Azure-infrastructuur op. <br/> **Virtueel apparaat**. Hiermee geeft u een virtueel apparaat op dat u hebt toegevoegd aan uw virtuele Azure-netwerk. <br/> **Geen**. Hiermee geeft u een black hole op. Pakketten die worden doorgestuurd naar een black hole, worden helemaal niet doorgestuurd. |Overweeg het gebruik van een **virtueel apparaat** om verkeer naar een intern IP-adres van een VM of Azure Load Balancer te leiden.  Dit type staat de specificatie van een IP-adres toe, zoals hieronder wordt beschreven. Overweeg het gebruik van het type **Geen** als u het doorsturen van pakketten naar een bepaalde bestemming wilt stoppen. |
+| Adres van de volgende hop |Het adres voor de volgende hop bevat het IP-adres waarnaar pakketten moeten worden doorgestuurd. Waarden voor de volgende hop zijn alleen toegestaan in routes waar het volgende hoptype *Virtueel apparaat* is. |Moet een IP-adres zijn dat bereikbaar is binnen het virtuele netwerk waar de door de gebruiker gedefinieerde route wordt toegepast. |Als het IP-adres een VM vertegenwoordigt, moet u [Doorsturen via IP](#IP-forwarding) in Azure voor de VM inschakelen. Als het IP-adres het interne IP-adres van een Azure Load Balancer vertegenwoordigt, zorg er dan voor dat u beschikt over een overeenkomende taakverdelingsregel voor elke poort die u wilt verdelen.|
 
 Sommige van de NextHopType-waarden hebben verschillende namen in Azure PowerShell:
 
@@ -108,10 +111,5 @@ Deze VM op het virtuele apparaat moet in staat zijn om binnenkomend verkeer te o
 ## <a name="next-steps"></a>Volgende stappen
 * Ontdek hoe u [routes maakt in het implementatiemodel van Resource Manager](virtual-network-create-udr-arm-template.md) en deze koppelt aan subnetten. 
 * Ontdek hoe u [routes maakt in het klassieke implementatiemodel](virtual-network-create-udr-classic-ps.md) en deze koppelt aan subnetten.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

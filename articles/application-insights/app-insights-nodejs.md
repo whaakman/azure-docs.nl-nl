@@ -1,21 +1,22 @@
 ---
-title: De Application Insights-SDK toevoegen om uw Node.js-app te bewaken | Microsoft Docs
+title: Uw Node.js-app bewaken met de Azure Application Insights-SDK | Microsoft Docs
 description: Analyseer het gebruik, de beschikbaarheid en de prestaties van uw on-premises webtoepassing of Microsoft Azure-webtoepassing met Application Insights.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,22 +32,21 @@ Met de SDK kunt u automatisch de snelheid en reacties van binnenkomende HTTP-aan
 #### <a name="before-you-start"></a>Voordat u begint
 U hebt de volgende zaken nodig:
 
-* Visual Studio 2013 of later. Later is beter.
 * Een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a> Een Application Insights-resource maken
-Meld u aan bij de [Azure Portal][portal] en maak een nieuwe Application Insights-resource. Een [resource][rolls] in Azure is een exemplaar van een service. In deze resource wordt de telemetrie van uw app geanalyseerd en aan u gepresenteerd.
+## <a name="add"></a> Een Application Insights-resource maken
+Meld u aan bij [Azure Portal][portal] en maak een nieuwe Application Insights-resource. Een [resource][roles] in Azure is een exemplaar van een service. In deze resource wordt de telemetrie van uw app geanalyseerd en aan u gepresenteerd.
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Kies Overige als het toepassingstype. Op basis van het gekozen toepassingstype wordt de standaardinhoud van de resourceblades bepaald, net als de eigenschappen die zichtbaar zijn in [Metrics Explorer][metrics].
+Kies Algemeen als het toepassingstype. Op basis van het gekozen toepassingstype wordt de standaardinhoud van de resourceblades bepaald, net als de eigenschappen die zichtbaar zijn in [Metrics Explorer][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>De instrumentatiesleutel kopiëren
 De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin in de SDK om gegevens om te leiden naar de resource.
 
 ![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> De SDK installeren in uw toepassing
+## <a name="sdk"></a> De SDK installeren in uw toepassing
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ De instrumentatiesleutel kan ook worden ingesteld in de omgevingsvariabele APPIN
 
 U kunt de SDK uitproberen zonder telemetrie te verzenden. Stel de instrumentatiesleutel hiertoe in op een niet-lege tekenreeks.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Uw project uitvoeren
+## <a name="run"></a> Uw project uitvoeren
 Start uw toepassing en probeer deze uit. Open verschillende pagina’s om telemetrie te genereren.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Uw telemetrie weergeven
+## <a name="monitor"></a> Uw telemetrie weergeven
 Ga naar de [Azure Portal](https://portal.azure.com) en blader naar uw Application Insights-resource.
 
 Zoek naar gegevens op de pagina Overzicht. Aanvankelijk ziet u slechts één of twee punten. Bijvoorbeeld:
@@ -196,10 +196,5 @@ server.on("listening", () => {
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[rolls]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[roles]: app-insights-resources-roles-access-control.md
 

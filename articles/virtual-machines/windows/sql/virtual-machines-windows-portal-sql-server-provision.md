@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,11 +53,14 @@ In deze zelfstudie leert u het volgende:
 
    ![Blade Virtuele machines in Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Bekijk de beschikbare SQL Server-sjablonen.
-6. Elke sjabloon correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem. Selecteer een van de installatiekopieën in de lijst. Bekijk vervolgens de blade met details. Hierop vindt u een beschrijving van de installatiekopie voor de virtuele machine.
+5. Bekijk de beschikbare SQL Server-sjablonen. Elke sjabloon correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem. 
+6. Selecteer de sjabloon voor SQL Server 2016 SP1 Developer op Windows Server 2016.
+
+   > [!TIP]
+   > In deze zelfstudie maken we gebruik van de Developer Edition omdat deze een complete versie van de SQL Server is die gratis gebruikt kan worden voor ontwikkelings-/testdoeleinden. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine.
    
    > [!NOTE]
-   > SQL VM-installatiekopieën bevatten de licentiekosten voor SQL Server als prijzen per minuut van de virtuele machine die u maakt. Er is nog een andere mogelijkheid en dat is BYOL (bring-your-own-license). U betaalt dan alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. Zie [Aan de slag met SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) voor meer informatie over deze optie.
+   > SQL VM-installatiekopieën bevatten de licentiekosten voor SQL Server als prijzen per minuut van de virtuele machine die u maakt (met uitzondering van de Developer en Express Editions). SQL Server Developer is gratis voor ontwikkeling/testen (niet voor productiedoeleinden) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, minder dan 10 GB opslagruimte). Er is nog een andere mogelijkheid en dat is BYOL (bring-your-own-license). U betaalt dan alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. Zie [Aan de slag met SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) voor meer informatie over deze optie.
    > 
    > 
 7. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Resource Manager is het aanbevolen implementatiemodel voor nieuwe virtuele machines. Klik op **Create**.
@@ -243,14 +247,10 @@ Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQ
 Wanneer u klaar bent met het configureren van de SQL Server-instellingen, klikt u op **OK**.
 
 ### <a name="r-services"></a>R services
-Voor de SQL Server 2016 Enterprise-editie kunt u gebruikmaken van de optie om [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2016. Klik op **Inschakelen** op de blade **SQL Server-instellingen**.
+U kunt gebruikmaken van de optie om [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2016. Klik op **Inschakelen** op de blade **SQL Server-instellingen**.
 
 ![SQL Server R Services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> Voor SQL Server-installatiekopieën die geen 2016 Enterprise-editie zijn, is de optie om R Services in te schakelen uitgeschakeld.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. De samenvatting bekijken
 Op de blade **Samenvatting** controleert u de samenvatting en klikt u op **OK** om de SQL Server, de resourcegroep en de resources te maken die zijn opgegeven voor deze virtuele machine.
@@ -299,10 +299,5 @@ Zie voor meer informatie over het gebruik van SQL Server in Azure [SQL Server in
 Bekijk voor een video-overzicht van SQL Server in Azure Virtual Machines [Azure VM is het beste platform voor SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
 [Bekijk het leertraject](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) voor virtuele SQL Server-machines in Azure.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

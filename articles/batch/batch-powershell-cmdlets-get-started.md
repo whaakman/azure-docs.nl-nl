@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met PowerShell voor Azure Batch | Microsoft Docs
-description: Een korte inleiding in de Azure PowerShell-cmdlets die u kunt gebruiken voor het beheren van de Azure Batch-service
+description: Een korte inleiding in de Azure PowerShell-cmdlets die u kunt gebruiken voor het beheren van Batch-resources.
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Aan de slag met PowerShell-cmdlets voor Azure Batch
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch-resources beheren met PowerShell-cmdlets
+
 Met de PowerShell-cmdlets voor Azure Batch kunt u veel dezelfde taken die u uitvoert met de Batch-API's, Azure Portal en de Azure-opdrachtregelinterface (CLI), uitvoeren en er scripts voor uitvoeren. Dit is een korte inleiding in de cmdlets die u kunt gebruiken om uw Batch-accounts te beheren en te werken met uw Batch-resources, zoals pools en taken.
 
 Zie [Naslaginformatie over Azure Batch-cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) voor een volledige lijst met Batch-cmdlets en gedetailleerde cmdlet-syntaxis.
@@ -236,10 +239,5 @@ Nu hebt u de eigenschappen van de adresgroep bijgewerkt in de Batch-service. Voo
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Naslaginformatie over Azure Batch-cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) voor gedetailleerde cmdlet-syntaxis en voorbeelden.
 * Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie over toepassingen en toepassingspakketten in Batch.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

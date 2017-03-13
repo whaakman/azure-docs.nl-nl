@@ -16,6 +16,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 5618650671badfc54860c3ad8af5d1e727d3d8c9
 ms.openlocfilehash: 40ccfc59cccd86a7634ec89656571b3cd23566b4
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -65,8 +66,8 @@ De module azure-mgmt-datalake-store bevat de accountbeheerbewerkingen voor Azure
         from azure.mgmt.resource.resources.models import ResourceGroup
 
         ## Required for Azure Data Lake Store account management
-        from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-        from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+        from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+        from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
         ## Required for Azure Data Lake Store filesystem management
         from azure.datalake.store import core, lib, multithread
@@ -205,10 +206,5 @@ Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag m
 - Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) om U-SQL te leren.
 - Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
 - Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

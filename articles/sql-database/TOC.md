@@ -58,33 +58,37 @@
 ## Gegevens migreren en verplaatsen
 ### Leren
 #### [Een database migreren](sql-database-cloud-migrate.md)
-#### [Transactionele replicatie](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Een database exporteren](sql-database-export.md)
 #### [Gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
 #### [Een SQL-database kopiëren](sql-database-copy.md)
 ## Firewallregels, -verificatie en -autorisatie
 ### Leren
 #### [Toegangsbeheer](sql-database-control-access.md)
-#### [Firewall](sql-database-firewall-configure.md)
+#### [Firewallregels](sql-database-firewall-configure.md)
 #### [Aanmeldingen beheren](sql-database-manage-logins.md)
+#### [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
+#### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Wel doen
 #### [SQL-verificatie en -autorisatie](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD-verificatie en -autorisatie](sql-database-control-access-aad-authentication-get-started.md)
 ## Gegevens beveiligen en beschermen
 ### Leren
 #### Controleren
-##### [Controleren](sql-database-auditing-get-started.md)
+##### [Controleren](sql-database-auditing.md)
 ##### [Ondersteuning voor downlevel-clients en wijzigingen in IP-eindpunten voor controle](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Detectie van bedreigingen](sql-database-threat-detection-get-started.md)
+#### [Detectie van bedreigingen](sql-database-threat-detection.md)
 #### Gegevens versleutelen
-##### [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Transparante gegevensversleuteling](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Kolomversleuteling](https://msdn.microsoft.com/library/azure/ms179331)
 #### Gegevens maskeren
-##### Dynamische gegevensmaskering
-###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md)
 ### Wel doen
-#### [Dynamische gegevensmaskering met Azure Portal](sql-database-dynamic-data-masking-get-started.md)
-##### [Altijd versleuteld met het Windows-certificaatarchief](sql-database-always-encrypted.md)
+#### [Dynamische gegevensmaskering met Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Controles configureren met behulp van Azure Portal](sql-database-auditing-portal.md)
+#### [Controles configureren met behulp van PowerShell](sql-database-auditing-powershell.md)
+#### [Controles configureren met behulp van de REST-API](sql-database-auditing-rest.md)
+#### [Altijd versleuteld met behulp van een Windows-certificaat](sql-database-always-encrypted.md)
+#### [Altijd versleuteld met behulp van Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ## Bedrijfscontinuïteit
 ### Leren
 #### [Overzicht](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [DR-herstelanalyses uitvoeren](sql-database-disaster-recovery-drills.md)
 #### [Overzicht actieve geo-replicatie](sql-database-geo-replication-overview.md)
 ### Wel doen
-#### [Azure Portal: back-up en herstel](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: back-up en herstel](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: back-up en herstel](sql-database-get-started-backup-recovery-powershell.md)
 ## Ontwikkeling van apps
 ### Leren
@@ -140,7 +144,7 @@
 ### Wel doen
 #### [SQL Server-ontwikkeling](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [OLTP in het geheugen gebruiken](sql-database-in-memory-oltp-migration.md)
-## Bewaking en afstemming
+## Controleren en afstemmen
 ### Leren
 #### [Individuele databases](sql-database-single-database-monitor.md)
 #### [Overzicht van SQL Database Advisor](sql-database-advisor.md)
@@ -157,69 +161,57 @@
 #### [Upgraden met PowerShell](sql-database-upgrade-server-powershell.md)
 # Procedures
 ## Maken en beheren
-### [SQL Database beheren met Azure Portal](sql-database-manage-portal.md)
-### [SQL Database beheren met PowerShell](sql-database-manage-powershell.md)
-### [SQL Database beheren met SSMS](sql-database-manage-azure-ssms.md)
+### [Beheren met Azure Portal](sql-database-manage-portal.md)
+### [Beheren met PowerShell](sql-database-manage-powershell.md)
+### [Beheren met SSMS](sql-database-manage-azure-ssms.md)
 ### Servers
-#### [Servers maken](sql-database-create-servers.md)
-#### [Serverinstellingen weergeven of bijwerken](sql-database-view-update-server-settings.md)
+#### [Beheren met Azure Portal](sql-database-manage-servers-portal.md)
+#### [Beheren met PowerShell](sql-database-manage-servers-powershell.md)
 ### Individuele databases
-#### [Individuele databases maken](sql-database-create-databases.md)
-#### [Database-instellingen weergeven of bijwerken](sql-database-view-update-database-settings.md)
+#### [Beheren met Azure Portal](sql-database-manage-single-databases-portal.md)
+#### [Beheren met PowerShell](sql-database-manage-single-databases-powershell.md)
+#### [Beheren met Transact-SQL](sql-database-manage-single-databases-tsql.md)
 ### Firewall-regels
-#### [Firewallregels maken met Azure Portal](sql-database-configure-firewall-settings.md)
-#### [Firewallregels maken met PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Firewallregels maken met REST-API](sql-database-configure-firewall-settings-rest.md)
-#### [Firewallregels maken met T-SQL](sql-database-configure-firewall-settings-tsql.md)
+#### [Maken met Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Maken met PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [Maken met REST-API](sql-database-configure-firewall-settings-rest.md)
+#### [Maken met T-SQL](sql-database-configure-firewall-settings-tsql.md)
 ### Meerdere databases
 #### [Clientbibliotheek upgraden in clienttoepassingen](sql-database-elastic-scale-upgrade-client-library.md)
 #### Shard-databases
 ##### [Beveiligingsconfiguratie](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Een shard toevoegen](sql-database-elastic-scale-add-a-shard.md)
 ##### [Shard-toewijzingsproblemen oplossen](sql-database-elastic-database-recovery-manager.md)
-##### [Bestaande uitgeschaalde databases migreren naar shard-databases](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migreren naar Shard-databases](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Prestatiemeteritems maken voor shard-toewijzingsbeheer](sql-database-elastic-database-perf-counters.md)
 #### Elastische taken
-##### [Hoe installeer ik de service voor elastische taken?](sql-database-elastic-jobs-service-installation.md)
-##### [Elastische taken maken en beheren met PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Elastische taken maken en beheren met Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [Hoe verwijder ik elastische taken?](sql-database-elastic-jobs-uninstall.md)
+##### [Hoe voer ik de installatie uit?](sql-database-elastic-jobs-service-installation.md)
+##### [Beheren met PowerShell](sql-database-elastic-jobs-powershell.md) 
+##### [Beheren met Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
+##### [Hoe verwijder ik de installatie?](sql-database-elastic-jobs-uninstall.md)
 #### Pools voor Elastic Database
-##### [Maken met Azure Portal](sql-database-elastic-pool-create-portal.md)
-##### [Maken met PowerShell](sql-database-elastic-pool-create-powershell.md)
-##### [Maken met C#](sql-database-elastic-pool-create-csharp.md)
 ##### [Beheren met Azure Portal](sql-database-elastic-pool-manage-portal.md)
 ##### [Beheren met PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ##### [Beheren met C#](sql-database-elastic-pool-manage-csharp.md)
 ##### [Beheren met T-SQL](sql-database-elastic-pool-manage-tsql.md)
-##  Verifiëren en autoriseren
-### [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
-### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
+## Verifiëren en autoriseren
+### [Azure Active Directory-verificatie instellen](sql-database-aad-authentication-configure.md)
+### [Multi-Factor Authentication instellen](sql-database-ssms-mfa-authentication-configure.md)
+## Detectie van bedreigingen instellen
+### [Detectie van bedreigingen instellen met behulp van Azure Portal](sql-database-threat-detection-portal.md)
 ## Gegevens versleutelen
 ### [Transparante gegevensversleuteling](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Kolomversleuteling](https://msdn.microsoft.com/library/azure/ms179331)
-## Databases migreren
-### Compatibiliteit bepalen
-#### [Compatibiliteit bepalen met het hulpprogramma SQL Package](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Compatibiliteit bepalen met SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Compatibiliteitsproblemen oplossen
-#### [Compatibiliteitsproblemen oplossen met SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [Compatibiliteitsproblemen oplossen met SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [Compatibiliteitsproblemen oplossen met SMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [Migreren met de SSMS-migratiewizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## Controleren en afstemmen
 ### [Inzicht in queryprestaties](sql-database-query-performance.md)
 ### [SQL Database Advisor](sql-database-advisor-portal.md)
 ### [DMV's](sql-database-monitoring-with-dmvs.md)
 ### [Compatibiliteitsniveaus](sql-database-compatibility-level-query-performance-130.md)
 ### [Tips voor het afstemmen van prestaties](sql-database-troubleshoot-performance.md)
-### Servicelagen en prestatieniveaus wijzigen
-#### [Servicelagen wijzigen met Azure Portal](sql-database-scale-up.md)
-#### [Servicelagen wijzigen met PowerShell](sql-database-scale-up-powershell.md)
 ### [Waarschuwingen maken](sql-database-insights-alerts-portal.md)
-#### [OLTP-opslag in het geheugen controleren](sql-database-in-memory-oltp-monitoring.md)
+### [OLTP-opslag in het geheugen controleren](sql-database-in-memory-oltp-monitoring.md)
 ### Query Store
-#### [Prestaties controleren via de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+#### [Prestaties controleren met de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Query Store-gebruiksscenario's](https://msdn.microsoft.com/library/mt614796.aspx)
 #### [De Query Store gebruiken](sql-database-operate-query-store.md)
 ### Uitgebreide gebeurtenissen
@@ -231,31 +223,30 @@
 #### [Kopiëren met PowerShell](sql-database-copy-powershell.md)
 #### [Kopiëren met T-SQL](sql-database-copy-transact-sql.md)
 ### Database naar een BACPAC-bestand exporteren
-#### [Exporteren met behulp van Azure Portal](sql-database-export.md)
-#### [Exporteren met behulp van SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Exporteren met behulp van het hulpprogramma SQL Package](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Exporteren met behulp van Azure Portal](sql-database-export-portal.md)
+#### [Exporteren met behulp van het hulpprogramma SQL Package](sql-database-export-sqlpackage.md)
 #### [Exporteren met behulp van PowerShell](sql-database-export-powershell.md)
-### Database uit een BACPAC-bestand importeren
-#### [Importeren met behulp van Azure Portal](sql-database-import.md)
-#### [Importeren met behulp van PowerShell](sql-database-import-powershell.md)
-#### [Importeren met behulp van SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Importeren met behulp van het hulpprogramma SQL Package](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [Exporteren met behulp van SSMS](sql-database-export-ssms.md)
+## Gegevens importeren
+### [Importeren met behulp van Azure Portal](sql-database-import-portal.md)
+### [Importeren met behulp van PowerShell](sql-database-import-powershell.md)
+### [Importeren met behulp van SQLPackage](sql-database-import-sqlpackage.md)
 ### [Laden uit CSV-bestand met BCP](sql-database-load-from-csv-with-bcp.md)
 ## Query's uitvoeren
 ### [Query’s uitvoeren met behulp van SSMS](sql-database-connect-query-ssms.md)
-## Back-up en herstel
+## Back-ups en herstellen
 ### Langetermijnretentie van back-ups
-#### [Langetermijnretentie van back-ups configureren](sql-database-configure-long-term-retention.md)
-#### [Back-ups in een Recovery Services-kluis weergeven](sql-database-view-backups-in-vault.md)
-#### [Back-ups herstellen vanuit een langetermijnretentie](sql-database-restore-from-long-term-retention.md)
-#### [Back-ups verwijderen uit een langetermijnretentie](sql-database-long-term-retention-delete.md)
+#### [Langetermijnretentie van back-ups beheren met behulp van Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
+#### [Langetermijnretentie van back-ups beheren met behulp van PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Verwijderde database herstellen
 #### [Verwijderde items herstellen met behulp van Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [Verwijderde items herstellen met behulp van PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Herstel naar een bepaald tijdstip
-#### [Herstellen naar een bepaald tijdstip](sql-database-point-in-time-restore.md)
-#### [Oudste herstelpunt weergeven](sql-database-view-oldest-restore-point.md)
-### [Terugzetten vanuit geografisch redundante back-up](sql-database-geo-restore.md)
+### Een database herstellen naar een bepaald tijdstip
+#### [Herstel naar een bepaald tijdstip met behulp van Azure Portal](sql-database-point-in-time-restore-portal.md)
+#### [Database herstellen naar een bepaald tijdstip met behulp van PowerShell](sql-database-point-in-time-restore-powershell.md)
+### Terugzetten vanuit geografisch redundante back-up
+### [Geo-herstellen met behulp van Azure Portal](sql-database-geo-restore-portal.md)
+### [Geo-herstellen met behulp van PowerShell](sql-database-geo-restore-powershell.md)
 ## Actieve Geo-replicatie
 ### [Configureren met behulp van Azure Portal](sql-database-geo-replication-portal.md)
 ### [Configureren met behulp van PowerShell](sql-database-geo-replication-powershell.md)

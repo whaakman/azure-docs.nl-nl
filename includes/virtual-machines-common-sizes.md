@@ -92,44 +92,45 @@ Zie [About the H-series and compute-intensive A-series VMs](../articles/virtual-
 
 ## <a name="av2-series"></a>Av2-serie
 
-| Grootte        | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's/netwerkbandbreedte |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x&500;              | 1/gemiddeld              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4 x&500;              | 2/gemiddeld              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 x&500;              | 4/hoog                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 x&500;             | 8/hoog                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4 x&500;              | 2/gemiddeld              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x&500;              | 4/hoog                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x&500;             | 8/hoog                  |
-
+| Grootte            | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's/netwerkbandbreedte |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500                         | 1/gemiddeld                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500                         | 2/gemiddeld                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500                         | 2/gemiddeld                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500                       | 8/hoog                     |
 
 ## <a name="d-series"></a>D-serie
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's/netwerkbandbreedte |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2 x&500; |1/gemiddeld |
-| Standard_D2 |2 |7 |100 |4 |4 x&500; |2/hoog |
-| Standard_D3 |4 |14 |200 |8 |8 x&500; |4/hoog |
-| Standard_D4 |8 |28 |400 |16 |16 x&500; |8/hoog |
-| Standard_D11 |2 |14 |100 |4 |4 x&500; |2/hoog |
-| Standard_D12 |4 |28 |200 |8 |8 x&500; |4/hoog |
-| Standard_D13 |8 |56 |400 |16 |16 x&500; |8/hoog |
-| Standard_D14 |16 |112 |800 |32 |32 x&500; |8/zeer hoog |
 
+| Grootte         | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's/netwerkbandbreedte |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1/gemiddeld                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2/hoog                     |
+| Standard_D3  | 4         | 14          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_D4  | 8         | 28          | 400            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2/hoog                     |
+| Standard_D12 | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_D13 | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 32 / 32 x 500                       | 8/zeer hoog                |
 <br>
 
 ## <a name="dv2-series"></a>Dv2-serie
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's/netwerkbandbreedte |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2 x&500; |1/gemiddeld |
-| Standard_D2_v2 |2 |7 |100 |4 |4 x&500; |2/hoog |
-| Standard_D3_v2 |4 |14 |200 |8 |8 x&500; |4/hoog |
-| Standard_D4_v2 |8 |28 |400 |16 |16 x&500; |8/hoog |
-| Standard_D5_v2 |16 |56 |800 |32 |32 x&500; |8/zeer hoog |
-| Standard_D11_v2 |2 |14 |100 |4 |4 x&500; |2/hoog |
-| Standard_D12_v2 |4 |28 |200 |8 |8 x&500; |4/hoog |
-| Standard_D13_v2 |8 |56 |400 |16 |16 x&500; |8/hoog |
-| Standard_D14_v2 |16 |112 |800 |32 |32 x&500; |8/zeer hoog |
-| Standard_D15_v2** |20 |140 |1000 |40 |40 x&500; |8/zeer hoog* |
+
+
+| Grootte              | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's/netwerkbandbreedte |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1/gemiddeld                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2/hoog                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48.000 / 750 / 375                                        | 32 / 32 x 500                       | 8/zeer hoog           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2/hoog                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 32 / 32 x 500                       | 8/zeer hoog           |
+| Standard_D15_v2** | 20        | 140         | 1000          | 60.000 / 937 / 468                                        | 40 / 40 x 500                       | 8/zeer hoog*          |
 
 *In sommige regio's is Versneld netwerken beschikbaar voor de grootte Standard_D15_v2. Voor meer informatie over het gebruik en de beschikbaarheid raadpleegt u [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Preview-versie van Versneld netwerken) en [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Versneld netwerken voor een virtuele machine).
 
@@ -138,7 +139,7 @@ Zie [About the H-series and compute-intensive A-series VMs](../articles/virtual-
 <br>
 
 ## <a name="ds-series"></a>DS-serie*
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer voor schijf met caching: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |1/gemiddeld |
 | Standard_DS2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 64 |2/hoog |
@@ -179,18 +180,18 @@ MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes.
 <br>
 
 ## <a name="f-series"></a>F-serie
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer schijf: IOPS | Max. aantal NIC's/netwerkbandbreedte |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2 x&500; |1/gemiddeld |
-| Standard_F2 |2 |4 |32 |4 |4 x&500; |2/hoog |
-| Standard_F4 |4 |8 |64 |8 |8 x&500; |4/hoog |
-| Standard_F8 |8 |16 |128 |16 |16 x&500; |8/hoog |
-| Standard_F16 |16 |32 |256 |32 |32 x&500; |8/zeer hoog |
 
+| Grootte         | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's/netwerkbandbreedte |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 1/gemiddeld                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2/hoog                     |
+| Standard_F4  | 4         | 8           | 64             | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4/hoog                     |
+| Standard_F8  | 8         | 16          | 128            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8/hoog                     |
+| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 32 / 32 x 500                       | 8/zeer hoog           |
 <br>
 
 ## <a name="fs-series"></a>Fs-serie*
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer voor schijf met caching: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4000 / 32 (12) |3200 / 48 |1/gemiddeld |
 | Standard_F2s |2 |4 |8 |4 |8000 / 64 (24) |6400 / 96 |2/hoog |
@@ -205,19 +206,20 @@ MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes.
 <br>
 
 ## <a name="g-series"></a>G-serie
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer schijf: IOPS | Max. aantal NIC's/netwerkbandbreedte |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1/hoog |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2/hoog |
-| Standard_G3 |8 |112 |1536 |16 |16 x 500 |4/zeer hoog |
-| Standard_G4 |16 |224 |3072 |32 |32 x 500 |8/zeer hoog |
-| Standard_G5* |32 |448 |6144 |64 |64 x 500 |8/zeer hoog |
+
+| Grootte         | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's/netwerkbandbreedte |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 1/hoog                     |
+| Standard_G2  | 4         | 56          | 768            | 12.000 / 187 / 93                                         | 8 / 8 x 500                       | 2/hoog                     |
+| Standard_G3  | 8         | 112         | 1536          | 24.000 / 375 / 187                                        | 16 / 16 x 500                     | 4/zeer hoog                |
+| Standard_G4  | 16        | 224         | 3072          | 48.000 / 750 / 375                                        | 32 / 32 x 500                     | 8/zeer hoog           |
+| Standard_G5* | 32        | 448         | 6144          | 96.000 / 1500 / 750                                       | 64 / 64 x 500                     | 8/zeer hoog           |
 
 *Exemplaar is geïsoleerd voor hardware, speciaal voor één klant.
 <br>
 
 ## <a name="gs-series"></a>GS-serie*
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Max. doorvoer voor schijf met caching: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's/netwerkbandbreedte |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10.000 / 100 (264) |5000 / 125 |1/hoog |
 | Standard_GS2 |4 |56 |112 |8 |20.000 / 200 (528) |10.000 / 250 |2/hoog |
@@ -227,7 +229,7 @@ MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes.
 
 MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes.
 
-*De maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de GS-serie kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. 
+*De maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de GS-serie kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie. 
 
 **Exemplaar is geïsoleerd voor hardware, speciaal voor één klant.
 <br>
@@ -253,7 +255,7 @@ Zie [About the H-series and compute-intensive A-series VMs](../articles/virtual-
 <br>
 
 
-## <a name="ls-series"></a>Ls-serie 
+## <a name="ls-series"></a>Ls-serie* 
 
 De Ls-serie is geoptimaliseerd voor workloads die lokale opslag met lage latentie vereisen, zoals NoSQL-databases (bijvoorbeeld Cassandra, MongoDB, Cloudera en Redis). De Ls-serie biedt maximaal 32 CPU-kernen en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Deze biedt dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per CPU-kern.  
 
@@ -263,9 +265,13 @@ De Ls-serie is geoptimaliseerd voor workloads die lokale opslag met lage latenti
 | Standard_L4s  | 4    | 32   | 678   | 8              | N.V.T./N.V.T. (0)          | 5000 / 125                               | 2/hoog       | 
 | Standard_L8s  | 8    | 64   | 1388 | 16             | N.V.T./N.V.T. (0)          | 10.000 / 250                              | 4/zeer hoog  | 
 | Standard_L16s | 16   | 128  | 2807 | 32             | N.V.T./N.V.T. (0)          | 20.000 / 500                              | 8/zeer hoog | 
-| Standard_L32s | 32   | 256  | 5630 | 64             | N.V.T./N.V.T. (0)          | 40.000 / 1,000                            | 8/zeer hoog | 
+| Standard_L32s** | 32   | 256  | 5630 | 64             | N.V.T./N.V.T. (0)          | 40.000 / 1,000                            | 8/zeer hoog | 
  
 MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes. 
+
+*De maximale schijfdoorvoer (IOPS of MBps) die mogelijk is met een virtuele machine uit de Ls-serie, kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie. 
+
+**Exemplaar is geïsoleerd voor hardware, speciaal voor één klant.
 
 
 
@@ -322,9 +328,4 @@ In het klassieke implementatiemodel verschillen sommige namen van VM-grootten en
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie: [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md) (Limieten van Azure-abonnementen en -services, quota en beperkingen).
 * Zie voor meer informatie: [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Over virtuele machines uit de H-serie en rekenintensieve A-serie) voor HPC-workloads (High Performance Computing).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

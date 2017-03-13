@@ -9,13 +9,13 @@
 ### [Aanbevolen procedures voor gegevensbeveiliging en -versleuteling](azure-security-data-encryption-best-practices.md)
 ### [Gids voor opslagbeveiliging](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
+### [Aanbevolen procedures voor virtuele Azure-machines](azure-security-best-practices-vms.md)
 ### [Aanbevolen procedures voor IaaS-workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Schijfversleuteling](azure-security-disk-encryption.md)
 ### [Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
 ### [Beveiligingsbeheer](azure-security-management.md)
-### [Aanbevolen procedures voor software-updates op IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Azure-logboekintegratie](security-azure-log-integration-overview.md)
 #### [Aan de slag](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[Invoervalidatie](azure-security-threat-modeling-tool-input-validation.md)
 ###[Gevoelige gegevens](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Sessiebeheer](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

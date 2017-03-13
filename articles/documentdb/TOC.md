@@ -1,6 +1,7 @@
 
 # Overzicht
 ## [Wat is DocumentDB?](documentdb-introduction.md)
+## [Wat is DocumentDB: API voor MongoDB?](documentdb-protocol-mongodb.md)
 ## [Basisconcepten](documentdb-resources.md)
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
 ## [NoSQL TCO-analyse](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [.NET Core-console-app](documentdb-dotnetcore-get-started.md)
 ### [Java-console-app](documentdb-java-get-started.md)
 ### [Node.js-console-app](documentdb-nodejs-get-started.md)
+### [Node.js-console-app voor MongoDB-API's](documentdb-mongodb-samples.md)
 ### [C++-console-app](documentdb-cpp-get-started.md)
 ## Een web-app bouwen
 ### [.NET-web-app](documentdb-dotnet-application.md)
+### [.NET-web-app voor MongoDB-API's](documentdb-mongodb-application.md)
 ### [Node.js-web-app](documentdb-nodejs-application.md)
 ### [Java-web-app](documentdb-java-application.md)
 ### [Python Flask web-app](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Beheren
 ### [Uw gegevens importeren](documentdb-import-data.md)
+### [Importeren naar API voor MongoDB](documentdb-mongodb-migrate.md)
+### [Verbinding maken met uw MongoDB-account](documentdb-connect-mongodb-account.md)
+### [MongoChef gebruiken](documentdb-mongodb-mongochef.md)
+### [Robomongo gebruiken](documentdb-mongodb-robomongo.md)
 ### [Modellen voor uw gegevens maken](documentdb-modeling-data.md)
 ### [Georuimtelijke gegevens gebruiken](documentdb-geospatial.md)
 ### [Ontwikkelen voor meerdere regio's](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Aanbevolen procedures
 #### [Meerdere masters instellen](documentdb-multi-region-writers.md)
 #### [Datum/tijd](documentdb-working-with-dates.md)
-
-## DocumentDB-ondersteuning voor MongoDB gebruiken
-### [Protocolondersteuning voor MongoDB](documentdb-protocol-mongodb.md)
-### [Account maken](documentdb-create-mongodb-account.md)
-### [Verbinding maken met uw account](documentdb-connect-mongodb-account.md)
-### [Uw gegevens migreren](documentdb-mongodb-migrate.md)
-### [Robomongo gebruiken](documentdb-mongodb-robomongo.md)
-### [MongoChef gebruiken](documentdb-mongodb-mongochef.md)
-### [Voorbeelden van protocolondersteuning](documentdb-mongodb-samples.md)
 
 ## Gebruik de portal
 ### [Een databaseaccount maken](documentdb-create-account.md)

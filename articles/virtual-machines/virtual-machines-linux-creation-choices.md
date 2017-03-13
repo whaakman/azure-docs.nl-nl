@@ -13,31 +13,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2016
+ms.date: 01/03/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: 1287a028122080c0d9745502a4a98a957894a0de
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm-including-the-azure-cli-20-preview"></a>Verschillende manieren om een virtuele Linux-machine te maken in Azure met inbegrip van de Azure CLI 2.0 (Preview)
-In Azure hebt u de flexibiliteit om een virtuele Linux-machine te maken met behulp van hulpprogramma's en werkstromen die u prettig vindt. Dit artikel bevat een overzicht van de verschillen en voorbeelden voor het maken van de Linux-VM's.
+# <a name="different-ways-to-create-a-linux-vm"></a>Verschillende manieren om een virtuele Linux-machine te maken
+In Azure hebt u de flexibiliteit om een virtuele Linux-machine te maken met behulp van hulpprogramma's en werkstromen die u prettig vindt. Dit artikel bevat een overzicht van deze verschillen en voorbeelden voor het maken van de virtuele Linux-machines, inclusief de Azure CLI 2.0. U kunt ook opties voor het maken bekijken, inclusief de [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
-## <a name="azure-cli"></a>Azure CLI
-Met een van de volgende CLI-versies kunt u virtuele machines maken in Azure:
+De [Azure CLI 2.0](/cli/azure/install-az-cli2) is beschikbaar op diverse platforms via een NPM-pakket, door distributeurs geleverde pakketten of Docker-container. Installeer de meest geschikte build voor uw omgeving en meld u aan bij een Azure-account met [az login](/cli/azure/#login)
 
-- [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
-- Azure CLI 2.0 (Preview): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel (dit artikel)
+In de volgende voorbeelden wordt de Azure CLI 2.0 gebruikt. Lees elk artikel voor meer informatie over de vermelde opdrachten. U kunt ook voorbeelden vinden voor de Linux-opties met de [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
-De [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) is op diverse platforms beschikbaar via een npm-pakket, door distributeurs geleverde pakketten of Docker-container. Installeer de meest geschikte build voor uw omgeving en meld u aan bij een Azure-account met [az login](/cli/azure/#login)
-
-In de volgende voorbeelden wordt de Azure CLI 2.0 (Preview) gebruikt. Lees elk artikel voor meer informatie over de vermelde opdrachten. U kunt ook voorbeelden vinden voor de Linux-opties met de [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
-
-* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0 (Preview)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * In dit voorbeeld wordt [az group create](/cli/azure/group#create) gebruikt om een resourcegroep te maken met de naam `myResourceGroup`: 
-    
+-    
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
@@ -47,9 +42,9 @@ In de volgende voorbeelden wordt de Azure CLI 2.0 (Preview) gebruikt. Lees elk a
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username azureuser \
+     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name myPublicDNS \
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
@@ -73,11 +68,11 @@ In de volgende voorbeelden wordt de Azure CLI 2.0 (Preview) gebruikt. Lees elk a
 
 * [Een schijf toevoegen aan een virtuele Linux-machine](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * In het volgende voorbeeld wordt [az vm disk attach-new](/cli/azure/vm/disk#attach-new) gebruikt om een niet-beheerde schijf van 5 GB met de naam `myDataDisk.vhd` toe te voegen aan een bestaande virtuele machine met de naam `myVM`:
+  * In het volgende voorbeeld wordt [az vm disk attach-new](/cli/azure/vm/disk#attach-new) gebruikt om een schijf van 50 GB toe te voegen aan een bestaande virtuele machine met de naam `myVM`:
   
     ```azurecli
-    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -101,13 +96,13 @@ az vm image list-publishers --location WestUS
 Beschikbare producten (aanbiedingen) voor een bepaalde uitgever vermelden:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 Beschikbare SKU's (distributiereleases) van een bepaalde aanbieding vermelden:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 Alle beschikbare installatiekopieën voor een bepaalde release vermelden:
@@ -149,9 +144,4 @@ Als u specifieke aanpassingen nodig hebt, kunt u een installatiekopie gebruiken 
 * Maak een virtuele Linux-machine via de [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met de [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of met behulp van een Azure Resource Manager-[sjabloon](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Nadat u een Linux-VM hebt gemaakt, [voegt u een gegevensschijf toe](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Snelle stappen om [een wachtwoord of SSH-sleutels opnieuw in te stellen en gebruikers te beheren](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
