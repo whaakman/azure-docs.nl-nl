@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Een virtuele Windows-machine maken met behulp van Resource Manager en PowerShell
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Een virtuele Windows-machine maken met behulp van Azure Resource Manager en PowerShell
 
-Dit artikel laat zien hoe u met behulp van [Resource Manager](../azure-resource-manager/resource-group-overview.md) en Azure PowerShell snel een virtuele Azure-machine maakt met Windows Server, evenals de hiervoor benodigde resources.  
+Dit artikel laat zien hoe u met behulp van [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) en Azure PowerShell snel een virtuele Azure-machine maakt met Windows Server, evenals de hiervoor benodigde resources.  
 
-Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het uitvoeren van deze stappen kost ongeveer 30 minuten. Vervang voorbeeldparameterwaarden in de opdrachten met namen die logisch zijn voor uw omgeving.
+Alle stappen in dit artikel zijn vereist om een virtuele machine te maken. Het kopiëren, plakken en uitvoeren van de opdrachten kost ongeveer 10 minuten.
 
 ## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
 
@@ -79,7 +79,7 @@ U kunt tijdens het maken van een virtuele machine kiezen of u [Azure Managed Dis
 
 ## <a name="step-4-create-a-virtual-network"></a>Stap 4: Een virtueel netwerk maken
 
-Alle virtuele machines maken deel uit van een [virtueel netwerk](../virtual-network/virtual-networks-overview.md).
+Alle virtuele machines maken deel uit van een [virtueel netwerk](virtual-machines-windows-network-overview.md).
 
 1. Maak een subnet voor het virtuele netwerk. Met deze opdracht wordt een subnet met de naam **mySubnet** gemaakt met een adresvoorvoegsel van 10.0.0.0/24.
    

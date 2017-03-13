@@ -4,20 +4,20 @@
 | Resource | Standaardlimiet | 
 | --- | --- | 
 | AMS-accounts (Azure Media Service) in één abonnement | 25 (vast) |
-| Gereserveerde media-eenheden (RU's) per AMS-account |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Taken per AMS-account | 50.000<sup>2</sup> |
+| Gereserveerde media-eenheden (RU's) per AMS-account |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Taken per AMS-account | 50,000<sup>(2)</sup> |
 | Gekoppelde taken per taak | 30 (vast) |
 | Activa per AMS-account | 1.000.000|
 | Activa per taak | 50 |
 | Activa per taak | 100 |
-| Unieke locators die aan één activum tegelijk zijn gekoppeld | 5<sup>4</sup> |
+| Unieke locators die aan één activum tegelijk zijn gekoppeld | 5<sup>(4)</sup> |
 | Live kanalen per AMS-account |5|
 | Programma's met de status Gestopt per kanaal |50|
 | Programma's met de status Wordt uitgevoerd per kanaal |3|
 | Streaming-eindpunten met de status Wordt uitgevoerd per AMS-account|2|
 | Streaming-eenheden per streaming-eindpunt |10 |
-| Opslagaccounts | 1.000<sup>5</sup> (vast) |
-| Beleidsregels | 1,000,000<sup>6</sup> |
+| Opslagaccounts | 1.000<sup>(5)</sup> (vast) |
+| Beleidsregels | 1,000,000<sup>(6)</sup> |
 | Bestandsgrootte| In sommige scenario's is er een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. <sup>7</sup> |
   
 <sup>1</sup> S3-RU's zijn niet beschikbaar in India - west.
@@ -44,8 +44,3 @@ Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-
