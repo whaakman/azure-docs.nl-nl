@@ -215,7 +215,7 @@ In de bewerking voor het uploaden van bestanden definieert *python_tutorial_clie
 
 Zoals dat bij lijsten gebruikelijk is, wordt de functie `upload_file_to_container` aangeroepen voor elk bestand in de verzamelingen en worden twee [ResourceFile][py_resource_file]-verzamelingen ingevuld. De functie `upload_file_to_container` wordt hieronder weergegeven:
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Stap 8: containers verwijderen
 Omdat gegevens die zich in Azure Storage bevinden, in rekening worden gebracht, doet u er altijd goed aan alle blobs te verwijderen die niet langer nodig zijn voor uw Batch-taken. In *python_tutorial_client.py* wordt dit gedaan met drie aanroepen naar [BlockBlobService.delete_container][py_delete_container]:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)
