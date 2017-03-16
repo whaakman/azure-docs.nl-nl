@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -71,10 +72,5 @@ Een andere oplossing voor problemen met asymmetrische routering is het gebruik v
 
 ## <a name="asymmetric-routing-detection"></a>Detectie van asymmetrische routering
 Traceroute is de beste manier om ervoor te zorgen dat uw netwerkverkeer via het verwachte pad loopt. Als u verwacht dat verkeer van de on-premises SMTP-server naar Microsoft via het internetpad gaat, dan loopt de verwachte traceroute van de SMTP-server naar Office 365. Zo wordt gevalideerd of het verkeer inderdaad uw netwerk verlaat richting internet en niet richting ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
