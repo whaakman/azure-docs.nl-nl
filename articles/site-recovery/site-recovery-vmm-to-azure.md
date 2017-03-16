@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,7 +129,7 @@ U begint met het Aan de slag-proces door te kiezen hoe u Site Recovery wilt impl
 ## <a name="step-1-choose-your-protection-goals"></a>Stap 1: uw beveiligingsdoelstellingen kiezen
 Selecteer wat u wilt repliceren en waar u naar wilt repliceren.
 
-1. Selecteer uw kluis op de blade **Recovery Services-kluizen** en klik op **Instellingen**.
+1. Selecteer de kluis op de blade **Recovery Services-kluizen**.
 2. Klik in **Aan de slag** op **Site Recovery** > **Stap 1: infrastructuur voorbereiden** > **Beveiligingsdoel**.
 
     ![Doelstellingen kiezen](./media/site-recovery-vmm-to-azure/choose-goals.png)
@@ -143,17 +143,17 @@ Installeer de Azure Site Recovery-provider op de VMM-server en registreer de ser
 1. Klik op **Stap 2: infrastructuur voorbereiden** > **Bron**.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. Controleer op de blade **Server toevoegen** of **System Center VMM-server** wordt weergegeven in **Servertype** en of de VMM-server voldoet aan de [algemene vereisten en de URL-vereisten](#on-premises-prerequisites).
 4. Download het installatieprogramma voor de Azure Site Recovery-provider.
 5. Download de registratiesleutel. U hebt deze nodig wanneer u de installatie uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Installeer de Azure Site Recovery-provider op de VMM-server.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>De Azure Site Recovery-provider installeren
@@ -180,7 +180,7 @@ Installeer de Azure Site Recovery-provider op de VMM-server en registreer de ser
 9. Geef in **Cloudmetagegevens synchroniseren** aan of u metagegevens wilt synchroniseren voor alle clouds op de VMM-server met de kluis. Deze actie hoeft op elke server slechts één keer te worden uitgevoerd. Als u niet alle clouds wilt synchroniseren, laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de cloudeigenschappen in de VMM-console. Klik op **Registreren** om het proces te voltooien.
 
     ![Serverregistratie](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. De registratie begint. Na voltooiing van de registratie wordt de server weergegeven op de blade **Instellingen** > **Servers** in de kluis.
+10. De registratie begint. Na voltooiing van de registratie wordt de server weergegeven in **Site Recovery-infrastructuur** >  **VMM-servers**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installatie vanaf de opdrachtregel voor de Azure Site Recovery-provider
 De Azure Site Recovery-provider kan worden geïnstalleerd vanaf de opdrachtregel. Deze methode kan worden gebruikt om de provider in Server Core voor Windows Server 2012 R2 te installeren.
@@ -266,7 +266,7 @@ Geef op welk Azure-opslagaccount moet worden gebruikt voor replicatie en met wel
 
 Configureer het toewijzen als volgt:
 
-1. Klik in **Instellingen** > **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **Netwerktoewijzing** op het pictogram **+Netwerktoewijzing**.
+1. Klik in **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **Netwerktoewijzing** op het pictogram **+Netwerktoewijzing**.
 
     ![Netwerktoewijzing](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Selecteer in **Netwerktoewijzing toevoegen** de bron-VMM-server en selecteer **Azure** als doel.
@@ -295,7 +295,7 @@ Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 7. Geef in **Gegevens versleutelen die zijn opgeslagen in Azure** op of u at-rest-gegevens in de Azure-opslag wilt versleutelen. Klik vervolgens op **OK**.
 
     ![Beleid voor replicatie](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Wanneer u nieuw beleid maakt, wordt dit automatisch gekoppeld aan de VMM-cloud. Klik op **OK**. U kunt aanvullende VMM-clouds (en de virtuele machines erin) koppelen aan dit replicatiebeleid. Dit doet u via **Instellingen** > **Replicatie** > beleidsnaam > **VMM-cloud koppelen**.
+8. Wanneer u nieuw beleid maakt, wordt dit automatisch gekoppeld aan de VMM-cloud. Klik op **OK**. U kunt aanvullende VMM-clouds (en de virtuele machines hierin) koppelen aan dit replicatiebeleid. Dit doet u via **Replicatie** > beleidsnaam > **VMM-cloud koppelen**.
 
     ![Beleid voor replicatie](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Schakel nu als volgt replicatie in:
     >
 
 
-8. Selecteer in **Replicatie-instellingen** > **Replicatie-instellingen configureren** het replicatiebeleid dat u op de beveiligde virtuele machines wilt toepassen. Klik vervolgens op **OK**. U kunt het replicatiebeleid wijzigen via **Instellingen** > **Replicatiebeleid** > beleidsnaam > **Instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
+8. Selecteer in **Replicatie-instellingen** > **Replicatie-instellingen configureren** het replicatiebeleid dat u op de beveiligde virtuele machines wilt toepassen. Klik vervolgens op **OK**. U kunt het replicatiebeleid wijzigen via **Replicatiebeleid** > beleidsnaam > **Instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
 
    ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
+U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Eigenschappen van virtuele machines weergeven en beheren
 Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Klik op **Instellingen** > **Beveiligde items** > **Gerepliceerde items** en selecteer een machine om de details ervan te bekijken.
+1. Klik in **Beveiligde items** op **Gerepliceerde items** en selecteer een machine om de details ervan te bekijken.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
@@ -438,10 +438,10 @@ Als u na een failover via een Secure Shell-client (SSH) toegang wilt krijgen tot
 ## <a name="step-7-test-your-deployment"></a>Stap 7: uw implementatie testen
 Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één virtuele machine, maar ook een herstelplan uitvoeren dat een of meer virtuele machines bevat.
 
-1. Als u een failover wilt uitvoeren voor één virtuele machine, gaat u naar **Instellingen** > **Gerepliceerde items**. Klik vervolgens op de virtuele machine > **+Testfailover**.
-1. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Instellingen** > **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.
+1. Als u een failover wilt uitvoeren voor één virtuele machine, gaat u naar **Gerepliceerde items**. Klik vervolgens op de virtuele machine > **+Testfailover**.
+1. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.
 1. Selecteer in **Failover testen** het Azure-netwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat er een failover is uitgevoerd.
-1. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen te openen, of door in **Instellingen** > **Site Recovery-taken** op de taak **Testfailover** te klikken.
+1. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen hiervan te openen, of door in **Site Recovery-taken** op de taak **Testfailover** te klikken.
 1. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
 1. Als u zich hebt [voorbereid op verbindingen na een failover](#prepare-to-connect-to-Azure-VMs-after-failover), kunt u verbinding maken met het virtuele Azure-netwerk.
 1. Als u klaar bent, klikt u op **Testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u de virtuele machines die tijdens de testfailover zijn gemaakt.
@@ -454,9 +454,9 @@ Ga als volgt te werk om de configuratie-instellingen en de status van uw Site Re
 1. Klik op de kluisnaam om het dashboard **Essentials** te openen. Op dit dashboard ziet u een overzicht van de Site Recovery-taken, de replicatiestatus, de herstelplannen, de serverstatus en de gebeurtenissen.  U kunt **Essentials** zo aanpassen dat de tegels en indelingen worden weergegeven die voor u het belangrijkst zijn. Dit heeft ook betrekking op de status van andere Site Recovery- en Backup-kluizen.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In *Status** kunt u problemen op servers on-premises (VMM- of configuratieservers) bewaken. Bovendien kunt u hier zien welke gebeurtenissen er de afgelopen 24 uur door Site Recovery zijn gemeld.
-3. U kunt replicatie beheren en bewaken via de tegels **Gerepliceerde items**, **Herstelplannen** en **Site Recovery-taken**. U kunt inzoomen op taken via **Instellingen** > **Taken** > **Site Recovery-taken**.
+2. In **Status** kunt u problemen op on-premises servers (VMM- of configuratieservers) bewaken. Bovendien kunt u hier zien welke gebeurtenissen er de afgelopen 24 uur door Site Recovery zijn gemeld.
+3. U kunt replicatie beheren en bewaken via de tegels **Gerepliceerde items**, **Herstelplannen** en **Site Recovery-taken**. U kunt inzoomen op taken via **Taken** > **Site Recovery-taken**.
 
 ## <a name="next-steps"></a>Volgende stappen
-Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) meer lezen over de verschillende soorten failovers.
+Wanneer uw implementatie actief is, kunt u [hier](site-recovery-failover.md) meer lezen over failovers.
 

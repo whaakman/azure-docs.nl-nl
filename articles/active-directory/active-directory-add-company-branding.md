@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, 
 
 Hoewel u technisch gezien een afzonderlijke set zou kunnen configureren voor elke taal die door Azure AD wordt ondersteund, doet u er verstandig aan om het aantal variaties klein te houden. Dit vereenvoudigt het onderhoud en houdt de prestaties goed.
 
+> [!IMPORTANT]
+> Yammer geeft de Azure AD-aanmeldingspagina niet weer voordat de gebruiker zich aanmeldt. De gebruiker ziet de algemene Office 365-aanmeldpagina als eerste en de huisstijlpagina hierna.   
+ 
+ 
 **Als u de huisstijl van uw bedrijf aan de directory wilt toevoegen, voert u de volgende stappen uit:**
 
 1. Meld u bij de [klassieke Azure Portal](https://manage.windowsazure.com) aan als beheerder van de directory die u wilt aanpassen.
@@ -148,7 +153,7 @@ Het kan een uur duren voordat de wijzigingen die u aan de huisstijl van de aanme
 
 1. Meld u bij de [klassieke Azure Portal](https://manage.windowsazure.com) aan als beheerder van de directory die u wilt aanpassen.
 2. Selecteer de directory die u wilt aanpassen.
-3. Klik in de werkbalk bovenaan op **Configureren**.
+fs3. Klik in de werkbalk bovenaan op **Configureren**.
 4. Klik op **Huisstijl aanpassen**.
 5. Klik op **Huisstijl voor een specifieke taal toevoegen**.
 6. Selecteer de taal waarvoor u het logo wilt aanpassen en klik vervolgens op **Volgende**.
@@ -221,9 +226,4 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Een Azure-containerregister maken - portal | Microsoft Docs
-description: Aan de slag met het maken en beheren van Azure-containerregisters met Azure Portal
+title: "Privé-Docker-register maken - Azure Portal | Microsoft Docs"
+description: "Aan de slag met het maken en beheren van privé-Docker-containerregisters met Azure Portal"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 97bbb72e044d86375afd1dc2ba40c90681e5d9a1
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Een containerregister maken met Azure Portal
+
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Een privé-Docker-containerregister maken met Azure Portal
 Gebruik Azure Portal om een containerregister te maken en de instellingen ervan te beheren. U kunt ook containerregisters maken en beheren met de [Azure CLI 2.0-opdrachten](container-registry-get-started-azure-cli.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
 
-Zie voor achtergrondinformatie en concepten [Wat is Azure Container Registry?](container-registry-intro.md)
+Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie en concepten
 
 
 > [!NOTE]
@@ -49,10 +52,12 @@ Zie voor achtergrondinformatie en concepten [Wat is Azure Container Registry?](c
    
     d. **Beheerder**: schakel eventueel toegang tot het register in voor een beheerder. U kunt deze instelling wijzigen nadat u het register hebt gemaakt.
    
-   > [!IMPORTANT]
-   > Naast toegang via een beheeraccount ondersteunen containerregisters verificatie met behulp van service-principals van Azure Active Directory. Bekijk voor meer informatie [Verifiëren met het containerregister](container-registry-authentication.md).
-   
-    e. **Opslagaccount**: maak een [opslagaccount](../storage/storage-introduction.md) met de standaardinstelling of selecteer een bestaand opslagaccount op dezelfde locatie. Houd er rekening mee dat Premium- en Classic-opslagaccounts niet worden ondersteund.
+    > [!IMPORTANT]
+    > Naast toegang via een beheeraccount ondersteunen containerregisters verificatie met behulp van service-principals van Azure Active Directory. Bekijk voor meer informatie [Verifiëren met het containerregister](container-registry-authentication.md).
+    >
+    
+    e. **Opslagaccount**: maak een [opslagaccount](../storage/storage-introduction.md) met de standaardinstelling of selecteer een bestaand opslagaccount op dezelfde locatie. Premium-opslag wordt momenteel niet ondersteund.
+
 
 ## <a name="manage-registry-settings"></a>Registerinstellingen beheren
 Nadat u het register hebt gemaakt, kunt u de registerinstellingen openen via de blade **Container Registry** in de portal. U hebt de instellingen mogelijk nodig om u aan te melden bij uw register of om de beheerder in of uit te schakelen.
@@ -73,10 +78,5 @@ Nadat u het register hebt gemaakt, kunt u de registerinstellingen openen via de 
 * [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
 
 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

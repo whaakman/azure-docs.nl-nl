@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
-ms.openlocfilehash: 8248e0a02cb0775a87f0c8130e53b98f8bcfe581
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="introduction"></a>Inleiding
 [Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT Suite zijn voorzien van meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De vooraf geconfigureerde oplossing *externe controle* maakt verbinding met en controleert uw apparaten. U kunt deze oplossing gebruiken om de datastroom van uw apparaten te analyseren en de bedrijfsresultaten te verbeteren door processen automatisch te laten reageren op die datastroom.
 
-In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Hierbij maakt u ook kennis met de basisfuncties van de vooraf geconfigureerde oplossing. U hebt toegang tot veel van deze functies via het oplossingsdashboard dat als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd:
+In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. Hierbij maakt u ook kennis met de basisfuncties van de vooraf geconfigureerde oplossing. U hebt toegang tot veel van deze functies via het *oplossingsdashboard* dat als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd:
 
 ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-dashboard]
 
@@ -39,36 +39,58 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
+## <a name="scenario-overview"></a>Overzicht van scenario's
+
+Wanneer u de vooraf geconfigureerde oplossing voor externe bewaking implementeert, wordt deze vooraf ingevuld met de resources waarmee u een algemeen scenario voor externe controle kunt doorlopen. In dit scenario melden verschillende apparaten die met de oplossing zijn verbonden, onverwachte temperatuurwaarden. De volgende gedeelten laten u zien hoe u:
+
+* De apparaten die de onverwachte temperatuurwaarden melden, kunt identificeren.
+* Deze apparaten kunt configureren, zodat ze gedetailleerdere telemetrie verzenden.
+* Het probleem kunt oplossen door de firmware op deze apparaten bij te werken.
+* Kunt controleren of uw actie het probleem heeft opgelost.
+
+Een belangrijke functie van dit scenario is dat u al deze acties extern kunt uitvoeren vanuit het dashboard van de oplossing. U hebt geen fysieke toegang tot de apparaten nodig.
+
 ## <a name="view-the-solution-dashboard"></a>Het oplossingsdashboard bekijken
+
 Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. U kunt er bijvoorbeeld telemetrie weergeven, apparaten toevoegen en regels configureren.
 
-1. Wanneer het inrichten is voltooid en voor de tegel voor uw vooraf geconfigureerde oplossing de status **Gereed** wordt weergegeven, klikt u op **Starten** om uw oplossingsportal voor externe controle te openen in een nieuw tabblad.
-   
-   ![De vooraf geconfigureerde oplossing starten][img-launch-solution]
-2. Standaard ziet u in de oplossingsportal het *dashboard van de oplossing*. In het menu links kunt u andere weergaven selecteren.
-   
-   ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-dashboard]
+1. Wanneer het inrichten is voltooid en voor de tegel voor uw vooraf geconfigureerde oplossing de status **Gereed** wordt weergegeven, kiest u **Starten** om uw oplossingsportal voor externe controle te openen op een nieuw tabblad.
+
+    ![De vooraf geconfigureerde oplossing starten][img-launch-solution]
+
+1. Standaard ziet u in de oplossingsportal het *dashboard*. U kunt navigeren naar andere gebieden van de portal van de oplossing met het menu aan de linkerkant van de pagina.
+
+    ![Vooraf geconfigureerd oplossingsdashboard voor externe controle][img-menu]
 
 Het dashboard bevat de volgende informatie:
 
-* De kaart toont de locatie van elk apparaat dat met de oplossing is verbonden. Wanneer u de oplossing voor het eerst uitvoert, zijn er vier gesimuleerde apparaten. De gesimuleerde apparaten worden geïmplementeerd als Azure WebJobs en de oplossing gebruikt de API van Bing Kaarten om informatie op de kaart te tekenen.
-* Het deelvenster **Telemetriegeschiedenis** tekent de vochtigheids- en temperatuurtelemetrie van een geselecteerd apparaat in bijna realtime en geeft statistische gegevens weer, zoals de maximale, minimale en gemiddelde vochtigheid.
-* Het deelvenster **Geschiedenis van waarschuwingen** toont recente waarschuwingsgebeurtenissen wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. Naast de voorbeelden die met de vooraf geconfigureerde oplossing zijn gemaakt, kunt u ook uw eigen alarmen definiëren.
-* Het deelvenster **Taken** geeft informatie weer over geplande taken. U kunt uw eigen taken plannen op de pagina **Beheertaken**.
+* Een kaart die de locatie aangeeft van elk apparaat dat met de oplossing is verbonden. Wanneer u de oplossing voor het eerst uitvoert, zijn er 25 gesimuleerde apparaten. De gesimuleerde apparaten worden geïmplementeerd als Azure WebJobs en de oplossing gebruikt de API van Bing Kaarten om informatie op de kaart te tekenen. Zie de [Veelgestelde vragen][lnk-faq] voor meer informatie over hoe u de kaart dynamisch kunt maken.
+* Een deelvenster **Telemetriegeschiedenis** dat de vochtigheids- en temperatuurtelemetrie van een geselecteerd apparaat in bijna realtime tekent en statistische gegevens weergeeft, zoals de maximale, minimale en gemiddelde vochtigheid.
+* Een deelvenster **Geschiedenis van waarschuwingen** dat recente waarschuwingsgebeurtenissen toont wanneer voor een telemetriewaarde een drempelwaarde wordt overschreden. Naast de voorbeelden die met de vooraf geconfigureerde oplossing zijn gemaakt, kunt u ook uw eigen alarmen definiëren.
+* Een deelvenster **Taken** dat informatie weergeeft over geplande taken. U kunt uw eigen taken plannen op de pagina **Beheertaken**.
 
-## <a name="view-the-device-list"></a>De lijst met apparaten weergeven
-De *Apparatenlijst* bevat alle geregistreerde apparaten in de oplossing. Uit de apparatenlijst kunt u metagegevens voor apparaten weergeven en bewerken, apparaten toevoegen of verwijderen en methoden aanroepen op apparaten.
+## <a name="view-alarms"></a>Waarschuwingen weergeven
 
-1. Klik links in het menu op **Apparaten** om de apparatenlijst voor deze oplossing weer te geven.
-   
-   ![Lijst met apparaten in het dashboard][img-devicelist]
-2. De apparatenlijst geeft eerst aan dat bij het inrichtingsproces vier gesimuleerde apparaten zijn gemaakt. U kunt extra gesimuleerde en fysieke apparaten aan de oplossing toevoegen.
-3. U kunt de informatie die in de apparatenlijst wordt weergegeven, aanpassen door te klikken op **Kolomeditor**. U kunt kolommen die gerapporteerde eigenschaps- en tagwaarden weergeven, toevoegen en verwijderen. U kunt ook de volgorde en namen van de kolommen wijzigen:
-   
-   ![Kolomeditor in het dashboard][img-columneditor]
-4. Klik op een apparaat in de apparatenlijst om de details ervan weer te geven.
-   
-   ![Apparaatdetails in het dashboard][img-devicedetails]
+Het deelvenster Waarschuwingsgeschiedenis laat u zien dat vijf apparaten telemetriewaarden melden die hoger zijn dan verwacht.
+
+![Waarschuwingsgeschiedenistaken op het dashboard van de oplossing][img-alarms]
+
+> [!NOTE]
+> Deze waarschuwingen worden gegenereerd door een regel die is opgenomen in de vooraf geconfigureerde oplossing. Deze regel genereert een waarschuwing als de temperatuurwaarde die door een apparaat is verzonden, groter is dan 60. U kunt uw eigen regels en acties definiëren door [Regels](#add-a-rule) en [Acties](#add-an-action) te kiezen in het menu aan de linkerzijde.
+
+## <a name="view-devices"></a>Apparaten weergeven
+
+De *Apparatenlijst* bevat alle geregistreerde apparaten in de oplossing. Uit de apparatenlijst kunt u metagegevens voor apparaten weergeven en bewerken, apparaten toevoegen of verwijderen en methoden aanroepen op apparaten. U kunt de apparatenlijst filteren en sorteren. U kunt ook de weergave van de kolommen in de apparatenlijst aanpassen.
+
+1. Kies **Apparaten** om de apparatenlijst voor deze oplossing weer te geven.
+
+   ![De apparatenlijst weergeven in de portal van de oplossing][img-devicelist]
+
+1. De apparatenlijst geeft eerst aan dat bij het inrichtingsproces 25 gesimuleerde apparaten zijn gemaakt. U kunt extra gesimuleerde en fysieke apparaten aan de oplossing toevoegen.
+
+1. Kies in de lijst een apparaat om de details ervan weer te geven.
+
+   ![De details van een apparaat weergeven in de portal van de oplossing][img-devicedetails]
 
 Het deelvenster **Apparaatdetails** bevat zes gedeeltes:
 
@@ -79,215 +101,242 @@ Het deelvenster **Apparaatdetails** bevat zes gedeeltes:
 * Het gedeelte **Apparaateigenschappen** geeft informatie weer vanuit het identiteitsregister, zoals het apparaat-id en de verificatiesleutels.
 * Het gedeelte **Recente taken** geeft informatie weer over taken die onlangs op dit apparaat zijn gericht.
 
-## <a name="customize-the-device-icon"></a>Het apparaatpictogram aanpassen
+## <a name="filter-the-device-list"></a>De apparatenlijst filteren
+
+U kunt een filter gebruiken om alleen de apparaten weer te geven die onverwachte temperatuurwaarden verzenden. De vooraf geconfigureerde oplossing voor externe bewaking bevat het filter **Beschadigde apparaten** om apparaten weer te geven met een gemiddelde temperatuurwaarde die groter is dan 60. U kunt ook [uw eigen filters maken](#add-a-filter).
+
+1. Kies **Opgeslagen filter openen** om een lijst met beschikbare filters weer te geven. Kies vervolgens **Beschadigde apparaten** om het filter toe te passen:
+
+    ![De lijst met filters weergeven][img-unhealthy-filter]
+
+1. De apparatenlijst geeft nu alleen apparaten weer met een gemiddelde temperatuurwaarde die groter is dan 60.
+
+    ![De gefilterde apparatenlijst met beschadigde apparaten weergeven][img-filtered-unhealthy-list]
+
+## <a name="update-desired-properties"></a>Gewenste eigenschappen bijwerken
+
+U hebt nu een set apparaten geïdentificeerd die mogelijk moeten worden hersteld. U besluit echter dat de gegevensfrequentie van 15 seconden niet voldoende is voor een duidelijke diagnose van het probleem. Als u de telemetrische frequentie wijzigt in vijf seconden, hebt u meer gegevenspunten waarmee u het probleem beter kunt vaststellen. U kunt deze configuratiewijziging pushen naar uw externe apparaten vanuit de portal van de oplossing. U kunt de wijziging eenmaal doorvoeren, de impact controleren en vervolgens actie ondernemen op de resultaten.
+
+Volg deze stappen voor het uitvoeren van een taak die de gewenste eigenschap **TelemetryInterval** voor de betreffende apparaten wijzigt. Wanneer de apparaten de nieuwe eigenschapswaarde **TelemetryInterval** ontvangen, wijzigen ze hun configuratie dusdanig dat er elke vijf seconden telemetrie wordt verzonden, in plaats van elke 15 seconden:
+
+1. Wanneer de lijst met beschadigde apparaten wordt weergegeven in de lijst met apparaten, kiest u **Taakplanner** en vervolgens **Apparaatdubbel bewerken**.
+
+1. Roep de taak **Telemetrie-interval wijzigen** aan.
+
+1. Wijzig de waarde van de **Gewenste eigenschap** met de naam **desired.Config.TelemetryInterval** in vijf seconden.
+
+1. Kies **Planning**.
+
+    ![De eigenschap TelemetryInterval in vijf seconden wijzigen][img-change-interval]
+
+1. U kunt de voortgang bewaken van de taken op de pagina **Beheertaken** in de portal.
+
+> [!NOTE]
+> Als u een gewenste eigenschapswaarde voor een afzonderlijk apparaat wilt wijzigen, gebruikt u het gedeelte **Gewenste eigenschappen** in het deelvenster **Apparaatdetails** in plaats van een taak.
+
+Deze taak stelt de waarde in van de gewenste eigenschap **TelemetryInterval** in het dubbele apparaat voor alle apparaten die door het filter zijn geselecteerd. De apparaten halen deze waarde op van de dubbele apparaten en werken hun gedrag bij. Wanneer een apparaat een gewenste eigenschap ophaalt uit een dubbel apparaat, wordt de bijbehorende gerapporteerde eigenschapswaarde ingesteld.
+
+## <a name="invoke-methods"></a>Aanroepmethodes
+
+Terwijl de taak wordt uitgevoerd, ziet u in de lijst met beschadigde apparaten dat al deze apparaten oude firmwareversies hebben (ouder dan versie 1.6).
+
+![De gemelde firmwareversie voor beschadigde apparaten weergeven][img-old-firmware]
+
+Deze firmwareversie is mogelijk de basisoorzaak voor de onverwachte temperatuurwaarden als u weet dat andere apparaten die wel goed functioneren, onlangs zijn bijgewerkt naar versie 2.0. U kunt het ingebouwde filter **Apparaten met oude firmware** gebruiken om apparaten met oude firmwareversies te identificeren. Via de portal kunt u vervolgens alle apparaten die nog een oude firmwareversie hebben, extern bijwerken:
+
+1. Kies **Opgeslagen filter openen** om een lijst met beschikbare filters weer te geven. Kies vervolgens **Apparaten met oude firmwareversies** om het filter toe te passen:
+
+    ![De lijst met filters weergeven][img-old-filter]
+
+1. In de lijst met apparaten worden nu alleen apparaten met oude firmwareversies weergegeven. Deze lijst bevat de vijf apparaten die zijn geïdentificeerd door het filter **Beschadigde apparaten** en drie extra apparaten:
+
+    ![De gefilterde apparatenlijst met oude apparaten weergeven][img-filtered-old-list]
+
+1. Kies **Job Scheduler** en vervolgens **Aanroepmethode**.
+
+1. Stel **Taaknaam** in op **Firmware bijwerken naar versie 2.0**.
+
+1. Kies **InitiateFirmwareUpdate** als de **Methode**.
+
+1. Stel de parameter **FwPackageUri** in op **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
+
+1. Kies **Planning**. De standaardwaarde voor de taak is nu uitvoeren.
+
+    ![Taak voor het bijwerken van de firmware van de geselecteerde apparaten maken][img-method-update]
+
+> [!NOTE]
+> Als u een aanroepmethode voor een bepaald apparaat wilt gebruiken, kiest u **Methoden** in het deelvenster **Apparaatdetails** in plaats van dat u de taak uitvoert.
+
+Deze taak roept de directe methode **InitiateFirmwareUpdate** aan op alle apparaten die door het filter zijn geselecteerd. Apparaten reageren onmiddellijk op IoT Hub en starten het updateproces voor de firmware asynchroon. De apparaten bieden statusinformatie over het updateproces voor de firmware via gemelde eigenschapswaarden, zoals wordt weergegeven in de volgende schermafbeeldingen. Kies het pictogram **Vernieuwen** om de informatie in de apparaat- en takenlijsten bij te werken:
+
+![Taaklijst waarin de lijst met firmware die wordt bijgewerkt, wordt weergegeven][img-update-1]
+![Apparatenlijst met de status van de firmware-update][img-update-2]
+![Takenlijst met voltooide firmware-updates][img-update-3]
+
+> [!NOTE]
+> U kunt taken volgens planning laten uitvoeren tijdens aangewezen onderhoudsperioden in een productieomgeving.
+
+## <a name="scenario-review"></a>Samenvatting van scenario
+
+In dit scenario hebt u een mogelijk probleem met enkele van uw externe apparaten geïdentificeerd met behulp van de waarschuwingsgeschiedenis op het dashboard en een filter. Vervolgens hebt u het filter en een taak gebruikt om de apparaten extern te configureren om meer informatie te geven teneinde u te helpen bij het vaststellen van het probleem. Ten slotte hebt u een filter en een taak gebruikt om onderhoud op de beschadigde apparaten te plannen. Als u naar het dashboard terugkeert, kunt u zien dat er geen waarschuwingen meer worden weergegeven voor apparaten in uw oplossing. U kunt een filter gebruiken om te controleren of de firmware op alle apparaten in uw oplossing up-to-date is en er geen beschadigde apparaten meer zijn:
+
+![Filter dat laat zien dat alle apparaten bijgewerkte firmware hebben][img-updated]
+
+![Filter dat laat zien dat alle apparaten in orde zijn][img-healthy]
+
+## <a name="other-features"></a>Andere functies
+
+De volgende gedeelten beschrijven een aantal extra functies van de vooraf geconfigureerde oplossing voor externe controle die niet zijn beschreven als onderdeel van het voorgaande scenario.
+
+### <a name="customize-columns"></a>Kolommen aanpassen
+
+U kunt de informatie die in de apparatenlijst wordt weergegeven, aanpassen door **Kolomeditor** te kiezen. U kunt kolommen die gerapporteerde eigenschaps- en tagwaarden weergeven, toevoegen en verwijderen. U kunt ook de volgorde en namen van de kolommen wijzigen:
+
+   ![Kolomeditor in de apparatenlijst][img-columneditor]
+
+### <a name="customize-the-device-icon"></a>Het apparaatpictogram aanpassen
 
 U kunt als volgt vanuit het deelvenster **Apparaatdetails** het apparaatpictogram aanpassen dat wordt weergegeven in de apparatenlijst:
 
-1. Klik op het potloodpictogram om het deelvenster **Afb. bewerken** voor een apparaat te openen:
-   
+1. Kies het potloodpictogram om het deelvenster **Installatiekopie bewerken** voor een apparaat te openen:
+
    ![De afbeeldingseditor van het apparaat openen][img-startimageedit]
-2. Upload een nieuwe afbeelding of gebruik een van de bestaande afbeeldingen en klik vervolgens op **Opslaan**:
-   
+
+1. Upload een nieuwe installatiekopie of gebruik een van de bestaande installatiekopieën en klik vervolgens op **Opslaan**:
+
    ![De afbeelding van het apparaat bewerken in de afbeeldingseditor][img-imageedit]
-3. De geselecteerde afbeelding wordt nu weergegeven in de kolom **Pictogram** voor het apparaat.
+
+1. De geselecteerde afbeelding wordt nu weergegeven in de kolom **Pictogram** voor het apparaat.
 
 > [!NOTE]
 > De afbeelding wordt opgeslagen in Blob Storage. Een tag in de apparaatdubbel bevat een koppeling naar de afbeelding in Blob Storage.
-> 
-> 
 
-## <a name="invoke-a-method-on-a-device"></a>Een methode op een apparaat aanroepen
-Van het deelvenster **Apparaatdetails** kunt u methoden op het apparaat aanroepen. Wanneer een apparaat voor het eerst wordt gestart, stuurt het naar de oplossing informatie over de methoden die het apparaat ondersteunt.
+### <a name="add-a-device"></a>Een apparaat toevoegen
 
-1. Klik in het deelvenster **Apparaatdetails** op **Methoden** voor het geselecteerde apparaat:
-   
-   ![Apparaatmethoden in dashboard][img-devicemethods]
-2. Selecteer **Opnieuw opstarten** in de methodelijst.
-3. Klik op **Methode aanroepen**.
-4. U kunt de status van de methodeaanroep bekijken in de methodegeschiedenis.
-   
-   ![Methodestatus in het dashboard][img-pingmethod]
-
-De oplossing houdt de status van elke methode bij die deze aanroept. Als het apparaat de methode voltooit, wordt er een nieuwe vermelding in de methodegeschiedenistabel weergegeven.
-
-Sommige methoden starten asynchrone taken op het apparaat. De methode **InitiateFirmwareUpdate** start bijvoorbeeld een asynchrone taak om de update uit te voeren. Het apparaat gebruikt gerapporteerde eigenschappen om te rapporteren over de status van de firmware-update terwijl deze wordt uitgevoerd.
-
-## <a name="send-a-command-to-a-device"></a>Een opdracht naar een apparaat verzenden
-Vanuit het deelvenster **Apparaatdetails** kunt u opdrachten naar het apparaat verzenden. Wanneer een apparaat voor het eerst wordt gestart, stuurt het naar de oplossing informatie over de opdrachten die het apparaat ondersteunt.
-
-1. Klik in het deelvenster **Apparaatdetails** op **Opdrachten** voor het geselecteerde apparaat:
-   
-   ![Apparaatopdrachten in het dashboard][img-devicecommands]
-2. Selecteer **PingDevice** in de lijst met opdrachten.
-3. Klik op **Opdracht verzenden**.
-4. U ziet de status van de opdracht in de opdrachtgeschiedenis.
-   
-   ![Opdrachtstatus in het dashboard][img-pingcommand]
-
-De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
-
-## <a name="add-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat toevoegen
-Wanneer u de vooraf geconfigureerde oplossing implementeert, voorziet u automatisch de vier proefapparaten die u ziet in de apparatenlijst. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
+Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u automatisch de 25 proefapparaten in die u in de apparatenlijst ziet. Deze apparaten zijn *gesimuleerde apparaten* uitgevoerd in een Azure WebJob. Gesimuleerde apparaten maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder echte, fysieke apparaten te moeten implementeren. Raadpleeg de zelfstudie [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm] als u een echt apparaat op de oplossing wilt aansluiten.
 
 De volgende stappen laten zien hoe u een gesimuleerd apparaat toevoegt aan de oplossing:
 
 1. Ga terug naar de lijst met apparaten.
-2. Klik linksonder op **+ Een apparaat toevoegen** om een nieuw apparaat toe te voegen.
-   
+
+1. Kies linksonder **+ Een apparaat toevoegen** om een nieuw apparaat toe te voegen.
+
    ![Een apparaat toevoegen aan de vooraf geconfigureerde oplossing][img-adddevice]
-3. Klik op **Nieuwe toevoegen** op de tegel **Gesimuleerd apparaat**.
-   
+
+1. Kies **Nieuwe toevoegen** op de tegel **Gesimuleerd apparaat**.
+
    ![Nieuwe apparaatgegevens in het dashboard instellen][img-addnew]
-   
+
    U kunt niet alleen een nieuw gesimuleerd apparaat maken, maar ook een fysiek apparaat toevoegen als u ervoor kiest om een **aangepast apparaat** te maken. Zie [Uw apparaat aansluiten op de vooraf geconfigureerde IoT Suite-oplossing voor externe bewaking][lnk-connect-rm] voor meer informatie over het koppelen van fysieke apparaten aan de oplossing.
-4. Selecteer **Laat mij mijn eigen apparaat-id definiëren** en voer de unieke id van een apparaatnaam in, zoals **mijnapparaat_01**.
-5. Klik op **Create**.
-   
+
+1. Selecteer **Laat mij mijn eigen apparaat-id definiëren** en voer de unieke id van een apparaatnaam in, zoals **mijnapparaat_01**.
+
+1. Kies **Maken**.
+
    ![Een nieuw apparaat opslaan][img-definedevice]
-6. Klik in stap 3 van **Een gesimuleerd apparaat toevoegen** op **Gereed** om terug te keren naar de lijst met apparaten.
-7. In de lijst met apparaten kunt u zien dat uw apparaat **wordt uitgevoerd**.
-   
+
+1. Kies in stap 3 van **Een gesimuleerd apparaat toevoegen** de optie **Gereed** om terug te keren naar de apparatenlijst.
+
+1. In de lijst met apparaten kunt u zien dat uw apparaat **wordt uitgevoerd**.
+
     ![Nieuw apparaat weergeven in de apparatenlijst][img-runningnew]
-8. U kunt op het dashboard ook de gesimuleerde telemetrie van het nieuwe apparaat bekijken:
-   
+
+1. U kunt op het dashboard ook de gesimuleerde telemetrie van het nieuwe apparaat bekijken:
+
     ![Telemetrie voor nieuw apparaat weergeven][img-runningnew-2]
 
-## <a name="device-properties"></a>Apparaateigenschappen
-De vooraf geconfigureerde oplossing voor externe bewaking gebruikt [apparaatdubbels][lnk-device-twin] om apparaatmetagegevens tussen apparaten en de back-end van de oplossing te synchroniseren. Een apparaatdubbel is een JSON-document dat is opgeslagen in IoT Hub waarmee eigenschapswaarden worden opgeslagen voor een individueel apparaat. Apparaten verzenden regelmatig metagegevens als *gerapporteerde eigenschappen* naar de back-end van de oplossing om in de apparaatdubbel op te slaan. De back-end van de oplossing kan *gewenste eigenschappen* instellen in de apparaatdubbel om metagegevensupdates te verzenden naar apparaten. De gerapporteerde eigenschappen geven de meest recente waarden voor metagegevens die zijn verzonden door het apparaat. Zie [Register voor apparaat-id's, apparaatdubbel en DocumentDB][lnk-devicemetadata] voor meer informatie.
+### <a name="disable-and-delete-a-device"></a>Een apparaat uitschakelen en verwijderen
 
-> [!NOTE]
-> De oplossing gebruikt ook een DocumentDB-database voor het opslaan van apparaatspecifieke gegevens met betrekking tot opdrachten en methoden.
-> 
-> 
-
-1. Ga terug naar de lijst met apparaten.
-2. Selecteer het nieuwe apparaat in de **apparatenlijst** en klik daarna op **Bewerken** om **Apparaatdubbel - Gewenste eigenschappen** te bewerken:
-   
-   ![Gewenste eigenschappen van apparaat bewerken][img-editdevice]
-3. Stel de **Naam van de gewenste eigenschap** in op **Breedtegraad** en stel de waarde in op **47.639521**. Klik daarna op **Wijzigingen aan het apparaatregister opslaan**:
-   
-    ![Gewenste eigenschappen van apparaat bewerken][img-editdevice2]
-4. In het deelvenster **Apparaatdetails** wordt de nieuwe breedtegraadwaarde eerst weergegeven als een gewenste eigenschap en de oude breedtegraadwaarde als een gerapporteerde eigenschap:
-   
-    ![Gerapporteerde eigenschap weergeven][img-editdevice3]
-5. Op dit moment kunnen gesimuleerde apparaten in de vooraf geconfigureerde oplossing alleen de gewenste eigenschappen **Desired.Config.TemperatureMeanValue** en **Desired.Config.TelemetryInterval** verwerken. Een echt apparaat zou alle gewenste eigenschappen van de IoT Hub moeten lezen, wijzigingen moeten aanbrengen in de configuratie en de nieuwe waarden als gerapporteerde eigenschappen moeten rapporteren aan de hub.
-
-U kunt in het deelvenster **Apparaatdetails** ook **Apparaatdubbel - Tags** op dezelfde manier bewerken als waarop u **Apparaatdubbel - Gewenste eigenschappen** bewerkt. In tegenstelling tot de gewenste eigenschappen worden tags echter niet met het apparaat gesynchroniseerd. Tags bestaan alleen in de apparaatdubbel in de IoT Hub. Tags zijn handig voor het bouwen van aangepaste filters in de apparatenlijst.
-
-## <a name="sort-the-device-list"></a>De apparatenlijst sorteren
-
-U kunt de apparatenlijst sorteren door naast een kolomkop te klikken. De eerste klik wordt gesorteerd in oplopende volgorde, de tweede in aflopende volgorde:
-
-![Apparatenlijst sorteren][img-sortdevices]
-
-## <a name="filter-the-device-list"></a>De apparatenlijst filteren
-
-In de apparatenlijst kunt u filters maken, opslaan en opnieuw laden om een aangepaste lijst met apparaten die zijn verbonden met uw hub weer te geven. Een filter maken:
-
-1. Klik op het pictogram Filter bewerken boven de apparatenlijst:
-   
-   ![Open de filtereditor][img-editfiltericon]
-2. Voeg in de **Filtereditor** de velden, operators en waarden toe om de apparatenlijst te filteren. U kunt meerdere clausules toevoegen om uw filter te verfijnen. Klik op **Filteren** om het filter toe te passen:
-   
-   ![Een filter maken][img-filtereditor]
-3. In dit voorbeeld wordt de lijst gefilterd op fabrikant en modelnummer:
-   
-   ![Gefilterde lijst][img-filterelist]
-4. Als u uw filter met een aangepaste naam wilt opslaan, klikt u op het pictogram **Opslaan als**:
-   
-   ![Een filter opslaan][img-savefilter]
-5. Als u een filter dat u eerder hebt opgeslagen opnieuw wilt toepassen, klikt u op het pictogram **Opgeslagen filter openen**:
-   
-   ![Een filter openen][img-openfilter]
-
-U kunt filters maken op basis van apparaat-id, apparaatstatus gewenste eigenschappen, gerapporteerde eigenschappen en tags.
-
-> [!NOTE]
-> U kunt de **weergave Geavanceerd** in de **Filtereditor** gebruiken om de querytekst rechtstreeks te bewerken.
-> 
-> 
-
-## <a name="add-a-rule-for-the-new-device"></a>Een regel voor het nieuwe apparaat toevoegen
-Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In deze sectie voegt u een regel toe die een waarschuwing activeert wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt. Voordat u begint, kunt u al zien dat de telemetriegeschiedenis voor het nieuwe apparaat op het dashboard aantoont dat de temperatuur van het apparaat nooit meer dan 45 graden bedraagt.
-
-1. Ga terug naar de lijst met apparaten.
-2. Selecteer het nieuwe apparaat in de **apparatenlijst** en klik daarna op **Regel toevoegen** om een regel voor het apparaat toe te voegen.
-3. Maak een regel die **Temperatuur** als gegevensveld gebruikt en **AlarmTemp** gebruikt als de uitvoer wanneer de temperatuur 47 graden overschrijdt:
-   
-    ![Een apparaatregel toevoegen][img-adddevicerule]
-4. Klik op **Regels opslaan en weergeven** om uw wijzigingen op te slaan.
-5. Klik op **Opdrachten** in het deelvenster Apparaatdetails voor het nieuwe apparaat.
-   
-   ![Een apparaatregel toevoegen][img-adddevicerule2]
-6. Selecteer **ChangeSetPointTemp** in de opdrachtlijst en stel **SetPointTemp** in op 45. Klik daarna op **Opdracht verzenden**:
-   
-   ![Een apparaatregel toevoegen][img-adddevicerule3]
-7. Ga terug naar het dashboard van de oplossing. Na korte tijd verschijnt in het deelvenster **Geschiedenis van waarschuwingen** een nieuwe vermelding wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt:
-   
-   ![Een apparaatregel toevoegen][img-adddevicerule4]
-8. Op de pagina **Regels** van het dashboard kunt u al uw regels bekijken en bewerken:
-   
-    ![Lijst met apparaatregels][img-rules]
-9. Op de pagina **Acties** van het dashboard kunt u alle acties die worden uitgevoerd in reactie op een regel bekijken en bewerken:
-   
-    ![Lijst met apparaatacties][img-actions]
-
-> [!NOTE]
-> Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De logische app koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
-> 
-> 
-
-## <a name="disable-and-remove-devices"></a>Apparaten uitschakelen en verwijderen
 U kunt een apparaat uitschakelen en nadat het is uitgeschakeld kunt u het verwijderen:
 
 ![Een apparaat uitschakelen en verwijderen][img-disable]
 
-## <a name="run-jobs"></a>Taken uitvoeren
-U kunt taken plannen om bulksgewijs bewerkingen uit te voeren op uw apparaten. U maakt een taak voor een lijst met apparaten. Deze lijst kan al uw apparaten bevatten of kan een gefilterde lijst zijn die u hebt gemaakt met de [filterhulpprogramma's](#filter-the-device-list) in de apparatenlijst. Een taak kan een methode aanroepen voor elk apparaat in de lijst of de apparaatdubbel voor elk apparaat in de apparatenlijst bijwerken.
+### <a name="add-a-rule"></a>Een regel toevoegen
 
-### <a name="create-a-job-to-invoke-a-method"></a>Een taak maken voor het aanroepen van een methode
+Er zijn geen regels voor het nieuwe apparaat dat u zojuist hebt toegevoegd. In deze sectie voegt u een regel toe die een waarschuwing activeert wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt. Voordat u begint, kunt u al zien dat de telemetriegeschiedenis voor het nieuwe apparaat op het dashboard aantoont dat de temperatuur van het apparaat nooit meer dan 45 graden bedraagt.
 
-De volgende stappen laten zien hoe u een taak maakt die de updatemethode voor de firmware aanroept op elk apparaat in een lijst. De methode wordt alleen aangeroepen op apparaten die de methode ondersteunen:
+1. Ga terug naar de lijst met apparaten.
 
-1. Gebruik de filterhulpprogramma's voor de apparatenlijst om een lijst met apparaten te maken voor het ontvangen van de firmware-update:
-   
-   ![Open de filtereditor][img-editfiltericon]
-2. Klik op **Taakplanner** op uw gefilterde lijst:
-   
-   ![Open de Taakplanner][img-clickjobscheduler]
-3. Klik in het deelvenster **Taak plannen** op **Aanroepmethode**.
-4. Voer op de pagina **Aanroepmethode** vervolgens de gegevens van de aanroepmethode in en klik op **Plannen**:
-   
-   ![Methodetaak configureren][img-invokemethodjob]
+1. Selecteer het nieuwe apparaat in de **apparatenlijst** en kies daarna **Regel toevoegen** om een regel voor het apparaat toe te voegen.
 
-De methode **InitiateFirmwareUpdate** start asynchroon een taak op het apparaat en retourneert onmiddellijk. Het firmware-updateproces gebruikt gerapporteerde eigenschappen voor het rapporteren over het updateproces terwijl het wordt uitgevoerd.
+1. Maak een regel die **Temperatuur** als gegevensveld gebruikt en **AlarmTemp** gebruikt als de uitvoer wanneer de temperatuur 47 graden overschrijdt:
 
-### <a name="create-a-job-to-edit-the-device-twin"></a>Een taak maken voor het bewerken van de apparaatdubbel
+    ![Een apparaatregel toevoegen][img-adddevicerule]
 
-In de volgende stappen ziet u hoe u een taak maakt die de apparaatdubbel bewerkt op elk apparaat in een lijst:
+1. Kies **Regels opslaan en weergeven** om uw wijzigingen op te slaan.
 
-1. Gebruik de filterhulpprogramma's voor de apparatenlijst om een lijst met apparaten te maken voor het ontvangen van bewerkingen voor apparaatdubbels:
-   
-   ![Open de filtereditor][img-editfiltericon]
-2. Klik op **Taakplanner** op uw gefilterde lijst:
-   
-   ![Open de Taakplanner][img-clickjobscheduler]
-3. Klik in het deelvenster **Taak plannen** op **Apparaatdubbel bewerken**.
-4. Voer vervolgens op de pagina **Apparaatdubbel bewerken** de gegevens in van de **Gewenste eigenschappen** en **Tags** die u wilt bewerken en klik vervolgens op **Plannen**:
-   
-   ![Methodetaak configureren][img-edittwinjob]
+1. Kies **Opdrachten** in het deelvenster Apparaatdetails voor het nieuwe apparaat.
 
-### <a name="monitor-the-job"></a>De taak bewaken
-U kunt de status bewaken van de taken die u plant op de pagina **Beheertaken**. Het deelvenster **Taakdetails** geeft informatie weer over de geselecteerde taak:
-   
-   ![Taakstatus weergeven][img-jobstatus]
+    ![Een apparaatregel toevoegen][img-adddevicerule2]
 
-U kunt ook informatie over taken weergeven op het **Dashboard**:
-   
-   ![Taken weergeven op het dashboard][img-jobdashboard]
+1. Selecteer **ChangeSetPointTemp** in de opdrachtlijst en stel **SetPointTemp** in op 45. Kies vervolgens **Opdracht verzenden**:
 
+    ![Een apparaatregel toevoegen][img-adddevicerule3]
+
+1. Ga terug naar het dashboard. Na korte tijd verschijnt in het deelvenster **Geschiedenis van waarschuwingen** een nieuwe vermelding wanneer de door het nieuwe apparaat gemelde temperatuur 47 graden overschrijdt:
+
+    ![Een apparaatregel toevoegen][img-adddevicerule4]
+
+1. Op de pagina **Regels** van het dashboard kunt u al uw regels bekijken en bewerken:
+
+    ![Lijst met apparaatregels][img-rules]
+
+1. Op de pagina **Acties** van het dashboard kunt u alle acties die worden uitgevoerd in reactie op een regel bekijken en bewerken:
+
+    ![Lijst met apparaatacties][img-actions]
+
+> [!NOTE]
+> Het is mogelijk om acties te definiëren die een e-mailbericht of sms kunnen verzenden in antwoord op een regel of die met een Line-Of-Business-systeem kunnen worden geïntegreerd via een [logische app][lnk-logic-apps]. Zie [De logische app koppelen aan uw vooraf geconfigureerde oplossing Azure IoT Suite Remote Monitoring ][lnk-logicapptutorial].
+
+### <a name="manage-filters"></a>Filters beheren
+
+In de apparatenlijst kunt u filters maken, opslaan en opnieuw laden om een aangepaste lijst met apparaten die zijn verbonden met uw hub weer te geven. Een filter maken:
+
+1. Kies het pictogram Filter bewerken boven de apparatenlijst:
+
+    ![Open de filtereditor][img-editfiltericon]
+
+1. Voeg in de **Filtereditor** de velden, operators en waarden toe om de apparatenlijst te filteren. U kunt meerdere clausules toevoegen om uw filter te verfijnen. Kies **Filteren** om het filter toe te passen:
+
+    ![Een filter maken][img-filtereditor]
+
+1. In dit voorbeeld wordt de lijst gefilterd op fabrikant en modelnummer:
+
+    ![Gefilterde lijst][img-filterelist]
+
+1. Als u uw filter met een aangepaste naam wilt opslaan, kiest u het pictogram **Opslaan als**:
+
+    ![Een filter opslaan][img-savefilter]
+
+1. Als u een eerder opgeslagen filter opnieuw wilt toepassen, kiest u het pictogram **Opgeslagen filter openen**:
+
+    ![Een filter openen][img-openfilter]
+
+U kunt filters maken op basis van apparaat-id, apparaatstatus gewenste eigenschappen, gerapporteerde eigenschappen en tags. U kunt uw eigen aangepaste tags toevoegen aan een apparaat in het gedeelte **Tags** van het deelvenster **Apparaatdetails** of een taak voor het bijwerken van tags op meerdere apparaten uitvoeren.
+
+> [!NOTE]
+> U kunt de **weergave Geavanceerd** in de **Filtereditor** gebruiken om de querytekst rechtstreeks te bewerken.
+
+### <a name="commands"></a>Opdrachten
+
+Vanuit het deelvenster **Apparaatdetails** kunt u opdrachten naar het apparaat verzenden. Wanneer een apparaat voor het eerst wordt gestart, stuurt het naar de oplossing informatie over de opdrachten die het apparaat ondersteunt. Zie [Opties van Azure IoT-Hub cloud-naar-apparaat][lnk-c2d-guidance] voor een beschrijving van de verschillen tussen opdrachten en methoden.
+
+1. Kies in het deelvenster **Apparaatdetails** de optie **Opdrachten** voor het geselecteerde apparaat:
+
+   ![Apparaatopdrachten in het dashboard][img-devicecommands]
+
+1. Selecteer **PingDevice** in de lijst met opdrachten.
+
+1. Kies **Opdracht verzenden**.
+
+1. U ziet de status van de opdracht in de opdrachtgeschiedenis.
+
+   ![Opdrachtstatus in het dashboard][img-pingcommand]
+
+De oplossing houdt de status van elke opdracht bij die met de oplossing wordt verzonden. In eerste instantie is het resultaat **In behandeling**. Wanneer het apparaat meldt dat het de opdracht heeft uitgevoerd, wordt het resultaat ingesteld op **Geslaagd**.
 
 ## <a name="behind-the-scenes"></a>Achter de schermen
+
 Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
 
 ![Vooraf geconfigureerde oplossing in de Azure-portal][img-portal]
@@ -304,10 +353,9 @@ Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit
 
 > [!NOTE]
 > Verwijder de resourcegroep niet uit de portal, maar verwijder de oplossing op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo zorgt u ervoor dat alles met betrekking tot de vooraf geconfigureerde oplossing wordt verwijderd.
-> 
-> 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
 
 * [Walkthrough over de vooraf geconfigureerde oplossing voor externe bewaking][lnk-rm-walkthrough]
@@ -316,21 +364,18 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
+[img-menu]: media/iot-suite-getstarted-preconfigured-solutions/menu.png
 [img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
+[img-alarms]: media/iot-suite-getstarted-preconfigured-solutions/alarms.png
 [img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
 [img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
-[img-devicemethods]: media/iot-suite-getstarted-preconfigured-solutions/devicemethods.png
 [img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
-[img-pingmethod]: media/iot-suite-getstarted-preconfigured-solutions/pingmethod.png
 [img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
 [img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
 [img-runningnew-2]: media/iot-suite-getstarted-preconfigured-solutions/runningnew2.png
 [img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
-[img-editdevice]: media/iot-suite-getstarted-preconfigured-solutions/editdevice.png
-[img-editdevice2]: media/iot-suite-getstarted-preconfigured-solutions/editdevice2.png
-[img-editdevice3]: media/iot-suite-getstarted-preconfigured-solutions/editdevice3.png
 [img-adddevicerule]: media/iot-suite-getstarted-preconfigured-solutions/addrule.png
 [img-adddevicerule2]: media/iot-suite-getstarted-preconfigured-solutions/addrule2.png
 [img-adddevicerule3]: media/iot-suite-getstarted-preconfigured-solutions/addrule3.png
@@ -341,17 +386,23 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 [img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
 [img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
 [img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
-[img-sortdevices]: media/iot-suite-getstarted-preconfigured-solutions/sortdevices.png
 [img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
 [img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
 [img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
 [img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
 [img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
-[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
-[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
-[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
-[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
-[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
+[img-unhealthy-filter]: media/iot-suite-getstarted-preconfigured-solutions/unhealthyfilter.png
+[img-filtered-unhealthy-list]: media/iot-suite-getstarted-preconfigured-solutions/unhealthylist.png
+[img-change-interval]: media/iot-suite-getstarted-preconfigured-solutions/changeinterval.png
+[img-old-firmware]: media/iot-suite-getstarted-preconfigured-solutions/noticeold.png
+[img-old-filter]: media/iot-suite-getstarted-preconfigured-solutions/oldfilter.png
+[img-filtered-old-list]: media/iot-suite-getstarted-preconfigured-solutions/oldlist.png
+[img-method-update]: media/iot-suite-getstarted-preconfigured-solutions/methodupdate.png
+[img-update-1]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate1.png
+[img-update-2]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate2.png
+[img-update-3]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate3.png
+[img-updated]: media/iot-suite-getstarted-preconfigured-solutions/updated.png
+[img-healthy]: media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -359,10 +410,9 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-device-twin-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-faq]: iot-suite-faq.md

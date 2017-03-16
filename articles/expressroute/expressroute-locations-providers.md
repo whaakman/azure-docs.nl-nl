@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
-ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 278caf2afa889466736f3d98ff4ad292f72e5098
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>ExpressRoute-connectiviteitsproviders
+## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
 ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende kaart bevat een lijst van Azure-regio's en ExpressRoute-locaties. ExpressRoute-locaties zijn locaties waarop Microsoft samenwerkt met verschillende serviceproviders.
 
 ![Locatiekaart][0]
@@ -61,7 +61,7 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 
 Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Locaties van connectiviteitsproviders
+## <a name="locations"></a>Locaties van connectiviteitsproviders
 
 De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md#locations). 
 
@@ -73,8 +73,8 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS+, Sejong Telecom |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
 | **Dublin** |Colt, Telecity Group |
 | **Hongkong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londen** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -125,7 +125,7 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 | **Berlijn** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
+## <a name="nonpartners"></a>Connectiviteit via niet vermelde serviceproviders
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
 
 * Neem contact op met uw connectiviteitsprovider om na te gaan of ze zijn verbonden met een van de exchange-punten in de bovenstaande tabel. Via de volgende koppelingen vindt u meer informatie over services die door de exchange-providers worden verstrekt. Verschillende connectiviteitsproviders zijn al verbonden met Ethernet-exchange-punten.
