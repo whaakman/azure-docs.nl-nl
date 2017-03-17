@@ -54,6 +54,9 @@
 ### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Bronbeheerintegratie met VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Oplossingen
+### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
+### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
 ## Bewaken
 ### [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Automation-account loskoppelen van Log Analytics](automation-unlink-from-log-analytics.md)

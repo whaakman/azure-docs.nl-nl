@@ -54,7 +54,6 @@
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Architectuur](service-fabric-reliable-services-platform-architecture.md)
 #### [Levenscyclus van Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
 #### [Betrouwbare verzamelingen gebruiken](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorfisme](service-fabric-reliable-actors-polymorphism.md)
 #### [Herintreding](service-fabric-reliable-actors-reentrancy.md)
+#### [Gebeurtenissen](service-fabric-reliable-actors-events.md) 
 #### [Timers en herinneringen](service-fabric-reliable-actors-timers-reminders.md)
-#### [Gebeurtenissen](service-fabric-reliable-actors-events.md)
 #### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
 #### [KvsActorStateProvider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Algemene problemen oplossen](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Schaaltoepassingen
 ### [Reliable Services partitioneren](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Gecontroleerde chaos gebruiken](service-fabric-controlled-chaos.md)
 #### [Testacties gebruiken](service-fabric-testability-actions.md)
 #### [Tijdens workloads](service-fabric-testability-workload-tests.md)
-#### [Door gegevensverlies aan te roepen](service-fabric-use-data-loss-api.md)
 #### [Testscenario's gebruiken](service-fabric-testability-scenarios.md)
 #### [De API's voor knooppuntovergang gebruiken](service-fabric-node-transition-apis.md)
 ### [Uw testtoepassing laden](service-fabric-vso-load-test.md)
