@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
-ms.openlocfilehash: 149f3daf1f61f459b0a0834c0f112574510d5259
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3ff2dcba568ed7ff83154cb6e1f1861ffb32a0d2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -55,7 +56,7 @@ De configuratie van een punt-naar-site-verbinding is onderverdeeld in vier secti
 * **Sectie 3**: exporteer en installeer de clientcertificaten.
 * **Sectie 4**: configureer de VPN-client.
 
-## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>Sectie 1: Een virtueel netwerk en een VPN-gateway maken
+## <a name="vnetvpn"></a>Sectie 1: Een virtueel netwerk en een VPN-gateway maken
 ### <a name="part-1-create-a-virtual-network"></a>Stap 1: Een virtueel netwerk maken
 1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com). In deze stappen wordt gebruik gemaakt van de klassieke portal, niet Azure Portal. U kunt op dit moment geen P2S-verbinding maken met behulp van Azure Portal.
 2. Klik linksonder in het scherm op **Nieuw**. Klik in het navigatievenster op **Netwerkservices** en vervolgens op **Virtueel netwerk**. Klik op **Aangepast item maken** om de configuratiewizard te starten.
@@ -86,7 +87,7 @@ Het gatewaytype moet worden geconfigureerd als Dynamisch. Statische routeringsga
 1. Ga in de klassieke Azure Portal naar de pagina **Netwerken** en klik op het virtuele netwerk dat u hebt gemaakt. Navigeer dan naar de **Dashboard**-pagina.
 2. Klik onderaan de **Dashboard**-pagina op **Gateway maken**. Er verschijnt een bericht met de vraag **Wilt u een gateway maken voor virtueel netwerk 'VNet1'**. Klik op **Ja** om de gateway te gaan maken. Het kan tot 45 minuten duren voordat de gateway is gemaakt.
 
-## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>Sectie 2: Certificaten genereren en uploaden
+## <a name="generate"></a>Sectie 2: Certificaten genereren en uploaden
 Certificaten worden gebruikt om VPN-clients voor punt-naar-site-VPN's te verifiëren. U kunt een basiscertificaat gebruiken dat is gegenereerd door een commerciële certificeringsoplossing, of u kunt een zelfondertekend certificaat gebruiken. U kunt maximaal twintig basiscertificaten uploaden naar Azure. Zodra het CER-bestand is geüpload, kan Azure de informatie daarin gebruiken voor het verifiëren van clients met een geïnstalleerd clientcertificaat. Het clientcertificaat moet worden gegenereerd vanuit hetzelfde certificaat dat het CER-bestand vertegenwoordigt.
 
 In deze sectie gaat u het volgende doen:
@@ -95,35 +96,48 @@ In deze sectie gaat u het volgende doen:
 * Het CER-bestand uploaden naar Azure.
 * Clientcertificaten genereren.
 
-### <a name="a-namerootapart-1-obtain-the-cer-file-for-the-root-certificate"></a><a name="root"></a>Deel 1: het CER-bestand voor het basiscertificaat verkrijgen
-Als u een commercieel certificeringssysteem gebruikt, haalt u het CER-bestand voor het basiscertificaat op dat u wilt gebruiken. In [deel 3](#createclientcert) genereert u de clientcertificaten op basis van het basiscertificaat.
+### <a name="root"></a>Deel 1: het CER-bestand voor het basiscertificaat verkrijgen
+Als u gebruikmaakt van een bedrijfsoplossing kunt u de bestaande certificaatketen gebruiken. Verkrijg het CER-bestand dat u wilt gebruiken voor het basiscertificaat.
 
-Als u geen commerciële certificeringsoplossing gebruikt, moet u een zelfondertekend basiscertificaat genereren. Voor de stappen in Windows 10 raadpleegt u [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Werken met zelfondertekende basiscertificaten voor punt-naar-site-configuraties). Het artikel helpt u makecert te gebruiken om een zelfondertekend certificaat te genereren. Hierna kunt u het CER-bestand exporteren.
+Als u geen commerciële certificeringsoplossing gebruikt, moet u een zelfondertekend basiscertificaat maken. Gebruik makecert voor het maken van een zelfondertekend certificaat met de vereiste velden voor de verificatie van P2S. [Een zelfondertekend basiscertificaat voor P2S-verbindingen maken](vpn-gateway-certificates-point-to-site.md) begeleidt u door de stappen voor het maken van een zelfondertekend basiscertificaat. We weten dat makecert wordt afgeschaft, maar op dit moment is dit de ondersteunde oplossing.
 
-### <a name="a-nameuploadapart-2-upload-the-root-certificate-cer-file-to-the-azure-classic-portal"></a><a name="upload"></a>Deel 2: Het CER-bestand van het basiscertificaat uploaden naar de klassieke Azure Portal
+>[!NOTE]
+>Hoewel u met PowerShell zelfondertekende certificaten kunt maken, bevat het certificaat dat door PowerShell wordt gegenereerd, niet de velden die nodig zijn voor punt-naar-site-verificatie.
+>
+
+
+#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Het CER-bestand voor het zelfondertekend basiscertificaat verkrijgen
+
+1. Als u een CER-bestand uit een zelfondertekend basiscertificaat wilt ophalen, opent u **certmgr.msc** en zoekt u het basiscertificaat dat u hebt gemaakt. Het certificaat bevindt zich doorgaans in Certificaten-Huidige gebruiker/Persoonlijk/Certificaten en heeft de naam die u hebt gekozen bij het maken van het certificaat. Klik met de rechtermuisknop op het zelfondertekende basiscertificaat, klik op **Alle taken** en klik vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**.
+2. Klik in de wizard op **Volgende**, selecteer **Nee, de persoonlijke sleutel niet exporteren** en klik vervolgens op **Volgende**.
+3. Selecteer op de pagina **Bestandsindeling voor export** de optie **Met Base64 gecodeerde X.509 (*.CER).** Klik op **Volgende**.
+4. Op de pagina **Te exporteren bestand** **bladert** u naar de locatie waar u het certificaat wilt exporteren. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
+5. Klik op **Voltooien** om het certificaat te exporteren.
+
+### <a name="upload"></a>Deel 2: Het CER-bestand van het basiscertificaat uploaden naar de klassieke Azure Portal
 Voeg een vertrouwd certificaat toe aan Azure. Wanneer u een met Base64 gecodeerd X.509 (.cer)-bestand aan Azure toevoegt, geeft u bij Azure aan dat deze het basiscertificaat dat het bestand vertegenwoordigt, moet vertrouwen.
 
 1. Ga in de klassieke Azure Portal naar de pagina **Certificaten** voor het virtuele netwerk en klik op **Een basiscertificaat uploaden**.
 2. Blader op de pagina **Certificaat uploaden** naar het CER-basiscertificaat en klik op het vinkje.
 
-### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>Deel 3: Een clientcertificaat genereren
+### <a name="createclientcert"></a>Deel 3: Een clientcertificaat genereren
 Nu gaat u de clientcertificaten genereren. U kunt een uniek certificaat genereren voor elke client die verbinding maakt of u kunt hetzelfde certificaat gebruiken op meerdere clients. Het voordeel van het genereren van unieke clientcertificaten is de mogelijkheid tot het intrekken van één certificaat, indien nodig. Anders moet u, als alle clients hetzelfde certificaat gebruiken en u het certificaat voor één van de clients moet intrekken, nieuwe certificaten genereren en installeren voor alle clients die het certificaat gebruiken om te verifiëren.
 
 ####<a name="enterprise-certificate"></a>Commercieel certificaat
-- Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling 'name@yourdomain.com',, in plaats van de indeling 'domeinnaam\gebruikersnaam'.
+- Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling 'name@yourdomain.com', in plaats van de indeling 'domeinnaam\gebruikersnaam'.
 - Zorg ervoor dat het clientcertificaat dat u verleent is gebaseerd op de certificaatsjabloon voor Gebruiker met Clientverificatie als het eerste item in de lijst, in plaats van bijvoorbeeld smartcardaanmelding. U kunt het certificaat controleren door op het clientcertificaat te dubbelklikken en **Details > Uitgebreid sleutelgebruik** weer te geven.
 
 ####<a name="self-signed-certificate"></a>Zelfondertekend certificaat 
 Als u een zelfondertekend certificaat gebruikt, raadpleegt u [Werken met zelfondertekende basiscertificaten voor punt-naar-site-configuraties](vpn-gateway-certificates-point-to-site.md) om een clientcertificaat te genereren.
 
-## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>Sectie 3: Het clientcertificaat exporteren en installeren
+## <a name="installclientcert"></a>Sectie 3: Het clientcertificaat exporteren en installeren
 Installeer een clientcertificaat op elke computer die u met het virtueel netwerk wilt verbinden. Er is een clientcertificaat vereist voor verificatie. U kunt het installeren van het clientcertificaat automatiseren of u kunt het handmatig installeren. De volgende stappen leiden u door het handmatig exporteren en installeren van het clientcertificaat.
 
 1. U kunt *certmgr.msc* gebruiken om een clientcertificaat te exporteren. Klik met de rechtermuisknop op het clientcertificaat dat u wilt exporteren, klik op **Alle taken** en vervolgens op **Exporteren**.
 2. Exporteer het clientcertificaat met de persoonlijke sleutel. Dit is een *PFX*-bestand. Zorg dat u het wachtwoord (sleutel) dat u voor dit certificaat instelt, ergens noteert of onthoudt.
 3. Kopieer het *PFX*-bestand naar de clientcomputer. Dubbelklik op de clientcomputer op het *PFX*-bestand om het te installeren. Voer het wachtwoord in wanneer hierom wordt gevraagd. Wijzig de installatielocatie niet.
 
-## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>Sectie 4: De VPN-client configureren
+## <a name="vpnclientconfig"></a>Sectie 4: De VPN-client configureren
 U moet ook een VPN-client configureren om verbinding te maken met het virtuele netwerk. De client vereist zowel een clientcertificaat als een correcte configuratie van de VPN-client om verbinding te kunnen maken. Voer de volgende stappen in de gegeven volgorde uit om een VPN-client te configureren.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Deel 1: Het configuratiepakket voor de VPN-client maken
@@ -172,7 +186,7 @@ Voorbeeld:
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
-## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>Veelgestelde vragen over punt-naar-site
+## <a name="faq"></a>Veelgestelde vragen over punt-naar-site
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
@@ -181,10 +195,5 @@ Voorbeeld:
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 
 Bekijk de pagina [Virtual Network Documentation](/azure/virtual-network) (Virtual Network-documentatie) voor meer informatie over Virtual Networks.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

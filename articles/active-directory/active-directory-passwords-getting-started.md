@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Als u beleid voor het opnieuw instellen van wachtwoorden door gebruikers wilt co
 
    ![][003]
 
-5. Op het tabblad **Configureren** gaat u naar het gedeelte **Beleid voor het opnieuw instellen van gebruikerswachtwoorden**.  Hier kunt u alle aspecten van het beleid voor het opnieuw instellen van gebruikerswachtwoorden configureren voor een bepaalde directory. *Als u het tabblad Configureren niet ziet, controleert u of u zich hebt geregistreerd voor Azure Active Directory Premium of Basic en of u **een licentie hebt toegewezen** aan het beheerdersaccount waarmee deze functie wordt geconfigureerd.*  
+5. Op het tabblad **Configureren** gaat u naar het gedeelte **Beleid voor het opnieuw instellen van gebruikerswachtwoorden**.  Hier kunt u alle aspecten van het beleid voor het opnieuw instellen van gebruikerswachtwoorden configureren voor een bepaalde directory. *Als u het tabblad Configureren niet ziet, controleert u of u zich hebt geregistreerd voor Azure Active Directory Premium of Basic en of u __een licentie hebt toegewezen__ aan het beheerdersaccount waarmee deze functie wordt geconfigureerd.*  
 
    > [!NOTE]
    > **Het beleid dat u instelt, geldt alleen voor eindgebruikers in uw organisatie en niet voor beheerders**. Uit veiligheidsoverwegingen bepaalt Microsoft het beleid voor wachtwoordherstel voor beheerders. Met het huidige beleid voor beheerders zijn twee uitdagingen vereist: mobiel nummer en e-mailadres.
-
-   >
-   >
 
    ![][004]
 6. Als u het beleid voor het opnieuw instellen voor gebruikerswachtwoorden wilt configureren, stelt u de knop **Gebruikers mogen wachtwoorden opnieuw instellen** in op **Ja**.  U krijgt dan meer besturingselementen te zien waarmee u kunt configureren hoe deze functie werkt in uw directory.  U kunt het opnieuw instellen van wachtwoorden aanpassen zoals u dat wilt.  Als u meer wilt weten over wat elk besturingselement van het beleid voor het opnieuw instellen van wachtwoorden doet, ziet u [Aanpassen: Azure AD-wachtwoordbeheer](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ U kunt ook controleren of de service correct is geïnstalleerd door Logboeken te
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Stap 3: uw firewall configureren
-Als u Wachtwoord terugschrijven hebt ingeschakeld, moet u ervoor zorgen dat de machine met Azure AD Connect de Microsoft-cloudservices kan bereiken om op die manier aanvragen voor het terugschrijven van wachtwoorden te ontvangen. Deze stap omvat het bijwerken van de verbindingsregels in uw netwerkapparaten (proxyservers, firewalls enz.), zodat uitgaande verbindingen met bepaalde URL's en IP-adressen van Microsoft worden toegestaan via bepaalde netwerkpoorten. Deze wijzigingen kunnen variëren op basis van de versie van het Azure AD Connect-hulpprogramma. Voor aanvullende context leest u meer over [hoe het terugschrijven van wachtwoorden werkt](active-directory-passwords-learn-more.md#how-password-writeback-works) en over [het beveiligingsmodel voor het terugschrijven van wachtwoorden](active-directory-passwords-learn-more.md#password-writeback-security-model).
+Als u Wachtwoord terugschrijven hebt ingeschakeld, moet u ervoor zorgen dat de machine met Azure AD Connect de Microsoft-cloudservices kan bereiken om op die manier aanvragen voor het terugschrijven van wachtwoorden te ontvangen. Deze stap omvat het bijwerken van de verbindingsregels in uw netwerkapparaten (proxyservers, firewalls enz.), zodat uitgaande verbindingen met bepaalde [URL's en IP-adressen van Microsoft](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) worden toegestaan via bepaalde netwerkpoorten. Deze wijzigingen kunnen variëren op basis van de versie van het Azure AD Connect-hulpprogramma. Voor aanvullende context leest u meer over [hoe het terugschrijven van wachtwoorden werkt](active-directory-passwords-learn-more.md#how-password-writeback-works) en over [het beveiligingsmodel voor het terugschrijven van wachtwoorden](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>Waarom moet ik dit doen?
 
 Als u wilt dat het terugschrijven van wachtwoorden goed werkt, moet de machine waarop Azure AD Connect wordt uitgevoerd, een uitgaande HTTPS-verbinding kunnen maken met **.servicebus.windows.net* en bepaalde IP-adressen die worden gebruikt door Azure. Deze worden gedefinieerd in de [Microsoft Azure-lijst met datacenter-IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Voor Azure AD Connect-versie 1.0.8667.0 en hoger:
+Voor Azure AD Connect-versie **1.1.439.0** (nieuwste) en hoger:
+
+- De meest recente versie van het hulpprogramma Azure AD Connect moet **uitgaande HTTPS-toegang** hebben tot:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Voor Azure AD Connect-versie **1.0.8667.0** tot **1.1.380.0**:
 
 - **Optie 1:** alle uitgaande HTTPS-verbindingen toestaan via poort 443 (met een URL of IP-adres).
     - Wanneer u deze optie gebruikt:
@@ -298,6 +301,9 @@ Voor Azure AD Connect-versie 1.0.8667.0 en hoger:
 > Als u een oudere versie van Azure AD Connect gebruikt dan 1.0.8667.0, raden we u aan te upgraden naar de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). Deze omvat een aantal verbeteringen met betrekking tot terugschrijven binnen netwerken die de configuratie vereenvoudigen.
 
 Nadat de netwerkapparaten zijn geconfigureerd, moet u de machine met het Azure AD Connect-hulpprogramma opnieuw opstarten.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Niet-actieve verbindingen op Azure AD Connect (1.1.439.0 en hoger)
+Het hulpprogramma Azure AD Connect verzendt periodieke pings/keepalives naar ServiceBus-eindpunten om ervoor te zorgen dat de verbindingen actief blijven. Als het hulpprogramma detecteert dat er te veel verbindingen worden afgesloten, wordt de frequentie van pings naar het eindpunt automatisch verhoogd. De laagste pingintervallen worden verlaagd naar 1 ping per 60 seconden. **We raden echter aan dat proxy's/firewalls verbindingen toestaan om ten minste 2-3 minuten niet-actief te zijn.** \*Voor oudere versies raden we vier minuten of meer aan.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Stap 4: de juiste Active Directory-machtigingen instellen
 Bij elke forest die gebruikers bevat waarvan de wachtwoorden opnieuw worden ingesteld en waarbij X het account is dat is opgegeven voor die forest in de configuratiewizard (tijdens de eerste configuratie), moet X de machtigingen **Wachtwoord wijzigen**, **Wachtwoord opnieuw instellen**, **Schrijfmachtigingen** voor `lockoutTime` en **Schrijfmachtigingen** voor `pwdLastSet` krijgen. Daarbij moet X ook uitgebreide rechten krijgen voor het hoofdobject van elk domein in het forest. Het recht moet worden gemarkeerd als 'overgenomen door alle gebruikersobjecten'.  
