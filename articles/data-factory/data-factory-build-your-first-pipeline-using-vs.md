@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
-ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -78,7 +79,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Linked Services**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
 2. Selecteer **HDInsight On Demand Linked Service** en klik op **Add**.
-3. Vervang de **JSON** door het volgende:
+3. Vervang de **JSON** door de volgende JSON:
 
     ```JSON
     {
@@ -98,19 +99,19 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
    | Eigenschap | Beschrijving |
-   | --- | --- |
-   |  Version |Geeft aan dat de versie van het gemaakte HDInsight-cluster 3.2 zal zijn. |
-   |  ClusterSize |Geeft de grootte van het HDInsight-cluster aan. |
-   |  TimeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
-   |  linkedServiceName |Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd |
+   | -------- | ----------- |
+   | Version | Geeft aan dat de versie van het gemaakte HDInsight-cluster 3.2 zal zijn. |
+   | ClusterSize |Geeft de grootte van het HDInsight-cluster aan. |
+   | TimeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
+   | linkedServiceName |Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd |
 
-    Houd rekening met het volgende:
+    Houd rekening met de volgende punten:
 
    * Data Factory maakt voor u een HDInsight-cluster **op basis van Windows** met de eerder vermelde JSON. U zou Data Factory ook een HDInsight-cluster **op basis van Linux** kunnen laten maken. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
    * U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
    * Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
 
-       Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+       Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
 
      Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
 4. Sla het bestand **HDInsightOnDemandLinkedService1.json** op.
@@ -121,9 +122,9 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
 #### <a name="create-input-dataset"></a>Invoergegevensset maken
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Tables**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
 2. Selecteer **Azure Blob** in de lijst, wijzig de naam van het bestand in **InputDataSet.json** en klik op **Add**.
-3. Vervang de **JSON** in de editor door het volgende:
+3. Vervang de **JSON** in de editor door het volgende JSON-fragment:
 
-    U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die staat voor invoergegevens van een activiteit in de pijplijn. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **inputdata**
+    U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die staat voor invoergegevens van een activiteit in de pijplijn. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam `adfgetstarted` en in de map met de naam `inputdata`.
 
     ```JSON
     {
@@ -151,7 +152,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
     De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
 
    | Eigenschap | Beschrijving |
-   |:--- |:--- |
+   | -------- | ----------- |
    | type |De eigenschap type wordt ingesteld op AzureBlob, omdat de gegevens zich in de Azure-blobopslag bevinden. |
    | linkedServiceName |Deze eigenschap verwijst naar de AzureStorageLinkedService1 die u eerder hebt gemaakt. |
    | fileName |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In dit geval wordt alleen input.log verwerkt. |
@@ -166,9 +167,9 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Tables**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
 2. Selecteer **Azure Blob** in de lijst, wijzig de naam van het bestand in **OutputDataset.json** en klik op **Add**.
-3. Vervang de **JSON** in de editor door het volgende:
+3. Vervang de **JSON** in de editor door de volgende JSON:
 
-    In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** en geeft u op welke gegevensstructuur er door het Hive-script wordt geproduceerd. Bovendien geeft u op dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset op maandelijkse basis wordt geproduceerd.
+    In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** en geeft u op welke gegevensstructuur er door het Hive-script wordt geproduceerd. Bovendien geeft u op dat de resultaten worden opgeslagen in de blobcontainer met de naam `adfgetstarted` en in de map met de naam `partitioneddata`. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset op maandelijkse basis wordt geproduceerd.
 
     ```JSON
     {
@@ -252,7 +253,7 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
     ```
      In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
 
-    Het Hive-scriptbestand **partitionweblogs.hql** wordt opgeslagen in het Azure-opslagaccount (opgegeven door de scriptLinkedService met de naam **AzureStorageLinkedService1**) en in de map **script** van de container **adfgetstarted**.
+    Het Hive-scriptbestand **partitionweblogs.hql** wordt opgeslagen in het Azure-opslagaccount (opgegeven door de scriptLinkedService met de naam **AzureStorageLinkedService1**) en in de map `script` van de container `adfgetstarted`.
 
     Het gedeelte **defines** wordt gebruikt om de runtime-instellingen die worden doorgegeven aan het Hive-script, op te geven als Hive-configuratiewaarden (bijvoorbeeld ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -269,7 +270,7 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
 1. Klik in het **Solution Explorer**-venster met de rechtermuisknop op **Dependencies**. Houd de muisaanwijzer op **Add** en klik op **Existing Item**.  
 2. Navigeer naar **C:\ADFGettingStarted** en selecteer de bestanden **partitionweblogs.hql** en **input.log**. Klik vervolgens op **Add**. U hebt deze twee bestanden gemaakt omdat dit vereist werd in het [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md).
 
-Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **partitionweblogs.hql** geüpload naar de scriptmap in de blobcontainer **adfgetstarted**.   
+Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **partitionweblogs.hql** geüpload naar de scriptmap in de blobcontainer `adfgetstarted`.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>Data Factory-entiteiten publiceren/implementeren
 1. Klik met de rechtermuisknop op het project in Solution Explorer. Klik vervolgens op **Publish**.
@@ -277,7 +278,7 @@ Wanneer u de oplossing in de volgende stap publiceert, wordt het bestand **parti
 3. Het volgende dialoogvenster wordt weergegeven:
 
    ![Het dialoogvenster Publish](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. Op de pagina **Configure data factory** doet u het volgende:
+4. Op de pagina **Configure data factory** voert u de volgende stappen uit:
 
    1. Selecteer **Create New Data Factory**.
    2. Voer een unieke **naam** in voor de gegevensfactory. Bijvoorbeeld: **FirstDataFactoryUsingVS09152016**. De naam moet wereldwijd uniek zijn.
@@ -310,7 +311,7 @@ Belangrijke punten om op te letten:
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 ### <a name="monitor-pipeline-using-diagram-view"></a>De pijplijn bewaken met Diagramweergave
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) en doe het volgende:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/) en doorloop de volgende stappen:
    1. Klik op **Meer services** en op **Gegevensfactory's**.
        
         ![Door gegevensfactory’s bladeren](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
@@ -331,7 +332,7 @@ Belangrijke punten om op te letten:
     ![Pijplijnweergave openen](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     Als u naar de vorige weergave wilt terugkeren, klikt u op **Gegevensfactory** in het koppelingenmenu bovenaan.
-6. Dubbelklik in de **diagramweergave** op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status Gereed heeft. Als dit niet is gebeurd nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (input.log) in de juiste container (adfgetstarted) en in de juiste map (inputdata) staat.
+6. Dubbelklik in de **diagramweergave** op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status Gereed heeft. Als dit niet is gebeurd nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (input.log) in de juiste container (`adfgetstarted`) en in de juiste map (`inputdata`) staat.
 
    ![Invoersegment met de status Gereed](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. Klik op **X** om de blade **AzureBlobInput** te sluiten.
@@ -346,7 +347,7 @@ Belangrijke punten om op te letten:
    >
 
     ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
+10. Wanneer het segment de status **Gereed** heeft, controleert u de map `partitioneddata` in de container `adfgetstarted` in uw blobopslag voor de uitvoergegevens.  
 
     ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
@@ -373,7 +374,7 @@ U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewake
     ![Details van activiteitsvenster](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
+> Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map `inputdata` van de container `adfgetstarted`.
 >
 >
 
@@ -387,7 +388,7 @@ U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewake
     ![Een gegevensfactory exporteren](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Data Factory-hulpprogramma's voor Visual Studio bijwerken
-Doe het volgende om Azure Data Factory-hulpprogramma's voor Visual Studio bij te werken:
+Voer de volgende stappen uit om Azure Data Factory-hulpprogramma's voor Visual Studio bij te werken:
 
 1. Klik in het menu op **Extra** en selecteer **Extensies en updates**.
 2. Selecteer **Updates** in het linkerdeelvenster en selecteer vervolgens **Visual Studio-galerie**.
@@ -523,9 +524,4 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) |Dit artikel bevat een lijst van activiteiten voor gegevenstransformatie (zoals de HDInsight Hive-transformatie die u in deze zelfstudie hebt gebruikt) die door Azure Data Factory worden ondersteund. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

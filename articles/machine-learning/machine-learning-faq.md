@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ U kunt op drie manieren gegevens downloaden naar een Machine Learning Studio-exp
 
 Zie [Trainingsgegevens importeren in Machine Learning Studio](machine-learning-data-science-import-data.md) voor meer informatie over ondersteunde bestandsindelingen.
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Hoe groot mag de gegevensset zijn voor mijn modules?
+#### <a id="ModuleLimit"></a>Hoe groot mag de gegevensset zijn voor mijn modules?
 Modules in Machine Learning Studio ondersteunen gegevenssets tot 10 GB aan compacte numerieke gegevens voor algemeen gebruik. Als een module meer dan één invoer heeft, is de waarde 10 GB de totale invoergrootte. U kunt ook een steekproef nemen uit grotere gegevenssets via query's van Hive of Azure SQL Database, of u kunt gegevens van Learning by Counts vooraf verwerken voordat u deze opneemt.  
 
 U kunt de volgende typen gegevens in grotere gegevenssets opnemen tijdens het normaliseren van kenmerken, tot maximaal 10 GB:
@@ -101,7 +102,7 @@ De volgende modules zijn beperkt tot gegevenssets die kleiner zijn dan 10 GB:
 * Modules waarbij de grootte van de uitvoer groter is dan invoergegevens, zoals Join- of hash-functies
 * Kruisvalidatie, Tune Model Hyperparameters, ordinale regressie en One-vs-All-multiklasse, wanneer het aantal herhalingen groot is
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Wat zijn de limieten voor het uploaden van gegevens?
+#### <a id="UploadLimit"></a>Wat zijn de limieten voor het uploaden van gegevens?
 Voor gegevenssets die groter zijn dan een paar GB moet u de gegevens uploaden naar Azure Storage of Azure SQL Database, of gebruikmaken van Azure HDInsight, in plaats van de gegevens direct vanuit het lokale bestand te uploaden.
 
 **Kan ik gegevens vanaf Amazon S3 lezen?**
@@ -429,7 +430,11 @@ U wordt aangeraden te beginnen met de Standard-laag S1 en het serviceverbruik bi
 
 **In welke regio's zijn de nieuwe plannen beschikbaar?**
 
-Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor meer informatie over regionale beschikbaarheid.
+De nieuwe abonnementen zijn beschikbaar in de drie productieregio‘s waar de nieuwe webservices worden ondersteund:
+
+* Zuid-centraal VS
+* West-Europa
+* Zuidoost-Azië
 
 **Ik heb webservices in meerdere regio‘s. Heb ik voor elke regio een apart plan nodig?**
 
@@ -464,7 +469,13 @@ Ja, klassieke webservices zijn nog steeds beschikbaar in Azure Machine Learning.
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning gratis laag en Standard-laag
 **Wat is inbegrepen bij de gratis laag van Machine Learning?**
 
-De gratis laag van Azure Machine Learning is bedoeld om een gedetailleerde inleiding te bieden tot Azure Machine Learning Studio. Het enige wat u nodig hebt om u te registreren, is een Microsoft-account. De gratis laag omvat gratis toegang tot één Azure Machine Learning Studio-werkruimte per [Microsoft-account](https://www.microsoft.com/account/default.aspx). In deze laag kunt u maximaal 10 GB aan opslagruimte gebruiken en kunt u modellen uitvoeren als tijdelijke API's. Werkbelastingen uit een gratis laag worden niet gedekt door een SLA en zijn alleen bedoeld voor ontwikkeling en persoonlijk gebruik. Workloads voor de gratis laag hebben geen toegang tot gegevens via een verbinding met een on-premises server waarop SQL Server wordt uitgevoerd.
+De gratis laag van Azure Machine Learning is bedoeld om een gedetailleerde inleiding te bieden tot Azure Machine Learning Studio. Het enige wat u nodig hebt om u te registreren, is een Microsoft-account. De gratis laag omvat gratis toegang tot één Azure Machine Learning Studio-werkruimte per [Microsoft-account](https://www.microsoft.com/account/default.aspx). In deze laag kunt u maximaal 10 GB aan opslagruimte gebruiken en kunt u modellen uitvoeren als tijdelijke API's. Werkbelastingen uit een gratis laag worden niet gedekt door een SLA en zijn alleen bedoeld voor ontwikkeling en persoonlijk gebruik. 
+
+Werkruimten in de gratis laag hebben de volgende beperkingen:
+
+* Workloads hebben geen toegang tot gegevens via een verbinding met een on-premises server waarop SQL Server wordt uitgevoerd.
+* U kunt geen nieuwe webservices gebaseerd op Resource Manager implementeren.
+
 
 **Wat is inbegrepen bij de Standard-laag en wat bij de gratis laag van Azure Machine Learning?**
 
@@ -546,9 +557,4 @@ Toegang voor gasten is een proefervaring waarvoor beperkingen gelden. U kunt in 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,7 +1,7 @@
 ---
-title: De ontwikkeling van een Python Flask-webtoepassing met DocumentDB | Microsoft Docs
+title: Zelfstudie voor Python Flask-webtoepassingen voor Azure DocumentDB | Microsoft Docs
 description: Bekijk een databasezelfstudie over het gebruik van DocumentDB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken.
-keywords: Toepassingsontwikkeling, databasezelfstudie, python flask, python-webtoepassing, python-webontwikkeling, documentdb, azure, Microsoft azure
+keywords: Toepassingsontwikkeling, python flask, python-webtoepassing, python-webontwikkeling
 services: documentdb
 documentationcenter: python
 author: syamkmsft
@@ -15,15 +15,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="python-flask-web-application-development-with-documentdb"></a>De ontwikkeling van een Python Flask-webtoepassing met DocumentDB
+# <a name="build-a-python-flask-web-application-using-documentdb"></a>Een Python Flask-webtoepassing bouwen met DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET voor MongoDB](documentdb-mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -410,9 +413,4 @@ Zie [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

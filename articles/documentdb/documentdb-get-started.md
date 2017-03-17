@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 1622566c34c1ff9c8e83f0356e04743f8a890e96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Node.js voor MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Stap 2: uw Visual Studio-oplossing instellen
+## <a id="SetupVS"></a>Stap 2: uw Visual Studio-oplossing instellen
 1. Open **Visual Studio 2015** op uw computer.
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 3. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Sjablonen** / **Visual C#** / **Consoletoepassing**, geef een naam op voor uw op en klik vervolgens op **OK**.
@@ -81,7 +83,7 @@ U maakt om te beginnen een DocumentDB-account. Als u al een account hebt dat u w
 
 Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrijven van code. Op [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) vindt u een voltooid codeproject voor deze zelfstudie.
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Stap 3: verbinding maken met een DocumentDB-account
+## <a id="Connect"></a>Stap 3: verbinding maken met een DocumentDB-account
 Voeg eerst deze verwijzingen toe aan het begin van de C#-toepassing in het bestand Program.cs:
 
     using System;
@@ -214,7 +216,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-database gemaakt.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Stap 5: een verzameling maken
+## <a id="CreateColl"></a>Stap 5: een verzameling maken
 > [!WARNING]
 > Met **CreateDocumentCollectionAsync** maakt u een nieuwe verzameling met gereserveerde doorvoer, wat gevolgen heeft voor de kosten. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.
 > 
@@ -271,7 +273,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-documentverzameling gemaakt.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Stap 6: JSON-documenten maken
+## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
 U kunt een [document](documentdb-resources.md#documents) maken met de methode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](documentdb-import-data.md) van DocumentDB gebruiken voor het importeren van gegevens in een database.
 
 Eerst moet de klasse **Family** worden gemaakt die aangeeft welke objecten in dit voorbeeld worden opgeslagen in DocumentDB. Daarnaast moeten de subklassen **Parent**, **Child**, **Pet** en **Address** worden gemaakt die in de klasse **Family** worden gebruikt. Houd er rekening mee dat de documenten een **id**-eigenschap moeten bevatten die in JSON is geserialiseerd als **id**. Maak deze klassen door de volgende interne subklassen achter de methode **GetStartedDemo** toe te voegen.
@@ -432,7 +434,7 @@ Gefeliciteerd. U hebt twee DocumentDB-documenten gemaakt.
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Stap 7: een query uitvoeren op DocumentDB-resources
+## <a id="Query"></a>Stap 7: een query uitvoeren op DocumentDB-resources
 DocumentDB biedt ondersteuning voor uitgebreide [query's](documentdb-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de DocumentDB SQL-syntaxis als LINQ, die we kunnen uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
 
 Kopieer de methode **ExecuteSimpleQuery** en plak deze na de methode **CreateFamilyDocumentIfNotExists**.
@@ -478,7 +480,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na het ma
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Voordat u de toepassing uitvoert, klikt u in het menu **Project** op *Project name* **Properties... ** en vervolgens op **Build**. Schakel het selectievakje **Prefer 32-bit** uit, omdat routeringsgegevens van de partitie niet uit de query kunnen worden geëxtraheerd wanneer deze wordt uitgevoerd in een 32-bits proces.
+Voordat u de toepassing uitvoert, klikt u in het menu **Project** op *Project name* **Properties...** en vervolgens op **Build**. Schakel het selectievakje **Prefer 32-bit** uit, omdat routeringsgegevens van de partitie niet uit de query kunnen worden geëxtraheerd wanneer deze wordt uitgevoerd in een 32-bits proces.
 
 Druk op **F5** om uw toepassing uit te voeren.
 
@@ -490,7 +492,7 @@ In het volgende diagram ziet u hoe de DocumentDB SQL-querysyntaxis wordt aangero
 
 Het trefwoord [FROM](documentdb-sql-query.md#FromClause) is optioneel in de query omdat DocumentDB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. DocumentDB leidt af dat Families, root, of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
+## <a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
 DocumentDB biedt ondersteuning voor het vervangen van JSON-documenten.  
 
 Kopieer de methode **ReplaceFamilyDocument** en plak deze na de methode **ExecuteSimpleQuery**.
@@ -527,7 +529,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-document vervangen.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
+## <a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
 DocumentDB biedt ondersteuning voor het verwijderen van JSON-documenten.  
 
 Kopieer en plak de methode **DeleteFamilyDocument** na de methode **ReplaceFamilyDocument**.
@@ -559,7 +561,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-document verwijderd.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Stap 10: de database verwijderen
+## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
 
 Kopieer en plak de volgende code in de methode **GetStartedDemo** na het verwijderen van het document om de volledige database en alle onderliggende resources te verwijderen.
@@ -576,7 +578,7 @@ Druk op **F5** om uw toepassing uit te voeren.
 
 Gefeliciteerd. U hebt een DocumentDB-database verwijderd.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
+## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
 Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen.
 
 U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de query's die zijn toegevoegd en moet overeenkomen met de onderstaande voorbeeldtekst.
@@ -604,7 +606,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de q
 
 Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> De volledige NoSQL-zelfstudieoplossing ophalen
+## <a id="GetSolution"></a> De volledige NoSQL-zelfstudieoplossing ophalen
 Als u geen tijd hebt gehad voor het voltooien van de stappen in deze zelfstudie of als u gewoon de codevoorbeelden wilt downloaden, kunt u deze ophalen van [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Voor het bouwen van de oplossing GetStarted hebt u het volgende nodig:
@@ -615,7 +617,7 @@ Voor het bouwen van de oplossing GetStarted hebt u het volgende nodig:
 
 Als u de verwijzingen naar de DocumentDB .NET SDK in Visual Studio wilt herstellen, klikt u in Solution Explorer met de rechtermuisknop op de oplossing **GetStarted** en klikt u vervolgens op **Enable NuGet Package Restore** (NuGet-pakket herstellen inschakelen). Werk vervolgens in het bestand App.config de waarden bij voor EndpointUrl en AuthorizationKey zoals wordt beschreven in [Verbinding maken met een DocumentDB-account](#Connect).
 
-Voordat u de toepassing uitvoert, klikt u in het menu **Project** op *Project name* **Properties... ** en vervolgens op **Build**. Schakel het selectievakje **Prefer 32-bit** uit.
+Voordat u de toepassing uitvoert, klikt u in het menu **Project** op *Project name* **Properties...** en vervolgens op **Build**. Schakel het selectievakje **Prefer 32-bit** uit.
 
 Dat is alles, bouw nu de oplossing. Succes!
 
