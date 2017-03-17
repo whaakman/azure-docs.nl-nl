@@ -16,19 +16,20 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
+# <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met DocumentDB
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
->  
+> * [.NET](documentdb-dotnet-application.md)
+> * [.NET voor MongoDB](documentdb-mongodb-application.md)
+> * [Node.js](documentdb-nodejs-application.md)
+> * [Java](documentdb-java-application.md)
+> * [Python](documentdb-python-application.md)
+> 
 > 
 
 Dit artikel biedt een end-to-end-overzicht waarin wordt getoond hoe u met Azure DocumentDB een to-do-app kunt maken. Zo ziet u hoe u effectief kunt gebruikmaken van Azure DocumentDB voor het opslaan van en uitvoeren van query’s op JSON-documenten. De taken worden opgeslagen als JSON-documenten in Azure DocumentDB.
@@ -42,7 +43,7 @@ In dit overzicht kunt u zien hoe u de DocumentDB-service van Azure kunt gebruike
 > 
 > 
 
-## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Vereisten voor deze databasezelfstudie
+## <a name="_Toc395637760"></a>Vereisten voor deze databasezelfstudie
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie 
@@ -55,7 +56,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het vol
 
 Alle schermopnamen in dit artikel zijn gemaakt in Visual Studio 2013 met update 4 en de Azure SDK voor .NET versie 2.5.1. Als uw systeem is geconfigureerd met verschillende versies, is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
+## <a name="_Toc395637761"></a>Stap 1: Een DocumentDB-databaseaccount maken
 Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Een nieuwe ASP.NET MVS-toepassing maken](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -65,7 +66,7 @@ Begin met het maken van een DocumentDB-account. Als u al een account hebt of de 
 <br/>
 U kunt nu zien hoe u een compleet nieuwe ASP.NET MVC-toepassing maakt. 
 
-## <a name="a-nametoc395637762astep-2-create-a-new-aspnet-mvc-application"></a><a name="_Toc395637762"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
+## <a name="_Toc395637762"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
 Nu u een account hebt, kunt u een nieuw ASP.NET-project maken.
 
 1. Wijs in het menu **Bestand** van Visual Studio de optie **Nieuw** aan en klik vervolgens op **Project**.
@@ -97,7 +98,7 @@ Nu u een account hebt, kunt u een nieuw ASP.NET-project maken.
    
     We zullen het project niet lokaal uitvoeren, aangezien iedereen waarschijnlijk wel bekend is met de ASP.NET-toepassing Hello World. Laten we meteen DocumentDB aan dit project toevoegen en onze toepassing bouwen.
 
-## <a name="a-nametoc395637767astep-3-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>Stap 3: DocumentDB aan uw project met de MVC-toepassing toevoegen
+## <a name="_Toc395637767"></a>Stap 3: DocumentDB aan uw project met de MVC-toepassing toevoegen
 Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunnen we ons richten op het werkelijke doel van deze zelfstudie, namelijk het toevoegen van Azure DocumentDB aan de MVC-webtoepassing.
 
 1. De .NET DocumentDB SDK wordt verpakt en gedistribueerd als een NuGet-pakket. Als u het NuGet-pakket aan Visual Studio wilt toevoegen, gebruikt u NuGet-pakketbeheer in Visual Studio door in **Solution Explorer** met de rechtermuisknop op het project te klikken en vervolgens op **NuGet-pakketten beheren** te klikken.
@@ -118,14 +119,14 @@ Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunnen
    
       ![Schermopname van de twee verwijzingen die zijn toegevoegd aan het JSON-gegevensproject in Solution Explorer](./media/documentdb-dotnet-application/image22.png)
 
-## <a name="a-nametoc395637763astep-4-set-up-the-aspnet-mvc-application"></a><a name="_Toc395637763"></a>Stap 4: De ASP.NET MVC-toepassing instellen
+## <a name="_Toc395637763"></a>Stap 4: De ASP.NET MVC-toepassing instellen
 U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassing:
 
 * [Een model toevoegen](#_Toc395637764).
 * [Een controller toevoegen](#_Toc395637765).
 * [Weergaven toevoegen](#_Toc395637766).
 
-### <a name="a-nametoc395637764aadd-a-json-data-model"></a><a name="_Toc395637764"></a>Een JSON-gegevensmodel toevoegen
+### <a name="_Toc395637764"></a>Een JSON-gegevensmodel toevoegen
 Als eerste wordt de **M** in MVC gemaakt, het model. 
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op de map **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**.
@@ -162,7 +163,7 @@ Als eerste wordt de **M** in MVC gemaakt, het model.
    
     U kunt niet alleen de indeling van de eigenschapsnaam voor JSON bepalen, maar ook de naam van uw .NET-eigenschappen volledig wijzigen, zoals ik deed met de **Description**. 
 
-### <a name="a-nametoc395637765aadd-a-controller"></a><a name="_Toc395637765"></a>Een controller toevoegen
+### <a name="_Toc395637765"></a>Een controller toevoegen
 Nu we de **M** hebben gehad, kunnen we de **C** in MVC, een controllerklasse, maken.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op de map **Controllers** en klik achtereenvolgens op **Toevoegen** en **Controller**.
@@ -171,7 +172,7 @@ Nu we de **M** hebben gehad, kunnen we de **C** in MVC, een controllerklasse, ma
 2. Selecteer **MVC 5 Controller - Empty** (MVC 5-controller - Leeg) en klik vervolgens op **Toevoegen**.
    
     ![Schermopname van het dialoogvenster Add Scaffold met de optie MVC 5 Controller - Empty gemarkeerd](./media/documentdb-dotnet-application/image14.png)
-3. Noem uw nieuwe controller **ItemController.**.
+3. Noem uw nieuwe controller **ItemController**.
    
     ![Schermopname van het dialoogvenster Add Controller (Controller toevoegen)](./media/documentdb-dotnet-application/image15.png)
    
@@ -181,14 +182,14 @@ Nu we de **M** hebben gehad, kunnen we de **C** in MVC, een controllerklasse, ma
    
     U kunt ItemController.cs sluiten. Hier komen we later op terug. 
 
-### <a name="a-nametoc395637766aadd-views"></a><a name="_Toc395637766"></a>Weergaven toevoegen
+### <a name="_Toc395637766"></a>Weergaven toevoegen
 Laten we nu de **V**, de weergaven, in MVC maken:
 
 * [Een weergave toevoegen voor een itemindex ](#AddItemIndexView).
 * [Een weergave toevoegen voor nieuwe items](#AddNewIndexView).
 * [Een weergave toevoegen voor het bewerken van items](#_Toc395888515).
 
-#### <a name="a-nameadditemindexviewaadd-an-item-index-view"></a><a name="AddItemIndexView"></a>Een weergave toevoegen voor een itemindex
+#### <a name="AddItemIndexView"></a>Een weergave toevoegen voor een itemindex
 1. Vouw in **Solution Explorer** de map **Weergaven** uit en klik met de rechtermuisknop op de lege map **Item** die Visual Studio voor u heeft gemaakt toen u **ItemController** hebt toegevoegd. Klik vervolgens op **Toevoegen** en **Weergave**.
    
     ![Schermopname van Solution Explorer waarin de map Item wordt weergegeven die Visual Studio heeft gemaakt en waarin de opdrachten voor het toevoegen van een weergave zijn gemarkeerd](./media/documentdb-dotnet-application/image17.png)
@@ -203,7 +204,7 @@ Laten we nu de **V**, de weergaven, in MVC maken:
      ![Schermopname van het dialoogvenster Weergave toevoegen](./media/documentdb-dotnet-application/image18.png)
 3. Zodra al deze waarden zijn ingesteld, klikt u op **Toevoegen** en wordt er een nieuwe sjabloonweergave in Visual Studio gemaakt. Vervolgens wordt het cshtml-bestand geopend dat is gemaakt. Dit bestand in Visual Studio kan voorlopig worden gesloten, aangezien dit pas later aan bod komt.
 
-#### <a name="a-nameaddnewindexviewaadd-a-new-item-view"></a><a name="AddNewIndexView"></a>Een weergave toevoegen voor nieuwe items
+#### <a name="AddNewIndexView"></a>Een weergave toevoegen voor nieuwe items
 We kunnen op ongeveer dezelfde manier als voor de weergave **Itemindex** nu een nieuwe weergave voor het maken van nieuwe **Items** maken.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop nogmaals op de map **Item** en klik achtereenvolgens op **Toevoegen** en **Weergave**.
@@ -216,7 +217,7 @@ We kunnen op ongeveer dezelfde manier als voor de weergave **Itemindex** nu een 
    * Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
    * Klik op **Add**.
 
-#### <a name="a-nametoc395888515aadd-an-edit-item-view"></a><a name="_Toc395888515"></a>Een weergave toevoegen voor het bewerken van items
+#### <a name="_Toc395888515"></a>Een weergave toevoegen voor het bewerken van items
 Tot slot voegt u op dezelfde manier als hiervoor een weergave toe waarin u **items** kunt bewerken.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop nogmaals op de map **Item** en klik achtereenvolgens op **Toevoegen** en **Weergave**.
@@ -231,7 +232,7 @@ Tot slot voegt u op dezelfde manier als hiervoor een weergave toe waarin u **ite
 
 Zodra dit is gebeurd, sluit u alle cshtml-documenten in Visual Studio. We komen later op deze weergaven terug.
 
-## <a name="a-nametoc395637769astep-5-wiring-up-documentdb"></a><a name="_Toc395637769"></a>Stap 5: DocumentDB voorbereiden
+## <a name="_Toc395637769"></a>Stap 5: DocumentDB voorbereiden
 Nu we de standaardwerkzaamheden voor MVC hebben voltooid, kunnen we de code voor DocumentDB toevoegen. 
 
 In deze sectie voegen we code toe voor de verwerking van het volgende:
@@ -240,7 +241,7 @@ In deze sectie voegen we code toe voor de verwerking van het volgende:
 * [Items toevoegen](#_Toc395637771).
 * [Items bewerken](#_Toc395637772).
 
-### <a name="a-nametoc395637770alisting-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>Onvolledige objecten in uw MVC-webtoepassing vermelden
+### <a name="_Toc395637770"></a>Onvolledige objecten in uw MVC-webtoepassing vermelden
 Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding met en het gebruik van DocumentDB. Voor deze zelfstudie voegen we alle logica toe aan een opslagplaatsklasse met de naam DocumentDBRepository. 
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project, klik op **Toevoegen** en klik vervolgens op **Klasse**. Geef een naam voor de nieuwe klasse **DocumentDBRepository** op en klik op **Toevoegen**.
@@ -391,7 +392,7 @@ Als u dit project nu maakt en uitvoert, ziet u iets dat vergelijkbaar is met het
 
 ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="a-nametoc395637771aadding-items"></a><a name="_Toc395637771"></a>Items toevoegen
+### <a name="_Toc395637771"></a>Items toevoegen
 Laten we enkele items toevoegen aan de database zodat we niet tegen een leeg raster aankijken.
 
 U kunt nu code toevoegen aan DocumentDBRepository en ItemController om de record in DocumentDB te houden.
@@ -437,7 +438,7 @@ U kunt nu code toevoegen aan DocumentDBRepository en ItemController om de record
 
 Hiermee is de benodigde code toegevoegd om nieuwe items aan de database toe te voegen.
 
-### <a name="a-nametoc395637772aediting-items"></a><a name="_Toc395637772"></a>Items bewerken
+### <a name="_Toc395637772"></a>Items bewerken
 Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken en dat we ze kunnen markeren als voltooid. De weergave voor het bewerken van items was al toegevoegd aan het project. U hoeft daarom alleen code toe te voegen aan de controller en de klasse **DocumentDBRepository**.
 
 1. Voeg het volgende toe aan de klasse **DocumentDBRepository**.
@@ -511,7 +512,7 @@ Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken
 
 Meer hoeft u niet te doen om uw toepassing uit te voeren, onvolledige **Items** weer te geven, nieuwe **Items** toe te voegen en **Items** te bewerken.
 
-## <a name="a-nametoc395637773astep-6-run-the-application-locally"></a><a name="_Toc395637773"></a>Stap 6: De toepassing lokaal uitvoeren
+## <a name="_Toc395637773"></a>Stap 6: De toepassing lokaal uitvoeren
 Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
 
 1. Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen. De toepassing wordt opgebouwd en wordt er een browser gestart met het lege rasterpagina dat we eerder hebben gezien:
@@ -532,7 +533,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
     ![Schermopname van de weergave Index met het selectievakje Voltooid ingeschakeld](./media/documentdb-dotnet-application/image27.png)
 5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-## <a name="a-nametoc395637774astep-7-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>Stap 7: De toepassing implementeren naar Azure Websites
+## <a name="_Toc395637774"></a>Stap 7: De toepassing implementeren naar Azure Websites
 Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app implementeren naar Azure Websites. Als u **Host in the cloud** (In de cloud hosten) hebt geselecteerd toen u het lege ASP.NET MVC-project hebt gemaakt, kunt u de web-app vrij eenvoudig met Visual Studio implementeren en doet Visual Studio het meeste werk voor u. 
 
 1. Als u deze toepassing wilt publiceren, hoeft u alleen maar met de rechtermuisknop op het project in **Solution Explorer** te klikken en vervolgens op **Publiceren** te klikken.
@@ -544,7 +545,7 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de web-app im
 
 Over een paar seconden zal Visual Studio de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Problemen oplossen
+## <a name="Troubleshooting"></a>Problemen oplossen
 
 Als u tijdens een poging tot het implementeren van de web-app de melding 'Er is een fout opgetreden bij de verwerking van de aanvraag' krijgt, doet u het volgende: 
 
@@ -563,7 +564,7 @@ Als u tijdens een poging tot het implementeren van de web-app de melding 'Er is 
     De app wordt vervolgens weergegeven in uw browser.
 
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Volgende stappen
+## <a name="_Toc395637775"></a>Volgende stappen
 Gefeliciteerd. U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gebouwd met Azure DocumentDB en deze gepubliceerd naar Azure Websites. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
 
 Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [DocumentDB .NET-bibliotheek](https://msdn.microsoft.com/library/azure/dn948556.aspx). Uw bijdrage aan de DocumentDB .NET-bibliotheek op [GitHub][GitHub] wordt zeer gewaardeerd. 
@@ -574,9 +575,4 @@ Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschik
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

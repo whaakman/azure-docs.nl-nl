@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,8 +33,8 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
-* .NET framework 4.0 of hoger
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate of Express) of hoger.
+* .NET framework 4.0 of hoger.
+* Visual Studio.
 
 Deze zelfstudie bevat de volgende taken:
 
@@ -81,7 +81,7 @@ U start het streaming-eindpunt als volgt:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-1. Maak een nieuwe C#-consoletoepassing in Visual Studio 2013, Visual Studio 2012 of Visual Studio 2010 SP1. Geef de **naam**, **locatie** en **naam van de oplossing** op en klik vervolgens op **OK**.
+1. Maak in Visual Studio een nieuwe C#-consoletoepassing. Geef de **naam**, **locatie** en **naam van de oplossing** op en klik vervolgens op **OK**.
 2. Gebruik het [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet-pakket om **Azure Media Services .NET SDK Extensions** te installeren.  Media Services .NET SDK Extensions bevat een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en het u gemakkelijker maken om met Media Services toepassingen te ontwikkelen. Als u dit pakket installeert, wordt ook de **Media Services .NET SDK** geïnstalleerd en worden alle andere vereiste afhankelijkheden toegevoegd.
 
     Verwijzingen toevoegen met behulp van NuGet: klik in Solution Explorer met de rechtermuisknop op de projectnaam en selecteer **NuGet-pakketten beheren**. Zoek vervolgens naar **windowsazure.mediaservices.extensions** en klik op **Installeren**.
@@ -184,7 +184,7 @@ De methode **CreateFromFile** maakt gebruik van **AssetCreationOptions**, waarme
 
 * **Geen**: er wordt geen versleuteling gebruikt. Dit is de standaardwaarde. Houd er rekening mee dat bij gebruik van deze optie de inhoud tijdens de overdracht of in de opslag niet is beveiligd.
   Als u een MP4-bestand wilt leveren via progressief downloaden, gebruikt u deze optie.
-* **StorageEncrypted**: gebruik deze optie om uw niet-versleutelde inhoud lokaal te versleutelen met Advanced Encryption Standard (AES) 256-bitsversleuteling, waarna de inhoud wordt geüpload naar en versleuteld wordt bewaard in Azure Storage. De versleuteling van assets die zijn beveiligd met Storage Encryption, wordt automatisch ongedaan gemaakt en de assets worden automatisch in een versleuteld bestandssysteem geplaatst voordat ze worden gecodeerd. Eventueel kunnen ze opnieuw worden versleuteld voordat ze opnieuw worden geüpload als een nieuwe uitvoerasset. Storage Encryption wordt voornamelijk gebruikt om uw invoerbestanden met media van hoge kwaliteit die zijn opgeslagen op de schijf, te beveiligen met een sterke versleuteling.
+* **StorageEncrypted**: gebruik deze optie om uw niet-versleutelde inhoud lokaal te versleutelen met Advanced Encryption Standard (AES)&256;-bitsversleuteling, waarna de inhoud wordt geüpload naar en versleuteld wordt bewaard in Azure Storage. De versleuteling van assets die zijn beveiligd met Storage Encryption, wordt automatisch ongedaan gemaakt en de assets worden automatisch in een versleuteld bestandssysteem geplaatst voordat ze worden gecodeerd. Eventueel kunnen ze opnieuw worden versleuteld voordat ze opnieuw worden geüpload als een nieuwe uitvoerasset. Storage Encryption wordt voornamelijk gebruikt om uw invoerbestanden met media van hoge kwaliteit die zijn opgeslagen op de schijf, te beveiligen met een sterke versleuteling.
 * **CommonEncryptionProtected**: gebruik deze optie als u inhoud uploadt die al is versleuteld en beveiligd met Common Encryption of PlayReady DRM (bijvoorbeeld Smooth Streaming beveiligd met PlayReady DRM).
 * **EnvelopeEncryptionProtected**: gebruik deze optie als u een HLS-stream uploadt die is versleuteld met AES. Houd er rekening mee dat de bestanden moeten zijn gecodeerd en versleuteld door Transform Manager.
 

@@ -13,16 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
+ms.date: 03/01/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
+ms.sourcegitcommit: 00f6b2e60c20eb27771d9d54df63f930ee88a55a
+ms.openlocfilehash: 7427c8126ab73a851bc696d4925366b3b714616d
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Verbinding maken met en aanmelden bij een virtuele machine in Azure waarop Windows wordt uitgevoerd
-U gebruikt de knop **Verbinden** in de Azure-portal om een Extern bureaublad-sessie te starten. Eerst maakt u verbinding met de virtuele machine en vervolgens meldt u zich aan.
+U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en vervolgens meldt u zich aan.
+
+Als u vanaf een Mac probeert verbinding te maken met een virtuele Windows-machine, moet u een RDP-client voor Mac installeren, zoals [Microsoft Extern bureaublad](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
@@ -42,10 +45,5 @@ U gebruikt de knop **Verbinden** in de Azure-portal om een Extern bureaublad-ses
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Problemen oplossen met Extern bureaublad-verbindingen](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) als u problemen hebt wanneer u verbinding probeert te maken. Dit artikel leidt u door het opsporen en oplossen van veelvoorkomende problemen.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

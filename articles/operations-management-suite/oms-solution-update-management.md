@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
-ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -48,12 +48,9 @@ Voer de volgende stappen om de oplossing Updatebeheer toe te voegen aan uw OMS-w
    a.    Installeer de nieuwste versie van de OMS-agent voor Linux door de volgende opdrachten uit te voeren.  Vervang <Workspace ID> door de werkruimte-ID en <Key> door de primaire of de secundaire sleutel.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. Voer de volgende opdracht om de agent te verwijderen.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. U kunt de agent verwijderen met de procedure die wordt beschreven in het gedeelte [De OMS-agent verwijderen in Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux).  
 
 ## <a name="management-packs"></a>Management packs
 Als de beheergroep van uw System Center Operations Manager is verbonden met uw OMS-werkruimte, worden de volgende management packs geïnstalleerd in Operations Manager wanneer u deze oplossing toevoegt. Er is geen configuratie of onderhoud van deze management packs vereist. 

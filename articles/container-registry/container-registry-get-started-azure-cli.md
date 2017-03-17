@@ -1,6 +1,6 @@
 ---
-title: Een Azure-containerregister maken - CLI | Microsoft Docs
-description: Aan de slag met het maken en beheren van Azure-containerregisters met Azure CLI 2.0
+title: "Privé-Docker-containerregister maken - Azure CLI | Microsoft Docs"
+description: "Aan de slag met het maken en beheren van privé-Docker-containerregisters met Azure CLI 2.0"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/03/2017
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 6ef43ed43358357c94460a27d3e2b2c8530b6c54
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-cli"></a>Een containerregister maken met de Azure-CLI
+# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Een privé-Docker-containerregister maken met de Azure CLI 2.0
 Gebruik opdrachten in de [Azure-CLI 2.0](https://github.com/Azure/azure-cli) om een containerregister te maken en de instellingen hiervan te beheren op een Linux-, Mac- of Windows-computer. U kunt ook containerregisters maken en beheren via [Azure Portal](container-registry-get-started-portal.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
 
 
-* Zie voor achtergrondinformatie en concepten [Wat is Azure Container Registry?](container-registry-intro.md)
+* Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie en concepten
 * Voor hulp bij Container Registry CLI-opdrachten (`az acr`-opdrachten), geeft u de parameter `-h` door aan een willekeurige opdracht.
 
 > [!NOTE]
@@ -34,9 +36,9 @@ Gebruik opdrachten in de [Azure-CLI 2.0](https://github.com/Azure/azure-cli) om 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-CLI 2.0**: zie de [installatie-instructies](https://github.com/Azure/azure-cli/blob/master/README.rst) om de CLI 2.0 te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren.
-* **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/arm) om een resourcegroep te maken met de CLI 2.0. 
-* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-voorbeelden](https://github.com/Azure/azure-cli-samples/tree/master/storage) om een resourcegroep te maken met de CLI 2.0.
+* **Azure-CLI 2.0**: zie de [installatie-instructies](/cli/azure/install-azure-cli) om de CLI 2.0 te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren. Zie [Aan de slag met de CLI 2.0](/cli/azure/get-started-with-azure-cli) voor meer informatie.
+* **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0-verwijzing](/cli/azure/group) om een resourcegroep te maken met de CLI 2.0. 
+* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-verwijzing](/cli/azure/storage/account) om een opslagaccount te maken met de CLI 2.0. Premium-opslag wordt momenteel niet ondersteund.
 * **Service-principal** (optioneel): wanneer u met de CLI een register maakt, is dit standaard niet ingesteld voor toegang. U kunt een bestaande service-principal van Azure Active Directory aan een register toewijzen (of een nieuwe maken en deze toewijzen) of het beheerdersaccount van het register inschakelen. Zie de gedeelten verderop in dit artikel. Bekijk voor meer informatie over registertoegang [Verifiëren met het containerregister](container-registry-authentication.md). 
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
@@ -127,10 +129,5 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

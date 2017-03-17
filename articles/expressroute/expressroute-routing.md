@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. H
 | India - zuid |12076:51019 |
 | India - west |12076:51018 |
 | India - midden |12076:51017 |
+| **Korea** | |
+| Korea - zuid |12076:51028 |
+| Korea - centraal |12076:51029 |
 
 Alle routes die worden geadverteerd vanuit Microsoft, worden gemarkeerd met de juiste community-waarde. 
 
@@ -212,10 +216,5 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
   * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken voor het klassieke implementatiemodel) of [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md) (Een ExpressRoute-circuit maken en wijzigen met Azure Resource Manager)
   * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) (Routering configureren voor het klassieke implementatiemodel) of [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md) (Routering configureren voor het Resource Manager-implementatiemodel)
   * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Een klassiek VNet koppelen aan een ExpressRoute-circuit) of [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Een Resource Manager-VNet koppelen aan een ExpressRoute-circuit)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

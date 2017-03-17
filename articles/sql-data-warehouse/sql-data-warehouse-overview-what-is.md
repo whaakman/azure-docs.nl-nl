@@ -12,34 +12,38 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: jrj;mausher;kevin;barbkess
+ms.date: 2/28/2017
+ms.author: jrj;mausher;kevin;barbkess;elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
-ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
+ms.sourcegitcommit: bf73ad830226626ddf41cc4ae80e714abf8bcfc2
+ms.openlocfilehash: 19e87c61493bd4620120b39a533e9e4b64517538
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Wat is Azure SQL Data Warehouse?
-Azure SQL Data Warehouse is een schaalbare clouddatabase die geschikt is voor het verwerken van grote hoeveelheden relationele en/of niet-relationele gegevens. Dankzij de MPP-architectuur (Massively Parallelle Processing) is SQL Data Warehouse berekend op de workload van elke onderneming.
+Azure SQL Data Warehouse is een schaalbare, relationele MMP-clouddatabase (Massively Parallel Processing) die geschikt is voor het verwerken van grote hoeveelheden gegevens. 
 
 SQL Data Warehouse:
 
-* Combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties. U kunt in enkele minuten tot seconden de rekencapaciteit vergroten, verkleinen, onderbreken of hervatten. U bespaart kosten door de CPU-capaciteit te vergroten of te verkleinen tijdens piek- of daluren.
-* Maakt gebruik van het Azure-platform. Het is eenvoudig te implementeren, wordt naadloos onderhouden en is volledig fouttolerant door automatische back-ups.
-* Vormt een aanvulling op de SQL Server-omgeving. Het is te ontwikkelen met de vertrouwde SQL Server Transact-SQL (T-SQL) en hulpprogramma's van SQL Server.
+* Combineert de relationele SQL Server-database met schaalbare Azure-cloudfuncties. 
+* Maakt het mogelijk opslag los te koppelen van rekenactiviteiten.
+* Maakt het uitbreiden, beperken, onderbreken of hervatten van rekenactiviteiten mogelijk. 
+* Is in het gehele Azure-platform te integreren.
+* Maakt gebruik van SQL Server Transact-SQL (T-SQL) en hulpprogramma's.
+* Voldoet aan diverse juridische en zakelijke beveiligingsvereisten, zoals SOC en ISO.
 
 In dit artikel worden de belangrijkste functies van SQL Data Warehouse beschreven.
 
 ## <a name="massively-parallel-processing-architecture"></a>MPP-architectuur (Massively Parallel Processing)
-SQL Data Warehouse is een gedistribueerd MPP-databasesysteem (Massively Parallel Processing). Door gegevens- en processorcapaciteit over meerdere knooppunten te verdelen, kan SQL Data Warehouse grote schaalbaarheid bieden, veel groter dan enkel ander systeem.  Achter de schermen verspreidt SQL Data Warehouse uw gegevens over veel opslag- en verwerkingseenheden. De gegevens worden opgeslagen in lokaal redundante Premium-opslag en gekoppeld aan rekenknooppunten voor het uitvoeren van query's. Met deze architectuur heeft SQL Data Warehouse een verdeel-en-heersbenadering met betrekking tot laadtaken en complexe query's. Aanvragen worden ontvangen door het beheerknooppunt, geoptimaliseerd en vervolgens doorgegeven aan de rekenknooppunten om hun werk parallel uit te voeren.
+SQL Data Warehouse is een gedistribueerd MPP-databasesysteem (Massively Parallel Processing). Achter de schermen verspreidt SQL Data Warehouse uw gegevens over veel opslag- en verwerkingseenheden. De gegevens worden opgeslagen in een Premium laag voor lokaal redundante opslag. Hierbovenop voeren dynamisch gekoppelde rekenknooppunten query's uit. SQL Data Warehouse hanteert een verdeel-en-heersbenadering met betrekking tot laadtaken en complexe query's. Aanvragen worden ontvangen door een beheerknooppunt, geoptimaliseerd voor distributie, en vervolgens doorgegeven aan de rekenknooppunten, zodat ze hun werk parallel kunnen uitvoeren.
 
-Door MPP-architectuur te combineren met de opslagmogelijkheden van Azure, kunt u in SQL Data Warehouse:
+Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 
-* De opslag vergroten of verkleinen, onafhankelijk van de rekencapaciteit.
+* De beschikbare opslag vergroten of verkleinen, onafhankelijk van de rekencapaciteit.
 * De rekencapaciteit vergroten of verkleinen zonder gegevens te verplaatsen.
-* De rekencapaciteit onderbreken zonder gegevensverlies.
-* De rekencapaciteit op elk gewenst moment hervatten.
+* De rekencapaciteit onderbreken terwijl gegevens intact blijven en u alleen betaalt voor opslag.
+* De rekencapaciteit hervatten tijdens werktijden.
 
 In het volgende diagram wordt de architectuur gedetailleerder weergegeven.
 
@@ -51,45 +55,32 @@ In het volgende diagram wordt de architectuur gedetailleerder weergegeven.
 
 **Opslag:** uw gegevens worden opgeslagen in Azure-blobopslag. Bij interacties tussen de rekenknooppunten en uw gegevens worden de gegevens rechtstreeks vanuit de blob-opslag gelezen of ernaar weggeschreven. Omdat opslag in Azure transparant en enorm kan worden uitgebreid, kan dat ook in SQL Data Warehouse. Omdat reken- en opslagcapaciteit niet van elkaar afhankelijk zijn, kan de opslagcapaciteit in SQL Data Warehouse automatisch los van de rekencapaciteit worden geschaald en omgekeerd. Azure-blobopslag is ook volledig fouttolerant. Dit vergemakkelijkt het back-up- en herstelproces.
 
-**Data Movement Service:** Data Movement Service (DMS) verplaatst gegevens van het ene naar het andere knooppunt. DMS geeft de rekenknooppunten toegang tot de benodigde gegevens voor samenvoegingen en aggregaties. DMS is geen Azure-service. Het is een Windows-service die naast SQL Database wordt uitgevoerd op alle knooppunten. Omdat DMS op de achtergrond wordt uitgevoerd, werkt u er niet rechtstreeks mee. Maar wanneer u de queryplannen bekijkt, ziet u dat deze enkele DMS-bewerkingen bevatten omdat er toch gegevensverplaatsing nodig is om elke query parallel te kunnen uitvoeren.
+**Data Movement Service:** Data Movement Service (DMS) verplaatst gegevens van het ene naar het andere knooppunt. DMS geeft de rekenknooppunten toegang tot de benodigde gegevens voor samenvoegingen en aggregaties. DMS is geen Azure-service. Het is een Windows-service die naast SQL Database wordt uitgevoerd op alle knooppunten. DMS is een achtergrondproces waarmee u niet rechtstreeks aan de slag kunt. U kunt echter queryplannen bekijken om na te gaan wanneer er DMS-bewerkingen plaatsvinden. Het is namelijk nodig om gegevens te verplaatsen om query's parallel te kunnen uitvoeren.
 
 ## <a name="optimized-for-data-warehouse-workloads"></a>Geoptimaliseerd voor datawarehouse-workloads
 De MPP-methode wordt ondersteund door een aantal specifieke optimalisaties voor datawarehouseprestaties, waaronder:
 
 * een gedistribueerde queryoptimalisatie en een set complexe statistieken voor alle gegevens. Met behulp van informatie over de omvang en distributie van gegevens kunnen query's in de service worden geoptimaliseerd door de kosten van specifieke gedistribueerde querybewerkingen te berekenen.
 * In het gegevensverplaatsingsproces zijn geavanceerde algoritmen en technieken geïntegreerd om de gegevens efficiënt te verplaatsen tussen de computerbronnen die nodig zijn voor het uitvoeren van de query. Deze gegevensverplaatsingsbewerkingen zijn ingebouwd en alle optimalisaties voor Data Movement Service vinden automatisch plaats.
-* Er wordt standaard gebruikgemaakt van geclusterde **kolomopslag**indexen. Dankzij kolomopslag is de compressie in SQL Data Warehouse gemiddeld vijf keer beter dan bij traditionele rij-opslag en zijn de prestaties tot wel tien of meer keer beter. De prestaties van analysequery's waarbij een groot aantal rijen moeten worden gescand, zijn uitstekend bij kolomopslagindexen.
+* Er wordt standaard gebruikgemaakt van geclusterde **kolomopslag**indexen. Dankzij kolomopslag is de compressie in SQL Data Warehouse gemiddeld vijf keer beter dan bij traditionele rij-opslag en zijn de prestaties tot wel tien of meer keer beter. De prestaties van analysequery's waarbij een groot aantal rijen moeten worden gescand, zijn beter bij gebruik van kolomopslagindexen.
 
-## <a name="predictable-and-scalable-performance"></a>Voorspelbare en schaalbare prestaties
-SQL Data Warehouse scheidt opslagruimte en rekencapaciteit, waardoor elk afzonderlijk kan schalen. SQL Data Warehouse kan op elk gewenst moment snel en eenvoudig worden opgeschaald voor het toevoegen van extra rekenresources. Een bijkomend voordeel is het gebruik van Azure-blobopslag. Blobs zorgen niet alleen voor een stabiele, gerepliceerde opslag, maar bieden ook mogelijkheden voor probleemloze uitbreiding tegen lage kosten. Door deze combinatie van schaalbare cloudopslag en Azure-rekencapaciteit, kunt u met SQL Data Warehouse betalen voor queryprestaties en opslag wanneer u dit nodig hebt. De rekencapaciteit is eenvoudig te wijzigen met een schuifregelaar in Azure Portal, en kan ook worden gepland met TSQL en PowerShell.
 
-Naast de mogelijkheid om de reken- en opslagcapaciteit onafhankelijk van elkaar in te stellen, kunt u uw datawarehouse in SQL Data Warehouse ook volledig onderbreken. Dit betekent dat u niet betaalt voor rekencapaciteit als u dit niet nodig hebt. Uw opslagcapaciteit blijft behouden, maar alle rekencapaciteit wordt vrijgegeven in de hoofdpool van Azure, waardoor u geld bespaart. U kunt de berekeningen hervatten wanneer u wilt en direct weer over uw gegevens en rekencapaciteit beschikken voor uw workload.
+## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>Voorspelbare en schaalbare prestaties met Data Warehouse Units
+SQL Data Warehouse is opgebouwd op basis van vergelijkbare technologieën als die van SQL Database, wat betekent dat gebruikers consistente en voorspelbare prestaties kunnen verwachten voor analytische query's. Gebruikers kunnen verwachten dat de prestaties lineair worden geschaald wanneer er rekenknooppunten worden toegevoegd of verwijderd. Toewijzing van resources aan uw SQL Data Warehouse wordt gemeten in DWU's (Data Warehouse Units). DWU's zijn een maatstaf van de onderliggende resources, zoals CPU, geheugen en IOP's, die worden toegewezen aan de SQL Data Warehouse. Hoe meer DWU's, hoe meer resources en hoe beter de prestaties. DWU's zorgen met name voor het volgende:
 
-## <a name="data-warehouse-units"></a>Data Warehouse Units
-Toewijzing van resources aan uw SQL Data Warehouse wordt gemeten in DWU's (Data Warehouse Units). DWU's zijn een maatstaf van de onderliggende resources, zoals CPU, geheugen en IOP's, die worden toegewezen aan de SQL Data Warehouse. Hoe meer DWU's, hoe meer resources en hoe beter de prestaties. DWU's zorgen met name voor het volgende:
-
-* U kunt uw datawarehouse eenvoudig schalen zonder dat u zich zorgen hoeft te maken over de onderliggende hardware of software.
-* U kunt prestatieverbetering voor een DWU-niveau voorspellen voordat u de grootte van het datawarehouse wijzigt.
+* U kunt uw datawarehouse schalen zonder dat u zich zorgen hoeft te maken over de onderliggende hardware of software.
+* U kunt prestatieverbetering voor een DWU-niveau voorspellen voordat u de rekencapaciteit van het datawarehouse wijzigt.
 * De onderliggende hardware en software van uw exemplaar kunnen worden gewijzigd of verplaatst zonder negatieve gevolgen voor de workload.
-* Microsoft kan de onderliggende architectuur van de service aanpassen zonder de prestaties van uw workload te beïnvloeden.
+* Microsoft kan de onderliggende architectuur van de service verbeteren zonder de prestaties van uw workload te beïnvloeden.
 * Microsoft kan de prestaties van SQL Data Warehouse snel verbeteren op een manier waarop de workload schaalbaar is en evenredig wordt verdeeld over het systeem.
 
-Data Warehouse Units (DWU's) bieden een maatstaf voor drie metrieken die nauw verband houden met de prestaties van datawarehouses bij een bepaalde workload. Het doel is de volgende workloadmetrieken lineair te laten schalen met het gekozen aantal DWU's voor uw datawarehouse.
+Data Warehouse Units (DWU's) bieden een maatstaf voor drie metrische gegevens die nauw verband houden met de prestaties van datawarehouses bij een bepaalde workload. De volgende belangrijke metrische gegevens over workloads worden lineair geschaald met de DWU's.
 
-**Scan/aggregatie:** deze workloadmetriek is gebaseerd op een standaard-datawarehouse-query waarmee een groot aantal rijen wordt gescand waarop vervolgens een complexe aggregatie wordt uitgevoerd. Dit is een I/O-bewerking waarbij de CPU intensief wordt belast.
+**Scan/aggregatie:** een standaarddatawarehousequery waarmee een groot aantal rijen wordt gescand waarop vervolgens een complexe aggregatie wordt uitgevoerd. Dit is een I/O-bewerking waarbij de CPU intensief wordt belast.
 
-**Belasting:** met deze metriek wordt de capaciteit voor het opnemen van gegevens in de service gemeten. Hiertoe wordt met PolyBase een representatieve gegevensset uit een Azure-blobopslag geladen. Deze metriek fungeert als stresstest voor de netwerk- en CPU-aspecten van de service.
+**Belasting:** de capaciteit voor het opnemen van gegevens in de service. Laadacties worden het beste uitgevoerd met PolyBase van Azure Storage Blobs of Azure Data Lake. Deze metriek fungeert als stresstest voor de netwerk- en CPU-aspecten van de service.
 
 **Create Table As Select (CTAS):** met CTAS wordt de capaciteit voor het kopiëren van een tabel gemeten. Dit omvat het lezen van gegevens uit de opslag, het verdelen van de gegevens over de knooppunten van het systeem en het weer terugschrijven van de gegevens naar de opslag. Dit is een bewerking waarbij de CPU, de IO en het netwerk intensief worden belast.
-
-## <a name="pause-and-scale-on-demand"></a>Onderbreken en schalen op basis van vraag
-Wanneer u snellere resultaten wilt, verhoogt u het aantal DWU's en betaalt u voor betere prestaties. Wanneer u minder rekencapaciteit nodig hebt, verlaagt u het aantal DWU's en betaalt u alleen voor wat u nodig hebt. Bij een van deze scenario's is het nuttig uw DWU's te wijzigen:
-
-* Wanneer u geen query's hoeft uit te voeren, bijvoorbeeld 's avonds of in het weekend, kunt u de query's stilleggen. Vervolgens onderbreekt u de rekenresources om te voorkomen dat u betaalt voor DWU's wanneer u deze niet nodig hebt.
-* Bij een lage belasting van uw systeem kunt u overwegen uw aantal DWU’s te verkleinen. U hebt nog steeds toegang tot de gegevens, maar tegen aanzienlijk lagere kosten.
-* Wanneer u een zware laad- of transformatiebewerking wilt uitvoeren, kunt u de capaciteit vergroten (omhoog schalen) zodat uw gegevens sneller beschikbaar zijn.
-
-Om te bepalen wat voor u de ideale DWU-waarde is, kunt u omhoog en omlaag schalen en na het laden van uw gegevens enkele query's uitvoeren. Omdat schalen zo snel kan, kunt u binnen een uur een aantal verschillende prestatieniveaus uitproberen.  Houd er rekening mee dat SQL Data Warehouse is ontworpen voor het verwerken van grote hoeveelheden gegevens. Om de werkelijke capaciteit voor schalen te zien, met name de grotere schalen die wij bieden, is het nuttig een grote gegevensset van om en nabij de 1 TB te gebruiken.
 
 ## <a name="built-on-sql-server"></a>Gebouwd op SQL Server
 SQL Data Warehouse is gebaseerd op de relationele database-engine van de SQL Server en bevat veel functies die u van een datawarehouse voor ondernemingen verwacht. Als u al bekend bent met T-SQL, zult u weinig moeite hebben met de overgang naar SQL Data Warehouse. Of u nu een ervaren of beginnende gebruiker bent, met de voorbeelden in de documentatie kunt u snel aan de slag. Over het algemeen kunt u nadenken over de manier waarop de elementen van de taal van SQL Data Warehouse zijn opgebouwd:
@@ -101,31 +92,29 @@ SQL Data Warehouse is gebaseerd op de relationele database-engine van de SQL Ser
 Doordat SQL Server, SQL Data Warehouse, SQL Database en Analytics Platform System de Transact-SQL en diverse functies met elkaar gemeen hebben, kunt u een passende oplossing ontwikkelen voor uw gegevensbehoeften. U kunt besluiten waar u uw gegevens wilt bewaren, op basis van de gewenste prestaties, beveiliging en schaal, en uw gegevens vervolgens van het ene naar het andere systeem verplaatsen.
 
 ## <a name="data-protection"></a>Gegevensbeveiliging
-Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. In het lokale datacentrum worden meerdere synchrone kopieën van de gegevens bewaard voor gegarandeerd transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-gepauzeerde) databases met Azure Storage-momentopnamen. Zie voor meer informatie over hoe Back-ups en herstellen werkt, het [Overzicht van Back-ups en herstellen][Backup and restore overview].
+Alle SQL Data Warehouse-gegevens worden opgeslagen in Azure Premium-opslag met lokaal redundante opslag. In het lokale datacentrum worden meerdere synchrone kopieën van de gegevens bewaard voor gegarandeerd transparante gegevensbeveiliging tegen gelokaliseerde fouten. Bovendien maakt SQL Data Warehouse automatisch en regelmatig back-ups van uw actieve (niet-onderbroken) databases met Azure Storage-momentopnamen. Zie voor meer informatie over hoe Back-ups en herstellen werkt, het [Overzicht van Back-ups en herstellen][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Geïntegreerd met Microsoft-hulpprogramma's
-SQL Data Warehouse integreert ook veel van de hulpmiddelen waar gebruikers van SQL Server mee bekend zijn. Deze omvatten:
+SQL Data Warehouse integreert ook veel van de hulpmiddelen waar gebruikers van SQL Server mee bekend zijn. Tot deze hulpmiddelen behoren onder meer:
 
 **Traditionele SQL Server-hulpprogramma's:** SQL Data Warehouse is volledig geïntegreerd met SQL Server Analysis Services, Integration Services en Reporting Services.
 
-**Cloud-hulpprogramma's:** SQL Data Warehouse kan worden gebruikt in combinatie met een aantal nieuwe hulpprogramma's in Azure, waaronder Data Factory, Stream Analytics, Machine Learning en Power BI. Voor een volledig overzicht raadpleegt u [Overzicht met geïntegreerde hulpmiddelen][Integrated tools overview].
+**Cloudhulpprogramma's:** SQL Data Warehouse kan worden geïntegreerd in verschillende services in Azure, waaronder Data Factory, Stream Analytics, Machine Learning en Power BI. Voor een volledig overzicht raadpleegt u [Overzicht met geïntegreerde hulpmiddelen][Integrated tools overview].
 
 **Hulpprogramma's van derden:** veel externe leveranciers hebben de integratie van hun hulpprogramma's met SQL Data Warehouse laten certificeren. Zie voor een volledige lijst [SQL Data Warehouse-oplossingspartners][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Hybride scenario's met gegevensbronnen
-Gecombineerd gebruik van SQL Data Warehouse en PolyBase biedt gebruikers ongekende mogelijkheden om gegevens te verplaatsen binnen hun systeemomgeving, inclusief de mogelijkheid voor geavanceerde hybride scenario's met niet-relationele en on-premises gegevensbronnen.
-
 PolyBase stelt u in staat gebruik te maken van verschillende gegevensbronnen met vertrouwde TSQL-opdrachten. Met PolyBase kunt u niet-relationele gegevens opvragen uit de Azure-blobopslag, net zoals u gegevens kunt opvragen uit gewone tabellen. Met PolyBase kunt u ook niet-relationele gegevens opvragen of niet-relationele gegevens importeren in SQL Data Warehouse.
 
 * In PolyBase worden externe tabellen gebruikt voor toegang tot niet-relationele gegevens. De tabeldefinities worden opgeslagen in SQL Data Warehouse en zijn toegankelijk via SQL en hulpprogramma's, net als bij normale relationele gegevens.
-* Polybase is agnostisch qua integratie. De functies en functionaliteit ervan zijn hetzelfde voor alle bronnen die door Polybase worden ondersteund. In Polybase kunnen gegevensbestanden in diverse indelingen worden gelezen, waaronder bestanden met scheidingstekens of ORC-bestanden.
+* Polybase is agnostisch qua integratie. De functies en functionaliteit ervan zijn hetzelfde voor alle bronnen die door Polybase worden ondersteund. In Polybase kunnen gegevens in diverse indelingen worden gelezen, waaronder bestanden met scheidingstekens en ORC-bestanden.
 * PolyBase kan worden gebruikt voor toegang tot Blob Storage die ook wordt gebruikt als opslag voor een HDInsight-cluster. Hierdoor hebt u toegang tot dezelfde gegevens met relationele en niet-relationele hulpprogramma's.
 
 ## <a name="sla"></a>SLA
 SQL Data Warehouse biedt een SLA (Service Level Agreement, serviceovereenkomst) op productniveau als onderdeel van de Microsoft Online Services SLA. Ga voor meer informatie naar [SLA voor SQL Data Warehouse][SLA for SQL Data Warehouse]. Ga voor SLA-informatie over alle andere producten naar de Azure-pagina [Serviceovereenkomsten] download deze via de pagina [Volumelicenties][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse] en [voorbeeldgegevens laadt][load sample data]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. Zie desgewenst ook deze informatiebronnen voor SQL Data Warehouse.  
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse] en [voorbeeldgegevens laadt][load sample data]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]
@@ -164,9 +153,4 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Serviceovereenkomsten]: https://azure.microsoft.com/en-us/support/legal/sla/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

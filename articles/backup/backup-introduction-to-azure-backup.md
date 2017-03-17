@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Backup? | Microsoft Docs
-description: Met Azure Backup en Recovery Services kunt u back-ups van gegevens en toepassingen maken en deze herstellen vanaf Windows-servers en -werkstations, System Center DPM-servers en -workloads, en virtuele Azure-machines.
+description: Met Azure Backup kunt u back-ups van gegevens en workloads maken en deze herstellen vanaf Windows-servers en -werkstations, System Center DPM-servers en virtuele Azure-machines.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,16 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
+ms.date: 2/27/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
-ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
+ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-backup"></a>Wat is Azure Backup?
+# <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Azure Backup Vault. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
 
 [Een video-overzicht van Azure Backup bekijken](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -97,14 +98,12 @@ De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor
 Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
 
 ### <a name="back-up-premium-storage-vms"></a>Een back-up van VM's voor Premium-opslag maken
-Tijdens een back-up van VM's voor Premium-opslag, maakt de Backup-service een tijdelijke faseringslocatie in het Premium-opslagaccount. De faseringslocatie, AzureBackup- genoemd, is gelijk aan de totale gegevensgrootte van de Premium-schijven die aan de VM zijn gekoppeld. Controleer of er voldoende vrije ruimte is voor een tijdelijke faseringslocatie in het opslagaccount. Zie het artikel [Beperkingen van Premium Storage](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) voor meer informatie.
+Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is gelijk aan de grootte van de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het opslagaccount is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Wijzig of bewerk de faseringslocatie niet.
 >
 >
-
-Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### <a name="restore-premium-storage-vms"></a>VM's voor Premium-opslag herstellen
 VM's voor Premium Storage kunnen worden hersteld naar de Premium Storage of de normale opslag. De gebruikelijke herstelprocedure voor een VM voor Premium-opslag is om het herstelpunt te herstellen naar Premium-opslag. Het kan echter rendabel zijn om een herstelpunt voor een VM voor Premium-opslag te herstellen naar de standaardopslag. Dit type herstel kan worden gebruikt als u een subset bestanden van de VM nodig hebt.

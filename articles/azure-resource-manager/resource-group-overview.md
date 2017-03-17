@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ U kunt alle resourceproviders ophalen met de volgende PowerShell-cmdlet:
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Bij Azure CLI haalt u alle resourceproviders op met de volgende opdracht:
+Bij Azure CLI 2.0 haalt u alle resourceproviders op met de volgende opdracht:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 U kunt in de lijst met resultaten zoeken naar de resourceproviders die u wilt gebruiken.
@@ -106,10 +107,10 @@ Als u meer informatie over een resourceprovider wilt, voegt u de naamruimte van 
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Bij Azure CLI haalt u de ondersteunde resourcetypen, locaties en API-versies voor Microsoft.Compute op met de volgende opdracht:
+Bij Azure CLI 2.0 haalt u de ondersteunde resourcetypen, locaties en API-versies voor Microsoft.Compute op met de volgende opdracht:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Zie voor meer informatie [Resource Manager-providers, -regio’s, -API-versies en -schema's](resource-manager-supported-services.md).
@@ -214,10 +215,10 @@ Gebruik de volgende PowerShell-cmdlet om alle resources met een tagwaarde op te 
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Of voer de volgende Azure CLI-opdracht uit:
+Of voer de volgende Azure CLI 2.0-opdracht uit:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 U kunt ook getagde resources via Azure Portal weergeven.
@@ -343,9 +344,4 @@ Hier volgt een videodemonstratie van dit overzicht:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

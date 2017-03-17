@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -125,7 +126,7 @@ Nu dat er berichten aan de wachtrij worden toegevoegd, kunt u een functie maken 
 
     ![Een binding aan een Azure Storage-tabel toevoegen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Voer `TableItem` in voor **Tabelnaam** en `functionbindings` voor **Naam van de tabelparameter**, kies een **Opslagaccountverbinding** of maak een nieuwe, en klik vervolgens op **Opslaan**.
+2. Voer `functionbindings` in voor **Tabelnaam** en `myTable` voor **Naam van de tabelparameter**, kies een **Opslagaccountverbinding** of maak een nieuwe, en klik vervolgens op **Opslaan**.
 
     ![De binding van de Storage-tabel configureren](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Nu dat er berichten aan de wachtrij worden toegevoegd, kunt u een functie maken 
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
+Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions:
 
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)  
   Naslaginformatie voor programmeurs over het coderen van functies en het definiëren van triggers en bindingen.
@@ -190,10 +191,5 @@ Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions.
   Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

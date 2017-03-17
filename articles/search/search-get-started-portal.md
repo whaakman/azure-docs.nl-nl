@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Met deze inleiding zonder code kunt u aan de slag met vooraf gedefinieerde gegev
 
 **Geschatte tijd:** ongeveer 15 minuten, maar het kan langer duren als ook is vereist dat u zich registreert bij het account of de service. 
 
-U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie vindt u na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
+U kunt ook aan de slag met een [op code gebaseerde inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 In deze zelfstudie wordt ervan uitgegaan dat u beschikt over een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) en [Azure-service](search-create-service-portal.md). 
+
+Als u niet direct een service wilt inrichten, kunt u ook een zes minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie ziet u na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Uw service vinden
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).

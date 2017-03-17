@@ -3,15 +3,21 @@ title: Wat is Azure Event Hubs en waarom is het nuttig | Microsoft Docs
 description: Overzicht van en inleiding tot Azure Event Hubs - Telemetrie van websites, apps en apparaten op cloudniveau opnemen
 services: event-hubs
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
+manager: timlt
+editor: 
 ms.assetid: 
 ms.service: event-hubs
+ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/07/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 62eefb7a4591c712c5389d3ed7e5ff9675a80042
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,7 +38,7 @@ De algemene rol die Event Hubs in oplossingsarchitecturen speelt, is die van 'vo
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
-Azure Event Hubs is een gebeurtenisverwerkingsservice die telemetriegegevens en gebeurtenissen op cloudniveau opneemt, waarbij de latentie laag is en de betrouwbaarheid hoog. Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom. Sommige van de kenmerken van Event Hubs wijken sterk af van wat u gewend bent bij traditionele zakelijke tools voor berichtenverzending. De mogelijkheden van Event Hubs zijn gebaseerd op maximale doorvoer en scenario's voor de verwerking van gebeurtenissen. Om die reden biedt Event Hubs niet alle berichtenmogelijkheden die voor berichtenentiteiten beschikbaar zijn, zoals onderwerpen.
+Azure Event Hubs is een gebeurtenisverwerkingsservice die telemetriegegevens en gebeurtenissen op cloudniveau opneemt, waarbij de latentie laag is en de betrouwbaarheid hoog. Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom. Sommige van de kenmerken van Event Hubs wijken af van wat u gewend bent bij traditionele zakelijke tools voor berichtenverzending. De mogelijkheden van Event Hubs zijn gebaseerd op maximale doorvoer en scenario's voor de verwerking van gebeurtenissen. Om die reden biedt Event Hubs niet alle berichtenmogelijkheden die voor berichtenentiteiten beschikbaar zijn, zoals onderwerpen.
 
 Uw Event Hub wordt gemaakt op het niveau van de naamruimte en gebruikt AMQP en HTTP als primaire API-interfaces.
 
@@ -40,13 +46,13 @@ Uw Event Hub wordt gemaakt op het niveau van de naamruimte en gebruikt AMQP en H
 Een *gebeurtenisuitgever* is een entiteit die gegevens naar een Event Hub verzendt. Gebeurtenisuitgevers kunnen gebeurtenissen publiceren met HTTPS of AMQP 1.0. Gebeurtenisuitgevers gebruiken een Shared Access Signature-token (SAS) om zichzelf te identificeren bij een Event Hub en kunnen een unieke identiteit hebben of een algemene SAS-token gebruiken.
 
 ### <a name="publishing-an-event"></a>Een gebeurtenis publiceren
-U kunt een gebeurtenis publiceren met AMQP 1.0 of HTTPS. Service Bus biedt een [EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient)-klasse voor het publiceren van gebeurtenissen naar een Event Hub vanaf .NET-clients. Voor andere runtimes en platforms kunt u een AMQP 1.0-client gebruiken, zoals [Apache Qpid](http://qpid.apache.org/). U kunt gebeurtenissen afzonderlijk of batchgewijs publiceren. Eén publicatie (exemplaar met gebeurtenisgegevens) heeft een limiet van 256 kB, ongeacht of het om één gebeurtenis of om een batch gaat. Als u grotere gebeurtenissen publiceert, resulteert dit in een fout. Het is voor uitgevers een best practice om niets te weten over de partities binnen Event Hub en alleen een *partitiesleutel* (zie volgende sectie) of hun identiteit via de SAS-token op te geven.
+U kunt een gebeurtenis publiceren met AMQP 1.0 of HTTPS. Service Bus biedt een [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient)-klasse voor het publiceren van gebeurtenissen naar een Event Hub vanaf .NET-clients. Voor andere runtimes en platforms kunt u een AMQP 1.0-client gebruiken, zoals [Apache Qpid](http://qpid.apache.org/). U kunt gebeurtenissen afzonderlijk of batchgewijs publiceren. Eén publicatie (exemplaar met gebeurtenisgegevens) heeft een limiet van 256 kB, ongeacht of het om één gebeurtenis of om een batch gaat. Als u grotere gebeurtenissen publiceert, resulteert dit in een fout. Het is voor uitgevers een best practice om niets te weten over de partities binnen Event Hub en alleen een *partitiesleutel* (zie volgende sectie) of hun identiteit via de SAS-token op te geven.
 
 De keuze om AMQP of HTTPS te gebruiken, geldt specifiek voor het gebruiksscenario. AMQP vereist de inrichting van een permanente bidirectionele socket naast Transport Layer Security (TLS) of SSL/TLS. AMQP gaat gepaard met hogere netwerkkosten tijdens de initialisatie van de sessie. Voor HTTPS is echter extra SSL-overhead vereist voor elke aanvraag. AMQP biedt betere prestaties voor regelmatige uitgevers.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/partition_keys.png)
 
-Event Hubs zorgt ervoor dat alle gebeurtenissen met dezelfde partitiesleutelwaarde op volgorde en aan dezelfde partitie worden geleverd. De identiteit van de uitgever en de waarde van de partitiesleutel moeten overeenkomen als er partitiesleutels met uitgeversbeleid worden gebruikt. Als deze niet overeenkomen, treedt er een fout op.
+Event Hubs zorgt ervoor dat alle gebeurtenissen met een partitiesleutelwaarde op volgorde en aan dezelfde partitie worden geleverd. De identiteit van de uitgever en de waarde van de partitiesleutel moeten overeenkomen als er partitiesleutels met uitgeversbeleid worden gebruikt. Als deze niet overeenkomen, treedt er een fout op.
 
 ### <a name="publisher-policy"></a>Uitgeversbeleid
 In Event Hubs kunt u gebeurtenisuitgevers nauwkeurig beheren met behulp van *uitgeversbeleid*. Uitgeversbeleid bestaat uit runtimefuncties die zijn ontworpen om grote aantallen onafhankelijke gebeurtenisuitgevers mogelijk te maken. Als u uitgeversbeleid implementeert, gebruikt elke uitgever zijn eigen unieke id bij het publiceren van gebeurtenissen naar een Event Hub. Hierbij wordt het volgende mechanisme gebruikt:
@@ -70,17 +76,19 @@ Event Hubs bewaart gegevens voor een geconfigureerde bewaartijd die wordt toegep
 
 Het aantal partities wordt opgegeven bij het maken en moet tussen 2 en 32 liggen. Het aantal partities kan niet worden gewijzigd. Houd bij het instellen van het aantal partities dus uw doelen op de lange termijn in gedachten. Partities zijn een mechanisme voor gegevensordening. Ze hebben betrekking op de mate van downstreamparallelheid die is vereist bij het gebruik van toepassingen. Het aantal partities in een Event Hub houdt rechtstreeks verband met het aantal verwachte gelijktijdige lezers. Neem contact op met het team van Event Hubs als u meer dan 32 partities wilt maken.
 
-Partities kunnen worden geïdentificeerd en rechtstreeks gegevens ontvangen, maar dit wordt niet aanbevolen. In plaats daarvan kunt u constructies op een hoger niveau gebruiken. Deze vindt u in de secties [Gebeurtenisuitgever](#event-publishers) en [Capaciteit](#capacity).
+Partities kunnen worden geïdentificeerd en rechtstreeks gegevens ontvangen, maar dit wordt niet aanbevolen. In plaats daarvan kunt u constructies op een hoger niveau gebruiken. Deze vindt u in de secties [Gebeurtenisuitgever](#event-publishers) en [Capaciteit](#capacity). 
 
 Partities bestaan uit een reeks gebeurtenisgegevens. Deze bevatten de hoofdtekst van de gebeurtenis, een door de gebruiker gedefinieerde eigenschappenverzameling en metagegevens, zoals de offset in de partitie en het nummer in de stroomreeks.
 
+Zie de artikelen [Programmeergids voor Event Hubs](event-hubs-programming-guide.md#partition-key) en [Beschikbaarheid en consistentie in Event Hubs](event-hubs-availability-and-consistency.md) voor meer informatie over partities en de verhouding tussen de beschikbaarheid en betrouwbaarheid.
+
 ### <a name="partition-key"></a>Partitiesleutel
-U kunt een partitiesleutel gebruiken om inkomende gebeurtenisgegevens toe te wijzen aan specifieke partities, zodat de gegevens kunnen worden geordend. De partitiesleutel is een door de afzender opgegeven waarde die aan een Event Hub wordt doorgegeven. De partitiesleutel wordt verwerkt door een statische hash-functie, die zorgt voor de partitietoewijzing. Als u bij het publiceren van een gebeurtenis geen partitiesleutel opgeeft, wordt er gebruikgemaakt van round robin-toewijzing.
+U kunt een [partitiesleutel](event-hubs-programming-guide.md#partition-key) gebruiken om inkomende gebeurtenisgegevens toe te wijzen aan specifieke partities, zodat de gegevens kunnen worden geordend. De partitiesleutel is een door de afzender opgegeven waarde die aan een Event Hub wordt doorgegeven. De partitiesleutel wordt verwerkt door een statische hash-functie, die zorgt voor de partitietoewijzing. Als u bij het publiceren van een gebeurtenis geen partitiesleutel opgeeft, wordt er gebruikgemaakt van round robin-toewijzing.
 
 De gebeurtenisuitgever is alleen op de hoogte van de partitiesleutel en niet van de partitie waarop de gebeurtenissen worden gepubliceerd. Deze ontkoppeling van sleutel en partitie schermt de afzender af, zodat deze niet te veel te weten hoeft te komen over de downstreamverwerking. Goede partitiesleutels zijn bijvoorbeeld een apparaatspecifieke of een gebruikersspecifieke identiteit, maar voor het groeperen van gerelateerde gebeurtenissen in dezelfde partitie kunnen ook andere kenmerken, zoals geografie, worden gebruikt.
 
 ## <a name="sas-tokens"></a>SAS-tokens
-Event Hubs gebruikt *Shared Access Signatures* die beschikbaar zijn op het niveau van de naamruimte en Event Hub. Een SAS-token wordt gegenereerd uit een SAS-sleutel en is een SHA-hash of URL. gecodeerd in een specifieke indeling. Event Hubs kan de hash opnieuw genereren met de naam van de sleutel (het beleid) en de token, en op deze manier de afzender verifiëren. Normaal gesproken worden SAS-tokens voor gebeurtenisuitgevers alleen gemaakt met bevoegdheden voor **verzenden** voor een specifieke Event Hub. Dit URL-mechanisme met SAS-token vormt de basis voor de uitgeversidentificatie die in het uitgeversbeleid wordt geïntroduceerd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) voor meer informatie over werken met SAS.
+Event Hubs gebruikt *Shared Access Signatures* die beschikbaar zijn op het niveau van de naamruimte en Event Hub. Een SAS-token wordt gegenereerd uit een SAS-sleutel en is een SHA-hash of URL. gecodeerd in een specifieke indeling. Event Hubs kan de hash opnieuw genereren met de naam van de sleutel (het beleid) en de token, en op deze manier de afzender verifiëren. Normaal gesproken worden SAS-tokens voor gebeurtenisuitgevers alleen gemaakt met bevoegdheden voor **verzenden** voor een specifieke Event Hub. Dit URL-mechanisme met SAS-token vormt de basis voor de uitgeversidentificatie die in het uitgeversbeleid wordt geïntroduceerd. Zie [Shared Access Signature-verificatie met Service Bus](../service-bus-messaging/service-bus-sas.md) voor meer informatie over werken met SAS.
 
 ## <a name="event-consumers"></a>Gebeurtenisconsumers
 Elke entiteit die gebeurtenisgegevens van een Event Hub leest, is een *gebeurtenisconsumer*. Alle Event Hubs-consumers maken verbinding via de AMQP 1.0-sessie, waarin gebeurtenissen worden geleverd zodra deze beschikbaar komen. De client hoeft de beschikbaarheid van de gegevens niet te peilen.
@@ -92,7 +100,7 @@ In een architectuur waarin de stroom wordt verwerkt, is elke downstream-toepassi
 
 Dit zijn voorbeelden van de URI-conventie voor consumergroepen:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
@@ -100,12 +108,12 @@ Dit zijn voorbeelden van de URI-conventie voor consumergroepen:
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Stroom-offsets
-Een *offset* is de positie van een gebeurtenis binnen een partitie. U kunt een offset beschouwen als een clientcursor. De offset is een bytenummering van de gebeurtenis. Hiermee kan een gebeurtenisconsumer (lezer) een punt in de gebeurtenisstroom opgeven vanwaaruit begonnen moet worden met het lezen van gebeurtenissen. U kunt de offset opgeven als een tijdstempel of als een offsetwaarde. Consumers zijn zelf verantwoordelijk voor het opslaan van hun eigen offsetwaarden buiten de Event Hubs-service. Binnen een partitie bevat elke gebeurtenis een offset.
+Een *offset* is de positie van een gebeurtenis binnen een partitie. U kunt een offset beschouwen als een clientcursor. De offset is een bytenummering van de gebeurtenis. Met deze offset kan een gebeurtenisconsumer (lezer) een punt in de gebeurtenisstroom opgeven vanwaaruit begonnen moet worden met het lezen van gebeurtenissen. U kunt de offset opgeven als een tijdstempel of als een offsetwaarde. Consumers zijn zelf verantwoordelijk voor het opslaan van hun eigen offsetwaarden buiten de Event Hubs-service. Binnen een partitie bevat elke gebeurtenis een offset.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/partition_offset.png)
 
 ### <a name="checkpointing"></a>Controlepunten plaatsen
-*Het plaatsen van controlepunten* is een proces waarbij lezers hun positie binnen de gebeurtenisvolgorde van een partitie markeren of vastleggen. Het plaatsen van controlepunten is de verantwoordelijkheid van de consumer en vindt plaats per partitie binnen een consumergroep. Dit betekent dat elke partitielezer voor elke consumergroep de huidige positie in de gebeurtenisstroom moet bijhouden en de service kan informeren wanneer de gegevensstroom is voltooid.
+*Het plaatsen van controlepunten* is een proces waarbij lezers hun positie binnen de gebeurtenisvolgorde van een partitie markeren of vastleggen. Het plaatsen van controlepunten is de verantwoordelijkheid van de consumer en vindt plaats per partitie binnen een consumergroep. Deze verantwoordelijkheid houdt in dat elke partitielezer voor elke consumergroep de huidige positie in de gebeurtenisstroom moet bijhouden en de service kan informeren wanneer de gegevensstroom is voltooid.
 
 Als een lezer van een partitie is losgekoppeld en er vervolgens weer verbinding wordt gemaakt, begint het lezen bij het controlepunt dat eerder is verzonden door de laatste lezer van de betreffende partitie in de consumergroep. Wanneer de lezer verbinding maakt, wordt deze offset aan de Event Hub doorgegeven om de locatie op te geven waar u wilt beginnen met lezen. Op deze manier kunt u het plaatsen van controlepunten gebruiken om gebeurtenissen te markeren als 'voltooid' door downstream-toepassingen. Bovendien beschikt u met controlepunten over tolerantie bij een failover tussen lezers die op verschillende apparaten worden uitgevoerd. Het is mogelijk om terug te keren naar de oudere gegevens door een lagere offset van dit controlepuntproces op te geven. Via dit mechanisme zorgt het plaatsen van controlepunten voor failover-tolerantie en voor herhaling van gebeurtenisstromen.
 
@@ -113,7 +121,7 @@ Als een lezer van een partitie is losgekoppeld en er vervolgens weer verbinding 
 Alle Event Hubs-consumers maken verbinding via een AMQP 1.0-sessie en een statusbewust bidirectioneel communicatiekanaal. Elke partitie heeft een AMQP 1.0-sessie die het mogelijk maakt partitiespecifieke gebeurtenissen te transporteren.
 
 #### <a name="connect-to-a-partition"></a>Verbinding maken met een partitie
-Het is gebruikelijk om een leasemechanisme te gebruiken wanneer u verbinding maakt met partities, zodat u het verbinden van lezers aan specifieke partities kunt coördineren. Op deze manier maakt u het mogelijk dat elke partitie in een consumergroep slechts één actieve lezer heeft. Het plaatsen van controlepunten voor en het leasen en beheren van lezers wordt vereenvoudigd door toepassing van de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)-klasse voor .NET-clients. [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) is een intelligente consumeragent.
+Het is gebruikelijk om een leasemechanisme te gebruiken wanneer u verbinding maakt met partities, zodat u het verbinden van lezers aan specifieke partities kunt coördineren. Op deze manier maakt u het mogelijk dat elke partitie in een consumergroep slechts één actieve lezer heeft. Het plaatsen van controlepunten voor en het leasen en beheren van lezers wordt vereenvoudigd door toepassing van de [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)-klasse voor .NET-clients. De Event Processor Host is een intelligente consumeragent.
 
 #### <a name="read-events"></a>Gebeurtenissen lezen
 Nadat er voor een specifieke partitie een AMQP 1.0-sessie en -koppeling zijn geopend, worden de gebeurtenissen door de Event Hubs-service aan de AMQP 1.0-client geleverd. Dit leveringsmechanisme maakt hogere doorvoer en lagere latentie mogelijk dan pull-mechanismen zoals HTTP GET. Tijdens het verzenden van gebeurtenissen naar de client wordt elk gebeurtenisgegeven voorzien van belangrijke metagegevens, zoals de offset en het volgnummer. Deze worden gebruikt om het plaatsen van controlepunten in de gebeurtenisvolgorde mogelijk te maken.
@@ -131,12 +139,12 @@ U bent verantwoordelijk voor het beheer van de offset.
 Event Hubs heeft een uiterst schaalbare parallelle architectuur. Er zijn diverse belangrijke factoren waarmee u rekening moet houden wanneer u schaalt.
 
 ### <a name="throughput-units"></a>Doorvoereenheden
-De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare *doorvoereenheden*. Doorvoereenheden zijn vooraf aangeschafte capaciteitseenheden. Eén doorvoereenheid bevat het volgende:
+De doorvoercapaciteit van Event Hubs wordt bepaald door het aantal beschikbare *doorvoereenheden*. Doorvoereenheden zijn vooraf aangeschafte capaciteitseenheden. Eén doorvoereenheid bevat de volgende capaciteit:
 
 * Binnenkomende gegevens: maximaal 1 MB per seconde of 1000 gebeurtenissen per seconde (afhankelijk van wat het eerst wordt bereikt)
 * Uitgaande gegevens: maximaal 2 MB per seconde
 
-Wanneer de capaciteit van de aangekochte doorvoereenheden wordt overschreven, wordt de invoer vertraagd en een [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) afgegeven. De uitvoer geeft geen vertragingsuitzonderingen af, maar is nog steeds beperkt tot de capaciteit van de aangekochte doorvoereenheden. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte. U kunt doorvoereenheden beheren op de blade **Schaal** van de naamruimten in [Azure Portal][Azure portal]. Dit kan ook worden geprogrammeerd met de Azure-API's.
+Wanneer de capaciteit van de aangekochte doorvoereenheden wordt overschreven, wordt de invoer vertraagd en een [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) afgegeven. De uitvoer geeft geen vertragingsuitzonderingen af, maar is nog steeds beperkt tot de capaciteit van de aangekochte doorvoereenheden. Als zich uitzonderingen met betrekking tot de publicatiesnelheid voordoen of als u meer uitgaande gegevens verwacht, controleert u hoeveel doorvoereenheden u hebt aangeschaft voor de naamruimte. U kunt doorvoereenheden beheren op de blade **Schaal** van de naamruimten in [Azure Portal][Azure portal]. U kunt ook doorvoereenheden via een programma beheren met de Azure-API's.
 
 Doorvoereenheden worden per uur in rekening gebracht en zijn vooraf aangeschaft. Nadat u doorvoereenheden hebt aangeschaft, worden deze voor minimaal één uur in rekening gebracht. Er kunnen maximaal 20 doorvoereenheden worden aangeschaft voor een naamruimte in Event Hubs. Deze worden gedeeld door alle Event Hubs in de naamruimte.
 
@@ -149,16 +157,12 @@ Zie [Prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-h
 ## <a name="next-steps"></a>Volgende stappen
 
 * Aan de slag met een [Event Hubs-zelfstudie][Event Hubs tutorial]
-* Een complete [voorbeeldtoepassing die gebruikmaakt van Event Hubs]
 * [Programmeerhandleiding voor Event Hubs](event-hubs-programming-guide.md)
+* [Beschikbaarheid en consistentie in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
+* [Voorbeeldtoepassingen die gebruikmaken van Event Hubs]
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
-[voorbeeldtoepassing die gebruikmaakt van Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Voorbeeldtoepassingen die gebruikmaken van Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Azure portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
