@@ -55,6 +55,8 @@
 #### [Voordat u aan de slag gaat](azure-stack-app-service-before-you-get-started.md)
 #### [App Service-resourceprovider implementeren](azure-stack-app-service-deploy.md)
 #### [Meer webwerkrollen toevoegen](azure-stack-app-service-add-worker-roles.md)
+#### [Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md)
+#### [FTP inschalen in App Service op Azure Stack](azure-stack-app-service-enable-ftp.md)
 ### De Marketplace vullen
 #### [Overzicht van Marketplace](azure-stack-marketplace.md)
 #### [Marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # Problemen oplossen
 ## [Bekende problemen](azure-stack-troubleshooting.md)
+## [Diagnostische gegevens in Azure Stack](azure-stack-diagnostics.md)
 
 # Resources
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

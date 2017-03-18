@@ -2,13 +2,16 @@
 ## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 
 # Aan de slag
-## [Een schaalset maken in de portal](virtual-machine-scale-sets-portal-create.md)
-## [Een schaalset maken met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Een schaalset maken met een Resource Manager-sjabloon](virtual-machine-scale-sets-mvss-start.md)
+## [Een schaalset implementeren in de portal](virtual-machine-scale-sets-portal-create.md)
+## [Een schaalset Implementeren met Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Een schaalset implementeren met een Resource Manager-sjabloon](virtual-machine-scale-sets-mvss-start.md)
 
 # Procedures
 ## Plannen en ontwerpen
 ### [Overwegingen bij het ontwerpen](virtual-machine-scale-sets-design-overview.md)
+## Schaalsetsjablonen schrijven naar
+### [Een eenvoudige schaalset implementeren](virtual-machine-scale-sets-mvss-start.md)
+### [Een schaalset implementeren naar een bestaand virtueel netwerk](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Implementeren
 ### [Schaalset met behulp van de portal](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Problemen oplossen
 ### [Automatisch schalen](virtual-machine-scale-sets-troubleshoot.md)
+
+## Veelgestelde vragen
+### [Veelgestelde vragen over schaalsets](virtual-machine-scale-sets-faq.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

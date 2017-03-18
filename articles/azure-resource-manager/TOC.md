@@ -38,7 +38,8 @@
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
 ## Toegang beheren
 ### [Service-principal maken met PowerShell](resource-group-authenticate-service-principal.md)
-### [Service-principal maken met Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Service-principal maken met Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Service-principal maken met Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Service-principal maken met portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
