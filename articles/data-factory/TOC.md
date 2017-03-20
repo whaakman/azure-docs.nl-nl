@@ -62,12 +62,12 @@
 ### [HDInsight Pig-activiteit](data-factory-pig-activity.md)
 ### [HDInsight MapReduce-activiteit](data-factory-map-reduce.md)
 ### [HDInsight Streaming-activiteit](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark-activiteit](data-factory-spark.md)
 ### [Machine Learning-batchuitvoeringsactiviteit](data-factory-azure-ml-batch-execution-activity.md)
 ### [Machine Learning-activiteit resources bijwerken](data-factory-azure-ml-update-resource-activity.md)
 ### [Opgeslagen procedureactiviteit](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 ### [.NET aangepaste activiteit](data-factory-use-custom-activities.md)
-### [Spark-programma's aanroepen](data-factory-spark.md)
 ### [R-scripts aanroepen](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Ontwikkelen
 ### [Azure Resource Manager-sjabloon](data-factory-how-to-use-resource-manager-templates.md)

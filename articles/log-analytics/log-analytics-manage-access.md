@@ -1,6 +1,6 @@
 ---
-title: Werkruimten beheren | Microsoft Docs
-description: Beheer toegang tot werkruimten in Azure Log Analytics met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
+title: De werkruimten in Azure Log Analytics en de OMS-portal beheren | Microsoft Docs
+description: U kunt de toegang tot werkruimten in Azure Log Analytics en de OMS-portal beheren met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte.
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Een bestaande werkruimte koppelen aan een Azure-abonnement
 Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van maken zijn gekoppeld aan een Azure-abonnement. Werkruimten die vóór deze datum zijn gemaakt, moeten de volgende keer dat u zich aanmeldt aan een werkruimte worden gekoppeld. Wanneer u de werkruimte maakt via Azure Portal of uw werkruimte koppelt aan een Azure-abonnement, wordt uw Azure Active Directory als uw organisatieaccount gekoppeld.
 
-![Azure-abonnement koppelen](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> U kunt een werkruimte alleen koppelen als uw Azure-account al toegang heeft tot deze werkruimte.  Met andere woorden: het account dat u gebruikt voor toegang tot Azure Portal, moet **hetzelfde** zijn als het account dat u gebruikt voor toegang tot de werkruimte. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) als dit niet het geval is.
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Een werkruimte koppelen aan een Azure-abonnement in de OMS-portal
-Als u een werkruimte wilt koppelen aan een Azure-abonnement in de OMS-portal, moet de aangemelde gebruiker al een betaald Azure-account hebben.
 
-1. Klik in de OMS-portal op de tegel **Instellingen**.
-2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Azure-abonnement en data-abonnement**.
-3. Klik op het data-abonnement dat u wilt gebruiken.
-4. Klik op **Opslaan**.  
-   ![abonnement en data-abonnementen](./media/log-analytics-manage-access/subscription-tab.png)
+- Wanneer u zich aanmeldt bij de OMS-portal, wordt u gevraagd om een Azure-abonnement te selecteren. Selecteer het abonnement dat u aan uw werkruimte wilt koppelen en klik vervolgens op **Koppelen**.  
+    ![Azure-abonnement koppelen](./media/log-analytics-manage-access/required-link.png)
 
-Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven aan de webpagina.
+    > [!IMPORTANT]
+    > U kunt een werkruimte alleen koppelen als uw Azure-account al toegang heeft tot deze werkruimte.  Met andere woorden: het account dat u gebruikt voor toegang tot Azure Portal, moet **hetzelfde** zijn als het account dat u gebruikt voor toegang tot de werkruimte. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) als dit niet het geval is.
 
-![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Een werkruimte in de Azure Portal koppelen aan een Azure-abonnement
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
@@ -236,7 +227,7 @@ Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waara
 
 Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Een werkruimte wijzigen in een betaalde prijscategorie
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Een werkruimte wijzigen in een betaalde prijscategorie in Azure Portal
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
 2. Blader naar **Log Analytics** en selecteer dit.
 3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
@@ -250,6 +241,21 @@ Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, ku
 > Als de werkruimte is gekoppeld aan een Automation-account, moet u vóórdat u de prijscategorie *Zelfstandig (per GB)* kunt selecteren eerst alle oplossingen **Automation and Control** verwijderen en het Automation-account loskoppelen. Klik op de blade van de werkruimte onder **Algemeen** op **Oplossingen** om oplossingen te bekijken en te verwijderen. Klik op de blade **Prijscategorie** op de naam van het Automation-account om het Automation-account los te koppelen.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Uw abonnementsgegevens in de OMS-portal wijzigen
+
+Als u een gegevensabonnement wilt wijzigen via de OMS-portal, moet de aangemelde gebruiker al een Azure-account hebben.
+
+1. Klik in de OMS-portal op de tegel **Instellingen**.
+2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Azure-abonnement en data-abonnement**.
+3. Klik op het data-abonnement dat u wilt gebruiken.
+4. Klik op **Opslaan**.  
+   ![abonnement en data-abonnementen](./media/log-analytics-manage-access/subscription-tab.png)
+
+Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven aan de webpagina.
+
+![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Wijzigen hoelang gegevens worden opgeslagen in Log Analytics
 
@@ -266,8 +272,8 @@ De duur van de gegevensretentie wijzigen:
 2. Blader naar **Log Analytics** en selecteer dit.
 3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
 4. Klik op de blade van de werkruimte onder **Algemeen** op **Retentie**.  
-5. Gebruik de schuifregelaar om het aantal dagen retentie te vergroten of te verkleinen. Klik vervolgens op **Opslaan**
-![Retentie wijzigen](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Gebruik de schuifregelaar om het aantal dagen retentie te vergroten of te verkleinen. Klik vervolgens op **Opslaan**.  
+    ![retentie wijzigen](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Een Azure Active Directory-organisatie wijzigen voor een werkruimte
 

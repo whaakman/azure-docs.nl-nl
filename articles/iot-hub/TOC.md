@@ -96,7 +96,10 @@
 #### [Problemen oplossen](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Een Arduino gebruiken
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Les 1: Uw apparaat configureren
 ##### [Uw apparaat configureren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [De voorbeeldtoepassing om berichten te ontvangen uitvoeren](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Optioneel: het led-gedrag wijzigen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Problemen oplossen](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## De gateway-SDK gebruiken
 ### [Simulatie op Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Les 5: Uw eerste Azure IoT-gatewaymodule maken](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Problemen oplossen](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [SensorTag-apparaat](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Les 4: Berichten opslaan in Azure Table Storage
 ##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Les 5: Uw eerste Azure IoT-gatewaymodule maken](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,8 +227,8 @@
 ## Beheren
 ### Een IoT Hub maken 
 #### [De portal gebruiken](iot-hub-create-through-portal.md)
-#### [CLI 2.0 Preview gebruiken](iot-hub-create-using-cli.md)
-#### [De CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
+#### [CLI 2.0 gebruiken](iot-hub-create-using-cli.md)
+#### [CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
 #### [De REST-API gebruiken](iot-hub-rm-rest.md)
 #### [PowerShell gebruiken](iot-hub-rm-template-powershell.md)
 #### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)

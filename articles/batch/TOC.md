@@ -1,6 +1,7 @@
 # Overzicht
 ## [Wat is Azure Batch?](batch-technical-overview.md)
 ## [Overzicht van de functies](batch-api-basics.md)
+## [API's en hulpprogramma’s](batch-apis-tools.md)
 ## [Quota en limieten](batch-quota-limit.md)
 # Aan de slag
 ## [Een Batch-account maken](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [Diagnostische logboeken voor Batch](batch-diagnostics.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,9 +47,4 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Codevoorbeelden voor Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
