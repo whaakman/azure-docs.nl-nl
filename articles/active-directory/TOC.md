@@ -79,9 +79,12 @@
 ### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
 ### [Benoemde netwerken](active-directory-known-networks-azure-portal.md)
-### [Veelgestelde vragen](active-directory-reporting-faq.md)
 ### [Rapporten migreren](active-directory-reporting-migration.md)
 ### [Retentie](active-directory-reporting-retention.md)
+### [Veelgestelde vragen](active-directory-reporting-faq.md)
+### Problemen oplossen
+#### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Toegang op programmeerniveau
 #### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
 #### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
 
 ## Apparaten beheren
-### [Apparaten registreren](active-directory-conditional-access-device-registration-overview.md)
-#### [Automatische registratie beheren](active-directory-conditional-access-automatic-device-registration.md)
+### [Apparaten registreren](active-directory-device-registration-overview.md)
+#### [Automatische registratie beheren](active-directory-device-registration.md)
 #### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Veelgestelde vragen](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
+#### [Veelgestelde vragen](active-directory-device-registration-faq.md)
 #### Problemen oplossen
-##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
-#### [On-premises implementeren](active-directory-conditional-access-on-premises-setup.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Problemen oplossen](active-directory-conditional-access-device-remediation.md)
 #### [Naslaginformatie](active-directory-conditional-access-technical-reference.md)

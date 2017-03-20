@@ -19,9 +19,10 @@
 ## Plannen
 ### [Vereisten voor implementatie](site-recovery-prereq.md)
 ### [Overwegingen voor netwerkinfrastructuur](site-recovery-network-design.md)
-### [De Site Recovery Capacity Planner voor Hyper-V-replicatie uitvoeren](site-recovery-capacity-planner.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
-### [De Deployment Planner uitvoeren voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
+### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
+### [Site Recovery Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
+
 ## Configureren
 ### [De bronomgeving instellen](site-recovery-set-up-vmware-to-azure.md)
 ### [De doelomgeving instellen](site-recovery-prepare-target-vmware-to-azure.md)
@@ -29,14 +30,14 @@
 ### [De Mobility-service voor VMware-replicatie implementeren](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [De Mobility-service implementeren met behulp van System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [De Mobility-service implementeren met behulp van Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### [Replicatie inschakelen](site-recovery-replicate-vmware-to-azure.md)
 ## Failover en failback
-### [Failover in Site Recovery](site-recovery-failover.md)
+### [Door failover beveiligde machines](site-recovery-failover.md)
 ### [Herstelplannen instellen](site-recovery-create-recovery-plans.md)
 #### [Azure-runbooks aan herstelplannen toevoegen](site-recovery-runbook-automation.md)
-### [Een testfailover naar Azure uitvoeren](site-recovery-test-failover-to-azure.md)
-### [Een testfailover tussen twee VMM-sites uitvoeren](site-recovery-test-failover-vmm-to-vmm.md)
-### [Failback van Azure naar virtuele VMware-machines/fysieke servers](site-recovery-how-to-failback-azure-to-vmware.md)
-### [Failback van Azure naar virtuele Hyper-V-machines](site-recovery-failback-from-azure-to-hyper-v.md)
+### [Een testfailover uitvoeren](site-recovery-test-failover-to-azure.md)
+### [Machines opnieuw beveiligen na een failover](site-recovery-how-to-reprotect.md)
+### [Failback vanaf Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migreren
 ### [Migreren naar Azure](site-recovery-migrate-to-azure.md)
@@ -56,9 +57,13 @@
 ### [Hyper-V-replicatie naar Azure automatiseren (met VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Hyper-V-replicatie naar een secundaire site automatiseren (met VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Beheren
+### [Replicatie-instellingen bewerken](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
+### [Processervers in Azure beheren](site-recovery-vmware-setup-azure-ps-resource-manager.md)
+### [De configuratieserver beheren](site-recovery-vmware-to-azure-manage-configuration-server.md)
+### [Uitgeschaalde processervers beheren](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [VCenter-servers beheren](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Servers verwijderen en beveiliging uitschakelen](site-recovery-manage-registration-and-protection.md)
-### [Processervers uitschalen](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
-### [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
+## [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)

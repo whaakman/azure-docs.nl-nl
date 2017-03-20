@@ -39,9 +39,10 @@
 ## [BGP configureren voor Azure VPN Gateways met PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Maximaal beschikbare actief-actief-verbindingen configureren](vpn-gateway-activeactive-rm-powershell.md)
 ## [Instellingen voor lokale netwerkgateway wijzigen met PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Een gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
-## [Een Azure VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
-## [Werken met zelfondertekende certificaten voor punt-naar-site-verbindingen](vpn-gateway-certificates-point-to-site.md)
+## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
+## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
+## [Een VPN-gateway verwijderen](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Zelfondertekende basiscertificaten voor P2S verbindingen maken](vpn-gateway-certificates-point-to-site.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Naslaginformatie
@@ -64,8 +65,3 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

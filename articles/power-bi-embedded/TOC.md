@@ -13,8 +13,11 @@
 
 ## Beheren
 ### [Verbinding maken met een gegevensbron](power-bi-embedded-connect-datasource.md)
-### [Een Power BI-rapport insluiten met een IFrame](power-bi-embedded-iframe.md)
+### [Een Power BI-rapport insluiten](power-bi-embedded-embed-report.md)
 ### [Werken met rapporten](power-bi-embedded-interact-with-reports.md)
+### [Een nieuw rapport maken op basis van een gegevensset](power-bi-embedded-create-report-from-dataset.md)
+### [Rapporten opslaan](power-bi-embedded-save-reports.md)
+### [Schakelen tussen weergeven en bewerken](power-bi-embedded-toggle-mode.md)
 
 ## Beveiligen
 ### [Verifiëren en autoriseren](power-bi-embedded-app-token-flow.md)
@@ -22,18 +25,17 @@
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
-## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET-SDK downloaden](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+## [REST API’s voor beheer](/rest/api/powerbiembedded/)
+## [REST API's](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 
 
-# Bronnen
-## [Voorbeelden](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+# Resources
+## [Voorbeeldtoepassing](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Ingesloten JavaScript-voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [Git-repo voor JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Git-repo voor Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI-community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

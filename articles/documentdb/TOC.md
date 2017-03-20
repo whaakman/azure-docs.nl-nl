@@ -4,6 +4,7 @@
 ## [Wat is DocumentDB: API voor MongoDB?](documentdb-protocol-mongodb.md)
 ## [Basisconcepten](documentdb-resources.md)
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
+## [Beveiliging](documentdb-nosql-database-security.md)
 ## [NoSQL TCO-analyse](https://aka.ms/documentdb-tco-paper)
 ## Scenario's
 ### [Algemene scenario's](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [.NET Core-console-app](documentdb-dotnetcore-get-started.md)
 ### [Java-console-app](documentdb-java-get-started.md)
 ### [Node.js-console-app](documentdb-nodejs-get-started.md)
-### [Node.js-console-app voor MongoDB-API's](documentdb-mongodb-samples.md)
+### [Node.js-console-app voor MongoDB-API](documentdb-mongodb-samples.md)
 ### [C++-console-app](documentdb-cpp-get-started.md)
 ## Een web-app bouwen
 ### [.NET-web-app](documentdb-dotnet-application.md)
-### [.NET-web-app voor MongoDB-API's](documentdb-mongodb-application.md)
+### [.NET-web-app voor MongoDB-API](documentdb-mongodb-application.md)
 ### [Node.js-web-app](documentdb-nodejs-application.md)
 ### [Java-web-app](documentdb-java-application.md)
 ### [Python Flask web-app](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Rendabele lees- en schrijfbewerkingen](documentdb-key-value-store-cost.md)
 
 ## Beheren
+### [Aanvraageenheden](documentdb-request-units.md)
 ### [Uw gegevens importeren](documentdb-import-data.md)
 ### [Importeren naar API voor MongoDB](documentdb-mongodb-migrate.md)
 ### [Verbinding maken met uw MongoDB-account](documentdb-connect-mongodb-account.md)
 ### [MongoChef gebruiken](documentdb-mongodb-mongochef.md)
 ### [Robomongo gebruiken](documentdb-mongodb-robomongo.md)
 ### [Modellen voor uw gegevens maken](documentdb-modeling-data.md)
-### [Georuimtelijke gegevens gebruiken](documentdb-geospatial.md)
-### [Ontwikkelen voor meerdere regio's](documentdb-developing-with-multiple-regions.md)
-### [Regionale failovers](documentdb-regional-failovers.md)
 ### [Gegevens automatisch laten verlopen](documentdb-time-to-live.md)
-### [Uw indexen aanpassen](documentdb-indexing-policies.md)
-### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
 ### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
+### [Regionale failovers](documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: een account maken](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: regio's toevoegen of verwijderen](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Beveiliging
+#### [Gegevenstoegang beveiligen](documentdb-secure-access-to-data.md)
+#### [Firewallondersteuning](documentdb-firewall-support.md)
 ### [S1, S2, S3 buiten gebruik stellen](documentdb-performance-levels.md)
-### [Aanvraageenheden](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Een account maken](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Regio's toevoegen of verwijderen](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Firewallondersteuning](documentdb-firewall-support.md)
 
 ## Ontwikkelen
 ### [SQL-query](documentdb-sql-query.md)
 ### [Opgeslagen procedures, triggers en UDF's](documentdb-programming.md)
+### [Uw indexen aanpassen](documentdb-indexing-policies.md)
+### [Ontwikkelen voor meerdere regio’s](documentdb-developing-with-multiple-regions.md)
 ### [Wijzigingen bijhouden met een wijzigingsfeed](documentdb-change-feed.md)
+### [Georuimtelijke gegevens gebruiken](documentdb-geospatial.md)
 ### [Prestaties testen](documentdb-performance-testing.md)
 ### [Tips voor prestaties](documentdb-performance-tips.md)
 ### Aanbevolen procedures
