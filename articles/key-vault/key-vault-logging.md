@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ Als u meerdere abonnementen hebt, moet u wellicht specifiek opgeven welk abonnem
 Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u logboekregistratie wilt inschakelen. Typ:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> Dit is een belangrijke stap, die met name handig is als er meerdere abonnementen zijn gekoppeld aan uw account. Mogelijk wordt er een fout weergegeven voor het registreren van Microsoft.Insights als deze stap wordt overgeslagen. 
+>   
+>
 
 Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over het configureren van Azure PowerShell.
 
@@ -120,8 +125,13 @@ Wat wordt in het logboek vastgelegd?
 ## <a id="access"></a>Toegang tot uw logboeken
 Sleutelkluis-logboeken worden opgeslagen in de container **insights-logs-auditevent** in het opslagaccount dat u hebt opgegeven. Als u alle blobs in deze container wilt weergeven, typt u:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Maak eerst een variabele voor de containernaam. Deze wordt gebruikt in de rest van de procedure.
 
+    $container = 'insights-logs-auditevent'
+
+Als u alle blobs in deze container wilt weergeven, typt u:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 De uitvoer ziet er ongeveer als volgt uit:
 
 **Container-URI: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

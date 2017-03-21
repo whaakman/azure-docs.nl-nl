@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,7 +42,7 @@ Als u nog geen Microsoft Azure-account hebt, moet u zich registreren voordat u d
 
 De meeste SQL-clienthulpprogramma's kunnen verbinding maken met SQL Data Warehouse met behulp van JDBC, ODBC of ADO.NET. Vanwege het grote aantal T-SQL-functies waarvoor SQL Data Warehouse ondersteuning biedt, zijn sommige clienttoepassingen niet volledig compatibel met SQL Data Warehouse.
 
-Als u een Windows-besturingssysteem gebruikt, raden we u aan [Visual Studio] of [SQL Server Management Studio] te gebruiken.
+Als u een Windows-besturingssysteem gebruikt, raden we u aan te kiezen voor [Visual Studio] of [SQL Server Management Studio].
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
@@ -415,13 +415,13 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Importeer de gegevens vanuit Azure-blobopslag.
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS SELECT (CTAS). Deze instructie maakt een nieuwe tabel op basis van de resultaten van een selecteerinstructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie.  Dit is een elegante manier om gegevens te importeren uit Azure-blobopslag naar SQL Data Warehouse.
 
-1. Run this script to import your data.
+1. Voer dit script uit om uw gegevens te importeren.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Bekijk uw gegevens tijdens het laden.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Voer de volgende query uit, die gebruikmaakt van dynamische beheerweergaven (DMV's) om de status van de belasting weer te geven. Pak er een kopje koffie bij nadat u de query hebt gestart. SQL Data Warehouse doet ondertussen het zware werk voor u.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Bekijk alle systeemquery's.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Al uw gegevens zijn netjes geladen in uw Azure SQL Data Warehouse.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Geladen gegevens bekijken](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Queryprestaties verbeteren
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Er zijn verschillende manieren om de queryprestaties te verbeteren en om de snelle prestaties te bereiken waarvoor SQL Data Warehouse is ontworpen.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Het effect van schalen op de queryprestaties bekijken 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+U kunt de queryprestaties verbeteren door resources te schalen. Dit doet u door het DWU-serviceniveau voor uw datawarehouse te wijzigen. Elk serviceniveau kost meer, maar u kunt op elk gewenst moment terugschalen of resources onderbreken. 
 
-In this step, you compare performance at two different DWU settings.
+In deze stap vergelijkt u de prestaties bij twee verschillende DWU-instellingen.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijgen van hoe een rekenknooppunt afzonderlijk presteert.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Ga naar de portal en selecteer uw SQL Data Warehouse.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. Selecteer de schaal in de blade SQL Data Warehouse. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![DW schalen vanuit de portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Schaal de prestatiebalk omlaag naar 100 DWU en klik op opslaan.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Schalen en opslaan](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Wacht totdat de schaalbewerking is voltooid.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > Query's kunnen niet worden uitgevoerd tijdens het wijzigen van de schaal. Het schalen **beëindigt** uw huidige actieve query's. U kunt ze opnieuw starten wanneer de bewerking is voltooid.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Voer een scanbewerking uit op de reisgegevens, waarbij u het eerste miljoen vermeldingen voor alle kolommen selecteert. Als u snel door wilt gaan, kunt u gerust minder rijen selecteren. Noteer de tijd die nodig is voor het uitvoeren van deze bewerking.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Schaal uw datawarehouse terug naar 400 DWU. Met elke 100 DWU wordt een extra rekenknooppunt aan uw Azure SQL Data Warehouse toegevoegd.
 
-7. Run the query again! You should notice a significant difference. 
+7. Voer de opnieuw query uit. U zou een duidelijk verschil moeten zien. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> SQL Data Warehouse gebruikt MPP (Massively Parallel Processing). Query's die scannen of analytische functies uitvoeren op miljoenen rijen, ervaren de ware kracht van Azure SQL Data Warehouse.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Het effect van statistieken op de queryprestaties bekijken
 
-1. Run a query that joins the Date table with the Trip table
+1. Een query uitvoeren die de tabel Date met de tabel Trip samenvoegt
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    Deze query kost extra tijd, omdat SQL Data Warehouse gegevens moet verdelen voordat er kan worden samengevoegd. Er hoeven geen gegevens te worden verdeeld bij samenvoegingen als de gegevens moeten worden samengevoegd op dezelfde manier als ze zijn gedistribueerd. Dat is een ingewikkelder onderwerp. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. Statistieken maken een groot verschil. 
+3. Voer deze instructie uit om statistieken te maken voor de samenvoegingskolommen.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > SQL DW beheert niet automatisch statistieken voor u. Statistieken zijn belangrijk voor de prestaties van query's en we raden u ten zeerste aan statistieken te maken en bij te werken.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **U haalt het meeste voordeel uit statistieken bij kolommen die onderdeel uitmaken van samenvoegingen, kolommen met het WHERE-component en kolommen in GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een versnelling moeten zien. 
 
-## Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-You're now ready to query and explore. Check out our best practices or tips.
+U bent nu klaar om query’s uit te voeren en te verkennen. Bekijk onze aanbevolen procedures en tips.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Als u klaar bent voor vandaag, zorg dan dat u uw exemplaar onderbreekt. U kunt enorm besparen op de productie door te onderbreken en schalen op basis van uw zakelijke behoeften.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Onderbreken](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Handige documentatie
 
-[Concurrency and Workload Management][]
+[Gelijktijdigheid en werklastbeheer][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Aanbevolen procedures voor Azure SQL Data Warehouse][]
 
-[Query Monitoring][]
+[Querybewaking][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse][]
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Gegevens migreren naar Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Gelijktijdigheid en werklastbeheer]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Aanbevolen procedures voor Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Querybewaking]: sql-data-warehouse-manage-monitor.md
+[Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Gegevens migreren naar Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Vereisten]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

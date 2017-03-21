@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Wat is Site Recovery?
 
-Welkom bij de Azure Site Recovery-service! Dit artikel bevat een overzicht van de service en koppelingen naar meer informatie.
+Welkom bij de Azure Site Recovery-service! In dit artikel vindt u een kort overzicht van de service.
 
-Storingen worden veroorzaakt door natuurlijke gebeurtenissen en operationele fouten. Uw organisatie heeft een BCDR-strategie (strategie voor bedrijfscontinuïteit en noodherstel) nodig die gegevens veilig houdt en apps beschikbaar houdt tijdens geplande en ongeplande uitval. Daarnaast moet er een strategie zijn om de normale manier van functioneren na uitval zo snel mogelijk te herstellen.
+Storingen worden veroorzaakt door natuurlijke gebeurtenissen en operationele fouten. Uw organisatie heeft een BCDR-strategie (strategie voor bedrijfscontinuïteit en noodherstel) nodig die apps en gegevens veilig en beschikbaar houdt tijdens geplande en ongeplande uitval. Daarnaast moet er een strategie zijn om de normale manier van functioneren na uitval zo snel mogelijk te herstellen.
 
-Azure Recovery Services dragen bij aan de BCDR-strategie. Gebruik [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) om gegevens veilig en herstelbaar op te slaan. Gebruik Site Recovery voor replicatie, failover en herstel van workloads, zodat ze beschikbaar blijven in geval van storing.
+Azure Recovery Services dragen bij aan uw BCDR-strategie. De [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/)-service slaat uw gegevens veilig en herstelbaar op. Gebruik Site Recovery voor replicatie, failover en herstel van workloads, zodat ze beschikbaar blijven in geval van storing.
 
 ## <a name="what-does-site-recovery-provide"></a>Wat biedt Site Recovery?
 
@@ -47,12 +47,6 @@ Gerepliceerde gegevens worden opgeslagen in Azure Storage met alle bijbehorende 
 * **Integratie met de Automation-bibliotheek**: De uitgebreide Azure Automation-bibliotheek biedt toepassingsspecifieke scripts die klaar zijn voor gebruik en kunnen worden gedownload en geïntegreerd met Site Recovery.
 * **Eenvoudig netwerkbeheer**: Dankzij geavanceerd netwerkbeheer in Site Recovery en Azure gelden er minder complexe vereisten voor het toepassingsnetwerk. Dit heeft onder andere invloed op het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor het efficiënt schakelen tussen netwerken.
 
-## <a name="which-azure-portal"></a>Welke Azure-portal?
-
-* Site Recovery kan zowel in de nieuwere [Azure Portal](https://portal.azure.com) als in de [klassieke Azure-portal](https://manage.windowsazure.com/)worden geïmplementeerd.
-* In de klassieke Azure-portal kunt u Site Recovery ondersteunen met het klassieke model voor het beheren van services.
-* In Azure Portal kunt u implementaties volgens het klassieke model of volgens het nieuwere [Resource Manager-implementatiemodel](../azure-resource-manager/resource-manager-deployment-model.md) ondersteunen.
-- De klassieke portal moet alleen worden gebruikt voor het onderhouden van de bestaande Site Recovery-implementaties. U kunt via de klassieke portal geen nieuwe kluizen maken.
 
 ## <a name="whats-supported"></a>Wat wordt er ondersteund?
 
@@ -64,6 +58,14 @@ Gerepliceerde gegevens worden opgeslagen in Azure Storage met alle bijbehorende 
 **Waar kan ik naar repliceren?** | Naar Azure Storage of naar een secundair datacenter<br/><br/> Voor Hyper-V kunnen alleen virtuele machines op Hyper-V-hosts die in System Center VMM-clouds worden beheerd, naar een secundair datacenter repliceren.
 **Welke VMware-servers/-hosts moet ik gebruiken?** | De VMware-VM's die u wilt repliceren, kunnen worden beheerd door [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
 **Welke workloads kan ik repliceren?** | U kunt iedere werkload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
+
+
+## <a name="which-azure-portal"></a>Welke Azure-portal?
+
+* Site Recovery kan zowel in de nieuwere [Azure Portal](https://portal.azure.com) als in de [klassieke Azure-portal](https://manage.windowsazure.com/)worden geïmplementeerd.
+* In de klassieke Azure-portal kunt u Site Recovery ondersteunen met het klassieke model voor het beheren van services.
+* In Azure Portal kunt u implementaties volgens het klassieke model of volgens het nieuwere [Resource Manager-implementatiemodel](../azure-resource-manager/resource-manager-deployment-model.md) ondersteunen.
+- De klassieke portal moet alleen worden gebruikt voor het onderhouden van de bestaande Site Recovery-implementaties. U kunt via de klassieke portal geen nieuwe kluizen maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [workloadondersteuning](site-recovery-workload.md)

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -26,6 +26,9 @@ ms.lasthandoff: 02/23/2017
 Lees dit artikel voor een overzicht van hoe u de service Azure Site Recovery gebruikt om virtuele machines en fysieke servers te migreren.
 
 Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md) U kunt Site Recovery ook gebruiken om uw bestaande on-premises workloads te migreren naar Azure om uw traject naar de cloud te versnellen en gebruik te maken van de reeks functies die Azure biedt.
+
+Raadpleeg deze video voor een snel overzicht van hoe u de migratie kunt uitvoeren.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 Dit artikel beschrijft de implementatie in [Azure Portal](https://portal.azure.com). De [klassieke Azure-portal](https://manage.windowsazure.com/) kan worden gebruikt voor het onderhoud van de bestaande Site Recovery-kluizen. U kunt geen nieuwe kluizen maken.
 
