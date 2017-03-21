@@ -1,5 +1,5 @@
 ---
-title: Visual Studio-projecten voor Azure-resourcegroepen | Microsoft Docs
+title: Visual Studio Azure-resourcegroepprojecten | Microsoft Docs
 description: Gebruik Visual Studio om een Azure-resourcegroepproject te maken en de resources in Azure te implementeren.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,17 +26,17 @@ Met Visual Studio en de [Azure SDK](https://azure.microsoft.com/downloads/) kunt
 
 Azure-resourcegroepprojecten bevatten Azure Resource Manager JSON-sjablonen, die de resources definiëren die u implementeert in Azure. Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de onderdelen van een Resource Manager-sjabloon. Met Visual Studio kunt u deze sjablonen bewerken. Visual Studio voorziet ook in hulpprogramma's die het eenvoudiger maken om met sjablonen te werken.
 
-In dit onderwerp implementeert u een web-app en SQL database. De stappen zijn echter bijna hetzelfde zijn voor elk type resource. U kunt net zo eenvoudig een Virtuele Machine en de bijbehorende resources implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's.
+In dit artikel gaat u een web-app en SQL Database implementeren. De stappen zijn echter bijna hetzelfde zijn voor elk type resource. U kunt net zo eenvoudig een Virtuele Machine en de bijbehorende resources implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's.
 
-Dit artikel toont Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9. Als u Visual Studio 2013 met Azure SDK 2.9 gebruikt, is uw ervaring grotendeels hetzelfde. U kunt Azure SDK versie 2.6 en hoger gebruiken, maar dan is uw ervaring mogelijk anders dan beschreven in dit artikel. Het is raadzaam om de nieuwste versie van de [Azure SDK](https://azure.microsoft.com/downloads/) te installeren voordat u met de stappen begint. 
+In dit artikel wordt Visual Studio 2017 gebruikt. Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde. U kunt Azure SDK versie 2.6 en hoger gebruiken, maar dan is uw ervaring mogelijk anders dan beschreven in dit artikel. Het is raadzaam om de nieuwste versie van de [Azure SDK](https://azure.microsoft.com/downloads/) te installeren voordat u met de stappen begint. 
 
 ## <a name="create-azure-resource-group-project"></a>Een Azure-resourcegroepproject maken
 In deze procedure maakt u een Azure Resource Group-project met het sjabloon **Web app + SQL**.
 
-1. Ga in Visual Studio naar **Bestand**, **Nieuw project**. Kies vervolgens **C#** of **Visual Basic**. Kies vervolgens **Cloud** en het **Azure-resourcegroep**-project.
+1. Ga in Visual Studio naar **Bestand**, **Nieuw project**. Kies vervolgens **C#** of **Visual Basic**. Kies vervolgens **Cloud** en het project **Azure-resourcegroep**.
    
     ![Project voor cloudimplementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Kies het sjabloon dat u wilt implementeren in Azure Resource Manager. Er zijn diverse opties beschikbaar op basis van het type project dat u wilt implementeren. Voor dit onderwerp kiest u het sjabloon **Web-app + SQL**.
+2. Kies het sjabloon dat u wilt implementeren in Azure Resource Manager. Er zijn diverse opties beschikbaar op basis van het type project dat u wilt implementeren. Voor dit artikel kiest u de sjabloon **Web-app + SQL**.
    
     ![Een sjabloon selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +48,7 @@ In deze procedure maakt u een Azure Resource Group-project met het sjabloon **We
    > 
    
     Visual Studio maakt een project voor resourcegroepimplementatie voor de webtoepassing en SQL Database.
-3. Vouw de knooppunten in het implementatieproject uit om te zien wat u hebt gemaakt.
+3. Kijk naar het knooppunt in het implementatieproject om te zien wat u hebt gemaakt.
    
     ![knooppunten weergegeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,7 +114,7 @@ U kunt **numberOfWorkers** instellen op 1.
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Het resourcegroepproject implementeren in Azure
 U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroepsproject implementeert, implementeert u het in een Azure-resourcegroep. De resourcegroep is een logische groepering van resources die een gemeenschappelijke lifecycle delen.
 
-1. Kies in het snelmenu van het implementatieprojectknooppunt **Implementeren** > **Nieuwe implementatie**.
+1. Kies **Implementeren** > **Nieuw** in het snelmenu van het knooppunt van het implementatieproject.
    
     ![Het menu-item Implementeren, Nieuwe implementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
@@ -150,7 +151,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
 6. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. Open in een browser de [Azure Portal](https://portal.azure.com/) en meld u aan bij uw account. Als u de resourcegroep wilt bekijken, selecteert u **Resourcegroepen** en vervolgens de resourcegroep waarin u hebt geïmplementeerd.
    
     ![groep selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +163,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
     ![Azure-resourcegroep geïmplementeerd](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Code implementeren in uw infrastructuur
-U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen code geïmplementeerd in uw project. In dit onderwerp staat hoe u webtoepassingen en SQL Database-tabellen implementeert tijdens de implementatie. Als u een virtuele machine implementeert in plaats van een webtoepassing, moet u als onderdeel van de implementatie code uitvoeren op de machine. De processen voor het implementeren van code voor een webtoepassing en voor het instellen van een virtuele machine zijn bijna hetzelfde.
+U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen code geïmplementeerd in uw project. In dit artikel leest u hoe u een webtoepassing en SQL Database-tabellen implementeert tijdens de implementatie. Als u een virtuele machine implementeert in plaats van een webtoepassing, moet u als onderdeel van de implementatie code uitvoeren op de machine. De processen voor het implementeren van code voor een webtoepassing en voor het instellen van een virtuele machine zijn bijna hetzelfde.
 
 1. Voeg een project toe aan uw Visual Studio-oplossing. Klik met de rechtermuisknop op de oplossing en selecteer **Toevoegen** > **Nieuw Project**.
    
@@ -170,7 +171,7 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
 2. Voeg een **ASP.NET-webtoepassing** toe. 
    
     ![webtoepassing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Selecteer **MVC** en wis het veld voor **Hosten in de cloud**, omdat de taak wordt uitgevoerd via het resourcegroepproject.
+3. Selecteer **MVC**.
    
     ![MVC selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Nadat Visual Studio uw web-app heeft gemaakt, ziet u beide projecten in de oplossing.
@@ -194,7 +195,7 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
    * Met de standaardwaarde van **Build;Package** kan tijdens de implementatie een webtoepassingspakket worden gebouwd en gemaakt (pakket.zip).  
      
      Er is geen publicatieprofiel nodig omdat tijdens de implementatie de benodigde informatie voor het maken van het pakket wordt verkregen uit de eigenschappen.
-7. Voeg een resource toe aan de sjabloon.
+7. Ga terug naar WebSiteSQLDatabase.json en voeg een resource toe aan de sjabloon.
    
     ![resource toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Selecteer deze keer **Webimplementatie voor Web Apps**. 
@@ -215,10 +216,5 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over het beheren van resources via de portal raadpleegt u [Azure Portal gebruiken om uw Azure-resources te beheren](resource-group-portal.md).
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
