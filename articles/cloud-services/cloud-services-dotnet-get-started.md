@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ De instructies in de zelfstudie zijn van toepassing op een van de volgende produ
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Als u deze niet hebt, wordt Visual Studio 2015 automatisch geïnstalleerd wanneer u de Azure SDK installeert.
+Als u deze niet hebt, wordt Visual Studio mogelijk automatisch geïnstalleerd wanneer u de Azure SDK installeert.
 
 ## <a name="application-architecture"></a>Toepassingsarchitectuur
 De app slaat de advertenties met behulp van Entity Framework Code First op in een SQL-database om de tabellen te maken en toegang te krijgen tot de gegevens. Voor elke advertentie slaat de database twee URL's op: één voor de afbeelding op volledige grootte en één voor de miniatuur.
@@ -76,7 +78,7 @@ Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitg
 
     Standaard herstelt Visual Studio automatisch de inhoud van het NuGet-pakket, dat niet is opgenomen in het *.zip*-bestand. Als de pakketten niet worden hersteld, installeert u deze handmatig door naar het dialoogvenster **Manage NuGet Packages for Solution** te gaan en rechts bovenaan op de knop **Restore** te klikken.
 5. Zorg er in **Solution Explorer** voor dat **ContosoAdsCloudService** is geselecteerd als opstartproject.
-6. Als u Visual Studio 2015 gebruikt, wijzigt u de SQL Server-verbindingsreeks in het *Web.config*-toepassingsbestand van het ContosoAdsWeb-project en in het *ServiceConfiguration.Local.cscfg*-bestand van het ContosoAdsCloudService-project. Wijzig in beide gevallen '(localdb)\v11.0' in '(localdb)\MSSQLLocalDB'.
+6. Als u Visual Studio 2015 of hoger gebruikt, wijzigt u de SQL Server-verbindingsreeks in het *Web.config*-toepassingsbestand van het ContosoAdsWeb-project en in het *ServiceConfiguration.Local.cscfg*-bestand van het ContosoAdsCloudService-project. Wijzig in beide gevallen '(localdb)\v11.0' in '(localdb)\MSSQLLocalDB'.
 7. Druk op CTRL + F5 om de toepassing uit te voeren.
 
     Wanneer u een cloudserviceproject lokaal uitvoert, roept Visual Studio automatisch de Azure-*rekenemulator* en de Azure-*opslagemulator* aan. De rekenemulator maakt gebruik van bronnen van de computer om de webrol- en werkrolomgeving te simuleren. De opslagemulator maakt gebruik van een [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx)-database om Azure-cloudopslag te simuleren.
@@ -364,7 +366,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
     </connectionStrings>
     ```
 
-    Als u Visual Studio 2015 gebruikt, vervangt u "v11.0" door "MSSQLLocalDB".
+    Als u Visual Studio 2015 of hoger gebruikt, vervangt u 'v11.0' door 'MSSQLLocalDB'.
 2. Sla uw wijzigingen op.
 3. Klik in het project ContosoAdsCloudService met de rechtermuisknop op ContosoAdsWeb (onder **Roles**) en klik vervolgens op **Properties**.
 
@@ -381,7 +383,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
 
    * Name: ContosoAdsDbConnectionString
    * Type: String
-   * Value: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
+   * Value: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 of hoger gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ Zie de volgende bronnen voor meer informatie:
 * [Cloud Services beheren](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

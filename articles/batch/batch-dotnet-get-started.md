@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van C# en Visu
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-U moet beschikken over **Visual Studio 2015** om het voorbeeldproject te kunnen maken. U vindt gratis en evaluatieversies van Visual Studio in het [overzicht van Visual Studio 2015-producten][visual_studio].
+U moet beschikken over **Visual Studio 2015 of hoger** om het voorbeeldproject te kunnen maken. U vindt gratis en evaluatieversies van Visual Studio in het [overzicht van Visual Studio-producten][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*-codevoorbeeld
 Het [DotNetTutorial][github_dotnettutorial]-voorbeeld is een van de vele Batch-codevoorbeelden die u vindt in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt alle voorbeelden downloaden door te klikken op **Clone or download > Download ZIP** (Klonen of downloaden > ZIP downloaden) op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de oplossing in deze map:
@@ -59,7 +59,7 @@ Het [DotNetTutorial][github_dotnettutorial]-voorbeeld is een van de vele Batch-c
 [Azure Batch Explorer][github_batchexplorer] is een gratis hulpprogramma dat is opgenomen in de opslagplaats [azure-batch-samples][github_samples] in GitHub. Hoewel het niet is vereist om deze zelfstudie te voltooien, kan het nuttig zijn bij de ontwikkeling en foutopsporing van uw Batch-oplossingen.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Overzicht DotNetTutorial-voorbeeldproject
-Het *DotNetTutorial*-codevoorbeeld is een Visual Studio 2015-oplossing die uit twee projecten bestaat: **DotNetTutorial** en **TaskApplication**.
+Het *DotNetTutorial*-codevoorbeeld is een Visual Studio-oplossing die uit twee projecten bestaat: **DotNetTutorial** en **TaskApplication**.
 
 * **DotNetTutorial** is de clienttoepassing die met de Batch- en Storage-services communiceert voor het uitvoeren van een parallelle workload op rekenknooppunten (virtuele machines). DotNetTutorial wordt uitgevoerd op uw lokale werkstation.
 * **TaskApplication** is het programma dat op rekenknooppunten in Azure wordt uitgevoerd om het echte werk te verrichten. In het voorbeeld parseert `TaskApplication.exe` de tekst in een bestand dat van Azure Storage is gedownload (het invoerbestand). Daarna creëert het een tekstbestand (het uitvoerbestand) met daarin een lijst van de eerste drie woorden die het invoerbestand bevat. Nadat TaskApplication het uitvoerbestand heeft gemaakt, wordt het bestand geüpload naar Azure Storage. Hierdoor is het voor de clienttoepassing beschikbaar als download. TaskApplication wordt parallel uitgevoerd op meerdere rekenknooppunten in de Batch-service.
@@ -792,7 +792,7 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Containers maken in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers"

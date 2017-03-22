@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Aan de slag met Microsoft Power BI Embedded
+
 **Power BI Embedded** is een Azure-service waarmee ontwikkelaars van toepassingen interactieve Power BI-rapporten aan hun eigen toepassingen kunnen toevoegen. **Power BI Embedded** werkt met bestaande toepassingen zonder dat deze opnieuw hoeven te worden ontworpen en zonder de manier te hoeven wijzigen waarop gebruikers zich aanmelden.
 
 Resources voor **Microsoft Power BI Embedded** worden ingericht via [Azure ARM-API's](https://msdn.microsoft.com/library/mt712306.aspx). In dit geval is de resource die u inricht een **Power BI-werkruimteverzameling**.
@@ -30,6 +30,7 @@ Resources voor **Microsoft Power BI Embedded** worden ingericht via [Azure ARM-A
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Een werkruimteverzameling maken
+
 Een **werkruimteverzameling** is een Azure-resource op het hoogste niveau en een container voor de inhoud die wordt ingesloten in uw toepassing. U kunt op twee manieren een **werkruimteverzameling** maken:
 
 * Handmatig met de Azure-portal
@@ -56,6 +57,7 @@ De **Creation Blade** (Blade Maken) bevat de informatie die u nodig hebt om de A
 <a name="view-access-keys"/>
 
 ## <a name="view-power-bi-api-access-keys"></a>Toegangssleutels voor Power BI API
+
 Een van de belangrijkste stukjes informatie die nodig zijn om Power BI REST API's aan te roepen, zijn de **toegangssleutels**. Deze worden gebruikt voor het genereren van de **app-tokens** die worden gebruikt om uw API-aanvragen te verifiëren. U geeft uw **toegangssleutels** weer door te klikken op **Toegangssleutels** op de **blade Instellingen**. Voor meer informatie over **app-tokens** verwijzen wij u naar [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md) (Verifiëren en autoriseren met Power BI Embedded).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ Nu u een exemplaar van Power BI voor uw toepassing en **toegangssleutels** hebt,
 
 Nadat u de verzameling met werkruimten hebt gemaakt, moet u een werkruimte maken voor rapporten en gegevenssets. U moet de [Post Workspace REST-API](https://msdn.microsoft.com/library/azure/mt711503.aspx) gebruiken om een werkruimte te maken.
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Power BI-gegevenssets en -rapporten maken om in een app in te sluiten
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI-gegevenssets en -rapporten maken om in een app in te sluiten met behulp van Power BI Desktop
+
 Nu u een exemplaar van Power BI voor uw toepassing hebt gemaakt en **toegangssleutels** hebt, moet u de Power BI-gegevenssets en -rapporten maken die u wilt insluiten. Gegevenssets en rapporten kunnen worden gemaakt met behulp van **Power BI Desktop**. U kunt [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662) downloaden. Of u downloadt de [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) als u snel aan de slag wilt.
 
 > [!NOTE]
@@ -95,20 +98,25 @@ Nadat u uw werk in **Power BI Desktop** hebt opgeslagen, wordt een PBIX-bestand 
 > [!NOTE]
 > **Power BI Embedded** heeft aanvullende API's voor het wijzigen van de server en database waarnaar uw gegevensset wijst en het instellen van accountreferenties die door de gegevensset wordt gebruikt voor het maken van een verbinding met uw database. Zie [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) en [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## <a name="next-steps"></a>Volgende stappen
-In de vorige stappen hebt u een werkruimteverzameling en uw eerste rapport en gegevensset gemaakt. Nu gaat u leren hoe u code schrijft voor **Power BI Embedded**. Om u te helpen hiermee aan de slag te gaan, hebben we een voorbeeld van een webapp gemaakt: [Aan de slag met het voorbeeld](power-bi-embedded-get-started-sample.md). Het voorbeeld laat u zien hoe u het volgende doet:
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Power BI-gegevenssets en -rapporten maken met behulp van API's
 
-* Inhoud inrichten
-  * Een werkruimte maken
-  * Een PBIX-bestand importeren
-  * Verbindingstekenreeksen bijwerken en referenties voor gegevenssets instellen
-* Een rapport veilig insluiten
+### <a name="datsets"></a>Gegevenssets
+
+U kunt gegevenssets in Power BI Embedded maken met behulp van de REST-API. Vervolgens kunt u gegevens naar uw gegevensset pushen. Hierdoor kunt u met gegevens werken zonder Power BI Desktop te gebruiken. Zie [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Gegevenssets posten) voor meer informatie.
+
+### <a name="reports"></a>Rapporten
+
+U kunt een rapport uit een gegevensset rechtstreeks in uw toepassing maken met de JavaScript-API. Zie [Create a new report from a dataset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md) (Een nieuw rapport maken uit een gegevensset in Power BI Embedded) voor meer informatie.
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag met het voorbeeld](power-bi-embedded-get-started-sample.md)
-* [Verifiëren en autoriseren met Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Aan de slag met het voorbeeld](power-bi-embedded-get-started-sample.md)  
+[Verifiëren en autoriseren in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Een rapport insluiten](power-bi-embedded-embed-report.md)  
+[Een nieuw rapport maken uit een gegevensset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md)
+[Rapporten opslaan](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Voorbeeld van ingesloten JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)
 
 

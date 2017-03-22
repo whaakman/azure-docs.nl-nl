@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ Service Bus is een multitenant-cloudservice, hetgeen betekent dat de service wor
 
 **Afbeelding 1: Service Bus voorziet in een multitenant-service voor verbinding van toepassingen via de cloud.**
 
-Binnen een naamruimte kunt u een of meer exemplaren van vier verschillende communicatiemechanismen gebruiken, die toepassingen alle vier op een andere manier verbinden. De opties zijn:
+Binnen een naamruimte kunt u een of meer exemplaren van drie verschillende communicatiemechanismen gebruiken, die toepassingen alle drie op een andere manier verbinden. De opties zijn:
 
 * *Wachtrijen*, waarmee communicatie in één richting mogelijk is. Elke wachtrij fungeert als intermediaire service (ook wel *broker* genoemd) die de verzonden berichten opslaat totdat ze worden ontvangen. Elk bericht wordt door één ontvanger ontvangen.
 * *Onderwerpen*, die communicatie in één richting bieden via *abonnementen*, waarbij een enkel onderwerp meerdere abonnementen kan hebben. Net zoals een wachtrij fungeert een onderwerp als broker, maar elk abonnement kan optioneel een filter gebruiken om alleen berichten te ontvangen die aan bepaalde criteria voldoen.
@@ -40,7 +41,7 @@ Binnen een naamruimte kunt u een of meer exemplaren van vier verschillende commu
 
 Wanneer u een wachtrij, onderwerp of relay maakt, geeft u deze een naam. In combinatie met de naam van uw naamruimte wordt aan de hand van deze naam een unieke id voor het object gemaakt. Toepassingen kunnen deze naam verstrekken aan Service Bus en vervolgens de wachtrij, het onderwerp of de relay gebruiken om met elkaar te communiceren. 
 
-Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Voor wachtrijen en onderwerpen kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen en onderwerpen met behulp van REST-API's via HTTP(S). 
+Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Voor wachtrijen en onderwerpen kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen en onderwerpen met behulp van [REST-API's](/rest/api/servicebus/) via HTTP(S). 
 
 Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een communicatiemechanisme in de cloud dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
 
@@ -55,15 +56,15 @@ Het proces is eenvoudig: een afzender verzendt een bericht naar een Service Bus-
 
 Elk bericht bestaat uit twee delen: een reeks eigenschappen, elk een sleutel-waardepaar, en een berichtnettolading. De nettolading kan binair, tekst of zelfs XML zijn. Hoe deze worden gebruikt, hangt af van wat een toepassing probeert te doen. Een toepassing die een bericht verzendt over een recente verkoop, kan bijvoorbeeld de eigenschappen *Verkoper = Ava* en *Bedrag =&10000;* bevatten. De berichttekst kan een gescande afbeelding van de ondertekende verkoopovereenkomst bevatten of, indien deze er niet is, leeg blijven.
 
-Een ontvanger kan op twee verschillende manieren een bericht in een Service Bus-wachtrij lezen. Met de eerste optie, *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, wordt een bericht uit de wachtrij verwijderd en onmiddellijk gewist. Dit is eenvoudig, maar als de ontvanger vastloopt voordat het bericht is verwerkt, gaat het bericht verloren. Andere ontvangers hebben geen toegang tot het bericht, omdat het uit de wachtrij is verwijderd. 
+Een ontvanger kan op twee verschillende manieren een bericht in een Service Bus-wachtrij lezen. Met de eerste optie, *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, wordt een bericht uit de wachtrij verwijderd en onmiddellijk gewist. Dit is eenvoudig, maar als de ontvanger vastloopt voordat het bericht is verwerkt, gaat het bericht verloren. Andere ontvangers hebben geen toegang tot het bericht, omdat het uit de wachtrij is verwijderd. 
 
-De tweede optie, *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, is bedoeld om dit probleem te ondervangen. Net zoals bij **ReceiveAndDelete** wordt het bericht met **PeekLock** verwijderd uit de wachtrij. Het bericht wordt echter niet gewist. In plaats daarvan wordt het vergrendeld, waardoor het onzichtbaar wordt voor andere ontvangers. Vervolgens wordt gewacht op een van drie gebeurtenissen:
+De tweede optie, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, is bedoeld om dit probleem te ondervangen. Net zoals bij **ReceiveAndDelete** wordt het bericht met **PeekLock** verwijderd uit de wachtrij. Het bericht wordt echter niet gewist. In plaats daarvan wordt het vergrendeld, waardoor het onzichtbaar wordt voor andere ontvangers. Vervolgens wordt gewacht op een van drie gebeurtenissen:
 
-* Als de ontvanger het bericht met succes heeft verwerkt, ontvangt de wachtrij de melding **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** en wordt het bericht uit de wachtrij verwijderd. 
-* Als de ontvanger het bericht niet naar behoren kan verwerken, ontvangt de wachtrij de melding **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**. De vergrendeling van het bericht in de wachtrij wordt ongedaan gemaakt en het bericht is beschikbaar voor andere ontvangers.
+* Als de ontvanger het bericht met succes heeft verwerkt, ontvangt de wachtrij de melding [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) en wordt het bericht uit de wachtrij verwijderd. 
+* Als de ontvanger het bericht niet naar behoren kan verwerken, ontvangt de wachtrij de melding [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). De vergrendeling van het bericht in de wachtrij wordt ongedaan gemaakt en het bericht is beschikbaar voor andere ontvangers.
 * Als de ontvanger binnen de geconfigureerde tijd (standaard 60 seconden) geen van beide meldingen afgeeft, wordt ervan uitgegaan dat het ontvangen is mislukt. In dit geval gedraagt de wachtrij zich alsof de ontvanger de melding **Afbreken** heeft afgegeven en wordt het bericht beschikbaar gesteld aan andere ontvangers.
 
-Ziet u wat er hier kan gebeuren? Hetzelfde bericht kan dus tweemaal worden bezorgd, mogelijk bij twee verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. Om detectie van duplicaten gemakkelijker te maken, heeft elk bericht een unieke **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)**. Deze eigenschap blijft standaard hetzelfde, ongeacht hoe vaak het bericht in een wachtrij is gelezen. 
+Ziet u wat er hier kan gebeuren? Hetzelfde bericht kan dus tweemaal worden bezorgd, mogelijk bij twee verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. Om detectie van duplicaten gemakkelijker te maken, heeft elk bericht een unieke [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId). Deze eigenschap blijft standaard hetzelfde, ongeacht hoe vaak het bericht in een wachtrij is gelezen. 
 
 Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen toepassingen zelfs communiceren wanneer ze niet tegelijkertijd worden uitgevoerd. Dit is met name handig bij batchtoepassingen en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
 
@@ -80,7 +81,7 @@ Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden ber
 * Abonnee 2 ontvangt berichten met de eigenschap *Verkoper = Ruby* en/of een eigenschap *Bedrag* met een waarde van meer dan 100.000. Wellicht is Ruby de verkoopmanager en wil ze zowel haar eigen verkopen als alle omvangrijke verkopen zien, ongeacht wie ze tot stand brengt.
 * Abonnee 3 heeft het filter ingesteld op *Waar*, hetgeen betekent dat alle berichten worden ontvangen. Wellicht is deze toepassing bijvoorbeeld verantwoordelijk voor het onderhouden van een audittrail en moet deze alle berichten zien.
 
-Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met [**ReceiveAndDelete** of **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden door meerdere abonnementen worden ontvangen. Deze benadering, doorgaans aangeduid met *publiceren en abonneren* (of *pub/sub*), is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
+Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met [ReceiveAndDelete of PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden door meerdere abonnementen worden ontvangen. Deze benadering, doorgaans aangeduid met *publiceren en abonneren* (of *pub/sub*), is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
 
 ## <a name="relays"></a>Relays
 Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals weergegeven in afbeelding 4.
@@ -116,9 +117,4 @@ U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de vo
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

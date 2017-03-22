@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Kopieer het ZIP-bestand naar de Windows-server waarop u het hulpprogramma wilt u
 Pak de gecomprimeerde map uit. U ziet meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de bovenliggende map.
 
 Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Functionaliteit
 Het opdrachtregelprogramma (ASRDeploymentPlanner.exe) kan worden uitgevoerd in een van de volgende drie modi:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Voorbeeld 2: een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden. De gebruiker moet lees-/schrijftoegang hebben voor de externe directory.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Voorbeeld 3: een rapport genereren met specifieke bandbreedte en het doel IR te voltooien binnen de opgegeven periode
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Totale aantal schijven voor alle compatibele virtuele machines is het totale aan
 
 **Te plaatsen virtuele machines** geeft een lijst van alle virtuele machines die in het opgegeven Azure-opslagaccount moeten worden geplaatst voor optimale prestaties en optimaal gebruik.
 
-##<a name="compatible-vms"></a>Compatibele VM's
+## <a name="compatible-vms"></a>Compatibele VM's
 ![Implementatieplanner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM-naam** is de naam van de virtuele machine die of het IP-adres dat tijdens het genereren van het rapport is gebruikt in het bestand VMListFile. Deze kolom bevat ook de schijven (VMDK's) die zijn gekoppeld aan de virtuele machines.
+**VM-naam** is de naam van de virtuele machine die of het IP-adres dat tijdens het genereren van het rapport is gebruikt in het bestand VMListFile. Deze kolom bevat ook de schijven (VMDK's) die zijn gekoppeld aan de virtuele machines. Virtuele machines op een vCenter met dubbele namen of IP-adressen worden weergegeven met de ESXi-hostnaam om onderscheid te maken tussen de virtuele machines. De vermelde ESXi-host is de host waarop de virtuele machine tijdens de profileringsperiode is geplaatst bij de eerste detectie door het hulpprogramma.
 
 **VM-compatibiliteit** heeft twee waarden: Ja / Ja*. Ja* is bedoeld voor gevallen waarin de virtuele machine dankzij een geprofileerd hoog verloop en een IOPS-schijf die in categorie P20 of P30 past, geschikt is voor [Premium Azure Storage](https://aka.ms/premium-storage-workload), maar de grootte van de schijf ervoor zorgt dat deze als P10 of P20 wordt geclassificeerd. Azure Storage bepaalt op basis van de grootte aan welk type Premium Storage-schijf een schijf moet worden toegewezen. Hierbij geldt het volgende: < 128 GB is P10, 128 tot 512 GB is P20 en 512 GB tot 1023 GB is P30. Dus als een schijf conform de workloadkenmerken in categorie P20 of P30 valt, maar deze in verband met de grootte aan een lager Premium Storage-type wordt toegewezen, markeert het hulpprogramma die virtuele machine als Ja*. Bovendien wordt u aangeraden hetzij de grootte van de bronschijf te wijzigen, zodat deze geschikt is voor het aanbevolen Premium Storage-schijftype, hetzij het type doelschijf na de failover te wijzigen.
 Opslagtype is Standard of Premium.
@@ -439,7 +439,7 @@ Opslagtype is Standard of Premium.
 
 ![Implementatieplanner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM-naam** is de naam van de virtuele machine die of het IP-adres dat tijdens het genereren van het rapport is gebruikt in het bestand VMListFile. Deze kolom bevat ook de schijven (VMDK's) die zijn gekoppeld aan de virtuele machines.
+**VM-naam** is de naam van de virtuele machine die of het IP-adres dat tijdens het genereren van het rapport is gebruikt in het bestand VMListFile. Deze kolom bevat ook de schijven (VMDK's) die zijn gekoppeld aan de virtuele machines. Virtuele machines op een vCenter met dubbele namen of IP-adressen worden weergegeven met de ESXi-hostnaam om onderscheid te maken tussen de virtuele machines. De vermelde ESXi-host is de host waarop de virtuele machine tijdens de profileringsperiode is geplaatst bij de eerste detectie door het hulpprogramma.
 
 **VM-compatibiliteit** geeft aan waarom de opgegeven virtuele machine niet compatibel is voor gebruik met Azure Site Recovery. De redenen worden vermeld per incompatibele schijf van de virtuele machine. Hierbij kan het gaan om een van de volgende redenen op basis van de gepubliceerde Azure Storage-[limieten](https://aka.ms/azure-storage-scalbility-performance).
 
@@ -483,7 +483,24 @@ Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Azure Site Recov
 
 De bovenstaande gepubliceerde limieten zijn gebaseerd op onze tests maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, zelfs na het plannen van de implementatie, is het altijd beter om toepassingen uitgebreid te testen met behulp van een testfailover. Zo krijgt u een nauwkeurig inzicht in de prestaties.
 
-##<a name="release-notes"></a>Releaseopmerkingen
+## <a name="how-to-update-the-deployment-planner"></a>De implementatieplanner bijwerken?
+[Download](site-recovery-deployment-planner.md#download) de nieuwste versie van de Azure Site Recovery-implementatieplanner. Kopieer het ZIP-bestand naar een server waarop u de toepassing wilt uitvoeren. Pak het gecomprimeerde bestand uit.
+Als u een eerdere versie van de implementatieplanner hebt en profilering wordt uitgevoerd, hoeft u de profilering niet te stoppen, tenzij de nieuwe versie profileringsherstel heeft. Als de release verbeteringen in de profileringsonderdelen bevat, verdient het aanbeveling om profilering in de oudere versie te stoppen en de profilering opnieuw te starten met de nieuwe versie. Houd er rekening mee dat wanneer u de profilering start met de nieuwe versie, u hetzelfde pad voor de uitvoermap moet gebruiken, zodat het hulpprogramma profielgegevens van bestaande bestanden kan toevoegen en de volledige set profielgegevens kan worden gebruikt voor het genereren van rapporten. Als u verschillende uitvoermappen doorgeeft, worden er nieuwe bestanden gemaakt en kunnen gegevens van oude profielen niet worden gebruikt bij het genereren van rapporten.<br> Elke update is een cumulatieve update met een ZIP-bestand. U hoeft de nieuwe versiebestanden niet te kopiëren naar de map van de vorige versie om ze te gebruiken. U kunt hier de nieuwe map voor gebruiken.
+
+
+##<a name="version-history"></a>Versiegeschiedenis
+### <a name="11"></a>1.1
+Bijgewerkt op: 09 maart 2017 <br>
+
+De volgende problemen zijn verholpen<br>
+
+* Kan geen virtuele machines profileren als het vCenter twee of meer virtuele machines met dezelfde naam/hetzelfde IP-adres voor verschillende ESXi-hosts heeft.<br>
+* Kopiëren en zoeken is uitgeschakeld voor de blades Compatibele VM's en Incompatibele VM's.
+
+
+### <a name="10"></a>1.0 
+Bijgewerkt op: 23 februari 2017 
+
 De openbare previewversie 1.0 van de Azure Site Recovery-implementatieplanner heeft de volgende bekende problemen die in toekomstige updates worden verholpen.
 
 * Het programma werkt alleen voor VMware-naar-Azure-implementaties, niet voor Hyper-V-naar-Azure-implementaties. Gebruik voor Hyper-V naar Azure de [Capaciteitsplanner voor Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).

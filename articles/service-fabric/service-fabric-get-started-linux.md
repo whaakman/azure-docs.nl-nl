@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via apt-get, m
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Voeg de nieuwe GPG-sleutel toe aan uw apt-sleutelhanger.
+3. Voeg de dotnet-opslagplaats toe aan uw lijst met bronnen.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Voeg de nieuwe GPG-sleutel toe aan uw apt-sleutelhanger.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Vernieuw uw pakketlijsten op basis van de net toegevoegde opslagplaatsen.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Vernieuw uw pakketlijsten op basis van de net toegevoegde opslagplaatsen.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>De SDK installeren en instellen
 Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
 
@@ -136,16 +145,19 @@ De Java-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen 
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de Eclipse Neon IDE.
+U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de **Eclipse IDE voor Java-ontwikkelaars**.
 
-1. Zorg ervoor dat u in Eclips Buildship versie 1.0.17 of hoger hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-update].
+1. Zorg er in Eclipse voor dat u de meest recente Eclipse **Neon**- en meest recente Buildship-versie (1.0.17 of hoger) hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-update].
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, kiest u **Help > Install New Software...**
 3. Voer in het tekstvak 'Work with' het volgende in: http://dl.windowsazure.com/eclipse/servicefabric
 4. Klik op Add.
-
     ![Eclipse-invoegtoepassing][sf-eclipse-plugin]
 5. Kies de Service Fabric-invoegtoepassing en klik op Next.
 6. Doorloop de installatie en accepteer de gebruiksrechtovereenkomst.
+
+Als u de Service Fabric Eclipse-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor dat u de meest recente versie gebruikt. U kunt controleren of deze kan worden bijgewerkt door het volgende uit te voeren: ``Help => Installation Details``. Zoek naar Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op Bijwerken. Als er een update beschikbaar is, wordt deze opgehaald en geïnstalleerd.
+
+Zie onze gedetailleerde handleiding [Service Fabric - Aan de slag met Eclipse](service-fabric-get-started-eclipse.md) voor meer informatie over het gebruik van de Service Fabric Eclipse-invoegtoepassing voor het maken, bouwen implementeren en upgraden van een Service Fabric Java-toepassing.
 
 ## <a name="install-the-net-core-sdk-optional"></a>De .NET Core-SDK installeren (optioneel)
 De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen van Service Fabric-services met behulp van platformoverschrijdende .NET Core.
@@ -174,7 +186,8 @@ Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de v
 Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Uw eerste Java-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-java.md)
+* [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van de Service Fabric-invoegtoepassing voor Eclipse](service-fabric-get-started-eclipse.md)
 * [Uw eerste CSharp-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
 * [De Azure CLI gebruiken voor het beheren van uw Service Fabric-toepassingen](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voer
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

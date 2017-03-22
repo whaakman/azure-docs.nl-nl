@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4cf3aaa9678c423c71cf542591a5a98547bb5cf5
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -38,6 +38,9 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 >[!NOTE]
 >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+
+>[!NOTE]
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
 De volgende code geeft aan hoe u een asset maakt, een mediabestand naar de asset uploadt, een taak uitvoert met de opdracht om de asset te transformeren en een locator maakt om uw video te streamen.
 

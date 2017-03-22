@@ -12,30 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>Hoe werkt Azure Site Recovery?
 
-Lees dit artikel om inzicht te krijgen in de onderliggende architectuur van de [Azure Site Recovery](site-recovery-overview.md)-service en de onderdelen daarvan.
+Dit artikel beschrijft de onderliggende architectuur van de [Azure Site Recovery](site-recovery-overview.md)-service en de onderdelen daarvan.
 
 U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
 
 
-## <a name="replication-to-azure"></a>Replicatie naar Azure
+## <a name="replicate-to-azure"></a>Repliceren naar Azure
 
 U kunt het volgende repliceren naar Azure:
+
 - **VMware**: on-premises virtuele VMware-machines die worden uitgevoerd op een [ondersteunde host](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). U kunt virtuele VMware-machines met een [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) repliceren.
 - **Hyper-V**: on-premises virtuele Hyper-V-machines die worden uitgevoerd op [ondersteunde hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Fysieke machines**: on-premises fysieke servers waarop Windows of Linux wordt uitgevoerd, op [ondersteunde besturingssystemen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-replication-to-azure"></a>Replicatie van VMware naar Azure
+## <a name="vmware-to-azure"></a>VMware naar Azure
+
+Dit is wat u nodig hebt om virtuele VMware-machines te repliceren naar Azure.
 
 Onderwerp | Onderdeel | Details
 --- | --- | ---
@@ -85,14 +88,16 @@ Er zijn enkele vereisten voor een failback:
 
 ![Failback](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Fysieke servers repliceren naar Azure
+## <a name="physical-to-azure"></a>Fysiek naar Azure
 
-In dit replicatiescenario worden dezelfde onderdelen en processen gebruikt als bij replicatie van [VMware naar Azure](#vmware-replication-to-azure), maar er zijn verschillen:
+Wanneer u fysieke on-premises servers naar Azure wilt repliceren, gebruikt u dezelfde onderdelen en processen als bij een replicatie van [VMware naar Azure](#vmware-replication-to-azure). Houd echter de volgende verschillen in gedachten:
 
 - U kunt als configuratieserver een fysieke server gebruiken in plaats van een virtuele VMware-machine
 - U hebt een on-premises VMware-infrastructuur nodig voor failback. U kunt geen failback uitvoeren naar een fysieke computer.
 
-## <a name="hyper-v-replication-to-azure"></a>Hyper-V-replicatie naar Azure
+## <a name="hyper-v-to-azure"></a>Hyper-V naar Azure
+
+Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar Azure.
 
 **Onderwerp** | **Onderdeel** | **Details**
 --- | --- | ---
@@ -130,7 +135,7 @@ In dit replicatiescenario worden dezelfde onderdelen en processen gebruikt als b
 ![Onderdelen](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>Replicatie naar een secundaire site
+## <a name="replicate-to-a-secondary-site"></a>Repliceren naar een secundaire site
 
 U kunt de volgende zaken repliceren naar uw secundaire site:
 
@@ -139,13 +144,15 @@ U kunt de volgende zaken repliceren naar uw secundaire site:
 - **Hyper-V**: on-premises virtuele Hyper-V-machines die worden uitgevoerd op [ondersteunde Hyper-V-hosts](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) die worden beheerd in VMM-clouds. [Ondersteunde hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Virtuele VMware-machines/fysieke servers repliceren naar een secundaire site
+## <a name="vmwarephysical-to-a-secondary-site"></a>Van VMware/fysieke server naar een secundaire site
+
+U repliceert virtuele VMware-machines of fysieke servers naar een secundaire site met InMage Scout.
 
 ### <a name="components"></a>Onderdelen
 
 **Onderwerp** | **Onderdeel** | **Details**
 --- | --- | ---
-**Azure** | U implementeert dit scenario met InMage Scout. | Voor het gebruik van InMage Scout hebt u een Azure-abonnement nodig.<br/><br/> Nadat u een Recovery Services-kluis hebt gemaakt, downloadt u InMage Scout en installeert u de nieuwste updates om de implementatie in te stellen.
+**Azure** | InMage Scout. | Voor het gebruik van InMage Scout hebt u een Azure-abonnement nodig.<br/><br/> Nadat u een Recovery Services-kluis hebt gemaakt, downloadt u InMage Scout en installeert u de nieuwste updates om de implementatie in te stellen.
 **Processerver** | Bevindt zich op de primaire site | U implementeert de processerver voor het afhandelen van caching, compressie en gegevensoptimalisatie.<br/><br/> Hier wordt ook de push-installatie van de Unified Agent afgehandeld naar computers die u wilt beveiligen.
 **Configuratieserver** | Bevindt zich op de secundaire site | De configuratieserver dient om uw implementatie te beheren, te configureren en te bewaken met behulp van de beheerwebsite of de vContinuum-console.
 **vContinuum-server** | Optioneel. Deze wordt geïnstalleerd op dezelfde locatie als de configuratieserver. | De vContinuum-server biedt een console voor het beheren en controleren van de beveiligde omgeving.
@@ -166,7 +173,9 @@ U kunt de volgende zaken repliceren naar uw secundaire site:
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replicatie van een virtuele Hyper-V-machine naar een secundaire site
+## <a name="hyper-v-to-a-secondary-site"></a>Van Hyper-V naar een secundaire site
+
+Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secundaire site.
 
 
 **Onderwerp** | **Onderdeel** | **Details**
@@ -202,25 +211,8 @@ U kunt de volgende zaken repliceren naar uw secundaire site:
 7. Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
 
-## <a name="hyper-v-replication-workflow"></a>Werkstroom van de Hyper-V-replicatie
-
-**Werkstroomfase** | **Actie**
---- | ---
-1. **Beveiliging inschakelen** | Nadat u de beveiliging voor een virtuele Hyper-V-machine hebt ingeschakeld, wordt de taak **Beveiliging inschakelen** gestart om te controleren of de computer aan de vereisten voldoet. De taak gebruikt twee methoden:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) voor het instellen van de replicatie met de instellingen die u hebt geconfigureerd.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) om een volledige VM-replicatie te initialiseren.
-2. **Initiële replicatie** |  Er wordt een momentopname van de virtuele machine gemaakt en de virtuele harde schijven worden een voor een gerepliceerd tot ze allemaal zijn gekopieerd naar de secundaire locatie.<br/><br/> De tijd die nodig is om dit te voltooien, is afhankelijk van de grootte van de virtuele machine, van de netwerkbandbreedte en van de oorspronkelijke replicatiemethode.<br/><br/> Als er tijdens de eerste replicatie schijfwijzigingen optreden, worden deze door de Hyper-V Replica Replication Tracker bijgehouden als Hyper-V-replicatielogboeken (HRL-bestanden), die zich in dezelfde map bevinden als de schijven.<br/><br/> Elke schijf heeft een eigen HRL-bestand dat naar de secundaire opslag wordt verzonden.<br/><br/> De momentopname- en logboekbestanden nemen schijfbronnen in beslag terwijl de eerste replicatie wordt uitgevoerd. Wanneer de eerste replicatie is voltooid, wordt de momentopname van de virtuele machine verwijderd, en worden de verschillen in het logboek gesynchroniseerd en samengevoegd.
-3. **Beveiliging voltooien** | Wanneer de eerste replicatie is voltooid, worden de netwerkinstellingen en de overige instellingen na de replicatie zo geconfigureerd dat de virtuele machine is beveiligd. Hiervoor wordt de taak **Beveiliging voltooien** gebruikt.<br/><br/> Als u repliceert naar Azure, moet u mogelijk de instellingen voor de virtuele machine zo aanpassen dat deze gereed is voor failover.<br/><br/> Nu kunt u een failovertest uitvoeren om te controleren of alles werkt zoals het hoort.
-4. **Replicatie** | Na de initiële replicatie start de deltasynchronisatie in overeenstemming met de replicatie-instellingen.<br/><br/> **Replicatiefout**: als de deltareplicatie mislukt en een volledige replicatie veel bandbreedte of tijd zou kosten, wordt er een hersynchronisatie uitgevoerd. Als de HRL-bestanden bijvoorbeeld 50% van de schijfgrootte in beslag nemen, wordt de virtuele machine gemarkeerd voor hersynchronisatie. Met een hersynchronisatie wordt de hoeveelheid verzonden gegevens geminimaliseerd door controlesommen van de bron- en virtuele machines te berekenen en alleen de verschillen (delta) te verzenden. Na hersynchronisatie wordt de deltareplicatie hervat. Hersynchronisatie is standaard zo gepland dat deze automatisch buiten kantooruren wordt uitgevoerd, maar u kunt een virtuele machine ook handmatig opnieuw synchroniseren.<br/><br/> **Replicatiefout**: als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw geprobeerd. Als het een onherstelbare fout betreft, zoals een verificatie- of autorisatiefout, of als een replicamachine een ongeldige status heeft, wordt er geen nieuwe poging gedaan. Als het een herstelbare fout betreft, zoals een netwerkfout of weinig schijfruimte/geheugen, wordt er met steeds groter wordende intervallen (1, 2, 4, 8, 10 en vervolgens elke 30 minuten) een nieuwe poging gedaan.
-5. **Geplande/niet-geplande failover** | U kunt naar behoefte geplande of niet-geplande failovers uitvoeren.<br/><br/> Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.<br/><br/> Nadat de replica's van de virtuele machines zijn gemaakt, krijgen deze de status In behandeling. U moet ze doorvoeren om de failover te voltooien.<br/><br/> Wanneer de primaire site eenmaal wordt uitgevoerd, kunt u een failback naar de primaire site uitvoeren als deze beschikbaar is.
-
-
-**Afbeelding 8: Hyper-V-werkstroom**
-
-![werkstroom](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-[Vereisten controleren](site-recovery-prereq.md)
+- [Meer informatie](site-recovery-hyper-v-azure-architecture.md) over de replicatiewerkstroom in Hyper-V.
+- [Vereisten controleren](site-recovery-prereq.md)
 

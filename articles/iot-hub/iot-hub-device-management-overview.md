@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -38,7 +39,11 @@ IoT zorgt voor unieke apparaatbeheeruitdagingen en elke oplossing van enterprise
 
 * **Schaal en automatisering**: voor IoT-oplossingen zijn eenvoudige hulpprogramma's nodig waarmee routinetaken kunnen worden geautomatiseerd en waarmee een relatief klein aantal operationele medewerkers miljoenen apparaten kan beheren. Operators verwachten dagelijks apparaatbewerkingen extern en bulksgewijs uit te voeren en alleen te worden gewaarschuwd wanneer er problemen opduiken waarvoor hun directe aandacht is vereist.
 * **Openheid en compatibiliteit**: het ecosysteem van apparaten is buitengewoon divers. Beheerhulpprogramma's moeten zo worden aangepast dat ze kunnen omgaan met een groot aantal apparaatklassen, platforms en protocollen. Operators moeten vele typen apparaten kunnen ondersteunen, van de meest beperkte ingesloten chips voor enkelvoudige processen tot krachtige en volledig functionele computers.
-* **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Bij apparaatbeheerbewerkingen moet rekening worden gehouden met SLA-onderhoudsvensters, netwerk- en energiestatussen, in-gebruiksomstandigheden en apparaatgeolocatie om ervoor te zorgen dat de uitval vanwege onderhoud niet van invloed is op kritieke bedrijfsactiviteiten of dat er geen gevaarlijke situaties ontstaan.
+* **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Tijdens bewerkingen voor apparaatbeheer moet er rekening worden gehouden met de volgende factoren, om ervoor te zorgen dat uitvaltijd wegens onderhoud de kritieke bedrijfsbewerkingen niet beïnvloedt en geen gevaarlijke situaties creëert:
+    * SLA-onderhoudsvensters
+    * Netwerk- en voedingsstatussen
+    * Voorwaarden wanneer in gebruik
+    * Geolocatie van apparaat
 * **Vele rollen bedienen**: ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. Beheerders moeten in harmonie met de gegeven beperkingen van interne IT-afdelingen werken.  Ze moeten ook duurzame manieren vinden om in realtime gegevens over apparaatbewerkingen door te sturen naar toezichthouders en andere zakelijke leidinggevende rollen.
 
 ## <a name="device-lifecycle"></a>Levenscyclus van apparaat
@@ -50,19 +55,19 @@ Binnen elk van deze vijf fasen zijn er verschillende vereisten voor de apparaato
 
 * **Plannen**: operators in staat stellen een schema voor de metagegevens van een apparaat te maken waarmee ze eenvoudig en nauwkeurig kunnen zoeken naar en zich richten op een groep apparaten voor bulksgewijze beheerbewerkingen. U kunt de apparaatdubbel gebruiken om de metagegevens van dit apparaat op te slaan in de vorm van tags en eigenschappen.
   
-    *Meer weten*: [Aan de slag met apparaatdubbels][lnk-twins-getstarted], [Meer informatie over apparaatdubbels][lnk-twins-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties]
+    *Meer weten*: [Aan de slag met apparaatdubbels][lnk-twins-getstarted], [Meer informatie over apparaatdubbels][lnk-twins-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
 * **Inrichten**: nieuwe apparaten veilig inrichten voor IoT Hub en operators in staat stellen apparaatmogelijkheden onmiddellijk te detecteren.  Gebruik het id-register van IoT Hub om flexibele apparaat-id's en -referenties te maken. Voer dit uit in één bulkbewerking met behulp van een taak. Bouw apparaten om hun mogelijkheden en voorwaarden via apparaateigenschappen te rapporteren in de apparaatdubbel.
   
-    *Meer weten*: [Apparaatidentiteiten beheren][lnk-identity-registry], [Apparaatidentiteiten bulksgewijs beheren][lnk-bulk-identity], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties]
+    *Meer weten*: [Apparaatidentiteiten beheren][lnk-identity-registry], [Apparaatidentiteiten bulksgewijs beheren][lnk-bulk-identity], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
 * **Configureren**: bulksgewijze configuratiewijzigingen en firmware-updates op apparaten ondersteunen terwijl de status en beveiliging behouden blijven. Voer deze apparaatbeheerbewerkingen bulksgewijs uit met behulp van de gewenste eigenschappen of met rechtstreekse methoden en broadcast-taken.
   
-    *Meer weten*: [Rechtstreekse methoden gebruiken][lnk-c2d-methods], [Een rechtstreekse methode aanroepen op een apparaat][lnk-methods-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Taken plannen en uitzenden][lnk-jobs], [Taken op meerdere apparaten plannen][lnk-jobs-devguide]
+    *Meer weten*: [Rechtstreekse methoden gebruiken][lnk-c2d-methods], [Een rechtstreekse methode aanroepen op een apparaat][lnk-methods-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Taken plannen en uitzenden][lnk-jobs], [Taken op meerdere apparaten plannen][lnk-jobs-devguide].
 * **Bewaken**: de verzamelde status van alle apparaten bewaken, de status van lopende bewerkingen bewaken en operators attenderen op problemen die mogelijk hun aandacht vereisen.  Pas de apparaatdubbel toe, zodat apparaten in realtime bewerkingsvoorwaarden en de status van de update-bewerkingen kunnen rapporteren. Bouw krachtige dashboardrapporten die de meeste directe problemen melden via apparaatdubbel-query's.
   
-    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [IoT Hub-querytaal voor apparaatdubbels en taken][lnk-query-language]
+    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [IoT Hub-querytaal voor apparaatdubbels en taken][lnk-query-language].
 * **Buiten gebruik stellen**: apparaten vervangen of uit bedrijf nemen na een storing, upgradecyclus of aan het einde van de levensduur.  Gebruik de apparaatdubbel om apparaatgegevens te onderhouden als het fysieke apparaat wordt vervangen, of te archiveren als het apparaat buiten gebruik wordt gesteld. Gebruik het id-register van IoT Hub voor het veilig intrekken van apparaat-id's en -referenties.
   
-    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Apparaatidentiteiten beheren][lnk-identity-registry]
+    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Apparaatidentiteiten beheren][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Patronen voor apparaatbeheer
 Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In de [Zelfstudies apparaatbeheer][lnk-get-started] wordt uitgebreid beschreven hoe u deze patronen zo kunt uitbreiden dat ze exact aansluiten bij uw scenario en hoe u nieuwe patronen ontwerpt op basis van deze kernsjablonen.
@@ -109,9 +114,4 @@ Zie de zelfstudie [Aan de slag met apparaatbeheer][lnk-get-started] voor meer in
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

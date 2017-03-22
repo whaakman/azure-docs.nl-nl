@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -55,8 +56,8 @@ Deze koppelingen zijn handig als u de service uitgebreid wilt verkennen:
 
 * Zie de [Prijsinformatie over Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Bekijk onze [codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) voor Azure Active Directory B2C. 
-* Vraag hulp bij Stack Overflow met de tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) of [adal](http://stackoverflow.com/questions/tagged/adal).
-* Geef ons uw mening via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/). We horen graag wat u ervan vindt. Typ 'AzureADB2C:' in de titel van uw bericht, zodat we dit kunnen vinden.
+* Vraag hulp bij Stack Overflow met de tags [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Geef ons uw mening via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c). We horen graag wat u ervan vindt.
 * Lees de [naslaginformatie voor Azure AD B2C-protocollen](active-directory-b2c-reference-protocols.md).
 * Lees de [naslaginformatie voor Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md).
 * Lees de [veelgestelde vragen over Azure Active Directory B2C](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Deze koppelingen zijn handig als u de service uitgebreid wilt verkennen:
 
 ## <a name="get-security-updates-for-our-products"></a>Beveiligingsupdates voor onze producten downloaden
 We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsincidenten optreden. Ga hiervoor naar [deze pagina](https://technet.microsoft.com/security/dd252948) en abonneer u op Security Advisory Alerts.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
