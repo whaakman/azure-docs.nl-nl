@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ Informatie over het installeren van Data Lake Tools en het gebruiken van Data La
 U-SQL is een uitermate schaalbare en uitbreidbare taal voor het voorbereiden, transformeren en analyseren van alle gegevens in de data lake en daarbuiten. Zie [Naslaginformatie over U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; Express-editie wordt niet ondersteund. Visual Studio 2017 wordt momenteel niet ondersteund.**
+* **Visual Studio 2015 update 3, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; Express-editie wordt niet ondersteund. Visual Studio 2017 wordt momenteel niet ondersteund.**
 * **Microsoft Azure SDK voor .NET versie 2.7.1 of hoger**.  U kunt dit installeren met het [Webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -349,9 +350,4 @@ Het volgende PowerShell-script bereidt een Azure Data Lake Analytics-account en 
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

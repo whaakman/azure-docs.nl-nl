@@ -1,6 +1,6 @@
 ---
 title: Query uitvoeren voor gegevens uit HDFS-compatibele Azure-opslag | Microsoft Docs
-description: Informatie over het opvragen van gegevens uit Azure Blob Storage en Azure Data Lake Store voor het opslaan van resultaten van de analyse.
+description: Informatie over hoe u gegevens opvraagt uit Azure Storage en Azure Data Lake Store om resultaten van uw analyse op te slaan.
 keywords: blob storage, hdfs, gestructureerde gegevens, niet-gestructureerde gegevens, data lake store
 services: hdinsight,storage
 documentationcenter: 
@@ -17,28 +17,33 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
-ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>HDFS-compatibele opslag met Hadoop in HDInsight gebruiken
 
-Als u gegevens wilt analyseren in een HDInsight-cluster, kunt u de gegevens opslaan in Azure Blob Storage, Azure Data Lake Store of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
+Als u gegevens wilt analyseren in een HDInsight-cluster, kunt u de gegevens opslaan in Azure Storage, Azure Data Lake Store of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
-Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. U kunt terwijl u het HDInsight-cluster maakt Azure Blob Storage-containers opgeven als het standaardbestandssysteem. Met HDInsight 3.5 kunt u Azure Blob Storage of Azure Data Lake Store selecteren als het standaardbestandssysteem.
+Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Wanneer u het HDInsight-cluster maakt, kunt u in Azure Storage een blobcontainer opgeven als het standaardbestandssysteem. Met HDInsight 3.5 kunt u ook Azure Storage of Azure Data Lake Store als het standaardbestandssysteem selecteren.
 
-In dit artikel leert u meer over de werking van de twee opslagopties met HDInsight-clusters. Zie [Aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) voor meer informatie over het maken van HDInsight-clusters.
+In dit artikel leert u hoe de twee opslagopties met HDInsight-clusters werken. Zie [Aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) voor meer informatie over het maken van HDInsight-clusters.
 
-## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>Azure Blob Storage gebruiken met HDInsight-clusters
+## <a name="using-azure-storage-with-hdinsight-clusters"></a>Azure Storage gebruiken met HDInsight-clusters
 
-Azure Blob Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. Via een HDFS-interface (Hadoop Distributed File System) kan de volledige set onderdelen in HDInsight rechtstreeks op gestructureerde of ongestructureerde gegevens in Blob Storage worden uitgevoerd.
+Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. HDInsight kan een blobcontainer in Azure Storage gebruiken als het standaardbestandssysteem voor het cluster. Via een HDFS-interface (Hadoop Distributed File System) kan de volledige set onderdelen in HDInsight rechtstreeks als blobs op gestructureerde of ongestructureerde gegevens worden uitgevoerd.
 
-> [!IMPORTANT]
-> HDInsight biedt alleen ondersteuning voor blok-blobs. HDInsight biedt geen ondersteuning voor pagina- en toevoeg-blobs.
+> [!WARNING]
+> Er zijn verschillende opties beschikbaar bij het maken van een Azure Storage-account. De volgende tabel bevat informatie over de opties die met HDInsight worden ondersteund:
 > 
-> 
+> | Type opslagaccount | Opslaglaag | Ondersteund met HDInsight |
+> | ------- | ------- | ------- |
+> | Storage-account voor algemeen gebruik | Standard | __Ja__ |
+> | &nbsp; | Premium | Nee |
+> | Blob Storage-account | Warm | Nee |
+> | &nbsp; | Koud | Nee |
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight-opslagarchitectuur
 Het volgende diagram biedt een abstracte weergave van de HDInsight-opslagarchitectuur:
@@ -49,7 +54,7 @@ HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppe
 
     hdfs://<namenodehost>/<path>
 
-Daarnaast biedt HDInsight toegang tot gegevens die zijn opgeslagen in Azure Blob Storage. De syntaxis is:
+Daarnaast biedt HDInsight toegang tot gegevens die zijn opgeslagen in Azure Storage. De syntaxis is:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,27 +70,27 @@ Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account me
   > 
 * **Persoonlijke containers in opslagaccounts die NIET zijn verbonden met een cluster:** u hebt geen toegang tot de blobs in de containers, tenzij u het opslagaccount definieert wanneer u de WebHCat-taken verzendt. Dit wordt verderop in dit artikel uitgelegd.
 
-De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. Het is niet raadzaam om het bestand core site.xml te bewerken, omdat het hoofdknooppunt van het cluster (master) op elk moment kan worden teruggezet of gemigreerd en de wijzigingen die in deze bestanden zijn aangebracht, verloren gaan.
+De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. Het is niet raadzaam om het bestand core-site.xml direct te bewerken, omdat het hoofdknooppunt van het cluster (master) op elk moment kan worden teruggezet of gemigreerd en de wijzigingen in dit bestand niet permanent zijn.
 
 Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunnen een beschrijving van opslagaccounts en metagegevens bevatten. (Dit werkt momenteel voor Pig met opslagaccounts, maar niet voor metagegevens.) In de sectie [Toegang tot blobs via Azure PowerShell](#powershell) van dit artikel vindt u een voorbeeld van deze functie. Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
 
-Blob Storage kan worden gebruikt voor gestructureerde en ongestructureerde gegevens. De gegevens in Blob Storage-containers worden opgeslagen als sleutel-waardeparen en er is geen maphiërarchie. Maar het slash-teken (/) kan echter worden gebruikt binnen de sleutelnaam deze weergegeven, zodat het lijkt alsof een bestand is opgeslagen in een mapstructuur. De sleutel van de blob kan bijvoorbeeld *input/log1.txt* zijn. Er is niet echt een *invoermap* aanwezig, maar als gevolg van de aanwezigheid van het slash-teken in de naam van de sleutel ziet dit eruit als een bestandspad.
+Blobs kunnen worden gebruikt voor gestructureerde en ongestructureerde gegevens. De gegevens in blobcontainers worden opgeslagen als sleutel-waardeparen en er is geen maphiërarchie. Maar het slash-teken (/) kan echter worden gebruikt binnen de sleutelnaam deze weergegeven, zodat het lijkt alsof een bestand is opgeslagen in een mapstructuur. De sleutel van de blob kan bijvoorbeeld *input/log1.txt* zijn. Er is niet echt een *invoermap* aanwezig, maar als gevolg van de aanwezigheid van het slash-teken in de naam van de sleutel ziet dit eruit als een bestandspad.
 
-### <a id="benefits"></a>Voordelen van Blob Storage
-De kosten als gevolg van de verschillende locaties voor de rekenclusters en opslagbronnen worden beperkt door de manier waarop de rekenclusters dicht bij de resources van het opslagaccount in de Azure-regio worden geplaatst. Dankzij het netwerk met hoge snelheid kunnen de rekenknooppunten zich op efficiënte wijze toegang verschaffen tot de gegevens in Azure Blob Storage.
+### <a id="benefits"></a>Voordelen van Azure Storage
+De kosten als gevolg van de verschillende locaties voor de rekenclusters en opslagbronnen worden beperkt door de manier waarop de rekenclusters dicht bij de resources van het opslagaccount in de Azure-regio worden geplaatst. Dankzij het netwerk met hoge snelheid kunnen de rekenknooppunten zich op efficiënte wijze toegang verschaffen tot de gegevens in Azure Storage.
 
-Het opslaan van gegevens in Azure Blob Storage in plaats van HDFS heeft enkele voordelen:
+Het opslaan van gegevens in Azure Storage in plaats van HDFS heeft enkele voordelen:
 
-* **Hergebruik en delen van gegevens:** de gegevens in HDFS bevinden zich in het rekencluster. Alleen de toepassingen die toegang tot het rekencluster hebben, kunnen de gegevens met HDFS API's gebruiken. De gegevens in Azure Blob Storage zijn toegankelijk via de HDFS API's of via de [Blob Storage REST-API's][blob-storage-restAPI]. Zo kan een grotere set toepassingen (inclusief andere HDInsight-clusters) en hulpprogramma's worden gebruikt om de gegevens te produceren en te gebruiken.
-* **Gegevensarchivering:** door gegevens op te slaan in Azure Blob Storage kunnen de HDInsight-clusters die worden gebruikt voor berekeningen, veilig worden verwijderd zonder dat er gegevens verloren gaan.
-* **Kosten voor gegevensopslag:** het langdurig opslaan van gegevens in DFS is duurder dan wanneer de gegevens worden opgeslagen in Azure Blob Storage, omdat de kosten van een rekencluster hoger zijn dan de kosten van de Azure Blob Storage-container. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
-* **Elastisch uitbreiden:** hoewel HDFS u een uitgebreid bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten dat u voor het cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan te vertrouwen op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Blob Storage.
-* **Geo-replicatie:** uw Azure Blob Storage-containers kunnen geografisch worden gerepliceerd. Hoewel u dit de mogelijkheid van geografisch herstel en gegevensredundantie biedt, zal een failover naar de geografisch gerepliceerde locatie van grote invloed zijn op uw prestaties en kan dit tot extra kosten leiden. U wordt daarom aangeraden de keuze van geo-replicatie goed te overwegen en alleen te gebruiken als de waarde van de gegevens de extra kosten waard zijn.
+* **Hergebruik en delen van gegevens:** de gegevens in HDFS bevinden zich in het rekencluster. Alleen de toepassingen die toegang tot het rekencluster hebben, kunnen de gegevens met HDFS API's gebruiken. De gegevens in Azure Storage zijn toegankelijk via de HDFS API's of via de [Blob Storage REST API's][blob-storage-restAPI]. Zo kan een grotere set toepassingen (inclusief andere HDInsight-clusters) en hulpprogramma's worden gebruikt om de gegevens te produceren en te gebruiken.
+* **Gegevensarchivering:** door gegevens op te slaan in Azure Storage, kunnen de HDInsight-clusters die worden gebruikt voor berekeningen, veilig worden verwijderd zonder dat er gegevens verloren gaan.
+* **Kosten voor gegevensopslag:** het langdurig opslaan van gegevens in DFS is duurder dan wanneer de gegevens worden opgeslagen in Azure Storage, omdat de kosten van een rekencluster hoger zijn dan de kosten van Azure Storage. Daarnaast bespaart u op de kosten voor het laden van gegevens omdat de gegevens niet opnieuw hoeven te worden geladen voor elk rekencluster dat wordt gegenereerd.
+* **Elastisch uitbreiden:** hoewel HDFS u een uitgebreid bestandssysteem biedt, wordt de schaal bepaald door het aantal knooppunten dat u voor het cluster maakt. Het wijzigen van de schaal is mogelijk een complexer proces dan. Vertrouw hiervoor niet zonder meer op de elastische schalingsmogelijkheden waarover u automatisch beschikt in Azure Storage.
+* **Geo-replicatie:** uw Azure-opslag kan geografisch worden gerepliceerd. Hoewel u dit de mogelijkheid van geografisch herstel en gegevensredundantie biedt, zal een failover naar de geografisch gerepliceerde locatie van grote invloed zijn op uw prestaties en kan dit tot extra kosten leiden. U wordt daarom aangeraden de keuze van geo-replicatie goed te overwegen en alleen te gebruiken als de waarde van de gegevens de extra kosten waard zijn.
 
-Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Blob Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt DFS voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
+Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt DFS voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
 
 > [!NOTE]
-> De meeste HDFS-opdrachten (bijvoorbeeld <b>ls</b>, <b>copyFromLocal</b> en <b>mkdir</b>) blijven gewoon naar verwachting werken. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (ook wel DFS genoemd), zoals <b>fschk</b> en <b>dfsadmin</b>, vertonen afwijkend gedrag in Azure Blob Storage.
+> De meeste HDFS-opdrachten (bijvoorbeeld <b>ls</b>, <b>copyFromLocal</b> en <b>mkdir</b>) blijven gewoon naar verwachting werken. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (ook wel DFS genoemd), zoals <b>fschk</b> en <b>dfsadmin</b>, vertonen afwijkend gedrag in Azure Storage.
 > 
 > 
 
@@ -94,7 +99,7 @@ Als u blobs wilt gebruiken, maakt u eerst een [Azure Storage-account][azure-stor
 
 Elke blob die u maakt, behoort tot een container in uw Azure Storage-account, ongeacht de locatie van de blob. Deze container kan een bestaande blob zijn die buiten HDInsight is gemaakt. Het kan echter ook een container zijn die is gemaakt voor een HDInsight-cluster.
 
-In de standaard blob-container wordt clusterspecifieke informatie opgeslagen, zoals de taakgeschiedenis en logboekbestanden. Deel een standaard blob-container niet met meerdere HDInsight-clusters. Hierdoor raakt de taakgeschiedenis mogelijk beschadigd en vertoont het cluster ongewenst gedrag. U kunt voor elk cluster het beste een andere container gebruiken en de gedeelde gegevens in een gekoppeld opslagaccount plaatsen dat is opgegeven in de implementatie van alle relevante cluster, in plaats van het standaardopslagaccount. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. U kunt een standaardopslagcontainer echter opnieuw gebruiken nadat het oorspronkelijke HDInsight-cluster is verwijderd. Voor HBase-clusters kunt u het HBase-tabelschema en de bijbehorende gegevens behouden door een nieuw HBase-cluster te maken met de standaard Blob Storage-container die wordt door een verwijderd HBase-cluster.
+In de standaard blob-container wordt clusterspecifieke informatie opgeslagen, zoals de taakgeschiedenis en logboekbestanden. Deel een standaard blob-container niet met meerdere HDInsight-clusters. Hierdoor kan de taakgeschiedenis beschadigd raken. U kunt voor elk cluster het beste een andere container gebruiken en de gedeelde gegevens in een gekoppeld opslagaccount plaatsen dat is opgegeven in de implementatie van alle relevante cluster, in plaats van het standaardopslagaccount. Zie [HDInsight-clusters maken][hdinsight-creation] voor meer informatie over het configureren van gekoppelde opslagaccounts. U kunt een standaardopslagcontainer echter opnieuw gebruiken nadat het oorspronkelijke HDInsight-cluster is verwijderd. Voor HBase-clusters kunt u het HBase-tabelschema en de bijbehorende gegevens behouden door een nieuw HBase-cluster te maken met de standaardblobcontainer die wordt gebruikt door een verwijderd HBase-cluster.
 
 #### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u (zoals hieronder wordt getoond) de details van het opslagaccount opgeven. U kunt ook opgeven of u een extra opslagaccount aan het cluster wilt koppelen en, zo ja, Data Lake Store of een andere Azure Storage-blob als de extra opslagruimte kiezen.
@@ -109,11 +114,11 @@ Als u [de Azure CLI hebt geïnstalleerd en geconfigureerd](../xplat-cli-install.
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> De parameter `--type` geeft aan hoe de opslagaccount wordt gerepliceerd. Zie [Azure Storage-replicatie](../storage/storage-redundancy.md) voor meer informatie. U kunt ZRS beter niet gebruiken, aangezien ZRS de pagina-blob, het bestand, de tabel of de wachtrij niet ondersteunt.
+> De parameter `--type` geeft aan hoe het opslagaccount wordt gerepliceerd. Zie [Azure Storage-replicatie](../storage/storage-redundancy.md) voor meer informatie. U kunt ZRS beter niet gebruiken, aangezien ZRS de pagina-blob, het bestand, de tabel of de wachtrij niet ondersteunt.
 > 
 > 
 
-U wordt gevraagd de geografische regio op te geven waar het opslagaccount zich bevindt. U moet de opslagaccount in dezelfde regio maken waarin u ook uw HDInsight-cluster wilt maken.
+U wordt gevraagd de geografische regio op te geven waar het opslagaccount is gemaakt. U moet de opslagaccount in dezelfde regio maken waarin u ook uw HDInsight-cluster wilt maken.
 
 Zodra het opslagaccount is gemaakt, gebruikt u de volgende opdracht om de sleutels voor de opslagaccount op te halen:
 
@@ -149,15 +154,14 @@ Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-instal
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-blob-storage"></a>Bestanden in Blob Storage adresseren
-Het URI-schema om bestanden in Blob Storage vanuit HDInsight te openen:
+### <a name="address-files-in-azure-storage"></a>Bestanden in Azure Storage adresseren
+Het URI-schema om bestanden in Azure Storage vanuit HDInsight te openen:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-
 Het URI-schema biedt niet-versleutelde toegang (met het voorvoegsel *wasb:*) en SSL-versleutelde toegang (met *wasbs*). Waar mogelijk kunt u het beste *wasbs* gebruiken, zelfs voor de toegang tot gegevens die zich in dezelfde regio in Azure bevinden.
 
-Met &lt;BlobStorageContainerName&gt; wordt de naam van de container in Azure Blob Storage aangeduid.
+Met &lt;BlobStorageContainerName&gt; wordt de naam van de blobcontainer in Azure Storage aangeduid.
 Met &lt;StorageAccountName&gt; wordt de naam van het Azure Storage-account aangeduid. Een FQDN (Fully Qualified Domain Name) is vereist.
 
 Als &lt;BlobStorageContainerName&gt; of &lt;StorageAccountName&gt; niet zijn opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. U kunt bijvoorbeeld als volgt verwijzen naar het bestand *hadoop-mapreduce-examples.jar* dat bij HDInsight-clusters wordt geleverd:
@@ -171,7 +175,7 @@ Als &lt;BlobStorageContainerName&gt; of &lt;StorageAccountName&gt; niet zijn opg
 > 
 > 
 
-Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containers in Azure Blob Storage gewoon sleutel-waardearchieven zijn, is er geen echt hiërarchisch bestandssysteem. Een slash (/) in een blob-sleutel wordt geïnterpreteerd als een teken voor mapscheiding. De blob-naam voor bijvoorbeeld *hadoop-mapreduce-examples.jar* is:
+Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containers in Azure Storage gewoon sleutel-waardearchieven zijn, is er geen echt hiërarchisch bestandssysteem. Een slash (/) in een blob-sleutel wordt geïnterpreteerd als een teken voor mapscheiding. De blob-naam voor bijvoorbeeld *hadoop-mapreduce-examples.jar* is:
 
     example/jars/hadoop-mapreduce-examples.jar
 
@@ -346,7 +350,7 @@ Volg de onderstaande koppelingen voor gedetailleerde instructies over het maken 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u met HDFS compatibele Azure Blob Storage en Azure Data Lake Store kunt gebruiken met HDInsight. Zodoende kunt u een schaalbare, duurzame, archiveringsoplossing voor gegevensverzameling bouwen en HDInsight gebruiken om de informatie te ontsluiten in de opgeslagen gestructureerde en ongestructureerde gegevens.
+In dit artikel hebt u geleerd hoe u HDFS compatibele Azure Storage en Azure Data Lake Store kunt gebruiken met HDInsight. Zodoende kunt u een schaalbare, duurzame, archiveringsoplossing voor gegevensverzameling bouwen en HDInsight gebruiken om de informatie te ontsluiten in de opgeslagen gestructureerde en ongestructureerde gegevens.
 
 Zie voor meer informatie:
 

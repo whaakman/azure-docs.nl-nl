@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informatie over VPN-apparaten voor verbinding met site-naar-site-VPN-gateways
-U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
+
+U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. S2S-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u een beveiligde verbinding wilt maken tussen uw on-premises netwerk en het virtuele netwerk. In dit artikel komen compatibele VPN-apparaten en configuratieparameters aan bod. Dit document bevat de lijst met IPSec-/IKE-parameters voor Azure VPN-gateways en een lijst met gevalideerde VPN-apparaten die verbinding kunnen maken met Azure VPN-gateways.
 
 
 > [!IMPORTANT]
-> Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en Azure VPN-gateways.
-> 
-> 
+> Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en Azure VPN-gateways. 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
 
-* Er is een terminologiewijziging voor statische en dynamische routering. Waarschijnlijk komt u beide termen tegen. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
+* Er is een terminologiewijziging voor Azure VPN-gateways. Waarschijnlijk komt u beide termen tegen. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
 * De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
 
 > [!NOTE]
 > Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Gevalideerde VPN-apparaten
@@ -102,58 +99,80 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal als **IP-adres van gateway**. |
 | &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
 
-## <a name="IPSec"></a>IPsec-parameters
+## <a name="IPSec"></a>IPSec-/IKE-parameters
 > [!NOTE]
-> Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, is er momenteel geen enkele manier waarop u vanuit de Azure VPN-gateway een specifieke combinatie kunt opgeven of selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u MSS vastzetten op 1350.
->
->
+> Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de Azure VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven.
+> 
+> Bovendien moet u **MSS** vastzetten op **1350**.
 
-### <a name="ike-phase-1-setup"></a>Configuratie IKE fase 1
-| **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
-| --- | --- | --- |
-| IKE-versie |IKEv1 |IKEv2 |
-| Diffie-Hellman-groep |Groep 2 (1024 bits) |Groep 2 (1024 bits) |
-| Verificatiemethode |Vooraf gedeelde sleutel |Vooraf gedeelde sleutel |
-| Versleutelingsalgoritmen |AES256 AES128 3DES |AES256 3DES |
-| Hash-algoritme |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Levensduur (tijd) van beveiligingskoppeling (SA) fase 1 |28.800 seconden |10.800 seconden |
+In de onderstaande tabellen:
 
-### <a name="ike-phase-2-setup"></a>Configuratie IKE fase 2
-| **Eigenschap** | **PolicyBased** | **RouteBased en standaard VPN-gateway of VPN-gateway met hoge prestaties** |
-| --- | --- | --- |
-| IKE-versie |IKEv1 |IKEv2 |
-| Hash-algoritme |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Levensduur beveiligingskoppeling (SA) fase 2 (tijd) |3.600 seconden |3.600 seconden |
-| Levensduur beveiligingskoppeling (SA) fase 2 (doorvoer) |102.400.000 kB |- |
-| IPSec-SA-codering en -verificatieaanbiedingen (in volgorde van voorkeur) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N.v.t. |Zie 'Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways' (hieronder) |
-| Perfect Forward Secrecy (PFS) |Nee |Nee (*) |
-| Dead Peer Detection |Niet ondersteund |Ondersteund |
+* SA = Security Association
+* IKE Phase 1 wordt ook 'Main Mode' genoemd
+* IKE Phase 2 wordt ook 'Quick Mode' genoemd
 
-(*) Azure Gateway als IKE-responder accepteert PFS DH-groep 1, 2, 5, 14, 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Parameters voor IKE Phase 1 (Main Mode)
+| **Eigenschap**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| IKE-versie           |IKEv1              |IKEv2              |
+| Diffie-Hellman-groep  |Groep 2 (1024 bits) |Groep 2 (1024 bits) |
+| Verificatiemethode |Vooraf gedeelde sleutel     |Vooraf gedeelde sleutel     |
+| Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| SA-levensduur           |28.800 seconden     |10.800 seconden     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Aanbiedingen voor IPsec-beveiligingskoppelingen (SA) voor RouteBased gateways
-In de volgende tabel staan aanbiedingen voor IPSec-SA-versleuteling en -verificatie. De aanbiedingen staan in volgorde van voorkeur waarin de aanbieding is gepresenteerd of geaccepteerd.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Parameters voor IKE Phase 2 (Quick Mode)
+| **Eigenschap**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| IKE-versie                   |IKEv1          |IKEv2                                        |
+| Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
+| SA-levensduur (tijd)            |3.600 seconden  |3.600 seconden                                |
+| SA-levensduur (bytes)           |102.400.000 kB | -                                           |
+| Perfect Forward Secrecy (PFS) |Nee             |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
+| Dead Peer Detection (DPD)     |Niet ondersteund  |Ondersteund                                    |
 
-| **Aanbiedingen voor IPSec-SA-codering en -verificatie** | **Azure-gateway als initiator** | **Azure-gateway als antwoorder** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 met ESP AES_128, null HMAC |
-| 5 |AH SHA1 met ESP AES_256, null HMAC |AH SHA1 met ESP 3_DES, null HMAC |
-| 6 |AH SHA1 met ESP AES_128, null HMAC |AH MD5 met ESP 3_DES, met null HMAC, geen voorgestelde levensduur |
-| 7 |AH SHA1 met ESP 3_DES, null HMAC |AH-SHA1 met ESP 3_DES SHA1, geen levensduur |
-| 8 |AH MD5 met ESP 3_DES, met null HMAC, geen voorgestelde levensduur |AH MD5 met ESP 3_DES MD5, geen levensduur |
-| 9 |AH-SHA1 met ESP 3_DES SHA1, geen levensduur |ESP DES MD5 |
-| 10 |AH MD5 met ESP 3_DES MD5, geen levensduur |ESP DES SHA1, geen levensduur |
-| 11 |ESP DES MD5 |AH SHA1 met ESP DES, null HMAC, geen voorgestelde levensduur |
-| 12 |ESP DES SHA1, geen levensduur |AH MD5 met ESP DES, null HMAC, geen voorgestelde levensduur |
-| 13 |AH SHA1 met ESP DES, null HMAC, geen voorgestelde levensduur |AH SHA1 met ESP DES SHA1, geen levensduur |
-| 14 |AH MD5 met ESP DES, null HMAC, geen voorgestelde levensduur |AH MD5 met ESP DES MD5, geen levensduur |
-| 15 |AH SHA1 met ESP DES SHA1, geen levensduur |ESP SHA, geen levensduur |
-| 16 |AH MD5 met ESP DES MD5, geen levensduur |ESP MD5, geen levensduur |
-| 17 |- |AH SHA, geen levensduur |
-| 18 |- |AH MD5, geen levensduur |
+
+### <a name ="RouteBasedOffers"></a>Aanbiedingen RouteBased VPN IPsec Security Association (IKE Quick Mode SA)
+De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedingen staan in volgorde van voorkeur waarin de aanbieding is gepresenteerd of geaccepteerd.
+
+#### <a name="azure-gateway-as-initiator"></a>Azure-gateway als initiator
+|-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Geen         |
+| 2 |AES256        |SHA1              |Geen         |
+| 3 |3DES          |SHA1              |Geen         |
+| 4 |AES256        |SHA256            |Geen         |
+| 5 |AES128        |SHA1              |Geen         |
+| 6 |3DES          |SHA256            |Geen         |
+
+#### <a name="azure-gateway-as-responder"></a>Azure-Gateway als antwoorder
+|-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Geen         |
+| 2 |AES256        |SHA1              |Geen         |
+| 3 |3DES          |SHA1              |Geen         |
+| 4 |AES256        |SHA256            |Geen         |
+| 5 |AES128        |SHA1              |Geen         |
+| 6 |3DES          |SHA256            |Geen         |
+| 7 |DES           |SHA1              |Geen         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |Geen         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en VPN-gateways met hoge prestaties. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist.  Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
 * Gebruik voor cross-premises connectiviteit via internet de standaardinstellingen voor Azure VPN-gateways met versleuteling en hash-algoritmen die in de tabel hierboven worden vermeld, om beveiliging van uw kritieke communicatie te waarborgen.

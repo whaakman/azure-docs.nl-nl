@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 33256025811f18529c942fa00726b40191127b7a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,23 +28,11 @@ Leer hoe u een [Apache Spark](hdinsight-apache-spark-overview.md)-cluster in HDI
 
    ![Aan de slag met Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Zelfstudie Aan de slag met Apache Spark in HDInsight. Geïllustreerde stappen: een opslagaccount maken, een cluster maken, Spark SQL-instructies uitvoeren")
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free).
 
-* **Een SSH-client (Secure Shell)**: Linux-, Unix- en OS X-systemen leveren een SSH client via de opdracht `ssh`. Voor Windows-clients raadpleegt u [SSH-sleutels met Hadoop gebruiken in HDInsight via Windows met PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). Voor Linux, Unix of OS X raadpleegt u [SSH-sleutels met Hadoop gebruiken in HDInsight via Linux, Unix of OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-> [!NOTE]
-> In dit artikel wordt een Azure Resource Manager-sjabloon gebruikt om een Spark-cluster te maken dat gebruikmaakt van [Azure Storage-blobs als clusteropslag](hdinsight-hadoop-use-blob-storage.md). U kunt ook een Spark-cluster maken dat gebruikmaakt van [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) als een extra opslag, naast de Azure Storage-blobs als de standaardopslag. Zie [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Een HDInsight-cluster maken met Data Lake Store) voor instructies.
->
->
-
-### <a name="access-control-requirements"></a>Vereisten voor toegangsbeheer
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
-## <a name="create-spark-cluster"></a>Een Spark-cluster maken
-In deze sectie maakt u een Spark-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Zie [Versiebeheer van HDInsight-onderdelen](hdinsight-component-versioning.md) voor meer informatie over de versies van HDInsight en de bijbehorende SLA’s. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
+## <a name="create-a-spark-cluster"></a>Een Spark-cluster maken
+In deze sectie maakt u een Spark-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen.         
 
@@ -53,24 +42,32 @@ In deze sectie maakt u een Spark-cluster in HDInsight met behulp van een [Azure 
 
     ![Spark-cluster maken in HDInsight met behulp van een Azure Resource Manager-sjabloon](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Spark-cluster maken in HDInsight met behulp van een Azure Resource Manager-sjabloon")
 
-   * **Abonnement**: selecteer uw Azure-abonnement voor dit cluster.
-   * **Resourcegroep**: geef een nieuwe resourcegroep op of selecteer een bestaande. Deze resourcegroep wordt gebruikt om Azure-resources voor uw projecten te beheren.
-   * **Locatie**: selecteer een locatie voor de resourcegroep.  Deze locatie wordt ook gebruikt voor de standaardclusteropslag en het HDInsight-cluster.
-   * **Clusternaam**: voer een naam in voor het Hadoop-cluster dat u maakt.
-   * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
-   * **SSH-aanmeldgegevens**.
+    * **Abonnement**: selecteer uw Azure-abonnement voor dit cluster.
+    * **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande. Deze resourcegroep wordt gebruikt om Azure-resources voor uw projecten te beheren.
+    * **Locatie**: selecteer een locatie voor de resourcegroep.  Deze locatie wordt ook gebruikt voor de standaardclusteropslag en het HDInsight-cluster.
+    * **Clusternaam**: voer een naam in voor het Hadoop-cluster dat u maakt.
+    * **Spark versie**: selecteer de Spark-versie die u wilt installeren op het cluster.
+    * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
+    * **SSH-aanmeldgegevens**.
 
    Noteer deze waarden.  U hebt ze later in de zelfstudie nodig.
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en klik op **Kopen**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster te maken.
 
-## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Spark SQL-query's uitvoeren met behulp van een Jupyter-notebook
-In deze sectie gebruikt u een Jupyter-notebook om Spark SQL-query's uit te voeren op het Spark-cluster. HDInsight Spark-clusters bieden twee kernels die u met de Jupyter-notebook kunt gebruiken. Dit zijn:
+> [!NOTE]
+> In dit artikel wordt een Spark-cluster gemaakt dat [Azure Storage-blobs als clusteropslag](hdinsight-hadoop-use-blob-storage.md) gebruikt. U kunt ook een Spark-cluster maken dat Azure Storage-blobs als standaardopslag gebruikt en daarnaast [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) als extra opslag. Zie [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) (Een HDInsight-cluster maken met Data Lake Store) voor instructies.
+>
+>
+
+## <a name="run-a-spark-sql-query"></a>Een Spark SQL-query uitvoeren
+
+In deze sectie gebruikt u een Jupyter-notebook om Spark SQL-query's uit te voeren op het Spark-cluster. HDInsight Spark-clusters bieden drie kernels die u met de Jupyter-notebook kunt gebruiken. Dit zijn:
 
 * **PySpark** (voor toepassingen die zijn geschreven in Python)
+* **PySpark3** (voor toepassingen die zijn geschreven in Python3)
 * **Spark** (voor toepassingen die zijn geschreven in Scala)
 
-In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md) voor meer informatie over de twee kernels. Enkele van de belangrijkste voordelen van het gebruik van de PySpark-kernel zijn:
+In dit artikel gebruikt u de **PySpark**-kernel. Zie [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md) (Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight) voor meer informatie over de kernels. Enkele van de belangrijkste voordelen van het gebruik van de PySpark-kernel zijn:
 
 * De contexten voor Spark en Hive worden automatisch ingesteld.
 * U kunt magic-pakketten voor cellen gebruiken, zoals `%%sql` om uw SQL- of Hive-query's direct uit te voeren, zonder eventuele voorgaande codefragmenten.
@@ -79,11 +76,12 @@ In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebrui
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Een Jupyter-notebook maken met PySpark-kernel
 
 1. Open de [Azure Portal](https://portal.azure.com/).
-2. Klik in het linkermenu op **Resourcegroepen**.
-3. Klik op de resourcegroep die u in de vorige sectie hebt gemaakt. Als er te veel resourcegroepen zijn, kunt u de zoekfunctie gebruiken. Hier ziet u twee resources in de groep: het HDInsight-cluster en het standaardopslagaccount.
-4. Klik op het cluster om het te openen.
 
-2. Klik in **Snelkoppelingen** op **Clusterdashboards** en klik vervolgens op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
+2. Als u ervoor hebt gekozen om het cluster vast te maken aan het dashboard, klikt u vanuit het dashboard op de clustertegel om de clusterblade te starten.
+
+    Als u het cluster niet hebt vastgemaakt aan het dashboard, klikt u in het linkerdeelvenster op **HDInsight clusters** en vervolgens op het cluster dat u hebt gemaakt.
+
+3. Klik in **Snelkoppelingen** op **Clusterdashboards** en klik vervolgens op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
    ![HDInsight-clusterdashboards](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight-clusterdashboards")
 
@@ -93,26 +91,27 @@ In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebrui
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Maak een nieuwe notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
+3. Maak een notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
 
-   ![Een nieuwe Jupyter-notebook maken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Een nieuwe Jupyter-notebook maken")
+   ![Een Jupyter-notebook maken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Een Jupyter-notebook maken")
 
    Er wordt een nieuwe notebook gemaakt en geopend met de naam Untitled (Untitled.pynb).
 
 4. Klik bovenaan op de naam van de notebook en wijzig deze desgewenst in een beschrijvende naam.
 
     ![Een naam opgeven voor de notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Een naam opgeven voor de notebook")
+
 5. Plak de volgende code in een lege cel en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
         from pyspark.sql.types import *
 
-    Omdat u de notebook met behulp van de PySpark-kernel hebt gemaakt, hoeft u niet expliciet contexten te maken. De Spark- en Hive-contexten worden automatisch voor u gemaakt tijdens het uitvoeren van de eerste codecel.
+    Omdat u de notebook met behulp van de PySpark-kernel hebt gemaakt, hoeft u niet expliciet contexten te maken. De Spark- en Hive-contexten worden automatisch voor u gemaakt wanneer u de eerste codecel uitvoert.
 
     ![Status van een Jupyter-notebooktaak](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status van een Jupyter-notebooktaak")
 
-    Telkens wanneer u een taak in Jupyter uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** samen met de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Nadat de taak is voltooid, verandert deze in een lege cirkel.
+    Telkens wanneer u een taak in Jupyter uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** samen met de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
 
-6. Voer de volgende code uit om wat voorbeeldgegevens te registreren in de tijdelijke tabel **hvac**.
+6. Registreer een set met voorbeeldgegevens als een tijdelijke tabel (**hvac**) door de volgende code uit te voeren.
 
         # Load the data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -131,12 +130,12 @@ In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebrui
 
     Spark-clusters in HDInsight worden geleverd met een bestand met voorbeeldgegevens, **hvac.csv**. U vindt dit onder **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Voer de volgende code uit om de gegevens op te vragen:
+7. Voer de volgende code uit om de gegevens op te vragen.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Omdat u een PySpark-kernel gebruikt, kunt u nu rechtstreeks een SQL-query uitvoeren op de tijdelijke tabel **hvac**, die u zojuist hebt gemaakt met behulp van de `%%sql`-magic. Voor meer informatie over de `%%sql`-magic, evenals over andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Omdat u een PySpark-kernel gebruikt, kunt u nu rechtstreeks een SQL-query uitvoeren op de tijdelijke tabel **hvac**, die u hebt gemaakt met behulp van de `%%sql`-magic. Voor meer informatie over de `%%sql`-magic, en andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    Standaard wordt de volgende tabelvormige uitvoer weergegeven.
 
@@ -146,7 +145,14 @@ In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebrui
 
     ![Gebiedsgrafiek van het queryresultaat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Gebiedsgrafiek van het queryresultaat")
 
-9. Wanneer u klaar bent met het uitvoeren van de toepassing, kunt u de notebook afsluiten om de resources vrij te geven. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**. Hiermee wordt de notebook afgesloten.
+9. Sluit de notebook af om de clusterresources vrij te geven nadat u de toepassing hebt uitgevoerd. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**.
+
+## <a name="troubleshoot"></a>Problemen oplossen
+
+Hier volgen enkele algemene problemen die u kunt tegenkomen wanneer u met HDInsight-clusters werkt.
+
+### <a name="access-control-requirements"></a>Vereisten voor toegangsbeheer
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -187,9 +193,4 @@ In dit artikel gebruikt u de PySpark-kernel. Zie [Jupyter-notebookkernels gebrui
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

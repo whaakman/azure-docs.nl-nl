@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
-ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -62,7 +63,7 @@ De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich
     * **Type besturingssysteem**: Linux
     * **Het aantal worker-knooppunten**: 2
 
-     Elk cluster is afhankelijk van een Azure Blob Storage-account. Meestal wordt ernaar gerefereerd als het standaard opslagaccount. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd. 
+     Elk cluster is afhankelijk van een Azure Storage-account. Meestal wordt ernaar gerefereerd als het standaard opslagaccount. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd. 
      
      Raadpleeg voor meer uitleg over deze eigenschappen [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -134,7 +135,7 @@ Zie de volgende onderwerpen voor meer informatie over het analyseren van gegeven
 
 Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over hoe HDInsight gegevens opslaat of hoe u gegevens in HDInsight krijgt, raadpleegt u de volgende artikelen:
 
-* Zie voor meer informatie over hoe HDInsight Azure Blob Storage gebruikt [Azure Blob Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md).
+* Zie [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md) voor meer informatie over hoe HDInsight Azure Storage gebruikt.
 * Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data] voor meer informatie over het uploaden van gegevens naar HDInsight.
 
 Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, raadpleegt u de volgende artikelen:
@@ -155,10 +156,5 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

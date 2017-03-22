@@ -13,35 +13,168 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Aan de slag met wachtwoordbeheer
 > [!IMPORTANT]
-> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
+> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 Er hoeven slechts enkele eenvoudige stappen te worden uitgevoerd om uw gebruikers in staat te stellen hun eigen wachtwoorden voor Azure Active Directory in de cloud of on-premises te beheren. Wanneer u hebt gecontroleerd of u aan een aantal eenvoudige vereisten voldoet, is het wijzigen van wachtwoorden en het opnieuw instellen van wachtwoorden voor uw volledige organisatie voor u het weet ingeschakeld. In dit artikel leest u meer over de volgende concepten:
 
+* [**Handige tips van onze klanten voordat u begint**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE** - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**Tip 1: LICENTIEVERLENING** - Zorg ervoor dat de licentievereisten duidelijk zijn](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tip 3: IMPLEMENTATIE** - Vul vooraf gegevens in voor uw gebruikers, zodat ze zich niet hoeven te registreren](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**Tip 4: Implementatie** - Gebruik de functie voor wachtwoordherstel, zodat het niet meer nodig is om tijdelijke wachtwoorden te verstrekken](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**Tip 5: TERUGSCHRIJVEN** - Raadpleeg het toepassingsgebeurtenislogboek op uw computer met AAD Connect om problemen met het terugschrijven van wachtwoorden op te lossen](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**Tip 6: TERUGSCHRIJVEN** - Zorg ervoor dat u de juiste machtigingen, firewallregels en verbindingsinstellingen inschakelt voor het terugschrijven van wachtwoorden](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**Tip 7: RAPPORTAGE** - Raadpleeg de auditlogboeken van Azure AD SSPR om te kijken wie er wachtwoorden registreert of opnieuw instelt](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**Tip 8: PROBLEMEN OPLOSSEN** - Lees onze gids voor probleemoplossing en de veelgestelde vragen om een antwoord te vinden voor een probleem](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**Tip 9: PROBLEMEN OPLOSSEN** - Als u toch nog hulp nodig hebt, verzamel dan voldoende informatie voor ons om u te kunnen helpen](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**Gebruikers in staat stellen om hun Azure Active Directory-wachtwoorden opnieuw in te stellen**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [Vereisten voor de selfservice voor wachtwoordherstel](#prerequisites)
-  * [Stap 1: Een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
-  * [Stap 2: Contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
-  * [Stap 3: Uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [Vereisten voor de selfservice voor wachtwoordherstel](#prerequisites)
+ * [Stap 1: Een beleid voor het opnieuw instellen van wachtwoorden configureren](#step-1-configure-password-reset-policy)
+ * [Stap 2: Contactgegevens toevoegen voor uw testgebruiker](#step-2-add-contact-data-for-your-test-user)
+ * [Stap 3: Uw wachtwoord opnieuw instellen als gebruiker](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Gebruikers in staat stellen om hun on-premises Active Directory-wachtwoorden te wijzigen of opnieuw in te stellen**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [Vereisten voor het terugschrijven van wachtwoorden](#writeback-prerequisites)
-  * [Stap 1: De nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [Stap 2: Het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
-  * [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [Stap 5: Uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
+ * [Vereisten voor het terugschrijven van wachtwoorden](#writeback-prerequisites)
+ * [Stap 1: De nieuwste versie van Azure AD Connect downloaden](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [Stap 2: Het terugschrijven van wachtwoorden in Azure AD Connect inschakelen via de gebruikersinterface of PowerShell en controles uitvoeren](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
+ * [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [Stap 5: Uw AD-wachtwoord als gebruiker opnieuw instellen en controleren](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>Belangrijke tips van onze klanten die u moet lezen voordat u begint
+Hieronder vindt u enkele van de tips die in de praktijk zeer nuttig zijn gebleken voor klanten die wachtwoordbeheer hebben geïmplementeerd in hun organisatie.
+
+* [**BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE** - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**Tip 1: LICENTIEVERLENING** - Zorg ervoor dat de licentievereisten duidelijk zijn](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tip 3: IMPLEMENTATIE** - Vul vooraf gegevens in voor uw gebruikers, zodat ze zich niet hoeven te registreren](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**Tip 4: Implementatie** - Gebruik de functie voor wachtwoordherstel, zodat het niet meer nodig is om tijdelijke wachtwoorden te verstrekken](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**Tip 5: TERUGSCHRIJVEN** - Raadpleeg het toepassingsgebeurtenislogboek op uw computer met AAD Connect om problemen met het terugschrijven van wachtwoorden op te lossen](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Tip 6: TERUGSCHRIJVEN** - Zorg ervoor dat u de juiste machtigingen, firewallregels en verbindingsinstellingen inschakelt voor het terugschrijven van wachtwoorden](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**Tip 7: RAPPORTAGE** - Raadpleeg de auditlogboeken van Azure AD SSPR om te kijken wie er wachtwoorden registreert of opnieuw instelt](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Tip 8: PROBLEMEN OPLOSSEN** - Lees onze gids voor probleemoplossing en de veelgestelde vragen om een antwoord te vinden voor een probleem](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Tip 9: PROBLEMEN OPLOSSEN** - Als u toch nog hulp nodig hebt, verzamel dan voldoende informatie voor ons om u te kunnen helpen](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden
+Als u gebruikmaakt van onze documentatie, zult u zien dat we hebben geprobeerd om in de inhoudsopgave zo veel mogelijk quicklinks op te nemen naar alle interessante onderwerpen voor beheerders. 
+
+U vindt de inhoudsopgave via deze koppeling: 
+* [Azure AD Password Reset: Documentation Table of Contents](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) (Azure AD-wachtwoord opnieuw instellen: inhoudsopgave van documentatie)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Tip 1: LICENTIEVERLENING - Zorg ervoor dat de licentievereisten duidelijk zijn
+De functie voor wachtwoordherstel van Azure AD werkt alleen als er ten minste één licentie is toegewezen in uw organisatie. Er wordt geen licentie per gebruiker afgedwongen voor de ervaring Wachtwoordherstel zelf. Als u de functie echter gebruikt zonder dat er een licentie is toegewezen aan een gebruiker, voldoet u niet aan de voorwaarden van uw Microsoft-licentieovereenkomst en zult u licenties moeten toewijzen aan die gebruikers.
+
+Dit zijn enkele documenten die u kunt lezen om te begrijpen welke licenties zijn vereist voor de functie voor wachtwoordherstel.
+* [General password reset licensing information]() (Algemene licentiegegevens voor wachtwoordherstel)
+* [Per-feature password reset licensing information]() (Licentiegegevens voor wachtwoordherstel per functie)
+* [Scenarios supported for password writeback]() (Scenario's die worden ondersteund voor terugschrijven van wachtwoorden)
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Tip 2: TESTEN - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers
+Wanneer u test met een beheerder, is het beleid voor wachtwoordherstel voor beheerders van kracht. Dit beleid wordt hieronder toegelicht.  Dit betekent dat u NIET de verwachte resultaten ziet van het beleid dat u hebt geconfigureerd voor uw eindgebruikers.
+
+De beleidsregels die zijn geconfigureerd in de beheerinterface, zijn ALLEEN van toepassing op eindgebruikers, niet op beheerders. Microsoft hanteert voor uw beheerders standaard een sterk beleid voor wachtwoordherstel om ervoor te zorgen dat uw organisatie optimaal beveiligd blijft. Deze beleidsregels kunnen afwijken van de beleidsregels die u instelt voor uw eindgebruikers.
+
+#### <a name="administrator-password-reset-policy"></a>Beleid voor opnieuw instellen van beheerderswachtwoorden
+* **Van toepassing op:** elke beheerdersrol (globale beheerder, helpdeskbeheerder, wachtwoordbeheerder, enzovoort)
+* **Beleid met één gate geldt...**
+ * ...gedurende de eerste 30 dagen nadat een proefabonnement is gestart **OF**
+ * ...als er geen vanity domain wordt gebruikt **EN** er geen identiteiten worden gesynchroniseerd in Azure AD Connect
+ * **_Vereist_**: dat **één** van deze opties is opgegeven: E-mailadres voor authenticatie, Alternatief e-mailadres, Telefoon voor authenticatie, Mobiele telefoon of Telefoon (werk)
+* **Beleid met twee gates geldt...** 
+ * ...als de eerste 30 dagen van een proefabonnement zijn verstreken **OF**
+ * ...bij aanwezigheid van een vanity domain **OF** 
+ * ...als u in Azure AD Connect hebt ingesteld dat identiteiten vanuit de on-premises omgeving moeten worden gesynchroniseerd
+ * _**Vereist**_: dat **twee** van deze opties zijn opgegeven: E-mailadres voor authenticatie, Alternatief e-mailadres, Telefoon voor authenticatie, Mobiele telefoon of Telefoon (werk)
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>Tip 3: IMPLEMENTATIE - Vul vooraf gegevens in voor uw gebruikers, zodat ze zich niet hoeven te registreren
+Veel mensen weten niet dat gebruikers zich niet hoeven te registreren voor de functie voor wachtwoordherstel om de functie te kunnen gebruiken.  Als u vooraf eigenschappen van een telefoon of e-mailadres instelt voor uw gebruikers, kunt u de functie voor wachtwoordherstel in één keer implementeren voor de hele organisatie, **zonder dat uw gebruikers iets hoeven te doen!**
+
+Raadpleeg de volgende documentatie als u wilt weten hoe u dit doet met een API, PowerShell of Azure AD Connect:
+* [Deploying password reset without requiring end user registration](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration) (Wachtwoordherstel implementeren zonder registratie van eindgebruikers)
+* [What data is used by password reset?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset) (Welke gegevens worden gebruikt tijdens wachtwoordherstel?)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>Tip 4: IMPLEMENTATIE - Gebruik de functie voor wachtwoordherstel, zodat het niet nodig is om tijdelijke wachtwoorden te verstrekken
+Deze tip is een vervolg op tip 3. Laten we ervan uitgaan dat al uw gebruikers vooraf zijn geconfigureerd voor wachtwoordherstel en dat er door uw bedrijf een nieuwe werknemer wordt aangenomen. In plaats van een tijdelijk wachtwoord naar deze persoon te sturen, hoeft u hem alleen maar te verwijzen naar de [portal voor het opnieuw instellen van wachtwoorden van Azure AD](https://passwordreset.microsoftonline.com), met het verzoek een nieuw wachtwoord in te stellen.
+
+Als de gebruiker een [apparaat met Windows 10 gebruikt dat lid is van een Azure AD-domein](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy), is dit zelfs mogelijk vanuit het eerste aanmeldingsscherm van Windows 10 dat hij te zien krijgt. Op deze manier kan de gebruiker dus toegang krijgen tot een gloednieuwe pc zonder dat u iets hoeft te doen!
+
+Raadpleeg de volgende documentatie als u wilt weten hoe u dit doet met een API, PowerShell of Azure AD Connect. Als de vereiste gegevens vooraf zijn ingevuld, stuurt u uw gebruikers een bericht met het verzoek hun wachtwoord opnieuw in te stellen. De gebruikers hebben dan direct toegang tot hun account:
+* [Deploying password reset without requiring end user registration](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration) (Wachtwoordherstel implementeren zonder registratie van eindgebruikers)
+* [What data is used by password reset?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset) (Welke gegevens worden gebruikt tijdens wachtwoordherstel?)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>Tip 5: TERUGSCHRIJVEN - Raadpleeg het toepassingsgebeurtenislogboek op uw computer met AAD Connect om problemen met het terugschrijven van wachtwoorden op te lossen
+Het toepassingsgebeurtenislogboek van Azure AD Connect bevat waardevolle informatie over veel van de activiteiten die verband houden met de service voor het terugschrijven van wachtwoorden. Het logboek wordt in real-time bijgehouden. Volg de onderstaande stappen om toegang te krijgen tot dit logboek:
+
+1. Meld u aan bij de computer met **Azure AD Connect**.
+2. Open **Logboeken van Windows** door op **Start** te klikken en **Logboeken** te typen.
+3. Open het gebeurtenislogboek **Toepassing**.
+4. Zoek naar gebeurtenissen uit de bronnen **PasswordResetService** en **ADSync** om informatie te verzamelen over het probleem dat zich mogelijk voordoet.
+
+Raadpleeg de volgende onderwerpen voor een volledige lijst van gebeurtenissen die kunnen worden vastgelegd in dit logboek, evenals aanvullende informatie over het oplossen van problemen met het terugschrijven van wachtwoorden:
+* [Troubleshoot Password Writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback) (Problemen met het terugschrijven van wachtwoorden oplossen)
+* [Password Writeback event log error codes](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes) (Foutcodes in het gebeurtenislogboek voor het terugschrijven van wachtwoorden)
+* [Troubleshoot Password Writeback connectivity](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity) (Problemen oplossen met connectiviteit voor het terugschrijven van wachtwoorden)
+* [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
+* [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>Tip 6: TERUGSCHRIJVEN - Zorg ervoor dat u de juiste machtigingen, firewallregels en verbindingsinstellingen inschakelt voor het terugschrijven van wachtwoorden
+Het terugschrijven van wachtwoorden werkt alleen als aan deze voorwaarden wordt voldaan:
+
+1. De juiste **Active Directory-machtigingen** zijn ingesteld voor gebruikers die de functie voor het terugschrijven van wachtwoorden gebruiken, zodat ze beschikken over rechten om hun eigen wachtwoorden en ontgrendelingsvlaggen voor accounts te wijzigen in AD.
+2. De juiste **firewallpoorten** zijn geopend, zodat de service voor het terugschrijven van wachtwoorden op een veilige manier via een uitgaande verbinding kan communiceren met de buitenwereld.
+3. De juiste **firewalluitzonderingen** zijn ingesteld voor essentiële URL's voor de service voor het opnieuw instellen van wachtwoorden, zoals Service Bus.
+4. **Niet-actieve uitgaande verbindingen worden niet beëindigd door de proxy- en firewallinstellingen**; het wordt aangeraden ze 10 minuten of langer in stand te houden.
+
+Raadpleeg deze onderwerpen voor een volledig overzicht van informatie voor probleemoplossing en specifieke instructies voor het configureren van machtigingen en firewallregels om terugschrijven van wachtwoorden mogelijk te maken:
+* [Troubleshoot Password Writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback) (Problemen met het terugschrijven van wachtwoorden oplossen)
+* [Password Writeback event log error codes](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes) (Foutcodes in het gebeurtenislogboek voor het terugschrijven van wachtwoorden)
+* [Troubleshoot Password Writeback connectivity](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity) (Problemen oplossen met connectiviteit voor het terugschrijven van wachtwoorden)
+* [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
+* [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tip 7: RAPPORTAGE - Raadpleeg de auditlogboeken van Azure AD SSPR om te kijken wie er wachtwoorden registreert of opnieuw instelt 
+Als wachtwoordherstel eenmaal is geïmplementeerd en werkt, is de volgende logische stap te kijken hoe het functioneert en te analyseren wie zich alsnog moet registreren. Ook kunt u dan zien welke problemen uw gebruikers regelmatig tegenkomen bij het opnieuw instellen van wachtwoorden en welke voordelen de functie oplevert.
+
+Met behulp van de auditlogboeken van de functie voor wachtwoordherstel van Azure AD kunt u dit en nog veel meer doen vanuit Azure Portal, Power BI, de API Reporting Events van Azure AD of PowerShell.  Zie deze onderwerpen voor meer informatie over het gebruik van deze rapportagefuncties:
+* [Overview of password management reports](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports) (Overzicht van rapporten voor wachtwoordbeheer)
+* [How to view Password Management Reports](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports) (Rapporten voor wachtwoordbeheer bekijken in Azure Portal)
+* [Self-service Password Management activity types in the Azure Portal](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal) (Activiteitstypen van de self-service voor wachtwoordbeheer in Azure Portal)
+* [How to retrieve password management events from the Azure AD Reports and Events API](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api) (Gebeurtenissen van wachtwoordbeheer ophalen uit de API Reports and Events van Azure AD)
+* [How to download password reset registration events quickly with PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell) (Gebeurtenissen van registratie met wachtwoordherstel snel downloaden met PowerShell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>Tip 8: PROBLEMEN OPLOSSEN - Lees onze gids voor probleemoplossing en de veelgestelde vragen om een antwoord te vinden voor een probleem
+Er is heel veel informatie beschikbaar voor het oplossen van problemen met de functie voor wachtwoordherstel, waaronder antwoorden op veelgestelde vragen. De kans is dan ook groot dat u het antwoord op een vraag via de onderstaande koppelingen kunt vinden.
+
+Daarnaast biedt de blade **Ondersteuning en probleemoplossing** in [Azure Portal](https://portal.azure.com) toegang tot een grote hoeveelheid informatie over probleemoplossing. Gebruikers met beheerrechten kunnen deze blade weergeven door in het navigatievenster aan de linkerkant via **Azure Active Directory** -> **Gebruikers en groepen** -> **Wachtwoordherstel** -> **Ondersteuning en probleemoplossing** te kiezen.
+
+Koppelingen naar informatie en veelgestelde vragen over problemen met wachtwoordherstel:
+* [How to troubleshoot Password Management](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot) (Problemen met wachtwoordbeheer oplossen)
+* [Password management frequently asked questions](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq) (Wachtwoordbeheer - Veelgestelde vragen)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>Tip 9: PROBLEMEN OPLOSSEN - Als u toch nog hulp nodig hebt, verzamel dan voldoende informatie voor ons om u te kunnen helpen
+Als het nog steeds niet is gelukt om het probleem op te lossen, willen we u natuurlijk graag helpen. U kunt hiervoor een ondersteuningsaanvraag openen of rechtstreeks contact met ons opnemen. We zijn er om u te helpen.
+
+We kunnen u alleen snel helpen als u **alle onderstaande gegevens bij de hand hebt** wanneer u contact opneemt.
+* [Benodigde informatie om snel te worden geholpen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>Manieren om feedback te geven over de functie voor wachtwoordherstel
+* [Functieaanvragen of probleemoplossing - berichten posten op MSDN-forums over Azure AD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Functieaanvragen of probleemoplossing - berichten posten op StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Functieaanvragen of probleemoplossing - tweet naar @azuread!](https://twitter.com/azuread)
+* [Alleen functieaanvragen - bericht achterlaten op UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Gebruikers in staat stellen om hun Azure AD-wachtwoorden opnieuw in te stellen
 In dit gedeelte vindt u meer informatie over het inschakelen van de selfservice voor wachtwoordherstel voor uw AAD-clouddirectory, over het registreren van gebruikers voor de selfservice voor wachtwoordherstel en het als gebruiker uitvoeren van een testwachtwoordherstel via de selfservice.
@@ -267,11 +400,11 @@ Als u Wachtwoord terugschrijven hebt ingeschakeld, moet u ervoor zorgen dat de m
 
 Als u wilt dat het terugschrijven van wachtwoorden goed werkt, moet de machine waarop Azure AD Connect wordt uitgevoerd, een uitgaande HTTPS-verbinding kunnen maken met **.servicebus.windows.net* en bepaalde IP-adressen die worden gebruikt door Azure. Deze worden gedefinieerd in de [Microsoft Azure-lijst met datacenter-IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Voor Azure AD Connect-versie **1.1.439.0** (nieuwste) en hoger:
+Voor Azure AD Connect-versie **1.1.443.0** (nieuwste) en hoger:
 
 - De meest recente versie van het hulpprogramma Azure AD Connect moet **uitgaande HTTPS-toegang** hebben tot:
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 Voor Azure AD Connect-versie **1.0.8667.0** tot **1.1.380.0**:
 
@@ -302,11 +435,11 @@ Voor Azure AD Connect-versie **1.0.8667.0** tot **1.1.380.0**:
 
 Nadat de netwerkapparaten zijn geconfigureerd, moet u de machine met het Azure AD Connect-hulpprogramma opnieuw opstarten.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Niet-actieve verbindingen op Azure AD Connect (1.1.439.0 en hoger)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Niet-actieve verbindingen op Azure AD Connect (1.1.443.0 en hoger)
 Het hulpprogramma Azure AD Connect verzendt periodieke pings/keepalives naar ServiceBus-eindpunten om ervoor te zorgen dat de verbindingen actief blijven. Als het hulpprogramma detecteert dat er te veel verbindingen worden afgesloten, wordt de frequentie van pings naar het eindpunt automatisch verhoogd. De laagste pingintervallen worden verlaagd naar 1 ping per 60 seconden. **We raden echter aan dat proxy's/firewalls verbindingen toestaan om ten minste 2-3 minuten niet-actief te zijn.** \*Voor oudere versies raden we vier minuten of meer aan.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Stap 4: de juiste Active Directory-machtigingen instellen
-Bij elke forest die gebruikers bevat waarvan de wachtwoorden opnieuw worden ingesteld en waarbij X het account is dat is opgegeven voor die forest in de configuratiewizard (tijdens de eerste configuratie), moet X de machtigingen **Wachtwoord wijzigen**, **Wachtwoord opnieuw instellen**, **Schrijfmachtigingen** voor `lockoutTime` en **Schrijfmachtigingen** voor `pwdLastSet` krijgen. Daarbij moet X ook uitgebreide rechten krijgen voor het hoofdobject van elk domein in het forest. Het recht moet worden gemarkeerd als 'overgenomen door alle gebruikersobjecten'.  
+Bij elke forest die gebruikers bevat waarvan de wachtwoorden opnieuw worden ingesteld en waarbij X het account is dat voor die forest is opgegeven in de configuratiewizard (tijdens de eerste configuratie), moet X de machtigingen **Wachtwoord opnieuw instellen**, **Wachtwoord wijzigen**, **Schrijfmachtigingen** voor `lockoutTime` en **Schrijfmachtigingen** voor `pwdLastSet` krijgen. Daarbij moet X ook uitgebreide rechten krijgen voor het hoofdobject van elk domein in die forest OF voor de organisatie-eenheid van gebruikers die in scope moet zijn voor SSPR. In het laatste geval kunt u trouwens ook meerdere organisatie-eenheden opgeven.  Gebruik de laatste optie als u de scope van de machtigingen voor wachtwoordherstel wilt beperken tot een specifieke set gebruikersobjecten, omdat het niet wenselijk is om het hoofdobject van het domein op te nemen in de scope. Het recht moet worden gemarkeerd als 'overgenomen door alle gebruikersobjecten'.  
 
 Als u niet zeker welk account hierboven wordt bedoeld, opent u de gebruikersinterface van de Azure Active Directory Connect-configuratie en klikt u op **Uw oplossing controleren**.  Het account waar u machtigingen voor moet toevoegen, is rood onderstreept in de onderstaande schermafbeelding.
 
@@ -361,7 +494,7 @@ Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervo
 ## <a name="next-steps"></a>Volgende stappen
 Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wachtwoordherstel:
 
-* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
+* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Hoe werkt het?**](active-directory-passwords-how-it-works.md): meer informatie over de zes verschillende onderdelen van de service en wat elke service biedt
 * [**Aanpassen**](active-directory-passwords-customize.md): informatie over het aanpassen van de weergave en het gedrag van de service om aan de behoeften van uw organisatie te voldoen
 * [**Aanbevolen procedures**](active-directory-passwords-best-practices.md): informatie over het snel implementeren en effectief beheren van wachtwoorden in uw organisatie

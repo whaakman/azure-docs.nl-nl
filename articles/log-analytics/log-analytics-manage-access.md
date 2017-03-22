@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ Het volgende is nodig om een werkruimte te maken:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
 Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Portal.
 
-Het is mogelijk om meerdere werkruimten te maken en gebruikers kunnen toegang hebben tot een of meer werkruimten. Door het aantal werkruimten te minimaliseren, kunt u de meeste gegevens opvragen en correleren. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Door het aantal werkruimten te minimaliseren, kunt u voor de meeste gegevens query's uitvoeren en de gegevens aan elkaar relateren, aangezien het niet mogelijk is om query's voor meerdere werkruimten uit te voeren. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
 Een werkruimte biedt momenteel het volgende:
 
@@ -52,7 +52,7 @@ Op basis van de voorgaande kenmerken kunt u in de volgende gevallen meerdere wer
 * U bent aanbieder van beheerde services en moet de logboekanalysegegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
 * U beheert meerdere klanten en wilt dat elke klant, afdeling of bedrijfsgroep de eigen gegevens kan bekijken, maar niet de gegevens van anderen.
 
-Wanneer u agents gebruikt om gegevens te verzamelen, kunt u elke agent configureren om te rapporteren aan een of meer werkruimten.
+Wanneer u agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](log-analytics-windows-agents.md).
 
 Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
 
@@ -71,34 +71,64 @@ U kunt gegevens van uw werkruimte in Azure Portal bekijken. U kunt de gegevens o
 
 
 ## <a name="manage-accounts-and-users"></a>Accounts en gebruikers beheren
-Aan elke werkruimte kunnen meerdere gebruikersaccounts worden gekoppeld en elk gebruikersaccount (Microsoft-account of organisatieaccount) kan toegang hebben tot meerdere werkruimten.
+Aan elke werkruimte kunnen meerdere accounts worden gekoppeld en elk account (Microsoft-account of organisatieaccount) kan toegang hebben tot meerdere werkruimten.
 
-Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt voor het maken van de werkruimte, de beheerder van de werkruimte. De beheerder kan vervolgens aanvullende Microsoft-accounts uitnodigen of gebruikers uit Azure Active Directory kiezen.
+Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt voor het maken van de werkruimte, de beheerder van de werkruimte.
 
-Het verlenen van toegang tot de werkruimte aan gebruikers wordt op twee locaties beheerd:
+Er zijn twee machtigingsmodellen die de toegang tot een Log Analytics-werkruimte beheren:
 
-* In Azure kunt u op rollen gebaseerd toegangsbeheer gebruiken voor toegang tot het Azure-abonnement en de gekoppelde Azure-resources. Deze rechten worden ook gebruikt voor toegang tot PowerShell en de REST API.
-* In de OMS-portal kan alleen toegang worden verleend tot de OMS-portal, niet tot het gekoppelde Azure-abonnement.
+1. Verouderde Log Analytics-gebruikersrollen
+2. [Toegang op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md) 
 
-Als u gegevens wilt zien in de tegels voor back-up- en sitehersteloplossingen, moet u beschikken over een machtiging als beheerder of medebeheerder voor het Azure-abonnement waaraan de werkruimte is gekoppeld.   
+In de volgende tabel ziet u de toegang die met elk machtigingsmodel kan worden ingesteld:
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Toegang tot Log Analytics beheren met behulp van de Azure Portal
-Als u gebruikers toegang biedt tot de Log Analytics-werkruimte met behulp van Azure-machtigingen, bijvoorbeeld in de Azure Portal, hebben deze gebruikers ook toegang tot de Log Analytics-portal. Als gebruikers zich in de Azure Portal bevinden, kunnen ze naar de OMS-portal navigeren door te klikken op de taak **OMS Portal** wanneer ze de Log Analytics-werkruimteresource bekijken.
+|                          | Log Analytics-portal | Azure Portal | API (inclusief PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Log Analytics-gebruikersrollen | Ja                  | Nee           | Nee                         |
+| Toegang op basis van rollen in Azure  | Ja                  | Ja          | Ja                        |
+
+> [!NOTE]
+> Log Analytics zal in plaats van Log Analytics-gebruikersrollen toegang op basis van rollen in Azure gaan gebruiken als machtigingsmodel.
+>
+>
+
+De oude Log Analytics-gebruikersrollen beheren alleen de toegang tot activiteiten die worden uitgevoerd in de [Log Analytics-portal](https://mms.microsoft.com).
+
+Voor de volgende activiteiten in de Log Analytics-portal zijn ook Azure-machtigingen vereist:
+
+| Actie                                                          | Azure-machtigingen nodig | Opmerkingen |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Beheeroplossingen toevoegen en verwijderen                        | Resourcegroepen schrijven <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
+Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
+
+Als u minimaal Azure-leesmachtiging hebt in de Log Analytics-werkruimte, kunt u de OMS-portal openen door op de taak **OMS-portal** te klikken wanneer de Log Analytics-werkruimte wordt weergegeven.
+
+Bij het openen van de Log Analytics-portal schakelt u over op het gebruik van de verouderde Log Analytics-gebruikersrollen. Als u niet beschikt over een roltoewijzing in de Log Analytics-portal, [worden de Azure-machtigingen waarover u beschikt, in de werkruimte gecontroleerd](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). De roltoewijzing in de Log Analytics-portal wordt als volgt bepaald:
+
+| Voorwaarden                                                   | Toegewezen Log Analytics-gebruikersrol | Opmerkingen |
+|--------------------------------------------------------------|----------------------------------|-------|
+| Uw account behoort tot een verouderde Log Analytics-gebruikersrol     | De opgegeven Log Analytics-gebruikersrol | |
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Volledige Azure-machtigingen voor de werkruimte (`*` machtiging <sup>1</sup>) | Beheerder ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Volledige Azure-machtigingen voor de werkruimte (`*` machtiging <sup>1</sup>) <br> *geen acties* van `Microsoft.Authorization/*/Delete` en `Microsoft.Authorization/*/Write` | Inzender ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Azure-leesmachtiging | Alleen-lezen ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Azure-machtigingen zijn niet begrepen | Alleen-lezen ||
+| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich in de Azure Active Directory die aan de werkruimte is gekoppeld | Beheerder | Doorgaans de klant van een CSP |
+| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich niet in de Azure Active Directory die aan de werkruimte is gekoppeld | Inzender | Doorgaans de CSP |
+
+<sup>1</sup> Raadpleeg [Azure-machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`. 
 
 Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet houden:
 
-* Dit is geen *op rollen gebaseerd toegangsbeheer*. Als u in de Azure Portal *leesrechten* hebt voor de Log Analytics-werkruimte, kunt u via de OMS-portal wijzigingen aanbrengen. De OMS-portal heeft een concept van Beheerder, Bijdrager en Gebruiker met alleen-lezentoegang. Als het account waarbij u bent aangemeld, zich in de Azure Active Directory bevindt die is gekoppeld aan de werkruimte, bent u in de OMS-portal een Beheerder. In andere gevallen bent u een Bijdrager.
-* Als u zich bij de OMS-portal aanmeldt via http://mms.microsoft.com, wordt standaard de lijst **Een werkruimte selecteren** weergegeven. Deze lijst bevat alleen werkruimten die zijn toegevoegd met behulp van de OMS-portal. Als u de werkruimten wilt zien waartoe u toegang hebt met Azure-abonnementen, moet u een tenant als onderdeel van de URL opgeven. Bijvoorbeeld:
-
-  `mms.microsoft.com/?tenant=contoso.com` De tenant-id is vaak het laatste deel van het e-mailadres waarmee u zich aanmeldt.
-* Als het account waarmee u zich aanmeldt, een account in de tenant Azure Active Directory is, bent u in de OMS-portal een *Beheerder*. Dit is meestal het geval, tenzij u zich aanmeldt als een CSP.  Als uw account zich niet in de tenant Azure Active Directory bevindt, bent u in de OMS-portal een *Gebruiker*.
+* Als u zich bij de OMS-portal aanmeldt via http://mms.microsoft.com, wordt de lijst **Een werkruimte selecteren** weergegeven. Deze lijst bevat alleen werkruimten waarin u een Log Analytics-gebruikersrol hebt. Als u de werkruimten wilt zien waartoe u toegang hebt met Azure-abonnementen, moet u een tenant als onderdeel van de URL opgeven. Bijvoorbeeld `mms.microsoft.com/?tenant=contoso.com`. De tenant-id is vaak het laatste deel van het e-mailadres waarmee u zich aanmeldt.
 * Als u rechtstreeks wilt navigeren naar een portal waartoe u toegang hebt via Azure-machtigingen, moet u de resource als onderdeel van de URL opgeven. Het is mogelijk om deze URL op te halen met behulp van PowerShell.
 
   Bijvoorbeeld `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   De URL ziet er als volgt uit: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-Als u bijvoorbeeld beheeroplossingen wilt toevoegen of verwijderen, moet de gebruiker in Azure Portal een beheerder of inzender zijn van het Azure-abonnement. Bovendien moet de gebruiker de OMS-rol van werkruimte-inzender of beheerder hebben in de OMS-portal.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Gebruikers beheren in de OMS-portal
 U beheert gebruikers en groepen op het tabblad **Gebruikers beheren** onder het tabblad **Accounts** op de pagina Instellingen.   
@@ -114,7 +144,7 @@ Voer de volgende stappen uit om een gebruiker of groep toe te voegen aan een wer
 3. Kies in de sectie **Gebruikers beheren** het accounttype dat u wilt toevoegen: **Organisatieaccount**, **Microsoft-account** of **Microsoft-ondersteuning**.
 
    * Als u Microsoft-account kiest, typt u het e-mailadres in van de gebruiker die is gekoppeld aan het Microsoft-account.
-   * Als u Organisatieaccount kiest, kunt u een deel van de naam of e-mailalias van de gebruiker of groep opgeven. Er wordt dan een lijst met overeenkomende gebruikers en groepen weergegeven in een vervolgkeuzevak. Selecteer een gebruiker of groep.
+   * Als u Organisatieaccount kiest, geeft u een deel van de naam of e-mailalias van de gebruiker/groep op. Er wordt dan een lijst met overeenkomende gebruikers en groepen weergegeven in een vervolgkeuzevak. Selecteer een gebruiker of groep.
    * Gebruik Microsoft-ondersteuning om een medewerker van Microsoft-ondersteuning of andere medewerker van Microsoft tijdelijk toegang te verlenen tot uw werkruimte om u te helpen bij het oplossen van problemen.
 
      > [!NOTE]
@@ -154,7 +184,7 @@ Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte.
 4. Klik in het bevestigingsdialoogvenster op **Ja**.
 
 ### <a name="add-a-group-to-an-existing-workspace"></a>Een groep toevoegen aan een bestaande werkruimte
-1. Volg de bovenstaande stappen 1-4 in 'Een gebruiker toevoegen aan een bestaande werkruimte'.
+1. Volg stap 1-4 in het gedeelte 'Een gebruiker toevoegen aan een bestaande werkruimte' hierboven.
 2. Selecteer onder **Gebruiker/groep kiezen** de optie **Groep**.  
    ![een groep toevoegen aan een bestaande werkruimte](./media/log-analytics-manage-access/add-group.png)
 3. Voer de weergavenaam of het e-mailadres in voor de groep die u wilt toevoegen.
@@ -204,7 +234,7 @@ Er zijn drie typen werkruimteabonnementen voor OMS: **Gratis**, **Zelfstandig** 
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Rechten van een OMS-abonnement gebruiken
 Als u de rechten wilt gebruiken die horen bij de aanschaf van OMS E1, OMS E2 OMS of de OMS-invoegtoepassing voor System Center, kiest u het *OMS*-abonnement van OMS Log Analytics.
 
-Wanneer u een OMS-abonnement koopt, worden de rechten toegevoegd aan uw Enterprise-overeenkomst. Elk Azure-abonnement dat onder deze overeenkomst wordt gemaakt, kan gebruikmaken van deze rechten. Hiermee kunt u bijvoorbeeld meerdere werkruimten hebben die gebruikmaken van de rechten van de OMS-abonnementen.
+Wanneer u een OMS-abonnement koopt, worden de rechten toegevoegd aan uw Enterprise-overeenkomst. Elk Azure-abonnement dat onder deze overeenkomst wordt gemaakt, kan gebruikmaken van deze rechten. Alle werkruimten in deze abonnementen gebruiken de OMS-rechten.
 
 Doe het volgende om ervoor te zorgen dat gebruik van een werkruimte wordt toegepast op uw rechten voor het OMS-abonnement:
 
@@ -219,11 +249,11 @@ Doe het volgende om ervoor te zorgen dat gebruik van een werkruimte wordt toegep
 De rechten van het OMS-abonnement zijn niet zichtbaar in de Azure Portal of OMS-portal. U kunt de rechten en het gebruik wel in de Enterprise Portal zien.  
 
 Als u het Azure-abonnement waaraan uw werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.
-
+tot
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Azure Commitment gebruiken via een Enterprise-overeenkomst
 Als u geen OMS-abonnement hebt, betaalt u voor elk onderdeel van OMS afzonderlijk en wordt het gebruik weergegeven op uw Azure-factuur.
 
-Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waaraan uw Azure-abonnementen zijn gekoppeld, wordt gebruik van Log Analytics automatisch verrekend met een eventuele resterende betalingsverplichting.
+Als u een Azure-betalingsverplichting hebt voor de Enterprise-inschrijving waaraan uw Azure-abonnementen zijn gekoppeld, wordt gebruik van Log Analytics automatisch verrekend met de resterende betalingsverplichting.
 
 Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.  
 
@@ -242,13 +272,13 @@ Als u het Azure-abonnement waaraan de werkruimte is gekoppeld, wilt wijzigen, ku
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Uw abonnementsgegevens in de OMS-portal wijzigen
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Een werkruimte wijzigen in een betaalde prijscategorie in de OMS-portal
 
-Als u een gegevensabonnement wilt wijzigen via de OMS-portal, moet de aangemelde gebruiker al een Azure-account hebben.
+Als u de prijscategorie wilt wijzigen via de OMS-portal, moet u een Azure-abonnement hebben.
 
 1. Klik in de OMS-portal op de tegel **Instellingen**.
 2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Azure-abonnement en data-abonnement**.
-3. Klik op het data-abonnement dat u wilt gebruiken.
+3. Klik op de prijscategorie die u wilt gebruiken.
 4. Klik op **Opslaan**.  
    ![abonnement en data-abonnementen](./media/log-analytics-manage-access/subscription-tab.png)
 
