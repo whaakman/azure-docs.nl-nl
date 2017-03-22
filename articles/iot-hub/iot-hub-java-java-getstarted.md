@@ -151,7 +151,7 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
