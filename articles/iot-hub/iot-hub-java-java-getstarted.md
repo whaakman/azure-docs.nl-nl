@@ -62,9 +62,10 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
 3. Open het bestand pom.xml in de map create-device-identity met een teksteditor en voeg de volgende afhankelijkheden toe aan de node **dependencies**. Met deze afhankelijkheid kunt u het iot-service-client-pakket gebruiken in uw app:
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.1.15</version>
     </dependency>
     ```
     
@@ -77,8 +78,8 @@ In dit gedeelte gaat u een Java-consoletoepassing maken die een apparaat-id kan 
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
