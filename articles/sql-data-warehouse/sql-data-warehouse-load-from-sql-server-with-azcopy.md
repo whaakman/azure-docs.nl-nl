@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 21b4cc704e271ac220fd606305f8f97c9b2593bb
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -31,7 +33,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 
 > [!NOTE]
-> U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Downloadcentrum].
+> U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Download Center].
 > 
 > 
 
@@ -58,7 +60,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Zie [Tabeloverzicht][Tabeloverzicht] of [Syntaxis voor CREATE TABLE][Syntaxis voor CREATE TABLE] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
+> Zie [Tabeloverzicht][Table Overview] of [Syntaxis voor CREATE TABLE][CREATE TABLE syntax] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
 > 
 > 
 
@@ -116,7 +118,7 @@ Hierdoor zouden de volgende resultaten moeten worden geretourneerd:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
-Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][Statistieken] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
+Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][Statistics] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
 
 Voer de volgende CREATE STATISTICS-instructies uit vanaf een SQLCMD-opdrachtprompt:
 
@@ -160,27 +162,22 @@ U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bes
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Gegevens laden in SQL Data Warehouse][Gegevens laden in SQL Data Warehouse] voor een overzicht van het laden.
-Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][Overzicht van SQL Data Warehouse voor ontwikkelaars] voor meer tips voor ontwikkelaars.
+Zie [Gegevens laden in SQL Data Warehouse][Load data into SQL Data Warehouse] voor een overzicht van het laden.
+Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview] voor meer tips voor ontwikkelaars.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Gegevens laden in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Overzicht van SQL Data Warehouse voor ontwikkelaars]: ./sql-data-warehouse-overview-develop.md
-[Tabeloverzicht]: ./sql-data-warehouse-tables-overview.md
-[Statistieken]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[Syntaxis voor CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft Downloadcentrum]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 

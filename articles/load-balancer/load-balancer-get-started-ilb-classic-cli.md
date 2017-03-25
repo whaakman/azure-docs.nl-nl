@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: dc1ca3ce8befb0c5b707d6db2fb16178afe3de1e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Ga als volgt te werk om een interne load balancer-set te maken, evenals de serve
 
 In deze handleiding wordt beschreven hoe u een interne load balancer maakt op basis van bovenstaand scenario.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
 
     ```azurecli
@@ -179,9 +180,4 @@ Zie `azure vm endpoint --help` voor meer informatie.
 [Een distributiemodus voor de load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

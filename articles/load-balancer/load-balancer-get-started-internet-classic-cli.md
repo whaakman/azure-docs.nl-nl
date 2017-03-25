@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 In deze handleiding wordt beschreven hoe u een internetgerichte load balancer maakt op basis van bovenstaand scenario.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
 
     ```azurecli
@@ -151,9 +152,4 @@ azure vm endpoint delete web1 tcp-80-80
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

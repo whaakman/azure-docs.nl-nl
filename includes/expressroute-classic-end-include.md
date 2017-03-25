@@ -1,16 +1,4 @@
 > [!IMPORTANT] 
-> Vanaf 1 maart 2017 kunt u geen nieuwe ExpressRoute-circuits meer maken in het klassieke implementatiemodel. Gebruik de volgende koppelingen om ExpressRoute-circuits in het implementatiemodel van Resource Manager te maken en beheren.
-
-> - [Create and manage ExpressRoute circuits](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md) (ExpressRoute-circuits maken en beheren) 
-
-> - [Configure routing for ExpressRoute circuits](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md) (Routering configureren voor ExpressRoute-circuits) 
-
-> U kunt een bestaand ExpressRoute-circuit van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel verplaatsen zonder onderbreking van de connectiviteit. Zie [Een bestaand circuit verplaatsen](../articles/expressroute/expressroute-move.md) voor meer informatie.
-
-> U kunt verbinding maken met virtuele netwerken in het klassieke implementatiemodel door **allowClassicOperations** in te stellen op TRUE.
+> You will not be able to create new ExpressRoute circuits in the classic deployment model starting March 1, 2017. You can move an existing ExpressRoute circuit from the classic deployment model to the Resource Manager deployment model without experiencing any connectivity down time. For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md). You can connect to virtual networks in the classic deployment model by setting **allowClassicOperations** to TRUE.<br>Use the following links to create and manage ExpressRoute circuits in the Resource Manager deployment model:<br>[Create and manage ExpressRoute circuits](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>[Configure routing (peering) for ExpressRoute circuits](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)<br>
 >     
 >
-
-<!--HONumber=Feb17_HO2-->
-
-

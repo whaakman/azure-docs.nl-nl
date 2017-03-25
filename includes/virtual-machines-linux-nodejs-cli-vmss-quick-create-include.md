@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Vereisten
 
-Als u dat nog niet heeft gedaan, kunt u een [Azure proefabonnement](https://azure.microsoft.com/pricing/free-trial/) aanvragen en de [Azure CLI 1.0](../articles/xplat-cli-install.md) [koppelen aan uw Azure-account](../articles/xplat-cli-connect.md). Ga als volgt te werk om te controleren of de Azure-CLI zich in de modus Resource Manager bevindt:
+Als u dat nog niet heeft gedaan, kunt u een [Azure proefabonnement](https://azure.microsoft.com/pricing/free-trial/) aanvragen en de [Azure CLI 1.0](../articles/cli-install-nodejs.md) [koppelen aan uw Azure-account](../articles/xplat-cli-connect.md). Ga als volgt te werk om te controleren of de Azure-CLI zich in de modus Resource Manager bevindt:
 
 ```azurecli
 azure config mode arm

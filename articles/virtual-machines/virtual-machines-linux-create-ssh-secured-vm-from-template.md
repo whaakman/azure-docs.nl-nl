@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/01/2017
 Dit artikel laat zien hoe u in Azure snel een virtuele Linux-machine kunt implementeren met behulp van een Azure-sjabloon.  Het artikel schrijft het volgende als vereiste voor:
 
 * een Azure-account ([probeer een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
-* de [Azure-CLI](../xplat-cli-install.md) die is aangemeld bij `azure login`.
-* de Azure-CLI *moet in de *Azure Resource Manager-modus`azure config mode arm` staan.
+* de [Azure-CLI](../cli-install-nodejs.md) die is aangemeld bij `azure login`.
+* de Azure-CLI *moet in de*Azure Resource Manager-modus`azure config mode arm` staan.
 
 U kunt een Linux-VM-sjabloon ook snel implementeren met behulp van de [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

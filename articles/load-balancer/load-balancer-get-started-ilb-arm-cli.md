@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>CLI instellen voor het gebruik van Resource Manager
 
-1. Zie [Install and configure the Azure CLI](../xplat-cli-install.md) (Azure CLI installeren en configureren) als u Azure CLI nog nooit hebt gebruikt. Volg de instructies tot het punt waar u uw Azure-account en -abonnement selecteert.
+1. Zie [Install and configure the Azure CLI](../cli-install-nodejs.md) (Azure CLI installeren en configureren) als u Azure CLI nog nooit hebt gebruikt. Volg de instructies tot het punt waar u uw Azure-account en -abonnement selecteert.
 2. Voer de opdracht **azure config mode** als volgt uit om over te schakelen naar de modus Resource Manager.
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Een distributiemodus voor load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

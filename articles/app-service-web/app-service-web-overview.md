@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +47,7 @@ Voor voorbeelden van typische toepassingsscenario's waarvoor u Web Apps kunt geb
 Hier volgen enkele belangrijke functies van Azure App Service die van toepassing zijn op Web Apps:
 
 * **Meerdere talen en frameworks**: App Service biedt uitstekende ondersteuning voor ASP.NET, Node.js, Java, PHP en Python. U kunt ook [PowerShell en andere scripts of uitvoerbare bestanden](web-sites-create-web-jobs.md) uitvoeren op virtuele machines van App Service.
-* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Voer [A/B-tests](app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../xplat-cli-install.md).
+* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub of BitBucket. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Voer [A/B-tests](app-service-web-test-in-production-get-start.md) uit. Beheer uw apps in App Service met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](../cli-install-nodejs.md).
 * **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../monitoring-and-diagnostics/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 * **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP, Siebel en Oracle), SaaS-services (zoals Salesforce en Office 365) en internetservices (zoals Facebook en Twitter). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Beveiliging en naleving**: App Service voldoet aan de vereisten van [ISO, SOC en PCI](https://www.microsoft.com/TrustCenter/).
@@ -74,9 +75,4 @@ Als u aan de slag wilt gaan door in App Service voorbeeldcode voor een nieuwe we
 > U kunt [App Service proberen](https://azure.microsoft.com/try/app-service/) zonder een Azure-account. U kunt een beginnerstoepassing maken en hier een uur mee spelen. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

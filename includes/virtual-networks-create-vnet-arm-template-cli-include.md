@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>De ARM-sjabloon implementeren met Azure CLI
 Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met Azure CLI.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. Voer de opdracht **`azure config mode`** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
    
         azure config mode arm
@@ -84,9 +84,4 @@ Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u he
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
