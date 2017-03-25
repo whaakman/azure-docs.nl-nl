@@ -7,9 +7,6 @@
 ## IP-adressering
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Klassiek](virtual-network-ip-addresses-overview-classic.md)
-## Virtuele machines
-### [Netwerkinterfaces](virtual-network-network-interface-overview.md)
-### [Naamomzetting](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Aan de slag
 ## [Uw eerste virtuele netwerk maken](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Toegangsbeheerlijsten
 #### [Klassieke portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Naamomzetting voor virtuele machines en cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Beheren
 ### Netwerkbeveiligingsgroepen

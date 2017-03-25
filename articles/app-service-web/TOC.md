@@ -82,7 +82,6 @@
 
 ### [Migreren vanuit IIS](web-sites-migration-from-iis-server.md)
 ### [Testen tijdens productie](app-service-web-test-in-production-get-start.md)
-### [Prestatietests uitvoeren](app-service-web-app-performance-test.md) 
 
 ## Verbinding maken met database/resources        
 

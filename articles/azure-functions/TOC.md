@@ -22,13 +22,15 @@
 #### [Mobile Apps-bindingen](functions-bindings-mobile-apps.md)
 #### [Notification Hub-uitvoerbinding](functions-bindings-notification-hubs.md)
 #### [Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen](functions-bindings-service-bus.md)
+#### [SendGrid-bindingen](functions-bindings-sendgrid.md)
 #### Storage-bindingen
 ##### [Blob-bindingen](functions-bindings-storage-blob.md)
 ##### [Wachtrijbindingen](functions-bindings-storage-queue.md)
 ##### [Tabelbindingen](functions-bindings-storage-table.md)
+##### [SendGrid-bindingen](functions-bindings-sendgrid.md)
 #### [Timertrigger](functions-bindings-timer.md)
 #### [Twilio-uitvoerbinding](functions-bindings-twilio.md)
-### [Een functie maken vanuit Azure Portal](functions-create-first-azure-function-azure-portal.md) 
+### [Een functie-app maken vanuit Azure Portal](functions-create-function-app-portal.md) 
 ### [Azure Functions testen](functions-test-a-function.md)
 ### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
 ### [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [GitHub-opslagplaats voor Azure Functions](https://github.com/Azure/Azure-Functions/) 
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

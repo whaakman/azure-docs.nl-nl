@@ -41,6 +41,7 @@
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Meerdere IP-configuraties gebruiken](load-balancer-multiple-ip.md)
 ### [Meerdere IP-configuraties gebruiken (CLI)](load-balancer-multiple-ip-cli.md)
+### [Meerdere IP-configuraties gebruiken (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 

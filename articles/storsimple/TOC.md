@@ -161,6 +161,7 @@
 
 ### Problemen oplossen
 #### [Implementatieproblemen](storsimple-troubleshoot-deployment.md)
+#### [Het diagnosehulpprogramma gebruiken](storsimple-8000-diagnostics.md)
 #### [Operationele problemen](storsimple-troubleshoot-operational-device.md)
 #### [Hardwarevervanging](storsimple-hardware-component-replacement.md)
 ##### [Apparaatcontroller vervangen](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [StorSimple Data Manager gebruiken](storsimple-data-manager-ui.md)
 
 ## Procedures
-### [.NET gebruiken om gegevens te transformeren](storsimple-data-manager-dotnet-jobs.md)
+### [.NET gebruiken om taken te starten](storsimple-data-manager-dotnet-jobs.md)
+### [Automation gebruiken om taken te starten](storsimple-data-manager-job-using-automation.md)
+### [Het standaardpad van een blob wijzigen](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple voor partners
 ## Overzicht
@@ -235,10 +238,5 @@
 ## [Ondersteuningsblog](http://blogs.msdn.com/b/storsimple/)
 ## [Mededelingen van derden](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

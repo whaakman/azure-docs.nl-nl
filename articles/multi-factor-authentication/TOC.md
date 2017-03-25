@@ -25,9 +25,9 @@
 #### [Upgraden van PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Gebruikers beheren
-### [Licenties toewijzen](multi-factor-authentication-get-started-assign-licenses.md)
 ### [MFA in- of uitschakelen](multi-factor-authentication-get-started-user-states.md)
 ### [Gebruikers-en apparaatinstellingen](multi-factor-authentication-manage-users-and-devices.md)
+### [MFA-gebruikershandleiding](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integreren
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)

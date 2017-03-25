@@ -102,7 +102,7 @@
 ### [Gegevens migreren](sql-data-warehouse-migrate-data.md)
 ### [Migreren naar Premium-opslag](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Onderbreken en schalen
+## Compute beheren
 
 ### [Overzicht](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
