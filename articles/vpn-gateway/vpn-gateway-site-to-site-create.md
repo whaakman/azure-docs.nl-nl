@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klassiek - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klassiek - Klassieke portal](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het klassieke implementatiemodel en de klassieke portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
 
@@ -50,25 +52,25 @@ Controleer of u beschikt over de volgende items voordat u begint met de configur
 * Een extern gericht openbaar IP-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial).
 
-## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Het virtuele netwerk maken
+## <a name="CreateVNet"></a>Het virtuele netwerk maken
 1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com/).
 2. Klik linksonder in het scherm op **Nieuw**. Klik in het navigatievenster op **Netwerkservices** en vervolgens op **Virtueel netwerk**. Klik op **Aangepast maken** om de configuratiewizard te starten.
 3. Voer uw configuratie-instellingen op de volgende pagina's in om uw VNet te maken:
 
-## <a name="a-namedetailsavirtual-network-details-page"></a><a name="Details"></a>Pagina met details over virtueel netwerk
+## <a name="Details"></a>Pagina met details over virtueel netwerk
 Voer de volgende informatie in:
 
 * **Naam**: geef het virtuele netwerk een naam. Bijvoorbeeld *EastUSVNet*. U gebruikt deze naam voor het virtuele netwerk wanneer u de virtuele machines en PaaS-instanties implementeert. Maak de naam dus niet te ingewikkeld.
 * **Locatie**: de locatie is direct gerelateerd aan de fysieke locatie (regio) waar u wilt dat de resources (VM's) zich bevinden. Selecteer bijvoorbeeld VS - oost als u wilt dat de virtuele machines die u in dit virtuele netwerk implementeert zich fysiek bevinden in *VS - oost*. U kunt de regio die aan het virtuele netwerk is gekoppeld, niet meer wijzigen wanneer het netwerk is gemaakt.
 
-## <a name="a-namednsadns-servers-and-vpn-connectivity-page"></a><a name="DNS"></a>Pagina DNS-servers en VPN-verbinding
+## <a name="DNS"></a>Pagina DNS-servers en VPN-verbinding
 Voer de volgende informatie in en klik rechtsonder op de pijl Volgende.
 
 * **DNS-servers**: geef de naam en het IP-adres van de DNS-server op of selecteer een eerder geregistreerde DNS-server in het snelmenu. Met deze instelling wordt geen DNS-server gemaakt. U kunt hiermee de DNS-servers opgeven die u wilt gebruiken voor naamomzetting voor dit virtuele netwerk.
 * **Site-naar-site-VPN configureren**: schakel het selectievakje **Site-naar-site-VPN configureren** in.
 * **Lokaal netwerk**: een lokaal netwerk vertegenwoordigt uw fysieke on-premises locatie. U kunt een lokaal netwerk selecteren dat u eerder hebt gemaakt of u kunt een nieuw lokaal netwerk maken. Als u echter kiest voor het gebruik van een lokaal netwerk dat u eerder hebt gemaakt, gaat u naar de configuratiepagina **Lokale netwerken** en controleert u of het IP-adres van het VPN-apparaat (openbaar IPv4-adres) voor het VPN-apparaat juist is.
 
-## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Pagina Site-naar-site-connectiviteit
+## <a name="Connectivity"></a>Pagina Site-naar-site-connectiviteit
 Als u een nieuw lokaal netwerk maakt, wordt de pagina **Site-naar-site-connectiviteit** geopend. Als u een lokaal netwerk wilt gebruiken dat u eerder hebt gemaakt, wordt deze pagina niet in de wizard weergegeven en kunt u naar de volgende sectie gaan.
 
 Voer de volgende informatie in en klik op de pijl Volgende.
@@ -78,7 +80,7 @@ Voer de volgende informatie in en klik op de pijl Volgende.
 * **Adresruimte**: voeg het beginadres voor het IP-bereik en de CIDR (aantal adressen) toe. U geeft de adresbereiken op die u via de gateway van het virtuele netwerk naar uw lokale on-premises locatie wilt laten verzenden. Als een IP-doeladres binnen de bereiken valt die u hier opgeeft, wordt het verkeer via de gateway van het virtuele netwerk gerouteerd.
 * **Adresruimte toevoegen**: als u meerdere-adresbereiken via de gateway van het virtuele netwerk wilt laten verzenden, geeft u de aanvullende adresbereiken op. U kunt later op de pagina **Lokaal netwerk** bereiken toevoegen of verwijderen.
 
-## <a name="a-nameaddressavirtual-network-address-spaces-page"></a><a name="Address"></a>Pagina Adresruimten voor virtueel netwerk
+## <a name="Address"></a>Pagina Adresruimten voor virtueel netwerk
 Geef het adresbereik op dat u voor het virtuele netwerk wilt gebruiken. Dit zijn de dynamische IP-adressen (DIPS) die worden toegewezen aan de virtuele machines en andere rolinstanties die u in dit virtuele netwerk implementeert.
 
 Het is vooral van belang dat u een bereik selecteert dat niet overlapt met een van de bereiken die voor uw on-premises netwerk worden gebruikt. Neem hiervoor contact op met uw netwerkbeheerder. De netwerkbeheerder moet mogelijk een bereik van IP-adressen in de adresruimte van uw on-premises netwerk reserveren voor het virtuele netwerk.
@@ -93,15 +95,10 @@ Wanneer u onder aan de pagina op het vinkje klikt, wordt het virtuele netwerk ge
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="a-namevnetgatewayaconfigure-your-virtual-network-gateway"></a><a name="VNetGateway"></a>De gateway van het virtuele netwerk configureren
+## <a name="VNetGateway"></a>De gateway van het virtuele netwerk configureren
 Configureer de gateway van het virtuele netwerk om een beveiligde site-naar-site-verbinding te maken. Zie [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md) (De gateway van een virtueel netwerk configureren in de klassieke Azure Portal).
 
 ## <a name="next-steps"></a>Volgende stappen
  Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -227,10 +227,11 @@
 ## Beheren
 ### Een IoT Hub maken 
 #### [De portal gebruiken](iot-hub-create-through-portal.md)
+#### [PowerShell gebruiken](iot-hub-create-using-powershell.md)
 #### [CLI 2.0 gebruiken](iot-hub-create-using-cli.md)
 #### [CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
 #### [De REST-API gebruiken](iot-hub-rm-rest.md)
-#### [PowerShell gebruiken](iot-hub-rm-template-powershell.md)
+#### [Een PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
 #### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)
 ### [Uploaden van bestanden configureren](iot-hub-configure-file-upload.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)

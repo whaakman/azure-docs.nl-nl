@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Zie [Aan de slag met Storm op HDInsight][gettingstarted] om aan de slag te gaan 
 U kunt in enkele minuten een nieuw Storm op HDInsight-cluster inrichten. Geef de clusternaam, de grootte, het beheerdersaccount en het opslagaccount op. Azure maakt het cluster, inclusief voorbeeldtopologieën en een dashboard voor beheer via het web.
 
 > [!NOTE]
-> U kunt ook Storm-clusters inrichten met de [Azure CLI](../xplat-cli-install.md) of [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> U kunt ook Storm-clusters inrichten met de [Azure CLI](../cli-install-nodejs.md) of [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Binnen 15 minuten nadat u een aanvraag hebt verzonden, beschikt u over een nieuw actief Storm-cluster en bent u klaar voor uw eerste realtime analysepijplijn.
 
@@ -177,7 +177,7 @@ Zie de [Trident-zelfstudie](https://storm.apache.org/documentation/Trident-tutor
 
 Zie de [lijst met voorbeelden van Storm-topologieën](hdinsight-storm-example-topology.md) of de Storm Starter-voorbeelden op uw HDInsight-cluster voor voorbeelden van Java- en Trident-topologieën.
 
-De Storm Starter-voorbeelden bevinden zich in de map ** /usr/hdp/current/storm-client/contrib/storm-starter** in het HDInsight-cluster.
+De Storm Starter-voorbeelden bevinden zich in de map **/usr/hdp/current/storm-client/contrib/storm-starter** in het HDInsight-cluster.
 
 ### <a name="python"></a>Python
 

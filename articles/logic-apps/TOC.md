@@ -78,8 +78,8 @@
 ### [Meten van gebruik](logic-apps-pricing.md)
 
 # Naslaginformatie
-## [Definitietaal van werkstroom](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Werkstroomacties en -triggers](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Definitietaal van werkstroom](logic-apps-workflow-definition-language.md)
+## [Werkstroomacties en -triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema-geschiedenis

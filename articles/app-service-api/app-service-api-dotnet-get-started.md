@@ -3,7 +3,7 @@ title: Aan de slag met API Apps en ASP.NET in App Service | Microsoft Docs
 description: Ontdek hoe u met behulp van Visual Studio 2015 een ASP.NET API-app maakt, implementeert en gebruikt in Azure App Service.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Swashbuckle werkt met elk ASP.NET Web API-project. Als u het genereren van Swagg
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Een API-app in Azure maken en er code in implementeren
+## <a id="createapiapp"></a> Een API-app in Azure maken en er code in implementeren
 In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish Web** van Visual Studio zijn geïntegreerd, voor het maken van een nieuwe API-app in Azure. Vervolgens implementeert u het project ToDoListDataAPI in de nieuwe API-app en roept u de API aan door de Swagger-gebruikersinterface uit te voeren.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project ToDoListDataAPI. Klik vervolgens op **Publish**.
@@ -303,7 +303,7 @@ In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish We
     
     Wanneer u een API-app selecteert om er clientcode voor te genereren, worden de metagegevens door Visual Studio opgehaald via deze URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Clientcode genereren voor de gegevenslaag
+## <a id="codegen"></a> Clientcode genereren voor de gegevenslaag
 Een van de voordelen van de integratie van Swagger in Azure API-apps is het automatisch genereren van code. Gegenereerde clientklassen maken het gemakkelijker code te schrijven die een API-app aanroepen.
 
 Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende stappen gaat u deze verwijderen en opnieuw genereren om te leren hoe dit in zijn werk gaat.

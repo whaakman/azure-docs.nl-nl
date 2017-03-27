@@ -2,7 +2,7 @@
 > * [Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI 2.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> > * [CLI 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
+> * [CLI 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
 > * [Sjabloon](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 
@@ -10,6 +10,8 @@ Aan een virtuele Azure-machine zijn een of meer netwerkinterfaces (NIC's) gekopp
 
 * Het hosten van meerdere websites of services met verschillende IP-adressen en SSL-certificaten op één server.
 * Het fungeren als een virtueel netwerkapparaat, zoals een firewall of load balancer.
-* De mogelijkheid om een van de privé-IP-adressen voor een van de NIC's toe te voegen aan een Azure Load Balancer-back-endgroep. In het verleden kon alleen het primaire IP-adres voor de primaire NIC worden toegevoegd aan een back-endgroep. In het artikel [Load balancing on multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md) (Taakverdeling op meerdere IP-configuraties) vindt u meer informatie over de taakverdeling in geval van meerdere IP-configuraties.
+* De mogelijkheid om een van de privé-IP-adressen voor een van de NIC's toe te voegen aan een Azure Load Balancer-back-endgroep. In het verleden kon alleen het primaire IP-adres voor de primaire NIC worden toegevoegd aan een back-endgroep. In het artikel [Load balancing on multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Taakverdeling op meerdere IP-configuraties) vindt u meer informatie over de taakverdeling in geval van meerdere IP-configuraties.
 
-Aan elke NIC die aan een virtuele machine is gekoppeld, zijn een of meer IP-configuraties gekoppeld. Aan elke configuratie is één statisch of dynamisch privé-IP-adres toegewezen. Aan elke configuratie kan ook één resource met een openbaar IP-adres zijn gekoppeld. Aan een resource met een openbaar IP-adres is een dynamisch of een statisch openbaar IP-adres toegewezen. In het artikel [IP addresses in Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) (IP-adressen in Azure) vindt u meer informatie over IP-adressen in Azure. U kunt maximaal 250 privé-IP-adressen aan één NIC toewijzen. Hoewel u aan elke NIC meerdere openbare IP-adressen kunt toewijzen, zijn er beperkingen ten aanzien van het aantal openbare IP-adressen dat in een Azure-abonnement kan worden gebruikt. Raadpleeg het artikel [Azure limits](../articles/azure-subscription-service-limits.md#networking-limits) (Beperkingen van Azure) voor meer informatie.
+Aan elke NIC die aan een virtuele machine is gekoppeld, zijn een of meer IP-configuraties gekoppeld. Aan elke configuratie is één statisch of dynamisch privé-IP-adres toegewezen. Aan elke configuratie kan ook één resource met een openbaar IP-adres zijn gekoppeld. Aan een resource met een openbaar IP-adres is een dynamisch of een statisch openbaar IP-adres toegewezen. In het artikel [IP addresses in Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) (IP-adressen in Azure) vindt u meer informatie over IP-adressen in Azure. 
+
+U kunt maximaal 250 privé-IP-adressen aan één NIC toewijzen. Hoewel u aan elke NIC meerdere openbare IP-adressen kunt toewijzen, zijn er beperkingen ten aanzien van het aantal openbare IP-adressen dat in een Azure-abonnement kan worden gebruikt. Raadpleeg het artikel [Azure limits](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) (Beperkingen van Azure) voor meer informatie.

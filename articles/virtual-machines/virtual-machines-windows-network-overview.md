@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Naast deze basisresources, moet u ook deze optionele resources overwegen:
 
 ## <a name="network-interfaces"></a>Netwerkinterfaces
 
-Een [netwerkinterface (NIC)](../virtual-network/virtual-network-network-interface-overview.md) is de onderlinge verbinding tussen een virtuele machine en een virtueel netwerk (VNet). Een virtuele machine moet ten minste één NIC hebben, maar kan er meer dan een hebben, afhankelijk van de grootte van de virtuele machine die u maakt. Meer informatie over het aantal NIC's dat elke VM-grootte ondersteunt, vindt u in [Grootten voor virtuele machines in Azure](virtual-machines-windows-sizes.md). 
+Een [netwerkinterface (NIC)](../virtual-network/virtual-network-network-interface.md) is de onderlinge verbinding tussen een virtuele machine en een virtueel netwerk (VNet). Een virtuele machine moet ten minste één NIC hebben, maar kan er meer dan een hebben, afhankelijk van de grootte van de virtuele machine die u maakt. Meer informatie over het aantal NIC's dat elke VM-grootte ondersteunt, vindt u in [Grootten voor virtuele machines in Azure](virtual-machines-windows-sizes.md). 
 
 Als u een virtuele machine met meer dan één NIC wilt maken, moet u de virtuele machine met ten minste twee NIC’s maken.  Nadat u dit hebt gedaan, kunt u extra NIC's toevoegen tot het aantal dat wordt ondersteund door de VM-grootte. U kunt echter geen extra NIC's toevoegen aan een virtuele machine die met maar één NIC is gemaakt, ongeacht hoeveel NIC's de VM-grootte ondersteunt. 
 
@@ -180,3 +180,4 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een virtuel
 - Het configureren van [door de gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md). 
 - Het configureren van [VNet-naar-VNet-verbindingen](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - [Problemen met routes oplossen](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

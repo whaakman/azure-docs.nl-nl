@@ -14,12 +14,12 @@
 ## Een site-to-siteverbinding configureren
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Klassieke portal (klassiek)](vpn-gateway-site-to-site-create.md)
 ## Een point-to-siteverbinding configureren
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Klassieke portal (klassiek)](vpn-gateway-point-to-site-create.md)
 ## Een verbinding tussen VNet's configureren
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [Instellingen voor lokale netwerkgateway wijzigen met PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
 ## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
-## [Een VPN-gateway verwijderen](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Een VPN-gateway verwijderen
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Zelfondertekende basiscertificaten voor P2S verbindingen maken](vpn-gateway-certificates-point-to-site.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 

@@ -7,14 +7,13 @@
 
 # Aan de slag
 ## [Sjabloon exporteren](resource-manager-export-template.md)
-## [Kennismaken met sjablonen](resource-manager-template-walkthrough.md)
+## [Uw eerste sjabloon maken](resource-manager-create-first-template.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Visual Studio-code met Resource Manager](resource-manager-vs-code.md)
 
 # Procedures
 ## Sjablonen maken
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
-### [Sjablonen maken](resource-group-authoring-templates.md)
+### [Sjabloonsecties](resource-group-authoring-templates.md)
 ### [Sjabloonfuncties](resource-group-template-functions.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Sjabloonschema's](https://github.com/Azure/azure-resource-manager-schemas)
+## [Sjabloonindeling](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Resources

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +112,7 @@ Zo maakt u een aanmelding voor de opgegeven gebruiker en kan deze zich verifiër
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Azure-opdrachtregelinterface voor Mac, Linux en Windows
 
-U kunt de [Azure CLI voor Mac, Linux en Windows](../xplat-cli-install.md) gebruiken om een nieuw cluster met de opdracht `azure hdinsight cluster create` te maken.
+U kunt de [Azure CLI voor Mac, Linux en Windows](../cli-install-nodejs.md) gebruiken om een nieuw cluster met de opdracht `azure hdinsight cluster create` te maken.
 
 Zie [Hadoop Linux-clusters in HDInsight inrichten met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over het gebruik van deze opdracht.
 
@@ -221,7 +223,7 @@ Als u meer accounts aan uw cluster moet toevoegen, voert u de volgende stappen u
 
 6. U kunt zich nu met het nieuwe gebruikersaccount en de nieuwe persoonlijke sleutel verifiëren bij de server.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunneling
+## <a id="tunnel"></a>SSH-tunneling
 
 SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt vervolgens naar de aangevraagde resource gerouteerd, alsof deze afkomstig is van het hoofdknooppunt van het HDInsight-cluster.
 
@@ -239,9 +241,4 @@ Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u M
 * [MapReduce-taken gebruiken met HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

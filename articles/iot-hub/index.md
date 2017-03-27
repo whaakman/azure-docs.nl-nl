@@ -13,12 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/17/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>Documentatie voor IoT Hub
+# <a name="iot-hub-documentation"></a>Documentatie voor IoT Hub
 
 Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der dingen) te verbinden, bewaken en controleren. Zelfstudies, API-verwijzingen, video's en andere documentatie helpen u om betrouwbaar en bidirectionele communicatie tussen IoT-apparaten en een oplossingsback-end te implementeren. 
 
@@ -141,8 +142,8 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (apparaten)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (apparaten)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Node (service)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Node (apparaten)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Node (service)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Node (apparaten)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">SDK's voor Azure IoT</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway-SDK</a></p>
                     </div>
@@ -167,10 +168,5 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

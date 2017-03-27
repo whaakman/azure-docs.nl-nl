@@ -4,13 +4,11 @@
 
 # Aan de slag
 
-## [Een DNS-zone maken](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-
-## [DNS-records maken](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Azure CLI](dns-getstarted-create-recordset-cli.md)
+## Een DNS-zone en -record maken
+### [Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md)
 ## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)

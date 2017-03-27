@@ -15,6 +15,7 @@
 ### [Openbare toegang van DC/OS inschakelen](container-service-enable-public-access.md)
 ### [Taakverdeling instellen voor DC/OS-containers](container-service-load-balancing.md)
 ### [App-/gebruikersspecifieke orchestrator in DC/OS](container-service-application-specific-marathon.md)
+### [Een bestandsshare toevoegen](container-service-dcos-fileshare.md)
 ### DC/OS bewaken
 #### [Bewaken met ELK](container-service-monitoring-elk.md)
 #### [Bewaken met OMS](container-service-monitoring-oms.md)
