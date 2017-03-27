@@ -32,6 +32,7 @@
 ### [Status en waarschuwingen bewaken](azure-stack-monitor-health.md)
 ### [Netwerkresources beheren](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Opslagresources beheren](azure-stack-manage-storage-accounts.md)
+### [Virtuele Windows Azure Pack-machines beheren](azure-stack-manage-windows-azure-pack.md)
 
 # Beveiliging en naleving
 ## Procedures
@@ -86,7 +87,6 @@
 #### [Beheren met portal](azure-stack-kv-manage-portal.md)
 #### [Beheren met PowerShell](azure-stack-kv-manage-powershell.md)
 ### Procedures
-#### [Een virtuele machine implementeren met een wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Een virtuele machine maken met een certificaat](azure-stack-kv-push-secret-into-vm.md)
 #### [Voorbeeld-app van Key Vault](azure-stack-kv-sample-app.md)
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worde
 | [Opslagaccount](../storage/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |
 | [Virtueel netwerk](../virtual-network/virtual-networks-overview.md) |Ja |De VM moet lid zijn van een virtueel netwerk. |
 | [Openbaar IP-adres](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nee |Aan de VM kan een openbaar IP-adres worden toegewezen voor externe toegang. |
-| [Netwerkinterface](../virtual-network/virtual-network-network-interface-overview.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |
+| [Netwerkinterface](../virtual-network/virtual-network-network-interface.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |
 | [Gegevensschijven](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |De VM kan gegevensschijven bevatten om opslagmogelijkheden uit te breiden. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Hoe kan ik mijn eerste VM maken?

@@ -159,6 +159,7 @@
 #### [Excel gebruiken](machine-learning-consuming-from-excel.md)
 #### [Excel-invoegtoepassing gebruiken](machine-learning-excel-add-in-for-web-services.md)
 #### [Een web-appsjabloon gebruiken](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Een Batch-pool gebruiken](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Voorbeelden
 ### [Voorbeeldexperimenten](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Hulp krijgen via live chats](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

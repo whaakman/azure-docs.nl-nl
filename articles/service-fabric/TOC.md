@@ -109,11 +109,11 @@
 #### [Clusternetwerkpatronen](service-fabric-patterns-networking.md)
 #### [Knooppunttypen en VM-schaalsets](service-fabric-cluster-nodetypes.md)
 #### [Een cluster schalen](service-fabric-cluster-scale-up-down.md)
+#### [Een cluster programmatisch schalen](service-fabric-cluster-programmatic-scaling.md)
 #### [Een cluster upgraden](service-fabric-cluster-upgrade.md)
 #### [Een cluster verwijderen](service-fabric-cluster-delete.md)
 #### [Toegangsbeheer](service-fabric-cluster-security-roles.md)
 #### [Een cluster configureren](service-fabric-cluster-fabric-settings.md)
-#### [Een cluster beveiligen met certificaten](service-fabric-windows-cluster-x509-security.md)
 #### [Clustercertificaten toevoegen of overdragen](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Een Party Cluster gratis proberen](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Toepassingslevenscyclus beheren
 ### [Overzicht](service-fabric-application-lifecycle.md)
-### [Continue integratie instellen](service-fabric-set-up-continuous-integration.md)
+### [Continue integratie met VSTS instellen](service-fabric-set-up-continuous-integration.md)
+### [Uw Linux Java-app implementeren met behulp van Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Meer informatie over de instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Toepassingen implementeren of verwijderen
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

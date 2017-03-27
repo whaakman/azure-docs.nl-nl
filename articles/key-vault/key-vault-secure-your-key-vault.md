@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
-ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -73,7 +73,7 @@ Het toegangsbeheer van de beheerlaag en het toegangsbeheer van de gegevenslaag w
 De beheerlaag bestaat uit bewerkingen die invloed hebben op de Key Vault zelf. U kunt bijvoorbeeld een Key Vault maken of verwijderen. U kunt een lijst met Vaults krijgen in een abonnement. U kunt eigenschappen van de Key Vault (zoals SKU en tags) ophalen en toegangsbeleid voor de Key Vault instellen waarmee de gebruikers en toepassingen die toegang hebben tot sleutels en geheimen in de Key Vault, worden beheerd. Het toegangsbeheer voor de beheerlaag gebruikt RBAC. Zie de volledige lijst met bewerkingen die in Key Vault kunnen worden uitgevoerd via de beheerlaag, in de tabel in de voorgaande sectie. 
 
 ### <a name="role-based-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
-Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en toepassingen in deze directory kunnen worden gemachtigd om resources te beheren in het Azure-abonnement dat gebruikmaakt van het Azure Resource Manager-implementatiemodel. Dit type toegangsbeheer wordt toegangsbeheer op basis van rollen (RBAC) genoemd. Voor het beheren van deze toegang kunt u [Azure Portal](https://portal.azure.com/), de [Azure CLI-tools](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx) gebruiken.
+Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en toepassingen in deze directory kunnen worden gemachtigd om resources te beheren in het Azure-abonnement dat gebruikmaakt van het Azure Resource Manager-implementatiemodel. Dit type toegangsbeheer wordt toegangsbeheer op basis van rollen (RBAC) genoemd. Voor het beheren van deze toegang kunt u [Azure Portal](https://portal.azure.com/), de [Azure CLI-tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Azure Resource Manager REST-API's](https://msdn.microsoft.com/library/azure/dn906885.aspx) gebruiken.
 
 Met het Azure Resource Manager-model maakt u uw Key Vault in een resourcegroep en beheert u de toegang tot de beheerlaag van deze Key Vault met Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep machtigen om Key Vaults in een bepaalde resourcegroep te beheren.
 
@@ -90,7 +90,7 @@ De gegevenslaag van een Key Vault bestaat uit de bewerkingen die invloed hebben 
 U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of toepassing heeft inzendersrechten (RBAC) voor de beheerlaag van een Key Vault nodig om toegangsbeleid voor die Key Vault in te stellen. Een gebruiker, groep of toepassing kan worden gemachtigd om bepaalde bewerkingen voor sleutels of geheimen in een Key Vault uit te voeren. Kay Vault ondersteunt maximaal 16 vermeldingen van toegangsbeleid voor een Key Vault. Maak een Azure Active Directory-beveiligingsgroep en voeg gebruikers toe aan die groep om meerdere gebruikers in een Key Vault toegang te geven tot de gegevenslaag.
 
 ### <a name="key-vault-access-policies"></a>Toegangsbeleid van Key Vault
-Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en certificaten afzonderlijk toekennen. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure Portal](https://portal.azure.com/), de [Azure CLI-hulpprogramma's](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Key Vault-beheer REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) gebruiken om toegangsbeleid in te stellen voor Key Vault.
+Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en certificaten afzonderlijk toekennen. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure Portal](https://portal.azure.com/), de [Azure CLI-hulpprogramma's](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Key Vault-beheer REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) gebruiken om toegangsbeleid in te stellen voor Key Vault.
 
 > [!IMPORTANT]
 > Houd er rekening mee dat toegangsbeleid voor Key Vault wordt toegevoegd op het niveau van de Key Vault. Wanneer een gebruiker bijvoorbeeld is gemachtigd voor het maken en verwijderen van sleutels, kan hij deze bewerkingen uitvoeren op alle sleutels in die Key Vault.

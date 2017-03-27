@@ -12,7 +12,7 @@
 * [Een gegevensschijf koppelen](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Voorbereiding
-Voordat u de Azure CLI met Azure-resourcegroepen kunt gebruiken, moet u de juiste Azure CLI-versie en een Azure-account hebben. Als u niet beschikt over de Azure CLI, moet u deze [installeren](../articles/xplat-cli-install.md).
+Voordat u de Azure CLI met Azure-resourcegroepen kunt gebruiken, moet u de juiste Azure CLI-versie en een Azure-account hebben. Als u niet beschikt over de Azure CLI, moet u deze [installeren](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Werk uw versie van Azure CLI bij naar 0.9.0 of hoger
 Type `azure --version` om te zien of u versie 0.9.0 of hoger al hebt geïnstalleerd.
@@ -80,7 +80,7 @@ Vervolgens kunt u de volledige levenscyclus van de resources in de groep beheren
 
 Uitgebreide informatie over Azure-resourcegroepen en over wat ze voor u kunnen betekenen, vindt u in het [Overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Als u geïnteresseerd bent in het ontwerpen van sjablonen, raadpleegt u [Azure Resource Manager-sjablonen maken](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Taak: Snel een virtuele machine maken in Azure
+## <a id="quick-create-a-vm-in-azure"></a>Taak: Snel een virtuele machine maken in Azure
 Soms weet u welke installatiekopie u nodig hebt en hebt u direct een virtuele machine van die installatiekopie nodig. De infrastructuur is niet zo belangrijk; wellicht moet u gewoon snel iets testen op een nieuwe virtuele machine. In dit geval kunt u de opdracht `azure vm quick-create` gebruiken en de benodigde argumenten doorgeven om een virtuele machine en de bijbehorende infrastructuur te maken.
 
 Eerst maakt u een resourcegroep.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 U kunt nu verdergaan met de nieuwe virtuele machine.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Taak: Een virtuele machine in Azure implementeren vanuit een sjabloon
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Taak: Een virtuele machine in Azure implementeren vanuit een sjabloon
 Volg de instructies in dit gedeelte om met de Azure CLI een nieuwe virtuele Azure-machine te implementeren op basis van een sjabloon. Deze sjabloon maakt een enkele virtuele machine in een nieuw virtueel netwerk met één subnet en stelt u, in tegenstelling tot `azure vm quick-create`, in staat om precies te beschrijven wat u wilt en het proces te herhalen zonder fouten. Dit is wat deze sjabloon maakt:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Taak: Een aangepaste VM-installatiekopie maken
+## <a id="create-a-custom-vm-image"></a>Taak: Een aangepaste VM-installatiekopie maken
 U hebt het basisgebruik van sjablonen hierboven al gezien, zodat we soortgelijke instructies kunnen gebruiken om via de Azure CLI met behulp van een sjabloon een aangepaste virtuele machine te maken van een specifiek .VHD-bestand in Azure. Het verschil is dat deze sjabloon één virtuele machine maakt vanaf een opgegeven virtuele harde schijf (VHD).
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Stap 1: controleer het JSON-bestand voor de sjabloon
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Taak: Een multi-VM-toepassing implementeren die gebruikmaakt van een virtueel netwerk en een externe load balancer
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Taak: Een multi-VM-toepassing implementeren die gebruikmaakt van een virtueel netwerk en een externe load balancer
 Met deze sjabloon kunt u twee virtuele machines onder een load balancer maken en een taakverdelingsregel configureren op poort 80. Deze sjabloon implementeert ook een opslagaccount, een virtueel netwerk, een openbaar IP-adres, een beschikbaarheidsset en netwerkinterfaces.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Met deze sjabloon implementeert u een installatiekopie van Windows Server. Deze kan echter eenvoudig worden vervangen door een installatiekopie van Linux. Wilt u een Docker-cluster maken met meerdere swarm-managers? [Ook dat is mogelijk](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Taak: Een resourcegroep verwijderen
+## <a id="remove-a-resource-group"></a>Taak: Een resourcegroep verwijderen
 U kunt een implementatie opnieuw uitvoeren in een resourcegroep. Als u hier klaar mee bent, kunt u deze verwijderen met `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Taak: Het logboek voor de implementatie van een resourcegroep weergeven
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Taak: Het logboek voor de implementatie van een resourcegroep weergeven
 Dit is een veelvoorkomende bewerking wanneer u sjablonen maakt of gebruikt. De aanroep om de logboeken van de implementatie voor een groep weer te geven, is `azure group log show <groupname>`. Hiermee wordt veel informatie weergegeven die u helpt te begrijpen waarom iets wel of niet is gebeurd. (Zie [Veelvoorkomende fouten bij de Azure-implementatie oplossen met Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van problemen met uw implementaties, evenals andere informatie over problemen.)
 
 Voor het oplossen van specifieke problemen kunt u bijvoorbeeld **jq** gebruiken om zaken nauwkeuriger te bekijken, zoals welke afzonderlijke fouten u moet oplossen. In het volgende voorbeeld wordt **jq** gebruikt om een implementatielogboek voor **lbgroup** te parseren en te zoeken naar fouten.
@@ -1191,7 +1191,7 @@ U kunt zeer snel ontdekken wat er mis ging, het probleem herstellen en het opnie
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Taak: Informatie weergeven over een virtuele machine
+## <a id="display-information-about-a-virtual-machine"></a>Taak: Informatie weergeven over een virtuele machine
 U kunt informatie over specifieke virtuele machines in de resourcegroep bekijken met de opdracht `azure vm show <groupname> <vmname>`. Als uw groep meer dan één virtuele machine bevat, moet u de virtuele machines in uw groep mogelijk eerst weergeven met `azure vm list <groupname>`.
 
 ```azurecli
@@ -1259,14 +1259,14 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Als u de uitvoer van de consoleopdrachten programmatisch wilt opslaan en manipuleren, moet u mogelijk een hulpprogramma voor het parseren van JSON gebruiken, zoals ** [jq](https://github.com/stedolan/jq) ** of ** [jsawk](https://github.com/micha/jsawk)**. U kunt ook taalbibliotheken gebruiken die geschikt zijn voor de taak.
+> Als u de uitvoer van de consoleopdrachten programmatisch wilt opslaan en manipuleren, moet u mogelijk een hulpprogramma voor het parseren van JSON gebruiken, zoals **[jq](https://github.com/stedolan/jq)** of **[jsawk](https://github.com/micha/jsawk)**. U kunt ook taalbibliotheken gebruiken die geschikt zijn voor de taak.
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Taak: Verbinding maken met een virtuele machine op basis van Linux
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Taak: Verbinding maken met een virtuele machine op basis van Linux
 Doorgaans zijn Linux-machines verbonden via SSH. Zie voor meer informatie [SSH gebruiken met Linux op Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Taak: Een virtuele machine stoppen
+## <a id="stop-a-virtual-machine"></a>Taak: Een virtuele machine stoppen
 Voer deze opdracht uit:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Taak: Een virtuele machine starten
+## <a id="start-a-virtual-machine"></a>Taak: Een virtuele machine starten
 Voer deze opdracht uit:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Taak: Een gegevensschijf koppelen
+## <a id="attach-a-data-disk"></a>Taak: Een gegevensschijf koppelen
 U moet ook beslissen of u een nieuwe schijf wilt koppelen of een schijf die al gegevens bevat. Voor een nieuwe schijf maakt de opdracht het .VHD-bestand en wordt dit in dezelfde opdracht gekoppeld.
 
 Als u een nieuwe schijf wilt koppelen, voert u deze opdracht uit:
@@ -1306,8 +1306,3 @@ Vervolgens koppelt u de schijf zoals u in Linux gewend bent.
 Zie voor meer voorbeelden van het gebruik van de Azure CLI met de modus **arm** [De Azure CLI voor Mac, Linux en Windows gebruiken met Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Zie voor meer informatie over Azure-resources en de achterliggende concepten [Overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Zie voor meer sjablonen die u kunt gebruiken, [Azure Quickstart-sjablonen](https://azure.microsoft.com/documentation/templates/) en [Toepassingsframeworks met sjablonen](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

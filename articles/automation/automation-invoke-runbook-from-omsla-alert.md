@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Tijdens het configureren van de waarschuwing hebt u twee opties voor het aanroep
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Een runbook aanroepen met behulp van een webhook
 
-Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag.  Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een webhook voor het runbook maken dat met deze methode wordt aangeroepen.  Bekijk en volg de stappen in het artikel [Create a webhook](automation-webhooks.md#creating-a-webhook) (Een webhook maken) en vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
+Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag.  Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#creating-alert-rules) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een webhook voor het runbook maken dat met deze methode wordt aangeroepen.  Bekijk en volg de stappen in het artikel [Create a webhook](automation-webhooks.md#creating-a-webhook) (Een webhook maken) en vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
 
 ## <a name="calling-a-runbook-directly"></a>Een runbook direct aanroepen
 
@@ -52,14 +53,14 @@ Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarsc
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  U moet code hebben om de WebhookData te converteren naar een PowerShell-object.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     *$SearchResults* is een matrix met objecten; elk object bevat de velden met waarden uit één zoekresultaat
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>WebhookData-inconsistenties tussen de webhook-optie en runbook-optie 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>WebhookData-inconsistenties tussen de webhook-optie en runbook-optie
 
 * Wanneer u een waarschuwing configureert om een webhook aan te roepen, voert u een webhook-URL in die u voor een runbook hebt gemaakt en klikt u op de knop **Webhook testen**.  De resulterende WebhookData die naar het runbook worden verzonden, bevat geen *.SearchResult* of *.SearchResults*.
 
@@ -68,7 +69,7 @@ Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarsc
 
 In bovenstaand codevoorbeeld moet u dus *.SearchResult* ophalen als de waarschuwing een webhook aanroept en *.SearchResults* als de waarschuwing een runbook rechtstreeks aanroept.
 
-## <a name="example-walkthrough"></a>Voorbeeldscenario 
+## <a name="example-walkthrough"></a>Voorbeeldscenario
 
 U ziet hoe dit werkt in het volgende grafische voorbeeldrunbook waarmee een Windows-service wordt gestart.<br><br> ![Grafisch runbook dat Windows-service start](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ Als u uw Automation-account niet hebt gekoppeld aan uw OMS-werkruimte, configure
 * Voor meer informatie over waarschuwingen in Log Analytics en het maken van een waarschuwing raadpleegt u [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) (Waarschuwingen in Log Analytics).
 
 * Als u wilt weten hoe u runbooks activeert met een webhook, raadpleegt u [Azure Automation-webhooks](automation-webhooks.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

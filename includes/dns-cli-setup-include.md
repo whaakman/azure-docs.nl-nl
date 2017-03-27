@@ -5,7 +5,7 @@
 Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
-* Installeer de nieuwste versie van de Azure CLI. Deze is beschikbaar voor Windows, Linux en MAC. Lees [Azure-CLI installeren](../articles/xplat-cli-install.md) voor meer informatie.
+* Installeer de nieuwste versie van de Azure CLI. Deze is beschikbaar voor Windows, Linux en MAC. Lees [Azure-CLI installeren](../articles/cli-install-nodejs.md) voor meer informatie.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
@@ -54,9 +54,4 @@ De Azure DNS-service wordt beheerd door de Microsoft.Network-resourceprovider. U
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

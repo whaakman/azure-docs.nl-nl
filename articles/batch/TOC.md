@@ -11,6 +11,7 @@
 ## Ontwikkelen
 ### [Toepassingspakketten](batch-application-packages.md)
 ### [Compute-knooppunten automatisch schalen](batch-automatic-scaling.md)
+### [Azure Active Directory-verificatie](batch-aad-auth.md)
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Codevoorbeelden voor Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -25,8 +25,4 @@
 ## [Beschikbaarheid in regio's](https://azure.microsoft.com/regions/services/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/container-registry/)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

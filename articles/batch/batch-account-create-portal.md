@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ Zodra het account is gemaakt, kunt u de blade **Batch-account** openen om naar d
 
 ![Blade Batch-account in Azure Portal][account_blade]
 
-* **Batch-account-URL**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-technical-overview.md#batch-development-apis), hebt u een account-URL nodig voor toegang tot de Batch-resources. Een Batch-account-URL heeft de volgende indeling:
+* **Batch-account-URL**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-apis-tools.md#batch-development-apis), hebt u een account-URL nodig voor toegang tot de Batch-resources. Een Batch-account-URL heeft de volgende indeling:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ Daarnaast kunnen veel van deze quota eenvoudig worden verhoogd met een aanvraag 
 Naast het gebruik van de Azure Portal kunt u ook op de volgende manieren Batch-accounts maken en beheren:
 
 * [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,7 +1,7 @@
 ## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Een VNet maken met de Azure CLI
 U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrachtprompt op elke computer met Windows, Linux of OS X. Volg de onderstaande stappen om een VNet te maken met behulp van de Azure CLI.
 
-1. Als u de Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/xplat-cli-install.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+1. Als u de Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../articles/cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. Voer de opdracht **azure config mode** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
    
         azure config mode arm
@@ -99,9 +99,4 @@ U kunt Azure CLI gebruiken voor het beheer van uw Azure-resources via de opdrach
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
