@@ -4,18 +4,19 @@ description: Stel webtests in Application Insights in. Ontvang een waarschuwing 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Er zijn twee soorten webtests:
 
 Per toepassingsresource kunt u maximaal 10 webtests maken.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Een resource aanmaken voor uw testrapporten
+## <a name="create"></a>1. Een resource aanmaken voor uw testrapporten
 Sla deze stap over als u voor deze toepassing al [een Application Insights-resource hebt ingesteld][start] en u de beschikbaarheidsrapporten op dezelfde plaats wilt weergeven.
 
 Meld u aan bij [Microsoft Azure](http://azure.com), ga naar [Azure Portal](https://portal.azure.com) en maak een Application Insights-resource.
@@ -42,7 +43,7 @@ Meld u aan bij [Microsoft Azure](http://azure.com), ga naar [Azure Portal](https
 
 Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Een URL-pingtest aanmaken
+## <a name="setup"></a>2. Een URL-pingtest aanmaken
 Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hierop om voor uw toepassing de blade Webtests te openen. Voeg vervolgens een webtest toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hiero
 ### <a name="test-more-urls"></a>Meer URL’s testen
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. De testresultaten bekijken
+## <a name="monitor"></a>3. De testresultaten bekijken
 Na 1-2 minuten worden de resultaten weergegeven op de blade Webtest.
 
 ![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,7 +76,7 @@ Klik op een balk op de samenvattingschart voor een detailoverzicht van deze peri
 
 In deze grafieken staan de resultaten van alle webtests die voor deze toepassing zijn uitgevoerd.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Als u mislukte tests ziet
+## <a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.
 
 ![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -100,7 +101,7 @@ U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld 
 > Er worden kosten in rekening gebracht voor webtests met meerdere stappen. [Prijsoverzicht](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
+Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
 
 U kunt in uw tests geen gecodeerde functies gebruiken. De scenariostappen moeten als script worden verwerkt in het .webtest-bestand.
 
@@ -109,7 +110,10 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
 1. Maak een project om de webprestaties te testen.
 
-    ![Maak in Visual Studio een project vanaf de sjabloon Web Performance en Load Test.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Maak in de Visual Studio Enterprise-versieneen project vanaf de sjabloon Web Performance en Load Test.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Ziet u de sjabloon Web Performance en Load Test niet?* Sluit Visual Studio Enterprise. Open **Visual Studio Installer** om de Visual Studio Enterprise-installatie te wijzigen. Selecteer onder **Afzonderlijke onderdelen** de optie **Hulpprogramma's voor webprestaties en belastingstests**.
+
 2. Open het bestand .webtest en begin met opnemen.
 
     ![Open het bestand .webtest en klik op Opnemen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -207,7 +211,7 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 * Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
   (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Een test bewerken of uitschakelen
+## <a name="edit"></a> Een test bewerken of uitschakelen
 Open een afzonderlijke test om deze te bewerken of uit te schakelen.
 
 ![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -256,12 +260,12 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     Dat wordt niet ondersteund.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Video
+## <a name="video"></a>Video
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Volgende stappen
+## <a name="next"></a>Volgende stappen
 [Diagnostische logboeken doorzoeken][diagnostic]
 
 [Problemen oplossen][qna]
@@ -274,9 +278,4 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

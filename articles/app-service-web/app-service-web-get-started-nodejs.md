@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 746f697076566ce3edd970336b005e53dc4d2d39
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 89a9e29261e338aceb4ff6feb55cf344afeeb3d4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,53 +26,59 @@ ms.lasthandoff: 03/15/2017
 
 Met deze Quickstart leert u in een paar minuten hoe u uw eerste Node.js-web-app implementeert in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-Controleer voordat u begint of [de Azure-CLI is geïnstalleerd](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) op uw computer.
+Voordat u begint, moet u controleren of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-# <a name="create-a-nodejs-web-app"></a>Een Node.js-web-app maken
-2. Meld u aan bij Azure door `az login` uit te voeren en de aanwijzingen op het scherm te volgen.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+Meld u aan bij Azure door `az login` uit te voeren en de aanwijzingen op het scherm te volgen.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
    
-3. Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md). Hier verzamelt u alle Azure-resources die u samen wilt beheren, zoals de web-app en de bijbehorende SQL Database-back-end.
+## <a name="create-a-resource-group"></a>Een resourcegroep maken   
+Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md). Hier verzamelt u alle Azure-resources die u samen wilt beheren, zoals de web-app en de bijbehorende SQL Database-back-end.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Gebruik de Azure CLI-opdracht `az appservice list-locations` om te zien welke waarden u kunt gebruiken voor `---location`.
+Gebruik de Azure CLI-opdracht `az appservice list-locations` om te zien welke waarden u kunt gebruiken voor `---location`.
 
-3. Maak een nieuw 'Standard' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). De laag Standard is vereist voor het uitvoeren van Linux-containers.
+## <a name="create-an-app-service-plan"></a>Een App Service-plan maken
+Maak een 'standaard' [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) waarin een Linux-container wordt uitgevoerd. 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku S1 --is-linux 
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --is-linux --sku S1
+```
 
-4. Maak een web-app met een unieke naam in `<app_name>`.
+## <a name="create-a-web-app"></a>Een webtoepassing maken
+Maak een web-app met een unieke naam in `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Configureer de Linux-container voor het gebruik van de standaard-image van Node.js 6.9.3.
+## <a name="configure-the-linux-container"></a>De Linux-container configureren
+Configureer de Linux-container voor het gebruik van de standaard-image van Node.js 6.9.3.
 
-    ```azurecli
-    az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web config update --node-version 6.9.3 --name <app_name> --resource-group myResourceGroup
+```
 
-4. Implementeer een voorbeeld van een Node.js-app vanuit GitHub.
+## <a name="deploy-sample-application"></a>Voorbeeldtoepassing implementeren
+Implementeer een voorbeeld van een Node.js-app vanuit GitHub.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
-    ```
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git" --branch master --manual-integration 
+```
 
-5. Voer deze opdracht uit om uw app live in werking te zien in Azure.
+## <a name="browse-to-web-app"></a>Naar de web-app bladeren
+Voer deze opdracht uit om uw app live in werking te zien in Azure.
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Gefeliciteerd, uw eerste Node.js-web-app wordt live uitgevoerd in Azure App Service.
 

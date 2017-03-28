@@ -1,5 +1,5 @@
 ---
-title: Application Insights voor Windows-services en -werkrollen | Microsoft Docs
+title: Azure Application Insights voor Windows-services en -werkrollen | Microsoft Docs
 description: De Application Insights SDK handmatig toevoegen aan uw ASP.NET-toepassing om gebruik, beschikbaarheid en prestaties te analyseren.
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ U hebt de volgende zaken nodig:
 * Een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](http://live.com).
 * Visual Studio 2013 of later.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Een Application Insights-resource maken
+## <a name="add"></a>1. Een Application Insights-resource maken
 Meld u aan bij de [Azure Portal](https://portal.azure.com/) en maak een nieuwe Application Insights-resource. Kies ASP.NET als het toepassingstype.
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin i
 
 De stappen die u zojuist hebt gevolgd om een nieuwe resource te maken, vormen ook een goed startpunt om te beginnen met het bewaken van een toepassing. U kunt er nu gegevens naar verzenden.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. De SDK installeren in uw toepassing
+## <a name="sdk"></a>2. De SDK installeren in uw toepassing
 De installatie en configuratie van de Application Insights-SDK varieert, afhankelijk van het platform waarmee u werkt. Voor ASP.NET-apps is het eenvoudig.
 
 1. Bewerk in Visual Studio de NuGet-pakketten van uw web-app-project.
@@ -84,14 +85,14 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
 
 Het is handig om de instrumentatiesleutel in code in te stellen als u [de sleutel voor verschillende buildconfiguraties wilt toepassen](app-insights-separate-resources.md). Als u de sleutel in code instelt, hoeft u deze niet in het `.config`-bestand in te stellen.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Uw project uitvoeren
+## <a name="run"></a> Uw project uitvoeren
 Gebruik **F5** om uw toepassing te starten en uit te proberen. Open verschillende pagina’s om telemetrie te genereren.
 
 In Visual Studio wordt bijgehouden hoeveel gebeurtenissen er zijn verzonden.
 
 ![Het aantal gebeurtenissen in Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Uw telemetrie weergeven
+## <a name="monitor"></a> Uw telemetrie weergeven
 Ga naar de [Azure Portal](https://portal.azure.com/) en blader naar uw Application Insights-resource.
 
 Zoek naar gegevens in de overzichtsgrafieken. Aanvankelijk ziet u slechts één of twee punten. Bijvoorbeeld:
@@ -128,12 +129,11 @@ Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot
 > 
 > 
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Volgende stappen
 * [Voeg meer telemetrie](app-insights-asp-net-more.md) toe om een volledig inzicht in uw toepassing te krijgen.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

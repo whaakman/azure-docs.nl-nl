@@ -14,15 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
 
-U kunt een live web-app instrumenteren met Azure Application Insights, zonder dat u de code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost door een on-premises IIS-server, installeert u Status Monitor; als het Azure web-apps zijn of de apps in een virtuele Azure-machine worden uitgevoerd, kunt u de extensie Application Insights installeren. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).) U hebt een [Microsoft Azure](http://azure.com)-abonnement nodig.
+U kunt een live web-app instrumenteren met Azure Application Insights, zonder dat u de code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost op een on-premises IIS-server, installeert u Status Monitor. Als uw apps Azure-web-apps zijn of worden uitgevoerd op een virtuele Azure-machine, kunt u Application Insights-bewaking inschakelen in het configuratiescherm van Azure. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).) U hebt een [Microsoft Azure](http://azure.com)-abonnement nodig.
 
 ![voorbeeldgrafieken](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -64,7 +65,7 @@ Als uw toepassing wordt uitgevoerd als Azure-webservice, leest u hier hoe u bewa
 Als uw app wordt gehost op een IIS-server, kunt u Application Insights inschakelen met Status Monitor.
 
 1. Meld u op uw IIS-webserver aan met beheerdersreferenties.
-2. Als Application Insights Status Monitor nog niet is geïnstalleerd, download u het [Status Monitor-installatieprogramma](http://go.microsoft.com/fwlink/?LinkId=506648) en voert u het uit.
+2. Als Application Insights Status Monitor nog niet is geïnstalleerd, downloadt u het [Status Monitor-installatieprogramma](http://go.microsoft.com/fwlink/?LinkId=506648) en voert u deze uit. (Of u kunt het [Webplatforminstallatieprogramma](https://www.microsoft.com/web/downloads/platform.aspx) uitvoeren en hierin zoeken naar Application Insights Status Monitor).
 3. In Status Monitor selecteert u de geïnstalleerde web-app of website die u wilt bewaken. Meld u aan met uw Azure-referenties.
 
     Configureer de resource waarvan u de resultaten wilt weergeven in de Application Insights-portal. (Normaal gesproken is het het beste om een nieuwe resource te maken. Selecteer een bestaande resource als u al [webtests][availability] of [clientbewaking][client] hebt voor deze app.) 
@@ -97,7 +98,7 @@ Als u opnieuw wilt publiceren zonder Application Insights toe te voegen aan de c
 
 ### <a name="cant-connect-no-telemetry"></a>Kunt u geen verbinding maken? Geen telemetrie?
 
-* Als u gebruik wilt maken van Status Monitor, moet u [een aantal uitgaande poorten](app-insights-ip-addresses.md#outgoing-ports) in de firewall van uw server openen.
+* Open [de benodigde uitgaande poorten](app-insights-ip-addresses.md#outgoing-ports) in de firewall van uw server om Status Monitor uit te voeren.
 
 * Open Status Monitor en selecteer in het linkerdeelvenster uw toepassing. Controleer in het gedeelte Configuration notifications of er diagnostische meldingen zijn voor de toepassing:
 
@@ -105,7 +106,7 @@ Als u opnieuw wilt publiceren zonder Application Insights toe te voegen aan de c
 * Als u op de server een bericht over 'insufficient permissions' (onvoldoende machtigingen) ziet, probeert u het volgende:
   * Selecteer in IIS Manager uw groep met toepassingen, open **Advanced Settings** en noteer de identiteit onder **Proces Model**.
   * Voeg in het configuratiescherm voor computerbeheer deze identiteit toe aan de groep Prestatiemetergebruikers.
-* Als op uw server MMA/SCOM is geïnstalleerd, kan er een conflict optreden met sommige versies. Verwijder zowel SCOM als Status Monitor en installeer de meest recente versies.
+* Als op uw server MMA/SCOM (Systems Center Operations Manager) is geïnstalleerd, kan er een conflict optreden met sommige versies. Verwijder zowel SCOM als Status Monitor en installeer de meest recente versies.
 * Zie [Probleemoplossing][qna].
 
 ## <a name="system-requirements"></a>Systeemvereisten
@@ -119,7 +120,7 @@ Ondersteuning van het besturingssysteem voor Application Insights Status Monitor
 
 met het nieuwste SP en .NET-framework 4.5
 
-Aan de clientzijde Windows 7, 8, 8.1 en 10, eveneens met .NET Framework 4.5
+Aan de clientzijde: Windows 7, 8, 8.1 en 10, eveneens met .NET Framework 4.5
 
 Ondersteuning voor IIS is: IIS 7, 7.5, 8, 8.5 (IIS is vereist)
 
@@ -150,7 +151,7 @@ Controleer welke apps worden bewaakt:
 * `-InstrumentationKey` De iKey van de Application Insights-resource waar u de resultaten wilt weergeven.
 * Deze cmdlet geldt alleen voor apps die niet al zijn geïnstrumenteerd, dus SdkState==NotInstrumented.
 
-    De cmdlet heeft geen invloed op een app die al is geïnstrumenteerd, hetzij tijdens het bouwen (toen de SDK aan de code werd toegevoegd), hetzij tijdens de uitvoering (met gebruik van deze cmdlet).
+    De cmdlet heeft geen invloed op een app die al is geïmplementeerd. Het maakt niet uit of de app is geïmplementeerd tijdens het bouwen (toen de SDK aan de code werd toegevoegd), of tijdens de uitvoering (met gebruik van deze cmdlet).
 
     De SDK-versie die voor het instrumenteren van de app is gebruikt, is de versie die het laatst is gedownload naar deze server.
 
@@ -183,7 +184,11 @@ Controleer welke apps worden bewaakt:
 
 * Downloadt de nieuwste Application Insights-SDK naar de server.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Volgende stappen
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Volgende stappen
 
 Uw telemetrie weergeven:
 
@@ -208,9 +213,4 @@ Meer telemetrie toevoegen:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
