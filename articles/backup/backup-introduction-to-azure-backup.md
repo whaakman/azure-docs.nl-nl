@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor
 | Azure Backup-agent (MARS) |Nee (alleen Windows-agent) |
 | System Center DPM |Bestandsconsistente back-up alleen op Hyper-V<br/> (niet beschikbaar voor Azure VM) |
 | Azure Backup-server |Bestandsconsistente back-up alleen op Hyper-V<br/> (niet beschikbaar voor Azure VM) |
-| Back-up van virtuele machines van Azure IaaS |Ja |
+| Back-up van virtuele machines van Azure IaaS |Ja (toepassingsconsistente back-up met [pre-script en post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
 Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.

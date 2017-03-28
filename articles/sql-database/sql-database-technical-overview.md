@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Wat is SQL Database? Inleiding tot SQL Database
 SQL Database is een relationele database-service in de Microsoft Cloud op basis van de toonaangevende Microsoft SQL Server-engine en is in staat bedrijfskritieke workloads af te handelen. SQL Database biedt voorspelbare prestaties op meerdere serviceniveaus, dynamische schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging, allemaal praktisch zonder beheer. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. Omdat SQL Database is gebaseerd op de [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-engine, worden bestaande SQL Server-hulpprogramma's, -bibliotheken en -API's ondersteund. Als gevolg hiervan kunt u eenvoudig nieuwe oplossingen ontwikkelen, uw bestaande SQL Server-oplossingen verplaatsen en uw bestaande SQL Server-oplossingen uitbreiden naar de Microsoft Cloud zonder nieuwe vaardigheden te hoeven aanleren.
 
-Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Als u klaar bent om aan de slag te gaan met praktische zelfstudies, kunt u [uw eerste SQL-database maken](sql-database-get-started.md) of [een elastische pool maken](sql-database-elastic-pool-manage-portal.md). Bekijk deze video voor een korte videodemonstratie.
+Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van SQL Database met betrekking tot prestaties, schaalbaarheid en beheerbaarheid, met koppelingen naar meer gedetailleerde informatie. Zie deze Quick Starts om snel aan de slag te gaan:
+ - [Een SQL-database maken in Azure Portal](sql-database-get-started-portal.md)  
+ - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)
+ - [Een SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
+ - [Azure CLI-voorbeelden voor Azure SQL Database](sql-database-cli-samples.md)
+ - [Azure PowerShell-voorbeelden voor Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
 De SQL Database-service biedt drie servicelagen: Basic, Standard en Premium. Elke servicelaag biedt [verschillende niveaus qua prestaties en mogelijkheden](sql-database-service-tiers.md) voor lichte tot zware workloads van databases. U kunt uw eerste app ontwikkelen op een kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch [de servicelaag wijzigen](sql-database-service-tiers.md), zodat deze beter past bij de behoeften van uw oplossing. U kunt dit doen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.

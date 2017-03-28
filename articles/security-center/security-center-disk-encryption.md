@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtue
 ![Aanbevelingen voor schijfversleuteling](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> De informatie in dit document is van toepassing op de preview-versie van Azure Security Center.
+> De informatie in dit document is van toepassing op het versleutelen van virtuele machines zonder een encryptiesleutel (vereist voor back-ups van virtuele machines met Azure Backup). Raadpleeg het artikel [Azure Disk Encryption voor virtuele Azure-machines in Windows en Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) voor informatie over het gebruik van een coderingssleutel ter ondersteuning van Azure Backup voor versleutelde virtuele Azure-machines.
 >
 >
 
@@ -80,7 +81,7 @@ Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de
 * **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
 * **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
 * **Locatie**: de locatie van de Key Vault. Zorg ervoor dat de Key Vault en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
-* **Naam Azure Active Directory-toepassing **: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
+* **Naam Azure Active Directory-toepassing**: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
 
 > [!NOTE]
 > Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
@@ -178,9 +179,4 @@ In dit document hebt u kunnen lezen hoe u een virtuele machine van Azure kunt ve
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): lees blogberichten over de beveiliging en naleving van Azure
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

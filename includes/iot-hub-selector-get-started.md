@@ -16,10 +16,5 @@ In deze handleiding ontdekt u hoe u:
 
 * Met de Azure Portal een IoT-hub kunt maken.
 * Een apparaat-id maakt in uw IoT-hub.
-* Een gesimuleerd apparaat kunt maken dat telemetrie verzendt naar de back-end van uw oplossing en daarvan opdrachten ontvangt.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+* Een gesimuleerde apparaatapp maken die telemetrie naar de back-end van uw oplossing verzendt.
 

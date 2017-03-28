@@ -1,21 +1,22 @@
 ---
-title: Application Insights voor JavaScript-web-apps | Microsoft Docs
+title: Azure Application Insights voor JavaScript-web-apps | Microsoft Docs
 description: Verzamel tellingen van het aantal paginaweergaven en sessies, webclientgegevens en gebruikspatronen. Detecteer uitzonderingen en prestatieproblemen in JavaScript-webpagina&quot;s.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ De [beschikbare parameters](https://github.com/Microsoft/ApplicationInsights-JS/
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Uw app uitvoeren
+## <a name="run"></a>Uw app uitvoeren
 Voer uw web-app uit, gebruik deze een tijdje om telemetrie te genereren en wacht een paar seconden. U kunt de app zelf op uw ontwikkelcomputer uitvoeren met behulp van de **F5**-toets, maar u kunt de app ook publiceren en door gebruikers laten uitproberen.
 
 Als u de telemetrie wilt controleren die door een web-app naar Application Insights wordt verzonden, gebruikt u de foutopsporingsprogramma's van de browser (in veel browsers opent u deze met **F12**). Gegevens worden verzonden naar dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/app-insights-javascript/03.png)
 
-*Zijn er nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
+*Zijn er nog geen gegevens? Klik boven aan de pagina op**Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
 
 De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
@@ -167,6 +168,7 @@ Klik op een rij voor specifieke informatie.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Klik op `...` voor de volledige telemetrie voor een AJAX-aanroep.
 
 ### <a name="no-ajax-calls-reported"></a>Zijn er geen AJAX-aanroepen gemeld?
@@ -180,6 +182,7 @@ Op de blade Browsers ziet u een grafiek met samenvattingen van uitzonderingen en
 Als u constateert dat er geen browseruitzonderingen worden gerapporteerd, gaat u na of het codefragment niet de [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking` instelt.
 
 ## <a name="inspect-individual-page-view-events"></a>De afzonderlijke paginaweergavegebeurtenissen inspecteren
+
 Meestal wordt telemetrie van paginaweergaven geanalyseerd door Application Insights en ziet u alleen cumulatieve rapporten, het gemiddelde van alle gebruikers. Maar voor foutopsporing kunt u ook zoeken op afzonderlijke paginaweergavegebeurtenissen.
 
 Stel op de blade Diagnostische gegevens doorzoeken de optie Filters in op Paginaweergave.
@@ -217,19 +220,16 @@ Wilt u weten wat gebruikers met uw app doen?
 * [Meer informatie over het bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Meer informatie over de API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Video: Bijhouden van gebruik
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Video
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Volgende stappen
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Volgende stappen
 * [Bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
 * [Bouwen-meten-leren](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

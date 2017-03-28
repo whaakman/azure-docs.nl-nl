@@ -11,8 +11,8 @@ In de volgende tabel ziet u een overzicht van de functies die elke service biedt
 | Service | Azure Load Balancer | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Technologie |Transportniveau (laag 4) |Toepassingsniveau (laag 7) |DNS-niveau |
-| Ondersteunde toepassingsprotocollen |Alle |HTTP en HTTPS |Alle (voor eindpuntbewaking is een HTTP-eindpunt vereist) |
-| Eindpunten |Azure-VM's en Cloud Services-rolinstanties |Een intern Azure- IP-adres of een openbaar internet- IP-adres |Azure-VM's, Cloud Services, Azure-web-apps en externe eindpunten |
+| Ondersteunde toepassingsprotocollen |Alle |HTTP, HTTPS en WebSockets |Alle (voor eindpuntbewaking is een HTTP-eindpunt vereist) |
+| Eindpunten |Azure-VM's en Cloud Services-rolinstanties |Intern Azure-IP-adres, openbaar internet-IP-adres, Azure-VM of Azure Cloud Service |Azure-VM's, Cloud Services, Azure-web-apps en externe eindpunten |
 | VNet-ondersteuning |Kan worden gebruikt voor internetgerichte en interne (VNet-)toepassingen |Kan worden gebruikt voor internetgerichte en interne (VNet-)toepassingen |Ondersteunt alleen internetgerichte toepassingen |
 | Eindpuntbewaking |Ondersteund via tests |Ondersteund via tests |Ondersteund via HTTP/HTTPS GET |
 
@@ -20,14 +20,11 @@ Azure Load Balancer en Application Gateway routeren beide netwerkverkeer naar ei
 
 | Type | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
-| Protocollen |UDP/TCP |HTTP/HTTPS |
+| Protocollen |UDP/TCP |HTTP, HTTPS en WebSockets |
 | IP-reservering |Ondersteund |Niet ondersteund |
 | Load balancing-modus |5-tuple (bron-IP, bronpoort, doel-IP, doelpoort, protocoltype) |Round robin<br>Routering op basis van URL |
 | Load balancing-modus (bron-IP/vergrendelde sessies) |2-tuple (bron-IP en doel-IP), 3-tuple (bron-IP, doel-IP en poort). Kan omhoog of omlaag worden geschaald op basis van het aantal virtuele machines |Affiniteit op basis van cookies<br>Routering op basis van URL |
 | Statuscontroles |Standaard: testinterval - 15 seconden. Uit rotatie gehaald: 2 doorlopende fouten. Ondersteunt door de gebruiker gedefinieerde tests |Inactieve testinterval - 30 seconden. Eruit gehaald na 5 opeenvolgende live verkeersfouten of het mislukken van één test in de inactieve modus. Ondersteunt door de gebruiker gedefinieerde tests |
 | SSL-offloading |Niet ondersteund |Ondersteund |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| URL-gebaseerde routering | Niet ondersteund | Ondersteund|
+| SSL-beleid | Niet ondersteund | Ondersteund|
